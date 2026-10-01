@@ -11,8 +11,7 @@
  * Both live at the SAME URL, so the searchConsoleCompat self-map
  * (isHealthFacilityPath) always points at a real 200 target. Full pages carry
  * the complete active job inventory in visible cards, plus a bounded first-six
- * JobPosting projection (all 9 mandatory fields per CLAUDE.md Non-Negotiable
- * #3, in every locale) via the canonical buildJobPostingSchema builder.
+ * ItemList projection linking to canonical single-job detail pages.
  *
  * Contract: apply:'build', enforce:'post', emit in closeBundle, pass distDir
  * through buildSeoPageHtml. Sitemap covers indexable pages only (bridges are
@@ -47,7 +46,7 @@ import {
   renderJobCardListHtml,
   type JobCardJob,
 } from './shared/jobCardHtml';
-import { buildJobPostingSchema, type JobInput } from './shared/jobPostingSchema';
+import { buildJobListEntry } from './shared/jobListEntry';
 import {
   HEALTH_FACILITIES,
   HEALTH_FACILITY_LOCALES,
@@ -173,36 +172,6 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
   };
 }
 
-function toJobPostingInput(job: FacilityFeaturedJob): JobInput {
-  return {
-    id: job.id,
-    slug: job.slug,
-    title: job.title,
-    titleByLocale: job.titleByLocale,
-    description: job.description,
-    descriptionByLocale: job.descriptionByLocale,
-    company: job.company,
-    companyKey: job.companyKey,
-    companyDomain: job.companyDomain,
-    addressLocality: job.addressLocality,
-    canton: job.canton,
-    streetAddress: job.streetAddress,
-    postalCode: job.postalCode,
-    postedDate: job.postedDate,
-    datePosted: job.datePosted,
-    crawledAt: job.crawledAt,
-    validThrough: job.validThrough,
-    contract: job.contract,
-    employmentType: job.employmentType,
-    salaryMin: job.salaryMin,
-    salaryMax: job.salaryMax,
-    salaryCurrency: job.currency,
-    sector: job.sector,
-    category: job.category,
-    url: job.url,
-  };
-}
-
 interface RenderResult {
   html: string;
   wordCount: number;
@@ -248,7 +217,7 @@ export function renderFacilityPage(
   ]);
 
   // Complete live inventory. `snapshot.featured` remains intentionally bounded
-  // below for JobPosting JSON-LD; the visible list must not hide the long tail.
+  // below for ItemList JSON-LD; the visible list must not hide the long tail.
   const cardItems = snapshot.jobs.map((j) => ({ job: toJobCard(j), href: featuredJobPath(j, locale) }));
   const emptyHtml = `<p class="s-card" style="color:var(--color-subtle);font-size:14px;margin:0">${esc(copy.featuredEmpty)}</p>`;
   const listHtml = renderJobCardListHtml(cardItems, { locale, emptyStateHtml: emptyHtml });
@@ -353,16 +322,19 @@ export function renderFacilityPage(
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
     },
   };
-  // Non-Negotiable #3: full JobPosting per featured live job, every locale.
-  const jobPostingLds = snapshot.featured.map((j) =>
-    JSON.stringify(
-      buildJobPostingSchema(toJobPostingInput(j), {
+  const jobListLd = {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    itemListElement: snapshot.featured.map((job, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      item: buildJobListEntry(job, {
         locale,
-        url: `${BASE_URL}${featuredJobPath(j, locale)}`,
+        url: `${BASE_URL}${featuredJobPath(job, locale)}`,
         baseUrl: BASE_URL,
       }),
-    ),
-  );
+    })),
+  };
 
   const hreflangPaths: HreflangPaths = {
     it: buildHealthFacilityPath('it', facility.slug),
@@ -382,7 +354,7 @@ export function renderFacilityPage(
       inlineScriptJson(breadcrumbLd),
       inlineScriptJson(faqLd),
       inlineScriptJson(articleLd),
-      ...jobPostingLds,
+      inlineScriptJson(jobListLd),
     ],
     robots: 'index,follow',
     distDir,

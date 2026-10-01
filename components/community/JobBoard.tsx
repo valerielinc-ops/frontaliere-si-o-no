@@ -5,6 +5,8 @@
  * - Detail: dedicated SEO-friendly page per job (slug route), with sidebar widgets and related jobs.
  */
 
+import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
+import { listingInventoryId } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -803,7 +805,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
 
  return {
  ...raw,
- id: String(raw?.id || raw?.slug || `${company}-${title}`),
+ id: listingInventoryId(raw ?? {}),
  company,
  companyKey,
  title,
@@ -5166,6 +5168,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [clusterSeedApplies, clusterSeedJobs, deferredSelectedDateRange, passingNonSearchFilters,
  strictFilteredJobs, orFallbackInCantonJobs, crossCantonFallbackJobs, companyBroadeningFallbackJobs, crossLocaleFallbackJobs]);
 
+ // The loaded result set is authoritative for the root hub's metadata too.
+ useEffect(() => {
+  if (initialJobSlug || jobsLoading || fullLoadPending || searchIndexPending) return;
+  updateJobBoardListingMetadata(locale, initialFilterCanton || 'TI', filteredJobs.length);
+ }, [locale, initialFilterCanton, initialJobSlug, jobsLoading, fullLoadPending, searchIndexPending, filteredJobs.length]);
+
  // Resolve the hub identity from the same company-route candidates that drive
  // the visible filter. A display-name collision is intentionally not guessed:
  // only one canonical companyKey may be sent to GA4.
@@ -5861,9 +5869,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const selectedJobTitle = selectedJob ? sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title) : '';
 
  useEffect(() => {
- if (jobs.length === 0) return;
- // FRO: Skip dynamic schema injection for expired/orphan/bridge job pages —
- // the build plugin already injected a static JobPosting JSON-LD.
+ if (!selectedJob) {
+  const isListing = !initialJobSlug || searchSlugFilter || companySlugFilter || locationSlugFilter || editorialLandingDescriptor;
+  if (!isListing) return; // Preserve a detail's static schema while its data loads.
+  // A slim detail can preserve the static schema until its description loads.
+  // Navigating away before that fetch completes must still remove the schema.
+  document.querySelectorAll('script[type="application/ld+json"]').forEach((script) => {
+   const containsPosting = (value: unknown): boolean => Boolean(value && typeof value === 'object'
+    && ((value as Record<string, unknown>)['@type'] === 'JobPosting'
+      || Object.values(value).some(containsPosting)));
+   try { if (containsPosting(JSON.parse(script.textContent || '{}'))) script.remove(); }
+   catch { /* leave unrelated malformed scripts to their owner */ }
+  });
+  return;
+ }
+ // JobPosting is only valid on a single active job detail.
+ // The build plugin owns the metadata of archived and bridge pages.
  // Guard 1: slug set but no active job found → expired/orphan page.
  if (initialJobSlug && !selectedJob) {
  return;
@@ -5879,7 +5900,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- const jobsForSchema = selectedJob ? [selectedJob] : pagedJobs;
+ const jobsForSchema = [selectedJob];
  const jobPostings = jobsForSchema.map((job): ReturnType<typeof buildJobPostingSchema> | null => {
  const jobPath = buildJobPath(job);
  const canonicalUrl = `${window.location.origin}${jobPath}`;

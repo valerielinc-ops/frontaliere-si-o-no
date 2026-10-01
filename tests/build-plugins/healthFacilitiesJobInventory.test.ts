@@ -58,7 +58,9 @@ describe('health-facility visible inventory', () => {
     const { html } = renderFacilityPage('it', facility, snapshot, '2026-09-14', root);
     expect((html.match(/<article /g) || []).length).toBe(8);
     expect((html.match(/class="ft-infeed-ad/g) || []).length).toBe(2);
-    expect((html.match(/"@type":"JobPosting"/g) || []).length).toBe(6);
+    expect(html).not.toContain('"@type":"JobPosting"');
+    expect(html).toContain('"@type":"ItemList"');
+    expect((html.match(/"@type":"WebPage"/g) || []).length).toBe(6);
   });
 
   it('keeps a production-sized complete facility inventory under the finite weight ceiling', () => {

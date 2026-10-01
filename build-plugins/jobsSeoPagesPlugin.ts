@@ -25,6 +25,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
+import { selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
@@ -74,6 +75,7 @@ import {
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
 import {
   buildLocaleAlternateBlock,
+  buildLocaleAlternateEntries,
   buildSitemapAlternateBlock,
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
@@ -245,7 +247,7 @@ import { normalizePostalCityKey } from './shared/postalCodes';
 import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
@@ -1971,6 +1973,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return 0;
  };
 
+ const listingJobCounts = new Map<string, number>();
+ const listingInput = jobs.filter((job: any) => !isFixtureJob(job));
+ for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
+  listingJobCounts.set(code, selectJobBoardInventory(listingInput, code).length);
+ }
+ listingInput.length = 0;
  let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
  .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
@@ -1992,6 +2000,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (jobsSeoSample !== null) {
   const totalValidJobs = validJobs.length;
   validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
+  for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
+   listingJobCounts.set(code, selectJobBoardInventory(validJobs, code).length);
+  }
   console.log(
    `[jobs-seo-sample] fraction=${jobsSeoSample} selected=${validJobs.length} of ${totalValidJobs}`,
   );
@@ -2508,12 +2519,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  const withSlash = (s: string) => (s.endsWith('/') ? s : `${s}/`);
 
- // Build one ItemList `ListItem` for a per-canton hub (city/sector/company/
- // company-city): a full JobPosting embedded via the shared builder, falling
- // back to a name+url stub when the job is too sparse. Closes over the stable
- // `localePrefix`/`localizedSlug`/`withSlash`/`BASE_URL`; the caller passes the
- // per-emit `locale`/`sectionSlug`/`canton`. Single source of truth for the
- // four otherwise-identical hub ItemLists.
+ // Every hub links to its canonical job detail; it must not embed JobPosting.
  const mapCantonJobToListItem = (
   job: any,
   i: number,
@@ -2523,7 +2529,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ): Record<string, unknown> => {
   const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
   const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
-  const jobPosting = buildListItemJobPosting(
+  const jobPosting = buildJobListEntry(
    {
     title: jobTitle,
     titleByLocale: job?.titleByLocale,
@@ -5554,7 +5560,7 @@ ${companyFollowHtml}
  isPartOf: string;
  breadcrumbs: Array<{ name: string; item: string }>;
  // Job-link items (LandingJobLink-shaped). The extra optional fields feed a
- // full JobPosting embedded inside each ItemList ListItem (see below).
+ // locale-aware detail URL and title for each ItemList entry.
  items: Array<{
  title: string;
  href: string;
@@ -5591,11 +5597,7 @@ ${companyFollowHtml}
  inLanguage: options.locale,
  isPartOf: options.isPartOf,
  });
- // Embed a full JobPosting inside each ListItem (richer than a name+url stub),
- // mirroring weeklyEmployersPlugin's company×city hubs. `buildListItemJobPosting`
- // never throws and caps the description, so a sparse job falls back to a plain
- // name+url stub and the page stays under the 195 KB weight budget. The
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List pages describe links; only individual details declare JobPosting.
  const itemListLd = options.items.length > 0
  ? inlineScriptJson({
  '@context': 'https://schema.org',
@@ -5604,7 +5606,7 @@ ${companyFollowHtml}
  itemListElement: options.items.slice(0, 10).map((item, index) => {
  const abs = item.url
  || (/^https?:\/\//.test(item.href) ? item.href : `${BASE_URL}${item.href}`);
- const jobPosting = buildListItemJobPosting(
+ const jobPosting = buildJobListEntry(
  {
  title: item.title,
  titleByLocale: item.titleByLocale,
@@ -7709,9 +7711,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -8591,9 +8591,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) => {
  const jobCanton = isAggregate
  ? sharedResolveJobCanton(job as { canton?: string; location?: string })
@@ -9106,9 +9104,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -9401,9 +9397,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -10863,13 +10857,9 @@ ${staticAnalyticsHtml}
      }
    }
 
-   // T2.6 — Per-canton active-job counts for MIN_JOBS gate. One canonical
-   // entry per dedup group, so this is the deduped count Google would index
-   // per /cerca-lavoro-{canton}/ landing.
-   const cantonJobCounts = new Map<string, number>();
-   for (const entry of groups.values()) {
-     cantonJobCounts.set(entry.canton, (cantonJobCounts.get(entry.canton) ?? 0) + 1);
-   }
+   // Counts describe the listing inventory, not the smaller set of jobs whose
+   // translated details qualify for sitemap indexation.
+   const cantonJobCounts = listingJobCounts;
    let cantonIndexIndexable = 0;
    let cantonIndexNoindex = 0;
 
@@ -10882,7 +10872,7 @@ ${staticAnalyticsHtml}
    // NOTE: this mirrors `jobEntries` above. We build a fresh list so the
    // legacy `<urlset>` and the new sharded index are byte-for-byte
    // independent — no shared mutation, no surprise across plugins.
-   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string };
+   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string; alternates?: Array<{ hreflang: string; href: string }> };
    const shardUrls: ShardUrl[] = [];
    for (const [, group] of groups) {
      const job = group.canonical;
@@ -10985,13 +10975,13 @@ ${staticAnalyticsHtml}
        case 'it':
          return {
           title,
-          lede: `Pagina indice del job board per il cantone ${display}.`,
+          lede: `Offerte di lavoro aggiornate ogni giorno: ${display}.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
        case 'en':
          return {
           title,
-          lede: `Job board index page for canton ${display}.`,
+          lede: `Current job openings in ${display}, updated daily.`,
           ctaLabel: `View all listings`,
         };
        case 'de':
@@ -11018,7 +11008,7 @@ ${staticAnalyticsHtml}
        default:
          return {
           title,
-          lede: `Index du job board pour le canton ${display}.`,
+          lede: `Offres d’emploi actualisées chaque jour : ${display}.`,
           ctaLabel: `Voir toutes les offres`,
         };
      }
@@ -11144,7 +11134,9 @@ ${staticAnalyticsHtml}
      // despite being emitted index,follow with self-canonicals. Push indexable
      // roots only: a noindex URL in a sitemap trips audit:sitemap-canonicals.
      if (meetsThreshold) {
-       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key });
+       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key,
+         alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}` }),
+       });
      }
      const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, cantonTitleYear);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
@@ -11197,46 +11189,18 @@ ${staticAnalyticsHtml}
      });
 
      // ── P4: rich canton-landing body ────────────────────────────────────
-     // Filter all canonical jobs that resolve to this canton via the shared
-     // resolver (job.canton + city → canton lookup with TI fallback). This
-     // matches the resolver used everywhere else in the plugin so the cards
-     // here link to URLs that actually exist.
-     const cantonJobsAll = validJobs.filter(
-       (j) => sharedResolveJobCanton(j as { canton?: string; location?: string }) === entry.key,
-     );
-     // Top 12 most recent, used in the listing grid.
+     // The list and its counters use the same canton membership as the SPA,
+     // including half-canton groups and the complete national inventory.
+     const cantonJobsAll = selectJobBoardInventory(validJobs, entry.key);
      const cantonJobs = [...cantonJobsAll]
-       .sort(
-         (a, b) =>
-           Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
-           Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
-       )
+       .sort((a, b) => _jobRecency(b) - _jobRecency(a))
        .slice(0, 12);
-
-     // Issue #4303 items 1+5 — sharedResolveJobCanton() (used by
-     // cantonJobsAll above) never returns AGGREGATE_KEY, it always falls
-     // back to 'TI' for unmatched jobs — so cantonJobsAll is structurally
-     // EMPTY for the Svizzera aggregate hub. That starved the ItemList
-     // schema below (cantonCollectionLd was gated on cantonJobs.length>0,
-     // silently empty for this one hub) and would equally starve the new
-     // real-data block's sector/employer aggregation. Scoped fallback only
-     // — cantonJobsAll/totalJobs/avgSalary/tileGrid/listingGrid stay exactly
-     // as before for every canton, including AGGREGATE_KEY (unrelated to
-     // this issue, not touched here).
-     const realDataJobPool = entry.key === AGGREGATE_KEY ? validJobs : cantonJobsAll;
-     const collectionListJobs = entry.key === AGGREGATE_KEY
-       ? [...validJobs]
-           .sort(
-             (a, b) =>
-               Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
-               Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
-           )
-           .slice(0, 12)
-       : cantonJobs;
-     const collectionListTotal = entry.key === AGGREGATE_KEY ? validJobs.length : undefined;
+     const realDataJobPool = cantonJobsAll;
+     const collectionListJobs = cantonJobs;
+     const collectionListTotal = cantonCount;
 
      // Aggregate stats for the tile grid.
-     const totalJobs = cantonJobsAll.length;
+     const totalJobs = cantonCount;
      const sectorCounts = new Map<string, number>();
      const cityCounts = new Map<string, number>();
      for (const j of cantonJobsAll) {
@@ -11959,6 +11923,10 @@ ${staticAnalyticsHtml}
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
+       hreflangHtml: buildLocaleAlternateBlock({
+         eligibleLocales: meetsThreshold ? localeList : [],
+         hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}`,
+       }),
        description: cantonMetaDescription,
        locale: entry.locale,
        bodyHtml,
@@ -11989,13 +11957,14 @@ ${staticAnalyticsHtml}
    };
    // Sitemap coverage (#3518, TI half): the localized Ticino hub roots
    // (/en/find-jobs-ticino/, /de/jobs-im-tessin/, /fr/...) are emitted by
-   // staticPagesPlugin (TI is skipped in cantonsToEmit above) and were listed
-   // in no sitemap at all. The IT root /cerca-lavoro-ticino/ already lives in
-   // sitemap-pages.xml — push only the three locale variants, into the TI shard.
-   for (const tiLocale of ['en', 'de', 'fr'] as const) {
+   // staticPagesPlugin. Include the whole reciprocal group in the TI shard,
+   // even when the IT root also appears in sitemap-pages.xml.
+   for (const tiLocale of localeList) {
      const tiSection = buildCantonAwareSection(tiLocale, 'TI');
      const tiPath = withSlash(`${localePrefix[tiLocale]}/${tiSection}`.replace(/\/+/g, '/'));
-     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI' });
+     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI',
+       alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'))}` }),
+     });
    }
    const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
    // writeShardsToDist writes each `sitemap-jobs-{italian-slug}.xml` to the
@@ -13856,7 +13825,7 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:wc-robots', __tEjpWcRobots);
 
  const __tEjpJsonld = phaseTimer();
- // Build JSON-LD scripts (BreadcrumbList + optional JobPosting)
+ // Build JSON-LD scripts for the archived page and its breadcrumbs.
  const breadcrumbLd = `<script type="application/ld+json">${inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -13867,110 +13836,16 @@ ${staticAnalyticsHtml}
  ],
  })}</script>`;
 
- const jobPostingLd = (() => {
- // NON-NEGOTIABLE #3: "Source mancante → safe default, non rimozione check."
- // SearchAtlas "missing schema" audit (2026-06-15) flagged ~50-80 indexable
- // expired soft-landings emitting only BreadcrumbList. Emit JobPosting whenever
- // the page has a REAL job identity — a real title AND a real employer from
- // trustworthy crawl/search data (expired-jobs.json OR GSC). The optional
- // fields (salary, address) are filled by buildJobPostingSchema's safe
- // defaults; validThrough/datePosted are derived from the best real timestamp
- // and always land in the PAST (this is an expired soft-landing) — Google's
- // recommended handling for an expired posting, NOT a GSC error. Previously the
- // gate required ejData.expiredAt to be present, dropping JobPosting (violating
- // #3) for jobs whose expired entry carried only crawledAt/postedDate. Pure
- // slug-derived orphans with no real employer stay breadcrumb-only:
- // fabricating an employer identity would be spammy, low-quality markup.
- // Revert-trigger (not validable pre-merge, SSG OOM): if the next deploy surfaces
- // GSC "expired job posting" errors or a JobPosting-richness regression on these
- // soft-landings → revert this gate to the strict `realExpiredAt`-required form.
- const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title
- || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '';
- const realCompany = String(ejData?.company || gscInfo?.company || '');
- // Derive a past validThrough from the best real signal. No real date signal
- // at all → stay breadcrumb-only (don't fabricate a posting window from nothing).
- const realValidThrough = (() => {
- for (const c of [ejData?.expiredAt, ejData?.crawledAt, ejData?.postedDate]) {
- if (c) { const d = new Date(c); if (!isNaN(d.getTime())) return d.toISOString(); }
- }
- return '';
- })();
- if (!realTitle || !realValidThrough || !realCompany) return '';
- const finalDescription = jobDescription || (() => {
- const parts: string[] = [];
- parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
- if (locale === 'it') {
- parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
- } else if (locale === 'en') {
- parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
- } else if (locale === 'de') {
- parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
- } else {
- parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
- }
- parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
- if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
- return parts.join('');
- })();
- if (finalDescription.length < 30) return '';
- // Build the canonical JobPosting schema via the shared builder. The
- // expired soft-landing layers its expired-specific overrides (validThrough
- // = expiredAt, datePosted back-estimated from expiredAt when no crawl
- // data exists) on top of the canonical output.
- const expiredInput: JobInput = {
- id: ejData?.id,
- slug,
- title: realTitle,
- description: capJsonLdDescription(finalDescription),
- company: jobCompany,
- companyKey: ejData?.companyKey || slugInfo?.companyKey,
- addressLocality: jobLocation || undefined,
- addressRegion: jobCanton || undefined,
- postalCode: ejData?.postalCode || slugInfo?.postalCode,
- streetAddress: ejData?.streetAddress,
- postedDate: ejData?.postedDate,
- crawledAt: ejData?.crawledAt,
- validThrough: realValidThrough,
- contract: ejData?.contract,
- salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
- salaryMax: typeof ejData?.salaryMax === 'number' ? ejData.salaryMax : null,
- salaryCurrency: ejData?.salaryCurrency,
- category: ejData?.category,
- sector: ejData?.category,
- url: undefined,
- };
- const expiredSchema = buildJobPostingSchema(expiredInput, {
- locale,
- url: selfUrl,
- baseUrl: BASE_URL,
- });
- // Expired-specific datePosted: when no crawl data exists, estimate as
- // 30 days before expiredAt so the posting window looks natural.
- const expiredDatePosted = (() => {
- const raw = (() => {
- if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
- if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
- const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
- })();
- // PR #2229 adversarial-check #1: when the only timestamp is postedDate,
- // realValidThrough === postedDate === raw → a zero/negative posting window
- // that Google rejects (validThrough must be AFTER datePosted). Clamp
- // datePosted to 30 days before validThrough when it would not strictly
- // precede it.
- if (!(new Date(raw).getTime() < new Date(realValidThrough).getTime())) {
- const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
- }
- return raw;
- })();
- const jp: Record<string, unknown> = {
- ...expiredSchema,
- datePosted: expiredDatePosted,
- validThrough: new Date(realValidThrough).toISOString(),
- };
- return `<script type="application/ld+json">${inlineScriptJson(jp)}</script>`;
- })();
-
- const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
+ // Archived vacancies remain useful pages, but are no longer open JobPostings.
+ const archivePageLd = `<script type="application/ld+json">${inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDesc,
+  url: selfUrl,
+  inLanguage: locale,
+ })}</script>`;
+ const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd;
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
  // Tier decision FIRST. It reads only `__slCandidatePaths` (hoisted above the

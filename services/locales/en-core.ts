@@ -693,7 +693,7 @@ const enCore: Record<string, string> = {
  'jobBoard.filter.activeCompany': 'Active filter: company listings',
  'jobBoard.filter.activeSearch': 'Active filter: search "{query}"',
  'jobBoard.filter.remove': 'Remove filter',
- 'jobBoard.title': 'Jobs in {canton} — Find Work in Swiss Italy',
+ 'jobBoard.title': 'Jobs in {canton} — Current Vacancies',
  'jobBoard.companyPageTitle': '{company} Job Openings in {canton}',
  'jobBoard.locationPageTitle': 'Jobs in {location} ({canton})',
  'jobBoard.searchPageTitle': '{query} Jobs in Switzerland',

@@ -234,14 +234,15 @@ describe('getActiveJobCountsByLocale', () => {
     }
   })
 
-  it('reads and counts active jobs from data/jobs.json', () => {
+  it('counts the Ticino listing inventory independent of translated-detail eligibility', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jbsEo-'))
     try {
       fs.mkdirSync(path.join(tmp, 'data'), { recursive: true })
       const longDesc = 'word '.repeat(60).trim()
       const jobs = [
-        { descriptionByLocale: { it: longDesc, en: longDesc, de: longDesc, fr: longDesc } },
-        { descriptionByLocale: { it: longDesc, en: longDesc, de: longDesc, fr: longDesc } },
+        { id: 'ti-a', canton: 'TI', descriptionByLocale: { it: longDesc } },
+        { id: 'ti-b', canton: 'TI' },
+        { id: 'zh-a', canton: 'ZH', descriptionByLocale: { it: longDesc, en: longDesc } },
       ]
       fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))
       const counts = getActiveJobCountsByLocale(tmp)
