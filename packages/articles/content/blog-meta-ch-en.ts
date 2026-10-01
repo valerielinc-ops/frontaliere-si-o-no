@@ -7403,6 +7403,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.agenda-federale-autunno-2026.title': 'Federal Council: rents, integration and cybersecurity',
     'blog.article.agenda-federale-autunno-2026.excerpt': '€334.5 million for integration in 2028-2032, counter-proposal on rents and proposal on cybersecurity by June 2027.',
     'blog.article.agenda-federale-autunno-2026.imageAlt': 'Swiss institutional building illustrating federal decisions',
+    'blog.article.infomaniak-debutto-six.title': 'Infomaniak, debut on the Swiss Stock Exchange',
+    'blog.article.infomaniak-debutto-six.excerpt': 'Infomaniak shares opened at 56 francs, reached 140 francs and closed at 85 francs after the reverse merger with Perrot Duval.',
+    'blog.article.infomaniak-debutto-six.imageAlt': 'The Swiss stock exchange in Zurich during Infomaniak\'s market debut.',
 };
 
 export default blogMetaChEn;

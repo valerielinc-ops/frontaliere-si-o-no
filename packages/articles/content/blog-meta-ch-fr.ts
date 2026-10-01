@@ -7403,6 +7403,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.agenda-federale-autunno-2026.title': 'Conseil fédéral : loyers, intégration et cybersécurité',
     'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 millions d’euros pour l’intégration en 2028-2032, contre-proposition sur les loyers et proposition sur la cybersécurité d’ici juin 2027.',
     'blog.article.agenda-federale-autunno-2026.imageAlt': 'Bâtiment institutionnel suisse illustrant les décisions fédérales',
+    'blog.article.infomaniak-debutto-six.title': 'Infomaniak, débuts à la Bourse suisse',
+    'blog.article.infomaniak-debutto-six.excerpt': 'Les actions d’Infomaniak ont ouvert à 56 francs, ont atteint 140 francs et ont clôturé à 85 francs après la fusion inversée avec Perrot Duval.',
+    'blog.article.infomaniak-debutto-six.imageAlt': 'La Bourse suisse à Zurich lors des débuts d\'Infomaniak.',
 };
 
 export default blogMetaChFr;

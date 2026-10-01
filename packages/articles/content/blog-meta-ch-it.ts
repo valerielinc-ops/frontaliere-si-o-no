@@ -7403,6 +7403,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.agenda-federale-autunno-2026.title': 'Consiglio federale: affitti, integrazione e cibersicurezza',
     'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 milioni per l\'integrazione nel 2028-2032, controprogetto sulle pigioni e proposta sulla cibersicurezza entro giugno 2027.',
     'blog.article.agenda-federale-autunno-2026.imageAlt': 'Edificio istituzionale svizzero sullo sfondo delle decisioni federali',
+    'blog.article.infomaniak-debutto-six.title': 'Infomaniak, debutto alla Borsa svizzera',
+    'blog.article.infomaniak-debutto-six.excerpt': 'Il titolo Infomaniak apre a 56 franchi, tocca 140 e chiude a 85 dopo la fusione inversa con Perrot Duval.',
+    'blog.article.infomaniak-debutto-six.imageAlt': 'La Borsa svizzera a Zurigo per il debutto di Infomaniak.',
 };
 
 export default blogMetaChIt;

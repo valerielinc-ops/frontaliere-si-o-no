@@ -7403,6 +7403,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.agenda-federale-autunno-2026.title': 'Bundesrat: Mieten, Integration und Cybersicherheit',
     'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 Millionen für die Integration im Zeitraum 2028-2032, Gegenvorschlag zu den Mieten und Vorschlag zur Cybersicherheit bis Juni 2027.',
     'blog.article.agenda-federale-autunno-2026.imageAlt': 'Schweizerisches Regierungsgebäude zu aktuellen Bundesentscheiden',
+    'blog.article.infomaniak-debutto-six.title': 'Infomaniak, Debüt an der Schweizer Börse',
+    'blog.article.infomaniak-debutto-six.excerpt': 'Die Aktien von Infomaniak eröffneten bei 56 Francs, erreichten 140 Francs und schlossen nach der umgekehrten Fusion mit Perrot Duval bei 85 Francs.',
+    'blog.article.infomaniak-debutto-six.imageAlt': 'Die Schweizer Börse in Zürich beim Börsendebüt von Infomaniak.',
 };
 
 export default blogMetaChDe;
