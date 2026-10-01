@@ -35,6 +35,16 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
   });
 
+  // Review of #10698.
+  it('prefers a meaningful id to a generated name, skips hidden headings and never reads a label from inside a control', () => {
+    expect(extract('<input name="input-7" id="email-address">').fields[0].label).toBe('email-address');
+    const steps = extract('<h2>Current step</h2><h2 hidden>Inactive step</h2><div><input id="input-7"></div>');
+    expect(steps.fields[0].label).toContain('Current step');
+    expect(steps.fields[0].label).not.toContain('Inactive step');
+    const country = extract('<h2>Paese</h2><div><select id="input-7"><option>Italia</option><option>Svizzera</option></select></div>');
+    expect(country.fields[0].label).toBe('Paese');
+  });
+
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {
     const page = extract(`
       <fieldset>

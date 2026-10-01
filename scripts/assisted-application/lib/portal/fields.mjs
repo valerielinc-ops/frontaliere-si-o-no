@@ -53,12 +53,21 @@ export function extractFieldsInPage() {
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
     const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
     if (text) return text;
-    const technical = clean(element.getAttribute('name') || element.id);
-    if (technical && !GENERATED_ID_RE.test(technical)) return technical;
+    // The first of name and id that is not generated ("input-7" never hides "email-address").
+    const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
+    const technical = names.find((value) => !GENERATED_ID_RE.test(value));
+    if (technical) return technical;
     // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
     // the heading the control sits under and the text of its zone say what it
     // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
-    return [headingBefore(element), zoneText(element)].filter(Boolean).join(' · ') || technical;
+    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+  };
+  // A heading of another step a portal keeps in the page, hidden, names nothing.
+  const shown = (node) => {
+    if (node.closest('[hidden], [aria-hidden="true"]')) return false;
+    const style = window.getComputedStyle(node);
+    const rect = node.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
   };
   // Node.DOCUMENT_POSITION_FOLLOWING, without relying on the global Node.
   const FOLLOWING = 4;
@@ -66,7 +75,7 @@ export function extractFieldsInPage() {
     let found = '';
     for (const heading of document.querySelectorAll('h1, h2, h3, h4, legend')) {
       // eslint-disable-next-line no-bitwise
-      if (heading.compareDocumentPosition(element) & FOLLOWING) found = clean(heading.innerText || heading.textContent);
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
     }
     return found;
   };
@@ -77,6 +86,8 @@ export function extractFieldsInPage() {
     for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
       const walker = document.createTreeWalker(node, 4);
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+        // Never from inside a control: a select's first option is an answer, not a question.
+        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
         const value = clean(text.textContent);
         if (value) return value.slice(0, 80);
       }
