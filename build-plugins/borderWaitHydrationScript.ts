@@ -97,7 +97,7 @@ var U="https://europe-west6-frontaliere-ticino.cloudfunctions.net/getTrafficCurr
  var TC=${JSON.stringify(BORDER_WAIT_TONE_COLORS)};
  var C={it:{live:"live (Firestore, agg. ",offline:"snapshot — dato live non disponibile",stale:"snapshot — lettura live non disponibile",na:"non disponibile",g:"Scorrevole",y:"Moderata",r:"Lunga"},en:{live:"live (Firestore, upd. ",offline:"snapshot — live data unavailable",stale:"snapshot — no fresh live reading",na:"unavailable",g:"Free-flowing",y:"Moderate",r:"Long"},de:{live:"live (Firestore, akt. ",offline:"Snapshot — Live-Daten nicht verfügbar",stale:"Snapshot — keine aktuelle Live-Messung",na:"nicht verfügbar",g:"Fliessend",y:"Moderat",r:"Lang"},fr:{live:"live (Firestore, maj. ",offline:"instantané — données live indisponibles",stale:"instantané — aucune mesure live récente",na:"indisponible",g:"Fluide",y:"Modérée",r:"Longue"}}[L]||null;
 function w(m){try{console.warn("[bw-hydrate] "+m)}catch(e){}}
-function n(f){return f&&typeof f.integerValue==="string"?parseInt(f.integerValue,10):f&&typeof f.doubleValue==="number"?Math.round(f.doubleValue):null}
+function n(f){var x=f&&typeof f.integerValue==="string"?parseInt(f.integerValue,10):f&&typeof f.doubleValue==="number"?Math.round(f.doubleValue):null;return x!=null&&isFinite(x)?x:null}
 function s(f){return f&&typeof f.stringValue==="string"?f.stringValue:null}
 function t(f){var x=f&&f.timestampValue?Date.parse(f.timestampValue):NaN;return isFinite(x)?x:null}
 function clock(x){var d=new Date(x);return ("0"+d.getHours()).slice(-2)+":"+("0"+d.getMinutes()).slice(-2)}

@@ -153,6 +153,32 @@ describe('border-wait hydration — present-tense blocks follow the live reading
     expect(tile?.getAttribute('style')).toContain('var(--color-success-subtle)');
   });
 
+  it('leaf: a swapped advice is the build-time advice of that tone and prints no minutes', async () => {
+    // Snapshot 21 min → the build renders the «bad» advice with the real wait.
+    // A live 20 min swaps to the «bad» template: same text, because the advice
+    // depends on the tone and the historical hours only, never on the minutes.
+    const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    document.documentElement.innerHTML = new DOMParser().parseFromString(html, 'text/html').documentElement.innerHTML;
+    const buildTime = swapShown('advice');
+    await hydrate(html, [liveDoc('chiasso-brogeda', 20)]);
+
+    expect(swapHost('advice')?.getAttribute('data-bw-swap-state')).toBe('bad');
+    expect(swapShown('advice')).toBe(buildTime);
+    expect(swapShown('advice')).not.toMatch(/\d+\s*min\b/);
+  });
+
+  it('a non-numeric live wait counts as a missing reading', async () => {
+    const broken = liveDoc('chiasso-brogeda', 0);
+    broken.fields.waitTimeMinutes = { integerValue: 'n/a' };
+    broken.fields.totalCrossingMinutes = { integerValue: 'n/a' };
+    await hydrate(pages[buildRootHubPath('it')], [broken]);
+
+    const row = document.querySelector('[data-bw-crossing="chiasso-brogeda"]');
+    expect(row?.querySelector('[data-bw-field="totalCrossingMinutes"]')?.textContent).toBe('non disponibile');
+    expect(row?.querySelector('[data-bw-field="totalCrossingMinutes"]')?.getAttribute('style')).toContain('var(--color-surface-alt)');
+    expect(swapHost('hub')?.getAttribute('data-bw-swap-state')).toBe('unavailable');
+  });
+
   it('leaf: the snapshot-only notice hides once a live reading arrives', async () => {
     // crociale-dei-mulini has no snapshot reading → static fallback notice.
     const html = pages[buildOggiPath('it', 'crociale-dei-mulini')];

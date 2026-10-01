@@ -1702,22 +1702,23 @@ interface LeafInputs {
  * card below — both bind to the same OKLCH `--color-*-subtle/border`
  * variables and follow the user's dark-mode preference automatically.
  *
- * Hydratable: the wrapper carries `data-bw-advice` and per-status
- * sub-elements carry `data-bw-advice-status` / `data-bw-advice-text` so
- * the runtime hydration script can swap the visible state when the
- * live wait time changes (e.g. from "passa ora" to "evita") without a
- * full page repaint. The pre-hydration rendering is the build-time
- * snapshot and is correct for SEO/zero-JS visitors.
+ * Hydratable: the leaf wraps it in `renderLiveSwap('advice', …)`, one
+ * template per tone, and the runtime hydration swaps to the tone of the
+ * live wait (e.g. from "passa ora" to "meglio rinviare") without a full
+ * page repaint. The banner depends on the tone and the historical hours
+ * only — it never prints the wait itself — so a tone's template is the
+ * whole answer for any live wait in that band. The pre-hydration
+ * rendering is the build-time snapshot and is correct for SEO/zero-JS
+ * visitors.
  */
 function renderAdviceBanner(
-  status: 'ok' | 'warn' | 'bad' | 'unknown',
-  liveWait: number | null,
+  status: BorderWaitTone,
   bestHour: string,
   worstHour: string,
   copy: Copy,
 ): string {
   const tile =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? STAT_TILE_WARNING
       : status === 'ok'
         ? STAT_TILE_SUCCESS
@@ -1725,7 +1726,7 @@ function renderAdviceBanner(
           ? STAT_TILE_WARNING
           : STAT_TILE_DANGER;
   const text =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? copy.advice.unknown
       : status === 'ok'
         ? copy.advice.ok(bestHour)
@@ -1733,7 +1734,7 @@ function renderAdviceBanner(
           ? copy.advice.warn(worstHour)
           : copy.advice.bad(bestHour);
   const eyebrow = copy.advice.eyebrow;
-  const dataStatus = liveWait === null || status === 'unknown' ? 'unknown' : status;
+  const dataStatus = status;
   return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
     <div class="s-a8IQOM">${esc(eyebrow)}</div>
     <p class="s-f49tDp" data-bw-advice-text>${esc(text)}</p>
@@ -1823,18 +1824,17 @@ function renderLeafPage(inp: LeafInputs): string {
   // «Passa ora» is a present-tense claim: the hydration swaps it to the
   // variant of the live reading's tone (same thresholds as the status tile).
   const adviceTemplates: Record<string, string> = {
-    ok: renderAdviceBanner('ok', 0, bestHour, worstHour, copy),
-    warn: renderAdviceBanner('warn', 0, bestHour, worstHour, copy),
-    bad: renderAdviceBanner('bad', 0, bestHour, worstHour, copy),
+    ok: renderAdviceBanner('ok', bestHour, worstHour, copy),
+    warn: renderAdviceBanner('warn', bestHour, worstHour, copy),
+    bad: renderAdviceBanner('bad', bestHour, worstHour, copy),
     unavailable: renderBorderWaitUnavailableBanner(locale),
   };
-  const adviceState = liveWait === null ? 'unavailable' : status.label;
+  // statusColor(null) is 'unknown', which the leaf shows as «non disponibile».
+  const adviceState = status.label === 'unknown' ? 'unavailable' : status.label;
   const adviceBannerHtml = renderLiveSwap(
     'advice',
     adviceState,
-    liveWait === null
-      ? adviceTemplates.unavailable
-      : renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy),
+    adviceTemplates[adviceState],
     adviceTemplates,
     ` data-bw-for="${esc(crossing)}"`,
   );
