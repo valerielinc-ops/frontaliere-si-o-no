@@ -111,6 +111,9 @@ describe('extractIndexedEventPrice', () => {
   it.each([
     'Una fiera di quattro secoli.Gratuito\n',
     'A public exhibition. Free entrance\n',
+    'Admission: free',
+    'Entry:free',
+    'Entrance : free.',
     'Schedules: 2:30-6pm,Prices : Free entrance\n',
     'Eine Ausstellung. Eintritt frei.',
     'Une exposition. Entrée libre\n',

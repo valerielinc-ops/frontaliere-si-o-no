@@ -391,7 +391,7 @@ export function extractPrice(ld, detailHtml, detailUrl) {
 export function extractIndexedEventPrice(content) {
   if (typeof content !== 'string') return undefined;
   const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
-    || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)\s+(?:is\s+)?free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|libre|gratuit[oea]?))\s*[.!]?\s*$/iu.test(content);
+    || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)(?:\s*:\s*|\s+(?:is\s+)?)free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|libre|gratuit[oea]?))\s*[.!]?\s*$/iu.test(content);
   return freeTariff ? { amount: 0, currency: 'CHF', isFree: true } : undefined;
 }
 
