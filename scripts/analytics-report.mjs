@@ -42,6 +42,7 @@ import {
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
 import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
+import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import {
   EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
@@ -1092,8 +1093,14 @@ async function reportGA4(token) {
       dateRanges: settledRequest.dateRanges,
       build: process.env.GITHUB_SHA || null,
     });
+    try {
+      result.runtimeIncidents = await fetchRuntimeIncidentHistory({ startDate: fmtDate(startDate), endDate: settledEnd, recentDays: 7 });
+    } catch {
+      result.runtimeIncidents = { status: 'unavailable', reason: 'unsupported_report_window' };
+    }
   } else {
     result.trafficQuality = { status: 'unavailable', reason: 'No settled date range' };
+    result.runtimeIncidents = { status: 'unavailable', reason: 'No settled date range' };
   }
 
   // ── 3b. Top pages + top articles + keyword intent ─────────

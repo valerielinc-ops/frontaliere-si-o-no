@@ -1,4 +1,7 @@
 const frCore: Record<string, string> = {
+ 'whatsNew.v39610.title': 'Des offres plus lisibles et des données plus claires',
+ 'whatsNew.v39610.tools.title': 'Des listes de communes plus fluides, des dates plus claires',
+ 'whatsNew.v39610.tools.desc': 'Explorez toutes les communes dans des listes paginées. Les prix, primes et temps d’attente aux frontières indiquent quand ils ont été observés ou collectés.',
  "whatsNew.v39610.readableJobs.title": "Lire les offres avant de se connecter",
  "whatsNew.v39610.readableJobs.desc": "Lisez la description complète avant de vous connecter et d’ouvrir la candidature. Les suggestions d’alertes attendent la lecture et respectent votre choix de les fermer.",
  "jobBoard.gate.descriptionUnavailable": "La source n’a pas fourni de description complète. Vérifiez les détails sur le site de l’employeur avant de postuler.",

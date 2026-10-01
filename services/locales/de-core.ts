@@ -1,4 +1,7 @@
 const deCore: Record<string, string> = {
+ 'whatsNew.v39610.title': 'Lesbarere Stellenangebote und klarere Daten',
+ 'whatsNew.v39610.tools.title': 'Flüssigere Gemeindelisten, klarere Datumsangaben',
+ 'whatsNew.v39610.tools.desc': 'Entdecke alle Gemeinden in Listen mit Seiten. Preise, Prämien und Wartezeiten an der Grenze zeigen, wann sie beobachtet oder erfasst wurden.',
  "whatsNew.v39610.readableJobs.title": "Stellenbeschreibungen vor der Anmeldung lesen",
  "whatsNew.v39610.readableJobs.desc": "Lies die vollständige Beschreibung, bevor du dich anmeldest und die Bewerbung öffnest. Alert-Vorschläge erscheinen nach dem Lesen und respektieren das Schließen.",
  "jobBoard.gate.descriptionUnavailable": "Die Quelle hat keine vollständige Beschreibung bereitgestellt. Prüfe die Angaben vor der Bewerbung auf der Website des Arbeitgebers.",

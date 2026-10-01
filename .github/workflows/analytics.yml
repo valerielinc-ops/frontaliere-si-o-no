@@ -116,6 +116,12 @@ jobs:
           GSC_TOP50_DEPLOYED_AT: ${{ vars.GSC_TOP50_DEPLOYED_AT }}
         run: node scripts/gsc-page-query-export.mjs --top50-monitor --out=reports/gsc-top50-monitor
 
+      - name: Measure observed application journeys
+        if: always() && (inputs.sections == 'all' || inputs.sections == 'ga4' || inputs.sections == '')
+        run: |
+          mkdir -p reports
+          node scripts/job-application-funnel-report.mjs > reports/job-application-funnel.json
+
       - name: Commit AI channel history
         # The report is intentionally allowed to finish with partial data, but
         # the history write must not disappear with the runner workspace.
@@ -426,6 +432,15 @@ jobs:
                 }
               }
 
+              if (g.runtimeIncidents) {
+                console.log('');
+                console.log('### Errori runtime storici e recenti');
+                console.log('Fonte: PostHog app_error; stato ' + safe(g.runtimeIncidents.status) + '. Zero osservazioni non prova assenza assoluta di errori.');
+                console.log('| Firma | Stato | Eventi finestra | Eventi ultimi 7 giorni assestati | Ultima osservazione |');
+                console.log('|---|---|---:|---:|---|');
+                for (const s of g.runtimeIncidents.signatures || []) console.log('| ' + safe(s.id) + ' | ' + safe(s.status) + ' | ' + s.eventCount + ' | ' + s.recentEventCount + ' | ' + safe(s.lastOccurrence || 'N/D') + ' |');
+              }
+
               // Recommendations summary
               if (g.recommendations && g.recommendations.length > 0) {
                 console.log('');
@@ -446,6 +461,7 @@ jobs:
           path: |
             reports/analytics-*.json
             reports/gsc-top50-monitor*
+            reports/job-application-funnel.json
           retention-days: 90
 
       - name: Cleanup Codex auth broker
