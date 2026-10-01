@@ -4312,7 +4312,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
  return jobs
- .filter(isListingInventoryJob)
+ // Keep the foreign-location guard visible at the sort boundary: this memo
+ // owns the SPA ordering contract, while the shared predicate also applies it
+ // before data enters the listing pool used by SSR and the slim index.
+ .filter((j) => !isForeignLocation(j.addressLocality || j.location || '') && isListingInventoryJob(j))
  .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every
