@@ -14,7 +14,11 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import {
   isAuthoritativeEmptySnapshot,
@@ -30,6 +34,7 @@ export const BLATTERS_HOTEL_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';
 const BLATTERS_HOTEL_PATH = '/jobs/blatter-s-hotel-arosa-4340';
+const BLATTERS_HOTEL_EMPTY_FETCH_OUTCOME = 'anti_bot_block';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -128,16 +133,28 @@ function detectEmploymentType(text = '') {
  */
 export async function fetchJobListings({
   spec = loadSpec(BLATTERS_HOTEL_KEY),
-  runtime = {},
+  runtime = { browserFetchImpl: fetchHtmlViaBrowser },
 } = {}) {
   const seedPages = [];
   const seedUrls = new Set(spec.seedUrls || []);
-  const rows = await runSpecInProduction(spec, {
-    ...runtime,
-    onPageFetched: (page, url) => {
-      if (seedUrls.has(url)) seedPages.push(page);
+  // Hotelcareer can reject the CI egress at the transport boundary and has
+  // also served an unmarked HTTP 200 interstitial. Keep the previous slice on
+  // an unobserved source, but give the shared prospector its bounded browser
+  // rescue before that soft exit and preserve the anti-bot evidence when a
+  // zero is still unproven (the same contract as the Vereina sibling).
+  const rows = await runSpecInProduction(
+    {
+      ...spec,
+      rescueOnEmptyListing: true,
+      emptyListingOutcome: BLATTERS_HOTEL_EMPTY_FETCH_OUTCOME,
     },
-  });
+    {
+      ...runtime,
+      onPageFetched: (page, url) => {
+        if (seedUrls.has(url)) seedPages.push(page);
+      },
+    },
+  );
   if (rows.length > 0) return rows;
   // Same Hotelcareer employer page as vereinaklosters: an empty result is a
   // zero only when the page itself states it has no vacancy.
