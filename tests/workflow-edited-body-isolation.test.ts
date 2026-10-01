@@ -140,8 +140,10 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   };
   let error = '';
   const previousAppToken = process.env.APP_TOKEN;
+  const previousGithubPat = process.env.GITHUB_PAT;
   if (trustedToken) process.env.APP_TOKEN = trustedToken;
   else delete process.env.APP_TOKEN;
+  delete process.env.GITHUB_PAT;
   try {
     await new AsyncFunction('github', 'context', 'core', 'require', script)(github, {
       eventName,
@@ -156,6 +158,8 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   } finally {
     if (previousAppToken === undefined) delete process.env.APP_TOKEN;
     else process.env.APP_TOKEN = previousAppToken;
+    if (previousGithubPat === undefined) delete process.env.GITHUB_PAT;
+    else process.env.GITHUB_PAT = previousGithubPat;
   }
   if (rerunFails || dispatchFails) return { reruns, dispatches, comments, error };
   if (nativeAutoMerge) return { reruns, dispatches, callOrder, ...(returnComments ? { comments } : {}) };
@@ -652,6 +656,20 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       returnComments: true,
     });
     expect(result.error).toMatch(/dispatch failed/u);
+    expect(result.comments.at(-1)?.body).toContain('"status":"completed"');
+    expect(result.comments.at(-1)?.body).toContain('"nativeMergeStatus":"pending"');
+  });
+
+  it('keeps a completed recovery pending when the trusted dispatch token is unavailable', async () => {
+    const result = await runRecovery({
+      eventName: 'workflow_run',
+      pendingStatus: 'queued',
+      status: 'completed',
+      trustedToken: '',
+      returnComments: true,
+    });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([]);
     expect(result.comments.at(-1)?.body).toContain('"status":"completed"');
     expect(result.comments.at(-1)?.body).toContain('"nativeMergeStatus":"pending"');
   });
