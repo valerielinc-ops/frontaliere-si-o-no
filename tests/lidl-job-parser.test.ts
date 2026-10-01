@@ -576,6 +576,7 @@ const LIDL_VERIFIED_LOCATIONS = [
   ['Niederuzwil', '9244', 'SG'],
   ['Romont', '1680', 'FR'],
   ['Lüchingen', '9450', 'SG'],
+  ['Châtelaine', '1219', 'GE'],
 ] as const;
 
 function licaEnvelope(
