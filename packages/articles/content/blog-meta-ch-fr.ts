@@ -7397,6 +7397,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.utile-bns-distribuzione-2030.title': 'SNB : Jusqu’à six milliards par an pour la Confédération et les cantons',
     'blog.article.utile-bns-distribuzione-2030.excerpt': 'Le nouvel accord FDF-SNB pour 2026-2030 prévoit jusqu’à six milliards par an, si le bénéfice et la situation financière le permettent.',
     'blog.article.utile-bns-distribuzione-2030.imageAlt': 'BNS et Confédération: répartition du bénéfice 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO : Tarifs américains, vote et démission',
+    'blog.article.dazi-svizzera-voto.excerpt': 'Le 24 juillet 2026, les États-Unis ont adopté des droits de douane supplémentaires sur la Suisse allant jusqu’à 12,5 % ; le 29 novembre 2026, on votera sur le matériel de guerre.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Documents sur les droits de douane et un vote fédéral dans un bureau suisse',
 };
 
 export default blogMetaChFr;

@@ -7397,6 +7397,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.utile-bns-distribuzione-2030.title': 'BNS: fino a sei miliardi annui a Confederazione e Cantoni',
     'blog.article.utile-bns-distribuzione-2030.excerpt': 'La nuova convenzione DFF-BNS per il 2026-2030 prevede fino a sei miliardi annui, se l\'utile e la situazione finanziaria lo consentono.',
     'blog.article.utile-bns-distribuzione-2030.imageAlt': 'BNS e Confederazione: distribuzione dell\'utile 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO: dazi degli Stati Uniti, voto e dimissioni',
+    'blog.article.dazi-svizzera-voto.excerpt': 'Il 24 luglio 2026 gli Stati Uniti hanno adottato dazi aggiuntivi sulla Svizzera fino al 12,5%; il 29 novembre 2026 si vota sul materiale bellico.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Documenti su dazi e voto federale in un ufficio dell\'amministrazione svizzera',
 };
 
 export default blogMetaChIt;

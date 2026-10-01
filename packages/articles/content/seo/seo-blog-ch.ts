@@ -95921,6 +95921,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dazi-svizzera-voto': {
+    title: 'SECO: dazi degli Stati Uniti, voto e dimissioni',
+    description: 'Dazi degli Stati Uniti fino al 12,5% il 24 luglio 2026; voto sul materiale bellico il 29 novembre 2026; dimissioni di Helene Budliger a fine marzo 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, seco, dazi, stati, uniti',
+    ogTitle: 'SECO: dazi e voto sul materiale bellico',
+    ogDescription: 'La pagina SECO presenta il massimo del 12,5% per i dazi aggiuntivi sulle importazioni dalla Svizzera, la votazione del 29 novembre 2026 sul materiale bellico e le dimissioni annunciate di Helene Budliger Artieda.',
+    canonicalPath: '/articoli-svizzera/dazi-svizzera-voto/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "SECO: dazi degli Stati Uniti, voto e dimissioni",
+      "description": "Dazi degli Stati Uniti fino al 12,5% il 24 luglio 2026; voto sul materiale bellico il 29 novembre 2026; dimissioni di Helene Budliger a fine marzo 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dazi-svizzera-voto.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti su dazi e voto federale in un ufficio dell'amministrazione svizzera"
+      },
+      "datePublished": "2026-10-01T20:06:53+00:00",
+      "dateModified": "2026-10-01T20:06:53+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dazi-svizzera-voto/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

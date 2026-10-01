@@ -7397,6 +7397,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.utile-bns-distribuzione-2030.title': 'SNB: Bis zu sechs Milliarden pro Jahr für den Bund und die Kantone',
     'blog.article.utile-bns-distribuzione-2030.excerpt': 'Das neue FDF-SNB-Abkommen für 2026–2030 sieht bis zu sechs Milliarden pro Jahr vor, sofern Gewinn und finanzielle Lage es zulassen.',
     'blog.article.utile-bns-distribuzione-2030.imageAlt': 'Schweizerische Nationalbank und Bund: Gewinnausschüttung 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO: Zölle der Vereinigten Staaten, Abstimmung und Rücktritt',
+    'blog.article.dazi-svizzera-voto.excerpt': 'Am 24. Juli 2026 verhängten die Vereinigten Staaten zusätzliche Zölle auf die Schweiz von bis zu 12,5 %; am 29. November 2026 findet die Abstimmung über Kriegsmaterial statt.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Unterlagen zu Zöllen und einer eidgenössischen Abstimmung in einem Schweizer Verwaltungsbüro',
 };
 
 export default blogMetaChDe;
