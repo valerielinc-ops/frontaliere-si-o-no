@@ -73,8 +73,8 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, resolveCantonSection, resolveJobCanton, legacyTiSectionRoot } from './shared/cantonSection';
-import { MIN_JOBS_FOR_CANTON_PAGE } from './weeklyEmployersData';
+import { ALL_CANTON_CODES, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
+import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
@@ -236,108 +236,6 @@ function absItemUrl(href: string): string {
   return /^(https?:)?\/\//.test(href)
     ? href
     : `${BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
-}
-
-function slugifyEmployer(value: string): string {
-  return String(value || '').toLowerCase().normalize('NFD')
-    .replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');
-}
-
-/**
- * Reads the latest jobs snapshot and returns:
- * - `counts`: employerKey → active job count (for "N offerte attive" labels)
- * - `urlToKey`: company URL slug → employerKey (for logo lookup)
- *
- * The company URL slug is derived by slugifying `job.employer` (full name),
- * which mirrors how `jobsSeoPagesPlugin` builds `companyMap` keys. The reverse
- * map lets us resolve logos from `company-logos-manifest.json` (keyed by short
- * `employerKey`) when given the long URL slug from `known-company-slugs.json`.
- */
-interface CantonJobEntry {
-  readonly slug: string;
-  readonly role: string;
-  readonly employer: string;
-  readonly employerKey: string;
-  readonly city: string;
-  /** ISO YYYY-MM-DD when the job was first posted by the source ATS — drives
-   *  the recency landings ("offerte da ieri", "ultimi 3 giorni", "ultima
-   *  settimana"). Optional because pre-2026-04 snapshots omit it. */
-  readonly postedAt?: string;
-}
-
-function readJobsData(
-  fs: typeof fsT,
-  np: typeof npT,
-  rootDir: string,
-): {
-  counts: Map<string, number>;
-  urlToKey: Map<string, string>;
-  cantonJobCounts: Map<string, number>;
-  cantonJobs: Map<string, CantonJobEntry[]>;
-  cantonEmployerCounts: Map<string, Map<string, number>>;
-} {
-  const counts = new Map<string, number>();
-  const urlToKey = new Map<string, string>();
-  const cantonJobCounts = new Map<string, number>();
-  const cantonJobs = new Map<string, CantonJobEntry[]>();
-  const cantonEmployerCounts = new Map<string, Map<string, number>>();
-  const historyDir = np.resolve(rootDir, 'data', 'jobs-snapshots-history');
-  try {
-    if (!fs.existsSync(historyDir)) {
-      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
-    }
-    const files = fs.readdirSync(historyDir)
-      .filter((f) => f.endsWith('.json'))
-      .sort()
-      .reverse();
-    if (files.length === 0) {
-      return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
-    }
-    const raw = JSON.parse(fs.readFileSync(np.join(historyDir, files[0]), 'utf-8'));
-    for (const job of Array.isArray(raw?.jobs) ? raw.jobs : []) {
-      if (typeof job?.employerKey === 'string' && job.employerKey) {
-        counts.set(job.employerKey, (counts.get(job.employerKey) ?? 0) + 1);
-        if (typeof job.employer === 'string' && job.employer) {
-          const urlSlug = slugifyEmployer(job.employer);
-          if (urlSlug && !urlToKey.has(urlSlug)) urlToKey.set(urlSlug, job.employerKey);
-        }
-      }
-      // Canton resolution: use explicit `job.canton` when present, else fall
-      // back to the city → canton mapping in `resolveJobCanton`.
-      const cantonInput = {
-        canton: typeof job?.canton === 'string' ? job.canton : undefined,
-        location: typeof job?.city === 'string' ? job.city : undefined,
-      };
-      const canton = resolveJobCanton(cantonInput);
-      cantonJobCounts.set(canton, (cantonJobCounts.get(canton) ?? 0) + 1);
-      if (typeof job?.slug === 'string' && job.slug) {
-        // BFS-depth closure (2026-05-12): removed the prior 200-job cap. The
-        // cathedral expansion added per-canton `tutti/page-N/` archive
-        // pagination, which needs every job slug in the canton so the
-        // archive ladder reaches every leaf at depth ≤ 4 from `/`. Max
-        // canton (GR/VS/ZH) carries ~1800 jobs; aggregate across 26 cantons
-        // is ~15k entries × ~200 bytes ≈ 3 MB — well within build memory.
-        const arr = cantonJobs.get(canton) ?? [];
-        arr.push({
-          slug: job.slug,
-          role: typeof job?.role === 'string' ? job.role : job.slug,
-          employer: typeof job?.employer === 'string' ? job.employer : '',
-          employerKey: typeof job?.employerKey === 'string' ? job.employerKey : '',
-          city: typeof job?.city === 'string' ? job.city : '',
-          postedAt: typeof job?.postedAt === 'string' ? job.postedAt : undefined,
-        });
-        cantonJobs.set(canton, arr);
-      }
-      if (typeof job?.employerKey === 'string' && job.employerKey) {
-        const empMap = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
-        empMap.set(job.employerKey, (empMap.get(job.employerKey) ?? 0) + 1);
-        cantonEmployerCounts.set(canton, empMap);
-      }
-    }
-  } catch (err) {
-    console.warn('[seo-hubs] failed to read job snapshot', err);
-  }
-  return { counts, urlToKey, cantonJobCounts, cantonJobs, cantonEmployerCounts };
 }
 
 /**
@@ -2228,58 +2126,13 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
   for (const canton of ALL_CANTON_CODES) {
     if (canton === 'TI') continue; // TI already emitted with full body above
     const total = cantonJobCounts.get(canton) ?? 0;
-    if (total < MIN_JOBS_FOR_CANTON_PAGE) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
-
     const jobs = cantonJobs.get(canton) ?? [];
-    // Tighter gate: cantonJobCounts increments on every job (line 212), but
-    // cantonJobs only appends when `job.slug` is present (line 217). When
-    // counts ≥ MIN but jobs array is empty (rare — usually the smallest
-    // cantons whose snapshot has slug-less rows), the hub HTML emits with an
-    // empty items list AND the sitemap entry below gets pushed, producing
-    // unreachable URLs (no inbound link from BFS-reachable nav). Bumped the
-    // gate to require ≥ MIN actual slug-bearing jobs to avoid that. Audit:
-    // `sitemap-seo-hubs.xml` BFS regression 2026-05-18 (cerca-lavoro-
-    // appenzello/{tutti,settori,aziende}/ +3 unreachable).
-    if (jobs.length < MIN_JOBS_FOR_CANTON_PAGE) {
+    // Use the same snapshot and eligibility plan as the parent landing's
+    // archive navigator. Its visible listing count may be a newer inventory.
+    const archivePages = cantonArchivePageCount(total, jobs, !isCantonNoindex(canton));
+    if (archivePages === 0) {
       emitCantonHubBelowFloorBridge(canton);
       continue;
-    }
-
-    // Authoritative noindex check (2026-05-21 follow-up): the local dedup
-    // heuristic below could not access `job.id` (snapshot-history rows carry
-    // only `role`/`employerKey`), so it disagreed with jobsSeoPagesPlugin's
-    // id-aware dedup for cantons where a single vacancy is posted across
-    // multiple cities (e.g. HFR Fribourg: 1 job × N locations). When the two
-    // disagree, the canton landing ships `noindex,follow` (jobsSeoPagesPlugin
-    // wins) while seoHubsPlugin still emits `/tutti/`, `/settori/`, `/aziende/`
-    // — and `audit-bfs-depth.mjs` flags them as orphans because BFS stops at
-    // noindex parents. The cross-plugin registry (populated by
-    // jobsSeoPagesPlugin earlier in the same closeBundle pass) is the source
-    // of truth. Audit: sitemap-seo-hubs.xml BFS regression 2026-05-21
-    // (appenzello/sciaffusa/uri × 3 facets = 9 orphans).
-    if (isCantonNoindex(canton)) {
-      emitCantonHubBelowFloorBridge(canton);
-      continue;
-    }
-
-    // Local dedup fallback gate kept as a defense-in-depth check: covers the
-    // case where the registry was never populated (e.g. jobsSeoPagesPlugin
-    // disabled via FAST_BUILD). Mirrors jobsSeoPagesPlugin's MIN gate on the
-    // best-effort signal available here (role+employerKey).
-    {
-      const dedupKeys = new Set<string>();
-      for (const j of jobs) {
-        const role = String(j.role || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        const empKey = String(j.employerKey || j.employer || '').toLowerCase().replace(/\s+/g, ' ').trim();
-        dedupKeys.add(`tc|${role}|${empKey}`);
-      }
-      if (dedupKeys.size < MIN_JOBS_FOR_CANTON_PAGE) {
-        emitCantonHubBelowFloorBridge(canton);
-        continue;
-      }
     }
 
     const empCounts = cantonEmployerCounts.get(canton) ?? new Map<string, number>();
@@ -2313,7 +2166,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       {
         const basePath = hubSlugFor(canton, locale, 'tutti');
         const tuttiPageSize = JOBS_PAGE_SIZE; // 100
-        const tuttiTotalPages = Math.max(1, Math.ceil(jobs.length / tuttiPageSize));
+        const tuttiTotalPages = archivePages;
         const localeUrlMap = jobPerLocale[locale] ?? {};
         const itUrlMap = jobPerLocale.it ?? {};
         for (let pageNum = 1; pageNum <= tuttiTotalPages; pageNum++) {

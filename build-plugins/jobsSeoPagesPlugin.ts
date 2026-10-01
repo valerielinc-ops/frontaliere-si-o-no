@@ -81,6 +81,7 @@ import {
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
+import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
@@ -206,7 +207,7 @@ import {
  assertSectorHubTablesComplete,
  type SectorHubKey,
 } from './jobSectorLanding';
-import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
+import { SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
 import { buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
 // Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
 // real-data block (wage-level factor + LAMal premium vs Ticino; no
@@ -10860,6 +10861,7 @@ ${staticAnalyticsHtml}
    // Counts describe the listing inventory, not the smaller set of jobs whose
    // translated details qualify for sitemap indexation.
    const cantonJobCounts = listingJobCounts;
+   const archiveSnapshot = readJobsData(fs, path, rootDir);
    let cantonIndexIndexable = 0;
    let cantonIndexNoindex = 0;
 
@@ -11392,14 +11394,18 @@ ${staticAnalyticsHtml}
      const archiveBaseHref = entry.key === AGGREGATE_KEY
        ? hubSlugFor(AGGREGATE_KEY, entry.locale, 'tutti')
        : hubSlugFor(entry.key, entry.locale, 'tutti');
-     const cantonTotalPages = Math.max(1, Math.ceil(totalJobs / HUB_JOBS_PAGE_SIZE));
+     const cantonTotalPages = entry.key === AGGREGATE_KEY ? 1 : Math.max(1, cantonArchivePageCount(
+       archiveSnapshot.cantonJobCounts.get(entry.key) ?? 0,
+       archiveSnapshot.cantonJobs.get(entry.key) ?? [],
+       meetsThreshold,
+     ));
      const editorialEntries = buildCantonHubEditorial({
        canton: entry.key,
        locale: entry.locale,
        display,
       jobsCount: totalJobs,
       totalPages: cantonTotalPages,
-      archiveNavigablePages: entry.key === AGGREGATE_KEY ? 1 : cantonTotalPages,
+      archiveNavigablePages: cantonTotalPages,
       archiveBaseHref,
     });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text

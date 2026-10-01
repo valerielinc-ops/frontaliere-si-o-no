@@ -43,13 +43,11 @@ import PublisherApplyForm from '@/components/community/PublisherApplyForm';
 import { renderPublisherMarkdown } from '@/services/publisherMarkdown';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import {
- fetchAggregatedJobs,
  fetchAllJobs,
  fetchJobsForCanton,
  getDefaultCantonForVisit,
  scopeJobsToCanton,
  AGGREGATE_CANTON_CODE,
- type Job as RawJob,
 } from '@/services/jobsService';
 import { normalizeSearchText, buildStemmedHaystack, stemSearchToken } from '@/services/textUtils';
 import { professionSynonymText } from '@/services/professionSynonyms';
@@ -3203,16 +3201,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  /**
  * Initial-mount data load (D9 + D11 + E4).
  *
- * Source of truth migrated from monolithic `/data/jobs.json` → per-canton
- * shards via `services/jobsService.ts`. Shards carry raw Job objects without
- * locale-translated fields, so when (a) the shard pipeline is not yet
- * deployed for this build, or (b) the chosen shards return zero jobs, we
- * fall back to the legacy locale-aware loader (`fetchAllJobs()` / the slim
- * index files) which preserves existing UX during the rollout window.
+ * Canton routes load their locale-specific shard; the national route loads
+ * the complete locale slim index from the same build snapshot. A missing
+ * canton shard falls back to that index scoped to the requested canton.
  *
  * D11 — referrer-aware default canton:
  *   - referrer contains "frontaliere" → start on TI shard (single fetch).
- *   - otherwise → multi-canton aggregate across the top 8 Swiss cantons.
+ *   - otherwise → complete Swiss inventory.
  *
  * Cancellation: the effect aborts state writes when `cancelled` flips to
  * true, so a locale change mid-flight cannot stomp the next load.
@@ -3221,11 +3216,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
  // Fresh load for this locale/canton → the authoritative index is pending again.
  setFullLoadPending(true);
-
- /** Top-N cantons fetched when no canton intent is detected (req #4). */
- const TOP_AGGREGATE_CANTONS: ReadonlyArray<string> = [
- 'TI', 'GR', 'VS', 'ZH', 'BE', 'BS', 'GE', 'VD',
- ];
 
  /**
  * First-page slim asset (#2580): the first ~50 records of the slim index,
@@ -3348,10 +3338,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
 
  try {
- const shardJobs: RawJob[] =
- targetCanton === AGGREGATE_CANTON_CODE
- ? await fetchAggregatedJobs(TOP_AGGREGATE_CANTONS, locale, { deduplicate: true })
- : await fetchJobsForCanton(targetCanton, locale);
+ // The aggregate sentinel resolves to the complete locale index in the
+ // service; a top-canton sample would disagree with the national SEO count.
+ const shardJobs = await fetchJobsForCanton(targetCanton, locale);
 
  // Shards not yet deployed (every shard 404'd / empty) → legacy loader.
  // The legacy payload is the locale-wide monolith (~13 MB, all 26 cantons

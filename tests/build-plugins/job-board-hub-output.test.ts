@@ -4,6 +4,8 @@ import os from 'node:os';
 import path from 'node:path';
 import { JSDOM } from 'jsdom';
 import { jobsSeoPagesPlugin } from '../../build-plugins/jobsSeoPagesPlugin';
+import { emitSeoHubs } from '../../build-plugins/seoHubsPlugin';
+import { hubSlugFor } from '../../build-plugins/seoHubsData';
 import { employerProfilePagesPlugin } from '../../build-plugins/employerProfilePagesPlugin';
 import { localeJobsSplitPlugin } from '../../build-plugins/localeJobsSplitPlugin';
 import { getActiveJobCountsByLocale } from '../../build-plugins/jobBoardSeo';
@@ -37,13 +39,26 @@ beforeAll(async () => {
   fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
   // One duplicate and a short translation reproduce the difference between the
   // visible inventory and the smaller sitemap-eligible subset.
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  const listingOnly = Array.from({ length: 120 }, (_, i) => ({ id: `listing-only-${i}`, slug: `listing-only-${i}`, title: `Posizione ${i}`, company: 'Audit Example SA', canton: 'ZH', location: 'Zürich' }));
+  const sgJobs = Array.from({ length: 6 }, (_, i) => ({ ...jobs[0], id: `sg-position-${i}`, slug: `sg-position-${i}`, canton: 'SG', location: 'St. Gallen' }));
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, ...listingOnly, ...sgJobs, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  // The archive emitter consumes its historical snapshot, independently of
+  // current listing counts: ZH has one archive page and SG has two.
+  fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));
+  fs.writeFileSync(path.join(root, 'data/jobs-snapshots-history/2026-10-01.json'), JSON.stringify({ jobs: [
+    ...Array.from({ length: 80 }, (_, i) => ({ slug: `snapshot-zh-${i}`, role: `Ruolo ${i}`, employer: 'Audit Example SA', employerKey: 'audit-example', canton: 'ZH', city: 'Zürich' })),
+    ...Array.from({ length: 120 }, (_, i) => ({ slug: `snapshot-sg-${i}`, role: `Ruolo ${i}`, employer: 'Audit Example SA', employerKey: 'audit-example', canton: 'SG', city: 'St. Gallen' })),
+  ] }));
   const expiredSlug = 'archived-audit-position';
   writeAllKnownJobSlugs({ [expiredSlug]: Object.fromEntries(locales.map((locale) => [locale, `${hubPath(locale, 'TI')}${expiredSlug}`])) }, root);
   fs.writeFileSync(path.join(root, 'data/expired-jobs.json'), JSON.stringify([{ ...jobs[7], id: 'archived-audit', slug: expiredSlug, expiredAt: daysAgo(1) }]));
   await (employerProfilePagesPlugin(root).closeBundle as () => Promise<void>)();
   (localeJobsSplitPlugin(root).closeBundle as () => void)();
   await (jobsSeoPagesPlugin(root).closeBundle as () => Promise<void>)();
+  emitSeoHubs({ rootDir: root, distDir: path.join(root, 'dist'), fs, np: path, entryJs: '/assets/index-test.js', entryCss: '', hasSpaBundle: false, qw: (file, html) => {
+    fs.mkdirSync(path.dirname(file), { recursive: true });
+    fs.writeFileSync(file, html);
+  } });
 }, 120000);
 
 afterAll(() => { if (root) fs.rmSync(root, { recursive: true, force: true }); });
@@ -73,6 +88,23 @@ describe('job-board emitted output', () => {
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
       }
       expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, 'TI').length);
+    }
+  });
+
+  it('links only archive pages emitted from the historical snapshot', () => {
+    for (const locale of locales) {
+      const zurichBase = hubSlugFor('ZH', locale, 'tutti');
+      const zurichDoc = htmlDoc(hubPath(locale, 'ZH'));
+      expect(zurichDoc.querySelector(`[data-canton-editorial] a[href="${zurichBase}page-2/"]`)).toBeNull();
+      expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'index.html'))).toBe(true);
+      expect(fs.existsSync(path.join(root, 'dist', zurichBase, 'page-2/index.html'))).toBe(false);
+
+      const sgBase = hubSlugFor('SG', locale, 'tutti');
+      const sgDoc = htmlDoc(hubPath(locale, 'SG'));
+      const archiveLinks = [...sgDoc.querySelectorAll('[data-canton-editorial] a[href]')]
+        .map((link) => link.getAttribute('href')!).filter((href) => href.startsWith(sgBase));
+      expect(archiveLinks).toContain(`${sgBase}page-2/`);
+      for (const href of archiveLinks) expect(fs.existsSync(path.join(root, 'dist', href, 'index.html')), href).toBe(true);
     }
   });
 
