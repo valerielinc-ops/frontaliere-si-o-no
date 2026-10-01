@@ -143,6 +143,7 @@ const LIDL_VERIFIED_LOCALITY_CANTONS = new Map([
   ['niederuzwil|9244', 'SG'],
   ['romont|1680', 'FR'],
   ['luchingen|9450', 'SG'],
+  ['chatelaine|1219', 'GE'],
 ]);
 
 function isLidlJob(job) {
