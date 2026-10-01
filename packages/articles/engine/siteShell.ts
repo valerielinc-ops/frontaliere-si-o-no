@@ -50,7 +50,7 @@ export interface ArticleImageObjectInput {
   // (`OrganizationCreator | PersonCreator`) structurally — narrow enough for
   // the real function's parameter to satisfy this shape (a plain
   // `Record<string, unknown>` here would NOT typecheck against that union).
-  creator?: { '@type': 'Organization' | 'Person'; name: string; url?: string };
+  creator?: { '@type': 'Organization' | 'NewsMediaOrganization' | 'Person'; name: string; url?: string };
   copyrightNotice?: string;
   license?: string;
   acquireLicensePage?: string;

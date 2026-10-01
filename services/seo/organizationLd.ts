@@ -16,9 +16,9 @@
  * Keep `name`/`url`/`logo` in sync with the index.html Organization block.
  */
 
-import { imageObjectLd } from './imageObjectLd';
+import { imageObjectLd, SITE_ORGANIZATION_ID } from './imageObjectLd';
 
-export const ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
+export const ORGANIZATION_ID = SITE_ORGANIZATION_ID;
 
 const SITE = 'https://frontaliereticino.ch';
 
