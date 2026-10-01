@@ -56,6 +56,12 @@ jobs:
   backfill:
     runs-on: ubuntu-latest
     timeout-minutes: 90
+    # The full assembly keeps the active dataset and the uncapped expired
+    # slices in memory together. Node's default heap (about 4 GiB) is not
+    # enough for the current archive; keep the validation fail-closed while
+    # giving every checkpoint and the final reassemble the proven CI ceiling.
+    env:
+      NODE_OPTIONS: '--max-old-space-size=8192'
 
     steps:
       - name: Checkout (full history — required to walk by-crawler slices)
