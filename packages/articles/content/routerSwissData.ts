@@ -2488,6 +2488,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'pieno-cittadino-imposta-benzina': { it: 'pieno-cittadino-imposta-benzina', en: 'the-citizen-always-pays-for-the-full-tank', de: 'der-burger-zahlt-immer-fur-den-vollen-tank', fr: 'le-citoyen-paie-toujours-le-reservoir-plein' },
  'draghi-ue-riforme-crescita': { it: 'draghi-ue-riforme-crescita', en: 'draghi-eu-reforms-growth', de: 'draghi-eu-reformen-wachstum', fr: 'draghi-ue-reformes-croissance' },
  'utile-bns-distribuzione-2030': { it: 'utile-bns-distribuzione-2030', en: 'snb-profit-distribution-2030', de: 'snb-gewinnverteilung-2030', fr: 'bns-repartition-benefice-2030' },
+ 'dazi-svizzera-voto': { it: 'dazi-svizzera-voto', en: 'swiss-tariffs-federal-vote', de: 'schweizer-zoelle-abstimmung', fr: 'droits-douane-vote-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
