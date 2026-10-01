@@ -10,12 +10,23 @@
  *    main), che la regola «stessa HEAD» del pre-flight non riconosceva;
  *  - #10586/#10587: stesso hand-off di #10569, creato due volte a 5 s di
  *    distanza da due run concorrenti di pr-autorebase.
+ *
+ * Review del gemello nel corpus (frontaliere-articles#2018): l'assenza di
+ * `has-conflicts` non prova niente, perché pr-autorebase la aggiunge
+ * best-effort e apre l'hand-off anche se l'aggiunta fallisce. Con la PR di
+ * origine aperta si chiude solo con la prova positiva: `has-conflicts` tolta da
+ * pr-autorebase (merge-tree pulito) DOPO l'apertura dell'hand-off.
  */
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import { buildConflictHandoffIssue } from '../scripts/ci/pr-autorebase.mjs';
-import { handoffResolution } from '../scripts/ci/check-issue-already-resolved.mjs';
+import {
+  conflictClearedAfter,
+  conflictLabelEventsArgs,
+  handoffResolution,
+  parseConflictLabelEvents,
+} from '../scripts/ci/check-issue-already-resolved.mjs';
 import {
   closingComment,
   decideHandoff,
@@ -24,11 +35,16 @@ import {
   groupHandoffs,
   reapplyInFlight,
   RECONCILE_MARKER,
+  stillClosable,
 } from '../scripts/ci/reconcile-conflict-handoffs.mjs';
 import { ENTRYPOINTS } from '../scripts/ci/check-dependency-free-import-closure.mjs';
 
 const HEAD = 'a'.repeat(40);
 const NEW_HEAD = 'b'.repeat(40);
+const OPENED = '2026-09-30T15:00:00Z';
+const labelEvent = (event: string, createdAt: string, name = 'has-conflicts') => ({ event, label: { name }, created_at: createdAt });
+// pr-autorebase mette la label, apre l'hand-off, e la toglie a merge-tree pulito.
+const CLEARED = [labelEvent('labeled', '2026-09-30T14:59:50Z'), labelEvent('unlabeled', '2026-09-30T17:00:00Z')];
 
 function handoff(number: number, origin: number, { labels = [] as string[], lgtm = false } = {}) {
   const { title, body } = buildConflictHandoffIssue({
@@ -38,7 +54,7 @@ function handoff(number: number, origin: number, { labels = [] as string[], lgtm
     files: ['tests/data-refresh-pr-wiring.test.ts'],
     lgtm,
   });
-  return { number, title, body, labels };
+  return { number, title, body, labels, created_at: OPENED };
 }
 
 const openOrigin = (over: Record<string, unknown> = {}) => ({
@@ -50,19 +66,61 @@ const openOrigin = (over: Record<string, unknown> = {}) => ({
   ...over,
 });
 
-describe('handoffResolution: il conflitto rientrato su una HEAD nuova (#10657)', () => {
-  it('stessa HEAD: delega a handoffOriginVerdict', () => {
-    expect(handoffResolution(openOrigin(), { expectedHead: HEAD.slice(0, 12) }))
-      .toEqual({ resolved: true, reason: 'conflict-resolved' });
+describe('conflictClearedAfter: la prova da merge-tree', () => {
+  it('has-conflicts tolta dopo l\'apertura dell\'hand-off → prova', () => {
+    expect(conflictClearedAfter(CLEARED, OPENED)).toBe(true);
+  });
+
+  it.each([
+    ['REGRESSIONE review corpus: label mai applicata (edit best-effort fallito)', []],
+    ['conflitto precedente, coppia di eventi prima dell\'hand-off', [labelEvent('labeled', '2026-09-29T10:00:00Z'), labelEvent('unlabeled', '2026-09-29T12:00:00Z')]],
+    ['label rimessa dopo la rimozione (conflitto di nuovo)', [...CLEARED, labelEvent('labeled', '2026-09-30T18:00:00Z')]],
+    ['label ancora presente', [labelEvent('labeled', '2026-09-30T14:59:50Z')]],
+    ['solo altre label', [labelEvent('unlabeled', '2026-09-30T17:00:00Z', 'stale-review')]],
+    ['eventi illeggibili', null],
+  ])('%s → nessuna prova', (_label, events) => {
+    expect(conflictClearedAfter(events as any, OPENED)).toBe(false);
+  });
+
+  it('senza data di apertura non c\'è prova', () => {
+    expect(conflictClearedAfter(CLEARED, '')).toBe(false);
+  });
+
+  it('gli eventi arrivano in NDJSON da gh api --jq; una riga malformata li rende illeggibili', () => {
+    const raw = '{"event":"labeled","created_at":"2026-09-30T14:59:50Z"}\n{"event":"unlabeled","created_at":"2026-09-30T17:00:00Z"}\n';
+    expect(conflictClearedAfter(parseConflictLabelEvents(raw), OPENED)).toBe(true);
+    expect(parseConflictLabelEvents('')).toEqual([]);
+    expect(parseConflictLabelEvents('{"event":')).toBeNull();
+    expect(parseConflictLabelEvents(null as any)).toBeNull();
+    const args = conflictLabelEventsArgs('o/r', 10569);
+    expect(args).toContain('repos/o/r/issues/10569/events?per_page=100');
+    expect(args.join(' ')).toContain('.label.name == "has-conflicts"');
+  });
+});
+
+describe('handoffResolution: il conflitto rientrato, sulla stessa HEAD o su una nuova (#10657)', () => {
+  it('PR di origine mergiata → risolto, senza bisogno di prova', () => {
     expect(handoffResolution({ state: 'MERGED' }, { expectedHead: HEAD.slice(0, 12) }))
       .toEqual({ resolved: true, reason: 'merged' });
   });
 
-  it('HEAD nuova, mergeable e senza has-conflicts → risolto', () => {
+  it('stessa HEAD mergeable: si chiude solo con la prova, altrimenti resta il vecchio rinvio', () => {
+    expect(handoffResolution(openOrigin(), { expectedHead: HEAD.slice(0, 12), conflictClearedAfterOpen: true }))
+      .toEqual({ resolved: true, reason: 'conflict-resolved' });
+    expect(handoffResolution(openOrigin(), { expectedHead: HEAD.slice(0, 12) }))
+      .toEqual({ resolved: false, reason: 'conflict-clear-unproven', sameHeadMergeable: true });
+  });
+
+  it('HEAD nuova, mergeable, senza has-conflicts e con la prova → risolto', () => {
+    expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD }), { expectedHead: HEAD.slice(0, 12), conflictClearedAfterOpen: true }))
+      .toEqual({ resolved: true, reason: 'conflict-resolved-new-head' });
+    expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD, labels: [{ name: 'stale-review' }] }), { expectedHead: HEAD.slice(0, 12), conflictClearedAfterOpen: true }))
+      .toEqual({ resolved: true, reason: 'conflict-resolved-new-head' });
+  });
+
+  it('REGRESSIONE review corpus: HEAD nuova senza label né prova (cache MERGEABLE vecchia) → si riapplica', () => {
     expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD }), { expectedHead: HEAD.slice(0, 12) }))
-      .toEqual({ resolved: true, reason: 'conflict-resolved-new-head' });
-    expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD, labels: [{ name: 'stale-review' }] }), { expectedHead: HEAD.slice(0, 12) }))
-      .toEqual({ resolved: true, reason: 'conflict-resolved-new-head' });
+      .toEqual({ resolved: false, reason: 'conflict-clear-unproven' });
   });
 
   it.each([
@@ -72,8 +130,8 @@ describe('handoffResolution: il conflitto rientrato su una HEAD nuova (#10657)',
     [{ mergeable: 'CONFLICTING', mergeStateStatus: 'DIRTY' }, 'origin-open'],
     [{ mergeable: 'UNKNOWN', mergeStateStatus: 'UNKNOWN' }, 'origin-mergeability-stale'],
     [{ mergeStateStatus: 'DIRTY' }, 'origin-mergeability-stale'],
-  ])('HEAD nuova con %j → non risolto (%s)', (over, reason) => {
-    expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD, ...over }), { expectedHead: HEAD.slice(0, 12) }))
+  ])('HEAD nuova con %j → non risolto (%s), anche con la prova', (over, reason) => {
+    expect(handoffResolution(openOrigin({ headRefOid: NEW_HEAD, ...over }), { expectedHead: HEAD.slice(0, 12), conflictClearedAfterOpen: true }))
       .toEqual({ resolved: false, reason });
   });
 
@@ -92,6 +150,8 @@ describe('keyword delle PR: una per issue, numero intero', () => {
     ['Closes #105860', false],
     ['Refs #10586', false],
     ['Closes #10587', false],
+    ['Closes #1 #10586', true],
+    ['fix(ci): riapplica la PR (closes #10586)\n\nbody', true],
   ])('declaresClosing(%j, 10586) → %s', (body, expected) => {
     expect(declaresClosing(body, 10586)).toBe(expected);
   });
@@ -163,9 +223,33 @@ describe('decideHandoff: chiude solo il lavoro dimostrabilmente fatto', () => {
       .toEqual({ action: 'keep', reason: 'origin-closed' });
   });
 
-  it('PR di origine aperta e di nuovo pulita (HEAD nuova) → chiusa', () => {
-    expect(decideHandoff({ issue, origin: openOrigin({ headRefOid: NEW_HEAD }), mergedPrs: [], openPrs: [] }))
+  it('PR di origine aperta e di nuovo pulita, con has-conflicts tolta dopo l\'hand-off → chiusa', () => {
+    expect(decideHandoff({ issue, origin: openOrigin({ headRefOid: NEW_HEAD }), mergedPrs: [], openPrs: [], conflictEvents: CLEARED }))
       .toEqual({ action: 'close', reason: 'conflict-resolved-new-head', pr: 10569 });
+    expect(decideHandoff({ issue, origin: openOrigin(), mergedPrs: [], openPrs: [], conflictEvents: CLEARED }))
+      .toEqual({ action: 'close', reason: 'conflict-resolved', pr: 10569 });
+  });
+
+  it('REGRESSIONE review corpus: PR di origine mergeable senza prova da merge-tree → resta aperta', () => {
+    for (const conflictEvents of [null, [], [labelEvent('labeled', '2026-09-29T10:00:00Z'), labelEvent('unlabeled', '2026-09-29T12:00:00Z')]]) {
+      expect(decideHandoff({ issue, origin: openOrigin({ headRefOid: NEW_HEAD }), mergedPrs: [], openPrs: [], conflictEvents }))
+        .toEqual({ action: 'keep', reason: 'conflict-clear-unproven' });
+      expect(decideHandoff({ issue, origin: openOrigin(), mergedPrs: [], openPrs: [], conflictEvents }))
+        .toEqual({ action: 'keep', reason: 'conflict-clear-unproven' });
+    }
+  });
+
+  it('la riapplicazione si riconosce anche dal titolo della PR mergiata', () => {
+    expect(decideHandoff({ issue, origin: { state: 'CLOSED' }, mergedPrs: [{ number: 10722, title: 'fix(ci): reapply (closes #10586)', body: '' }], openPrs: [] }))
+      .toEqual({ action: 'close', reason: 'reapplied', pr: 10722 });
+  });
+
+  it('subito prima di chiudere si rilegge lo stato dal vivo: claim preso o issue già chiusa → niente', () => {
+    expect(stillClosable({ state: 'OPEN', labels: [{ name: 'agent:triaged' }] })).toBe(true);
+    expect(stillClosable({ state: 'OPEN', labels: [{ name: 'agent:in-progress' }] })).toBe(false);
+    expect(stillClosable({ state: 'CLOSED', labels: [] })).toBe(false);
+    expect(stillClosable({ state: 'OPEN' })).toBe(false);
+    expect(stillClosable(null)).toBe(false);
   });
 
   it.each([
@@ -207,19 +291,30 @@ describe('decideHandoff: chiude solo il lavoro dimostrabilmente fatto', () => {
 });
 
 describe('wiring: pre-flight e drainer chiudono, non lasciano maybe-resolved', () => {
-  it('il pre-flight chiude un hand-off risolto invece di shortCircuit', () => {
+  it('il pre-flight chiude un hand-off risolto con prova; senza prova sulla stessa HEAD resta il vecchio rinvio', () => {
     const source = readFileSync('scripts/ci/check-issue-already-resolved.mjs', 'utf8');
     const main = source.slice(source.indexOf('function main() {'));
     const branch = main.slice(
       main.indexOf('const handoffOrigin = conflictHandoffOriginPr(iss.title);'),
       main.indexOf("if (!labels.includes('follow-up')) {"),
     );
+    expect(branch).toContain('conflictClearedAfter(events, openedAt)');
     expect(branch).toContain('handoffResolution(origin');
     expect(branch).toContain('closeResolvedHandoff(');
-    expect(branch).not.toContain('shortCircuit(');
+    expect(branch.match(/shortCircuit\(/g)).toHaveLength(1);
+    const sameHead = branch.slice(branch.indexOf('if (verdict.sameHeadMergeable) {'), branch.indexOf('if (!verdict.resolved) {'));
+    expect(sameHead).toContain('shortCircuit(');
     const closer = source.slice(source.indexOf('function closeResolvedHandoff('), source.indexOf('function main() {'));
     expect(closer).toContain("'issue', 'close', ISSUE");
     expect(closer).toContain("'--reason', 'completed'");
+  });
+
+  it('il riconciliatore legge gli eventi della label solo per una PR di origine aperta e rilegge il claim prima di chiudere', () => {
+    const source = readFileSync('scripts/ci/reconcile-conflict-handoffs.mjs', 'utf8');
+    expect(source).toContain("String(originPr?.state || '').toUpperCase() === 'OPEN' ? readConflictEvents(origin) : null");
+    const closer = source.slice(source.indexOf('function closeIssue('), source.indexOf('function main() {'));
+    expect(closer.indexOf('stillClosable(')).toBeGreaterThan(-1);
+    expect(closer.indexOf('stillClosable(')).toBeLessThan(closer.indexOf("'issue', 'comment'"));
   });
 
   it('il drainer riconcilia gli hand-off prima di promuovere, con GITHUB_TOKEN e senza bloccare il drain', () => {
