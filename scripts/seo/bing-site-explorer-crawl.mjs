@@ -10,7 +10,7 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
@@ -36,6 +36,7 @@ export const DEFAULT_RESCUE_RETRIES = 4;
 export const DEFAULT_RESCUE_DELAY_MS = 3_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
+export const DISCOVERY_SAMPLE_LIMIT = 100;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
 
@@ -266,6 +267,98 @@ export async function collectSitemapInventory({
     folders,
     partitions,
     errors,
+  };
+}
+
+function decodedPath(value) {
+  try { return decodeURIComponent(new URL(value).pathname); } catch { return new URL(value).pathname; }
+}
+
+/**
+ * Decide whether a same-site link is an HTML route worth crawling as part of
+ * the SEO tree. Query-string links are deliberately kept as evidence but not
+ * expanded into the crawl frontier: calculators, filters and tracking URLs
+ * can create an unbounded parameter space and are not sitemap documents.
+ */
+export function classifyDiscoveredUrl(value, baseUrl = DEFAULT_BASE_URL) {
+  const normalized = normalizeUrl(value, baseUrl);
+  if (!normalized || !isSameOrigin(normalized, baseUrl)) return { url: normalized || String(value || ''), reason: 'outside-origin' };
+  const parsed = new URL(normalized);
+  if (parsed.search) return { url: normalized, reason: 'dynamic-query' };
+  if (!isCrawlableLink(normalized)) return { url: normalized, reason: 'non-html-or-private' };
+  // Broken editor tokens such as <nav:calculator> are useful findings, not
+  // valid routes to expand. Keep them in the evidence ledger separately.
+  if (/<\s*nav\s*:/i.test(decodedPath(normalized))) return { url: normalized, reason: 'malformed-route' };
+  return { url: normalized, reason: 'crawl' };
+}
+
+/**
+ * Build the next deterministic frontier from links found during the sitemap
+ * crawl. This is intentionally a separate manifest: the first pass remains
+ * the authoritative sitemap coverage, while the second pass verifies real
+ * HTML routes that are linked internally but omitted from XML sitemaps.
+ */
+export function collectDiscoveredInventory({
+  reports = [],
+  manifest,
+  baseUrl = manifest?.baseUrl || DEFAULT_BASE_URL,
+  partitions = DEFAULT_PARTITIONS,
+} = {}) {
+  if (!manifest || !Array.isArray(manifest.urls)) throw new Error('manifest.urls mancante');
+  const manifestSet = new Set(manifest.urls);
+  const discovered = new Set();
+  for (const report of reports) {
+    for (const url of report?.discoveredOutOfSitemap || []) {
+      if (!manifestSet.has(url)) discovered.add(url);
+    }
+  }
+  const urls = [];
+  const excludedByReason = {};
+  const excludedSamplesByReason = {};
+  const frontierFindings = [];
+  for (const value of [...discovered].sort()) {
+    const classified = classifyDiscoveredUrl(value, baseUrl);
+    if (classified.reason === 'crawl') {
+      urls.push(classified.url);
+      continue;
+    }
+    increment(excludedByReason, classified.reason);
+    const samples = excludedSamplesByReason[classified.reason] || (excludedSamplesByReason[classified.reason] = []);
+    if (samples.length < DISCOVERY_SAMPLE_LIMIT) samples.push(classified.url);
+    if (classified.reason === 'malformed-route') {
+      frontierFindings.push({
+        code: 'internal-link-malformed',
+        url: classified.url,
+        detail: 'Link interno verso un token di navigazione/editor non valido.',
+        root: folderFor(classified.url),
+      });
+    }
+  }
+  const uniqueUrls = [...new Set(urls)].sort();
+  const folders = {};
+  const partitionCounts = {};
+  for (const url of uniqueUrls) {
+    const folder = folderFor(url);
+    increment(folders, folder);
+    const partition = partitionFor(url, partitions);
+    increment(partitionCounts, partition);
+  }
+  return {
+    schemaVersion: CRAWLER_SCHEMA_VERSION,
+    kind: 'discovered-frontier',
+    generatedAt: new Date().toISOString(),
+    baseUrl: originFor(baseUrl),
+    parentManifestCount: manifest.urls.length,
+    sourceReportCount: reports.length,
+    sourceDiscoveredCount: discovered.size,
+    manifestCount: uniqueUrls.length,
+    urls: uniqueUrls,
+    folders,
+    partitions: partitionCounts,
+    excludedByReason,
+    excludedSamplesByReason,
+    findings: frontierFindings,
+    errors: [],
   };
 }
 
@@ -665,6 +758,31 @@ async function main() {
       console.error(error?.stack || error);
       process.exitCode = 1;
     }
+    return;
+  }
+  if (args['discovered-inventory']) {
+    const manifestFile = stringArg(args, 'base-manifest-file', '');
+    const reportsDir = stringArg(args, 'reports-dir', 'bing-site-tree-reports');
+    if (!manifestFile) throw new Error('specificare --base-manifest-file con --discovered-inventory');
+    const manifest = JSON.parse(readFileSync(resolve(manifestFile), 'utf8'));
+    const reports = readdirSync(resolve(reportsDir))
+      .filter((name) => /^partition-\d+\.json$/.test(name))
+      .sort()
+      .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
+    const inventory = collectDiscoveredInventory({
+      manifest,
+      reports,
+      baseUrl,
+      partitions: intArg(args, 'partitions', DEFAULT_PARTITIONS),
+    });
+    writeJson(out, inventory);
+    console.log(JSON.stringify({
+      mode: 'discovered-frontier',
+      sourceDiscoveredCount: inventory.sourceDiscoveredCount,
+      manifestCount: inventory.manifestCount,
+      excludedByReason: inventory.excludedByReason,
+      out,
+    }, null, 2));
     return;
   }
   const manifestFile = stringArg(args, 'manifest-file', '');

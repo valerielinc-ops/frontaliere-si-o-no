@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   classifyDocument,
+  collectDiscoveredInventory,
   collectSitemapInventory,
   crawlPartition,
   extractInternalLinks,
@@ -334,11 +335,74 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(links).toEqual(['https://frontaliereticino.ch/cerca-lavoro-ticino/', 'https://frontaliereticino.ch/contattaci/']);
   });
 
+  it('builds a bounded second frontier and keeps dynamic or malformed links as evidence', () => {
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/in-sitemap/`] },
+      reports: [{
+        discoveredOutOfSitemap: [
+          `${BASE}/in-sitemap/`,
+          `${BASE}/storico/settimana-18-2026/`,
+          `${BASE}/calcola-stipendio/?reddito=100000`,
+          `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
+          `${BASE}/assets/app.js`,
+        ],
+      }],
+    });
+
+    expect(frontier.urls).toEqual([`${BASE}/storico/settimana-18-2026/`]);
+    expect(frontier.sourceDiscoveredCount).toBe(4);
+    expect(frontier.excludedByReason).toEqual({
+      'dynamic-query': 1,
+      'malformed-route': 1,
+      'non-html-or-private': 1,
+    });
+    expect(frontier.findings).toEqual([expect.objectContaining({
+      code: 'internal-link-malformed',
+      url: `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
+    })]);
+    expect(frontier.folders).toEqual({ '/storico/': 1 });
+  });
+
   it('fails closed when a partition is missing or duplicated', () => {
     const base = (partition) => ({ schemaVersion: 1, baseUrl: BASE, manifestCount: 2, partition, partitions: 2, partitionTotal: 1, checkedCount: 1, codeCounts: {}, statusCounts: { 200: 1 }, folderStats: {}, findings: [], discoveredOutOfSitemap: [] });
     const summary = aggregateCrawlReports([base(0), base(0)], { manifestCount: 2, sitemapCount: 1, baseUrl: BASE });
     expect(summary.coverageOk).toBe(false);
     expect(summary.coverageErrors.join(' ')).toMatch(/duplicata|mancante|diversa/);
+  });
+
+  it('aggregates sitemap coverage with the internally linked HTML frontier', () => {
+    const sitemapUrl = `${BASE}/in-sitemap/`;
+    const frontierUrl = `${BASE}/storico/settimanale-18-2026/`;
+    const makeReport = (url, partition = 0) => ({
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: 1,
+      partition,
+      partitions: 1,
+      partitionTotal: 1,
+      checkedCount: 1,
+      codeCounts: { 'http-error': 1 },
+      statusCounts: { 404: 1 },
+      folderStats: { '/storico/': { checked: 1, statuses: { 404: 1 }, findings: { 'http-error': 1 } } },
+      findings: [{ code: 'http-error', url, root: '/storico/', status: 404, detail: 'HTTP 404' }],
+      discoveredOutOfSitemap: [],
+    });
+    const summary = aggregateCrawlReports(
+      [makeReport(sitemapUrl)],
+      { baseUrl: BASE, sitemapCount: 1, manifestCount: 1, urls: [sitemapUrl] },
+      {
+        supplementalReports: [makeReport(frontierUrl)],
+        supplementalManifest: { baseUrl: BASE, kind: 'discovered-frontier', manifestCount: 1, urls: [frontierUrl] },
+      },
+    );
+
+    expect(summary.coverageOk).toBe(true);
+    expect(summary.manifestCount).toBe(2);
+    expect(summary.checkedCount).toBe(2);
+    expect(summary.supplementalManifestCount).toBe(1);
+    expect(summary.scopes.map((scope) => scope.name)).toEqual(['sitemap', 'frontiera interna']);
+    expect(summary.actionableCount).toBe(2);
+    expect(buildIssueBody(summary)).toContain('Frontiera interna crawlable: **1 URL**');
   });
 
   it('treats a partially unread sitemap graph as incomplete coverage', () => {
