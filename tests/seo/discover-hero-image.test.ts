@@ -144,6 +144,12 @@ describe('Discover hero image — fleet guard', () => {
     }
   });
 
+  it('preloads the annual report hero so it can become the LCP image', () => {
+    const src = read('build-plugins/annualReportPlugin.ts');
+    expect(src).toContain('extraHeadHtml: `<link rel="preload" as="image"');
+    expect(src).toContain('href="${heroImageUrl}"');
+  });
+
   it('keeps the hero origin identical to BASE_URL without importing it', () => {
     // `seoHeroImage.ts` holds its own origin literal rather than importing
     // BASE_URL, because `constants.ts` reads two CSS files out of `public/`

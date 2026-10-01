@@ -16,4 +16,11 @@ describe('static SEO page landmarks', () => {
       expect(source).toContain('<div class="s-EDtWsL">');
     }
   });
+
+  it('keeps annual report pages to the shell-provided main landmark', () => {
+    const source = fs.readFileSync(path.join(root, 'build-plugins/annualReportPlugin.ts'), 'utf8');
+
+    expect(source).not.toContain('<main class="s-xzWvwM">');
+    expect(source).toContain('<div class="s-xzWvwM">');
+  });
 });

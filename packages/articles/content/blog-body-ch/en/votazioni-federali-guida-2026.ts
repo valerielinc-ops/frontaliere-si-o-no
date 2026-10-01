@@ -5,4 +5,11 @@ const bodyVotazioniFederaliGuida2026: Record<string, string> = {
     'blog.article.votazioni-federali-guida-2026.faq': '[{"q":"What is the \'For Safe Eating\' initiative?","a":"The initiative, promoted by activist Franziska Herren, calls on the Confederation to actively promote the production and consumption of plant-based foods. The aim is to push the agricultural system towards more sustainable practices. Opponents criticize the initiative as a \'vegan diktat\' that ignores the concrete needs of the Swiss agricultural sector."},{"q":"What is the main theme of the neutrality initiative?","a":"The initiative aims to enshrine in the Federal Constitution a more rigid conception of Swiss neutrality. The debate, which will bring the Swiss to the polls on 27 September 2026, concerns the need to establish whether neutrality should remain an absolute and immutable principle or whether, on the contrary, it should be endowed with greater flexibility to allow Switzerland to respond effectively to the changed conditions of international geopolitics."},{"q":"What were the recent federal votes in Switzerland?","a":"The Swiss people have voted on several crucial issues in recent months. These include the votes of 30 November 2025 on civil service and inheritance taxation, followed by those of 8 March 2026 on broadcasting royalties, individual taxation, cash and the climate fund. Finally, on 14 June 2026, the vote was held on the initiative \'No to a 10 million Switzerland!\' and on the revision of the civil service law."}]',
 };
 
+for (const key of Object.keys(bodyVotazioniFederaliGuida2026)) {
+    bodyVotazioniFederaliGuida2026[key] = bodyVotazioniFederaliGuida2026[key].replace(
+        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
+        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
+    );
+}
+
 export default bodyVotazioniFederaliGuida2026;
