@@ -9,7 +9,7 @@ import {
   isVereinaklostersJob,
   isTrustedDomain,
 } from '../scripts/lib/vereinaklosters-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
 import {
   authoritativeEmptySnapshotValidator,
@@ -220,7 +220,13 @@ describe('Vereina crawler parser', () => {
       expect(isAuthoritativeEmptySnapshot(listings)).toBe(true);
       expect((listings as any).authoritativeEmptyEvidence)
         .toContain('Dieses Unternehmen sucht aktuell nicht nach Verstärkung');
-      expect(authoritativeEmptySnapshotValidator(VEREINAKLOSTERS_COMPANY_NAME)(listings)).toBe(true);
+      // The pipeline verdict with the options the runner declares.
+      expect(evaluateAuthoritativeSnapshot(listings, {
+        validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(VEREINAKLOSTERS_COMPANY_NAME),
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+        companyLabel: VEREINAKLOSTERS_COMPANY_NAME,
+      } as any).authoritativeEmptySnapshot).toBe(true);
       // The footer chrome link no longer counts as a listing: the empty-page
       // rescue ran (and found nothing) instead of being skipped.
       expect(runtime.jinaFetchImpl).toHaveBeenCalled();
