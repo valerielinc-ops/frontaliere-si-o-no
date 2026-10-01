@@ -172,6 +172,18 @@ async function main() {
       totalFailed++;
       continue;
     }
+    const translatedVerdict = titleLooksUntranslated({
+      title: translated,
+      sourceTitle,
+      sourceLang: sl,
+      targetLocale: candidate.locale,
+      company: job.company || '',
+      location: job.addressLocality || job.location || '',
+    });
+    if (translatedVerdict.untranslated) {
+      totalFailed++;
+      continue;
+    }
 
     if (!DRY_RUN) {
       tbl[candidate.locale] = translated;
