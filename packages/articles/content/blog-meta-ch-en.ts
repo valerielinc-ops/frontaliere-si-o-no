@@ -7379,6 +7379,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Council of States: yes to EU health agreement',
     'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 yes, 11 no: health decree approved. Optional referendum chosen. Electricity paused.',
     'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'The Federal Palace in Bern during the Council of States session',
+    'blog.article.spese-canton-berna-2026.title': 'Swiss cost of living 2026: Canton of Bern in comparison',
+    'blog.article.spese-canton-berna-2026.excerpt': 'Rents, taxation, KVG and contributions: 2026 guide to the cost of living in the canton of Bern, with rules and comparisons valid in Switzerland.',
+    'blog.article.spese-canton-berna-2026.imageAlt': 'Canton Bern: household budget with rent, groceries and insurance',
 };
 
 export default blogMetaChEn;

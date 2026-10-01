@@ -7379,6 +7379,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Conseil des États : oui à l’accord sanitaire de l’UE',
     'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 oui, 11 non : décret sanitaire approuvé. Référendum optionnel choisi. L’électricité est en pause.',
     'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Le Palais fédéral à Berne lors de la session du Conseil des États',
+    'blog.article.spese-canton-berna-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Berne en comparaison',
+    'blog.article.spese-canton-berna-2026.excerpt': 'Loyers, fiscalité, KVG et contributions : guide 2026 du coût de la vie dans le canton de Berne, avec règles et comparaisons valides en Suisse.',
+    'blog.article.spese-canton-berna-2026.imageAlt': 'Canton de Berne: budget du ménage entre loyer, achats et assurance',
 };
 
 export default blogMetaChFr;
