@@ -309,6 +309,12 @@ export function verifyCheckoutProfiles() {
       // 2. nessun percorso letterale letto da quel codice deve finire fuori
       const tracked = trackedPaths();
       for (const rel of (job.closure ?? [])) {
+        // In `--extra-only` mode the helper's legacy shared-data branches are
+        // deliberately dormant; only the explicit extra path is read. The
+        // analyzer excludes that helper from the bucket corpus for the same
+        // reason, so its literal legacy paths must not make the verifier
+        // reintroduce the very buckets the isolated mode avoids.
+        if (job.extraOnlyDataCommit && rel === 'scripts/lib/git-commit-data.sh') continue;
         let src;
         try { src = fs.readFileSync(path.join(ROOT, rel), 'utf8'); } catch { continue; }
         for (const lit of literalPathsIn(src)) {
