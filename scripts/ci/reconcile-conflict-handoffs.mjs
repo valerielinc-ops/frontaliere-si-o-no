@@ -225,11 +225,13 @@ function readOrigin(num) {
     '--json', 'state,mergedAt,mergeable,mergeStateStatus,headRefOid,labels']);
 }
 
-function closeIssue(number, { reason, comment }) {
+function closeIssue(number, { reason, comment, keeper }) {
   if (gh(['issue', 'comment', String(number), '--repo', REPO, '--body', comment]) === null) return false;
   if (reason === 'duplicate') {
-    if (gh(['api', '-X', 'PATCH', `repos/${REPO}/issues/${number}`,
-      '-f', 'state=closed', '-f', 'state_reason=duplicate']) !== null) return true;
+    // `--duplicate-of` dove il `gh` del runner lo conosce, altrimenti «not
+    // planned»: il commento nomina comunque la issue che resta. Niente PATCH
+    // sull'oggetto issue (guard #926 del corpus, che il file condivide).
+    if (gh(['issue', 'close', String(number), '--repo', REPO, '--duplicate-of', String(keeper)]) !== null) return true;
     return gh(['issue', 'close', String(number), '--repo', REPO, '--reason', 'not planned']) !== null;
   }
   return gh(['issue', 'close', String(number), '--repo', REPO, '--reason', 'completed']) !== null;
@@ -285,7 +287,7 @@ function main() {
       console.log(`[dry] chiuderei #${action.issue.number} (${action.reason})`);
       continue;
     }
-    if (closeIssue(action.issue.number, { reason: action.reason, comment })) {
+    if (closeIssue(action.issue.number, { reason: action.reason, comment, keeper: action.keeper })) {
       closed.push(action);
       console.log(`#${action.issue.number} chiusa (${action.reason}).`);
     } else {
