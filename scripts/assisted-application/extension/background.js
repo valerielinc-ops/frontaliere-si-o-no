@@ -118,3 +118,88 @@ chrome.tabs.onUpdated.addListener(async (tabId, info) => {
 chrome.tabs.onRemoved.addListener((tabId) => {
   chrome.storage.session.remove(tabKey(tabId));
 });
+
+// Updates: on the owner's Mac the folder Chrome loaded this extension from
+// follows the site's main branch (scripts/assisted-application/extension-sync.sh).
+// Once a minute the service worker compares its own files on disk with the
+// ones it was loaded with and, when they changed and no order is being
+// filled, reloads itself: nobody presses «Ricarica» in chrome://extensions.
+const OWN_FILES = ['manifest.json', 'background.js', 'bridge.js', 'runner-fields.js', 'filler.js', 'content.js'];
+const UPDATE_ALARM = 'update-check';
+// A fill left half-way for longer than this no longer holds an update back.
+const FILL_HOLD_MS = 2 * 60 * 60 * 1000;
+// Never twice in a row: a load that does not take is not retried every minute.
+const RELOAD_GAP_MS = 10 * 60 * 1000;
+
+async function fingerprint() {
+  const parts = await Promise.all(OWN_FILES.map(async (file) => {
+    const response = await fetch(chrome.runtime.getURL(file), { cache: 'no-store' }).catch(() => null);
+    return `${file}\n${response?.ok ? await response.text() : 'missing'}`;
+  }));
+  const digest = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(parts.join('\n\0\n')));
+  return Array.from(new Uint8Array(digest), (byte) => byte.toString(16).padStart(2, '0')).join('');
+}
+
+/** An order still being filled: none of its tabs saw the portal's confirmation yet. */
+async function fillInProgress(nowMs) {
+  const orders = new Map();
+  for (const [key, entry] of Object.entries(await chrome.storage.session.get(null))) {
+    if (!key.startsWith('tab:') || !entry?.kit) continue;
+    const order = orders.get(entry.kit.orderId) || { submitted: false, recent: false };
+    order.submitted = order.submitted || entry.state === 'submitted';
+    order.recent = order.recent || nowMs - Number(entry.openedAt || 0) < FILL_HOLD_MS;
+    orders.set(entry.kit.orderId, order);
+  }
+  return [...orders.values()].some((order) => order.recent && !order.submitted);
+}
+
+// A global of the worker: the end-to-end test (scripts/assisted-application/extension-e2e.mjs) calls it instead of waiting for the alarm.
+async function checkForUpdate() {
+  const nowMs = Date.now();
+  const current = await fingerprint();
+  const { loadedFingerprint } = await chrome.storage.session.get('loadedFingerprint');
+  if (!loadedFingerprint) {
+    await chrome.storage.session.set({ loadedFingerprint: current });
+    return { changed: false };
+  }
+  if (current === loadedFingerprint) return { changed: false };
+  if (await fillInProgress(nowMs)) return { changed: true, reloading: false, reason: 'filling' };
+  const { lastReloadAt } = await chrome.storage.local.get('lastReloadAt');
+  if (nowMs - Number(lastReloadAt || 0) < RELOAD_GAP_MS) return { changed: true, reloading: false, reason: 'just_reloaded' };
+  await chrome.storage.local.set({ lastReloadAt: nowMs });
+  // After the answer: whoever asked (the alarm, a test) is not cut off mid-call.
+  setTimeout(() => chrome.runtime.reload(), 100);
+  return { changed: true, reloading: true };
+}
+
+chrome.alarms.get(UPDATE_ALARM).then((alarm) => alarm || chrome.alarms.create(UPDATE_ALARM, { periodInMinutes: 1 }));
+chrome.alarms.onAlarm.addListener((alarm) => {
+  if (alarm.name === UPDATE_ALARM) checkForUpdate().catch(() => {});
+});
+
+chrome.runtime.onStartup.addListener(() => {
+  checkForUpdate().catch(() => {});
+});
+
+// Installed or just reloaded: these files are the loaded ones, and a queue tab
+// already open gets the bridge (the one it had belongs to the previous load,
+// cut off from this service worker). Once per worker, whichever comes first:
+// onInstalled, or the worker's first run after a load (a reload empties the
+// session storage), so an open queue never keeps a cut-off bridge, nor gets two.
+let loadSettled = null;
+function settleLoad() {
+  loadSettled = loadSettled || (async () => {
+    await chrome.storage.session.set({ loadedFingerprint: await fingerprint() });
+    const [{ matches, js }] = chrome.runtime.getManifest().content_scripts;
+    for (const tab of await chrome.tabs.query({ url: matches })) {
+      const target = { tabId: tab.id };
+      const [probe] = await chrome.scripting.executeScript({ target, func: () => Boolean(globalThis.compilaCandidaturaBridgeAlive?.()) }).catch(() => []);
+      if (!probe?.result) await chrome.scripting.executeScript({ target, files: js }).catch(() => {});
+    }
+  })();
+  return loadSettled;
+}
+chrome.runtime.onInstalled.addListener(() => {
+  settleLoad().catch(() => {});
+});
+chrome.storage.session.get('loadedFingerprint').then(({ loadedFingerprint }) => (loadedFingerprint ? null : settleLoad())).catch(() => {});
