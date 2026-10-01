@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alten-switzerland",
-  "assembledAt": "2026-10-01T00:23:27.106Z",
+  "assembledAt": "2026-10-01T09:23:39.412Z",
   "jobs": [
     {
       "title": "Project Manager – IT & Banking",
@@ -72,8 +72,8 @@
       "previousSlugs": [
         "project-manager-it-banking-alten-switzerland-chiasso",
         "project-manager-it-e-bancario-alten-switzerland-chiasso",
-        "project-manager-it-banking-alten-switzerland-switzerland",
         "pro-manager-alten-switzerland-switzerland",
+        "project-manager-it-banking-alten-switzerland-switzerland",
         "project-manager-it-e-bancario-alten-switzerland-switzerland"
       ],
       "sourceIdentity": "url:https://www.alten.ch/jobs/903-pipe-project-manager-it",
@@ -137,6 +137,7 @@
       "id": "alten-switzerland-9b082fa692be",
       "firstSeenAt": "2026-04-14T21:02:53.441Z",
       "sourceIdentity": "url:https://www.alten.ch/jobs/879-google-cloud-platform",
+      "salarySource": "reported",
       "previousSlugsByLocale": {
         "it": [
           "ingegnere-cloud-google-cloud-platform-alten-switzerland-switzerland"
@@ -144,8 +145,7 @@
       },
       "previousSlugs": [
         "ingegnere-cloud-google-cloud-platform-alten-switzerland-switzerland"
-      ],
-      "salarySource": "reported"
+      ]
     }
   ]
 }
