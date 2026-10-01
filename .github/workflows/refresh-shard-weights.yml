@@ -81,22 +81,62 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -euo pipefail
-          RUN_ID="$(gh run list --workflow=tests.yml --branch main --status success \
-            --limit 1 --json databaseId --jq '.[0].databaseId')"
-          if [ -z "${RUN_ID:-}" ] || [ "$RUN_ID" = "null" ]; then
+          # A green tests run is allowed to select zero files (for example a
+          # data-only push), and the timing upload correctly emits no artifact
+          # with `if-no-files-found: ignore`. Walk back over recent green main
+          # runs instead of assuming the newest green run has timing data.
+          if ! CANDIDATES="$(gh run list --workflow=tests.yml --branch main --status success \
+            --limit 20 --json databaseId,createdAt --jq '.[] | [.databaseId, .createdAt] | @tsv')"; then
+            echo "::error::Unable to list successful main tests runs — cannot refresh weights."
+            exit 1
+          fi
+          if [ -z "${CANDIDATES:-}" ]; then
             echo "::error::No successful main tests run found — cannot refresh weights."
             exit 1
           fi
-          echo "Using tests run $RUN_ID"
-          echo "TIMING_RUN_ID=$RUN_ID" >> "$GITHUB_ENV"
+
           rm -rf .shard-timing && mkdir -p .shard-timing
-          gh run download "$RUN_ID" -p 'shard-timing-*' -D .shard-timing || true
-          count="$(find .shard-timing -name '*.json' | wc -l | tr -d ' ')"
-          echo "Downloaded $count timing file(s)"
-          if [ "$count" -eq 0 ]; then
-            echo "::error::No shard-timing-* artifacts on run $RUN_ID (retention is 7d — run a fresh tests build first)."
+          FOUND_RUN_ID=""
+          SHARD_TIMING_CANDIDATE_COUNT="$(printf '%s\n' "$CANDIDATES" | awk 'NF { count++ } END { print count + 0 }')"
+          while IFS=$'\t' read -r CANDIDATE_ID CANDIDATE_CREATED_AT; do
+            [ -n "$CANDIDATE_ID" ] || continue
+            rm -rf .shard-timing && mkdir -p .shard-timing
+            echo "Checking tests run $CANDIDATE_ID (created $CANDIDATE_CREATED_AT) for live shard timings"
+
+            # Resolve the artifact family through the API first. This makes a
+            # missing/expired artifact distinguishable from a download/API
+            # error: only the former is a reason to try an older run.
+            if ! ARTIFACT_NAMES="$(gh api \
+              "repos/${GITHUB_REPOSITORY}/actions/runs/${CANDIDATE_ID}/artifacts?per_page=100" \
+              --paginate \
+              --jq '.artifacts[] | select(.expired == false and (.name | startswith("shard-timing-"))) | .name')"; then
+              echo "::error::Unable to list artifacts for tests run $CANDIDATE_ID — refusing to use an older run as a fallback."
+              exit 1
+            fi
+            if [ -z "${ARTIFACT_NAMES:-}" ]; then
+              echo "No live shard-timing-* artifacts on run $CANDIDATE_ID — trying an older green run."
+              continue
+            fi
+
+            if ! gh run download "$CANDIDATE_ID" -p 'shard-timing-*' -D .shard-timing; then
+              echo "::error::Shard timing artifact is listed but could not be downloaded from run $CANDIDATE_ID."
+              exit 1
+            fi
+            count="$(find .shard-timing -type f -name '*.json' | wc -l | tr -d ' ')"
+            echo "Downloaded $count timing file(s) from run $CANDIDATE_ID"
+            if [ "$count" -gt 0 ]; then
+              FOUND_RUN_ID="$CANDIDATE_ID"
+              break
+            fi
+            echo "::warning::Run $CANDIDATE_ID advertised shard timings but produced no JSON files — trying an older green run."
+          done <<< "$CANDIDATES"
+
+          if [ -z "$FOUND_RUN_ID" ]; then
+            echo "::error::No live shard-timing-* artifacts found in $SHARD_TIMING_CANDIDATE_COUNT successful main tests runs (retention is 7d — run a fresh tests build first)."
             exit 1
           fi
+          echo "Using tests run $FOUND_RUN_ID"
+          echo "TIMING_RUN_ID=$FOUND_RUN_ID" >> "$GITHUB_ENV"
 
       - name: Regenerate weights
         run: |
