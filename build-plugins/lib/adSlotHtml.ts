@@ -28,6 +28,7 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: b
     `data-ad-client="${AD_CLIENT}"`,
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
+    `data-ad-placement="${slotKey.toLowerCase()}"`,
   ];
   if (opts?.collapseWhenUnfilled) attrs.push(`data-ft-static-ad="true"`);
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);

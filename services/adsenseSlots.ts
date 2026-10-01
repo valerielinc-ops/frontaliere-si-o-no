@@ -414,24 +414,14 @@ export const MULTIPLEX_DESKTOP_MIN_WIDTH = 1280;
  *  mobile/SSR floor is lifted to this on wide viewports. */
 export const MULTIPLEX_DESKTOP_MIN_HEIGHT = 600;
 
-/**
- * How long a reserved ad box may stay unresolved before its space is given
- * back. An ad that has not reported `data-ad-status` by then is not "slow",
- * it is blocked — Privacy Sandbox / Attestation / ad blockers cut AdSense off
- * before it can answer `unfilled`, so the box would hold its reserve forever.
- *
- * 12s is the value measured for our own slots: most genuine fills land under
- * 2s, but Privacy Sandbox auctions can legitimately settle slower, and an 8s
- * cutoff false-collapsed late fills (depressing the measured fill rate). Both
- * consumers — `AdSenseBanner` for the slots we declare and `autoAdCollapse`
- * for the containers Google injects — must use the SAME budget: two different
- * timeouts would collapse two halves of the same page at two different moments.
- */
+/** Response observation budget. Manual slots report waiting_response after
+ * this deadline and keep watching for late fills; only explicit failures are
+ * terminal. Auto-ad recovery retains its separate late-creative restoration. */
 export const AD_FILL_TIMEOUT_MS = 12_000;
 
 /**
  * Attribute on the `<AdSenseBanner>` wrapper carrying its lifecycle state
- * (`idle` | `waiting_width` | `loading` | `filled` | `collapsed`). The SPA twin
+ * (`idle` | `waiting_width` | `loading` | `waiting_response` | `unfilled` | `filled` | `collapsed`). The SPA twin
  * of the static `data-ft-static-ad-collapsed` marker: the per-page diagnosis
  * (services/adPageDiag.ts and its inline twin in the AdSense loader) counts a
  * manual slot inside a `collapsed` wrapper as collapsed. Read-only telemetry

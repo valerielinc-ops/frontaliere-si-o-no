@@ -198,10 +198,8 @@ export function subscribe(listener: Listener): () => void {
  * banner or a sign-in gate is not an offer that can be postponed.
  *
  * `REWARDED_APPLICATION_OFFER` holds the queue while the rewarded application
- * dialog, and the Google video it opens, is on screen. The newsletter popup
- * toggles `body.modal-open`, whose CSS hides every `[id^="google_ads"]` and
- * doubleclick iframe: letting it in would hide the rewarded video mid-play,
- * losing both the reward and the impression. Only the chatbot panel, which
+ * dialog, and the Google video it opens, is on screen. Site prompts yield
+ * without changing Google ad visibility. Only the chatbot panel, which
  * the visitor opens deliberately, ranks above it.
  */
 export const POPUP_PRIORITY = {
@@ -220,3 +218,17 @@ export const POPUP_PRIORITY = {
  JOB_ALERT_STICKY: 40,
  NEWSLETTER: 20,
 } as const;
+
+/** Shared frequency cap for unsolicited promotions. Auth/consent never use it. */
+const PROMOTIONAL_PROMPT_KEY = 'ft_promotional_prompt_at';
+let lastPromotionalPromptAt = 0;
+export function canShowPromotionalPrompt(now = Date.now()): boolean {
+  try {
+    const last = Math.max(lastPromotionalPromptAt, Number(sessionStorage.getItem(PROMOTIONAL_PROMPT_KEY) || 0));
+    return !last || now - last >= 60_000;
+  } catch { return !lastPromotionalPromptAt || now - lastPromotionalPromptAt >= 60_000; }
+}
+export function markPromotionalPromptShown(now = Date.now()): void {
+  lastPromotionalPromptAt = now;
+  try { sessionStorage.setItem(PROMOTIONAL_PROMPT_KEY, String(now)); } catch { /* storage optional */ }
+}

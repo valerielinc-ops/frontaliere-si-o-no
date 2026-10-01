@@ -6617,20 +6617,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // static `infeedAdListItemHtml`; cadence is the shared `shouldPlaceInfeedAd`.
  const renderInfeedAd = (keySuffix: string, experimentVariant?: InfeedAdVariant): React.ReactNode => {
  const cfg = isMobile ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
- // Reserve from the registry, never a literal: this wrapper hard-coded 280 and
- // silently outlived the #4302 raise to 336, under-reserving every in-feed unit
- // in the list (up to JOBLIST_AD_MAX_PER_LIST per page) — issue #4677.
+ // AdSenseBanner owns both the registry reserve and its terminal collapse.
  return (
  <div
  key={`infeed-${isMobile ? 'm' : 'd'}-${keySuffix}-${adRefreshKey}`}
- style={{ ['--ad-mh' as string]: `${cfg.placeholderMinHeight}px` }}
- className="min-h-[var(--ad-mh)]"
+
  {...(experimentVariant ? {
    'data-ad-experiment': INFEED_AD_EXPERIMENT_ID,
    'data-ad-variant': experimentVariant,
  } : {})}
  >
  <AdSenseBanner
+ placement={`joblist-infeed-${keySuffix}`}
  adSlot={cfg.slot}
  adFormat={cfg.format}
  fullWidthResponsive={cfg.fullWidthResponsive}

@@ -164,3 +164,18 @@ describe('C3b — popup queue promotion timer', () => {
     }
   });
 });
+
+describe('promotional frequency cap', () => {
+  it('shares a 60 second gap without changing urgent queue ownership', async () => {
+    const { canShowPromotionalPrompt, markPromotionalPromptShown } = await import('@/services/popupQueue');
+    const storage = new Map<string, string>();
+    vi.stubGlobal('sessionStorage', { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, value: string) => storage.set(key, value) });
+    try {
+      expect(canShowPromotionalPrompt(100_000)).toBe(true);
+      markPromotionalPromptShown(100_000);
+      expect(canShowPromotionalPrompt(159_999)).toBe(false);
+      expect(requestSlot(COOKIE_SLOT, POPUP_PRIORITY.COOKIE_CONSENT)).toBe(true);
+      expect(canShowPromotionalPrompt(160_000)).toBe(true);
+    } finally { releaseSlot(COOKIE_SLOT); vi.unstubAllGlobals(); }
+  });
+});
