@@ -15,10 +15,6 @@ permissions:
   id-token: write
   actions: read
 
-concurrency:
-  group: 'pages-deploy'
-  cancel-in-progress: false
-
 jobs:
   validate-promotion-trigger:
     name: validate restore promotion trigger
@@ -86,6 +82,11 @@ jobs:
     if: needs.validate-source-build.result == 'success'
     runs-on: ubuntu-latest
     timeout-minutes: 30
+    # Share only the actual Pages upload lock with deploy-publish.yml. The
+    # source admission above is read-only and must not occupy that slot.
+    concurrency:
+      group: ${{ needs.validate-source-build.result == 'success' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
+      cancel-in-progress: false
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

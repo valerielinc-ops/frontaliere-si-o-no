@@ -18,6 +18,7 @@
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import path from 'node:path';
+import { shouldAdvanceLastKnownGood } from './lib/last-known-good-order.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -99,12 +100,21 @@ switch (command) {
     const { 'run-id': runId, sha } = flags;
     if (!runId || !sha) throw new Error('--run-id and --sha are required');
     const db = await getDb();
-    await db.collection(COLL).doc('last_known_good').set({
-      runId,
-      sha,
-      updatedAt: new Date().toISOString(),
+    const goodRef = db.collection(COLL).doc('last_known_good');
+    await db.runTransaction(async (transaction) => {
+      const current = await transaction.get(goodRef);
+      const currentRunId = current.exists ? current.data()?.runId : null;
+      if (!shouldAdvanceLastKnownGood(currentRunId, runId)) {
+        console.log(`[deploy-registry] ignoring stale last_known_good run ${runId} (current ${currentRunId})`);
+        return;
+      }
+      transaction.set(goodRef, {
+        runId,
+        sha,
+        updatedAt: new Date().toISOString(),
+      });
     });
-    console.log(`[deploy-registry] last_known_good → run ${runId}`);
+    console.log(`[deploy-registry] last_known_good candidate evaluated for run ${runId}`);
     break;
   }
 

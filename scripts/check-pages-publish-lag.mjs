@@ -3,9 +3,9 @@
  *
  * `deploy.yml` only BUILDS and uploads a `github-pages` artifact. A separate
  * workflow, `deploy-publish.yml` (triggered via `workflow_run` on deploy.yml
- * completion), does the actual `actions/deploy-pages` PUBLISH, under
- * `concurrency: { group: pages-deploy, cancel-in-progress: false }`. Per
- * GitHub's documented 1-running+1-pending cap for a concurrency group, a
+ * completion), does the actual `actions/deploy-pages` PUBLISH in the
+ * deploy job's `concurrency: { group: pages-deploy, cancel-in-progress: false }`.
+ * Per GitHub's documented 1-running+1-pending cap for a concurrency group, a
  * burst of push-triggered build completions (bot articles, jobs-sync,
  * dist-history-append commits...) routinely supersedes/skips most pending
  * publish attempts before `actions/deploy-pages` ever runs — deploy-
@@ -107,7 +107,8 @@ const API = 'https://api.github.com';
  *       created→completed (queue wait + execution):
  *           p50 171 min · p90 251 min · p95 273 min · max 276 min
  *       Execution alone, from job timings: 111–166 min (median ~137).
- *   (b) `deploy-publish.yml` PUBLISH, under `concurrency: pages-deploy`.
+ *   (b) `deploy-publish.yml` PUBLISH, under the deploy job's
+ *       `concurrency: pages-deploy`.
  *       The 1-running+1-pending cap can drop a superseded publish entirely,
  *       which defers that content to the NEXT build's publish — one extra
  *       full build cycle, so up to +166 min. The publish tail itself

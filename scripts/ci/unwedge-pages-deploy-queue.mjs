@@ -4,9 +4,9 @@
  *
  * WHY THIS EXISTS
  *
- * `deploy-publish.yml` holds `concurrency: { group: pages-deploy,
- * cancel-in-progress: false }`. That `false` is load-bearing: interrupting an
- * in-flight `actions/deploy-pages` is what latches GitHub Pages into
+ * The `deploy` job in `deploy-publish.yml` holds a job-level `concurrency`
+ * group `pages-deploy` with `cancel-in-progress: false`. That `false` is
+ * load-bearing: interrupting an in-flight `actions/deploy-pages` is what latches GitHub Pages into
  * status=errored and freezes the site on an old build (prod outage
  * 2026-06-05). The cost of it is that GitHub will never evict the group's
  * holder, however long it holds.

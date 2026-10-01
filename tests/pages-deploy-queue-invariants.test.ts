@@ -6,7 +6,8 @@
  * 2026-08-07T05:40Z, last success 2026-07-27T22:15Z) while CI stayed quiet: the
  * runs that were destroyed ended `cancelled` or `skipped`, neither of which
  * turns anything red, and the run holding the queue never reached a conclusion
- * at all. There is no test-suite signal for "the publish queue is jammed", so
+ * at all. The Pages upload now owns the queue lock independently from the
+ * long dist validator. There is no test-suite signal for "the publish queue is jammed", so
  * these assertions are the only thing standing between a plausible-looking edit
  * and another ten silent days.
  *
@@ -19,6 +20,7 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 import {
   selectWedgedRuns,
   // @ts-expect-error — plain .mjs, no type declarations
@@ -28,7 +30,9 @@ const read = (p: string) => readFileSync(resolve(p), 'utf8');
 
 describe('deploy-publish.yml — pages-deploy concurrency', () => {
   const workflow = read('.github/workflows/deploy-publish.yml');
-  const group = /^concurrency:\s*\n\s*group:\s*(.+)$/m.exec(workflow)?.[1] ?? '';
+  const document = YAML.parse(workflow) as any;
+  const deploy = document.jobs.deploy;
+  const group = deploy.concurrency?.group ?? '';
 
   it('routes no-op runs (upstream build not successful) to a per-run group', () => {
     // `workflow_run: types: [completed]` fires for CANCELLED builds too, and
@@ -56,8 +60,26 @@ describe('deploy-publish.yml — pages-deploy concurrency', () => {
     // Pages into status=errored and freeze the site on an old build (prod
     // outage 2026-06-05); the workflow carries a whole "Reset Pages errored
     // state" step to dig out of exactly that.
-    const block = workflow.slice(workflow.indexOf('\nconcurrency:'));
-    expect(/cancel-in-progress:\s*false/.test(block.slice(0, 300))).toBe(true);
+    expect(deploy.concurrency?.['cancel-in-progress']).toBe(false);
+  });
+
+  it('does not let dist validation hold the Pages or post-deploy lock', () => {
+    // The validator can legitimately use the full five-hour budget. It must
+    // queue only other validators, while Pages and side-effects keep draining.
+    expect(document.concurrency).toBeUndefined();
+    expect(document.jobs['validate-dist'].concurrency.group).toContain('dist-validation');
+    expect(document.jobs['validate-dist'].concurrency.group).not.toContain('pages-deploy');
+    expect(document.jobs.publish.concurrency.group).toContain('pages-post-deploy');
+    expect(document.jobs.publish.concurrency.group).not.toContain('pages-deploy');
+    expect(document.jobs.publish.concurrency['cancel-in-progress']).toBe(false);
+  });
+
+  it('keeps the recovery workflow on the same job-scoped Pages lock', () => {
+    const restore = YAML.parse(read('.github/workflows/restore-from-artifact.yml')) as any;
+    expect(restore.concurrency).toBeUndefined();
+    expect(restore.jobs.deploy.concurrency.group).toContain('pages-deploy');
+    expect(restore.jobs.deploy.concurrency.group).toContain('validate-source-build.result');
+    expect(restore.jobs.deploy.concurrency['cancel-in-progress']).toBe(false);
   });
 });
 
