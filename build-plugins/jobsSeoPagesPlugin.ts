@@ -13853,10 +13853,10 @@ ${staticAnalyticsHtml}
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
  const validThroughMs = Date.parse(realValidThrough);
- // Preserve source publication dates, including a real same-day closure.
+ // Preserve source publication dates that form a positive historical window.
  const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
  .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) <= validThroughMs);
+ .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
  const observedDatePosted = [ejData?.firstSeenAt, ejData?.crawledAt]
  .map(safeIsoDate)
  .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);

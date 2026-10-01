@@ -43,7 +43,7 @@ const archivedJobs = [
   archiveRecord('archived-audit-position'),
   archiveRecord('archived-crawl-only', { ...noPostingDates, crawledAt: archiveDates.crawled }),
   archiveRecord('archived-first-seen', { datePosted: undefined, postedDate: undefined, firstSeenAt: archiveDates.posted }),
-  archiveRecord('archived-source-on-expiry', { datePosted: archiveDates.expired, postedDate: archiveDates.expired }),
+  archiveRecord('archived-source-on-expiry', { ...noPostingDates, datePosted: archiveDates.expired, expiredAt: archiveDates.expired }),
   archiveRecord('archived-posted-only', { ...noPostingDates, postedDate: archiveDates.posted }),
   archiveRecord('archived-expiry-only', { ...noPostingDates, expiredAt: archiveDates.expired }),
   archiveRecord('archived-future-expiry', { expiredAt: archiveDates.future }),
@@ -172,8 +172,8 @@ describe('job-board emitted output', () => {
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
     ['archived-crawl-only', historicalEstimate(archiveDates.crawled), archiveDates.crawled],
     ['archived-first-seen', archiveDates.posted, archiveDates.expired],
-    ['archived-source-on-expiry', archiveDates.expired, archiveDates.expired],
-    ['archived-posted-only', archiveDates.posted, archiveDates.posted],
+    ['archived-source-on-expiry', historicalEstimate(archiveDates.expired), archiveDates.expired],
+    ['archived-posted-only', historicalEstimate(archiveDates.posted), archiveDates.posted],
     ['archived-expiry-only', historicalEstimate(archiveDates.expired), archiveDates.expired],
     ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
     ['archived-late-posting', archiveDates.crawled, archiveDates.expired],
@@ -206,9 +206,8 @@ describe('job-board emitted output', () => {
       expect(posting.validThrough).toBe(validThrough);
       expect(posting.directApply).toBe(false);
       expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
-      expect(Date.parse(posting.datePosted)).toBeLessThanOrEqual(Date.parse(posting.validThrough));
-      if (['archived-crawl-only', 'archived-expiry-only', 'archived-sparse'].includes(slug)) {
-        expect(Date.parse(posting.datePosted)).toBeLessThan(Date.parse(posting.validThrough));
+      expect(Date.parse(posting.datePosted)).toBeLessThan(Date.parse(posting.validThrough));
+      if (['archived-crawl-only', 'archived-expiry-only', 'archived-sparse', 'archived-source-on-expiry', 'archived-posted-only'].includes(slug)) {
         expect(Date.parse(posting.validThrough) - Date.parse(posting.datePosted)).toBe(30 * 86400000);
       }
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
