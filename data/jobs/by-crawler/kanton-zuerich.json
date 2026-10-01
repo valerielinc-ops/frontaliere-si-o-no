@@ -6602,12 +6602,12 @@
     },
     {
       "id": "kanton-zuerich-71b4802d26a2",
-      "slug": "leitung-wascherei-kanton-zuerich-regensdorf",
+      "slug": "gestione-della-lavanderia-kantonale-verwaltung-zurich-regensdorf",
       "slugByLocale": {
-        "it": "leitung-wascherei-kanton-zuerich-regensdorf",
-        "en": "leitung-wascherei-kanton-zuerich-regensdorf",
+        "it": "gestione-della-lavanderia-kantonale-verwaltung-zurich-regensdorf",
+        "en": "laundry-management-kantonale-verwaltung-zurich-regensdorf",
         "de": "leitung-wascherei-kanton-zuerich-regensdorf",
-        "fr": "leitung-wascherei-kanton-zuerich-regensdorf"
+        "fr": "gestion-de-la-blanchisserie-kantonale-verwaltung-zurich-regensdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6664,7 +6664,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-wascherei-kanton-zuerich-regensdorf"
+        ],
+        "en": [
+          "leitung-wascherei-kanton-zuerich-regensdorf"
+        ],
+        "fr": [
+          "leitung-wascherei-kanton-zuerich-regensdorf"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-wascherei-kanton-zuerich-regensdorf"
+      ]
     },
     {
       "id": "kanton-zuerich-6cf1ef2fe19e",
@@ -9436,8 +9450,8 @@
       "slugByLocale": {
         "de": "mittelschullehrpersonen-mba-fur-mathematik-kanton-zuerich-8600",
         "it": "mittelschullehrpersonen-mba-per-mathematik-kantonale-verwaltung-zurich-8600",
-        "en": "mittelschullehrpersonen-mba-fur-mathematik-kantonale-verwaltung-zurich-8600",
-        "fr": "mittelschullehrpersonen-mba-fur-mathematik-kantonale-verwaltung-zurich-8600"
+        "en": "secondary-school-teachers-mba-for-mathematics-kantonale-verwaltung-zurich-8600",
+        "fr": "professeurs-d-ecole-secondaire-mba-pour-les-mathematiques-kantonale-verwaltung-zurich-8600"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -9488,10 +9502,17 @@
       "previousSlugsByLocale": {
         "it": [
           "mittelschullehrpersonen-mba-fur-mathematik-kanton-zuerich-8600"
+        ],
+        "en": [
+          "mittelschullehrpersonen-mba-fur-mathematik-kantonale-verwaltung-zurich-8600"
+        ],
+        "fr": [
+          "mittelschullehrpersonen-mba-fur-mathematik-kantonale-verwaltung-zurich-8600"
         ]
       },
       "previousSlugs": [
-        "mittelschullehrpersonen-mba-fur-mathematik-kanton-zuerich-8600"
+        "mittelschullehrpersonen-mba-fur-mathematik-kanton-zuerich-8600",
+        "mittelschullehrpersonen-mba-fur-mathematik-kantonale-verwaltung-zurich-8600"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,

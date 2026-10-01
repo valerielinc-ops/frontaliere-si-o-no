@@ -26873,12 +26873,12 @@
     },
     {
       "id": "stellentreff-a386781f75f0",
-      "slug": "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
+      "slug": "plastics-technologist-login-plexiglas-plastics-stellentreff-ag-dietikon-zurich",
       "slugByLocale": {
         "de": "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
-        "it": "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
+        "it": "plastics-technologist-login-plexiglas-plastics-stellentreff-ag-dietikon-zurich",
         "en": "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch",
-        "fr": "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch"
+        "fr": "technologue-en-plastique-login-plexiglas-plastiques-stellentreff-ag-dietikon-zurich"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -26933,7 +26933,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:44:18.707Z"
+      "firstSeenAt": "2026-10-01T09:44:18.707Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch"
+        ],
+        "fr": [
+          "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kunststofftechnologe-login-plexiglas-kunststoffe-dietikon-zurich-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-559df112475a",

@@ -4571,12 +4571,12 @@
     },
     {
       "id": "etat-de-fribourg-1bf9e211c3d8",
-      "slug": "economiste-etat-de-fribourg-ch",
+      "slug": "economista-etat-de-fribourg-fribourg",
       "slugByLocale": {
         "fr": "economiste-etat-de-fribourg-ch",
-        "it": "economiste-etat-de-fribourg-ch",
-        "en": "economiste-etat-de-fribourg-ch",
-        "de": "economiste-etat-de-fribourg-ch"
+        "it": "economista-etat-de-fribourg-fribourg",
+        "en": "economist-etat-de-fribourg-fribourg",
+        "de": "okonom-etat-de-fribourg-fribourg"
       },
       "company": "Etat de Fribourg",
       "companyKey": "etat-de-fribourg",
@@ -4637,7 +4637,21 @@
       },
       "streetAddress": "Rue des Chanoines 17",
       "addressRegion": "FR",
-      "firstSeenAt": "2026-10-01T09:28:02.868Z"
+      "firstSeenAt": "2026-10-01T09:28:02.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "economiste-etat-de-fribourg-ch"
+        ],
+        "en": [
+          "economiste-etat-de-fribourg-ch"
+        ],
+        "de": [
+          "economiste-etat-de-fribourg-ch"
+        ]
+      },
+      "previousSlugs": [
+        "economiste-etat-de-fribourg-ch"
+      ]
     },
     {
       "id": "etat-de-fribourg-47bc565d9305",
@@ -4861,9 +4875,9 @@
     },
     {
       "id": "etat-de-fribourg-8a5c6feccca2",
-      "slug": "collaborateur-trice-administratif-ve-etat-de-fribourg",
+      "slug": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
       "slugByLocale": {
-        "it": "collaborateur-trice-administratif-ve-etat-de-fribourg",
+        "it": "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836",
         "en": "administrative-collaborator-etat-de-fribourg-fribourg",
         "de": "verwaltungsmitarbeiter-etat-de-fribourg-fribourg",
         "fr": "collaborateur-trice-administratif-ve-etat-de-fribourg-ch"
@@ -4948,7 +4962,7 @@
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
         "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
         "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-        "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836"
+        "collaborateur-trice-administratif-ve-etat-de-fribourg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4970,7 +4984,7 @@
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch-2",
           "associato-amministrativo-etat-de-fribourg-fribourg-c4b769",
           "collaborateur-trice-administratif-ve-etat-de-fribourg-ch",
-          "collaboratore-amministrativo-etat-de-fribourg-fribourg-858836"
+          "collaborateur-trice-administratif-ve-etat-de-fribourg"
         ],
         "en": [
           "administrative-collaborator-ve-etat-de-fribourg-fribourg"

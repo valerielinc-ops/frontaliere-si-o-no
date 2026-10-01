@@ -12627,12 +12627,12 @@
     },
     {
       "id": "stadler-rail-945cb93e8c4f",
-      "slug": "project-controller-stadler-rail-ch",
+      "slug": "responsabile-del-progetto-stadler-rail-wallisellen",
       "slugByLocale": {
         "de": "project-controller-stadler-rail-ch",
-        "it": "project-controller-stadler-rail-ch",
+        "it": "responsabile-del-progetto-stadler-rail-wallisellen",
         "en": "project-controller-stadler-rail-ch",
-        "fr": "project-controller-stadler-rail-ch"
+        "fr": "controleur-de-projet-stadler-rail-wallisellen"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12689,7 +12689,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:30:20.711Z"
+      "firstSeenAt": "2026-10-01T09:30:20.711Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-controller-stadler-rail-ch"
+        ],
+        "fr": [
+          "project-controller-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-controller-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-ea17a09bc878",

@@ -4221,12 +4221,12 @@
     },
     {
       "id": "spital-emmental-acaf36f2c2fb",
-      "slug": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+      "slug": "capo-della-stazione-di-emergenza-a-spital-emmental-langnau",
       "slugByLocale": {
-        "it": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
-        "en": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
+        "it": "capo-della-stazione-di-emergenza-a-spital-emmental-langnau",
+        "en": "head-of-department-emergency-station-a-spital-emmental-langnau",
         "de": "abteilungsleitung-notfallstation-a-spital-emmental-langnau",
-        "fr": "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        "fr": "chef-du-departement-station-d-urgence-a-spital-emmental-langnau"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -4285,7 +4285,21 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        ],
+        "en": [
+          "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        ],
+        "fr": [
+          "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+        ]
+      },
+      "previousSlugs": [
+        "abteilungsleitung-notfallstation-a-spital-emmental-langnau"
+      ]
     },
     {
       "id": "spital-emmental-b58680df96b4",

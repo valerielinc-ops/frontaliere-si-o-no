@@ -1783,12 +1783,12 @@
     },
     {
       "id": "siegfried-6a3a110c9279",
-      "slug": "external-siegfried-ch",
+      "slug": "esterno-siegfried-zofingen",
       "slugByLocale": {
         "de": "external-siegfried-ch",
-        "it": "external-siegfried-ch",
+        "it": "esterno-siegfried-zofingen",
         "en": "external-siegfried-ch",
-        "fr": "external-siegfried-ch"
+        "fr": "exterieur-siegfried-zofingen"
       },
       "company": "Siegfried",
       "companyKey": "siegfried",
@@ -1846,7 +1846,18 @@
         }
       },
       "addressRegion": "AG",
-      "firstSeenAt": "2026-10-01T09:17:15.657Z"
+      "firstSeenAt": "2026-10-01T09:17:15.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "external-siegfried-ch"
+        ],
+        "fr": [
+          "external-siegfried-ch"
+        ]
+      },
+      "previousSlugs": [
+        "external-siegfried-ch"
+      ]
     }
   ]
 }

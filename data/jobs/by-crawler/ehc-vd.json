@@ -4459,11 +4459,11 @@
     },
     {
       "id": "ehc-vd-8adf953417c6",
-      "slug": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
+      "slug": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
-        "it": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
-        "en": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne",
+        "it": "apprendistato-esa-assistente-socio-educativo-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "apprenticeship-esa-socio-educational-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "de": "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4521,16 +4521,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.356Z"
+      "firstSeenAt": "2026-10-01T09:15:43.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-ase-assistant-socio-educatif-f-h-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-b268473eaea3",
-      "slug": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne",
+      "slug": "apprentice-asa-assistenza-e-supporto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne",
-        "it": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne",
-        "en": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne",
-        "de": "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+        "it": "apprentice-asa-assistenza-e-supporto-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "apprentice-asa-care-and-support-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "de": "lehrling-asa-pflege-und-unterstutzung-m-w-ensemble-hospitalier-de-la-cote-ehc-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4586,15 +4597,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.353Z"
+      "firstSeenAt": "2026-10-01T09:15:43.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+        ],
+        "de": [
+          "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-asa-aide-en-soins-et-accompagnement-f-h-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-d0383b037aff",
-      "slug": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
+      "slug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
       "slugByLocale": {
         "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
-        "it": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
-        "en": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne",
+        "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
+        "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-aubonne",
         "de": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -4652,16 +4677,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.337Z"
+      "firstSeenAt": "2026-10-01T09:15:43.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+        ],
+        "en": [
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-aubonne"
+      ]
     },
     {
       "id": "ehc-vd-996edc538bf1",
-      "slug": "stagiaire-mpc-f-h-ehc-vd-morges",
+      "slug": "interno-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "stagiaire-mpc-f-h-ehc-vd-morges",
-        "it": "stagiaire-mpc-f-h-ehc-vd-morges",
-        "en": "stagiaire-mpc-f-h-ehc-vd-morges",
-        "de": "stagiaire-mpc-f-h-ehc-vd-morges"
+        "it": "interno-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "intern-mpc-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "interne-mpc-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4717,14 +4753,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.316Z"
+      "firstSeenAt": "2026-10-01T09:15:43.316Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpc-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "stagiaire-mpc-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "stagiaire-mpc-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpc-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-df0b1cf28c41",
-      "slug": "apprenti-assistant-medical-f-h-ehc-vd-morges",
+      "slug": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "apprenti-assistant-medical-f-h-ehc-vd-morges",
-        "it": "apprenti-assistant-medical-f-h-ehc-vd-morges",
+        "it": "assistente-medico-di-apprenti-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "apprenti-assistant-medical-f-h-ehc-vd-morges",
         "de": "apprenti-assistant-medical-f-h-ehc-vd-morges"
       },
@@ -4783,14 +4833,22 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.315Z"
+      "firstSeenAt": "2026-10-01T09:15:43.315Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-assistant-medical-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-assistant-medical-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-ebc4eb1a18e4",
-      "slug": "stagiaire-assistant-medical-f-h-ehc-vd-morges",
+      "slug": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "stagiaire-assistant-medical-f-h-ehc-vd-morges",
-        "it": "stagiaire-assistant-medical-f-h-ehc-vd-morges",
+        "it": "assistente-medico-addestratore-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "stagiaire-assistant-medical-f-h-ehc-vd-morges",
         "de": "stagiaire-assistant-medical-f-h-ehc-vd-morges"
       },
@@ -4849,7 +4907,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.313Z"
+      "firstSeenAt": "2026-10-01T09:15:43.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-assistant-medical-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-assistant-medical-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-9a045c66fdaf",
@@ -4927,12 +4993,12 @@
     },
     {
       "id": "ehc-vd-d9bb87c1748c",
-      "slug": "apprenti-informaticien-f-h-ehc-vd-morges",
+      "slug": "apprendista-del-computer-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "apprenti-informaticien-f-h-ehc-vd-morges",
-        "it": "apprenti-informaticien-f-h-ehc-vd-morges",
-        "en": "apprenti-informaticien-f-h-ehc-vd-morges",
-        "de": "apprenti-informaticien-f-h-ehc-vd-morges"
+        "it": "apprendista-del-computer-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "computer-apprentice-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "computerlehrling-m-w-ensemble-hospitalier-de-la-cote-ehc-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
       "companyKey": "ehc-vd",
@@ -4988,15 +5054,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:43.309Z"
+      "firstSeenAt": "2026-10-01T09:15:43.309Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-informaticien-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "apprenti-informaticien-f-h-ehc-vd-morges"
+        ],
+        "de": [
+          "apprenti-informaticien-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-informaticien-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-6b8047b12336",
-      "slug": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
+      "slug": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "fr": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
-        "it": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
-        "en": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges",
+        "it": "apprendistato-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "apprenticeship-community-health-and-care-assistant-m-f-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -5054,7 +5134,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T09:58:50.962Z"
+      "firstSeenAt": "2026-05-19T09:58:50.962Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+        ],
+        "en": [
+          "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-assc-assistant-soins-et-sante-communautaire-f-h-ehc-vd-morges"
+      ]
     },
     {
       "id": "ehc-vd-ffcc4e420e91",

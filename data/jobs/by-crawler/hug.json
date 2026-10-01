@@ -2456,11 +2456,11 @@
     },
     {
       "id": "hug-4aa574365dec",
-      "slug": "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve",
+      "slug": "assistente-di-ricerca-servizio-di-cardiologia-50-hug-geneve",
       "slugByLocale": {
         "fr": "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve",
-        "it": "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve",
-        "en": "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve",
+        "it": "assistente-di-ricerca-servizio-di-cardiologia-50-hug-geneve",
+        "en": "research-assistant-cardiology-service-50-hug-geneve",
         "de": "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve"
       },
       "company": "HUG",
@@ -2517,7 +2517,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.814Z"
+      "firstSeenAt": "2026-10-01T09:17:29.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve"
+        ],
+        "en": [
+          "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-ou-assistante-de-recherche-service-de-cardiologie-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-d0d5d0da933e",
@@ -2598,12 +2609,12 @@
     },
     {
       "id": "hug-9f793b0724f7",
-      "slug": "psychologue-psychotherapeute-50-hug-geneve",
+      "slug": "psicoterapeuta-50-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-psychotherapeute-50-hug-geneve",
-        "it": "psychologue-psychotherapeute-50-hug-geneve",
-        "en": "psychologue-psychotherapeute-50-hug-geneve",
-        "de": "psychologue-psychotherapeute-50-hug-geneve"
+        "it": "psicoterapeuta-50-hug-geneve",
+        "en": "psychotherapist-50-hug-geneve",
+        "de": "psychotherapeut-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2659,16 +2670,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.811Z"
+      "firstSeenAt": "2026-10-01T09:17:29.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-psychotherapeute-50-hug-geneve"
+        ],
+        "en": [
+          "psychologue-psychotherapeute-50-hug-geneve"
+        ],
+        "de": [
+          "psychologue-psychotherapeute-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-psychotherapeute-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-592acd106b65",
-      "slug": "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve",
+      "slug": "ambulanza-o-ambulanza-chef-des-secours-20-hug-geneve",
       "slugByLocale": {
         "fr": "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve",
-        "it": "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve",
-        "en": "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve",
-        "de": "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve"
+        "it": "ambulanza-o-ambulanza-chef-des-secours-20-hug-geneve",
+        "en": "ambulance-or-ambulance-chef-des-secours-20-hug-geneve",
+        "de": "ambulanz-oder-ambulanz-chef-des-secours-20-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2724,7 +2749,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.809Z"
+      "firstSeenAt": "2026-10-01T09:17:29.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve"
+        ],
+        "en": [
+          "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve"
+        ],
+        "de": [
+          "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ambulanciere-ou-ambulancier-chef-des-secours-20-hug-geneve"
+      ]
     },
     {
       "id": "hug-080c73fce17d",
@@ -2806,12 +2845,12 @@
     },
     {
       "id": "hug-a67ab92f822a",
-      "slug": "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve",
+      "slug": "leader-del-progetto-digital-platform-concerto-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve",
-        "it": "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve",
-        "en": "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve",
-        "de": "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve"
+        "it": "leader-del-progetto-digital-platform-concerto-80-al-100-hug-geneve",
+        "en": "project-leader-digital-platform-concerto-80-to-100-hug-geneve",
+        "de": "projektleiter-digital-platform-concerto-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2867,16 +2906,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.784Z"
+      "firstSeenAt": "2026-10-01T09:17:29.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "cheffe-ou-chef-de-projet-plateforme-numerique-concerto-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-f9837df053d2",
-      "slug": "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve",
+      "slug": "segreteria-medica-o-medica-in-chirurgia-della-mano-60-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve",
-        "it": "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve",
-        "en": "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve",
-        "de": "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve"
+        "it": "segreteria-medica-o-medica-in-chirurgia-della-mano-60-hug-geneve",
+        "en": "medical-or-medical-secretary-in-hand-surgery-60-hug-geneve",
+        "de": "medizinische-oder-medizinische-sekretarin-in-der-handchirurgie-60-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2932,16 +2985,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.775Z"
+      "firstSeenAt": "2026-10-01T09:17:29.775Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve"
+        ],
+        "en": [
+          "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve"
+        ],
+        "de": [
+          "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-medical-ou-medicale-en-chirurgie-de-la-main-60-hug-geneve"
+      ]
     },
     {
       "id": "hug-777a6bc83d24",
-      "slug": "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve",
+      "slug": "ingegnere-dell-innovazione-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve",
-        "it": "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve",
-        "en": "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve",
-        "de": "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve"
+        "it": "ingegnere-dell-innovazione-80-al-100-hug-geneve",
+        "en": "innovation-engineer-80-to-100-hug-geneve",
+        "de": "innovation-engineer-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2997,16 +3064,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.772Z"
+      "firstSeenAt": "2026-10-01T09:17:29.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve"
+        ],
+        "en": [
+          "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve"
+        ],
+        "de": [
+          "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "ingenieur-ou-ingenieure-specialiste-en-innovation-80-a-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-6525c613ea3c",
-      "slug": "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve",
+      "slug": "dipartimento-di-ginecologia-100-hug-geneve",
       "slugByLocale": {
         "fr": "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve",
-        "it": "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve",
-        "en": "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve",
-        "de": "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve"
+        "it": "dipartimento-di-ginecologia-100-hug-geneve",
+        "en": "medical-secretary-head-of-gynaecology-department-100-hug-geneve",
+        "de": "medizinische-sekretarin-leiterin-der-abteilung-gynakologie-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3062,15 +3143,29 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.766Z"
+      "firstSeenAt": "2026-10-01T09:17:29.766Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve"
+        ],
+        "en": [
+          "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve"
+        ],
+        "de": [
+          "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "secretaire-de-medecin-chef-du-service-de-la-gynecologie-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-f77e90cee6aa",
-      "slug": "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve",
+      "slug": "assistente-assistente-di-gestione-dipartimento-di-medicina-acuta-100-hug-geneve",
       "slugByLocale": {
         "fr": "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve",
-        "it": "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve",
-        "en": "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve",
+        "it": "assistente-assistente-di-gestione-dipartimento-di-medicina-acuta-100-hug-geneve",
+        "en": "assistant-management-assistant-department-of-acute-medicine-100-hug-geneve",
         "de": "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve"
       },
       "company": "HUG",
@@ -3127,7 +3222,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:17:29.756Z"
+      "firstSeenAt": "2026-10-01T09:17:29.756Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve"
+        ],
+        "en": [
+          "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "assistante-ou-assistant-de-gestion-au-departement-de-medecine-aigue-100-hug-geneve"
+      ]
     }
   ]
 }

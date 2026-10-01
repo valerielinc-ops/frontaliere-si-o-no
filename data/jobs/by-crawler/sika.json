@@ -3210,10 +3210,10 @@
     },
     {
       "id": "sika-c574c50e693b",
-      "slug": "quality-manager-injection-molding-sika-ch",
+      "slug": "stampaggio-ad-iniezione-di-qualita-manager-sika-romanshorn-thurgau",
       "slugByLocale": {
         "de": "quality-manager-injection-molding-sika-ch",
-        "it": "quality-manager-injection-molding-sika-ch",
+        "it": "stampaggio-ad-iniezione-di-qualita-manager-sika-romanshorn-thurgau",
         "en": "quality-manager-injection-molding-sika-ch",
         "fr": "quality-manager-injection-molding-sika-ch"
       },
@@ -3273,7 +3273,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:15:59.254Z"
+      "firstSeenAt": "2026-10-01T09:15:59.254Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-manager-injection-molding-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "quality-manager-injection-molding-sika-ch"
+      ]
     },
     {
       "id": "sika-582578f2be97",

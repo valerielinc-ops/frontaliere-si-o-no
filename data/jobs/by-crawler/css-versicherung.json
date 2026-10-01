@@ -2584,12 +2584,12 @@
     },
     {
       "id": "css-versicherung-460b061da3b0",
-      "slug": "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid",
+      "slug": "esperto-valutazione-economica-esperto-bvm-100-css-versicherung-luzern-hybrid",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid",
-        "it": "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid",
-        "en": "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid",
-        "fr": "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid"
+        "it": "esperto-valutazione-economica-esperto-bvm-100-css-versicherung-luzern-hybrid",
+        "en": "expert-expert-economic-assessment-bvm-100-css-versicherung-luzern-hybrid",
+        "fr": "expert-expert-evaluation-economique-bvm-100-css-versicherung-luzern-hybrid"
       },
       "company": "CSS Versicherung",
       "companyKey": "css-versicherung",
@@ -2646,7 +2646,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:22:23.867Z"
+      "firstSeenAt": "2026-10-01T09:22:23.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-wirtschaftlichkeitsprufung-bvm-100-css-versicherung-luzern-hybrid"
+      ]
     },
     {
       "id": "css-versicherung-7b483750960f",

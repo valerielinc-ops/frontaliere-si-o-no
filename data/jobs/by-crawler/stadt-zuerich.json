@@ -16947,12 +16947,12 @@
     },
     {
       "id": "stadt-zuerich-890acde4e39d",
-      "slug": "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich",
+      "slug": "specialista-di-manutenzione-aziendale-sito-mathysweg-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zuerich-zurigo-51834",
-        "it": "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich",
-        "en": "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich",
-        "fr": "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich"
+        "it": "specialista-di-manutenzione-aziendale-sito-mathysweg-stadt-zurich-zurich",
+        "en": "business-maintenance-specialist-mathysweg-site-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-maintenance-d-entreprise-mathysweg-site-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17001,11 +17001,19 @@
       "referenceNumber": "51834",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zuerich-zurigo-51834"
+          "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zuerich-zurigo-51834",
+          "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zuerich-zurigo-51834"
+        "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zuerich-zurigo-51834",
+        "fachperson-betriebsunterhalt-standort-mathysweg-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17024,12 +17032,12 @@
     },
     {
       "id": "stadt-zuerich-15fcb8cc818c",
-      "slug": "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich",
+      "slug": "assistenza-educativa-80-al-100-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "padagogische-betreuungsassistenz-80-bis-100-stadt-zuerich-zurigo-51833",
-        "it": "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich",
-        "en": "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich",
-        "fr": "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich"
+        "it": "assistenza-educativa-80-al-100-stadt-zurich-zurich",
+        "en": "educational-assistance-80-to-100-stadt-zurich-zurich",
+        "fr": "aide-a-l-education-80-a-100-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17078,11 +17086,19 @@
       "referenceNumber": "51833",
       "previousSlugsByLocale": {
         "it": [
-          "padagogische-betreuungsassistenz-80-bis-100-stadt-zuerich-zurigo-51833"
+          "padagogische-betreuungsassistenz-80-bis-100-stadt-zuerich-zurigo-51833",
+          "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich"
+        ],
+        "en": [
+          "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "padagogische-betreuungsassistenz-80-bis-100-stadt-zuerich-zurigo-51833"
+        "padagogische-betreuungsassistenz-80-bis-100-stadt-zuerich-zurigo-51833",
+        "padagogische-betreuungsassistenz-80-bis-100-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -17101,12 +17117,12 @@
     },
     {
       "id": "stadt-zuerich-bcbf6869d19f",
-      "slug": "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828",
+      "slug": "gestione-co-scuola-supervisione-della-gestione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828",
-        "it": "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828",
-        "en": "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828",
-        "fr": "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828"
+        "it": "gestione-co-scuola-supervisione-della-gestione-stadt-zurich-zurich",
+        "en": "co-school-management-management-supervision-stadt-zurich-zurich",
+        "fr": "co-gestion-scolaire-supervision-de-la-gestion-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17166,16 +17182,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:33:56.785Z"
+      "firstSeenAt": "2026-10-01T09:33:56.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828"
+        ],
+        "en": [
+          "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828"
+        ],
+        "fr": [
+          "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828"
+        ]
+      },
+      "previousSlugs": [
+        "co-schulleitung-leitung-betreuung-stadt-zuerich-zurigo-51828"
+      ]
     },
     {
       "id": "stadt-zuerich-b2509d479bc4",
-      "slug": "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
+      "slug": "cura-co-hosted-scuola-weinberg-turner-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
-        "it": "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
-        "en": "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832",
-        "fr": "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
+        "it": "cura-co-hosted-scuola-weinberg-turner-stadt-zurich-zurich",
+        "en": "co-hosted-care-school-weinberg-turner-stadt-zurich-zurich",
+        "fr": "co-accueil-ecole-weinberg-turner-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -17235,7 +17265,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:33:56.785Z"
+      "firstSeenAt": "2026-10-01T09:33:56.785Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
+        ],
+        "en": [
+          "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
+        ],
+        "fr": [
+          "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
+        ]
+      },
+      "previousSlugs": [
+        "co-hortleitung-betreuung-schule-weinberg-turner-stadt-zuerich-zurigo-51832"
+      ]
     },
     {
       "id": "stadt-zuerich-92c3c8c40e0e",

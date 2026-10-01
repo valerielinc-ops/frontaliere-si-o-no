@@ -16900,12 +16900,12 @@
     },
     {
       "id": "anker-swiss-3ba5e68498bc",
-      "slug": "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
+      "slug": "lavoratori-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
       "slugByLocale": {
         "de": "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
-        "it": "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
-        "en": "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
-        "fr": "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+        "it": "lavoratori-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
+        "en": "metalworkers-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684",
+        "fr": "metaux-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
       },
       "slugDisambiguator": "3ba5e684",
       "company": "Anker Swiss Ticino AG",
@@ -16964,7 +16964,21 @@
         }
       },
       "firstSeenAt": "2026-10-01T09:26:22.928Z",
-      "sourceIdentity": "url:https://anker-swiss.ch/stellen/metallbauer-1437527"
+      "sourceIdentity": "url:https://anker-swiss.ch/stellen/metallbauer-1437527",
+      "previousSlugsByLocale": {
+        "it": [
+          "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+        ],
+        "en": [
+          "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+        ],
+        "fr": [
+          "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+        ]
+      },
+      "previousSlugs": [
+        "metallbauer-100-anker-swiss-ticino-ag-gretzenbach-3ba5e684"
+      ]
     },
     {
       "id": "anker-swiss-a6b72ab89185",
@@ -16972,8 +16986,8 @@
       "slugByLocale": {
         "de": "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8",
         "it": "metallbau-produktions-e-montageleiter-100-anker-swiss-ticino-ag-gretzenbach",
-        "en": "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8",
-        "fr": "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8"
+        "en": "metallbau-production-and-assembly-manager-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8",
+        "fr": "metallbau-directeur-de-la-production-et-de-l-assemblage-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8"
       },
       "slugDisambiguator": "a6b72ab8",
       "company": "Anker Swiss Ticino AG",
@@ -17021,6 +17035,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8"
+        ],
+        "en": [
+          "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8"
+        ],
+        "fr": [
           "metallbau-produktions-und-montageleiter-100-anker-swiss-ticino-ag-gretzenbach-a6b72ab8"
         ]
       },

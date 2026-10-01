@@ -3211,11 +3211,11 @@
     },
     {
       "id": "ikea-f6dc964e767a",
-      "slug": "cariste-h-f-experimente-80-ikea-ch",
+      "slug": "carist-m-f-esperto-80-ikea-aubonne-vaud",
       "slugByLocale": {
-        "it": "cariste-h-f-experimente-80-ikea-ch",
-        "en": "cariste-h-f-experimente-80-ikea-ch",
-        "de": "cariste-h-f-experimente-80-ikea-ch",
+        "it": "carist-m-f-esperto-80-ikea-aubonne-vaud",
+        "en": "carist-m-f-experienced-80-ikea-aubonne-vaud",
+        "de": "carist-m-w-experienced-80-ikea-aubonne-vaud",
         "fr": "cariste-h-f-experimente-80-ikea-ch"
       },
       "company": "IKEA",
@@ -3269,7 +3269,21 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "cariste-h-f-experimente-80-ikea-ch"
+        ],
+        "en": [
+          "cariste-h-f-experimente-80-ikea-ch"
+        ],
+        "de": [
+          "cariste-h-f-experimente-80-ikea-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cariste-h-f-experimente-80-ikea-ch"
+      ]
     },
     {
       "id": "ikea-4633679413db",

@@ -121,7 +121,7 @@
       },
       "slugByLocale": {
         "it": "ingeniero-progetto-a-im-settore-idroenergetico-rittmeyer-ag-baar",
-        "en": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
+        "en": "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
         "de": "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar",
         "fr": "ingenieur-commercial-projets-tessin-rittmeyer-ag-tessin"
       },
@@ -129,7 +129,7 @@
       "previousSlugsByLocale": {
         "en": [
           "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
-          "project-engineer-a-hydropower-plants-rittmeyer-ag-baar"
+          "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
         ],
         "it": [
           "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
@@ -143,7 +143,6 @@
         "sales-project-engineer-m-f-x-ticino-rittmeyer-ag-ticino",
         "ingegnere-di-progetto-a-impianti-di-idroelettrica-rittmeyer-ag-baar",
         "verkaufsprojektingenieur-in-tessin-rittmeyer-ag-tessin",
-        "project-engineer-a-hydropower-plants-rittmeyer-ag-baar",
         "projektingenieur-a-wasserkraftwerke-rittmeyer-ag-baar"
       ],
       "salaryMin": 69500,
@@ -165,7 +164,7 @@
     },
     {
       "title": "Sachbearbeiter Einkauf (a)",
-      "slug": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
+      "slug": "agente-di-acquisto-a-rittmeyer-ag-baar",
       "url": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
       "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
       "company": "Rittmeyer AG",
@@ -202,9 +201,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
-        "it": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
-        "en": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
-        "fr": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
+        "it": "agente-di-acquisto-a-rittmeyer-ag-baar",
+        "en": "purchasing-agent-a-rittmeyer-ag-baar",
+        "fr": "agent-d-achat-a-rittmeyer-ag-baar"
       },
       "id": "rittmeyer-ag-d675cf3510c2",
       "salaryMin": 69500,
@@ -221,7 +220,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:27:19.173Z"
+      "firstSeenAt": "2026-10-01T09:27:19.173Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
+        ],
+        "en": [
+          "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
+        ],
+        "fr": [
+          "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-einkauf-a-rittmeyer-ag-baar"
+      ]
     },
     {
       "title": "Solution Owner Messtechnik-Produkte",

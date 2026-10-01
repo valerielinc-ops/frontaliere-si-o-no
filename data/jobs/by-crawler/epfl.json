@@ -5007,12 +5007,12 @@
     },
     {
       "id": "epfl-609fc624da57",
-      "slug": "phd-position-in-integrated-design-and-optimization-epfl-neuchatel",
+      "slug": "posizione-del-dottorato-in-design-integrato-e-ottimizzazione-epfl-neuchatel",
       "slugByLocale": {
         "en": "phd-position-in-integrated-design-and-optimization-epfl-neuchatel",
-        "it": "phd-position-in-integrated-design-and-optimization-epfl-neuchatel",
+        "it": "posizione-del-dottorato-in-design-integrato-e-ottimizzazione-epfl-neuchatel",
         "de": "phd-position-in-integrated-design-and-optimization-epfl-neuchatel",
-        "fr": "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+        "fr": "doctorat-en-conception-integree-et-optimisation-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5070,16 +5070,27 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-10-01T09:16:09.007Z"
+      "firstSeenAt": "2026-10-01T09:16:09.007Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-integrated-design-and-optimization-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-7b9bc8fc5e63",
-      "slug": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel",
+      "slug": "posizione-di-dottorato-in-design-aerodinamico-del-turbomachinery-small-scale-epfl-neuchatel",
       "slugByLocale": {
         "en": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel",
-        "it": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel",
-        "de": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel",
-        "fr": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        "it": "posizione-di-dottorato-in-design-aerodinamico-del-turbomachinery-small-scale-epfl-neuchatel",
+        "de": "phd-position-im-aerodynamischen-design-von-kleinen-turbomaschinen-epfl-neuchatel",
+        "fr": "doctorat-en-conception-aerodynamique-de-la-turbine-a-petite-echelle-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5137,16 +5148,30 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-10-01T09:16:08.408Z"
+      "firstSeenAt": "2026-10-01T09:16:08.408Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ],
+        "de": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-f4cca40661a0",
-      "slug": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel",
+      "slug": "posizione-di-dottorato-in-design-aerodinamico-di-turbomachinery-small-scale-2-epfl-neuchatel",
       "slugByLocale": {
         "en": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel",
-        "it": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel",
-        "de": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel",
-        "fr": "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        "it": "posizione-di-dottorato-in-design-aerodinamico-di-turbomachinery-small-scale-2-epfl-neuchatel",
+        "de": "phd-position-in-aerodynamisches-design-von-klein-turbomaschinen-2-epfl-neuchatel",
+        "fr": "doctorat-en-conception-aerodynamique-de-la-turbine-a-petite-echelle-2-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5204,7 +5229,21 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-10-01T09:16:07.809Z"
+      "firstSeenAt": "2026-10-01T09:16:07.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ],
+        "de": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ],
+        "fr": [
+          "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-aerodynamic-design-of-small-scale-turbomachinery-2-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-48d3349f3c92",

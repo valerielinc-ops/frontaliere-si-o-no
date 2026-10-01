@@ -448,9 +448,9 @@
       },
       "slugByLocale": {
         "it": "manovale-edile-pemsa-locarno",
-        "en": "manovale-edile-pemsa-locarno",
-        "de": "manovale-edile-pemsa-locarno",
-        "fr": "manovale-edile-pemsa-locarno"
+        "en": "manova-edile-pemsa-locarno",
+        "de": "manovaedile-pemsa-locarno",
+        "fr": "edition-de-manova-pemsa-locarno"
       },
       "id": "pemsa-6f97ae49a9ac",
       "salaryMin": 61000,
@@ -622,9 +622,9 @@
       },
       "slugByLocale": {
         "it": "impermeabilizzatore-pemsa-locarno",
-        "en": "impermeabilizzatore-pemsa-locarno",
-        "de": "impermeabilizzatore-pemsa-locarno",
-        "fr": "impermeabilizzatore-pemsa-locarno"
+        "en": "impermeablization-pemsa-locarno-ddd505",
+        "de": "impermeablizierung-pemsa-locarno-ddd505",
+        "fr": "impermeablisation-pemsa-locarno-ddd505"
       },
       "id": "pemsa-da1c97ff3be6",
       "salaryMin": 61000,
@@ -1504,7 +1504,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-bellinzona",
         "en": "construction-carpenters-pemsa-bellinzona",
-        "de": "carpentiere-edile-pemsa-bellinzona",
+        "de": "bautischler-pemsa-bellinzona",
         "fr": "charpentiers-de-construction-pemsa-bellinzona"
       },
       "id": "pemsa-1c7afb783aa5",
@@ -1522,15 +1522,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-29T21:23:04.388Z",
-      "previousSlugsByLocale": {
-        "de": [
-          "bautischler-pemsa-bellinzona"
-        ]
-      },
-      "previousSlugs": [
-        "bautischler-pemsa-bellinzona"
-      ]
+      "firstSeenAt": "2026-09-29T21:23:04.388Z"
     },
     {
       "title": "Carpentiere edile",
@@ -1570,7 +1562,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-lugano",
         "en": "construction-carpenters-pemsa-lugano",
-        "de": "carpentiere-edile-pemsa-lugano",
+        "de": "bautischler-pemsa-lugano",
         "fr": "charpentiers-de-construction-pemsa-lugano"
       },
       "id": "pemsa-9175b3ea2bb6",
@@ -1589,15 +1581,7 @@
         }
       },
       "firstSeenAt": "2026-09-29T21:23:04.388Z",
-      "needsRetranslation": true,
-      "previousSlugsByLocale": {
-        "de": [
-          "bautischler-pemsa-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "bautischler-pemsa-lugano"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "OPERATORE M2 – ESCAVATORE A CAVO – SUVA A",
@@ -6697,7 +6681,7 @@
       "slugByLocale": {
         "it": "giardine-pemsa-bellinzona",
         "en": "gardens-pemsa-bellinzona",
-        "de": "giardiniere-pemsa-bellinzona",
+        "de": "garten-pemsa-bellinzona",
         "fr": "jardins-pemsa-bellinzona"
       },
       "id": "pemsa-a0f9ab16144a",
@@ -6726,7 +6710,7 @@
           "giardiniere-pemsa-bellinzona"
         ],
         "de": [
-          "garten-pemsa-bellinzona"
+          "giardiniere-pemsa-bellinzona"
         ],
         "it": [
           "giardiniere-pemsa-bellinzona"
@@ -6734,7 +6718,6 @@
       },
       "previousSlugs": [
         "giardines-pemsa-bellinzona",
-        "garten-pemsa-bellinzona",
         "giardiniere-pemsa-bellinzona"
       ]
     },
