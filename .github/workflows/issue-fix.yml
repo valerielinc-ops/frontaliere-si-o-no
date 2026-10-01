@@ -1303,11 +1303,16 @@ jobs:
           # il `git push` che fa il fixer userebbe comunque la credenziale piazzata da
           # actions/checkout, cioè GITHUB_TOKEN, che lo scope `workflows` non ce l'ha.
           #
-          # L'unset dell'extraheader NON è ridondante e non va tolto: actions/checkout
-          # scrive `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
-          # che ha la precedenza sullo `x-access-token:` nell'URL del remote — il push
-          # tornerebbe silenziosamente al token sbagliato. È la trappola già documentata
-          # in pr-redflag-fixer.yml, stessa causa, stesso rimedio.
+          # Lo strip della credenziale di checkout NON è ridondante e non va tolto:
+          # actions/checkout persiste `AUTHORIZATION: basic <GITHUB_TOKEN>` come
+          # extraheader, che ha la precedenza sullo `x-access-token:` nell'URL del
+          # remote — il push tornerebbe silenziosamente al token sbagliato. È la
+          # trappola già documentata in pr-redflag-fixer.yml, stessa causa, stesso
+          # rimedio. Con checkout v6+ (qui v7) l'header sta in un file incluso via
+          # `includeIf.gitdir:…`, che un `git config --unset-all …extraheader` non
+          # vede: lo helper toglie entrambe le forme e fallisce se ne resta una.
+          # Qui l'albero è ancora il checkout di main (prima del lane Codex), quindi
+          # lo helper versionato è codice fidato.
           #
           # L'identità di push resta la App ogni volta che il token esiste: serve a far
           # ri-triggerare i workflow a valle (`<app>[bot]` ≠ `github-actions[bot]`), ed è
@@ -1322,7 +1327,7 @@ jobs:
           # `github_token` alimenta gli helper provider-neutral dell'action: non è una
           # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
-            git config --unset-all "http.https://github.com/.extraheader" || true
+            bash scripts/lib/clear-checkout-git-credentials.sh
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
             if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
               echo "push identity: GitHub App (scope workflows CONFERMATO dalla risposta API)"
@@ -1620,9 +1625,22 @@ jobs:
           # Ri-applica l'identità di push: dopo il lane Codex il remote può
           # portare la sua credenziale, e l'extraheader di actions/checkout ha
           # comunque la precedenza sull'URL (stessa trappola documentata in
-          # 'Configure git identity').
+          # 'Configure git identity'). Con checkout v6+ (qui v7) l'header sta in
+          # $RUNNER_TEMP/git-credentials-<uuid>.config, incluso via
+          # `includeIf.gitdir:…`: si staccano anche quelle include, come fa il
+          # post-step di checkout. Stessa logica di
+          # scripts/lib/clear-checkout-git-credentials.sh, qui inline perché
+          # l'albero contiene già le modifiche dell'agente: niente script del
+          # working tree eseguiti col token App.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all http."https://github.com/".extraheader 2>/dev/null || true
+            while IFS= read -r inc_key; do
+              while IFS= read -r inc_path; do
+                if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
+                  git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
+                fi
+              done < <(git config --local --get-all "$inc_key")
+            done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
           fi
 

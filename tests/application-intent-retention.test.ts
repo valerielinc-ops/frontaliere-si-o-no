@@ -76,10 +76,16 @@ const fake = vi.hoisted(() => {
               const page = rows.slice(Math.max(startIndex, 0), Math.max(startIndex, 0) + pageSize);
               state.queryCalls.push(field);
               return {
+                // Like Firestore's QueryDocumentSnapshot, data() reads its
+                // state through `this`: an arrow double would hide a detached
+                // `snapshot.data` call that throws on a real snapshot.
                 docs: page.map(([id, data]) => ({
                   id,
                   ref: { path: `application_intents/${id}` },
-                  data: () => data,
+                  fields: data,
+                  data(this: { fields: Record<string, unknown> }) {
+                    return this.fields;
+                  },
                 })),
               };
             },

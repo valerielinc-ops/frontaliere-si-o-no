@@ -1,4 +1,5 @@
 import * as net from './bridge-transport.mjs';
+import { writeResultAndExit } from './bridge-transport.mjs';
 
 const MAX_REQUEST_BYTES = 64 * 1024;
 const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
@@ -37,10 +38,7 @@ client.on('end', () => {
   if (finished) return;
   finished = true;
   try {
-    const result = JSON.parse(response);
-    if (result.stdout) process.stdout.write(result.stdout);
-    if (result.stderr) process.stderr.write(result.stderr);
-    process.exit(Number.isInteger(result.code) ? result.code : 1);
+    writeResultAndExit(JSON.parse(response));
   } catch (error) {
     console.error(`Codex GitHub bridge response: ${error.message}`);
     process.exit(2);

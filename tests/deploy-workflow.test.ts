@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 
@@ -282,6 +282,61 @@ describe('Pages artifact extraction disk lifetime', () => {
       expect(run.slice(cleanupIndex, cleanupIndex + 160)).toMatch(/(artifact\.tar|TAR_PATH|tar-path)/);
     }
   });
+
+  // deploy-publish run 36810296662 and cathedral-seo-gates-check run
+  // 36810296254 (2026-10-01) died with "No space left on device" inside the
+  // rehydrate: the logical dist now ends at 134 of the runner's 145 GB. The
+  // disk cleanup that keeps it inside existed in nine inline copies that had
+  // drifted (cathedral's had 6 paths and no docker prune, the others 9), so
+  // the class is "a job that rehydrates the logical dist without THE cleanup".
+  // Every such job — found by what it runs, not by a hand-kept list — must call
+  // the one shared script after its checkout and before the rehydrate.
+  it('every job that rehydrates section shards frees disk through the one shared script first', () => {
+    const workflowsDir = resolve(ROOT, '.github/workflows');
+    const rehydrating: string[] = [];
+    for (const file of readdirSync(workflowsDir).filter((f) => /\.ya?ml$/.test(f)).sort()) {
+      const workflow = YAML.parse(readFileSync(resolve(workflowsDir, file), 'utf-8')) as any;
+      for (const [jobName, job] of Object.entries<any>(workflow?.jobs ?? {})) {
+        const steps: any[] = Array.isArray(job?.steps) ? job.steps : [];
+        const runOf = (step: any) => (typeof step?.run === 'string' ? step.run : '');
+        const rehydrateIdx = steps.findIndex((step) => /rehydrate-section-shards\.sh/.test(runOf(step)));
+        if (rehydrateIdx === -1) continue;
+        const where = `${file} → ${jobName}`;
+        rehydrating.push(where);
+        const cleanupIdx = steps.findIndex((step) => /(^|\s)bash (tooling\/)?scripts\/ci\/free-runner-disk\.sh\b/.test(runOf(step)));
+        const checkoutIdx = steps.findIndex((step) => /^actions\/checkout@/.test(String(step?.uses ?? '')));
+        expect(cleanupIdx, `${where}: no step runs scripts/ci/free-runner-disk.sh`).toBeGreaterThan(-1);
+        expect(cleanupIdx, `${where}: the cleanup must run before the rehydrate`).toBeLessThan(rehydrateIdx);
+        expect(cleanupIdx, `${where}: the cleanup script lives in the repo, so it runs after a checkout`).toBeGreaterThan(checkoutIdx);
+        // A second, inline list next to the shared one is how the copies drifted.
+        for (const step of steps) {
+          expect(runOf(step), `${where}: inline toolchain cleanup — use the shared script`).not.toMatch(/rm -rf[^\n]*\/usr\/share\/dotnet/);
+        }
+      }
+    }
+    // The two reds of 2026-10-01 plus the replays that rebuild the same dist.
+    expect(rehydrating).toEqual(expect.arrayContaining([
+      'cathedral-seo-gates-check.yml → check',
+      'post-deploy-validate-dist.yml → validate-dist-postbuild',
+    ]));
+    expect(rehydrating.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it('the shared cleanup reports blocks AND inodes before and after, and keeps node in the tool cache', () => {
+    const script = readFileSync(resolve(ROOT, 'scripts/ci/free-runner-disk.sh'), 'utf-8');
+    const live = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
+    // One directory per job page: inode exhaustion reads exactly like a full
+    // disk ("No space left on device"), so both counters are printed.
+    expect(live).toMatch(/report\(\) \{\s*df -h \/\s*df -i \/\s*\}/);
+    expect(live.match(/^report$/gm)?.length, 'df before AND after the cleanup').toBe(2);
+    // setup-node reuses /opt/hostedtoolcache/node; deleting it would only
+    // force a re-download, never free the space the rehydrate needs.
+    expect(live).toContain('[ "$(basename "$p")" = node ] && continue');
+    // Best-effort like the inline copies it replaced: an image refresh that
+    // already dropped a path must not fail the job.
+    expect(live).not.toMatch(/^\s*set\s+-\S*e\S*\b/m);
+    expect(live.trimEnd().endsWith('exit 0')).toBe(true);
+  });
 });
 
 /**
@@ -392,18 +447,25 @@ describe('deploy.yml + post-deploy-validate-dist.yml — tar-pack rehydrate fast
     // and section rehydrate into scripts/lib/rehydrate-section-shards.sh
     // (section shared with the 4 seed-baseline workflows too, AGENTS.md #6
     // dedupe) — the guarded invariant is unchanged, only its file moved.
-    const sources = [
-      { label: 'locale-dist-\\$loc', text: REHYDRATE_LOCALE_SCRIPT },
-      { label: '\\$section-dist-\\$loc', text: REHYDRATE_SECTION_SCRIPT },
-    ];
-    for (const { label, text } of sources) {
-      const re = new RegExp(
-        `expected_n=\\$\\(tar -tf "\\$dl/${label}\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
-        `tar -C dist -xf "\\$dl/${label}\\.tar" \\|\\| true[\\s\\S]*?` +
-        `if \\[ -d "dist/\\$(?:loc|sub)" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
-      );
-      expect(text, `rehydrate loop for "${label}" missing completeness gate (expected_n/actual_n)`).toMatch(re);
-    }
+    const localeRe = new RegExp(
+      `expected_n=\\$\\(tar -tf "\\$dl/locale-dist-\\$loc\\.tar" 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `tar -C dist -xf "\\$dl/locale-dist-\\$loc\\.tar" \\|\\| true[\\s\\S]*?` +
+      `if \\[ -d "dist/\\$loc" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_LOCALE_SCRIPT, 'locale rehydrate loop missing completeness gate (expected_n/actual_n)').toMatch(localeRe);
+    // The section loop no longer has a tar FILE (2026-10-01, deploy-publish
+    // run 36810296662 out of disk): both passes stream `$section-dist-$loc.tar`
+    // out of the batch zip. Same gate — listing first, exact count after —
+    // plus unzip's CRC verdict, which the two passes cannot replace: a corrupt
+    // stream is listed and extracted identically, so only the CRC tells.
+    const sectionRe = new RegExp(
+      `member="\\$section-dist-\\$loc\\.tar"[\\s\\S]*?` +
+      `expected_n=\\$\\(unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" 2>/dev/null \\| tar -tf - 2>/dev/null \\| \\{ grep -vc '/\\$' \\|\\| true; \\}\\)[\\s\\S]*?` +
+      `unzip -p "\\$dl/\\$BATCH_ZIP" "\\$member" \\| tar -C dist -xf -\\n[\\s\\S]*?` +
+      `unzip_rc="\\$\\{PIPESTATUS\\[0\\]\\}"[\\s\\S]*?` +
+      `if \\[ "\\\$\\{unzip_rc:-2\\}" -le 1 \\] && \\[ -d "dist/\\$sub" \\] && \\[ "\\\$\\{expected_n:-0\\}" -gt 0 \\] && \\[ "\\$actual_n" -eq "\\$expected_n" \\]`,
+    );
+    expect(REHYDRATE_SECTION_SCRIPT, 'section rehydrate loop missing completeness gate (expected_n/actual_n/unzip_rc)').toMatch(sectionRe);
     // The bare `if [ -d dist/$loc ]; then ... continue; fi` (no count check)
     // pattern from before the fix must not remain anywhere in the tar
     // extraction branches, in either file.

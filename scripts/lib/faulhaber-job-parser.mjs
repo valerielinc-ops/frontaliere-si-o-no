@@ -33,6 +33,8 @@ import {
   WAF_IP_BLOCK_STATUS,
 } from './crawler-template.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { isSpontaneousApplicationTitle } from './spontaneous-application.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -170,6 +172,7 @@ function parseListingData(body = '') {
     throw new Error('Faulhaber: listing-data response is incomplete');
   }
   const jobs = [];
+  let swissSpontaneousApplications = 0;
   for (const row of payload.Joboffers) {
     const title = normalizeSpace(row?.JobofferName || '');
     const location = normalizeSpace(row?.LocationName || '');
@@ -184,8 +187,22 @@ function parseListingData(body = '') {
       throw new Error('Faulhaber: listing data contains an unsafe detail URL');
     }
     if (!title || !SWISS_LOCATION_RE.test(location)) continue;
+    // HR4YOU lists the Croglio plant's standing "Candidatura spontanea" as an
+    // offer (its `IsUnsolicitedApps` flag is not reliably set). It is an
+    // application container, not a vacancy, and its one-paragraph body can
+    // never meet the source-body floor (corpus run 36790878741).
+    if (row?.IsUnsolicitedApps === true || isSpontaneousApplicationTitle(title)) {
+      swissSpontaneousApplications += 1;
+      continue;
+    }
     jobs.push({ title, url, location, department });
   }
+  // Non-enumerable, like the other source-proof fields of the repo: the whole
+  // feed was read (`JoboffersCount` matched) and these counts describe it.
+  Object.defineProperties(jobs, {
+    listingOfferCount: { value: payload.Joboffers.length, enumerable: false },
+    swissSpontaneousApplications: { value: swissSpontaneousApplications, enumerable: false },
+  });
   return jobs;
 }
 
@@ -381,7 +398,15 @@ export async function fetchAllFaulhaberJobs({
     throw new Error(`Faulhaber: failed to fetch the listing data: ${err.message}`, { cause: err });
   }
   console.log(`  Swiss jobs found in listing data: ${listings.length}`);
-  if (!listings.length) return [];
+  if (!listings.length) {
+    // `parseListingData` only returns after reading the complete feed (the
+    // declared `JoboffersCount` matched every row and every detail URL was
+    // trusted), so no Swiss vacancy in it is the source's own zero: retire
+    // the stored Croglio jobs instead of keeping them live.
+    const placeholders = Number(listings.swissSpontaneousApplications) || 0;
+    return markAuthoritativeEmptySnapshot([], `HR4YOU listing data: ${listings.listingOfferCount} offer(s), `
+      + `none at a Swiss site${placeholders ? ` besides ${placeholders} spontaneous-application entry` : ''}`);
+  }
 
   const jobs = [];
   let belowFloor = 0;

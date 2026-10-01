@@ -1611,6 +1611,14 @@ is_push_contention_output() {
   printf '%s' "${1:-}" | grep -qiE '\[rejected\]|fetch first|cannot lock ref|non-fast-forward'
 }
 
+# The opposite end: a ruleset / protected-branch decline (GH013 / GH006) is
+# permanent for this identity and commit, so it stops the retry loop at the
+# first occurrence with exit 1 instead of rebuilding and re-pushing up to
+# MAX_PUSH_ATTEMPTS times (recover-prev-slugs run 36759949398: 14 identical
+# GH013 over ~11 minutes). Shared with git-push-with-retry.sh.
+# shellcheck source=scripts/lib/git-push-rejection.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/git-push-rejection.sh"
+
 # ── GROUPED-ISOLATED path: commit from the worktree WITHOUT touching it ─────
 # Used only for crawler-group shared-workspace invocations (SLICE_ONLY=true
 # and JOBS_SLICE_FILE set — see the flag assignment above). Builds the commit
@@ -2256,6 +2264,12 @@ commit_isolated_from_worktree() {
     fi
     printf '%s\n' "$push_out"
 
+    if git_push_rejection_is_permanent "$push_out"; then
+      emit_crawler_generation_receipt "failed" "$new_commit" "$remote_sha"
+      echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, rebuilding the commit cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+      return 1
+    fi
+
     if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
       if is_push_contention_output "$push_out"; then
         emit_crawler_generation_receipt "push_contention" "$new_commit" "$remote_sha"
@@ -2527,6 +2541,11 @@ if push_out="$(git -c pack.window=0 -c pack.threads=1 push --no-thin origin main
   exit 0
 fi
 printf '%s\n' "$push_out"
+
+if git_push_rejection_is_permanent "$push_out"; then
+  echo "❌ Push declined by a repository rule (GH013/GH006) on attempt $push_attempt — not a ref race, re-syncing cannot change the verdict. Check the pushing identity (scripts/lib/configure-main-push-auth.sh) or the ruleset."
+  exit 1
+fi
 
 if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
   if is_push_contention_output "$push_out"; then

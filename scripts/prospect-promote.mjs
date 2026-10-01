@@ -198,11 +198,13 @@ function restorePromotionAppRemote() {
   }).toString().trim();
   const match = origin.match(/github\.com[/:]([^/]+\/[^/]+?)(?:\.git)?$/);
   if (!match) throw new Error('origin GitHub non riconoscibile dopo il push PAT');
-  try {
-    execFileSync('git', ['config', '--local', '--unset-all', 'http.https://github.com/.extraheader'], {
-      cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
-    });
-  } catch { /* il retry helper l'ha già rimosso */ }
+  // Toglie la credenziale persistita da actions/checkout in entrambe le forme
+  // (extraheader diretto ≤v5, `includeIf` → git-credentials-*.config da v6) e
+  // fallisce se un header AUTHORIZATION resta effettivo: un semplice
+  // `--unset-all …extraheader` non vede la forma v6+.
+  execFileSync('bash', [path.join(ROOT, 'scripts', 'lib', 'clear-checkout-git-credentials.sh')], {
+    cwd: ROOT, stdio: ['ignore', 'pipe', 'inherit'],
+  });
   execFileSync('git', ['remote', 'set-url', 'origin', `https://x-access-token:${appToken}@github.com/${match[1]}.git`], {
     cwd: ROOT, stdio: ['ignore', 'pipe', 'pipe'],
   });

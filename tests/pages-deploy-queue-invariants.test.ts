@@ -21,8 +21,16 @@ import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
+import { spawnSync } from 'node:child_process';
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import {
+  cancelVerdict,
+  gateEntryMs,
+  parkedAtPagesGate,
   selectWedgedRuns,
+  wedgeAgeMinutes,
   // @ts-expect-error — plain .mjs, no type declarations
 } from '../scripts/ci/unwedge-pages-deploy-queue.mjs';
 
@@ -113,7 +121,7 @@ describe('pages-publish-lag-watchdog.yml — unwedge wiring', () => {
 
 describe('selectWedgedRuns', () => {
   const NOW = Date.parse('2026-08-07T06:00:00Z');
-  const at = (iso: string, status: string, id = 1) => ({ id, status, created_at: iso });
+  const at = (iso: string, status: string, id = 1, head_branch = 'main') => ({ id, status, head_branch, created_at: iso });
 
   it('selects a run parked at the environment gate past the threshold', () => {
     // The real case: run 31118787881 entered `waiting` at 2026-08-06T16:09:08Z
@@ -159,5 +167,126 @@ describe('selectWedgedRuns', () => {
   it('tolerates a malformed API response instead of throwing', () => {
     expect(selectWedgedRuns(undefined as never, { nowMs: NOW })).toEqual([]);
     expect(selectWedgedRuns([null as never], { nowMs: NOW })).toEqual([]);
+  });
+});
+
+// Same four defects the review of the corpus twin found (nanakokyobashi-rgb/
+// frontaliere-articles#2017, review 5376724637): the run's ref, the time the
+// run reached the gate, its state at the moment of the cancel, and a cancel
+// or listing failure that ended green.
+describe('cancelVerdict — decided on data re-read right before the cancel', () => {
+  const NOW = Date.parse('2026-08-07T06:00:00Z');
+  // Shapes of the real wedge, run 31118787881 (deploy entered `waiting` at
+  // 2026-08-06T16:09:08Z, pending deployment on github-pages, no reviewers).
+  const RUN = { id: 31118787881, status: 'waiting', head_branch: 'main', event: 'workflow_run', created_at: '2026-08-06T16:09:00Z' };
+  const JOBS = [
+    { name: 'validate-dist', status: 'completed', created_at: '2026-08-06T16:09:01Z' },
+    { name: 'deploy', status: 'waiting', created_at: '2026-08-06T16:09:08Z' },
+  ];
+  const PENDING = [{ environment: { name: 'github-pages' }, wait_timer: 0, reviewers: [] }];
+  const base = { run: RUN, jobs: JOBS, pendingDeployments: PENDING, nowMs: NOW };
+
+  it('cancels the real wedge, aged from the gated job', () => {
+    expect(gateEntryMs(JOBS)).toBe(Date.parse('2026-08-06T16:09:08Z'));
+    expect(wedgeAgeMinutes(gateEntryMs(JOBS), NOW)).toBe(831);
+    expect(cancelVerdict(base)).toMatchObject({ cancel: true, ageMinutes: 831 });
+  });
+
+  it('never selects or cancels a run of another ref', () => {
+    expect(selectWedgedRuns([{ ...RUN, head_branch: 'feature' }], { nowMs: NOW })).toEqual([]);
+    expect(cancelVerdict({ ...base, run: { ...RUN, head_branch: 'feature' } }).cancel).toBe(false);
+  });
+
+  it('ages a run from the gate, not from its creation', () => {
+    // Created hours ago (queued behind the group or for a runner), gated 10 min ago.
+    const run = { ...RUN, created_at: '2026-08-07T02:00:00Z' };
+    const jobs = [{ name: 'deploy', status: 'waiting', created_at: '2026-08-07T05:50:00Z' }];
+    expect(selectWedgedRuns([run], { nowMs: NOW })).toHaveLength(1);
+    expect(cancelVerdict({ ...base, run, jobs })).toMatchObject({ cancel: false });
+  });
+
+  it('does not cancel a run that left the gate since the listing', () => {
+    for (const status of ['in_progress', 'queued', 'completed']) {
+      expect(cancelVerdict({ ...base, run: { ...RUN, status } }).cancel).toBe(false);
+    }
+  });
+
+  it('requires a pending github-pages deployment and a readable gated job', () => {
+    expect(parkedAtPagesGate(PENDING)).toBe(true);
+    expect(parkedAtPagesGate([{ environment: { name: 'production' } }])).toBe(false);
+    expect(cancelVerdict({ ...base, pendingDeployments: [] }).cancel).toBe(false);
+    expect(cancelVerdict({ ...base, jobs: [{ status: 'waiting', created_at: 'not-a-date' }] }).cancel).toBe(false);
+    expect(cancelVerdict({ ...base, jobs: [{ status: 'in_progress', created_at: '2026-08-06T16:09:08Z' }] }).cancel).toBe(false);
+  });
+});
+
+describe('unwedge-pages-deploy-queue.mjs — exit status of the real script', () => {
+  const RUN = { id: 31118787881, status: 'waiting', head_branch: 'main', created_at: '2026-08-06T16:09:00Z', head_sha: 'abcdef12' };
+  const LIST = '/actions/workflows/deploy-publish.yml/runs';
+  const wedged = (cancelStatus: number, run = RUN) => [
+    { match: LIST, body: { workflow_runs: [RUN] } },
+    { match: `/actions/runs/${RUN.id}/jobs`, body: { jobs: [{ status: 'waiting', created_at: '2026-08-06T16:09:08Z' }] } },
+    { match: `/actions/runs/${RUN.id}/pending_deployments`, body: [{ environment: { name: 'github-pages' } }] },
+    { match: `/actions/runs/${RUN.id}/cancel`, method: 'POST', status: cancelStatus },
+    { match: `/actions/runs/${RUN.id}`, body: run },
+  ];
+
+  // The real script with `fetch` replaced: no network, no real token.
+  function runScript(routes: unknown[]) {
+    const dir = mkdtempSync(join(tmpdir(), 'unwedge-'));
+    const mock = join(dir, 'mock-fetch.mjs');
+    writeFileSync(mock, `
+const routes = JSON.parse(process.env.MOCK_ROUTES);
+globalThis.fetch = async (url, init = {}) => {
+  const method = init.method || 'GET';
+  const hit = routes.find((r) => (r.method || 'GET') === method && url.includes(r.match));
+  process.stderr.write('CALL ' + method + ' ' + url + '\\n');
+  if (!hit) return new Response('{}', { status: 404 });
+  return new Response(JSON.stringify(hit.body ?? {}), { status: hit.status ?? 200 });
+};
+`);
+    try {
+      return spawnSync(process.execPath, ['--import', mock, resolve('scripts/ci/unwedge-pages-deploy-queue.mjs')], {
+        env: { ...process.env, GH_TOKEN: 'test-token', MOCK_ROUTES: JSON.stringify(routes) },
+        encoding: 'utf8',
+      });
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  }
+
+  it('exits 0 when nothing is wedged', () => {
+    const r = runScript([{ match: LIST, body: { workflow_runs: [] } }]);
+    expect(r.status, r.stdout + r.stderr).toBe(0);
+  });
+
+  it('exits 1 with ::error:: and cancels nothing on an unreadable or malformed listing', () => {
+    for (const routes of [[{ match: LIST, status: 500 }], [{ match: LIST, body: { message: 'x' } }]]) {
+      const r = runScript(routes);
+      expect(r.status, r.stdout + r.stderr).toBe(1);
+      expect(r.stdout).toMatch(/::error::Could not read deploy-publish\.yml runs/);
+      expect(r.stderr).not.toMatch(/CALL POST/);
+    }
+  });
+
+  it('cancels a proven wedge once, after re-reading it', () => {
+    const r = runScript(wedged(202));
+    expect(r.status, r.stdout + r.stderr).toBe(0);
+    const calls = r.stderr.split('\n').filter((l) => l.startsWith('CALL'));
+    const post = calls.findIndex((l) => l.startsWith('CALL POST'));
+    expect(post).toBeGreaterThan(calls.findIndex((l) => l.includes('/pending_deployments')));
+    expect(calls.filter((l) => l.startsWith('CALL POST'))).toHaveLength(1);
+  });
+
+  it('exits 1 when GitHub refuses the cancel', () => {
+    const r = runScript(wedged(403));
+    expect(r.status, r.stdout + r.stderr).toBe(1);
+    expect(r.stdout).toMatch(/::error::The pages-deploy queue may still be jammed/);
+  });
+
+  it('leaves alone a run that started between the listing and the re-read', () => {
+    const r = runScript(wedged(202, { ...RUN, status: 'in_progress' }));
+    expect(r.status, r.stdout + r.stderr).toBe(0);
+    expect(r.stderr).not.toMatch(/CALL POST/);
   });
 });

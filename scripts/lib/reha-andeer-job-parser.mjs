@@ -2,15 +2,20 @@
 /**
  * Reha Andeer — small private rehabilitation clinic in Andeer (GR).
  *
- * Public career page (WordPress, German only):
- *   https://reha-andeer.ch/offene-stellen/
+ * Public career page (Drupal, German; IT mirror at
+ * /it/reha-andeer/posizioni-aperte-presso-reha-andeer):
+ *   https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer
  *
- * Open positions ("offene Stellen") are listed as PDF Stelleninserate hosted under
- * /wp-content/uploads/<YYYY>/<MM>/<filename>.pdf. Email applications.
+ * The clinic replaced its WordPress site with Drupal in late September 2026:
+ * the former /offene-stellen/ page now answers HTTP 404 and the sitemap
+ * (https://reha-andeer.ch/sitemap.xml) advertises the page above instead.
+ * Open positions ("offene Stellen") are listed as PDF Stelleninserate hosted
+ * under Drupal's public files (/sites/default/files/<YYYY>-<MM>/<filename>.pdf;
+ * formerly /wp-content/uploads/<YYYY>/<MM>/). Email applications.
  *
  * Strategy:
- *   1. Fetch /offene-stellen/
- *   2. Match every <a href=".../wp-content/uploads/...*.pdf"> link
+ *   1. Fetch the career page
+ *   2. Match every <a href="...*.pdf"> link under a CMS uploads path
  *   3. Filter out non-job PDFs (datenschutz, agb, etc.)
  *   4. Derive title from filename, extract body from PDF
  *
@@ -38,7 +43,7 @@ export const REHA_ANDEER_KEY = 'reha-andeer';
 export const REHA_ANDEER_COMPANY_NAME = 'Reha Andeer';
 export const REHA_ANDEER_COMPANY_DOMAIN = 'reha-andeer.ch';
 
-const PUBLIC_CAREER_URL = 'https://reha-andeer.ch/offene-stellen/';
+const PUBLIC_CAREER_URL = 'https://reha-andeer.ch/de/reha-andeer/offene-stellen-reha-andeer';
 const DEFAULT_CITY = 'Andeer';
 const DEFAULT_CANTON = 'GR';
 const DEFAULT_POSTAL = '7440';
@@ -50,6 +55,9 @@ const NON_JOB_PDF_RE =
 // Accept any uploads PDF unless filtered above. Most are Stelleninserate by
 // keyword but some carry the role name directly (e.g. "Pflegehelferin").
 const ACCEPT_HINTS_RE = /(stelle|stelleninserat|inserat|bewerb|pflege|masseur|therap|köch|service|kuche|reinigung|nacht|sekret|leit)/i;
+// CMS upload folders that host the Stelleninserate: Drupal public files (the
+// current site) and WordPress uploads (the site until September 2026).
+const UPLOADS_PATH_RE = /\/(?:sites\/default\/files|wp-content\/uploads)\//i;
 
 function decodeFilename(raw = '') {
   try {
@@ -125,7 +133,7 @@ export function parseRehaAndeerListing(html = '') {
     if (!isTrustedDomain(href)) continue;
     if (NON_JOB_PDF_RE.test(href)) continue;
     // Require either /uploads/ in path OR a job hint in filename.
-    const isUploadsPath = /\/wp-content\/uploads\//i.test(href);
+    const isUploadsPath = UPLOADS_PATH_RE.test(href);
     if (!isUploadsPath && !ACCEPT_HINTS_RE.test(filename)) continue;
     // Extra filter: skip obviously-non-job uploads (e.g. Hausordnung).
     if (NON_JOB_PDF_RE.test(filename)) continue;
@@ -170,11 +178,11 @@ export const REHA_ANDEER_FABRICATED_DESCRIPTION_RE =
   /ist eine private Rehabilitationsklinik in Andeer|entnehmen Sie dem offiziellen PDF\.|(?:^|\n)Karriere-Seite: https?:|(?:^|\n)Bewerbung: per E-Mail gemäss den Hinweisen im Stelleninserat/;
 
 /**
- * Fetch the source listing. The page is live, but its WordPress origin has
- * intermittently returned a structural 404 to the crawler egress while a
- * clean egress still served the page. Rescue only this known source-specific
- * 404; any other HTTP error, or an unverified proxy response, remains a hard
- * failure so the crawler cannot publish a guessed empty listing.
+ * Fetch the source listing. The former WordPress origin intermittently
+ * returned a structural 404 to the crawler egress while a clean egress still
+ * served the page. Rescue only this known source-specific 404; any other HTTP
+ * error, or an unverified proxy response, remains a hard failure so the
+ * crawler cannot publish a guessed empty listing.
  */
 export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
   try {
@@ -197,7 +205,7 @@ export async function fetchRehaAndeerListingHtml({ timeoutMs } = {}) {
 export async function fetchAllRehaAndeerJobs() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   console.log(`🏥 Fetching ${REHA_ANDEER_COMPANY_NAME} jobs`);
-  console.log(`   Source: ${PUBLIC_CAREER_URL} (WordPress HTML + PDF Stelleninserate)\n`);
+  console.log(`   Source: ${PUBLIC_CAREER_URL} (Drupal HTML + PDF Stelleninserate)\n`);
 
   let html;
   try {
@@ -253,7 +261,7 @@ export async function fetchAllRehaAndeerJobs() {
       canton: DEFAULT_CANTON,
       url: listing.pdfUrl,
       applyUrl: PUBLIC_CAREER_URL,
-      source: 'Reha Andeer Dedicated Parser (WordPress HTML + PDF)',
+      source: 'Reha Andeer Dedicated Parser (Drupal HTML + PDF)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 

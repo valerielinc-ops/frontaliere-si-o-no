@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 const { launchChromium } = vi.hoisted(() => ({
@@ -588,6 +589,48 @@ describe('prospector public-only polite transport', () => {
     expect(rows).toHaveProperty('discoveredCount', 0);
     expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Access Denied'));
     expect(browserFetchImpl).toHaveBeenCalledOnce();
+  });
+
+  it('does not count page chrome outside the learned detail template as a listing', async () => {
+    // Real Hotelcareer employer page without vacancies: the generic cascade's
+    // template guess picks the footer "Karriere" link, which the spec's detail
+    // template rejects. It used to skip the empty-listing rescue and the
+    // diagnostic, so the zero reached crawler-health with no cause at all.
+    const seed = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
+    const page = readFileSync(
+      new URL('./fixtures/hotelcareer/hotel-vereina-52746-no-vacancy.html', import.meta.url),
+      'utf8',
+    );
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.endsWith('/robots.txt')) return response(url, 200, null, 'User-agent: *\nAllow: /');
+      if (url === seed) return response(url, 200, null, page);
+      throw new Error(`unexpected direct URL ${url}`);
+    });
+    const jinaFetchImpl = vi.fn(async (url: string) => response(url, 200, null, page));
+    const browserFetchImpl = vi.fn(async () => page);
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    const rows = await runSpecInProduction({
+      companyKey: 'vereinaklosters', companyName: 'Vereina', companyHost: 'hotelcareer.ch',
+      mode: 'template', seedUrls: [seed], detailTemplate: '/jobs/hotel-vereina-52746/*',
+      rescueOnEmptyListing: true, emptyListingOutcome: 'anti_bot_block',
+    } as any, {
+      fetchImpl,
+      jinaFetchImpl,
+      browserFetchImpl,
+      jinaRetries: 0,
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+    const diagnostics = warn.mock.calls.map((call) => String(call[0]));
+    warn.mockRestore();
+
+    expect(rows).toEqual([]);
+    expect(jinaFetchImpl).toHaveBeenCalledOnce();
+    expect(browserFetchImpl).toHaveBeenCalledOnce();
+    expect(rows).toHaveProperty('fetchDetail', expect.stringContaining('Jobs Hotel Vereina'));
+    expect(diagnostics).toContainEqual(expect.stringContaining(`nessun annuncio su ${seed}`));
   });
 
   it('keeps an explicit anti-bot outcome when every discovered detail is blocked', async () => {

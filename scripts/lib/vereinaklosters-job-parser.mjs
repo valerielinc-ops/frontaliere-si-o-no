@@ -21,6 +21,11 @@ import {
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './authoritative-empty-snapshot.mjs';
+import { hotelcareerEmptyEmployerPageEvidence } from './hotelcareer-employer-page.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -151,13 +156,19 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchPrimaryJobListings() {
-  const spec = loadSpec(VEREINAKLOSTERS_KEY);
+export async function fetchPrimaryJobListings({
+  spec = loadSpec(VEREINAKLOSTERS_KEY),
+  runtime = { browserFetchImpl: fetchHtmlViaBrowser },
+} = {}) {
+  // Every seed page the runtime accepted (direct, clean-IP or browser), kept
+  // to read the employer page's own empty-state statement below.
+  const seedPages = [];
+  const seedUrls = new Set(spec.seedUrls || []);
   // Hotelcareer has served a source-backed listing to a clean IP while the
   // CI egress received an unmarked HTTP 200 interstitial. Ask the shared
   // runtime for its clean-IP empty-listing rescue; it still accepts the page
   // only when the normal vacancy extraction finds real detail links.
-  return runSpecInProduction(
+  const rows = await runSpecInProduction(
     {
       ...spec,
       rescueOnEmptyListing: true,
@@ -168,8 +179,26 @@ async function fetchPrimaryJobListings() {
       // collapsing it to the generic no-jobs-parsed symptom.
       emptyListingOutcome: VEREINAKLOSTERS_EMPTY_FETCH_OUTCOME,
     },
-    { browserFetchImpl: fetchHtmlViaBrowser },
+    {
+      ...runtime,
+      onPageFetched: (page, url) => {
+        if (seedUrls.has(url)) seedPages.push(page);
+      },
+    },
   );
+  if (rows.length > 0) return rows;
+  // An empty result is no proof of a zero (see above) — unless the employer
+  // page itself says so. Hotelcareer serves Vereina's canonical page with
+  // "Dieses Unternehmen sucht aktuell nicht nach Verstärkung" and no vacancy
+  // link (verified 2026-10-01; vereinaklosters.ch/jobs links this page as its
+  // open positions): the source's own zero, not a fetch gap. Without this
+  // proof corpus group 19 reported it as `no-jobs-parsed` (runs 36632563903,
+  // 36778722341) and crawler-health as broken.
+  for (const page of seedPages) {
+    const evidence = hotelcareerEmptyEmployerPageEvidence(page?.body, VEREINAKLOSTERS_PATH);
+    if (evidence) return markAuthoritativeEmptySnapshot([], evidence);
+  }
+  return rows;
 }
 
 async function fetchSecondaryJobListings() {
@@ -177,7 +206,8 @@ async function fetchSecondaryJobListings() {
   // rescue. local-job is a public regional board that currently republishes
   // Vereina's live Serneus vacancies with full detail pages; the generic
   // prospector still filters the employer and validates every detail before
-  // anything can be published.
+  // anything can be published. Only consulted when the employer page did not
+  // prove a zero itself (see fetchAllVereinaklostersJobs).
   return runSpecInProduction(VEREINAKLOSTERS_SECONDARY_SPEC);
 }
 
@@ -284,6 +314,14 @@ export async function fetchAllVereinaklostersJobs({
     primaryListings = await primaryFetchImpl();
   } catch (error) {
     primaryError = error;
+  }
+
+  // The official source proved it has no vacancy: a third-party board cannot
+  // contradict it (local-job still republished a 2026-09-09 JobG8 copy of a
+  // Vereina ad the employer page no longer lists).
+  if (isAuthoritativeEmptySnapshot(primaryListings)) {
+    console.log(`  🧩 Source-proven zero: ${primaryListings.authoritativeEmptyEvidence}`);
+    return primaryListings;
   }
 
   const primaryJobs = buildVereinaJobs(primaryListings || []);

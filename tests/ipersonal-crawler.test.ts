@@ -156,6 +156,30 @@ describe('MediPersonal crawler parser', () => {
       expect(acceptedEncodings.every((value) => value === 'identity')).toBe(true);
     });
 
+    it('sends direct requests through the fetch paired with the policy dispatcher', async () => {
+      // No fetchImpl: the production transport. Only a fetch that accepts the
+      // policy's npm-undici dispatcher reaches its connection-time DNS guard,
+      // which refuses the loopback answer before any socket is opened. Node's
+      // bundled fetch rejects that dispatcher under undici 8: every direct
+      // request became "fetch failed" and silently fell back to Jina.
+      const jinaCalls: string[] = [];
+      await expect(runIpersonalSpecInProduction({
+        companyKey: 'ipersonal', companyName: 'MediPersonal', platform: 'med-ipersonal.ch',
+        seedUrls: ['https://med-ipersonal.ch/'], mode: 'template', detailTemplate: '/jobs/*/', detailFetchWorkers: 1,
+      } as any, {
+        jinaFetchImpl: (async (input: string | URL | Request) => {
+          jinaCalls.push(String(input));
+          throw new TypeError('fetch failed');
+        }) as typeof fetch,
+        lookupImpl: async () => [{ address: '127.0.0.1', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        jinaRetries: 0,
+        jinaRetryBaseMs: 0,
+      })).rejects.toThrow(/unsafe prospector DNS target/);
+      expect(jinaCalls).toEqual([]);
+    });
+
     it('accounts for Jina-rescued seed and detail pages in the complete snapshot', async () => {
       const seedUrl = 'https://ipersonal-proxy-fixture.example/';
       const detailUrl = `${seedUrl}jobs/proxy-role/`;

@@ -45,6 +45,7 @@ import {
 } from './hospital-custom-html-helpers.mjs';
 import { fetchWithRetry, RETRYABLE_STATUS } from './transient-fetch.mjs';
 import { extractJobPostingLd, jobPostingAddress } from './jsonld-jobposting.mjs';
+import { isSpontaneousApplicationTitle } from './spontaneous-application.mjs';
 
 const FEED_HOST = 'https://jobs.jobpublish.ch';
 const DETAIL_DELAY_MS = 250;
@@ -198,11 +199,10 @@ export function extractDetailJsonLdAddress(html = '') {
  * für Pflegeberufe`, `Spontanbewerbung als Assistenzärztin/-arzt`). They are
  * not vacancies: no detail page, no contract, no workload — publishing them
  * produced a one-line synthetic description (`title — company (city).`).
+ * The vocabulary is shared with the other crawlers (spontaneous-application.mjs).
  */
-const SPONTANEOUS_APPLICATION_RE = /\b(?:spontan|initiativ|blind)bewerbung|candidatura spontanea|candidature spontan|postulation spontan|spontaneous application/i;
-
 export function isJobpublishSpontaneousPlaceholder(item = {}) {
-  return SPONTANEOUS_APPLICATION_RE.test(String(item?.title || ''));
+  return isSpontaneousApplicationTitle(item?.title);
 }
 
 /**

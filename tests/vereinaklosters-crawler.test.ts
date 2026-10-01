@@ -1,14 +1,43 @@
+import fs from 'node:fs';
 import { describe, it, expect, vi } from 'vitest';
 import {
   VEREINAKLOSTERS_KEY,
   VEREINAKLOSTERS_COMPANY_NAME,
   VEREINAKLOSTERS_SECONDARY_SPEC,
   fetchAllVereinaklostersJobs,
+  fetchPrimaryJobListings,
   isVereinaklostersJob,
   isTrustedDomain,
 } from '../scripts/lib/vereinaklosters-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 import { runSpecInProduction } from '../scripts/lib/prospector/spec-crawler.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
+
+// Hotelcareer's real employer page for Hotel Vereina (fetched 2026-10-01,
+// scripts/styles removed, contact data and session ids replaced): no vacancy,
+// the explicit empty-state sentence, and the footer "Karriere" chrome link.
+const VEREINA_NO_VACANCY_PAGE = fs.readFileSync(
+  new URL('./fixtures/hotelcareer/hotel-vereina-52746-no-vacancy.html', import.meta.url),
+  'utf8',
+);
+const VEREINA_SEED = 'https://www.hotelcareer.ch/jobs/hotel-vereina-52746';
+const VEREINA_SPEC = {
+  companyKey: 'vereinaklosters',
+  companyName: 'Vereina',
+  companyHost: 'hotelcareer.ch',
+  platform: 'hotelcareer.ch',
+  mode: 'template',
+  seedUrls: [VEREINA_SEED],
+  detailTemplate: '/jobs/hotel-vereina-52746/*',
+  detailEnrichment: true,
+  detailFetchWorkers: 4,
+  canton: 'GR',
+  sourceLang: 'de',
+};
 
 function response(url: string, status: number, body = '') {
   return {
@@ -164,6 +193,76 @@ describe('Vereina crawler parser', () => {
 
     expect(jobs).toEqual([]);
     expect(jobs).toHaveProperty('fetchOutcome', 'anti_bot_block');
+  });
+
+  describe('source-proven zero on the Hotelcareer employer page', () => {
+    const challenge = '<html><head><title>Challenge Validation</title></head>'
+      + `<body><meta name="sec-cpt-if" content="provider=crypto">${' blocked'.repeat(30)}</body></html>`;
+    const runtimeServing = (seedBody: string) => ({
+      fetchImpl: vi.fn(async (url: string) => {
+        if (url.endsWith('/robots.txt')) return response(url, 200, 'User-agent: *\nAllow: /');
+        if (url === VEREINA_SEED) return response(url, 200, seedBody);
+        throw new Error(`unexpected direct URL ${url}`);
+      }),
+      jinaFetchImpl: vi.fn(async (url: string) => response(url, 200, challenge)),
+      browserFetchImpl: vi.fn(async () => null),
+      lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+      retries: 0,
+      jinaRetries: 0,
+      sleepImpl: async () => {},
+      jinaSleepImpl: async () => {},
+    });
+
+    it('publishes the employer page statement as an authoritative zero', async () => {
+      const runtime = runtimeServing(VEREINA_NO_VACANCY_PAGE);
+      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC as any, runtime });
+
+      expect(isAuthoritativeEmptySnapshot(listings)).toBe(true);
+      expect((listings as any).authoritativeEmptyEvidence)
+        .toContain('Dieses Unternehmen sucht aktuell nicht nach Verstärkung');
+      // The pipeline verdict with the options the runner declares.
+      expect(evaluateAuthoritativeSnapshot(listings, {
+        validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(VEREINAKLOSTERS_COMPANY_NAME),
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+        companyLabel: VEREINAKLOSTERS_COMPANY_NAME,
+      } as any).authoritativeEmptySnapshot).toBe(true);
+      // The footer chrome link no longer counts as a listing: the empty-page
+      // rescue ran (and found nothing) instead of being skipped.
+      expect(runtime.jinaFetchImpl).toHaveBeenCalled();
+    });
+
+    it('keeps an unproven zero (challenge served on every path) as anti-bot evidence', async () => {
+      const runtime = runtimeServing(challenge);
+      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC as any, runtime })
+        .catch((error: any) => error);
+
+      // Either the runtime throws the exhausted anti-bot error or it returns a
+      // zero carrying the outcome; it is never a proven empty snapshot.
+      expect(isAuthoritativeEmptySnapshot(listings)).toBe(false);
+      if (Array.isArray(listings)) expect(listings).toHaveProperty('fetchOutcome', 'anti_bot_block');
+      else expect(listings).toHaveProperty('antiBotExhausted', true);
+    });
+
+    it('does not let the third-party board contradict the official zero', async () => {
+      const primary = markAuthoritativeEmptySnapshot([], 'Hotelcareer employer page: no vacancy');
+      const secondaryFetchImpl = vi.fn(async () => []);
+
+      const jobs = await fetchAllVereinaklostersJobs({
+        primaryFetchImpl: async () => primary,
+        secondaryFetchImpl,
+      });
+
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+      expect(secondaryFetchImpl).not.toHaveBeenCalled();
+    });
+
+    it('asks the pipeline for the source-proven zero', () => {
+      const runner = fs.readFileSync(new URL('../scripts/update-vereinaklosters-jobs.mjs', import.meta.url), 'utf8');
+      expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
+      expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+      expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

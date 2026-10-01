@@ -1,11 +1,29 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import { describe, it, expect, vi } from 'vitest';
 import {
   BLATTERS_HOTEL_KEY,
   BLATTERS_HOTEL_COMPANY_NAME,
+  fetchAllBlattersHotelJobs,
+  fetchJobListings,
   isBlattersHotelJob,
   isTrustedDomain,
 } from '../scripts/lib/blatters-hotel-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
+
+function response(url: string, status: number, body = '') {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    url,
+    headers: { get: () => null },
+    body: { cancel: vi.fn() },
+    text: async () => body,
+  } as any;
+}
 
 describe("Blatter's Arosa Hotel crawler parser", () => {
   // ── Constants ──
@@ -40,6 +58,57 @@ describe("Blatter's Arosa Hotel crawler parser", () => {
       expect(isBlattersHotelJob(null)).toBe(false);
       expect(isBlattersHotelJob(undefined)).toBe(false);
       expect(isBlattersHotelJob({})).toBe(false);
+    });
+  });
+
+  // ── Source-proven zero (same Hotelcareer employer page as vereinaklosters) ──
+  describe('source-proven zero', () => {
+    it('passes a proven employer-page zero through to the pipeline', async () => {
+      const proven = markAuthoritativeEmptySnapshot([], 'Hotelcareer employer page: no vacancy');
+      const jobs = await fetchAllBlattersHotelJobs({ fetchListings: async () => proven });
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    });
+
+    it('never turns a page that lists a vacancy into a zero, even when its detail is unreadable', async () => {
+      // Real employer page (2026-10-01) with its one vacancy; the detail page
+      // answers 403 and the clean-IP rescue is challenged too.
+      const page = fs.readFileSync(
+        new URL('./fixtures/hotelcareer/blatter-s-hotel-arosa-4340-one-vacancy.html', import.meta.url),
+        'utf8',
+      );
+      const seed = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';
+      const challenge = '<html><head><title>Challenge Validation</title></head><body>blocked</body></html>';
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (url.endsWith('/robots.txt')) return response(url, 200, 'User-agent: *\nAllow: /');
+        if (url === seed) return response(url, 200, page);
+        return response(url, 403, challenge);
+      });
+      const listings = await fetchJobListings({
+        spec: {
+          companyKey: 'blatters-hotel', companyName: "Blatter's Arosa Hotel", companyHost: 'hotelcareer.ch',
+          platform: 'hotelcareer.ch', mode: 'template', seedUrls: [seed],
+          detailTemplate: '/jobs/blatter-s-hotel-arosa-4340/*', detailEnrichment: true,
+        } as any,
+        runtime: {
+          fetchImpl,
+          jinaFetchImpl: vi.fn(async (url: string) => response(url, 200, challenge)),
+          lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+          retries: 0,
+          jinaRetries: 0,
+          sleepImpl: async () => {},
+          jinaSleepImpl: async () => {},
+        },
+      });
+
+      expect(listings).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(listings)).toBe(false);
+    });
+
+    it('asks the pipeline for the source-proven zero', () => {
+      const runner = fs.readFileSync(new URL('../scripts/update-blatters-hotel-jobs.mjs', import.meta.url), 'utf8');
+      expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
+      expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+      expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
     });
   });
 

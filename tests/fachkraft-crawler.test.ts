@@ -583,6 +583,22 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(Date.now() - startedAt).toBeLessThan(500);
     });
 
+    it('sends the default transport through the fetch paired with the policy dispatcher', async () => {
+      // No fetchImpl: the production transport. Only a fetch that accepts the
+      // policy's npm-undici dispatcher reaches its connection-time DNS guard,
+      // which refuses the loopback answer before any socket is opened. Node's
+      // bundled fetch rejects that dispatcher under undici 8 and showed up
+      // here as "transport other" on every request.
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        requestTimeoutMs: 5_000,
+        runTimeoutMs: 10_000,
+        retries: 0,
+        lookupImpl: async () => [{ address: '127.0.0.1', family: 4 }],
+        existingJobs: [],
+      })).rejects.toThrow(/unsafe prospector DNS target/);
+    });
+
     it('enforces the whole-run deadline even when the per-request budget is longer', async () => {
       const fetchImpl = async (target: string) => {
         if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });

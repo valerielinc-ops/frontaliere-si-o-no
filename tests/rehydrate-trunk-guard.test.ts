@@ -10,9 +10,9 @@
 // rehydrate-section-shards.sh end to end against a temp fixture root, with
 // zero network:
 //   * `ensure_batch_downloaded()` returns immediately when the batch `.done`
-//     marker already exists (rehydrate-section-shards.sh:39-41), so a
-//     pre-seeded marker + tar exercises the tar rehydrate path without ever
-//     invoking `gh run download`;
+//     marker already exists, so a pre-seeded marker + batch zip (the section
+//     tar inside it, as deploy.yml uploads it) exercises the tar rehydrate
+//     path without ever invoking `gh`;
 //   * en/de/fr are pre-seeded complete so the `[ -s dist/$sub/index.html ]`
 //     guard skips them before the git-clone fallback can reach github.com.
 // Verified against the pre-fix script: the indexable-loss case exits 0 with no
@@ -100,7 +100,11 @@ function runSectionRehydrate(
   const runnerTemp = join(root, 'runner-temp');
   const dl = join(runnerTemp, 'shard-batch-1-dist-it');
   mkdirSync(dl, { recursive: true });
-  execFileSync('tar', ['-C', stage, '-cf', join(dl, `${SECTION}-dist-it.tar`), IT_SLUG]);
+  // The batch artifact stays a zip on disk: the script streams the section
+  // tar out of it (`unzip -p … | tar -x`) instead of inflating it.
+  const tarPath = join(root, `${SECTION}-dist-it.tar`);
+  execFileSync('tar', ['-C', stage, '-cf', tarPath, IT_SLUG]);
+  execFileSync('zip', ['-q', '-j', join(dl, 'batch.zip'), tarPath]);
   writeFileSync(join(runnerTemp, 'shard-batch-1-dist-it.done'), '');
 
   let status = 0;

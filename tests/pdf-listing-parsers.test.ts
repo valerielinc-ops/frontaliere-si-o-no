@@ -20,7 +20,7 @@ describe('PDF-backed HTML listing parsers', () => {
       }),
       expect.objectContaining({
         title: 'Med. Masseurin',
-        pdfUrl: 'https://reha-andeer.ch/offene-stellen/wp-content/uploads/2026/07/2026_Stelleninserat-med.-Masseurin.PDF',
+        pdfUrl: 'https://reha-andeer.ch/de/reha-andeer/wp-content/uploads/2026/07/2026_Stelleninserat-med.-Masseurin.PDF',
         filename: '2026_Stelleninserat-med.-Masseurin.PDF',
       }),
     ]);

@@ -67,27 +67,12 @@ jobs:
         with:
           ref: ${{ github.event.inputs.sha }}
           path: build
+      # Lista unica condivisa con ogni job che reidrata il dist logico
+      # (stampa df, blocchi e inode, prima e dopo). Script dal checkout
+      # `tooling`, come grow-build-swap.sh qui sotto.
       - name: Free disk space before build and artifact extraction
         shell: bash
-        run: |
-          set -euo pipefail
-          df -h /
-          for path in \
-            /usr/share/dotnet \
-            /usr/local/lib/android \
-            /opt/ghc \
-            /opt/hostedtoolcache/CodeQL \
-            /usr/local/share/powershell \
-            /usr/local/share/chromium \
-            /usr/local/lib/node_modules \
-            /usr/local/share/boost \
-            /usr/share/swift; do
-            if [ -e "$path" ]; then sudo rm -rf "$path"; fi
-          done
-          if command -v docker >/dev/null 2>&1; then
-            sudo docker image prune -af
-          fi
-          df -h /
+        run: bash tooling/scripts/ci/free-runner-disk.sh
       # Review di #6150: questo job lancia `npm run build:ci` (tetto V8
       # 14336 MB) e senza lo swapfile il runtime NON e' quello del deploy che
       # deve byte-matchare — e il preflight di buildMemoryGuard lo fermerebbe

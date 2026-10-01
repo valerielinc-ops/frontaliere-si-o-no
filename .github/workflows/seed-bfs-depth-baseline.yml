@@ -96,14 +96,9 @@ jobs:
       # post-deploy-validate-dist.yml's own "Free disk space on runner" step,
       # mirrored verbatim here for the same reason).
       - name: Free disk space on runner
-        run: |
-          df -h /
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
-            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
-            /usr/local/share/chromium /usr/local/lib/node_modules \
-            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
-          sudo docker image prune -af 2>/dev/null || true
-          df -h /
+        # One list for every job that rehydrates the logical dist; it prints
+        # df (blocks AND inodes) before/after. See its header for why.
+        run: bash scripts/ci/free-runner-disk.sh
 
       - name: Set up Node.js
         uses: actions/setup-node@v7

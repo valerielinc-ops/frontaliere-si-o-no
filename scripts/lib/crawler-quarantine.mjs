@@ -29,6 +29,10 @@
  *   - RITIRO quando la serie rossa corrente conta RETIRE_RED_WAVES ondate
  *     oppure dura RETIRE_DAYS giorni da `failingSince`, la prima che scatta.
  *
+ * Il gruppo pero' non si svuota mai (`holdLastQuarantineMember()`): il roster
+ * di generazione rifiuta un gruppo senza crawler, quindi se tutti i membri
+ * uscirebbero insieme l'ultimo rientro resta in attesa.
+ *
  * I numeri, dalla storia reale del gruppo (8 run, 23-09 → 28-09):
  *
  *   - cadenza osservata: ~2 ondate al giorno (09:00 e 21:00 UTC piu' i
@@ -332,8 +336,64 @@ export function decideQuarantine({
   return decisions;
 }
 
+/**
+ * The quarantine group never empties.
+ *
+ * It is one of the generated groups, and the crawler generation roster refuses
+ * a group without crawlers (`Invalid roster for group 24`,
+ * createCrawlerGenerationRoster in scripts/lib/crawler-generation-contract.mjs):
+ * a group run with nothing to crawl has no receipt for the generation barrier
+ * to wait on. Run 36789918924 (2026-09-30) decided four rejoins and one
+ * retirement for all five members, emptied group 24 and died in the generator
+ * after the retirement issue had already been opened.
+ *
+ * When the decisions would remove every crawler pinned in the group, the
+ * rejoin with the weakest evidence (shortest green streak, then the latest
+ * entry, then the slug) is held instead: the crawler stays as the last member
+ * and rejoins at the first review after another crawler enters. It is green,
+ * and a held known failure also loses its tolerance, so a new red of it fails
+ * the quarantine verdict exactly as it would at home. A retirement is never
+ * held, because it would keep a crawler past its deadline scheduled: with no
+ * rejoin to hold this throws before any side effect.
+ */
+export function holdLastQuarantineMember({ registry, assignments, decisions }) {
+  const pinned = assignments[registry.group - 1] ?? [];
+  const leaving = new Set(decisions
+    .filter((d) => d.action === 'rejoin' || d.action === 'retire')
+    .map((d) => d.slug));
+  if (pinned.length === 0 || pinned.some((slug) => !leaving.has(slug))) return decisions;
+  const enteredAtMs = (slug) => Date.parse(registry.members[slug]?.enteredAt ?? '') || 0;
+  const [held] = decisions
+    .filter((d) => d.action === 'rejoin' && pinned.includes(d.slug))
+    .sort((a, b) => (a.evidence?.streak ?? 0) - (b.evidence?.streak ?? 0)
+      || enteredAtMs(b.slug) - enteredAtMs(a.slug)
+      || (a.slug < b.slug ? -1 : a.slug > b.slug ? 1 : 0));
+  if (!held) {
+    const retiring = pinned.filter((slug) => leaving.has(slug)).join(', ');
+    throw new Error(
+      `crawler quarantine: retiring ${retiring} would leave the quarantine group ${registry.group} empty, `
+      + 'and the crawler generation roster refuses an empty group. A retirement is not held (the crawler '
+      + 'would stay scheduled past its deadline): another crawler has to enter the quarantine group '
+      + '(data/crawler-quarantine.json + data/crawler-group-assignments.json) before it can leave.',
+    );
+  }
+  const dropsTolerance = Boolean(registry.members[held.slug]?.failingSince);
+  return decisions.map((d) => (d === held
+    ? {
+      slug: d.slug,
+      action: 'hold',
+      homeGroup: d.homeGroup,
+      issue: d.issue ?? null,
+      dropsTolerance,
+      reason: `ultimo membro del gruppo di quarantena ${registry.group}: il roster di generazione rifiuta un gruppo vuoto`,
+      evidence: d.evidence,
+    }
+    : d));
+}
+
 /** Decisions that change the registry or the pins (the others are reports). */
 export function isMutatingDecision(decision) {
+  if (decision.action === 'hold') return decision.dropsTolerance === true;
   return ['rejoin', 'retire', 'mark-failing', 'mark-recovering'].includes(decision.action);
 }
 
@@ -381,13 +441,20 @@ export function applyQuarantineDecisions({ registry, assignments, decisions, now
         next.members[slug] = { ...next.members[slug], failingSince: decision.failingSince, issue };
         break;
       }
-      case 'mark-recovering': {
+      case 'mark-recovering':
+      case 'hold': {
+        if (decision.action === 'hold' && !decision.dropsTolerance) break;
         next.members[slug] = { ...next.members[slug], failingSince: null };
         break;
       }
       default:
         break;
     }
+  }
+  // Defense for callers that skip holdLastQuarantineMember(): an empty
+  // quarantine group would only surface later as `Invalid roster for group N`.
+  if ((assignments[q] ?? []).length > 0 && groups[q].length === 0) {
+    throw new Error(`crawler quarantine: the decisions would leave the quarantine group ${registry.group} empty; run holdLastQuarantineMember() first`);
   }
   return { registry: next, assignments: groups };
 }

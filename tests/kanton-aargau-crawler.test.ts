@@ -242,8 +242,14 @@ describe('Kanton Aargau crawler parser', () => {
     };
     const isApi = (url: string) => url.includes('/io/jobs-proxy/jobs');
 
+    // Transient statuses are retried with the shared backoff; keep it instant.
+    beforeEach(() => {
+      vi.stubEnv('JOBS_CRAWLER_RETRY_BASE_MS', '0');
+    });
+
     afterEach(() => {
       vi.unstubAllGlobals();
+      vi.unstubAllEnvs();
       vi.restoreAllMocks();
     });
 
@@ -265,6 +271,24 @@ describe('Kanton Aargau crawler parser', () => {
       // A status means the source answered: the pipeline must not treat it as
       // a connection-level soft exit.
       expect(isConnectionLevelFetchError(err)).toBe(false);
+    });
+
+    it('retries a transient 503 on a vacancy page instead of failing the board (corpus run 36778255557)', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      let unavailable = 1;
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (unavailable > 0) {
+          unavailable -= 1;
+          return new Response('Service Unavailable', { status: 503 });
+        }
+        return new Response(detailHtml);
+      });
+      const jobs = await fetchAllKantonAargauJobs();
+      expect(jobs).toHaveLength(2);
+      // API + 2 vacancy pages + 1 retried page.
+      expect(fetchMock).toHaveBeenCalledTimes(4);
     });
 
     it('fails when a vacancy page carries no ad body', async () => {

@@ -17,8 +17,8 @@
 //      bounded section fan-out so a large shard corpus cannot host-kill the
 //      validator before it emits a verdict (#7421).
 import { describe, it, expect, beforeAll, afterAll } from 'vitest';
-import { execSync } from 'node:child_process';
-import { mkdtempSync, rmSync, writeFileSync, existsSync } from 'node:fs';
+import { execSync, execFileSync } from 'node:child_process';
+import { mkdtempSync, rmSync, writeFileSync, existsSync, mkdirSync, copyFileSync, readdirSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { readFileSync } from 'node:fs';
@@ -109,12 +109,24 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
   });
 
   it('bounds artifact downloads and clone fallbacks with the same retry contract as the locale sibling', () => {
-    const downloadIdx = script.indexOf('gh run download "$DEPLOY_RUN_ID"');
+    // The batch artifact is resolved and fetched as its raw zip (2026-10-01):
+    // `gh run download` would inflate every member tar of the batch on disk.
+    // The old 180-second attempt budget is split, not grown — 30 s to resolve
+    // plus 150 s to download — so the losers' 390-second wait still covers
+    // both attempts and the backoff.
+    const resolveIdx = script.indexOf('gh api "repos/$repo/actions/runs/$DEPLOY_RUN_ID/artifacts?name=$name&per_page=100"');
+    const downloadIdx = script.indexOf('"repos/$repo/actions/artifacts/$id/zip"');
     const cloneIdx = script.indexOf('git clone --depth 1 --single-branch --branch main');
-    expect(downloadIdx).toBeGreaterThan(-1);
+    expect(resolveIdx).toBeGreaterThan(-1);
+    expect(downloadIdx).toBeGreaterThan(resolveIdx);
     expect(cloneIdx).toBeGreaterThan(downloadIdx);
-    expect(script.slice(downloadIdx - 30, downloadIdx)).toContain('timeout 180');
+    expect(script.slice(resolveIdx - 30, resolveIdx)).toContain('timeout 30');
+    expect(script.slice(downloadIdx - 120, downloadIdx)).toContain('timeout 150 gh api');
     expect(script.slice(cloneIdx - 30, cloneIdx)).toContain('timeout 300');
+    // #7392: an expired artifact stays listed and would only fail on the zip.
+    expect(script).toContain('select(.expired == false)');
+    const liveCode = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
+    expect(liveCode).not.toContain('gh run download');
     expect(script).toMatch(/batch_download_ok=1[\s\S]*for attempt in 1 2; do/);
     expect(script).toMatch(/clone_ok=1[\s\S]*for attempt in 1 2; do/);
     // The losing workers must wait for both bounded download attempts before
@@ -170,7 +182,10 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
 
     const branch = copyGuardSuccessBranch();
     // The copy itself, and the cache write, both inside the verified branch.
-    expect(branch).toContain('cp -r "$tmp/$sub" "dist/$sub"');
+    // A rename: the clone is deleted right after, so a copy only held the
+    // shard on disk twice (same class as the batch-zip streaming).
+    expect(branch).toContain('mv "$tmp/$sub" "dist/$sub"');
+    expect(branch).not.toContain('cp -r "$tmp/$sub"');
     expect(branch).toContain('SHARD_CLONE_CACHE_DIR');
   });
 
@@ -226,4 +241,200 @@ describe('rehydrate-section-shards.sh — structural invariants (issue #4881 def
     expect(script).toMatch(/\[ "\$actual_n" -eq "\$expected_n" \]/);
     expect(script).not.toMatch(/\[ "\$actual_n" -ge "\$expected_n" \]/);
   });
+});
+
+/**
+ * Behaviour, not text (2026-10-01: deploy-publish run 36810296662 and
+ * cathedral-seo-gates-check run 36810296254 ran out of disk inside this
+ * script). The real script runs against a throwaway root with fake sections,
+ * a fake `gh` that serves batch zips from fixtures and a fake `git` that
+ * refuses every clone — zero network. What is pinned:
+ *   - no section tar is ever a file on disk: the batch stays a zip and every
+ *     member is streamed out of it, and `gh run download` is never called;
+ *   - one zip per batch is fetched, kept while ANY live section of the batch
+ *     still has to read it (including one that has not started), and deleted
+ *     after the last reader — also when that reader only skipped;
+ *   - a member whose bytes no longer match the zip's CRC falls back to the
+ *     clone even though the two tar passes agree with each other.
+ */
+describe('rehydrate-section-shards.sh — batch artifacts are streamed from their zip (run 36810296662)', () => {
+  const PAGE = '<!DOCTYPE html><html><head><title>t</title></head><body>PAYLOAD-MARKER</body></html>';
+  const LOCALES = ['en', 'de', 'fr'] as const;
+
+  interface Fixture {
+    root: string;
+    runnerTemp: string;
+    ghLog: string;
+  }
+
+  /**
+   * sections: name → batch. `skipIt` sections already have their IT subtree
+   * complete in dist/ (the "present in artifact" path). en/de/fr are complete
+   * for every section, so only IT ever reaches the zips.
+   */
+  function buildFixture(
+    sections: Record<string, number>,
+    skipIt: string[] = [],
+    corrupt: string[] = [],
+  ): Fixture {
+    const root = mkdtempSync(join(tmpdir(), 'rehydrate-zip-'));
+    const lib = join(root, 'scripts', 'lib');
+    mkdirSync(lib, { recursive: true });
+    for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh']) {
+      copyFileSync(resolve('scripts/lib', f), join(lib, f));
+    }
+    const slugs: Record<string, Record<string, string>> = {};
+    for (const name of Object.keys(sections)) {
+      slugs[name] = { it: `sez-${name}`, en: `${name}-en`, de: `${name}-de`, fr: `${name}-fr` };
+    }
+    writeFileSync(join(lib, 'section-shard-slugs.json'), JSON.stringify(slugs));
+    writeFileSync(join(lib, 'section-shard-batches.json'), JSON.stringify(sections));
+    writeFileSync(join(lib, 'section-shard-owners.json'), JSON.stringify({}));
+
+    const writePage = (p: string) => {
+      mkdirSync(join(p, '..'), { recursive: true });
+      writeFileSync(p, PAGE);
+    };
+    const dist = join(root, 'dist');
+    for (const name of Object.keys(sections)) {
+      for (const loc of LOCALES) writePage(join(dist, loc, slugs[name][loc], 'index.html'));
+      if (skipIt.includes(name)) writePage(join(dist, slugs[name].it, 'index.html'));
+    }
+
+    // One zip per batch around its sections' IT tars, as deploy.yml uploads
+    // them. Stored (-0) so a corrupted byte lands in a page body: the tar
+    // stream stays well-formed and only the zip CRC can notice.
+    const stage = join(root, 'stage');
+    const zips = join(root, 'zips');
+    mkdirSync(zips, { recursive: true });
+    const ids: Record<string, string> = {};
+    for (const batch of [...new Set(Object.values(sections))]) {
+      const tars: string[] = [];
+      for (const [name, b] of Object.entries(sections)) {
+        if (b !== batch) continue;
+        writePage(join(stage, slugs[name].it, 'index.html'));
+        writePage(join(stage, slugs[name].it, 'un-lavoro', 'index.html'));
+        const tar = join(root, `${name}-dist-it.tar`);
+        execFileSync('tar', ['-C', stage, '-cf', tar, slugs[name].it]);
+        tars.push(tar);
+      }
+      const id = String(1000 + batch);
+      const zip = join(zips, `${id}.zip`);
+      execFileSync('zip', ['-q', '-0', '-j', zip, ...tars]);
+      if (Object.entries(sections).some(([n, b]) => b === batch && corrupt.includes(n))) {
+        const buf = readFileSync(zip);
+        const at = buf.indexOf('PAYLOAD-MARKER');
+        buf[at] ^= 0x20;
+        writeFileSync(zip, buf);
+      }
+      ids[`shard-batch-${batch}-dist-it-42`] = id;
+    }
+
+    const bin = join(root, 'bin');
+    mkdirSync(bin, { recursive: true });
+    const ghLog = join(root, 'gh.log');
+    // Fake gh: logs every call plus which batch zips exist at that moment,
+    // answers the artifact listing with the fixture id and the zip endpoint
+    // with the fixture bytes. Anything else (e.g. `run download`) fails.
+    writeFileSync(join(bin, 'gh'), [
+      '#!/usr/bin/env bash',
+      'present=$(cd "$RUNNER_TEMP" 2>/dev/null && ls -d shard-batch-*-dist-*/batch.zip 2>/dev/null | tr "\\n" " ")',
+      'echo "CALL $* || zips: $present" >> "$GH_LOG"',
+      'case "$*" in',
+      '  *"/artifacts?name="*)',
+      '    name=$(sed -E "s/.*artifacts[?]name=([^&]+)&.*/\\1/" <<< "$*")',
+      `    case "$name" in ${Object.entries(ids).map(([n, id]) => `${n}) echo ${id} ;;`).join(' ')} *) : ;; esac`,
+      '    exit 0 ;;',
+      '  *"/actions/artifacts/"*"/zip"*)',
+      '    id=$(sed -E "s#.*/actions/artifacts/([0-9]+)/zip.*#\\1#" <<< "$*")',
+      `    exec cat ${JSON.stringify(zips)}/"$id".zip ;;`,
+      'esac',
+      'exit 1',
+      '',
+    ].join('\n'), { mode: 0o755 });
+    writeFileSync(join(bin, 'git'), '#!/bin/sh\nexit 1\n', { mode: 0o755 });
+
+    const runnerTemp = join(root, 'runner-temp');
+    mkdirSync(runnerTemp, { recursive: true });
+    return { root, runnerTemp, ghLog };
+  }
+
+  function run(fx: Fixture, live: string[]): { status: number; output: string } {
+    const env: Record<string, string> = {
+      ...process.env as Record<string, string>,
+      PATH: `${join(fx.root, 'bin')}:${process.env.PATH}`,
+      RUNNER_TEMP: fx.runnerTemp,
+      GH_REPO: 'example/site',
+      GH_LOG: fx.ghLog,
+      GH_TOKEN: 'unused',
+      DEPLOY_RUN_ID: '42',
+      // Sequential, so "a reader that has not started yet" is deterministic.
+      REHYDRATE_MAX_PARALLEL: '1',
+    };
+    for (const name of live) env[`${name.toUpperCase()}_SHARD_LIVE`] = 'true';
+    try {
+      const output = execFileSync('bash', ['scripts/lib/rehydrate-section-shards.sh'], {
+        cwd: fx.root, encoding: 'utf8', stdio: ['pipe', 'pipe', 'pipe'], env,
+      });
+      return { status: 0, output };
+    } catch (e) {
+      const err = e as { status?: number; stdout?: string; stderr?: string };
+      return { status: err.status ?? 1, output: `${err.stdout ?? ''}${err.stderr ?? ''}` };
+    }
+  }
+
+  const listFiles = (dir: string): string[] => {
+    if (!existsSync(dir)) return [];
+    return readdirSync(dir, { recursive: true, withFileTypes: true })
+      .filter((d) => d.isFile())
+      .map((d) => join(d.parentPath ?? (d as any).path, d.name));
+  };
+
+  it('streams every section out of one zip per batch and releases each zip after its last reader', () => {
+    // s1+s2 read batch 1; s3 reads batch 2 and s4 — its last reader — only
+    // skips; s5 reads batch 3. Run in that order, one at a time.
+    const fx = buildFixture({ s1: 1, s2: 1, s3: 2, s4: 2, s5: 3 }, ['s4']);
+    try {
+      const { status, output } = run(fx, ['s1', 's2', 's3', 's4', 's5']);
+      expect(status, output).toBe(0);
+      for (const name of ['s1', 's2', 's3', 's5']) {
+        expect(output).toContain(`rehydrated ${name} it from tar artifact: 2 files (tar listed 2)`);
+        expect(existsSync(join(fx.root, 'dist', `sez-${name}`, 'un-lavoro', 'index.html'))).toBe(true);
+      }
+      expect(output).toContain('s4 it (sez-s4) present in artifact — skip rehydrate');
+      expect(output).not.toContain('falling back to git clone');
+
+      const calls = readFileSync(fx.ghLog, 'utf8').trim().split('\n');
+      expect(calls.some((c) => /\brun download\b/.test(c))).toBe(false);
+      const zipCalls = calls.filter((c) => /\/actions\/artifacts\/\d+\/zip/.test(c));
+      expect(zipCalls).toHaveLength(3);
+      // s2 started after s1 had released batch 1 — and still found the zip.
+      // When s5 resolves batch 3, batch 1 (read by both) and batch 2 (whose
+      // last reader skipped) are already gone: released, not just swept.
+      const batch3Resolve = calls.find((c) => c.includes('artifacts?name=shard-batch-3-dist-it-42'));
+      expect(batch3Resolve, calls.join('\n')).toBeDefined();
+      expect(batch3Resolve).toMatch(/zips: *$/);
+
+      // Nothing tar-shaped ever hit the disk, and nothing is left behind.
+      expect(listFiles(fx.runnerTemp).filter((f) => f.endsWith('.tar'))).toEqual([]);
+      expect(listFiles(fx.runnerTemp).filter((f) => /shard-batch-/.test(f))).toEqual([]);
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  });
+
+  it('a member that fails the zip CRC falls back to the clone, although both tar passes agree', () => {
+    const fx = buildFixture({ s1: 1 }, [], ['s1']);
+    try {
+      const { status, output } = run(fx, ['s1']);
+      // Fail-soft as before: the clone (refused here) degrades with a warning.
+      expect(status, output).toBe(0);
+      expect(output).not.toContain('rehydrated s1 it from tar artifact');
+      expect(output).toMatch(/\[rehydrate\] s1-it tar extraction incomplete \(expected 2 files, got 2, unzip rc=[2-9]\)/);
+      expect(output).toContain('::warning::s1-it shard clone failed after retry');
+      expect(existsSync(join(fx.root, 'dist', 'sez-s1'))).toBe(false);
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  }, 30_000);
 });

@@ -409,7 +409,29 @@ function extractListingCandidates(html, effectiveUrl, templateRx) {
     const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
     if (direct.length) candidates = direct;
   }
+  // A candidate outside the learned detail template is never published (the
+  // row builder drops it), so it must not count as a listing either. The
+  // generic cascade's own template guess can pick page chrome: Hotelcareer's
+  // empty employer page yields one "Karriere" footer link
+  // (`/jobs/yourcareergroup-schweiz-gmbh-42198`). Counted as a candidate, it
+  // skipped the empty-listing rescue and diagnostic and turned a page that
+  // says "no vacancies" into a silent `no-jobs-parsed` (vereinaklosters,
+  // corpus group 19 runs 36632563903 / 36778722341).
+  if (templateRx) candidates = candidates.filter((v) => matchesDetailTemplate(v.sourceUrl || v.url, templateRx));
   return { links, candidates };
+}
+
+/**
+ * @param {string} rawUrl
+ * @param {RegExp} templateRx
+ * @returns {boolean}
+ */
+function matchesDetailTemplate(rawUrl, templateRx) {
+  try {
+    return templateRx.test(new URL(rawUrl).pathname);
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -818,11 +840,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       const vacancy = /** @type {any} */ (v);
       const sourceUrl = vacancy.sourceUrl || v.url;
       try { await validateUrl(sourceUrl); } catch { continue; }
-      if (templateRx) {
-        let pathname = '';
-        try { pathname = new URL(sourceUrl).pathname; } catch { continue; }
-        if (!templateRx.test(pathname)) continue;
-      }
+      if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
       if (bySlug.has(v.url)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       bySlug.set(v.url, {

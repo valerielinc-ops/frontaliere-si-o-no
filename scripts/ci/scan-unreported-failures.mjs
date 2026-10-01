@@ -97,7 +97,9 @@
  * Costo per passata, dimensionato di conseguenza:
  *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
  *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
- *     2 `gh issue list` (aperte e chiuse) + per ogni workflow candidato 1 lettura dell'ultima run
+ *     1 `gh issue list` (aperte) + ~5 pagine REST delle issue chiuse
+ *     nell'orizzonte (`core`, solo se serve lo storico) + per ogni workflow
+ *     candidato 1 lettura dell'ultima run
  *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
  *     dei job, entrambe ≤ MAX_ISSUES.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
@@ -225,8 +227,14 @@ const MAX_ISSUES = intFromEnv('UNREPORTED_SCAN_MAX_ISSUES', 20);
 /** Cap di sicurezza sul listing delle issue aperte, con warning se raggiunto. */
 const OPEN_ISSUE_LISTING_CAP = 1000;
 
-/** Cap di sicurezza sul listing delle issue chiuse usato per lo storico. */
-const CLOSED_ISSUE_LISTING_CAP = 1000;
+/**
+ * Pagine REST (da 100) del listing delle issue chiuse nell'orizzonte. Non e' un
+ * campione: il listing pagina finche' una pagina torna corta, e questo tetto
+ * esiste solo contro un loop senza fine. Misurato il 2026-10-01: ~500 issue e
+ * PR chiuse aggiornate nelle 49 h dell'orizzonte, cioe' 5 pagine.
+ */
+const CLOSED_ISSUE_LISTING_MAX_PAGES = 50;
+const CLOSED_ISSUE_LISTING_PAGE_SIZE = 100;
 
 /**
  * Dopo quante ore di SILENZIO su una issue già aperta il guasto che continua a
@@ -877,31 +885,62 @@ export function openFailureIssueWorkflows() {
  * La chiusura non copre indiscriminatamente il futuro: chi chiama confronta
  * `closedAt` con l'inizio della run, usando la stessa guardia temporale del
  * creator (`occurrencePredatesClose`).
+ *
+ * Quale storico serve, e perché si legge per intero. Una chiusura copre una
+ * run solo se è POSTERIORE al suo inizio, e ogni run considerata è iniziata
+ * dopo `since` (l'orizzonte della query sulle run): bastano quindi le issue
+ * chiuse dopo `since`, che hanno tutte `updated_at >= since`. La REST
+ * `issues?state=closed&since=` le restituisce tutte, e si pagina fino a una
+ * pagina corta. Prima si listavano le 1.000 issue chiuse più recenti di
+ * QUALUNQUE data con `gh issue list --limit 1000`: su un repository con più di
+ * 1.000 issue chiuse il cap scattava a ogni passata, lo storico risultava
+ * «illeggibile» e ogni workflow rosso senza issue aperta restava non
+ * consegnato (run 36798138310: 13 segnalazioni perse, scansione rossa).
+ *
+ * `fetchPage(page)` è iniettabile per i test e rende l'array JSON della
+ * pagina, oppure `null` se la lettura fallisce. Una pagina illeggibile o il
+ * tetto di pagine rendono `null`: un listing non provato completo non prova
+ * l'assenza della canonica, e chi chiama non apre duplicati.
  */
-function closedFailureIssueWorkflows() {
-  const raw = gh(
-    ['issue', 'list', '--state', 'closed', '--limit', String(CLOSED_ISSUE_LISTING_CAP),
-      '--json', 'number,title,closedAt,body', ...repoFlag()],
-    { allowFailure: true },
-  );
-  if (raw === null) return null;
-  let issues;
-  try {
-    issues = JSON.parse(raw || '[]');
-  } catch {
-    return null;
-  }
-  if (!Array.isArray(issues)) return null;
-  // Come per le aperte: un listing troncato non prova l'assenza della
-  // canonica. Meglio rinviare la passata che aprire un duplicato.
-  if (issues.length >= CLOSED_ISSUE_LISTING_CAP) {
-    console.error(
-      `::error::[scan-unreported-failures] cap di ${CLOSED_ISSUE_LISTING_CAP} raggiunto sul listing `
-        + 'delle issue chiuse: lo storico delle canoniche è incompleto e non si aprono duplicati.',
+export function closedFailureIssueWorkflows(since, {
+  fetchPage = (page) => {
+    const raw = gh(
+      ['api', `repos/${REPO || '{owner}/{repo}'}/issues?state=closed`
+        + `&since=${encodeURIComponent(since)}&per_page=${CLOSED_ISSUE_LISTING_PAGE_SIZE}&page=${page}`],
+      { allowFailure: true },
     );
-    return null;
+    if (raw === null) return null;
+    try {
+      return JSON.parse(raw || '[]');
+    } catch {
+      return null;
+    }
+  },
+  maxPages = CLOSED_ISSUE_LISTING_MAX_PAGES,
+  pageSize = CLOSED_ISSUE_LISTING_PAGE_SIZE,
+} = {}) {
+  if (!Number.isFinite(Date.parse(String(since ?? '')))) return null;
+  const byNumber = new Map();
+  for (let page = 1; page <= maxPages; page += 1) {
+    const items = fetchPage(page);
+    if (!Array.isArray(items)) return null;
+    for (const item of items) {
+      // La REST delle issue elenca anche le PR: non sono issue di failure.
+      if (!item || typeof item !== 'object' || item.pull_request) continue;
+      byNumber.set(item.number, {
+        number: item.number,
+        title: item.title,
+        closedAt: item.closed_at ?? null,
+        body: item.body ?? '',
+      });
+    }
+    if (items.length < pageSize) return latestClosedIssuePerWorkflow([...byNumber.values()]);
   }
-  return latestClosedIssuePerWorkflow(issues);
+  console.error(
+    `::error::[scan-unreported-failures] ${maxPages} pagine di issue chiuse dopo ${since} senza `
+      + 'arrivare in fondo: lo storico delle canoniche non è provato completo e non si aprono duplicati.',
+  );
+  return null;
 }
 
 /**
@@ -1173,7 +1212,7 @@ export async function scanFailures() {
   let closedIssuesLoaded = false;
   const loadClosedIssues = () => {
     if (!closedIssuesLoaded) {
-      closedIssues = closedFailureIssueWorkflows();
+      closedIssues = closedFailureIssueWorkflows(horizon);
       closedIssuesLoaded = true;
     }
     return closedIssues;

@@ -1318,16 +1318,22 @@ exec ${JSON.stringify(process.execPath)} "$@"
     sliceFile: string | undefined,
     pushFailureOutput: string,
     githubOutput = '',
+    maxPushAttempts = '1',
   ) {
     const realGit = execFileSync('which', ['git'], { encoding: 'utf-8' }).trim();
     const shimDir = mkdtempSync(join(tmpdir(), 'gcd-git-shim-'));
     const outputFile = join(shimDir, 'push-output.txt');
+    const pushCountFile = join(shimDir, 'push-count.txt');
     writeFileSync(outputFile, pushFailureOutput);
+    writeFileSync(pushCountFile, '');
     writeFileSync(
       join(shimDir, 'git'),
-      `#!/bin/bash\nfor arg in "$@"; do\n  if [ "$arg" = "push" ]; then\n    cat '${outputFile}' >&2\n    exit 1\n  fi\ndone\nexec '${realGit}' "$@"\n`,
+      `#!/bin/bash\nfor arg in "$@"; do\n  if [ "$arg" = "push" ]; then\n    echo x >> '${pushCountFile}'\n    cat '${outputFile}' >&2\n    exit 1\n  fi\ndone\nexec '${realGit}' "$@"\n`,
     );
     chmodSync(join(shimDir, 'git'), 0o755);
+    // Backoff sleeps are irrelevant to the classification under test.
+    writeFileSync(join(shimDir, 'sleep'), '#!/bin/sh\nexit 0\n');
+    chmodSync(join(shimDir, 'sleep'), 0o755);
 
     const result = spawnSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'test commit'], {
       cwd: repoDir,
@@ -1335,7 +1341,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
       env: {
         ...process.env,
         PATH: `${shimDir}${delimiter}${process.env.PATH ?? ''}`,
-        MAX_PUSH_ATTEMPTS: '1',
+        MAX_PUSH_ATTEMPTS: maxPushAttempts,
         ...(sliceFile ? { JOBS_SLICE_FILE: sliceFile } : {}),
         SKIP_AI_TRANSLATION: '1',
         SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
@@ -1346,8 +1352,9 @@ exec ${JSON.stringify(process.execPath)} "$@"
         GITHUB_OUTPUT: githubOutput,
       },
     });
+    const pushes = readFileSync(pushCountFile, 'utf-8').split('\n').filter(Boolean).length;
     rmSync(shimDir, { recursive: true, force: true });
-    return result;
+    return Object.assign(result, { pushes });
   }
 
   function seedRepoWithPendingSlice(repoDir: string) {
@@ -1436,4 +1443,40 @@ exec ${JSON.stringify(process.execPath)} "$@"
       rmSync(repoDir, { recursive: true, force: true });
     }
   });
+
+  // A ruleset decline (GH013) is neither contention nor a transient failure:
+  // the identity/commit is refused on every attempt, so the loop stops at the
+  // first one with exit 1 — never 42, which the grouped workflows absorb as
+  // "self-heals next run". recover-prev-slugs run 36759949398 spent 14
+  // attempts (~11 min) on the identical GH013 before this.
+  const GH013_OUTPUT =
+    'remote: error: GH013: Repository rule violations found for refs/heads/main.\n' +
+    'remote: Review all repository rules at https://github.com/example/repo/rules?ref=refs%2Fheads%2Fmain\n' +
+    'remote: \n' +
+    'remote: - Required status check "vitest (unit + integration)" is expected.\n' +
+    'remote: \n' +
+    'To https://github.com/example/repo.git\n' +
+    ' ! [remote rejected]   HEAD -> main (push declined due to repository rule violations)\n' +
+    "error: failed to push some refs to 'https://github.com/example/repo.git'\n";
+
+  for (const [label, sliceFile] of [
+    ['grouped-isolated', 'data/jobs/by-crawler/a.json'],
+    ['sequential', undefined],
+  ] as const) {
+    it(`${label}: exits 1 on the FIRST GH013 instead of retrying it as a race`, () => {
+      const { originDir, repoDir } = initClonePair();
+      try {
+        seedRepoWithPendingSlice(repoDir);
+        const result = runScriptWithPushShim(repoDir, sliceFile, GH013_OUTPUT, '', '5');
+        const output = `${result.stdout}${result.stderr}`;
+        expect(result.status, output).toBe(1);
+        expect(result.pushes).toBe(1);
+        expect(output).toContain('declined by a repository rule (GH013/GH006)');
+        expect(output).not.toContain('Push rejected (attempt');
+      } finally {
+        rmSync(originDir, { recursive: true, force: true });
+        rmSync(repoDir, { recursive: true, force: true });
+      }
+    });
+  }
 });
