@@ -1,16 +1,16 @@
 {
   "key": "debiopharm",
   "label": "Debiopharm",
-  "generatedAt": "2026-10-01T01:51:06.972Z",
+  "generatedAt": "2026-10-01T09:16:52.868Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 4345,
-  "avgDurationMs": 4345,
+  "durationMs": 3570,
+  "avgDurationMs": 3570,
   "durationHistory": [
-    4345
+    3570
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -54,6 +54,7 @@
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/0c581ccba8",
       "postalCode": "",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -142,6 +143,7 @@
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/d4af57df23",
       "postalCode": "",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -182,6 +184,7 @@
       "salarySource": "reported",
       "sourceIdentity": "url:https://apply.workable.com/debiopharm/j/2ebaf3007d",
       "streetAddress": "",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,

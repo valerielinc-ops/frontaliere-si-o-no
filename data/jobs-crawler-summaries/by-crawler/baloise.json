@@ -1,28 +1,29 @@
 {
   "key": "baloise",
   "label": "Baloise",
-  "generatedAt": "2026-09-30T21:28:49.757Z",
-  "total": 8,
+  "generatedAt": "2026-10-01T09:28:37.481Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 8,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3462,
-  "avgDurationMs": 3462,
+  "newCount": 0,
+  "updatedCount": 7,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3739,
+  "avgDurationMs": 3739,
   "durationHistory": [
-    3462
+    3739
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "baloise-649f8b581385",
-      "slug": "kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d-baloise-solothurn",
+      "slug": "kundenberater-inbound-sowie-outbound-e-kundenzone-m-w-d-baloise-solothurn",
       "company": "Baloise",
       "companyKey": "baloise",
       "companyDomain": "baloise.com",
@@ -33,7 +34,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-inbound-sowie-outbound-und-kundenzone-w-m-d/bc41dd02-7fc0-4f7c-a6a2-be1d122dd5e8",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.630Z",
+      "crawledAt": "2026-10-01T09:28:30.057Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -49,16 +50,15 @@
       "featured": false,
       "postedDate": "2026-09-30",
       "applyUrl": "https://jobs.helvetia.com/successfactors/EMEA_PREMIUM/Helvetia/switzerland/de/apply?id=19724",
-      "_qualityScore": 69,
+      "firstSeenAt": "2026-09-30T21:28:40.630Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 21,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "baloise-61a40f2fcd24",
       "slug": "hr-generalist-administration-w-m-d-bank-baloise-solothurn",
@@ -72,7 +72,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/hr-generalist-administration-w-m-d-bank/ac93c03d-5c16-4fe8-a0eb-b4c7faa3c68f",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.648Z",
+      "crawledAt": "2026-10-01T09:28:30.075Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/424648d3-bf31-4bd0-8c27-9ffe638bb81c",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.650Z",
+      "crawledAt": "2026-10-01T09:28:30.079Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -148,7 +148,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/kundenberater-kundenzone-in-outbound-w-m-d/6a4f2275-6594-4285-8822-2df7eb5c3751",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.652Z",
+      "crawledAt": "2026-10-01T09:28:30.081Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -186,7 +186,7 @@
       "url": "https://jobs.helvetia.com/offene-stellen/privatkundenberater-w-m-d-bank-region-solothurn-olten/60f6e635-cfe8-4997-9fdd-426829a3bdc7",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.658Z",
+      "crawledAt": "2026-10-01T09:28:30.083Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -218,13 +218,13 @@
       "companyKey": "baloise",
       "companyDomain": "baloise.com",
       "title": "Berater (w/m/d) Private Banking Olten",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Olten",
       "canton": "SO",
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-olten/baae08f3-884a-4f3f-8d20-b23c933fd676",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.660Z",
+      "crawledAt": "2026-10-01T09:28:30.088Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -256,13 +256,13 @@
       "companyKey": "baloise",
       "companyDomain": "baloise.com",
       "title": "Berater (w/m/d) Private Banking Solothurn",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Solothurn",
       "canton": "SO",
       "url": "https://jobs.helvetia.com/offene-stellen/berater-w-m-d-private-banking-solothurn/5b8cd2c4-0f38-4f4b-9ca1-d5138b8d53f1",
       "source": "Baloise Dedicated Parser (Prospective medium 1005736)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:28:40.661Z",
+      "crawledAt": "2026-10-01T09:28:30.090Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -288,8 +288,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "baloise-cadb94b67318",
       "slug": "responsabile-previdenza-bancaria-m-f-d-baloise-solothurn",
@@ -323,6 +322,7 @@
       "salaryMax": 160000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -331,5 +331,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

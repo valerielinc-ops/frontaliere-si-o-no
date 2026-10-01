@@ -21,6 +21,7 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
+import { readPortalQuestions } from './lib/portal/portal.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
@@ -115,6 +116,8 @@ async function main() {
         order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
+        // A single-page portal form read ahead: its questions reach the first review.
+        readPortalQuestions,
       });
       await orderRef.collection('ai_drafts').doc('current').set(draft);
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
@@ -146,6 +149,12 @@ async function main() {
     if (event.followup && !dryRun) {
       await scheduleFollowups(db, orderId, event.followup);
       delete event.followup;
+    }
+    // What the portal received (career-ops application-answers), next to the
+    // draft for the interview prep and Valerie's panel; never in the event or the log.
+    if (event.portalAnswers) {
+      if (!dryRun && event.portalAnswers.answers.length) await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
+      delete event.portalAnswers;
     }
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
