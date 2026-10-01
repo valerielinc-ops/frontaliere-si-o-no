@@ -5,7 +5,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { describe, expect, it } from 'vitest';
 import { chunkPlateAuctionWrites, PLATE_AUCTION_BATCH_SIZE } from '../functions/src/plateAuctionBatch.js';
 import { PLATE_AUCTION_MISSING_GRACE_MS } from '../functions/src/plateAuctionQualityCore.js';
-import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
+import { PLATE_AUCTION_COLLECTION, PLATE_AUCTION_SOURCE_COLLECTION, plateAuctionObservationChanged, plateAuctionRefreshOrder, refreshPlateAuctions } from '../functions/src/plateAuctions.js';
 import { PLATE_AUCTION_API_RELAY_MAX_AGE_MS } from '../scripts/plate-auctions/connectors/api-relay.mjs';
 
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
@@ -439,3 +439,52 @@ describe('plate-auction Cloud Function: FR e TI geo-fenced, raccolti da Zurigo',
     expect(firestore.sources.get('ti')).toMatchObject({ status: 'active', errorCode: null });
   });
 });
+
+describe('plate-auction history: a copy only when the observation changed', () => {
+  const stored = {
+    id: 'ag-58771', sourceKey: 'AG', auctionStatus: 'active', currentBidChf: 1200, bidCount: 4, rawSnapshotHash: 'a',
+    sourceFetchedAt: '2026-10-01T05:47:04.000Z', lastVerifiedAt: '2026-10-01T05:47:04.000Z', lastSeenAt: '2026-10-01T05:47:04.000Z', firstSeenAt: '2026-09-20T00:00:00.000Z',
+  };
+  const refetched = { ...stored, sourceFetchedAt: '2026-10-01T11:47:05.000Z', lastVerifiedAt: '2026-10-01T11:47:05.000Z', lastSeenAt: '2026-10-01T11:47:05.000Z' };
+
+  it('ignores the fetch stamps and records any other difference', () => {
+    expect(plateAuctionObservationChanged(refetched, undefined)).toBe(true);
+    expect(plateAuctionObservationChanged(refetched, stored)).toBe(false);
+    expect(plateAuctionObservationChanged(refetched, { ...stored, missingSince: '2026-10-01T00:00:00.000Z' })).toBe(false);
+    expect(plateAuctionObservationChanged({ ...refetched, currentBidChf: 1300, bidCount: 5, rawSnapshotHash: 'b' }, stored)).toBe(true);
+    expect(plateAuctionObservationChanged({ ...refetched, dataConfidence: 'verified' }, stored)).toBe(true);
+    const { currentBidChf: _dropped, ...withoutBid } = refetched;
+    expect(plateAuctionObservationChanged(withoutBid, stored)).toBe(true);
+  });
+
+  // Each refresh used to copy every row: ~68'600 history documents a day.
+  it('adds history only for the plate whose price moved between refreshes', async () => {
+    const HOUR = 60 * 60 * 1000;
+    const base = new Date();
+    const page = (prices: Record<number, number>) => `
+      <div id="tabContent1"><table><tbody></tbody></table></div>
+      <div id="tabContent3"><table><tbody>${Object.entries(prices).map(([plate, price]) => `
+        <tr class="L"><td><a onclick="openDetails(${plate})"><div class="number">${plate}</div></a></td><td class="amount">${price}</td></tr>`).join('')}
+      </tbody></table></div>`;
+    const prices = Object.fromEntries(Array.from({ length: 20 }, (_unused, index) => [100 + index, 400 + index]));
+    const firestore = statefulFirestore();
+    const refresh = (hours: number, listed: Record<number, number>) => refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => (url.includes('eauktion.so.ch') ? page(listed) : ''),
+      now: new Date(base.getTime() + hours * HOUR),
+    });
+    const soHistory = () => [...firestore.history.keys()].filter((id) => id.startsWith('so-'));
+
+    await refresh(0, prices);
+    expect(soHistory()).toHaveLength(20);
+    await refresh(6, prices);
+    expect(soHistory()).toHaveLength(20);
+    await refresh(12, { ...prices, 105: 999 });
+    expect(soHistory()).toHaveLength(21);
+    expect(soHistory().filter((id) => id.includes('-105-'))).toHaveLength(2);
+    // The current row still advances on every refresh.
+    const latest = new Date(base.getTime() + 12 * HOUR).toISOString();
+    expect([...firestore.current.values()].filter((doc) => doc.sourceKey === 'SO').every((doc) => doc.lastSeenAt === latest)).toBe(true);
+  });
+});
+
