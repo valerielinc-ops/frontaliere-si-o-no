@@ -623,6 +623,7 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     const sandbox = path.join(dir, 'sandbox');
     fs.mkdirSync(sandbox, { recursive: true });
     fs.symlinkSync(path.resolve(process.cwd(), 'scripts'), path.join(sandbox, 'scripts'));
+    fs.symlinkSync(path.resolve(process.cwd(), 'node_modules'), path.join(sandbox, 'node_modules'));
     fs.mkdirSync(path.join(sandbox, 'data'), { recursive: true });
     fs.mkdirSync(path.join(sandbox, 'public', 'data'), { recursive: true });
     // scripts/lib/target-swiss-locations.mjs statically imports this git-tracked
