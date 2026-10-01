@@ -108,27 +108,35 @@ REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { p
 REFRESH_BASE="$(git rev-parse HEAD)"
 REFRESH_COMMIT=""
 MERGE_REFRESH_SCRIPT_DIR=""
+REFRESH_PUBLISH_WORKTREE=""
+REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
 
-# The helper is called more than once by some workflows. Reconciliation uses a
-# local checkout of the stable branch, so always return the caller to this
-# run's commit before the helper exits. This keeps a best-effort early publish
-# from making the rest of the workflow run from the stale stable branch.
+# Non-compat publishes never select the stable branch in the source checkout.
+# Compat retains its existing restore behavior after its real Git merges.
 cleanup_refresh_checkout() {
-  local restore_ref="${REFRESH_COMMIT:-$REFRESH_BASE}"
-  local current_ref
-  current_ref="$(git rev-parse HEAD 2>/dev/null || true)"
-  if [ -n "$restore_ref" ] && [ "$current_ref" != "$restore_ref" ]; then
-    git checkout --detach --force "$restore_ref" >/dev/null 2>&1 || true
+  if [ "$RECONCILE_COMPAT" = true ]; then
+    local restore_ref="${REFRESH_COMMIT:-$REFRESH_BASE}"
+    local current_ref
+    current_ref="$(git -C "$REFRESH_SOURCE_ROOT" rev-parse HEAD 2>/dev/null || true)"
+    if [ -n "$restore_ref" ] && [ "$current_ref" != "$restore_ref" ]; then
+      git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref" >/dev/null 2>&1 || true
+    fi
+  fi
+  if [ -n "$REFRESH_PUBLISH_WORKTREE" ] && [ -f "$REFRESH_PUBLISH_WORKTREE/.git" ]; then
+    if ! git -C "$REFRESH_SOURCE_ROOT" worktree remove --force "$REFRESH_PUBLISH_WORKTREE" >/dev/null 2>&1; then
+      echo "::error::Unable to remove the isolated refresh worktree"
+      return 1
+    fi
   fi
   if [ -n "$MERGE_REFRESH_SCRIPT_DIR" ]; then
     rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"
   fi
 }
-trap cleanup_refresh_checkout EXIT
+trap 'cleanup_refresh_checkout || exit 1' EXIT
 
 # The stable branch may have been created by an older workflow revision. Keep
-# the reconciler from the current workflow checkout before switching to that
-# branch, otherwise a stale copy can reintroduce a fixed parser or merge rule.
+# the reconciler from the current workflow checkout before creating its isolated
+# publisher checkout, otherwise stale code can reintroduce a fixed merge rule.
 if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
   MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
   mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
@@ -175,19 +183,36 @@ REFRESH_COMMIT="$(git rev-parse HEAD)"
 # A stable branch lets the next scheduled run update one in-flight PR instead
 # of opening an unbounded queue of equivalent data PRs. Start from the remote
 # tree when it exists, then apply this run's commit on top of it. This keeps
-# earlier append-only/state records in an unmerged PR.
+# earlier append-only/state records in an unmerged PR without changing the
+# workflow checkout for non-compat refreshes.
 if [ -n "$REMOTE_HEAD" ]; then
   # The workflow checkout is intentionally shallow. Fetch only the stable
   # branch tip for the non-compat reconciler; the compat path performs real
   # Git merges and therefore needs the branch history and merge-base.
   if [ "$RECONCILE_COMPAT" = true ]; then
     git fetch --no-tags "$PUSH_URL" \
-      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
   else
     git fetch --no-tags --depth=1 "$PUSH_URL" \
-      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    # Reconcile in a separate, sparse checkout. A data branch may carry old
+    # crawlers/helpers; selecting it in the workflow checkout would change the
+    # code used by every later step, including after a best-effort failure.
+    PUBLISH_PATHS=()
+    while IFS= read -r -d '' refresh_path; do
+      PUBLISH_PATHS+=("$refresh_path")
+    done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    REFRESH_PUBLISH_WORKTREE="$MERGE_REFRESH_SCRIPT_DIR/publish"
+    git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
+    cd "$REFRESH_PUBLISH_WORKTREE"
+    printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+    git checkout --quiet
+    # These are the real committed paths, already resolved through symlinks
+    # by the initial stage. The sparse checkout need not include alias paths.
+    PATHS=("${PUBLISH_PATHS[@]}")
+    RESOLVE_SYMLINKS=false
   fi
-  git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
 fi
 
 if [ "$RECONCILE_COMPAT" = true ]; then
@@ -222,7 +247,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
   merge_refresh_ref origin/main
 elif [ -n "$REMOTE_HEAD" ]; then
   # The current refresh was committed from the workflow checkout before the
-  # stable branch was selected. Reconcile the two trees with path-aware rules:
+  # isolated stable-branch checkout was created. Reconcile with path-aware rules:
   # JSONL histories and Telegram ledgers union both runs, while complete
   # snapshots use the current run as the authoritative value.
   MERGE_ARGS=(
