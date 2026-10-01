@@ -163,13 +163,27 @@ async function comboContext(combo) {
   }).catch(() => '');
 }
 
+/** The popup owned by a combobox, never an unrelated visible list in the frame. */
+async function popupOwnedByCombo(frame, combo) {
+  const relations = await Promise.all(['aria-controls', 'aria-owns'].map((attribute) => combo.getAttribute(attribute)));
+  const ids = [...new Set(relations.flatMap((value) => String(value || '').split(/\s+/).filter(Boolean)))];
+  for (const id of ids) {
+    const escapedId = id.replace(/["\\]/g, '\\$&');
+    const popup = frame.locator(`[id="${escapedId}"]`).first();
+    if (await popup.count()) return popup;
+  }
+  return null;
+}
+
 async function chooseDatePickerYear(frame, combo, year) {
   try {
     await combo.click({ timeout: ACTION_TIMEOUT_MS });
     await combo.press('Control+A').catch(() => {});
     await combo.press('Backspace').catch(() => {});
     await combo.pressSequentially(String(year), { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS });
-    const option = frame.getByRole('option', { name: String(year), exact: true }).last();
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
+    const option = popup.getByRole('option', { name: String(year), exact: true }).first();
     await option.waitFor({ state: 'visible', timeout: 4000 });
     await option.click({ timeout: ACTION_TIMEOUT_MS });
     return true;
@@ -186,12 +200,8 @@ async function chooseDatePickerMonth(frame, combo, month) {
     // JOIN portals the month menu outside the date-picker root. Follow the
     // combobox's relation instead of indexing every visible option in the
     // frame, where another open list can shift the month index.
-    const popupId = (await combo.getAttribute('aria-controls') || await combo.getAttribute('aria-owns') || '').split(/\s+/).find(Boolean);
-    const escapedPopupId = popupId?.replace(/["\\]/g, '\\$&');
-    const controlledPopup = escapedPopupId ? frame.locator(`[id="${escapedPopupId}"]`).first() : null;
-    const popup = controlledPopup && await controlledPopup.count()
-      ? controlledPopup
-      : frame.locator('[role="listbox"]:visible').last();
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
     const options = popup.locator('[role="option"]:visible');
     await options.nth(month - 1).waitFor({ state: 'visible', timeout: 4000 });
     await options.nth(month - 1).click({ timeout: ACTION_TIMEOUT_MS });
