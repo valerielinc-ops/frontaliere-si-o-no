@@ -125,7 +125,7 @@ describe('job-board emitted output', () => {
         expect(document.title).not.toContain('Swiss Italy');
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
       }
-      expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, 'TI').length);
+      expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, '_AGGREGATE_').length);
     }
   });
 

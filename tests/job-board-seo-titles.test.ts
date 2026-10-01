@@ -234,7 +234,7 @@ describe('getActiveJobCountsByLocale', () => {
     }
   })
 
-  it('counts the Ticino listing inventory independent of translated-detail eligibility', () => {
+  it('counts the national listing inventory by default and keeps explicit canton filtering', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jbsEo-'))
     try {
       fs.mkdirSync(path.join(tmp, 'data'), { recursive: true })
@@ -245,8 +245,8 @@ describe('getActiveJobCountsByLocale', () => {
         { id: 'zh-a', title: 'Ruolo C', company: 'Esempio SA', canton: 'ZH', descriptionByLocale: { it: longDesc, en: longDesc } },
       ]
       fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))
-      const counts = getActiveJobCountsByLocale(tmp)
-      expect(counts).toEqual({ it: 2, en: 2, de: 2, fr: 2 })
+      expect(getActiveJobCountsByLocale(tmp)).toEqual({ it: 3, en: 3, de: 3, fr: 3 })
+      expect(getActiveJobCountsByLocale(tmp, 'TI')).toEqual({ it: 2, en: 2, de: 2, fr: 2 })
     } finally {
       fs.rmSync(tmp, { recursive: true, force: true })
     }
