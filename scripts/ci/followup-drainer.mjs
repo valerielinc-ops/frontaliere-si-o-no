@@ -1689,7 +1689,8 @@ export function groupIssueQueue(issues, {
  * ritorna il PRIMO overlap trovato {prNumber, prTitle, file} o null se nessuno.
  * Pura (niente gh) → testabile in unit test senza mock.
  * @param {string[]} paths
- * @param {Map<number, {title:string, files:Set<string>}>} prFilesMap
+ * Le PR ferme (`STALLED_PR_LABELS`) non contano come overlap.
+ * @param {Map<number, {title:string, files:Set<string>, labels?:string[]}>} prFilesMap
  * @returns {{prNumber:number, prTitle:string, file:string}|null}
  */
 // Titolo scritto da `buildConflictHandoffIssue` (scripts/ci/pr-autorebase.mjs)
@@ -1705,9 +1706,27 @@ export function conflictHandoffOriginPr(title) {
   return match ? Number(match[1]) : null;
 }
 
+// Una PR FERMA non e' «lavoro in volo»: l'overlap esiste per aspettare che una
+// PR in corsa mergi, e queste non mergeranno da sole. `has-conflicts` aspetta a
+// sua volta un hand-off o un recycle, `stale-review` e' ferma da oltre 2 h su
+// uno stallo noto, `needs-human` e' fuori dal ciclo. Aspettarle chiude un
+// cerchio: #10586/#10587 («riapplicare la PR #10569») rinviate tre volte per
+// `tests/data-refresh-pr-wiring.test.ts` «in volo» in #10555, a sua volta in
+// conflitto e `stale-review`, fino a `fu-parked`; e #10555 non poteva uscirne
+// prima di #10569. Se la PR nuova mergia per prima, quella ferma va in
+// conflitto e il suo hand-off la riapplica sopra: la catena converge.
+export const STALLED_PR_LABELS = Object.freeze(['has-conflicts', 'stale-review', 'needs-human']);
+
+export function isStalledPr(labels = []) {
+  return (labels || []).some((label) => STALLED_PR_LABELS.includes(
+    typeof label === 'string' ? label : label?.name,
+  ));
+}
+
 export function findOverlapFile(paths, prFilesMap, { ignorePr = null } = {}) {
-  for (const [prNumber, { title, files }] of prFilesMap) {
+  for (const [prNumber, { title, files, labels = [] }] of prFilesMap) {
     if (ignorePr !== null && Number(prNumber) === Number(ignorePr)) continue;
+    if (isStalledPr(labels)) continue;
     for (const p of paths) {
       if (files.has(p)) return { prNumber, prTitle: String(title || ''), file: p };
     }
@@ -3373,7 +3392,12 @@ export function normalizeOpenPrPage(raw) {
     const number = Number(item.number);
     if (!Number.isInteger(number) || number <= 0 || typeof item.title !== 'string'
       || (item.body !== null && typeof item.body !== 'string')) return null;
-    rows.push({ number, title: item.title, body: item.body || '' });
+    // Label assenti o illeggibili = nessuna: la PR resta un overlap pieno
+    // (direzione conservativa, vedi `isStalledPr`).
+    const labels = Array.isArray(item.labels)
+      ? item.labels.map((label) => label?.name).filter((name) => typeof name === 'string')
+      : [];
+    rows.push({ number, title: item.title, body: item.body || '', labels });
   }
   return { rows, pageLength: raw.length };
 }
@@ -3417,7 +3441,7 @@ function loadOpenPrFilesMap() {
     if (!filesScan.complete) {
       return { complete: false, reason: `pr-${pr.number}-files:${filesScan.reason}`, map };
     }
-    map.set(pr.number, { title: pr.title, body: pr.body, files: new Set(filesScan.rows) });
+    map.set(pr.number, { title: pr.title, body: pr.body, labels: pr.labels, files: new Set(filesScan.rows) });
   }
   return { complete: true, reason: null, map };
 }
