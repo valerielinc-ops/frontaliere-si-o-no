@@ -5,9 +5,12 @@ import {
   isLockExpired,
   lockKey,
   LOCK_LEASE_MS,
+  LOCK_RENEW_INITIAL_DELAY_MS,
+  LOCK_RENEW_INTERVAL_MS,
   parseSections,
   releaseSectionLock,
   renewSectionLock,
+  renewSectionLocksUntilStopped,
 } from '../../scripts/lib/r2-section-lock.mjs';
 import { isCurrentPublishSource } from '../../scripts/lib/article-chunk-publish-freshness.mjs';
 
@@ -242,6 +245,38 @@ describe('r2-section-lock', () => {
     });
     expect(second.owner).toBe('owner-b');
     await releaseSectionLock('frontaliere', { owner: 'owner-b', request });
+  });
+
+  it('waits for the initial heartbeat instead of rewriting a fresh lease immediately', async () => {
+    const { request } = fakeR2();
+    let requestCount = 0;
+    const trackedRequest = async (args: Parameters<typeof request>[0]) => {
+      requestCount += 1;
+      return request(args);
+    };
+    await acquireSectionLock('frontaliere', { owner: 'owner-a', request: trackedRequest });
+    const afterAcquire = requestCount;
+    const waits: number[] = [];
+
+    await renewSectionLocksUntilStopped(['frontaliere'], {
+      owner: 'owner-a',
+      request: trackedRequest,
+      initialDelayMs: 7,
+      intervalMs: 11,
+      waitForStopImpl: async (duration: number) => {
+        waits.push(duration);
+        if (waits.length === 1) {
+          expect(requestCount).toBe(afterAcquire);
+          return false;
+        }
+        return true;
+      },
+    });
+
+    expect(waits).toEqual([7, 11]);
+    expect(requestCount).toBe(afterAcquire + 2); // GET + conditional PUT
+    expect(LOCK_RENEW_INITIAL_DELAY_MS).toBe(LOCK_RENEW_INTERVAL_MS);
+    await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
   });
 
   it('does not delete a replacement lock when ownership changes after the read', async () => {
