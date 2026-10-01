@@ -19,6 +19,7 @@ import {
 } from 'node:fs';
 import path from 'node:path';
 import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
+import { readGitBlob } from '../lib/read-git-blob.mjs';
 import { mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
 function usage(message) {
@@ -51,7 +52,7 @@ function git(args) {
 
 function gitShow(ref, file) {
   try {
-    return git(['show', `${ref}:${file}`]);
+    return readGitBlob(ref, file);
   } catch (error) {
     // A missing path is a normal three-way state (add/delete). Invalid refs
     // have already been ruled out by the caller's fetch/checkout, so surface

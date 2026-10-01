@@ -97,7 +97,10 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     git(repo, ['checkout', '-q', 'main']);
     write(repo, 'services/locales/blog-body/it/eventi.ts', 'export default "second run";\n');
     write(repo, 'data/blog-articles-data.ts', 'export const modified = "second run";\n');
-    write(repo, 'data/events.json', '{"run":"second"}\n');
+    // The production refresh failed on a blob larger than execFileSync's
+    // default 1 MiB buffer. Include multibyte text so the size is in bytes.
+    const dataset = `${JSON.stringify({ run: 'second', description: 'é'.repeat(700_000) })}\n`;
+    write(repo, 'data/events.json', dataset);
     git(repo, ['add', '-A', '--',
       'packages/articles/content/blog-body/it/eventi.ts',
       'packages/articles/content/blog-articles-data.ts',
@@ -122,7 +125,7 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     const real = (file: string) => fs.readFileSync(path.join(repo, file), 'utf8');
     expect(real('packages/articles/content/blog-body/it/eventi.ts')).toBe('export default "second run";\n');
     expect(real('packages/articles/content/blog-articles-data.ts')).toBe('export const modified = "second run";\n');
-    expect(real('data/events.json')).toBe('{"run":"second"}\n');
+    expect(real('data/events.json')).toBe(dataset);
     // A path the current run did not touch keeps the stable branch's value.
     expect(real('data/stable-only.json')).toBe('{"run":"first"}\n');
     // The symlinks themselves stay symlinks: the merge writes the real blobs.

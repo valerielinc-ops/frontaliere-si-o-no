@@ -41,6 +41,7 @@ function fixture() {
     'scripts/lib/open-data-refresh-pr.sh',
     'scripts/lib/git-add-resolved.mjs',
     'scripts/lib/resolve-git-add-path.mjs',
+    'scripts/lib/read-git-blob.mjs',
     'scripts/ci/merge-open-data-refresh.mjs',
     'scripts/ci/open-data-refresh-merge.mjs',
   ]) write(repo, file, fs.readFileSync(path.join(ROOT, file), 'utf8'));
