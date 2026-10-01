@@ -30,7 +30,7 @@ function doc(slug: string, lastUpdate: string, source = 'here') {
 }
 async function hydrate(documents: ReturnType<typeof doc>[], locale = 'it') {
   document.documentElement.lang = locale;
-  document.body.innerHTML = `<section data-bw-crossing="chiasso-brogeda"><span data-bw-field="totalCrossingMinutes">9 min</span><span data-bw-field="lastUpdate">old snapshot</span><a href="https://www.tomtom.com/" data-bw-field="source">TomTom</a></section><span data-bw-live-badge data-bw-badge-crossing="chiasso-brogeda">original observed snapshot</span>`;
+  document.body.innerHTML = `<section data-bw-crossing="chiasso-brogeda"><span data-bw-field="totalCrossingMinutes">9 min</span><time data-bw-field="lastUpdate" datetime="${observedAt}">old snapshot</time><a href="https://www.tomtom.com/" data-bw-field="source">TomTom</a></section><span data-bw-live-badge data-bw-badge-crossing="chiasso-brogeda">original observed snapshot</span>`;
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ documents }) }));
   new Function(BORDER_WAIT_HYDRATION_JS)();
   document.dispatchEvent(new Event('DOMContentLoaded'));
@@ -83,6 +83,7 @@ describe('B4.4 runtime observation freshness', () => {
     expect(document.querySelector('[data-bw-crossing]')?.getAttribute('data-bw-data-state')).toBe('stale');
     expect(document.querySelector('[data-bw-live-badge]')?.getAttribute('data-bw-live')).toBe('false');
     expect(document.querySelector('[data-bw-field="lastUpdate"]')?.textContent).toContain(String(new Date(observedAt).getUTCFullYear()));
+    expect(document.querySelector('[data-bw-field="lastUpdate"]')?.getAttribute('datetime')).toBe(observedAt);
     expect(document.querySelector('[data-bw-field="source"]')?.getAttribute('href')).toBe('https://www.here.com/');
   });
   it('does not borrow a fresh badge from an unrelated crossing when the requested reading is absent', async () => {
@@ -90,6 +91,8 @@ describe('B4.4 runtime observation freshness', () => {
     expect(document.querySelector('[data-bw-crossing]')?.getAttribute('data-bw-data-state')).toBe('unavailable');
     expect(document.querySelector('[data-bw-live-badge]')?.getAttribute('data-bw-live')).toBe('false');
     expect(document.querySelector('[data-bw-field="source"]')?.hasAttribute('href')).toBe(false);
+    expect(document.querySelector('[data-bw-field="lastUpdate"]')?.textContent).toBe('—');
+    expect(document.querySelector('[data-bw-field="lastUpdate"]')?.hasAttribute('datetime')).toBe(false);
   });
   it('marks a cached snapshot expired and keeps its date when the live request fails', async () => {
     const oldTimestamp = Date.parse(observedAt);
@@ -106,9 +109,12 @@ describe('B4.4 runtime observation freshness', () => {
     vi.restoreAllMocks();
   });
   it('accepts a fresh requested reading and rejects future timestamps', async () => {
-    await hydrate([doc('chiasso-brogeda', daysAgo(0))]);
+    const liveTimestamp = daysAgo(0);
+    await hydrate([doc('chiasso-brogeda', liveTimestamp)]);
     expect(document.querySelector('[data-bw-live-badge]')?.getAttribute('data-bw-live')).toBe('true');
+    expect(document.querySelector('[data-bw-field="lastUpdate"]')?.getAttribute('datetime')).toBe(liveTimestamp);
     await hydrate([doc('chiasso-brogeda', daysAgo(-1))]);
     expect(document.querySelector('[data-bw-crossing]')?.getAttribute('data-bw-data-state')).toBe('unavailable');
+    expect(document.querySelector('[data-bw-field="lastUpdate"]')?.hasAttribute('datetime')).toBe(false);
   });
 });
