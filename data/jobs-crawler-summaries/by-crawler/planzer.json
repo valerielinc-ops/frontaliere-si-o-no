@@ -1,25 +1,65 @@
 {
   "key": "planzer",
   "label": "Planzer",
-  "generatedAt": "2026-09-30T21:11:11.138Z",
-  "total": 12,
+  "generatedAt": "2026-10-01T09:13:36.800Z",
+  "total": 13,
   "discovered": null,
   "parsed": 10,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 12,
+  "written": 13,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 8,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 9649,
-  "avgDurationMs": 9649,
+  "unchangedCount": 3,
+  "durationMs": 12001,
+  "avgDurationMs": 12001,
   "durationHistory": [
-    9649
+    12001
   ],
   "newJobs": [
+    {
+      "id": "planzer-0ad69430c992",
+      "slug": "disponent-stuckgut-m-w-d-planzer-villmergen",
+      "company": "Planzer",
+      "companyKey": "planzer",
+      "companyDomain": "planzer.ch",
+      "title": "Disponent Stückgut (m/w/d)",
+      "needsRetranslation": true,
+      "location": "Villmergen",
+      "canton": "AG",
+      "url": "https://live.solique.ch/planzer/job/details/4075688",
+      "source": "Planzer Dedicated Parser (Solique)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T09:13:18.911Z",
+      "addressLocality": "Villmergen",
+      "addressRegion": "AG",
+      "streetAddress": "Allmendstrasse 14",
+      "postalCode": "5612",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Logistica",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Trasporti / Logistica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://live.solique.ch/planzer/job/details/4075688",
+      "externalId": "4075688",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "planzer-3c3af9373df2",
       "slug": "chauffeur-kat-ce-m-w-d-planzer-emmen",
@@ -33,7 +73,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4074978",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:57.543Z",
+      "crawledAt": "2026-10-01T09:13:19.856Z",
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "streetAddress": "Feldmattstrasse 31",
@@ -50,11 +90,12 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4074978",
       "externalId": "4074978",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-30T21:10:57.543Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
     },
@@ -71,7 +112,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4074985",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:58.257Z",
+      "crawledAt": "2026-10-01T09:13:20.754Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Mühleäulistrasse 6",
@@ -88,16 +129,15 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://live.solique.ch/planzer/job/details/4074985",
       "externalId": "4074985",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-30T21:10:58.257Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 16,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "planzer-7bce0cf89e62",
       "slug": "ausbildner-lkw-nutzfahrzeugtechnik-m-w-d-planzer-dallikon",
@@ -111,7 +151,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4076593",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:58.892Z",
+      "crawledAt": "2026-10-01T09:13:21.506Z",
       "addressLocality": "Dällikon",
       "addressRegion": "ZH",
       "streetAddress": "Industriestrasse 10",
@@ -149,7 +189,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4076457",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:10:59.588Z",
+      "crawledAt": "2026-10-01T09:13:22.158Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -187,7 +227,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4076454",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:11:00.192Z",
+      "crawledAt": "2026-10-01T09:13:23.225Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Hermetschloostrasse 12",
@@ -226,7 +266,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4038553",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:11:00.796Z",
+      "crawledAt": "2026-10-01T09:13:23.998Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "streetAddress": "Lerzenstrasse 14",
@@ -265,7 +305,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4073696",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:11:01.448Z",
+      "crawledAt": "2026-10-01T09:13:24.787Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -304,7 +344,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4073692",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:11:02.055Z",
+      "crawledAt": "2026-10-01T09:13:25.496Z",
       "addressLocality": "Schmerikon",
       "addressRegion": "SG",
       "streetAddress": "Allmeindstrasse 23",
@@ -343,7 +383,7 @@
       "url": "https://live.solique.ch/planzer/job/details/4073682",
       "source": "Planzer Dedicated Parser (Solique)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:11:02.702Z",
+      "crawledAt": "2026-10-01T09:13:26.301Z",
       "addressLocality": "Seewen",
       "addressRegion": "SO",
       "streetAddress": "Seewernstrasse 203",
@@ -367,10 +407,13 @@
         "translation": 21,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "planzer-847109d53e1c",
-      "slug": "paketsortierer-im-stundenlohn-m-w-d-planzer-st-gallen",
+      "slug": "sorter-del-pacchetto-nel-salario-orario-m-f-d-planzer-st-gallen",
       "company": "Planzer",
       "companyKey": "planzer",
       "companyDomain": "planzer.ch",
@@ -399,17 +442,18 @@
       "applyUrl": "https://live.solique.ch/planzer/job/details/4074327",
       "externalId": "4074327",
       "firstSeenAt": "2026-09-26T13:55:58.798Z",
-      "_qualityScore": 84,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 20
+        "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "planzer-cb17a92ecec0",
       "slug": "pacchetto-di-disposizione-del-personale-m-f-d-planzer-bern",
@@ -443,7 +487,7 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -485,7 +529,7 @@
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
