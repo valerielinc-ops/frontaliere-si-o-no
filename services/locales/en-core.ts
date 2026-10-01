@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ 'whatsNew.v3970.title': 'Assisted application: ready within hours',
+ 'whatsNew.v3970.assistedAutomation.title': 'A faster assisted application',
+ 'whatsNew.v3970.assistedAutomation.desc': 'Once you send your CV we automatically prepare a cover letter and answers tailored to the listing and email them to you: you can correct or approve them. If you do not reply within 12 hours the application is sent as it is, by email or on the company’s portal, and we let you know when it has been sent.',
  'whatsNew.v3969.title': 'Assisted application: Valerie writes to you',
  'whatsNew.v3969.assistedConcierge.title': 'A simpler assisted application',
  'whatsNew.v3969.assistedConcierge.desc': 'Right after payment you get an email from Valerie listing everything needed: reply with your CV attached or upload it from your order page. We also write when the application has been sent.',
@@ -770,11 +773,11 @@ const enCore: Record<string, string> = {
  'jobBoard.applicationIntentConsent': 'By selecting “Apply”, you agree that we record your interest in this listing. We record the click and necessary technical data; this does not mean the application was completed.',
  'jobBoard.applicationIntentDetails': 'What the “Apply” click records',
  'jobBoard.assisted.title': 'Would you like us to handle this application?',
- 'jobBoard.assisted.body': 'Send your CV and the necessary details: we will prepare and manually send the application for this listing when the company’s process allows it.',
+ 'jobBoard.assisted.body': 'Send your CV and the necessary details: we automatically prepare the application for this listing, send it to you for approval and submit it ourselves, by email or on the company’s portal.',
  'jobBoard.assisted.stepsLabel': 'How it works',
  'jobBoard.assisted.step1': 'You send us your CV and the necessary details',
  'jobBoard.assisted.step2': 'We prepare the application for this role',
- 'jobBoard.assisted.step3': 'We submit it manually when the process allows it',
+ 'jobBoard.assisted.step3': 'We send it to you for approval, then submit it',
  'jobBoard.assisted.transparency': 'We do not guarantee a reply, interview, or hire. Frontaliere Ticino is not affiliated with the company and the service covers this listing only.',
  'jobBoard.assisted.externalCta': 'Apply yourself, for free',
  'jobBoard.assisted.paidCta': 'Delegate the submission — €0.99',
@@ -822,7 +825,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.checkoutError': 'We could not start the payment. Please try again shortly.',
  'jobBoard.assisted.paidConfirmed': 'Payment confirmed. You can now send the CV and details needed for this listing.',
  'jobBoard.assisted.submittedTitle': 'Application received',
- 'jobBoard.assisted.submittedBody': 'We received your CV and specific mandate. We will prepare and manually send the application when the company’s process allows it.',
+ 'jobBoard.assisted.submittedBody': 'We received your CV and specific mandate. We automatically prepare the application and email it to you for approval: you have 12 hours to correct it, then we send it to the company, with nothing for you to do.',
  'jobBoard.assisted.privacyNotice': `Controller: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). The CV and details will be processed and shared with the authorised team solely for this application and kept for up to 90 days after submission or refund, unless legally required or covered by separate talent-pool consent. For our e-mails about this application we record delivery, opens and clicks, only to know whether you have seen the draft to approve. For access, correction, or deletion: ${PUBLIC_CONTACT_EMAIL}. We do not promise a reply, interview, or hire; the service does not imply affiliation with the company.`,
  'jobBoard.assisted.consent': "I give Frontaliereticino.ch a mandate, limited to the {jobTitle} position at {companyName}, to process my CV and the details I provided and to submit the application in my name: including, where the portal requires it, creating an account with a dedicated e-mail address and accepting on my behalf only the terms and privacy notice needed for the application to be received, never optional consents. I confirm that the details are true and mine, and that I have read the Terms of Service and the Privacy Policy.",
  'jobBoard.assisted.termsLink': "Terms of Service",

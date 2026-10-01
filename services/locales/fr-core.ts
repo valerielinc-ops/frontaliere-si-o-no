@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3970.title': 'Candidature assistée : prête en quelques heures',
+ 'whatsNew.v3970.assistedAutomation.title': 'Une candidature assistée plus rapide',
+ 'whatsNew.v3970.assistedAutomation.desc': 'Dès que vous nous envoyez votre CV, nous préparons automatiquement une lettre et des réponses adaptées à l’offre et vous les envoyons par e-mail : vous pouvez les corriger ou les valider. Sans réponse de votre part sous 12 heures, la candidature part telle quelle, par e-mail ou sur le portail de l’entreprise, et nous vous prévenons dès qu’elle est envoyée.',
  'whatsNew.v3969.title': 'Candidature assistée : Valerie vous écrit',
  'whatsNew.v3969.assistedConcierge.title': 'Une candidature assistée plus simple',
  'whatsNew.v3969.assistedConcierge.desc': 'Juste après le paiement, vous recevez un e-mail de Valerie avec tout ce qu’il faut : répondez avec votre CV en pièce jointe ou déposez-le depuis la page de votre commande. Nous vous écrivons aussi quand la candidature a été envoyée.',
@@ -773,11 +776,11 @@ const frCore: Record<string, string> = {
  'jobBoard.applicationIntentConsent': 'En sélectionnant « Postuler », vous acceptez que nous enregistrions votre intérêt pour cette offre. Nous enregistrons le clic et les données techniques nécessaires ; cela ne signifie pas que la candidature est terminée.',
  'jobBoard.applicationIntentDetails': 'Ce que le clic « Postuler » enregistre',
  'jobBoard.assisted.title': 'Voulez-vous déléguer cette candidature ?',
- 'jobBoard.assisted.body': 'Envoyez-nous votre CV et les informations nécessaires : nous préparerons et enverrons manuellement la candidature pour cette offre lorsque le processus de l’entreprise le permet.',
+ 'jobBoard.assisted.body': 'Envoyez-nous votre CV et les informations nécessaires : nous préparons automatiquement la candidature pour cette offre, vous l’envoyons pour validation et la transmettons nous-mêmes, par e-mail ou sur le portail de l’entreprise.',
  'jobBoard.assisted.stepsLabel': 'Comment ça marche',
  'jobBoard.assisted.step1': 'Vous nous envoyez votre CV et les informations nécessaires',
  'jobBoard.assisted.step2': 'Nous préparons la candidature pour ce poste',
- 'jobBoard.assisted.step3': 'Nous la transmettons manuellement lorsque le processus le permet',
+ 'jobBoard.assisted.step3': 'Nous vous l’envoyons pour validation, puis nous la transmettons',
  'jobBoard.assisted.transparency': 'Nous ne garantissons ni réponse, ni entretien, ni embauche. Frontaliere Ticino n’est pas affilié à l’entreprise et le service concerne uniquement cette offre.',
  'jobBoard.assisted.externalCta': 'Postuler soi-même, gratuitement',
  'jobBoard.assisted.paidCta': 'Déléguer l’envoi — 0,99 €',
@@ -794,7 +797,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.checkoutError': 'Impossible de démarrer le paiement. Réessayez dans un instant.',
  'jobBoard.assisted.paidConfirmed': 'Paiement confirmé. Vous pouvez maintenant envoyer le CV et les informations nécessaires pour cette offre.',
  'jobBoard.assisted.submittedTitle': 'Candidature prise en charge',
- 'jobBoard.assisted.submittedBody': 'Nous avons reçu votre CV et votre mandat spécifique. Nous préparerons et enverrons manuellement la candidature lorsque le processus de l’entreprise le permet.',
+ 'jobBoard.assisted.submittedBody': 'Nous avons reçu votre CV et votre mandat spécifique. Nous préparons automatiquement la candidature et vous l’envoyons par e-mail pour validation : vous avez 12 heures pour la corriger, puis nous l’envoyons à l’entreprise, sans rien à faire de votre côté.',
  'jobBoard.assisted.privacyNotice': `Responsable : Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Le CV et les informations sont traités et transmis à l’équipe autorisée uniquement pour cette candidature et conservés jusqu’à 90 jours après l’envoi ou le remboursement, sauf obligation légale ou consentement séparé au talent pool. Pour nos e-mails sur cette candidature, nous enregistrons la remise, les ouvertures et les clics, uniquement pour savoir si vous avez vu le brouillon à approuver. Pour l’accès, la rectification ou l’effacement : ${PUBLIC_CONTACT_EMAIL}. Nous ne promettons ni réponse, ni entretien, ni embauche ; le service n’implique aucune affiliation avec l’entreprise.`,
  'jobBoard.assisted.consent': "Je confie à Frontaliereticino.ch le mandat, limité au poste {jobTitle} chez {companyName}, de traiter mon CV et les informations indiquées et d’envoyer la candidature en mon nom : y compris en créant, si le portail l’exige, un compte avec une adresse e-mail dédiée et en acceptant pour moi uniquement les conditions et la politique de confidentialité nécessaires à la réception de la candidature, jamais de consentements facultatifs. Je déclare que les informations sont exactes et m’appartiennent, et avoir lu les Conditions d’utilisation et la Politique de confidentialité.",
  'jobBoard.assisted.termsLink': "Conditions d’utilisation",
