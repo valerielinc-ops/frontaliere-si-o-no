@@ -934,7 +934,10 @@ function renderReport(opts: {
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  const heroImageUrl = seoHeroImageUrl(hero);
+  // buildSeoPageHtml emits the canonical outer <main class="seo-static-content">
+  // wrapper. Keep the report body a div so every report has one main landmark.
+  const bodyHtml = `<div class="s-xzWvwM">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -944,11 +947,12 @@ function renderReport(opts: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogType: 'article',
     ogLocale: OG_LOCALE[locale],
-    ogImage: seoHeroImageUrl(hero),
+    ogImage: heroImageUrl,
     ogImageWidth: SEO_HERO_WIDTH,
     ogImageHeight: SEO_HERO_HEIGHT,
     ogImageType: 'image/webp',
     ogImageAlt: copy.h1,
+    extraHeadHtml: `<link rel="preload" as="image" href="${heroImageUrl}" type="image/webp" fetchpriority="high">`,
     hreflangHtml: buildHreflang(),
     jsonLdScripts: [breadcrumbLd, articleLd, datasetLd],
     bodyHtml,
