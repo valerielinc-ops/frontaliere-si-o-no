@@ -13,6 +13,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { getAffiliateCommercialConfiguration } from '../../functions/src/lib/affiliatePartnersRegistry.js';
 import { runHogQL } from '../lib/posthog-client.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
 import { GA4_READONLY_SCOPE, ga4DateRange, runGa4Report } from '../lib/ga4-service-account.mjs';
@@ -158,6 +159,7 @@ export function buildL8AttributionExport({
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
     loopId: LOOP_ID,
+    commercialConfiguration: getAffiliateCommercialConfiguration(),
     // Keep the network timestamp when a commercial export is present. The
     // current PostHog timestamp must not make an old commission ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,
@@ -221,6 +223,7 @@ export function buildUnavailableL8AttributionExport({
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
     loopId: LOOP_ID,
+    commercialConfiguration: getAffiliateCommercialConfiguration(),
     // Keep a valid network timestamp when PostHog is unavailable. The
     // telemetry timestamp must never make an old commercial ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,

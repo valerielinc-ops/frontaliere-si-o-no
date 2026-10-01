@@ -14,6 +14,8 @@ on:
       - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
+      - 'functions/src/lib/affiliatePartnersRegistry.js'
+      - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -33,6 +35,8 @@ on:
       - 'scripts/ci/fetch-authorized-affiliate-export.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/affiliateRevenue.mjs'
+      - 'functions/src/lib/affiliatePartnersRegistry.js'
+      - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
@@ -76,6 +80,8 @@ jobs:
             /scripts/ci/fetch-authorized-affiliate-export.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
             /scripts/lib/affiliateRevenue.mjs
+            /functions/src/lib/affiliatePartnersRegistry.js
+            /functions/src/lib/exchangePartners.js
             /scripts/lib/google-service-account-token.mjs
             /scripts/lib/ga4-service-account.mjs
             /scripts/lib/analytics-settled-window.mjs

@@ -186,3 +186,11 @@ export function isGoIdEnabled(goId) {
 export function getEnabledPartner(goId) {
   return (goId && PARTNERS_REGISTRY.find((p) => p.id === goId && p.enabled)) || null;
 }
+
+/** Owner configuration, distinct from publication of historical referral URLs. Missing flags fail closed. */
+export function getAffiliateCommercialConfiguration() {
+ const activePartnerIds = PARTNERS_REGISTRY.filter(partner => partner.commercialActive === true).map(partner => partner.id);
+ const status = activePartnerIds.length ? 'active'
+  : PARTNERS_REGISTRY.length > 0 && PARTNERS_REGISTRY.every(partner => partner.commercialActive === false) ? 'inactive' : 'unknown';
+ return { source: 'partner-registry', status, activePartnerIds };
+}
