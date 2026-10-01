@@ -298,6 +298,8 @@ describe('employer acknowledgement of a submit of unknown outcome', () => {
     for (const flow of [
       { state: 'submitting', round: 1 },
       { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'] },
+      // JOIN 2026-10-01: the same unknown outcome behind an invisible reCAPTCHA.
+      { state: 'owner_takeover', round: 1, heldBy: ['portal_antibot_ambiguous'] },
       { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
     ]) {
       const step = transition(flow, { type: 'submit_acknowledged' }, { draft: cleanDraft, nowMs: T0 });

@@ -312,6 +312,14 @@ describe('submit mode', () => {
     const notAgain = vi.fn();
     expect(await submit(captchaAfterClick.db, notAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(notAgain).not.toHaveBeenCalled();
+
+    // The portal said in words, after the click, that it did not send (JOIN
+    // «Non siamo riusciti a inviare…»): released, Valerie's retry claims it again.
+    const refusedAfterClick = createMemoryFirestore();
+    const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
+    expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
+    expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_refused' } });
+    expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {
