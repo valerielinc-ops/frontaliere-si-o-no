@@ -96,6 +96,7 @@ import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
 import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
+import { handleTestPortal } from './src/assistedApplicationTestPortal.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
 import { codexStructured } from './src/lib/codexStructured.js';
 import { sendEmailCascade as sendAssistedApplicationCascade } from './src/emailCascade.js';
@@ -2374,6 +2375,30 @@ export const assistedApplicationEmailCv = onRequest(
 // Employer messages on the order aliases (c-…@candidature.frontaliereticino.ch),
 // handed over raw by the Email Worker: classified by Codex, stored encrypted,
 // forwarded to the candidate with Reply-To set to the recruiter.
+// A test employer portal for the assisted application's portal path (owner
+// request 2026-10-01): pages and form of a fictional employer, so the runner
+// submits for real to a posting of ours. Off (404) without its Remote Config token.
+export const assistedApplicationTestPortal = onRequest(
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, maxInstances: 1, cors: false },
+  async (req, res) => {
+    try {
+      const { status, body } = await handleTestPortal(req, {
+        token: await getRemoteConfigValue('ASSISTED_APPLICATION_TEST_PORTAL_TOKEN'),
+        employerEmail: await getRemoteConfigValue('ASSISTED_APPLICATION_TEST_PORTAL_TO'),
+        db: getAdminDb(),
+        sendCascade: async (emails, options) => {
+          await bridgeEmailCascadeCredentialsToEnv();
+          return sendEmailCascade(emails, options);
+        },
+      });
+      res.status(status).set('Content-Type', 'text/html; charset=utf-8').set('X-Robots-Tag', 'noindex, nofollow').send(body);
+    } catch (error) {
+      console.error('[assistedApplicationTestPortal]', error instanceof Error ? error.message : String(error));
+      res.status(500).set('Content-Type', 'text/plain; charset=utf-8').send('Errore');
+    }
+  },
+);
+
 export const assistedApplicationInbound = onRequest(
   { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: false },
   async (req, res) => {
