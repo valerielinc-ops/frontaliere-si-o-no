@@ -118,6 +118,14 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     ])).toEqual([]);
   });
 
+  it('review 5375900587: una draft più vecchia non fa chiudere la gemella pronta', () => {
+    expect(findDuplicateHeadPrs([twin(2, { isDraft: true }), twin(3, { isDraft: false })]))
+      .toEqual([{ number: 2, keeper: 3, labels: [] }]);
+    // Tutte draft: resta la più vecchia.
+    expect(findDuplicateHeadPrs([twin(5, { isDraft: true }), twin(4, { isDraft: true })]))
+      .toEqual([{ number: 5, keeper: 4, labels: [] }]);
+  });
+
   it('SHA di testa o base diversi non sono gemelle', () => {
     expect(findDuplicateHeadPrs([twin(1), twin(2, { headRefOid: 'b'.repeat(40) })])).toEqual([]);
     expect(findDuplicateHeadPrs([twin(1), twin(2, { baseRefName: 'release' })])).toEqual([]);

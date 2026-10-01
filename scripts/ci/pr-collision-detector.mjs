@@ -128,16 +128,16 @@ export function headRepositoryIdentity(pr) {
  * stessi commit, stesso diff — non due lavori in parallelo. Osservate #10608 e
  * #10609 su `fix/issue-10544`, create nello stesso secondo: condividendo ogni
  * file si etichettavano `collision-risk` a vicenda, e la «seconda a
- * raggiungere il merge» non poteva esistere. Si tiene la piu' vecchia; le
- * altre sono duplicate da chiudere (il branch resta: e' quello della PR
- * tenuta). Pura → testabile.
+ * raggiungere il merge» non poteva esistere. Si tiene la piu' vecchia fra le
+ * non-draft (una draft solo se lo sono tutte); le altre sono duplicate da
+ * chiudere (il branch resta: e' quello della PR tenuta). Pura → testabile.
  *
  * L'identita' e' completa e fail-closed: repository di testa (non il solo
  * owner, che puo' avere piu' repository con lo stesso nome di branch), branch,
  * SHA di testa e base. Un campo mancante o illeggibile = nessun raggruppamento
  * e quindi nessuna chiusura.
  *
- * @param {Array<{number:number, headRefName?:string, headRefOid?:string, baseRefName?:string,
+ * @param {Array<{number:number, isDraft?:boolean, headRefName?:string, headRefOid?:string, baseRefName?:string,
  *   headRepositoryOwner?:{login?:string}, headRepository?:{name?:string, nameWithOwner?:string},
  *   labels?:Array<{name:string}>}>} prs
  * @returns {Array<{number:number, keeper:number, labels:string[]}>} duplicate da chiudere
@@ -160,7 +160,9 @@ export function findDuplicateHeadPrs(prs) {
   const duplicates = [];
   for (const group of byHead.values()) {
     if (group.length < 2) continue;
-    group.sort((a, b) => a.number - b.number);
+    // Tenuta: prima una PR pronta, poi la piu' vecchia. Una draft piu' vecchia
+    // non deve far chiudere la PR che sta andando al merge.
+    group.sort((a, b) => Number(a.isDraft === true) - Number(b.isDraft === true) || a.number - b.number);
     const keeper = group[0].number;
     for (const dup of group.slice(1)) {
       duplicates.push({ number: dup.number, keeper, labels: (dup.labels || []).map((l) => l?.name).filter(Boolean) });
