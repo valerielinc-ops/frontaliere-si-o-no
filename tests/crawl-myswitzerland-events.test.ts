@@ -19,6 +19,9 @@ import {
   mergeDetailEventMetadata,
   detailEnrichmentReady,
   mapEventRecord,
+  parseMySwitzerlandArgs,
+  selectMySwitzerlandRecords,
+  targetedMySwitzerlandResumeIndex,
 } from '../scripts/crawl-myswitzerland-events.mjs';
 import {
   extractDetailContactName,
@@ -41,6 +44,61 @@ describe('parseCompactUtc', () => {
     expect(parseCompactUtc('')).toBeNull();
     expect(parseCompactUtc(undefined)).toBeNull();
     expect(parseCompactUtc('2026-07-04')).toBeNull();
+  });
+});
+
+describe('targeted MySwitzerland refresh', () => {
+  const first = 'a'.repeat(32);
+  const second = 'b'.repeat(32);
+  const other = 'c'.repeat(32);
+  const records = [
+    { objectID: other, perLocaleHits: {} },
+    { objectID: second, perLocaleHits: { de: { title: 'Second event' } } },
+    { objectID: first, perLocaleHits: { it: { title: 'First event' } } },
+  ];
+
+  it('leaves the normal catalog order and arguments unchanged', () => {
+    expect(parseMySwitzerlandArgs([])).toEqual({ dryRun: false, limit: undefined, ids: undefined });
+    expect(selectMySwitzerlandRecords(records, undefined)).toEqual({ records, selectionKey: null });
+  });
+
+  it('accepts raw or namespaced IDs, normalizes case and removes duplicates', () => {
+    expect(parseMySwitzerlandArgs(['--ids', ` ${second.toUpperCase()},myswitzerland:${first},${second} `, '--dry-run']).ids)
+      .toEqual([first, second]);
+    expect(parseMySwitzerlandArgs([`--ids=${first}`, '--limit=1']).limit).toBe(1);
+  });
+
+  it.each(['', 'guidle:AGwng3C', 'not-an-object-id', `${first},`, '--limit=5'])
+    ('rejects invalid or empty targeting instead of falling back to the whole catalog: %s', value => {
+      expect(() => parseMySwitzerlandArgs(['--ids', value])).toThrow('--ids requires');
+    });
+
+  it('rejects missing or duplicated targeting arguments', () => {
+    expect(() => parseMySwitzerlandArgs(['--ids'])).toThrow('--ids requires');
+    expect(() => parseMySwitzerlandArgs([`--ids=${first}`, '--ids', second])).toThrow('only once');
+  });
+
+  it('selects only requested records in stable order, retaining their locale metadata', () => {
+    const result = selectMySwitzerlandRecords(records, [first, second]);
+    expect(result.records).toEqual([records[2], records[1]]);
+    expect(records.map(record => record.objectID)).toEqual([other, second, first]);
+    expect(selectMySwitzerlandRecords([...records].reverse(), [first, second]).selectionKey).toBe(result.selectionKey);
+    expect(selectMySwitzerlandRecords(records, [first]).selectionKey).not.toBe(result.selectionKey);
+  });
+
+  it('resets a cursor if requested records disappear or reappear in the catalog', () => {
+    const full = selectMySwitzerlandRecords(records, [first, second]);
+    const missing = selectMySwitzerlandRecords(records.filter(record => record.objectID !== first), [first, second]);
+    expect(missing.selectionKey).not.toBe(full.selectionKey);
+    expect(targetedMySwitzerlandResumeIndex({ selectionKey: full.selectionKey, nextIndex: 1 }, missing.selectionKey)).toBe(0);
+  });
+
+  it('resumes only a valid cursor for the same selection', () => {
+    const { selectionKey } = selectMySwitzerlandRecords(records, [first, second]);
+    expect(targetedMySwitzerlandResumeIndex({ selectionKey, nextIndex: 1 }, selectionKey)).toBe(1);
+    for (const checkpoint of [null, {}, { selectionKey, nextIndex: -1 }, { selectionKey, nextIndex: 1.5 }]) {
+      expect(targetedMySwitzerlandResumeIndex(checkpoint, selectionKey)).toBe(0);
+    }
   });
 });
 
