@@ -1,8 +1,12 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import { resolve } from 'node:path';
-import { pushRenderedLocales } from '../scripts/rerender-article-hubs.mjs';
+import {
+  __resetCorpusFreshnessCache,
+  checkCorpusFreshness,
+  pushRenderedLocales,
+} from '../scripts/rerender-article-hubs.mjs';
 
 const workflow = readFileSync(
   resolve(__dirname, '..', '.github/workflows/fast-publish-article.yml'),
@@ -71,6 +75,74 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain("path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs')");
     expect(hubDriver).toContain("args.push('--strict', '--no-ticker')");
     expect(hubDriver).toContain('assertArticleChunkLease({ required: leaseRequired });\n  await publishClientChunks');
+    expect(hubDriver).toContain('PUBLISHED_SLUGS_URL');
+    expect(hubDriver).toContain('refusing to move the client behind the hub');
+  });
+
+  it('rejects a published-ID gap even when the manifest count still matches', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 2 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({
+            swiss: {
+              kept: { it: 'kept' },
+              publishedAfterSync: { it: 'published-after-sync' },
+            },
+          }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 2, {
+        localRegistry: { kept: { it: 'kept' } },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.note).toContain('publishedAfterSync');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
+  it('rejects a live hub card absent from the local registry', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { articles: 1 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ blog: { known: { it: 'known' } } }),
+        });
+      }
+      if (url === 'https://frontaliereticino.ch/articoli-frontaliere/') {
+        return Promise.resolve({
+          ok: true,
+          text: async () => '<main class="ssg-article-grid"><a class="ssg-art-card" href="/articoli-frontaliere/live-only/"></a></main>',
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('frontaliere', 1, {
+        localRegistry: { known: { it: 'known' } },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.note).toContain('live-only');
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
   });
 
   it('fails closed for armed direct invocations without lease enforcement', () => {
