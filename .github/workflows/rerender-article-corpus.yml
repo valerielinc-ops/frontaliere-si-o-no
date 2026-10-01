@@ -116,6 +116,29 @@ on:
         default: '300'
   push:
     branches: [main]
+    # A path filter only ever sees the files a commit CHANGED. Since the #4881
+    # Fase 6 colocation, `build-plugins/ogPagesPlugin.ts` and
+    # `build-plugins/blogContextualLinksPlugin.ts` are re-export shims and
+    # `build-plugins/shared/articleSectionDescriptors.ts` is a symlink: the
+    # renderer itself lives in `packages/articles/engine/`, and the site values
+    # it renders with (head snippets, chrome, Organization/author LD...) are
+    # handed over by `build-plugins/articlesSiteShellBootstrap.ts`. With only
+    # the shims listed, a renderer or shell change re-rendered nothing and the
+    # live corpus drifted until an unrelated commit touched a listed file:
+    # audit-article-corpus-drift run 36312753890 (2026-09-27) found every
+    # sampled locale still carrying the Offerwall gate that #9996 had replaced
+    # in `build-plugins/constants.ts` seven hours earlier, and #9587, #10684
+    # and #10686 (renderer, authors, Organization identity) triggered no
+    # re-render at all.
+    #
+    # So the filter names the real renderer, the bootstrap, and every module
+    # the bootstrap imports to build the shell — the contract
+    # tests/rerender-article-corpus-trigger-paths.test.ts keeps in sync with
+    # the bootstrap's own import list. The engine glob also covers
+    # articleHubPagesPlugin.ts and topicTaxonomy.ts: ogPagesPlugin.ts imports
+    # them for each article's topic assignment, which makes them article
+    # inputs too. That does not move the HUB re-render here (see the note
+    # above): rerender-article-hubs.yml keeps its own trigger for them.
     paths:
       - 'build-plugins/ogPagesPlugin.ts'
       - 'build-plugins/shared/seoPageShell.ts'
@@ -125,6 +148,30 @@ on:
       - 'build-plugins/hreflangPostprocessPlugin.ts'
       - 'build-plugins/blogImageCdnFinalizePlugin.ts'
       - 'scripts/rerender-article-corpus.mjs'
+      # The renderer behind the shims and symlink above.
+      - 'packages/articles/engine/**'
+      - 'packages/articles/articleSections.ts'
+      # The site shell the renderer reads through getSiteShell().
+      - 'build-plugins/articlesSiteShellBootstrap.ts'
+      - 'build-plugins/constants.ts'
+      - 'build-plugins/htmlTemplate.ts'
+      - 'build-plugins/batchWrite.ts'
+      - 'build-plugins/spaBundleResolver.ts'
+      - 'build-plugins/seoHubsData.ts'
+      - 'build-plugins/blogContextualLinksData.ts'
+      - 'build-plugins/shared/titleSuffix.ts'
+      - 'build-plugins/shared/safeTruncate.ts'
+      - 'build-plugins/shared/chunkFiles.ts'
+      - 'build-plugins/shared/seoContentTokens.ts'
+      - 'build-plugins/shared/inlineJsonScript.ts'
+      - 'build-plugins/shared/criticalCss.ts'
+      - 'build-plugins/shared/railGutters.ts'
+      - 'build-plugins/shared/buildDayStamp.ts'
+      - 'build-plugins/shared/stripLiteralMarkdown.ts'
+      - 'services/seo/imageObjectLd.ts'
+      - 'services/seo/organizationLd.ts'
+      - 'services/routeSlugs.data.ts'
+      - 'data/authors.ts'
 
 permissions:
   contents: read
