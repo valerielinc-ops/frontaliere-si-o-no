@@ -16,6 +16,7 @@ import {
   computeColliders,
   findDuplicateHeadPrs,
   isAutonomousCollisionPr,
+  duplicateClosureConfirmed,
 } from '../scripts/ci/pr-collision-detector.mjs';
 
 describe('selectCollisionCandidates', () => {
@@ -162,6 +163,8 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     expect(graph).toBeGreaterThan(dedupe);
     expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title'");
     expect(main).toContain("gh(['pr', 'close', String(dup.number), '--repo', REPO]");
+    expect(main).toContain("gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state']");
+    expect(main).toContain('if (closeDuplicateAndConfirm(dup.number))');
     expect(main).not.toContain('--delete-branch');
   });
 });
@@ -185,5 +188,19 @@ describe('isAutonomousCollisionPr — provenienza del keeper prima della propaga
   it('fallisce chiuso con una PR illeggibile', () => {
     expect(isAutonomousCollisionPr(undefined)).toBe(false);
     expect(isAutonomousCollisionPr({ labels: null })).toBe(false);
+  });
+});
+
+describe('duplicateClosureConfirmed — la duplicata resta nel grafo senza conferma', () => {
+  it('conferma solo CLOSED in produzione e simula la chiusura in dry-run', () => {
+    expect(duplicateClosureConfirmed({ state: 'CLOSED' })).toBe(true);
+    expect(duplicateClosureConfirmed({ state: 'OPEN' })).toBe(false);
+    expect(duplicateClosureConfirmed({ state: 'UNKNOWN' })).toBe(false);
+    expect(duplicateClosureConfirmed({ dryRun: true, state: 'OPEN' })).toBe(true);
+  });
+
+  it('fallisce chiuso con risposta assente o illeggibile', () => {
+    expect(duplicateClosureConfirmed()).toBe(false);
+    expect(duplicateClosureConfirmed({ state: null })).toBe(false);
   });
 });
