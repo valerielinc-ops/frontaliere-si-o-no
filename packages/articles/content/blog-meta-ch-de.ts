@@ -7388,6 +7388,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 vereint die elektrische Mobilität in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Seit dem ersten Oktober bündelt Joya vier Geschäftsbereiche: über 25’000 Ladepunkte, mehr als 150’000 aktive Nutzer und einen Plan von rund 150 Millionen bis 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Öffentliche Ladestation für Elektroautos in einer Schweizer Stadt',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'Der Bürger zahlt immer für den vollen Tank',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'Im August 2026 beträgt die monatliche Inflation +0,4 % und die Jahresinflation +0,8 %; die Benzinsteuer beträgt 76,82 Cent pro Liter, auf Diesel 79,57 Cent pro Liter; im Jahr 2025 betrug der Umsatz 4,367 Milliarden Francs.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Kraftstoffpumpendüse mit einem Schweizer Franken Münze und den Alpen im Hintergrund',
 };
 
 export default blogMetaChDe;
