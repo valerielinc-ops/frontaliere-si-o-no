@@ -31,13 +31,22 @@ function offerEntries(value) {
   return entries.filter((entry) => entry && typeof entry === 'object');
 }
 
-function selectedOffer(value) {
+function selectedOffer(value, baseUrl) {
   const entries = offerEntries(value);
   if (!entries.length) return undefined;
   const priced = entries
     .map((offer) => ({ offer, amount: eventOfferPriceAmount(offer.price) }))
     .filter(({ amount }) => Number.isFinite(amount));
-  if (!priced.length) return { offer: entries[0] };
+  if (!priced.length) {
+    const candidates = entries.map((offer) => ({
+      offer,
+      // A usable booking URL takes priority over other unpriced metadata.
+      score: OFFER_METADATA_FIELDS.reduce((score, field) => (
+        score + (normalizedOfferField(field, offer[field], baseUrl) ? (field === 'url' ? 4 : 1) : 0)
+      ), 0),
+    }));
+    return candidates.reduce((best, candidate) => (candidate.score > best.score ? candidate : best));
+  }
   return priced.reduce((best, candidate) => (candidate.amount < best.amount ? candidate : best));
 }
 
@@ -53,8 +62,9 @@ export function eventOfferPriceAmount(value) {
 export function parseEventPriceText(value) {
   if (typeof value !== 'string') return undefined;
   const tariff = value
-    .replace(/\b(?:tel(?:efon|ephone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
-    .replace(/\b(?:ab|under|below|fino a|jusqu['’]à)\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/gi, ' ');
+    .replace(/\b(?:t[ée]l(?:efon|ephone|[ée]phone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
+    .replace(/(?<![\p{L}\p{N}])(?:ab|under|below|over|from|(?:a partire )?da[il]?|fino a|d[èe]s|[àa] partir de|jusqu['’][àa])\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/giu, ' ')
+    .replace(/\bgratuita\b/gi, 'gratuito');
   return parsePriceText(tariff);
 }
 
@@ -76,7 +86,7 @@ function normalizedOfferField(field, value, baseUrl) {
  * event information page or the event date is not a safe substitute.
  */
 export function extractEventOfferMetadata(value, baseUrl) {
-  const selected = selectedOffer(value);
+  const selected = selectedOffer(value, baseUrl);
   if (!selected) return undefined;
   const metadata = {};
   for (const field of OFFER_METADATA_FIELDS) {
@@ -91,7 +101,7 @@ export function mergeEventOfferMetadata(primaryValue, candidateValue, primaryUrl
   const primaryEntries = offerEntries(primaryValue);
   if (!primaryEntries.length) {
     const candidateEntries = offerEntries(candidateValue);
-    const selectedCandidate = selectedOffer(candidateValue);
+    const selectedCandidate = selectedOffer(candidateValue, candidateUrl);
     if (!selectedCandidate) return candidateValue || primaryValue;
     const normalizedCandidate = { ...selectedCandidate.offer };
     for (const field of OFFER_METADATA_FIELDS) {
@@ -106,8 +116,8 @@ export function mergeEventOfferMetadata(primaryValue, candidateValue, primaryUrl
   if (!candidateValue) return primaryValue;
   const candidateMetadata = extractEventOfferMetadata(candidateValue, candidateUrl);
   if (!candidateMetadata) return primaryValue;
-  const selected = selectedOffer(primaryValue);
-  const selectedCandidate = selectedOffer(candidateValue);
+  const selected = selectedOffer(primaryValue, primaryUrl);
+  const selectedCandidate = selectedOffer(candidateValue, candidateUrl);
   const primaryAmount = eventOfferPriceAmount(selected?.offer?.price);
   const candidateAmount = eventOfferPriceAmount(selectedCandidate?.offer?.price);
   if (!selected || !selectedCandidate || !Number.isFinite(primaryAmount)

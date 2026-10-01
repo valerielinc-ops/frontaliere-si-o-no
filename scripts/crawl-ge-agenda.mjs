@@ -275,7 +275,6 @@ export function extractGeneveEventPrice(html, eventUrl) {
     const doc = dom.window.document;
     const tariff = text(doc.querySelector('.field--name-field-rates-and-conditions'));
     const price = parseEventPriceText(tariff);
-    if (!price) return undefined;
     const href = doc.querySelector('.field--name-field-oa-reservation-link a[href]')?.getAttribute('href');
     let ticketUrl;
     if (href) {
@@ -286,7 +285,7 @@ export function extractGeneveEventPrice(html, eventUrl) {
         // An unusable booking link does not discard a verified tariff.
       }
     }
-    return { ...price, ...(ticketUrl ? { url: ticketUrl } : {}) };
+    return price || ticketUrl ? { ...price, ...(ticketUrl ? { url: ticketUrl } : {}) } : undefined;
   } finally {
     dom.window.close();
   }

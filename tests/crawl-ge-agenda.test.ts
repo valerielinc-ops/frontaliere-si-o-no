@@ -6,12 +6,23 @@
  */
 import { describe, it, expect } from 'vitest';
 import { parseGeneveDateFr, parseGeneveAgendaHtml, extractGeneveEventPrice, enrichGeneveEvent } from '../scripts/crawl-ge-agenda.mjs';
+import { parseEventPriceText } from '../scripts/lib/event-metadata.mjs';
 
 const NOW = new Date('2026-07-06T00:00:00Z');
 
 describe('Geneva event admission metadata', () => {
   const eventUrl = 'https://www.geneve.ch/agenda/chocolate-workshop';
   const event = { id: 'ge-agenda:workshop', url: eventUrl };
+
+  it.each([
+    'Dès 12 ans, entrée gratuite',
+    'À partir de 12 ans, entrée gratuite',
+    'Dai 12 anni, entrata gratuita',
+    'From 12 years, free entry',
+    'Ab 12 Jahren, Eintritt frei',
+  ])('excludes supported locale age limits from the tariff: %s', (tariff) => {
+    expect(parseEventPriceText(tariff)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
 
   it('reads the event tariff and ticket URL without taking prices from related events', () => {
     const html = `<div class="field--name-field-rates-and-conditions">CHF 50.-</div>
@@ -29,6 +40,12 @@ describe('Geneva event admission metadata', () => {
 
   it('does not turn an absent tariff or a related free event into a free admission', () => {
     expect(extractGeneveEventPrice('<article class="event">Entrée gratuite</article>', eventUrl)).toBeUndefined();
+  });
+
+  it('keeps a verified booking URL when the event does not publish a tariff', async () => {
+    const html = '<div class="field--name-field-oa-reservation-link"><a href="/book">Book</a></div>';
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({ url: 'https://www.geneve.ch/book' });
+    expect((await enrichGeneveEvent(event, async () => html)).price).toEqual({ url: 'https://www.geneve.ch/book' });
   });
 
   it('retains an ambiguous tariff and ignores non-HTTP booking links', () => {

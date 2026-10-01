@@ -128,6 +128,19 @@ describe('extractPrice', () => {
     });
   });
 
+  it('selects an unpriced offer with a usable booking URL instead of an empty first offer', () => {
+    expect(extractEventOfferMetadata([
+      { price: '', name: 'A' },
+      { price: '', url: 'javascript:alert(1)' },
+      { price: '', url: '/book', availability: 'InStock' },
+    ], 'https://www.myswitzerland.com/event')).toEqual({
+      url: 'https://www.myswitzerland.com/book', availability: 'https://schema.org/InStock',
+    });
+    expect(extractPrice({ offers: [{ price: '', name: 'A' }, { price: '', url: '/book' }] },
+      '<table><tr><th>Price</th><td>CHF 25</td></tr></table>', 'https://www.myswitzerland.com/event'))
+      .toMatchObject({ amount: 25, url: 'https://www.myswitzerland.com/book' });
+  });
+
   it('returns undefined when there is no offers/isAccessibleForFree info', () => {
     expect(extractPrice({})).toBeUndefined();
     expect(extractPrice(undefined)).toBeUndefined();
