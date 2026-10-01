@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3970.title': 'Begleitete Bewerbung: in wenigen Stunden bereit',
+ 'whatsNew.v3970.assistedAutomation.title': 'Schnellere begleitete Bewerbung',
+ 'whatsNew.v3970.assistedAutomation.desc': 'Sobald du uns deinen Lebenslauf schickst, bereiten wir automatisch ein auf die Stelle zugeschnittenes Anschreiben und die Antworten vor und schicken sie dir per E-Mail: Du kannst sie korrigieren oder freigeben. Antwortest du nicht innerhalb von 12 Stunden, wird die Bewerbung so versendet, per E-Mail oder im Portal des Unternehmens, und wir sagen dir Bescheid, sobald sie verschickt ist.',
  'whatsNew.v3969.title': 'Begleitete Bewerbung: Valerie schreibt dir',
  'whatsNew.v3969.assistedConcierge.title': 'Einfachere begleitete Bewerbung',
  'whatsNew.v3969.assistedConcierge.desc': 'Direkt nach der Zahlung bekommst du eine E-Mail von Valerie mit allem, was nötig ist: Antworte mit deinem Lebenslauf im Anhang oder lade ihn auf der Seite deiner Bestellung hoch. Wir schreiben dir auch, sobald die Bewerbung versendet ist.',
@@ -773,11 +776,11 @@ const deCore: Record<string, string> = {
  'jobBoard.applicationIntentConsent': 'Mit «Bewerben» stimmst du zu, dass wir dein Interesse an dieser Stelle speichern. Wir erfassen den Klick und notwendige technische Daten; dies bedeutet nicht, dass die Bewerbung abgeschlossen wurde.',
  'jobBoard.applicationIntentDetails': 'Was der Klick auf «Bewerben» speichert',
  'jobBoard.assisted.title': 'Möchtest du diese Bewerbung delegieren?',
- 'jobBoard.assisted.body': 'Sende uns deinen Lebenslauf und die nötigen Angaben: Wir bereiten die Bewerbung vor und senden sie manuell für diese Stelle, wenn der Prozess des Unternehmens dies zulässt.',
+ 'jobBoard.assisted.body': 'Sende uns deinen Lebenslauf und die nötigen Angaben: Wir bereiten die Bewerbung für diese Stelle automatisch vor, schicken sie dir zur Freigabe und reichen sie selbst ein, per E-Mail oder im Portal des Unternehmens.',
  'jobBoard.assisted.stepsLabel': 'So funktioniert es',
  'jobBoard.assisted.step1': 'Du sendest uns deinen Lebenslauf und die nötigen Angaben',
  'jobBoard.assisted.step2': 'Wir bereiten die Bewerbung für diese Stelle vor',
- 'jobBoard.assisted.step3': 'Wir reichen sie manuell ein, wenn der Prozess dies zulässt',
+ 'jobBoard.assisted.step3': 'Wir schicken sie dir zur Freigabe und reichen sie dann ein',
  'jobBoard.assisted.transparency': 'Wir garantieren keine Antwort, kein Vorstellungsgespräch und keine Einstellung. Frontaliere Ticino ist nicht mit dem Unternehmen verbunden; der Dienst gilt nur für diese Stelle.',
  'jobBoard.assisted.externalCta': 'Selbst bewerben, kostenlos',
  'jobBoard.assisted.paidCta': 'Einreichung delegieren — 0,99 €',
@@ -825,7 +828,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.checkoutError': 'Die Zahlung konnte nicht gestartet werden. Bitte versuche es in Kürze erneut.',
  'jobBoard.assisted.paidConfirmed': 'Zahlung bestätigt. Du kannst jetzt den Lebenslauf und die nötigen Angaben für diese Stelle senden.',
  'jobBoard.assisted.submittedTitle': 'Bewerbung übernommen',
- 'jobBoard.assisted.submittedBody': 'Wir haben deinen Lebenslauf und den konkreten Auftrag erhalten. Wir bereiten die Bewerbung vor und senden sie manuell, wenn der Prozess des Unternehmens dies zulässt.',
+ 'jobBoard.assisted.submittedBody': 'Wir haben deinen Lebenslauf und den konkreten Auftrag erhalten. Wir bereiten die Bewerbung automatisch vor und schicken sie dir per E-Mail zur Freigabe: Du hast 12 Stunden für Korrekturen, danach senden wir sie an das Unternehmen, ohne dass du etwas tun musst.',
  'jobBoard.assisted.privacyNotice': `Verantwortlich: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Lebenslauf und Angaben werden ausschließlich für diese Bewerbung verarbeitet und an das autorisierte Team übermittelt; sie werden bis zu 90 Tage nach Einreichung oder Erstattung aufbewahrt, sofern keine gesetzliche Pflicht oder eine separate Talent-Pool-Einwilligung besteht. Bei unseren E-Mails zu dieser Bewerbung erfassen wir Zustellung, Öffnungen und Klicks, nur um zu wissen, ob du den Entwurf zur Freigabe gesehen hast. Für Auskunft, Berichtigung oder Löschung: ${PUBLIC_CONTACT_EMAIL}. Wir versprechen keine Antwort, kein Gespräch und keine Einstellung; der Dienst bedeutet keine Verbindung zum Unternehmen.`,
  'jobBoard.assisted.consent': "Ich erteile Frontaliereticino.ch den auf die Stelle {jobTitle} bei {companyName} beschränkten Auftrag, meinen Lebenslauf und meine Angaben zu verarbeiten und die Bewerbung in meinem Namen einzureichen: auch indem, falls das Portal es verlangt, ein Konto mit einer eigens eingerichteten E-Mail-Adresse erstellt wird und in meinem Namen nur die für den Empfang der Bewerbung nötigen Bedingungen und Datenschutzhinweise akzeptiert werden, nie freiwillige Einwilligungen. Ich bestätige, dass die Angaben wahr sind und mir gehören und dass ich die Nutzungsbedingungen und die Datenschutzerklärung gelesen habe.",
  'jobBoard.assisted.termsLink': "Nutzungsbedingungen",
