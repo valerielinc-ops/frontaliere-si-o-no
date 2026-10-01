@@ -90,7 +90,8 @@ export function planUserText({ snapshot, candidate }) {
 }
 
 // The date of birth too (JOIN: "Quando sei nato?"): only the candidate knows it.
-export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+// JOIN asks "Che sesso sei?": sex in Italian and French is demographic too.
+export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 // Questions that can rule the candidate out (career-ops apply.md, knock-outs):
 // answered only with a quote of the candidate's data that supports the answer.
 export const KNOCK_OUT = /anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
@@ -102,7 +103,7 @@ export function evidenceInData(knownValues, evidence) {
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
-export const PREFER_NOT = /prefer not|rather not|decline to|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
+export const PREFER_NOT = /prefer not|rather not|decline to|^\s*n\.?\s?\/\s?a\.?\s*$|non specificato|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
 
 /** "Geschlecht* (erforderlich)" → "Geschlecht": the form's own label, without the required markers. */
 export function questionFromLabel(label) {

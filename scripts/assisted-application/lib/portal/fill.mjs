@@ -201,8 +201,11 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
 }
 
 export const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
-export const SUBMIT_RE = /(submit|send application|apply now|^apply$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|invia( la)? candidatura|^invia$|candidati ora|envoyer( ma)? candidature|^envoyer$|postuler|soumettre)/i;
-export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|vielen dank für ihre bewerbung|ihre bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet))|grazie per (la tua|la sua|aver inviato)|candidatura (è stata )?(inviata|ricevuta)|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise))/i;
+// JOIN's review page ends with «Conferma e applica» (giro di prova 2026-10-01):
+// "confirm and apply/send" in the four languages is the final click too, as
+// the WHOLE label ("Conferma e applica filtro" is a filter, not a submission).
+export const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
+export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|vielen dank für (ihre|deine) bewerbung|ihre bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet))|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise))/i;
 export const VALIDATION_RE = /(this field is required|required field|pflichtfeld|bitte (füllen|geben) sie|campo (obbligatorio|richiesto)|champ (obligatoire|requis)|please (fill|complete|enter))/i;
 
 /** First enabled button matching the pattern (a disabled one is returned only when asked). */
