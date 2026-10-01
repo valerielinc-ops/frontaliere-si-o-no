@@ -1,8 +1,9 @@
-import { afterEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   getActiveSlotId,
   isActive,
+  markSlotShown,
   POPUP_PRIORITY,
   releaseSlot,
   requestSlot,
@@ -177,5 +178,63 @@ describe('promotional frequency cap', () => {
       expect(requestSlot(COOKIE_SLOT, POPUP_PRIORITY.COOKIE_CONSENT)).toBe(true);
       expect(canShowPromotionalPrompt(160_000)).toBe(true);
     } finally { releaseSlot(COOKIE_SLOT); vi.unstubAllGlobals(); }
+  });
+});
+
+
+let promptTest = 0;
+describe('unsolicited prompts obey the queue frequency policy', () => {
+  const promos = ['guide-banner', 'feature-survey', 'newsletter-popup', 'job-alert-sticky-banner'];
+  beforeEach(() => {
+    vi.useFakeTimers();
+    vi.setSystemTime(new Date('2030-01-01T00:00:00Z').getTime() + 120_000 * ++promptTest);
+    const storage = new Map<string, string>();
+    vi.stubGlobal('sessionStorage', { getItem: (key: string) => storage.get(key) ?? null, setItem: (key: string, value: string) => storage.set(key, value) });
+  });
+  afterEach(() => {
+    [...promos, COOKIE_SLOT, CHATBOT_SLOT].forEach(releaseSlot);
+    vi.runOnlyPendingTimers();
+    vi.useRealTimers();
+    vi.unstubAllGlobals();
+  });
+  it('a waiting request spends no cap; the actually shown guide delays the survey', async () => {
+    const { canShowPromotionalPrompt } = await import('@/services/popupQueue');
+    expect(requestSlot(COOKIE_SLOT, POPUP_PRIORITY.COOKIE_CONSENT)).toBe(true);
+    expect(requestSlot('guide-banner', POPUP_PRIORITY.GUIDE_BANNER)).toBe(false);
+    markSlotShown('guide-banner');
+    expect(canShowPromotionalPrompt()).toBe(true);
+    releaseSlot(COOKIE_SLOT);
+    vi.advanceTimersByTime(500);
+    expect(isActive('guide-banner')).toBe(true);
+    markSlotShown('guide-banner');
+    expect(requestSlot('feature-survey', POPUP_PRIORITY.NEWSLETTER)).toBe(false);
+    releaseSlot('guide-banner');
+    vi.advanceTimersByTime(59_999);
+    expect(isActive('feature-survey')).toBe(false);
+    vi.advanceTimersByTime(501);
+    expect(isActive('feature-survey')).toBe(true);
+  });
+  it('a new or reprioritized promotion cannot preempt during the cap; consent and voluntary dialogs can', async () => {
+    const { markPromotionalPromptShown } = await import('@/services/popupQueue');
+    markPromotionalPromptShown();
+    expect(requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER)).toBe(false);
+    expect(requestSlot('job-alert-sticky-banner', POPUP_PRIORITY.JOB_ALERT_STICKY)).toBe(false);
+    expect(requestSlot('job-alert-sticky-banner', POPUP_PRIORITY.GUIDE_BANNER)).toBe(false);
+    expect(requestSlot(COOKIE_SLOT, POPUP_PRIORITY.COOKIE_CONSENT)).toBe(true);
+    expect(requestSlot(CHATBOT_SLOT, POPUP_PRIORITY.CHATBOT_PANEL)).toBe(true);
+    vi.advanceTimersByTime(61_000);
+    expect(isActive(CHATBOT_SLOT)).toBe(true);
+    releaseSlot(CHATBOT_SLOT);
+    releaseSlot(COOKIE_SLOT);
+    vi.advanceTimersByTime(500);
+    expect(isActive('job-alert-sticky-banner')).toBe(true);
+  });
+  it('does not promote an unmounted offer when the cooldown ends', async () => {
+    const { markPromotionalPromptShown } = await import('@/services/popupQueue');
+    markPromotionalPromptShown();
+    requestSlot('feature-survey', POPUP_PRIORITY.NEWSLETTER);
+    releaseSlot('feature-survey');
+    vi.advanceTimersByTime(61_000);
+    expect(getActiveSlotId()).toBe(null);
   });
 });

@@ -44,7 +44,7 @@ import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
-import { POPUP_PRIORITY, canShowPromotionalPrompt, markPromotionalPromptShown } from '@/services/popupQueue';
+import { POPUP_PRIORITY, canShowPromotionalPrompt } from '@/services/popupQueue';
 import CompanyFollowButton from './CompanyFollowButton';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
 
@@ -374,7 +374,6 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
     // BottomPromptShell calls this only after this slot wins and renders. A
     // queued request therefore cannot create an impression.
     markJobAlertPromptShown(slotId);
-    markPromotionalPromptShown();
     Analytics.trackJobAlertCtaShown('company_follow_button', String(company));
     onShown?.();
   }, [company, onShown, slotId]);

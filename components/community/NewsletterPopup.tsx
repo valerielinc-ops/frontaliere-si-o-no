@@ -15,7 +15,7 @@ import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markPromotionalPromptShown } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markSlotShown } from '@/services/popupQueue';
 import { observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -261,7 +261,7 @@ const NewsletterPopup: React.FC = () => {
    if (!canShowPromotionalPrompt()) { setVisible(false); return; }
    shownRef.current = true;
    try { sessionStorage.setItem(SESSION_SHOWN_KEY, '1'); } catch { /* in-memory cap still applies */ }
-   markPromotionalPromptShown();
+   markSlotShown('newsletter-popup');
    Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', triggerSource);
  }, [visible, queueActive, googleOverlayActive, triggerSource]);
 

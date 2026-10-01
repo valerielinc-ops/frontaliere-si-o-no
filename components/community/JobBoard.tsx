@@ -269,7 +269,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
-import { requestSlot, releaseSlot, POPUP_PRIORITY, canShowPromotionalPrompt, markPromotionalPromptShown } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, POPUP_PRIORITY, canShowPromotionalPrompt } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from '@/services/botPatterns';
 import type { Article } from '@/data/blog-articles-data';
@@ -7692,7 +7692,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
  cantonCode={selectedJob?.canton ?? null}
- onShown={() => { markJobAlertPromptShown('job-detail-alert-prompt'); markPromotionalPromptShown(); Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory); }}
+ onShown={() => { markJobAlertPromptShown('job-detail-alert-prompt'); Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory); }}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
