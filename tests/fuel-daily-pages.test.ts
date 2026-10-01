@@ -33,7 +33,7 @@ import { htmlAttr, htmlTagWithAttrs } from './utils/htmlAttr';
 // target zone + enough copy seeds to clear the 250-word gate).
 // Diesel fixtures: all stations carry a real `dieselPriceChf` (TCS Firestore
 // feed exposes per-station DIESEL) — this exercises the primary code path.
-// `c9` intentionally omits diesel to exercise the SP95+offset fallback.
+// `c9` intentionally omits diesel to verify it is excluded from daily diesel aggregates.
 const DATASET = {
   generatedAt: '2026-04-20T06:00:00.000Z',
   municipalities: [
@@ -50,7 +50,7 @@ const DATASET = {
           { id: 'c6', name: 'Coop Lugano', brand: 'COOP', address: 'Via Zurigo 15, 6900 Lugano', sp95PriceChf: 1.86, dieselPriceChf: 2.06, dieselSource: 'api' as const },
           { id: 'c7', name: 'AVIA Bellinzona', brand: 'AVIA', address: 'Viale Portone 3, 6500 Bellinzona', sp95PriceChf: 1.83, dieselPriceChf: 2.02, dieselSource: 'api' as const },
           { id: 'c8', name: 'Shell Bellinzona', brand: 'SHELL', address: 'Via San Gottardo 20, 6500 Bellinzona', sp95PriceChf: 1.85, dieselPriceChf: 2.04, dieselSource: 'api' as const },
-          // c9: no dieselPriceChf — exercises SP95+offset fallback
+          // c9: no dieselPriceChf — excluded from the daily diesel aggregate
           { id: 'c9', name: 'Tamoil Locarno', brand: 'TAMOIL', address: 'Viale Balli 4, 6600 Locarno', sp95PriceChf: 1.87 },
           { id: 'c10', name: 'BP Locarno', brand: 'BP', address: 'Via San Gottardo 80, 6600 Locarno', sp95PriceChf: 1.89, dieselPriceChf: 2.08, dieselSource: 'api' as const },
         ],
@@ -382,12 +382,11 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     { date: '2026-04-19', zones: { chiasso: { benzina: 1.8 } }, regional: {} },
   ];
 
-  it('IT: zero delta reads grammatically across tile, tagline, paragraph and frontalier context', () => {
+  it('IT: zero delta reads grammatically across tile, tagline and paragraph', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-it', dataset: isolated, history, today });
     const html = pages['/prezzi-benzina/chiasso/oggi/'];
-    // paragraph (adjective frame) + tagline + frontalier copula frame
-    expect(html).toContain('stabile rispetto a ieri');
+    // Both the compact tagline and the full sentence distinguish zero from missing data.
     expect(html).toContain('stabile vs ieri');
     expect(html).toContain('Il delta rispetto a ieri è stabile');
     // no misleading "0,000 CHF" and no broken "è di stabile" grammar
@@ -395,11 +394,10 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     expect(html).not.toContain('è di stabile');
   });
 
-  it('EN: zero delta reads grammatically across tagline, paragraph and frontalier context', () => {
+  it('EN: zero delta reads grammatically across tagline and paragraph', () => {
     // @ts-expect-error partial HistorySnapshot shape (single zone) acceptable for this test
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-unchanged-en', dataset: isolated, history, today });
     const html = pages['/en/gasoline-price-switzerland/chiasso/today/'];
-    expect(html).toContain('unchanged compared to yesterday');
     expect(html).toContain('unchanged vs yesterday');
     expect(html).toContain('The day-over-day delta is unchanged');
     expect(html).not.toContain('0.000 CHF compared to yesterday');
@@ -421,6 +419,61 @@ describe('fuel-daily page generation — unchanged-delta UX', () => {
     expect(html).toContain('La variation par rapport à hier est stable');
     expect(html).toContain('stable vs hier');
     expect(html).not.toContain('est de stable');
+  });
+});
+
+
+describe('fuel-daily page generation — observation date', () => {
+  // The renderer's clock is explicit; advancing a build cannot refresh this sample.
+  const observedAt = new Date('2026-04-20T06:00:00.000Z');
+  const day = 24 * 60 * 60 * 1000;
+  const buildAt = new Date(observedAt.getTime() + 3 * day);
+  const snapshotDate = new Date(observedAt.getTime() - day).toISOString().slice(0, 10);
+  const dataset = {
+    generatedAt: buildAt.toISOString(),
+    municipalities: [{
+      swiss: { nearbyStations: [{
+        id: 'dated', name: 'Dated Station', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso',
+        sp95PriceChf: 1.8, updatedAt: observedAt.toISOString(),
+      }] },
+    }],
+  };
+  const history = [{
+    date: snapshotDate,
+    zones: { chiasso: { benzina: 1.8 }, mendrisio: undefined, lugano: undefined, bellinzona: undefined, locarno: undefined },
+    regional: { benzina: 1.8 },
+  }];
+  const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-dated', dataset, history, today: buildAt });
+
+  it('keeps the acquisition date in metadata, charts and daily comparisons after a rebuild', () => {
+    for (const [locale, path] of [
+      ['it', '/prezzi-benzina/chiasso/oggi/'],
+      ['en', '/en/gasoline-price-switzerland/chiasso/today/'],
+      ['de', '/de/benzinpreis-schweiz/chiasso/heute/'],
+      ['fr', '/fr/prix-essence-suisse/chiasso/aujourd-hui/'],
+    ]) {
+      const html = pages[path];
+      const ld = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1])).find((entry) => entry['@type'] === 'WebPage');
+      expect(ld?.dateModified, locale).toBe(observedAt.toISOString());
+      expect(html.match(/<title>([^<]+)<\/title>/)?.[1], locale).toContain('20.04.2026');
+      expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1], locale).not.toMatch(/oggi|today|heute|aujourd/);
+      expect(html, locale).toContain('vs 19.04.2026');
+      expect(html, locale).not.toMatch(/stabile vs ieri|unchanged vs yesterday|unverändert vs gestern|stable vs hier/);
+      // History must not fabricate a point for the later build date.
+      const emittedDates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
+      expect(emittedDates, locale).toContain(observedAt.toISOString().slice(0, 10));
+      expect(emittedDates, locale).not.toContain(buildAt.toISOString().slice(0, 10));
+    }
+    expect(pages['/prezzi-benzina/chiasso/oggi/']).toContain('Dato non recente');
+  });
+
+  it('does not turn an absent snapshot into an unchanged price', () => {
+    const withoutHistory = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-no-snapshot', dataset, history: [], today: observedAt });
+    const html = withoutHistory['/prezzi-benzina/chiasso/oggi/'];
+    expect(html).toContain('il confronto richiede almeno due snapshot giornalieri');
+    expect(html).not.toContain('Il delta rispetto a ieri è stabile');
+    expect(html).not.toContain('stabile vs ieri');
   });
 });
 
