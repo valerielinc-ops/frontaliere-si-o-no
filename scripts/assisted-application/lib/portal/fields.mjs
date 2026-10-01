@@ -255,16 +255,21 @@ export function extractFieldsInPage() {
   // Only a CAPTCHA a person must act on counts (career-ops: fill, and hand
   // the human step over). Invisible reCAPTCHA/hCaptcha badges, present on
   // most Lever and Greenhouse forms from the start, are not a challenge.
+  const answered = (name) => {
+    const responses = [...document.querySelectorAll(`[name="${name}"]`)];
+    return responses.length > 0 && responses.every((field) => String(field.value || '').trim());
+  };
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();
     const shown = rect.width > 40 && rect.height > 40 && window.getComputedStyle(frame).visibility !== 'hidden';
     if (!shown) return false;
-    if (/recaptcha\/(api2|enterprise)\/anchor/.test(src)) return !/size=invisible/.test(src);
-    if (/recaptcha\/(api2|enterprise)\/bframe/.test(src)) return true;
-    if (/hcaptcha\.com/.test(src)) return /frame=(challenge|checkbox)(?!-invisible)/.test(src);
+    if (/recaptcha\/(api2|enterprise)\/anchor/.test(src)) return !/size=invisible/.test(src) && !answered('g-recaptcha-response');
+    if (/recaptcha\/(api2|enterprise)\/bframe/.test(src)) return !answered('g-recaptcha-response');
+    if (/hcaptcha\.com/.test(src)) return /frame=(challenge|checkbox)(?!-invisible)/.test(src) && !answered('h-captcha-response');
     // DataDome (SmartRecruiters): a full-page challenge or block, never solved by the runner.
-    return /challenges\.cloudflare\.com|captcha-delivery\.com/.test(src);
+    if (/challenges\.cloudflare\.com/.test(src)) return !answered('cf-turnstile-response');
+    return /captcha-delivery\.com/.test(src);
   });
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.

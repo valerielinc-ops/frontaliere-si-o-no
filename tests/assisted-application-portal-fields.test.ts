@@ -22,6 +22,17 @@ afterEach(() => {
 });
 
 describe('portal field extraction', () => {
+  it.each([
+    ['https://www.google.com/recaptcha/api2/anchor?size=normal', 'g-recaptcha-response'],
+    ['https://newassets.hcaptcha.com/captcha/v1/test?frame=checkbox', 'h-captcha-response'],
+    ['https://challenges.cloudflare.com/turnstile/test', 'cf-turnstile-response'],
+  ])('recognizes an answered %s challenge while keeping unresolved widgets pending', (src, name) => {
+    const iframe = `<iframe src="${src}" data-size="200"></iframe>`;
+    expect(extract(`${iframe}<textarea name="${name}"></textarea>`).captcha).toBe(true);
+    expect(extract(`${iframe}<textarea name="${name}">solved-token</textarea>`).captcha).toBe(false);
+    expect(extract(`${iframe}<textarea name="${name}">solved-token</textarea><textarea name="${name}"></textarea>`).captcha).toBe(true);
+  });
+
   // Giro di prova 2026-10-01 on JOIN: the CV drop zone had no label, only "file:_r_3_:input",
   // so the planner skipped it and the run handed the application over.
   it('names an unlabelled drop zone by its heading and zone text, not by a generated id', () => {
