@@ -5,11 +5,4 @@ const bodyVotazioniFederaliGiugno2026: Record<string, string> = {
     'blog.article.votazioni-federali-giugno-2026.faq': '[{"q":"Wann finden die eidgenössischen Abstimmungen 2026 statt?","a":"Die eidgenössischen Abstimmungen sind für den 14. Juni 2026 geplant, an dem die Schweizerinnen und Schweizer über zwei Hauptvorlagen abstimmen werden: die Beschränkung des Zugangs zum Zivildienst und die Volksinitiative \\"Nein zu einer Schweiz mit 10 Millionen!\\"."},{"q":"Was verlangt die Initiative \\"Nein zu einer Schweiz mit 10 Millionen!\\" genau,","a":"Die Volksinitiative verlangt eine Beschränkung der Zuwanderung aus dem Ausland, damit die Wohnbevölkerung in der Schweiz zehn Millionen Einwohner nicht überschreitet. Das Ziel wird als einfach erklärt, aber die Quelle betont, dass die Umsetzung viel schwieriger wäre und nicht spezifiziert, welche Maßnahmen erforderlich wären."},{"q":"Wie können im Ausland wohnhafte Schweizer am Abstimmen teilnehmen?","a":"Im Ausland wohnhafte Schweizer müssen im Wählerregister eingetragen sein. Die Anmeldung erfolgt bei der zuständigen Schweizer Botschaft oder dem Konsulat, wobei Reisepass, Nachweis des Wohnsitzes und das entsprechende Formular vorgelegt werden müssen. Sobald sie registriert sind, erhalten sie das Abstimmungsmaterial per Post oder können persönlich abstimmen, wenn sie in die Schweiz zurückkehren."}]',
 };
 
-for (const key of Object.keys(bodyVotazioniFederaliGiugno2026)) {
-    bodyVotazioniFederaliGiugno2026[key] = bodyVotazioniFederaliGiugno2026[key].replace(
-        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
-        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
-    );
-}
-
 export default bodyVotazioniFederaliGiugno2026;

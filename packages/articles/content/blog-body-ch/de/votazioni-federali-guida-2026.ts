@@ -5,11 +5,4 @@ const bodyVotazioniFederaliGuida2026: Record<string, string> = {
     'blog.article.votazioni-federali-guida-2026.faq': '[{"q":"Was sieht die Initiative „Für sichere Ernährung“ vor?","a":"Die von der Aktivistin Franziska Herren initiierte Initiative fordert den Bund auf, die Produktion und den Konsum von Lebensmitteln pflanzlichen Ursprungs aktiv zu fördern. Ziel ist es, das landwirtschaftliche System in Richtung nachhaltigerer Praktiken zu drängen. Die Gegner kritisieren die Initiative als \\"veganes Diktat\\" , das die konkreten Bedürfnisse des Schweizer Agrarsektors ignoriert."},{"q":"Was ist das Hauptthema der Neutralitätsinitiative?","a":"Die Initiative zielt darauf ab, in der Bundesverfassung ein strengeres Konzept der Schweizer Neutralität zu verankern. Die Debatte, die die Schweizerinnen und Schweizer am 27. September 2026 an die Urne bringen wird, dreht sich um die Frage, ob Neutralität ein absolutes und unveränderliches Prinzip bleiben soll oder ob sie im Gegenteil mit mehr Flexibilität ausgestattet werden soll, damit die Schweiz effektiv auf die veränderten Bedingungen der internationalen Geopolitik reagieren kann."},{"q":"Wie waren die letzten eidgenössischen Abstimmungen in der Schweiz?","a":"Das Schweizer Stimmvolk hat in den letzten Monaten zu mehreren entscheidenden Themen abgestimmt. Dazu gehören die Abstimmungen vom 30. November 2025 über den Zivildienst und die Erbschaftsbesteuerung, gefolgt von jenen vom 8. März 2026 über die Radio- und Fernsehgebühr, die Individualbesteuerung, das Bargeld und den Klimafonds. Schliesslich fand am 14. Juni 2026 die Abstimmung über die Initiative \'Nein zu einer 10-Millionen-Schweiz!\' und die Revision des Zivildienstgesetzes statt."}]',
 };
 
-for (const key of Object.keys(bodyVotazioniFederaliGuida2026)) {
-    bodyVotazioniFederaliGuida2026[key] = bodyVotazioniFederaliGuida2026[key].replace(
-        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
-        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
-    );
-}
-
 export default bodyVotazioniFederaliGuida2026;
