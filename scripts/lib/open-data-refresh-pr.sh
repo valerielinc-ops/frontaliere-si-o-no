@@ -106,33 +106,46 @@ PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 # main snapshot. The lease still protects the final push from a concurrent run.
 REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
+REFRESH_COMMIT=""
+MERGE_REFRESH_SCRIPT_DIR=""
+REFRESH_PUBLISH_WORKTREE=""
+REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
+
+# Non-compat publishes never select the stable branch in the source checkout.
+# Compat retains its existing restore behavior after its real Git merges.
+cleanup_refresh_checkout() {
+  if [ "$RECONCILE_COMPAT" = true ]; then
+    local restore_ref="${REFRESH_COMMIT:-$REFRESH_BASE}"
+    local current_ref
+    current_ref="$(git -C "$REFRESH_SOURCE_ROOT" rev-parse HEAD 2>/dev/null || true)"
+    if [ -n "$restore_ref" ] && [ "$current_ref" != "$restore_ref" ]; then
+      git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref" >/dev/null 2>&1 || true
+    fi
+  fi
+  if [ -n "$REFRESH_PUBLISH_WORKTREE" ] && [ -f "$REFRESH_PUBLISH_WORKTREE/.git" ]; then
+    if ! git -C "$REFRESH_SOURCE_ROOT" worktree remove --force "$REFRESH_PUBLISH_WORKTREE" >/dev/null 2>&1; then
+      echo "::error::Unable to remove the isolated refresh worktree"
+      return 1
+    fi
+  fi
+  if [ -n "$MERGE_REFRESH_SCRIPT_DIR" ]; then
+    rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"
+  fi
+}
+trap 'cleanup_refresh_checkout || exit 1' EXIT
 
 # The stable branch may have been created by an older workflow revision. Keep
 # the reconciler from the current workflow checkout before creating its isolated
 # publisher checkout, otherwise stale code can reintroduce a fixed merge rule.
-MERGE_REFRESH_SCRIPT_DIR=""
-REFRESH_PUBLISH_WORKTREE=""
-REFRESH_SOURCE_ROOT="$(git rev-parse --show-toplevel)"
 if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
   MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
-  cleanup_refresh_workspace() {
-    if [ -n "$REFRESH_PUBLISH_WORKTREE" ] && [ -f "$REFRESH_PUBLISH_WORKTREE/.git" ]; then
-      if ! git -C "$REFRESH_SOURCE_ROOT" worktree remove --force "$REFRESH_PUBLISH_WORKTREE" >/dev/null 2>&1; then
-        echo "::error::Unable to remove the isolated refresh worktree"
-        return 1
-      fi
-    fi
-    rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"
-  }
-  trap 'cleanup_refresh_workspace || exit 1' EXIT
-  # Preserve the module's relative import layout, including its lib dependency.
   mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
-  for helper_path in \
-    scripts/ci/merge-open-data-refresh.mjs \
-    scripts/ci/open-data-refresh-merge.mjs \
-    scripts/lib/resolve-git-add-path.mjs; do
-    git show "${REFRESH_BASE}:${helper_path}" > "$MERGE_REFRESH_SCRIPT_DIR/$helper_path"
-  done
+  git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"
+  git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
+  git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
