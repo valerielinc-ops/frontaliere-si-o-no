@@ -1,23 +1,23 @@
 {
   "key": "microsoft",
   "label": "Microsoft",
-  "generatedAt": "2026-09-30T21:09:43.079Z",
-  "total": 10,
+  "generatedAt": "2026-10-01T09:12:33.802Z",
+  "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 10,
+  "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 11077,
-  "avgDurationMs": 11077,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 14535,
+  "avgDurationMs": 14535,
   "durationHistory": [
-    11077
+    14535
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557008924",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.844Z",
+      "crawledAt": "2026-10-01T09:12:23.633Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556957384",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.851Z",
+      "crawledAt": "2026-10-01T09:12:23.639Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -93,6 +93,42 @@
       }
     },
     {
+      "id": "microsoft-200057060",
+      "slug": "principal-quantum-systems-architect-microsoft-zurich",
+      "company": "Microsoft",
+      "companyKey": "microsoft",
+      "companyDomain": "microsoft.com",
+      "title": "Principal Quantum Systems Architect",
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://apply.careers.microsoft.com/careers/job/1970393557002627",
+      "source": "Microsoft Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T09:12:23.644Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557002627",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:35:26.752Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    },
+    {
       "id": "microsoft-200055947",
       "slug": "principal-software-engineer-microsoft-zurich",
       "company": "Microsoft",
@@ -104,7 +140,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999278",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.845Z",
+      "crawledAt": "2026-10-01T09:12:23.646Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -139,7 +175,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999269",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.846Z",
+      "crawledAt": "2026-10-01T09:12:23.648Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -163,42 +199,6 @@
       }
     },
     {
-      "id": "microsoft-200057060",
-      "slug": "principal-quantum-systems-architect-microsoft-zurich",
-      "company": "Microsoft",
-      "companyKey": "microsoft",
-      "companyDomain": "microsoft.com",
-      "title": "Principal Quantum Systems Architect",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://apply.careers.microsoft.com/careers/job/1970393557002627",
-      "source": "Microsoft Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.852Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393557002627",
-      "needsRetranslation": false,
-      "firstSeenAt": "2026-09-23T23:35:26.752Z",
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
       "id": "microsoft-200056114",
       "slug": "solution-sales-specialist-cloud-ai-platforms-microsoft-zurich",
       "company": "Microsoft",
@@ -210,7 +210,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556999805",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.847Z",
+      "crawledAt": "2026-10-01T09:12:23.641Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -224,6 +224,7 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://apply.careers.microsoft.com/careers/job/1970393556999805",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T15:57:18.413Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -245,7 +246,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557000828",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.848Z",
+      "crawledAt": "2026-10-01T09:12:23.642Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -281,7 +282,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393557000886",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.849Z",
+      "crawledAt": "2026-10-01T09:12:23.635Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -317,7 +318,7 @@
       "url": "https://apply.careers.microsoft.com/careers/job/1970393556943701",
       "source": "Microsoft Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:09:37.851Z",
+      "crawledAt": "2026-10-01T09:12:23.637Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -341,8 +342,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "microsoft-200056250",
       "slug": "ai-technology-transformation-executive-servizi-finanziari-microsoft-zurich",
@@ -384,5 +384,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
