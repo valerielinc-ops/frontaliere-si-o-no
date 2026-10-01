@@ -261,7 +261,6 @@ describe('r2-section-lock', () => {
     await renewSectionLocksUntilStopped(['frontaliere'], {
       owner: 'owner-a',
       request: trackedRequest,
-      initialDelayMs: 7,
       intervalMs: 11,
       waitForStopImpl: async (duration: number) => {
         waits.push(duration);
@@ -273,7 +272,7 @@ describe('r2-section-lock', () => {
       },
     });
 
-    expect(waits).toEqual([7, 11]);
+    expect(waits).toEqual([LOCK_RENEW_INITIAL_DELAY_MS, 11]);
     expect(requestCount).toBe(afterAcquire + 2); // GET + conditional PUT
     expect(LOCK_RENEW_INITIAL_DELAY_MS).toBe(LOCK_RENEW_INTERVAL_MS);
     await releaseSectionLock('frontaliere', { owner: 'owner-a', request });
