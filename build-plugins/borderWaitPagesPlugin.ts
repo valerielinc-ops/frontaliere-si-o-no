@@ -82,6 +82,7 @@ import {
   BORDER_WAIT_HYDRATION_ASSET_PATH,
   BORDER_WAIT_HYDRATION_SCRIPT_TAG,
 } from './borderWaitHydrationScript';
+import { BORDER_WAIT_TONE_COLORS, borderWaitTone, type BorderWaitTone } from './borderWaitTone';
 import { borderCrossings, type BorderCrossing, type WebcamRef } from '../data/borderCrossings';
 import { slugifyCrossingName } from '../services/borderCrossingSlug';
 import {
@@ -385,8 +386,8 @@ export function renderFastestCrossingCard(
 
   return `<div class="s-cLZUx7">
        <strong>${esc(label)}:</strong>
-       <a class="s-zFOCI6" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
-       · <span class="s-4sIcQF">${best.waitTimeMinutes} min</span>
+       <a class="s-zFOCI6" data-bw-slot="link" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
+       · <span class="s-4sIcQF" data-bw-slot="minutes">${best.waitTimeMinutes} min</span>
      </div>`;
 }
 
@@ -420,15 +421,103 @@ export function renderTrafficFluidBanner(
 }
 
 /**
+ * Banner «fluido sui valichi misurati»: tutte le letture presenti sono a zero
+ * ma non coprono ogni valico in scope. «Fluido su tutti i valichi» sarebbe
+ * un'affermazione su valichi non misurati, «non abbiamo una lettura» sarebbe
+ * falso (le letture ci sono): la copy dice quanti valichi abbiamo misurato e
+ * che per gli altri manca il dato. I numeri stanno in slot che lo script di
+ * idratazione riscrive con le letture live.
+ */
+export function renderTrafficFluidMeasuredBanner(
+  measured: number,
+  total: number,
+  locale: 'it' | 'en' | 'de' | 'fr',
+): string {
+  const copy = {
+    it: {
+      title: 'Traffico fluido sui valichi misurati',
+      body: 'Nessuna coda rilevata sui valichi misurati ({n} su {total}). Per gli altri manca la lettura, che non equivale a zero minuti. I tempi si aggiornano ogni 15 minuti.',
+    },
+    en: {
+      title: 'Traffic flowing at the measured crossings',
+      body: 'No queues detected at the measured crossings ({n} of {total}). The others have no reading, which is not the same as zero minutes. Wait times refresh every 15 minutes.',
+    },
+    de: {
+      title: 'Flüssiger Verkehr an den gemessenen Übergängen',
+      body: 'Keine Staus an den gemessenen Übergängen ({n} von {total}). Für die übrigen fehlt die Messung, das sind nicht null Minuten. Wartezeiten werden alle 15 Minuten aktualisiert.',
+    },
+    fr: {
+      title: 'Circulation fluide aux passages mesurés',
+      body: "Aucune file aux passages mesurés ({n} sur {total}). Pour les autres, la mesure manque, ce qui n'équivaut pas à zéro minute. Mise à jour toutes les 15 minutes.",
+    },
+  }[locale];
+  const body = esc(copy.body)
+    .replace('{n}', `<span data-bw-slot="measured">${measured}</span>`)
+    .replace('{total}', `<span data-bw-slot="total">${total}</span>`);
+  return `<div class="s-7IQhM5">
+       <p class="s-m0_4f0">${esc(copy.title)}</p>
+       <p class="s-Dpu_t7">${body}</p>
+     </div>`;
+}
+
+export type HubHeroState = 'fastest' | 'fluid' | 'fluid-measured' | 'unavailable';
+
+/**
+ * A wait that counts as a measured crossing: a finite, non-negative number.
+ * The one predicate behind both the hero state and the fastest-card inputs
+ * (the hydration's `n()` already turns non-finite live values into null).
+ */
+export function isMeasuredWait(w: number | null | undefined): w is number {
+  return typeof w === 'number' && Number.isFinite(w) && w >= 0;
+}
+
+/**
+ * Stato del blocco hero dell'hub dalle attese dei valichi in scope (una voce
+ * per valico, `null` se manca la lettura). Gemello build-time di `hub()` nello
+ * script di idratazione, che applica la stessa regola alle letture live: una
+ * attesa mancante o negativa e' un valico NON misurato. Almeno una coda =>
+ * valico piu' veloce; tutte le misurate a zero => «fluido» se coprono ogni
+ * valico, «fluido sui misurati» altrimenti; nessuna misurata => non disponibile.
+ */
+export function hubHeroState(waits: ReadonlyArray<number | null | undefined>): HubHeroState {
+  const measured = waits.filter(isMeasuredWait);
+  if (measured.some((w) => w > 0)) return 'fastest';
+  if (measured.length === 0) return 'unavailable';
+  return measured.length === waits.length ? 'fluid' : 'fluid-measured';
+}
+
+/**
+ * Wraps a present-tense status block («adesso», «in questo momento») so the
+ * hydration asset can replace it with the variant that matches the live
+ * readings. The build-time variant renders inside `[data-bw-swap-out]`; every
+ * variant also ships as an inert `<template data-bw-state>`, so the markup has
+ * one source (this file) and the script only picks a state and fills
+ * `[data-bw-slot]` values.
+ */
+function renderLiveSwap(
+  kind: 'hub' | 'advice',
+  initialState: string,
+  initialHtml: string,
+  templates: Record<string, string>,
+  attrs = '',
+): string {
+  const variants = Object.entries(templates)
+    .map(([state, html]) => `<template data-bw-state="${esc(state)}">${html}</template>`)
+    .join('');
+  return `<div data-bw-swap="${kind}" data-bw-swap-state="${esc(initialState)}"${attrs}><div data-bw-swap-out>${initialHtml}</div>${variants}</div>`;
+}
+
+/**
  * Banner di dato non disponibile per l'hero dell'hub.
  *
  * Esiste perche' l'invariante dichiarata sopra il blocco hero — «o l'hero o il
  * fallback, mai entrambi e mai spazio vuoto» — non regge da sola quando le
  * letture assenti vengono scartate invece di essere contate come zero: se
- * nessun valico ha una lettura, o se le letture presenti sono tutte a zero ma
- * non coprono tutti i valichi in scope, «traffico fluido» sarebbe
- * un'affermazione su valichi che non abbiamo misurato. Assenza di dato e coda
- * pari a zero sono cose diverse e la copy le tiene separate.
+ * nessun valico ha una lettura, «traffico fluido» sarebbe un'affermazione su
+ * valichi che non abbiamo misurato. Assenza di dato e coda pari a zero sono
+ * cose diverse e la copy le tiene separate. Letture tutte a zero su copertura
+ * parziale vanno invece in `renderTrafficFluidMeasuredBanner`: lì le letture
+ * esistono e «non abbiamo una lettura» sarebbe falso.
  */
 export function renderBorderWaitUnavailableBanner(
   locale: 'it' | 'en' | 'de' | 'fr',
@@ -464,20 +553,6 @@ function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined 
   );
 }
 
-// Color tokens — CSS custom properties so dark mode works automatically.
-const COLOR_OK_BG = 'var(--color-success-subtle)';
-const COLOR_OK_BORDER = 'var(--color-success-border)';
-const COLOR_OK_TEXT = 'var(--color-success)';
-const COLOR_WARN_BG = 'var(--color-warning-subtle)';
-const COLOR_WARN_BORDER = 'var(--color-warning-border)';
-const COLOR_WARN_TEXT = 'var(--color-warning)';
-const COLOR_BAD_BG = 'var(--color-danger-subtle)';
-const COLOR_BAD_BORDER = 'var(--color-danger-border)';
-const COLOR_BAD_TEXT = 'var(--color-danger)';
-const COLOR_UNKNOWN_BG = 'var(--color-surface-alt)';
-const COLOR_UNKNOWN_BORDER = 'var(--color-edge)';
-const COLOR_UNKNOWN_TEXT = 'var(--color-subtle)';
-
 const BORDER_FRESHNESS_COPY = {
   it: { observed: 'Ultima osservazione', generated: 'Pagina generata', snapshot: 'Snapshot osservato', stale: 'Dato scaduto: non descrive il traffico attuale', missing: 'Data osservazione non disponibile', status: 'Ultima lettura disponibile' },
   en: { observed: 'Last observation', generated: 'Page generated', snapshot: 'Observed snapshot', stale: 'Outdated reading: not current traffic', missing: 'Observation date unavailable', status: 'Last available reading' },
@@ -497,22 +572,16 @@ function sourceLink(source: WaitSource, label: string): string {
   return `<a data-bw-field="source"${url ? ` href="${esc(url)}"` : ''} class="underline">${esc(label)} (${esc(source)})</a>`;
 }
 
+// Color tokens and thresholds live in `borderWaitTone.ts`, shared with the
+// hydration asset so a live reading repaints with the same rule.
 function statusColor(waitMinutes: number | null): {
   bg: string;
   border: string;
   text: string;
-  label: 'ok' | 'warn' | 'bad' | 'unknown';
+  label: BorderWaitTone;
 } {
-  if (waitMinutes === null) {
-    return { bg: COLOR_UNKNOWN_BG, border: COLOR_UNKNOWN_BORDER, text: COLOR_UNKNOWN_TEXT, label: 'unknown' };
-  }
-  if (waitMinutes < 5) {
-    return { bg: COLOR_OK_BG, border: COLOR_OK_BORDER, text: COLOR_OK_TEXT, label: 'ok' };
-  }
-  if (waitMinutes < 15) {
-    return { bg: COLOR_WARN_BG, border: COLOR_WARN_BORDER, text: COLOR_WARN_TEXT, label: 'warn' };
-  }
-  return { bg: COLOR_BAD_BG, border: COLOR_BAD_BORDER, text: COLOR_BAD_TEXT, label: 'bad' };
+  const label = borderWaitTone(waitMinutes);
+  return { ...BORDER_WAIT_TONE_COLORS[label], label };
 }
 
 // ── Localised copy ─────────────────────────────────────────────
@@ -1680,22 +1749,23 @@ interface LeafInputs {
  * card below — both bind to the same OKLCH `--color-*-subtle/border`
  * variables and follow the user's dark-mode preference automatically.
  *
- * Hydratable: the wrapper carries `data-bw-advice` and per-status
- * sub-elements carry `data-bw-advice-status` / `data-bw-advice-text` so
- * the runtime hydration script can swap the visible state when the
- * live wait time changes (e.g. from "passa ora" to "evita") without a
- * full page repaint. The pre-hydration rendering is the build-time
- * snapshot and is correct for SEO/zero-JS visitors.
+ * Hydratable: the leaf wraps it in `renderLiveSwap('advice', …)`, one
+ * template per tone, and the runtime hydration swaps to the tone of the
+ * live wait (e.g. from "passa ora" to "meglio rinviare") without a full
+ * page repaint. The banner depends on the tone and the historical hours
+ * only — it never prints the wait itself — so a tone's template is the
+ * whole answer for any live wait in that band. The pre-hydration
+ * rendering is the build-time snapshot and is correct for SEO/zero-JS
+ * visitors.
  */
 function renderAdviceBanner(
-  status: 'ok' | 'warn' | 'bad' | 'unknown',
-  liveWait: number | null,
+  status: BorderWaitTone,
   bestHour: string,
   worstHour: string,
   copy: Copy,
 ): string {
   const tile =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? STAT_TILE_WARNING
       : status === 'ok'
         ? STAT_TILE_SUCCESS
@@ -1703,7 +1773,7 @@ function renderAdviceBanner(
           ? STAT_TILE_WARNING
           : STAT_TILE_DANGER;
   const text =
-    liveWait === null || status === 'unknown'
+    status === 'unknown'
       ? copy.advice.unknown
       : status === 'ok'
         ? copy.advice.ok(bestHour)
@@ -1711,7 +1781,7 @@ function renderAdviceBanner(
           ? copy.advice.warn(worstHour)
           : copy.advice.bad(bestHour);
   const eyebrow = copy.advice.eyebrow;
-  const dataStatus = liveWait === null || status === 'unknown' ? 'unknown' : status;
+  const dataStatus = status;
   return `<aside data-bw-advice data-bw-advice-status="${esc(dataStatus)}" aria-label="${esc(eyebrow)}" style="${tile};margin:0 0 18px">
     <div class="s-a8IQOM">${esc(eyebrow)}</div>
     <p class="s-f49tDp" data-bw-advice-text>${esc(text)}</p>
@@ -1740,7 +1810,7 @@ function renderLeafPage(inp: LeafInputs): string {
   const liveWait = snapshot?.totalCrossingMinutes ?? snapshot?.waitTimeMinutes ?? null;
   const liveSource: WaitSource = snapshot?.source ?? 'static';
   const staticFallback = liveWait === null;
-  const status = statusColor(liveWait);
+  const status = statusColor(readingState === 'live' ? liveWait : null);
   const statusWord =
     locale === 'it'
       ? liveWait === null
@@ -1803,9 +1873,23 @@ function renderLeafPage(inp: LeafInputs): string {
   const intro = readingState === 'live'
     ? copy.intro(crossingDisplay, statusWord, formatSourceDate(snapshot?.lastUpdate, locale, today)!)
     : `${crossingDisplay}: ${observationBadge(snapshot?.lastUpdate, locale, today)}.`;
-  const adviceBannerHtml = liveWait === null || readingState !== 'live'
-    ? renderBorderWaitUnavailableBanner(locale)
-    : renderAdviceBanner(status.label, liveWait, bestHour, worstHour, copy);
+  // «Passa ora» is a present-tense claim: the hydration swaps it to the
+  // variant of the live reading's tone (same thresholds as the status tile).
+  const adviceTemplates: Record<string, string> = {
+    ok: renderAdviceBanner('ok', bestHour, worstHour, copy),
+    warn: renderAdviceBanner('warn', bestHour, worstHour, copy),
+    bad: renderAdviceBanner('bad', bestHour, worstHour, copy),
+    unavailable: renderBorderWaitUnavailableBanner(locale),
+  };
+  // statusColor(null) is 'unknown', which the leaf shows as «non disponibile».
+  const adviceState = readingState !== 'live' || status.label === 'unknown' ? 'unavailable' : status.label;
+  const adviceBannerHtml = renderLiveSwap(
+    'advice',
+    adviceState,
+    adviceTemplates[adviceState],
+    adviceTemplates,
+    ` data-bw-for="${esc(crossing)}"`,
+  );
   const paragraph = copy.paragraph(crossingDisplay, countryTokens, bestHour, worstHour);
 
   // Webcam: prefer reg.webcams (data/borderCrossings.ts)
@@ -1839,8 +1923,10 @@ function renderLeafPage(inp: LeafInputs): string {
     'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   };
+  // `data-bw-unless-live`: the hydration hides this notice once a fresh
+  // reading for the crossing replaces the snapshot values below it.
   const staticBannerHtml = staticFallback
-    ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
+    ? `<div class="s-rUEUjv" data-bw-unless-live>${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
   // Source observation time is independent of page generation. Hydration
@@ -1851,9 +1937,9 @@ function renderLeafPage(inp: LeafInputs): string {
     <h2 id="currentStatus" style="${H2_STYLE}">${esc(freshnessCopy.status)} <span class="s-k7sbVR" data-bw-live-badge data-bw-badge-crossing="${esc(crossing)}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">${esc(snapshotBadgeText)}</span></h2>
     ${staticBannerHtml}
     <div class="s-nzJw8o">
-      <div style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
-        <div style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
-        <div data-bw-field="totalCrossingMinutes" style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
+      <div data-bw-tone-bg style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
+        <div data-bw-tone-fg style="font-size:12px;color:${status.text};font-weight:700;text-transform:uppercase">${esc(copy.waitMinutesLabel)}</div>
+        <div data-bw-field="totalCrossingMinutes" data-bw-tone-fg style="margin-top:8px;font-size:36px;font-weight:800;color:${status.text}">${esc(waitFmt)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
@@ -2301,16 +2387,16 @@ function renderHubPage(inp: HubInputs): string {
     const snap = current.perCrossing[c];
     const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
-    const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
     const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
     const readingState = borderReadingState(snap?.lastUpdate, today);
+    const sc = statusColor(readingState === 'live' ? wait : null);
     return `<tr data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
       <td class="s-tcl">
         <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td class="s-tcl" style="text-align:right">
-        <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+        <span data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
       <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</td>
       <td class="s-tcl" style="font-size:12px;color:var(--color-subtle)">${sourceLink(src, sourceLabel(src, copy))}</td>
@@ -2332,31 +2418,44 @@ function renderHubPage(inp: HubInputs): string {
   // "Best crossing right now" hero, with a "traffico fluido" fallback
   // banner when every crossing reports 0 min (upstream data degenerate
   // case — either unmeasured or perfectly fluid). Either the hero OR the
-  // fallback renders; never both and never empty space. Tre casi, non due:
+  // fallback renders; never both and never empty space. Quattro casi:
   // copertura piena a zero => banner «fluido»; almeno una coda => hero;
-  // nessuna lettura, o letture a zero su copertura parziale => banner di dato
-  // non disponibile, che NON e' la stessa affermazione di «fluido».
-  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c) => {
-    const waitTimeMinutes = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes;
-    return waitTimeMinutes == null || borderReadingState(current.perCrossing[c]?.lastUpdate, today) !== 'live'
-      ? []
-      : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
+  // letture a zero su copertura parziale => «fluido sui valichi misurati»;
+  // nessuna lettura => banner di dato non disponibile, che NON e' la stessa
+  // affermazione di «fluido». La regola sta in `hubHeroState`; lo script di
+  // idratazione la ripete sulle letture live (`hub()`, vedi `renderLiveSwap`).
+  const scopeWaits = crossingsInScope.map(
+    (c) => borderReadingState(current.perCrossing[c]?.lastUpdate, today) === 'live'
+      ? current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null
+      : null,
+  );
+  // Missing, negative or non-finite waits are unmeasured — same predicate as
+  // `hubHeroState`, so the fastest card never sees a wait the state ignored.
+  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c, i) => {
+    const waitTimeMinutes = scopeWaits[i];
+    return isMeasuredWait(waitTimeMinutes)
+      ? [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }]
+      : [];
   });
-  // Copertura piena e tutte le letture a zero: «fluido» e' un'affermazione
-  // che possiamo fare, perche' abbiamo misurato ogni valico in scope.
-  const allZeros = heroInputs.length > 0
-    && heroInputs.length === crossingsInScope.length
-    && heroInputs.every((c) => c.waitTimeMinutes === 0);
-  // `renderFastestCrossingCard` rende '' quando nessuna lettura e' > 0, e
-  // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
-  // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
-  // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
-  const positiveWait = hasPositiveWait(heroInputs);
-  const bestBannerHtml = allZeros
-    ? renderTrafficFluidBanner(true, locale)
-    : positiveWait
-      ? renderFastestCrossingCard(heroInputs, locale)
-      : renderBorderWaitUnavailableBanner(locale);
+  const heroState = hubHeroState(scopeWaits);
+  // The fastest-card template only carries the markup: link text, href and
+  // minutes are slots the hydration fills from the live table rows.
+  const templateSlug = crossingsInScope[0] ?? BORDER_WAIT_CROSSINGS[0];
+  const heroTemplates: Record<HubHeroState, string> = {
+    fastest: renderFastestCrossingCard(
+      [{ slug: templateSlug, labelIt: BORDER_CROSSING_DISPLAY[templateSlug], waitTimeMinutes: 1 }],
+      locale,
+    ),
+    fluid: renderTrafficFluidBanner(true, locale),
+    'fluid-measured': renderTrafficFluidMeasuredBanner(heroInputs.length, crossingsInScope.length, locale),
+    unavailable: renderBorderWaitUnavailableBanner(locale),
+  };
+  const bestBannerHtml = renderLiveSwap(
+    'hub',
+    heroState,
+    heroState === 'fastest' ? renderFastestCrossingCard(heroInputs, locale) : heroTemplates[heroState],
+    heroTemplates,
+  );
 
   const alternatesHtml = renderHreflangTags(alternates);
   const pickerHtml = renderBorderWaitPicker({

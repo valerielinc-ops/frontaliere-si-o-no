@@ -1152,8 +1152,9 @@ export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48"
  * Used to decide whether a static page has enough content to be indexed (>= 50 words).
  */
 export function countHtmlBodyWords(html: string): number {
- // Strip HTML tags
- const text = html.replace(/<[^>]+>/g, ' ');
+ // Drop inert <template> content (never rendered — e.g. the border-wait live
+ // variants), then strip HTML tags
+ const text = html.replace(/<template[\s\S]*?<\/template>/gi, ' ').replace(/<[^>]+>/g, ' ');
  // Collapse whitespace and split into words
  const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(w => w.length > 0);
  return words.length;
