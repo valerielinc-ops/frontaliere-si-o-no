@@ -732,6 +732,66 @@ function isRelatedPostingsBlock(html, opening, bounds, titles) {
  */
 const WORKPLACE_CHROME_CONTAINER_RX = /(?:^|[\s_-])(?:widget|map(?:[-_]canvas)?|(?:job|vacancy|position)[-_ ]?(?:card|teaser|tile))(?:$|[\s_-])/i;
 
+/** A recruiter/contact panel is page chrome, not vacancy prose. */
+const CONTACT_CHROME_CONTAINER_RX = /(?:^|[\s_-])(?:contact|contacts|kontakt|kontaktperson|recruiter|recruiting)(?:$|[\s_-])/i;
+
+/**
+ * A contact token is not enough on its own: templates sometimes put it on the
+ * document root or on a generic body wrapper. Those elements own the vacancy
+ * and must not become chrome. A semantic panel element, an explicit panel
+ * role, or a compound name such as `contact-details` is the structural signal
+ * required before a contact range can be shared by the body/workplace readers.
+ */
+const CONTACT_PANEL_TAGS = new Set(['article', 'aside', 'form', 'section']);
+const CONTACT_PANEL_ROLE_RX = /^(?:complementary|dialog|region)$/i;
+const CONTACT_PANEL_NAME_RX = /(?:^|[\s_-])(?:panel|card|details?|info|section|wrapper|container|area|box|holder|column|grid|form|person)(?:$|[\s_-])/i;
+
+/**
+ * Whether a named contact/recruiter element is structurally a panel.
+ *
+ * @param {HtmlTag} opening
+ * @returns {boolean}
+ */
+function isContactChromePanel(opening) {
+  if (['html', 'head', 'body'].includes(opening.name)) return false;
+  const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
+  if (!CONTACT_CHROME_CONTAINER_RX.test(namedChrome)) return false;
+  return CONTACT_PANEL_TAGS.has(opening.name)
+    || CONTACT_PANEL_ROLE_RX.test(readAttr(opening.raw, 'role').trim())
+    || CONTACT_PANEL_NAME_RX.test(namedChrome);
+}
+
+/**
+ * Return the union of ranges as non-overlapping intervals.
+ *
+ * A vacancy page commonly marks one chrome panel at several nesting levels
+ * (for example a contact section and its contact card). Keeping every level
+ * as a cut makes callers reason about overlapping regions and can let the
+ * same panel participate in a body read more than once. The text readers need
+ * the union, not the markup hierarchy, so collapse it once at the boundary.
+ *
+ * @param {Array<{start: number, end: number}>} ranges
+ * @returns {Array<{start: number, end: number}>}
+ */
+function disjointRanges(ranges = []) {
+  const ordered = ranges
+    .filter((range) => Number.isFinite(range?.start)
+      && Number.isFinite(range?.end)
+      && range.end > range.start)
+    .map((range) => ({ start: range.start, end: range.end }))
+    .sort((a, b) => a.start - b.start || b.end - a.end);
+  const merged = [];
+  for (const range of ordered) {
+    const previous = merged[merged.length - 1];
+    if (!previous || range.start > previous.end) {
+      merged.push(range);
+      continue;
+    }
+    previous.end = Math.max(previous.end, range.end);
+  }
+  return merged;
+}
+
 /**
  * Ranges of rendered page chrome shared by the body and workplace readers.
  * The workplace reader additionally excludes aside and widget/card regions;
@@ -752,6 +812,7 @@ function vacancyChromeRanges(html, index, titles, { excludeWorkplaceChrome = fal
     const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
     const isChrome = FORM_CONTROL_TAGS.has(opening.name)
       || isHiddenElement(opening.raw)
+      || isContactChromePanel(opening)
       || (isPrintLayout(opening.raw)
         && !printRegionCarriesTitle(html, index, opening.end, bounds.contentEnd, titles))
       || isRelatedPostingsBlock(html, opening, bounds, titles)
@@ -761,7 +822,7 @@ function vacancyChromeRanges(html, index, titles, { excludeWorkplaceChrome = fal
           || WORKPLACE_CHROME_CONTAINER_RX.test(namedChrome)));
     if (isChrome) ranges.push({ start: opening.index, end: bounds.end });
   }
-  return ranges;
+  return disjointRanges(ranges);
 }
 
 /** @param {string} source @param {Array<{start: number, end: number}>} ranges */
@@ -1045,7 +1106,7 @@ function distinctBodyTexts(html, bodyRanges, chromeRanges = []) {
     if (outermost.some((outer) => range.start >= outer.start && range.start < outer.contentEnd)) continue;
     outermost.push(range);
   }
-  const cuts = [...chromeRanges].sort((a, b) => a.start - b.start);
+  const cuts = disjointRanges(chromeRanges);
   const texts = [];
   const seen = new Set();
   for (const range of outermost) {
