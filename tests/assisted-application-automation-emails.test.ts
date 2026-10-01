@@ -61,6 +61,8 @@ describe('automation e-mails', () => {
     expect(silent.subject).toBe('[Candidatura] Il candidato non risponde: Infermiera — Ospedale');
     expect(silent.text).toContain('Da 5 giorni la candidatura aspetta risposte che solo il candidato può dare, e ha già ricevuto 2 promemoria.');
     expect(silent.text).toContain('Candidato: candidate@example.com');
+    // The lead points to the address: the HTML shows it too (review of #10803).
+    expect(silent.html).toContain('mailto:candidate@example.com');
   });
 
   it('explains the portal handoff and the closed-ad refund', () => {

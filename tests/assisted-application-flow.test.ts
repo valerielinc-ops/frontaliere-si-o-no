@@ -217,6 +217,17 @@ describe('approval flow', () => {
     });
   });
 
+  it('gives the 12 h clock after a wait its own reminder, even when an earlier clock sent one (review of #10803)', () => {
+    const draft = { ...cleanDraft, questions: [{ id: 'permit', required: true }] };
+    // The earlier 12 h clock already reminded the candidate; at its end a question is open.
+    let step = transition({ state: 'candidate_review', deadlineAt: T0, reminderSentAt: T0 - CANDIDATE_REMINDER_BEFORE_MS, heldBy: [] }, { type: 'tick' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:permit'], heldSince: T0, reminderSentAt: null });
+    const answeredAt = T0 + 60 * 60_000;
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { permit: 'Permesso G' }, nowMs: answeredAt });
+    expect(step.flow.heldBy).toEqual([]);
+    expect(step.flow.reminderAt).toBe(answeredAt + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS);
+  });
+
   it('reminds the candidate of the portal\'s questions too, each wait with its own reminders', () => {
     const questions = [{ id: 'screening_1', required: true }];
     let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft: cleanDraft, nowMs: T0 });

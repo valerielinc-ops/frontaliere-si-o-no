@@ -522,6 +522,9 @@ export function buildOwnerAutomationEmail(kind, vars) {
     const lead = `Da ${Number(vars.days) || 5} giorni la candidatura aspetta risposte che solo il candidato può dare, e ha già ricevuto ${Number(vars.nudges) || 2} promemoria. Senza quelle risposte non parte nulla: puoi scrivergli (l’indirizzo è qui sotto) o decidere dalla coda come chiudere l’ordine.`;
     html.push(brandParagraph(esc(lead)));
     text.push(lead);
+    // The address in the HTML too: the lead points to it (review of #10803).
+    const email = clean(vars.candidateEmail, 200);
+    if (email) html.push(brandParagraph(`Candidato: <a href="mailto:${esc(email)}">${esc(email)}</a>`));
   } else {
     throw new Error(`unknown_owner_automation_email:${kind}`);
   }

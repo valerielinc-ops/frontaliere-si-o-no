@@ -141,6 +141,8 @@ function waitForCandidate(next, nowMs) {
   next.heldSince = nowMs;
   next.heldNudges = 0;
   next.reminderAt = nowMs + HELD_REMINDERS_AFTER_MS[0];
+  // The 12 h clock that starts after the last answer is a new one, with its own reminder (review of #10803).
+  next.reminderSentAt = null;
 }
 
 function withHistory(next, event, nowMs) {
