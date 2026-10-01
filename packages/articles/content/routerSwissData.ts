@@ -2485,6 +2485,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'spese-canton-berna-2026': { it: 'spese-canton-berna-2026', en: 'swiss-cost-of-living-bern-2026', de: 'lebenshaltung-schweiz-bern-2026', fr: 'cout-vie-suisse-berne-2026' },
  'occhiali-meta-sunrise': { it: 'occhiali-meta-sunrise', en: 'sunrise-meta-smart-glasses', de: 'sunrise-meta-smartbrillen', fr: 'lunettes-meta-sunrise' },
  'joya-rete-ricarica-svizzera': { it: 'joya-rete-ricarica-svizzera', en: 'joya-swiss-charging-network', de: 'joya-schweizer-ladenetz', fr: 'joya-reseau-recharge-suisse' },
+ 'pieno-cittadino-imposta-benzina': { it: 'pieno-cittadino-imposta-benzina', en: 'the-citizen-always-pays-for-the-full-tank', de: 'der-burger-zahlt-immer-fur-den-vollen-tank', fr: 'le-citoyen-paie-toujours-le-reservoir-plein' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

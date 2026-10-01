@@ -95804,6 +95804,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pieno-cittadino-imposta-benzina': {
+    title: 'Il pieno lo paga sempre il cittadino | Frontaliere Ticino',
+    description: 'Ad agosto 2026 l’inflazione svizzera è +0,4% mensile e +0,8% annua; l’imposta sulla benzina è 76,82 cent/litro e sul diesel 79,57 cent/litro, con un gettito',
+    keywords: 'frontalieri, ticino, svizzera, italia, pieno, paga, sempre, cittadino',
+    ogTitle: 'Il pieno lo paga sempre il cittadino',
+    ogDescription: 'L’articolo analizza l’impatto delle tasse sui carburanti in Svizzera ad agosto 2026, mostrando come l’inflazione contenuta (+0,4% mensile, +0,8% annua) nasconda un peso fiscale significativo: 76,82 centesimi di imposta sulla benzina e 79,57',
+    canonicalPath: '/articoli-svizzera/pieno-cittadino-imposta-benzina/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il pieno lo paga sempre il cittadino",
+      "description": "Ad agosto 2026 l’inflazione svizzera è +0,4% mensile e +0,8% annua; l’imposta sulla benzina è 76,82 cent/litro e sul diesel 79,57 cent/litro, con un gettito",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pieno-cittadino-imposta-benzina.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nozzle di una pompa di benzina con una moneta franco svizzero e le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-10-01T19:14:40+00:00",
+      "dateModified": "2026-10-01T19:14:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/pieno-cittadino-imposta-benzina/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

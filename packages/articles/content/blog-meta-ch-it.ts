@@ -7388,6 +7388,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifica la mobilità elettrica in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Dal primo ottobre Joya riunisce quattro attività: oltre 25’000 punti di ricarica, più di 150’000 utenti attivi e un piano da circa 150 milioni entro il 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Stazione pubblica di ricarica per auto elettriche in una città svizzera',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'Il pieno lo paga sempre il cittadino',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'Ad agosto 2026 l’inflazione mensile è +0,4% e quella annua +0,8%; l’imposta sulla benzina è 76,82 cent/litro, sul diesel 79,57 cent/litro; nel 2025 il gettito è stato 4,367 miliardi di franchi.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Nozzle di una pompa di benzina con una moneta franco svizzero e le Alpi sullo sfondo',
 };
 
 export default blogMetaChIt;
