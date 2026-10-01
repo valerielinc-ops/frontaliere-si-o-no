@@ -1,16 +1,16 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-01T09:20:30.974Z",
+  "generatedAt": "2026-10-01T21:26:14.759Z",
   "total": 14,
   "newCount": 0,
-  "updatedCount": 14,
+  "updatedCount": 13,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4886,
-  "avgDurationMs": 4886,
+  "unchangedCount": 1,
+  "durationMs": 3818,
+  "avgDurationMs": 3818,
   "durationHistory": [
-    4886
+    3818
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -385,43 +385,6 @@
       }
     },
     {
-      "title": "Op Dispo Wattwil 50–70%",
-      "slug": "op-dispo-lana-di-cotone-50-70-berit-klinik-wattwil",
-      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
-      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
-      "company": "Berit Klinik",
-      "companyKey": "berit-klinik",
-      "companyDomain": "beritklinik.ch",
-      "location": "Wattwil",
-      "addressLocality": "Wattwil",
-      "addressRegion": "SG",
-      "postalCode": "9630",
-      "addressCountry": "CH",
-      "canton": "SG",
-      "country": "CH",
-      "category": "health",
-      "sector": "Gesundheitswesen / Klinik",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "berit-klinik-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-08-03",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf"
-      },
-      "id": "berit-klinik-901399323387",
-      "firstSeenAt": "2026-08-03T22:28:18.044Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 17
-      }
-    },
-    {
       "title": "Restaurant, 50%",
       "slug": "restaurant-50-berit-klinik",
       "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf",
@@ -534,5 +497,49 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Op Dispo Wattwil 50–70%",
+      "slug": "op-dispo-lana-di-cotone-50-70-berit-klinik-wattwil",
+      "url": "https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
+      "applyUrl": "https://www.beritklinik.ch/de/karriere-offene-stellen",
+      "company": "Berit Klinik",
+      "companyKey": "berit-klinik",
+      "companyDomain": "beritklinik.ch",
+      "location": "Wattwil",
+      "addressLocality": "Wattwil",
+      "addressRegion": "SG",
+      "postalCode": "9630",
+      "addressCountry": "CH",
+      "canton": "SG",
+      "country": "CH",
+      "category": "health",
+      "sector": "Gesundheitswesen / Klinik",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "berit-klinik-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-08-03",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf"
+      },
+      "id": "berit-klinik-901399323387",
+      "firstSeenAt": "2026-08-03T22:28:18.044Z",
+      "salaryMin": 57100,
+      "salaryMax": 79800,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 21,
+        "completeness": 22
+      }
+    }
+  ]
 }
