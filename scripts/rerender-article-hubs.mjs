@@ -1,6 +1,6 @@
 #!/usr/bin/env -S npx -y tsx
-// scripts/rerender-article-hubs.mjs — re-render an article section's hub pages
-// and push them to the shard repos, WITHOUT publishing an article.
+// scripts/rerender-article-hubs.mjs — re-render an article section's hub pages,
+// publish the matching client chunks, and push the pages to the shard repos.
 //
 // WHAT THIS IS FOR (issue #5432 point 2)
 // ──────────────────────────────────────
@@ -33,8 +33,10 @@
 // publish-article-fast.mjs calls, in the exact order (archive → topic hubs →
 // CDN offload, issue #5270). The push is the exact merge-only, never-force
 // scripts/lib/push-article-shard-incremental.sh every other article path uses.
-// This file contributes the enumeration, the validation and the push fan-out,
-// and nothing else.
+// This file contributes the enumeration, the validation, the client-chunk
+// publication and the push fan-out. The workflow supplies the shared R2 lease
+// around the last three operations so the registry and the hub cannot cross
+// another article publisher (#5819).
 //
 // WHY NOT rerender-article-corpus.yml. That workflow exists for template
 // drift and is the obvious host — but it re-renders 3571 articles under a
@@ -148,6 +150,61 @@ function spawnAsync(cmd, args, opts) {
       resolve({ status: 1 });
     });
   });
+}
+
+/**
+ * Fail closed before a client-chunk upload or shard push when the workflow's
+ * lease watcher has reported a loss. The watcher is deliberately external to
+ * this driver so the same R2 lock remains shared with fast-publish/resync.
+ * Local invocations and dry runs omit the enforcement flag and keep the
+ * existing render-only ergonomics.
+ */
+function assertArticleChunkLease() {
+  if (process.env.ARTICLE_CHUNK_LOCK_ENFORCE !== 'true') return;
+
+  const failureFile = process.env.ARTICLE_CHUNK_LOCK_FAILURE_FILE;
+  const pidFile = process.env.ARTICLE_CHUNK_LOCK_PID_FILE;
+  if (!failureFile || !pidFile) {
+    throw new Error(`${LOG} article chunk lock watcher paths are not configured`);
+  }
+  if (fs.existsSync(failureFile) && fs.statSync(failureFile).size > 0) {
+    const reason = fs.readFileSync(failureFile, 'utf8').trim();
+    throw new Error(`${LOG} article chunk lock was lost${reason ? `: ${reason}` : ''}`);
+  }
+
+  const pid = Number(fs.readFileSync(pidFile, 'utf8').trim());
+  if (!Number.isInteger(pid) || pid <= 0) {
+    throw new Error(`${LOG} article chunk lock watcher PID is invalid`);
+  }
+  try {
+    process.kill(pid, 0);
+  } catch (err) {
+    throw new Error(`${LOG} article chunk lock watcher is no longer alive: ${err.message}`);
+  }
+}
+
+async function publishClientChunks(sections, dryRun) {
+  const args = [
+    '-y',
+    'tsx@4.23.15',
+    path.join(ROOT_DIR, 'scripts', 'publish-article-chunks.mjs'),
+  ];
+  if (sections.length === 1) args.push('--section', sections[0]);
+  args.push('--strict', '--no-ticker');
+  if (dryRun) args.push('--dry-run');
+
+  console.log(
+    `${LOG} publishing client article chunks before hub shards` +
+      (dryRun ? ' (dry run)' : ''),
+  );
+  const { status } = await spawnAsync('npx', args, {
+    stdio: 'inherit',
+    env: process.env,
+    cwd: ROOT_DIR,
+  });
+  if (status !== 0) {
+    throw new Error(`${LOG} client article chunk publication failed (exit ${status})`);
+  }
 }
 
 /**
@@ -408,11 +465,22 @@ async function main() {
     process.exit(1);
   }
 
+  // The hub HTML and the client registry are two representations of the same
+  // article snapshot. Publish companions and registries before any shard can
+  // receive the HTML; strict mode also requires every upload and purge to
+  // succeed. On the armed workflow this runs inside the shared section lease.
+  assertArticleChunkLease();
+  await publishClientChunks(sections, args.dryRun);
+
   if (args.dryRun) {
     console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
     console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
     return;
   }
+
+  // The chunk publisher may take long enough for the lease watcher to report a
+  // loss after its final purge. Do not start a shard mutation in that window.
+  assertArticleChunkLease();
 
   // ── Push: ONE invocation per (section, locale) ────────────────────────────
   //
