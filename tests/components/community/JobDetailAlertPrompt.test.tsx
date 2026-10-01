@@ -92,6 +92,14 @@ describe('JobDetailAlertPrompt', () => {
     expect(onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('lets the reader manage scope and cadence before subscribing', () => {
+    const { onManage, onClose, subscribe } = renderPrompt();
+    fireEvent.click(screen.getByText(/Gestisci alert/));
+    expect(onManage).toHaveBeenCalledOnce();
+    expect(onClose).toHaveBeenCalledOnce();
+    expect(subscribe).not.toHaveBeenCalled();
+  });
+
   it('transitions to submitting then success when subscribe resolves', async () => {
     const { onAccepted } = renderPrompt({
       subscribe: async () => baseAlert(),

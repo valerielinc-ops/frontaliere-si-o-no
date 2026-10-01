@@ -99,7 +99,6 @@ import NewJobsCounter from '@/components/community/NewJobsCounter';
 import TrendingSection from '@/components/community/TrendingSection';
 import JobBoardResultsLoader from '@/components/community/JobBoardResultsLoader';
 import EmployerHubCta from '@/components/community/EmployerHubCta';
-import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
 import PopularSearchChips from '@/components/community/PopularSearchChips';
 import EmployerBrandHub from '@/components/jobs/EmployerBrandHub';
 import { getEmployerBrandBySlug } from '@/services/employerBrands';
@@ -159,6 +158,8 @@ import type { JobAlert } from '@/services/jobAlertService';
 import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import { suggestSimilarTerms } from '@/services/search/fuzzySearchSuggestions';
 import { buildJobCopyAttribution, shouldAttributeCopy } from '@/services/jobCopyAttribution';
+import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
+import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
 import { wasNewsletterAutologinAttempted } from '@/services/newsletterAutologinSignal';
 import { buildPath, parsePath, registerJobSlugMap, getJobMetaForSlug, ensureJobSlugEntriesLoaded, isJobSlugReady, preloadBlogData, JOB_BOARD_CANTON_AGGREGATE } from '@/services/router';
 import type { BlogArticleId } from '@/services/router';
@@ -267,7 +268,7 @@ import {
 } from '@/services/newsletterSubscribers';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
-import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, POPUP_PRIORITY, canShowPromotionalPrompt, markPromotionalPromptShown } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
 import { isLikelyBot } from '@/services/botPatterns';
 import type { Article } from '@/data/blog-articles-data';
@@ -2335,7 +2336,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
- const { headline: gateHeadline, variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { variant: headlineVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
  // Keep crawlers and automated browsers on the canonical/original apply path:
  // do not fetch Remote Config, assign a paid/rewarded arm, or emit experiment
@@ -2667,11 +2668,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const authUnlockCandidateRef = useRef<string | null>(null);
  const jobAuthExposureRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
- // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
- // The job-detail alert prompt fires immediately (delay 0) for this job —
- // it's the highest-intent moment (the user just authed to read THIS job),
- // so we don't wait out the dwell timer before offering the one-tap alert.
- const justAuthedJobIdRef = useRef<string | null>(null);
 
  // ── Personalization: behavior data + derived state ──
  const [behaviorData, setBehaviorData] = useState<BehaviorData | null>(null);
@@ -4027,8 +4023,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Same as the job-match pill above: the impression comes from
  // <JobBoardFilterAlertCta onImpression> on real viewport visibility (#5039).
 
+ const jobReadingIntent = useJobReadingIntent(String(selectedJob?.id || initialJobSlug || 'job-list'));
  useEffect(() => {
- try { console.log('[AlertDebug] enter', { detail: isJobDetailView, flag: enableJobAlerts, uid: !!userId, email: !!userEmail, inFlight: newsletterAutologinInFlight, jobId: selectedJob?.id }); } catch { /* noop */ }
+  const onOtherPrompt = (event: Event) => {
+   if ((event as CustomEvent).detail !== 'job-detail-alert-prompt') setJobDetailPromptVisible(false);
+  };
+  window.addEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+  return () => window.removeEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+ }, []);
+ useEffect(() => {
+ if (!jobReadingIntent || !canShowJobAlertPrompt() || !canShowPromotionalPrompt()) return;
  if (!isJobDetailView || !selectedJob) return;
  if (!enableJobAlerts) return;
  if (!userId || !userEmail) {
@@ -4083,7 +4087,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
  if (cancelled) return;
- if (findMatchingAlertForCategory(existing, localizedCategory)) {
+ if (findMatchingAlertForCategory(existing, localizedCategory, selectedJob.canton)) {
  Analytics.trackJobAlertCtaSkipped('job_detail_prompt', 'already_subscribed');
  return;
  }
@@ -4095,22 +4099,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return;
  }
 
- // Leva B: a user who just authed via Google/FB to unlock THIS job is at
- // peak intent — show the one-tap alert offer immediately rather than
- // waiting out the dwell timer. Consume the ref so it fires only once.
- const justAuthed = justAuthedJobIdRef.current === selectedJob.id;
- if (justAuthed) justAuthedJobIdRef.current = null;
- // Show immediately (0 s) for peak-intent arrivals; 1.5 s dwell otherwise.
- // Newsletter-autologin visitors only become authenticated after a ~4 s token
- // exchange, and the 1.5 s timer then races (and usually loses) against the
- // AdSense/enrichment re-renders that re-run this effect — so the prompt often
- // never fires (observed: hasUser:true at +4 s, then no toast). They clicked a
- // job in an email = peak intent, so treat them like an in-app post-auth unlock.
- const showImmediately = justAuthed || wasNewsletterAutologinAttempted();
- try { console.log('[AlertDebug] arm timer', { delayMs: showImmediately ? 0 : 1500, existing: existing.length, category: localizedCategory }); } catch { /* noop */ }
  timerId = window.setTimeout(() => {
- if (cancelled) { try { console.log('[AlertDebug] timer cancelled before fire'); } catch { /* noop */ } return; }
- try { console.log('[AlertDebug] FIRE — prompt visible'); } catch { /* noop */ }
+ if (cancelled || !canShowJobAlertPrompt() || !canShowPromotionalPrompt()) return;
  setJobDetailPromptCategory(localizedCategory);
  setJobDetailPromptVisible(true);
  // The impression is NOT fired here any more. The toast waits for a
@@ -4119,7 +4109,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // counting the first would inflate the denominator of the one
  // job-alert surface that actually converts. It fires from the
  // prompt's `onShown` instead — see jobDetailPromptJsx below.
- }, showImmediately ? 0 : 1500);
+ }, 0);
  })();
 
  return () => {
@@ -4132,7 +4122,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // flake after the 0 s change. A real navigation changes the id and still
  // re-runs / re-arms.
  // eslint-disable-next-line react-hooks/exhaustive-deps
- }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t]);
+ }, [isJobDetailView, selectedJob?.id, enableJobAlerts, newsletterAutologinInFlight, userId, userEmail, t, jobReadingIntent]);
 
  // Impression for the peak-intent alert offer inside the applied receipt. Fired
  // on appearance rather than via IntersectionObserver because the receipt is
@@ -4154,11 +4144,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // Auto-unmount the prompt if the user logs out or leaves the detail view.
  useEffect(() => {
  if (!jobDetailPromptVisible) return;
- if (!isJobDetailView || !userEmail || !userId) {
+ if (!isJobDetailView || !userEmail || !userId || !jobReadingIntent) {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
  }
- }, [isJobDetailView, jobDetailPromptVisible, userEmail, userId]);
+ }, [isJobDetailView, jobDetailPromptVisible, userEmail, userId, jobReadingIntent]);
 
  const editorialJobTodayLanding = useMemo(() => {
  if (editorialLandingDescriptor?.kind !== 'today') return null;
@@ -6329,6 +6319,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [selectedJob?.slug, selectedJob?.slugByLocale?.it, enablePersonalization]);
 
  useEffect(() => {
+ if (!selectedJob || !authResolved || newsletterAutologinInFlight) return;
+ Analytics.trackJobApplicationStep({ jobId: String(selectedJob.id), jobSlug: selectedJob.slugByLocale?.it || selectedJob.slug || '', employerKey: selectedJob.companyKey || undefined }, 'detail_view');
+ }, [selectedJob?.id, selectedJob?.slugByLocale?.it, authResolved, newsletterAutologinInFlight]);
+
+ useEffect(() => {
  if (!authResolved || !authGateOpen || hasAccess) return;
  const focusedJob = pendingJob || selectedJob;
  if (focusedJob) {
@@ -6361,6 +6356,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
+ const gate = document.getElementById('job-auth-gate');
+ if (!gate) return;
+ const onVisible = () => {
+ requestSlot('job-inline-auth-gate', POPUP_PRIORITY.INLINE_AUTH_GATE);
  const exposureKey = `${selectedJob.id}:inline:${gateExperimentId}:${gateVariant}`;
  if (jobAuthExposureRef.current === exposureKey) return;
  jobAuthExposureRef.current = exposureKey;
@@ -6393,7 +6392,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   experimentId: gateExperimentId,
   jobSlug: context.jobSlug,
  });
- }, [authResolved, selectedJob?.id, hasAccess, gateVariant, gateExperimentId]);
+ };
+ if (typeof IntersectionObserver === 'undefined') return;
+ const observer = new IntersectionObserver((entries) => {
+  if (!entries.some((entry) => entry.isIntersecting && entry.intersectionRatio >= 0.1)) return;
+  observer.disconnect();
+  onVisible();
+ }, { threshold: 0.1 });
+ observer.observe(gate);
+ return () => { observer.disconnect(); releaseSlot('job-inline-auth-gate'); };
+ }, [authResolved, selectedJob?.id, hasAccess, gateVariant, gateExperimentId, newsletterAutologinInFlight]);
 
  useEffect(() => {
  // Wait for auth to resolve before rendering GIS buttons.
@@ -6501,8 +6509,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
    registrationMethod: 'authenticated',
   });
  });
- // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
- justAuthedJobIdRef.current = unlockedJob.id;
  setAuthNotice(null);
  setAuthError(null);
  setAuthGateOpen(false);
@@ -6550,28 +6556,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onJobRouteChange?.(redirectSlug, getJobMetaForSlug(redirectSlug)?.canton);
  }, [authResolved, hasAccess, initialJobSlug, onJobRouteChange]);
 
- // When the inline auth gate is visible (job detail + not logged in),
- // register with the popup queue so achievement toasts are suppressed,
- // and scroll the auth gate into view for small viewports.
- const inlineAuthGateVisible = Boolean(selectedJob && authResolved && !hasAccess);
- useEffect(() => {
- if (!inlineAuthGateVisible) return;
- requestSlot('job-inline-auth-gate', POPUP_PRIORITY.INLINE_AUTH_GATE);
- // Scroll the auth gate into view after a short delay to let layout settle
- const raf = requestAnimationFrame(() => {
- document.getElementById('job-auth-gate')?.scrollIntoView({ behavior: 'smooth', block: 'center' });
- });
- return () => {
- cancelAnimationFrame(raf);
- releaseSlot('job-inline-auth-gate');
- };
- }, [inlineAuthGateVisible]);
-
- const openDetail = (job: JobListing) => {
+ // Reading the public description never scrolls to or activates the auth gate.
+ const openDetail = (job: JobListing, preserveJourney = false) => {
   if (!authResolved) return;
- // Always navigate to the detail page — the inline auth gate handles
- // unauthenticated users with a blurred preview + sign-in form,
- // giving more context than a modal popup and boosting conversion.
+ if (!preserveJourney) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
+ // Public description first; sign-in is required only to continue to application.
  savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
  window.scrollTo({ top: 0, behavior: 'instant' });
@@ -6741,8 +6730,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const jobToOpen = pendingJob || selectedJob;
  setPendingJob(null);
  if (jobToOpen) {
- // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
- justAuthedJobIdRef.current = jobToOpen.id;
  onJobRouteChange?.(deriveLocalizedJobSlug(jobToOpen, locale), resolveJobCanton(jobToOpen));
  Analytics.trackSelectContent('job_board_open_detail', `${jobToOpen.company}_${jobToOpen.title}`);
  }
@@ -7099,10 +7086,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const trackPublisherApplySignals = (
   job: JobListing,
   contentType: string,
-  options: { deferExternalHandoff?: boolean } = {},
   ): string => {
   const eventId = createPublisherApplyEventId();
-  const referralUrl = buildReferralUrl(job);
+ Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'apply_click');
  Analytics.trackEvent('select_content', {
  content_type: contentType,
  item_id: `${job.company}_${job.title}`,
@@ -7113,34 +7099,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
  is_sponsored: job.featured ? 'sponsored' : 'free',
  emission_id: eventId,
  });
-  if (isExternalApplicationJob(job) && !options.deferExternalHandoff) {
-  Analytics.trackJobApplyHandoff(job, referralUrl, {
-   surface: contentType,
-   emissionId: eventId,
-  });
- }
  return eventId;
  };
 
  const redirectExternalApplication = async (
   job: JobListing,
   surface: string,
-  trackHandoff: boolean,
+  _trackHandoff: boolean,
   sameTab = false,
   extraParams: Record<string, string> = {},
  ) => {
   const applyDestination = buildReferralUrl(job);
-  if (!applyDestination) return;
-  if (trackHandoff) {
-   Analytics.trackJobApplyHandoff(job, applyDestination, {
-    surface,
-    emissionId: createPublisherApplyEventId(),
-   });
+  if (!applyDestination) {
+   Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'handoff_error');
+   return;
   }
   trackAssistedApplicationEvent(
    'external_apply_redirected',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
+  try {
   if (sameTab) {
    const pendingIntent = applicationIntentSyncRef.current;
    if (pendingIntent?.jobId === String(job.id)) {
@@ -7155,6 +7133,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
   } else {
    window.open(applyDestination, '_blank', 'noopener,noreferrer');
   }
+  } catch {
+   Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'handoff_error');
+   setAuthError(t('jobBoard.authFailed'));
+   return;
+  }
+  Analytics.trackJobApplyHandoff(job, applyDestination, { surface, emissionId: createPublisherApplyEventId() });
   // Mutate the page in the same tick as the hand-off — the confirmation is the
   // user-visible receipt AND the DOM change that makes this click non-dead.
   setAppliedJobId(job.id);
@@ -7324,7 +7308,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // like a dead CTA.
  useEffect(() => {
   if (!assistedApplicationJob || isJobDetailView || !authResolved) return;
-  openDetail(assistedApplicationJob);
+  openDetail(assistedApplicationJob, true);
  }, [assistedApplicationJob, authResolved, isJobDetailView]);
 
  // Rewarded treatment clicks from a list card need the same detail host as
@@ -7332,13 +7316,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // means the video never creates a second crawlable URL or a separate page.
  useEffect(() => {
   if (!rewardedApplicationJob || isJobDetailView || !authResolved) return;
-  openDetail(rewardedApplicationJob);
+  openDetail(rewardedApplicationJob, true);
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   // An application offer for this click is already open (double click, or a
   // click that reached the page behind the dialog): one gesture, one offer.
   if (applicationOfferOpenRef.current) return;
+  // A list CTA starts the same journey that its detail/offer host resumes.
+  if (!isJobDetailView) Analytics.trackJobApplicationStep({ jobId: String(job.id), jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined }, 'list_select');
   const isExternal = isExternalApplicationJob(job);
   const mode = (job as { applyMode?: string }).applyMode;
   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
@@ -7362,16 +7348,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
-  const rewardedNeedsOffer = assistedApplicationVariant === 'rewarded_ad'
-   && !killSwitches.rewardedApplicationAd
-   && rewardedAccessExpiresAt === null;
-  const eventId = trackPublisherApplySignals(
-   job,
-   surface,
-   isExternal && (assistedApplicationVariant === 'assisted_application' || rewardedNeedsOffer)
-    ? { deferExternalHandoff: true }
-    : undefined,
-  );
+   const eventId = trackPublisherApplySignals(job, surface);
   // In-house / forward-email publisher ads apply via the on-page
  // PublisherApplyForm (#candidatura), NOT an external URL. For these,
  // applyUrl/url point back at the ad's own /lavoro/<slug> page, so opening
@@ -7413,7 +7390,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
   applicationOfferOpenRef.current = true;
   setRewardedApplicationJob(job);
-  if (!isJobDetailView) openDetail(job);
+  if (!isJobDetailView) openDetail(job, true);
   return;
  }
  if (assistedApplicationVariant === 'assisted_application') {
@@ -7428,7 +7405,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   setAssistedOfferSource('experiment');
   applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
-  if (!isJobDetailView) openDetail(job);
+  if (!isJobDetailView) openDetail(job, true);
   return;
  }
  void redirectExternalApplication(job, surface, false);
@@ -7698,7 +7675,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  sourceJobUrl={selectedJob?.url ?? null}
  sourceJobTitle={selectedJob?.title ?? null}
  cantonCode={selectedJob?.canton ?? null}
- onShown={() => Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory)}
+ onShown={() => { markJobAlertPromptShown('job-detail-alert-prompt'); markPromotionalPromptShown(); Analytics.trackJobAlertCtaShown('job_detail_prompt', jobDetailPromptCategory); }}
  onClose={() => {
  setJobDetailPromptVisible(false);
  setJobDetailPromptCategory(null);
@@ -7724,6 +7701,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }).catch(() => {});
  }}
  onDismissed={() => {
+ dismissJobAlertPrompt();
  const category = jobDetailPromptCategory;
  Analytics.trackJobAlertCtaClick('job_detail_prompt', 'dismiss', category);
  import('@/services/jobDetailAlertGating').then(({ loadGatingState, saveGatingState, recordDismiss, normalizeKeyword }) => {
@@ -9197,42 +9175,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gatePosted = daysSincePosted(selectedJob.postedDate);
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
- const previewCharLimit = 220;
- // Fixed-height teaser box with a STATIC height (svh, not dvh) so it never
- // shifts frame-to-frame — preserving the CLS guard below.
- const previewBoxClass =
- '[@media(max-height:540px)]:hidden h-[clamp(0px,calc(100svh_-_540px),80px)]';
- // stripMarkdownMarkers runs BEFORE the HTML strip, not after: `<[^>]+>`
- // below would otherwise have already eaten the `(url)` half of a markdown
- // link and left the `[testo]` brackets stranded. Measured on the live
- // corpus, ~30% of descriptions carry a heading marker and ~19% a `**` pair;
- // this teaser prints its input verbatim into a `whitespace-pre-line`
- // paragraph, so both were reaching the reader as literal characters.
- const descriptionPreview = stripMarkdownMarkers(
- selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? ''
- )
- .replace(/<br\s*\/?>/gi, '\n')
- .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
- .replace(/<[^>]+>/g, ' ')
- // Strip ATX markdown headings (`## Heading`) left over from descriptions
- // authored/crawled as markdown: HTML tags are gone by this point but `#`
- // isn't HTML, so it survived and rendered literally in the gate teaser
- // (verified in production). Anchored to line start + required whitespace
- // so mid-line `#` (e.g. "C#", "row #3") is never touched.
- .replace(/(^|\n)#{1,6}\s+/g, '$1')
- .replace(/[^\S\n]+/g, ' ')
- .replace(/\n[ \t]*/g, '\n')
- .replace(/\n{3,}/g, '\n\n')
- .trim()
- .slice(0, previewCharLimit);
- // True while the slim index gave us no description but the per-job detail
- // fetch hasn't settled yet (cache miss on first render, or in flight).
- // Switches the always-mounted teaser box from static bars to a pulsing
- // skeleton; the box itself never mounts/unmounts after first paint (its
- // height is fixed by the svh clamp), so neither the text arriving late
- // (~92px push, 0.054 CLS/view) nor a detail that settles WITHOUT a
- // description (reverse ~80px collapse) can shift the auth gate.
- const teaserPending = !descriptionPreview
+ const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
+ const publicRequirements = sanitizeRequirementTokens(selectedJob.requirementsByLocale?.[locale] ?? selectedJob.requirements ?? []);
+ const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  // The inline email form, rendered below the provider buttons (control) or
  // above them for the jobgate-v3 `email_first` arm — one element, never both.
@@ -9446,59 +9391,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
- {/* CompanyAlert (#5012) — the follow CTA, directly under the hub link it
-     belongs with. It used to sit far below the auth gate, past the teaser and
-     the sign-in block; on the surface where the reader is MOST likely to
-     leave without an account, the one ask that does not need an account was
-     the last thing on the page. Same component, same anonymous
-     email-capture + double opt-in, moved to where the employer is named. */}
- {companyFollowCta(selectedJob, 'company_follow_gate')}
- {/* Readable description teaser — shows first ~200 chars to create information
- scent and an "open loop" that motivates signup. Fades out at the bottom.
- On very short viewports (landscape phones) we hide it entirely so the gate CTAs
- land above the fold.
- CLS guards: (a) svh, NOT dvh — dvh re-resolves every time the mobile URL bar
- collapses/expands, oscillating the box 0↔80px and shifting the gate and
- everything below it on every scroll direction change; svh is static.
- (b) The box is ALWAYS mounted at a FIXED clamp height (height, not
- maxHeight, so short text / skeleton / settled-empty all produce the exact
- same container height frame-to-frame). Contents only cross-fade between
- text, a pulsing skeleton (detail fetch pending) and static redacted bars
- (detail settled with no description — keeping the reserve, never
- collapsing). This kills both the ~92px gate push when the late teaser
- text arrived (0.054 CLS/view) and the reverse collapse for
- description-less jobs. */}
- <div className={`relative mt-3 w-full overflow-hidden rounded-stripe ${previewBoxClass}`}>
- {descriptionPreview ? (
- <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
- {descriptionPreview}...
- </p>
- ) : teaserPending ? (
- <div className="px-3 py-2 sm:py-3 space-y-2" aria-hidden="true">
- <SkeletonLine height="h-4" />
- <SkeletonLine height="h-4" />
- <SkeletonLine height="h-4" width="w-3/4" />
- </div>
- ) : (
- // Detail settled with no description: static redacted-style bars (no
- // pulse — nothing is loading) keep the reserved height instead of
- // collapsing the box, which would yank the gate up by the same ~80px
- // the late-teaser push used to move it down.
- <div className="px-3 py-2 sm:py-3 space-y-2 opacity-60" aria-hidden="true">
- <div className="bg-surface-raised rounded-lg w-full h-4" />
- <div className="bg-surface-raised rounded-lg w-full h-4" />
- <div className="bg-surface-raised rounded-lg w-3/4 h-4" />
- </div>
- )}
- <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
- </div>
+ {/* Full source description is readable before any sign-in or follow action. */}
+ <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description">
+  {publicDescription ? renderFormattedDescription(publicDescription) : descriptionPending ? (
+   <div className="min-h-[160px] space-y-3" aria-busy="true"><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /><SkeletonLine height="h-4" /></div>
+  ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
+  {publicRequirements.length > 0 && <><h2 className="text-lg font-semibold text-heading">{t('jobBoard.requirementsHeading')}</h2><ul className="list-disc pl-5 space-y-1 text-sm text-body">{publicRequirements.map((requirement, index) => <li key={index}>{requirement}</li>)}</ul></>}
+ </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
  <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
- <span>{jobGate.arm === 'similar_alerts' ? t('jobBoard.gate.v3.similarAlerts.title') : gateHeadline}</span>
+ <span>{t('jobBoard.gate.applicationTitle')}</span>
  </h2>
+ <p className="mt-2 text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
 
  {/* Trust signals — 2 lines at text-sm. text-xs is reserved for metadata
  per the project's design context (.impeccable.md). */}
@@ -9682,6 +9589,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  )}
 
+ {companyFollowCta(selectedJob, 'company_follow_gate')}
  {/* Company banner — gate view */}
  <a
  href={gateCompanyHref}
@@ -10925,6 +10833,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  data-testid="company-follow-inline-surface"
  className="rounded-xl border border-accent-border bg-accent-subtle/40 p-3 sm:p-4"
  >
+ <EmployerHubCta company={companyDisplayName} companyKey={companyFollowJob?.companyKey ?? null} locale={locale} />
  <Suspense fallback={<CompanyFollowPlaceholder />}>
  <CompanyFollowCta
  company={companyDisplayName}

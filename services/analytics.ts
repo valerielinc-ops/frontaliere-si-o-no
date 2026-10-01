@@ -99,6 +99,7 @@
  * 6. Attribution is captured once per session, not on every page_view
  */
 
+import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJourneyIdentity } from './jobApplicationJourney';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
@@ -2028,6 +2029,12 @@ export const Analytics = {
  });
  },
 
+ /** Tab-scoped, deduplicated journey stages, emitted to Firebase only. */
+ trackJobApplicationStep: (identity: JobJourneyIdentity, step: JobJourneyStep) => {
+  const event = recordJobJourneyStep(identity, step);
+  if (event) logFirebaseOnly('job_application_journey', event);
+ },
+
  /**
  * Candidatura su un annuncio — emette `job_apply` con attribuzione per-azienda
  * pulita. `employer_key` è la chiave canonica `companyKey` del dataset e
@@ -2069,6 +2076,8 @@ export const Analytics = {
  ) => {
   const destinationHost = resolveExternalDestinationHost(destination);
   if (!destinationHost) return false;
+  const identity = { jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined };
+  Analytics.trackJobApplicationStep(identity, 'handoff');
   log(JOB_APPLY_HANDOFF_EVENT, {
    ...buildJobApplyAttributionParams(job),
    is_sponsored: job.featured ? 'sponsored' : 'free',
@@ -2215,6 +2224,10 @@ export const Analytics = {
   * sent to this stream.
   */
  trackJobAuthGate: (action: 'view' | 'method_click' | 'success' | 'fail' | 'dismiss', details: JobAuthGateTelemetry = {}) => {
+  if (details.jobSlug) {
+   const steps = { view: 'gate_view', method_click: 'auth_start', success: 'auth_success', fail: 'auth_error', dismiss: 'gate_dismiss' } as const;
+   Analytics.trackJobApplicationStep({ jobSlug: details.jobSlug }, steps[action]);
+  }
   const surface = details.surface || 'unknown';
   const method = details.method || 'unknown';
   const state = details.authState || 'unknown';
@@ -2229,6 +2242,7 @@ export const Analytics = {
   ].join('|');
 
   logFirebaseOnly('ui_interaction', {
+   ...(details.jobSlug ? jobJourneyFields({ jobSlug: details.jobSlug }) : {}),
    page: 'job_auth_gate',
    section: surface,
    component: method,

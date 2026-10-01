@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ "whatsNew.v39610.readableJobs.title": "Offerte leggibili prima dell’accesso",
+ "whatsNew.v39610.readableJobs.desc": "Puoi leggere la descrizione completa prima di accedere e aprire la candidatura. I suggerimenti per gli alert arrivano dopo la lettura e rispettano la tua scelta di chiuderli.",
+ "jobBoard.gate.descriptionUnavailable": "La fonte non ha fornito una descrizione completa. Verifica i dettagli sul sito del datore prima di candidarti.",
  'whatsNew.v3969.title': 'Candidatura assistita: ti scrive Valerie',
  'whatsNew.v3969.assistedConcierge.title': 'Candidatura assistita più semplice',
  'whatsNew.v3969.assistedConcierge.desc': 'Dopo il pagamento ricevi subito un’email da Valerie con tutto quello che serve: puoi rispondere allegando il CV oppure caricarlo dalla pagina dell’ordine. Ti scriviamo anche quando la candidatura è stata inviata.',
@@ -984,7 +987,8 @@ const translations: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Continua con email',
  'jobBoard.authGateNewsletterNote': 'Inserendo la tua email riceverai anche la newsletter con aggiornamenti per frontalieri.',
  'jobBoard.gate.title': 'Scopri come candidarti a questo lavoro',
- 'jobBoard.gate.subtitle': 'Un click per accedere. Gratis, per sempre.',
+ "jobBoard.gate.applicationTitle": "Accedi gratis per proseguire con la candidatura",
+ "jobBoard.gate.subtitle": "Puoi leggere qui la descrizione completa. Per aprire la candidatura accedi o continua con email; la candidatura si completa sul sito del datore. Le comunicazioni incluse sono indicate qui sotto.",
  'jobBoard.gate.emailCta': 'Continua con email',
  'jobBoard.gate.benefit1': 'Descrizione completa e requisiti',
  'jobBoard.gate.benefit2': 'Come candidarsi e contatti',
@@ -1083,7 +1087,7 @@ const translations: Record<string, string> = {
  'jobAlert.postAuthPromptPersonalizeLink': 'Personalizza',
  'jobAlert.postAuthPromptRetryCta': 'Riprova',
  'jobAlert.jobDetailPrompt.title': 'Vuoi alert per {category}?',
- 'jobAlert.jobDetailPrompt.body': 'Una email a ogni nuovo annuncio.',
+ "jobAlert.jobDetailPrompt.body": "Nuove offerte nella categoria e nel cantone scelti, con frequenza adattiva. Puoi gestire frequenza e pausa dalle preferenze.",
  'jobAlert.jobDetailPrompt.acceptCta': 'Sì, attiva',
  'jobAlert.jobDetailPrompt.dismissCta': 'Non ora',
  'jobAlert.jobDetailPrompt.successTitle': 'Alert attivato ✓',
