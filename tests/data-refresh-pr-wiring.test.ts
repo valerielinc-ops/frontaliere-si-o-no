@@ -20,6 +20,7 @@ describe('protected data refreshes publish through pull requests', () => {
     '.github/workflows/cron-dispatch-canary.yml',
     '.github/workflows/update-weather.yml',
     '.github/workflows/crawl-events.yml',
+    '.github/workflows/recover-prev-slugs.yml',
   ];
 
   it.each(refreshes)('%s uses the shared PR publisher', (workflowPath) => {
