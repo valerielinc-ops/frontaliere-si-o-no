@@ -268,7 +268,7 @@ jobs:
             echo "::error::No promotion token is available"
             exit 1
           fi
-          git config --local --unset-all "http.https://github.com/.extraheader" || true
+          bash scripts/lib/clear-checkout-git-credentials.sh
           git remote set-url origin \
             "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           node scripts/prospect-promote.mjs --max="$PROMOTE_MAX" --min-days="$PROMOTE_MIN_DAYS" --open-pr

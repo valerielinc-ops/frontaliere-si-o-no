@@ -93,6 +93,9 @@ jobs:
           fi
           # actions/checkout scrive un extraheader con GITHUB_TOKEN che ha la
           # precedenza sull'URL: senza toglierlo il push torna al token sbagliato.
-          git config --unset-all "http.https://github.com/.extraheader" || true
+          # Da checkout v6 (qui v7) l'header sta in un file incluso via
+          # `includeIf.gitdir:…`, invisibile a `git config --unset-all`: lo helper
+          # toglie entrambe le forme e fallisce se ne resta una.
+          bash scripts/lib/clear-checkout-git-credentials.sh
           git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
           node scripts/crawler-quarantine-review.mjs --open-pr
