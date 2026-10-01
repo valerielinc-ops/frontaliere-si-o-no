@@ -1,0 +1,103 @@
+name: GCP Cost Monitor
+
+# Daily guard on the Google Cloud usage that becomes the bill
+# (scripts/monitor-gcp-costs.mjs). In September 2026 Firestore reads went
+# from 0.3-1 M a day to 75-90 M (225 M reads, 75.61 CHF on "Cloud Firestore
+# Read Ops Zurich") and nobody noticed: the 10 CHF billing budget emails only
+# the billing-account admins. This run reads Cloud Monitoring for the last
+# 24 hours, opens or comments one stable-title issue when a driver is over its
+# daily threshold, and resolves it once every driver is back under.
+#
+# 07:23 UTC: after the night window in which the September crawler ran
+# (~22:30-10:00 UTC), so a bad night is reported the same morning.
+
+on:
+  schedule:
+    - cron: '23 7 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Report only (no issue written)'
+        required: false
+        default: 'false'
+        type: choice
+        options: ['true', 'false']
+
+concurrency:
+  group: monitor-gcp-costs
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  monitor:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      # The script only uses Node built-ins and scripts/lib helpers, so no
+      # `npm ci`. Missing credentials make the script exit non-zero on purpose:
+      # a cost monitor that skips silently is the failure it exists for.
+      - name: Run GCP cost monitor
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          DRY_RUN: ${{ github.event.inputs.dry_run }}
+        run: |
+          if [ "$DRY_RUN" = "true" ]; then
+            node scripts/monitor-gcp-costs.mjs --dry-run
+          else
+            node scripts/monitor-gcp-costs.mjs
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
