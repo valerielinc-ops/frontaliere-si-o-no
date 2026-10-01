@@ -7400,6 +7400,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dazi-svizzera-voto.title': 'SECO: dazi degli Stati Uniti, voto e dimissioni',
     'blog.article.dazi-svizzera-voto.excerpt': 'Il 24 luglio 2026 gli Stati Uniti hanno adottato dazi aggiuntivi sulla Svizzera fino al 12,5%; il 29 novembre 2026 si vota sul materiale bellico.',
     'blog.article.dazi-svizzera-voto.imageAlt': 'Documenti su dazi e voto federale in un ufficio dell\'amministrazione svizzera',
+    'blog.article.agenda-federale-autunno-2026.title': 'Consiglio federale: affitti, integrazione e cibersicurezza',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 milioni per l\'integrazione nel 2028-2032, controprogetto sulle pigioni e proposta sulla cibersicurezza entro giugno 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Edificio istituzionale svizzero sullo sfondo delle decisioni federali',
 };
 
 export default blogMetaChIt;

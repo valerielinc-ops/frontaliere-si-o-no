@@ -95960,6 +95960,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agenda-federale-autunno-2026': {
+    title: 'Consiglio federale: affitti, integrazione e cibersicurezza',
+    description: 'Le decisioni del Consiglio federale toccano integrazione, pigioni abusive e cibersicurezza. Il pacchetto Svizzera-UE è al Parlamento dal 13 marzo 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, consiglio, federale, affitti, integrazione',
+    ogTitle: 'Affitti e cibersicurezza: decisioni del Consiglio federale',
+    ogDescription: 'Dal finanziamento dei programmi d\'integrazione al controprogetto sulle pigioni, il portale ufficiale riassume le decisioni federali. In agenda anche la cibersicurezza, la votazione del 27 settembre 2026 e il pacchetto Svizzera-UE.',
+    canonicalPath: '/articoli-svizzera/agenda-federale-autunno-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Consiglio federale: affitti, integrazione e cibersicurezza",
+      "description": "Le decisioni del Consiglio federale toccano integrazione, pigioni abusive e cibersicurezza. Il pacchetto Svizzera-UE è al Parlamento dal 13 marzo 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/agenda-federale-autunno-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio istituzionale svizzero sullo sfondo delle decisioni federali"
+      },
+      "datePublished": "2026-10-01T20:24:45+00:00",
+      "dateModified": "2026-10-01T20:24:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/agenda-federale-autunno-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -7400,6 +7400,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dazi-svizzera-voto.title': 'SECO : Tarifs américains, vote et démission',
     'blog.article.dazi-svizzera-voto.excerpt': 'Le 24 juillet 2026, les États-Unis ont adopté des droits de douane supplémentaires sur la Suisse allant jusqu’à 12,5 % ; le 29 novembre 2026, on votera sur le matériel de guerre.',
     'blog.article.dazi-svizzera-voto.imageAlt': 'Documents sur les droits de douane et un vote fédéral dans un bureau suisse',
+    'blog.article.agenda-federale-autunno-2026.title': 'Conseil fédéral : loyers, intégration et cybersécurité',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 millions d’euros pour l’intégration en 2028-2032, contre-proposition sur les loyers et proposition sur la cybersécurité d’ici juin 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Bâtiment institutionnel suisse illustrant les décisions fédérales',
 };
 
 export default blogMetaChFr;
