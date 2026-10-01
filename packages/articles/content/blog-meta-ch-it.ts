@@ -7415,6 +7415,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: tre arresti e 110 terabyte di dati rubati',
     'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Tre arresti, otto perquisizioni e cinque server sequestrati: l\'operazione contro KillSec ha recuperato almeno 110 terabyte di dati rubati.',
     'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Schermi informatici e mappa svizzera per l\'inchiesta sul ransomware KillSec',
+    'blog.article.budget-familiare-basilea-2026.title': 'Costo della vita svizzera 2026: canton Basilea a confronto',
+    'blog.article.budget-familiare-basilea-2026.excerpt': 'Costo della vita svizzera 2026: a Basilea contano tre livelli fiscali, LAMal entro 3 mesi dall\'arrivo e deposito d\'affitto massimo di tre mensilità.',
+    'blog.article.budget-familiare-basilea-2026.imageAlt': 'Tavolo con bilancio familiare sulle voci del costo della vita svizzera a Basilea',
 };
 
 export default blogMetaChIt;

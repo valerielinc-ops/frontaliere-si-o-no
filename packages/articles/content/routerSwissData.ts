@@ -2494,6 +2494,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'killsec-server-dati-svizzeri': { it: 'killsec-server-dati-svizzeri', en: 'killsec-hacker-network-switzerland', de: 'killsec-hacker-netzwerk-schweiz', fr: 'killsec-reseau-hacker-suisse' },
  'fisioterapisti-petizioni-tariffe-cantoni': { it: 'fisioterapisti-petizioni-tariffe-cantoni', en: 'physiotherapists-petitions-tariffs-cantons', de: 'physiotherapeuten-petitionen-tarife-kantone', fr: 'physiotherapeutes-petitions-tarifs-cantons' },
  'operazione-ransomware-dati-sottratti': { it: 'operazione-ransomware-dati-sottratti', en: 'killsec-ransomware-data-recovered', de: 'killsec-ransomware-daten', fr: 'killsec-ransomware-donnees' },
+ 'budget-familiare-basilea-2026': { it: 'budget-familiare-basilea-2026', en: 'family-budget-basel-2026', de: 'familienbudget-basel-2026', fr: 'budget-menage-bale-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

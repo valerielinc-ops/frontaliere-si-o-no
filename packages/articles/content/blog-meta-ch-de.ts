@@ -7415,6 +7415,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: drei Festnahmen und 110 Terabyte gestohlene Daten',
     'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Drei Festnahmen, acht Durchsuchungen und fünf beschlagnahmte Server: Die Operation gegen KillSec sicherte mindestens 110 Terabyte gestohlener Daten.',
     'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Computermonitore und Schweizer Karte zur Untersuchung gegen die Ransomware-Gruppe KillSec',
+    'blog.article.budget-familiare-basilea-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Basel im Vergleich',
+    'blog.article.budget-familiare-basilea-2026.excerpt': 'Schweizer Lebenshaltungskosten 2026: In Basel gibt es drei Steuerstufen, KVG innerhalb von 3 Monaten nach Ankunft und eine maximale Mietkaution von drei Monaten.',
+    'blog.article.budget-familiare-basilea-2026.imageAlt': 'Tisch mit Familienbudget für Lebenshaltungskosten in der Schweiz und Basel',
 };
 
 export default blogMetaChDe;

@@ -7415,6 +7415,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: three arrests and 110 terabytes of stolen data',
     'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Three arrests, eight searches and five servers seized: the operation against KillSec recovered at least 110 terabytes of stolen data.',
     'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Computer screens and a Swiss map illustrating the KillSec ransomware investigation',
+    'blog.article.budget-familiare-basilea-2026.title': 'Swiss cost of living 2026: Canton of Basel in comparison',
+    'blog.article.budget-familiare-basilea-2026.excerpt': 'Swiss cost of living 2026: in Basel there are three tax levels, KVG within 3 months of arrival and a maximum rent deposit of three months.',
+    'blog.article.budget-familiare-basilea-2026.imageAlt': 'Table with a household budget for Swiss living costs in Basel',
 };
 
 export default blogMetaChEn;
