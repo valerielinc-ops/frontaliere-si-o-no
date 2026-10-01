@@ -85,8 +85,11 @@ describe('protected data refreshes publish through pull requests', () => {
         '--base', 'HEAD',
         '--remote', 'HEAD',
         '--refresh', 'HEAD',
-        '--path', 'data/events.json',
-        '--path', 'public/data/events.json',
+        // Path fittizi fuori da LIVE_DATA_ROOTS: con base e refresh uguali il
+        // diff è vuoto e lo script non legge nessun file, quindi qui conta solo
+        // il parsing. Un path di dato vivo faceva fallire live-data-test-guard.
+        '--path', 'tests/__fixtures__/refresh-merge/stable.json',
+        '--path', 'tests/__fixtures__/refresh-merge/published.json',
       ],
       { cwd: ROOT, encoding: 'utf8' },
     );
