@@ -7406,6 +7406,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.infomaniak-debutto-six.title': 'Infomaniak, debut on the Swiss Stock Exchange',
     'blog.article.infomaniak-debutto-six.excerpt': 'Infomaniak shares opened at 56 francs, reached 140 francs and closed at 85 francs after the reverse merger with Perrot Duval.',
     'blog.article.infomaniak-debutto-six.imageAlt': 'The Swiss stock exchange in Zurich during Infomaniak\'s market debut.',
+    'blog.article.killsec-server-dati-svizzeri.title': 'KillSec: hacker network dismantled, Switzerland involved',
+    'blog.article.killsec-server-dati-svizzeri.excerpt': 'International operation against KillSec: three arrests, five servers seized and 110 terabytes of stolen data recovered. Swiss investigations ongoing.',
+    'blog.article.killsec-server-dati-svizzeri.imageAlt': 'Swiss company server room, symbolic image for the international operation against KillSec',
 };
 
 export default blogMetaChEn;

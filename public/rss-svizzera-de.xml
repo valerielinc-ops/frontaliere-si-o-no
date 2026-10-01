@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Thu, 01 Oct 2026 21:29:11 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:05:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: Hacker-Netzwerk aufgelöst, Schweiz beteiligt</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/killsec-hacker-netzwerk-schweiz/</link>
+      <description><![CDATA[Internationale Operation gegen KillSec: drei Festnahmen, fünf Server beschlagnahmt und 110 Terabyte gestohlener Daten geborgen. Schweizer Ermittlungen laufen.]]></description>
+      <content:encoded><![CDATA[## Kurz gesagt
+- Drei Personen im Rahmen der Operation gegen KillSec festgenommen
+- Fünf Server beschlagnahmt und 110 Terabyte wiederhergestellt
+- Acht Suchaktionen in Spanien, Griechenland, dem Vereinigten Königreich und Rumänien
+- Die Schweizer Verfahren laufen noch immer
+
+## Wichtige Fakten
+- Gruppe → KillSec oder KillSecurity
+- Festnahmen → drei Personen
+- Beschlagnahmte Server → fünf
+- Daten wiederhergestellt → 110 Terabyte
+- Suchanfragen → acht in vier Ländern
+- Angriffe auf Schweizer Unternehmen → Oktober 2023–Juni 2025
+- Schweizer Verfahren → im Juli 2025 gegen unbekannte Personen eingeleitet
+- Koordination → Europol und Eurojust mit sieben weiteren Ländern
+
+Drei Personen wurden festgenommen und fünf Server, die zur Speicherung der Daten der Opfer dienten, wurden bei der internationalen Operation beschlagnahmt, die die IT-Infrastruktur von KillSec, einer für Ransomware-Angriffe verantwortlichen Gruppe, zerstörte. Zu den beteiligten Behörden gehören das Büro des Generalstaatsanwalts der Schweiz (OAG) und das Bundesamt für Polizei (fedpol).
+
+Die Operation fand gestern statt, so eine gemeinsame Erklärung der Schweizer Behörden. Die acht Durchsuchungen, die in Spanien, Griechenland, Großbritannien und Rumänien durchgeführt wurden, ermöglichten es, 110 Terabyte gestohlener Daten wiederherzustellen. Die veröffentlichte Bilanz enthält daher Festnahmen, Beschlagnahmungen und die Bergung einer großen Menge gestohlener Informationen.
+
+Die Schweizer Beteiligung geht auf ein Strafverfahren zurück, das die Bundesstaatsanwaltschaft im Juli 2025 gegen unbekannte Personen eingeleitet hat. Die Untersuchung betrifft Ransomware-Angriffe, die von der KillSec-Gruppe, deren vollständiger Name KillSecurity ist, gegen mehrere Schweizer Unternehmen im Zeitraum zwischen Oktober 2023 und Juni 2025 verübt wurden. Der Beginn des Verfahrens erfolgt daher nach dem von den Behörden angegebenen Zeitintervall der Angriffe.
+
+### Das Schweizer Verfahren
+
+Laut der Aussage verwendet die Gruppe sogenannte doppelte Erpressung. Zuerst dringt sie unrechtmäßig in das System des Opfers ein, kopiert und extrahiert die relevanten Daten und verschlüsselt die Server; dann fordert sie ein Lösegeld im Austausch für den Entschlüsselungsschlüssel. Wenn das Unternehmen sich weigert zu zahlen, zum Beispiel weil es vor dem Diebstahl der Daten ein Backup gemacht hat, drohen die Täter, die Informationen im Darknet zu veröffentlichen.
+
+Das OAG und Fedpol beteiligten sich an den internationalen Ermittlungen, die von Europol und Eurojust zusammen mit sieben weiteren Ländern koordiniert wurden. Die Verfahren in der Schweiz laufen weiterhin und zu den mutmaßlichen Straftaten zählen Datendiebstahl, missbräuchlicher Zugang zu einem Computersystem, Datenschäden und Erpressung.
+
+Die Rekonstruktion der Behörden beschreibt Ransomware als eine Abfolge von Eindringen, Kopieren und Extrahieren von Daten, Verschlüsselung von Servern und Zahlungsforderung. Das Lösegeld wird häufig in Kryptowährungen gefordert. Dies ist die Dynamik, die in der Schweizer Akte zu den KillSec-Angriffen beschrieben wird.
+## Warum der Fall Schweizer Unternehmen betrifft
+
+Die nationale Bedeutung des Falls liegt darin, dass die Schweizer Verfahren mehrere Schweizer Unternehmen betreffen, die zwischen Oktober 2023 und Juni 2025 von Angriffen betroffen waren. Für diejenigen, die in einem Unternehmen arbeiten, entspricht das beschriebene Risiko nicht einem einzigen Moment: Es umfasst Zugang zum System, Datendiebstahl, Serversperre und Lösegelddruck.
+
+Die Trennung der Passagen hilft, doppelte Erpressung korrekt zu lesen. Die Quelle behandelt Verschlüsselung und die Androhung der Veröffentlichung als zwei verknüpfte Hebel. Das Thema betrifft daher auch den aziende che assumono-Markt, obwohl nicht jedes Schweizer Unternehmen mit der untersuchten Gruppe in Verbindung gebracht wird.
+
+### Doppelte Erpressung in der Praxis
+
+| Phase | Beschreibung in der Quelle | Angezeigte Konsequenz |
+|---|---|---|
+| Zugriff | Unsachgemäßes Eindringen in das System des Opfers | Die Gruppe betritt die Computerumgebung |
+| Subtraktion | Kopierung und Extraktion von interessanten Daten | Informationen werden gestohlen |
+| Verschlüsselung | Sperren von Servern vor der Anfrage | Ein Entschlüsselungsschlüssel wird angefordert |
+| Ablehnung | Nichtzahlung, selbst nach einem Backup | Androhung der Veröffentlichung im Darknet |
+
+Das Backup spielt eine Rolle im berichteten Szenario: Es kann der Grund sein, warum das Opfer die Zahlung verweigert, aber laut Quelle beseitigt es nicht die Gefahr, die Daten öffentlich zu machen. Dies unterscheidet die Verfügbarkeit einer Kopie der Daten vom Schutz bereits gestohlener Informationen.
+
+Die Beschlagnahmung der fünf Server und die Bergung von 110 Terabyte zeigen ebenfalls die doppelte Dimension der Operation: einerseits die Infrastruktur zur Speicherung der Opferdaten, andererseits die während der Durchsuchungen gewonnenen Informationen. Die Quelle wandelt diese Zahlen nicht in eine Schätzung des wirtschaftlichen Schadens oder der Höhe von Lösegeldern um.
+
+Die Schweizer Verfahren sind weiterhin offen. Aus diesem Grund spricht die Erklärung von hypothetischen Straftaten und liefert keine endgültige Schlussfolgerung zur strafrechtlichen Verantwortung. Die Präsenz von Europol, Eurojust und sieben weiteren Ländern stellt das Schweizer Dossier zudem in eine internationale Untersuchung ein, mit Durchsuchungen in vier europäischen Ländern.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
+## Von Nachrichten bis zur operativen Überprüfung
+
+Um die Fakten in eine operative Lesart zu verwandeln, kann ein Schweizer Unternehmen die Episode nach der von den Behörden beschriebenen Reihenfolge rekonstruieren. Der Weg dient dazu, die Art der ergriffenen Maßnahme und die Phase, in der die wirtschaftliche Anfrage erscheint, zu unterscheiden, ohne Verfahren oder Fristen hinzuzufügen, die die Quelle nicht angibt.
+
+### Fünf Schritte, um den Angriff wieder aufzubauen
+
+1. Überprüfen Sie das erste Element der Sequenz: unzulässiger Zugriff auf das Computersystem des Opfers.
+2. Trennen Sie die Eingabe von der Kopie und Extraktion der relevanten Daten, die in der Ransomware-Beschreibung vor der Verschlüsselung stattfinden.
+3. Feststellen, ob die Server verschlüsselt wurden, da die Sperre der Anfrage nach dem Entschlüsselungsschlüssel vorausgeht.
+4. Identifizieren Sie den Lösegeldbrief und bedenken, dass laut Quelle die Zahlung oft in Kryptowährungen verlangt wird.
+5. Bewerten Sie den zweiten Druck: Wenn das Opfer ablehnt, auch weil es ein Backup hat, ist die angezeigte Bedrohung die Veröffentlichung der Daten im Darknet.
+
+Um eine Episode in die Schweizer Akte einzuordnen, ist die Zeitreferenz die, die von den Behörden gemeldet wurde: Die Angriffe, die KillSec auf mehrere Schweizer Unternehmen zugeschrieben werden, liegen zwischen Oktober 2023 und Juni 2025, während die strafrechtlichen Verfahren gegen unbekannte Personen im Juli 2025 eingeleitet wurden. Die Chronologie hilft beim Vergleich der Fakten, aber das Verfahren ist noch im Gange.
+
+Die Abfolge ermöglicht es auch, die Beschlagnahmung der Server nicht mit dem Ergebnis der Untersuchung zu verwechseln. Die internationale Operation führte zu Festnahmen, Durchsuchungen und Datenbergung; auf Schweizer Ebene bleiben jedoch hypothetische Straftaten wie Datendiebstahl, missbräuchlicher Zugriff, Datenschäden und Erpressung angezeigt. Der Bezug auf Kryptowährungen betrifft die Lösegeldforderung und darf nicht mit den für conti bancari in Svizzera vorgesehenen Tools verwechselt werden.
+
+Um die Lesung mit einem Portal-Tool abzuschließen, verwenden Sie das calcolatore stipendio.
+
+*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/smantellata-rete-internazionale-di-hacker/92151953)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:05:44 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/killsec-server-dati-svizzeri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/killsec-server-dati-svizzeri.webp" medium="image"/>
+    </item>
     <item>
       <title>Infomaniak, Debüt an der Schweizer Börse</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/infomaniak-boersenstart-six/</link>
@@ -3702,81 +3783,6 @@ Erster Tag als Grenzgänger? Unser praktischer Leitfaden begleitet Sie von der A
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/guida-assenze-famiglia-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/guida-assenze-famiglia-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Coop erreicht die Marke von 1&apos;000 Supermärkten in der Schweiz</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/coop-erreicht-1000-supermarkte/</link>
-      <description><![CDATA[Morgen eröffnet in Emmen die tausendste Coop-Verkaufsstelle: 2'500 m². CEO Philipp Wyss kündigt neue Eröffnungen an und bezeichnet die Gruppe als Marktführerin im Tessin.]]></description>
-      <content:encoded><![CDATA[## Auf einen Blick
-- Coop eröffnet morgen in Emmen seinen 1’000. Supermarkt
-- Die neue Filiale ist 2’500 Quadratmeter groß
-- Das Filialnetz umfasst rund 1,1 Millionen Quadratmeter
-- Im Tessin bezeichnet sich Coop als Marktführer
-
-## Eckdaten
-- Meilenstein → 1'000 Supermärkte
-- Eröffnung → morgen
-- Ort → Emmen, Kanton Luzern
-- Fläche → 2'500 Quadratmeter
-- Investitionen in zehn Jahren → rund 3,5 Milliarden Franken
-
-Morgen eröffnet Coop in Emmen im Kanton Luzern die tausendste Filiale ihres Supermarktnetzes. Die neue Filiale wird eine Fläche von 2'500 Quadratmetern haben und bringt die Genossenschaft damit an die Marke von 1'000 Supermärkten in der Schweiz.
-
-### Eine maßvolle Expansion bei Filialen und Flächen
-Dieser Meilenstein wird nach zehn Jahren erreicht, in denen Coop 124 neue Filialen eröffnet und rund 3,5 Milliarden Franken in die Modernisierung der Filialen investiert hat. Insgesamt nehmen die Filialen rund 1,1 Millionen Quadratmeter Verkaufsfläche ein. Diese Zahl umfasst somit sowohl Neueröffnungen als auch Umbaumaßnahmen an bestehenden Filialen.
-
-Das Filialnetz erstreckt sich über sehr unterschiedliche Umgebungen. Es reicht von Stadtzentren über Dörfer bis hin zu Bergorten. Als Beispiel für die Präsenz in Höhenlagen nennt Coop die Bettmeralp im Wallis auf 1'948 Metern Höhe. Dieses Beispiel zeigt, dass das Netzwerk städtische Gebiete, Kleinstädte und alpine Reiseziele umfasst.
-
-### Das nächste Kapitel des Wachstums
-Für CEO Philipp Wyss bedeutet die 1'000. Filiale nicht das Ende des Wachstums der Gruppe. Das Potenzial liegt seiner Einschätzung nach vor allem in der Zentral- und Ostschweiz sowie in Genf und Lausanne. Wyss beschrieb zudem die Position von Coop in einigen der wichtigsten Schweizer Städte:
-
-> „In Zürich und Basel sind wir extrem stark, und im Tessin sind wir Marktführer.“
-
-Nach dem Meilenstein in Emmen werde der Konzern weiterhin neue Filialen eröffnen, kündigte der CEO an. Die Ankündigung verbindet somit die morgige Eröffnung mit dem Vorhaben, weiterhin Filialen an den von Wyss genannten Standorten zu eröffnen. Coop setzt zudem auf die Integration von stationärem und Online-Handel, mit der Möglichkeit, Einkäufe auf Coop.ch zu bestellen und an eine Filiale am eigenen Ferienort liefern zu lassen.
-## Der Vergleich mit Migros
-Die Größe des Netzes wird verständlicher, wenn man die Anzahl der Geschäfte und die Verkaufsfläche gemeinsam betrachtet. Ende 2025 zählte Migros 659 eigenständige Supermärkte mit knapp 1,06 Millionen Quadratmetern Verkaufsfläche. Coop kommt nun auf 1'000 Supermärkte und rund 1,1 Millionen Quadratmeter.
-
-### Zwei Netzstrategien
-| Betreiber | Netz und Fläche | Nächste Eröffnungen |
-|---|---|---|
-| Coop | 1'000 Supermärkte; rund 1,1 Millionen m² | Angekündigte Neueröffnungen |
-| Migros | Ende 2025 659 eigenständige Supermärkte; knapp 1,06 Millionen m² | 140 bis 2030 |
-
-Der Vergleich zeigt zwei Betreiber mit weitreichenden Netzen und bereits angekündigten Ausbauplänen. Für Migros ist der zeitliche Bezug präzise: Bis 2030 sind 140 neue Eröffnungen vorgesehen. Für Coop hingegen kündigte CEO Philipp Wyss an, dass die Expansion über das tausendste Geschäft hinaus fortgesetzt wird.
-
-Für Menschen, die in der Schweiz leben, betrifft die konkrete Einordnung auch die geografische Verteilung. Coop spricht von Stadtzentren, Dörfern und Bergorten und sieht zusätzliches Potenzial in der Zentral- und Ostschweiz, in Genf und in Lausanne. Das Netz wird daher nicht als auf eine einzige Stadt konzentriert beschrieben, sondern als Präsenz in unterschiedlichen Arten von Orten.
-
-### Worauf bei den nächsten Schritten zu achten ist
-Die praktische Unterscheidung besteht zwischen dem Geschäft, das morgen in Emmen eröffnet, der erklärten Positionierung im Tessin und den Gebieten, in denen die Geschäftsleitung weiteres Potenzial sieht. Das sind drei unterschiedliche Informationen: eine Neueröffnung, eine Marktpositionierung und eine Ausrichtung für weitere Neueröffnungen. So kann der Leser die bereits angekündigte Tatsache von den vom CEO aufgezeigten Perspektiven unterscheiden.
-
-Auch der Vergleich mit Migros hat eine zeitliche Dimension: Coop meldet das Erreichen des tausendsten Supermarkts, während Migros auf die 140 Eröffnungen bis 2030 blickt. Um diese Dynamik mit der Verwaltung der Haushaltsausgaben zu verknüpfen, kann der Leser den costo della vita in Svizzera konsultieren.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-## Der von Coop angegebene operative Ablauf
-Coop setzt auf die Integration von traditionellem Handel und Onlinehandel. Der in der Ankündigung genannte Service ermöglicht es, den Einkauf auf Coop.ch zu bestellen und ihn sich an eine Verkaufsstelle am eigenen Ferienort liefern zu lassen. Der umsetzbare Teil der Nachricht ist somit die Verbindung zwischen digitaler Bestellung und physischem Netz.
-
-### Die von der Quelle beschriebenen Schritte
-1. Coop.ch verwenden, um den Einkauf zu bestellen.
-2. Den Einkauf an eine Verkaufsstelle am eigenen Ferienort liefern lassen.
-
-Die Abfolge verbindet den Online-Kanal mit den über das Gebiet verteilten Geschäften. Das von Coop erwähnte Netz umfasst Stadtzentren, Dörfer und Bergorte; der Online-Service ergänzt diese physische Präsenz um eine an den Ferienort gebundene Liefermöglichkeit.
-
-### Die Ankündigung von der operativen Umsetzung trennen
-Die Eröffnung in Emmen ist das für morgen geplante Ereignis. Die Geschäftsleitung hat außerdem angekündigt, dass Coop weiterhin Verkaufsstellen eröffnen wird, und die Zentral- und Ostschweiz, Genf und Lausanne als Gebiete mit Potenzial genannt. Um diesen Teil der Nachricht zu verfolgen, sind die vom CEO genannten Orte von der Verkaufsstelle zu unterscheiden, die im Kanton Luzern bald eröffnet wird.
-
-Für das Tessin ist die Aussage von Philipp Wyss zur Marktführerschaft der maßgebliche Punkt. Die allgemeine Ankündigung neuer Eröffnungen betrifft hingegen die künftige Ausrichtung der Gruppe. Wer die Unternehmensseite verfolgen möchte, kann die Nachricht mit dem Abschnitt aziende che assumono ergänzen, ohne Coop nicht angekündigte Einstellungen zuzuschreiben.
-
-Um die Nachricht mit einer persönlichen Einschätzung zu ergänzen, verwende calcolatore stipendio.
-
-Vergleichen Sie den CHF/EUR-Wechselkurs in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
-
-*Quelle: [tio.ch](https://www.tio.ch/svizzera/economia/1953847/emmen-coop-vendita-supermercati-ticino-raggiunge-quota-leader)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:06:34 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/coop-millesimo-supermercato</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/coop-millesimo-supermercato.webp" medium="image"/>
     </item>
   </channel>
 </rss>
