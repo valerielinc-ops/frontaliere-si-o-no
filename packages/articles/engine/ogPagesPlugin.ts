@@ -1514,12 +1514,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleBodyLocale))}">
+ <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(localizedTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleBodyLocale))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
