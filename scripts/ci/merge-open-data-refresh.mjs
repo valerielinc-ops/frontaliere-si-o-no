@@ -18,6 +18,7 @@ import {
   writeFileSync,
 } from 'node:fs';
 import path from 'node:path';
+import { resolveGitAddPaths } from '../lib/resolve-git-add-path.mjs';
 import { mergeRefreshContent } from './open-data-refresh-merge.mjs';
 
 function usage(message) {
@@ -60,8 +61,18 @@ function gitShow(ref, file) {
   }
 }
 
+// Article surfaces are published through their historical symlinked paths
+// (`services/locales/blog-body/<locale>/…` behind a symlinked directory,
+// `data/blog-articles-data.ts` as a file symlink). `git diff -- <path>` is
+// silent for an edit made through a symlink: git tracks the real blob under
+// packages/articles/content/, so the current run's article update would be
+// dropped while the stable tree is reported as merged. Resolve the pathspecs
+// the same way scripts/lib/git-add-resolved.mjs does for staging.
+const repoRoot = git(['rev-parse', '--show-toplevel']).trim();
+const diffPaths = resolveGitAddPaths(repoRoot, options.paths);
+
 function changedFiles() {
-  return git(['diff', '--name-only', options.base, options.refresh, '--', ...options.paths])
+  return git(['diff', '--name-only', options.base, options.refresh, '--', ...diffPaths])
     .split('\n')
     .map((file) => file.trim())
     .filter(Boolean);

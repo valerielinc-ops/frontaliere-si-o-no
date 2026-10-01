@@ -34,7 +34,7 @@
  *   - RITUALS_COSMETICS_KEY / _COMPANY_NAME / _COMPANY_DOMAIN constants
  */
 import { createHash } from 'node:crypto';
-import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
+import { appendSlugDisambiguator, detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } from './target-swiss-locations.mjs';
 import {
@@ -206,7 +206,59 @@ async function fetchJobListings() {
   return out;
 }
 
-export async function fetchAllRitualsCosmeticsJobs() {
+/* ── Slug identity ─────────────────────────────────────────── */
+
+/**
+ * Stable per-requisition slug suffix (crawler-template `slugDisambiguator`).
+ *
+ * Rituals runs several concurrent reqs for the same role in the same city,
+ * often at the same store (see the "Job ID" note below). Their routes are
+ * built from title + company (+ city once localized), so without a per-req
+ * suffix those reqs collided on one slug, and the slice housekeeping kept one
+ * req per slug and archived the others as within-slice duplicates. On
+ * 2026-09-30 that filed 159 of the 665 live reqs under
+ * data/jobs/expired/by-crawler/rituals-cosmetics.json; they came back as
+ * "new" on the next crawl and were archived again, so the archive swung
+ * between ~40 KB and ~1 MB twice a day while the downstream ghost
+ * reconciliation removed them, and the accumulator byte guard aborted the
+ * writers that saw the swing.
+ *
+ * The Workday requisition ID is the req's own identity; the URL hash only
+ * covers a posting Workday serves without one.
+ */
+export function ritualsSlugDisambiguator(jobReqId = '', publicUrl = '') {
+  const fromReqId = String(jobReqId || '').toLowerCase().replace(/[^a-z0-9]+/g, '');
+  if (fromReqId) return fromReqId;
+  return publicUrl ? createHash('sha1').update(publicUrl).digest('hex').slice(0, 8) : '';
+}
+
+function normalizeReqId(value) {
+  return String(value || '').trim().toUpperCase();
+}
+
+/** Index the published Rituals slice by requisition ID and by job id. */
+function indexPublishedRitualsJobs(existingJobs = []) {
+  const byReqId = new Map();
+  const byId = new Map();
+  for (const job of Array.isArray(existingJobs) ? existingJobs : []) {
+    if (!job || typeof job !== 'object' || !isRitualsCosmeticsJob(job)) continue;
+    const reqId = normalizeReqId(job.jobReqId);
+    if (reqId && !byReqId.has(reqId)) byReqId.set(reqId, job);
+    const id = String(job.id || '').trim();
+    if (id && !byId.has(id)) byId.set(id, job);
+  }
+  return { byReqId, byId };
+}
+
+/**
+ * @param {{ existingJobs?: object[] }} [options] `existingJobs` is the
+ *   published slice: a req already in it keeps the route it is indexed under
+ *   (and the suffix it was minted with, if any). Only an unpublished req gets
+ *   a new `slugDisambiguator`, because a new suffix on a published job is an
+ *   explicit route migration for the slug pipeline.
+ */
+export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
+  const published = indexPublishedRitualsJobs(existingJobs);
   console.log(`🏭 Fetching ${RITUALS_COSMETICS_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL}`);
   console.log(`   Workday: ${WORKDAY_API_BASE}\n`);
@@ -299,13 +351,25 @@ export async function fetchAllRitualsCosmeticsJobs() {
       ? `Store: ${rawLocation}${canton ? `, ${canton}` : ''}, Switzerland. Job ID: ${jobRefId}.\n\n`
       : '';
     const descriptionText = `${storeLine}${baseDescription}`;
-    const jobSlug = slugify(`${title} ${RITUALS_COSMETICS_KEY} ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
+    const id = `${RITUALS_COSMETICS_KEY}-${urlHash}`;
+    // Same role in the same city is the normal case on this board, so an
+    // unpublished req is minted with its own suffix; a published one keeps
+    // its indexed route (see ritualsSlugDisambiguator).
+    const publishedJob = published.byReqId.get(normalizeReqId(listing.jobReqId)) || published.byId.get(id);
+    const slugDisambiguator = publishedJob
+      ? String(publishedJob.slugDisambiguator || '').trim()
+      : ritualsSlugDisambiguator(listing.jobReqId, publicUrl);
+    const jobSlug = appendSlugDisambiguator(
+      slugify(`${title} ${RITUALS_COSMETICS_KEY} ch`),
+      slugDisambiguator,
+    );
 
     const job = {
-      id: `${RITUALS_COSMETICS_KEY}-${urlHash}`,
+      id,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
+      ...(slugDisambiguator ? { slugDisambiguator } : {}),
       company: RITUALS_COSMETICS_COMPANY_NAME,
       companyKey: RITUALS_COSMETICS_KEY,
       companyDomain: RITUALS_COSMETICS_COMPANY_DOMAIN,

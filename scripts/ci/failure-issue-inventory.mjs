@@ -402,26 +402,27 @@ const isMain = process.argv[1]
 
 if (isMain) {
   const rows = coverageReport();
+  // Nessun process.exit(): chiamato subito dopo write() taglia l'output a
+  // 65536 byte quando stdout e' una pipe (lo legge un altro script).
   if (process.argv.includes('--json')) {
     process.stdout.write(JSON.stringify(rows, null, 2) + '\n');
-    process.exit(0);
-  }
-  const uncovered = rows.filter((r) => !r.closedBy);
-  const adopted = rows.filter((r) => r.via === 'action');
-  const all = process.argv.includes('--all');
-  if (all) {
-    for (const r of rows) {
-      console.log(`${r.closedBy ? '✅' : '❌'} ${r.file}:${r.line}\t${r.title}\t→ ${r.closedBy || 'NESSUNO'}${r.detail ? ` (${r.detail})` : ''}`);
+  } else {
+    const uncovered = rows.filter((r) => !r.closedBy);
+    const adopted = rows.filter((r) => r.via === 'action');
+    const all = process.argv.includes('--all');
+    if (all) {
+      for (const r of rows) {
+        console.log(`${r.closedBy ? '✅' : '❌'} ${r.file}:${r.line}\t${r.title}\t→ ${r.closedBy || 'NESSUNO'}${r.detail ? ` (${r.detail})` : ''}`);
+      }
+      console.log('');
     }
-    console.log('');
+    console.log(`issue di fallimento aperte da un ramo failure(): ${rows.length}`);
+    console.log(`  con un chiuditore: ${rows.length - uncovered.length}`);
+    console.log(`  SENZA chiuditore:  ${uncovered.length}`);
+    console.log(`  già sul reporter diagnostico (${REPORT_ACTION_USES}): ${adopted.length}`);
+    if (!all && uncovered.length > 0) {
+      console.log('\nSenza chiuditore — adottarne uno PRIMA di montarci il reporter (#5437):');
+      for (const r of uncovered) console.log(`  ${r.file}:${r.line}\t${r.title}`);
+    }
   }
-  console.log(`issue di fallimento aperte da un ramo failure(): ${rows.length}`);
-  console.log(`  con un chiuditore: ${rows.length - uncovered.length}`);
-  console.log(`  SENZA chiuditore:  ${uncovered.length}`);
-  console.log(`  già sul reporter diagnostico (${REPORT_ACTION_USES}): ${adopted.length}`);
-  if (!all && uncovered.length > 0) {
-    console.log('\nSenza chiuditore — adottarne uno PRIMA di montarci il reporter (#5437):');
-    for (const r of uncovered) console.log(`  ${r.file}:${r.line}\t${r.title}`);
-  }
-  process.exit(0);
 }

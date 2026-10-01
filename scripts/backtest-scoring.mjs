@@ -225,7 +225,10 @@ async function main() {
     writeFileSync(args.output, json + '\n');
     console.error(`backtest: report → ${args.output}`);
   } else {
-    process.stdout.write(json + '\n');
+    // Exit only once the pipe took the whole report: process.exit() right
+    // after write() keeps the first 65536 bytes of a piped stdout.
+    process.stdout.write(json + '\n', () => process.exit(0));
+    return;
   }
   process.exit(0);
 }

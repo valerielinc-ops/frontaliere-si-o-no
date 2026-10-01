@@ -97,8 +97,8 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
  * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:1771:6':
-    'validatore post-deploy: il fallback vivo alla riga 1771 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
+  '.github/workflows/post-deploy-validate-dist.yml:1766:6':
+    'validatore post-deploy: il fallback vivo alla riga 1766 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml:518:6':
     'stessa famiglia post-deploy del precedente: il call site vivo Report failure to GitHub Issues passa 6h per ricadute dentro il ciclo, non per quelle a giorni.',
   '.github/workflows/deploy-publish.yml:376:6':

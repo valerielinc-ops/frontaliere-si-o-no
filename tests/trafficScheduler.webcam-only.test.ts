@@ -760,4 +760,61 @@ describe('runTrafficCollection — Google Maps last-resort preflight', () => {
     // Preflight call + one call per segment per crossing — never falls back to webcam.
     expect(fetchMock.mock.calls.filter((c) => String(c[0]).includes('maps.googleapis.com')).length).toBeGreaterThan(1);
   });
+
+  /**
+   * Run 36768407121 (2026-09-30): the preflight logged `google-routes preflight
+   * failed (auth)` and nothing else, so the log could not tell a Routes API
+   * that is not enabled on the key's project from a revoked key. The warning
+   * now carries the adapter message next to the class.
+   */
+  it('names the provider error, not only its class, when a preflight disables a provider', async () => {
+    const fetchMock = vi.fn(async (url: unknown) => {
+      const u = String(url);
+      if (u.includes('routes.googleapis.com')) {
+        return {
+          ok: false,
+          status: 403,
+          text: async () => JSON.stringify({
+            error: {
+              code: 403,
+              message: 'Routes API has not been used in project 123 before or it is disabled.',
+              status: 'PERMISSION_DENIED',
+            },
+          }),
+        } as unknown as Response;
+      }
+      if (u.includes('maps.googleapis.com')) {
+        return {
+          ok: true,
+          json: async () => ({
+            status: 'REQUEST_DENIED',
+            error_message: 'You’re calling a legacy API, which is not enabled for your project.',
+          }),
+        } as unknown as Response;
+      }
+      return { ok: true, json: async () => ({}) } as unknown as Response;
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const { runTrafficCollection } = (await import(
+      '../functions/src/trafficSchedulerCore.js'
+    )) as CoreModule;
+
+    const result = await runTrafficCollection({
+      googleApiKey: 'google-key',
+      googleRoutesApiKey: 'google-key',
+      enableWebcam: false,
+    });
+
+    expect(result).toEqual({ collected: 0, errors: 0, skipped: 'traffic-provider-mesh-exhausted' });
+    const warnings = vi.mocked(console.warn).mock.calls.map((call) => String(call[0]));
+    const routes = warnings.find((line) => line.startsWith('🛑 google-routes preflight failed'));
+    const legacy = warnings.find((line) => line.startsWith('🛑 google-maps preflight failed'));
+    expect(routes).toContain('(auth)');
+    expect(routes).toContain('HTTP 403');
+    expect(routes).toContain('Routes API has not been used in project 123');
+    expect(legacy).toContain('(auth)');
+    expect(legacy).toContain('legacy API, which is not enabled for your project');
+    expect(warnings.join('\n')).not.toContain('google-key');
+  });
 });

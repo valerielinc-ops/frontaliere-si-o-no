@@ -29,6 +29,7 @@ import {
   SmartRecruitersApiError,
   smartRecruitersPostingUrls,
 } from './ats-clients/smartrecruiters-client.mjs';
+import { SPONTANEOUS_APPLICATION_RE } from './spontaneous-application.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -149,8 +150,6 @@ function composeLocationText(loc = {}) {
     .map((part) => part.trim());
   return parts.join(', ');
 }
-
-const SPONTANEOUS_APPLICATION_RE = /candidature\s+spontan|candidatura\s+spontan|postulation\s+spontan|spontaneous\s+application/i;
 
 /**
  * SmartRecruiters can expose a generic application container as a posting.

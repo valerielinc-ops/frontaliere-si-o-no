@@ -9,6 +9,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
 import { withSourceLangRelabelFlags } from './lib/source-lang-relabel.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllFaulhaberJobs,
   isFaulhaberJob,
@@ -30,6 +31,12 @@ runStandardCrawlerPipeline({
   isCompanyJob: isFaulhaberJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  // A zero is published only when the complete HR4YOU feed lists no Swiss
+  // vacancy (see fetchAllFaulhaberJobs); a failed fetch stays a bare `[]`
+  // that keeps the previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(FAULHABER_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Faulhaber crawler failed: ${err?.message || err}`);
   process.exit(1);
