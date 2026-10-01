@@ -7415,6 +7415,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec : trois arrestations et 110 téraoctets de données volées',
     'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Trois arrestations, huit perquisitions et cinq serveurs saisis : l’opération contre KillSec a récupéré au moins 110 téraoctets de données volées.',
     'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Écrans informatiques et carte suisse pour l\'enquête sur le rançongiciel KillSec',
+    'blog.article.budget-familiare-basilea-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Bâle en comparaison',
+    'blog.article.budget-familiare-basilea-2026.excerpt': 'Coût de la vie en Suisse 2026 : à Bâle, il y a trois niveaux d’imposition : le KVG dans les 3 mois suivant l’arrivée et un dépôt de loyer maximal de trois mois.',
+    'blog.article.budget-familiare-basilea-2026.imageAlt': 'Table avec un budget familial des coûts de la vie suisse à Bâle',
 };
 
 export default blogMetaChFr;
