@@ -34,6 +34,7 @@ import {
   decideChronicDeescalation,
   countRecurrences,
   dropPhantomCancellations,
+  dropSkippedRuns,
   hasReadableAnnotations,
   hasNoTimeoutEvidenceFromJobs,
   hasTimeoutAnnotation,
@@ -102,6 +103,21 @@ test('un solo fallimento nella finestra, seguito da 3 verdi → si chiude', () =
   // È il fallimento che ha aperto la issue, non una ricorrenza: `maxRecurrences: 1`.
   const runs = history([[5, true], [25, true], [45, true], [70, false], [400, true]]);
   eq(decideRecurrenceHold(runs, opts).hold, false);
+});
+
+test('una run workflow-level skipped non maschera la verde né conta come ricorrenza', () => {
+  // `workflow_run` può produrre un run concluso `skipped` quando la guardia
+  // impedisce al job di partire. Ignorarlo conserva la prova delle run eseguite.
+  const runs = dropSkippedRuns([
+    { ...run(2, false), conclusion: 'skipped' },
+    ...history([[5, true], [12, true], [20, true], [35, false], [400, true]]),
+  ]);
+  eq(runs[0].conclusion, 'success');
+  const d = decideRecurrenceHold(runs, opts);
+  eq(d.hold, false);
+  eq(d.failures, 1);
+  eq(d.streak, 3);
+  eq(dropSkippedRuns([{ conclusion: 'skipped' }]), []);
 });
 
 test('un solo fallimento ma appena UNA run verde dopo → si tiene aperta', () => {

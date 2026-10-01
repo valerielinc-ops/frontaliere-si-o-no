@@ -20,7 +20,8 @@
  * ALGORITHM for `Workflow Failure:` / `CI Failure:` issues:
  *   1. Parse the workflow display name out of the stable title prefix.
  *   2. Ask GitHub for that workflow's most-recent COMPLETED runs on `main` (one page,
- *      RUN_HISTORY_LIMIT rows — the run HISTORY, not just the head of it).
+ *      RUN_HISTORY_LIMIT rows — the run HISTORY, not just the head of it). Workflow-level
+ *      `skipped` completions are removed because their guarded jobs never ran.
  *   3. If the latest one is `success` AND started after the issue was opened (so it is a
  *      run that happened *after* the reported failure, not a stale pre-failure green) →
  *      close the issue via the same resolveGithubIssue() the inline `--resolve` uses
@@ -469,8 +470,9 @@ function recurrenceOptions() {
  * Decide whether a recovered issue must be HELD OPEN because the failure RECURS.
  *
  * Pure: takes the run history it is given, never calls `gh`. `runs` is the workflow's
- * COMPLETED runs, newest-first, as `recentCompletedRuns()` returns them; `null` (or an
- * empty list) means "no history available" — the crawler-step path, where a per-run Jobs
+ * COMPLETED runs that actually ran, newest-first, as `recentCompletedRuns()` returns
+ * them; workflow-level `skipped` runs are not observations. `null` (or an empty list)
+ * means "no history available" — the crawler-step path, where a per-run Jobs
  * API call per historical run would be unaffordable. In that case the gate is a NO-OP and
  * the old behaviour stands, deliberately: silently changing the crawler family, which has
  * a different reporter and a different cadence, on a measurement taken on the workflow
@@ -1072,6 +1074,19 @@ export function dropPhantomCancellations(runs, isPhantom) {
   return runs.filter((r) => r?.conclusion !== 'cancelled' || !isPhantom(r?.databaseId));
 }
 
+/**
+ * Removes workflow-level `skipped` completions from recovery history. GitHub
+ * records a completed run for guarded `workflow_run` events even when every job
+ * is skipped; that run did not exercise the workflow and is neither recovery
+ * evidence nor a recurrence.
+ *
+ * @param {Array<{conclusion?: string}>|null} runs
+ */
+export function dropSkippedRuns(runs) {
+  if (!Array.isArray(runs)) return [];
+  return runs.filter((r) => r?.conclusion !== 'skipped');
+}
+
 // Le run COMPLETATE più recenti del workflow sulla popolazione richiesta,
 // dalla più nuova alla più vecchia, o null se il workflow non ha run
 // (rinominato/cancellato) o il listing è fallito — nel qual caso lasciamo
@@ -1146,15 +1161,16 @@ function computeRecentCompletedRuns(workflowName, repo, token, options = {}) {
         // esplicitamente costa nulla e toglie la dipendenza da un contratto non scritto.
         .sort((a, b) => Date.parse(b.createdAt) - Date.parse(a.createdAt));
   const completed = dropPhantomCancellations(
-    orderedRuns.filter((r) => r.status === 'completed'),
+    dropSkippedRuns(orderedRuns.filter((r) => r.status === 'completed')),
     (databaseId) => hasNoTimeoutEvidence(databaseId, repo, token),
   );
   return completed.length ? completed : null;
 }
 
-// Most-recent COMPLETED run of the named workflow on the requested population,
-// or null if the workflow has no runs (e.g. renamed/deleted) — in which case we
-// conservatively leave the issue open.
+// Most-recent COMPLETED run that executed for the named workflow on the requested
+// population, or null if the workflow has no such runs (e.g. renamed/deleted or only
+// guarded workflow_run events were skipped) — in which case we conservatively leave
+// the issue open.
 function latestCompletedRun(workflowName, repo = REPO, token, options = {}) {
   const runs = recentCompletedRuns(workflowName, repo, token, options);
   return runs ? runs[0] : null;
