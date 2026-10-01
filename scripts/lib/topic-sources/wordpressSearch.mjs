@@ -30,7 +30,15 @@ const TIMEOUT_MS = 12000;
  * Strip HTML tags + decode HTML entities from rendered title/excerpt.
  */
 function stripHtml(s) {
-  return decodeHTML(String(s ?? '').replace(/<[^>]+>/g, ''), { scope: 'strict' })
+  const text = String(s ?? '').replace(/<[^>]+>/g, '')
+    .replace(/&#(?:[xX]([0-9a-fA-F]+)|(\d+));/g, (entity, hex, decimal) => {
+      const code = Number.parseInt(hex ?? decimal, hex === undefined ? 10 : 16);
+      // html-entities 2.x permits surrogate code points and rejects U+10FFFF.
+      // Normalize only complete source references, before the single decode.
+      if (code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) return '\ufffd';
+      return code === 0x10ffff ? String.fromCodePoint(code) : entity;
+    });
+  return decodeHTML(text, { scope: 'strict' })
     .replace(/[‘’]/g, "'")
     .replace(/[“”]/g, '"')
     .replace(/\s+/g, ' ')

@@ -18,6 +18,21 @@ describe('wordpressSearch.stripHtml', () => {
     expect(stripHtml(null)).toBe('');
     expect(stripHtml(42)).toBe('42');
   });
+
+  it('replaces invalid numeric Unicode scalars with the replacement character', () => {
+    expect(stripHtml('&#55296; &#xDFFF; &#0; &#1114112; &#99999999999999999999999999; &#55357;&#56832;'))
+      .toBe('\ufffd \ufffd \ufffd \ufffd \ufffd \ufffd\ufffd');
+  });
+
+  it('preserves valid scalar boundaries, astral characters and HTML C1 mappings', () => {
+    expect(stripHtml('&#55295; &#57344; &#1114111; &#x10FFFF; &#x1F680; &#128;'))
+      .toBe(`\ud7ff \ue000 ${String.fromCodePoint(0x10ffff)} ${String.fromCodePoint(0x10ffff)} 🚀 €`);
+  });
+
+  it('decodes one layer and leaves incomplete references literal', () => {
+    expect(stripHtml('&#38;#xD800; &amp;#55296; &amp;amp; &#55296 &amp'))
+      .toBe('&#xD800; &#55296; &amp; &#55296 &amp');
+  });
 });
 
 describe('wordpressSearch.WP_SOURCES', () => {
@@ -36,6 +51,20 @@ describe('wordpressSearch.WP_SOURCES', () => {
 });
 
 describe('wordpressSearch.fetchWordpressSearchHeadlines', () => {
+  it('normalizes numeric Unicode references at the fetched headline boundary', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: true,
+      async json() {
+        return [{ link: 'https://example.com/unicode/', date: new Date().toISOString(),
+          title: { rendered: 'Frontalieri &#xD800; &#x1F680; &#1114111;' } }];
+      },
+    });
+    const result = await fetchWordpressSearchHeadlines({ fetchImpl });
+    expect(result).toHaveLength(WP_SOURCES.length);
+    expect(result.map((item: { headline: string }) => item.headline))
+      .toEqual(WP_SOURCES.map(() => `Frontalieri \ufffd 🚀 ${String.fromCodePoint(0x10ffff)}`));
+  });
+
   it('returns headlines from a mocked WP REST response with valid shape', async () => {
     const fetchImpl = vi.fn().mockImplementation(async (url: string) => {
       expect(url).toContain('/wp-json/wp/v2/posts');
