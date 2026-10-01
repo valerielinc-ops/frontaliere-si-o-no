@@ -1,6 +1,6 @@
 {
   "crawlerKey": "alpiq",
-  "assembledAt": "2026-10-01T09:27:43.557Z",
+  "assembledAt": "2026-10-01T21:28:18.522Z",
   "jobs": [
     {
       "id": "alpiq-49d8995dc2b6",
@@ -47,7 +47,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:27:37.623Z",
+      "crawledAt": "2026-10-01T21:28:12.759Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
       "salaryMin": 92000,
@@ -62,8 +62,7 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/150"
+      }
     },
     {
       "id": "alpiq-8ca59717291e",
@@ -110,7 +109,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:27:37.619Z",
+      "crawledAt": "2026-10-01T21:28:12.753Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
       "salaryMin": 117500,
       "salaryMax": 179500,
@@ -124,8 +123,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/141"
+      }
     },
     {
       "id": "alpiq-24db5dc75d88",
@@ -172,7 +170,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:27:37.609Z",
+      "crawledAt": "2026-10-01T21:28:12.735Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -186,8 +184,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/33"
+      }
     },
     {
       "id": "alpiq-afdc6bd66056",
@@ -234,7 +231,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:27:37.618Z",
+      "crawledAt": "2026-10-01T21:28:12.752Z",
       "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
@@ -252,8 +249,7 @@
           "maxValue": 179500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.alpiq.com/career/open-jobs/your-application/36"
+      }
     }
   ]
 }

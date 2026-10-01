@@ -1,16 +1,16 @@
 {
   "key": "convit-holding",
   "label": "Convit Holding",
-  "generatedAt": "2026-10-01T09:34:22.212Z",
+  "generatedAt": "2026-10-01T21:25:52.493Z",
   "total": 36,
   "newCount": 6,
   "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 40026,
-  "avgDurationMs": 40026,
+  "durationMs": 43076,
+  "avgDurationMs": 43076,
   "durationHistory": [
-    40026
+    43076
   ],
   "newJobs": [
     {
@@ -266,12 +266,11 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-28T21:37:47.329Z",
-      "needsRetranslation": true,
-      "_qualityScore": 85,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
