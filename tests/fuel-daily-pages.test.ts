@@ -498,3 +498,22 @@ describe('fuel-daily archive generation', () => {
     expect(archives).toEqual({});
   });
 });
+
+
+describe('fuel observation civil day and UTC history', () => {
+  it('shows the Swiss collection day while retaining the original UTC series keys', () => {
+    const observedAt = new Date('2026-09-30T22:30:00.000Z');
+    const today = new Date(observedAt.getTime() + 9.5 * 60 * 60 * 1000);
+    const history = [{ date: '2026-09-29', zones: { chiasso: { benzina: 1.8 }, mendrisio: undefined, lugano: undefined, bellinzona: undefined, locarno: undefined }, regional: { benzina: 1.8 } }];
+    const dataset = { municipalities: [{ swiss: { nearbyStations: [{ name: 'Night sample', brand: 'TEST', address: 'Via Test 1, 6830 Chiasso', sp95PriceChf: 1.8, updatedAt: observedAt.toISOString() }] } }] };
+    const html = generateFuelDailyPages({ rootDir: '/tmp/fuel-civil-day-test', dataset, history, today })['/prezzi-benzina/chiasso/oggi/'];
+    expect(html.match(/<title>([^<]+)<\/title>/)?.[1]).toContain('TCS 01.10.2026');
+    expect(html.match(/<h1[^>]*>([^<]+)<\/h1>/)?.[1]).toContain('oggi a Chiasso');
+    expect(html).toContain('vs 29.09.2026');
+    expect(html).not.toContain('stabile vs ieri');
+    expect(html).toContain(`"dateModified":"${observedAt.toISOString()}"`);
+    const dates = [...html.matchAll(/<td\b[^>]*>(\d{4}-\d{2}-\d{2})<\/td>/g)].map((match) => match[1]);
+    expect(dates).toContain(observedAt.toISOString().slice(0, 10));
+    expect(dates).not.toContain(today.toISOString().slice(0, 10));
+  });
+});

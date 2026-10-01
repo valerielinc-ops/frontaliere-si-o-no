@@ -281,7 +281,9 @@ describe('fuel-station map — Swiss index carries a client island without losin
     expect(payload.stations.every((station: { lat: number; lng: number; benzinaPriceChf: number }) => Number.isFinite(station.lat) && Number.isFinite(station.lng) && station.benzinaPriceChf > 0)).toBe(true);
     expect(html).toMatch(/<h2 id=(?:"|')?fuel-map-title(?:"|')? class=(?:"|')?fuel-map-ssr-title(?:"|')?>Karte der Treibstoffpreise im Tessin<\/h2>/);
     expect(html).toMatch(/<strong>2<\/strong>\s*<span>Tankstellen auf der Karte<\/span>/);
-    expect(html).toMatch(/<time dateTime=(?:"|')?2026-04-28(?:"|')?>Preise des Tages · 2026-04-28<\/time>/);
+    expect(payload.updatedAt).toBeNull();
+    expect(html).toContain('Abrufzeit nicht verfügbar');
+    expect(html).not.toContain('Preise des Tages');
   });
 
   it('keeps map payload fuel-specific for diesel indexes', () => {
@@ -370,5 +372,33 @@ describe('fuel-station index pagination — Italian station pages stay within th
     expect(pages[middlePath]).toMatch(/rel(?:="prev"|=prev)/);
     expect(pages[middlePath]).toMatch(/rel(?:="next"|=next)/);
     expect(pages[middlePath]).toContain('Stazioni benzina Italia confine — indice completo — pagina 2');
+  });
+});
+
+
+describe('Swiss fuel index collection provenance', () => {
+  it('filters each fuel and keeps collection time independent of the build date', () => {
+    const collection = new Date('2026-09-30T22:30:00.000Z');
+    const build = new Date(collection.getTime() + 3 * 86400000);
+    const stations = SYNTHETIC_SWISS.map((station, index) => ({ ...station,
+      dieselPriceChf: index === 0 ? null : 1.9,
+      updatedAt: collection.toISOString(),
+      dieselUpdatedAt: new Date(collection.getTime() - 86400000).toISOString(),
+    }));
+    const pages = generateFuelIndexPages({ today: build, swissStations: stations, italianStations: [] });
+    const diesel = pages[buildFuelIndexPath('it', 'diesel', 'swissStations')];
+    const petrol = pages[buildFuelIndexPath('it', 'benzina', 'swissStations')];
+    expect(countAnchors(diesel, stations[0].slug)).toBe(0);
+    expect(countAnchors(diesel, stations[1].slug)).toBeGreaterThan(0);
+    expect(countAnchors(petrol, stations[0].slug)).toBeGreaterThan(0);
+    const payload = JSON.parse(diesel.match(/<script id="fuel-station-map-data" type="application\/json">([\s\S]*?)<\/script>/)![1]);
+    expect(payload.updatedAt).toBe(stations[1].dieselUpdatedAt);
+    expect(payload.stations).toHaveLength(1);
+    expect(payload.stations[0].collectedAt).toBe(stations[1].dieselUpdatedAt);
+    expect(diesel).toContain('Ultima acquisizione nel campione');
+    expect(diesel).toMatch(/30[/.]09[/.]2026/);
+    expect(diesel).not.toContain('listini ufficiali');
+    expect(diesel).not.toContain(`"dateModified":"${build.toISOString()}"`);
+    expect(petrol).toMatch(/01[/.]10[/.]2026/);
   });
 });

@@ -320,6 +320,7 @@ interface FuelPricesDataset {
 
 interface HistorySnapshot {
   date: string;
+  diesel?: { source?: 'api' | 'derived' | 'mixed' | 'unavailable' };
   zones: Record<FuelZone, { diesel?: number | null; benzina?: number | null } | undefined>;
   regional?: { diesel?: number | null; benzina?: number | null };
   /**
@@ -346,27 +347,14 @@ interface ZonePrice {
   minStations: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }>;
 }
 
-// ── Diesel/benzina derivation ─────────────────────────────────
-//
-// Primary source: `dieselPriceChf` populated by
-// scripts/generate-fuel-prices-dataset.mjs from the TCS Firestore feed
-// (per-station DIESEL record). When a station is missing a DIESEL price in
-// the upstream feed, we fall back to SP95 + observed retail offset (~0.08
-// CHF/L as of 2026). The fallback constant is kept as `LEGACY_DIESEL_OFFSET_CHF`
-// and documented in scripts/snapshot-fuel-history.mjs as well.
-const LEGACY_DIESEL_OFFSET_CHF = 0.08;
-
-function pricesFromStation(station: SwissStation): { diesel: number; benzina: number } | null {
-  const sp95 = typeof station.sp95PriceChf === 'number' ? station.sp95PriceChf : null;
-  if (sp95 === null || Number.isNaN(sp95)) return null;
-  const realDiesel =
-    typeof station.dieselPriceChf === 'number' && Number.isFinite(station.dieselPriceChf)
-      ? station.dieselPriceChf
-      : null;
-  return {
-    benzina: Number(sp95.toFixed(3)),
-    diesel: Number((realDiesel ?? sp95 + LEGACY_DIESEL_OFFSET_CHF).toFixed(3)),
-  };
+// Each fuel is optional: never infer a diesel price from petrol.
+function pricesFromStation(station: SwissStation): { diesel: number | null; benzina: number | null } | null {
+  const observed = (value: unknown): number | null =>
+    typeof value === 'number' && Number.isFinite(value) && value > 0 ? Number(value.toFixed(3)) : null;
+  const benzina = observed(station.sp95PriceChf);
+  const diesel = station.dieselSource === 'derived' || station.dieselSource === 'monthly_average'
+    ? null : observed(station.dieselPriceChf);
+  return benzina === null && diesel === null ? null : { benzina, diesel };
 }
 
 // ── Helpers ────────────────────────────────────────────────────
@@ -397,7 +385,7 @@ function collectZoneStations(dataset: FuelPricesDataset, zone: FuelZone): SwissS
   for (const row of dataset.municipalities ?? []) {
     const nearby = row.swiss?.nearbyStations ?? [];
     for (const s of nearby) {
-      if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      if (!s || !pricesFromStation(s)) continue;
       if (!stationBelongsToZone(s, zone)) continue;
       const key = `${s.id ?? s.name ?? ''}:${s.address ?? ''}`;
       if (seen.has(key)) continue;
@@ -414,7 +402,7 @@ function collectAllStations(dataset: FuelPricesDataset): SwissStation[] {
   for (const row of dataset.municipalities ?? []) {
     const nearby = row.swiss?.nearbyStations ?? [];
     for (const s of nearby) {
-      if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      if (!s || !pricesFromStation(s)) continue;
       // Only include stations whose address resolves to a known Ticino zone:
       // the regional /oggi hub is implicitly Ticino, and only Ticino stations
       // have dedicated detail pages (see generateFuelStationPages). Stations
@@ -435,7 +423,7 @@ function topCheapest(stations: SwissStation[], fuel: FuelType, limit = 3): Swiss
     .map((s) => {
       const p = pricesFromStation(s);
       if (!p) return null;
-      return { station: s, price: p[fuel] } as const;
+      return p[fuel] === null ? null : { station: s, price: p[fuel] } as const;
     })
     .filter((v): v is { station: SwissStation; price: number } => v !== null)
     .sort((a, b) => a.price - b.price)
@@ -447,15 +435,15 @@ function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
   const prices: number[] = [];
   const stationPrices: Array<{ name: string; brand: string; address: string; priceChf: number; slug: string }> = [];
   for (const s of stations) {
-    if (fuel === 'diesel' && !(typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf) && s.dieselPriceChf > 0)) continue;
     const p = pricesFromStation(s);
-    if (!p) continue;
-    prices.push(p[fuel]);
+    const price = p?.[fuel];
+    if (price === null || price === undefined) continue;
+    prices.push(price);
     stationPrices.push({
       name: String(s.name || s.brand || '—').trim(),
       brand: String(s.brand || '').trim(),
       address: String(s.address || '').trim(),
-      priceChf: p[fuel],
+      priceChf: price,
       slug: buildStationSlug({ brand: s.brand, name: s.name, address: s.address }),
     });
   }
@@ -465,7 +453,7 @@ function computeZonePrice(stations: SwissStation[], fuel: FuelType): ZonePrice {
 
 // ── History ────────────────────────────────────────────────────
 
-function readHistory(rootDir: string): HistorySnapshot[] {
+export function readHistory(rootDir: string): HistorySnapshot[] {
   const historyDir = np.join(rootDir, 'data', 'fuel-prices-history');
   if (!fs.existsSync(historyDir)) return [];
   const files = fs.readdirSync(historyDir).filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f));
@@ -474,7 +462,16 @@ function readHistory(rootDir: string): HistorySnapshot[] {
     try {
       const raw = fs.readFileSync(np.join(historyDir, file), 'utf-8');
       const parsed = JSON.parse(raw) as HistorySnapshot;
-      if (parsed && typeof parsed.date === 'string') snapshots.push(parsed);
+      if (parsed && typeof parsed.date === 'string') {
+        // Legacy snapshots explicitly marked mixed/derived contain synthetic Swiss
+        // diesel. Keep petrol and real Italian prices, without rewriting source files.
+        if (parsed.diesel?.source === 'derived' || parsed.diesel?.source === 'mixed') {
+          if (parsed.regional) parsed.regional.diesel = null;
+          for (const price of Object.values(parsed.zones ?? {})) if (price) price.diesel = null;
+          for (const price of Object.values(parsed.stations ?? {})) if (price) price.diesel = null;
+        }
+        snapshots.push(parsed);
+      }
     } catch {
       // skip malformed snapshot
     }
@@ -583,9 +580,9 @@ function computePeriodAverage(prices: ReadonlyArray<number | null>): number | nu
  * freshness signal the SERP snippet is supposed to carry.
  */
 function formatFuelDateDisplay(d: Date): string {
-  const dd = String(d.getUTCDate()).padStart(2, '0');
-  const mm = String(d.getUTCMonth() + 1).padStart(2, '0');
-  return `${dd}.${mm}.${d.getUTCFullYear()}`;
+  return new Intl.DateTimeFormat('de-CH', {
+    timeZone: 'Europe/Zurich', day: '2-digit', month: '2-digit', year: 'numeric',
+  }).format(d);
 }
 
 /**
@@ -1520,11 +1517,15 @@ function renderPage(inp: PageInputs): string {
   const stations = zone ? collectZoneStations(dataset, zone) : collectAllStations(dataset);
   const zonePrice = computeZonePrice(stations, fuel);
   const avg = zonePrice.avg;
-  const observation = fuelObservation(stations, fuel, dataset.generatedAt);
+  const observation = fuelObservation(stations.filter((station) => pricesFromStation(station)?.[fuel] != null), fuel, dataset.generatedAt);
   const observationDate = observation.collectedAt ? new Date(observation.collectedAt) : null;
   const referenceDate = observationDate ?? today;
   const dateStamp = referenceDate.toISOString().slice(0, 10);
-  const observedToday = Boolean(observationDate) && dateStamp === today.toISOString().slice(0, 10);
+  const observedToday = Boolean(observationDate) && formatFuelDateDisplay(referenceDate) === formatFuelDateDisplay(today);
+  // Snapshot filenames are UTC dates. A late UTC sample can already belong to
+  // the next Swiss civil day; use dated comparisons rather than relabeling it.
+  const snapshotDayMatchesCivilDay = formatFuelDateDisplay(new Date(`${dateStamp}T12:00:00Z`)) === formatFuelDateDisplay(referenceDate);
+  const relativeComparisons = observedToday && snapshotDayMatchesCivilDay;
   const yesterday = observationDate ? lookbackPrice(history, zone, fuel, 1, referenceDate) : null;
   const weekAgo = observationDate ? lookbackPrice(history, zone, fuel, 7, referenceDate) : null;
   const deltaYest = computeDeltaVsYesterday(avg, yesterday);
@@ -1532,12 +1533,12 @@ function renderPage(inp: PageInputs): string {
   const priceFmt = formatPrice(avg, locale);
   const deltaYestFmt = formatDeltaDisplay(deltaYest, locale);
   const delta7Fmt = formatDeltaDisplay(delta7, locale);
-  const comparisonLabel = (days: number) => observedToday
+  const comparisonLabel = (days: number) => relativeComparisons
     ? (days === 1 ? copy.vsYesterday : copy.vs7d)
     : observationDate
-      ? `vs ${formatFuelDateDisplay(new Date(referenceDate.getTime() - days * 86400000))}`
+      ? `vs ${formatFuelDateDisplay(new Date(`${new Date(referenceDate.getTime() - days * 86400000).toISOString().slice(0, 10)}T12:00:00Z`))}`
       : ({ it: 'Confronto non disponibile', en: 'Comparison unavailable', de: 'Vergleich nicht verfügbar', fr: 'Comparaison indisponible' })[locale];
-  const dailyComparison = deltaYest === null ? '' : observedToday
+  const dailyComparison = deltaYest === null ? '' : relativeComparisons
     ? ({
         it: deltaYest === 0 ? `Il delta rispetto a ieri è ${deltaYestFmt}.` : `Il delta rispetto a ieri è di ${deltaYestFmt}.`,
         en: `The day-over-day delta is ${deltaYestFmt}.`,
@@ -1595,8 +1596,8 @@ function renderPage(inp: PageInputs): string {
     fuelLabel,
     whereLabel,
     priceFmt,
-    deltaYest,
-    delta7,
+    snapshotDayMatchesCivilDay ? deltaYest : null,
+    snapshotDayMatchesCivilDay ? delta7 : null,
     top3.length,
   );
   const stationsHtml = top3.length > 0
@@ -2105,7 +2106,7 @@ interface StationContext {
   slug: string;
   brandDisplay: string;
   streetDisplay: string;
-  prices: { diesel: number; benzina: number };
+  prices: { diesel: number | null; benzina: number | null };
 }
 
 // Defensive twin of the crawler-side dedup (`scripts/lib/fuel-station-dedup.mjs`):
@@ -2130,7 +2131,7 @@ function collectSwissStationContexts(dataset: FuelPricesDataset): StationContext
   for (const row of dataset.municipalities ?? []) {
     const nearby = row.swiss?.nearbyStations ?? [];
     for (const s of nearby) {
-      if (!s || typeof s.sp95PriceChf !== 'number') continue;
+      if (!s || !pricesFromStation(s)) continue;
       // Skip totally-empty stations (no brand + no name = unidentifiable)
       if (!s.brand && !s.name) continue;
       const dedupKey = stationPluginDedupKey(s);
@@ -2932,12 +2933,14 @@ function renderStationPage(opts: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const price = ctx.prices[fuel];
+  if (price === null) return renderFuelBelowFloorBridge(canonicalPath);
   const priceFmt = formatPrice(price, locale);
   const zoneAvgFmt = formatPrice(zoneAvg, locale);
 
   // Rank within zone (for the chosen fuel)
   const sortedByFuel = [...zoneStations]
     .map((c) => ({ slug: c.slug, price: c.prices[fuel] }))
+    .filter((entry): entry is { slug: string; price: number } => entry.price !== null)
     .sort((a, b) => a.price - b.price);
   const rankIdx = sortedByFuel.findIndex((c) => c.slug === ctx.slug);
   const total = sortedByFuel.length;
@@ -2982,7 +2985,7 @@ function renderStationPage(opts: {
 
   // Sibling stations for related-links block
   const siblingStations = zoneStations
-    .filter((s) => s.slug !== ctx.slug)
+    .filter((s) => s.slug !== ctx.slug && s.prices[fuel] !== null)
     .slice(0, 6)
     .map((s) => ({ slug: s.slug, brand: s.brandDisplay, zone: s.zone }));
 
@@ -3928,7 +3931,7 @@ export function generateFuelStationPages(opts: {
   for (const zone of FUEL_ZONES) {
     const ctxList = zoneGroups.get(zone) ?? [];
     for (const fuel of FUEL_TYPES) {
-      const prices = ctxList.map((c) => c.prices[fuel]);
+      const prices = ctxList.map((c) => c.prices[fuel]).filter((price): price is number => price !== null);
       zoneAvg[zone][fuel] = mean(prices);
     }
   }
@@ -5251,6 +5254,8 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
         lng: typeof c.station.lng === 'number' ? c.station.lng : null,
         benzinaPriceChf: c.prices.benzina,
         dieselPriceChf: c.prices.diesel,
+        updatedAt: c.station.updatedAt ?? null,
+        dieselUpdatedAt: c.station.dieselUpdatedAt ?? c.station.updatedAt ?? null,
       }));
       // Per-fuel Italian leaves — derived from the SAME contexts emitted as
       // station pages, so the index links exactly what we publish (and the
@@ -5312,7 +5317,16 @@ export function fuelDailyPagesPlugin(rootDir: string): Plugin {
       const STATION_MIN_WORDS = 250;
       const stationSitemapPaths: string[] = [];
       let stationPagesWritten = 0;
+      const unavailableStationPaths = new Set(swissContexts.flatMap((ctx) =>
+        FUEL_TYPES.filter((fuel) => ctx.prices[fuel] === null).flatMap((fuel) =>
+          FUEL_DAILY_LOCALES.map((locale) => buildFuelStationPath(locale, fuel, ctx.zone, ctx.slug)))));
       for (const [path, html] of Object.entries(stationPages)) {
+        // Preserve previously published URLs without listing a fabricated fuel price.
+        if (unavailableStationPaths.has(path)) {
+          collector.add(np.join(distDir, path.replace(/^\/+/, ''), 'index.html'), html);
+          bridgesWritten++;
+          continue;
+        }
         const words = countHtmlBodyWords(html);
         if (words < STATION_MIN_WORDS) {
           skipped++;

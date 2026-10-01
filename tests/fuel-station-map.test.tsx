@@ -50,7 +50,7 @@ describe('FuelStationMap', () => {
 
     await waitFor(() => {
       expect(screen.getByText(/2 Tankstellen/)).toBeInTheDocument();
-      expect(screen.getByText('Statischer Tagesstand')).toBeInTheDocument();
+      expect(screen.getByText('Gespeicherte Stichprobe')).toBeInTheDocument();
     });
     expect(screen.getByTestId('map-container')).toBeInTheDocument();
     expect(screen.getAllByTestId('circle-marker')).toHaveLength(2);
@@ -113,5 +113,25 @@ describe('FuelStationMap', () => {
     expect(screen.getAllByText(/1[,.]85 CHF\/L/)).not.toHaveLength(0);
     expect(screen.queryByText('Nuova')).not.toBeInTheDocument();
     expect(screen.getAllByTestId('circle-marker')).toHaveLength(2);
+  });
+});
+
+
+describe('FuelStationMap observed prices and dates', () => {
+  it('does not replace missing diesel with a petrol offset during hydration', async () => {
+    vi.mocked(fetchFuelPrices).mockResolvedValueOnce({
+      generatedAt: '2026-10-01T08:00:00.000Z',
+      municipalities: [{ swiss: { nearbyStations: [{
+        id: 'eni-live', name: 'Eni Chiasso', brand: 'Eni', address: 'Via Foo 1, 6830 Chiasso',
+        lat: 45.84, lng: 9.02, sp95PriceChf: 1.7, updatedAt: '2026-10-01T07:00:00.000Z',
+      }] } }],
+    } as never);
+    const payload: FuelStationMapPayload = { ...PAYLOAD, fuel: 'diesel', updatedAt: null,
+      stations: [{ ...PAYLOAD.stations[0], dieselPriceChf: 1.9, collectedAt: null }] };
+    render(<FuelStationMap payload={payload} />);
+    await waitFor(() => expect(screen.getByText(/Verfügbare Preisdaten/)).toBeInTheDocument());
+    expect(screen.getAllByText(/1[,.]90 CHF\/L/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/1[,.]78 CHF\/L/)).not.toBeInTheDocument();
+    expect(screen.getByText('Abrufzeit nicht verfügbar')).toBeInTheDocument();
   });
 });
