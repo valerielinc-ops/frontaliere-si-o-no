@@ -218,19 +218,29 @@ const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => wor
 
 /**
  * Is this form the posting's (career-ops apply.md: company and role on the
- * form match the posting, or stop)? A word of the company's name, or half
- * the title's words (on a 6-letter stem: "Infermiere/a" = "Infermiera"),
- * found on the page. 'unknown' when the order names neither.
+ * form match the posting, or stop)? The company's WHOLE name as whole words
+ * ("Muster Elektro AG" is not "Altra GmbH — Elektroinstallateur", review of
+ * #10715), or its initials as a word of their own ("EOC"). Only when the order
+ * names no company, the title: every word, or a gender variant of it
+ * ("Infermiere/a" = "Infermiera": same word but the last two letters). The
+ * address is part of the text: a Workday tenant names its company.
+ * 'unknown' when the order names neither.
  */
 export function postingMatch(pageText, job = {}) {
-  const text = ` ${normalizeWords(pageText)} `;
+  const words = normalizeWords(pageText).split(' ').filter(Boolean);
+  const text = ` ${words.join(' ')} `;
   const company = nameWords(job.company);
   const title = nameWords(job.title).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
-  const found = (word) => text.includes(` ${word} `) || text.includes(` ${word.slice(0, 6)}`);
-  if (company.some(found)) return 'match';
-  if (title.length && title.filter(found).length >= Math.ceil(title.length / 2)) return 'match';
-  return 'mismatch';
+  if (company.length) {
+    // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
+    const named = ` ${nameWords(pageText).join(' ')} `;
+    const initials = company.length >= 2 ? company.map((word) => word[0]).join('') : '';
+    return named.includes(` ${company.join(' ')} `) || (initials && text.includes(` ${initials} `)) ? 'match' : 'mismatch';
+  }
+  const variant = (word) => words.some((seen) => seen === word
+    || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));
+  return title.every(variant) ? 'match' : 'mismatch';
 }
 
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */

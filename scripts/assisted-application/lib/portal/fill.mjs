@@ -63,25 +63,21 @@ export function fitToLength(text, max) {
 async function choiceRegistered(locator, kind, label) {
   const wanted = String(label || '').toLowerCase().trim();
   return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
-    const has = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').includes(text);
-    if (fieldKind === 'select') return has(element.options?.[element.selectedIndex]?.text);
-    if (has(element.value) && element.getAttribute('aria-expanded') !== 'true') return true;
-    // The text shown near the control, never the options of a list still open
-    // (NodeFilter.SHOW_TEXT = 4): an option is no proof of a choice.
-    const shownText = (root) => {
-      let out = '';
-      const walker = document.createTreeWalker(root, 4);
-      for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-        if (!node.parentElement?.closest('[role="listbox"], [role="option"], option, script, style')) out += ` ${node.textContent}`;
-      }
-      return out;
-    };
+    // Equal, never "contains" (review of #10715: "IT" is not "Italy").
+    const same = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim() === text;
+    if (fieldKind === 'select') return same(element.options?.[element.selectedIndex]?.text);
+    if (same(element.value) && element.getAttribute('aria-expanded') !== 'true') return true;
+    // A text shown next to the control equal to the choice, never one inside a
+    // list still open (NodeFilter.SHOW_TEXT = 4): an option is no proof of a choice.
     let node = element.parentElement;
     for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
-      if (has(shownText(node))) return true;
+      const walker = document.createTreeWalker(node, 4);
+      for (let shown = walker.nextNode(); shown; shown = walker.nextNode()) {
+        if (!shown.parentElement?.closest('[role="listbox"], [role="option"], option, script, style') && same(shown.textContent)) return true;
+      }
     }
     return false;
-  }, { kind, wanted }, { timeout: 2000 }).catch(() => false);
+  }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
 }
 
 /** The option's own element, or (after a re-render dropped our id) the radio with that label. */
@@ -137,8 +133,8 @@ async function fillCombobox(page, field, locator, value) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  const exact = frame.getByRole('option', { name: value, exact: true }).first();
-  const option = (await exact.count()) ? exact : frame.getByRole('option', { name: value, exact: false }).first();
+  // The exact label only (review of #10715): "IT" never picks "Italy".
+  const option = frame.getByRole('option', { name: value, exact: true }).first();
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
   } catch {

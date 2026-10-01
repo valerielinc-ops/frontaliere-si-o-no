@@ -16,7 +16,7 @@
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
 import { NEXT_RE, SUBMIT_RE } from './fill.mjs';
-import { KNOCK_OUT, PREFER_NOT, SENSITIVE, candidateRules, evidenceInData, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
+import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -162,9 +162,16 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || '') || KNOCK_OUT.test(action.question || ''));
   for (const action of sensitive) {
     const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
-    const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, action.answer || action.value);
-    const quoted = !SENSITIVE.test(action.question) && action.source !== 'widget' && evidenceInData(knownValues, action.evidence);
-    if (fromCandidate || declines || quoted) grounded.add(action.question);
+    const answer = action.answer || action.value;
+    // A knock-out ("Deutsch C1?") is grounded by the candidate's own answer to it, or by a
+    // quote that supports the answer (review of #10715), never by "Ja" occurring in the data.
+    const knockOut = !SENSITIVE.test(action.question);
+    const fromCandidate = knockOut
+      ? answeredByCandidate(candidate, action.question, answer)
+      : ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, answer);
+    const quoted = knockOut && action.source !== 'widget' && evidenceInData(knownValues, action.evidence)
+      && evidenceSupports(action.question, answer, action.evidence);
+    if (fromCandidate || declines || quoted || (knockOut && knownValues === null)) grounded.add(action.question);
   }
   const refused = new Set();
   for (const action of sensitive) {

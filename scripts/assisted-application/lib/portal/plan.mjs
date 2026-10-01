@@ -92,14 +92,55 @@ export function planUserText({ snapshot, candidate }) {
 // The date of birth too (JOIN: "Quando sei nato?"): only the candidate knows it.
 // JOIN asks "Che sesso sei?": sex in Italian and French is demographic too.
 export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
-// Questions that can rule the candidate out (career-ops apply.md, knock-outs):
+// Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
 // answered only with a quote of the candidate's data that supports the answer.
-export const KNOCK_OUT = /anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
+export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
 
 /** A quote of the candidate's data: non-trivial and really in it. */
 export function evidenceInData(knownValues, evidence) {
   const quote = String(evidence || '').toLowerCase().replace(/\s+/g, ' ').trim();
   return quote.length >= 4 && knownValues !== null && knownValues.replace(/\s+/g, ' ').includes(quote);
+}
+
+const YES_RE = /^(ja|sì|si|yes|oui|vero|true|✓)$/i;
+const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
+// One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
+const LANGUAGES = [
+  /deutsch|tedesco|allemand|german/i,
+  /englisch|inglese|anglais|english/i,
+  /französisch|franzoesisch|francese|français|francais|french/i,
+  /italienisch|italiano|italien|italian/i,
+];
+const languagesIn = (text) => LANGUAGES.map((pattern, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+
+/**
+ * The quote SUPPORTS the answer, beyond being in the data (review of #10715:
+ * "Deutsch C1?" answered "Ja" with the quote "Deutsch B2"). A value must be in
+ * the quote; a yes to a level needs that language at that level or higher; a
+ * yes to anything countable (years, a minimum) is never read off a quote.
+ */
+export function evidenceSupports(question, answer, evidence) {
+  const value = String(answer || '').trim().toLowerCase();
+  const quote = String(evidence || '').toLowerCase();
+  if (!value || !quote) return false;
+  if (!YES_RE.test(value)) return quote.includes(value);
+  const required = levelsIn(question);
+  if (required.length) {
+    const asked = languagesIn(question);
+    if (asked.length && !asked.some((language) => languagesIn(quote).includes(language))) return false;
+    const held = levelsIn(quote);
+    return held.length > 0 && Math.max(...held) >= Math.max(...required);
+  }
+  return !/\d/.test(String(question));
+}
+
+/** The candidate already answered this very question with this answer (review page). */
+export function answeredByCandidate(candidate, question, answer) {
+  const asked = questionFromLabel(question).toLowerCase();
+  const given = String(answer || '').trim().toLowerCase();
+  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
+    .some((item) => questionFromLabel(item.question).toLowerCase() === asked && String(item.answer || '').trim().toLowerCase() === given);
 }
 
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
@@ -175,7 +216,11 @@ export function guardPlan(plan, fields, candidate = null) {
       continue;
     }
     // "Deutsch C1?" answered "Ja" with nothing in the CV to show it: the candidate says.
-    const supported = fromCandidate || (knownValues === null) || evidenceInData(knownValues, action.evidence);
+    // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
+    // candidate's own answer to this question, or a quote that supports the answer.
+    const given = action.action === 'check' ? 'ja' : action.value;
+    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
     if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);
       continue;

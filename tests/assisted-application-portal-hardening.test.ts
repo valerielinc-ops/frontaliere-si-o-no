@@ -16,9 +16,15 @@ import { interviewPrepUserText } from '../functions/src/assistedApplicationInter
 describe('portal runner hardening (career-ops apply.md)', () => {
   it('stops before filling a form that names neither the company nor the role', () => {
     const job = { company: 'Ospedale Regionale di Lugano SA', title: 'Infermiere/a diplomato/a' };
-    expect(postingMatch('Candidatura · Infermiera diplomata · Reparto medicina', job)).toBe('match');
-    expect(postingMatch('Ospedale Regionale — Lavora con noi', job)).toBe('match');
-    expect(postingMatch('Elettricista di cantiere · Muster Elektro AG · Bewerben', job)).toBe('mismatch');
+    expect(postingMatch('Ospedale Regionale di Lugano · Candidatura · Infermiera diplomata', job)).toBe('match');
+    // Review of #10715: the WHOLE company name, as whole words; the title alone does not do.
+    expect(postingMatch('Ospedale Regionale — Lavora con noi', job)).toBe('mismatch');
+    expect(postingMatch('Candidatura · Infermiera diplomata · Reparto medicina', job)).toBe('mismatch');
+    expect(postingMatch('Altra GmbH — Elektroinstallateur', { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' })).toBe('mismatch');
+    // Its initials as a word of their own, also in a Workday tenant's address.
+    expect(postingMatch('Lavora con noi https://eoc.wd3.myworkdayjobs.com/External', { company: 'Ente Ospedaliero Cantonale' })).toBe('match');
+    // No company in the order: every title word, a gender variant allowed.
+    expect(postingMatch('Candidatura · Infermiera diplomata', { title: 'Infermiere/a diplomato/a' })).toBe('match');
     // The order names nothing to compare: no stop.
     expect(postingMatch('anything', {})).toBe('unknown');
   });
@@ -68,6 +74,25 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     const turn = (evidence: string, answer: string) => ({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Livello di tedesco', answer, source: 'profile', evidence }] });
     expect(guardAgentStep(turn('', 'C1'), candidate)).toMatchObject({ status: 'needs_candidate', actions: [] });
     expect(guardAgentStep(turn('Tedesco B2', 'B2'), candidate).actions).toHaveLength(1);
+  });
+
+  // Review of #10715: the quote must SUPPORT the answer, not just be in the data.
+  it('never takes a "yes" to a higher level from a quote of a lower one', () => {
+    const candidate = { answers: {}, profile: { languages: ['Deutsch B2'] }, portalQuestionsAnswered: [] };
+    const field = { id: 'k1', kind: 'select', label: 'Deutsch C1?', required: true, options: [{ label: 'Ja' }, { label: 'Nein' }] };
+    const plan = guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [field], candidate);
+    expect(plan.actions).toEqual([]);
+    expect(plan.missingRequired.map((item: any) => item.fieldId)).toEqual(['k1']);
+    const agent = guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
+    expect(agent).toMatchObject({ status: 'needs_candidate', actions: [] });
+    // The same quote does support a "yes" to B2 or lower, in another language's words too.
+    const b2 = guardPlan({ actions: [{ fieldId: 'k2', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [{ ...field, id: 'k2', label: 'Tedesco almeno B1?' }], candidate);
+    expect(b2.actions).toHaveLength(1);
+    // A countable requirement is never read off a quote; the candidate's own answer to it is.
+    const years = { id: 'k3', kind: 'select', label: 'Mindestens 3 Jahre Berufserfahrung?', required: true, options: [{ label: 'Ja' }, { label: 'Nein' }] };
+    expect(guardPlan({ actions: [{ fieldId: 'k3', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [years], candidate).actions).toEqual([]);
+    const answered = { ...candidate, portalQuestionsAnswered: [{ question: 'Mindestens 3 Jahre Berufserfahrung?', answer: 'Ja' }] };
+    expect(guardPlan({ actions: [{ fieldId: 'k3', action: 'select', value: 'Ja', source: 'answers', evidence: '' }], missingRequired: [] }, [years], answered).actions).toHaveLength(1);
   });
 
   it('gives the planner the work history and the education as the CV states them', () => {

@@ -209,14 +209,18 @@ async function main() {
     // career-ops "verify each selection": a click that does not take is a failure, not an answer.
     const comboPage = await (await launchChromium({ headless: true, executablePath })).newPage();
     await comboPage.setContent(`<label for="good">Land</label><div><input id="good" role="combobox" aria-controls="gl"><span id="gv"></span><div role="listbox" id="gl"><div role="option" onclick="document.getElementById('gv').textContent='Schweiz'; this.parentElement.remove()">Schweiz</div></div></div>
-      <label for="bad">Nationalität</label><div><input id="bad" role="combobox" aria-controls="bl"><div role="listbox" id="bl"><div role="option" onclick="document.getElementById('bad').value=''">Italien</div></div></div>`);
+      <label for="bad">Nationalität</label><div><input id="bad" role="combobox" aria-controls="bl"><div role="listbox" id="bl"><div role="option" onclick="document.getElementById('bad').value=''">Italien</div></div></div>
+      <label for="near">Wohnland</label><div><input id="near" role="combobox" aria-controls="nl"><span id="nv"></span><div role="listbox" id="nl"><div role="option" onclick="document.getElementById('nv').textContent='Italy'">Italy</div></div></div>`);
     const combo = await extractFields(comboPage);
     const byLabel = (label) => combo.fields.find((field) => field.label === label)?.id;
     const picked = await applyActions(comboPage, combo.fields, [
       { fieldId: byLabel('Land'), action: 'select', value: 'Schweiz' },
       { fieldId: byLabel('Nationalität'), action: 'select', value: 'Italien' },
+      // Review of #10715: "IT" never picks the only option "Italy".
+      { fieldId: byLabel('Wohnland'), action: 'select', value: 'IT' },
     ], {}, { pause: async () => {} });
-    check('a choice is verified on the page', picked[0]?.ok === true && picked[1]?.ok === false && picked[1]?.error === 'choice_not_registered');
+    check('a choice is verified on the page', picked[0]?.ok === true && picked[1]?.ok === false && picked[1]?.error === 'choice_not_registered'
+      && picked[2]?.ok === false && picked[2]?.error === 'option_not_found');
     await comboPage.context().browser().close();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
