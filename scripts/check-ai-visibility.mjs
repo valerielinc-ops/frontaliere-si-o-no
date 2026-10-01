@@ -203,7 +203,8 @@ async function queryPerplexity(query) {
 
     if (!res) return null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('Perplexity', res);
+  if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   const citations = data.citations || [];
 
@@ -241,7 +242,8 @@ async function queryGemini(query) {
 
   if (!res) return null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('Gemini', res);
+  if (!data) return null;
   const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
   const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
   // Grounding chunks expose the source both as a redirect uri (which never
@@ -283,7 +285,8 @@ async function queryGitHubModels(query) {
 
   if (!res) return null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('GitHub Models', res);
+  if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   return { content, citations: [], raw: data };
 }
@@ -340,7 +343,8 @@ async function queryOpenRouter(query) {
   // the request was never emitted, so the report must not read it as a zero.
   if (!res) return cappedBySpendGuard ? UNMEASURED_BUDGET_CAP : null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('OpenRouter', res);
+  if (!data) return null;
   const message = data.choices?.[0]?.message || {};
   const choice = data.choices?.[0] || {};
   const hasStringContent = typeof message.content === 'string';
@@ -413,6 +417,23 @@ function resetRetryBudget() { retryBudgetLeftMs.clear(); }
 function resetRunBudgets() {
   resetOpenRouterBudget();
   resetRetryBudget();
+}
+
+/**
+ * Parse a successful provider response without allowing an upstream brownout
+ * page or plain-text health response to abort the whole visibility run.
+ * Providers are expected to return JSON, but a 2xx response does not prove
+ * that contract (GitHub Models returned `OK` during its retirement brownout).
+ */
+async function readJsonResponse(label, res) {
+  const body = await res.text();
+  try {
+    return JSON.parse(body);
+  } catch {
+    const preview = body.replace(/\s+/g, ' ').trim().slice(0, 200) || '<empty body>';
+    console.warn(`  ⚠ ${label} API returned invalid JSON: ${preview}`);
+    return null;
+  }
 }
 
 /**
@@ -1059,6 +1080,7 @@ export {
   findCompetitorMentions,
   generateMarkdown,
   loadPreviousReport,
+  queryGitHubModels,
   runCheck,
   queryOpenRouter,
   applyPlatformAnswer,

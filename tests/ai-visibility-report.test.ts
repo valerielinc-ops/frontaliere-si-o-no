@@ -15,6 +15,7 @@ import {
   generateMarkdown,
   listAvailablePlatforms,
   openRouterWebEngine,
+  queryGitHubModels,
   queryOpenRouter,
   resetOpenRouterBudget,
   resetRetryBudget,
@@ -176,6 +177,17 @@ describe('fetchWithRetry', () => {
       .mockImplementation(async () => new Response('retired', { status: 410 }));
 
     expect(await fetchWithRetry('GitHub Models', 'https://example.test', {})).toBeNull();
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe('provider response parsing', () => {
+  it('treats a successful non-JSON GitHub Models response as unavailable', async () => {
+    vi.stubEnv('GH_MODELS_PAT', 'ghp-test');
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValue(new Response('OK\n', { status: 200 }));
+
+    await expect(queryGitHubModels('costo vita Ticino')).resolves.toBeNull();
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 });
