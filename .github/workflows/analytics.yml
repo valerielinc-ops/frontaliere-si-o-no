@@ -110,6 +110,12 @@ jobs:
           node scripts/analytics-report.mjs "${args[@]}"
         continue-on-error: true
 
+      - name: Measure top50 search snippets
+        if: always() && (inputs.sections == 'all' || inputs.sections == 'gsc' || inputs.sections == '')
+        env:
+          GSC_TOP50_DEPLOYED_AT: ${{ vars.GSC_TOP50_DEPLOYED_AT }}
+        run: node scripts/gsc-page-query-export.mjs --top50-monitor --out=reports/gsc-top50-monitor
+
       - name: Commit AI channel history
         # The report is intentionally allowed to finish with partial data, but
         # the history write must not disappear with the runner workspace.
@@ -185,10 +191,11 @@ jobs:
                 }
               }
 
-              const topPages = Array.isArray(g.topPages) ? g.topPages.slice(0, 20) : [];
+              const topPages = Array.isArray(g.topPages) ? g.topPages.slice(0, 50) : [];
               if (topPages.length) {
                 console.log('');
-                console.log('### Top 20 pagine più visitate');
+                console.log('### Top 50 pagine grezze — frontaliereticino.ch');
+                console.log('Finestra: ' + safe(g.period));
                 console.log('');
                 console.log('| # | Pagina | Views | Users | Avg durata |');
                 console.log('|---|--------|------:|------:|-----------:|');
@@ -260,14 +267,34 @@ jobs:
                 });
               }
 
-              if (snapshot?.ga4?.pageTemplatePerformance?.length) {
+              const quality = g.trafficQuality;
+              if (quality?.qualified) {
                 console.log('');
-                console.log('### GA4 engagement by page template');
-                console.log('| Template | Views | Users | Avg duration |');
-                console.log('|----------|------:|------:|-------------:|');
-                snapshot.ga4.pageTemplatePerformance.slice(0, 10).forEach((row) => {
-                  console.log('| ' + safe(row.pageTemplate) + ' | ' + (row.views || 0) + ' | ' + (row.users || 0) + ' | ' + (row.avgDuration || 0) + 's |');
+                console.log('### Traffico grezzo e qualificato — confronto assestato');
+                console.log(safe(JSON.stringify(quality.dateRanges)));
+                console.log(safe(quality.interpretation));
+                console.log('| Popolazione | Stato | Sessioni | Engaged | Pageview | Ricavi GA4 / sessione |');
+                console.log('|---|---|---:|---:|---:|---|');
+                for (const [label, scope] of [['Grezzo', quality.raw], ['IT/CH organic/email', quality.qualified]]) {
+                  const s = scope.summary;
+                  console.log('| ' + label + ' | ' + safe(scope.status) + ' | ' + (s?.sessions ?? 'N/D') + ' | ' + (s?.engagedSessions ?? 'N/D') + ' | ' + (s?.screenPageViews ?? 'N/D') + ' | ' + (s?.adRevenuePerSession == null ? 'N/D' : s.adRevenuePerSession.toFixed(4) + ' ' + s.currency) + ' |');
+                  if (scope.status !== 'complete') console.log(safe(label + ': ' + JSON.stringify({ pages: scope.pageCoverage, totals: scope.totalCoverage, engagement: scope.engagement })));
+                }
+                console.log('');
+                console.log('#### Top50 IT/CH organic/email, ordinate per engagedSessions');
+                console.log('| # | Pagina | Pageview segmento | Sessioni | Engaged |');
+                console.log('|---|---|---:|---:|---:|');
+                quality.qualified.top50.forEach((row) => {
+                  console.log('| ' + row.rank + ' | ' + safe(row.path) + ' | ' + row.views + ' | ' + row.sessions + ' | ' + row.engagedSessions + ' |');
                 });
+                console.log('');
+                console.log('#### Pageview per template, copertura: ' + safe(quality.raw.pageCoverage.status));
+                console.log('| Template | Pageview | Path osservati |');
+                console.log('|---|---:|---:|');
+                quality.raw.pageViewsByTemplate.forEach((row) => console.log('| ' + safe(row.pageTemplate) + ' | ' + row.views + ' | ' + row.paths + ' |'));
+                const candidates = quality.segments.rows.filter((row) => row.reviewReason);
+                console.log('Segmenti da verificare (volume alto e visite brevi, nessuna classificazione bot): ' + candidates.length + '; copertura ' + safe(quality.segments.status));
+                candidates.slice(0, 10).forEach((row) => console.log('- ' + safe(row.deviceCategory + ' / ' + row.country + ' / ' + row.sessionSourceMedium) + ': ' + row.sessions + ' sessioni, ' + row.engagedSessions + ' engaged, durata ' + row.averageSessionDuration.toFixed(1) + 's'));
               }
 
               if (snapshot?.ga4?.internalSearchTerms?.length) {
@@ -418,6 +445,7 @@ jobs:
           name: analytics-report-${{ github.run_number }}
           path: |
             reports/analytics-*.json
+            reports/gsc-top50-monitor*
           retention-days: 90
 
       - name: Cleanup Codex auth broker
