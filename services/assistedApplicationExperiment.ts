@@ -10,7 +10,8 @@ export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_
 /** Stable identifiers shared by the SPA funnel and its analytics queries. */
 export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v2';
 export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPERIMENT_VARIANT';
-export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
+// v2 (2026-09-30): the mandate names the employer's terms accepted on the candidate's behalf.
+export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v2';
 
 /**
  * Owner decision 2026-09-29: on the rewarded job-board arm, when the Offerwall
