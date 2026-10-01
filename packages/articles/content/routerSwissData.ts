@@ -2484,6 +2484,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'consiglio-stati-accordo-sanita-ue': { it: 'consiglio-stati-accordo-sanita-ue', en: 'council-states-health-agreement-eu', de: 'staenderat-gesundheit-abkommen-eu', fr: 'conseil-etats-acord-sante-ue' },
  'spese-canton-berna-2026': { it: 'spese-canton-berna-2026', en: 'swiss-cost-of-living-bern-2026', de: 'lebenshaltung-schweiz-bern-2026', fr: 'cout-vie-suisse-berne-2026' },
  'occhiali-meta-sunrise': { it: 'occhiali-meta-sunrise', en: 'sunrise-meta-smart-glasses', de: 'sunrise-meta-smartbrillen', fr: 'lunettes-meta-sunrise' },
+ 'joya-rete-ricarica-svizzera': { it: 'joya-rete-ricarica-svizzera', en: 'joya-swiss-charging-network', de: 'joya-schweizer-ladenetz', fr: 'joya-reseau-recharge-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
