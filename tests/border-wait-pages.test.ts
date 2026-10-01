@@ -342,7 +342,21 @@ describe('borderWaitPagesPlugin — page generation', () => {
     expect(html).toContain('Tempi di attesa non disponibili');
   });
 
-  it('uses the unavailable branch on root, regional, and leaf surfaces', () => {
+  // The status blocks ship every variant as an inert <template> for the live
+  // hydration, so "the page contains X" no longer says what is SHOWN: read the
+  // build-time variant rendered inside `[data-bw-swap-out]`.
+  const swapOut = (html: string, kind: 'hub' | 'advice'): string => {
+    const host = html.search(new RegExp(`data-bw-swap=["']?${kind}["' >]`));
+    expect(host, `data-bw-swap=${kind} host`).toBeGreaterThan(-1);
+    const start = html.indexOf('data-bw-swap-out', host);
+    return html.slice(start, html.indexOf('<template', start));
+  };
+
+  it('says how many crossings were measured when partial coverage reads all zero', () => {
+    // Only chiasso-brogeda has a reading (0 min). «Non abbiamo una lettura» was
+    // false here — there IS a reading — and «fluido su tutti i valichi» would be
+    // a claim about unmeasured crossings: the banner scopes «fluido» to the
+    // measured ones and says the rest are missing.
     const partialCurrent: BorderWaitCurrent = {
       updatedAt: '2026-04-21T06:00:00.000Z',
       perCrossing: {
@@ -356,11 +370,18 @@ describe('borderWaitPagesPlugin — page generation', () => {
     };
     const partialPages = generateBorderWaitPages({ current: partialCurrent, history: [], today });
 
-    expect(partialPages[buildRootHubPath('it')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildRegionalHubPath('it', 'ticino-como')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildOggiPath('it', 'crociale-dei-mulini')]).toContain('Tempi di attesa non disponibili');
-    expect(partialPages[buildRootHubPath('it')]).not.toContain('Traffico fluido su tutti i valichi');
+    for (const hub of [buildRootHubPath('it'), buildRegionalHubPath('it', 'ticino-como')]) {
+      const shown = swapOut(partialPages[hub], 'hub');
+      expect(shown).toContain('Traffico fluido sui valichi misurati');
+      expect(shown).toMatch(/data-bw-slot=["']?measured["']?>1</);
+      expect(shown).not.toContain('Tempi di attesa non disponibili');
+      expect(shown).not.toContain('Traffico fluido su tutti i valichi');
+    }
+    expect(swapOut(partialPages[buildOggiPath('it', 'crociale-dei-mulini')], 'advice')).toContain(
+      'Tempi di attesa non disponibili',
+    );
 
+    // The leaf current card stays on the unknown tone without a reading.
     const leaf = partialPages[buildOggiPath('it', 'crociale-dei-mulini')];
     const currentStatusMarker = 'aria-labelledby=currentStatus';
     const currentCard = leaf.slice(
@@ -369,6 +390,26 @@ describe('borderWaitPagesPlugin — page generation', () => {
     );
     expect(currentCard).toContain('background:var(--color-surface-alt)');
     expect(currentCard).not.toContain('background:var(--color-success-subtle)');
+  });
+
+  it('keeps the unavailable banner for a hub with no reading at all', () => {
+    // MINIMAL_CURRENT only has Ticino readings: the Geneva corridor has none.
+    const shown = swapOut(pages[buildRegionalHubPath('it', 'geneve-francia')], 'hub');
+    expect(shown).toContain('Tempi di attesa non disponibili');
+    expect(shown).not.toContain('Traffico fluido');
+  });
+
+  it('ships every live variant as an inert template that the word gate ignores', () => {
+    const root = pages[buildRootHubPath('it')];
+    for (const state of ['fastest', 'fluid', 'fluid-measured', 'unavailable']) {
+      expect(root).toMatch(new RegExp(`<template data-bw-state=["']?${state}["' >]`));
+    }
+    const leaf = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    for (const state of ['ok', 'warn', 'bad', 'unavailable']) {
+      expect(leaf).toMatch(new RegExp(`<template data-bw-state=["']?${state}["' >]`));
+    }
+    expect(countHtmlBodyWords(root)).toBe(countHtmlBodyWords(root.replace(/<template[\s\S]*?<\/template>/g, '')));
+    expect(countHtmlBodyWords('<p>uno due</p><template><p>tre quattro cinque</p></template>')).toBe(2);
   });
 
   it('leaf pages without history show the "storico in accumulo" notice', () => {
