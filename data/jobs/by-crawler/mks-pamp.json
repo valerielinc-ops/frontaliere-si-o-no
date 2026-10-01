@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-10-01T09:27:58.767Z",
+  "assembledAt": "2026-10-01T21:36:35.549Z",
   "jobs": [
     {
       "title": "Tecnico Controllo Qualità - Q-team",
@@ -189,7 +189,8 @@
         }
       },
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico di laboratorio",
@@ -287,7 +288,7 @@
       "slugByLocale": {
         "it": "operatore-reparto-raffineria-mks-pamp-castel-san-pietro",
         "en": "refinery-department-operator-mks-pamp-castel-san-pietro",
-        "de": "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
+        "de": "veranstalter-raffineria-mks-pamp-castel-san-pietro",
         "fr": "operateur-service-raffinerie-mks-pamp-castel-san-pietro"
       },
       "id": "mks-pamp-6b726144ffd1",
@@ -318,6 +319,7 @@
         "laboratory-technician-mks-pamp-castel-san-pietro",
         "laboratoriumstechniker-mks-pamp-castel-san-pietro",
         "technicien-de-laboratoire-mks-pamp-castel-san-pietro",
+        "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
         "veranstalter-raffineria-mks-pamp-castel-san-pietro"
       ],
       "previousSlugsByLocale": {
@@ -327,6 +329,7 @@
         ],
         "de": [
           "betreiberbehandlungen-reflui-mks-pamp-castel-san-pietro",
+          "betreiber-der-raffinerieabteilung-mks-pamp-castel-san-pietro",
           "veranstalter-raffineria-mks-pamp-castel-san-pietro"
         ],
         "fr": [
