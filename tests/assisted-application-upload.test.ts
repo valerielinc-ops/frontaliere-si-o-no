@@ -3,6 +3,7 @@ import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { directRules, matchBlock } from './helpers/firestoreRulesBlock';
+import { ASSISTED_APPLICATION_CONSENT_VERSIONS, hasAssistedApplicationConsent } from '../functions/src/assistedApplicationConstants.js';
 
 const repoRoot = resolve(fileURLToPath(new URL('..', import.meta.url)));
 const uploadSource = readFileSync(resolve(repoRoot, 'components/community/AssistedApplicationUpload.tsx'), 'utf8');
@@ -58,5 +59,16 @@ describe('assisted application post-payment upload', () => {
     expect(block).toContain('allow read: if false;');
     expect(block).toContain('allow update, delete: if false;');
     expect(block).toContain('request.resource.contentType.matches');
+  });
+
+  // Review of #10633: an order consented under v1 must not be asked again (the rules forbid rewriting the version).
+  it('honours every mandate version the rules accept, and only those', () => {
+    const versions = `[${ASSISTED_APPLICATION_CONSENT_VERSIONS.map((version) => `'${version}'`).join(', ')}]`;
+    expect(firestoreRules).toContain(`request.resource.data.consentVersion in ${versions}`);
+    expect(storageRules).toContain(`.data.consentVersion in ${versions}`);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v1', consentedAt: { seconds: 1 } })).toBe(true);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: { seconds: 1 } })).toBe(true);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v2', consentedAt: null })).toBe(false);
+    expect(hasAssistedApplicationConsent({ consentVersion: 'assisted-application-v0', consentedAt: { seconds: 1 } })).toBe(false);
   });
 });
