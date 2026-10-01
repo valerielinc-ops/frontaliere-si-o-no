@@ -736,6 +736,32 @@ const WORKPLACE_CHROME_CONTAINER_RX = /(?:^|[\s_-])(?:widget|map(?:[-_]canvas)?|
 const CONTACT_CHROME_CONTAINER_RX = /(?:^|[\s_-])(?:contact|contacts|kontakt|kontaktperson|recruiter|recruiting)(?:$|[\s_-])/i;
 
 /**
+ * A contact token is not enough on its own: templates sometimes put it on the
+ * document root or on a generic body wrapper. Those elements own the vacancy
+ * and must not become chrome. A semantic panel element, an explicit panel
+ * role, or a compound name such as `contact-details` is the structural signal
+ * required before a contact range can be shared by the body/workplace readers.
+ */
+const CONTACT_PANEL_TAGS = new Set(['article', 'aside', 'form', 'section']);
+const CONTACT_PANEL_ROLE_RX = /^(?:complementary|dialog|region)$/i;
+const CONTACT_PANEL_NAME_RX = /(?:^|[\s_-])(?:panel|card|details?|info|section|wrapper|container|area|box|holder|column|grid|form|person)(?:$|[\s_-])/i;
+
+/**
+ * Whether a named contact/recruiter element is structurally a panel.
+ *
+ * @param {HtmlTag} opening
+ * @returns {boolean}
+ */
+function isContactChromePanel(opening) {
+  if (['html', 'head', 'body'].includes(opening.name)) return false;
+  const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
+  if (!CONTACT_CHROME_CONTAINER_RX.test(namedChrome)) return false;
+  return CONTACT_PANEL_TAGS.has(opening.name)
+    || CONTACT_PANEL_ROLE_RX.test(readAttr(opening.raw, 'role').trim())
+    || CONTACT_PANEL_NAME_RX.test(namedChrome);
+}
+
+/**
  * Return the union of ranges as non-overlapping intervals.
  *
  * A vacancy page commonly marks one chrome panel at several nesting levels
@@ -786,7 +812,7 @@ function vacancyChromeRanges(html, index, titles, { excludeWorkplaceChrome = fal
     const namedChrome = [readAttr(opening.raw, 'id'), readAttr(opening.raw, 'class')].join(' ');
     const isChrome = FORM_CONTROL_TAGS.has(opening.name)
       || isHiddenElement(opening.raw)
-      || CONTACT_CHROME_CONTAINER_RX.test(namedChrome)
+      || isContactChromePanel(opening)
       || (isPrintLayout(opening.raw)
         && !printRegionCarriesTitle(html, index, opening.end, bounds.contentEnd, titles))
       || isRelatedPostingsBlock(html, opening, bounds, titles)

@@ -96,6 +96,16 @@ describe('nested vacancy containers are read once', () => {
     expect(description).not.toContain('Kontaktperson Recruiter');
     expect(description).not.toContain('OTHER related posting');
   });
+
+  it('keeps a generic contact wrapper while excluding its semantic contact panel', () => {
+    const body = 'Questa descrizione della vacancy contiene informazioni operative dettagliate sulle responsabilità quotidiane, sulle competenze richieste, sulla collaborazione con il team, sulla formazione iniziale, sugli obiettivi del ruolo, sull’organizzazione del lavoro, sulle opportunità di crescita professionale e sulle condizioni dell’incarico proposto per la persona selezionata. Il ruolo prevede anche autonomia, confronto costante, strumenti adeguati, obiettivi misurabili e un inserimento accompagnato nel gruppo di lavoro.';
+    const html = `<body class="contact"><div itemprop="description">${body}</div><aside class="contact">Recruiter</aside></body>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/contact-wrapper/');
+
+    expect(description).toContain(body);
+    expect(description.split(/\s+/).filter(Boolean).length).toBeGreaterThanOrEqual(50);
+    expect(description).not.toContain('Recruiter');
+  });
 });
 
 describe('SuccessFactors jobs2web sibling description spans', () => {
