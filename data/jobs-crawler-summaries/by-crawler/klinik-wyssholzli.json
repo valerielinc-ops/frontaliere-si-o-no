@@ -1,54 +1,18 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-09-30T21:26:53.754Z",
+  "generatedAt": "2026-10-01T09:27:12.342Z",
   "total": 5,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3340,
-  "avgDurationMs": 3340,
+  "unchangedCount": 0,
+  "durationMs": 2905,
+  "avgDurationMs": 2905,
   "durationHistory": [
-    3340
+    2905
   ],
-  "newJobs": [
-    {
-      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
-      "slug": "koerper-bewegungstherapeutin-01-01-2027-60-klinik-wyssholzli",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-30",
-      "validThrough": "",
-      "needsRetranslation": true,
-      "_meta": {
-        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
-      },
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Psychiater In Ambulatorium Bern 2026 Ab 10",
@@ -79,11 +43,11 @@
       },
       "id": "klinik-wyssholzli-478e6191e986",
       "firstSeenAt": "2026-09-25T15:00:02.770Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -116,11 +80,11 @@
       },
       "id": "klinik-wyssholzli-f225c2a9307c",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -153,11 +117,48 @@
       },
       "id": "klinik-wyssholzli-7ae216cba293",
       "firstSeenAt": "2026-09-25T15:00:02.770Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 21,
+        "completeness": 17
+      }
+    },
+    {
+      "title": "Koerper Bewegungstherapeutin 01.01.2027–60%",
+      "slug": "koerper-bewegungstherapeutin-01-01-2027-60-klinik-wyssholzli",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-30",
+      "validThrough": "",
+      "needsRetranslation": true,
+      "_meta": {
+        "sourceFilename": "Inserat-Koerper-Bewegungstherapeutin_01.01.2027_60.pdf"
+      },
+      "id": "klinik-wyssholzli-9eb3b2cca6b8",
+      "firstSeenAt": "2026-09-30T21:26:48.276Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
         "completeness": 17
       }
     },
@@ -190,58 +191,15 @@
       },
       "id": "klinik-wyssholzli-7463016231c7",
       "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "_qualityScore": 79,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Chefpsychologin 06/2026",
-      "slug": "capo-psicologo-06-2026-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Inserat-Chefpsychologin_06_2026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-06-13",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "Inserat-Chefpsychologin_06_2026.pdf"
-      },
-      "id": "klinik-wyssholzli-2369691a2e02",
-      "firstSeenAt": "2026-06-13T22:10:58.650Z",
-      "salaryMin": 115000,
-      "salaryMax": 160000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "needsRetranslation": true,
-      "crawlerMissStreak": 1,
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 13,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
