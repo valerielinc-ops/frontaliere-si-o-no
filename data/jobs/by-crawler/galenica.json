@@ -31,7 +31,7 @@
       "slugByLocale": {
         "it": "assistente-farmaceutico-assistente-farmaceutico-m-f-d-galenica-ag-galenica-bern",
         "en": "pharma-assistant-pharma-assistentin-m-f-d-galenica-ag-galenica-bern",
-        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern",
+        "de": "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern-nx27e8",
         "fr": "pharma-assistant-pharma-assistant-h-f-d-galenica-ag-galenica-bern"
       },
       "titleByLocale": {
@@ -46,6 +46,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
+        ],
+        "de": [
           "galenica-galenica-ag-pharma-assistent-pharma-assistentin-w-m-d-bern"
         ]
       },
@@ -2886,7 +2889,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apotheker / Apothekerin (w/m/d)",

@@ -151,7 +151,6 @@
           "lehrstelle-als-polymechaniker-in-efz-all-oetiker-horgen-zh-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:53:36.248Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -312,7 +311,6 @@
           "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:28:05.533Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -484,9 +482,9 @@
       "slug": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
       "slugByLocale": {
         "it": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
-        "en": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
-        "de": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
-        "fr": "head-quality-hse-all-oetiker-horgen-zh-switzerland"
+        "en": "head-quality-hse-all-oetiker-horgen-zh-switzerland-d5yesk",
+        "de": "head-quality-hse-all-oetiker-horgen-zh-switzerland-d5yesk",
+        "fr": "head-quality-hse-all-oetiker-horgen-zh-switzerland-d5yesk"
       },
       "company": "Oetiker",
       "companyKey": "oetiker",
@@ -537,10 +535,18 @@
         "it": [
           "head-quality-hse-all-oetiker-horgen-zh-switzerland",
           "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland"
+        ],
+        "en": [
+          "head-quality-hse-all-oetiker-horgen-zh-switzerland"
+        ],
+        "de": [
+          "head-quality-hse-all-oetiker-horgen-zh-switzerland"
+        ],
+        "fr": [
+          "head-quality-hse-all-oetiker-horgen-zh-switzerland"
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:36.244Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
