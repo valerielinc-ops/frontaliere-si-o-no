@@ -142,8 +142,12 @@ export function parseLombardiDetailHtml(html) {
   const detailTitle = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Extract occupancy and city: "80%–100% | Giubiasco"
-  const locationText = pageHtml.match(/>([^<>]*\d+%[^<>]*\|[^<>]*)</)?.[1] || '';
-  const locMatch = stripHtml(locationText).match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^\n]+)/);
+  // Separators may themselves be entities, so inspect each decoded text node.
+  let locMatch = null;
+  for (const [, textNode] of pageHtml.matchAll(/>([^<>]+)</g)) {
+    locMatch = stripHtml(textNode).match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^\n]+)/);
+    if (locMatch) break;
+  }
   const city = locMatch ? normalizeSpace(locMatch[2]) : '';
   const occupancy = locMatch ? normalizeSpace(locMatch[1]) : '';
 

@@ -70,6 +70,16 @@ it('decodes Lombardi fields once and preserves encoded text beside real markup',
   expect(result.markdown).toContain(decodedTitle);
 });
 
+it.each([
+  '80&#37;–100&#37; &#124; Giubiasco',
+  '80&percnt;&ndash;100&percnt; &vert; Giubiasco',
+  '80&#x25;&#x2013;100&#x25; &#x7c; Giubiasco',
+])('recognizes Lombardi location after decoding its separators: %s', (location) => {
+  const result = parseLombardiDetailHtml(`<main><p>Benefits &lpar;80%&rpar; | Switzerland</p><p>${location}</p><p>Next section</p></main>`);
+  expect(result.occupancy).toBe('80%–100%');
+  expect(result.city).toBe('Giubiasco');
+});
+
 it('does not decode municipal titles twice after stripping their tags', () => {
   const title = `${encodedTitle} &amp;lt;CAD&amp;gt;`;
   const bellinzonaJobs = parseBellinzonaListingHtml(`<h3>${title}</h3><p>Pubbl. 01.10.26</p><p>Termine 30.10.2026</p><a href="/docs/job.pdf">Bando di concorso</a>`);
