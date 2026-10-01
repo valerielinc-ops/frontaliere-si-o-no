@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
@@ -5506,35 +5507,21 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
-const HTML_NAMED_ENTITIES = {
-  amp: '&', quot: '"', apos: "'", lt: '<', gt: '>',
-  nbsp: '\u00A0', shy: '\u00AD',
-  ndash: '–', mdash: '—', hellip: '…', bull: '•', middot: '·',
-  lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201C', rdquo: '\u201D',
-  laquo: '«', raquo: '»', times: '×', divide: '÷', minus: '−',
-  agrave: 'à', aacute: 'á', acirc: 'â', atilde: 'ã', auml: 'ä',
-  egrave: 'è', eacute: 'é', ecirc: 'ê', euml: 'ë',
-  igrave: 'ì', iacute: 'í', icirc: 'î', iuml: 'ï',
-  ograve: 'ò', oacute: 'ó', ocirc: 'ô', otilde: 'õ', ouml: 'ö',
-  ugrave: 'ù', uacute: 'ú', ucirc: 'û', uuml: 'ü',
-  Agrave: 'À', Aacute: 'Á', Eacute: 'É', Egrave: 'È',
-  Igrave: 'Ì', Ograve: 'Ò', Uacute: 'Ú', Uuml: 'Ü',
-  ntilde: 'ñ', ccedil: 'ç', szlig: 'ß',
-  euro: '€', pound: '£', yen: '¥', cent: '¢',
-  copy: '©', reg: '®', trade: '™', deg: '°',
-  frac12: '½', frac14: '¼', frac34: '¾',
-};
-
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
-    .replace(/&([a-zA-Z]+);/g, (match, name) => HTML_NAMED_ENTITIES[name] ?? match)
-    .replace(/&nbsp;/gi, ' '); // normalize NBSP to regular space for job text
+    .replace(/&[a-z][a-z0-9]+;/gi, (entity) => decodeHTML(entity, { scope: 'strict' }))
+    .replaceAll('\u00a0', ' ');
 }
 
 export function decodeNumericEntities(value = '') {
-  return String(value || '')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
+  return String(value || '').replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (_, reference) => {
+    const code = /^x/i.test(reference) ? parseInt(reference.slice(1), 16) : Number(reference);
+    // Numeric references are Unicode scalar values, not UTF-16 code units.
+    if (!Number.isInteger(code) || code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) {
+      return '\ufffd';
+    }
+    return String.fromCodePoint(code);
+  });
 }
 
 // Literal JavaScript escape sequences ("für") leak into job TITLES when

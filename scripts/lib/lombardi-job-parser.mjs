@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Lombardi Group — careers page parser
@@ -39,7 +40,7 @@ function slugify(value = '') {
 }
 
 function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -47,12 +48,8 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#\d+;/g, '')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -137,36 +134,26 @@ const SKIP_HEADINGS = /Contact|Contatti|Kontakt|Apply now|Candidati ora|Jetzt be
 export function parseLombardiDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Decode HTML entities (script/style stripped first: heading regexes below
-  // must only see rendered DOM)
-  const decoded = stripScriptsAndStyles(html)
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&ndash;/gi, '–')
-    .replace(/&mdash;/gi, '—')
-    .replace(/&nbsp;/gi, ' ');
+  // Parse actual markup before decoding captured text, so escaped tags stay text.
+  const pageHtml = stripScriptsAndStyles(html);
 
   // Extract title from <h2 class="h1 intro__subtitle">
-  const titleMatch = decoded.match(/<h2[^>]*class="[^"]*intro__subtitle[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
+  const titleMatch = pageHtml.match(/<h2[^>]*class="[^"]*intro__subtitle[^"]*"[^>]*>([\s\S]*?)<\/h2>/i);
   const detailTitle = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
 
   // Extract occupancy and city: "80%–100% | Giubiasco"
-  const locMatch = decoded.match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^<]+)/);
+  const locationText = pageHtml.match(/>([^<>]*\d+%[^<>]*\|[^<>]*)</)?.[1] || '';
+  const locMatch = stripHtml(locationText).match(/(\d+%\s*[–-]\s*\d+%)\s*\|\s*([^\n]+)/);
   const city = locMatch ? normalizeSpace(locMatch[2]) : '';
   const occupancy = locMatch ? normalizeSpace(locMatch[1]) : '';
 
   // Extract intro text from <div class="intro__rich-text">
-  const introMatch = decoded.match(/<div[^>]*class="[^"]*intro__rich-text[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const introMatch = pageHtml.match(/<div[^>]*class="[^"]*intro__rich-text[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
   const introText = introMatch ? normalizeDescriptionSpace(stripHtml(introMatch[1])) : '';
 
   // Extract main content area (between <!-- Title END--> and the contact/form section)
-  const mainMatch = decoded.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-  const mainHtml = mainMatch ? mainMatch[1] : decoded;
+  const mainMatch = pageHtml.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+  const mainHtml = mainMatch ? mainMatch[1] : pageHtml;
 
   // Parse all h3 sections and their content
   const sections = [];

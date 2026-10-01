@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 /**
  * Città di Locarno — job listing parser
  *
@@ -71,42 +72,21 @@ function normalizeSpace(value = '') {
 }
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }
 
 export function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&#0*38;|&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&agrave;/gi, 'à')
-    .replace(/&egrave;/gi, 'è')
-    .replace(/&igrave;/gi, 'ì')
-    .replace(/&ograve;/gi, 'ò')
-    .replace(/&ugrave;/gi, 'ù')
-    .replace(/&rsquo;/gi, '\u2019')
-    .replace(/&lsquo;/gi, '\u2018')
-    .replace(/&nbsp;/gi, ' ')
-    .trim();
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ').trim();
 }
 
 export function slugify(value = '', suffix = '') {
@@ -195,7 +175,7 @@ export function parseLocarnoListingHtml(html) {
     if (!pdfLinkMatch) continue;
 
     const pdfHref = pdfLinkMatch[1];
-    const rawTitle = normalizeSpace(decodeHtmlEntities(stripHtml(pdfLinkMatch[2])));
+    const rawTitle = normalizeSpace(stripHtml(pdfLinkMatch[2]));
 
     // Skip download size links (e.g., "0.2 MB") and image-only links
     if (!rawTitle || rawTitle.length < 5) continue;
