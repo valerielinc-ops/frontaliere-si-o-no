@@ -54,6 +54,7 @@ import { dropFabricatedDescription } from './lib/drop-fabricated-description.mjs
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -77,6 +78,18 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const TIMEOUT_MS = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 25000;
 const MAX_RETRIES = 2;
 const RETRY_DELAY_MS = 3000;
+
+/**
+ * A listing without at least the source-body floor is metadata, not an
+ * indexable job page. Keep it out of the dedicated pipeline so the locale
+ * validator can distinguish a listing-only source response from a parser
+ * regression; a zero usable-listing result takes the existing soft-exit path.
+ */
+export function filterArtificialyListingsWithIndexableSourceBody(listings = []) {
+  return (Array.isArray(listings) ? listings : []).filter((listing) =>
+    meetsSourceBodyFloor(listing?.description || ''),
+  );
+}
 
 function readJson(filePath, fallback) {
   try {
@@ -144,7 +157,7 @@ async function fetchCareerPage() {
       try {
         console.log(`  Fetching ${url} (attempt ${attempt + 1})...`);
         const html = await fetchText(url);
-        const { items, blocked } = parseArtificialyCareerPage(html);
+        const { items: parsedItems, blocked } = parseArtificialyCareerPage(html);
 
         if (blocked) {
           console.log(`  Cloudflare challenge detected on ${url}`);
@@ -156,12 +169,17 @@ async function fetchCareerPage() {
           break;
         }
 
+        const items = filterArtificialyListingsWithIndexableSourceBody(parsedItems);
         if (items.length > 0) {
           console.log(`  Found ${items.length} jobs from ${url}`);
           return items;
         }
 
-        console.log(`  No jobs extracted from ${url} (HTML length: ${html.length})`);
+        const thinCount = parsedItems.length - items.length;
+        const reason = thinCount > 0
+          ? `${thinCount} listing(s) had no indexable source body (under 50 words)`
+          : 'no jobs extracted';
+        console.log(`  ${reason} from ${url} (HTML length: ${html.length})`);
         break;
       } catch (err) {
         console.log(`  Fetch failed for ${url}: ${err.message}`);

@@ -1,5 +1,8 @@
 import fs from 'node:fs';
-import { dropArtificialyFabricatedText } from '../scripts/update-artificialy-jobs.mjs';
+import {
+  dropArtificialyFabricatedText,
+  filterArtificialyListingsWithIndexableSourceBody,
+} from '../scripts/update-artificialy-jobs.mjs';
 import { describe, expect, it } from 'vitest';
 import {
   buildArtificialyLocalizedContent,
@@ -65,6 +68,19 @@ describe('Artificialy career parser', () => {
       blocked: false,
       items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich' })],
     });
+  });
+
+  it('does not pass listing-only metadata into the crawler pipeline', () => {
+    const shortBody = Array.from({ length: 49 }, () => 'source').join(' ');
+    const indexableBody = Array.from({ length: 50 }, () => 'source').join(' ');
+
+    expect(filterArtificialyListingsWithIndexableSourceBody([
+      { title: 'Metadata only', description: '' },
+      { title: 'Short summary', description: shortBody },
+      { title: 'Full source body', description: indexableBody },
+    ])).toEqual([
+      { title: 'Full source body', description: indexableBody },
+    ]);
   });
 });
 
