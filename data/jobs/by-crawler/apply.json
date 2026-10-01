@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apply",
-  "assembledAt": "2026-10-01T09:19:00.475Z",
+  "assembledAt": "2026-10-01T21:17:36.070Z",
   "jobs": [
     {
       "id": "apply-fa0e71e72c9b",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/968123/1468/pub/5/index.html",
       "source": "LEITpuls AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:56.976Z",
+      "crawledAt": "2026-10-01T21:17:31.466Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -53,14 +53,16 @@
         "project-manager-coordinamento-tecnico-capo-generale-della-tecnologia-edile-80-100-leitpuls-ag-bern-be",
         "project-manager-technical-coordination-general-head-of-building-technology-80-100-leitpuls-ag-bern-be",
         "chef-de-projet-coordination-technique-chef-general-de-la-technologie-du-batiment-80-100-leitpuls-ag-bern-be",
-        "projektmanager-in-technische-koordination-gesamtleitung-gebaudetechnik-80-100-bern-be"
+        "projektmanager-in-technische-koordination-gesamtleitung-gebaudetechnik-80-100-bern-be",
+        "project-manager-coordinamento-tecnico-gestione-complessiva-della-tecnologia-edilizia-80-100-leitpuls-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "project-manager-coordinamento-tecnico-capo-generale-della-tecnologia-edile-80-100-leitpuls-ag-bern-be",
           "project-manager-technical-coordination-general-head-of-building-technology-80-100-leitpuls-ag-bern-be",
           "chef-de-projet-coordination-technique-chef-general-de-la-technologie-du-batiment-80-100-leitpuls-ag-bern-be",
-          "projektmanager-in-technische-koordination-gesamtleitung-gebaudetechnik-80-100-bern-be"
+          "projektmanager-in-technische-koordination-gesamtleitung-gebaudetechnik-80-100-bern-be",
+          "project-manager-coordinamento-tecnico-gestione-complessiva-della-tecnologia-edilizia-80-100-leitpuls-ag-bern"
         ],
         "en": [
           "project-manager-technical-coordination-general-head-of-building-technology-80-100-leitpuls-ag-bern-be",
@@ -85,8 +87,7 @@
           "maxValue": 160000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://apply.refline.ch/968123/1468/pub/5/index.html"
+      }
     }
   ]
 }
