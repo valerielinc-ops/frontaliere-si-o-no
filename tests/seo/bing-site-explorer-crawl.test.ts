@@ -38,7 +38,7 @@ describe('Bing-compatible full-tree crawler', () => {
   });
 
   it('classifies noindex, canonical drift, soft 404 and HTTP errors', () => {
-    const noindex = classifyDocument({ url: `${BASE}/partner/`, status: 200, headers: new Headers({ 'x-robots-tag': 'noindex' }), html: '<title>Partner</title><link rel="canonical" href="https://frontaliereticino.ch/partner/"><meta name="robots" content="noindex">' });
+    const noindex = classifyDocument({ url: `${BASE}/partner/`, status: 200, headers: new Headers({ 'x-robots-tag': 'noindex' }), html: '<title>Partner</title><link rel="canonical" href="https://frontaliereticino.ch/partner/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina partner nel controllo SEO completo del sito e mantenere il contratto di crawling."/><meta name="robots" content="noindex">' });
     expect(noindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     const drift = classifyDocument({ url: `${BASE}/a/`, status: 200, html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/b/">' });
     expect(drift.findings.map((item) => item.code)).toContain('canonical-drift');
@@ -78,6 +78,16 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(minified.canonical).toBe(`${BASE}/minified/`);
     expect(minified.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     expect(minified.findings.map((item) => item.code)).not.toContain('canonical-missing');
+
+    const metadata = classifyDocument({
+      url: `${BASE}/metadata/`,
+      status: 200,
+      html: '<title>Questo titolo supera intenzionalmente il limite SEO definito dal crawler per la verifica</title><link rel="canonical" href="https://frontaliereticino.ch/metadata/"><meta name="description" content="Descrizione breve">',
+    });
+    expect(metadata.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+      'title-too-long',
+      'meta-description-too-short',
+    ]));
 
     const pdf = classifyDocument({
       url: `${BASE}/guide.pdf`,
@@ -196,7 +206,7 @@ describe('Bing-compatible full-tree crawler', () => {
       fetchImpl: async () => {
         calls += 1;
         if (calls === 1) return new Response('', { status: 503 });
-        return new Response('<title>Rescued</title><link rel="canonical" href="https://frontaliereticino.ch/rescue/">', {
+        return new Response('<title>Rescued</title><link rel="canonical" href="https://frontaliereticino.ch/rescue/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina recuperata nel controllo SEO completo del sito e mantenere il contratto di crawling.">', {
           status: 200,
           headers: { 'content-type': 'text/html' },
         });
@@ -250,7 +260,7 @@ describe('Bing-compatible full-tree crawler', () => {
     const result = await rescueTransientReports([report], { baseUrl: BASE, urls: [url] }, {
       fetchImpl: async () => {
         calls += 1;
-        return new Response('<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/global-rescue/">', {
+        return new Response('<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/global-rescue/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina recuperata nel controllo SEO completo del sito e mantenere il contratto di crawling.">', {
           status: 200,
           headers: { 'content-type': 'text/html' },
         });
