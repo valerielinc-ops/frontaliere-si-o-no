@@ -102,7 +102,10 @@ export function restoreStaticArticleFallback(expectedPath?: string): boolean {
   if (!el?.querySelector('article.ft-blog-article')) return false;
   el.style.removeProperty('display');
   if (!document.body.contains(el) || document.getElementById('root')?.contains(el)) {
-    document.body.appendChild(el);
+    // The overlay footer is portalled into this sibling and must stay below
+    // the article, including when React has already replaced the live node.
+    const footer = document.getElementById('footer-root');
+    document.body.insertBefore(el, footer?.parentElement === document.body ? footer : null);
   }
   return true;
 }
