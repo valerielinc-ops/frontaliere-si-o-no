@@ -29,7 +29,8 @@ describe('portal field extraction', () => {
       <label for="city">Località</label><input id="city" name="city">
       <input name="nickname">`);
     const file = page.fields.find((field: any) => field.kind === 'file');
-    expect(file.label).toBe('Carica il tuo CV · Carica file');
+    // The heading names the step; the zone adds the text nearest before the input.
+    expect(file.label).toBe('Carica il tuo CV · Fare clic per sfogliare o trascinare qui un file.');
     // A real label or a meaningful name is kept as before.
     expect(page.fields.find((field: any) => field.name === 'city').label).toBe('Località');
     expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
@@ -66,6 +67,10 @@ describe('portal field extraction', () => {
     expect(steps.fields[0].label).not.toContain('Inactive step');
     const country = extract('<h2>Paese</h2><div><select id="input-7"><option>Italia</option><option>Svizzera</option></select></div>');
     expect(country.fields[0].label).toBe('Paese');
+    // Second round: another section's heading, and a sibling field's question, name nothing here.
+    expect(extract('<section><h2>Inactive step</h2></section><section><div><input id="input-7"></div></section>').fields[0].label).not.toContain('Inactive step');
+    const pair = extract('<div><span>First question</span><input id="input-7"><span>Second question</span><input id="input-8"></div>');
+    expect(pair.fields.map((field: any) => field.label)).toEqual(['First question', 'Second question']);
   });
 
   it('reads a radio group required only by its label as required, and asks the candidate for it', () => {

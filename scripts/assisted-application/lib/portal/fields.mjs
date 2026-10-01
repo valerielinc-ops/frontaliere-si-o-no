@@ -71,26 +71,39 @@ export function extractFieldsInPage() {
   };
   // Node.DOCUMENT_POSITION_FOLLOWING, without relying on the global Node.
   const FOLLOWING = 4;
+  // A heading inside another section of the page (a step, a dialog, a tab
+  // the field is not in) names nothing in this one.
+  const SECTIONS = 'section, article, fieldset, dialog, [role="dialog"], [role="tabpanel"], [role="region"]';
   const headingBefore = (element) => {
     let found = '';
     for (const heading of document.querySelectorAll('h1, h2, h3, h4, legend')) {
+      const section = heading.closest(SECTIONS);
+      if (section && !section.contains(element)) continue;
       // eslint-disable-next-line no-bitwise
       if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
     }
     return found;
   };
-  // The first words of the control's zone: its first non-empty text node
-  // (NodeFilter.SHOW_TEXT = 4), whatever the layout.
+  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
+  // nearest before it, else the first after it, so two unnamed fields in one
+  // zone never share the first one's question.
   const zoneText = (element) => {
     let node = element.parentElement;
     for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
       const walker = document.createTreeWalker(node, 4);
+      let before = '';
+      let after = '';
       for (let text = walker.nextNode(); text; text = walker.nextNode()) {
         // Never from inside a control: a select's first option is an answer, not a question.
         if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
         const value = clean(text.textContent);
-        if (value) return value.slice(0, 80);
+        if (!value) continue;
+        // eslint-disable-next-line no-bitwise
+        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
+        else if (!after) after = value;
       }
+      const words = before || after;
+      if (words) return words.slice(0, 80);
     }
     return '';
   };
