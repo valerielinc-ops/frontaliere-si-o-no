@@ -310,7 +310,7 @@ function extractSpanText(rowHtml, elementId) {
   const regex = new RegExp(`tableaslist_element_${elementId}"[^>]*>([\\s\\S]*?)(?=<span class="tableaslist_|<br\\s*/?>|$)`);
   const match = rowHtml.match(regex);
   if (!match) return '';
-  return normalizeSpace(decodeEntities(stripHtml(match[1])));
+  return normalizeSpace(stripHtml(match[1]));
 }
 
 /* ── Detail Page Parser ───────────────────────────────────── */
@@ -337,7 +337,7 @@ export function parseGkbDetailPage(html = '', fallbackTitle = '') {
   let blockMatch;
 
   while ((blockMatch = blockRegex.exec(html)) !== null) {
-    const content = normalizeSpace(stripHtml(decodeEntities(blockMatch[1])));
+    const content = normalizeSpace(stripHtml(blockMatch[1]));
     // Skip empty blocks and short metadata blocks (company name, dates)
     if (content.length > 20) {
       blocks.push(content);

@@ -24,6 +24,7 @@
  *   5. Translates missing locales.
  */
 import fs from 'node:fs';
+import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -128,7 +129,7 @@ function detectCanton(city = '') {
 }
 
 function stripHtml(html = '') {
-  return html
+  return decodeHTML(html
     .replace(/<!--[\s\S]*?-->/g, '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
@@ -138,8 +139,7 @@ function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/p>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
     .replace(/\s+/g, ' ')
     .trim();
 }

@@ -296,7 +296,7 @@ function extractSpanText(rowHtml, elementId) {
   const regex = new RegExp(`tableaslist_element_${elementId}"[^>]*>([\\s\\S]*?)(?=<span class="tableaslist_|<br\\s*/?>|$)`);
   const match = rowHtml.match(regex);
   if (!match) return '';
-  return normalizeSpace(decodeEntities(stripHtml(match[1])));
+  return normalizeSpace(stripHtml(match[1]));
 }
 
 /* ── Detail Page Parser ───────────────────────────────────── */
@@ -342,8 +342,7 @@ export function parseTschuggenDetailPage(html = '', fallbackTitle = '') {
   const parts = [];
   for (const m of contentHtml.matchAll(/<(h2|p)\b[^>]*>([\s\S]*?)<\/\1>/gi)) {
     if (m[1].toLowerCase() === 'h2') {
-      const heading = normalizeSpace(stripHtml(decodeEntities(m[2]))
-        .replace(/&#(\d+);/g, (_, code) => String.fromCodePoint(Number(code)))
+      const heading = normalizeSpace(stripHtml(m[2])
         // Section icons (🎯 📄) are decoration, not part of the heading.
         .replace(/\p{Extended_Pictographic}|\uFE0F/gu, ''));
       if (heading.length > 2) {
@@ -352,7 +351,7 @@ export function parseTschuggenDetailPage(html = '', fallbackTitle = '') {
       }
       continue;
     }
-    const text = normalizeDescriptionSpace(stripHtml(decodeEntities(m[2].replace(/<h2\b[\s\S]*?<\/h2>/gi, ' '))))
+    const text = normalizeDescriptionSpace(stripHtml(m[2].replace(/<h2\b[\s\S]*?<\/h2>/gi, ' ')))
       .split('\n')
       .map((line) => line.replace(/^[-–]\s*/, '• ').trim())
       .filter(Boolean)

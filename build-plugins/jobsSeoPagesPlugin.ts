@@ -13,6 +13,7 @@
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -2091,15 +2092,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .replace(/>/g, '&gt;')
  .replace(/"/g, '&quot;');
  /** Decode common HTML entities so source text doesn't get double-escaped by esc(). */
- const decodeHtmlEntities = (s: string) => String(s || '')
- .replace(/&amp;/g, '&')
- .replace(/&lt;/g, '<')
- .replace(/&gt;/g, '>')
- .replace(/&quot;/g, '"')
- .replace(/&#39;/g, "'")
- .replace(/&#x27;/g, "'")
- .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
- .replace(/&[A-Za-z]+;/g, ' ');
+ const decodeHtmlEntities = (s: string) => decodeHtmlText(String(s || ''));
  /** Convert plain-text crawler descriptions to HTML via the shared parser
  * (`build-plugins/shared/jobDescription/parser.ts`). Handles `**bold**` -->
  * `<strong>`, drops empty bolds, strips separator lines (`______`), dedups
@@ -2109,12 +2102,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const normalizeText = (s: string) => String(s || '')
  .replace(/\r/g, '\n')
  .replace(/\t/g, ' ')
- .replace(/&[A-Za-z]+;/g, ' ')
  .replace(/\s+/g, ' ')
  .trim();
  /** Strip markdown syntax, emojis & structured noise for clean meta descriptions. */
  const cleanMetaDescription = (raw: string): string => {
- let s = String(raw || '');
+ let s = decodeHtmlEntities(raw);
  // Strip markdown headings (at line start only — unanchored also mangled `C#`/`#3`)
  s = s.replace(/(^|\n)#{1,6}\s+/g, '$1');
  // Delimiters excluded from crossing a newline — a stray unpaired `*` (e.g. a
@@ -2130,8 +2122,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  s = s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu, '');
  // Strip bullet/list markers at line starts
  s = s.replace(/^\s*[-*•]\s+/gm, '');
- // Strip HTML entities like &NewLine; &colo;
- s = s.replace(/&[A-Za-z]+;/g, ' ');
  // Collapse whitespace
  s = s.replace(/\s+/g, ' ').trim();
  return s;
@@ -3443,13 +3433,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with salary and CTA
- const metaIntro = locale === 'de'
+ const metaIntro = decodeHtmlEntities(locale === 'de'
  ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
  : locale === 'fr'
  ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
  : locale === 'en'
  ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
- : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`;
+ : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
  // Inline salary snippet for meta description (before salaryText is computed)
  const metaSalaryMin = Number(job.salaryMin);
  const metaSalaryMax = Number(job.salaryMax);
@@ -3474,10 +3464,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `qui`, … so those still dangled here after being handled there).
  // AGENTS.md Non-Negotiable #6: one shared module, no copies.
  const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
- // Decode HTML entities from source data to prevent double-escaping in esc()
- const description = decodeHtmlEntities(descWithSalary.length <= 160
+ // Each source fragment was decoded once before concatenation and truncation.
+ const description = descWithSalary.length <= 160
  ? descWithSalary
- : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`));
+ : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`);
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it

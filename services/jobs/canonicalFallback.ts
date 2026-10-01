@@ -20,6 +20,7 @@
 // `.ts` extension because `tsconfig.json` sets
 // `allowImportingTsExtensions: true`.
 import type { Locale } from '../i18n';
+import { decodeHtmlText } from '../../packages/articles/engine/shared/htmlEntities.ts';
 import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
 // Relative, not `@/`: this module is reachable from vite.config.ts, which Vite
 // bundles with esbuild BEFORE its own aliases exist (tests/vite-config-import-graph).
@@ -220,18 +221,11 @@ const FALLBACK_PASS3_ROUTE_RULES: Array<{ id: FallbackSectionId; re: RegExp }> =
 ];
 
 function fallbackDecodeHtml(input: string): string {
- return String(input || '')
- .replace(/&nbsp;/gi, ' ')
- .replace(/&raquo;|»/gi, ' ')
- .replace(/&amp;/gi, '&')
- .replace(/&quot;/gi, '"')
- .replace(/&#39;|&apos;/gi, '\'')
- .replace(/&lt;/gi, '<')
- .replace(/&gt;/gi, '>');
+ return decodeHtmlText(String(input || '')).replace(/\u00a0|»/g, ' ');
 }
 
 function fallbackDecodeLooseEntities(input: string): string {
- return String(input || '').replace(/&(sol|comma|ndash|newline|colo|times);/gi, (_m, ent) => {
+ return decodeHtmlText(String(input || '').replace(/&(sol|comma|ndash|newline|colo|times);/gi, (_m, ent) => {
  const map: Record<string, string> = {
  sol: '/',
  comma: ',',
@@ -241,7 +235,7 @@ function fallbackDecodeLooseEntities(input: string): string {
  times: 'x',
  };
  return map[String(ent || '').toLowerCase()] || ' ';
- });
+ }));
 }
 
 function fallbackCleanSpaces(value: string): string {
@@ -340,15 +334,18 @@ function fallbackIsUiNoiseChunk(line: string): boolean {
 }
 
 function fallbackNormalizeRaw(raw: string): string {
- let text = fallbackDecodeLooseEntities(fallbackDecodeHtml(raw || ''));
- text = text
+ let text = String(raw || '')
  .replace(/&(?:amp;)?newline;?/gi, '\n')
  .replace(/\\n/g, '\n')
  .replace(/<br\s*\/?>/gi, '\n')
  .replace(/<\/(p|li|h1|h2|h3|h4|div)>/gi, '\n')
- .replace(/<[^>]+>/g, ' ')
- .replace(/&[a-z]{2,20};?/gi, ' ')
- .replace(/ /g, ' ')
+ .replace(/<!--[\s\S]*?-->/g, ' ')
+ // Recognize HTML tags rather than deleting plain tokens such as <SQL> or
+ // List<T>, including when a persisted description also contains real <br>.
+ .replace(/<\/?(?:a|abbr|address|article|aside|b|blockquote|br|caption|cite|code|col|colgroup|dd|del|details|div|dl|dt|em|figcaption|figure|font|footer|h[1-6]|header|hr|i|img|ins|label|li|main|mark|nav|ol|p|pre|s|section|small|span|strong|sub|summary|sup|table|tbody|td|tfoot|th|thead|tr|u|ul|wbr)(?=[\s/>])[^>]*>/gi, ' ');
+ // Strip source markup before decoding text so &lt;SQL&gt; stays visible.
+ text = fallbackDecodeLooseEntities(text)
+ .replace(/ |»/g, ' ')
  .replace(/\r/g, '\n')
  .replace(/[ \t]+/g, ' ')
  .replace(/([^#\n])\s*##+\s*/g, '$1\n## ')
@@ -436,8 +433,7 @@ function fallbackNormalizeRequirementLine(line: string): string {
  .replace(MARKDOWN_CHUNK_HEADING_RE, '')
  .replace(/^[-–—•*]+\s*/, '')
  .replace(/^[\],.;:!?)\s]+/, '')
- .replace(/&(?:amp;)?newline;?/gi, ' ')
- .replace(/&[a-z]{2,20};?/gi, ' ');
+ .replace(/&(?:amp;)?newline;?/gi, ' ');
  if (/^i\s*\(/i.test(out)) out = out.replace(/^i\s*/i, '');
  out = out.replace(/\s*\.\.\.\s*$/g, '');
  return out.replace(/\s+/g, ' ').trim();
@@ -687,7 +683,7 @@ export function canonicalizeFallbackRaw(description: string, requirements: strin
  }
 
  const reqLines = requirements
- .map((x) => fallbackNormalizeRequirementLine(x))
+ .map((x) => fallbackNormalizeRequirementLine(fallbackDecodeLooseEntities(x)))
  .filter(Boolean);
  sections.requirements = fallbackUniq([...sections.requirements, ...reqLines], 120);
 
