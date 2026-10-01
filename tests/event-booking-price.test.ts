@@ -31,6 +31,12 @@ describe('official event booking tariffs', () => {
     expect(extractEventBookingPrice(ld({ ...node, startDate: '2026-10-03T23:30:00Z' }), bookingUrl, event)?.amount).toBe(0);
   });
 
+  it.each(['https://www.ticketino.com/de/event/123', 'https://eventfrog.ch/example'])('uses published Event offers on %s', url => {
+    const html = ld({ ...node, startDate: '2026-10-03T23:30:00+0000', offers: { price: '10.0000', priceCurrency: 'CHF' } });
+    expect(extractEventBookingPrice(html, url, event)).toEqual({ amount: 10, currency: 'CHF', isFree: false, url });
+    expect(extractEventBookingPrice(html, url, { ...event, venue: 'Other theatre' })).toBeUndefined();
+  });
+
   it('does not combine incomparable currencies or ambiguous matching events', () => {
     const priced = { ...node, offers: [{ price: 20, priceCurrency: 'CHF' }, { price: 10, priceCurrency: 'EUR' }] };
     expect(extractEventBookingPrice(ld(priced), bookingUrl, event)).toBeUndefined();

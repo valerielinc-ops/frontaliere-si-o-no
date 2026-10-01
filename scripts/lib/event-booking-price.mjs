@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
 
-const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com']);
+const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch']);
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
 
 export function supportedEventBookingUrl(value) {
@@ -24,7 +24,7 @@ function sameVenue(left, right) {
 
 function localDate(value) {
   if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}(?:T|$)/.test(value)) return undefined;
-  if (!/(?:Z|[+-]\d{2}:\d{2})$/.test(value)) return value.slice(0, 10);
+  if (!/(?:Z|[+-]\d{2}:?\d{2})$/.test(value)) return value.slice(0, 10);
   const date = new Date(value);
   return Number.isFinite(date.getTime())
     ? new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich' }).format(date) : undefined;

@@ -83,6 +83,7 @@ import {
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
@@ -424,6 +425,25 @@ export function recoverExistingIndexedPrices(existingEvents, records) {
     const price = pricesById.get(event.id);
     return price ? [{ ...event, price: { ...event.price, ...price } }] : [];
   });
+}
+
+/** Recover missing prices from retained source booking links, independently of the detail cursor. */
+export async function recoverExistingBookingPrices(existingEvents, records, { deadline = Infinity, fetchFn = fetchEventBookingPrice } = {}) {
+  const datesById = new Map(records.map(({ objectID, perLocaleHits }) => {
+    const primary = LOCALES.map(locale => perLocaleHits[locale]).find(Boolean);
+    return [eventStableId(SOURCE.key, objectID), extractDateInfo(primary)?.startDate];
+  }));
+  const updates = [];
+  for (const event of existingEvents) {
+    if (hasConfidentPrice(event.price) || datesById.get(event.id) !== event.startDate
+      || !event.startDate || !supportedEventBookingUrl(event.price?.url)) continue;
+    if (Date.now() >= deadline) break;
+    try {
+      const price = await fetchFn(event, event.price.url);
+      if (hasConfidentPrice(price)) updates.push({ ...event, price: { ...event.price, ...price } });
+    } catch { /* Optional enrichment must not abort the primary crawl. */ }
+  }
+  return updates;
 }
 
 /**
@@ -837,6 +857,11 @@ async function main() {
   if (limit) records = records.slice(0, limit);
   const indexedPriceBackfills = recoverExistingIndexedPrices(existingSlice.events, records);
   console.log(`[myswitzerland] ${indexedPriceBackfills.length} existing unknown price(s) recovered from the public index`);
+  const indexedIds = new Set(indexedPriceBackfills.map(event => event.id));
+  const bookingPriceBackfills = await recoverExistingBookingPrices(
+    existingSlice.events.filter(event => !indexedIds.has(event.id)), records, { deadline },
+  );
+  console.log(`[myswitzerland] ${bookingPriceBackfills.length} existing unknown price(s) recovered from official booking pages`);
 
   const targetedCheckpointPath = path.join(CHECKPOINT_DIR, 'myswitzerland-targeted.json');
   const resumeIndex = ids
@@ -924,7 +949,7 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
     return;
   }
 
@@ -957,18 +982,18 @@ async function main() {
       process.exitCode = 1;
       return;
     }
-    if (indexedPriceBackfills.length === 0) return;
+    if (indexedPriceBackfills.length === 0 && bookingPriceBackfills.length === 0) return;
   }
 
   const total = mergeEventsIntoSlice({
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: [...indexedPriceBackfills, ...translatedEvents],
+    freshEvents: [...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents],
     goneIds: [],
     crawledAt,
   });
-  console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-myswitzerland-events.mjs`),
