@@ -6782,7 +6782,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
    "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
    "creator": {
-    "@type": "Organization",
+    "@type": "NewsMediaOrganization",
+    "@id": "https://frontaliereticino.ch/#organization",
     "name": "Frontaliere Ticino",
     "url": "https://frontaliereticino.ch/"
    },
@@ -6940,7 +6941,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
    "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
    "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
    "creator": {
-    "@type": "Organization",
+    "@type": "NewsMediaOrganization",
+    "@id": "https://frontaliereticino.ch/#organization",
     "name": "Frontaliere Ticino",
     "url": "https://frontaliereticino.ch/"
    },
