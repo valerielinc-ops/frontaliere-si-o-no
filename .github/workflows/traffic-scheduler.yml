@@ -41,6 +41,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          # The shared main-push helper deliberately uses a complete non-thin
+          # pack for shallow Actions checkouts. This writer also commits the
+          # rolling border-wait history; keeping the commit graph complete
+          # prevents that pack from stalling in the push tail after the live
+          # Firestore snapshot has already been collected.
+          fetch-depth: 0
+          filter: blob:none
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
