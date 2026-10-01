@@ -45,6 +45,10 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     const publisher = read('scripts/lib/open-data-refresh-pr.sh');
 
     expect(publisher).toContain('RECONCILE_COMPAT=true');
+    expect(publisher).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
+    expect(publisher).toContain(
+      'git fetch --no-tags "$PUSH_URL" \\\n      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
     expect(publisher).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
     expect(publisher).toContain('refs/heads/main:refs/remotes/origin/main');
     expect(publisher).toContain("git config merge.compat-shard.driver 'node scripts/ci/merge-compat-shard.mjs %O %A %B'");

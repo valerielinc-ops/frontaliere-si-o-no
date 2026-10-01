@@ -47,6 +47,10 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--force-with-lease');
     expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
     expect(helper).toContain('git ls-remote "$PUSH_URL"');
+    expect(helper).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
+    expect(helper).toContain(
+      'git fetch --no-tags "$PUSH_URL" \\\n      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+    );
     expect(helper).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs"');
