@@ -374,6 +374,7 @@ export async function submitViaPortal(ctx) {
       // page is planned a second time (Personio empties the input after the upload).
       const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
       const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+      const plannedUrl = page.url();
       const results = await applyActions(page, snapshot.fields, actions, ctx.files);
       for (const result of results) {
         if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
@@ -382,6 +383,13 @@ export async function submitViaPortal(ctx) {
       evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
 
       let after = await extractFields(page, NAVIGATION);
+      // The portal moved to another page by itself (JOIN registers the e-mail
+      // and shows the CV page a moment later): plan that page, instead of
+      // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
+      if (page.url() !== plannedUrl) {
+        snapshot = await extractFields(page);
+        continue;
+      }
       // No usable button yet: a form re-rendering after a choice (Workday
       // redraws the address for another country) or an uploaded CV still being
       // processed (Workday parses it). Up to 6 s, or 60 s after an upload.
@@ -398,6 +406,12 @@ export async function submitViaPortal(ctx) {
         await clickButton(page, next);
         await settle(page);
         snapshot = await extractFields(page);
+        // A single-page form moves on after its own request (JOIN checks the
+        // e-mail first): up to 10 s for the next page before calling it stuck.
+        for (let waited = 0; waited < 10_000 && pageSignature(page, snapshot) === before; waited += 2000) {
+          await page.waitForTimeout(2000);
+          snapshot = await extractFields(page);
+        }
         // Still the same page: the form refused a value. Two corrections, then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage > 2) return await handoff('portal_needs_candidate');
