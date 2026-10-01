@@ -5,8 +5,9 @@
  *   may differ from the posting host) → per page: CAPTCHA / login check,
  *   Codex plan, deterministic fill, next → submit → confirmation.
  *
- * It never bypasses a CAPTCHA (owner decision: career-ops' approach): that
- * ends in the candidate handoff. A login page is handled by account.mjs: an
+ * NopeCHA solves supported CAPTCHAs in the runner's browser (owner request
+ * 2026-10-01); an unresolved challenge still ends in a handoff.
+ * A login page is handled by account.mjs: an
  * account on the order's alias, created by the runner and verified through
  * the order's inbox. A required answer only the candidate can give ends in
  * `submit_needs_candidate` with the question; the flow asks it on the review
@@ -27,6 +28,7 @@ import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { armRecaptchaV3, awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
 export const WAVE1_CHANNELS = new Set([
@@ -473,18 +475,25 @@ export function urlConfirms(url, snapshot) {
   return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && Boolean(snapshot) && !findButton(snapshot.buttons || [], SUBMIT_RE, { includeDisabled: true });
 }
 
-async function waitForOutcome(page) {
-  const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
+async function waitForOutcome(page, captchaEnabled = false) {
+  const started = Date.now();
+  const deadline = started + OUTCOME_TIMEOUT_MS + (captchaEnabled ? CAPTCHA_TIMEOUT_MS : 0);
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     if (CONFIRM_RE.test(text)) return 'confirmed';
     // The portal says it did not send: nothing left, by its own word.
     if (REFUSED_RE.test(text)) return 'refused';
-    const snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    let snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    if (snapshot?.captcha && captchaEnabled) {
+      snapshot = await awaitCaptcha(page, snapshot, { enabled: true, timeoutMs: Math.max(0, deadline - Date.now()) });
+      // Solving may have submitted the original request: observe its outcome,
+      // never press the final button a second time.
+      if (!snapshot.captcha) continue;
+    }
     if (urlConfirms(page.url(), snapshot)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
-    if (Date.now() > deadline - OUTCOME_TIMEOUT_MS + 4000 && VALIDATION_RE.test(text)) return 'validation';
+    if (Date.now() > started + 4000 && VALIDATION_RE.test(text)) return 'validation';
   }
   return 'ambiguous';
 }
@@ -549,12 +558,14 @@ export async function readPortalQuestions(ctx) {
  */
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  const extensionPath = !ctx.launch && process.env.NOPECHA_EXTENSION_PATH;
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
   // start date, the employer's own questions, review): 8 pages were not enough.
   const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
-  const browser = await launch();
+  const browser = extensionPath ? null : await launch();
+  let context = null;
   let page = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
@@ -584,20 +595,23 @@ export async function submitViaPortal(ctx) {
   // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
   try {
-    const context = await browser.newContext({
-      userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
+    const contextOptions = {
       locale: INTL[ctx.language] || 'de-CH',
       timezoneId: 'Europe/Zurich',
       viewport: { width: 1366, height: 900 },
       acceptDownloads: false,
-    });
+    };
+    context = extensionPath
+      ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
+      : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
-    evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
+    evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => ''), nopecha: Boolean(extensionPath) };
     const response = await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
     // The posting as a browser renders it (career-ops liveness-browser): the
     // fetch before the run sees only the empty shell of a JavaScript portal.
     const rendered = classifyLiveness({
@@ -662,6 +676,7 @@ export async function submitViaPortal(ctx) {
     const askCandidate = (questions) => ({ event: { type: 'submit_needs_candidate', questions: questionsFrom(questions) }, evidence });
 
     for (let step = 1; step <= maxSteps; step += 1) {
+      snapshot = await awaitCaptcha(page, snapshot, { enabled: Boolean(extensionPath) });
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
@@ -740,6 +755,7 @@ export async function submitViaPortal(ctx) {
           after = await extractFields(page, NAVIGATION);
         }
       }
+      after = await awaitCaptcha(page, after, { enabled: Boolean(extensionPath) });
       if (after.captcha) return await handoff('captcha');
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());
@@ -824,13 +840,14 @@ export async function submitViaPortal(ctx) {
         evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };
       }
+      if (extensionPath) await armRecaptchaV3(page, evidence);
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
       await final.click();
-      const outcome = await waitForOutcome(page);
+      const outcome = await waitForOutcome(page, Boolean(extensionPath));
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
@@ -867,7 +884,8 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } finally {
-    await browser.close().catch(() => {});
+    await context?.close().catch(() => {});
+    await browser?.close().catch(() => {});
   }
 }
 
