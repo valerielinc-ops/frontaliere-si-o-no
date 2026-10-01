@@ -458,6 +458,23 @@ export function renderTrafficFluidMeasuredBanner(
      </div>`;
 }
 
+export type HubHeroState = 'fastest' | 'fluid' | 'fluid-measured' | 'unavailable';
+
+/**
+ * Stato del blocco hero dell'hub dalle attese dei valichi in scope (una voce
+ * per valico, `null` se manca la lettura). Gemello build-time di `hub()` nello
+ * script di idratazione, che applica la stessa regola alle letture live: una
+ * attesa mancante o negativa e' un valico NON misurato. Almeno una coda =>
+ * valico piu' veloce; tutte le misurate a zero => «fluido» se coprono ogni
+ * valico, «fluido sui misurati» altrimenti; nessuna misurata => non disponibile.
+ */
+export function hubHeroState(waits: ReadonlyArray<number | null | undefined>): HubHeroState {
+  const measured = waits.filter((w): w is number => w != null && w >= 0);
+  if (measured.some((w) => w > 0)) return 'fastest';
+  if (measured.length === 0) return 'unavailable';
+  return measured.length === waits.length ? 'fluid' : 'fluid-measured';
+}
+
 /**
  * Wraps a present-tense status block («adesso», «in questo momento») so the
  * hydration asset can replace it with the variant that matches the live
@@ -2380,31 +2397,19 @@ function renderHubPage(inp: HubInputs): string {
   // copertura piena a zero => banner «fluido»; almeno una coda => hero;
   // letture a zero su copertura parziale => «fluido sui valichi misurati»;
   // nessuna lettura => banner di dato non disponibile, che NON e' la stessa
-  // affermazione di «fluido». Lo stesso albero decisionale gira nello script
-  // di idratazione sulle letture live (vedi `renderLiveSwap`).
-  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c) => {
-    const waitTimeMinutes = current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes;
-    return waitTimeMinutes == null
+  // affermazione di «fluido». La regola sta in `hubHeroState`; lo script di
+  // idratazione la ripete sulle letture live (`hub()`, vedi `renderLiveSwap`).
+  const scopeWaits = crossingsInScope.map(
+    (c) => current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null,
+  );
+  // Negative waits are invalid readings: unmeasured, as in `hubHeroState`.
+  const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c, i) => {
+    const waitTimeMinutes = scopeWaits[i];
+    return waitTimeMinutes == null || waitTimeMinutes < 0
       ? []
       : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
   });
-  // Copertura piena e tutte le letture a zero: «fluido» e' un'affermazione
-  // che possiamo fare, perche' abbiamo misurato ogni valico in scope.
-  const allZeros = heroInputs.length > 0
-    && heroInputs.length === crossingsInScope.length
-    && heroInputs.every((c) => c.waitTimeMinutes === 0);
-  // `renderFastestCrossingCard` rende '' quando nessuna lettura e' > 0, e
-  // `heroInputs` scarta i valichi senza dato: senza questo ramo, un solo
-  // valico non misurato con gli altri a zero produceva ne' hero ne' banner,
-  // cioe' il blocco vuoto che l'invariante sopra promette di non lasciare mai.
-  const positiveWait = hasPositiveWait(heroInputs);
-  const heroState = allZeros
-    ? 'fluid'
-    : positiveWait
-      ? 'fastest'
-      : heroInputs.length > 0
-        ? 'fluid-measured'
-        : 'unavailable';
+  const heroState = hubHeroState(scopeWaits);
   // The fastest-card template only carries the markup: link text, href and
   // minutes are slots the hydration fills from the live table rows.
   const templateSlug = crossingsInScope[0] ?? BORDER_WAIT_CROSSINGS[0];
