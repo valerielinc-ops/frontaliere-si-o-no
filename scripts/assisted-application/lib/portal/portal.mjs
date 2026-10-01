@@ -28,7 +28,7 @@ import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
-import { armRecaptchaV3, awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
+import { awaitCaptcha, CAPTCHA_TIMEOUT_MS, launchNopechaContext } from './nopecha.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
 export const WAVE1_CHANNELS = new Set([
@@ -840,14 +840,28 @@ export async function submitViaPortal(ctx) {
         evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };
       }
-      if (extensionPath) await armRecaptchaV3(page, evidence);
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
-      await final.click();
-      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      // Private evidence only: distinguish a server refusal from the mere presence
+      // of a CAPTCHA. Never collect headers, tokens, request bodies or URL queries.
+      const failures = (evidence.submitHttpFailures ||= []);
+      const recordFailure = (response) => {
+        const method = response.request().method();
+        if (response.status() < 400 || !/^(POST|PUT|PATCH)$/.test(method) || failures.length >= 10) return;
+        const url = new URL(response.url());
+        failures.push({ host: url.hostname, path: url.pathname, method, status: response.status() });
+      };
+      page.on('response', recordFailure);
+      let outcome;
+      try {
+        await final.click();
+        outcome = await waitForOutcome(page, Boolean(extensionPath));
+      } finally {
+        page.off('response', recordFailure);
+      }
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
