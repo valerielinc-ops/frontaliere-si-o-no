@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Thu, 01 Oct 2026 21:29:11 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:05:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: rete hacker smantellata, coinvolta la Svizzera</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/killsec-server-dati-svizzeri/</link>
+      <description><![CDATA[Operazione internazionale contro KillSec: tre arresti, cinque server sequestrati e 110 terabyte di dati rubati recuperati. Indagini svizzere in corso.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Tre persone arrestate nell'operazione contro KillSec
+- Cinque server sequestrati e 110 terabyte recuperati
+- Otto perquisizioni in Spagna, Grecia, Regno Unito e Romania
+- Il procedimento svizzero è tuttora in corso
+
+## Fatti chiave
+- Gruppo → KillSec, o KillSecurity
+- Arresti → tre persone
+- Server sequestrati → cinque
+- Dati recuperati → 110 terabyte
+- Perquisizioni → otto in quattro Paesi
+- Attacchi contro aziende svizzere → ottobre 2023-giugno 2025
+- Procedimento svizzero → avviato nel luglio 2025 contro ignoti
+- Coordinamento → Europol ed Eurojust con altri sette Paesi
+
+Tre persone sono state arrestate e cinque server, utilizzati per archiviare i dati delle vittime, sono stati sequestrati nell'operazione internazionale che ha smantellato l'infrastruttura informatica di KillSec, gruppo responsabile di attacchi ransomware. Tra le autorità coinvolte figurano il Ministero pubblico della Confederazione (MPC) e l'Ufficio federale di polizia (fedpol).
+
+L'operazione si è svolta ieri, secondo una nota congiunta delle autorità svizzere. Le otto perquisizioni eseguite in Spagna, Grecia, Regno Unito e Romania hanno consentito di recuperare 110 terabyte di dati rubati. Il bilancio reso noto comprende quindi arresti, sequestri e il recupero di una grande quantità di informazioni sottratte.
+
+Il coinvolgimento elvetico nasce da un procedimento penale avviato dalla procura federale contro ignoti nel luglio 2025. L'inchiesta riguarda attacchi ransomware perpetrati dal gruppo KillSec, il cui nome esteso è KillSecurity, contro diverse aziende svizzere nel periodo compreso tra ottobre 2023 e giugno 2025. L'avvio della procedura è dunque successivo all'intervallo temporale degli attacchi indicato dalle autorità.
+
+### Il procedimento svizzero
+
+Secondo il comunicato, il gruppo utilizza la cosiddetta doppia estorsione. Prima entra indebitamente nel sistema della vittima, copia ed estrae i dati di interesse e crittografa i server; poi pretende un riscatto in cambio della chiave di decrittazione. Se l'azienda rifiuta di pagare, per esempio perché ha effettuato un backup prima della sottrazione dei dati, gli autori minacciano di pubblicare le informazioni sul darknet.
+
+MPC e fedpol hanno partecipato alle indagini internazionali coordinate da Europol ed Eurojust insieme ad altri sette Paesi. Il procedimento in Svizzera è tuttora in corso e i reati ipotizzati comprendono sottrazione di dati, accesso abusivo a un sistema informatico, danneggiamento di dati ed estorsione.
+
+La ricostruzione delle autorità descrive il ransomware come una sequenza di intrusione, copia ed estrazione dei dati, cifratura dei server e richiesta di pagamento. Il riscatto è spesso richiesto in criptovaluta. Questa è la dinamica descritta nel fascicolo svizzero relativo agli attacchi di KillSec.
+## Perché il caso riguarda le imprese svizzere
+
+La rilevanza nazionale della vicenda sta nel fatto che il procedimento svizzero riguarda diverse aziende svizzere colpite da attacchi tra ottobre 2023 e giugno 2025. Per chi lavora in una società, il rischio descritto non coincide con un solo momento: comprende l'accesso al sistema, la sottrazione dei dati, il blocco dei server e la pressione legata al riscatto.
+
+Separare questi passaggi aiuta a leggere correttamente la doppia estorsione. La fonte tratta infatti la cifratura e la minaccia di pubblicazione come due leve collegate. Il tema riguarda quindi anche il mercato delle aziende che assumono, pur senza collegare ogni impresa svizzera al gruppo investigato.
+
+### La doppia estorsione in pratica
+
+| Fase | Descrizione nella fonte | Conseguenza indicata |
+|---|---|---|
+| Accesso | Intrusione indebita nel sistema della vittima | Il gruppo entra nell'ambiente informatico |
+| Sottrazione | Copia ed estrazione dei dati di interesse | Le informazioni vengono rubate |
+| Cifratura | Blocco dei server prima della richiesta | Viene chiesta una chiave di decrittazione |
+| Rifiuto | Mancato pagamento, anche dopo un backup | Minaccia di pubblicazione sul darknet |
+
+Il backup assume un ruolo preciso nello scenario riportato: può essere il motivo per cui la vittima rifiuta il pagamento, ma secondo la fonte non elimina la minaccia di rendere pubblici i dati. Questo distingue la disponibilità di una copia dei dati dalla protezione delle informazioni già sottratte.
+
+Anche il sequestro dei cinque server e il recupero di 110 terabyte mostrano la doppia dimensione dell'operazione: da una parte l'infrastruttura usata per archiviare i dati delle vittime, dall'altra le informazioni recuperate durante le perquisizioni. La fonte non trasforma questi numeri in una stima dei danni economici o in un importo dei riscatti.
+
+Il procedimento svizzero resta aperto. Per questo il comunicato parla di reati ipotizzati e non presenta una conclusione definitiva sulla responsabilità penale. La presenza di Europol, Eurojust e di altri sette Paesi colloca inoltre il dossier elvetico dentro un'indagine internazionale, con perquisizioni svolte in quattro Paesi europei.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
+## Dalla notizia a una verifica operativa
+
+Per trasformare i fatti in una lettura operativa, un'azienda svizzera può ricostruire l'episodio seguendo la sequenza descritta dalle autorità. Il percorso serve a distinguere il tipo di azione compiuta e la fase in cui compare la richiesta economica, senza aggiungere procedure o scadenze che la fonte non indica.
+
+### Cinque passaggi per ricostruire l'attacco
+
+1. Verificare il primo elemento della sequenza: l'accesso indebito al sistema informatico della vittima.
+2. Separare l'ingresso dalla copia e dall'estrazione dei dati di interesse, che nella descrizione del ransomware avvengono prima della cifratura.
+3. Accertare se i server sono stati crittografati, perché il blocco precede la richiesta della chiave di decrittazione.
+4. Identificare la richiesta di riscatto e considerare che, secondo la fonte, il pagamento è spesso domandato in criptovaluta.
+5. Valutare la seconda pressione: se la vittima rifiuta, anche perché dispone di un backup, la minaccia indicata è la pubblicazione dei dati sul darknet.
+
+Per collocare un episodio nel fascicolo svizzero, il riferimento temporale è quello riportato dalle autorità: gli attacchi attribuiti a KillSec contro diverse aziende svizzere sono compresi tra ottobre 2023 e giugno 2025, mentre il procedimento penale contro ignoti è stato avviato nel luglio 2025. La cronologia aiuta a confrontare i fatti, ma il procedimento è ancora in corso.
+
+La sequenza consente anche di non confondere il sequestro dei server con l'esito dell'inchiesta. L'operazione internazionale ha portato ad arresti, perquisizioni e recupero di dati; sul piano svizzero, invece, restano indicati reati ipotizzati come sottrazione di dati, accesso abusivo, danneggiamento di dati ed estorsione. Il riferimento alle criptovalute riguarda la richiesta di riscatto e non va confuso con gli strumenti dedicati ai conti bancari in Svizzera.
+
+Per completare la lettura con uno strumento del portale, usa il calcolatore stipendio.
+
+*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/smantellata-rete-internazionale-di-hacker/92151953)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:05:44 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/killsec-server-dati-svizzeri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/killsec-server-dati-svizzeri.webp" medium="image"/>
+    </item>
     <item>
       <title>Infomaniak, debutto alla Borsa svizzera</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/infomaniak-debutto-six/</link>
@@ -3636,79 +3717,6 @@ Per tradurre i dati della propria retribuzione in una stima coerente, usa il cal
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/guida-assenze-famiglia-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/guida-assenze-famiglia-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Coop raggiunge 1&apos;000 supermercati in Svizzera</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/coop-millesimo-supermercato/</link>
-      <description><![CDATA[Domani apre a Emmen il millesimo punto vendita Coop: 2'500 m². Il CEO Philipp Wyss annuncia nuove aperture e indica il gruppo come leader in Ticino.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Coop apre domani a Emmen il millesimo supermercato
-- Il nuovo punto vendita misura 2'500 metri quadrati
-- La rete occupa circa 1,1 milioni di metri quadrati
-- In Ticino Coop si definisce leader del mercato
-
-## Fatti chiave
-- Traguardo → 1'000 supermercati
-- Apertura → domani
-- Luogo → Emmen, canton Lucerna
-- Superficie → 2'500 metri quadrati
-- Investimenti in dieci anni → circa 3,5 miliardi di franchi
-
-Domani, a Emmen nel canton Lucerna, Coop aprirà il millesimo punto vendita della sua rete di supermercati. Il nuovo negozio avrà una superficie di 2'500 metri quadrati e porterà la cooperativa al traguardo dei 1'000 supermercati in Svizzera.
-
-### Un'espansione misurata in negozi e superfici
-Il traguardo arriva dopo dieci anni nei quali Coop ha aperto 124 nuove filiali e ha investito circa 3,5 miliardi di franchi nella ristrutturazione dei negozi. Complessivamente, i punti vendita occupano circa 1,1 milioni di metri quadrati di superficie commerciale. Il dato unisce quindi nuove aperture e interventi sui negozi già presenti.
-
-La rete è distribuita in ambienti molto diversi. Parte dai centri cittadini, passa dai villaggi e arriva alle località di montagna. Coop cita Bettmeralp, in Vallese, a 1'948 metri di altitudine, come esempio della presenza in quota. Il riferimento mostra che la rete comprende luoghi urbani, piccoli centri e destinazioni alpine.
-
-### Il prossimo capitolo della crescita
-Per il CEO Philipp Wyss il millesimo negozio non chiude la crescita del gruppo. Il potenziale, secondo la sua valutazione, resta soprattutto nella Svizzera centrale e orientale, oltre che a Ginevra e Losanna. Wyss ha inoltre descritto la posizione di Coop in alcune delle principali città svizzere:
-
-> «A Zurigo e Basilea siamo estremamente forti, e in Ticino siamo leader del mercato».
-
-Dopo il traguardo di Emmen, il gruppo continuerà ad aprire nuovi punti vendita, ha annunciato il CEO. L'annuncio collega quindi l'apertura di domani alla volontà di continuare ad aprire negozi nei luoghi indicati da Wyss. Coop punta anche sull'integrazione tra commercio tradizionale e online, con la possibilità di ordinare la spesa su Coop.ch e farsela consegnare in un punto vendita della propria località di villeggiatura.
-## Il confronto con Migros
-La dimensione della rete diventa più leggibile guardando insieme il numero dei negozi e la superficie commerciale. Alla fine del 2025 Migros contava 659 supermercati autonomi, con poco meno di 1,06 milioni di metri quadrati di superficie commerciale. Coop arriva ora a 1'000 supermercati e circa 1,1 milioni di metri quadrati.
-
-### Due strategie di rete
-| Operatore | Rete e superficie | Prossime aperture |
-|---|---|---|
-| Coop | 1'000 supermercati; circa 1,1 milioni di m² | Nuove aperture annunciate |
-| Migros | 659 supermercati autonomi a fine 2025; poco meno di 1,06 milioni di m² | 140 entro il 2030 |
-
-Il confronto presenta due operatori con reti estese e con piani di ampliamento già dichiarati. Per Migros il riferimento temporale è preciso: 140 nuove aperture previste entro il 2030. Per Coop, invece, il CEO Philipp Wyss ha annunciato che l'espansione continuerà oltre il millesimo negozio.
-
-Per chi vive in Svizzera, la lettura concreta riguarda anche la distribuzione territoriale. Coop parla di centri cittadini, villaggi e località di montagna, mentre indica potenziale aggiuntivo nella Svizzera centrale e orientale, a Ginevra e a Losanna. La rete non viene quindi descritta come concentrata in una sola città, ma come una presenza articolata su tipologie diverse di località.
-
-### Cosa osservare nelle prossime mosse
-La distinzione pratica è tra il negozio che apre domani a Emmen, la posizione dichiarata in Ticino e le aree dove la direzione vede ulteriore potenziale. Sono tre informazioni diverse: una nuova apertura, un posizionamento di mercato e un orientamento per nuove aperture. Il lettore può così separare il dato già annunciato dalle prospettive indicate dal CEO.
-
-Anche il confronto con Migros ha una dimensione temporale: Coop comunica il raggiungimento del millesimo supermercato, mentre Migros guarda alle 140 aperture entro il 2030. Per collegare questa dinamica alla gestione delle spese domestiche, il lettore può consultare il costo della vita in Svizzera.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
-## Il percorso operativo indicato da Coop
-Coop punta sull'integrazione tra commercio tradizionale e online. Il servizio indicato nell'annuncio permette di ordinare la spesa su Coop.ch e farsela consegnare in un punto vendita situato nella propria località di villeggiatura. La parte azionabile della notizia è quindi il collegamento tra ordine digitale e rete fisica.
-
-### I passaggi descritti dalla fonte
-1. Usare Coop.ch per ordinare la spesa.
-2. Far consegnare la spesa in un punto vendita situato nella propria località di villeggiatura.
-
-La sequenza collega il canale online ai negozi distribuiti sul territorio. La rete citata da Coop comprende centri cittadini, villaggi e località di montagna; il servizio online aggiunge a questa presenza fisica una modalità di consegna legata alla località di villeggiatura.
-
-### Separare l'annuncio dall'operatività
-L'apertura di Emmen è l'evento previsto per domani. La direzione ha anche annunciato che Coop continuerà ad aprire punti vendita e ha indicato la Svizzera centrale e orientale, Ginevra e Losanna come aree con potenziale. Per seguire questa parte della notizia, le località indicate dal CEO vanno tenute distinte dal negozio che sta per aprire nel canton Lucerna.
-
-Per il Ticino, il dato da considerare è la dichiarazione di Philipp Wyss sulla leadership del mercato. L'annuncio generale di nuove aperture riguarda invece la direzione futura del gruppo. Chi vuole seguire il lato aziendale può affiancare la notizia alla sezione aziende che assumono, senza attribuire a Coop assunzioni non annunciate.
-
-Per affiancare la notizia a una valutazione personale, usa il calcolatore stipendio.
-
-*Fonte: [tio.ch](https://www.tio.ch/svizzera/economia/1953847/emmen-coop-vendita-supermercati-ticino-raggiunge-quota-leader)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:06:34 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/coop-millesimo-supermercato</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/coop-millesimo-supermercato.webp" medium="image"/>
     </item>
   </channel>
 </rss>

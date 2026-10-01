@@ -2491,6 +2491,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dazi-svizzera-voto': { it: 'dazi-svizzera-voto', en: 'swiss-tariffs-federal-vote', de: 'schweizer-zoelle-abstimmung', fr: 'droits-douane-vote-suisse' },
  'agenda-federale-autunno-2026': { it: 'agenda-federale-autunno-2026', en: 'swiss-federal-agenda-autumn-2026', de: 'schweizer-bundesagenda-herbst-2026', fr: 'agenda-federal-automne-2026' },
  'infomaniak-debutto-six': { it: 'infomaniak-debutto-six', en: 'infomaniak-swiss-stock-debut', de: 'infomaniak-boersenstart-six', fr: 'infomaniak-debut-bourse-suisse' },
+ 'killsec-server-dati-svizzeri': { it: 'killsec-server-dati-svizzeri', en: 'killsec-hacker-network-switzerland', de: 'killsec-hacker-netzwerk-schweiz', fr: 'killsec-reseau-hacker-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

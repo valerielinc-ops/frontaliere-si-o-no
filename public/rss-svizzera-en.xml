@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 01 Oct 2026 21:29:11 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:05:44 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: hacker network dismantled, Switzerland involved</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/killsec-hacker-network-switzerland/</link>
+      <description><![CDATA[International operation against KillSec: three arrests, five servers seized and 110 terabytes of stolen data recovered. Swiss investigations ongoing.]]></description>
+      <content:encoded><![CDATA[## In brief
+- Three people arrested in the operation against KillSec
+- Five servers seized and 110 terabytes recovered
+- Eight searches in Spain, Greece, the United Kingdom and Romania
+- The Swiss proceedings are still ongoing
+
+## Key Facts
+- Group → KillSec, or KillSecurity
+- Arrests → three people
+- Servers seized → five
+- Data recovered → 110 terabytes
+- Searches → eight in four countries
+- Attacks against Swiss companies → October 2023-June 2025
+- Swiss proceedings → initiated in July 2025 against unknown persons
+- Coordination → Europol and Eurojust with seven other countries
+
+Three people were arrested and five servers, which were used to store victims' data, were seized in the international operation that dismantled the IT infrastructure of KillSec, a group responsible for ransomware attacks. The authorities involved include the Office of the Attorney General of Switzerland (OAG) and the Federal Office of Police (fedpol).
+
+The operation took place yesterday, according to a joint statement from the Swiss authorities. The eight searches carried out in Spain, Greece, the United Kingdom and Romania made it possible to recover 110 terabytes of stolen data. The balance sheet released therefore includes arrests, seizures and the recovery of a large amount of stolen information.
+
+The Swiss involvement stems from a criminal case initiated by the Federal Prosecutor's Office against unknown persons in July 2025. The investigation concerns ransomware attacks perpetrated by the KillSec group, whose full name is KillSecurity, against several Swiss companies in the period between October 2023 and June 2025. The initiation of the procedure is therefore subsequent to the time interval of the attacks indicated by the authorities.
+
+### The Swiss procedure
+
+According to the statement, the group uses so-called double extortion. First, it improperly enters the victim's system, copies and extracts the data of interest, and encrypts the servers; then it demands a ransom in exchange for the decryption key. If the company refuses to pay, for example because it made a backup before the data was stolen, the perpetrators threaten to publish the information on the darknet.
+
+The OAG and fedpol participated in the international investigations coordinated by Europol and Eurojust together with seven other countries. The proceedings in Switzerland are still ongoing and the alleged offences include data theft, abusive access to a computer system, data damage and extortion.
+
+The authorities' reconstruction describes ransomware as a sequence of intrusion, copying and extraction of data, encryption of servers and demand payment. The ransom is often demanded in cryptocurrency. This is the dynamic described in the Swiss file on the KillSec attacks.
+## Why the case concerns Swiss companies
+
+The national significance of the case lies in the fact that the Swiss proceedings concern several Swiss companies affected by attacks between October 2023 and June 2025. For those who work in a company, the risk described does not coincide with a single moment: it includes access to the system, data theft, server blocking and ransom pressure.
+
+Separating these passages helps to correctly read double extortion. The source treats encryption and the threat of publication as two linked levers. The issue therefore also concerns the aziende che assumono market, although it does not link every Swiss company to the investigated group.
+
+### Double extortion in practice
+
+| Phase | Description in the source | Indicated consequence |
+|---|---|---|
+| Access | Improper intrusion into the victim's system | The group enters the computer environment |
+| Subtraction | Copying and extraction of data of interest | Information is stolen |
+| Encryption | Blocking of servers before the request | A decryption key is asked |
+| Refusal | Non-payment, even after a backup | Threat of publication on the darknet |
+
+The backup plays a role in the scenario reported: it may be the reason why the victim refuses payment, but according to the source, it does not eliminate the threat of making the data public. This distinguishes the availability of a copy of the data from the protection of information that has already been stolen.
+
+The seizure of the five servers and the recovery of 110 terabytes also show the double dimension of the operation: on the one hand, the infrastructure used to store the victims' data, and on the other, the information recovered during the searches. The source does not turn these numbers into an estimate of economic damage or an amount of ransoms.
+
+The Swiss proceedings remain open. For this reason, the statement speaks of hypothetical crimes and does not present a definitive conclusion on criminal responsibility. The presence of Europol, Eurojust and seven other countries also places the Swiss dossier within an international investigation, with searches carried out in four European countries.
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare CHF-EUR exchange options and banks for cross-border workers.
+## From news to an operational verification
+
+To transform the facts into an operational reading, a Swiss company can reconstruct the episode following the sequence described by the authorities. The path serves to distinguish the type of action taken and the phase in which the economic request appears, without adding procedures or deadlines that the source does not indicate.
+
+### Five steps to rebuild the attack
+
+1. Check the first element of the sequence: undue access to the victim's computer system.
+2. Separate the input from the copying and extraction of the data of interest, which in the ransomware description takes place before encryption.
+3. Ascertain whether the servers have been encrypted, because the lock precedes the request for the decryption key.
+4. Identify the ransom note and consider that, according to the source, payment is often demanded in cryptocurrency.
+5. Evaluate the second pressure: if the victim refuses, also because he has a backup, the indicated threat is the publication of the data on the darknet.
+
+To place an episode in the Swiss file, the time reference is the one reported by the authorities: the attacks attributed to KillSec against several Swiss companies are between October 2023 and June 2025, while the criminal proceedings against unknown persons were initiated in July 2025. The chronology helps to compare the facts, but the proceedings are still ongoing.
+
+The sequence also makes it possible not to confuse the seizure of the servers with the outcome of the investigation. The international operation led to arrests, searches and data recovery; on the Swiss level, however, hypothetical crimes such as data theft, abusive access, data damage and extortion remain indicated. The reference to cryptocurrencies concerns the ransom demand and should not be confused with the tools dedicated to conti bancari in Svizzera.
+
+To complete the reading with a portal tool, use the calcolatore stipendio.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/smantellata-rete-internazionale-di-hacker/92151953)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:05:44 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/killsec-server-dati-svizzeri</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/killsec-server-dati-svizzeri.webp" medium="image"/>
+    </item>
     <item>
       <title>Infomaniak, debut on the Swiss Stock Exchange</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/infomaniak-swiss-stock-debut/</link>
@@ -3668,79 +3749,6 @@ To convert your salary data into a consistent estimate, use the calcolatore stip
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/guida-assenze-famiglia-svizzera</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/guida-assenze-famiglia-svizzera.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Coop reaches 1&apos;000 supermarkets in Switzerland</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/coop-reaches-1000-supermarkets/</link>
-      <description><![CDATA[Tomorrow, Coop’s 1,000th store will open in Emmen: 2,500 m². CEO Philipp Wyss announces new store openings and highlights the group’s leadership position in Ticino.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Coop will open its thousandth supermarket in Emmen tomorrow
-- The new store measures 2'500 square meters
-- The network covers about 1,1 million square meters
-- In Ticino, Coop describes itself as the market leader
-
-## Key facts
-- Milestone → 1'000 supermarkets
-- Opening → tomorrow
-- Location → Emmen, canton of Lucerne
-- Area → 2'500 square meters
-- Investments over ten years → about 3,5 billion francs
-
-Tomorrow, in Emmen in the canton of Lucerne, Coop will open the thousandth store in its supermarket network. The new store will have an area of 2'500 square meters and will bring the cooperative to the milestone of 1'000 supermarkets in Switzerland.
-
-### An expansion measured in stores and floor space
-The milestone comes after ten years during which Coop opened 124 new branches and invested about 3,5 billion francs in renovating its stores. Overall, the stores occupy about 1,1 million square meters of retail space. The figure therefore combines new openings and work on existing stores.
-
-The network is spread across very different settings. It starts in city centers, passes through villages and reaches mountain locations. Coop cites Bettmeralp, in Valais, at an altitude of 1'948 meters, as an example of its presence at high altitude. This example shows that the network includes urban locations, small centers and Alpine destinations.
-
-### The next chapter of growth
-For CEO Philipp Wyss, the thousandth store does not mark the end of the group's growth. In his assessment, the potential remains mainly in Central and Eastern Switzerland, as well as in Geneva and Lausanne. Wyss also described Coop's position in some of Switzerland's main cities:
-
-> «In Zurich and Basel we are extremely strong, and in Ticino we are the market leader».
-
-After reaching the Emmen milestone, the group will continue opening new stores, the CEO announced. The announcement therefore links tomorrow's opening to the intention to continue opening stores in the locations indicated by Wyss. Coop is also focusing on integrating traditional and online retail, with the option of ordering groceries on Coop.ch and having them delivered to a store in their holiday destination.
-## A Comparison with Migros
-The size of the chain becomes clearer when considering both the number of stores and the retail space. At the end of 2025, Migros had 659 standalone supermarkets, with just under 1.06 million square meters of retail space. Coop now has 1,000 supermarkets and approximately 1.1 million square meters.
-
-### Two Network Strategies
-| Operator | Network and Retail Space | Upcoming Openings |
-|---|---|---|
-| Coop | 1,000 supermarkets; approximately 1.1 million m² | Announced new openings |
-| Migros | 659 standalone supermarkets as of the end of 2025; just under 1.06 million m² | 140 by 2030 |
-
-This comparison features two operators with extensive networks and already announced expansion plans. For Migros, the timeline is specific: 140 new openings planned by 2030. For Coop, however, CEO Philipp Wyss has announced that expansion will continue beyond the 1,000th store.
-
-For those living in Switzerland, the key takeaway also concerns geographic distribution. Coop mentions city centers, villages, and mountain towns, while pointing to additional potential in central and eastern Switzerland, as well as in Geneva and Lausanne. The network is therefore not described as concentrated in a single city, but rather as a presence spread across different types of locations.
-
-### What to Watch for in the Next Moves
-The practical distinction lies between the store opening tomorrow in Emmen, the location announced in Ticino, and the areas where management sees further potential. These are three distinct pieces of information: a new opening, a market positioning, and a strategic direction for future openings. Readers can thus distinguish between the information already announced and the outlook outlined by the CEO.
-
-The comparison with Migros also has a temporal dimension: Coop reports reaching its 1,000th supermarket, while Migros is aiming for 140 openings by 2030. To connect this dynamic to household expense management, readers can consult costo della vita in Svizzera.
-
-## Recommended tools
-For an updated estimate, use the net salary calculator and the CHF-EUR exchange comparator.
-## The Operational Process Outlined by Coop
-Coop is focusing on integrating traditional and online retail. The service described in the ad allows customers to order groceries on Coop.ch and have them delivered to a store located in their vacation destination. The key aspect of this news is therefore the link between digital ordering and the physical store network.
-
-### The steps described by the source
-1. Use Coop.ch to order groceries.
-2. Have the groceries delivered to a store located in your vacation destination.
-
-This sequence connects the online channel to stores located throughout the region. The network mentioned by Coop includes city centers, villages, and mountain resorts; the online service adds a delivery option tied to vacation destinations to this physical presence.
-
-### Distinguishing the Announcement from Operations
-The opening in Emmen is scheduled for tomorrow. Management also announced that Coop will continue to open stores and identified central and eastern Switzerland, Geneva, and Lausanne as areas with potential. To follow this part of the news, the locations mentioned by the CEO should be kept separate from the store that is about to open in the canton of Lucerne.
-
-For Ticino, the key point to consider is Philipp Wyss’s statement regarding market leadership. The general announcement of new openings, on the other hand, concerns the group’s future direction. Those interested in the corporate side of the story can link this news to section aziende che assumono, without attributing any unannounced hiring plans to Coop.
-
-To link this news to a personal assessment, use calcolatore stipendio.
-
-*Source: [tio.ch](https://www.tio.ch/svizzera/economia/1953847/emmen-coop-vendita-supermercati-ticino-raggiunge-quota-leader)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:06:34 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/coop-millesimo-supermercato</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/coop-millesimo-supermercato.webp" medium="image"/>
     </item>
   </channel>
 </rss>

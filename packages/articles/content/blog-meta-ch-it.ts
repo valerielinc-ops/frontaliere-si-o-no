@@ -7406,6 +7406,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.infomaniak-debutto-six.title': 'Infomaniak, debutto alla Borsa svizzera',
     'blog.article.infomaniak-debutto-six.excerpt': 'Il titolo Infomaniak apre a 56 franchi, tocca 140 e chiude a 85 dopo la fusione inversa con Perrot Duval.',
     'blog.article.infomaniak-debutto-six.imageAlt': 'La Borsa svizzera a Zurigo per il debutto di Infomaniak.',
+    'blog.article.killsec-server-dati-svizzeri.title': 'KillSec: rete hacker smantellata, coinvolta la Svizzera',
+    'blog.article.killsec-server-dati-svizzeri.excerpt': 'Operazione internazionale contro KillSec: tre arresti, cinque server sequestrati e 110 terabyte di dati rubati recuperati. Indagini svizzere in corso.',
+    'blog.article.killsec-server-dati-svizzeri.imageAlt': 'Sala server di un\'azienda svizzera, immagine simbolica per l\'operazione contro KillSec',
 };
 
 export default blogMetaChIt;
