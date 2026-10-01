@@ -57,6 +57,7 @@ import {
   buildD18RunEvidence,
   deriveD18Windows,
   isWithinD18Window,
+  localDayKey,
   listD18Days,
   metricFromObservation,
   metricValue,
@@ -3091,20 +3092,72 @@ export function d18SourceMetadataFromQuery(source, window, result) {
 }
 
 export function buildD18DailyCoverage(window, sources = {}) {
-  const sourceState = (meta) => {
-    const coverage = meta?.sourceCoverage;
-    if (!coverage || coverage.queried === false || meta?.status === 'sorgente non disponibile') {
+  const sourceState = (meta, day) => {
+    const coverage = meta?.sourceCoverage || meta?.coverage;
+    if (!coverage
+      || coverage.queried === false
+      || coverage.status === 'sorgente non disponibile'
+      || meta?.status === 'sorgente non disponibile') {
       return { queried: false, available: false, partial: false };
     }
-    const partial = coverage.truncated === true
-      || coverage.status === 'parziale'
-      || meta.status === 'parziale'
-      || !coverage.completeThrough;
-    return { queried: true, available: true, partial };
+
+    const dayKey = (value) => {
+      if (typeof value !== 'string' || !Number.isFinite(Date.parse(value))) return null;
+      try {
+        return localDayKey(value);
+      } catch {
+        return null;
+      }
+    };
+    const exactDayKey = (value) => (
+      typeof value === 'string' && value.length === 10 ? dayKey(value) : null
+    );
+    const coverageStart = dayKey(coverage.coverageStart);
+    const coverageEnd = dayKey(coverage.coverageEnd || coverage.completeThrough);
+    const completeThrough = dayKey(coverage.completeThrough);
+    if (!coverageStart || !coverageEnd || coverageStart >= coverageEnd) {
+      return { queried: false, available: false, partial: false };
+    }
+
+    const inCoverage = day >= coverageStart && day < coverageEnd;
+    if (!inCoverage) return { queried: true, available: false, partial: false };
+
+    const gapState = (gap) => {
+      if (typeof gap === 'string') {
+        const exactDay = exactDayKey(gap);
+        if (exactDay) return exactDay === day ? 'full' : 'none';
+        return 'unknown';
+      }
+      if (!gap || typeof gap !== 'object' || Array.isArray(gap)) return 'unknown';
+      const exactDay = exactDayKey(gap.day ?? gap.date);
+      if (exactDay) return exactDay === day ? 'full' : 'none';
+      const gapStart = exactDayKey(gap.from ?? gap.start);
+      const gapEnd = exactDayKey(gap.to ?? gap.end);
+      if (gapStart && gapEnd && gapStart < gapEnd) {
+        return day >= gapStart && day < gapEnd ? 'full' : 'none';
+      }
+      if (gapStart && gapEnd && gapStart === gapEnd) {
+        return gapStart === day ? 'partial' : 'none';
+      }
+      return 'unknown';
+    };
+    const gapStates = (Array.isArray(coverage.gaps) ? coverage.gaps : []).map(gapState);
+    const fullGap = gapStates.includes('full');
+    const uncertainGap = gapStates.some((state) => state === 'partial' || state === 'unknown');
+    const complete = completeThrough
+      && day < completeThrough
+      && coverage.truncated !== true
+      && coverage.status !== 'parziale'
+      && meta?.status !== 'parziale'
+      && !uncertainGap
+      && !fullGap;
+    return { queried: true, available: !fullGap, partial: !complete };
   };
-  const ga4 = sourceState(sources.ga4);
-  const posthog = sourceState(sources.posthog);
-  return listD18Days(window).map((day) => ({ day, ga4, posthog }));
+  return listD18Days(window).map((day) => ({
+    day,
+    ga4: sourceState(sources.ga4, day),
+    posthog: sourceState(sources.posthog, day),
+  }));
 }
 
 export function buildD18PayloadFromQuerySnapshots({
