@@ -74,6 +74,12 @@ describe('automation e-mails', () => {
     expect(ambiguous.text).not.toContain('tentativi');
     expect(ambiguous.text).not.toContain('Dettaglio tecnico');
     expect(describeTakeover({ reason: 'runner_timeout', stage: 'draft', attempts: 2 }).reason).toBe('il runner non ha dato notizie per due volte di seguito');
+    // Owner decision 2026-10-01: a portal the robot did not finish comes to Valerie, the candidate does nothing.
+    const portal = buildOwnerAutomationEmail('owner_takeover', { job: 'Infermiera', company: 'Ospedale', orderId: 'o', reason: 'portal:captcha', stage: 'submit', attempts: 1 });
+    expect(portal.text).toContain('Motivo: l’invio sul portale si è fermato: il portale ha chiesto un controllo anti-robot (CAPTCHA)');
+    expect(portal.text).toContain('Il candidato non deve fare nulla');
+    expect(portal.text).toContain('«Riprova l’invio automatico»');
+    expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
     expect(describeTakeover({ reason: 'Unexpected token', stage: 'draft' })).toEqual({
       reason: 'la bozza non è stata generata',
       hint: expect.stringContaining('Rigenera'),
