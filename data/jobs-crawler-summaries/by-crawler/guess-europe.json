@@ -1,16 +1,16 @@
 {
   "key": "guess-europe",
   "label": "Guess Europe Sagl",
-  "generatedAt": "2026-10-01T09:14:18.068Z",
+  "generatedAt": "2026-10-01T21:12:25.576Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 2222,
-  "avgDurationMs": 2222,
+  "durationMs": 2235,
+  "avgDurationMs": 2235,
   "durationHistory": [
-    2222
+    2235
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "title": "Content Production Intern",
-      "slug": "content-production-intern-guess-europe-sagl-bioggio-switzerland",
+      "slug": "content-production-tirocinante-guess-europe-sagl-bioggio",
       "url": "https://apply.workable.com/guess-europe-sagl/j/981E625698/",
       "applyUrl": "https://apply.workable.com/guess-europe-sagl/j/981E625698/apply/",
       "company": "Guess Europe Sagl",
@@ -46,17 +46,16 @@
         "Discount on our products both online and in stores"
       ],
       "id": "guess-europe-cf4fbddf454c",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71500,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-30T21:13:04.544Z",
-      "_qualityScore": 90,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 21,
+        "translation": 25,
         "completeness": 19
       }
     },
