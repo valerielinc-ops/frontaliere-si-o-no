@@ -8,12 +8,13 @@ on:
   workflow_dispatch:
     inputs:
       probe_nopecha_free:
-        description: 'Check the free NopeCHA Token API from this runner (public demo only)'
+        description: 'Diagnose anonymous Token API availability (key normally required; public demo only)'
         type: boolean
         default: false
   pull_request:
     paths:
       - 'scripts/assisted-application/lib/portal/**'
+      - 'scripts/assisted-application/lib/nopecha-probe.mjs'
       - 'scripts/assisted-application/lib/secure-run.mjs'
       - 'scripts/assisted-application/portal-e2e.mjs'
       - 'scripts/assisted-application/nopecha-e2e.mjs'
