@@ -37024,6 +37024,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'svizzera-restituisce-regole-eu-frontalieri',
+ category: 'novita',
+ date: '2026-10-01T18:25:02.026Z',
+ image: '/images/blog/svizzera-restituisce-regole-eu-frontalieri.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

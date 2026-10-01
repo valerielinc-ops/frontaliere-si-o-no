@@ -18,6 +18,8 @@ import {
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
   withEcariEmptyState,
 } from './plateAuctionsCore.js';
+import { promisify } from 'node:util';
+import { gzip } from 'node:zlib';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
@@ -560,6 +562,75 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
       cantonsWithData: new Set(auctions.map((auction) => auction.sourceKey || auction.platePrefix)).size,
     },
   };
+}
+
+/**
+ * How long one instance reuses a built snapshot: the same 5 minutes the
+ * response already declares in `Cache-Control: max-age=300`.
+ *
+ * One build reads the whole current collection (17'613 rows on 2026-10-01)
+ * plus 5'000 history rows, about 22'700 billed Firestore reads. Built per
+ * request, a crawler from Tencent Cloud (~500 calls/hour every night from
+ * 2026-09-29) turned that into 75-90 M reads a day, ~32-38 USD/day on the
+ * "Cloud Firestore Read Ops Zurich" SKU, while concurrent builds overran
+ * 256 MiB and ~80% of the calls ended 500/503 with their reads still billed.
+ *
+ * The refresh takes ~2.5 minutes, so a run triggered by
+ * scripts/ci/run-plate-auctions-function.mjs is visible here within ~7.5
+ * minutes, inside that script's 12-minute polling window.
+ */
+export const PLATE_AUCTION_SNAPSHOT_CACHE_MS = 5 * 60 * 1000;
+
+const gzipAsync = promisify(gzip);
+let cachedSnapshotBody = null;
+let pendingSnapshotBody = null;
+
+/**
+ * The serialized public snapshot, built at most once per TTL per instance, as
+ * `{ body, gzip }`. Concurrent callers share the build in flight
+ * (single-flight), so a burst costs one pass over the collection instead of
+ * one per request. A failed build is not cached: the next request retries.
+ *
+ * The gzip copy is made once per build. Uncompressed, every answered call was
+ * ~16.5 MB of Cloud Run internet egress (25.6 GB on 2026-09-30); JSON rows
+ * with repeated keys compress by an order of magnitude.
+ */
+export function getCachedPublicPlateAuctionSnapshotBody({ db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.bodies);
+  if (!pendingSnapshotBody) {
+    pendingSnapshotBody = getPublicPlateAuctionSnapshot(db)
+      .then(async (snapshot) => {
+        const body = Buffer.from(JSON.stringify(snapshot));
+        const bodies = { body, gzip: await gzipAsync(body) };
+        cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
+        return bodies;
+      })
+      .finally(() => {
+        pendingSnapshotBody = null;
+      });
+  }
+  return pendingSnapshotBody;
+}
+
+/**
+ * True when an Accept-Encoding header names gzip with a non-zero quality.
+ * Only the explicit token counts: a missing header or `*` gets the plain body,
+ * which every client can read.
+ */
+export function acceptsGzip(acceptEncoding) {
+  for (const part of String(acceptEncoding || '').split(',')) {
+    const [coding, ...params] = part.split(';').map((value) => value.trim().toLowerCase());
+    if (coding !== 'gzip') continue;
+    const quality = params.find((param) => param.startsWith('q='));
+    return !quality || Number(quality.slice(2)) > 0;
+  }
+  return false;
+}
+
+/** Test seam: forget the per-instance snapshot cache. */
+export function resetPublicPlateAuctionSnapshotCache() {
+  cachedSnapshotBody = null;
+  pendingSnapshotBody = null;
 }
 
 function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {

@@ -259,21 +259,50 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
-export async function fetchPlateAuctionSnapshot(): Promise<PlateAuctionApiSnapshot> {
-  const urls = [
-    `${FUNCTIONS_BASE}/getPlateAuctions`,
-    cdnDataUrl('/data/plate-auctions.json'),
-  ];
+/**
+ * Age past which the static snapshot means a stopped refresh, not a slow one.
+ * Measured 2026-09-27..10-01: refresh-plate-auctions.yml committed every
+ * 6.5-9.7 h, and the snapshot generated at 05:58 reached the CDN at 09:58
+ * (the 13:19 one was still unpublished at 18:00), so a healthy pipeline
+ * serves files up to ~15 h old. A tighter bound would send most page views
+ * back to the function every day.
+ */
+export const PLATE_AUCTION_STATIC_MAX_AGE_MS = 24 * 60 * 60 * 1000;
+
+async function fetchSnapshotFrom(url: string): Promise<PlateAuctionApiSnapshot> {
+  const response = await fetch(url, { cache: 'no-store' });
+  if (!response.ok) throw new Error(`HTTP ${response.status}`);
+  return parsePlateAuctionApiSnapshot(await response.json());
+}
+
+/**
+ * The static snapshot comes first and the CDN serves it at no Firestore or
+ * Cloud Run egress cost. The function is the fallback when the static file
+ * fails or is older than PLATE_AUCTION_STATIC_MAX_AGE_MS: one uncached build
+ * there is ~22'700 billed reads plus ~17 MB of egress, and calling it first on
+ * every plate page cost 75-90 M reads a day once a crawler walked those pages
+ * (2026-09-30). A stale static snapshot still beats no data when the function
+ * fails too. Expired deadlines are re-checked at render time
+ * (`isPlateAuctionLive` in ranking.ts), so an older snapshot never shows a
+ * closed auction as open.
+ */
+export async function fetchPlateAuctionSnapshot(now: number = Date.now()): Promise<PlateAuctionApiSnapshot> {
+  let staleStatic: PlateAuctionApiSnapshot | null = null;
   let lastError: unknown;
-  for (const url of urls) {
-    try {
-      const response = await fetch(url, { cache: 'no-store' });
-      if (!response.ok) throw new Error(`HTTP ${response.status}`);
-      return parsePlateAuctionApiSnapshot(await response.json());
-    } catch (error) {
-      lastError = error;
-    }
+  try {
+    const snapshot = await fetchSnapshotFrom(cdnDataUrl('/data/plate-auctions.json'));
+    const generatedMs = Date.parse(snapshot.generatedAt);
+    if (Number.isFinite(generatedMs) && now - generatedMs <= PLATE_AUCTION_STATIC_MAX_AGE_MS) return snapshot;
+    staleStatic = snapshot;
+  } catch (error) {
+    lastError = error;
   }
+  try {
+    return await fetchSnapshotFrom(`${FUNCTIONS_BASE}/getPlateAuctions`);
+  } catch (error) {
+    lastError = error;
+  }
+  if (staleStatic) return staleStatic;
   throw new Error(`Plate-auction data unavailable: ${lastError instanceof Error ? lastError.message : 'unknown error'}`);
 }
 
