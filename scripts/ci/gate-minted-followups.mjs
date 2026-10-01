@@ -141,17 +141,26 @@ export function hasAutomationDeferredLabel(issue) {
     && issue.labels.some((label) => issueLabelName(label).toLowerCase() === AUTOMATION_DEFERRED_LABEL);
 }
 
+function hasFuParkedLabel(issue) {
+  // PARKED-RETRY owns its cooldown and generation marker; a mint-gate `keep`
+  // must not bypass that state machine by restoring the queue label.
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === 'fu-parked');
+}
+
 function queueBlockReason(issue) {
   if (hasNeedsHumanLabel(issue)) return 'needs-human veto';
   if (hasAutomationDeferredLabel(issue)) return `${AUTOMATION_DEFERRED_LABEL} handoff tecnico`;
+  if (hasFuParkedLabel(issue)) return 'fu-parked handoff già parcheggiato';
   return 'labels non verificabili';
 }
 
-/** Missing labels are unverifiable: never mint a new fixer queue entry. */
+/** Missing labels and lifecycle handoffs are not eligible for a new queue entry. */
 export function canMintQueueLabel(issue) {
   return issueLabelsAreVerifiable(issue?.labels)
     && !hasNeedsHumanLabel(issue)
-    && !hasAutomationDeferredLabel(issue);
+    && !hasAutomationDeferredLabel(issue)
+    && !hasFuParkedLabel(issue);
 }
 
 /**

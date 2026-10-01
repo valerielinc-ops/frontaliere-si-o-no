@@ -138,6 +138,12 @@ describe('gate sul conio — comportamento', () => {
     expect(canMintQueueLabel(issue)).toBe(false);
   });
 
+  it('fu-parked lascia al drainer il controllo del retry', () => {
+    expect(canMintQueueLabel({ labels: [{ name: 'fu-parked' }] })).toBe(false);
+    expect(canMintQueueLabel({ labels: ['FU-PARKED'] })).toBe(false);
+    expect(canMintQueueLabel({ labels: [{ name: 'fu-reparked:1' }] })).toBe(true);
+  });
+
   it('sopprime l\'aggregata in cui NESSUN item porta una condizione falsificabile', () => {
     const d = decideMintGate({ body: aggregata(itemProsa, itemProsa), createdAt: new Date().toISOString() });
     expect(d.action).toBe('suppress');
