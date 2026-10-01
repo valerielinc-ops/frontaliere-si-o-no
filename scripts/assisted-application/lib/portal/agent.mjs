@@ -230,11 +230,17 @@ async function chooseOption(page, locator, info, value) {
   }
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   if (info.editable) await locator.pressSequentially(value.slice(0, 40), { delay: 50, timeout: ACTION_TIMEOUT_MS });
-  const options = page.getByRole('option', { name: value });
-  await options.first().waitFor({ state: 'visible', timeout: 4000 });
-  // The exact label when several contain it ("1990" and "1990s").
-  const exact = page.getByRole('option', { name: value, exact: true });
-  await ((await exact.count()) ? exact : options).first().click({ timeout: ACTION_TIMEOUT_MS });
+  // Only the exact label: "1990" never picks "1990s" (second review of #10707).
+  // Without it the action fails and the model, seeing the open list on the
+  // next snapshot, names an option that exists.
+  const exact = page.getByRole('option', { name: value, exact: true }).first();
+  try {
+    await exact.waitFor({ state: 'visible', timeout: 4000 });
+  } catch {
+    await locator.press('Escape').catch(() => {});
+    throw new Error('option_not_found');
+  }
+  await exact.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
 async function upload(page, locator, info, path) {

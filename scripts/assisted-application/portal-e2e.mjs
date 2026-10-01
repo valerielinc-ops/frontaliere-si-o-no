@@ -19,6 +19,7 @@ import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
 import { submitViaPortal } from './lib/portal/portal.mjs';
+import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
@@ -193,6 +194,13 @@ async function main() {
       && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
     const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     const agentSteps = widget.evidence.steps.filter((step) => step.agent);
+    // Second review of #10707: a select picks only the exact option ("1990" is not "1990s").
+    const listPage = await (await launchChromium({ headless: true, executablePath })).newPage();
+    await listPage.setContent('<input role="combobox" aria-label="Jahr" aria-controls="years"><div role="listbox" id="years"><div role="option">1990s</div></div>');
+    const yearRef = /combobox "Jahr" \[ref=(\w+)\]/.exec((await aiSnapshot(listPage)) || '')?.[1];
+    const near = await runAction(listPage, { ref: yearRef, action: 'select', value: '1990' });
+    check('a select never takes a near option', near.ok === false && near.error === 'option_not_found');
+    await listPage.context().browser().close();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');

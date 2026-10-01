@@ -111,6 +111,9 @@ describe('portal field extraction', () => {
     // Review of #10707: a visually hidden validation message is still the form's own.
     const hidden = extract('<label for="m">E-Mail</label><input id="m" type="email"><div role="alert" data-size="1">Invalid email</div>');
     expect(hidden.errors).toEqual(['Invalid email']);
+    // Second review: no size at all (0 px) is still a message; a hidden template is not.
+    const zero = extract('<input id="m" type="email"><div role="alert" data-size="0">Invalid email</div><div class="error" style="display:none">Old message</div>');
+    expect(zero.errors).toEqual(['Invalid email']);
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
