@@ -165,11 +165,13 @@ const parseTableCells = (line: string): string[] =>
  line.trim().replace(/^\|/, '').replace(/\|$/, '').split('|').map((cell) => cell.trim());
 
 const renderTableBlock = (headerLine: string, bodyLines: string[]): string => {
- const head = parseTableCells(headerLine).map((cell) => `<th>${renderArticleInlineMarkup(cell)}</th>`).join('');
+ const headerCells = parseTableCells(headerLine);
+ const caption = headerCells.find((cell) => cell.trim()) ?? 'Table';
+ const head = headerCells.map((cell) => `<th>${renderArticleInlineMarkup(cell)}</th>`).join('');
  const body = bodyLines
  .map((row) => `<tr>${parseTableCells(row).map((cell) => `<td>${renderArticleInlineMarkup(cell)}</td>`).join('')}</tr>`)
  .join('');
- return `<table><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
+ return `<table><caption class="sr-only">${renderArticleInlineMarkup(caption)}</caption><thead><tr>${head}</tr></thead><tbody>${body}</tbody></table>`;
 };
 
 // Splits article body markdown (headings, bullet lists, blockquotes, bold/italic/links)

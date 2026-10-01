@@ -163,7 +163,7 @@ describe('article SEO fallback builder', () => {
       const [section] = cleanupArticleBodySections(keyed([table]));
 
       expect(section.html).toBe(
-        '<table><thead><tr><th>Valico</th><th>Attesa</th></tr></thead>'
+        '<table><caption class="sr-only">Valico</caption><thead><tr><th>Valico</th><th>Attesa</th></tr></thead>'
         + '<tbody><tr><td>Chiasso-Brogeda</td><td>12 min</td></tr>'
         + '<tr><td>Ponte Tresa</td><td>0 min</td></tr></tbody></table>',
       );
