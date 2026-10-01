@@ -273,6 +273,38 @@ describe('Kanton Aargau crawler parser', () => {
       expect(isConnectionLevelFetchError(err)).toBe(false);
     });
 
+    it('rescues a 200 anti-bot detail page through the shared HTML transport', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const challenge = '<html><head><title>Just a moment...</title></head><body>'
+        + 'Checking your browser before accessing this site.</body></html>';
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (url.startsWith('https://r.jina.ai/')) return new Response(detailHtml);
+        return new Response(challenge);
+      });
+
+      const jobs = await fetchAllKantonAargauJobs();
+
+      expect(jobs).toHaveLength(2);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+    });
+
+    it('rescues a WAF status on a vacancy page without weakening hard failures', async () => {
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const fetchMock = serve((url) => {
+        if (isApi(url)) return new Response(api());
+        if (url.startsWith('https://r.jina.ai/')) return new Response(detailHtml);
+        return new Response('Forbidden', { status: 403 });
+      });
+
+      const jobs = await fetchAllKantonAargauJobs();
+
+      expect(jobs).toHaveLength(2);
+      expect(fetchMock.mock.calls.some(([url]) => String(url).startsWith('https://r.jina.ai/'))).toBe(true);
+    });
+
     it('retries a transient 503 on a vacancy page instead of failing the board (corpus run 36778255557)', async () => {
       vi.spyOn(console, 'log').mockImplementation(() => {});
       vi.spyOn(console, 'warn').mockImplementation(() => {});
