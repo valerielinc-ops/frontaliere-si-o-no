@@ -9,8 +9,9 @@
  * `collision-risk` ogni futura PR su quei path — contro una controparte che non
  * poteva mergiare mai.
  */
+import { readFileSync } from 'node:fs';
 import { describe, it, expect } from 'vitest';
-import { selectCollisionCandidates, computeColliders } from '../scripts/ci/pr-collision-detector.mjs';
+import { selectCollisionCandidates, computeColliders, findDuplicateHeadPrs } from '../scripts/ci/pr-collision-detector.mjs';
 
 describe('selectCollisionCandidates', () => {
   it('tiene le open non-draft, scarta le draft', () => {
@@ -79,5 +80,44 @@ describe('computeColliders', () => {
       [2, new Set(['scripts/lib/b.mjs'])],
     ]);
     expect(computeColliders([1, 2], files).size).toBe(0);
+  });
+});
+
+describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#10609)', () => {
+  const owner = { login: 'valerielinc-ops' };
+
+  it('REGRESSIONE #10609: tiene la più vecchia, chiude le altre e ne riporta le label', () => {
+    expect(findDuplicateHeadPrs([
+      { number: 10609, headRefName: 'fix/issue-10544', headRepositoryOwner: owner, labels: [{ name: 'agent:autofix' }, { name: 'collision-risk' }] },
+      { number: 10608, headRefName: 'fix/issue-10544', headRepositoryOwner: owner, labels: [{ name: 'collision-risk' }] },
+      { number: 10555, headRefName: 'fix-gh013-data-refresh-triad-20260930', headRepositoryOwner: owner, labels: [] },
+    ])).toEqual([{ number: 10609, keeper: 10608, labels: ['agent:autofix', 'collision-risk'] }]);
+  });
+
+  it('stesso nome di branch su owner diversi (fork) non è una gemella', () => {
+    expect(findDuplicateHeadPrs([
+      { number: 1, headRefName: 'fix/x', headRepositoryOwner: owner },
+      { number: 2, headRefName: 'fix/x', headRepositoryOwner: { login: 'someone-else' } },
+    ])).toEqual([]);
+  });
+
+  it('owner o ref illeggibili → nessuna chiusura (fail-closed)', () => {
+    expect(findDuplicateHeadPrs([
+      { number: 1, headRefName: 'fix/x' },
+      { number: 2, headRefName: 'fix/x' },
+    ] as never)).toEqual([]);
+    expect(findDuplicateHeadPrs(undefined as never)).toEqual([]);
+  });
+
+  it('main() chiude le duplicate PRIMA del grafo delle collisioni, senza cancellare il branch', () => {
+    const source = readFileSync(new URL('../scripts/ci/pr-collision-detector.mjs', import.meta.url), 'utf8');
+    const main = source.slice(source.indexOf('function main()'));
+    const dedupe = main.indexOf('findDuplicateHeadPrs(prs)');
+    const graph = main.indexOf('computeColliders(nums, funnelFiles)');
+    expect(dedupe).toBeGreaterThan(-1);
+    expect(graph).toBeGreaterThan(dedupe);
+    expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRepositoryOwner,title'");
+    expect(main).toContain("gh(['pr', 'close', String(dup.number), '--repo', REPO]");
+    expect(main).not.toContain('--delete-branch');
   });
 });

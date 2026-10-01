@@ -9,6 +9,8 @@
  * alla seconda di mergiare finché non è rebasata oltre la prima.
  *
  * Logica:
+ *   - PR gemelle (stesso head ref): chiude le duplicate e tiene la più vecchia
+ *     (`findDuplicateHeadPrs`), prima di costruire il grafo.
  *   - lista PR OPEN NON-DRAFT; per ognuna i file cambiati (gh pr view N --json files).
  *   - FUNNEL-CRITICAL globs: scripts/lib/**, build-plugins/**,
  *     services/seoService.ts, services/seo/**, .github/workflows/**,
@@ -57,6 +59,7 @@ export { fetchPrFiles, GRAPHQL_FILES_CAP, REST_FILES_HARD_CAP };
 
 const DRY = process.argv.includes('--dry-run');
 const REPO = process.env.GITHUB_REPOSITORY || '';
+const AUTOFIX_LABEL = 'agent:autofix';
 
 // Glob funnel-critical → predicate. Manteniamo i pattern espliciti e ristretti:
 // allargarli genererebbe falsi positivi (ogni PR collide con ogni PR).
@@ -110,6 +113,43 @@ export function selectCollisionCandidates(prs) {
 }
 
 /**
+ * PR GEMELLE: due PR aperte sullo stesso head ref (stesso repo) sono la stessa
+ * PR due volte — stessi commit, stesso diff — non due lavori in parallelo.
+ * Osservate #10608 e #10609 su `fix/issue-10544`, create nello stesso secondo:
+ * condividendo ogni file si etichettavano `collision-risk` a vicenda, e la
+ * «seconda a raggiungere il merge» non poteva esistere. Si tiene la piu'
+ * vecchia; le altre sono duplicate da chiudere (il branch resta: e' quello
+ * della PR tenuta). Pura → testabile.
+ *
+ * @param {Array<{number:number, headRefName?:string, headRepositoryOwner?:{login?:string}, labels?:Array<{name:string}>}>} prs
+ * @returns {Array<{number:number, keeper:number, labels:string[]}>} duplicate da chiudere
+ */
+export function findDuplicateHeadPrs(prs) {
+  if (!Array.isArray(prs)) return [];
+  const byHead = new Map(); // owner:ref -> [pr]
+  for (const pr of prs) {
+    if (!pr || !Number.isInteger(pr.number) || typeof pr.headRefName !== 'string' || !pr.headRefName) continue;
+    // Owner assente = non sappiamo se e' un fork con lo stesso nome di branch:
+    // nessun raggruppamento, nessuna chiusura (fail-closed).
+    const owner = pr.headRepositoryOwner?.login;
+    if (typeof owner !== 'string' || !owner) continue;
+    const key = `${owner.toLowerCase()}:${pr.headRefName}`;
+    if (!byHead.has(key)) byHead.set(key, []);
+    byHead.get(key).push(pr);
+  }
+  const duplicates = [];
+  for (const group of byHead.values()) {
+    if (group.length < 2) continue;
+    group.sort((a, b) => a.number - b.number);
+    const keeper = group[0].number;
+    for (const dup of group.slice(1)) {
+      duplicates.push({ number: dup.number, keeper, labels: (dup.labels || []).map((l) => l?.name).filter(Boolean) });
+    }
+  }
+  return duplicates.sort((a, b) => a.number - b.number);
+}
+
+/**
  * Coppie collidenti da `num -> Set(file funnel-critical)`.
  *
  * Una PR assente da `funnelFiles` (o con set vuoto) non collide con nessuno: è
@@ -159,13 +199,30 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels,isDraft,author,headRefName,title']);
+      '--json', 'number,labels,isDraft,author,headRefName,headRepositoryOwner,title']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
   }
   prs = prs || [];
   if (prs.length < 1) { console.log('Nessuna PR aperta.'); return; }
+
+  // Gemelle sullo stesso head ref: si chiude la duplicata prima del grafo, che
+  // altrimenti le farebbe collidere fra loro per sempre.
+  const duplicates = findDuplicateHeadPrs(prs);
+  const closedDuplicates = new Set();
+  for (const dup of duplicates) {
+    console.log(`PR #${dup.number}: gemella di #${dup.keeper} (stesso head ref) → chiusa come duplicata.`);
+    if (dup.labels.includes(AUTOFIX_LABEL)) addLabel(dup.keeper, AUTOFIX_LABEL);
+    commentOnce(dup.number, `<!-- DUPLICATE_HEAD_OF:${dup.keeper} -->`,
+      `♻️ **duplicata**: questa PR e la PR #${dup.keeper} hanno lo stesso head branch, quindi gli stessi commit. ` +
+      `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +
+      `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
+    if (DRY) { console.log(`[dry] close #${dup.number}`); }
+    else gh(['pr', 'close', String(dup.number), '--repo', REPO], { json: false, allowFail: true });
+    closedDuplicates.add(dup.number);
+  }
+  if (closedDuplicates.size) prs = prs.filter((p) => !closedDuplicates.has(p.number));
 
   // Chi sta lavorando sull'altra PR. Senza questo il commento dice CHE c'e' una
   // collisione ma non A CHI parlarne, e con la flotta che apre PR in parallelo
