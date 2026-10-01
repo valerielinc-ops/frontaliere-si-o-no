@@ -85,7 +85,7 @@ function normalizeBlock(s = '') {
  *      were rendered as one long inline run.
  */
 function decodeAndStrip(html = '') {
-  if (!html) return '';
+  if (typeof html !== 'string' || !html) return '';
   // Abacus can transport escaped HTML; raw HTML already has its markup layer.
   let decoded = html.includes('<') ? html : decodeHTML(html, { scope: 'strict' });
 

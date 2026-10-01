@@ -9,7 +9,7 @@ import { parseSmartRecruitersDetail } from '../scripts/lib/lastminute-job-parser
 import { parseCliniqueLeNoirmontListing } from '../scripts/lib/clinique-le-noirmont-job-parser.mjs';
 import { parsePostJobDetail } from '../scripts/lib/postch-job-parser.mjs';
 import { parseCsebPublication } from '../scripts/lib/cseb-job-parser.mjs';
-import { parseDescriptionToMarkdown } from '../scripts/lib/pemsa-job-parser.mjs';
+import { parseDescriptionToMarkdown, parsePemsaDetailHtml } from '../scripts/lib/pemsa-job-parser.mjs';
 import { parseEngelvoelkersDetailPage } from '../scripts/lib/engelvoelkers-job-parser.mjs';
 import { fetchAllMscCargoJobs } from '../scripts/lib/msc-cargo-job-parser.mjs';
 import { stripHtml as wordpress } from '../scripts/lib/topic-sources/wordpressSearch.mjs';
@@ -52,6 +52,14 @@ it.each([false, true])('preserves PEMSA text with an encoded HTML transport laye
   expect(result.text).toContain(decoded);
 });
 
+it('keeps the rendered PEMSA description when JSON-LD has a non-text description', () => {
+  const html = `<script type="application/ld+json">${JSON.stringify({ '@type': 'JobPosting', title: 'Project Engineer', description: 123 })}</script><main><h1>Project Engineer</h1><h2>Requisiti</h2><p>${'Source responsibilities for the advertised project engineering role. '.repeat(12)}</p></main>`;
+  const result = parsePemsaDetailHtml(html, 'https://www.pemsa.ch/it/job/project-engineer');
+  expect(result).not.toBeNull();
+  expect(result.description).toContain('Source responsibilities');
+  expect(parseDescriptionToMarkdown(123)).toEqual({ text: '', sectionCount: 0, sourceTextLength: 0 });
+});
+
 it.each([false, true])('preserves CSEB text with an encoded HTML transport layer: %s', (escaped) => {
   const html = `<p>${encoded} ${'Source task words for the actual hospital vacancy. '.repeat(10)}</p>`;
   const result = parseCsebPublication({
@@ -59,6 +67,12 @@ it.each([false, true])('preserves CSEB text with an encoded HTML transport layer
     PublicationLanguage: 'de', Tasks: escaped ? encode(html) : html,
   });
   expect(result.description).toContain(decoded);
+});
+
+it('ignores invalid CSEB section values and keeps source text from valid sections', () => {
+  const result = parseCsebPublication({ JobTitle: 'Pflegefachperson', Tasks: 123, Requirements: `<p>${'Required hospital vacancy skills and source responsibilities. '.repeat(10)}</p>` });
+  expect(result.description).toContain('Required hospital vacancy skills');
+  expect(result.description).not.toContain('123');
 });
 
 it('decodes EngelVoelkers HTML payload once and leaves DOM-decoded metadata alone', () => {

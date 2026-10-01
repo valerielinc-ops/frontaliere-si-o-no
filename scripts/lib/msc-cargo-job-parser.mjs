@@ -158,7 +158,7 @@ function decodeHtmlEntities(value = '') {
  * regression on this crawler.
  */
 function htmlBodyToBulletedText(rawHtml = '') {
-  if (!rawHtml) return '';
+  if (typeof rawHtml !== 'string' || !rawHtml) return '';
   const markup = rawHtml.includes('<') ? rawHtml : decodeHtmlEntities(rawHtml);
   const withBullets = markup
     .replace(/<br\s*\/?>/gi, '\n')

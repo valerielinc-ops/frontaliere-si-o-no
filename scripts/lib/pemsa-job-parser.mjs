@@ -76,7 +76,7 @@ function decodeHtmlEntities(text = '') {
  * Returns { text, sectionCount, sourceTextLength }.
  */
 export function parseDescriptionToMarkdown(rawDescription = '') {
-  if (!rawDescription) return { text: '', sectionCount: 0, sourceTextLength: 0 };
+  if (typeof rawDescription !== 'string' || !rawDescription) return { text: '', sectionCount: 0, sourceTextLength: 0 };
 
   // Some API records transport escaped HTML; unwrap that layer before parsing.
   const markup = rawDescription.includes('<') ? rawDescription : decodeHtmlEntities(rawDescription);
