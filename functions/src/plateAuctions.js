@@ -562,6 +562,54 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
   };
 }
 
+/**
+ * How long one instance reuses a built snapshot: the same 5 minutes the
+ * response already declares in `Cache-Control: max-age=300`.
+ *
+ * One build reads the whole current collection (17'613 rows on 2026-10-01)
+ * plus 5'000 history rows, about 22'700 billed Firestore reads. Built per
+ * request, a crawler from Tencent Cloud (~500 calls/hour every night from
+ * 2026-09-29) turned that into 75-90 M reads a day, ~32-38 USD/day on the
+ * "Cloud Firestore Read Ops Zurich" SKU, while concurrent builds overran
+ * 256 MiB and ~80% of the calls ended 500/503 with their reads still billed.
+ *
+ * The refresh takes ~2.5 minutes, so a run triggered by
+ * scripts/ci/run-plate-auctions-function.mjs is visible here within ~7.5
+ * minutes, inside that script's 12-minute polling window.
+ */
+export const PLATE_AUCTION_SNAPSHOT_CACHE_MS = 5 * 60 * 1000;
+
+let cachedSnapshotBody = null;
+let pendingSnapshotBody = null;
+
+/**
+ * The serialized public snapshot, built at most once per TTL per instance.
+ * Concurrent callers share the build in flight (single-flight), so a burst
+ * costs one pass over the collection instead of one per request. A failed
+ * build is not cached: the next request retries.
+ */
+export function getCachedPublicPlateAuctionSnapshotBody({ db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.body);
+  if (!pendingSnapshotBody) {
+    pendingSnapshotBody = getPublicPlateAuctionSnapshot(db)
+      .then((snapshot) => {
+        const body = Buffer.from(JSON.stringify(snapshot));
+        cachedSnapshotBody = { body, expiresAt: now() + ttlMs };
+        return body;
+      })
+      .finally(() => {
+        pendingSnapshotBody = null;
+      });
+  }
+  return pendingSnapshotBody;
+}
+
+/** Test seam: forget the per-instance snapshot cache. */
+export function resetPublicPlateAuctionSnapshotCache() {
+  cachedSnapshotBody = null;
+  pendingSnapshotBody = null;
+}
+
 function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
   const registrySource = PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY[sourceKey] || {};
   return {

@@ -125,7 +125,7 @@ import {
 } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
-import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
+import { getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
@@ -464,11 +464,15 @@ export const getTrafficCurrent = onRequest(
 
 // Public plate-auction snapshot. Firestore stays server-only; the response is
 // allow-listed in plateAuctions.js and deliberately excludes bidder/winner
-// identities from eCari sources.
+// identities from eCari sources. The body is built at most once per 5 minutes
+// per instance (getCachedPublicPlateAuctionSnapshotBody): one build is ~22'700
+// billed Firestore reads. 1GiB like refreshPlateAuctions, which reads the same
+// collection: at 256MiB a build overran the limit (258-269 MiB measured
+// 2026-10-01) and every call in flight on the instance failed.
 export const getPlateAuctions = onRequest(
  {
  region: 'europe-west6',
- memory: '256MiB',
+ memory: '1GiB',
  timeoutSeconds: 30,
  cors: true,
  },
@@ -478,9 +482,9 @@ export const getPlateAuctions = onRequest(
  return;
  }
  try {
- const snapshot = await getPublicPlateAuctionSnapshot();
+ const body = await getCachedPublicPlateAuctionSnapshotBody();
  res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
- res.status(200).json(snapshot);
+ res.type('application/json').status(200).send(body);
  } catch (error) {
  console.error('[getPlateAuctions]', error instanceof Error ? error.message : String(error));
  res.status(503).json({ schema: 1, auctions: [], sources: {}, error: 'plate_auction_snapshot_unavailable' });
