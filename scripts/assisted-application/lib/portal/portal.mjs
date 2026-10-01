@@ -855,6 +855,7 @@ export async function submitViaPortal(ctx) {
       await diagnostics.beforeSubmit(page);
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
+      diagnostics.finalClick();
       await final.click();
       const outcome = await waitForOutcome(page, Boolean(extensionPath));
       await diagnostics.afterSubmit(page, outcome);
@@ -880,7 +881,7 @@ export async function submitViaPortal(ctx) {
       // the end of the wait; the page kept its form and send button. The
       // application never left: a CAPTCHA stop for Valerie, as a challenge
       // still on screen is, not an unknown outcome.
-      if (outcome === 'ambiguous' && page.url() === finalUrl && diagnostics?.challengeAfterClick?.() && await sendButtonStill(page, final.label)) {
+      if (outcome === 'ambiguous' && page.url() === finalUrl && diagnostics.challengeAfterClick() && await sendButtonStill(page, final.label)) {
         evidence.challengeAfterClick = true;
         return await handoff('captcha');
       }

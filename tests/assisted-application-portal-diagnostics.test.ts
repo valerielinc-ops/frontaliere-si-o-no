@@ -87,14 +87,20 @@ describe('encrypted portal diagnostics', () => {
     const { context, page, request } = fixture();
     const challenge = { ...request, url: () => 'https://api.hcaptcha.com/getcaptcha/site', resourceType: () => 'xhr' };
     const diagnostics = startPortalDiagnostics(context);
-    // Before the click a challenge (a checkbox on the form) is not the send's.
+    // Before the click a challenge (a checkbox on the form, or one arriving during beforeSubmit) is not the send's.
     context.emit('request', challenge);
     await diagnostics.beforeSubmit(page);
+    context.emit('request', challenge);
     expect(diagnostics.challengeAfterClick()).toBe(false);
+    diagnostics.finalClick();
     for (let i = 0; i < 60; i += 1) context.emit('request', request);
     context.emit('request', challenge);
     expect(diagnostics.data.requests).toHaveLength(40);
     expect(diagnostics.challengeAfterClick()).toBe(true);
+    // The next attempt (after a validation error) starts clean: a challenge of the previous click does not count (review of #10810).
+    await diagnostics.beforeSubmit(page);
+    diagnostics.finalClick();
+    expect(diagnostics.challengeAfterClick()).toBe(false);
     await diagnostics.finish();
   });
 

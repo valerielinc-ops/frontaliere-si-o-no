@@ -65,6 +65,8 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   let phase = 'navigation';
   let stopped = false;
   // Outside the capped lists: a challenge's own image fetches can fill them.
+  // Armed by finalClick() at each attempt's own click, never earlier (review of #10810).
+  let clickArmed = false;
   let challengeAfterClick = false;
   let bodyReads = 0;
   let fetchInstalled = false;
@@ -89,7 +91,7 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   listen(context, 'page', attach);
   for (const page of context.pages()) attach(page);
   listen(context, 'request', (request) => {
-    if (phase === 'submit' && !stopped && isChallengeRequest(request.url())) challengeAfterClick = true;
+    if (clickArmed && !stopped && isChallengeRequest(request.url())) challengeAfterClick = true;
     if (tracked(request)) push(data.requests, metadata(request));
   });
   listen(context, 'requestfailed', (request) => push(data.requestFailures, { ...metadata(request), error: diagnosticText(request.failure()?.errorText) }));
@@ -123,7 +125,12 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   });
   return {
     data,
-    /** The portal served a human challenge after the final click. */
+    /** Right before the final click of this attempt: only what follows it counts. */
+    finalClick() {
+      clickArmed = true;
+      challengeAfterClick = false;
+    },
+    /** The portal served a human challenge after this attempt's final click. */
     challengeAfterClick: () => challengeAfterClick,
     async installFetchObserver() {
       await context.exposeBinding(FETCH_DIAGNOSTIC_BINDING, (_source, entry) => {
