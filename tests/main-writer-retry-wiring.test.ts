@@ -20,6 +20,12 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/regenerate-visual-baselines.yml',
 ];
 
+const STATE_ONLY_MONITORS = [
+  '.github/workflows/auth-signup-subscriber-monitor.yml',
+  '.github/workflows/autologin-refusal-monitor.yml',
+  '.github/workflows/unsubscribe-credential-monitor.yml',
+];
+
 function read(relativePath: string): string {
   return readFileSync(resolve(ROOT, relativePath), 'utf8');
 }
@@ -99,6 +105,29 @@ describe('main data writers use the shared retry contract', () => {
     expect(snapshotStep, 'CWV snapshot commit step is missing').toBeDefined();
     expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('8');
     expect(Number(maxAttempts)).toBeLessThan(monitorJob?.['timeout-minutes'] ?? 0);
+  });
+
+  it('keeps state-only monitor commit-backs isolated and bounded', () => {
+    for (const relativePath of STATE_ONLY_MONITORS) {
+      const document = YAML.parse(read(relativePath)) as {
+        jobs?: Record<string, {
+          steps?: Array<{
+            name?: string;
+            run?: string;
+            env?: Record<string, string | number>;
+          }>;
+        }>;
+      };
+      const commitStep = Object.values(document.jobs ?? {})
+        .flatMap((job) => job.steps ?? [])
+        .find((step) => step.name?.startsWith('Commit history'));
+
+      expect(commitStep, `${relativePath} is missing its history commit step`).toBeDefined();
+      expect(commitStep?.run, `${relativePath} must use the extra-only writer path`).toContain(
+        'git-commit-data.sh --extra-only',
+      );
+      expect(commitStep?.env?.MAX_PUSH_ATTEMPTS, `${relativePath} must cap push retries`).toBe('5');
+    }
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {

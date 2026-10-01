@@ -104,10 +104,14 @@ jobs:
       - name: Commit history
         # `if: always()`: la serie va persistita anche nei giri che allarmano.
         if: always()
+        env:
+          # State-only writer: isolate the owned docs directory and bound the
+          # shared-main contention retry below this job's timeout.
+          MAX_PUSH_ATTEMPTS: '5'
         run: |
           set -uo pipefail
           ec=0
-          bash scripts/lib/git-commit-data.sh "📊 Auto-generated auth signup subscriber metrics" docs/auth-signup-subscribers/ || ec=$?
+          bash scripts/lib/git-commit-data.sh --extra-only "📊 Auto-generated auth signup subscriber metrics" docs/auth-signup-subscribers/ || ec=$?
           # 42 = contesa sul push, si risana al giro dopo (vedi git-commit-data.sh).
           if [ "$ec" -eq 42 ]; then
             echo "::warning::Push in contesa (42) — lo stato si ricommitta al prossimo giro."
