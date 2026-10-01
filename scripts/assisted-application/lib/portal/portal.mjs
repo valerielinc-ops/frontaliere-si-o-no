@@ -323,7 +323,9 @@ async function waitForOutcome(page) {
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: true }));
   const log = ctx.log || (() => {});
-  const maxSteps = ctx.maxSteps || 8;
+  // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
+  // start date, the employer's own questions, review): 8 pages were not enough.
+  const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
   const browser = await launch();
   let page = null;
