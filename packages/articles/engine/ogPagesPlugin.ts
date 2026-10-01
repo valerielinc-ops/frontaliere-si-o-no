@@ -1216,14 +1216,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const authorObj: Record<string, unknown> = resolvedAuthor
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
  name: resolvedAuthor.name,
  jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
+ worksFor: { '@type': 'NewsMediaOrganization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
  ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
  }
  : {
- '@type': 'Organization' as const,
+ '@type': 'NewsMediaOrganization' as const,
  '@id': `${BASE_URL}/#organization`,
  name: en.authorName || 'Redazione Frontaliere Ticino',
  url: `${BASE_URL}/chi-siamo/`,
@@ -1237,6 +1238,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
  name: reviewerAuthor.name,
  jobTitle: reviewerAuthor.role,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
@@ -1359,7 +1361,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
  // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/Organization object defined once
+ // author must match the byline. Person/NewsMediaOrganization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is

@@ -91,6 +91,19 @@ describe('article:author names the article author, not the Redazione', () => {
     expect(registryAt).toBeGreaterThan(-1);
     expect(blobAt).toBeGreaterThan(registryAt);
   });
+
+  it('gives repeated Person and publisher entities stable schema identities', () => {
+    const src = readFileSync(join(ROOT, EMITTERS[0]), 'utf-8');
+
+    // The same author appears on many pages. A stable fragment identifier lets
+    // crawlers reconcile those Person nodes instead of treating every page as
+    // a new anonymous entity. The publisher fallback uses the canonical
+    // NewsMediaOrganization type already declared by organizationLd.ts.
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{resolvedAuthor\.slug\}\/\#person`/);
+    expect(src).toMatch(/worksFor: \{ '@type': 'NewsMediaOrganization'/);
+    expect(src).toMatch(/'@id': `\$\{BASE_URL\}\/autori\/\$\{reviewerAuthor\.slug\}\/\#person`/);
+    expect(src).toMatch(/'@type': 'NewsMediaOrganization' as const/);
+  });
 });
 
 /**
