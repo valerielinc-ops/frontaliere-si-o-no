@@ -1,6 +1,6 @@
 import fs from 'node:fs';
 import path from 'node:path';
-import { describe, it, expect, vi, beforeAll, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeAll, afterAll, afterEach } from 'vitest';
 import {
   maskProtectedTokens,
   restoreProtectedTokens,
@@ -11,13 +11,19 @@ import {
   finalizeTranslatedText,
 } from '@/scripts/lib/translation-glossary.mjs';
 
-// Set BEFORE anything pulls in free-translate.mjs: the module reads this env
-// var once, at load time. `dedicated-crawler-common.mjs` imports the cascade at
-// its own module scope, so it must be imported dynamically (below) rather than
-// statically here — a static import would be hoisted above this assignment and
-// freeze the self-hosted URL to ''.
+// Configure the fake tier before the dynamic imports below load the cascade.
+// Inherited credentials would select an earlier tier (including OAuth retries)
+// before reaching LibreTranslate, making these offline cases machine-dependent.
 const LT_URL = 'http://libretranslate.test';
-process.env.LIBRETRANSLATE_SELF_HOSTED_URL = LT_URL;
+beforeAll(() => {
+  for (const key of [
+    'GOOGLE_APPLICATION_CREDENTIALS', 'GSC_CLIENT_ID', 'GSC_CLIENT_SECRET', 'GSC_REFRESH_TOKEN',
+    'DEEPL_API_KEY', 'DEEPL_API_KEY_2', 'AZURE_TRANSLATOR_KEY', 'AZURE_TRANSLATOR_KEY_2',
+    'CODEX_AUTH_BROKER_SOCKET', 'MT_LOCAL_OPUSMT', 'HF_TOKEN', 'HUGGINGFACE_API_KEY',
+  ]) vi.stubEnv(key, '');
+  vi.stubEnv('LIBRETRANSLATE_SELF_HOSTED_URL', LT_URL);
+});
+afterAll(() => vi.unstubAllEnvs());
 
 /**
  * Regression guard for the two defect families observed in a 900-page live
@@ -312,11 +318,14 @@ describe('finalizeTranslatedText — the shared exit transform', () => {
 describe('freeTranslate cascade — gender codes never reach a translator', () => {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let freeTranslate: any;
+  let requestedUrls: string[] = [];
 
   const install = (translate: (q: string) => string) => {
+    requestedUrls = [];
     vi.stubGlobal('fetch', vi.fn(async (url: unknown, init: unknown) => {
       const u = String(url);
-      if (u.startsWith(LT_URL)) {
+      requestedUrls.push(u);
+      if (u === `${LT_URL}/translate`) {
         const body = JSON.parse(String((init as { body?: string })?.body || '{}'));
         return {
           ok: true,
@@ -324,13 +333,17 @@ describe('freeTranslate cascade — gender codes never reach a translator', () =
           json: async () => ({ translatedText: translate(String(body.q || '')) }),
         };
       }
-      // Every other tier's endpoint fails, so the cascade lands on the fake.
+      // Keep every unexpected request offline; the assertion below rejects it.
       return { ok: false, status: 503, text: async () => '', json: async () => ({}) };
     }));
   };
 
   afterEach(() => {
-    vi.unstubAllGlobals();
+    try {
+      expect(requestedUrls).toEqual([`${LT_URL}/translate`]);
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 
   // A translator that expands the German gender code as weekdays — the exact
