@@ -12,15 +12,25 @@ type WorkflowStep = {
   'continue-on-error'?: unknown;
 };
 
+type WorkflowJob = {
+  if?: string;
+  steps: WorkflowStep[];
+};
+
 const WORKFLOW_PATH = path.resolve(
   __dirname,
   '..',
   '.github/workflows/sync-articles-sitemaps.yml',
 );
 const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
-  jobs: { sync: { steps: WorkflowStep[] } };
+  jobs: {
+    sync: WorkflowJob;
+    'replay-after-article-sync': WorkflowJob;
+  };
 };
 const steps = workflow.jobs.sync.steps;
+const replaySteps = workflow.jobs['replay-after-article-sync'].steps;
+const workflowSource = fs.readFileSync(WORKFLOW_PATH, 'utf8');
 
 function stepNamed(name: string): WorkflowStep {
   const step = steps.find((candidate) => candidate.name === name);
@@ -116,5 +126,39 @@ describe('article corpus sync parser gate', () => {
     expect(stepNamed('Publish client article chunks for synced corpus').if).toContain(
       "steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'",
     );
+  });
+
+  it('replays every PR-skipped live surface from the merged main tree', () => {
+    const replay = workflow.jobs['replay-after-article-sync'];
+    const replayStep = (name: string): WorkflowStep => {
+      const step = replaySteps.find((candidate) => candidate.name === name);
+      if (!step) throw new Error(`Missing replay workflow step: ${name}`);
+      return step;
+    };
+
+    expect(workflowSource).toContain('push:\n    branches: [main]');
+    const corpusPath = 'packages' + '/articles' + '/content/**';
+    const tickerPath = 'public' + '/news-ticker-live.json';
+    expect(workflowSource).toContain(`- '${corpusPath}'`);
+    expect(workflowSource).toContain("- 'public/sitemap-news.xml'");
+    expect(workflowSource).toContain("- 'public/rss*.xml'");
+    expect(workflowSource).toContain(`- '${tickerPath}'`);
+    expect(replay.if).toBe("github.event_name == 'push'");
+    expect(replayStep('Publish client article chunks after article sync merge').run).toContain(
+      'scripts/publish-article-chunks.mjs --strict --no-ticker',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'publish_edge_batch 1 news-sitemap --only=/sitemap-news.xml',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'publish_edge_batch 10 rss-feeds --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'data/news-ticker-live.json "public, max-age=300, must-revalidate"',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces')['continue-on-error']).toBeUndefined();
   });
 });

@@ -201,13 +201,74 @@ elif [ -n "$REMOTE_HEAD" ]; then
   git commit -m "$COMMIT_MESSAGE"
 fi
 
-if [ -n "$REMOTE_HEAD" ]; then
-  git -c http.https://github.com/.extraheader= push \
-    --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \
-    "$PUSH_URL" "HEAD:${BRANCH}"
-else
-  git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"
-fi
+# A stable branch is intentionally shared by concurrent refreshes. The first
+# push may therefore lose the lease after the branch was reconciled above. A
+# bounded retry must rebuild the local branch from the newest remote tip before
+# trying again; retrying the same rejected commit would either drop the other
+# run or keep failing forever.
+MAX_PUSH_ATTEMPTS=3
+push_attempt=1
+while :; do
+  push_succeeded=false
+  if [ -n "$REMOTE_HEAD" ]; then
+    if git -c http.https://github.com/.extraheader= push \
+      --force-with-lease="refs/heads/${BRANCH}:${REMOTE_HEAD}" \
+      "$PUSH_URL" "HEAD:${BRANCH}"; then
+      push_succeeded=true
+    fi
+  elif git -c http.https://github.com/.extraheader= push "$PUSH_URL" "HEAD:${BRANCH}"; then
+    push_succeeded=true
+  fi
+
+  if [ "$push_succeeded" = true ]; then
+    break
+  fi
+  if [ "$push_attempt" -ge "$MAX_PUSH_ATTEMPTS" ]; then
+    echo "::error::stable refresh branch push failed after ${MAX_PUSH_ATTEMPTS} bounded attempts" >&2
+    exit 1
+  fi
+
+  echo "::warning::stable refresh branch moved during push attempt ${push_attempt}/${MAX_PUSH_ATTEMPTS}; reconciling the newest remote tip"
+  push_attempt=$((push_attempt + 1))
+  sleep "$((push_attempt - 1))"
+  REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
+
+  if [ -n "$REMOTE_HEAD" ]; then
+    git fetch --no-tags "$PUSH_URL" \
+      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
+    git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
+
+    if [ "$RECONCILE_COMPAT" = true ]; then
+      # Re-read main as well: the stable branch race can overlap a new 404
+      # sweep, and the compatibility merge must retain the newest main base.
+      git fetch --no-tags "$PUSH_URL" \
+        "refs/heads/main:refs/remotes/origin/main"
+      merge_refresh_ref "$REFRESH_COMMIT"
+      merge_refresh_ref origin/main
+    else
+      MERGE_ARGS=(
+        --base "$REFRESH_BASE"
+        --remote "$REMOTE_HEAD"
+        --refresh "$REFRESH_COMMIT"
+      )
+      for refresh_path in "${PATHS[@]}"; do
+        MERGE_ARGS+=(--path "$refresh_path")
+      done
+      node scripts/ci/merge-open-data-refresh.mjs "${MERGE_ARGS[@]}"
+      stage_paths
+      if git diff --cached --quiet; then
+        echo "No new refresh changes after the concurrent stable-branch update."
+        break
+      fi
+      git commit -m "$COMMIT_MESSAGE"
+    fi
+  else
+    # The branch may have been closed and deleted between attempts. Recreate it
+    # from this run's immutable refresh commit and let the next push establish
+    # the stable ref again.
+    git checkout -B "$BRANCH" "$REFRESH_COMMIT"
+  fi
+done
 
 OPEN_PR="$(gh pr list \
   --repo "$REPOSITORY" \

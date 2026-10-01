@@ -77,6 +77,16 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).not.toMatch(/HEAD:main/);
   });
 
+  it('reconciles the newest stable branch tip after a concurrent push loses its lease', () => {
+    const helper = read('scripts/lib/open-data-refresh-pr.sh');
+    expect(helper).toContain('MAX_PUSH_ATTEMPTS=3');
+    expect(helper).toContain('stable refresh branch moved during push attempt');
+    expect(helper).toContain('git ls-remote "$PUSH_URL" "refs/heads/$BRANCH"');
+    expect(helper).toContain('refs/remotes/refresh/${BRANCH}');
+    expect(helper).toContain('merge-open-data-refresh.mjs');
+    expect(helper).toContain('push_attempt=$((push_attempt + 1))');
+  });
+
   it('passes named three-way merge arguments without treating a value as a flag', () => {
     const output = execFileSync(
       process.execPath,

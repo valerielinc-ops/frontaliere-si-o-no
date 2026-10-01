@@ -37,6 +37,17 @@ name: Sync article sitemaps, feeds and ticker from the articles API
 on:
   repository_dispatch:
     types: [articles-published]
+  # A corpus refresh enters main through the stable PR above. The PR path must
+  # not skip its dependent CDN surfaces permanently, so replay them from the
+  # merged tree as soon as that push lands.
+  push:
+    branches: [main]
+    paths:
+      - 'packages/articles/content/**'
+      - 'public/sitemap-news.xml'
+      - 'public/rss*.xml'
+      - 'public/news-ticker-live.json'
+      - '.github/workflows/sync-articles-sitemaps.yml'
   schedule:
     # Twice a day, offset off the hour to stay clear of the deploy cron.
     - cron: '23 5,17 * * *'
@@ -61,6 +72,7 @@ permissions:
 
 jobs:
   sync:
+    if: github.event_name != 'push'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v7
@@ -930,3 +942,240 @@ jobs:
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
+
+  # The stable refresh PR deliberately skips every live side effect until its
+  # required check has passed. This push job is the other half of that contract:
+  # it reads the merged main tree and replays every surface that the PR path
+  # could not safely publish before merge.
+  replay-after-article-sync:
+    if: github.event_name == 'push'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    environment: shard-secrets-overflow
+    steps:
+      - name: Checkout merged article sync
+        uses: actions/checkout@v7
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -n "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/firebase-sa.json"
+            echo "GOOGLE_APPLICATION_CREDENTIALS=$RUNNER_TEMP/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON is required for the post-merge article surface replay"
+            exit 1
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # Serialize the client registry/companion publication with fast-publish,
+      # resync and the regular sync path. The lease covers all four sections'
+      # CDN representations until the strict client publish has completed.
+      - name: Acquire article chunk section locks for post-merge replay
+        id: acquire_replay_chunk_lock
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section locks for post-merge replay
+        id: renew_replay_chunk_lock
+        if: steps.acquire_replay_chunk_lock.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Check post-merge replay source is current
+        id: check_replay_source
+        if: steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing post-merge replay source $SOURCE_SHA from current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::post-merge replay source did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify post-merge replay lock before publication
+        id: verify_replay_chunk_lock_before_publish
+        if: steps.check_replay_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck post-merge replay source before publication
+        id: recheck_replay_source_before_publish
+        if: steps.verify_replay_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::error::main advanced during post-merge replay preparation: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
+            exit 1
+          fi
+
+      - name: Publish client article chunks after article sync merge
+        id: publish_replay_chunks
+        if: steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success' && steps.verify_replay_chunk_lock_before_publish.outcome == 'success' && steps.check_replay_source.outputs.current == 'true' && steps.recheck_replay_source_before_publish.outcome == 'success' && steps.recheck_replay_source_before_publish.outputs.current == 'true'
+        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+
+      - name: Verify post-merge replay lock after client publication
+        id: verify_replay_chunk_lock_after_publish
+        if: always() && steps.acquire_replay_chunk_lock.outcome == 'success' && steps.renew_replay_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck post-merge replay source before edge publication
+        id: recheck_replay_source_before_edge
+        if: steps.publish_replay_chunks.outcome == 'success' && steps.verify_replay_chunk_lock_after_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          if [ "$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")" != "true" ]; then
+            echo "::error::main advanced during client publication; refusing to publish stale edge surfaces"
+            exit 1
+          fi
+
+      # publish-edge-files.mjs intentionally remains best-effort for its other
+      # callers. This replay is the delivery mechanism for the four surfaces
+      # skipped by the PR path, so count its upload confirmations and fail closed
+      # if any requested edge object was not actually PUT.
+      - name: Replay article sitemap, RSS and ticker surfaces
+        if: steps.recheck_replay_source_before_edge.outcome == 'success'
+        run: |
+          set -euo pipefail
+
+          publish_edge_batch() {
+            local expected="$1"
+            local label="$2"
+            shift 2
+            local log="$RUNNER_TEMP/replay-${label}.log"
+            if ! node scripts/publish-edge-files.mjs "$@" 2>&1 | tee "$log"; then
+              echo "::error::edge publisher failed for ${label}"
+              return 1
+            fi
+            local uploaded
+            uploaded="$(grep -c '✅ uploaded ' "$log" || true)"
+            if [ "$uploaded" -ne "$expected" ]; then
+              echo "::error::edge publisher confirmed ${uploaded}/${expected} upload(s) for ${label}"
+              return 1
+            fi
+          }
+
+          publish_edge_batch 1 news-sitemap --only=/sitemap-news.xml
+          publish_edge_batch 10 rss-feeds --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml
+
+          ticker_source="$GITHUB_WORKSPACE/public/news-ticker-live.json"
+          ticker_payload="$RUNNER_TEMP/news-ticker-live-array.json"
+          node - "$ticker_source" "$ticker_payload" <<'NODE'
+          const fs = require('node:fs');
+          const source = process.argv[2];
+          const target = process.argv[3];
+          const parsed = JSON.parse(fs.readFileSync(source, 'utf8'));
+          const articles = parsed && parsed.articles;
+          if (!Array.isArray(articles) || articles.length === 0) {
+            throw new Error('public/news-ticker-live.json carries no articles array — refusing to publish');
+          }
+          for (const article of articles) {
+            if (!article || !article.id || !article.title?.it || !article.slug?.it) {
+              throw new Error(`ticker entry ${article?.id ?? '<unknown>'} is missing a locale title/slug`);
+            }
+          }
+          fs.writeFileSync(target, JSON.stringify(articles));
+          console.log(`ticker: ${articles.length} articles, newest ${articles[0].date}`);
+          NODE
+
+          ticker_log="$RUNNER_TEMP/replay-ticker.log"
+          if ! bash scripts/lib/upload-cdn-file.sh "$ticker_payload" \
+            data/news-ticker-live.json "public, max-age=300, must-revalidate" 2>&1 | tee "$ticker_log"; then
+            echo "::error::ticker upload command failed"
+            exit 1
+          fi
+          if ! grep -q '✅ uploaded ' "$ticker_log"; then
+            echo "::error::ticker upload was not confirmed"
+            exit 1
+          fi
+          node scripts/cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json
+
+      # Release the lease even when a strict surface replay fails. Stop the
+      # watcher before the second ETag-guarded release, matching the other
+      # article chunk publishers in this repository.
+      - name: Release article chunk section locks after post-merge replay
+        if: always() && steps.acquire_replay_chunk_lock.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-replay-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-replay-article-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
