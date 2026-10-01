@@ -19,12 +19,13 @@
  * career-ops drives Playwright MCP. Next and the final submit stay here.
  */
 
-import { AGENT_ROUNDS, advanceLocator, completeWithAgent } from './agent.mjs';
+import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
-import { planPage } from './plan.mjs';
+import { learnedButton } from './knowledge.mjs';
+import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
+import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
 import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
@@ -54,6 +55,54 @@ export function realisticUserAgent(version, platform = process.platform) {
   const system = platform === 'darwin' ? 'Macintosh; Intel Mac OS X 10_15_7' : platform === 'win32' ? 'Windows NT 10.0; Win64; x64' : 'X11; Linux x86_64';
   const major = /^\d+/.exec(String(version || ''))?.[0] || '140';
   return `Mozilla/5.0 (${system}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
+}
+
+// Path segments that name the employer or the posting, not the portal's page.
+const NAMED_SEGMENT_AFTER = /^(companies|company|jobs|job|careers|career|positions|position|stellen|stelle|offerte|offres|vacancies|postings|o|j)$/i;
+
+/**
+ * The page's address with the employer and the posting left out, for a public
+ * fix issue (self-correction, level 3): "join.com/companies/acme/16772222/apply/review"
+ * → "/companies/*\/*\/apply/review". Ids, long slugs and the segment after
+ * "companies", "jobs"… become "*"; the query and the hash go.
+ */
+export function anonymizePath(url) {
+  let path = '';
+  try {
+    path = new URL(url).pathname;
+  } catch {
+    return '';
+  }
+  const segments = path.split('/').filter(Boolean);
+  return `/${segments.map((segment, index) => {
+    const named = index > 0 && NAMED_SEGMENT_AFTER.test(segments[index - 1]) && segments[index - 1].length > 1;
+    return named || /\d/.test(segment) || segment.length > 24 ? '*' : segment;
+  }).join('/')}`;
+}
+
+/**
+ * Where and why the runner stopped, as a fixer needs it and nothing more
+ * (self-correction, level 3): the portal's host, the anonymized page, the
+ * buttons, the fields' labels and kinds, the form's messages. Never a value:
+ * agent.mjs also strikes every value of the candidate out before it leaves.
+ */
+export function stopReportFrom({ url, reason, step, seen, agent = [] }) {
+  let host = '';
+  try {
+    host = new URL(url).hostname;
+  } catch {
+    host = '';
+  }
+  return {
+    host,
+    path: anonymizePath(url),
+    reason,
+    step,
+    buttons: [...new Set((seen?.buttons || []).map((button) => String(button.text || '').trim()).filter(Boolean))].slice(0, 30),
+    fields: (seen?.fields || []).slice(0, 30).map((field) => ({ label: String(field.label || '').slice(0, 120), kind: field.kind, required: Boolean(field.required) })),
+    errors: (seen?.errors || []).slice(0, 8),
+    agent: agent.map((item) => ({ hint: item.hint, status: item.status })),
+  };
 }
 
 /** The workflow runs the browser headed on a virtual screen (xvfb-run) when it can. */
@@ -362,6 +411,25 @@ async function handleAuth({ page, snapshot, ctx }) {
   return { snapshot: after, reopen: !after.passwordVisible };
 }
 
+/**
+ * After the final click: the same send button is still on the page, and the
+ * portal loads an invisible reCAPTCHA (v3 badge or `api.js?render=`), the
+ * kind that scores the browser and lets the portal drop a bot's submission
+ * without a word.
+ */
+async function refusedSilently(page, label) {
+  const after = await extractFields(page, NAVIGATION).catch(() => null);
+  if (!after || !learnedButton(after.buttons, [label])) return false;
+  return invisibleRecaptcha(page);
+}
+
+/** The page scores its visitors with an invisible reCAPTCHA (v3 badge or `api.js?render=`). */
+function invisibleRecaptcha(page) {
+  return page.evaluate(() => Boolean(document.querySelector('.grecaptcha-badge'))
+    || [...document.scripts].some((script) => /recaptcha\/(api|enterprise)\.js\?[^#]*render=/.test(script.src)))
+    .catch(() => false);
+}
+
 // An address that says the application went through; a review step
 // ("review-and-confirm") is not one.
 const DONE_URL_RE = /(thank|danke|grazie|merci|success|confirmation|submitted|received|complete)/i;
@@ -378,6 +446,8 @@ async function waitForOutcome(page) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
     if (CONFIRM_RE.test(text)) return 'confirmed';
+    // The portal says it did not send: nothing left, by its own word.
+    if (REFUSED_RE.test(text)) return 'refused';
     const snapshot = await extractFields(page, NAVIGATION).catch(() => null);
     if (urlConfirms(page.url(), snapshot)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
@@ -455,9 +525,31 @@ export async function submitViaPortal(ctx) {
   let page = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
-    if (page) evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+    if (page) {
+      evidence.handoffScreenshot = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
+      // What a fixer needs to teach the runner this page (level 3); a CAPTCHA is no code fix.
+      if (reason !== 'captcha') {
+        const seen = await extractFields(page, NAVIGATION).catch(() => null);
+        evidence.stopReport = stopReportFrom({ url: page.url(), reason, step: evidence.steps.length, seen, agent: evidence.steps.at(-1)?.agent || [] });
+      }
+    }
     return { event: { type: 'submit_handoff', reason }, evidence };
   };
+  // What each portal taught earlier runs (level 2), read once per host.
+  const knowledge = new Map();
+  const knownFor = async (url) => {
+    let host = '';
+    try {
+      host = new URL(url).hostname;
+    } catch {
+      return { finalLabels: [], nextLabels: [] };
+    }
+    if (!ctx.knowledge) return { finalLabels: [], nextLabels: [] };
+    if (!knowledge.has(host)) knowledge.set(host, await ctx.knowledge.load(host).catch(() => ({ finalLabels: [], nextLabels: [] })));
+    return knowledge.get(host);
+  };
+  // Step buttons the agent named in this run: learned only once the portal confirms.
+  const namedNext = [];
   try {
     const context = await browser.newContext({
       userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
@@ -467,6 +559,9 @@ export async function submitViaPortal(ctx) {
       acceptDownloads: false,
     });
     page = await context.newPage();
+    // Which browser the portal saw (the run's logs are deleted): headed on the
+    // virtual screen or headless, and the user agent it sent.
+    evidence.browser = { headed: headedBrowser(), userAgent: await page.evaluate(() => navigator.userAgent).catch(() => '') };
     const response = await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
@@ -613,9 +708,12 @@ export async function submitViaPortal(ctx) {
         }
       }
       if (after.captcha) return await handoff('captcha');
-      let submit = findButton(after.buttons, SUBMIT_RE);
-      let next = findButton(after.buttons, NEXT_RE);
+      // A usual name, or one this portal taught a confirmed submission (level 2).
+      const known = await knownFor(page.url());
+      let submit = findButton(after.buttons, SUBMIT_RE) || learnedButton(after.buttons, known.finalLabels);
+      let next = findButton(after.buttons, NEXT_RE) || (submit ? null : learnedButton(after.buttons, known.nextLabels));
       let advance = null;
+      let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
       // calendar of "Quando sei nato?"), or left fields it could not name:
       // the agent completes the page, then the runner moves on as before.
@@ -638,16 +736,26 @@ export async function submitViaPortal(ctx) {
             await page.waitForTimeout(2000);
             after = await extractFields(page, NAVIGATION);
           }
-          submit = findButton(after.buttons, SUBMIT_RE);
-          next = findButton(after.buttons, NEXT_RE);
+          submit = findButton(after.buttons, SUBMIT_RE) || learnedButton(after.buttons, known.finalLabels);
+          next = findButton(after.buttons, NEXT_RE) || (submit ? null : learnedButton(after.buttons, known.nextLabels));
           // A step button with an unusual name ("Salva e prosegui"), never one that may send.
           if (!submit && !next && agent.advanceRef) advance = await advanceLocator(page, agent.advanceRef);
+          // The last page's send button with an unusual name («Conferma e applica», level 1):
+          // the agent names it, the runner presses it below, behind the submission guard,
+          // only when nothing required is left empty on the page.
+          if (!submit && !next && !advance && agent.submitRef) {
+            const open = (await extractFields(page, NAVIGATION)).fields.some((field) => field.required && !holdsValue(field));
+            if (!open) finalByAgent = await submitLocator(page, agent.submitRef);
+          }
         }
       }
       if ((next || advance) && !submit) {
         const before = pageSignature(page, after);
         if (next) await clickButton(page, next);
-        else await advance.click({ timeout: 6_000 });
+        else {
+          await advance.locator.click({ timeout: 6_000 });
+          namedNext.push(advance.name);
+        }
         await settle(page);
         snapshot = await extractFields(page);
         // A single-page form moves on after its own request (JOIN checks the
@@ -668,7 +776,11 @@ export async function submitViaPortal(ctx) {
         }
         continue;
       }
-      if (!submit) {
+      // The final button: a usual or learned name (the runner's), or the one the agent named.
+      const final = submit
+        ? { label: submit.text, by: 'runner', click: () => clickButton(page, submit) }
+        : finalByAgent && { label: finalByAgent.name, by: 'agent', click: () => finalByAgent.locator.click({ timeout: 6_000 }) };
+      if (!final) {
         if (findButton(after.buttons, SUBMIT_RE, { includeDisabled: true }) && validationRetries < 1) {
           validationRetries += 1;
           snapshot = await extractFields(page);
@@ -678,17 +790,27 @@ export async function submitViaPortal(ctx) {
       }
       if (ctx.dryRun) {
         evidence.dryRunScreenshot = (await page.screenshot({ fullPage: true })).toString('base64');
+        evidence.finalButton = { label: final.label, by: final.by };
         return { event: { type: 'dry_run_ready' }, evidence };
       }
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
+      evidence.finalButton = { label: final.label, by: final.by };
+      const finalUrl = page.url();
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
-      await clickButton(page, submit);
+      await final.click();
       const outcome = await waitForOutcome(page);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
-      if (outcome === 'confirmed') return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
+      if (outcome === 'confirmed') {
+        // The portal confirmed: what this run had to learn is remembered for the next one (level 2).
+        const learnedFinal = final.by === 'agent' || !SUBMIT_RE.test(final.label) ? final.label : '';
+        if (ctx.knowledge && (learnedFinal || namedNext.length)) {
+          await ctx.knowledge.learn(new URL(finalUrl).hostname, { finalLabel: learnedFinal, nextLabels: namedNext }).catch((error) => log(`portal knowledge not saved: ${String(error?.message || error).slice(0, 80)}`));
+        }
+        return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
+      }
       if (outcome === 'captcha') return await handoff('captcha');
       if (outcome === 'validation' && validationRetries < 1) {
         validationRetries += 1;
@@ -696,7 +818,20 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       // career-ops: an ambiguous submit is never re-submitted automatically.
-      return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : 'portal_ambiguous' }, evidence };
+      // The page did not move and still offers the same send button, on a
+      // portal that scores visitors with an invisible reCAPTCHA (JOIN, giro di
+      // prova 2026-10-01: nothing reached the employer): most likely refused as
+      // a bot. Said to Valerie as such; still never re-sent automatically.
+      const antibot = outcome === 'ambiguous' && page.url() === finalUrl && await refusedSilently(page, final.label);
+      if (antibot) evidence.antibot = true;
+      // The portal said, on the same page, that the application did not go
+      // (JOIN, run 36846326334): not ambiguous. submit.mjs releases the guard,
+      // so Valerie's retry can claim it again; the runner itself never re-sends.
+      if (outcome === 'refused' && page.url() === finalUrl) {
+        evidence.antibot = await invisibleRecaptcha(page);
+        return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence };
+      }
+      return { event: { type: 'submit_failed', error: outcome === 'validation' ? 'portal_validation' : antibot ? 'portal_antibot_ambiguous' : 'portal_ambiguous' }, evidence };
     }
     return await handoff('portal_needs_candidate');
   } finally {

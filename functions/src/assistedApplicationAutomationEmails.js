@@ -320,6 +320,10 @@ const RUNNER_ERRORS = [
   [/^email_failed$/, 'nessun provider ha accettato l’email al datore'],
   [/^email_ambiguous$/, 'non è certo che l’email al datore sia partita: controlla prima di reinviarla'],
   [/^portal_ambiguous$/, 'non è certo che il portale abbia ricevuto la candidatura: controlla prima di reinviarla'],
+  // JOIN run 36846326334: the portal's own message after the final click.
+  [/^portal_refused$/, 'il portale ha risposto che non è riuscito a inviare la candidatura (spesso per il suo controllo anti-robot): NON è partita. Puoi premere «Riprova l’invio automatico» o completarla tu sul portale'],
+  // JOIN, giro di prova 2026-10-01: the page stayed on the send button, invisible reCAPTCHA v3 on the portal.
+  [/^portal_antibot_ambiguous$/,'dopo il clic finale la pagina del portale non è cambiata e il portale usa un controllo anti-robot invisibile (reCAPTCHA): molto probabilmente la candidatura NON è arrivata. Controlla sul portale e, se manca, completala tu: il robot non la reinvia'],
   [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
 ];
 const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };

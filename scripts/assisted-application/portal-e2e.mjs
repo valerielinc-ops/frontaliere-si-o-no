@@ -22,11 +22,12 @@ import { submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
 import { extractFields } from './lib/portal/fields.mjs';
 import { applyActions } from './lib/portal/fill.mjs';
+import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], newsletter: false, pending: null, refuseNextRegistration: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, newsletter: false, pending: null, refuseNextRegistration: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -91,6 +92,23 @@ function fakePortal() {
       return send(page('Bewerbung', `${form('/widget', `<label for="v">Vorname *</label><input id="v" name="first" required><label for="m">E-Mail *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><h2>Geburtsdatum *</h2><input type="hidden" id="dob" name="dob"><div role="group" aria-label="Mai 1990">${days}</div><button type="submit" id="send" disabled>Bewerbung absenden</button>`, true)}
         <script>document.querySelectorAll('[data-d]').forEach((day) => day.addEventListener('click', () => { document.getElementById('dob').value = day.dataset.d; day.setAttribute('aria-pressed', 'true'); document.getElementById('send').disabled = false; }));</script>`));
     }
+    // A summary page whose send button has an unusual name, and a dead end (self-correction).
+    if (route === 'GET /summary') {
+      return send(page('Zusammenfassung', `<h1>Ihre Bewerbung</h1><p>Bitte prüfen Sie Ihre Angaben.</p>${form('/summary', '<button type="submit">Abschliessen und übermitteln</button>')}`));
+    }
+    if (route === 'POST /summary') {
+      state.summarySubmissions += 1;
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    if (route === 'GET /dead-end') return send(page('Bewerbung', '<h1>Bewerbung</h1><p>Diese Seite ist leer.</p>'));
+    // JOIN 2026-10-01: an invisible reCAPTCHA scores the browser; the send click does nothing visible.
+    if (route === 'GET /antibot') {
+      return send(page('Bewerbung', `<h1>Ihre Bewerbung</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div>${form('/antibot', '<button type="submit">Bewerbung absenden</button>').replace('<form ', '<form onsubmit="return false" ')}`));
+    }
+    // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
+    if (route === 'GET /refused') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
+    }
     if (route === 'POST /widget') {
       const raw = await readBody(req);
       state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
@@ -108,10 +126,15 @@ function fakePortal() {
  * candidate data has one; without it, it is invented ("rule") and the code
  * guard must turn it into a question for the candidate.
  */
+let agentTurns = 0;
 function fakeAgent(prompt) {
+  agentTurns += 1;
   const snapshot = prompt.slice(prompt.indexOf('Page snapshot:'));
   const { agentPage } = JSON.parse(prompt.slice(prompt.indexOf('{"agentPage"'), prompt.indexOf('\n\nPage snapshot:')));
-  const turn = (status, actions = []) => ({ status, reason: '', advanceRef: '', actions, questions: [] });
+  const turn = (status, actions = [], extra = {}) => ({ status, reason: '', advanceRef: '', submitRef: '', actions, questions: [], ...extra });
+  // The last page's send button with an unusual name: named, never pressed (self-correction, level 1).
+  const send = /button "Abschliessen und übermitteln" \[ref=(\w+)\]/.exec(snapshot);
+  if (send) return turn('done', [], { submitRef: send[1] });
   if (agentPage.history.length) return turn('done');
   const day = /button "Choose 12 May 1990" \[ref=(\w+)\]/.exec(snapshot);
   const source = /"dateOfBirth":"\d/.test(prompt) ? 'profile' : 'rule';
@@ -222,6 +245,40 @@ async function main() {
     check('a choice is verified on the page', picked[0]?.ok === true && picked[1]?.ok === false && picked[1]?.error === 'choice_not_registered'
       && picked[2]?.ok === false && picked[2]?.error === 'option_not_found');
     await comboPage.context().browser().close();
+    // Self-correction, levels 1 and 2: the agent names an unusual send button,
+    // the runner presses it behind the guard, the portal's memory learns it.
+    const learnedLabels = new Map();
+    const knowledge = {
+      async load(host) { return learnedLabels.get(host) || { finalLabels: [], nextLabels: [] }; },
+      async learn(host, { finalLabel = '', nextLabels = [] }) {
+        const current = learnedLabels.get(host) || { finalLabels: [], nextLabels: [] };
+        learnedLabels.set(host, {
+          finalLabels: [...new Set([normalizeLabel(finalLabel), ...current.finalLabels].filter(Boolean))],
+          nextLabels: [...new Set([...nextLabels.map(normalizeLabel), ...current.nextLabels])],
+        });
+      },
+    };
+    const turnsBefore = agentTurns;
+    const named = await run({ applyUrl: `${base}/summary`, knowledge });
+    check('the agent names an unusual send button and the runner presses it', named.event.type === 'submit_succeeded'
+      && named.evidence.finalButton?.by === 'agent' && state.summarySubmissions === 1 && agentTurns > turnsBefore);
+    const turnsLearned = agentTurns;
+    const taught = await run({ applyUrl: `${base}/summary`, knowledge });
+    check('the next run presses the learned button without the agent', taught.event.type === 'submit_succeeded'
+      && taught.evidence.finalButton?.by === 'runner' && state.summarySubmissions === 2 && agentTurns === turnsLearned);
+    // Level 3: a page the runner cannot get through leaves an anonymous stop report.
+    const dead = await run({ applyUrl: `${base}/dead-end` });
+    check('a dead end leaves a stop report for the fix issue', dead.event.type === 'submit_handoff'
+      && dead.evidence.stopReport?.path === '/dead-end' && dead.evidence.stopReport?.host === '127.0.0.1');
+    // The send click leaves the page as it was, behind an invisible reCAPTCHA: Valerie is told it most likely did not arrive.
+    const silent = await run({ applyUrl: `${base}/antibot` });
+    check('a send the portal silently drops is reported as a likely anti-bot refusal', silent.event.type === 'submit_failed'
+      && silent.event.error === 'portal_antibot_ambiguous' && silent.evidence.antibot === true);
+    // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
+    const toast = await run({ applyUrl: `${base}/refused` });
+    check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
+      && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
+      && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
