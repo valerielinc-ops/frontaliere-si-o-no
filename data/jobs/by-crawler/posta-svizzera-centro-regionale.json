@@ -317,9 +317,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schluein",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-schluein",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-schluein",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-schluein",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-schluein"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-schluein"
       },
       "sourceLang": "de",
       "department": "",
@@ -341,16 +341,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-schluein"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-schluein"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-schluein"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-schluein"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-schluein",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-schluein"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-schluein"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-cc809ce6bf03",
@@ -458,12 +457,12 @@
         "fr": "Stv. Packs de livraison Teamleader",
         "it": "Stv. Pacchetti di consegna Teamleader"
       },
-      "slug": "stv-teamleader-zustellung-pakete-post",
+      "slug": "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens",
       "slugByLocale": {
-        "it": "stv-teamleader-zustellung-pakete-post",
-        "en": "stv-teamleader-zustellung-pakete-post",
+        "it": "stv-pacchetti-di-consegna-teamleader-die-schweizerische-post-kriens",
+        "en": "stv-teamleader-delivery-packages-die-schweizerische-post-kriens",
         "de": "stv-teamleader-zustellung-pakete-post",
-        "fr": "stv-teamleader-zustellung-pakete-post"
+        "fr": "stv-packs-de-livraison-teamleader-die-schweizerische-post-kriens"
       },
       "sourceLang": "de",
       "department": "",
@@ -498,7 +497,21 @@
       },
       "addressLocality": "Kriens",
       "addressRegion": "LU",
-      "firstSeenAt": "2026-09-30T21:46:39.487Z"
+      "firstSeenAt": "2026-09-30T21:46:39.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleader-zustellung-pakete-post"
+        ],
+        "en": [
+          "stv-teamleader-zustellung-pakete-post"
+        ],
+        "fr": [
+          "stv-teamleader-zustellung-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleader-zustellung-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74821-de_DE",
@@ -668,9 +681,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lausen",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-lausen",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-lausen",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-lausen",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-lausen"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-lausen"
       },
       "sourceLang": "de",
       "department": "",
@@ -692,16 +705,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-lausen"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-lausen"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-lausen"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-lausen"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-lausen",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-lausen"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-lausen"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-2cbbfb9bda29",
@@ -748,9 +760,9 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-einsiedeln",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-einsiedeln",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-die-schweizerische-post-einsiedeln"
+        "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
       },
       "sourceLang": "de",
       "department": "",
@@ -772,16 +784,15 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-einsiedeln"
         ],
         "fr": [
-          "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
+          "zusteller-in-briefe-und-pakete-die-schweizerische-post-einsiedeln"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "delivery-in-letters-and-packages-die-schweizerische-post-einsiedeln",
-        "livraison-en-lettres-et-en-colis-die-schweizerische-post-einsiedeln"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-einsiedeln"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-ae5cf4cde5eb",
@@ -2065,7 +2076,7 @@
       "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
       "slugByLocale": {
         "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-escholzmatt",
-        "en": "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
+        "en": "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
         "de": "zusteller-in-briefe-und-pakete-post",
         "fr": "livraison-en-lettres-et-en-colis-die-schweizerische-post-escholzmatt"
       },
@@ -2089,7 +2100,6 @@
           "zusteller-in-briefe-und-pakete-post"
         ],
         "en": [
-          "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt",
           "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
         ],
         "fr": [
@@ -2102,8 +2112,7 @@
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
         "zusteller-in-briefe-und-pakete-post-pml6oq",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt",
-        "delivery-in-letters-and-packages-die-schweizerische-post-escholzmatt"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-escholzmatt"
       ],
       "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-c1df0e0fd267",
@@ -3254,9 +3263,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "kundenberater-in-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "conseillers-clients-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -3278,20 +3287,16 @@
           "kundenberater-in-post"
         ],
         "en": [
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke",
           "kundenberater-in-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke",
           "conseillers-clients-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
         "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke",
         "conseillers-clients-die-schweizerische-post-emmenbrucke"
       ],
       "needsRetranslation": true,
@@ -8059,7 +8064,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -8083,7 +8088,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -8092,8 +8096,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -9966,8 +9969,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-jcrrx3"
         ]
       },
       "previousSlugs": [
@@ -11718,8 +11720,7 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce",
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-u7nuce"
         ]
       },
       "previousSlugs": [
@@ -13201,11 +13202,11 @@
         "fr": "Factrice/Facteur lettres et colis",
         "it": "Fattura/caratteristiche e pacchetti"
       },
-      "slug": "factrice-facteur-lettres-et-colis-post",
+      "slug": "fattura-caratteristiche-e-pacchetti-la-poste-suisse-la-neuveville",
       "slugByLocale": {
-        "it": "factrice-facteur-lettres-et-colis-post",
-        "en": "factrice-facteur-lettres-et-colis-post",
-        "de": "factrice-facteur-lettres-et-colis-post",
+        "it": "fattura-caratteristiche-e-pacchetti-la-poste-suisse-la-neuveville",
+        "en": "invoice-factor-letters-and-packages-la-poste-suisse-la-neuveville",
+        "de": "rechnungsbriefe-und-pakete-la-poste-suisse-la-neuveville",
         "fr": "factrice-facteur-lettres-et-colis-post"
       },
       "sourceLang": "fr",
@@ -13240,7 +13241,21 @@
       },
       "addressLocality": "La Neuveville",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-30T21:46:39.487Z"
+      "firstSeenAt": "2026-09-30T21:46:39.487Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "factrice-facteur-lettres-et-colis-post"
+        ],
+        "en": [
+          "factrice-facteur-lettres-et-colis-post"
+        ],
+        "de": [
+          "factrice-facteur-lettres-et-colis-post"
+        ]
+      },
+      "previousSlugs": [
+        "factrice-facteur-lettres-et-colis-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-gestionnaire-de-commerce-de-d%C3%A9tail-CFC%E2%80%AF-Vaud/74010-fr_FR",
@@ -14159,7 +14174,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14183,7 +14198,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },

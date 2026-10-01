@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "pantr-ch-fa865fd8b331",
-      "slug": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+      "slug": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
       "slugByLocale": {
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "it": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+        "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
         "fr": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
       },
@@ -68,7 +68,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:35:20.253Z"
+      "firstSeenAt": "2026-10-01T09:35:20.253Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
+        ]
+      },
+      "previousSlugs": [
+        "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
+      ]
     },
     {
       "id": "pantr-ch-cfd0a7b808cb",

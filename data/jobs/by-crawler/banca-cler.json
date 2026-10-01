@@ -203,7 +203,7 @@
     },
     {
       "id": "company-27ardp",
-      "slug": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp",
+      "slug": "consulente-immobiliare-regione-romandie-banca-cler-bellinzona",
       "company": "Banca Cler",
       "title": "Conseiller/ère à la clientèle immobilière (Région Romandie)",
       "location": "Bellinzona",
@@ -235,20 +235,28 @@
       },
       "needsRetranslation": true,
       "slugByLocale": {
-        "it": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp",
-        "en": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp",
-        "de": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp",
+        "it": "consulente-immobiliare-regione-romandie-banca-cler-bellinzona",
+        "en": "real-estate-client-advisor-romandie-region-banca-cler-bellinzona",
+        "de": "immobilienkundenberater-region-rumanien-banca-cler-bellinzona",
         "fr": "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp"
       },
       "requirementsByLocale": {},
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona"
+          "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona",
+          "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp"
+        ],
+        "en": [
+          "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp"
+        ],
+        "de": [
+          "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp"
         ]
       },
       "previousSlugs": [
-        "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona"
+        "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona",
+        "conseiller-ere-a-la-clientele-immobiliere-region-romandie-banca-cler-bellinzona-27ardp"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -615,7 +623,7 @@
       "slugByLocale": {
         "it": "consigliere-immobiliare-neuchatel-m-f-40-bank-cler-8440-mwst-che",
         "en": "estate-advisor-neuchatel-m-f-40-bank-cler-8440-mwst-che",
-        "de": "immobilienberater-neuchatel-m-w-d-40-banca-cler-neuchatel",
+        "de": "conseillere-en-succession-neuchatel-f-m-banca-cler",
         "fr": "conseillere-en-succession-neuchatel-m-w-d-40-bank-cler-8440-mwst-che-4w98tr"
       },
       "titleByLocale": {
@@ -660,7 +668,8 @@
         ],
         "de": [
           "immobilienberater-neuchatel-m-w-40-banque-cler-8440-tva-che",
-          "immobilienberater-neuchatel-m-w-d-40-bank-cler-neuchatel"
+          "immobilienberater-neuchatel-m-w-d-40-bank-cler-neuchatel",
+          "immobilienberater-neuchatel-m-w-d-40-banca-cler-neuchatel"
         ],
         "fr": [
           "conseillere-en-succession-neuchatel-m-w-d-40-banque-cler-8440-tva-che-mcp9v4"
@@ -674,7 +683,8 @@
         "conseillere-en-succession-neuchatel-m-w-d-40-banque-cler-8440-tva-che-mcp9v4",
         "immobilienberater-neuchatel-m-w-40-banque-cler-8440-tva-che",
         "immobilienberater-neuchatel-m-w-d-40-bank-cler-neuchatel",
-        "conseillere-en-succession-neuchatel-f-m-banca-cler"
+        "conseillere-en-succession-neuchatel-f-m-banca-cler",
+        "immobilienberater-neuchatel-m-w-d-40-banca-cler-neuchatel"
       ],
       "streetAddress": "Neuchâtel",
       "postalCode": "2000",

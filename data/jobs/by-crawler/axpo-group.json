@@ -331,18 +331,20 @@
       },
       "slugByLocale": {
         "it": "berufswahltag-kaufmann-kauffrau-cfc-m-w-d-emmen-rathausen-ckw-emmen",
-        "en": "schnuppertag-as-merchant-merchant-efz-m-f-d-emmen-rathausen-ckw-emmen",
+        "en": "career-choice-day-for-business-administrators-efz-m-f-d-emmen-rathausen-ckw-emmen",
         "de": "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen",
-        "fr": "schnuppertag-comme-marchand-marchand-efz-h-f-d-emmen-rathausen-ckw-emmen"
+        "fr": "journee-de-choix-de-carriere-pour-les-administrateurs-d-entreprise-efz-h-f-d-emmen-rathausen-ckw-emmen"
       },
       "crawledAt": "2026-10-01T09:19:58.782Z",
       "id": "axpo-group-a2cea597fad4",
       "previousSlugsByLocale": {
         "en": [
-          "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen"
+          "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen",
+          "schnuppertag-as-merchant-merchant-efz-m-f-d-emmen-rathausen-ckw-emmen"
         ],
         "fr": [
-          "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen"
+          "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen",
+          "schnuppertag-comme-marchand-marchand-efz-h-f-d-emmen-rathausen-ckw-emmen"
         ],
         "it": [
           "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0",
@@ -354,7 +356,9 @@
         "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-ckw-emmen",
         "schnuppertag-als-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0",
         "schnuppertag-come-kaufmann-kauffrau-cfc-m-w-d-emmen-rathausen-ckw-emmen",
-        "berufswahltag-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0"
+        "berufswahltag-kaufmann-kauffrau-efz-m-w-d-emmen-rathausen-9165f0a5-bb0f-40f3-ac9b-f8558876b3e0",
+        "schnuppertag-as-merchant-merchant-efz-m-f-d-emmen-rathausen-ckw-emmen",
+        "schnuppertag-comme-marchand-marchand-efz-h-f-d-emmen-rathausen-ckw-emmen"
       ],
       "salaryMin": 94000,
       "salaryMax": 143000,
@@ -861,7 +865,7 @@
         "it": "adozione-digitale-requisiti-e-implementazione-m-f-d-axpo-group-baden",
         "en": "internship-digital-adoption-requirements-rollout-m-f-d-axpo-group-baden",
         "de": "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f",
-        "fr": "praktikum-digital-adoption-requirements-rollout-m-w-d-axpo-group-baden"
+        "fr": "stage-adoption-numerique-exigences-et-deploiement-h-f-d-axpo-group-baden"
       },
       "crawledAt": "2026-10-01T09:19:58.861Z",
       "id": "axpo-group-fe0d47d0acf0",
@@ -886,10 +890,14 @@
         ],
         "en": [
           "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f"
+        ],
+        "fr": [
+          "praktikum-digital-adoption-requirements-rollout-m-w-d-axpo-group-baden"
         ]
       },
       "previousSlugs": [
-        "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f"
+        "praktikum-digital-adoption-requirements-amp-rollout-m-w-d-18c2106e-2966-486d-bcd8-b82d7824069f",
+        "praktikum-digital-adoption-requirements-rollout-m-w-d-axpo-group-baden"
       ],
       "sourceIdentity": "url:https://careers.axpo.com/jobs/8448178-praktikum-digital-adoption-requirements-rollout-m-w-d"
     },
@@ -1762,8 +1770,7 @@
       "previousSlugsByLocale": {
         "it": [
           "centralino-m-f-d-axpo-group-baden",
-          "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34",
-          "power-operator-w-m-d-axpo-group-baden"
+          "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34"
         ],
         "en": [
           "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34"
@@ -1774,8 +1781,7 @@
       },
       "previousSlugs": [
         "centralino-m-f-d-axpo-group-baden",
-        "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34",
-        "power-operator-w-m-d-axpo-group-baden"
+        "power-operator-w-m-d-f9fb407f-120c-435c-b449-e9c1c5bf9c34"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,

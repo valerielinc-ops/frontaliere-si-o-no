@@ -50,13 +50,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-        "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+        "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt",
-          "sales-associate-m-f-dal-26-al-27-aprile-all-80-fusalp-zermatt"
+          "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-80-fusalp-zermatt"
@@ -130,13 +128,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-        "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+        "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz",
-          "sales-associate-m-f-dal-26-al-27-aprile-al-100-fusalp-st-moritz"
+          "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
         ],
         "de": [
           "sales-associate-m-w-dec-26-to-april-27-100-fusalp-st-moritz"
@@ -228,12 +224,12 @@
     },
     {
       "id": "fusalp-aae53abd33f0",
-      "slug": "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
+      "slug": "store-manager-m-f-100-contratto-a-tempo-fisso-opportunita-permanente-fusalp-aubonne",
       "slugByLocale": {
-        "it": "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
+        "it": "store-manager-m-f-100-contratto-a-tempo-fisso-opportunita-permanente-fusalp-aubonne",
         "en": "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
-        "de": "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne",
-        "fr": "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
+        "de": "store-manager-m-w-100-befristeter-vertrag-dauerhafte-gelegenheit-fusalp-aubonne",
+        "fr": "manager-store-h-f-100-contrat-a-duree-determinee-opportunite-permanente-fusalp-aubonne"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -287,16 +283,30 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
+        ],
+        "de": [
+          "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
+        ],
+        "fr": [
+          "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "store-manager-m-w-100-fixed-term-contract-permanent-opportunity-fusalp-aubonne"
+      ]
     },
     {
       "id": "fusalp-09b7a180c06e",
-      "slug": "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
+      "slug": "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-fino-al-31-marzo-2027-fusalp-aubonne",
       "slugByLocale": {
-        "it": "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
+        "it": "sales-associate-m-f-inglese-e-francese-contratto-a-termine-fisso-fino-al-31-marzo-2027-fusalp-aubonne",
         "en": "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
-        "de": "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne",
-        "fr": "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
+        "de": "verkaufsverbindung-m-w-englisch-franzosisch-befristeter-vertrag-bis-zum-31-marz-2027-fusalp-aubonne",
+        "fr": "ventes-associees-h-f-anglais-francais-contrat-a-duree-determinee-jusqu-au-31-mars-2027-fusalp-aubonne"
       },
       "company": "Fusalp",
       "companyKey": "fusalp",
@@ -350,7 +360,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "previousSlugsByLocale": {
+        "it": [
+          "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
+        ],
+        "de": [
+          "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
+        ],
+        "fr": [
+          "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
+        ]
+      },
+      "previousSlugs": [
+        "sales-associate-m-w-english-french-fixed-term-contract-until-31-march-2027-fusalp-aubonne"
+      ]
     },
     {
       "id": "fusalp-3744771338a4",

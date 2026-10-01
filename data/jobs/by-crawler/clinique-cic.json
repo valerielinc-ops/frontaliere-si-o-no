@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
-        "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens"
+        "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens",
-          "assistente-per-la-salute-e-la-cura-della-comunita-chs-clinique-cic-clarens-clarens"
+          "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
         ],
         "en": [
           "assistant-e-en-soins-et-sante-communautaire-assc-clinique-cic-clarens"
@@ -80,11 +78,11 @@
     },
     {
       "id": "clinique-cic-12dd10fa7bee",
-      "slug": "infirmier-ere-clinique-cic-saxon",
+      "slug": "infermiera-clinique-cic-saxon-saxon",
       "slugByLocale": {
-        "it": "infirmier-ere-clinique-cic-saxon",
-        "en": "infirmier-ere-clinique-cic-saxon",
-        "de": "infirmier-ere-clinique-cic-saxon",
+        "it": "infermiera-clinique-cic-saxon-saxon",
+        "en": "nurse-clinique-cic-saxon-saxon",
+        "de": "krankenschwester-clinique-cic-saxon-saxon",
         "fr": "infirmier-ere-clinique-cic-saxon"
       },
       "company": "Clinique CIC Saxon",
@@ -139,7 +137,21 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-clinique-cic-saxon"
+        ],
+        "en": [
+          "infirmier-ere-clinique-cic-saxon"
+        ],
+        "de": [
+          "infirmier-ere-clinique-cic-saxon"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-clinique-cic-saxon"
+      ]
     },
     {
       "id": "clinique-cic-292bdf46db97",
@@ -190,13 +202,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-e-medical-e-80-clinique-cic-clarens",
-        "assistente-medico-80-clinique-cic-clarens-clarens"
+        "assistant-e-medical-e-80-clinique-cic-clarens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistant-e-medical-e-80-clinique-cic-clarens",
-          "assistente-medico-80-clinique-cic-clarens-clarens"
+          "assistant-e-medical-e-80-clinique-cic-clarens"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:14.646Z",
