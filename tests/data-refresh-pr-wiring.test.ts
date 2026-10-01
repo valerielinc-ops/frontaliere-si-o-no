@@ -39,6 +39,30 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).not.toContain('scripts/lib/git-commit-data.sh');
   });
 
+  it('routes article corpus and hub sitemap writers through stable PRs', () => {
+    const sync = read('.github/workflows/sync-articles-sitemaps.yml');
+    const rerender = read('.github/workflows/rerender-article-hubs.yml');
+    const fastPublish = read('.github/workflows/fast-publish-article.yml');
+
+    for (const [workflowPath, workflow] of [
+      ['.github/workflows/sync-articles-sitemaps.yml', sync],
+      ['.github/workflows/rerender-article-hubs.yml', rerender],
+      ['.github/workflows/fast-publish-article.yml', fastPublish],
+    ] as const) {
+      expect(workflow, workflowPath).toContain('scripts/lib/open-data-refresh-pr.sh');
+      expect(workflow, workflowPath).toContain('pull-requests: write');
+      expect(workflow, workflowPath).not.toContain('scripts/lib/git-push-with-retry.sh');
+    }
+
+    expect(sync).toContain('--branch chore/sync-articles-sitemaps');
+    expect(rerender).toContain('--branch "chore/rerender-article-hub-sitemap-$INPUT_SECTION"');
+    expect(rerender).toContain('--path "public/$REL"');
+    expect(fastPublish).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');
+    expect(fastPublish).toContain('--path "public/$dist_path"');
+    expect(rerender).toContain("- 'packages/articles/content/**'");
+    expect(rerender).not.toContain('workflow_run:');
+  });
+
   it('keeps the shared publisher on the PR path, never main', () => {
     const helper = read('scripts/lib/open-data-refresh-pr.sh');
     expect(helper).toContain('gh pr create');

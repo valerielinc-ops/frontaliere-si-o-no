@@ -29,7 +29,7 @@ function stepNamed(name: string): WorkflowStep {
 }
 
 describe('article corpus sync parser gate', () => {
-  it('blocks the direct commit when changed article modules do not parse', () => {
+  it('blocks the refresh PR when changed article modules do not parse', () => {
     const validationIndex = steps.findIndex(
       (step) => step.name === 'Validate changed article modules before commit',
     );
@@ -45,20 +45,19 @@ describe('article corpus sync parser gate', () => {
     expect(spawnSync('bash', ['-n', '-c', validation.run], { encoding: 'utf8' }).status).toBe(0);
   });
 
-  it('revalidates corpus content regenerated during a push-conflict retry', () => {
-    const command = stepNamed('Commit if changed').run?.match(
-      /--regenerate-cmd "([^"]+)"/,
-    )?.[1];
+  it('delivers changed corpus artifacts through the stable PR publisher', () => {
+    const commitRun = stepNamed('Commit if changed').run ?? '';
 
-    expect(command).toBeDefined();
-    expect(command).toContain('node scripts/pull-articles-corpus.mjs');
-    expect(command).toContain('node scripts/pull-articles-api.mjs');
-    expect(command).toContain('npm test -- tests/generated-content-parses.test.ts');
-    expect(command).toContain('git add --');
-    expect(command!.indexOf('npm test -- tests/generated-content-parses.test.ts')).toBeLessThan(
-      command!.indexOf('git add --'),
-    );
-    expect(spawnSync('bash', ['-n', '-c', command], { encoding: 'utf8' }).status).toBe(0);
+    expect(commitRun).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(commitRun).toContain('--path packages/articles/content');
+    expect(commitRun).toContain('--branch chore/sync-articles-sitemaps');
+    expect(commitRun).toContain('published-via-pr=false');
+    expect(commitRun).toContain('published-via-pr=true');
+    expect(commitRun).toContain('## Implementato');
+    expect(commitRun).toContain('## Non implementato (ancora)');
+    expect(commitRun).not.toContain('--regenerate-cmd');
+    expect(commitRun).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(spawnSync('bash', ['-n', '-c', commitRun], { encoding: 'utf8' }).status).toBe(0);
   });
 
   it('publishes changed corpus registries through the shared strict CDN path', () => {
@@ -78,6 +77,7 @@ describe('article corpus sync parser gate', () => {
     expect(recheckIndex).toBeLessThan(publishIndex);
     expect(releaseIndex).toBeGreaterThan(publishIndex);
     expect(publish.if).toContain("steps.commit.outputs.article-content-changed == 'true'");
+    expect(publish.if).toContain("steps.commit.outputs.published-via-pr != 'true'");
     expect(publish.if).toContain("steps.check_synced_chunk_source.outputs.current == 'true'");
     expect(publish.if).toContain("steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'");
     expect(publish.run).toContain('scripts/publish-article-chunks.mjs --strict --no-ticker');

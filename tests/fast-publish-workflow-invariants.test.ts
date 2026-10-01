@@ -106,6 +106,19 @@ describe('fast-publish workflow invariants', () => {
       "steps.check_chunk_source.outputs.current == 'true'",
     );
   });
+
+  it('publishes the topic sitemap through a checked stable PR, never direct main', () => {
+    const publishIdx = workflow.indexOf('Publish + commit the topic-hub sitemap');
+    const publishBlock = workflow.slice(publishIdx, workflow.indexOf('Notify search engines', publishIdx));
+    expect(publishIdx).toBeGreaterThan(-1);
+    expect(workflow).toContain('pull-requests: write');
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(publishBlock).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');
+    expect(publishBlock).toContain('--path "public/$dist_path"');
+    expect(publishBlock).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(publishBlock).not.toMatch(/git\s+push\b/);
+    expect(publishBlock).not.toContain('continue-on-error: true');
+  });
 });
 
 describe('resync CDN article chunks workflow invariants', () => {
