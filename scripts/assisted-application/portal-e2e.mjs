@@ -132,7 +132,9 @@ function fakePortal() {
     }
     if (route === 'POST /diagnostic-error') {
       const body = JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] });
-      res.writeHead(200, { 'content-type': 'application/json', 'content-length': Buffer.byteLength(body) });
+      // JOIN returns chunked GraphQL errors: no declared Content-Length.
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.flushHeaders();
       return res.end(body);
     }
     // The refusal shown on an error page the portal moves to (review of #10741).
@@ -321,7 +323,7 @@ async function main() {
       && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
       && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
       && !JSON.stringify(diagnostics).includes('private-test-token'));
-    check('HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
+    check('chunked HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
       && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
