@@ -18,7 +18,7 @@ import {
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
   withEcariEmptyState,
 } from './plateAuctionsCore.js';
-import { promisify } from 'node:util';
+import { isDeepStrictEqual, promisify } from 'node:util';
 import { gzip } from 'node:zlib';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
@@ -672,6 +672,32 @@ export function plateAuctionRefreshOrder(keys) {
 /**
  * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
  */
+/**
+ * Fields every fetch rewrites even when nothing about the listing changed.
+ * Consecutive history copies of an unchanged plate differ only in these
+ * (measured 2026-10-01 on ag-58771 and ai-2952); a new bid also moves
+ * `bidCount`, `currentBidChf` and `rawSnapshotHash`.
+ */
+const PLATE_AUCTION_FETCH_STAMP_FIELDS = new Set(['id', 'sourceFetchedAt', 'lastVerifiedAt', 'lastSeenAt', 'firstSeenAt', 'missingSince']);
+
+/**
+ * True when an observation differs from the stored current row in anything
+ * but the fetch stamps, or when there is no stored row. Each refresh used to
+ * copy every row into plate_auctions_history, four times a day: ~68'600
+ * documents a day, of which 19-26% differed from the previous copy (audit of
+ * 2026-10-01), and the collection had grown to 444'412 documents. A value the
+ * comparison cannot prove equal counts as a change, so the worst case is the
+ * old behaviour, never a lost observation.
+ */
+export function plateAuctionObservationChanged(record, old) {
+  if (!old) return true;
+  for (const key of new Set([...Object.keys(record), ...Object.keys(old)])) {
+    if (PLATE_AUCTION_FETCH_STAMP_FIELDS.has(key)) continue;
+    if (!isDeepStrictEqual(record[key], old[key])) return true;
+  }
+  return false;
+}
+
 export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
@@ -743,7 +769,9 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
         // delete sentinel is rejected.
         const currentRecord = old.missingSince === undefined ? record : { ...record, missingSince: FieldValue.delete() };
         writes.push({ ref, record: currentRecord, merge: true });
-        writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
+        if (plateAuctionObservationChanged(record, previousById.get(row.id))) {
+          writes.push({ ref: db.collection(PLATE_AUCTION_HISTORY_COLLECTION).doc(`${row.id}-${fetchedAt.replace(/[^0-9]/g, '').slice(0, 14)}`), record });
+        }
       }
       const currentIds = new Set(rows.map((row) => row.id));
       // Same defect class as scripts/plate-auctions/ingest.mjs, in the other

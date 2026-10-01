@@ -1,0 +1,21 @@
+{
+  "companyKey": "marmobisa-ch",
+  "companyName": "Marmobisa AG",
+  "companyHost": "marmobisa.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://marmobisa.ch/jobs/"
+  ],
+  "detailTemplate": "/jobs/*/m-in-ebersecken-lu/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "<img src=\"/files/_processed_/4/3/csm_EB-2026-01_Sachbearbeiter_Kundendienst_BAD_WELLNESS_1200x2614px-NEU_01_0a88e1ad8d.jpg\" srcset=\"/files/_processed_/4/3/csm_E",
+    "<img src=\"/files/_processed_/8/7/csm_EB-2026-01_Monteur_Spezialteile_BAD_WELLNESS_1200x2614px-NEU_6172f3581d.jpg\" srcset=\"/files/_processed_/8/7/csm_EB-2026-01_"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-01T18:56:46.324Z"
+}
