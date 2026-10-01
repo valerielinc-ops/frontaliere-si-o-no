@@ -7400,6 +7400,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dazi-svizzera-voto.title': 'SECO: US tariffs, vote and resignation',
     'blog.article.dazi-svizzera-voto.excerpt': 'On 24 July 2026, the United States adopted additional tariffs on Switzerland of up to 12.5%; on 29 November 2026, the vote will be held on war material.',
     'blog.article.dazi-svizzera-voto.imageAlt': 'Documents on tariffs and a federal vote in a Swiss public administration office',
+    'blog.article.agenda-federale-autunno-2026.title': 'Federal Council: rents, integration and cybersecurity',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '€334.5 million for integration in 2028-2032, counter-proposal on rents and proposal on cybersecurity by June 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Swiss institutional building illustrating federal decisions',
 };
 
 export default blogMetaChEn;

@@ -22228,6 +22228,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'agenda-federale-autunno-2026',
+    category: 'novita',
+    date: '2026-10-01T20:24:45.307Z',
+    image: '/images/blog/agenda-federale-autunno-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
