@@ -607,7 +607,7 @@ else if (args[0] === 'issue' && args[1] === 'view') {
     expect(calls).toContain('follow-up(daily:2026-09-09): 2 items');
   });
 
-  it('non accoda un daily bucket sealed quando la snapshot porta needs-human', () => {
+  it('non riaccoda un daily bucket sealed già parcheggiato', () => {
     const tick = String.fromCharCode(96);
     const body = [
       '## Batch',
@@ -631,10 +631,10 @@ else if (args[0] === 'issue' && args[1] === 'view') {
       number: 601,
       title: 'follow-up(daily:2026-09-09): 1 item — o/r',
       body,
-      labels: [{ name: 'needs-human' }],
+      labels: [{ name: 'fu-parked' }],
       createdAt: new Date().toISOString(),
     };
-    const log = join(binDir, 'needs-human-calls.log');
+    const log = join(binDir, 'fu-parked-calls.log');
     writeFileSync(log, '');
     const fake = [
       '#!/usr/bin/env node',
@@ -660,7 +660,7 @@ else if (args[0] === 'issue' && args[1] === 'view') {
       },
     });
     const calls = readFileSync(log, 'utf-8');
-    expect(out).toContain('nessuna nuova agent:fix-queued (needs-human veto)');
+    expect(out).toContain('nessuna nuova agent:fix-queued (fu-parked handoff già parcheggiato)');
     expect(calls).not.toContain('"--add-label","agent:fix-queued"');
   });
 
