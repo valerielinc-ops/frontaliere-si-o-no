@@ -125,11 +125,19 @@ function sourcePriorityRank(ev) {
   return idx === -1 ? SOURCE_PRIORITY.length : idx;
 }
 
+function knownPrice(price) {
+  const amount = price?.isFree === true ? 0 : price?.amount;
+  if (typeof amount !== 'number' || !Number.isFinite(amount) || amount < 0) return undefined;
+  return { amount, currency: price.currency || 'CHF', isFree: amount === 0 };
+}
+
 /**
  * Pick the single best record out of a group of fuzzy-duplicate events:
  * highest richness score wins; ties broken by SOURCE_PRIORITY; any remaining
  * tie (same source, e.g. a future multi-slice source) is broken by the
  * lexicographically smaller id, so the result is deterministic run-to-run.
+ * Recover a missing tariff when the known prices of its duplicates agree,
+ * without changing the winner's identity or ticketing metadata.
  */
 export function pickRichestEvent(group) {
   const winner = [...group].sort((a, b) => {
@@ -139,6 +147,13 @@ export function pickRichestEvent(group) {
     if (prioDiff !== 0) return prioDiff;
     return String(a.id).localeCompare(String(b.id));
   })[0];
+  const prices = group.map((event) => knownPrice(event.price)).filter(Boolean);
+  const agreedPrice = prices.length && prices.every((price) => (
+    price.amount === prices[0].amount && price.currency === prices[0].currency
+  )) ? prices[0] : undefined;
+  const enrichedWinner = !knownPrice(winner.price) && agreedPrice
+    ? { ...winner, price: { ...winner.price, ...agreedPrice } }
+    : winner;
   // Fuzzy duplicates have different stable ids and may not describe the same
   // URL namespace (one can be comune-less). Carry only explicit history from
   // those records; the current route of a discarded duplicate is not safe to
@@ -146,7 +161,7 @@ export function pickRichestEvent(group) {
   const historicalOnly = group
     .filter((event) => event !== winner && Array.isArray(event.previousRoutes))
     .map((event) => ({ previousRoutes: event.previousRoutes }));
-  return preserveEventHistory(winner, historicalOnly);
+  return preserveEventHistory(enrichedWinner, historicalOnly);
 }
 
 // Same-source geo-match tolerance (issue #3744): a single crawler can emit
