@@ -184,10 +184,32 @@ export function firstTerminalBotReviewOnHead(reviews, head, { reviewRevision } =
 }
 
 /**
+ * The marker-repair step of `tests.yml` (`review-marker-recovery.mjs repair`)
+ * re-posts a clean LGTM that lacks the Codex marker as a NEW review: the same
+ * body with `CODEX_FALLBACK_REVIEW_MARKER` prepended. It is the same verdict
+ * with its provenance attached, not a second verdict on the HEAD.
+ */
+export function isCodexMarkerRepairCopy(review, first) {
+  const firstBody = reviewBody(first);
+  const body = reviewBody(review);
+  if (!body.includes(CODEX_FALLBACK_REVIEW_MARKER) || firstBody.includes(CODEX_FALLBACK_REVIEW_MARKER)) return false;
+  const stripped = body.trimStart().startsWith(CODEX_FALLBACK_REVIEW_MARKER)
+    ? body.trimStart().slice(CODEX_FALLBACK_REVIEW_MARKER.length).trim()
+    : null;
+  return stripped !== null && stripped === firstBody.trim();
+}
+
+/**
  * Drop later same-HEAD terminals only when the first verdict is already a
  * clean LGTM. That is the 9066/9074 storm (LGTM then 🔴 Important). If the
  * first verdict is Important, later same-HEAD reviews stay visible so a
  * stale Codex fallback can still be classified against the real history.
+ *
+ * The marker-repair copy of that first LGTM is kept with it: dropping it
+ * left the gate with an LGTM and no Codex-marked review on the HEAD, a
+ * deterministic red («evidenza Codex valida ma nessuna review Codex marcata
+ * sulla HEAD») that no rerun could clear (#10580: LGTM at 15:39:20, repaired
+ * copy at 15:39:44, gate red at 15:39:49).
  */
 export function boundReviewsToFirstHeadVerdict(reviews, head, { reviewRevision } = {}) {
   const first = firstTerminalBotReviewOnHead(reviews, head, { reviewRevision });
@@ -204,7 +226,8 @@ export function boundReviewsToFirstHeadVerdict(reviews, head, { reviewRevision }
     // same-revision terminals participate in the first-verdict compaction.
     if (reviewRevision !== undefined
         && !reviewHasInputRevision(reviewBody(review), reviewRevision)) return true;
-    if (!sameReview(review, first) || firstKept) return false;
+    if (!sameReview(review, first)) return isCodexMarkerRepairCopy(review, first);
+    if (firstKept) return false;
     firstKept = true;
     return true;
   });

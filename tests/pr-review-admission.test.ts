@@ -6,6 +6,7 @@ import {
   admissionCli,
   boundReviewsToFirstHeadVerdict,
   firstTerminalBotReviewOnHead,
+  isCodexMarkerRepairCopy,
   normalizeReviewBody,
   parseReviewPages,
   reviewBodyIsApproving,
@@ -435,6 +436,17 @@ describe('review gate uses the first HEAD verdict', () => {
       botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 }),
       botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 }),
     ], HEAD)).toHaveLength(1);
+  });
+
+  it('REGRESSIONE #10580: tiene la copia riparata col marker Codex della prima LGTM, non le review diverse', () => {
+    const first = botReview(CLEAN, HEAD, '2026-09-30T15:39:20Z', { id: 41 });
+    const repaired = botReview(`<!-- CODEX_FALLBACK_REVIEW -->\n${CLEAN}`, HEAD, '2026-09-30T15:39:44Z', { id: 42 });
+    const different = botReview(`<!-- CODEX_FALLBACK_REVIEW -->\n${IMPORTANT}`, HEAD, '2026-09-30T15:40:00Z', { id: 43 });
+    expect(boundReviewsToFirstHeadVerdict([first, repaired, different], HEAD).map((r) => r.id)).toEqual([41, 42]);
+    expect(isCodexMarkerRepairCopy(repaired, first)).toBe(true);
+    expect(isCodexMarkerRepairCopy(different, first)).toBe(false);
+    // Una prima review già marcata non ha copie da riparare.
+    expect(isCodexMarkerRepairCopy(repaired, repaired)).toBe(false);
   });
 
   it('still blocks when the first terminal review on HEAD is Important', async () => {
