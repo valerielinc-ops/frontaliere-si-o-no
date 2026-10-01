@@ -220,23 +220,21 @@ const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => wor
  * Is this form the posting's (career-ops apply.md: company and role on the
  * form match the posting, or stop)? The company's WHOLE name as whole words
  * ("Muster Elektro AG" is not "Altra GmbH — Elektroinstallateur", review of
- * #10715), or its initials as a word of their own ("EOC"). Only when the order
- * names no company, the title: every word, or a gender variant of it
- * ("Infermiere/a" = "Infermiera": same word but the last two letters). The
- * address is part of the text: a Workday tenant names its company.
+ * #10715); never its initials ("ME" is in "Tell me more"): a portal that shows
+ * only "EOC" goes to Valerie, whose retry goes on. Only when the order names
+ * no company, the title: every word, or a gender variant of it
+ * ("Infermiere/a" = "Infermiera": same word but the last two letters).
  * 'unknown' when the order names neither.
  */
 export function postingMatch(pageText, job = {}) {
   const words = normalizeWords(pageText).split(' ').filter(Boolean);
-  const text = ` ${words.join(' ')} `;
   const company = nameWords(job.company);
   const title = nameWords(job.title).filter((word) => word.length >= 4);
   if (!company.length && !title.length) return 'unknown';
   if (company.length) {
     // The page's words filtered as the name is ("Ospedale Regionale di Lugano" = "ospedale regionale lugano").
     const named = ` ${nameWords(pageText).join(' ')} `;
-    const initials = company.length >= 2 ? company.map((word) => word[0]).join('') : '';
-    return named.includes(` ${company.join(' ')} `) || (initials && text.includes(` ${initials} `)) ? 'match' : 'mismatch';
+    return named.includes(` ${company.join(' ')} `) ? 'match' : 'mismatch';
   }
   const variant = (word) => words.some((seen) => seen === word
     || (word.length >= 6 && Math.abs(seen.length - word.length) <= 2 && seen.slice(0, word.length - 2) === word.slice(0, word.length - 2)));

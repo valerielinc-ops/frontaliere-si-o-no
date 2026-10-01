@@ -21,8 +21,9 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Ospedale Regionale — Lavora con noi', job)).toBe('mismatch');
     expect(postingMatch('Candidatura · Infermiera diplomata · Reparto medicina', job)).toBe('mismatch');
     expect(postingMatch('Altra GmbH — Elektroinstallateur', { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' })).toBe('mismatch');
-    // Its initials as a word of their own, also in a Workday tenant's address.
-    expect(postingMatch('Lavora con noi https://eoc.wd3.myworkdayjobs.com/External', { company: 'Ente Ospedaliero Cantonale' })).toBe('match');
+    // Second review: never the initials ("ME" is in "Tell me more"); a portal showing only "EOC" goes to Valerie.
+    expect(postingMatch('Altra GmbH — Elektroinstallateur. Tell me more', { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' })).toBe('mismatch');
+    expect(postingMatch('Lavora con noi https://eoc.wd3.myworkdayjobs.com/External', { company: 'Ente Ospedaliero Cantonale' })).toBe('mismatch');
     // No company in the order: every title word, a gender variant allowed.
     expect(postingMatch('Candidatura · Infermiera diplomata', { title: 'Infermiere/a diplomato/a' })).toBe('match');
     // The order names nothing to compare: no stop.
@@ -85,6 +86,10 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(plan.missingRequired.map((item: any) => item.fieldId)).toEqual(['k1']);
     const agent = guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2' }] }, candidate);
     expect(agent).toMatchObject({ status: 'needs_candidate', actions: [] });
+    // Second review: levels are read where the quote names the language asked.
+    const mixed = { answers: {}, profile: { languages: ['Deutsch B2; Englisch C2'] }, portalQuestionsAnswered: [] };
+    expect(guardPlan({ actions: [{ fieldId: 'k1', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }], missingRequired: [] }, [field], mixed).actions).toEqual([]);
+    expect(guardAgentStep({ status: 'act', reason: '', advanceRef: '', questions: [], actions: [{ ref: 'e5', action: 'click', value: '', document: 'none', question: 'Deutsch C1?', answer: 'Ja', source: 'profile', evidence: 'Deutsch B2; Englisch C2' }] }, mixed)).toMatchObject({ status: 'needs_candidate', actions: [] });
     // The same quote does support a "yes" to B2 or lower, in another language's words too.
     const b2 = guardPlan({ actions: [{ fieldId: 'k2', action: 'select', value: 'Ja', source: 'profile', evidence: 'Deutsch B2' }], missingRequired: [] }, [{ ...field, id: 'k2', label: 'Tedesco almeno B1?' }], candidate);
     expect(b2.actions).toHaveLength(1);

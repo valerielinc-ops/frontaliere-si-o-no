@@ -127,9 +127,13 @@ export function evidenceSupports(question, answer, evidence) {
   if (!YES_RE.test(value)) return quote.includes(value);
   const required = levelsIn(question);
   if (required.length) {
+    // Levels read only where the quote names the language asked: "Deutsch B2;
+    // Englisch C2" holds no German C2 (second review of #10715).
     const asked = languagesIn(question);
-    if (asked.length && !asked.some((language) => languagesIn(quote).includes(language))) return false;
-    const held = levelsIn(quote);
+    const parts = asked.length
+      ? quote.split(/[;,|\n]|\s[-–—]\s/).filter((part) => languagesIn(part).some((language) => asked.includes(language)))
+      : [quote];
+    const held = parts.flatMap(levelsIn);
     return held.length > 0 && Math.max(...held) >= Math.max(...required);
   }
   return !/\d/.test(String(question));
