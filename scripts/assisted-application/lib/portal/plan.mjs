@@ -39,8 +39,13 @@ export function planSystemPrompt(candidateLocale) {
   return `You fill one page of an online job application form on behalf of a candidate who gave Frontaliere Ticino the mandate to apply for this job. You receive the form fields and the candidate's data. Return one action per field.
 
 Rules:
-- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers.
-- Work permit, visa, nationality, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
+${candidateRules(candidateLocale)}`;
+}
+
+/** career-ops' apply rules, shared by the planner and the agentic fallback (agent.mjs). */
+export function candidateRules(candidateLocale) {
+  return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers.
+- Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (diplomas, references, certificates) are not available: skip them, or put them in missingRequired when required.
 - select and radio: value must be exactly one of the field's option labels.
@@ -81,13 +86,39 @@ export function planUserText({ snapshot, candidate }) {
   });
 }
 
-const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|ethnic|criminal|strafregister|casellario/i;
+// The date of birth too (JOIN: "Quando sei nato?"): only the candidate knows it.
+export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
-const PREFER_NOT = /prefer not|rather not|decline to|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
+export const PREFER_NOT = /prefer not|rather not|decline to|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
 
 /** "Geschlecht* (erforderlich)" → "Geschlecht": the form's own label, without the required markers. */
 export function questionFromLabel(label) {
   return String(label || '').replace(/\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/gi, '').replace(/\s*\*+/g, '').replace(/\s+/g, ' ').trim();
+}
+
+/** Every date written in the text, as YYYY-MM-DD (1990-05-12, 12.05.1990, 12/5/1990). */
+export function isoDates(text) {
+  const dates = new Set();
+  const pad = (value) => String(value).padStart(2, '0');
+  for (const [, y, m, d] of String(text || '').matchAll(/\b(\d{4})-(\d{1,2})-(\d{1,2})\b/g)) dates.add(`${y}-${pad(m)}-${pad(d)}`);
+  for (const [, d, m, y] of String(text || '').matchAll(/\b(\d{1,2})[./-](\d{1,2})[./-](\d{4})\b/g)) dates.add(`${y}-${pad(m)}-${pad(d)}`);
+  return dates;
+}
+
+/** The candidate's data, as one lower-case text, for knownAnswer. */
+export function knownValuesOf(candidate) {
+  return candidate ? JSON.stringify([candidate.answers, candidate.profile, candidate.portalQuestionsAnswered]).toLowerCase() : null;
+}
+
+/** The answer is in the candidate's data (a date in any of its usual formats). */
+export function knownAnswer(knownValues, answer) {
+  const value = String(answer || '').toLowerCase().trim();
+  if (!value) return false;
+  if (knownValues === null || knownValues.includes(value)) return true;
+  const dates = isoDates(value);
+  if (!dates.size) return false;
+  const known = isoDates(knownValues);
+  return [...dates].every((date) => known.has(date));
 }
 
 /**
@@ -95,7 +126,7 @@ export function questionFromLabel(label) {
  * from the candidate's answers or profile, never from a model "rule".
  */
 export function guardPlan(plan, fields, candidate = null) {
-  const knownValues = candidate ? JSON.stringify([candidate.answers, candidate.profile, candidate.portalQuestionsAnswered]).toLowerCase() : null;
+  const knownValues = knownValuesOf(candidate);
   const byId = new Map(fields.map((field) => [field.id, field]));
   const actions = [];
   const missing = [];
@@ -123,7 +154,7 @@ export function guardPlan(plan, fields, candidate = null) {
       ask(field);
       continue;
     }
-    const fromCandidate = ['answers', 'profile'].includes(action.source) && (!knownValues || knownValues.includes(value));
+    const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
       ask(field);
