@@ -44,6 +44,7 @@ function fixture() {
     'scripts/lib/read-git-blob.mjs',
     'scripts/ci/merge-open-data-refresh.mjs',
     'scripts/ci/open-data-refresh-merge.mjs',
+    'scripts/ci/reconcile-data-refresh-main.mjs',
   ]) write(repo, file, fs.readFileSync(path.join(ROOT, file), 'utf8'));
   // The body gate is tested separately; this fixture exercises real Git and
   // module imports without a GitHub connection or its automation surface.
@@ -52,11 +53,14 @@ function fixture() {
   write(repo, 'data/cache.json', '{"version":"base"}\n');
   write(repo, 'data/history.jsonl', '{"run":"base"}\n');
   write(repo, 'data/unpublished.json', '{"version":"base"}\n');
+  write(repo, 'data/events-geocode-cache.json', '{"common":{"lat":1,"lng":2}}\n');
+  write(repo, 'data/events-translation-cache.json', '{"title":{"en":"base"}}\n');
   write(repo, 'packages/articles/content/body.ts', 'export default "base";\n');
   fs.mkdirSync(path.join(repo, 'services'));
   fs.symlinkSync('../packages/articles/content/body.ts', path.join(repo, 'services/body.ts'));
   git(repo, ['add', '-A']);
   git(repo, ['commit', '-q', '-m', 'fixture base']);
+  const base = git(repo, ['rev-parse', 'HEAD']);
   git(repo, ['checkout', '-q', '-b', 'chore/refresh']);
   write(repo, 'scripts/ci/merge-open-data-refresh.mjs', 'throw new Error("stale reconciler");\n');
   write(repo, 'data/cache.json', '{"version":"pending"}\n');
@@ -75,19 +79,20 @@ function fixture() {
   const bin = path.join(directory, 'bin');
   fs.mkdirSync(bin);
   const gh = path.join(bin, 'gh');
-  fs.writeFileSync(gh, '#!/bin/sh\nif [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi\nif [ "$1 $2" = "pr list" ]; then echo 42; fi\n');
+  fs.writeFileSync(gh, `#!/bin/sh\nif [ "$REFRESH_FIXTURE_GH_FAIL" = 1 ]; then exit 19; fi\nif [ "$1 $2" = "pr list" ]; then echo 42; fi\nif [ "$1" = "api" ]; then echo ${base}; fi\n`);
   fs.chmodSync(gh, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
   return { repo, remote, bin, body };
 }
 
-function publish(setup: ReturnType<typeof fixture>, fail = false) {
+function publish(setup: ReturnType<typeof fixture>, fail = false, extraArgs: string[] = []) {
   return spawnSync('bash', [
     'scripts/lib/open-data-refresh-pr.sh',
     '--path', 'data/cache.json', '--path', 'data/history.jsonl', '--path', 'services/body.ts',
     '--resolve-symlinks', '--branch', 'chore/refresh', '--commit-message', 'fixture refresh',
     '--title', 'Fixture refresh', '--body-file', setup.body,
+    ...extraArgs,
   ], {
     cwd: setup.repo, encoding: 'utf8',
     env: {
@@ -130,6 +135,59 @@ describe('data publisher preserves its source checkout', () => {
     expect(publish(setup, true).status).not.toBe(0);
     expect(git(setup.repo, ['branch', '--show-current'])).toBe('main');
     expect(fs.readFileSync(path.join(setup.repo, 'scripts/crawler.mjs'), 'utf8')).toContain('current crawler');
+    expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
+    expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
+  });
+
+  it('reconciles conflicting event caches against main with shallow branch tips', () => {
+    const setup = fixture();
+    git(setup.repo, ['checkout', '-q', 'chore/refresh']);
+    write(setup.repo, 'data/events-geocode-cache.json', '{"common":{"lat":1,"lng":2},"pending":{"lat":3,"lng":4}}\n');
+    write(setup.repo, 'data/events-translation-cache.json', '{"title":{"en":"base","de":"pending"}}\n');
+    git(setup.repo, ['add', 'data/events-geocode-cache.json', 'data/events-translation-cache.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'pending cache additions']);
+    git(setup.repo, ['push', '-q', 'origin', 'chore/refresh']);
+    git(setup.repo, ['checkout', '-q', 'main']);
+    write(setup.repo, 'data/events-geocode-cache.json', '{"common":{"lat":5,"lng":6},"main":{"lat":7,"lng":8}}\n');
+    write(setup.repo, 'data/events-translation-cache.json', '{"title":{"en":"corrected","fr":"main"}}\n');
+    git(setup.repo, ['add', 'data/events-geocode-cache.json', 'data/events-translation-cache.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'main cache additions']);
+    const mainHead = git(setup.repo, ['rev-parse', 'HEAD']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'data/unpublished.json', '{"version":"unpublished"}\n');
+    const result = publish(setup, false, ['--reconcile-main']);
+    expect(result.status, result.stderr).toBe(0);
+    const geo = JSON.parse(git(setup.remote, ['show', 'chore/refresh:data/events-geocode-cache.json']));
+    expect(geo).toEqual({ common: { lat: 5, lng: 6 }, main: { lat: 7, lng: 8 }, pending: { lat: 3, lng: 4 } });
+    const translations = JSON.parse(git(setup.remote, ['show', 'chore/refresh:data/events-translation-cache.json']));
+    expect(translations).toEqual({ title: { en: 'corrected', fr: 'main', de: 'pending' } });
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh^2'])).toBe(mainHead);
+    expect(git(setup.repo, ['rev-parse', '--is-shallow-repository'])).toBe('true');
+    expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
+    expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
+    expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
+  });
+
+  it('does not push a main reconciliation with conflicts outside event caches', () => {
+    const setup = fixture();
+    git(setup.repo, ['checkout', '-q', 'chore/refresh']);
+    write(setup.repo, 'data/unexpected.json', '{"branch":"pending"}\n');
+    git(setup.repo, ['add', 'data/unexpected.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'pending unexpected data']);
+    git(setup.repo, ['push', '-q', 'origin', 'chore/refresh']);
+    const pendingHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
+    git(setup.repo, ['checkout', '-q', 'main']);
+    write(setup.repo, 'data/unexpected.json', '{"branch":"main"}\n');
+    git(setup.repo, ['add', 'data/unexpected.json']);
+    git(setup.repo, ['commit', '-q', '-m', 'main unexpected data']);
+    git(setup.repo, ['push', '-q', 'origin', 'main']);
+    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    write(setup.repo, 'data/unpublished.json', '{"version":"unpublished"}\n');
+    const result = publish(setup, false, ['--reconcile-main']);
+    expect(result.status).not.toBe(0);
+    expect(result.stderr).toContain('Unresolved refresh conflict outside event caches: data/unexpected.json');
+    expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(pendingHead);
     expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
     expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
   });

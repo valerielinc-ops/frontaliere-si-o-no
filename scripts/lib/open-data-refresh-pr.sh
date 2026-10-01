@@ -13,7 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
-#     [--force] [--resolve-symlinks] \
+#     [--force] [--resolve-symlinks] [--reconcile-main] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -28,6 +28,7 @@ BODY_FILE=""
 FORCE_ADD=false
 RECONCILE_COMPAT=false
 RESOLVE_SYMLINKS=false
+RECONCILE_MAIN=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -68,6 +69,10 @@ while [ "$#" -gt 0 ]; do
       ;;
     --resolve-symlinks)
       RESOLVE_SYMLINKS=true
+      shift
+      ;;
+    --reconcile-main)
+      RECONCILE_MAIN=true
       shift
       ;;
     *)
@@ -148,6 +153,10 @@ if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
   git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs" \
     > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/read-git-blob.mjs"
+  if [ "$RECONCILE_MAIN" = true ]; then
+    git show "${REFRESH_BASE}:scripts/ci/reconcile-data-refresh-main.mjs" \
+      > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs"
+  fi
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
@@ -264,9 +273,26 @@ elif [ -n "$REMOTE_HEAD" ]; then
   stage_paths
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
-    exit 0
+    if [ "$RECONCILE_MAIN" = false ]; then exit 0; fi
+  else
+    git commit -m "$COMMIT_MESSAGE"
   fi
-  git commit -m "$COMMIT_MESSAGE"
+fi
+
+if [ "$RECONCILE_MAIN" = true ] && [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
+  git fetch --no-tags --depth=1 "$PUSH_URL" "+refs/heads/main:refs/remotes/refresh/main"
+  MAIN_HEAD="$(git rev-parse refs/remotes/refresh/main)"
+  # GitHub knows the common ancestor even when the runner has only branch
+  # tips. Fetch that single tree, rather than all historical image blobs.
+  MAIN_BASE="$(gh api "repos/${REPOSITORY}/compare/${MAIN_HEAD}...${REMOTE_HEAD}" --jq '.merge_base_commit.sha')"
+  [ -n "$MAIN_BASE" ] && [ "$MAIN_BASE" != null ] || { echo "::error::Missing refresh/main merge base"; exit 1; }
+  if [ "$MAIN_BASE" != "$MAIN_HEAD" ]; then
+    if ! git cat-file -e "${MAIN_BASE}^{commit}" 2>/dev/null; then
+      git fetch --no-tags --depth=1 "$PUSH_URL" "$MAIN_BASE"
+    fi
+    node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/reconcile-data-refresh-main.mjs" \
+      --base "$MAIN_BASE" --main "$MAIN_HEAD" --message "$COMMIT_MESSAGE"
+  fi
 fi
 
 if [ -n "$REMOTE_HEAD" ]; then

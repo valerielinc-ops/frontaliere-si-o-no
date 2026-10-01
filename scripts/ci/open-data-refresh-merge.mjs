@@ -4,6 +4,10 @@ const TELEGRAM_LEDGER_PATHS = new Set([
 ]);
 const INSPECTION_STATE_PATH = 'data/inspection-state.json';
 const LEDGER_TRIM_LIMIT = 1000;
+export const EVENT_CACHE_PATHS = new Set([
+  'data/events-geocode-cache.json',
+  'data/events-translation-cache.json',
+]);
 
 function parseObject(raw, label) {
   let parsed;
@@ -86,7 +90,34 @@ function mergeInspectionState(remoteRaw, refreshRaw) {
   }, null, 2)}\n`;
 }
 
-function mergeBothChanged(file, remoteRaw, refreshRaw) {
+function mergeCacheEntries(base, remote, refresh, mergeLocales = false) {
+  const entries = new Map(Object.entries(remote));
+  for (const [key, value] of Object.entries(refresh)) {
+    const other = remote[key];
+    if (mergeLocales && value && other && typeof value === 'object' && typeof other === 'object') {
+      entries.set(key, mergeCacheEntries(base[key] ?? {}, other, value));
+      continue;
+    }
+    // These caches accumulate resolved queries. Preserve additions from both
+    // branches; an unchanged old value must not overwrite the other branch's
+    // correction, while a newly resolved refresh value takes precedence.
+    if (!entries.has(key) || JSON.stringify(value) !== JSON.stringify(base[key])) {
+      entries.set(key, value);
+    }
+  }
+  return Object.fromEntries(entries);
+}
+
+function mergeEventCache(file, baseRaw, remoteRaw, refreshRaw) {
+  const base = parseObject(baseRaw ?? '{}', `${file} merge base`);
+  const remote = parseObject(remoteRaw, `${file} other branch`);
+  const refresh = parseObject(refreshRaw, `${file} current refresh`);
+  const merged = mergeCacheEntries(base, remote, refresh, file === 'data/events-translation-cache.json');
+  return `${JSON.stringify(merged, null, 2)}\n`;
+}
+
+function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
+  if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);
   if (TELEGRAM_LEDGER_PATHS.has(file)) return mergePostedLedger(remoteRaw, refreshRaw, file);
   if (file === INSPECTION_STATE_PATH) return mergeInspectionState(remoteRaw, refreshRaw);
@@ -109,5 +140,5 @@ export function mergeRefreshContent(file, baseRaw, remoteRaw, refreshRaw) {
   if (!remoteChanged) return refreshRaw;
   if (remoteRaw === null) return refreshRaw;
   if (refreshRaw === null) return remoteRaw;
-  return mergeBothChanged(file, remoteRaw, refreshRaw);
+  return mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw);
 }
