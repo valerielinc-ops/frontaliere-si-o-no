@@ -88,10 +88,9 @@ const SECTIONS = ['frontaliere', 'svizzera'];
 const LOG = '[rerender-article-hubs]';
 
 /**
- * The published corpus manifest. `counts` is the only cross-repo statement of
- * "how many articles exist right now" that does not require cloning nanako,
- * and CLAUDE.md already names reading it first as the way to refuse a
- * truncated set before using it.
+ * The published corpus manifest is the coarse cross-repo count check. The
+ * published slug registry and the live Italian hub below add identity-level
+ * checks, so an equal count cannot hide a different article set.
  */
 const MANIFEST_URL = `${ARTICLES_API_BASE}/manifest.json`;
 const PUBLISHED_SLUGS_URL = `${ARTICLES_API_BASE}/slugs.json`;
