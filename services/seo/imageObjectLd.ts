@@ -24,9 +24,15 @@
  */
 
 export const SITE_LICENSE_PAGE = 'https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini';
+export const SITE_ORGANIZATION_ID = 'https://frontaliereticino.ch/#organization';
 
 const SITE_ORG = Object.freeze({
-  '@type': 'Organization' as const,
+  // Keep repeated site image creators attached to the canonical graph node.
+  // A bare Organization with the same name was emitted inside every article
+  // ImageObject, so crawlers saw a second anonymous publisher entity beside
+  // `https://frontaliereticino.ch/#organization`.
+  '@type': 'NewsMediaOrganization' as const,
+  '@id': SITE_ORGANIZATION_ID,
   name: 'Frontaliere Ticino',
   url: 'https://frontaliereticino.ch/',
 });
@@ -60,7 +66,8 @@ export function resolveHttpUrl(value: unknown, fallback: unknown, field: string)
 }
 
 export interface OrganizationCreator {
-  '@type': 'Organization';
+  '@type': 'Organization' | 'NewsMediaOrganization';
+  '@id'?: string;
   name: string;
   url?: string;
 }

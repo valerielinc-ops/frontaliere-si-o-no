@@ -431,9 +431,10 @@ export function renderLandingHtml(distDir?: string): { html: string; wordCount: 
     image: `${BASE_URL}/og-image.png`,
     inLanguage: 'it',
     url: CANONICAL_URL,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: homeUrl },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: homeUrl },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: homeUrl,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),

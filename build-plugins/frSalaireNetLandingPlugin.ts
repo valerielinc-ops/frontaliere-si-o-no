@@ -388,9 +388,10 @@ function renderPage(opts: RenderOpts): RenderResult {
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -418,7 +419,7 @@ function renderPage(opts: RenderOpts): RenderResult {
       price: '0',
       priceCurrency: 'EUR',
     },
-    provider: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    provider: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
   });
 
   // Above-the-fold blocks (template B order).

@@ -32,10 +32,11 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(() => imageObjectLd({} as never)).toThrow(/contentUrl/);
   });
 
-  it('defaults creator to the site Organization', () => {
+  it('defaults creator to the canonical site NewsMediaOrganization', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
     expect(ld.creator).toEqual({
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });
@@ -70,7 +71,8 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
       copyrightNotice: undefined,
     });
     expect(ld.creator).toEqual({
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     });

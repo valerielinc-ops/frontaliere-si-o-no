@@ -5,7 +5,7 @@ const ARTICLE_SCHEMA_TYPES = new Set(['Article', 'NewsArticle', 'BlogPosting']);
 const DEFAULT_ARTICLE_IMAGE = 'https://frontaliereticino.ch/og-image.png';
 
 const DEFAULT_ARTICLE_AUTHOR = {
- '@type': 'Organization',
+ '@type': 'NewsMediaOrganization',
  '@id': ORGANIZATION_ID,
  name: ORGANIZATION_LD.name,
  url: ORGANIZATION_LD.url,
@@ -95,6 +95,23 @@ function isAppSchema(record: Record<string, any>): boolean {
 }
 
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
+ // Legacy ImageObject/Claim/Dataset literals often named the site as a bare
+ // Organization. Keep that value attached to the canonical graph node so it
+ // cannot create a second anonymous "Frontaliere Ticino" entity beside the
+ // NewsMediaOrganization used by the homepage and article publishers.
+ if (
+  record['@type'] === 'Organization'
+  && record.name === ORGANIZATION_LD.name
+  && (
+    record.url === undefined
+    || record.url === ORGANIZATION_LD.url
+    || record.url === ORGANIZATION_LD.url.replace(/\/$/, '')
+  )
+ ) {
+  record['@type'] = ORGANIZATION_LD['@type'];
+  record['@id'] ??= ORGANIZATION_ID;
+ }
+
  if (isSchemaType(record, 'Dataset') && !record.license) {
   record.license = DEFAULT_DATASET_LICENSE;
  }

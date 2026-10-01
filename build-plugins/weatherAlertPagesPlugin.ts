@@ -530,7 +530,8 @@ function jsonLd(locale: Locale, title: string, description: string, canonical: s
       url: 'https://frontaliereticino.ch/',
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     },

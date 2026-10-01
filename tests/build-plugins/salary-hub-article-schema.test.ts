@@ -68,11 +68,13 @@ describe('salary-hub evergreen articles — Article JSON-LD', () => {
 
       // Explicit author + publisher E-E-A-T signal.
       const author = article!.author as Record<string, unknown>;
-      expect(author['@type']).toBe('Organization');
+      expect(author['@type']).toBe('NewsMediaOrganization');
+      expect(author['@id']).toBe('https://frontaliereticino.ch/#organization');
       expect(author.name).toBe('Frontaliere Ticino');
 
       const publisher = article!.publisher as Record<string, unknown>;
-      expect(publisher['@type']).toBe('Organization');
+      expect(publisher['@type']).toBe('NewsMediaOrganization');
+      expect(publisher['@id']).toBe('https://frontaliereticino.ch/#organization');
       expect(publisher.name).toBe('Frontaliere Ticino');
 
       // Publisher logo must be a licensable ImageObject (GSC image gate).
