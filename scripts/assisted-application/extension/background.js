@@ -7,6 +7,19 @@
  */
 const tabKey = (tabId) => `tab:${tabId}`;
 
+/** The order's tabs (an order may have its portal tab and the verification tab). */
+async function tabsOfOrder(orderId) {
+  const all = await chrome.storage.session.get(null);
+  return Object.entries(all).filter(([key, entry]) => key.startsWith('tab:') && entry?.kit?.orderId === orderId)
+    .map(([key, entry]) => ({ tabId: Number(key.slice(4)), entry }));
+}
+
+// This computer's own test server (scripts/assisted-application/extension-e2e.mjs): the only http allowed.
+const isLoopback = (url) => url.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(url.hostname);
+
+// "join.com" for "join.com" and "www.join.com": the verification link must be the portal's own.
+const siteOf = (host) => String(host || '').toLowerCase().split('.').slice(-2).join('.');
+
 async function entryFor(tabId) {
   const key = tabKey(tabId);
   return (await chrome.storage.session.get(key))[key] || null;
@@ -28,8 +41,7 @@ async function handle(message, sender) {
       // computer's own test server, scripts/assisted-application/extension-e2e.mjs).
       const kit = message.kit;
       const url = new URL(String(kit?.applyUrl || ''));
-      const loopback = url.protocol === 'http:' && ['127.0.0.1', 'localhost'].includes(url.hostname);
-      if (url.protocol !== 'https:' && !loopback) return { ok: false, error: 'apply_url_not_https' };
+      if (url.protocol !== 'https:' && !isLoopback(url)) return { ok: false, error: 'apply_url_not_https' };
       // The kit is stored before the portal loads: its first page is filled too.
       const tab = await chrome.tabs.create({ url: 'about:blank', active: true });
       await chrome.storage.session.set({ [tabKey(tab.id)]: { kit, queueTabId: sender.tab?.id ?? null, state: 'filling', openedAt: Date.now() } });
@@ -55,11 +67,27 @@ async function handle(message, sender) {
       await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, sawForm: entry.sawForm || Boolean(message.sawForm), sawFinal: entry.sawFinal || Boolean(message.sawFinal) } });
       return { ok: true };
     }
+    case 'open-verification': {
+      // From the queue: the verification link that reached the order's alias.
+      // Opened only on the portal's own site, in a tab that keeps the order's
+      // kit, so the confirmation it shows closes the order.
+      const url = new URL(String(message.url || ''));
+      const tabs = await tabsOfOrder(message.orderId);
+      const portal = tabs[0]?.entry;
+      if (!portal) return { ok: false, error: 'no_order_tab' };
+      if (url.protocol !== 'https:' && !isLoopback(url)) return { ok: false, error: 'not_https' };
+      const portalSite = siteOf(new URL(portal.kit.applyUrl).hostname);
+      if (siteOf(url.hostname) !== portalSite) return { ok: false, error: 'other_site' };
+      const tab = await chrome.tabs.create({ url: 'about:blank', active: true });
+      await chrome.storage.session.set({ [tabKey(tab.id)]: { ...portal, openedAt: Date.now(), verification: true } });
+      await chrome.tabs.update(tab.id, { url: url.href });
+      return { ok: true, tabId: tab.id };
+    }
     case 'status': {
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
       if (!entry) return { ok: false };
-      // Told to the queue once per order tab.
-      if (message.status === 'submitted' && entry.state === 'submitted') return { ok: true, duplicate: true };
+      // Told to the queue once per order, whichever of its tabs saw it.
+      if (message.status === 'submitted' && (await tabsOfOrder(entry.kit.orderId)).some((item) => item.entry.state === 'submitted')) return { ok: true, duplicate: true };
       if (message.status === 'submitted') {
         await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, state: 'submitted' } });
       }

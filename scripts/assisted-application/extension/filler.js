@@ -28,6 +28,9 @@
   const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
   const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
   const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
+  // The portal waits for the address to be verified (JOIN after the send
+  // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
+  const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 
@@ -542,6 +545,7 @@
     if (CONFIRM_RE.test(text)) return { kind: 'confirmed' };
     if (REFUSED_RE.test(text)) return { kind: 'refused' };
     const next = nextButton(doc);
+    if (VERIFY_RE.test(text) && !collect(doc).some((entry) => entry.required) && !next && !finalButton(doc)) return { kind: 'verify' };
     const required = collect(doc).filter((entry) => entry.required).length;
     if (!sawForm && !next && !required) {
       const start = buttons(doc).find((button) => APPLY_RE.test(button.text) && !SOCIAL_RE.test(button.text)
@@ -565,7 +569,7 @@
   }
 
   root.CompilaCandidatura = {
-    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE,
+    NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE, VERIFY_RE,
     config, normalize, textOf, labelOf, questionOf, collect, isEmpty, answerFor, bestOption,
     parseDate, formatForInput, phoneFor, fillEntry, fillPage, pageState, cookieRefusal,
     pageSignature, nextButton, finalButton, press, setValue, sleep,

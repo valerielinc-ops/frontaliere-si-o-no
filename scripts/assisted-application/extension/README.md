@@ -24,7 +24,9 @@ inviato nella coda e il cliente riceve l'email di conferma.
 2. Si apre il portale in una nuova scheda: l'estensione compila e va avanti da
    sola (in basso a destra vedi a che punto è; **Ferma** la interrompe).
 3. Sulla pagina finale premi il pulsante evidenziato. Se il portale mostra un
-   CAPTCHA visibile, risolvilo tu.
+   CAPTCHA visibile, risolvilo tu. Se poi chiede di verificare l'indirizzo
+   email (JOIN), non serve fare nulla: la coda prende il link arrivato
+   sull'alias dell'ordine e l'estensione lo apre in una nuova scheda.
 4. Alla conferma del portale l'ordine passa a «inviata» da solo. Se qualcosa
    non torna, in coda c'è sempre **Segna come inviata**.
 
