@@ -938,7 +938,7 @@ jobs:
       # second, more confusing cause helps nobody. The mode this exists for is a
       # job that is otherwise entirely green.
       - name: Assert the pulled corpus actually reached main
-        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
+        if: github.event.inputs.dry_run != 'true'
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
