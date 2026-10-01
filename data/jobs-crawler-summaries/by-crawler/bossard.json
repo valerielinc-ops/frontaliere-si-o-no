@@ -1,23 +1,23 @@
 {
   "key": "bossard",
   "label": "Bossard Group",
-  "generatedAt": "2026-09-30T21:38:51.210Z",
-  "total": 3,
+  "generatedAt": "2026-09-30T23:31:57.418Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5442,
-  "avgDurationMs": 5442,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4709,
+  "avgDurationMs": 4709,
   "durationHistory": [
-    5442
+    4709
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Junior-Controller-80---100----all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:38:40.223Z",
+      "crawledAt": "2026-09-30T23:31:48.394Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -76,7 +76,7 @@
       "url": "https://bossard.wd103.myworkdayjobs.com/en/BossardJobs/job/Zug/Customer-Service-Specialist-80--100---all-genders----Bossard-Group_",
       "source": "Bossard Group Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:38:41.074Z",
+      "crawledAt": "2026-09-30T23:31:49.533Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "streetAddress": "Steinhauserstrasse 70",
@@ -103,8 +103,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bossard-991c25cd89d3",
       "slug": "application-ingegnere-80-100-all-gender-bossard-ag-bossard-group-zug",
@@ -148,5 +147,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
