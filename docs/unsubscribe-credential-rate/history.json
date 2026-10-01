@@ -706,6 +706,24 @@
       "graded": 154,
       "fallbackRate": 0,
       "findings": []
+    },
+    {
+      "date": "2026-10-01",
+      "windowHours": 168,
+      "counts": {
+        "autologin_code": 0,
+        "email_token": 190,
+        "legacy_auth_token": 0,
+        "missing": 0
+      },
+      "writerCounts": {
+        "cloud_function": 190,
+        "spa": 0,
+        "unknown": 0
+      },
+      "graded": 190,
+      "fallbackRate": 0,
+      "findings": []
     }
   ]
 }
