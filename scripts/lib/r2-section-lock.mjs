@@ -19,6 +19,11 @@ export const ARTICLE_SECTIONS = Object.freeze(['frontaliere', 'svizzera']);
 export const LOCK_KEY_PREFIX = 'internal/ci/article-chunk-locks';
 export const LOCK_LEASE_MS = 30 * 60 * 1000;
 export const LOCK_RENEW_INTERVAL_MS = Math.floor(LOCK_LEASE_MS / 3);
+// `acquire` has already established ownership. Waiting for the first
+// heartbeat avoids immediately reading and conditionally rewriting the object
+// that was just created, while still renewing three times before the lease can
+// expire during a long publication.
+export const LOCK_RENEW_INITIAL_DELAY_MS = LOCK_RENEW_INTERVAL_MS;
 export const LOCK_ACQUIRE_TIMEOUT_MS = 15 * 60 * 1000;
 export const LOCK_POLL_MS = 5_000;
 
@@ -32,6 +37,13 @@ function asString(value, name) {
 function positiveDuration(value, name) {
   if (!Number.isFinite(value) || value <= 0) {
     throw new Error(`[r2-section-lock] ${name} must be a positive duration`);
+  }
+  return value;
+}
+
+function nonNegativeDuration(value, name) {
+  if (!Number.isFinite(value) || value < 0) {
+    throw new Error(`[r2-section-lock] ${name} must be a non-negative duration`);
   }
   return value;
 }
@@ -386,10 +398,13 @@ export async function renewSectionLocksUntilStopped(
     now = Date.now,
     leaseMs = LOCK_LEASE_MS,
     intervalMs = LOCK_RENEW_INTERVAL_MS,
+    initialDelayMs = LOCK_RENEW_INITIAL_DELAY_MS,
+    waitForStopImpl = waitForStop,
   } = {},
 ) {
   asString(owner, 'owner');
   positiveDuration(intervalMs, 'renewal interval');
+  nonNegativeDuration(initialDelayMs, 'initial renewal delay');
   const normalized = parseSections(sections.join(','));
   let stopResolve;
   const stopped = new Promise((resolve) => {
@@ -400,10 +415,11 @@ export async function renewSectionLocksUntilStopped(
   process.once('SIGINT', stop);
 
   try {
+    if (initialDelayMs > 0 && (await waitForStopImpl(initialDelayMs, stopped))) return;
     if (!(await renewSectionLocks(normalized, { owner, request, now, leaseMs }))) {
       throw new Error('[r2-section-lock] lease ownership was lost before renewal started');
     }
-    while (!(await waitForStop(intervalMs, stopped))) {
+    while (!(await waitForStopImpl(intervalMs, stopped))) {
       if (!(await renewSectionLocks(normalized, { owner, request, now, leaseMs }))) {
         throw new Error('[r2-section-lock] lease ownership was lost during renewal');
       }
@@ -487,9 +503,12 @@ async function main(args = process.argv.slice(2), env = process.env) {
   if (command === 'renew') {
     const intervalValue = optionalFlagValue(args, '--interval-ms');
     const intervalMs = intervalValue === undefined ? LOCK_RENEW_INTERVAL_MS : Number(intervalValue);
+    const initialDelayValue = optionalFlagValue(args, '--initial-delay-ms');
+    const initialDelayMs =
+      initialDelayValue === undefined ? LOCK_RENEW_INITIAL_DELAY_MS : Number(initialDelayValue);
     const failureFile = optionalFlagValue(args, '--failure-file');
     try {
-      await renewSectionLocksUntilStopped(sections, { owner, request, intervalMs });
+      await renewSectionLocksUntilStopped(sections, { owner, request, intervalMs, initialDelayMs });
     } catch (error) {
       if (failureFile) {
         fs.writeFileSync(failureFile, `${error?.message ?? error}\n`, 'utf8');
