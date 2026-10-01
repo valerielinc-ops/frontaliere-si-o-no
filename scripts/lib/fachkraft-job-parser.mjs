@@ -19,6 +19,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { extractDetailFields } from './prospector/extract.mjs';
 import { politeFetch } from './prospector/polite-fetch.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
 import {
   createSpecUrlPolicy,
@@ -141,7 +142,10 @@ function createBoundedRuntime(options, runSignal) {
     min: 0,
     max: 10_000,
   });
-  const fetchImpl = options.fetchImpl || globalThis.fetch;
+  // Every direct request carries the public-DNS policy's npm-undici dispatcher
+  // (politeFetch). Node's bundled fetch rejects that dispatcher under undici 8
+  // ("invalid onRequestStart method"), so default to the paired fetch.
+  const fetchImpl = resolveProspectorFetch(options.fetchImpl);
   // `raceWithSignal` below only stops *waiting* on a timed-out lookup, not the
   // underlying `lookupImpl` call itself (node:dns/promises has no cancellation
   // hook) — gate it so abandoned lookups can't pile up unbounded (#7149 item 3).

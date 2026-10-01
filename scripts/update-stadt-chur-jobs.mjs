@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import dns from 'node:dns';
-import { Agent } from 'undici';
+// `fetch` must come from the same undici copy as `Agent`: Node's bundled fetch
+// rejects an npm-undici 8 dispatcher ("invalid onRequestStart method").
+import { Agent, fetch as undiciFetch } from 'undici';
 // Force IPv4-first DNS resolution (GitHub Actions runners sometimes prefer IPv6 which times out)
 dns.setDefaultResultOrder('ipv4first');
 /**
@@ -183,7 +185,7 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
   const dispatcher = new Agent({ connect: { timeout: TIMEOUT_MS } });
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(url, {
+      const res = await undiciFetch(url, {
         ...options,
         dispatcher,
         signal: AbortSignal.timeout(TIMEOUT_MS + 5000),

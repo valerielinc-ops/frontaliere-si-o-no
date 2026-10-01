@@ -4,6 +4,7 @@ import { decodeEntities } from './prospector/entities.mjs';
 import { extractRuntimeDetailFields } from './prospector/detail-extract.mjs';
 import { isSufficientVacancyDescription } from './prospector/extract.mjs';
 import { resolveDetailOrListingSwissGeography } from './prospector/location-evidence.mjs';
+import { resolveProspectorFetch } from './prospector/public-fetch-policy.mjs';
 import { runSpecInProduction, templateToRegex } from './prospector/spec-crawler.mjs';
 
 const VERIFIED_SOURCE_GEOGRAPHY = Symbol('ipersonal-source-backed-geography');
@@ -168,7 +169,10 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
   );
   const loadedSeedUrls = new Set();
   const detailTemplateRx = spec?.detailTemplate?.length ? templateToRegex(spec.detailTemplate) : null;
-  const upstreamFetch = runtime.fetchImpl || globalThis.fetch;
+  // `runSpecInProduction` sends every request with the spec policy's
+  // npm-undici dispatcher; Node's bundled fetch rejects it under undici 8
+  // ("invalid onRequestStart method"), so the default is the paired fetch.
+  const upstreamFetch = resolveProspectorFetch(runtime.fetchImpl);
   const recordRescuedPage = (page, requestedUrl) => {
     // `fetchRuntimePage()` normally observes the direct response through
     // `capturingFetch`. A Jina/browser rescue bypasses that function, so the
