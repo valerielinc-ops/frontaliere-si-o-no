@@ -93,7 +93,9 @@ describe('article corpus sync parser gate', () => {
     const commitRun = stepNamed('Commit if changed').run ?? '';
     expect(commitRun).toContain('article-content-changed=true');
     expect(commitRun).toContain('article-content-changed=false');
-    expect(commitRun.indexOf('article-content-changed=false')).toBeLessThan(commitRun.indexOf('git commit'));
+    expect(commitRun.indexOf('article-content-changed=false')).toBeLessThan(
+      commitRun.indexOf('scripts/lib/open-data-refresh-pr.sh'),
+    );
   });
 
   it('shares the source freshness and lock checks with the existing chunk publishers', () => {
