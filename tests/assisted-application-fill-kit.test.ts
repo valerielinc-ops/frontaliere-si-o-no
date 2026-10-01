@@ -175,6 +175,21 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(store.read(`${PATH}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
   });
 
+  // JOIN, giro di prova 2026-10-01: after the send click the portal asks to verify the alias.
+  it('hands the extension the newest verification link the alias received since the send click', async () => {
+    await seed(takenOver);
+    const inbox = store.db.collection('assisted_applications').doc(ORDER).collection('inbox');
+    await inbox.doc('old').set({ category: 'verification', verificationUrl: 'https://join.com/auth/candidates/verify-account?t=old', receivedAt: T0 - 3_600_000 });
+    await inbox.doc('reply').set({ category: 'employer_reply', verificationUrl: 'https://join.com/elsewhere', receivedAt: T0 + 1000 });
+    await inbox.doc('plain').set({ category: 'verification', verificationUrl: 'http://join.com/auth/candidates/verify-account?t=plain', receivedAt: T0 + 2000 });
+    expect(await call('automationVerificationLink', { since: T0 })).toEqual({ ok: true, url: '', receivedAt: null });
+    await inbox.doc('new').set({ category: 'verification', verificationUrl: 'https://join.com/auth/candidates/verify-account?t=new', receivedAt: T0 + 60_000 });
+    expect(await call('automationVerificationLink', { since: T0 })).toEqual({ ok: true, url: 'https://join.com/auth/candidates/verify-account?t=new', receivedAt: T0 + 60_000 });
+    // Never while the robot still owns the order.
+    await seed({ ...takenOver, state: 'submitting' });
+    await expect(call('automationVerificationLink', { since: T0 })).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
+  });
+
   it('records the owner as the sender on the order', async () => {
     await store.db.collection('assisted_applications').doc(ORDER).set(order);
     await runAutomationEffect({ db: store.db, orderId: ORDER, effect: { type: 'mark_submitted', by: 'owner' }, flow: { round: 1, submittedVia: 'owner_extension' }, nowMs: T0 });

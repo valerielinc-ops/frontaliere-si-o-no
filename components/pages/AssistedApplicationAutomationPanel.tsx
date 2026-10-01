@@ -149,6 +149,35 @@ export default function AssistedApplicationAutomationPanel({
     return () => window.clearTimeout(timer);
   }, []);
   const markedByExtension = useRef(false);
+  // When Valerie pressed send: the verification e-mail the portal sends after it is newer.
+  const sendPressedAt = useRef(0);
+  const openingVerification = useRef(false);
+  /**
+   * The portal asks to verify the alias (JOIN): the link arrives on the
+   * order's alias within a minute or two; the extension opens it in this
+   * browser. Asked every 10 s for up to 4 minutes, once per page.
+   */
+  const openVerificationLink = async () => {
+    if (openingVerification.current) return;
+    openingVerification.current = true;
+    try {
+      // Two minutes of slack for the clock of this computer against the server's.
+      const since = Math.max(0, (sendPressedAt.current || Date.now()) - 2 * 60_000);
+      for (let attempt = 0; attempt < 24; attempt += 1) {
+        const result = await runAutomationAdminAction(user, order.orderId, 'automationVerificationLink', { since }).catch(() => null);
+        const url = typeof result?.url === 'string' ? result.url : '';
+        if (url) {
+          window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: order.orderId, url }, window.location.origin);
+          await onChanged({ ok: true, text: 'Il portale chiedeva di verificare l’email dell’alias: link aperto nel browser.' });
+          return;
+        }
+        await new Promise((resolve) => window.setTimeout(resolve, 10_000));
+      }
+      await onChanged({ ok: false, text: 'L’email di verifica del portale non è arrivata sull’alias entro 4 minuti: controlla la casella dell’ordine.' });
+    } finally {
+      openingVerification.current = false;
+    }
+  };
   useEffect(() => {
     const onMessage = (event: MessageEvent) => {
       if (event.source !== window || event.origin !== window.location.origin) return;
@@ -159,7 +188,10 @@ export default function AssistedApplicationAutomationPanel({
       } else if (data.type === 'fill-status' && data.status === 'submitted' && !markedByExtension.current) {
         markedByExtension.current = true;
         void act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+      } else if (data.type === 'fill-status' && data.status === 'verify-email') {
+        void openVerificationLink();
       } else if (data.type === 'fill-status' && data.status === 'clicked') {
+        sendPressedAt.current = Date.now();
         // Before the portal answers: the round is on record as possibly sent.
         void runAutomationAdminAction(user, order.orderId, 'automationMarkClicked').catch(() => {});
       } else if (data.type === 'fill-status' && data.status === 'ready') {

@@ -49,6 +49,7 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationFillKit',
   'automationMarkClicked',
   'automationMarkSubmitted',
+  'automationVerificationLink',
 ]);
 
 const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown', 'legitimacy']);
@@ -313,6 +314,8 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       if (claim.status === 'claimed') await guard.markClicked(nowMs);
       return { ok: true, state: flow.state, guard: claim.status === 'already_sent' ? 'sent' : 'sending' };
     }
+    case 'automationVerificationLink':
+      return { ok: true, ...(await verificationLinkFor(db, orderId, { sinceMs: Number(raw.since) || 0 })) };
     case 'automationMarkSubmitted': {
       // The fill extension saw the portal's confirmation, or Valerie says so.
       const via = raw.via === 'extension' ? 'owner_extension' : 'owner';
@@ -340,6 +343,27 @@ export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'ow
   if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
   await submissionGuard(db, orderId, flow.round || 1).markSent({ channel: via, by: adminEmail }, nowMs);
   return { ok: true, state: result.flow.state };
+}
+
+const millis = (value) => (typeof value?.toMillis === 'function' ? value.toMillis() : Number(value) || 0);
+
+/**
+ * The newest link a portal sent to the order's alias to verify the address
+ * (JOIN, giro di prova 2026-10-01: «Verificare l'indirizzo e-mail» after the
+ * send click), received since `sinceMs`. assistedApplicationInbound.js keeps
+ * only an https link copied verbatim from the e-mail. The fill extension
+ * opens it in Valerie's browser, as she would from the e-mail: the alias is
+ * ours. Only on an order she sends herself.
+ * @returns {Promise<{url:string, receivedAt:number|null}>}
+ */
+async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
+  const flow = (await flowRefFor(db, orderId).get()).data() || {};
+  if (!['owner_takeover', 'submitted'].includes(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  const inbox = await orderRefFor(db, orderId).collection('inbox').get();
+  const newest = inbox.docs.map((doc) => doc.data() || {})
+    .filter((item) => item.category === 'verification' && /^https:\/\//i.test(String(item.verificationUrl || '')) && millis(item.receivedAt) >= sinceMs)
+    .sort((a, b) => millis(b.receivedAt) - millis(a.receivedAt))[0];
+  return newest ? { url: String(newest.verificationUrl), receivedAt: millis(newest.receivedAt) } : { url: '', receivedAt: null };
 }
 
 // The orders Valerie completes herself: the robot stopped (owner_takeover).

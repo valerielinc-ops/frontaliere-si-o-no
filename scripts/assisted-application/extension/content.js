@@ -128,6 +128,15 @@
         show('Il portale dice che non ha inviato la candidatura: riprova dal pulsante evidenziato.', 'warn');
         await report('refused');
       }
+      if (page.kind === 'verify') {
+        // The verification e-mail reaches the order's alias: the queue
+        // fetches its link and the extension opens it here. Asked once per page.
+        if (state.verifyAsked === location.href) return;
+        state.verifyAsked = location.href;
+        show('Il portale chiede di verificare l’email dell’alias: apro il link appena arriva…');
+        await report('verify-email');
+        return;
+      }
       const cookies = F.cookieRefusal(document);
       if (cookies && !state.sawForm) F.press(cookies);
       if (page.kind === 'posting') {

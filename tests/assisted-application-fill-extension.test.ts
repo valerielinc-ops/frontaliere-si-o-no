@@ -172,6 +172,13 @@ describe('fill extension: JOIN steps', () => {
     expect(pressed).toBe(0);
   });
 
+  it('knows JOIN’s «verify your e-mail» page after the send, never the e-mail step of the form', () => {
+    const waiting = page('<main><p>Completare la domanda</p><h1>Verificare l\'indirizzo e-mail</h1><button type="button">Reinvio della mail di verifica</button></main>');
+    expect(waiting.F.pageState(waiting.document, { sawForm: true }).kind).toBe('verify');
+    const form = page(`<form><h2>Verificare l'indirizzo e-mail</h2><div role="group"><label for="email">Email</label><input id="email" type="email" required></div>${continueButtons}</form>`);
+    expect(form.F.pageState(form.document, { sawForm: true }).kind).toBe('step');
+  });
+
   it('reads JOIN’s refusal and a confirmation', () => {
     expect(page('<div role="status">Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').F.pageState(page('<div>Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').document).kind).toBe('refused');
     const done = page('<h1>Grazie per la tua candidatura!</h1>');
