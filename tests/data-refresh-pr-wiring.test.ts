@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 
@@ -50,6 +51,22 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('passes named three-way merge arguments without treating a value as a flag', () => {
+    const output = execFileSync(
+      process.execPath,
+      [
+        'scripts/ci/merge-open-data-refresh.mjs',
+        '--base', 'HEAD',
+        '--remote', 'HEAD',
+        '--refresh', 'HEAD',
+        '--path', 'data/events.json',
+        '--path', 'public/data/events.json',
+      ],
+      { cwd: ROOT, encoding: 'utf8' },
+    );
+    expect(output).toContain('[merge-open-data-refresh] preserved stable tree');
   });
 
   it.each([
