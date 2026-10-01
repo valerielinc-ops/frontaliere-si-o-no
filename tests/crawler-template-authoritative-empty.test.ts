@@ -738,4 +738,42 @@ describe('standard crawler authoritative-empty policy', () => {
       expect.any(Object),
     );
   });
+
+  it('passes the stored company snapshot to source-specific fetchers', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fetch-existing-snapshot-root-'));
+    const stored = {
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      url: 'https://example.com/jobs/old',
+      description: SOURCE_BODY,
+    };
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([stored]);
+    let received: { existingJobs?: object[] } | undefined;
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Fetch Context Test',
+        root,
+        fetchJobs: async (context) => {
+          received = context;
+          return [{
+            id: 'test-new-1',
+            slug: 'new-job',
+            companyKey: COMPANY_KEY,
+            title: 'Fresh job',
+            description: SOURCE_BODY,
+            location: 'Lugano',
+            canton: 'TI',
+            url: 'https://example.com/jobs/fresh',
+          }];
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(received).toEqual({ existingJobs: [stored] });
+  });
 });

@@ -173,6 +173,58 @@ describe('iPersonal sister crawlers authoritative snapshots', () => {
     expect(assertCompleteIpersonalSnapshot(partiallyFiltered)).toBe(true);
   });
 
+  it('accepts a bounded detail failure only when the exact prior identities are reused', () => {
+    const reused = markDiscovered(
+      Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+      { resolvedDetailCount: 13, parsedDetailCount: 13 },
+    );
+    const failureUrls = reused.slice(13).map((job) => job.url.replace(/\/$/, ''));
+    Object.defineProperty(reused, 'detailFailureCount', { value: 2 });
+    Object.defineProperty(reused, 'detailFailureUrls', { value: failureUrls });
+    Object.defineProperty(reused, 'reusedDetailCount', { value: 2 });
+    Object.defineProperty(reused, 'reusedDetailUrls', { value: [...failureUrls] });
+    Object.defineProperty(reused, 'previousSnapshotIdentityCollisionCount', { value: 0 });
+
+    expect(assertCompleteIpersonalSnapshot(reused)).toBe(true);
+  });
+
+  it('fails closed when the reusable detail-failure quota is exceeded', () => {
+    const overQuota = markDiscovered(
+      Array.from({ length: 14 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+      { resolvedDetailCount: 12, parsedDetailCount: 12 },
+    );
+    const failureUrls = overQuota.slice(11, 14).map((job) => job.url.replace(/\/$/, ''));
+    Object.defineProperty(overQuota, 'qualityDroppedCount', { value: 1 });
+    Object.defineProperty(overQuota, 'detailFailureCount', { value: 3 });
+    Object.defineProperty(overQuota, 'detailFailureUrls', { value: failureUrls });
+    Object.defineProperty(overQuota, 'reusedDetailCount', { value: 3 });
+    Object.defineProperty(overQuota, 'reusedDetailUrls', { value: [...failureUrls] });
+
+    expect(() => assertCompleteIpersonalSnapshot(overQuota)).toThrow(
+      /detail fetch\/parse failure/,
+    );
+  });
+
+  it('fails closed when a detail failure is reused under the wrong URL identity', () => {
+    const mismatched = markDiscovered(
+      Array.from({ length: 15 }, (_, index) => makeJob('ipersonal', index, true)),
+      15,
+      { resolvedDetailCount: 14, parsedDetailCount: 14 },
+    );
+    const failureUrl = mismatched[14].url.replace(/\/$/, '');
+    const otherUrl = mismatched[13].url.replace(/\/$/, '');
+    Object.defineProperty(mismatched, 'detailFailureCount', { value: 1 });
+    Object.defineProperty(mismatched, 'detailFailureUrls', { value: [failureUrl] });
+    Object.defineProperty(mismatched, 'reusedDetailCount', { value: 1 });
+    Object.defineProperty(mismatched, 'reusedDetailUrls', { value: [otherUrl] });
+
+    expect(() => assertCompleteIpersonalSnapshot(mismatched)).toThrow(
+      /detail fetch\/parse failure/,
+    );
+  });
+
   it('still fails closed when the gap exceeds the explained quality drops', () => {
     const partiallyFiltered = markDiscovered(
       Array.from({ length: 13 }, (_, index) => makeJob('ipersonal', index, true)),

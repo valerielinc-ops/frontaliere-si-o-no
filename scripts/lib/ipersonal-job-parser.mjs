@@ -120,10 +120,10 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
+async function fetchJobListings({ existingJobs = [] } = {}) {
   const spec = loadSpec(IPERSONAL_KEY);
   return /** @type {Promise<Array<Record<string, any>> & { discoveredCount: number, expectedSeedCount: number, loadedSeedCount: number }>} */ (
-    runIpersonalSpecInProduction(spec)
+    runIpersonalSpecInProduction(spec, { previousJobs: existingJobs })
   );
 }
 
@@ -134,11 +134,11 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllIpersonalJobs() {
+export async function fetchAllIpersonalJobs({ existingJobs = [] } = {}) {
   console.log(`🔍 Fetching MediPersonal jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchJobListings({ existingJobs });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];
@@ -241,6 +241,22 @@ export async function fetchAllIpersonalJobs() {
   });
   Object.defineProperty(jobs, 'detailFailureCount', {
     value: listings.detailFailureCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'detailFailureUrls', {
+    value: listings.detailFailureUrls ?? [],
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'reusedDetailCount', {
+    value: listings.reusedDetailCount ?? 0,
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'reusedDetailUrls', {
+    value: listings.reusedDetailUrls ?? [],
+    enumerable: false,
+  });
+  Object.defineProperty(jobs, 'previousSnapshotIdentityCollisionCount', {
+    value: listings.previousSnapshotIdentityCollisionCount ?? 0,
     enumerable: false,
   });
   Object.defineProperty(jobs, 'sourceIdentityCollisionCount', {
