@@ -107,6 +107,16 @@ describe('humanizeCategory', () => {
 });
 
 describe('extractPrice', () => {
+  it('does not interpret the minimum participant age as an admission price', () => {
+    const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('keeps the ticket price while excluding a minimum participant age', () => {
+    const html = '<table><tr><th>Preis</th><td>CHF 25. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({}, html)).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+  });
+
   it('returns undefined when there is no offers/isAccessibleForFree info', () => {
     expect(extractPrice({})).toBeUndefined();
     expect(extractPrice(undefined)).toBeUndefined();

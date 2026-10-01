@@ -71,7 +71,6 @@ import {
   resolveItalianFrontierComuni,
   mirrorEventImage,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
@@ -86,6 +85,7 @@ import {
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   extractEventOfferMetadata,
+  parseEventPriceText,
   eventOfferPriceAmount,
   firstEventImageUrl,
   firstEventImageUrlFromHtml,
@@ -373,7 +373,7 @@ export function extractPrice(ld, detailHtml, detailUrl) {
   }
   if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
-  if (tablePrice) return parsePriceText(tablePrice);
+  if (tablePrice) return parseEventPriceText(tablePrice);
   return undefined;
 }
 

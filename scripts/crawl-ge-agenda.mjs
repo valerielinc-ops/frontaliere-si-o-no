@@ -30,11 +30,13 @@
  *
  * Flyer images (no-hotlink policy): mirrored by the factory itself via the
  * shared `mirrorEventImage`, same as every other events crawler.
+ * Admission tariffs and ticket links come from each event's own detail page.
  */
 import { pathToFileURL } from 'node:url';
 import { JSDOM } from 'jsdom';
 import { createAgendaCrawler } from './lib/agenda-crawler-factory.mjs';
 import { EVENT_SOURCES, eventStableId, loadCantonComuni, resolveComune, isoDay } from './lib/events-utils.mjs';
+import { parseEventPriceText } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES['ge-agenda'];
 const ORIGIN = 'https://www.geneve.ch';
@@ -266,10 +268,42 @@ export function parseGeneveAgendaHtml(html, page, now = new Date()) {
   return events;
 }
 
+/** Read only this event's tariff/booking fields, excluding related-event cards. */
+export function extractGeneveEventPrice(html, eventUrl) {
+  const dom = new JSDOM(html);
+  try {
+    const doc = dom.window.document;
+    const tariff = text(doc.querySelector('.field--name-field-rates-and-conditions'));
+    const price = parseEventPriceText(tariff);
+    if (!price) return undefined;
+    const href = doc.querySelector('.field--name-field-oa-reservation-link a[href]')?.getAttribute('href');
+    let ticketUrl;
+    if (href) {
+      try {
+        const url = new URL(href, eventUrl);
+        if (url.protocol === 'https:' || url.protocol === 'http:') ticketUrl = url.href;
+      } catch {
+        // An unusable booking link does not discard a verified tariff.
+      }
+    }
+    return { ...price, ...(ticketUrl ? { url: ticketUrl } : {}) };
+  } finally {
+    dom.window.close();
+  }
+}
+
+export async function enrichGeneveEvent(event, fetchHtml) {
+  const html = await fetchHtml(event.url);
+  if (!html) return event;
+  const price = extractGeneveEventPrice(html, event.url);
+  return price ? { ...event, price } : event;
+}
+
 const crawler = createAgendaCrawler({
   sourceKey: SOURCE.key,
   baseUrl: PAGE_URL,
   parseDayHtml: parseGeneveAgendaHtml,
+  enrichEvent: enrichGeneveEvent,
   iterations: MAX_PAGES,
   horizonDays: HORIZON_DAYS,
   stopOnEmptyPage: true,

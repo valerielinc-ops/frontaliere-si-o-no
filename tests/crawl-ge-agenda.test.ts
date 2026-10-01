@@ -5,9 +5,44 @@
  * (2026-07-06) so the DOM selectors are exercised against the real shape.
  */
 import { describe, it, expect } from 'vitest';
-import { parseGeneveDateFr, parseGeneveAgendaHtml } from '../scripts/crawl-ge-agenda.mjs';
+import { parseGeneveDateFr, parseGeneveAgendaHtml, extractGeneveEventPrice, enrichGeneveEvent } from '../scripts/crawl-ge-agenda.mjs';
 
 const NOW = new Date('2026-07-06T00:00:00Z');
+
+describe('Geneva event admission metadata', () => {
+  const eventUrl = 'https://www.geneve.ch/agenda/chocolate-workshop';
+  const event = { id: 'ge-agenda:workshop', url: eventUrl };
+
+  it('reads the event tariff and ticket URL without taking prices from related events', () => {
+    const html = `<div class="field--name-field-rates-and-conditions">CHF 50.-</div>
+      <div class="field--name-field-oa-reservation-link"><a href="/tickets/workshop">Book</a></div>
+      <article class="event">Entrée gratuite</article>`;
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({
+      amount: 50, currency: 'CHF', isFree: false, url: 'https://www.geneve.ch/tickets/workshop',
+    });
+  });
+
+  it('preserves a free tariff with a numeric registration phone', () => {
+    expect(extractGeneveEventPrice('<div class="field--name-field-rates-and-conditions">Gratuit, sur inscription au 0800 44 77 00.</div>', eventUrl))
+      .toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('does not turn an absent tariff or a related free event into a free admission', () => {
+    expect(extractGeneveEventPrice('<article class="event">Entrée gratuite</article>', eventUrl)).toBeUndefined();
+  });
+
+  it('retains an ambiguous tariff and ignores non-HTTP booking links', () => {
+    const html = `<div class="field--name-field-rates-and-conditions">Sur demande</div>
+      <div class="field--name-field-oa-reservation-link"><a href="javascript:alert(1)">Book</a></div>`;
+    expect(extractGeneveEventPrice(html, eventUrl)).toEqual({ amount: null, currency: 'CHF', isFree: false });
+  });
+
+  it('enriches a record and keeps the original on a failed detail fetch', async () => {
+    expect(await enrichGeneveEvent(event, async () => '<div class="field--name-field-rates-and-conditions">CHF 50.-</div>'))
+      .toEqual({ ...event, price: { amount: 50, currency: 'CHF', isFree: false } });
+    expect(await enrichGeneveEvent(event, async () => null)).toEqual(event);
+  });
+});
 
 describe('parseGeneveDateFr', () => {
   it('parses a single weekday+day+month+time (no year)', () => {

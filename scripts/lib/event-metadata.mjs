@@ -1,4 +1,4 @@
-import { cleanEventText } from './events-utils.mjs';
+import { cleanEventText, parsePriceText } from './events-utils.mjs';
 
 /**
  * Small normalizers for optional schema.org Event metadata.
@@ -47,6 +47,15 @@ export function eventOfferPriceAmount(value) {
   if (typeof value !== 'string' || !value.trim()) return NaN;
   const amount = Number(value);
   return Number.isFinite(amount) ? amount : NaN;
+}
+
+/** Parse an admission tariff without mistaking contact numbers or age limits for prices. */
+export function parseEventPriceText(value) {
+  if (typeof value !== 'string') return undefined;
+  const tariff = value
+    .replace(/\b(?:tel(?:efon|ephone|efono)?\.?|phone|au|al|at)\s*:?\s*\+?\d[\d\s().-]{5,}/gi, ' ')
+    .replace(/\b(?:ab|under|below|fino a|jusqu['’]à)\s*\d+(?:\s*[-–]\s*\d+)?\s*(?:jahren?|years?|anni|ans)\b/gi, ' ');
+  return parsePriceText(tariff);
 }
 
 function normalizedOfferField(field, value, baseUrl) {
