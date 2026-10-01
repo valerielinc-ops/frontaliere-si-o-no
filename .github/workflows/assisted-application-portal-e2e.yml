@@ -35,8 +35,7 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    # The fake portal alone takes about 13 minutes (run 36895734777).
-    # Leave time for setup and both real-extension checks that follow it.
+    # The runner on the fake portal takes ~13 min on a hosted runner, then NopeCHA.
     timeout-minutes: 30
     steps:
       - name: Checkout
@@ -47,7 +46,6 @@ jobs:
           sparse-checkout: |
             /*
             !/public/images/
-            !/data/jobs/
             !/data/seo-404-compat/
             !/data/translation-cache/
             !/packages/articles/content/
@@ -78,9 +76,6 @@ jobs:
       - name: Portal runner on the fake portal
         run: node scripts/assisted-application/portal-e2e.mjs
 
-      - name: Fill extension on a JOIN-like wizard
-        run: node scripts/assisted-application/extension-e2e.mjs
-
       - name: Install official NopeCHA extension
         env:
           GH_TOKEN: ${{ github.token }}
@@ -96,3 +91,49 @@ jobs:
         env:
           NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
         run: node scripts/assisted-application/nopecha-e2e.mjs --probe-free
+
+  # Its own job (run 36888505712: in the 15-minute portal job the extension step
+  # started after 15 min and was cut after 18 s).
+  extension:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Node 22 + npm ci; the npm cache is only read on a PR ref, saved on main
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Fill extension on a JOIN-like wizard
+        run: node scripts/assisted-application/extension-e2e.mjs
