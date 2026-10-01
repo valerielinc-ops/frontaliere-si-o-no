@@ -35,6 +35,7 @@ import { WriteCollector } from './batchWrite';
 import {
   buildTitleWithBrand,
   truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
   TITLE_BRAND_SUFFIX,
   TITLE_MAX_CHARS,
   clampMetaDescription,
@@ -106,6 +107,7 @@ const contract: SiteShellContract = {
 
   buildTitleWithBrand,
   truncateHeadline,
+  truncateHeadlineToMeasuredBudget,
   titleBrandSuffix: TITLE_BRAND_SUFFIX,
   titleMaxChars: TITLE_MAX_CHARS,
   clampMetaDescription,
