@@ -39,6 +39,8 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationTakeover',
   'automationResume',
   'automationRegenerate',
+  'automationRetrySubmit',
+  'automationHandoff',
   'automationEditDraft',
   'automationSetAnswers',
   'automationRevealAccount',
@@ -259,6 +261,10 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       return apply({ type: 'owner_resume' });
     case 'automationRegenerate':
       return apply({ type: 'owner_regenerate' });
+    case 'automationRetrySubmit':
+      return apply({ type: 'owner_retry_submit' });
+    case 'automationHandoff':
+      return apply({ type: 'owner_handoff' });
     case 'automationEditDraft':
       return editDraft(db, orderId, raw, adminEmail, { bucket: deps.bucket, nowMs });
     case 'automationSetAnswers': {

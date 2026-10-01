@@ -226,10 +226,22 @@ describe('review link token', () => {
 });
 
 describe('career-ops handoff, closed ads and owner regeneration', () => {
-  it('hands a portal over to the candidate and counts it sent only on their confirmation', () => {
-    let step = transition({ state: 'submitting', round: 1 }, { type: 'submit_handoff', reason: 'captcha' }, { draft: cleanDraft, nowMs: T0 });
-    expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['captcha'], reminderAt: T0 + 24 * 60 * 60_000 });
-    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'captcha' }]);
+  // Owner decision 2026-10-01 (giro di prova su JOIN): the candidate paid not to apply by hand.
+  it('sends a portal the robot could not finish to Valerie, who retries it or chooses to hand it over', () => {
+    const roundDraft = { ...cleanDraft, round: 1 };
+    let step = transition({ state: 'submitting', round: 1, dispatch: { mode: 'submit', attempts: 1 } }, { type: 'submit_handoff', reason: 'captcha' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], reminderAt: null });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha', stage: 'submit', attempts: 1 }]);
+
+    const retried = transition(step.flow, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
+    expect(retried.flow.state).toBe('submitting');
+    expect(retried.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+    // Never without the approved draft of the round.
+    expect(transition(step.flow, { type: 'owner_retry_submit' }, { draft: { ...cleanDraft, round: 0 }, nowMs: T0 }).ignored).toBe('no_approved_draft');
+
+    step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['owner_handoff'], reminderAt: T0 + 24 * 60 * 60_000 });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: null }]);
     const reminder = transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 24 * 60 * 60_000 });
     expect(reminder.effects).toEqual([{ type: 'email', kind: 'candidate_handoff_reminder' }]);
     expect(transition(reminder.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 48 * 60 * 60_000 }).ignored).toBe('nothing_due');

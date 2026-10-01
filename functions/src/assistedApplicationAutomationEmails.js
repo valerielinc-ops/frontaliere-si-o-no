@@ -323,6 +323,14 @@ const RUNNER_ERRORS = [
   [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
 ];
 const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
+// Why the portal runner stopped (scripts/assisted-application/lib/portal/portal.mjs).
+const PORTAL_STOPS = {
+  captcha: 'il portale ha chiesto un controllo anti-robot (CAPTCHA), che il robot non aggira',
+  account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
+  rejected: 'il portale ha rifiutato l’invio automatico',
+  portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
+};
+const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
 const STAGE_HINTS = {
   draft: 'Dalla coda «Rigenera» o «Riprendi automazione» rifà la bozza nello stesso giro: il candidato non perde nessuno dei suoi giri.',
   submit: 'Controlla dalla coda se la candidatura è arrivata al datore prima di inviarla di nuovo.',
@@ -337,6 +345,10 @@ const STAGE_HINTS = {
 export function describeTakeover({ reason, stage, attempts }) {
   const raw = String(reason || '').trim();
   if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
+  if (raw.startsWith('portal:')) {
+    const code = raw.slice('portal:'.length);
+    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint: PORTAL_HINT, detail: '' };
+  }
   const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
   const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));
   let cause = known?.[1] || '';

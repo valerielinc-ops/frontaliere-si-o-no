@@ -76,6 +76,8 @@ export const FLOW_STATES = Object.freeze([
 ]);
 
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']);
+// What Valerie can do on an order that stopped (each event still checks the state it accepts).
+const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff']);
 
 /**
  * @param {object} draft the AI draft (ai_drafts/current)
@@ -180,7 +182,7 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
   const next = { ...current };
   const flags = evaluateRedFlags(draft, answers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
-  if (TERMINAL_STATES.has(state) && event.type !== 'owner_resume' && event.type !== 'owner_regenerate') return ignore('terminal');
+  if (TERMINAL_STATES.has(state) && !OWNER_EXITS.has(event.type)) return ignore('terminal');
 
   let effects = [];
   switch (event.type) {
@@ -277,12 +279,34 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       return ignore('nothing_due');
     }
     case 'submit_handoff':
+      // Owner decision 2026-10-01: the candidate paid not to apply by hand. A
+      // portal step the robot did not finish (a CAPTCHA, an account, a page it
+      // could not fill) goes to Valerie, who completes it, retries it, or by
+      // her own choice hands it to the candidate (owner_handoff).
       if (state !== 'submitting') return ignore('not_submitting');
+      next.state = 'owner_takeover';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [`portal:${String(event.reason || 'portal_needs_candidate').slice(0, 60)}`];
+      effects = [{ type: 'email', kind: 'owner_takeover', reason: `portal:${event.reason || 'portal_needs_candidate'}`, stage: 'submit', attempts: Number(flow?.dispatch?.attempts) || 1 }];
+      break;
+    case 'owner_retry_submit':
+      // The approved application is sent again by the robot (after a runner
+      // fix, or a portal that was briefly unavailable): only for the round's
+      // own draft, which the candidate approved.
+      if (!['owner_takeover', 'candidate_handoff'].includes(state)) return ignore('not_retryable');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
+      effects = enterSubmitting(next, 'owner_retry');
+      break;
+    case 'owner_handoff':
+      // Valerie's choice, for a step only the candidate can do (an SMS to their phone).
+      if (state !== 'owner_takeover') return ignore('not_taken_over');
+      if (roundDraftMissing(current, draft)) return ignore('no_approved_draft');
       next.state = 'candidate_handoff';
       next.deadlineAt = null;
       next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
       next.reminderSentAt = null;
-      next.heldBy = [String(event.reason || 'portal_needs_candidate').slice(0, 80)];
+      next.heldBy = ['owner_handoff'];
       effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || null }];
       break;
     case 'candidate_confirmed_submitted':

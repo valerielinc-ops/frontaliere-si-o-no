@@ -288,6 +288,8 @@ export type AutomationAdminAction =
   | 'automationTakeover'
   | 'automationResume'
   | 'automationRegenerate'
+  | 'automationRetrySubmit'
+  | 'automationHandoff'
   | 'automationEditDraft'
   | 'automationSetAnswers'
   | 'automationRevealAccount';
