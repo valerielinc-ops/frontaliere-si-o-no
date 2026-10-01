@@ -12,11 +12,28 @@ inviato nella coda e il cliente riceve l'email di conferma.
 
 ## Installazione (una volta)
 
-1. Apri `chrome://extensions` e accendi **Modalità sviluppatore** (in alto a destra).
-2. Premi **Carica estensione non pacchettizzata** e scegli questa cartella
-   (`scripts/assisted-application/extension` nel checkout del sito).
-3. Ricarica la coda delle candidature: il pulsante **Compila con l'estensione**
+1. Dal checkout del sito, sul Mac: `scripts/assisted-application/extension-sync.sh install`.
+   Copia l'estensione in `~/Library/Application Support/Frontaliere/compila-candidatura`
+   (un'altra cartella come argomento, se la preferisci) e la tiene allineata a
+   `main` ogni 15 minuti con un launch agent (`ch.frontaliere.compila-candidatura-sync`,
+   log in `~/Library/Logs/frontaliere/compila-candidatura-sync.log`). Non in
+   Documenti, Scrivania o Download: macOS non lascia scrivere lì un launch agent.
+2. Apri `chrome://extensions` e accendi **Modalità sviluppatore** (in alto a
+   destra). Deve restare accesa: senza, Chrome spegne l'estensione quando si aggiorna.
+3. Premi **Carica estensione non pacchettizzata**; nella finestra premi
+   ⇧⌘G, incolla `~/Library/Application Support/Frontaliere/compila-candidatura`
+   e scegli quella cartella.
+4. Ricarica la coda delle candidature: il pulsante **Compila con l'estensione**
    compare sugli ordini che il robot ti ha passato.
+
+## Aggiornamenti
+
+Non serve premere **Ricarica**. Dopo un merge su `main`, entro 15 minuti il
+launch agent copia i file nuovi nella cartella. Entro un minuto l'estensione se
+ne accorge e si ricarica da sola, ma mai mentre sta compilando un ordine: aspetta
+che il portale abbia confermato, oppure due ore se la compilazione è stata
+lasciata a metà. La coda già aperta riceve il collegamento nuovo senza
+ricaricare la pagina.
 
 ## Uso
 

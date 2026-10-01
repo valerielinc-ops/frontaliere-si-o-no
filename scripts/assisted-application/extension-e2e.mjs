@@ -8,12 +8,15 @@
  * (the portal and the documents come from a local server: a tab the extension
  * opens is not routed by Playwright).
  * Then the test presses it, as Valerie does, and the queue must hear that the
- * portal confirmed. No employer, no secret: the portal is served by the test.
+ * portal confirmed. Last, an update of the extension's folder: held back while
+ * the order is being filled, then the extension reloads itself and the open
+ * queue tab gets a working bridge. No employer, no secret: the portal is
+ * served by the test, the extension is loaded from a copy the test may change.
  *
  *   node scripts/assisted-application/extension-e2e.mjs
  */
 import http from 'node:http';
-import { mkdtemp, rm } from 'node:fs/promises';
+import { appendFile, cp, mkdtemp, rm } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -151,6 +154,9 @@ async function main() {
   kit.applyUrl = `${base}/job/1`;
   kit.documents.cv = { url: `${base}/cv.pdf`, fileName: 'CV_Luigi_Prova.pdf' };
   const profile = await mkdtemp(path.join(tmpdir(), 'aa-extension-e2e-'));
+  // The folder Chrome loads, as the owner's Mac has it: a copy the update scenario changes.
+  const folder = await mkdtemp(path.join(tmpdir(), 'aa-extension-folder-'));
+  await cp(EXTENSION, folder, { recursive: true });
   // The full Chromium in its new headless mode loads extensions (the headless shell does not).
   const context = await chromium.launchPersistentContext(profile, {
     channel: 'chromium',
@@ -158,10 +164,19 @@ async function main() {
     executablePath: process.env.PLAYWRIGHT_CHROMIUM_FULL_PATH || undefined,
     headless: process.env.HEADED !== '1',
     ignoreDefaultArgs: ['--disable-extensions'],
-    args: [`--disable-extensions-except=${EXTENSION}`, `--load-extension=${EXTENSION}`],
+    args: [`--disable-extensions-except=${folder}`, `--load-extension=${folder}`],
   // A Chromium that does not start still releases the local server.
   }).catch((error) => { files.close(); throw error; });
   try {
+    const worker = context.serviceWorkers()[0] || await context.waitForEvent('serviceworker', { timeout: 15_000 });
+    // Developer mode, as on Valerie's Chrome (loading an unpacked extension needs it):
+    // without it Chrome turns the extension off the moment it reloads itself.
+    const extensionsPage = await context.newPage();
+    await extensionsPage.goto('chrome://extensions');
+    const devMode = extensionsPage.locator('#devMode');
+    if ((await devMode.getAttribute('aria-pressed')) !== 'true') await devMode.click();
+    check('developer mode is on, as on the owner\'s Chrome', (await devMode.getAttribute('aria-pressed')) === 'true');
+    await extensionsPage.close();
     await context.route('https://frontaliereticino.ch/**', (route) => route.fulfill({ contentType: 'text/html', body: queuePage }));
     const queue = await context.newPage();
     await queue.goto(QUEUE);
@@ -187,6 +202,10 @@ async function main() {
     check('it never presses the send button', state.submits === 0);
     const ready = await queue.waitForFunction(() => window.__statuses.some((item) => item.status === 'ready'), null, { timeout: 10_000 }).then(() => true, () => false);
     check('the queue hears that everything is filled', ready);
+    // The sync brings a new version while the order waits for her click: the fill is not cut off.
+    await appendFile(path.join(folder, 'content.js'), '\n// e2e: a newer version of the folder\n');
+    const held = await worker.evaluate(() => checkForUpdate());
+    check('an update waits while an order is being filled', held.changed === true && held.reloading === false && held.reason === 'filling');
     // Valerie's click.
     await portal.click('#send');
     const submitted = await queue.waitForFunction(() => window.__statuses.some((item) => item.status === 'submitted' && item.orderId === 'e2e-order'), null, { timeout: 15_000 }).then(() => true, () => false);
@@ -197,10 +216,25 @@ async function main() {
     check('the portal asks to verify the alias and the extension opens the link the queue found', statuses.includes('verify-email') && verified === 1 && openedLinks.includes('ok'));
     check('a link of another site is refused and the queue hears it', openedLinks.includes('other_site'));
     check('after her click the queue hears once that the portal confirmed, on the verification page', submitted && thanks === 1 && statuses.filter((status) => status === 'submitted').length === 1);
+    // The order is sent: the extension reloads itself with the new files.
+    await queue.evaluate(() => { delete document.documentElement.dataset.compilaCandidatura; window.__statuses = []; });
+    const reloaded = context.waitForEvent('serviceworker', { timeout: 15_000 });
+    const update = await worker.evaluate(() => checkForUpdate());
+    const fresh = await reloaded.catch(() => null);
+    check('once the order is sent the extension reloads itself', update.reloading === true && Boolean(fresh));
+    const bridged = await queue.waitForFunction(() => document.documentElement.dataset.compilaCandidatura, null, { timeout: 15_000 }).then(() => true, () => false);
+    // The order's tabs were the previous load's: the new service worker answers that it has none, once.
+    await queue.evaluate(() => window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: 'e2e-order', url: 'https://elsewhere.example/verify' }, window.location.origin));
+    await queue.waitForTimeout(2000);
+    const answers = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'verification-opened').map((item) => item.error));
+    check('the open queue tab gets a bridge of the new load, and only one answers', bridged && answers.length === 1 && answers[0] === 'no_order_tab');
+    const settled = fresh ? await fresh.evaluate(() => checkForUpdate()) : null;
+    check('the reloaded extension takes its files as the loaded ones (no reload loop)', settled?.changed === false);
   } finally {
     await context.close();
     files.close();
     await rm(profile, { recursive: true, force: true });
+    await rm(folder, { recursive: true, force: true });
   }
 }
 
