@@ -119,7 +119,7 @@
         "it": "front-office-a-group-location-andermatt-svizzera",
         "en": "front-office-a-plus-plus-group-massagno",
         "de": "front-office-a-plus-plus-group-massagno",
-        "fr": "front-office-a-plus-plus-group-massagno"
+        "fr": "direction-a-group-andermatt-svizzera"
       },
       "id": "a-group-f6cc88ac0649",
       "needsRetranslation": true,
@@ -140,6 +140,9 @@
       "firstSeenAt": "2026-09-30T21:18:38.350Z",
       "previousSlugsByLocale": {
         "it": [
+          "front-office-a-plus-plus-group-massagno"
+        ],
+        "fr": [
           "front-office-a-plus-plus-group-massagno"
         ]
       },
@@ -187,9 +190,9 @@
       },
       "slugByLocale": {
         "it": "governante-housekeeping-lugano-a-plus-plus-group-massagno",
-        "en": "governante-housekeeping-lugano-a-plus-plus-group-massagno",
-        "de": "governante-housekeeping-lugano-a-plus-plus-group-massagno",
-        "fr": "governante-housekeeping-lugano-a-group-location-lugano-svizzera"
+        "en": "housekeeper-housekeeping-in-lugano-a-group-lugano-svizzera",
+        "de": "haushalterin-hausmeisterin-lugano-a-group-lugano-svizzera",
+        "fr": "gouvernante-femme-de-menage-a-lugano-a-group-lugano-svizzera"
       },
       "id": "a-group-b849e7fb9f65",
       "salaryMin": 49500,
@@ -207,7 +210,15 @@
         }
       },
       "firstSeenAt": "2026-09-30T21:18:38.350Z",
-      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/governante-housekeeping-lugano-724679/en"
+      "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/governante-housekeeping-lugano-724679/en",
+      "previousSlugsByLocale": {
+        "fr": [
+          "governante-housekeeping-lugano-a-group-location-lugano-svizzera"
+        ]
+      },
+      "previousSlugs": [
+        "governante-housekeeping-lugano-a-group-location-lugano-svizzera"
+      ]
     },
     {
       "title": "Hospitality Manager – Luxury Hospitality",
@@ -311,8 +322,8 @@
       "slugByLocale": {
         "it": "real-estate-project-manager-a-plus-plus-group-massagno",
         "en": "real-estate-project-manager-a-group-massagno-swvzn9",
-        "de": "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-group-massagno",
-        "fr": "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-group-massagno"
+        "de": "projektleiter-immobilien-a-group-massagno",
+        "fr": "gestionnaire-de-projet-immobilier-a-group-massagno"
       },
       "id": "a-group-cf1b4e6d7133",
       "needsRetranslation": true,
@@ -337,10 +348,17 @@
         ],
         "en": [
           "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-plus-plus-group-massagno"
+        ],
+        "de": [
+          "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-group-massagno"
+        ],
+        "fr": [
+          "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-group-massagno"
         ]
       },
       "previousSlugs": [
-        "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-plus-plus-group-massagno"
+        "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-plus-plus-group-massagno",
+        "real-estate-project-manager-property-manager-gestore-immobiliare-100-a-group-massagno"
       ],
       "sourceIdentity": "url:https://inrecruiting.intervieweb.it/a2plus/jobs/real-estate-project-manager-689356/en"
     }

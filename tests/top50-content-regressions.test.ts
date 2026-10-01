@@ -32,7 +32,8 @@ describe('editorial headline semantics', () => {
   });
   it('emits the original article H1 without the generic guide suffix', () => {
     const source = readFileSync(new URL('../packages/articles/engine/ogPagesPlugin.ts', import.meta.url), 'utf8');
-    expect(source).toContain('isEvent ? differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale) : localizedTitle');
+    expect(source.replace(/\s+/g, ' ')).toContain('const h1Display = isEvent ? differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale) : localizedTitle;');
+    expect(source.match(/<h1>\$\{esc\(h1Display\)\}<\/h1>/g)).toHaveLength(2);
   });
 });
 
