@@ -321,7 +321,7 @@ const RUNNER_ERRORS = [
   [/^email_ambiguous$/, 'non è certo che l’email al datore sia partita: controlla prima di reinviarla'],
   [/^portal_ambiguous$/, 'non è certo che il portale abbia ricevuto la candidatura: controlla prima di reinviarla'],
   // JOIN run 36846326334: the portal's own message after the final click.
-  [/^portal_refused$/, 'il portale ha risposto che non è riuscito a inviare la candidatura (spesso per il suo controllo anti-robot): NON è partita. Puoi premere «Riprova l’invio automatico» o completarla tu sul portale'],
+  [/^portal_refused$/, 'il portale ha risposto che non è riuscito a inviare la candidatura (spesso per il suo controllo anti-robot): NON è partita'],
   // JOIN, giro di prova 2026-10-01: the page stayed on the send button, invisible reCAPTCHA v3 on the portal.
   [/^portal_antibot_ambiguous$/,'dopo il clic finale la pagina del portale non è cambiata e il portale usa un controllo anti-robot invisibile (reCAPTCHA): molto probabilmente la candidatura NON è arrivata. Controlla sul portale e, se manca, completala tu: il robot non la reinvia'],
   [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
@@ -339,6 +339,12 @@ const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l�
 const STAGE_HINTS = {
   draft: 'Dalla coda «Rigenera» o «Riprendi automazione» rifà la bozza nello stesso giro: il candidato non perde nessuno dei suoi giri.',
   submit: 'Controlla dalla coda se la candidatura è arrivata al datore prima di inviarla di nuovo.',
+};
+// What to do next when the runner's error says more than its stage. A refusal
+// in words is not ambiguous: nothing to check, and on an anti-robot portal a
+// new automatic send is refused again (JOIN, runs 36846326334 and 36859479435).
+const RUNNER_HINTS = {
+  portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: dalla coda premi «Affida al candidato» (riceve link, risposte e documenti e invia dal suo browser) oppure completala tu sul portale.',
 };
 
 /**
@@ -365,7 +371,7 @@ export function describeTakeover({ reason, stage, attempts }) {
   const runs = Number(attempts) > 1 ? `, anche dopo ${Number(attempts)} tentativi automatici` : '';
   return {
     reason: cause ? `${step}: ${cause}${runs}` : `${step}${runs}`,
-    hint: STAGE_HINTS[stage] || '',
+    hint: RUNNER_HINTS[raw] || STAGE_HINTS[stage] || '',
     detail: known ? '' : clean(raw, 300),
   };
 }
