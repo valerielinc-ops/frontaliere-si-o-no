@@ -1,6 +1,6 @@
 {
   "crawlerKey": "air-zermatt",
-  "assembledAt": "2026-10-01T09:19:20.590Z",
+  "assembledAt": "2026-10-01T21:18:41.066Z",
   "jobs": [
     {
       "id": "air-zermatt-dfbbe85d1afb",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:15.407Z",
+      "crawledAt": "2026-10-01T21:18:35.564Z",
       "previousSlugs": [
         "bourse-atc-fondation-suisse-sherpa-air-zermatt-ag-raron",
         "scholarship-atc-swiss-sherpa-foundation-raron-air-zermatt",
@@ -88,8 +88,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.air-zermatt.ch/de/service/offene-stellen/stipendium-atc-amp-swiss-sherpa-foundation-442"
+      }
     },
     {
       "id": "air-zermatt-b9c55622d29f",
@@ -135,7 +134,7 @@
       "applyUrl": "https://www.air-zermatt.ch/de/service/offene-stellen/rettungssanitaeterin-mit-anteil-flugbetrieb-100-571",
       "source": "Air Zermatt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:15.169Z",
+      "crawledAt": "2026-10-01T21:18:35.181Z",
       "previousSlugs": [
         "rettungssanitater-in-mit-anteil-flugbetrieb-100-raron-air-zermatt",
         "panitative-di-trasporto-o-rescue-un-operazione-di-proporto-100-air-zermatt-ag-raron",
@@ -183,8 +182,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.air-zermatt.ch/de/service/offene-stellen/rettungssanitaeterin-mit-anteil-flugbetrieb-100-571"
+      }
     }
   ]
 }
