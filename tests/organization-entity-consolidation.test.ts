@@ -11,6 +11,8 @@ import {
   ORGANIZATION_SAME_AS,
   ORGANIZATION_FOUNDING_DATE,
 } from '../services/seo/organizationLd';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { normalizeStructuredData } from '../services/seo/schema-normalizers';
 
 /**
  * One `@id`, one entity (issue #5004 — Preferred Sources / AI Overviews).
@@ -105,6 +107,29 @@ describe('the canonical #organization entity', () => {
     // referencing node needs identity, not the transparency block.
     expect(ORGANIZATION_LD).not.toHaveProperty('correctionsPolicy');
     expect(ORGANIZATION_LD).not.toHaveProperty('masthead');
+  });
+
+  it('reuses the canonical identity for the default ImageObject creator', () => {
+    expect(imageObjectLd({ contentUrl: `${BASE_URL}/image.webp` }).creator).toEqual({
+      '@type': 'NewsMediaOrganization',
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+      url: ORGANIZATION_LD.url,
+    });
+  });
+
+  it('normalizes legacy nested site organizations to the canonical identity', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    });
+    expect(normalized).toMatchObject({
+      creator: {
+        '@type': 'NewsMediaOrganization',
+        '@id': ORGANIZATION_ID,
+        name: ORGANIZATION_LD.name,
+      },
+    });
   });
 });
 
