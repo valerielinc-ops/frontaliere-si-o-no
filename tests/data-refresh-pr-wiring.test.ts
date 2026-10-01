@@ -74,4 +74,16 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).toContain('--branch chore/telegram-member-count-history');
   });
+
+  it('fails closed when the crawler cannot authenticate its stable refresh branch probe', () => {
+    const workflow = read('.github/workflows/crawl-events.yml');
+    expect(workflow).toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain(
+      'remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
+    );
+    expect(workflow).toContain('git ls-remote "$remote_url" "refs/heads/${branch}"');
+    expect(workflow).toContain('if [ ! -s "$probe" ]; then');
+    expect(workflow).toContain('git fetch --no-tags "$remote_url"');
+    expect(workflow).not.toContain('git fetch --no-tags origin');
+  });
 });

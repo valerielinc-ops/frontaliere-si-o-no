@@ -113,14 +113,33 @@ jobs:
       # a new branch from main would silently discard the pending refresh.
       - name: Carry forward pending events refresh PR
         if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # actions/checkout uses persist-credentials=false in this workflow;
+          # probe and fetch the stable branch through the same authenticated
+          # refresh identity used by the publisher below.
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           set -euo pipefail
           branch='chore/crawl-events-refresh'
-          if ! git fetch --no-tags origin \
-            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
-            >/dev/null 2>&1; then
+          [ -n "$GH_TOKEN" ] || {
+            echo "::error::No authenticated refresh token is available to probe the stable events refresh branch"
+            exit 1
+          }
+          remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          probe="$RUNNER_TEMP/crawl-events-refresh-remote-head"
+          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+            echo "::error::Unable to authenticate or probe the stable events refresh branch"
+            exit 1
+          fi
+          if [ ! -s "$probe" ]; then
             echo "No in-flight events refresh PR branch found."
             exit 0
+          fi
+          if ! git fetch --no-tags "$remote_url" \
+            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
+            >/dev/null 2>&1; then
+            echo "::error::Unable to fetch the stable events refresh branch"
+            exit 1
           fi
           for path in \
             data/events.json \
