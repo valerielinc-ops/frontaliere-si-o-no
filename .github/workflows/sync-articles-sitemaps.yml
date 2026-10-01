@@ -952,7 +952,7 @@ jobs:
       # non-optional residue check for every non-preview run so this job cannot
       # become green merely because the main-delivery assertion was deferred.
       - name: Assert the refresh snapshot was committed
-        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
+        if: github.event.inputs.dry_run != 'true'
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
