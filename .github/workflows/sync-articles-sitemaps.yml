@@ -576,7 +576,10 @@ jobs:
           LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
           LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
           rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
-          env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew \
+          # Do not wrap the renewer in setsid: on a runner process-group leader
+          # setsid forks, so $! would point at an exited wrapper instead of the
+          # live renewer that the later checks and cleanup must supervise.
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
             --section frontaliere,svizzera \
             --owner "$LOCK_OWNER" \
             --failure-file "$LOCK_RENEW_FAILURE_FILE" \
