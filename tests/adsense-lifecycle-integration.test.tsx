@@ -3,6 +3,8 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { act, cleanup, render } from '@testing-library/react';
 import { ADSENSE_LOADER_CONTENT } from '@/build-plugins/constants';
+import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from '@/build-plugins/lib/adSlotHtml';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_CHANGE_EVENT } from '@/services/adsConsent';
 
 const eventSpy = vi.hoisted(() => vi.fn());
@@ -83,6 +85,22 @@ describe('SPA lifecycle and layout owner', () => {
 });
 
 describe('static serialized lifecycle', () => {
+ it('keeps every registry placement attributable while omitting reconstructible HTML metadata', () => {
+  for (const name of Object.keys(AD_SLOTS) as Array<keyof typeof AD_SLOTS>) {
+   document.body.innerHTML = adSlotHtml(name);
+   const slot = document.querySelector('ins')!;
+   const signature = JSON.stringify([slot.getAttribute('data-ad-slot'), slot.getAttribute('data-ad-format'), slot.getAttribute('data-ad-layout') || '']);
+   expect(slot.getAttribute('data-ad-placement') || STATIC_AD_UNIQUE_PLACEMENTS[signature]).toBe(name.toLowerCase());
+  }
+  expect(adSlotHtml('JOBDETAIL_TOP_BANNER')).not.toContain('data-ad-placement');
+  expect(adSlotHtml('FT_DRIVEBY_ATF_DISPLAY')).toContain('data-ad-placement="ft_driveby_atf_display"');
+ });
+ it('reports the top-banner placement from its unique tuple through the external loader', () => {
+  const track = vi.fn(); vi.stubGlobal('gtag', track);
+  document.body.innerHTML = adSlotHtml('JOBDETAIL_TOP_BANNER');
+  new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();
+  expect(track).toHaveBeenCalledWith('event', 'ad_request', expect.objectContaining({ placement: 'jobdetail_top_banner', render_path: 'static' }));
+ });
  it('never includes anchor, vignette or automatic in-page slots in manual requests', () => {
   document.body.innerHTML = '<ins id="manual" class="adsbygoogle" data-ad-slot="1"></ins><ins class="adsbygoogle" data-ad-slot="2" data-anchor-status="displayed"></ins><ins class="adsbygoogle" data-ad-slot="3" data-vignette-loaded="true"></ins><div class="google-auto-placed"><ins class="adsbygoogle" data-ad-slot="4"></ins></div>';
   new Function(ADSENSE_LOADER_CONTENT)(); adScript()!.dispatchEvent(new Event('load')); near();

@@ -20,6 +20,17 @@ import type { InfeedAdVariant } from '../../services/adExperiment';
 
 export type AdSlotKey = keyof typeof AD_SLOTS;
 
+// Reconstruct unambiguous placements in the shared external loader instead of
+// repeating their names in every HTML page. A reused tuple keeps its explicit
+// marker: slot IDs alone cannot distinguish top banners from in-feed aliases.
+const placementEntries = Object.entries(AD_SLOTS).map(([name, cfg]) => [
+  JSON.stringify([cfg.slot, cfg.format, 'layout' in cfg ? cfg.layout : '']),
+  name.toLowerCase(),
+] as const);
+export const STATIC_AD_UNIQUE_PLACEMENTS: Record<string, string> = Object.fromEntries(
+  placementEntries.filter(([signature]) => placementEntries.filter(([other]) => other === signature).length === 1),
+);
+
 export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: boolean }): string {
   const cfg = AD_SLOTS[slotKey];
   const attrs = [
@@ -28,8 +39,9 @@ export function adSlotHtml(slotKey: AdSlotKey, opts?: { collapseWhenUnfilled?: b
     `data-ad-client="${AD_CLIENT}"`,
     `data-ad-slot="${cfg.slot}"`,
     `data-ad-format="${cfg.format}"`,
-    `data-ad-placement="${slotKey.toLowerCase()}"`,
   ];
+  const signature = JSON.stringify([cfg.slot, cfg.format, 'layout' in cfg ? cfg.layout : '']);
+  if (!STATIC_AD_UNIQUE_PLACEMENTS[signature]) attrs.push(`data-ad-placement="${slotKey.toLowerCase()}"`);
   if (opts?.collapseWhenUnfilled) attrs.push(`data-ft-static-ad="true"`);
   if ('layout' in cfg && cfg.layout) attrs.push(`data-ad-layout="${cfg.layout}"`);
   if ('layoutKey' in cfg && cfg.layoutKey) attrs.push(`data-ad-layout-key="${cfg.layoutKey}"`);

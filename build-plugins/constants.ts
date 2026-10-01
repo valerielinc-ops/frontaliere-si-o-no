@@ -76,7 +76,7 @@ import {
   CHUNK_LOAD_ERROR_PATTERN_SOURCE,
   MODULE_LINK_SKEW_PATTERNS,
 } from '../services/resilientImport';
-import { adSlotHtml } from './lib/adSlotHtml';
+import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
@@ -889,12 +889,13 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
 const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
 var staticAdManual=${isManualSlot.toString()};
 var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
+var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
 var staticAdWatches=new Map();
 function staticAdIsTarget(el){return staticAdManual(el)&&!el.closest('[data-ft-ad-state]');}
 function staticAdWatch(el){
  if(!staticAdIsTarget(el))return null;
  if(staticAdWatches.has(el))return staticAdWatches.get(el);
- var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||el.getAttribute('data-ad-slot');
+ var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||staticAdPlacements[JSON.stringify([el.getAttribute('data-ad-slot'),el.getAttribute('data-ad-format'),el.getAttribute('data-ad-layout')||''])]||el.getAttribute('data-ad-slot');
  var box=el.closest('.ft-infeed-ad')||el;
  var state=observeManualAd(el,box,${AD_FILL_TIMEOUT_MS},function(next,reason){
    el.setAttribute('data-ft-static-ad-state',next);
@@ -981,7 +982,7 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * deliberately NOT included here — it is a separate feature, out of scope for
  * the Offerwall render fix.
  */
-export const OFFERWALL_FC_SNIPPET = `<script>${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+export const OFFERWALL_FC_SNIPPET = `<script>${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
 
 /**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,
