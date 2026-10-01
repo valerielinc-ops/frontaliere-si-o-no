@@ -26,6 +26,12 @@ export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
 export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
 export const HANDOFF_REMINDER_MS = 24 * 60 * 60 * 1000;
+// Waiting for answers only the candidate can give has no clock (nothing leaves
+// without them): the candidate is reminded 24 h and 72 h after the wait began,
+// and after 5 days Valerie hears that the order is stuck (owner question
+// 2026-10-01: «cosa succede se l'utente non risponde alle domande?»).
+export const HELD_REMINDERS_AFTER_MS = Object.freeze([24 * 60 * 60 * 1000, 72 * 60 * 60 * 1000]);
+export const HELD_OWNER_NOTICE_AFTER_MS = 5 * 24 * 60 * 60 * 1000;
 export const MAX_REVIEW_ROUNDS = 3;
 // A draft or submit run that failed on a transient error is dispatched again
 // up to this many runs in all; the owner hears about it only after the last.
@@ -116,9 +122,27 @@ function base(flow) {
     reminderAt: Number(flow?.reminderAt) || null,
     reminderSentAt: Number(flow?.reminderSentAt) || null,
     heldBy: Array.isArray(flow?.heldBy) ? flow.heldBy : [],
+    heldSince: Number(flow?.heldSince) || null,
+    heldNudges: Number(flow?.heldNudges) || 0,
     feedback: Array.isArray(flow?.feedback) ? flow.feedback : [],
     history: Array.isArray(flow?.history) ? flow.history.slice(-40) : [],
   };
+}
+
+/** The flow waits for answers only the candidate can give (the review's questions, or the portal's). */
+function waitsForCandidate(flow) {
+  return ['candidate_review', 'needs_candidate_action'].includes(flow.state)
+    && flow.heldBy.some((held) => String(held).startsWith('question:'));
+}
+
+/** The wait for the candidate's answers starts its reminders, or keeps the ones of a wait already running. */
+function waitForCandidate(next, nowMs) {
+  if (next.heldSince) return;
+  next.heldSince = nowMs;
+  next.heldNudges = 0;
+  next.reminderAt = nowMs + HELD_REMINDERS_AFTER_MS[0];
+  // The 12 h clock that starts after the last answer is a new one, with its own reminder (review of #10803).
+  next.reminderSentAt = null;
 }
 
 function withHistory(next, event, nowMs) {
@@ -159,7 +183,7 @@ function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline 
   next.heldBy = flags.candidate.map((id) => `question:${id}`);
   if (flags.candidate.length) {
     next.deadlineAt = null;
-    next.reminderAt = null;
+    waitForCandidate(next, nowMs);
   } else {
     // Answering the last open question starts the 12 h clock (or keeps the
     // one already running), it never shortens it.
@@ -248,6 +272,20 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
     case 'tick': {
       const deadline = current.deadlineAt || 0;
       const reminder = current.reminderAt || 0;
+      if (waitsForCandidate(current) && reminder && nowMs >= reminder) {
+        const since = current.heldSince || nowMs;
+        const nudge = current.heldNudges + 1;
+        next.heldNudges = nudge;
+        if (nudge <= HELD_REMINDERS_AFTER_MS.length) {
+          next.reminderAt = since + (HELD_REMINDERS_AFTER_MS[nudge] ?? HELD_OWNER_NOTICE_AFTER_MS);
+          effects = [{ type: 'email', kind: 'candidate_questions_reminder', nudge, since }];
+        } else {
+          // The order keeps waiting (nothing leaves without the answers): Valerie decides.
+          next.reminderAt = null;
+          effects = [{ type: 'email', kind: 'owner_candidate_silent', since, days: Math.max(1, Math.round((nowMs - since) / (24 * 60 * 60 * 1000))), nudges: HELD_REMINDERS_AFTER_MS.length }];
+        }
+        break;
+      }
       if (state === 'owner_review' && deadline && nowMs >= deadline) {
         // A flag can appear after the clock started (e.g. an edit that
         // reintroduced an unverified number): hold instead of passing it on.
@@ -264,7 +302,7 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
         if (flags.candidate.length) {
           next.heldBy = flags.candidate.map((id) => `question:${id}`);
           next.deadlineAt = null;
-          next.reminderAt = null;
+          waitForCandidate(next, nowMs);
           effects = [];
           break;
         }
@@ -406,6 +444,8 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'needs_candidate_action';
       next.heldBy = (event.questions || []).map((question) => `question:${question.id}`);
+      next.heldSince = null;
+      if (next.heldBy.length) waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];
       break;
     case 'submit_failed': {
@@ -426,6 +466,11 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
     }
     default:
       return ignore('unknown_event');
+  }
+  // Every way out of the wait (answers given, a new round, Valerie, a closed ad) ends its reminders.
+  if (!waitsForCandidate(next)) {
+    next.heldSince = null;
+    next.heldNudges = 0;
   }
   return { flow: withHistory(next, event.type, nowMs), effects };
 }

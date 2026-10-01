@@ -281,6 +281,11 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
       .toBe('auto_owner_takeover_draft_error_r2');
     expect(automationEmailKey({ kind: 'candidate_handoff' }, { round: 2 })).toBe('auto_candidate_handoff');
+    // Each reminder of each wait for the candidate's answers is its own e-mail (never deduplicated away).
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n1');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 2, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n2');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 9000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_9000_n1');
+    expect(automationEmailKey({ kind: 'owner_candidate_silent', since: 1000 }, { round: 1 })).toBe('auto_owner_candidate_silent_1000');
   });
 
   it('dispatches the current round, marks the order submitted and refunds a closed ad', async () => {
