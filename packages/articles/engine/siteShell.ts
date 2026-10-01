@@ -140,6 +140,12 @@ export interface SiteShellContract {
     measureLength?: (s: string) => number,
   ) => string;
   truncateHeadline: (headline: string, max: number) => string;
+  /** Truncate against the serialized (HTML-escaped) length of a metadata title. */
+  truncateHeadlineToMeasuredBudget: (
+    headline: string,
+    max: number,
+    measure: (value: string) => number,
+  ) => string;
   titleBrandSuffix: string;
   titleMaxChars: number;
   clampMetaDescription: (
