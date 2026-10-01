@@ -48,6 +48,8 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"');
     expect(helper).toContain('git ls-remote "$PUSH_URL"');
     expect(helper).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
+    expect(helper).toContain('git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs"');
+    expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs"');
     expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');
