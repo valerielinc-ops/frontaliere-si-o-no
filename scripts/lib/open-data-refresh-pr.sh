@@ -13,7 +13,7 @@
 # Usage:
 #   bash scripts/lib/open-data-refresh-pr.sh \
 #     --path data/example.json [--path data/example.meta.json] \
-#     [--force] \
+#     [--force] [--resolve-symlinks] \
 #     --branch chore/example-refresh \
 #     --commit-message "chore(data): refresh example" \
 #     --title "chore(data): refresh example" \
@@ -27,6 +27,7 @@ TITLE=""
 BODY_FILE=""
 FORCE_ADD=false
 RECONCILE_COMPAT=false
+RESOLVE_SYMLINKS=false
 PATHS=()
 
 while [ "$#" -gt 0 ]; do
@@ -63,6 +64,10 @@ while [ "$#" -gt 0 ]; do
       ;;
     --force)
       FORCE_ADD=true
+      shift
+      ;;
+    --resolve-symlinks)
+      RESOLVE_SYMLINKS=true
       shift
       ;;
     *)
@@ -105,15 +110,23 @@ REFRESH_BASE="$(git rev-parse HEAD)"
 # Validate the exact PR contract before creating a commit or remote branch.
 node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"
 
-if [ "$FORCE_ADD" = true ]; then
-  # Some refreshes intentionally publish generated cache paths that remain
-  # ignored in the normal checkout (for example the fuel cache/history). Keep
-  # the force explicit at the publisher boundary so an ignored path can never
-  # disappear silently from an otherwise successful refresh PR.
-  git add -A -f -- "${PATHS[@]}"
-else
-  git add -A -- "${PATHS[@]}"
-fi
+stage_paths() {
+  if [ "$RESOLVE_SYMLINKS" = true ]; then
+    # Generated article surfaces may be edited through historical symlink paths.
+    # Resolve those paths before staging so the PR carries the real tracked blobs.
+    node scripts/lib/git-add-resolved.mjs "${PATHS[@]}"
+  elif [ "$FORCE_ADD" = true ]; then
+    # Some refreshes intentionally publish generated cache paths that remain
+    # ignored in the normal checkout (for example the fuel cache/history). Keep
+    # the force explicit at the publisher boundary so an ignored path can never
+    # disappear silently from an otherwise successful refresh PR.
+    git add -A -f -- "${PATHS[@]}"
+  else
+    git add -A -- "${PATHS[@]}"
+  fi
+}
+
+stage_paths
 if git diff --cached --quiet; then
   echo "No refresh changes to publish."
   exit 0
@@ -180,11 +193,7 @@ elif [ -n "$REMOTE_HEAD" ]; then
     MERGE_ARGS+=(--path "$refresh_path")
   done
   node scripts/ci/merge-open-data-refresh.mjs "${MERGE_ARGS[@]}"
-  if [ "$FORCE_ADD" = true ]; then
-    git add -A -f -- "${PATHS[@]}"
-  else
-    git add -A -- "${PATHS[@]}"
-  fi
+  stage_paths
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
     exit 0
