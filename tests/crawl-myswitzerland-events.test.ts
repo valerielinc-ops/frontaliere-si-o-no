@@ -116,6 +116,10 @@ describe('extractIndexedEventPrice', () => {
     'Entrance : free.',
     'Schedules: 2:30-6pm,Prices : Free entrance\n',
     'Eine Ausstellung. Eintritt frei.',
+    'Eintritt kostenlos',
+    'Eintritt: gratis',
+    'Ingresso libero.',
+    'Entrata libera',
     'Une exposition. Entrée libre\n',
   ])('recovers a terminal admission tariff from indexed content: %s', (content) => {
     expect(extractIndexedEventPrice(content)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
