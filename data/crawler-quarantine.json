@@ -21,12 +21,6 @@
       "failingSince": null,
       "issue": 10085
     },
-    "knowledge-lab": {
-      "homeGroup": 15,
-      "enteredAt": "2026-09-26T19:26:01Z",
-      "failingSince": "2026-09-26T23:46:18Z",
-      "issue": 10083
-    },
     "convit": {
       "homeGroup": 19,
       "enteredAt": "2026-09-27T07:00:46Z",
@@ -34,5 +28,12 @@
       "issue": 10087
     }
   },
-  "retired": {}
+  "retired": {
+    "knowledge-lab": {
+      "retiredAt": "2026-09-30T23:17:26Z",
+      "issue": 10662,
+      "homeGroup": 15,
+      "reason": "11 ondate rosse consecutive (soglia 10)"
+    }
+  }
 }
