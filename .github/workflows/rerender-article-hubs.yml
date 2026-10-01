@@ -368,13 +368,49 @@ jobs:
           done
           [ "$fail" = "0" ] || exit 1
 
+      # The hub HTML and the client article registry are one publish. Keep the
+      # same section lease used by fast-publish/resync from the companion and
+      # registry uploads through the shard pushes; without it a concurrent
+      # publisher can replace one half after the other was checked.
+      - name: Acquire article chunk section lock
+        id: acquire_chunk_lock
+        if: steps.mode.outputs.dry != 'true'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section lock
+        id: renew_chunk_lock
+        if: steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          env -u RUNNER_TRACKING_ID nohup setsid node scripts/lib/r2-section-lock.mjs renew \
+            --section "$ARTICLE_SECTION" \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
       # Render + validate ALWAYS; push only when not dry. The validation lives
       # inside the driver rather than in shell here, so a `--dry-run` is a
       # complete exercise of everything that can go wrong before a byte moves —
-      # including on a laptop. Each check defends a failure that renders
-      # "successfully"; see the driver for the incident behind each one.
+      # including on a laptop. The driver publishes the strict client registry
+      # and companions before its shard fan-out; each check defends a failure
+      # that renders "successfully"; see the driver for the incident behind
+      # each one.
       - name: Rerender ${{ matrix.section }} hubs
         id: render
+        if: steps.mode.outputs.dry == 'true' || (steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success')
         env:
           SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_IT_DEPLOY_KEY }}
           SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY: ${{ secrets.SHARD_ARTICOLIFRONTALIERE_EN_DEPLOY_KEY }}
@@ -389,6 +425,13 @@ jobs:
           INPUT_DRY: ${{ steps.mode.outputs.dry }}
         run: |
           set -euo pipefail
+          if [ "$INPUT_DRY" = "true" ]; then
+            export ARTICLE_CHUNK_LOCK_ENFORCE=false
+          else
+            export ARTICLE_CHUNK_LOCK_ENFORCE=true
+          fi
+          export ARTICLE_CHUNK_LOCK_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          export ARTICLE_CHUNK_LOCK_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
           mkdir -p "$RUNNER_TEMP/hubs"
           ARGS=(--section "$INPUT_SECTION"
                 --out "$RUNNER_TEMP/hubs/dist"
@@ -398,6 +441,50 @@ jobs:
           # "^4.21.0"), like every other un-installed path in this repo, so a
           # future tsx major cannot silently change loader behaviour here.
           npx -y tsx@4.23.15 scripts/rerender-article-hubs.mjs "${ARGS[@]}"
+
+      # The driver performs the strict client publication immediately before
+      # its shard fan-out. Check the watcher after that composite step as well,
+      # so a lost lease cannot be mistaken for a successful atomic publish.
+      - name: Verify article chunk section lock after rerender
+        id: verify_chunk_lock_after_render
+        if: always() && steps.acquire_chunk_lock.outcome == 'success' && steps.renew_chunk_lock.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release the shared lease even when strict client publication or a shard
+      # push fails. The heartbeat is stopped after the first guarded delete and
+      # the delete is retried once to avoid leaving a live lease behind.
+      - name: Release article chunk section lock after rerender
+        if: always() && steps.acquire_chunk_lock.outcome == 'success'
+        env:
+          ARTICLE_SECTION: ${{ matrix.section }}
+          LOCK_OWNER: hub-rerender-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/rerender-article-hubs-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section "$ARTICLE_SECTION" --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
 
       # The producer announces what it wrote — and only what it wrote.
       #
