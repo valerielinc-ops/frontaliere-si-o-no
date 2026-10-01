@@ -461,6 +461,15 @@ export function renderTrafficFluidMeasuredBanner(
 export type HubHeroState = 'fastest' | 'fluid' | 'fluid-measured' | 'unavailable';
 
 /**
+ * A wait that counts as a measured crossing: a finite, non-negative number.
+ * The one predicate behind both the hero state and the fastest-card inputs
+ * (the hydration's `n()` already turns non-finite live values into null).
+ */
+export function isMeasuredWait(w: number | null | undefined): w is number {
+  return typeof w === 'number' && Number.isFinite(w) && w >= 0;
+}
+
+/**
  * Stato del blocco hero dell'hub dalle attese dei valichi in scope (una voce
  * per valico, `null` se manca la lettura). Gemello build-time di `hub()` nello
  * script di idratazione, che applica la stessa regola alle letture live: una
@@ -469,7 +478,7 @@ export type HubHeroState = 'fastest' | 'fluid' | 'fluid-measured' | 'unavailable
  * valico, «fluido sui misurati» altrimenti; nessuna misurata => non disponibile.
  */
 export function hubHeroState(waits: ReadonlyArray<number | null | undefined>): HubHeroState {
-  const measured = waits.filter((w): w is number => w != null && w >= 0);
+  const measured = waits.filter(isMeasuredWait);
   if (measured.some((w) => w > 0)) return 'fastest';
   if (measured.length === 0) return 'unavailable';
   return measured.length === waits.length ? 'fluid' : 'fluid-measured';
@@ -2402,18 +2411,19 @@ function renderHubPage(inp: HubInputs): string {
   const scopeWaits = crossingsInScope.map(
     (c) => current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null,
   );
-  // Negative waits are invalid readings: unmeasured, as in `hubHeroState`.
+  // Missing, negative or non-finite waits are unmeasured — same predicate as
+  // `hubHeroState`, so the fastest card never sees a wait the state ignored.
   const heroInputs: ReadonlyArray<FastestCrossingInput> = crossingsInScope.flatMap((c, i) => {
     const waitTimeMinutes = scopeWaits[i];
-    return waitTimeMinutes == null || waitTimeMinutes < 0
-      ? []
-      : [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }];
+    return isMeasuredWait(waitTimeMinutes)
+      ? [{ slug: c, labelIt: BORDER_CROSSING_DISPLAY[c], waitTimeMinutes }]
+      : [];
   });
   const heroState = hubHeroState(scopeWaits);
   // The fastest-card template only carries the markup: link text, href and
   // minutes are slots the hydration fills from the live table rows.
   const templateSlug = crossingsInScope[0] ?? BORDER_WAIT_CROSSINGS[0];
-  const heroTemplates: Record<string, string> = {
+  const heroTemplates: Record<HubHeroState, string> = {
     fastest: renderFastestCrossingCard(
       [{ slug: templateSlug, labelIt: BORDER_CROSSING_DISPLAY[templateSlug], waitTimeMinutes: 1 }],
       locale,

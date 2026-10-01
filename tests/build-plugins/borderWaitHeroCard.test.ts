@@ -1,6 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   hubHeroState,
+  isMeasuredWait,
   renderFastestCrossingCard,
   renderTrafficFluidBanner,
   renderTrafficFluidMeasuredBanner,
@@ -58,6 +59,15 @@ describe('hubHeroState', () => {
     expect(hubHeroState([-1])).toBe('unavailable');
     expect(hubHeroState([-1, null])).toBe('unavailable');
     expect(hubHeroState([-1, 0])).toBe('fluid-measured');
+  });
+
+  it('treats non-finite waits as unmeasured too', () => {
+    expect(hubHeroState([Number.NaN])).toBe('unavailable');
+    expect(hubHeroState([Number.POSITIVE_INFINITY])).toBe('unavailable');
+    expect(hubHeroState([Number.NaN, 3])).toBe('fastest');
+    expect(isMeasuredWait(Number.NaN)).toBe(false);
+    expect(isMeasuredWait(Number.POSITIVE_INFINITY)).toBe(false);
+    expect(isMeasuredWait(0)).toBe(true);
   });
 
   it('picks the four states from coverage and queues', () => {
