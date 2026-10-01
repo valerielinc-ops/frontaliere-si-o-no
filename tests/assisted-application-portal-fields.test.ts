@@ -35,6 +35,29 @@ describe('portal field extraction', () => {
     expect(page.fields.find((field: any) => field.name === 'nickname').label).toBe('nickname');
   });
 
+  // Giro di prova 2026-10-01 on JOIN: option cards are ARIA radios with no native input.
+  it('reads an ARIA radio group as one question with its options, and the chosen one', () => {
+    const card = (letter: string, title: string, text: string, checked = false) => `
+      <div><div role="radio" aria-checked="${checked}" tabindex="0"><div><p>${letter}</p></div>
+        <div><p>${title}</p><p>${text}</p></div></div></div>`;
+    const page = extract(`
+      <div><h2>Qual è il suo stato di autorizzazione al lavoro per Svizzera?</h2><div><div>
+        ${card('a', 'Posso lavorare qui senza alcuna restrizione', 'Ho la cittadinanza.')}
+        ${card('b', 'Posso lavorare qui, ma solo per un periodo limitato', 'Fino alla scadenza.', true)}
+        ${card('d', 'Non posso ancora lavorare qui', 'Serve un permesso.')}
+      </div></div></div>`);
+    expect(page.fields).toHaveLength(1);
+    const [field] = page.fields;
+    expect(field).toMatchObject({ kind: 'radio', label: 'Qual è il suo stato di autorizzazione al lavoro per Svizzera?' });
+    expect(field.options.map((option: any) => option.label)).toEqual([
+      'Posso lavorare qui senza alcuna restrizione — Ho la cittadinanza.',
+      'Posso lavorare qui, ma solo per un periodo limitato — Fino alla scadenza.',
+      'Non posso ancora lavorare qui — Serve un permesso.',
+    ]);
+    expect(field.value).toBe('Posso lavorare qui, ma solo per un periodo limitato — Fino alla scadenza.');
+    expect(field.options.every((option: any) => /^f\d+$/.test(option.aaId))).toBe(true);
+  });
+
   // Review of #10698.
   it('prefers a meaningful id to a generated name, skips hidden headings and never reads a label from inside a control', () => {
     expect(extract('<input name="input-7" id="email-address">').fields[0].label).toBe('email-address');

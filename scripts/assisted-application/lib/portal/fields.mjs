@@ -166,6 +166,37 @@ export function extractFieldsInPage() {
     fields.push(field);
   }
   for (const entry of radios.values()) fields.push(entry);
+  // ARIA radio groups without a native input (JOIN's option cards,
+  // <div role="radio" aria-checked>): one field per group, its question from
+  // the group's label or the heading before it, each option by its own text
+  // without the "a"/"b" badge. Giro di prova 2026-10-01 ("Qual è il suo stato
+  // di autorizzazione al lavoro per Svizzera?" read as no field at all).
+  const ariaGroups = new Map();
+  for (const element of document.querySelectorAll('[role="radio"]')) {
+    if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !visible(element)) continue;
+    let container = element.closest('[role="radiogroup"]');
+    for (let node = element.parentElement; !container && node && node !== document.body; node = node.parentElement) {
+      if (node.querySelectorAll('[role="radio"]').length > 1) container = node;
+    }
+    container ||= element.parentElement;
+    const words = [];
+    const walker = document.createTreeWalker(element, 4);
+    for (let text = walker.nextNode(); text && words.length < 2; text = walker.nextNode()) {
+      const value = clean(text.textContent);
+      if (value.length > 1) words.push(value);
+    }
+    const label = clean(element.getAttribute('aria-label') || textOf(element.getAttribute('aria-labelledby')) || words.join(' — '));
+    if (!label) continue;
+    let entry = ariaGroups.get(container);
+    if (!entry) {
+      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
+      entry = { id: idFor(container), kind: 'radio', name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      ariaGroups.set(container, entry);
+    }
+    entry.options.push({ value: label, label, aaId: idFor(element) });
+    if (element.getAttribute('aria-checked') === 'true') entry.value = label;
+  }
+  for (const entry of ariaGroups.values()) if (entry.options.length) fields.push(entry);
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
   // aria-driver): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {

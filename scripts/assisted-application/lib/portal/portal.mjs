@@ -425,7 +425,11 @@ export async function submitViaPortal(ctx) {
         snapshot = await extractFields(page);
         // A single-page form moves on after its own request (JOIN checks the
         // e-mail first): up to 10 s for the next page before calling it stuck.
-        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before);
+        // The address may change before the content does (JOIN's professionalLinks
+        // step was read with the previous page's fields): the same labels count as the same page.
+        const labelsBefore = after.fields.map((field) => field.label).join('|');
+        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
+          || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
         // Still the same page: the form refused a value. Two corrections, then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage > 2) return await handoff('portal_needs_candidate');
