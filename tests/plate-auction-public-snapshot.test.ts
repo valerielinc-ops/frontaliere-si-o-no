@@ -1,5 +1,10 @@
-import { describe, expect, it } from "vitest";
-import { getPublicPlateAuctionSnapshot } from "../functions/src/plateAuctions.js";
+import { beforeEach, describe, expect, it } from "vitest";
+import {
+  getCachedPublicPlateAuctionSnapshotBody,
+  getPublicPlateAuctionSnapshot,
+  PLATE_AUCTION_SNAPSHOT_CACHE_MS,
+  resetPublicPlateAuctionSnapshotCache,
+} from "../functions/src/plateAuctions.js";
 
 function makeDb({ auctions = [], sources = [], history = [] } = {}) {
   return {
@@ -97,5 +102,57 @@ describe("public plate-auction snapshot source gating", () => {
       rowCount: 0,
     });
     expect(snapshot.sources.ne).not.toHaveProperty("errorCode");
+  });
+});
+
+describe("public plate-auction snapshot cache", () => {
+  beforeEach(() => {
+    resetPublicPlateAuctionSnapshotCache();
+  });
+
+  // Counts builds: each one opens the current collection exactly once.
+  function countingDb(options: Parameters<typeof makeDb>[0] = {}) {
+    const db = makeDb(options);
+    const counter = { builds: 0, fail: false };
+    return {
+      counter,
+      db: {
+        collection(name: string) {
+          if (name === "plate_auctions_current") counter.builds += 1;
+          if (counter.fail) throw new Error("firestore unavailable");
+          return db.collection(name);
+        },
+      },
+    };
+  }
+
+  it("shares one build between concurrent requests and reuses it within the TTL", async () => {
+    const { db, counter } = countingDb({ auctions: [row()] });
+    let clock = 1_000;
+    const now = () => clock;
+    const bodies = await Promise.all(
+      Array.from({ length: 5 }, () => getCachedPublicPlateAuctionSnapshotBody({ db: db as never, now })),
+    );
+    expect(counter.builds).toBe(1);
+    expect(new Set(bodies).size).toBe(1);
+    expect(JSON.parse(bodies[0].toString("utf8")).auctions).toHaveLength(1);
+
+    clock += PLATE_AUCTION_SNAPSHOT_CACHE_MS - 1;
+    await getCachedPublicPlateAuctionSnapshotBody({ db: db as never, now });
+    expect(counter.builds).toBe(1);
+
+    clock += 1;
+    await getCachedPublicPlateAuctionSnapshotBody({ db: db as never, now });
+    expect(counter.builds).toBe(2);
+  });
+
+  it("does not cache a failed build", async () => {
+    const { db, counter } = countingDb({ auctions: [row()] });
+    counter.fail = true;
+    await expect(getCachedPublicPlateAuctionSnapshotBody({ db: db as never })).rejects.toThrow("firestore unavailable");
+    counter.fail = false;
+    const body = await getCachedPublicPlateAuctionSnapshotBody({ db: db as never });
+    expect(JSON.parse(body.toString("utf8")).auctions).toHaveLength(1);
+    expect(counter.builds).toBe(2);
   });
 });
