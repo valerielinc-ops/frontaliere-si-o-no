@@ -43,6 +43,34 @@
       "decidedAt": "2026-09-28T12:05:13Z",
       "ref": "#10153, #10212",
       "reason": "Cluster fantasma: review con body su una riga e `\\n` letterali, lette come una sola riga. tallyFindings ora normalizza i body malformati (reviewBodyLines), quindi il fingerprint non si forma piu'."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-funnel-accepts-any",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10707, #10400, #10156",
+      "reason": "Gia' coperto da AGENTS.md #6: parser e guard funnel-critical non accettano shape truthy/non-empty generiche, ma validano dominio, contesto, unknown/ambigui e vicino non-target."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-correctness-tratta-ogni",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10626, #10401, #10326",
+      "reason": "E' la stessa classe gia' coperta da AGENTS.md #6 e dalla regola registrata `fp:scripts-funnel-treats-every`: la shape non basta per classificare righe, componenti o risposte."
+    },
+    {
+      "key": "reviewer-finding/fp:github-github-github-github",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10596, #9970, #8862",
+      "reason": "Fingerprint catch-all basato sui path `.github`: gli esempi sono difetti eterogenei (heredoc shell, flag npm e contratto producer/consumer), quindi non sostengono una regola unica."
+    },
+    {
+      "key": "reviewer-finding/fp:scripts-scripts-scripts-scripts",
+      "outcome": "declined",
+      "decidedAt": "2026-10-01T11:46:17Z",
+      "ref": "#10479, #10393, #10105",
+      "reason": "Fingerprint catch-all creato dalla ripetizione di `scripts/`: gli esempi coprono thin-content/quarantine, prova snapshot e metadata stale, senza un pattern preventivo comune oltre le regole gia' presenti."
     }
   ]
 }
