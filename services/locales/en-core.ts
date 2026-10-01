@@ -924,6 +924,7 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.field.whyCompany': "Why this company",
  'jobBoard.assisted.submitError': 'We could not save the application. Try again.',
  'jobBoard.assisted.loadError': 'We could not read the order status. Try again.',
+ 'jobBoard.assisted.wrongAccount': "This order belongs to another account. Sign in with the account you used to pay, then open the link again.",
  'jobBoard.assisted.retry': 'Retry',
  'jobBoard.assisted.jobFallback': 'Selected listing',
   'jobBoard.claimCta': 'Are you the employer? Sponsor this listing',

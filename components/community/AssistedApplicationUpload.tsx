@@ -164,9 +164,12 @@ export default function AssistedApplicationUpload({
       }
       setStatus('pending');
       return false;
-    } catch {
+    } catch (error) {
       setStatus('error');
-      setError(t('jobBoard.assisted.loadError'));
+      // Signed in, but not with the account that paid: the rules refuse the
+      // read. Say so, instead of a read error the buyer cannot act on.
+      const denied = (error as { code?: string } | null)?.code === 'permission-denied';
+      setError(t(denied ? 'jobBoard.assisted.wrongAccount' : 'jobBoard.assisted.loadError'));
       return false;
     }
   }, [readOrder, t]);

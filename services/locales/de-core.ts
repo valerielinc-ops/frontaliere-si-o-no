@@ -927,6 +927,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.field.whyCompany': "Warum dieses Unternehmen",
  'jobBoard.assisted.submitError': 'Die Bewerbung konnte nicht gespeichert werden. Versuche es erneut.',
  'jobBoard.assisted.loadError': 'Der Bestellstatus konnte nicht gelesen werden. Versuche es erneut.',
+ 'jobBoard.assisted.wrongAccount': "Diese Bestellung gehört zu einem anderen Konto. Melde dich mit dem Konto an, mit dem du bezahlt hast, und öffne den Link erneut.",
  'jobBoard.assisted.retry': 'Erneut versuchen',
  'jobBoard.assisted.jobFallback': 'Ausgewählte Stelle',
   'jobBoard.claimCta': 'Sind Sie das Unternehmen? Dieses Inserat sponsern',

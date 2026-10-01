@@ -964,6 +964,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.review.field.whyCompany': "Perché questa azienda",
  'jobBoard.assisted.submitError': 'Non siamo riusciti a salvare la candidatura. Riprova.',
  'jobBoard.assisted.loadError': 'Non siamo riusciti a leggere lo stato dell’ordine. Riprova.',
+ 'jobBoard.assisted.wrongAccount': "Questo ordine è collegato a un altro account. Accedi con l’account che hai usato per il pagamento e riapri il link.",
  'jobBoard.assisted.retry': 'Riprova',
  'jobBoard.assisted.jobFallback': 'Annuncio selezionato',
   'jobBoard.claimCta': 'Sei l\'azienda? Rendi sponsorizzato questo annuncio',
