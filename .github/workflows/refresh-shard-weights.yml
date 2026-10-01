@@ -99,7 +99,7 @@ jobs:
           rm -rf .shard-timing && mkdir -p .shard-timing
           FOUND_RUN_ID=""
           SHARD_TIMING_CANDIDATE_COUNT="$(printf '%s\n' "$CANDIDATES" | awk 'NF { count++ } END { print count + 0 }')"
-          while IFS=$'\t' read -r CANDIDATE_ID CANDIDATE_CREATED_AT; do
+          while IFS=$'\t' read -r -u 9 CANDIDATE_ID CANDIDATE_CREATED_AT; do
             [ -n "$CANDIDATE_ID" ] || continue
             rm -rf .shard-timing && mkdir -p .shard-timing
             echo "Checking tests run $CANDIDATE_ID (created $CANDIDATE_CREATED_AT) for live shard timings"
@@ -130,7 +130,7 @@ jobs:
               break
             fi
             echo "::warning::Run $CANDIDATE_ID advertised shard timings but produced no JSON files — trying an older green run."
-          done <<< "$CANDIDATES"
+          done 9<<< "$CANDIDATES"
 
           if [ -z "$FOUND_RUN_ID" ]; then
             echo "::error::No live shard-timing-* artifacts found in $SHARD_TIMING_CANDIDATE_COUNT successful main tests runs (retention is 7d — run a fresh tests build first)."

@@ -16,7 +16,8 @@ describe('refresh vitest shard weights workflow', () => {
 
     expect(run).toContain('--limit 20 --json databaseId,createdAt');
     expect(run).not.toContain('--limit 1 --json databaseId');
-    expect(run).toContain('while IFS=$\'\\t\' read -r CANDIDATE_ID CANDIDATE_CREATED_AT');
+    expect(run).toContain('while IFS=$\'\\t\' read -r -u 9 CANDIDATE_ID CANDIDATE_CREATED_AT');
+    expect(run).toContain('done 9<<< "$CANDIDATES"');
     expect(run).toContain('actions/runs/${CANDIDATE_ID}/artifacts?per_page=100');
     expect(run).toContain('select(.expired == false and (.name | startswith("shard-timing-")))');
     expect(run).toContain('gh run download "$CANDIDATE_ID" -p \'shard-timing-*\' -D .shard-timing');
