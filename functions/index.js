@@ -125,7 +125,7 @@ import {
 } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
-import { getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
+import { acceptsGzip, getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
@@ -468,7 +468,9 @@ export const getTrafficCurrent = onRequest(
 // per instance (getCachedPublicPlateAuctionSnapshotBody): one build is ~22'700
 // billed Firestore reads. 1GiB like refreshPlateAuctions, which reads the same
 // collection: at 256MiB a build overran the limit (258-269 MiB measured
-// 2026-10-01) and every call in flight on the instance failed.
+// 2026-10-01) and every call in flight on the instance failed. Clients that
+// accept gzip get the copy compressed once per build: uncompressed, each
+// answer was ~16.5 MB of internet egress.
 export const getPlateAuctions = onRequest(
  {
  region: 'europe-west6',
@@ -482,9 +484,15 @@ export const getPlateAuctions = onRequest(
  return;
  }
  try {
- const body = await getCachedPublicPlateAuctionSnapshotBody();
+ const { body, gzip } = await getCachedPublicPlateAuctionSnapshotBody();
  res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
+ res.vary('Accept-Encoding');
+ if (acceptsGzip(req.get('accept-encoding'))) {
+ res.set('Content-Encoding', 'gzip');
+ res.type('application/json').status(200).send(gzip);
+ } else {
  res.type('application/json').status(200).send(body);
+ }
  } catch (error) {
  console.error('[getPlateAuctions]', error instanceof Error ? error.message : String(error));
  res.status(503).json({ schema: 1, auctions: [], sources: {}, error: 'plate_auction_snapshot_unavailable' });

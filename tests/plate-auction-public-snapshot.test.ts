@@ -1,5 +1,7 @@
+import { gunzipSync } from "node:zlib";
 import { beforeEach, describe, expect, it } from "vitest";
 import {
+  acceptsGzip,
   getCachedPublicPlateAuctionSnapshotBody,
   getPublicPlateAuctionSnapshot,
   PLATE_AUCTION_SNAPSHOT_CACHE_MS,
@@ -135,7 +137,7 @@ describe("public plate-auction snapshot cache", () => {
     );
     expect(counter.builds).toBe(1);
     expect(new Set(bodies).size).toBe(1);
-    expect(JSON.parse(bodies[0].toString("utf8")).auctions).toHaveLength(1);
+    expect(JSON.parse(bodies[0].body.toString("utf8")).auctions).toHaveLength(1);
 
     clock += PLATE_AUCTION_SNAPSHOT_CACHE_MS - 1;
     await getCachedPublicPlateAuctionSnapshotBody({ db: db as never, now });
@@ -151,8 +153,28 @@ describe("public plate-auction snapshot cache", () => {
     counter.fail = true;
     await expect(getCachedPublicPlateAuctionSnapshotBody({ db: db as never })).rejects.toThrow("firestore unavailable");
     counter.fail = false;
-    const body = await getCachedPublicPlateAuctionSnapshotBody({ db: db as never });
+    const { body } = await getCachedPublicPlateAuctionSnapshotBody({ db: db as never });
     expect(JSON.parse(body.toString("utf8")).auctions).toHaveLength(1);
     expect(counter.builds).toBe(2);
+  });
+
+  // Uncompressed, every answered call was ~16.5 MB of internet egress.
+  it("keeps a gzip copy that decodes to the same body and is much smaller", async () => {
+    const auctions = Array.from({ length: 200 }, (_, index) => row({ id: `zh-${index}`, plateNumber: String(index), normalizedPlate: `ZH${index}` }));
+    const { db } = countingDb({ auctions });
+    const { body, gzip } = await getCachedPublicPlateAuctionSnapshotBody({ db: db as never });
+    expect(gunzipSync(gzip).equals(body)).toBe(true);
+    expect(gzip.length * 5).toBeLessThan(body.length);
+  });
+});
+
+describe("acceptsGzip", () => {
+  it("accepts gzip only when the client names it with a non-zero quality", () => {
+    expect(acceptsGzip("gzip, deflate, br")).toBe(true);
+    expect(acceptsGzip("br;q=1.0, GZIP;q=0.5")).toBe(true);
+    expect(acceptsGzip("gzip;q=0")).toBe(false);
+    expect(acceptsGzip("deflate, br")).toBe(false);
+    expect(acceptsGzip("*")).toBe(false);
+    expect(acceptsGzip(undefined)).toBe(false);
   });
 });
