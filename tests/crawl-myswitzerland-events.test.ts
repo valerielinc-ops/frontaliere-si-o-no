@@ -134,6 +134,10 @@ describe('extractIndexedEventPrice', () => {
     ['Ingresso: 20 CHF', 20, 'CHF'],
     ['Price: CHF 20.', 20, 'CHF'],
     ['Prix: 12,50 €', 12.5, 'EUR'],
+    ['Price: CHF 10 for adults and children.', 10, 'CHF'],
+    ['Preis: CHF 10 für Erwachsene und Kinder.', 10, 'CHF'],
+    ['Prix: CHF 10 pour les adultes et les enfants.', 10, 'CHF'],
+    ['Prezzo: CHF 10 per adulti e bambini.', 10, 'CHF'],
   ])('recovers an explicit indexed monetary tariff without ancillary amounts: %s', (content, amount, currency) => {
     expect(extractIndexedEventPrice(content)).toEqual({ amount, currency, isFree: false });
   });
@@ -152,6 +156,17 @@ describe('extractIndexedEventPrice', () => {
     'Price: admission fee + CHF 7.–',
     'Price: CHF 10 + admission fee',
     'Price: CHF 10 for children under 12',
+    'Price: CHF 59.00 for adults',
+    'Price: CHF 59 adults only',
+    'Preis: CHF 59 für Erwachsene',
+    'Prix: CHF 59 pour adultes',
+    'Prezzo: CHF 59 per adulti',
+    'Price: CHF 59 for the adults',
+    'Preis: CHF 59 für die Erwachsenen',
+    'Prix: CHF 59 pour les adultes',
+    'Prezzo: CHF 59 per gli adulti',
+    'Price: CHF 10 for adults and children + admission fee',
+    'Price: CHF 10 for adults and children CHF 5',
     'Price: CHF 10 deposit; total price is available on request.',
     'Price: CHF 5 supplement to the admission ticket.',
     'Parking price: CHF 5.00. Entry tickets are available on request.',
