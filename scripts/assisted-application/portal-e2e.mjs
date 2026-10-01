@@ -118,6 +118,22 @@ function fakePortal() {
     if (route === 'GET /refused') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
     }
+    // Client validation and a JSON error with HTTP 200 were invisible to the old diagnostics.
+    if (route === 'GET /diagnostic-refused') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><input id="profile" type="url" aria-label="LinkedIn" hidden><div id="toast" role="status"></div><button onclick="submitTest()">Conferma e applica</button><script>
+        async function submitTest() {
+          document.getElementById('profile').value = 'invalid-url';
+          const result = await fetch('/diagnostic-error', {method:'POST'}).then(response => response.json());
+          console.error(result.errors[0].message + ' token=private-test-token');
+          setTimeout(() => { throw new Error('client_submit_validation'); }, 0);
+          document.getElementById('toast').textContent = 'Non siamo riusciti a inviare la tua candidatura. Riprova.';
+        }
+      </script>`));
+    }
+    if (route === 'POST /diagnostic-error') {
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end(JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] }));
+    }
     // The refusal shown on an error page the portal moves to (review of #10741).
     if (route === 'GET /refused-moved') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1>${form('/refused-moved', '<button type="submit">Conferma e applica</button>')}`));
@@ -298,6 +314,14 @@ async function main() {
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
       && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
       && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+    const diagnosticRefusal = await run({ applyUrl: `${base}/diagnostic-refused` });
+    const diagnostics = diagnosticRefusal.evidence.diagnostics;
+    check('a refused submit records console and uncaught browser errors privately', diagnosticRefusal.event.error === 'portal_refused'
+      && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
+      && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
+      && !JSON.stringify(diagnostics).includes('private-test-token'));
+    check('HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
+      && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
