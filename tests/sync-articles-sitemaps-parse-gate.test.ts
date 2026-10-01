@@ -128,10 +128,10 @@ describe('article corpus sync parser gate', () => {
     );
   });
 
-  it('defers delivery assertion until a refresh PR has merged', () => {
-    expect(stepNamed('Assert the pulled corpus actually reached main').if).toBe(
-      "github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'",
-    );
+  it('defers both delivery assertions until a refresh PR has merged', () => {
+    const expected = "github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'";
+    expect(stepNamed('Assert the pulled corpus actually reached main').if).toBe(expected);
+    expect(stepNamed('Assert the refresh snapshot was committed').if).toBe(expected);
   });
 
   it('replays every PR-skipped live surface from the merged main tree', () => {

@@ -100,6 +100,8 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('git ls-remote "$PUSH_URL" "refs/heads/$BRANCH"');
     expect(helper).toContain('refs/remotes/refresh/${BRANCH}');
     expect(helper).toContain('merge-open-data-refresh.mjs');
+    expect(helper.match(/node "\$MERGE_REFRESH_SCRIPT_DIR\/scripts\/ci\/merge-open-data-refresh\.mjs"/g)).toHaveLength(2);
+    expect(helper).not.toContain('node scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).toContain('push_attempt=$((push_attempt + 1))');
   });
 

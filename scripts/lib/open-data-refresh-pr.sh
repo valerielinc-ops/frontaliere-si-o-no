@@ -357,7 +357,7 @@ while :; do
       for refresh_path in "${PATHS[@]}"; do
         MERGE_ARGS+=(--path "$refresh_path")
       done
-      node scripts/ci/merge-open-data-refresh.mjs "${MERGE_ARGS[@]}"
+      node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
       stage_paths
       if git diff --cached --quiet; then
         echo "No new refresh changes after the concurrent stable-branch update."
