@@ -10,6 +10,7 @@ import {
   extractDateInfo,
   humanizeCategory,
   extractPrice,
+  extractIndexedEventPrice,
   extractDetailTableValue,
   extractAddress,
   extractDetailAddress,
@@ -103,6 +104,30 @@ describe('humanizeCategory', () => {
   it('returns undefined for missing/blank type', () => {
     expect(humanizeCategory(undefined)).toBeUndefined();
     expect(humanizeCategory('')).toBeUndefined();
+  });
+});
+
+describe('extractIndexedEventPrice', () => {
+  it.each([
+    'Una fiera di quattro secoli.Gratuito\n',
+    'A public exhibition. Free entrance\n',
+    'Schedules: 2:30-6pm,Prices : Free entrance\n',
+    'Eine Ausstellung. Eintritt frei.',
+    'Une exposition. Entrée libre\n',
+  ])('recovers a terminal admission tariff from indexed content: %s', (content) => {
+    expect(extractIndexedEventPrice(content)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it.each([
+    'Il parcheggio è gratuito.',
+    'Ingresso gratuito per bambini sotto i 12 anni.',
+    'Free drinks with your CHF 25 ticket.',
+    'Children under 12 have free entrance.',
+    "Children's prices: Free entrance.",
+    'Free entrance. Adult tickets CHF 20.',
+    'Un evento nato nel 1980 per bambini da 12 anni.',
+  ])('keeps ambiguous or qualified admission unknown: %s', (content) => {
+    expect(extractIndexedEventPrice(content)).toBeUndefined();
   });
 });
 
@@ -507,6 +532,16 @@ describe('mapEventRecord', () => {
       it: 'Un grande festival di musica dal vivo.',
       en: 'A great live music festival.',
     });
+  });
+
+  it('recovers an indexed admission tariff when the detail page is unavailable', () => {
+    const indexedHit = { ...hitIt, content: 'Una fiera di quattro secoli.Gratuito\n' };
+    expect(mapEventRecord('abc123', { it: indexedHit })?.event.price).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+    });
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailLd: { offers: { price: '25', priceCurrency: 'CHF' } },
+    })?.event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
   });
 
   it('enriches category/price/address/venue from detail-page JSON-LD when available', () => {

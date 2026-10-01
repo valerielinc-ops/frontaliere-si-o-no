@@ -379,6 +379,18 @@ export function extractPrice(ld, detailHtml, detailUrl) {
 }
 
 /**
+ * The public search index appends some admission tariffs to event content.
+ * Recover only an unqualified, standalone free-admission statement at the
+ * end: a free drink, child ticket, parking space or unrelated number elsewhere
+ * in the description is not evidence that admission is free.
+ */
+export function extractIndexedEventPrice(content) {
+  if (typeof content !== 'string') return undefined;
+  const freeTariff = /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:gratuit[oea]?|kostenlos|gratis|free(?:\s+(?:admission|entry|entrance))?|(?:admission|entry|entrance)\s+(?:is\s+)?free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|libre|gratuit[oea]?))\s*[.!]?\s*$/iu.test(content);
+  return freeTariff ? { amount: 0, currency: 'CHF', isFree: true } : undefined;
+}
+
+/**
  * {street, postalCode, locality, region} from JSON-LD `location.address`
  * (PostalAddress), or undefined. `locality`/`region` (issue #3739) surface
  * `addressLocality`/`addressRegion` so the caller can pass the region as a
@@ -602,7 +614,8 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice,
+      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice
+        || LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(Boolean),
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
