@@ -7,6 +7,7 @@ import {
   clampMetaDescription,
   TITLE_MAX_CHARS,
   META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
 } from '../../build-plugins/shared/titleSuffix';
 import { clampSiteSuffix } from '../../build-plugins/shared/seoContentTokens';
 import { buildProfessionLandingCopy } from '../../build-plugins/professionLandingsCopy';
@@ -71,6 +72,16 @@ import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyDat
  */
 function isTruncated(description: string): boolean {
   return clampMetaDescription(description).endsWith('…');
+}
+
+function assertClampKeepsSource(description: string, clamped: string): void {
+  const normalized = description.replace(/\s+/g, ' ').trim();
+  if (clamped === normalized) return;
+  // A short source description is now enriched additively for the crawler;
+  // it must remain the complete prefix while evergreen context fills the
+  // metadata budget. This is not destructive truncation.
+  expect(clamped.startsWith(`${normalized} `)).toBe(true);
+  expect(clamped.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
 }
 
 describe('isTruncated — host-ICU independence', () => {
@@ -243,7 +254,7 @@ describe('SERP snippet budgets — employer profile intro prose (#6417)', () => 
           expect(clamped.endsWith('…')).toBe(true);
           expect(clamped).not.toMatch(/\s…$/); // no dangling space before the ellipsis
         } else {
-          expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+          assertClampKeepsSource(description, clamped);
         }
 
         // A clamp that survives should still carry substance, not just the
@@ -279,7 +290,7 @@ describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }
@@ -331,7 +342,7 @@ describe('SERP snippet budgets — fuel station index pages (#6417 item 3)', () 
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }

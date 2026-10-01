@@ -26,7 +26,7 @@ describe('clampMetaDescription', () => {
   it('uses the explicit locale for short translated descriptions', () => {
     const out = clampMetaDescription('Privacy policy of Frontaliere Ticino', undefined, 'en');
     expect(out.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
-    expect(out).toContain('cross-border workers');
+    expect(out).toContain('Explore practical guides');
   });
 
   it('clamps over-budget descriptions to ≤160 char (word-aware, with …)', () => {
