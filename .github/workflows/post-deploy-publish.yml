@@ -295,6 +295,24 @@ jobs:
             echo "[jobs-master] artifact not present — indexing API job submit will skip"
           fi
 
+      # validate-live may have passed for this source before a newer Pages
+      # deploy acquired the upload lock and became live. Re-read the marker
+      # immediately before the first irreversible side-effect step. This must
+      # be an exact match: the propagation gate's "newer is acceptable" rule is
+      # correct for readiness, but a newer live build makes this publisher
+      # stale. Missing/malformed data fails closed and keeps every side-effect
+      # step below under its implicit success() gate.
+      - name: Verify live build identity before post-deploy side effects
+        env:
+          EXPECTED_BUILD_ID_FILE: /tmp/sitemaps-bundle/build-id.txt
+          LIVE_BUILD_ID_URL: https://frontaliereticino.ch/build-id.txt
+          SOURCE_DEPLOY_REF: ${{ env.EFFECTIVE_DEPLOY_REF }}
+        run: |
+          node scripts/ci/verify-live-build-identity.mjs \
+            --expected-file="$EXPECTED_BUILD_ID_FILE" \
+            --live-url="$LIVE_BUILD_ID_URL" \
+            --source-ref="$SOURCE_DEPLOY_REF"
+
       - name: Sync previous-slug winners registry
         # The build in deploy.yml may update data/previous-slug-winners.json.
         # The updated file is downloaded from the winners artifact above.

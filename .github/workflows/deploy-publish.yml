@@ -487,7 +487,10 @@ jobs:
     # Keep irreversible post-deploy side-effects serialized, but do not let
     # their validator wait hold the Pages upload lock. Since tails can now
     # complete out of order, deploy-registry.mjs also refuses to move
-    # last_known_good backwards.
+    # last_known_good backwards. The reusable publisher re-checks the exact
+    # live build-id immediately before these side-effects, so a tail that is
+    # stale by the time it acquires this lock exits before announcing URLs or
+    # syncing previous-slug state.
     concurrency:
       group: >-
         ${{ github.event.workflow_run.conclusion == 'success' &&
