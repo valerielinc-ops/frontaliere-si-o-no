@@ -7385,6 +7385,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.occhiali-meta-sunrise.title': 'Sunrise brings Meta smart glasses to Switzerland',
     'blog.article.occhiali-meta-sunrise.excerpt': 'Sunrise offers Meta smart glasses in Switzerland: prices from 269 to 559 francs and tests in Sunrise Shops in the coming weeks.',
     'blog.article.occhiali-meta-sunrise.imageAlt': 'Meta smart glasses displayed in a Swiss Sunrise shop',
+    'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifies electric mobility in Joya',
+    'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Since October 1, Joya has brought together four activities: over 25,000 charging points, more than 150,000 active users and a plan of around 150 million by 2030.',
+    'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Public electric-car charging station in a Swiss city',
 };
 
 export default blogMetaChEn;
