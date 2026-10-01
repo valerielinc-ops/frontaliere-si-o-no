@@ -51,7 +51,7 @@
     ['linkedin', /\blinkedin\b/],
   ];
   // A place, not a date: «Luogo di nascita», «Geburtsort».
-  const PLACE_RE = /(luogo|geburtsort|lieu de|place of)/;
+  const PLACE_RE = /(luogo|geburtsort|lieu de|place of|birthplace)/;
   const NOT_PERSON_RE = /\b(azienda|company|firma|unternehmen|entreprise|utente|user|benutzer|referenz|reference|riferimento)/;
   const CONSENT_RE = /\b(privacy|datenschutz|informativa|termini|terms|condizioni|agb|conditions|consenso|consent|einwillig|accetto|akzeptiere|accept|j accepte)\b/;
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
@@ -71,7 +71,7 @@
     const parts = [];
     const walker = element.ownerDocument.createTreeWalker(element, 4);
     for (let node = walker.nextNode(); node; node = walker.nextNode()) {
-      if (!node.parentElement?.closest('script, style, svg, [aria-hidden="true"]')) parts.push(node.textContent);
+      if (!node.parentElement?.closest('script, style, svg, [aria-hidden="true"], select, textarea')) parts.push(node.textContent);
     }
     return parts.join(' ').replace(/\s+/g, ' ').trim();
   }
@@ -133,13 +133,79 @@
     }
     const wrapping = element.closest('label');
     if (wrapping && textOf(wrapping)) return textOf(wrapping);
-    if (element.getAttribute('aria-label')) return element.getAttribute('aria-label');
+    // Lever names its custom questions for itself («[Default] Comment»):
+    // the question the candidate reads, right before the field, comes first.
+    const aria = element.getAttribute('aria-label') || '';
+    if (aria && !INTERNAL_NAME_RE.test(aria)) return aria;
+    if (aria) {
+      const nearby = nearbyText(element);
+      if (nearby) return nearby;
+    }
     // A field group (Zag/Ark, fieldset): its own label or legend.
     const group = element.closest('[role="group"], fieldset');
     const legend = group?.querySelector('label, legend');
     if (legend && !legend.contains(element) && textOf(legend)) return textOf(legend);
-    return questionOf(element) || element.getAttribute('placeholder') || element.getAttribute('name') || '';
+    return questionOf(element) || element.getAttribute('placeholder') || aria || element.getAttribute('name') || '';
   }
+
+  // «[Default] Comment», «[General] Salary Expectations»: a form's own name for a field.
+  const INTERNAL_NAME_RE = /^\[[^\]]*\]/;
+
+  /**
+   * The text right before the control's box (Lever: `.application-label`
+   * before `.application-field`), up to three levels up, stopping at
+   * another control.
+   */
+  function nearbyText(element) {
+    for (let node = element, depth = 0; node && depth < 3; node = node.parentElement, depth += 1) {
+      for (let sibling = node.previousElementSibling; sibling; sibling = sibling.previousElementSibling) {
+        if (sibling.matches('input, select, textarea, button') || sibling.querySelector('input, select, textarea, button')) break;
+        const text = textOf(sibling);
+        if (text) return text;
+      }
+    }
+    return '';
+  }
+
+  /** «candidate.firstName», «first_name», «applicant[phone]» → words. */
+  function humanize(value) {
+    return String(value || '').replace(/([a-z])([A-Z])/g, '$1 $2').replace(/[\W_]+/g, ' ').trim();
+  }
+
+  /**
+   * Every name the control goes by, the runner's own first (runner-fields.js:
+   * the portal runner's field reading, so its recorded questions match on any
+   * portal), then this page's: label, the text before the box, aria, the
+   * description, the section heading, title, placeholder, name and id in words.
+   */
+  function labelsOf(element, label, runnerLabel = '') {
+    const doc = element.ownerDocument;
+    const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).map((id) => textOf(doc.getElementById(id))).join(' ');
+    const names = [runnerLabel, label, nearbyText(element), element.getAttribute('aria-label'), described, questionOf(element),
+      element.getAttribute('title'), element.getAttribute('placeholder'), humanize(element.getAttribute('name')), humanize(element.id)];
+    return [...new Set(names.map((name) => String(name || '').trim()).filter(Boolean))];
+  }
+
+  /**
+   * The runner's names for this page's controls, by the `data-aa-id` its
+   * reading puts on each (radio options carry their own). Empty without
+   * runner-fields.js or when the reading fails: the page's own names remain.
+   */
+  function runnerLabels() {
+    const read = root.CompilaRunnerFields;
+    const byId = new Map();
+    if (typeof read !== 'function') return byId;
+    try {
+      for (const field of read().fields || []) {
+        if (field.id) byId.set(field.id, field.label || '');
+        for (const option of field.options || []) if (option.aaId) byId.set(option.aaId, field.label || '');
+      }
+    } catch {
+      // A page the runner's reading does not understand: the engine's own names only.
+    }
+    return byId;
+  }
+  const runnerLabelOf = (runner, element) => runner.get(element.getAttribute('data-aa-id')) || '';
 
   /** The heading a control sits under (JOIN asks one question per step, in an h2). */
   function questionOf(element) {
@@ -160,6 +226,7 @@
    */
   function collect(doc) {
     const entries = [];
+    const runner = runnerLabels();
     const inPicker = (element) => element.closest('[data-scope="date-picker"]');
     for (const picker of doc.querySelectorAll('[data-scope="date-picker"][data-part="root"]')) {
       if (isShown(picker)) entries.push({ kind: 'date', element: picker, label: questionOf(picker) || labelOf(picker), required: true });
@@ -182,10 +249,21 @@
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
-      entries.push({ kind, element, label: labelOf(element), required, type });
+      const label = labelOf(element);
+      entries.push({ kind, element, label, labels: labelsOf(element, label, runnerLabelOf(runner, element)), required, type });
     }
     for (const radios of radiosByName.values()) {
-      entries.push({ kind: 'radio', element: radios[0], options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })), label: questionOf(radios[0]), required: radios.some((radio) => radio.required) });
+      const question = questionOf(radios[0]);
+      const group = radios[0].closest('fieldset, [role="radiogroup"], [role="group"]');
+      const legend = group ? textOf(group.querySelector('legend, [role="heading"], label')) : '';
+      entries.push({
+        kind: 'radio',
+        element: radios[0],
+        options: radios.map((radio) => ({ element: radio, label: labelOf(radio) })),
+        label: legend || question,
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), legend, nearbyText(group || radios[0].parentElement || radios[0]), question].filter(Boolean))],
+        required: radios.some((radio) => radio.required),
+      });
     }
     // ARIA radios (div role="radio"), grouped under the question they answer.
     const ariaGroups = new Map();
@@ -198,11 +276,13 @@
     }
     for (const radios of ariaGroups.values()) {
       const group = radios[0].closest('[role="radiogroup"]');
+      const ariaLabel = (group && group.getAttribute('aria-label')) || questionOf(radios[0]);
       entries.push({
         kind: 'aria-radio',
         element: radios[0],
         options: radios.map((radio) => ({ element: radio, label: textOf(radio) })),
-        label: (group && group.getAttribute('aria-label')) || questionOf(radios[0]),
+        label: ariaLabel,
+        labels: [...new Set([runnerLabelOf(runner, radios[0]), ariaLabel, questionOf(radios[0]), nearbyText(group || radios[0].parentElement || radios[0])].filter(Boolean))],
         required: true,
       });
     }
@@ -232,30 +312,45 @@
 
   // ---- What to answer ---------------------------------------------------------
 
-  /** The kit answer whose question is this label (the runner's own wording first). */
-  function kitAnswer(label, kit) {
-    const wanted = normalize(label);
-    if (!wanted) return null;
+  /**
+   * The kit answer whose question is one of the control's names (the
+   * runner's own wording first): an exact match on any name, then a prefix.
+   */
+  function kitAnswer(labels, kit) {
+    const wanted = (Array.isArray(labels) ? labels : [labels]).map(normalize).filter(Boolean);
+    if (!wanted.length) return null;
     const answers = kit.answers || [];
-    const exact = answers.find((item) => normalize(item.question) === wanted);
+    const exact = answers.find((item) => wanted.includes(normalize(item.question)));
     if (exact) return exact;
     // «Carica il tuo CV · Carica file»: the runner joins a heading and a label.
     return answers.find((item) => {
       const question = normalize(item.question);
-      return question.length >= 6 && wanted.length >= 6 && (question.startsWith(wanted) || wanted.startsWith(question) || question.includes(` ${wanted}`));
+      return question.length >= 6 && wanted.some((name) => name.length >= 6 && (question.startsWith(name) || name.startsWith(question) || question.includes(` ${name}`)));
     }) || null;
   }
 
+  // HTML autocomplete tokens (the last token: «section-x shipping postal-code»).
+  const AUTOCOMPLETE = {
+    email: 'email', tel: 'phone', 'tel-national': 'phone', name: 'fullName', 'given-name': 'firstName', 'family-name': 'lastName',
+    'postal-code': 'postalCode', 'address-level2': 'city', 'street-address': 'street', 'address-line1': 'street',
+    country: 'country', 'country-name': 'country', bday: 'birthDate',
+  };
+
   function familyOf(entry) {
-    const label = normalize(entry.label);
-    if (entry.type === 'email' || entry.element.getAttribute('autocomplete') === 'email') return 'email';
-    if (entry.type === 'tel' || entry.element.getAttribute('autocomplete') === 'tel') return 'phone';
-    const auto = entry.element.getAttribute('autocomplete') || '';
-    if (auto === 'given-name') return 'firstName';
-    if (auto === 'family-name') return 'lastName';
-    if (NOT_PERSON_RE.test(label)) return null;
-    const family = FAMILIES.find(([, pattern]) => pattern.test(label))?.[0] || null;
-    return family === 'birthDate' && PLACE_RE.test(label) ? null : family;
+    if (entry.type === 'email') return 'email';
+    if (entry.type === 'tel') return 'phone';
+    const auto = String(entry.element.getAttribute('autocomplete') || '').trim().split(/\s+/).pop();
+    if (AUTOCOMPLETE[auto]) return AUTOCOMPLETE[auto];
+    // The strongest name decides; a sign that it is no personal field («Name
+    // des Unternehmens», «Luogo di nascita») is never overruled by a weaker one.
+    for (const name of entry.labels || [entry.label]) {
+      const label = normalize(name);
+      if (!label) continue;
+      if (NOT_PERSON_RE.test(label) || PLACE_RE.test(label)) return null;
+      const family = FAMILIES.find(([, pattern]) => pattern.test(label))?.[0] || null;
+      if (family) return family;
+    }
+    return null;
   }
 
   function identityValue(family, kit) {
@@ -280,7 +375,7 @@
 
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
-    const fromKit = kitAnswer(entry.label, kit);
+    const fromKit = kitAnswer(entry.labels || [entry.label], kit);
     if (entry.kind === 'file') {
       const label = normalize(`${entry.label} ${fromKit?.question || ''}`);
       const accept = String(entry.element.getAttribute('accept') || '');

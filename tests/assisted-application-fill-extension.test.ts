@@ -1,3 +1,4 @@
+import { spawnSync } from 'node:child_process';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -9,6 +10,7 @@ import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
 const fillerSource = readFileSync(resolve(extension, 'filler.js'), 'utf8');
+const runnerFieldsSource = readFileSync(resolve(extension, 'runner-fields.js'), 'utf8');
 
 /** The page engine loaded into a page, as the extension injects it. */
 function page(html: string, url = 'https://join.com/companies/acme/1/apply/step') {
@@ -189,7 +191,111 @@ describe('fill extension: JOIN steps', () => {
   });
 });
 
+// Owner request 2026-10-01: generic, not per site. The extension reads the
+// fields with the runner's own reading (runner-fields.js, generated from
+// lib/portal/fields.mjs), so the questions the runner recorded match on any portal.
+describe('fill extension: the runner’s reading on any portal', () => {
+  it('ships the runner’s field reading as generated from fields.mjs', () => {
+    // Plain Node renders it: a test bundler may print the function differently.
+    const check = spawnSync(process.execPath, [resolve(extension, 'build-runner-fields.mjs'), '--check'], { encoding: 'utf8' });
+    expect(`${check.status} ${check.stdout}${check.stderr}`.trim()).toBe('0 runner-fields.js up to date');
+  });
+
+  /** A page with the runner's reading and the engine, every element laid out as in a browser. */
+  function runnerPage(html: string, url: string) {
+    const dom = new JSDOM(`<!doctype html><html><body>${html}</body></html>`, { url, runScripts: 'outside-only' });
+    dom.window.Element.prototype.getBoundingClientRect = function rect() {
+      return { width: 20, height: 20, top: 0, left: 0, right: 20, bottom: 20, x: 0, y: 0, toJSON: () => ({}) } as DOMRect;
+    };
+    (dom.window as any).CSS = { escape: (value: string) => String(value).replace(/["\\\]]/g, (match) => `\\${match}`) };
+    dom.window.eval(runnerFieldsSource);
+    dom.window.eval(fillerSource);
+    return { window: dom.window, document: dom.window.document, F: (dom.window as any).CompilaCandidatura, read: (dom.window as any).CompilaRunnerFields };
+  }
+
+  const portals: Array<[string, string, string]> = [
+    ['Greenhouse', 'https://boards.greenhouse.io/acme/jobs/1', `<form>
+      <div class="field"><label for="first_name">First Name <span class="asterisk">*</span></label><input id="first_name" name="job_application[first_name]" type="text" aria-required="true"></div>
+      <div class="field"><label for="last_name">Last Name <span class="asterisk">*</span></label><input id="last_name" name="job_application[last_name]" type="text" aria-required="true"></div>
+      <div class="field"><label>Are you legally authorized to work in Switzerland? *
+        <select id="q_permit" name="job_application[answers_attributes][0][boolean_value]"><option value="">--</option><option value="1">Yes</option><option value="0">No</option></select></label></div>
+      <div class="field"><label for="q_notice">What is your notice period? *</label><textarea id="q_notice" name="job_application[answers_attributes][1][text_value]"></textarea></div>
+      <input type="submit" value="Submit Application"></form>`],
+    ['Workday', 'https://acme.wd3.myworkdayjobs.com/en-US/careers/job/1/apply', `<div data-automation-id="applyFlowPage">
+      <div data-automation-id="formField-legalNameSection_firstName"><label id="lbl-fn" for="input-fn">Given Name(s)<abbr title="required">*</abbr></label><input id="input-fn" data-automation-id="legalNameSection_firstName" aria-required="true"></div>
+      <div data-automation-id="formField-legalNameSection_lastName"><label id="lbl-ln" for="input-ln">Family Name<abbr title="required">*</abbr></label><input id="input-ln" data-automation-id="legalNameSection_lastName" aria-required="true"></div>
+      <div><span id="q-salary">Desired salary (CHF per year)</span><input id="input-salary" aria-labelledby="q-salary"></div>
+      <button data-automation-id="bottom-navigation-next-button">Save and Continue</button></div>`],
+    ['Personio', 'https://acme.jobs.personio.de/job/1', `<form>
+      <div><span>Gehaltsvorstellung*</span><div><input name="salary_expectations" type="text"></div></div>
+      <fieldset><legend>Haben Sie einen Führerschein?*</legend>
+        <label><input type="radio" name="driving" value="ja"> Ja</label><label><input type="radio" name="driving" value="nein"> Nein</label></fieldset>
+      <button type="submit">Bewerbung absenden</button></form>`],
+    ['Lever', 'https://jobs.lever.co/acme/1/apply', `<form><ul>
+      <li class="application-question custom-question"><div class="application-label full-width text">Please, add a brief comment on your experience and qualifications<span class="required">✱</span></div>
+        <div class="application-field full-width"><textarea name="cards[a][field0]" aria-label="[Default] Comment" required></textarea></div></li>
+      <li class="application-question custom-question"><label><div class="application-label full-width">Expected pay rate per session<span class="required">✱</span></div>
+        <div class="application-field full-width"><select name="cards[b][field0]" aria-label="[General] Salary" required><option value="">Select...</option><option value="CHF 50">CHF 50</option><option value="CHF 80">CHF 80</option></select></div></label></li>
+      </ul><button type="button">Submit application</button></form>`],
+  ];
+
+  for (const [portal, url, html] of portals) {
+    it(`answers every field the runner answered, on a ${portal}-style form`, async () => {
+      const { F, document, read } = runnerPage(html, url);
+      const runnerFields = read().fields.filter((field: any) => field.kind !== 'file');
+      expect(runnerFields.length).toBeGreaterThan(1);
+      // The runner's pass: an answer per field, recorded under the runner's label.
+      const sample = (field: any) => {
+        const options = (field.options || []).map((option: any) => option.label).filter((label: string) => label && !/^(--|select)/i.test(label));
+        return options.length ? options[options.length - 1] : `Antwort ${field.id}`;
+      };
+      const answers = runnerFields.map((field: any) => ({ question: field.label, answer: sample(field), source: 'answers' }));
+      const portalKit = { ...kit, identity: { ...kit.identity, firstName: '', lastName: '', fullName: '' }, answers };
+      await F.fillPage(document, portalKit, { getFile: async () => null, attempts: new WeakMap() });
+      for (const field of runnerFields) {
+        const wanted = sample(field);
+        const element = document.querySelector(`[data-aa-id="${field.id}"]`) as HTMLInputElement;
+        const value = field.kind === 'radio'
+          ? (document.querySelector(`input[name="${element.name}"]:checked`) as HTMLInputElement | null)?.value
+          : element.tagName === 'SELECT' ? (element as unknown as HTMLSelectElement).selectedOptions[0]?.text : element.value;
+        expect({ field: field.label, value }).toEqual({ field: field.label, value: field.kind === 'radio' ? wanted.toLowerCase() : wanted });
+      }
+    });
+  }
+});
+
 describe('fill extension: other portals', () => {
+  // TSMG on Lever (ordine reale 2026-10-01): custom questions carry Lever's own names
+  // («[Default] Comment»), the runner records the question the candidate reads.
+  it('answers Lever’s custom questions by the visible question, not Lever’s internal names', async () => {
+    const { F, document } = page(`<form><ul>
+      <li class="application-question"><label><div class="application-label">Full name<span class="required">✱</span></div>
+        <div class="application-field"><input type="text" name="name" id="name" required></div></label></li>
+      <li class="application-question custom-question"><div class="application-label full-width text">Please, add a brief comment on your experience and qualifications<span class="required">✱</span></div>
+        <div class="application-field full-width"><textarea id="comment" name="cards[a][field0]" aria-label="[Default] Comment" required></textarea></div></li>
+      <li class="application-question custom-question"><label><div class="application-label full-width">By clicking 'I agree,' you are confirming that you have read the Privacy Policy<span class="required">✱</span></div>
+        <div class="application-field full-width"><select id="consent" name="cards[b][field0]" aria-label="[Default] Data Processing Consent" required><option value="">Select...</option><option value="I agree">I agree</option></select></div></label></li>
+      <li class="application-question custom-question"><label><div class="application-label full-width">I would like to receive information about TSMG Academy<span class="required">✱</span></div>
+        <div class="application-field full-width"><select id="academy" name="cards[c][field0]" aria-label="[Default] TSMG Academy" required><option value="">Select...</option><option value="Yes">Yes</option><option value="No">No</option></select></div></label></li>
+      </ul><button type="button" id="btn-submit">Submit application</button></form>`, 'https://jobs.lever.co/tsmg/1/apply');
+    const leverKit = { ...kit, answers: [
+      { question: 'Full name✱', answer: 'Luigi Prova', source: 'identity' },
+      { question: 'Please, add a brief comment on your experience and qualifications✱', answer: 'Madrelingua italiana, disponibile per la sessione.', source: 'answers' },
+      { question: "By clicking 'I agree,' you are confirming that you have read the Privacy Policy", answer: 'I agree', source: 'consent' },
+      { question: 'I would like to receive information about TSMG Academy', answer: 'No', source: 'rule' },
+    ] };
+    const comment = F.collect(document).find((entry: any) => entry.element.id === 'comment');
+    expect(comment.label).toMatch(/^Please, add a brief comment on your experience and qualifications/);
+    // A label wrapped around a select is its question, never its options.
+    expect(F.collect(document).find((entry: any) => entry.element.id === 'academy').label).toMatch(/^I would like to receive information about TSMG Academy ?✱?$/);
+    const result = await F.fillPage(document, leverKit, { getFile: async () => null, attempts: new WeakMap() });
+    const value = (id: string) => (document.getElementById(id) as HTMLInputElement).value;
+    expect(['name', 'comment', 'consent', 'academy'].map(value)).toEqual(['Luigi Prova', 'Madrelingua italiana, disponibile per la sessione.', 'I agree', 'No']);
+    expect(result.missing).toEqual([]);
+    expect(F.textOf(F.pageState(document, { sawForm: true }).final)).toBe('Submit application');
+  });
+
+
   it('accepts the required terms, never a newsletter, and attaches the CV, never to an avatar', async () => {
     const { F, document } = page(`<form>
       <label><input type="checkbox" id="privacy" required> Ich akzeptiere die Datenschutzerklärung *</label>
