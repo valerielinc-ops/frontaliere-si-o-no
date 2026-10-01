@@ -1210,7 +1210,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
   });
 });
 
-describe('real-corpus invariant: every manifest crawler in exactly one committed crawler-group-*.yml', () => {
+describe('real-corpus invariant: every active manifest crawler in exactly one committed crawler-group-*.yml', () => {
   // Guards the COMMITTED OUTPUT, not just packGroups() in isolation (which
   // the tests above already cover with synthetic data). generate() throws if
   // its own in-memory packGroups() result mismatches its input crawlers, but
@@ -1222,12 +1222,16 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
   // entries, not against the full committed corpus). Extracts each group's
   // background-step crawler slugs the same way the generator names them
   // (`id: crawler-<slug>`) and diffs the union against
-  // data/crawler-manifest.json's slugs.
-  it('data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
+  // the active slugs in data/crawler-manifest.json. Retired crawlers remain in
+  // the manifest for route/data continuity, but the generator deliberately
+  // removes them from the scheduled corpus (data/crawler-quarantine.json).
+  it('active data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
     const REPO_ROOT = path.resolve(import.meta.dirname, '..');
     const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
     const { manifest } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-manifest.json'), 'utf8'));
-    const manifestSlugs = manifest.map((c) => c.slug);
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const manifestSlugs = manifest.map((c) => c.slug).filter((slug) => !retiredSlugs.has(slug));
 
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
     expect(files.length).toBeGreaterThan(0);
@@ -1255,7 +1259,10 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
 
     const manifestSlugSet = new Set(manifestSlugs);
     const extraneous = [...occurrences.keys()].filter((slug) => !manifestSlugSet.has(slug));
-    expect(extraneous, `crawlers in group workflows but absent from data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+    expect(extraneous, `crawlers in group workflows but absent from active data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+
+    const retiredScheduled = [...occurrences.keys()].filter((slug) => retiredSlugs.has(slug));
+    expect(retiredScheduled, `retired crawlers must not be scheduled: ${retiredScheduled.join(', ')}`).toEqual([]);
   });
 });
 
@@ -1623,7 +1630,9 @@ describe('cross-repo crawler execution artifacts', () => {
     const { contract } = generateArtifacts();
     const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
     const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'));
-    const currentCrawlerCount = manifest.manifest.length;
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const currentCrawlerCount = manifest.manifest.filter((crawler: any) => !retiredSlugs.has(crawler.slug)).length;
 
     expect(groups).toHaveLength(GROUP_COUNT);
     expect(contract.crawlerCount).toBe(currentCrawlerCount);
