@@ -4,9 +4,11 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   AGENT_SCHEMA,
+  advanceName,
   agentSystemPrompt,
   agentUserText,
   compactSnapshot,
+  completeWithAgent,
   guardAgentStep,
   refusal,
 } from '../scripts/assisted-application/lib/portal/agent.mjs';
@@ -34,6 +36,43 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const run = guardAgentStep(turn('act', [act({ ref: 'e238', question: 'Quando sei nato?', answer: '1990-05-12', source: 'answers' })]), answered);
     expect(run).toMatchObject({ status: 'act', questions: [] });
     expect(run.actions).toHaveLength(1);
+  });
+
+  // Review of #10707: calling the answer a widget move must not get past the guard.
+  it('runs a widget move on a sensitive question only when the page grounded it in the candidate data', () => {
+    const empty = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const sneaky = guardAgentStep(turn('act', [act({ ref: 'e1', question: 'Geburtsdatum', answer: '', value: '', source: 'widget' })]), empty);
+    expect(sneaky).toMatchObject({ status: 'needs_candidate', actions: [] });
+
+    // Grounded in an earlier turn of the same page: the day click on the next snapshot runs.
+    const known = { answers: {}, profile: { dateOfBirth: '1990-05-12' }, portalQuestionsAnswered: [] };
+    const grounded = new Set<string>();
+    guardAgentStep(turn('act', [act({ ref: 'e45', action: 'select', value: '1990', question: 'Geburtsdatum', answer: '1990-05-12', source: 'profile' })]), known, grounded);
+    const day = guardAgentStep(turn('act', [act({ ref: 'e238', question: 'Geburtsdatum', source: 'widget' })]), known, grounded);
+    expect(day).toMatchObject({ status: 'act', questions: [] });
+    expect(day.actions).toHaveLength(1);
+  });
+
+  it('presses an unusual step button only when its name says next step', () => {
+    expect(advanceName('Salva e prosegui')).toBe(true);
+    expect(advanceName('Vai al passo successivo')).toBe(true);
+    expect(advanceName('Nächste Seite')).toBe(true);
+    // Review of #10707: a Cancel, a Back, a sign-in or a final action never.
+    for (const name of ['Cancel', 'Indietro', 'Zurück', 'Accedi e continua', 'Invia e continua', 'Weiter zur Bewerbung absenden', 'OK', '']) {
+      expect(advanceName(name)).toBe(false);
+    }
+  });
+
+  it('ends the fallback, not the run, when Codex fails', async () => {
+    const page = {
+      url: () => 'https://jobs.example/apply',
+      title: async () => 'Apply',
+      ariaSnapshot: async () => '- button "Choose 12 May 1990" [ref=e1]',
+      waitForTimeout: async () => {},
+    };
+    const result = await completeWithAgent({ page, hint: 'next_disabled', candidate: null, candidateLocale: 'it', codex: async () => { throw new Error('timeout'); } });
+    expect(result).toMatchObject({ status: 'stuck', calls: 1 });
+    expect(result.reason).toContain('timeout');
   });
 
   it('never asks again what the candidate answered, even in other words', () => {
@@ -94,6 +133,8 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
     const snapshot = ['- link "Home" [ref=e2]:', '  - /url: https://x', '  - img [ref=e3]', '- img "Logo" [ref=e4]', '- button "OK" [ref=e5]'].join('\n');
     expect(compactSnapshot(snapshot)).toBe(['- link "Home" [ref=e2]:', '- img "Logo" [ref=e4]', '- button "OK" [ref=e5]'].join('\n'));
     expect(compactSnapshot('x'.repeat(50), 10)).toBe(`${'x'.repeat(10)}\n… (snapshot truncated)`);
+    // Cut at a line end: never an element without its ref.
+    expect(compactSnapshot('- button "A" [ref=e1]\n- button "B" [ref=e2]', 30)).toBe('- button "A" [ref=e1]\n… (snapshot truncated)');
   });
 
   it('tells generated names from questions', () => {

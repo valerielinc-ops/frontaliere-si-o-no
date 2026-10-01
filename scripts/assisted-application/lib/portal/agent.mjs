@@ -110,7 +110,10 @@ export async function aiSnapshot(page) {
 export function compactSnapshot(text, limit = SNAPSHOT_CHARS) {
   const lines = String(text).split('\n').filter((line) => !/^\s*- \/url:/.test(line) && !/^\s*- img(?: \[ref=[^\]]+\])?:?$/.test(line));
   const compact = lines.join('\n');
-  return compact.length > limit ? `${compact.slice(0, limit)}\n… (snapshot truncated)` : compact;
+  if (compact.length <= limit) return compact;
+  // Cut at a line end: a half line could name an element without its ref.
+  const cut = compact.lastIndexOf('\n', limit);
+  return `${compact.slice(0, cut > 0 ? cut : limit)}\n… (snapshot truncated)`;
 }
 
 export function agentUserText({ url, title, snapshot, candidate, hint, errors = [], history = [] }) {
@@ -136,8 +139,12 @@ const topicOf = (text) => TOPICS.findIndex((pattern) => pattern.test(text));
  * answer to a sensitive question must be in the candidate's answers or
  * profile, else the question goes to the candidate; a question the candidate
  * already answered is never asked again.
+ * A move inside a widget ("widget": open the year list, click the day) on a
+ * sensitive question runs only when an action of this page grounded that
+ * question in the candidate's data (`grounded` carries it across turns):
+ * calling the answer itself a widget move answers nothing (review of #10707).
  */
-export function guardAgentStep(raw, candidate = null) {
+export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
   const knownValues = knownValuesOf(candidate);
   const answered = (candidate?.portalQuestionsAnswered || []).map((item) => item.question);
   const answeredTopics = new Set(answered.map(topicOf).filter((topic) => topic >= 0));
@@ -149,15 +156,17 @@ export function guardAgentStep(raw, candidate = null) {
     if (!question || isAnswered(question) || questions.some((other) => other.question === question)) return;
     questions.push({ why: '', options: [], ...item, question, type: item.type || (topicOf(question) === 0 ? 'date' : 'text') });
   };
-  const refused = new Set();
-  for (const action of raw.actions || []) {
-    if (!SENSITIVE.test(action.question || '') || action.source === 'widget') continue;
-    const declines = PREFER_NOT.test(action.answer || action.value || '');
+  const sensitive = (raw.actions || []).filter((action) => SENSITIVE.test(action.question || ''));
+  for (const action of sensitive) {
+    const declines = action.source !== 'widget' && PREFER_NOT.test(action.answer || action.value || '');
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, action.answer || action.value);
-    if (!fromCandidate && !declines) {
-      refused.add(action.question);
-      ask({ question: action.question });
-    }
+    if (fromCandidate || declines) grounded.add(action.question);
+  }
+  const refused = new Set();
+  for (const action of sensitive) {
+    if (grounded.has(action.question)) continue;
+    refused.add(action.question);
+    ask({ question: action.question });
   }
   for (const item of raw.questions || []) ask(item);
   // Every move on a refused question goes too (the year list of the birth date).
@@ -166,7 +175,15 @@ export function guardAgentStep(raw, candidate = null) {
   if (questions.length) status = 'needs_candidate';
   else if (status === 'needs_candidate') status = 'stuck'; // only questions already answered: the owner looks
   else if (status === 'act' && !actions.length) status = 'done';
-  return { status, reason: String(raw.reason || '').slice(0, 300), actions: actions.slice(0, MAX_ACTIONS), questions, advanceRef: REF_RE.test(raw.advanceRef || '') ? raw.advanceRef : '' };
+  return {
+    status,
+    reason: String(raw.reason || '').slice(0, 300),
+    actions: actions.slice(0, MAX_ACTIONS),
+    // The model asked for more than one turn runs: the evidence says so.
+    truncated: actions.length > MAX_ACTIONS,
+    questions,
+    advanceRef: REF_RE.test(raw.advanceRef || '') ? raw.advanceRef : '',
+  };
 }
 
 /** What the element is, read in the page: what may be done to it depends on it. */
@@ -225,10 +242,13 @@ async function upload(page, locator, info, path) {
     await locator.setInputFiles(path, { timeout: ACTION_TIMEOUT_MS });
     return;
   }
-  // An upload button opens the browser's file chooser.
-  const chooser = page.waitForEvent('filechooser', { timeout: 8000 });
+  // An upload button opens the browser's file chooser. The wait never
+  // outlives the action: a failed click leaves no rejection behind.
+  const chooser = page.waitForEvent('filechooser', { timeout: 8000 }).catch(() => null);
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
-  await (await chooser).setFiles(path);
+  const opened = await chooser;
+  if (!opened) throw new Error('no_file_chooser');
+  await opened.setFiles(path);
 }
 
 /** One action on its ref; never throws. */
@@ -255,18 +275,30 @@ export async function runAction(page, action, files = {}) {
   }
 }
 
+// A name that says "next step" in one of the portal languages (anywhere in it:
+// "Salva e prosegui", "Vai al passo successivo", "Nächste Seite").
+export const ADVANCE_RE = /(\bnext\b|\bcontinue\b|\bproceed\b|\bforward\b|weiter|fortfahren|nächste|avanti|continua|prosegui|procedi|successiv|suivant|continuer|poursuivre)/i;
+// …and none of going back, leaving, signing in or out.
+const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|close|schließen|chiudi|fermer|sign|log ?in|log ?out|anmeld|abmeld|accedi|esci|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
+
 /**
  * The advance button the agent named, when it is safe to press as "Next":
- * a button, enabled, whose name says nothing of sending.
+ * an enabled button whose name says "next step" and nothing of sending,
+ * going back or leaving (review of #10707: a "Cancel" is never pressed).
  */
 export async function advanceLocator(page, ref) {
   if (!REF_RE.test(ref || '')) return null;
   const locator = page.locator(`aria-ref=${ref}`);
   const info = await describe(locator).catch(() => null);
-  // A step's own submit button ("Salva e prosegui") is a Next; a name that may mean sending, or none, is not.
-  if (!info?.button || !info.name || info.leaves || FINAL_RE.test(info.name) || SUBMIT_RE.test(info.name)) return null;
+  if (!info?.button || info.leaves || !advanceName(info.name)) return null;
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
   return locator;
+}
+
+/** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
+export function advanceName(name) {
+  const text = String(name || '');
+  return ADVANCE_RE.test(text) && !NOT_ADVANCE_RE.test(text) && !FINAL_RE.test(text) && !SUBMIT_RE.test(text);
 }
 
 /**
@@ -277,16 +309,26 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
   const evidence = { hint, rounds: [] };
   const history = [];
   const startUrl = page.url();
+  // Sensitive questions an action of this page answered from the candidate's data.
+  const grounded = new Set();
   for (let round = 1; round <= maxRounds; round += 1) {
-    const snapshot = await aiSnapshot(page);
-    if (!snapshot) return { status: 'unavailable', calls: round - 1, evidence };
-    const raw = await codex({
-      prompt: codexPrompt(agentSystemPrompt(candidateLocale), agentUserText({ url: page.url(), title: await page.title().catch(() => ''), snapshot, candidate, hint, errors, history })),
-      schema: AGENT_SCHEMA,
-      timeoutMs: 600_000,
-    });
-    const step = guardAgentStep(raw, candidate);
-    const record = { round, status: step.status, reason: step.reason, actions: [] };
+    let raw;
+    try {
+      const snapshot = await aiSnapshot(page);
+      if (!snapshot) return { status: 'unavailable', calls: round - 1, evidence };
+      raw = await codex({
+        prompt: codexPrompt(agentSystemPrompt(candidateLocale), agentUserText({ url: page.url(), title: await page.title().catch(() => ''), snapshot, candidate, hint, errors, history })),
+        schema: AGENT_SCHEMA,
+        timeoutMs: 600_000,
+      });
+    } catch (error) {
+      // The fallback is optional: a Codex timeout ends it, never the run (review of #10707).
+      const reason = `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`;
+      evidence.rounds.push({ round, status: 'stuck', reason, actions: [] });
+      return { status: 'stuck', reason, calls: round, evidence };
+    }
+    const step = guardAgentStep(raw, candidate, grounded);
+    const record = { round, status: step.status, reason: step.reason, actions: [], ...(step.truncated ? { truncated: true } : {}) };
     evidence.rounds.push(record);
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
     if (step.status === 'needs_candidate') return { status: 'needs_candidate', questions: step.questions, calls: round, evidence };

@@ -183,6 +183,14 @@ async function main() {
     const asked = unknown.event.questions || [];
     check('without the birth date the agent asks the candidate and sends nothing', unknown.event.type === 'submit_needs_candidate'
       && asked.length === 1 && asked[0].question === 'Geburtsdatum' && asked[0].type === 'date' && state.widgetApplications.length === 0);
+    // Review of #10707: Codex failing inside the fallback ends in the owner's handoff, not a failed run.
+    const failing = async (request) => {
+      if (request.prompt.includes('{"agentPage"')) throw new Error('timeout');
+      return fakeCodex(request);
+    };
+    const broken = await run({ applyUrl: `${base}/widget-job`, codex: failing, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    check('a Codex failure in the fallback hands the order to the owner', broken.event.type === 'submit_handoff'
+      && broken.event.reason === 'portal_needs_candidate' && state.widgetApplications.length === 0);
     const widget = await run({ applyUrl: `${base}/widget-job`, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
     const agentSteps = widget.evidence.steps.filter((step) => step.agent);
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'

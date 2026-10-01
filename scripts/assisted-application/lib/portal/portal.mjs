@@ -371,17 +371,23 @@ export async function submitViaPortal(ctx) {
       const key = `${pageSignature(page, current)}|${hint}`;
       if (!ctx.codex || agentTried.has(key) || agentCalls >= MAX_AGENT_CALLS) return null;
       agentTried.add(key);
-      const agent = await completeWithAgent({
-        page,
-        hint,
-        errors: current.errors || [],
-        candidate: ctx.candidate,
-        candidateLocale: ctx.candidateLocale,
-        codex: ctx.codex,
-        files: ctx.files,
-        maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
-        log,
-      });
+      let agent;
+      try {
+        agent = await completeWithAgent({
+          page,
+          hint,
+          errors: current.errors || [],
+          candidate: ctx.candidate,
+          candidateLocale: ctx.candidateLocale,
+          codex: ctx.codex,
+          files: ctx.files,
+          maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
+          log,
+        });
+      } catch (error) {
+        // The fallback is optional: whatever it throws ends in the usual handoff, never a failed run.
+        agent = { status: 'stuck', reason: `agent_error: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`, calls: 1, evidence: { hint, rounds: [] } };
+      }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
       return agent;

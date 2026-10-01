@@ -256,14 +256,12 @@ export function extractFieldsInPage() {
   });
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.
-  // A region only screen readers get (1 px) is no message on the form: Next.js'
-  // route announcer reads the page title as role="alert" (JOIN, 2026-10-01).
-  const screenReaderOnly = (element) => {
-    const rect = element.getBoundingClientRect();
-    return rect.width <= 1 || rect.height <= 1;
-  };
+  // A framework's route announcer is no message on the form: Next.js reads the
+  // page title as role="alert" (JOIN, 2026-10-01). Only the announcer itself is
+  // left out: a visually hidden validation message still counts (review of #10707).
+  const ROUTE_ANNOUNCER = '#__next-route-announcer__, next-route-announcer, #gatsby-announcer, [id*="route-announcer" i]';
   const errors = [...new Set([...document.querySelectorAll('[role="alert"], [data-automation-id*="error" i], [class*="error-message" i], [class*="errorMessage"], .error, .invalid-feedback')]
-    .filter((element) => visible(element) && !screenReaderOnly(element))
+    .filter((element) => visible(element) && !element.closest(ROUTE_ANNOUNCER))
     .map((element) => clean(element.innerText || element.textContent).slice(0, 160))
     .filter(Boolean))].slice(0, 8);
   return {

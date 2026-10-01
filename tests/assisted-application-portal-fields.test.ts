@@ -108,6 +108,9 @@ describe('portal field extraction', () => {
       <label for="mail">E-Mail</label><input id="mail" type="email">
       <div role="alert">Inserisci un indirizzo e-mail valido</div>`);
     expect(page.errors).toEqual(['Inserisci un indirizzo e-mail valido']);
+    // Review of #10707: a visually hidden validation message is still the form's own.
+    const hidden = extract('<label for="m">E-Mail</label><input id="m" type="email"><div role="alert" data-size="1">Invalid email</div>');
+    expect(hidden.errors).toEqual(['Invalid email']);
   });
 
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
