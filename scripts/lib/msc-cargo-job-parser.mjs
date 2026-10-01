@@ -24,6 +24,7 @@
  *   - isTrustedDomain()       — Validate URLs (msc.com + msccruises.com)
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { assertJsonListShape } from './assert-json-list-shape.mjs';
@@ -144,19 +145,7 @@ function detectEmploymentType(text = '') {
  * HTML stays well-formed JSON. We must decode before extracting `<li>`.
  */
 function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#x2F;/g, '/')
-    .replace(/&#13;/g, '\n')
-    .replace(/&#10;/g, '\n')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /**
@@ -170,14 +159,14 @@ function decodeHtmlEntities(value = '') {
  */
 function htmlBodyToBulletedText(rawHtml = '') {
   if (!rawHtml) return '';
-  const decoded = decodeHtmlEntities(String(rawHtml || ''));
-  const withBullets = decoded
+  const markup = rawHtml.includes('<') ? rawHtml : decodeHtmlEntities(rawHtml);
+  const withBullets = markup
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/?(p|div|ul|ol|h[1-6])[^>]*>/gi, '\n')
     .replace(/<[^>]+>/g, ' ');
-  return withBullets
+  return decodeHtmlEntities(withBullets).replaceAll('\r', '\n')
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')

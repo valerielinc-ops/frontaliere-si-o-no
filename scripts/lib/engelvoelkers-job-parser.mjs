@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Engel & Völkers Switzerland — careers page parser
@@ -29,19 +30,11 @@ function normalizeSpace(value = '') {
 }
 
 function decodeEntities(value = '') {
-  return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&#x27;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function stripHtml(html = '') {
-  return decodeEntities(html)
+  return decodeEntities(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -51,7 +44,7 @@ function stripHtml(html = '') {
     .replace(/<\/div>/gi, '\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
+    .replace(/<[^>]+>/g, ''))
     .replace(/\u00b7/g, '·')
     .replace(/\u2013/g, '–')
     .replace(/\u2019/g, "'")
@@ -176,8 +169,8 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
   const posting = extractPostingFromNextData(html);
   const document = new JSDOM(html).window.document;
 
-  const ogTitle = decodeEntities(document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '');
-  const metaTitle = decodeEntities(document.querySelector('title')?.textContent || '');
+  const ogTitle = (document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '');
+  const metaTitle = (document.querySelector('title')?.textContent || '');
   const h1 = document.querySelector('h1');
 
   const title = normalizeSpace(
@@ -218,7 +211,7 @@ export function parseEngelvoelkersDetailPage(html = '', fallbackTitle = '') {
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 
-  const metaDesc = decodeEntities(document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
+  const metaDesc = (document.querySelector('meta[name="description"]')?.getAttribute('content') || '');
   let richDesc = nextDescription;
 
   if (!richDesc) {

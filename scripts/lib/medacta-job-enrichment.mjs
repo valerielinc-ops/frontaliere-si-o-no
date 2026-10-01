@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { workloadPercent } from './dedicated-crawler-common.mjs';
 import { extractBalancedTagBlock, locateTagByAttribute } from './hospital-custom-html-helpers.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -41,23 +42,7 @@ function normalizeKey(value = '') {
 }
 
 export function decodeHtmlEntities(value = '') {
-  const named = String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ');
-
-  return named
-    .replace(/&#(\d+);/g, (_m, dec) => {
-      const code = Number(dec);
-      return Number.isFinite(code) ? String.fromCharCode(code) : _m;
-    })
-    .replace(/&#x([0-9a-f]+);/gi, (_m, hex) => {
-      const code = Number.parseInt(hex, 16);
-      return Number.isFinite(code) ? String.fromCharCode(code) : _m;
-    });
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 export function inferMedactaCategory({ category = '', categoryLabel = '', title = '', jobCategory = '' } = {}) {

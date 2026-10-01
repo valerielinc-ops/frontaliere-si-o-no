@@ -5514,13 +5514,15 @@ export function decodeHtmlEntities(value = '') {
 }
 
 export function decodeNumericEntities(value = '') {
-  return String(value || '').replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (_, reference) => {
+  return String(value || '').replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (entity, reference) => {
     const code = /^x/i.test(reference) ? parseInt(reference.slice(1), 16) : Number(reference);
     // Numeric references are Unicode scalar values, not UTF-16 code units.
     if (!Number.isInteger(code) || code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) {
       return '\ufffd';
     }
-    return String.fromCodePoint(code);
+    // html-entities supplies the HTML5 C1 mappings (e.g. &#128; → €).
+    // Its current release rejects the maximum valid scalar, handled here.
+    return code === 0x10ffff ? String.fromCodePoint(code) : decodeHTML(entity, { scope: 'strict' });
   });
 }
 

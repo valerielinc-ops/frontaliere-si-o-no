@@ -25,6 +25,7 @@
  *   - isTrustedDomain()           — Validate URLs belong to this company
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -59,14 +60,7 @@ function normalizeSpace(s = '') {
 }
 
 function decodeEntities(s = '') {
-  return String(s || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, c) => String.fromCharCode(Number(c)));
+  return decodeHTML(String(s || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -245,7 +239,7 @@ export function extractEpflDetailDescription(html = '') {
     html.match(/<main[^>]*>([\s\S]*?)<\/main>/i) ||
     html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
   if (!match) return '';
-  const text = stripHtml(decodeEntities(match[1]));
+  const text = stripHtml(match[1]);
   return text
     .replace(/[ \t]+/g, ' ')
     .replace(/[ \t]*\n[ \t]*/g, '\n')

@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 // scripts/lib/topic-sources/wordpressSearch.mjs
 //
 // Search-based ingestion via WordPress REST API.
@@ -26,22 +27,12 @@ const MAX_AGE_DAYS = 7;
 const TIMEOUT_MS = 12000;
 
 /**
- * Strip HTML tags + decode common entities from rendered title/excerpt.
+ * Strip HTML tags + decode HTML entities from rendered title/excerpt.
  */
 function stripHtml(s) {
-  return String(s ?? '')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8216;/g, "'")
-    .replace(/&#8220;/g, '"')
-    .replace(/&#8221;/g, '"')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8212;/g, '—')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&[a-z]+;/gi, ' ')
+  return decodeHTML(String(s ?? '').replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
     .replace(/\s+/g, ' ')
     .trim();
 }

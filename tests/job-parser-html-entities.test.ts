@@ -42,6 +42,7 @@ it('keeps the numeric decoder numeric-only and consumes one encoding layer', () 
   expect(decodeNumericEntities('&#0; &#55296; &#xDFFF; &#1114112; &#9999999999999999999999;'))
     .toBe('� � � � �');
   expect(decodeNumericEntities('&#1114111;')).toBe(String.fromCodePoint(0x10ffff));
+  expect(decodeNumericEntities('&#128; &#x80; &euro;')).toBe('€ € &euro;');
 });
 
 it('decodes all complete named entities in common cleanup while retaining numeric references', () => {

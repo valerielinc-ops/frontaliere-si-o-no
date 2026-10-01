@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
@@ -43,13 +44,9 @@ function slugify(value = '') {
 }
 
 function stripHtml(html = '') {
-  return String(html || '')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
+  return decodeHTML(String(html || '')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\s+/g, ' ')
     .trim();
 }
@@ -69,17 +66,7 @@ function countRenderedDescriptionSections(text = '') {
  * &lt;h2&gt;, &lt;ul&gt;, &lt;li&gt;, &lt;strong&gt; etc.
  */
 function decodeHtmlEntities(text = '') {
-  return String(text || '')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&#8217;/g, '\u2019')
-    .replace(/&#8216;/g, '\u2018')
-    .replace(/&#8220;/g, '\u201C')
-    .replace(/&#8221;/g, '\u201D')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(parseInt(n, 10)));
+  return decodeHTML(String(text || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /**
@@ -91,11 +78,12 @@ function decodeHtmlEntities(text = '') {
 export function parseDescriptionToMarkdown(rawDescription = '') {
   if (!rawDescription) return { text: '', sectionCount: 0, sourceTextLength: 0 };
 
-  const decoded = decodeHtmlEntities(rawDescription);
-  const sourceTextLength = decoded.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().length;
+  // Some API records transport escaped HTML; unwrap that layer before parsing.
+  const markup = rawDescription.includes('<') ? rawDescription : decodeHtmlEntities(rawDescription);
+  const sourceTextLength = stripHtml(markup).length;
 
   // Clean up: remove </br> self-closing breaks used as spacers
-  let html = decoded.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n')
+  let html = markup.replace(/<\/br>/gi, '').replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ');
 
   // Some PEMSA ads mark their sections with a bold paragraph instead of an
@@ -115,10 +103,7 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
   const firstHeadingIdx = html.search(/<h[2-4][^>]*>/i);
   if (firstHeadingIdx > 0) {
     const introHtml = html.slice(0, firstHeadingIdx);
-    const intro = introHtml
-      .replace(/<[^>]+>/g, ' ')
-      .replace(/\s+/g, ' ')
-      .trim();
+    const intro = stripHtml(introHtml);
     if (intro.length > 30) sections.push(intro);
   }
 
@@ -126,7 +111,7 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
   const headingRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|$)/gi;
   let match;
   while ((match = headingRegex.exec(html)) !== null) {
-    const heading = match[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+    const heading = stripHtml(match[1]);
     if (!heading || skipHeadings.test(heading)) continue;
 
     const contentBlock = match[2];
@@ -138,7 +123,7 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
       const liRegex = /<li>([\s\S]*?)<\/li>/gi;
       let li;
       while ((li = liRegex.exec(ulMatch[1])) !== null) {
-        const text = li[1].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
+        const text = stripHtml(li[1]);
         if (text) items.push(text);
       }
       if (items.length > 0) {
@@ -151,7 +136,7 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
     const pMatches = contentBlock.match(/<p>([\s\S]*?)<\/p>/gi);
     if (pMatches) {
       const lines = pMatches.map((p) =>
-        p.replace(/<\/?p>/gi, '').replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim(),
+        stripHtml(p),
       ).filter(Boolean);
       if (lines.length > 0 && lines.join(' ').length > 20) {
         sections.push(`## ${heading}\n${lines.join('\n')}`);
@@ -161,7 +146,7 @@ export function parseDescriptionToMarkdown(rawDescription = '') {
 
     // Plain text. List items were turned into "• " markers above: keep each
     // on its own "- " line instead of flattening the list into prose.
-    const plain = contentBlock.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+    const plain = stripHtml(contentBlock)
       .replace(/^•\s*/, '- ').replace(/\s*•\s*/g, '\n- ');
     if (plain.length > 20) {
       sections.push(`## ${heading}\n${plain}`);
