@@ -454,9 +454,13 @@ export function pageControls(buttons, known, url) {
  * without a word.
  */
 async function refusedSilently(page, label) {
+  return (await sendButtonStill(page, label)) && invisibleRecaptcha(page);
+}
+
+/** After the final click the same send button is still on the page: nothing moved on. */
+async function sendButtonStill(page, label) {
   const after = await extractFields(page, NAVIGATION).catch(() => null);
-  if (!after || !learnedButton(after.buttons, [label])) return false;
-  return invisibleRecaptcha(page);
+  return Boolean(after && learnedButton(after.buttons, [label]));
 }
 
 /** The page scores its visitors with an invisible reCAPTCHA (v3 badge or `api.js?render=`). */
@@ -870,6 +874,15 @@ export async function submitViaPortal(ctx) {
         validationRetries += 1;
         snapshot = await extractFields(page);
         continue;
+      }
+      // Lever, TSMG 2026-10-01: SUBMIT APPLICATION opened an hCaptcha challenge
+      // (getcaptcha after the click) that nobody passed and that was gone by
+      // the end of the wait; the page kept its form and send button. The
+      // application never left: a CAPTCHA stop for Valerie, as a challenge
+      // still on screen is, not an unknown outcome.
+      if (outcome === 'ambiguous' && page.url() === finalUrl && diagnostics?.challengeAfterClick?.() && await sendButtonStill(page, final.label)) {
+        evidence.challengeAfterClick = true;
+        return await handoff('captcha');
       }
       // career-ops: an ambiguous submit is never re-submitted automatically.
       // The page did not move and still offers the same send button, on a
