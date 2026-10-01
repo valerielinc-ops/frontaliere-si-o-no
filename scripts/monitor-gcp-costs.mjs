@@ -27,10 +27,14 @@ const MONITORING_SCOPE = 'https://www.googleapis.com/auth/monitoring.read';
 const MONITORING_API = 'https://monitoring.googleapis.com/v3';
 const DAY_MS = 24 * 60 * 60 * 1000;
 const GIB = 1024 ** 3;
+const MONITORING_TIMEOUT_MS = 30_000;
 
 /**
  * Thresholds sit well above the normal day (September 1-12, before the
  * incident) and well below the incident day, so one bad night opens the issue.
+ * Every threshold applies to the PROJECT TOTAL, because that is what the bill
+ * counts: two services at 3 GiB of egress cost as much as one at 6 GiB.
+ * `breakdownBy` only names the main contributors in the report.
  * Prices are list prices in CHF (Billing Catalog, europe-west6) and only size
  * the estimate in the report: the invoice stays the authority.
  */
@@ -91,18 +95,26 @@ export const STORAGE_DRIVER = {
   normal: '~1,3 GiB/giorno (09/2026), da 9,1 a 27,5 GiB',
 };
 
+// Unreadable telemetry is NaN, never zero: a zero would read as a healthy day
+// and close the issue. evaluateCostDrivers reports NaN as missing.
 function pointValue(point) {
   const value = point?.value || {};
-  const raw = value.int64Value ?? value.doubleValue ?? 0;
-  const number = Number(raw);
-  return Number.isFinite(number) ? number : 0;
+  const raw = value.int64Value ?? value.doubleValue;
+  const number = raw === undefined || raw === null || raw === '' ? Number.NaN : Number(raw);
+  return Number.isFinite(number) ? number : Number.NaN;
 }
 
-/** Sum every point of every series. */
+/** Sum every point of every series; NaN when there is no point at all. */
 export function sumSeries(series) {
   let total = 0;
-  for (const item of series || []) for (const point of item.points || []) total += pointValue(point);
-  return total;
+  let points = 0;
+  for (const item of series || []) {
+    for (const point of item.points || []) {
+      total += pointValue(point);
+      points += 1;
+    }
+  }
+  return points > 0 ? total : Number.NaN;
 }
 
 /** Totals per value of `labelPath` (e.g. `resource.label.service_name`), largest first. */
@@ -113,20 +125,25 @@ export function breakdownSeries(series, labelPath, limit = 5) {
     const key = (scope === 'resource' ? item.resource?.labels?.[name] : item.metric?.labels?.[name]) || '(sconosciuto)';
     totals.set(key, (totals.get(key) || 0) + sumSeries([item]));
   }
-  return [...totals.entries()].sort((a, b) => b[1] - a[1]).slice(0, limit).map(([name, value]) => ({ name, value }));
+  return [...totals.entries()].filter(([, value]) => Number.isFinite(value))
+    .sort((a, b) => b[1] - a[1]).slice(0, limit).map(([name, value]) => ({ name, value }));
 }
 
-/** Average daily growth between the oldest and newest point of a gauge. */
+/**
+ * Average daily growth between the oldest and newest point of a gauge. Fewer
+ * than two readable points, or no time between them, cannot measure growth:
+ * `perDay` is NaN, reported as missing.
+ */
 export function dailyGrowth(series) {
   const points = (series || []).flatMap((item) => item.points || [])
     .map((point) => ({ at: Date.parse(point.interval?.endTime), value: pointValue(point) }))
-    .filter((point) => Number.isFinite(point.at))
+    .filter((point) => Number.isFinite(point.at) && Number.isFinite(point.value))
     .sort((a, b) => a.at - b.at);
-  if (points.length < 2) return { level: points[0]?.value ?? 0, perDay: 0 };
+  if (points.length < 2) return { level: points[0]?.value, perDay: Number.NaN };
   const first = points[0];
   const last = points[points.length - 1];
   const days = (last.at - first.at) / DAY_MS;
-  return { level: last.value, perDay: days > 0 ? (last.value - first.value) / days : 0 };
+  return { level: last.value, perDay: days > 0 ? (last.value - first.value) / days : Number.NaN };
 }
 
 /**
@@ -229,10 +246,21 @@ async function listTimeSeries(fetchImpl, token, { metric, filter, start, end, al
     if (pageToken) params.set('pageToken', pageToken);
     const response = await fetchImpl(`${MONITORING_API}/projects/${GCP_PROJECT_ID}/timeSeries?${params}`, {
       headers: { Authorization: `Bearer ${token}` },
+      // A hung call must fail the step well inside the 10-minute job, so the
+      // failure-report step still runs.
+      signal: AbortSignal.timeout(MONITORING_TIMEOUT_MS),
     });
-    const body = await response.json().catch(() => ({}));
+    let body;
+    try {
+      body = await response.json();
+    } catch {
+      throw new Error(`Cloud Monitoring ${metric}: HTTP ${response.status} with an unreadable JSON body`);
+    }
     if (!response.ok) throw new Error(`Cloud Monitoring ${metric}: HTTP ${response.status} ${body?.error?.message || ''}`.trim());
-    series.push(...(body.timeSeries || []));
+    if (body?.timeSeries !== undefined && !Array.isArray(body.timeSeries)) {
+      throw new Error(`Cloud Monitoring ${metric}: timeSeries is not a list`);
+    }
+    series.push(...(body?.timeSeries || []));
     pageToken = body.nextPageToken || '';
   } while (pageToken);
   return series;

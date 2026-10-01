@@ -117,4 +117,63 @@ describe('GCP cost monitor: Cloud Monitoring calls', () => {
     const fetchImpl = async () => ({ ok: false, status: 403, json: async () => ({ error: { message: 'Permission monitoring.timeSeries.list denied' } }) });
     await expect(measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' })).rejects.toThrow('HTTP 403 Permission monitoring.timeSeries.list denied');
   });
+
+  // Review on 10805: telemetry that cannot be read must never look like a
+  // healthy day, or the monitor would close the issue.
+  const healthyBody = (url: string) => {
+    const filter = new URL(url).searchParams.get('filter') || '';
+    return filter.includes('data_and_index_storage_bytes')
+      ? { timeSeries: [{ points: [point(20 * GIB, '2026-09-24T00:00:00Z'), point(21 * GIB, '2026-10-01T00:00:00Z')] }] }
+      : { timeSeries: [series('svc', 1)] };
+  };
+
+  it('reports a driver whose answer has no series as missing, not as zero', async () => {
+    const fetchImpl = async (url: string) => ({
+      ok: true,
+      status: 200,
+      json: async () => (url.includes('write_ops_count') ? { timeSeries: [] } : healthyBody(url)),
+    });
+    const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' });
+    const evaluation = evaluateCostDrivers(measurements);
+    expect(evaluation.missing.map((row) => row.driver.key)).toEqual(['firestore-writes']);
+    expect(renderCostReport(evaluation)).toContain('| Scritture Firestore | n/d | 1.00 M | n/d | ~250 k/giorno (09/2026) | MANCANTE |');
+  });
+
+  it('reports storage growth as missing with a single observation', async () => {
+    const fetchImpl = async (url: string) => ({
+      ok: true,
+      status: 200,
+      json: async () => (url.includes('data_and_index_storage_bytes') ? { timeSeries: [{ points: [point(27 * GIB)] }] } : healthyBody(url)),
+    });
+    const { measurements } = await measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' });
+    expect(evaluateCostDrivers(measurements).missing.map((row) => row.driver.key)).toEqual([STORAGE_DRIVER.key]);
+  });
+
+  it('reports a point without a readable value as missing', () => {
+    expect(Number.isNaN(sumSeries([{ points: [{ value: {} }] }]))).toBe(true);
+    expect(Number.isNaN(sumSeries([]))).toBe(true);
+    expect(evaluateCostDrivers({ ...incidentDay, 'firestore-reads': { value: sumSeries([{ points: [{ value: { int64Value: 'x' } }] }]) } })
+      .missing.map((row) => row.driver.key)).toEqual(['firestore-reads']);
+  });
+
+  it('fails on an unreadable JSON body instead of reporting zero', async () => {
+    const fetchImpl = async () => ({ ok: true, status: 200, json: async () => { throw new SyntaxError('Unexpected token <'); } });
+    await expect(measureCostDrivers({ fetchImpl: fetchImpl as never, token: 't' })).rejects.toThrow('HTTP 200 with an unreadable JSON body');
+  });
 });
+
+describe('GCP cost monitor: thresholds apply to the project total', () => {
+  // The bill counts the total: two services at 3 GiB cost as much as one at 6.
+  const egress = (...gib: number[]) => evaluateCostDrivers({
+    ...incidentDay,
+    'firestore-reads': { value: 1 },
+    'cloud-run-egress': { value: gib.reduce((sum, value) => sum + value, 0) * GIB },
+  }).breaches.map((row) => row.driver.key);
+
+  it('alarms on two services under the threshold whose total is over it', () => {
+    expect(egress(3, 3)).toEqual(['cloud-run-egress']);
+    expect(egress(6)).toEqual(['cloud-run-egress']);
+    expect(egress(2, 2)).toEqual([]);
+  });
+});
+
