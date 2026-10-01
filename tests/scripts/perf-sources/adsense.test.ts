@@ -208,6 +208,28 @@ describe('fetchAdsenseChannelRevenue', () => {
     expect(result.totalRevenue).toBe(8);
   });
 
+  it('preserves API currency, warnings and fallback scope without converting earnings', async () => {
+    const { fetchImpl } = makeFetchSequence([{
+      headers: [{ name: 'ESTIMATED_EARNINGS', currencyCode: 'EUR' }],
+      warnings: ['Report data may change'],
+      rows: [row('2026-04-10', 'home-banner', '5.00')],
+    }]);
+    const log = vi.fn();
+    const result = await fetchAdsenseChannelRevenue({ fetchImpl, log });
+    expect(result).toMatchObject({ totalRevenue: 5, currencyCode: 'EUR', revenueScope: 'all_url_channels_fallback', warnings: ['Report data may change'] });
+    const output = log.mock.calls.map((call) => call[0]).join('\n');
+    expect(output).toContain('EUR');
+    expect(output).not.toContain('CHF');
+  });
+
+  it('labels currency unknown when the earnings header has no currency', async () => {
+    const { fetchImpl } = makeFetchSequence([{ rows: [row('2026-04-10', 'blog', '2.00')] }]);
+    const log = vi.fn();
+    const result = await fetchAdsenseChannelRevenue({ fetchImpl, log });
+    expect(result.currencyCode).toBeNull();
+    expect(log.mock.calls.some((call) => call[0].includes('currency unknown'))).toBe(true);
+  });
+
   it('throws a clear error when the env credentials are missing', async () => {
     delete process.env.ADSENSE_REFRESH_TOKEN;
     await expect(

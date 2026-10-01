@@ -122,6 +122,21 @@ export function buildReportBodies({ startDate, endDate, limit = DEFAULT_LIMIT } 
   return { landingPages, channels, conversions };
 }
 
+/** Fail closed: rates cannot divide independently truncated GA4 populations. */
+export function assertCompleteReport(data, limit = DEFAULT_LIMIT, name = 'GA4') {
+  const count = (data?.rows || []).length;
+  const reported = data?.rowCount == null ? null : Number(data.rowCount);
+  const metadata = data?.metadata || {};
+  const truncated = reported === null ? count >= limit
+    : !Number.isSafeInteger(reported) || reported < count || reported > count;
+  if (truncated || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+    || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
+    || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize))) {
+    throw new Error(`${name}: incomplete or restricted GA4 response (${count}/${reported ?? 'unknown'} rows); no aggregate rates published`);
+  }
+  return data;
+}
+
 function numericValue(value) {
   const number = Number(value);
   return Number.isFinite(number) ? number : 0;
@@ -232,12 +247,13 @@ export function buildConversionSummary(landingData, conversionReports = {}) {
     const rows = parseGa4Rows(conversionReports[definition.key]);
     const events = rows.reduce((sum, row) => sum + (row.metrics[0] || 0), 0);
     const conversionSessions = rows.reduce((sum, row) => sum + (row.metrics[1] || 0), 0);
-    const users = rows.reduce((sum, row) => sum + (row.metrics[2] || 0), 0);
+    const userLandingMemberships = rows.reduce((sum, row) => sum + (row.metrics[2] || 0), 0);
     return [definition.key, {
       label: definition.label,
       events,
       conversionSessions,
-      users,
+      userLandingMemberships,
+      usersNote: 'Sum of per-landing distinct users; a user can occur on multiple landing pages. Not a distinct total.',
       rate: totalSessions > 0 ? conversionSessions / totalSessions : 0,
     }];
   }));

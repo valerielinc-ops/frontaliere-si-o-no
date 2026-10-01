@@ -126,6 +126,9 @@ export async function fetchAdsenseChannelRevenue({
   let pages = 0;
   let nextPageToken = '';
   let truncated = false;
+  const currencies = new Set();
+  let missingCurrency = false;
+  const warnings = new Set();
 
   // Defensive: bound the loop by an explicit page cap that mirrors MAX_ROWS,
   // so a buggy server that always returns the same token can't spin forever.
@@ -136,6 +139,10 @@ export async function fetchAdsenseChannelRevenue({
     if (nextPageToken) params.append('pageToken', nextPageToken);
     const data = await fetchReportPage({ acct, params, token, fetchImpl });
     pages += 1;
+    const currency = data?.headers?.find((header) => header.name === 'ESTIMATED_EARNINGS')?.currencyCode;
+    if (currency) currencies.add(currency); else missingCurrency = true;
+    if (currencies.size > 1) throw new Error('adsense report contains inconsistent currencies across pages');
+    for (const warning of data.warnings || []) warnings.add(warning);
     const pageRows = Array.isArray(data?.rows) ? data.rows : [];
     if (allRows.length + pageRows.length > MAX_ROWS) {
       // Take only the slice that fits, then stop.
@@ -196,16 +203,22 @@ export async function fetchAdsenseChannelRevenue({
   const matchedHints = matchedChannelNames.length > 0 && hintMatchedRevenue > 0;
   const totalRevenue = matchedHints ? hintMatchedRevenue : totalAcrossAllChannels;
 
+  const currencyCode = missingCurrency ? null : [...currencies][0] || null;
+
   log(
     `[adsense] aggregated ${allRows.length} rows in ${pages} page(s); ` +
       `${perChannel.size} channels; matched=${matchedChannelNames.length} ` +
-      `(revenue=${hintMatchedRevenue.toFixed(2)} of ${totalAcrossAllChannels.toFixed(2)} CHF); ` +
+      `(revenue=${hintMatchedRevenue.toFixed(2)} of ${totalAcrossAllChannels.toFixed(2)} ${currencyCode || 'currency unknown'}); ` +
       `dropped=${droppedMalformed}${truncated ? ' [TRUNCATED]' : ''}`,
   );
 
   return {
     rows: allRows.length,
     pages,
+    currencyCode,
+    warnings: [...warnings],
+    revenueScope: matchedHints ? 'matched_url_channels' : 'all_url_channels_fallback',
+    coverage: { complete: !truncated && droppedMalformed === 0, returnedRows: allRows.length },
     truncated,
     droppedMalformed,
     totalRevenue: Number(totalRevenue.toFixed(2)),
