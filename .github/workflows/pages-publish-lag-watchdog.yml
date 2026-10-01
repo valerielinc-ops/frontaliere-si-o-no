@@ -2,8 +2,8 @@ name: Pages Publish-Lag Watchdog
 
 # Watchdog for the deploy→PUBLISH gap (see scripts/check-pages-publish-lag.mjs
 # for the full mechanism). deploy.yml only builds; deploy-publish.yml does the
-# actual actions/deploy-pages publish under a single-slot concurrency group
-# (cancel-in-progress: false), so a burst of push-triggered builds routinely
+# actual actions/deploy-pages publish under the deploy job's single-slot
+# concurrency group (cancel-in-progress: false), so a burst of push-triggered builds routinely
 # supersedes most pending publish attempts — deploy-starvation, the failure
 # class deploy.yml's own paths-ignore comment names. Content isn't lost (a
 # later successful publish carries every earlier commit forward) but can sit
@@ -41,7 +41,7 @@ concurrency:
 
 permissions:
   contents: read
-  deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml:L61)
+  deployments: read # /deployments + /deployments/{id}/statuses (see deploy-publish.yml)
   actions: write # il reaper cancella le run incastrate (unwedge-pages-deploy-queue.mjs) # /actions/workflows/deploy.yml/runs — the stalled-queue signal.
   # Without it that call 403s and the script's fail-open catch silently
   # disables the second signal, leaving only the (deliberately tolerant)
