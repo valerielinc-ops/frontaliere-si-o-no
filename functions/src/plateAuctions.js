@@ -18,6 +18,8 @@ import {
   SWISSSIGN_RSA_TLS_OV_ICA_2022_1,
   withEcariEmptyState,
 } from './plateAuctionsCore.js';
+import { promisify } from 'node:util';
+import { gzip } from 'node:zlib';
 import { FieldValue } from 'firebase-admin/firestore';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
@@ -579,29 +581,50 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
  */
 export const PLATE_AUCTION_SNAPSHOT_CACHE_MS = 5 * 60 * 1000;
 
+const gzipAsync = promisify(gzip);
 let cachedSnapshotBody = null;
 let pendingSnapshotBody = null;
 
 /**
- * The serialized public snapshot, built at most once per TTL per instance.
- * Concurrent callers share the build in flight (single-flight), so a burst
- * costs one pass over the collection instead of one per request. A failed
- * build is not cached: the next request retries.
+ * The serialized public snapshot, built at most once per TTL per instance, as
+ * `{ body, gzip }`. Concurrent callers share the build in flight
+ * (single-flight), so a burst costs one pass over the collection instead of
+ * one per request. A failed build is not cached: the next request retries.
+ *
+ * The gzip copy is made once per build. Uncompressed, every answered call was
+ * ~16.5 MB of Cloud Run internet egress (25.6 GB on 2026-09-30); JSON rows
+ * with repeated keys compress by an order of magnitude.
  */
 export function getCachedPublicPlateAuctionSnapshotBody({ db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
-  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.body);
+  if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.bodies);
   if (!pendingSnapshotBody) {
     pendingSnapshotBody = getPublicPlateAuctionSnapshot(db)
-      .then((snapshot) => {
+      .then(async (snapshot) => {
         const body = Buffer.from(JSON.stringify(snapshot));
-        cachedSnapshotBody = { body, expiresAt: now() + ttlMs };
-        return body;
+        const bodies = { body, gzip: await gzipAsync(body) };
+        cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
+        return bodies;
       })
       .finally(() => {
         pendingSnapshotBody = null;
       });
   }
   return pendingSnapshotBody;
+}
+
+/**
+ * True when an Accept-Encoding header names gzip with a non-zero quality.
+ * Only the explicit token counts: a missing header or `*` gets the plain body,
+ * which every client can read.
+ */
+export function acceptsGzip(acceptEncoding) {
+  for (const part of String(acceptEncoding || '').split(',')) {
+    const [coding, ...params] = part.split(';').map((value) => value.trim().toLowerCase());
+    if (coding !== 'gzip') continue;
+    const quality = params.find((param) => param.startsWith('q='));
+    return !quality || Number(quality.slice(2)) > 0;
+  }
+  return false;
 }
 
 /** Test seam: forget the per-instance snapshot cache. */
