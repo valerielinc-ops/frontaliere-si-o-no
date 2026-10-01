@@ -1,30 +1,96 @@
 {
   "key": "swiss-medical-network",
   "label": "Swiss Medical Network",
-  "generatedAt": "2026-10-01T09:17:28.450Z",
-  "total": 61,
-  "newCount": 3,
-  "updatedCount": 57,
+  "generatedAt": "2026-10-01T21:22:07.125Z",
+  "total": 63,
+  "newCount": 5,
+  "updatedCount": 56,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 43780,
-  "avgDurationMs": 43780,
+  "unchangedCount": 2,
+  "durationMs": 43253,
+  "avgDurationMs": 43253,
   "durationHistory": [
-    43780
+    43253
   ],
   "newJobs": [
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152916239-allgemeinmediziner-in-50-bis-100-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152916239-allgemeinmediziner-in-50-bis-100-?oga=true",
+      "title": "Allgemeinmediziner/-in (50 bis 100 %)",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Ittigen",
+      "addressLocality": "Ittigen",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "3063",
+      "slug": "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-10-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Ittigen"
+      },
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "_qualityScore": 59,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152899786-dipl-fachfrau-mann-operationstechnik-hf",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152899786-dipl-fachfrau-mann-operationstechnik-hf?oga=true",
+      "title": "dipl. Fachfrau/-mann Operationstechnik HF",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8008",
+      "slug": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network",
+      "category": "technical",
+      "datePosted": "2026-10-01",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "_qualityScore": 54,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 12
+      }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Egerkingen",
-      "addressLocality": "Egerkingen",
-      "addressRegion": "SO",
-      "canton": "SO",
+      "location": "Reinach",
+      "addressLocality": "Reinach",
+      "addressRegion": "AG",
+      "canton": "AG",
       "country": "CH",
-      "postalCode": "4622",
+      "postalCode": "5734",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
       "datePosted": "2026-10-01",
@@ -33,8 +99,8 @@
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "SO",
-        "location": "Egerkingen"
+        "canton": "AG",
+        "location": "Reinach"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -80,17 +146,17 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145529359-facharzt-in-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000145471569-facharzt-in-allgemeine-innere-medizin?oga=true",
       "title": "Fachärzt/-in Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Wengen",
-      "addressLocality": "Wengen",
+      "location": "Grindelwald",
+      "addressLocality": "Grindelwald",
       "addressRegion": "BE",
       "canton": "BE",
       "country": "CH",
-      "postalCode": "3823",
+      "postalCode": "3818",
       "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
       "datePosted": "2026-10-01",
@@ -100,7 +166,7 @@
       "sector": "Sanità / Healthcare",
       "_targetScope": {
         "canton": "BE",
-        "location": "Wengen"
+        "location": "Grindelwald"
       },
       "sourceLang": "de",
       "needsRetranslation": true,
@@ -115,17 +181,17 @@
   ],
   "updatedJobs": [
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152630314-facharztin-facharzt-fur-allgemeine-innere-medizin?oga=true",
       "title": "Fachärztin / Facharzt für Allgemeine Innere Medizin",
       "company": "Swiss Medical Network",
       "companyKey": "swiss-medical-network",
-      "location": "Reinach",
-      "addressLocality": "Reinach",
-      "addressRegion": "AG",
-      "canton": "AG",
+      "location": "Egerkingen",
+      "addressLocality": "Egerkingen",
+      "addressRegion": "SO",
+      "canton": "SO",
       "country": "CH",
-      "postalCode": "5734",
+      "postalCode": "4622",
       "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
       "datePosted": "2026-10-01",
@@ -134,16 +200,15 @@
       "experienceLevel": "MID",
       "sector": "Sanità / Healthcare",
       "_targetScope": {
-        "canton": "AG",
-        "location": "Reinach"
+        "canton": "SO",
+        "location": "Egerkingen"
       },
       "sourceLang": "de",
-      "needsRetranslation": true,
-      "_qualityScore": 59,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 12
       }
     },
@@ -646,40 +711,6 @@
       }
     },
     {
-      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149808089-fachfrau-mann-operationstechnik-hf",
-      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149808089-fachfrau-mann-operationstechnik-hf?oga=true",
-      "title": "Fachfrau/-mann Operationstechnik HF",
-      "company": "Swiss Medical Network",
-      "companyKey": "swiss-medical-network",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8008",
-      "slug": "fachfrau-mann-operationstechnik-hf-swiss-medical-network",
-      "category": "technical",
-      "datePosted": "2026-09-26",
-      "source": "swiss-medical-smartrecruiters-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Sanità / Healthcare",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zürich"
-      },
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T13:56:03.166Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 12
-      }
-    },
-    {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149802495-dipl-pflegefachfrau-mann-hf",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149802495-dipl-pflegefachfrau-mann-hf?oga=true",
       "title": "Dipl. Pflegefachfrau/-mann HF",
@@ -1108,10 +1139,82 @@
         "translation": 25,
         "completeness": 12
       }
+    },
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000146936744-candidature-spontanee-secteur-medical?oga=true",
+      "title": "Candidature spontanée - Secteur médical",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Saint-Imier",
+      "addressLocality": "Saint-Imier",
+      "addressRegion": "BE",
+      "canton": "BE",
+      "country": "CH",
+      "postalCode": "2610",
+      "slug": "candidature-spontanee-secteur-medical-swiss-medical-network",
+      "category": "healthcare",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "BE",
+        "location": "Saint-Imier"
+      },
+      "sourceLang": "fr",
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 12
+      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149808089-fachfrau-mann-operationstechnik-hf",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149808089-fachfrau-mann-operationstechnik-hf?oga=true",
+      "title": "Fachfrau/-mann Operationstechnik HF",
+      "company": "Swiss Medical Network",
+      "companyKey": "swiss-medical-network",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "canton": "ZH",
+      "country": "CH",
+      "postalCode": "8008",
+      "slug": "fachfrau-mann-operationstechnik-hf-swiss-medical-network",
+      "category": "technical",
+      "datePosted": "2026-09-26",
+      "source": "swiss-medical-smartrecruiters-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Sanità / Healthcare",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zürich"
+      },
+      "sourceLang": "de",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-26T13:56:03.166Z",
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 17
+      }
+    },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm",
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000148429734-assistant-e-medical-e-a-80-cdm?oga=true",
@@ -1140,7 +1243,7 @@
       "salaryMax": 73200,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
