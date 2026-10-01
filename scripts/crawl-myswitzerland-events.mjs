@@ -397,13 +397,14 @@ export function extractIndexedEventPrice(content) {
 
   // Index content can concatenate adjacent HTML blocks ("buffetPrice:").
   // Require a field boundary or that exact concatenation, not "parking price".
-  const tariffs = [...content.matchAll(/(?:^\s*|[.!?\n•"“]\s*|(?<=\p{Ll}))(?:(?:prices?|preis|prix|prezzo)\s*:|(?:single\s+admission\s+price|admission|entry|entrance|eintritt|entrée|ingresso)\s*:?)\s*((?:CHF|EUR|€)\s*\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?(?!\d|[.,'’]\d)|\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?\s*(?:(?:CHF|EUR)\b|€))/giu)];
+  const tariffs = [...content.matchAll(/(?:^\s*|[.!?\n•"“]\s*|(?<=\bbuffet)(?=Price\s*:))(?:(?:prices?|preis|prix|prezzo)\s*:|(?:single\s+admission\s+price|admission|entry|entrance|eintritt|entrée|ingresso)\s*:?)\s*((?:CHF|EUR|€)\s*\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?(?!\d|[.,'’]\d)|\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?\s*(?:(?:CHF|EUR)\b|€))/giu)];
   if (tariffs.length !== 1) return undefined;
   const tariff = tariffs[0];
   const qualifier = content.slice(tariff.index + tariff[0].length)
     .replace(/^[\s,;:.!?–—\-"'“”‘’«»\[\]{}]+/u, '')
-    .replace(/^\s*(?:(?:for\s+)?(?:the\s+)?adults?\s+and\s+(?:the\s+)?children|(?:für\s+)?(?:die\s+)?erwachsenen?\s+und\s+(?:die\s+)?kinder|(?:pour\s+)?(?:les\s+)?adultes\s+et\s+(?:les\s+)?enfants|(?:per\s+)?(?:(?:gli|i)\s+)?adulti\s+e\s+(?:i\s+)?bambini)\b/iu, '');
-  if (/^\s*(?:[+/%(]|(?:CHF|EUR|€)\s*\d|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:(?:for|für|pour|per)\s+(?:(?:the|les|le|gli|i|die|den)\s+)?)?(?:members?|adults?|adult[ei]|adultes?|erwachsenen?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
+    .replace(/^\s*(?:(?:for\s+)?(?:the\s+)?adults?\s+and\s+(?:the\s+)?children|(?:für\s+)?(?:die\s+)?erwachsenen?\s+und\s+(?:die\s+)?kinder|(?:pour\s+)?(?:les\s+)?adultes\s+et\s+(?:les\s+)?enfants|(?:per\s+)?(?:(?:gli|i)\s+)?adulti\s+e\s+(?:i\s+)?bambini)\b/iu, '')
+    .replace(/^\s*(?:per\s+(?:person|persona)|pro\s+Person|par\s+personne|for\s+everyone)\b/iu, '');
+  if (/^\s*(?:[+/%(]|(?:CHF|EUR|€)\s*\d|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:for|für|pour|per)\s+\p{L}|(?:(?:the|les|le|gli|i|die|den)\s+)?(?:members?|adults?|adult[ei]|adultes?|erwachsenen?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|famil(?:y|ies|ien|les)|famigli[ae]|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
   const price = parseEventPriceText(tariff[1]);
   return hasConfidentPrice(price)
     ? { ...price, currency: /EUR|€/iu.test(tariff[1]) ? 'EUR' : 'CHF' }
