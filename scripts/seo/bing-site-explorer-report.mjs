@@ -185,7 +185,7 @@ function validateScope(name, reports, manifest, coverageErrors) {
   const expectedPartitions = Number(first.partitions || 0);
   const manifestCount = Number(manifest?.manifestCount ?? first.manifestCount ?? 0);
   for (const error of manifest?.errors || []) {
-    coverageErrors.push(`${name}: sitemap/frontiera non letta: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
+    coverageErrors.push(`${name}: sitemap non letto: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
   }
   if (name === 'sitemap' && manifest && Number(manifest.sitemapCount || 0) === 0) {
     coverageErrors.push('sitemap: nessun sitemap è stato letto dal manifest');
