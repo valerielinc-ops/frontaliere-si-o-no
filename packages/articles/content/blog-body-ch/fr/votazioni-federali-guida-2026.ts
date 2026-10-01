@@ -5,4 +5,11 @@ const bodyVotazioniFederaliGuida2026: Record<string, string> = {
     'blog.article.votazioni-federali-guida-2026.faq': '[{"q":"Que prévoit l\'initiative « Pour une alimentation sûre » ?","a":"L\'initiative, promue par l\'activiste Franziska Herren, demande à la Confédération de promouvoir activement la production et la consommation d\'aliments d\'origine végétale. L\'objectif est de pousser le système agricole vers des pratiques plus durables. Les opposants critiquent l\'initiative en la qualifiant de « diktat végétalien » qui ignore les besoins concrets du secteur agricole suisse."},{"q":"Quel est le thème principal de l\'initiative sur la neutralité ?","a":"L\'initiative vise à inscrire dans la Constitution fédérale une conception plus rigide de la neutralité suisse. Le débat, qui conduira les Suisses aux urnes le 27 septembre 2026, porte sur la nécessité de déterminer si la neutralité doit rester un principe absolu et immuable ou si, au contraire, elle doit être dotée d\'une plus grande flexibilité pour permettre à la Suisse de répondre efficacement aux conditions changeantes de la géopolitique internationale."},{"q":"Quelles ont été les récentes élections fédérales en Suisse ?","a":"Le peuple suisse a voté sur plusieurs questions cruciales ces derniers mois. Parmi ceux-ci, les votes du 30 novembre 2025 sur le service civil et la fiscalité des successions, suivis de ceux du 8 mars 2026 concernant la redevance radiotélévisée, la fiscalité individuelle, l\'argent liquide et le fonds pour le climat. Enfin, le 14 juin 2026, a eu lieu le vote sur l\'initiative « Non à une Suisse à 10 millions ! » et sur la révision de la loi sur le service civil."}]',
 };
 
+for (const key of Object.keys(bodyVotazioniFederaliGuida2026)) {
+    bodyVotazioniFederaliGuida2026[key] = bodyVotazioniFederaliGuida2026[key].replace(
+        /https:\/\/www\.swissinfo\.ch\/ita\/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera\?[^)\s]+/g,
+        'https://www.swissinfo.ch/ita/votazioni-federali-la-nostra-guida-al-voto-per-la-quinta-svizzera',
+    );
+}
+
 export default bodyVotazioniFederaliGuida2026;

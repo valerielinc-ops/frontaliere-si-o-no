@@ -5,4 +5,11 @@ const bodyComuniMiglioriFrontalieri: Record<string, string> = {
  'blog.article.comuni-migliori-frontalieri.faq': '[{"q":"Quale comune ha l\'affitto più basso vicino al confine?","a":"I comuni più economici per affitto sono Saltrio, Clivio e Cantello (provincia di Varese), con bilocali a €400-600/mese. Sono anche i più vicini alla dogana di Gaggiolo/Stabio, con tempi di percorrenza di 15-25 minuti verso Mendrisio o Chiasso (Fonte: dati Immobiliare.it, 2026)."},{"q":"Quale è il comune con il miglior rapporto qualità-prezzo per le scuole?","a":"Clivio (VA) offre una buona qualità scolastica con scuole primarie e secondarie di primo grado, a prezzi contenuti (affitto medio €400-550/mese). La vicinanza a Mendrisio (5 km) facilita l\'accesso a scuole svizzere per chi lo desidera."},{"q":"Quali sono i comuni con i tempi di attesa più bassi alla dogana per i frontalieri?","a":"Comuni come Lavena Ponte Tresa e Clivio registrano tempi di attesa più contenuti, spesso inferiori ai 20 minuti nelle ore di punta, grazie alla vicinanza e a infrastrutture efficienti, facilitando un pendolarismo più rapido e meno stressante."}]',
 };
 
+for (const key of Object.keys(bodyComuniMiglioriFrontalieri)) {
+    bodyComuniMiglioriFrontalieri[key] = bodyComuniMiglioriFrontalieri[key].replace(
+        'https://www.agenziaentrate.gov.it/portale/web/guest/addizionale-comunale-all-irpef',
+        'https://www.agenziaentrate.gov.it/portale/',
+    );
+}
+
 export default bodyComuniMiglioriFrontalieri;
