@@ -9,7 +9,7 @@ import dutyStatus from '../data/pharmacy-duties-ticino-status.json';
 import sources from '../data/pharmacy-border-sources.json';
 import { validateBorderSources, validateBorderSnapshot } from '../scripts/check-pharmacy-border-data.mjs';
 import { validatePharmacyList } from '../services/pharmacies/types';
-import { BORDER_MINIMUMS, readDutyPharmacyIds, readPreviousItaly, readPreviousTicino, readPreviousTicinoSnapshots } from '../scripts/import-pharmacies-border.mjs';
+import { BORDER_MINIMUMS, buildPreservedItalySnapshot, readDutyPharmacyIds, readPreviousItaly, readPreviousTicino, readPreviousTicinoSnapshots } from '../scripts/import-pharmacies-border.mjs';
 import { buildItalianBorderRecords, parseOsmOpeningHours } from '../scripts/lib/pharmacy-border-parser.mjs';
 
 const swiss = ticino.pharmacies;
@@ -124,6 +124,24 @@ describe('cross-border pharmacy datasets', () => {
       city: 'Como',
       slug: 'farmacia-vecchia-como-42',
     }]);
+  });
+
+  it('preserves a complete Italian snapshot after a transient official-source outage', () => {
+    const fallback = buildPreservedItalySnapshot(
+      italy,
+      'Italian pharmacy catalogue refresh was not published after transient source failure: HTTP 503',
+    );
+
+    expect(fallback).toMatchObject({
+      _fetchedAt: italy._fetchedAt,
+      _asOf: italy._asOf,
+      _pharmacyCount: italy._pharmacyCount,
+      _preserved: true,
+      pharmacies: italy.pharmacies,
+    });
+    expect(fallback._errors).toEqual([
+      'Italian pharmacy catalogue refresh was not published after transient source failure: HTTP 503',
+    ]);
   });
 
   it('uses an empty previous snapshot only when the Italy file is absent', async () => {
