@@ -397,6 +397,7 @@ async function run() {
       periodLabel: periodWindow,
       contactName: c.contactName,
       topRole: c.topRole,
+      optOutEmail: OPTOUT_EMAIL,
     });
     const m = seq.find((x) => x.touch === touch) || seq[0];
     return { company: e.name, key: e.key, sector: c.sector || classifySector(e.name),
