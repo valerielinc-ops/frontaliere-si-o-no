@@ -930,15 +930,18 @@ jobs:
       #
       # `github.event.inputs.dry_run` is the input as the human left it: `'true'`
       # on a preview (the declared default), `'false'` when they asked for a real
-      # sync, and null on `repository_dispatch` and `schedule`, which therefore
-      # run the guard. A preview pulls without committing on purpose and must
-      # stay green; everything else must prove delivery.
+      # sync, and null on `repository_dispatch` and `schedule`. A preview pulls
+      # without committing on purpose and must stay green; every non-preview run
+      # that did not publish through the stable PR must prove delivery. A run
+      # that created that PR has a different proof obligation: its push-triggered
+      # replay verifies delivery after the merge, so this pre-merge check must
+      # stay skipped while `published-via-pr` is true.
       #
       # No `always()`: when an earlier step already failed, the job is red and a
       # second, more confusing cause helps nobody. The mode this exists for is a
       # job that is otherwise entirely green.
       - name: Assert the pulled corpus actually reached main
-        if: github.event.inputs.dry_run != 'true'
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs

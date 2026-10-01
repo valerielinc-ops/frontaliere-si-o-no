@@ -128,6 +128,12 @@ describe('article corpus sync parser gate', () => {
     );
   });
 
+  it('defers delivery assertion until a refresh PR has merged', () => {
+    expect(stepNamed('Assert the pulled corpus actually reached main').if).toBe(
+      "github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'",
+    );
+  });
+
   it('replays every PR-skipped live surface from the merged main tree', () => {
     const replay = workflow.jobs['replay-after-article-sync'];
     const replayStep = (name: string): WorkflowStep => {
@@ -135,8 +141,13 @@ describe('article corpus sync parser gate', () => {
       if (!step) throw new Error(`Missing replay workflow step: ${name}`);
       return step;
     };
+    const installIndex = replaySteps.findIndex((step) => step.name === 'Install replay dependencies');
+    const loadSecretsIndex = replaySteps.findIndex((step) => step.name === 'Load secrets from Remote Config');
 
     expect(workflowSource).toContain('push:\n    branches: [main]');
+    expect(installIndex).toBeGreaterThanOrEqual(0);
+    expect(loadSecretsIndex).toBeGreaterThan(installIndex);
+    expect(replayStep('Install replay dependencies').run).toBe('npm ci --no-audit --no-fund');
     const corpusPath = 'packages' + '/articles' + '/content/**';
     const tickerPath = 'public' + '/news-ticker-live.json';
     expect(workflowSource).toContain(`- '${corpusPath}'`);
