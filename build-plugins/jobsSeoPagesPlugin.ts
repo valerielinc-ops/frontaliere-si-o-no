@@ -3830,12 +3830,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(description))}">${jobRobotsTag}
+ <meta name="description" content="${esc(clampMetaDescription(description, undefined, locale))}">${jobRobotsTag}
  <meta property="og:type" content="article">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(ogTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(description, undefined, locale))}">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:image" content="${perLocaleSlug.it ? `${BASE_URL}/og/jobs/${perLocaleSlug.it}.webp` : `${BASE_URL}/og-image.png`}">
  <meta property="og:image:width" content="1200">
@@ -5808,12 +5808,12 @@ ${companyFollowHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -5971,12 +5971,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -6147,12 +6147,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -6335,12 +6335,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -6507,12 +6507,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -6705,12 +6705,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -6990,12 +6990,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(pageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(pageDesc))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(pageDesc, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(pageOgTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(pageOgDesc))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(pageOgDesc, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -7217,12 +7217,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -7385,12 +7385,12 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width,initial-scale=1">
  ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}${FAVICON_LINKS}
  <title>${esc(model.title)}</title>
- <meta name="description" content="${esc(clampMetaDescription(model.description))}">${ROBOTS_INDEX_ENHANCED}
+ <meta name="description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">${ROBOTS_INDEX_ENHANCED}
  <meta property="og:type" content="website">
  <meta property="og:site_name" content="Frontaliere Ticino">
  <meta property="og:locale" content="${localeOg[locale]}">
  <meta property="og:title" content="${esc(model.title)}">
- <meta property="og:description" content="${esc(clampMetaDescription(model.description))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(model.description, undefined, locale))}">
  <meta property="og:url" content="${canonicalUrl}">
  <meta property="og:image" content="${BASE_URL}/og-image.png">
  <meta property="og:image:width" content="1200">
@@ -13095,7 +13095,7 @@ ${staticAnalyticsHtml}
  <meta name="viewport" content="width=device-width, initial-scale=1">
  ${FAVICON_LINKS}
  <title>${pageTitle}</title>
- <meta name="description" content="${clampMetaDescription(pageDesc)}">${robotsTag}
+ <meta name="description" content="${clampMetaDescription(pageDesc, undefined, locale)}">${robotsTag}
  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
  <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
  <link rel="canonical" href="${selfUrl}">

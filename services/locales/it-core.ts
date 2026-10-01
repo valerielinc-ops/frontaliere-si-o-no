@@ -1,4 +1,5 @@
 // Italian translations — core page chunk
+import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
  'whatsNew.v3969.title': 'Candidatura assistita: ti scrive Valerie',
  'whatsNew.v3969.assistedConcierge.title': 'Candidatura assistita più semplice',
@@ -861,7 +862,7 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.paidConfirmed': 'Pagamento confermato. Ora puoi inviare il CV e i dati necessari per questo annuncio.',
  'jobBoard.assisted.submittedTitle': 'Candidatura presa in carico',
  'jobBoard.assisted.submittedBody': 'Abbiamo ricevuto il CV e il mandato specifico. La candidatura sarà preparata e inviata manualmente quando il processo dell’azienda lo consente.',
- 'jobBoard.assisted.privacyNotice': 'Titolare: Valerie Linc (valerie@frontaliereticino.ch). Il CV e i dati indicati saranno trattati e trasmessi al team autorizzato esclusivamente per questa candidatura e conservati fino a 90 giorni dopo l’invio o il rimborso, salvo obblighi legali o un consenso separato al talent pool. Delle email che ti inviamo su questa candidatura registriamo consegna, aperture e clic, solo per sapere se hai visto la bozza da approvare. Per accesso, rettifica o cancellazione: valerie@frontaliereticino.ch. Non promettiamo risposta, colloquio o assunzione; il servizio non implica affiliazione con l’azienda.',
+ 'jobBoard.assisted.privacyNotice': `Titolare: Valerie Linc (${PUBLIC_CONTACT_EMAIL}). Il CV e i dati indicati saranno trattati e trasmessi al team autorizzato esclusivamente per questa candidatura e conservati fino a 90 giorni dopo l’invio o il rimborso, salvo obblighi legali o un consenso separato al talent pool. Delle email che ti inviamo su questa candidatura registriamo consegna, aperture e clic, solo per sapere se hai visto la bozza da approvare. Per accesso, rettifica o cancellazione: ${PUBLIC_CONTACT_EMAIL}. Non promettiamo risposta, colloquio o assunzione; il servizio non implica affiliazione con l’azienda.`,
  'jobBoard.assisted.consent': "Conferisco a Frontaliereticino.ch il mandato, limitato alla posizione {jobTitle} presso {companyName}, di trattare il mio CV e i dati indicati e di inviare la candidatura a mio nome: anche creando, se il portale lo richiede, un account con un indirizzo email dedicato e accettando per mio conto solo le condizioni e l’informativa privacy necessarie a ricevere la candidatura, mai consensi facoltativi. Dichiaro che i dati sono veritieri e miei, e di aver letto Termini e Informativa privacy.",
  'jobBoard.assisted.termsLink': "Termini del servizio",
  'jobBoard.assisted.privacyLink': "Informativa privacy",
@@ -874,11 +875,11 @@ const translations: Record<string, string> = {
  'jobBoard.assisted.fileSelected': 'CV selezionato — scegli un altro file',
  'jobBoard.assisted.fileCta': 'Carica il CV',
  'jobBoard.assisted.fileHint': 'File privato, accessibile solo al team autorizzato.',
- 'jobBoard.assisted.emailAlternative': 'Preferisci l’email? Ti ho scritto da valerie@frontaliereticino.ch: rispondi a quel messaggio allegando il CV e ci penso io.',
+ 'jobBoard.assisted.emailAlternative': `Preferisci l’email? Scrivi a ${PUBLIC_CONTACT_EMAIL} allegando il CV e ci penso io.`,
  'jobBoard.assisted.uploading': 'Caricamento in corso…',
  'jobBoard.assisted.submit': 'Invia la candidatura assistita',
  'jobBoard.assisted.formError': 'Inserisci nome e un indirizzo email valido.',
- 'jobBoard.assisted.uploadError': 'Upload non riuscito. Riprova con un PDF, DOC o DOCX, oppure rispondi all’email di valerie@frontaliereticino.ch allegando il CV.',
+ 'jobBoard.assisted.uploadError': `Upload non riuscito. Riprova con un PDF, DOC o DOCX, oppure scrivi a ${PUBLIC_CONTACT_EMAIL} allegando il CV.`,
  'jobBoard.assisted.review.title': "Controlla la tua candidatura",
  'jobBoard.assisted.review.stale': "Questa è una versione precedente della tua candidatura. Apri il link dell’email più recente.",
  'jobBoard.assisted.review.waiting.drafting': "Sto preparando la tua candidatura: riceverai un’email appena è pronta da controllare.",

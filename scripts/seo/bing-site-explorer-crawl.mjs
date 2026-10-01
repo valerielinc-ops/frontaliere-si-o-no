@@ -302,6 +302,41 @@ function findTitle(html) {
   return stripTags(String(html || '').match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
+function normalizeMetadataText(value) {
+  return decodeXmlEntities(stripTags(String(value || ''))).replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Google News headlines are intentionally allowed to exceed the generic SERP
+ * title budget when the emitted `<title>` is byte-identical to the
+ * NewsArticle headline. Capping only one of the two fields would break the
+ * eligibility contract; this is an explicit, machine-checked exemption.
+ */
+function hasNewsArticleTitleInvariant(html, title) {
+  const expected = normalizeMetadataText(title);
+  if (!expected) return false;
+  const scripts = String(html || '').matchAll(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+  for (const match of scripts) {
+    try {
+      const stack = [JSON.parse(match[1])];
+      while (stack.length) {
+        const node = stack.pop();
+        if (!node || typeof node !== 'object') continue;
+        const type = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        if (type.includes('NewsArticle') && normalizeMetadataText(node.headline) === expected) return true;
+        for (const value of Object.values(node)) {
+          if (value && typeof value === 'object') stack.push(value);
+        }
+      }
+    } catch {
+      // One malformed JSON-LD block must not hide a valid NewsArticle block.
+    }
+  }
+  return false;
+}
+
 function findMetaDescription(html) {
   for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
     if (attr(match[1], 'name').toLowerCase() !== 'description') continue;
@@ -373,7 +408,7 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
   const noindex = /\bnoindex\b/i.test(`${xRobots},${metaRobots}`);
   const soft404 = isSoft404(html, title);
   if (!title) findings.push(finding('title-missing', url, 'La pagina in sitemap non contiene un <title>.'));
-  else if (title.length > TITLE_MAX_CHARS) {
+  else if (title.length > TITLE_MAX_CHARS && !hasNewsArticleTitleInvariant(html, title)) {
     findings.push(finding(
       'title-too-long',
       url,

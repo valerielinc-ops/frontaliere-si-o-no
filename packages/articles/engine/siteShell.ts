@@ -142,7 +142,11 @@ export interface SiteShellContract {
   truncateHeadline: (headline: string, max: number) => string;
   titleBrandSuffix: string;
   titleMaxChars: number;
-  clampMetaDescription: (description: string, max?: number) => string;
+  clampMetaDescription: (
+    description: string,
+    max?: number,
+    locale?: 'it' | 'en' | 'de' | 'fr',
+  ) => string;
   metaDescriptionMaxChars: number;
   /**
    * Repair a description/title that arrived ALREADY cut mid-clause from the
