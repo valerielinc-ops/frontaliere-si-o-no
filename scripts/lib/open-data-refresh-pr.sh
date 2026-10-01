@@ -144,7 +144,11 @@ REFRESH_COMMIT="$(git rev-parse HEAD)"
 # tree when it exists, then apply this run's commit on top of it. This keeps
 # earlier append-only/state records in an unmerged PR.
 if [ -n "$REMOTE_HEAD" ]; then
-  git fetch --no-tags "$PUSH_URL" \
+  # The workflow checkout is intentionally shallow. Fetch only the stable
+  # branch tip; the non-compat reconciler consumes named refs and does not
+  # need the repository's complete history. Without this bound, the first
+  # carry-forward of a large refresh branch can redownload the whole repo.
+  git fetch --no-tags --depth=1 "$PUSH_URL" \
     "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"
   git checkout -B "$BRANCH" "refs/remotes/refresh/${BRANCH}"
 fi
