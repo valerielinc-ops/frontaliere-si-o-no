@@ -1,6 +1,6 @@
 {
   "crawlerKey": "apg-sga",
-  "assembledAt": "2026-09-30T21:24:46.835Z",
+  "assembledAt": "2026-10-01T09:22:32.525Z",
   "jobs": [
     {
       "id": "apg-sga-8e5baee3415c",
@@ -17,7 +17,7 @@
       "title": "Product Manager 80-100%, Zürich",
       "titleByLocale": {
         "it": "Responsabile prodotto 80-100%, Zurigo",
-        "en": "Product Manager 80-100%, Zurich",
+        "en": "Product Manager 80-100%, Zürich",
         "de": "Product Manager 80-100%, Zürich",
         "fr": "Product Manager 80-100%, Zurich"
       },
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:24:41.905Z",
+      "crawledAt": "2026-10-01T09:22:28.116Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-30T21:24:41.277Z",
+      "crawledAt": "2026-10-01T09:22:27.594Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -133,15 +133,15 @@
           "mitarbeiter-in-operations-80-100-wallisellen-apg-sga-ch",
           "collaboratore-trice-operations-80-100-wallisellen-apg-sga-wallisellen"
         ],
-        "fr": [
+        "en": [
           "mitarbeiter-in-operations-80-100-wallisellen-apg-sga-ch"
         ],
-        "en": [
+        "fr": [
           "mitarbeiter-in-operations-80-100-wallisellen-apg-sga-ch"
         ]
       },
-      "firstSeenAt": "2026-09-29T21:25:52.569Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-29T21:25:52.569Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
