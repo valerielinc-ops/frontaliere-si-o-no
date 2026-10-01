@@ -156,11 +156,17 @@ function spawnAsync(cmd, args, opts) {
  * Fail closed before a client-chunk upload or shard push when the workflow's
  * lease watcher has reported a loss. The watcher is deliberately external to
  * this driver so the same R2 lock remains shared with fast-publish/resync.
- * Local invocations and dry runs omit the enforcement flag and keep the
- * existing render-only ergonomics.
+ * Dry runs may omit the enforcement flag because they do not publish. Every
+ * non-dry invocation must be armed by the workflow's lease enforcement before
+ * it can reach a client-chunk upload or shard push.
  */
-function assertArticleChunkLease() {
-  if (process.env.ARTICLE_CHUNK_LOCK_ENFORCE !== 'true') return;
+function assertArticleChunkLease({ required = false } = {}) {
+  if (process.env.ARTICLE_CHUNK_LOCK_ENFORCE !== 'true') {
+    if (required) {
+      throw new Error(`${LOG} article chunk lock enforcement is required for non-dry publication`);
+    }
+    return;
+  }
 
   const failureFile = process.env.ARTICLE_CHUNK_LOCK_FAILURE_FILE;
   const pidFile = process.env.ARTICLE_CHUNK_LOCK_PID_FILE;
@@ -372,6 +378,12 @@ async function checkCorpusFreshness(section, itemCount) {
 async function main() {
   const args = parseArgs(process.argv.slice(2));
   const t0 = Date.now();
+  const leaseRequired = !args.dryRun;
+
+  // Refuse an armed direct invocation before rendering or publishing anything.
+  // The workflow is the only supported non-dry caller because it owns the
+  // shared R2 section lease and its watcher paths.
+  assertArticleChunkLease({ required: leaseRequired });
 
   // Before the first dynamic import of any build plugin — see the function's
   // own doc comment for why later is a no-op.
@@ -384,6 +396,15 @@ async function main() {
 
   const summary = { generatedAt: new Date().toISOString(), dryRun: args.dryRun, sections: {} };
   let fatal = false;
+
+  // The hub HTML and the client registry are two representations of the same
+  // article snapshot. Publish companions and registries before rendering any
+  // hub: renderHubsAndOffload includes the CDN offload, so a hub must never
+  // become servable before its matching client assets exist. Strict mode also
+  // requires every upload and purge to succeed. On the armed workflow this
+  // runs inside the shared section lease.
+  assertArticleChunkLease({ required: leaseRequired });
+  await publishClientChunks(sections, args.dryRun);
 
   for (const section of sections) {
     // A scratch dist PER SECTION. Not an optimisation — the CDN offload is a
@@ -465,13 +486,6 @@ async function main() {
     process.exit(1);
   }
 
-  // The hub HTML and the client registry are two representations of the same
-  // article snapshot. Publish companions and registries before any shard can
-  // receive the HTML; strict mode also requires every upload and purge to
-  // succeed. On the armed workflow this runs inside the shared section lease.
-  assertArticleChunkLease();
-  await publishClientChunks(sections, args.dryRun);
-
   if (args.dryRun) {
     console.log(`${LOG} --dry-run set — rendered and validated, pushed nothing`);
     console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
@@ -480,7 +494,7 @@ async function main() {
 
   // The chunk publisher may take long enough for the lease watcher to report a
   // loss after its final purge. Do not start a shard mutation in that window.
-  assertArticleChunkLease();
+  assertArticleChunkLease({ required: leaseRequired });
 
   // ── Push: ONE invocation per (section, locale) ────────────────────────────
   //
@@ -496,33 +510,64 @@ async function main() {
   // three orders of magnitude under ARG_MAX. Chunking would reintroduce the
   // exact multi-build race this comment is about.
   //
-  // Parallel ACROSS locales: four distinct shard repos with four distinct
-  // deploy keys, no shared state — the same fan-out fast-publish-article.yml
-  // and rerender-article-corpus.mjs already use. Fault-tolerant: a failing
-  // locale is recorded and never allowed to abort the others (incident
-  // 2026-07-24, run 30057726623, where one failure silently aborted the rest
-  // of the loop).
+  // Serial ACROSS locales: the watcher must be checked after each completed
+  // mutation and before the next one. Four distinct shard repos could be
+  // pushed in parallel, but doing so would start every mutation before a
+  // failure file written during the first push could be observed. A failing
+  // locale is still recorded and does not abort the other locales unless the
+  // shared lease itself has been lost.
   const pushScript = path.join(ROOT_DIR, 'scripts', 'lib', 'push-article-shard-incremental.sh');
+  const { pushFailed } = await pushRenderedLocales({
+    sections,
+    targetLocales,
+    summary,
+    pushScript,
+  });
+
+  if (args.summary) {
+    fs.writeFileSync(path.resolve(args.summary), JSON.stringify(summary, null, 2) + '\n', 'utf-8');
+  }
+
+  console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
+  if (pushFailed) process.exit(1);
+}
+
+/**
+ * Push one section's locale shards in order, rechecking the shared lease
+ * between every mutation. `spawn` is injectable so the lease-loss boundary is
+ * covered without starting real shard pushes in the unit test.
+ */
+export async function pushRenderedLocales({
+  sections,
+  targetLocales,
+  summary,
+  pushScript,
+  spawn: spawnCommand = spawnAsync,
+}) {
   let pushFailed = false;
 
   for (const section of sections) {
     const entry = summary.sections[section];
-    const results = await Promise.all(
-      targetLocales.map(async (locale) => {
-        const relpaths = entry.pathsByLocale[locale] ?? [];
-        if (relpaths.length === 0) {
-          console.log(`${LOG} ${entry.shardToken}-${locale}: nothing to push`);
-          return { locale, status: 0 };
-        }
-        console.log(`${LOG} pushing ${relpaths.length} path(s) to ${entry.shardToken}-${locale}`);
-        const { status } = await spawnAsync(
-          'bash',
-          [pushScript, entry.shardToken, locale, entry.distDir, ...relpaths],
-          { stdio: 'inherit', env: process.env, cwd: ROOT_DIR },
-        );
-        return { locale, status };
-      }),
-    );
+    const results = [];
+    for (const locale of targetLocales) {
+      const relpaths = entry.pathsByLocale[locale] ?? [];
+      if (relpaths.length === 0) {
+        console.log(`${LOG} ${entry.shardToken}-${locale}: nothing to push`);
+        results.push({ locale, status: 0 });
+        continue;
+      }
+      // This check is deliberately adjacent to the mutation. If the watcher
+      // writes the failure file while the previous locale is pushing, this
+      // throws before the next locale can invoke the shard push.
+      assertArticleChunkLease({ required: true });
+      console.log(`${LOG} pushing ${relpaths.length} path(s) to ${entry.shardToken}-${locale}`);
+      const { status } = await spawnCommand(
+        'bash',
+        [pushScript, entry.shardToken, locale, entry.distDir, ...relpaths],
+        { stdio: 'inherit', env: process.env, cwd: ROOT_DIR },
+      );
+      results.push({ locale, status });
+    }
     entry.pushedLocales = results.filter((r) => r.status === 0).map((r) => r.locale);
     for (const r of results) {
       if (r.status !== 0) {
@@ -534,12 +579,7 @@ async function main() {
     }
   }
 
-  if (args.summary) {
-    fs.writeFileSync(path.resolve(args.summary), JSON.stringify(summary, null, 2) + '\n', 'utf-8');
-  }
-
-  console.log(`${LOG} done in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
-  if (pushFailed) process.exit(1);
+  return { pushFailed };
 }
 
 // Standalone only when invoked directly (repo idiom — see
