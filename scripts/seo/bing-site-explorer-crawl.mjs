@@ -36,6 +36,8 @@ export const DEFAULT_RESCUE_RETRIES = 4;
 export const DEFAULT_RESCUE_DELAY_MS = 3_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
+export const TITLE_MAX_CHARS = 66;
+export const META_DESCRIPTION_MIN_CHARS = 120;
 
 function decodeXmlEntities(value) {
   return String(value || '')
@@ -300,6 +302,14 @@ function findTitle(html) {
   return stripTags(String(html || '').match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
+function findMetaDescription(html) {
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    if (attr(match[1], 'name').toLowerCase() !== 'description') continue;
+    return attr(match[1], 'content').replace(/\s+/g, ' ').trim();
+  }
+  return '';
+}
+
 function isSoft404(html, title) {
   const heading = String(html || '').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
   const signal = `${title} ${stripTags(heading)}`.trim();
@@ -340,27 +350,45 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
   const xRobots = typeof headers.get === 'function' ? headers.get('x-robots-tag') || '' : headers['x-robots-tag'] || '';
   if (statusNumber === 0) {
     findings.push(finding('fetch-error', url, 'La richiesta non ha prodotto una risposta HTTP.'));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber >= 300 && statusNumber < 400) {
     findings.push(finding('redirect', url, `HTTP ${statusNumber} verso ${finalUrl}.`, { status: statusNumber }));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber < 200 || statusNumber >= 400) {
     findings.push(finding('http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   const normalizedContentType = String(contentType || '').toLowerCase();
   const headerNoindex = /\bnoindex\b/i.test(xRobots);
   if (normalizedContentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(normalizedContentType)) {
     if (headerNoindex) findings.push(finding('noindex-in-sitemap', url, 'La risorsa pubblicata in sitemap dichiara noindex.'));
-    return { findings, title: '', canonical: '', noindex: headerNoindex, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: headerNoindex, soft404: false };
   }
   const title = findTitle(html);
+  const description = findMetaDescription(html);
   const canonical = findCanonical(html, url);
   const metaRobots = findMetaRobots(html).join(',');
   const noindex = /\bnoindex\b/i.test(`${xRobots},${metaRobots}`);
   const soft404 = isSoft404(html, title);
+  if (!title) findings.push(finding('title-missing', url, 'La pagina in sitemap non contiene un <title>.'));
+  else if (title.length > TITLE_MAX_CHARS) {
+    findings.push(finding(
+      'title-too-long',
+      url,
+      `<title> misura ${title.length} caratteri; limite ${TITLE_MAX_CHARS}.`,
+    ));
+  }
+  if (!description) {
+    findings.push(finding('meta-description-missing', url, 'La pagina in sitemap non contiene una meta description.'));
+  } else if (description.length < META_DESCRIPTION_MIN_CHARS) {
+    findings.push(finding(
+      'meta-description-too-short',
+      url,
+      `La meta description misura ${description.length} caratteri; minimo ${META_DESCRIPTION_MIN_CHARS}.`,
+    ));
+  }
   if (noindex) findings.push(finding('noindex-in-sitemap', url, 'La pagina pubblicata in sitemap dichiara noindex.'));
   if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
   else if (normalizeUrl(canonical) !== normalizeUrl(finalUrl || url)) {
@@ -377,7 +405,7 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
     }
   }
   if (soft404) findings.push(finding('soft-404', url, 'La risposta è 200 ma il titolo/H1 identifica una pagina non trovata.'));
-  return { findings, title, canonical, noindex, soft404 };
+  return { findings, title, description, canonical, noindex, soft404 };
 }
 
 async function probeOnce(url, {
@@ -415,6 +443,7 @@ async function probeOnce(url, {
     status: response.status,
     finalUrl,
     title: classified.title,
+    description: classified.description,
     canonical: classified.canonical,
     noindex: classified.noindex,
     soft404: classified.soft404,

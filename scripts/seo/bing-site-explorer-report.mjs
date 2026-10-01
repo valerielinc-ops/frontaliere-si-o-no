@@ -15,7 +15,8 @@ import {
 
 const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
-  'canonical-missing', 'canonical-drift', 'soft-404',
+  'canonical-missing', 'canonical-drift', 'soft-404', 'title-missing',
+  'title-too-long', 'meta-description-missing', 'meta-description-too-short',
 ]);
 
 // The report job has a 15-minute Actions timeout. Leave room for artifact
