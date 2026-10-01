@@ -6,7 +6,7 @@
  */
 
 import { updateJobBoardListingMetadata } from '@/services/seo/jobBoardListingMetadata';
-import { listingInventoryId } from '@/services/jobBoardInventory';
+import { isForeignLocation, isListingInventoryJob, normalizeListingIdentity } from '@/services/jobBoardInventory';
 import React, { startTransition, useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -380,36 +380,6 @@ function trackJobAlertCtaShownOnce(surface: 'job_match_pill' | 'job_board_filter
   shownAlertCtaSurfaces.add(surface);
   Analytics.trackJobAlertCtaShown(surface, keyword);
 }
-
-// Foreign country/city keywords — jobs matching these are EXCLUDED entirely.
-// These are locations outside Switzerland that should never appear on a Swiss job board.
-const FOREIGN_LOCATION_KEYWORDS = [
- 'london', 'paris', 'milan', 'milano', 'berlin', 'munich', 'münchen',
- 'frankfurt', 'hamburg', 'vienna', 'wien', 'madrid', 'barcelona',
- 'amsterdam', 'brussels', 'bruxelles', 'stockholm', 'oslo', 'copenhagen',
- 'tokyo', 'beijing', 'shanghai', 'singapore', 'bangkok', 'mumbai',
- 'dubai', 'new york', 'los angeles', 'toronto', 'sydney', 'melbourne',
- 'rome', 'roma', 'napoli', 'torino', 'bologna', 'genova', 'palermo',
- 'venezia', 'florence', 'firenze', 'kuala lumpur', 'luxembourg',
- 'jersey',
- 'united kingdom', 'germany', 'france', 'netherlands', 'belgium',
- 'austria', 'ireland', 'denmark', 'norway', 'sweden', 'finland',
- 'portugal', 'spain', 'poland', 'czech', 'romania', 'hungary',
- 'croatia', 'greece', 'japan', 'china', 'india', 'thailand',
- 'philippines', 'indonesia', 'malaysia', 'vietnam', 'south korea',
- 'taiwan', 'hong kong', 'australia', 'new zealand', 'canada',
- 'united states', 'mexico', 'brazil', 'argentina', 'chile',
- 'south africa', 'nigeria', 'kenya', 'egypt', 'israel', 'qatar',
- 'saudi arabia', 'bahrain', 'liechtenstein',
- 'ruggell', 'barberà del vallès', 'barbera del valles',
-];
-// Swiss cities that contain substrings of foreign city names (e.g. Münchenstein contains München)
-const SWISS_FALSE_POSITIVE_GUARD = ['münchenstein', 'münchenbuchsee', 'münchenwiler', 'romanshorn', 'romandie'];
-const isForeignLocation = (locality: string) => {
- const lower = locality.toLowerCase();
- if (SWISS_FALSE_POSITIVE_GUARD.some(s => lower.includes(s))) return false;
- return FOREIGN_LOCATION_KEYWORDS.some(kw => lower.includes(kw));
-};
 
 // Non-target Swiss cities — jobs in these locations are kept but sorted AFTER target cantons.
 const NON_TARGET_SWISS_CITY_KEYWORDS = [
@@ -805,7 +775,7 @@ export function normalizeIncomingJob(raw: any): JobListing {
 
  return {
  ...raw,
- id: listingInventoryId(raw ?? {}),
+ ...normalizeListingIdentity(raw ?? {}),
  company,
  companyKey,
  title,
@@ -846,7 +816,7 @@ async function normalizeJobPool(rawJobs: readonly unknown[]): Promise<JobListing
  const normalized: JobListing[] = [];
  const BATCH_SIZE = 512;
  for (let i = 0; i < rawJobs.length; i += 1) {
-  normalized.push(normalizeIncomingJob(rawJobs[i]));
+  if (isListingInventoryJob(rawJobs[i])) normalized.push(normalizeIncomingJob(rawJobs[i]));
   if ((i + 1) % BATCH_SIZE === 0 && i + 1 < rawJobs.length) {
    await yieldToMainThread();
   }
@@ -4325,8 +4295,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // search index below, and a new identity for the same order rebuilt that index
  // (and every memo downstream) after each deferred search keystroke (#9583).
  //
- // The sort keys that do not depend on personalization (the foreign-location
- // filter, canton rank, calendar day) depend on `jobs` alone, so they are
+ // The sort keys that do not depend on personalization (canton rank, calendar day) depend on `jobs` alone, so they are
  // computed once per list here instead of on every personal-score change:
  // over the ~22k-job live list they cost ~200 ms at 1x CPU, paid again by
  // each tracked search keystroke before this split (#9583).
@@ -4343,8 +4312,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
  };
  return jobs
- // EXCLUDE foreign jobs entirely (London, Luxembourg, Singapore, etc.)
- .filter(j => !isForeignLocation(j.addressLocality || j.location || ''))
+ .filter(isListingInventoryJob)
  .map(j => ({
  job: j,
  // Sponsored (featured) ads bought the top placement — they outrank every

@@ -26,7 +26,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
-import { selectJobBoardInventory } from '../services/jobBoardInventory';
+import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
@@ -1975,19 +1975,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return 0;
  };
 
- const listingJobCounts = new Map<string, number>();
- const listingInput = jobs.filter((job: any) => !isFixtureJob(job));
- for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
-  listingJobCounts.set(code, selectJobBoardInventory(listingInput, code).length);
- }
- listingInput.length = 0;
  let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
- .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
- .map((j: any) => ({
- ...j,
- slug: j.slug || slugify(`${j.title}-${j.company}-${j.location}`) || j.id || '',
- }))
+ .filter((j: any): boolean => isListingInventoryJob(j))
+ .map((j: any) => normalizeListingIdentity(j))
  .filter((j: any) => !!j.slug)
  // DESC by recency, tiebreak by id for determinism. Most-recent first
  // means the registry's first-write-wins gives the canonical URL to the
@@ -2002,12 +1993,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (jobsSeoSample !== null) {
   const totalValidJobs = validJobs.length;
   validJobs = selectJobsSeoSample(validJobs, jobsSeoSample);
-  for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
-   listingJobCounts.set(code, selectJobBoardInventory(validJobs, code).length);
-  }
   console.log(
    `[jobs-seo-sample] fraction=${jobsSeoSample} selected=${validJobs.length} of ${totalValidJobs}`,
   );
+ }
+ // The same validated pool drives cards, totals and detail emission. A missing
+ // description must not hide a usable listing or leave its card pointing at a
+ // missing page: the detail renderer provides a noindex page and safe defaults.
+ const listingJobCounts = new Map<string, number>();
+ for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
+  listingJobCounts.set(code, selectJobBoardInventory(validJobs, code).length);
  }
  // Keep the sample at this boundary: every active job detail, hub, bridge and
  // related/search derivation below reads this same `validJobs` array.
@@ -3819,7 +3814,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
  const jobBodyHtml = `${summaryHtml}${timelineHtml || (hasCanonical ? sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, []) : '')}${jobFaqHtml}`;
- const jobRobotsTag = robotsMetaEnhancedForContent(jobBodyHtml);
+ const jobRobotsTag = localizedDescription
+  ? robotsMetaEnhancedForContent(jobBodyHtml)
+  : ROBOTS_NOINDEX_FOLLOW;
  html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -7865,7 +7862,8 @@ ${staticAnalyticsHtml}
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(sortedForPagination.length / JOBS_PER_LISTING_PAGE));
+ const ticinoPaginationJobs = selectJobBoardInventory(sortedForPagination, DEFAULT_CANTON);
+ const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(ticinoPaginationJobs.length / JOBS_PER_LISTING_PAGE));
  let paginationPageCount = 0;
  const paginationSitemapEntries: string[] = [];
  const pagCopy: Record<'it' | 'en' | 'de' | 'fr', { title: (n: number) => string; desc: (n: number, from: number, to: number) => string; heading: (n: number) => string }> = {
@@ -7876,7 +7874,7 @@ ${staticAnalyticsHtml}
  };
  for (let pageNum = 2; pageNum <= totalListingPages; pageNum++) {
  const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
- const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
+ const pgJobs = ticinoPaginationJobs.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -7886,7 +7884,7 @@ ${staticAnalyticsHtml}
  const pgCanonicalUrl = `${BASE_URL}${pgCanonicalPath}`;
  const pgCopy = pagCopy[locale];
  const pgFrom = startIdx + 1;
- const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, sortedForPagination.length);
+ const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, ticinoPaginationJobs.length);
  const pgTitle = pgCopy.title(pageNum);
  const pgDesc = pgCopy.desc(pageNum, pgFrom, pgTo);
  const pgAlternates = localeList.map((al) => {
@@ -7981,21 +7979,13 @@ ${staticAnalyticsHtml}
   * TI is NOT iterated here \u2014 the legacy TI emit above is byte-identical.
   */
  {
- // Group validJobs by resolved canton.
- const jobsByCanton: Map<string, typeof validJobs> = new Map();
- for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
- const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
- if (!jobsByCanton.has(c)) jobsByCanton.set(c, []);
- jobsByCanton.get(c)!.push(job);
- }
  // Display names for the canton in body copy (use canton URL slug as fallback).
  const cantonDisplayLocal = (canton: string, locale: typeof localeList[number]): string => {
  return getCantonDisplayLabel(canton, locale);
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue; // TI handled by legacy block above
- const cJobs = jobsByCanton.get(canton) ?? [];
+ const cJobs = selectJobBoardInventory(validJobs, canton);
  if (cJobs.length < 2 * JOBS_PER_LISTING_PAGE) continue;
  const cSorted = [...cJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
@@ -15097,6 +15087,7 @@ ${staticAnalyticsHtml}
  // qui: sono block-scoped nella fase city-hubs (tsc li rifiuta a questo
  // punto), quindi escono di scope da soli.
  sortedForPagination.length = 0;
+ ticinoPaginationJobs.length = 0;
  implicitPreviousSlugs.length = 0;
  companyActiveJobsMap.clear();
  recentJobPool.length = 0;

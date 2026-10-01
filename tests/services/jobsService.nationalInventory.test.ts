@@ -9,7 +9,7 @@ const inventory = [
   { id: 'jura', canton: 'JU' },
   { id: 'unassigned' },
   { id: 'st-gallen', canton: 'SG' },
-];
+].map((job) => ({ ...job, title: 'Ruolo', company: 'Esempio SA' }));
 
 afterEach(() => vi.unstubAllGlobals());
 

@@ -72,7 +72,13 @@ beforeAll(async () => {
   // visible inventory and the smaller sitemap-eligible subset.
   const listingOnly = Array.from({ length: 120 }, (_, i) => ({ id: `listing-only-${i}`, slug: `listing-only-${i}`, title: `Posizione ${i}`, company: 'Audit Example SA', canton: 'ZH', location: 'Zürich' }));
   const sgJobs = Array.from({ length: 6 }, (_, i) => ({ ...jobs[0], id: `sg-position-${i}`, slug: `sg-position-${i}`, canton: 'SG', location: 'St. Gallen' }));
-  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, ...listingOnly, ...sgJobs, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
+  const invalidListings = [
+    { ...jobs[0], id: 'missing-company', slug: 'missing-company', company: undefined },
+    { ...jobs[0], id: 'blank-company', slug: 'blank-company', company: '  ' },
+    { ...jobs[0], id: 'missing-title', slug: 'missing-title', title: '' },
+    { ...jobs[0], id: 'foreign-location', slug: 'foreign-location', location: 'London', addressLocality: 'London' },
+  ];
+  fs.writeFileSync(path.join(root, 'data/jobs.json'), JSON.stringify([...jobs, ...listingOnly, ...sgJobs, ...invalidListings, { title: 'Developer (m/f/d) #1?', company: 'Acme', canton: 'TI', description }, { title: 'Cuoco', company: 'Acme', canton: 'TI', titleByLocale: { it: 'Cuoco', en: 'Cook', de: 'Koch', fr: 'Cuisinier' } }, jobs[0], { ...jobs[1], id: 'short-translation', slug: 'short-translation', descriptionByLocale: { it: 'Testo breve' } }]));
   // The archive emitter consumes its historical snapshot, independently of
   // current listing counts: ZH has one archive page and SG has two.
   fs.mkdirSync(path.join(root, 'data/jobs-snapshots-history'));
@@ -120,6 +126,62 @@ describe('job-board emitted output', () => {
         expect(structured(document).flatMap(allTypes)).not.toContain('JobPosting');
       }
       expect(getActiveJobCountsByLocale(root)[locale]).toBe(selectJobBoardInventory(index, 'TI').length);
+    }
+  });
+
+  it('excludes incomplete identities from published inventory, totals and static cards', () => {
+    for (const locale of locales) {
+      const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));
+      const selected = selectJobBoardInventory(index, 'ZH');
+      expect(selected).toHaveLength(127);
+      for (const id of ['missing-company', 'blank-company', 'missing-title', 'foreign-location']) {
+        expect(index.some((job: any) => job.id === id)).toBe(false);
+        expect(htmlDoc(hubPath(locale, 'ZH')).querySelector(`[href*="${id}"]`)).toBeNull();
+      }
+    }
+  });
+
+  it('paginates listing-only records and emits reachable noindex detail pages', () => {
+    const pageWord = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
+    for (const locale of locales) {
+      const hub = hubPath(locale, 'ZH');
+      const lastPage = htmlDoc(`${hub}${pageWord[locale]}-7/`);
+      const itemList = structured(lastPage).find((entry) => entry['@type'] === 'ItemList');
+      expect(itemList.numberOfItems).toBe(7);
+      expect(lastPage.querySelector('link[rel="next"]')).toBeNull();
+      expect(fs.existsSync(path.join(root, 'dist', hub, `${pageWord[locale]}-8/index.html`))).toBe(false);
+      expect(htmlDoc(hub).querySelector(`[data-explore-pagination] a[href$="/${pageWord[locale]}-7/"]`)).toBeTruthy();
+      const detail = htmlDoc(`${hub}listing-only-0/`);
+      expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
+      expect(detail.querySelector('h1')?.textContent).toContain('Posizione 0');
+      expect(structured(detail).find((entry) => entry['@type'] === 'JobPosting')).toBeTruthy();
+      expect([...detail.scripts].some((script) => script.textContent?.includes('window.__JOB_SEED__'))).toBe(true);
+      for (const link of lastPage.querySelectorAll('a[href*="listing-only-"]')) {
+        const pathname = new URL(link.getAttribute('href')!, 'https://frontaliereticino.ch').pathname;
+        expect(fs.existsSync(path.join(root, 'dist', pathname, 'index.html')), pathname).toBe(true);
+      }
+    }
+  });
+
+  it('keeps locale indexes and direct routes aligned without a source slug or locality', () => {
+    for (const locale of locales) {
+      const index = JSON.parse(fs.readFileSync(path.join(root, 'dist/data', `jobs-${locale}-index.json`), 'utf8'));
+      const job = index.find((entry: any) => entry.slug === 'cuoco-acme-ticino');
+      expect(job.id).toMatch(/^listing-[a-f0-9]{64}$/);
+      const unsafeSource = index.find((entry: any) => entry.title === 'Developer (m/f/d) #1?');
+      expect(unsafeSource.id).toMatch(/^listing-[a-f0-9]{64}$/);
+      expect(fs.existsSync(path.join(root, 'dist/data/job-detail', `${unsafeSource.id}.json`))).toBe(true);
+      expect(fs.existsSync(path.join(root, 'dist', hubPath(locale, 'TI'), `${({ it: 'pagina', en: 'page', de: 'seite', fr: 'page' })[locale]}-2/index.html`))).toBe(false);
+      expect(job.slug).toBe('cuoco-acme-ticino');
+      const detail = htmlDoc(`${hubPath(locale, 'TI')}${job.slug}/`);
+      expect(detail.querySelector('h1')?.textContent).toContain(job.title);
+      expect(detail.querySelector('meta[name="robots"]')?.getAttribute('content')).toContain('noindex');
+      expect(detail.querySelector('link[rel="canonical"]')?.getAttribute('href')).toBe(`https://frontaliereticino.ch${hubPath(locale, 'TI')}${job.slug}/`);
+    }
+    for (const name of ['sitemap-jobs.xml', 'sitemap-jobs-ticino.xml', 'sitemap-jobs-zurigo.xml', 'sitemap-jobs-svizzera.xml']) {
+      const xml = fs.readFileSync(path.join(root, 'dist', name), 'utf8');
+      expect(xml).not.toContain('listing-only-0/');
+      expect(xml).not.toContain('cuoco-acme-ticino/');
     }
   });
 

@@ -10,7 +10,7 @@ export * from './jobBoardSeoPure';
 
 import fs from 'node:fs';
 import path from 'node:path';
-import { selectJobBoardInventory } from '../services/jobBoardInventory';
+import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { buildLocaleJob, type JobEntry } from './shared/slimJobIndex';
 import { isFixtureJob } from '../scripts/lib/fixture-data-filter.mjs';
 import type { JobBoardLocale } from './jobBoardSeoPure';
@@ -30,7 +30,7 @@ export function getActiveJobCountsByLocale(
     const raw = fs.readFileSync(file, 'utf-8');
     const parsed = JSON.parse(raw) as unknown;
     if (!Array.isArray(parsed)) return { it: 0, en: 0, de: 0, fr: 0 };
-    const jobs = (parsed as JobEntry[]).filter((job) => !isFixtureJob(job));
+    const jobs = (parsed as JobEntry[]).filter((job) => !isFixtureJob(job) && isListingInventoryJob(job)).map(normalizeListingIdentity);
     return Object.fromEntries((['it', 'en', 'de', 'fr'] as const).map((locale) => [
       locale, selectJobBoardInventory(jobs.map((job) => buildLocaleJob(job, locale)), canton).length,
     ])) as Record<JobBoardLocale, number>;

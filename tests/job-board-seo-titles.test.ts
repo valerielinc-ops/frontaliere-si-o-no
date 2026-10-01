@@ -240,9 +240,9 @@ describe('getActiveJobCountsByLocale', () => {
       fs.mkdirSync(path.join(tmp, 'data'), { recursive: true })
       const longDesc = 'word '.repeat(60).trim()
       const jobs = [
-        { id: 'ti-a', canton: 'TI', descriptionByLocale: { it: longDesc } },
-        { id: 'ti-b', canton: 'TI' },
-        { id: 'zh-a', canton: 'ZH', descriptionByLocale: { it: longDesc, en: longDesc } },
+        { id: 'ti-a', title: 'Ruolo A', company: 'Esempio SA', canton: 'TI', descriptionByLocale: { it: longDesc } },
+        { id: 'ti-b', title: 'Ruolo B', company: 'Esempio SA', canton: 'TI' },
+        { id: 'zh-a', title: 'Ruolo C', company: 'Esempio SA', canton: 'ZH', descriptionByLocale: { it: longDesc, en: longDesc } },
       ]
       fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))
       const counts = getActiveJobCountsByLocale(tmp)

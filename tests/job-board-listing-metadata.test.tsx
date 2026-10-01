@@ -6,7 +6,7 @@ afterEach(() => { document.head.innerHTML = ''; });
 
 describe('job-board inventory metadata', () => {
   it('scopes canton groups and national totals using the same stable listing identities', () => {
-    const jobs = [{ id: 'bs', canton: 'BS' }, { id: 'bl', canton: 'BL' }, { id: 'ti', canton: 'TI' }, { id: 'bs', canton: 'BS' }];
+    const jobs = [{ id: 'bs', canton: 'BS' }, { id: 'bl', canton: 'BL' }, { id: 'ti', canton: 'TI' }, { id: 'bs', canton: 'BS' }].map((job) => ({ ...job, title: 'Ruolo', company: 'Esempio SA' }));
     expect(selectJobBoardInventory(jobs, 'BASILEA').map((job) => job.id)).toEqual(['bs', 'bl']);
     expect(selectJobBoardInventory(jobs, 'TI')).toHaveLength(1);
     expect(selectJobBoardInventory(jobs, '_AGGREGATE_')).toHaveLength(3);
