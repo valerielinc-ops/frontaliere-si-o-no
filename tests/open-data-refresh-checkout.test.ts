@@ -83,7 +83,7 @@ function fixture() {
   fs.chmodSync(gh, 0o755);
   const body = path.join(directory, 'body.md');
   fs.writeFileSync(body, '## Implementato\n- Fixture refresh.\n\n## Non implementato (ancora)\n- Nessuno.\n');
-  return { repo, remote, bin, body };
+  return { repo, remote, bin, body, base };
 }
 
 function publish(setup: ReturnType<typeof fixture>, fail = false, extraArgs: string[] = []) {
@@ -154,6 +154,11 @@ describe('data publisher preserves its source checkout', () => {
     git(setup.repo, ['commit', '-q', '-m', 'main cache additions']);
     const mainHead = git(setup.repo, ['rev-parse', 'HEAD']);
     git(setup.repo, ['push', '-q', 'origin', 'main']);
+    const shallow = path.join(path.dirname(setup.repo), 'shallow');
+    git(setup.repo, ['clone', '-q', '--depth=1', '--branch', 'main', `file://${setup.remote}`, shallow]);
+    setup.repo = shallow;
+    git(setup.repo, ['config', `url.${setup.remote}.insteadOf`, 'https://x-access-token:fixture-token@github.com/fixture/publisher.git']);
+    expect(spawnSync('git', ['cat-file', '-e', `${setup.base}^{commit}`], { cwd: setup.repo }).status).not.toBe(0);
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
     write(setup.repo, 'data/unpublished.json', '{"version":"unpublished"}\n');
     const result = publish(setup, false, ['--reconcile-main']);
@@ -164,6 +169,7 @@ describe('data publisher preserves its source checkout', () => {
     expect(translations).toEqual({ title: { en: 'corrected', fr: 'main', de: 'pending' } });
     expect(git(setup.remote, ['rev-parse', 'chore/refresh^2'])).toBe(mainHead);
     expect(git(setup.repo, ['rev-parse', '--is-shallow-repository'])).toBe('true');
+    expect(git(setup.repo, ['cat-file', '-t', setup.base])).toBe('commit');
     expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
     expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
     expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
