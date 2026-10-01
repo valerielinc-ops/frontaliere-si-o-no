@@ -7376,6 +7376,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.operazione-internazionale-contro-killsec.title': 'KillSec dismantled: 110 TB of data seized',
     'blog.article.operazione-internazionale-contro-killsec.excerpt': 'An international operation on September 30, 2026 dismantled KillSec\'s network, arrested three people, carried out eight searches in Spain, Greece, the United Kingdom, and Romania, and seized five servers.',
     'blog.article.operazione-internazionale-contro-killsec.imageAlt': 'Modern Swiss data centre with Swiss flag, symbol of cybersecurity',
+    'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Council of States: yes to EU health agreement',
+    'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 yes, 11 no: health decree approved. Optional referendum chosen. Electricity paused.',
+    'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'The Federal Palace in Bern during the Council of States session',
 };
 
 export default blogMetaChEn;

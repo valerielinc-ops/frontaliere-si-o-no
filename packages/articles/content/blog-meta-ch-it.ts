@@ -7376,6 +7376,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.operazione-internazionale-contro-killsec.title': 'KillSec smantellato: 110 TB di dati sequestrati',
     'blog.article.operazione-internazionale-contro-killsec.excerpt': 'Operazione internazionale del 30 settembre 2026 ha smantellato la rete di KillSec, arrestato tre persone, eseguito otto perquisizioni in Spagna, Grecia, Regno Unito e Romania e sequestrato cinque server.',
     'blog.article.operazione-internazionale-contro-killsec.imageAlt': 'Centrale dati svizzera moderna con bandiera svizzera, simbolo di sicurezza informatica',
+    'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Consiglio degli Stati: sì all’accordo sanità UE',
+    'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 sì, 11 no: approvato il decreto sanitario. Referendum facoltativo scelto. Elettricità in pausa.',
+    'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Il Palazzo federale di Berna durante la sessione del Consiglio degli Stati',
 };
 
 export default blogMetaChIt;
