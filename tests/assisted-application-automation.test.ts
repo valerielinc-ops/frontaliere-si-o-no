@@ -210,6 +210,22 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  // 2026-10-01: three orders paid before the automation was on are started from the queue.
+  it('gives an order the owner starts the same alias the trigger gives', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    await store.db.collection('assisted_applications').doc(ORDER).set(paidOrder());
+    const steps: string[] = [];
+    const ensureAlias = vi.fn(async () => { steps.push('alias'); return { address: 'c-abcdefghjk@candidature.frontaliereticino.ch', active: true }; });
+    const dispatched: any[] = [];
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationStart', orderId: ORDER }, 'owner@example.com', {
+      runEffect: async ({ effect }: any) => { steps.push('dispatch'); dispatched.push(effect); return { ok: true }; }, isEnabled: async () => true, ensureAlias, nowMs: T0,
+    })).resolves.toEqual({ ok: true, state: 'drafting' });
+    expect(ensureAlias).toHaveBeenCalledWith({ db: store.db, orderId: ORDER, nowMs: T0 });
+    // The alias exists before the draft is dispatched: the runner writes it into the letter and the portal.
+    expect(steps).toEqual(['alias', 'dispatch']);
+    expect(dispatched).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_request' }]);
+  });
+
   it('cannot start the flow while the Remote Config flag is off', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     const dispatch = vi.fn();
