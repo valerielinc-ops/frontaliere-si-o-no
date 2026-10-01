@@ -91,6 +91,20 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/**
+ * A page that has just changed may still be drawing its form (JOIN's steps
+ * render a moment after the address changes, dry_run 36817633054 read none):
+ * up to 10 s for its fields, and while `unchanged` says it is the old page.
+ */
+async function awaitFields(page, snapshot, unchanged = () => false) {
+  let current = snapshot;
+  for (let waited = 0; waited < 10_000 && (unchanged(current) || !current.fields.length); waited += 2000) {
+    await page.waitForTimeout(2000);
+    current = await extractFields(page);
+  }
+  return current;
+}
+
 /** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
 function pageSignature(page, snapshot) {
   return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
@@ -309,7 +323,9 @@ async function waitForOutcome(page) {
 export async function submitViaPortal(ctx) {
   const launch = ctx.launch || (() => launchChromium({ headless: true }));
   const log = ctx.log || (() => {});
-  const maxSteps = ctx.maxSteps || 8;
+  // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
+  // start date, the employer's own questions, review): 8 pages were not enough.
+  const maxSteps = ctx.maxSteps || 15;
   const evidence = { steps: [], applyUrl: ctx.applyUrl };
   const browser = await launch();
   let page = null;
@@ -362,8 +378,14 @@ export async function submitViaPortal(ctx) {
         step -= 1; // a login page is not a form page
         continue;
       }
-      if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
-        return await handoff('portal_needs_candidate');
+      // Inside the form, any page with a field is planned: a step with one
+      // question and its Next disabled until it is answered (JOIN's work
+      // authorization) is not a dead end. Nothing to fill and nowhere to go is.
+      const workable = (current) => current.fields.length > 0 || hasApplicationForm(current)
+        || findButton(current.buttons, SUBMIT_RE) || findButton(current.buttons, NEXT_RE);
+      if (!workable(snapshot)) {
+        snapshot = await awaitFields(page, snapshot);
+        if (!workable(snapshot)) return await handoff('portal_needs_candidate');
       }
 
       const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
@@ -374,6 +396,7 @@ export async function submitViaPortal(ctx) {
       // page is planned a second time (Personio empties the input after the upload).
       const uploadKey = (fieldId) => `${page.url()}|${snapshot.fields.find((field) => field.id === fieldId)?.label || fieldId}`;
       const actions = plan.actions.filter((action) => action.action !== 'upload' || !uploaded.has(uploadKey(action.fieldId)));
+      const plannedUrl = page.url();
       const results = await applyActions(page, snapshot.fields, actions, ctx.files);
       for (const result of results) {
         if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
@@ -382,6 +405,13 @@ export async function submitViaPortal(ctx) {
       evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
 
       let after = await extractFields(page, NAVIGATION);
+      // The portal moved to another page by itself (JOIN registers the e-mail
+      // and shows the CV page a moment later): plan that page, instead of
+      // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
+      if (page.url() !== plannedUrl) {
+        snapshot = await awaitFields(page, await extractFields(page));
+        continue;
+      }
       // No usable button yet: a form re-rendering after a choice (Workday
       // redraws the address for another country) or an uploaded CV still being
       // processed (Workday parses it). Up to 6 s, or 60 s after an upload.
@@ -398,6 +428,13 @@ export async function submitViaPortal(ctx) {
         await clickButton(page, next);
         await settle(page);
         snapshot = await extractFields(page);
+        // A single-page form moves on after its own request (JOIN checks the
+        // e-mail first): up to 10 s for the next page before calling it stuck.
+        // The address may change before the content does (JOIN's professionalLinks
+        // step was read with the previous page's fields): the same labels count as the same page.
+        const labelsBefore = after.fields.map((field) => field.label).join('|');
+        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before
+          || (current.fields.length > 0 && current.fields.map((field) => field.label).join('|') === labelsBefore));
         // Still the same page: the form refused a value. Two corrections, then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage > 2) return await handoff('portal_needs_candidate');

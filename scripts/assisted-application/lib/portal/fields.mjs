@@ -15,6 +15,9 @@ export function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
+  // Ids a framework generates, which say nothing to the planner: React's
+  // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
+  const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
@@ -49,7 +52,60 @@ export function extractFieldsInPage() {
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
     const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
-    return text || clean(element.getAttribute('name') || element.id);
+    if (text) return text;
+    // The first of name and id that is not generated ("input-7" never hides "email-address").
+    const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
+    const technical = names.find((value) => !GENERATED_ID_RE.test(value));
+    if (technical) return technical;
+    // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
+    // the heading the control sits under and the text of its zone say what it
+    // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
+    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+  };
+  // A heading of another step a portal keeps in the page, hidden, names nothing.
+  const shown = (node) => {
+    if (node.closest('[hidden], [aria-hidden="true"]')) return false;
+    const style = window.getComputedStyle(node);
+    const rect = node.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+  };
+  // Node.DOCUMENT_POSITION_FOLLOWING, without relying on the global Node.
+  const FOLLOWING = 4;
+  // A heading inside another section of the page (a step, a dialog, a tab
+  // the field is not in) names nothing in this one.
+  const SECTIONS = 'section, article, fieldset, dialog, [role="dialog"], [role="tabpanel"], [role="region"]';
+  const headingBefore = (element) => {
+    let found = '';
+    for (const heading of document.querySelectorAll('h1, h2, h3, h4, legend')) {
+      const section = heading.closest(SECTIONS);
+      if (section && !section.contains(element)) continue;
+      // eslint-disable-next-line no-bitwise
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
+    }
+    return found;
+  };
+  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
+  // nearest before it, else the first after it, so two unnamed fields in one
+  // zone never share the first one's question.
+  const zoneText = (element) => {
+    let node = element.parentElement;
+    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+      const walker = document.createTreeWalker(node, 4);
+      let before = '';
+      let after = '';
+      for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+        // Never from inside a control: a select's first option is an answer, not a question.
+        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
+        const value = clean(text.textContent);
+        if (!value) continue;
+        // eslint-disable-next-line no-bitwise
+        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
+        else if (!after) after = value;
+      }
+      const words = before || after;
+      if (words) return words.slice(0, 80);
+    }
+    return '';
   };
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
@@ -123,6 +179,37 @@ export function extractFieldsInPage() {
     fields.push(field);
   }
   for (const entry of radios.values()) fields.push(entry);
+  // ARIA radio groups without a native input (JOIN's option cards,
+  // <div role="radio" aria-checked>): one field per group, its question from
+  // the group's label or the heading before it, each option by its own text
+  // without the "a"/"b" badge. Giro di prova 2026-10-01 ("Qual è il suo stato
+  // di autorizzazione al lavoro per Svizzera?" read as no field at all).
+  const ariaGroups = new Map();
+  for (const element of document.querySelectorAll('[role="radio"]')) {
+    if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !visible(element)) continue;
+    let container = element.closest('[role="radiogroup"]');
+    for (let node = element.parentElement; !container && node && node !== document.body; node = node.parentElement) {
+      if (node.querySelectorAll('[role="radio"]').length > 1) container = node;
+    }
+    container ||= element.parentElement;
+    const words = [];
+    const walker = document.createTreeWalker(element, 4);
+    for (let text = walker.nextNode(); text && words.length < 2; text = walker.nextNode()) {
+      const value = clean(text.textContent);
+      if (value.length > 1) words.push(value);
+    }
+    const label = clean(element.getAttribute('aria-label') || textOf(element.getAttribute('aria-labelledby')) || words.join(' — '));
+    if (!label) continue;
+    let entry = ariaGroups.get(container);
+    if (!entry) {
+      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
+      entry = { id: idFor(container), kind: 'radio', name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      ariaGroups.set(container, entry);
+    }
+    entry.options.push({ value: label, label, aaId: idFor(element) });
+    if (element.getAttribute('aria-checked') === 'true') entry.value = label;
+  }
+  for (const entry of ariaGroups.values()) if (entry.options.length) fields.push(entry);
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
   // aria-driver): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
