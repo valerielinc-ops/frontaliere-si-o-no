@@ -55,6 +55,9 @@ export function automationEmailKey(effect, flow) {
     return `auto_owner_takeover_${code}_r${round}`;
   }
   if (effect.kind === 'candidate_action_needed') return `auto_candidate_action_${(flow?.history || []).length}`;
+  // One per wait for the candidate's answers (a wait may come back in the same round, at the portal).
+  if (effect.kind === 'candidate_questions_reminder') return `auto_candidate_questions_reminder_${effect.since}_n${effect.nudge}`;
+  if (effect.kind === 'owner_candidate_silent') return `auto_owner_candidate_silent_${effect.since}`;
   if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed') {
     return `auto_${effect.kind}`;
   }
@@ -94,6 +97,8 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         summary: draft.summaryIt,
         channel: draft.channel?.label,
         candidateEmail: customerEmailFor(order),
+        days: effect.days,
+        nudges: effect.nudges,
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {

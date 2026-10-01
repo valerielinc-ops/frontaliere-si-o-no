@@ -5,6 +5,8 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const {
   CANDIDATE_REMINDER_BEFORE_MS,
   CANDIDATE_REVIEW_MS,
+  HELD_OWNER_NOTICE_AFTER_MS,
+  HELD_REMINDERS_AFTER_MS,
   MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
@@ -165,12 +167,82 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ state: 'candidate_review', deadlineAt: null, heldBy: ['question:permit'] });
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
     expect(transition(step.flow, { type: 'candidate_approve' }, { draft: withQuestion, nowMs: T0 + 1 }).ignored).toBe('questions_open');
-    expect(transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + 2 * CANDIDATE_REVIEW_MS }).ignored).toBe('nothing_due');
+    expect(transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + CANDIDATE_REVIEW_MS }).ignored).toBe('nothing_due');
+    // A day later only a reminder goes out: nothing leaves without the answers.
+    const nudged = transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + 2 * CANDIDATE_REVIEW_MS });
+    expect(nudged.flow).toMatchObject({ state: 'candidate_review', deadlineAt: null, heldBy: ['question:permit'] });
+    expect(nudged.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
 
     const answeredAt = T0 + 3 * 60 * 60_000;
     step = transition(step.flow, { type: 'candidate_answers' }, { draft: withQuestion, answers: { permit: 'Permesso G' }, nowMs: answeredAt });
     expect(step.flow).toMatchObject({ state: 'candidate_review', deadlineAt: answeredAt + CANDIDATE_REVIEW_MS, heldBy: [] });
     expect(step.effects).toEqual([]);
+  });
+
+  // Owner question 2026-10-01: «cosa succede dopo le 12 ore che l'utente non risponde alle domande?»
+  it('reminds a candidate who does not answer at 24 h and 72 h, then tells Valerie after 5 days', () => {
+    const questions = [{ id: 'permit', required: true }, { id: 'rate', required: true }];
+    const draft = { ...cleanDraft, questions };
+    let step = transition({ state: 'owner_review', deadlineAt: T0 + OWNER_REVIEW_MS }, { type: 'owner_approve' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldSince: T0, heldNudges: 0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
+
+    // One answer of two: still waiting, on the same schedule.
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { permit: 'Permesso G' }, nowMs: T0 + 60_000 });
+    expect(step.flow).toMatchObject({ heldBy: ['question:rate'], heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([]);
+    const answers = { permit: 'Permesso G' };
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldNudges: 1, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[1], deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] + 1 }).ignored).toBe('nothing_due');
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[1] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 2, since: T0 }]);
+    expect(step.flow).toMatchObject({ heldNudges: 2, reminderAt: T0 + HELD_OWNER_NOTICE_AFTER_MS });
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_OWNER_NOTICE_AFTER_MS });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'owner_candidate_silent', since: T0, days: 5, nudges: 2 }]);
+    // The order keeps waiting for the answers, with no clock left: Valerie decides.
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: null, deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 30 * 24 * 60 * 60_000 }).ignored).toBe('nothing_due');
+
+    // The last answer ends the wait and starts the 12 h clock, with its own reminder.
+    const answeredAt = T0 + 6 * 24 * 60 * 60_000;
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { ...answers, rate: '80 CHF' }, nowMs: answeredAt });
+    expect(step.flow).toMatchObject({
+      state: 'candidate_review', heldBy: [], heldSince: null, heldNudges: 0,
+      deadlineAt: answeredAt + CANDIDATE_REVIEW_MS, reminderAt: answeredAt + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS,
+    });
+  });
+
+  it('gives the 12 h clock after a wait its own reminder, even when an earlier clock sent one (review of #10803)', () => {
+    const draft = { ...cleanDraft, questions: [{ id: 'permit', required: true }] };
+    // The earlier 12 h clock already reminded the candidate; at its end a question is open.
+    let step = transition({ state: 'candidate_review', deadlineAt: T0, reminderSentAt: T0 - CANDIDATE_REMINDER_BEFORE_MS, heldBy: [] }, { type: 'tick' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:permit'], heldSince: T0, reminderSentAt: null });
+    const answeredAt = T0 + 60 * 60_000;
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { permit: 'Permesso G' }, nowMs: answeredAt });
+    expect(step.flow.heldBy).toEqual([]);
+    expect(step.flow.reminderAt).toBe(answeredAt + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS);
+  });
+
+  it('reminds the candidate of the portal\'s questions too, each wait with its own reminders', () => {
+    const questions = [{ id: 'screening_1', required: true }];
+    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft: cleanDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    const draft = { ...cleanDraft, questions };
+    step = transition(step.flow, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+
+    // Answered: the submit runs again and the wait is over.
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { screening_1: 'Sì' }, nowMs: T0 + 2 * HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.flow).toMatchObject({ state: 'submitting', heldSince: null, heldNudges: 0, reminderAt: null });
+    // The portal asks again: a new wait, with reminders of its own.
+    const again = T0 + 3 * HELD_REMINDERS_AFTER_MS[0];
+    step = transition(step.flow, { type: 'submit_needs_candidate', questions: [{ id: 'screening_2', required: true }] }, { draft, nowMs: again });
+    expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
   it('regenerates on rejection and hands over to Valerie after the third one', () => {
