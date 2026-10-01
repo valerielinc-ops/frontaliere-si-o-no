@@ -157,7 +157,7 @@ describe('handoffOriginVerdict: quando l\'hand-off non ha più nulla da riapplic
     expect(handoff).toBeGreaterThan(closed);
     expect(handoff).toBeGreaterThan(-1);
     expect(handoff).toBeLessThan(followUpOnly);
-    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable,mergeStateStatus,headRefOid'");
+    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable,mergeStateStatus,headRefOid,labels'");
   });
 });
 

@@ -221,6 +221,20 @@ jobs:
           GH_REPO: ${{ github.repository }}
         run: node scripts/ci/stale-claim-detector.mjs
 
+      # Chiude gli hand-off di conflitto di pr-autorebase il cui lavoro e' gia'
+      # fatto (PR di origine mergiata o di nuovo mergeable, riapplicazione
+      # mergiata, duplicati) PRIMA che il drain li promuova. Senza, l'unica
+      # chiusura era il `Closes` della riapplicazione: il 2026-10-01 5 hand-off
+      # aperti su 8 avevano la PR di origine gia' mergiata. GITHUB_TOKEN basta:
+      # chiudere una issue non deve avviare nessun workflow. Best-effort come lo
+      # step sopra: esce 0 e non tocca cio' che non sa leggere.
+      - name: Reconcile conflict hand-offs (zero-Claude)
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/reconcile-conflict-handoffs.mjs
+
       - name: Drain follow-up queue (deterministic, no Claude)
         env:
           # App (o PAT) OBBLIGATORIO: il `labeled` agent:fix deve triggerare

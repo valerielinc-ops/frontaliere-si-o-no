@@ -22,6 +22,8 @@ export const ENTRYPOINTS = [
   'scripts/ci/probe-workflow-scope.mjs',
   // Rilascia i claim morti subito prima della promozione (followup-drainer.yml).
   'scripts/ci/stale-claim-detector.mjs',
+  // Chiude gli hand-off di conflitto gia' risolti prima del drain (followup-drainer.yml).
+  'scripts/ci/reconcile-conflict-handoffs.mjs',
   // pharmacy-data-health-monitor.yml runs this observer WITHOUT `npm ci`
   // (read-only, no network, checked-in datasets only). Until #8653 its closure
   // reached scripts/lib/crawler-template.mjs for a single `slugify` helper and
