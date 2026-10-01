@@ -1,0 +1,23 @@
+{
+  "companyKey": "ospena-group-ag",
+  "companyName": "Ospena Group AG",
+  "companyHost": "jobs.migros.ch",
+  "platform": "migros.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/ospena-group-ag/offene-stellen"
+  ],
+  "detailTemplate": "/de/unsere-unternehmen/job/pizzeria-ristorante-molino/*/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m",
+    "<p class=\"font-micro font-bold md:font-sans m"
+  ],
+  "canton": "ZH",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-01T07:46:31.738Z"
+}
