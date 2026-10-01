@@ -259,10 +259,20 @@ export function parsePlateAuctionApiSnapshot(value: unknown): PlateAuctionApiSna
   return { schema: PLATE_AUCTION_API_SCHEMA, complete: true, generatedAt: value.generatedAt, sources, auctions, ...(history ? { history } : {}), counts };
 }
 
+/**
+ * The static snapshot comes first: refresh-plate-auctions.yml republishes it
+ * every 6 hours, the same cadence as the Firestore collector behind the
+ * function, and the CDN serves it at no Firestore cost. The function is only
+ * the fallback: one uncached build there is ~22'700 billed reads, and calling
+ * it first on every plate page cost 75-90 M reads a day once a crawler walked
+ * those pages (2026-09-30). Expired deadlines are re-checked at render time
+ * (`isPlateAuctionLive` in ranking.ts), so a snapshot a few hours old never
+ * shows a closed auction as open.
+ */
 export async function fetchPlateAuctionSnapshot(): Promise<PlateAuctionApiSnapshot> {
   const urls = [
-    `${FUNCTIONS_BASE}/getPlateAuctions`,
     cdnDataUrl('/data/plate-auctions.json'),
+    `${FUNCTIONS_BASE}/getPlateAuctions`,
   ];
   let lastError: unknown;
   for (const url of urls) {

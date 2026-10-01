@@ -1,5 +1,5 @@
-import { describe, expect, it } from 'vitest';
-import { parsePlateAuctionApiSnapshot, parsePlateAuctionEditorialSnapshot, sanitizePublicPlateAuction } from '../services/plateAuctions/api';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import { fetchPlateAuctionSnapshot, parsePlateAuctionApiSnapshot, parsePlateAuctionEditorialSnapshot, sanitizePublicPlateAuction } from '../services/plateAuctions/api';
 
 const base = {
   id: 'zh-43423', sourceKey: 'ZH', canton: 'Zurigo', platePrefix: 'ZH', plateNumber: '626', normalizedPlate: 'ZH626',
@@ -63,5 +63,36 @@ describe('plate-auction public API contract', () => {
     });
     expect(editorial?.weekly.it.highlights?.[0]).not.toHaveProperty('bidderName');
     expect(editorial?.weekly.it.highlights?.[0].plate).toBe('GR 7');
+  });
+});
+
+describe('plate-auction snapshot source order', () => {
+  const snapshot = { schema: 1, complete: true, generatedAt: '2026-09-13T12:00:00.000Z', sources: {}, auctions: [base] };
+  const respond = (status: number, body: unknown = snapshot) => ({ ok: status >= 200 && status < 300, status, json: async () => body });
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  // One uncached function build is ~22'700 billed Firestore reads: every page
+  // view must be served by the static CDN snapshot, never by the function.
+  it('reads the static snapshot and never calls the function when it is served', async () => {
+    const fetchMock = vi.fn(async () => respond(200));
+    vi.stubGlobal('fetch', fetchMock);
+    const result = await fetchPlateAuctionSnapshot();
+    expect(result.auctions).toHaveLength(1);
+    expect(fetchMock).toHaveBeenCalledTimes(1);
+    expect(String(fetchMock.mock.calls[0][0])).toMatch(/\/data\/plate-auctions\.json$/);
+  });
+
+  it('falls back to the function only when the static snapshot fails', async () => {
+    const fetchMock = vi.fn(async (url: string) => (String(url).endsWith('/data/plate-auctions.json') ? respond(404, {}) : respond(200)));
+    vi.stubGlobal('fetch', fetchMock);
+    const result = await fetchPlateAuctionSnapshot();
+    expect(result.auctions).toHaveLength(1);
+    expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual([
+      '/data/plate-auctions.json',
+      'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPlateAuctions',
+    ]);
   });
 });
