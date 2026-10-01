@@ -210,6 +210,22 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  // 2026-10-01: three orders paid before the automation was on are started from the queue.
+  it('gives an order the owner starts the same alias the trigger gives', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    await store.db.collection('assisted_applications').doc(ORDER).set(paidOrder());
+    const steps: string[] = [];
+    const ensureAlias = vi.fn(async () => { steps.push('alias'); return { address: 'c-abcdefghjk@candidature.frontaliereticino.ch', active: true }; });
+    const dispatched: any[] = [];
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationStart', orderId: ORDER }, 'owner@example.com', {
+      runEffect: async ({ effect }: any) => { steps.push('dispatch'); dispatched.push(effect); return { ok: true }; }, isEnabled: async () => true, ensureAlias, nowMs: T0,
+    })).resolves.toEqual({ ok: true, state: 'drafting' });
+    expect(ensureAlias).toHaveBeenCalledWith({ db: store.db, orderId: ORDER, nowMs: T0 });
+    // The alias exists before the draft is dispatched: the runner writes it into the letter and the portal.
+    expect(steps).toEqual(['alias', 'dispatch']);
+    expect(dispatched).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_request' }]);
+  });
+
   it('cannot start the flow while the Remote Config flag is off', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     const dispatch = vi.fn();
@@ -265,6 +281,11 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
       .toBe('auto_owner_takeover_draft_error_r2');
     expect(automationEmailKey({ kind: 'candidate_handoff' }, { round: 2 })).toBe('auto_candidate_handoff');
+    // Each reminder of each wait for the candidate's answers is its own e-mail (never deduplicated away).
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n1');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 2, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n2');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 9000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_9000_n1');
+    expect(automationEmailKey({ kind: 'owner_candidate_silent', since: 1000 }, { round: 1 })).toBe('auto_owner_candidate_silent_1000');
   });
 
   it('dispatches the current round, marks the order submitted and refunds a closed ad', async () => {

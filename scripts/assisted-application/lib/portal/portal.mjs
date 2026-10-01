@@ -23,6 +23,7 @@
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
+import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -453,9 +454,13 @@ export function pageControls(buttons, known, url) {
  * without a word.
  */
 async function refusedSilently(page, label) {
+  return (await sendButtonStill(page, label)) && invisibleRecaptcha(page);
+}
+
+/** After the final click the same send button is still on the page: nothing moved on. */
+async function sendButtonStill(page, label) {
   const after = await extractFields(page, NAVIGATION).catch(() => null);
-  if (!after || !learnedButton(after.buttons, [label])) return false;
-  return invisibleRecaptcha(page);
+  return Boolean(after && learnedButton(after.buttons, [label]));
 }
 
 /** The page scores its visitors with an invisible reCAPTCHA (v3 badge or `api.js?render=`). */
@@ -567,6 +572,7 @@ export async function submitViaPortal(ctx) {
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
+  let diagnostics = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
     if (page) {
@@ -604,6 +610,9 @@ export async function submitViaPortal(ctx) {
     context = extensionPath
       ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
+    diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
+    evidence.diagnostics = diagnostics.data;
+    await diagnostics.installFetchObserver().catch(() => { evidence.diagnostics.fetchObserverUnavailable = true; });
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
@@ -843,25 +852,13 @@ export async function submitViaPortal(ctx) {
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
+      await diagnostics.beforeSubmit(page);
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
-      // Private evidence only: distinguish a server refusal from the mere presence
-      // of a CAPTCHA. Never collect headers, tokens, request bodies or URL queries.
-      const failures = (evidence.submitHttpFailures ||= []);
-      const recordFailure = (response) => {
-        const method = response.request().method();
-        if (response.status() < 400 || !/^(POST|PUT|PATCH)$/.test(method) || failures.length >= 10) return;
-        const url = new URL(response.url());
-        failures.push({ host: url.hostname, path: url.pathname, method, status: response.status() });
-      };
-      page.on('response', recordFailure);
-      let outcome;
-      try {
-        await final.click();
-        outcome = await waitForOutcome(page, Boolean(extensionPath));
-      } finally {
-        page.off('response', recordFailure);
-      }
+      diagnostics.finalClick();
+      await final.click();
+      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
@@ -878,6 +875,15 @@ export async function submitViaPortal(ctx) {
         validationRetries += 1;
         snapshot = await extractFields(page);
         continue;
+      }
+      // Lever, TSMG 2026-10-01: SUBMIT APPLICATION opened an hCaptcha challenge
+      // (getcaptcha after the click) that nobody passed and that was gone by
+      // the end of the wait; the page kept its form and send button. The
+      // application never left: a CAPTCHA stop for Valerie, as a challenge
+      // still on screen is, not an unknown outcome.
+      if (outcome === 'ambiguous' && page.url() === finalUrl && diagnostics.challengeAfterClick() && await sendButtonStill(page, final.label)) {
+        evidence.challengeAfterClick = true;
+        return await handoff('captcha');
       }
       // career-ops: an ambiguous submit is never re-submitted automatically.
       // The page did not move and still offers the same send button, on a
@@ -898,6 +904,7 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } finally {
+    await diagnostics?.finish();
     await context?.close().catch(() => {});
     await browser?.close().catch(() => {});
   }

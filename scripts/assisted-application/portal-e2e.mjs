@@ -114,9 +114,32 @@ function fakePortal() {
     if (route === 'GET /antibot') {
       return send(page('Bewerbung', `<h1>Ihre Bewerbung</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div>${form('/antibot', '<button type="submit">Bewerbung absenden</button>').replace('<form ', '<form onsubmit="return false" ')}`));
     }
+    // Lever, TSMG 2026-10-01: the send click serves an hCaptcha challenge nobody passes; the form stays as it was.
+    if (route === 'GET /hchallenge') {
+      return send(page('Application', `<h1>Submit your application</h1>${form('/hchallenge', '<button type="submit">Submit application</button>').replace('<form ', '<form onsubmit="fetch(\'https://api.hcaptcha.com/getcaptcha/e2e-site\', { method: \'POST\' }).catch(() => {}); return false" ')}`));
+    }
     // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
     if (route === 'GET /refused') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
+    }
+    // Client validation and a JSON error with HTTP 200 were invisible to the old diagnostics.
+    if (route === 'GET /diagnostic-refused') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1><input id="profile" type="url" aria-label="LinkedIn" hidden><div id="toast" role="status"></div><button onclick="submitTest()">Conferma e applica</button><script>
+        async function submitTest() {
+          document.getElementById('profile').value = 'invalid-url';
+          const result = await fetch('/diagnostic-error', {method:'POST'}).then(response => response.json());
+          console.error(result.errors[0].message + ' token=private-test-token');
+          setTimeout(() => { throw new Error('client_submit_validation'); }, 0);
+          document.getElementById('toast').textContent = 'Non siamo riusciti a inviare la tua candidatura. Riprova.';
+        }
+      </script>`));
+    }
+    if (route === 'POST /diagnostic-error') {
+      const body = JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] });
+      // JOIN returns chunked GraphQL errors: no declared Content-Length.
+      res.writeHead(200, { 'content-type': 'application/json' });
+      res.flushHeaders();
+      return res.end(body);
     }
     // The refusal shown on an error page the portal moves to (review of #10741).
     if (route === 'GET /refused-moved') {
@@ -201,6 +224,18 @@ async function main() {
     launch: () => launchChromium({ headless: true, executablePath }),
     ...extra,
   });
+
+  // hCaptcha's own host answered locally: the test never calls the real service.
+  const launchWithLocalHcaptcha = async () => {
+    const browser = await launchChromium({ headless: true, executablePath });
+    const newContext = browser.newContext.bind(browser);
+    browser.newContext = async (options) => {
+      const context = await newContext(options);
+      await context.route('https://api.hcaptcha.com/**', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{"success":false}' }));
+      return context;
+    };
+    return browser;
+  };
 
   const checks = [];
   const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
@@ -293,11 +328,23 @@ async function main() {
     const silent = await run({ applyUrl: `${base}/antibot` });
     check('a send the portal silently drops is reported as a likely anti-bot refusal', silent.event.type === 'submit_failed'
       && silent.event.error === 'portal_antibot_ambiguous' && silent.evidence.antibot === true);
+    // A challenge served after the click and never passed: the application never left, Valerie completes it.
+    const challenged = await run({ applyUrl: `${base}/hchallenge`, launch: launchWithLocalHcaptcha });
+    check('a CAPTCHA served after the send click and never passed is a CAPTCHA stop, not an unknown outcome', challenged.event.type === 'submit_handoff'
+      && challenged.event.reason === 'captcha' && challenged.evidence.challengeAfterClick === true);
     // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
     const toast = await run({ applyUrl: `${base}/refused` });
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
       && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
       && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+    const diagnosticRefusal = await run({ applyUrl: `${base}/diagnostic-refused` });
+    const diagnostics = diagnosticRefusal.evidence.diagnostics;
+    check('a refused submit records console and uncaught browser errors privately', diagnosticRefusal.event.error === 'portal_refused'
+      && diagnostics.console.some((entry) => entry.text.includes('Profile URL invalid'))
+      && diagnostics.pageErrors.some((entry) => entry.message === 'client_submit_validation')
+      && !JSON.stringify(diagnostics).includes('private-test-token'));
+    check('chunked HTTP 200 application errors and native field validation are captured', diagnostics.responses.some((entry) => entry.source === 'browser_stream' && entry.status === 200 && entry.errors?.some((error) => error.code === 'INVALID_URL'))
+      && diagnostics.validation.some((entry) => entry.phase === 'after_submit' && entry.frames.some((frame) => frame.invalid.some((field) => field.label === 'LinkedIn'))));
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));

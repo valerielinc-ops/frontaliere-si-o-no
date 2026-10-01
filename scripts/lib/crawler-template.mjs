@@ -184,6 +184,7 @@ import {
   isTransientFetchError,
   isConnectionLevelFetchError,
   fetchWithRetry,
+  isRetryBudgetExhausted as isRetryBudgetExhaustedError,
 } from './transient-fetch.mjs';
 import { fetchHtmlViaJinaWithRetry, rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import {
@@ -197,21 +198,6 @@ import { assertFeedEndpointHost } from './feed-endpoint-guard.mjs';
 export { RETRYABLE_STATUS, WAF_IP_BLOCK_STATUS, isTransientFetchError, isConnectionLevelFetchError, fetchWithRetry };
 export { fetchFollowingValidatedRedirects } from './prospector/public-fetch-policy.mjs';
 export { assertFeedEndpointHost };
-
-function isRetryBudgetExhaustedError(err) {
-  // `fetchWithRetry()` marks the terminal thrown error with `retryExhausted`.
-  // The lower-level `httpFetchWithRetry()` adapter additionally copies that
-  // state to `retryBudgetExhausted` on the Response, and parsers commonly wrap
-  // either form in a domain error. Accept both markers at the crawler boundary
-  // so a transient source fence (not a parser regression) preserves the last
-  // good slice instead of opening a red workflow run.
-  return (
-    err?.retryBudgetExhausted === true ||
-    err?.retryExhausted === true ||
-    err?.response?.retryBudgetExhausted === true ||
-    err?.response?.retryExhausted === true
-  );
-}
 
 /* ── Shared Utilities (re-exported for parser convenience) ──────────── */
 

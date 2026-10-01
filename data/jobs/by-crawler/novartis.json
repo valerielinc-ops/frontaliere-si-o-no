@@ -1,6 +1,6 @@
 {
   "crawlerKey": "novartis",
-  "assembledAt": "2026-10-01T09:18:36.104Z",
+  "assembledAt": "2026-10-01T21:24:30.619Z",
   "jobs": [
     {
       "id": "novartis-e0444ddb259a",
@@ -33,7 +33,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Patent-Attorney_REQ-10081840-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:31.227Z",
+      "crawledAt": "2026-10-01T21:24:24.193Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -53,7 +53,8 @@
         "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
         "formulation-project-leader-m-f-d-novartis-ch",
         "formulierungsprojektleiter-m-w-d-novartis-basel-city",
-        "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city"
+        "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city",
+        "procuratore-di-brevetto-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -61,7 +62,8 @@
           "leader-del-progetto-di-formulazione-m-f-d-novartis-basel-city",
           "formulation-project-leader-m-f-d-novartis-ch",
           "formulierungsprojektleiter-m-w-d-novartis-basel-city",
-          "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city"
+          "responsable-du-projet-de-formulation-m-f-d-novartis-basel-city",
+          "procuratore-di-brevetto-novartis-basel-city"
         ],
         "en": [
           "formulation-project-leader-m-f-d-novartis-ch"
@@ -122,7 +124,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Logistiker-in-EFZ_REQ-10084328",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:30.288Z",
+      "crawledAt": "2026-10-01T21:24:23.177Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -138,11 +140,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-logistiker-in-efz-novartis-ch"
+        "lernende-r-logistiker-in-efz-novartis-ch",
+        "apprendista-logistiker-in-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-logistiker-in-efz-novartis-ch"
+          "lernende-r-logistiker-in-efz-novartis-ch",
+          "apprendista-logistiker-in-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-logistiker-in-efz-novartis-ch"
@@ -152,6 +156,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:44.030Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -198,7 +203,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Chemie_REQ-10084314-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:29.368Z",
+      "crawledAt": "2026-10-01T21:24:22.271Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -214,11 +219,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
+        "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch",
+        "apprendista-laborant-in-cfc-specializzazione-chemie-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
+          "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch",
+          "apprendista-laborant-in-cfc-specializzazione-chemie-novartis-basel-city"
         ],
         "en": [
           "lernende-r-laborant-in-efz-fachrichtung-chemie-novartis-ch"
@@ -228,6 +235,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:43.248Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -274,7 +282,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Laborant-in-EFZ-Fachrichtung-Biologie_REQ-10084330",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:28.446Z",
+      "crawledAt": "2026-10-01T21:24:21.373Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -290,11 +298,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
+        "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch",
+        "apprendista-laborant-in-cfc-specializzazione-biologie-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
+          "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch",
+          "apprendista-laborant-in-cfc-specializzazione-biologie-novartis-basel-city"
         ],
         "en": [
           "lernende-r-laborant-in-efz-fachrichtung-biologie-novartis-ch"
@@ -304,6 +314,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:42.485Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -350,7 +361,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EFZ_REQ-10084331",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:27.540Z",
+      "crawledAt": "2026-10-01T21:24:20.325Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -366,11 +377,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-efz-novartis-ch"
+        "lernende-r-kauffrau-mann-efz-novartis-ch",
+        "apprendista-kauffrau-mann-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-efz-novartis-ch"
+          "lernende-r-kauffrau-mann-efz-novartis-ch",
+          "apprendista-kauffrau-mann-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-kauffrau-mann-efz-novartis-ch"
@@ -380,6 +393,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:41.707Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -426,7 +440,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Kauffrau--mann-EBA_REQ-10084332",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:26.622Z",
+      "crawledAt": "2026-10-01T21:24:19.472Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,11 +456,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-kauffrau-mann-eba-novartis-ch"
+        "lernende-r-kauffrau-mann-eba-novartis-ch",
+        "apprendista-kauffrau-mann-afp-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-kauffrau-mann-eba-novartis-ch"
+          "lernende-r-kauffrau-mann-eba-novartis-ch",
+          "apprendista-kauffrau-mann-afp-novartis-basel-city"
         ],
         "en": [
           "lernende-r-kauffrau-mann-eba-novartis-ch"
@@ -502,7 +518,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Chemie--und-Pharmatechnologe--technologin-EFZ_REQ-10084325",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:25.649Z",
+      "crawledAt": "2026-10-01T21:24:18.569Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -518,11 +534,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
+        "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch",
+        "apprendista-chemie-e-pharmatechnologe-technologin-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
+          "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch",
+          "apprendista-chemie-e-pharmatechnologe-technologin-cfc-novartis-basel-city"
         ],
         "en": [
           "lernende-r-chemie-und-pharmatechnologe-technologin-efz-novartis-ch"
@@ -532,6 +550,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T22:50:40.146Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -578,7 +597,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-Tierpfleger-in-EFZ--Fachrichtung-Versuchstiere_REQ-10084421",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:24.633Z",
+      "crawledAt": "2026-10-01T21:24:17.463Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -598,7 +617,8 @@
         "lernend-er-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city",
         "lernend-er-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
         "apprentice-animal-caregiver-efz-field-of-study-animals-novartis-basel-city",
-        "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city"
+        "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city",
+        "apprendista-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -606,7 +626,8 @@
           "lernend-er-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city",
           "lernend-er-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
           "apprentice-animal-caregiver-efz-field-of-study-animals-novartis-basel-city",
-          "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city"
+          "apprentis-aidant-animal-efz-domaine-d-etude-novartis-basel-city",
+          "apprendista-tierpfleger-in-cfc-specializzazione-versuchstiere-novartis-basel-city"
         ],
         "en": [
           "lernende-r-tierpfleger-in-efz-fachrichtung-versuchstiere-novartis-ch",
@@ -621,6 +642,7 @@
         ]
       },
       "firstSeenAt": "2026-07-23T11:21:44.571Z",
+      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -667,7 +689,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Head--PK-Sciences---Immunology_REQ-10084131-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:23.462Z",
+      "crawledAt": "2026-10-01T21:24:16.569Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -683,11 +705,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
+        "therapeutic-area-head-pk-sciences-immunology-novartis-ch",
+        "area-terapeutica-capo-scienze-pk-immunologia-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
+          "therapeutic-area-head-pk-sciences-immunology-novartis-ch",
+          "area-terapeutica-capo-scienze-pk-immunologia-novartis-basel-city"
         ],
         "de": [
           "therapeutic-area-head-pk-sciences-immunology-novartis-ch"
@@ -744,7 +768,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Principal-Scientist-Associate-Director-Clinical-PBPK---Dual-Level-Posting-_REQ-10084148-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:22.502Z",
+      "crawledAt": "2026-10-01T21:24:15.679Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -760,11 +784,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
+        "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch",
+        "senior-principal-scientist-associate-direttore-clinical-pbpk-dual-level-posting-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
+          "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch",
+          "senior-principal-scientist-associate-direttore-clinical-pbpk-dual-level-posting-novartis-basel-city"
         ],
         "de": [
           "senior-principal-scientist-associate-director-clinical-pbpk-dual-level-posting-novartis-ch"
@@ -774,6 +800,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:30:21.507Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -820,7 +847,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Principal-Scientist---Associate-Director--Soluble-Biomarkers--Molecular---Cellular-Sciences--MCS-_REQ-10084254-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:21.645Z",
+      "crawledAt": "2026-10-01T21:24:14.594Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -836,11 +863,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
+        "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular",
+        "senior-principal-scientist-associate-direttore-soluble-biomarkers-molecular-cellular-sciences-mcs-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
+          "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular",
+          "senior-principal-scientist-associate-direttore-soluble-biomarkers-molecular-cellular-sciences-mcs-novartis-basel-city"
         ],
         "de": [
           "senior-principal-scientist-associate-director-soluble-biomarkers-molecular-cellular"
@@ -850,6 +879,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:40.810Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -896,7 +926,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/IP-Search---Analytics-Manager_REQ-10083816-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:20.641Z",
+      "crawledAt": "2026-10-01T21:24:13.693Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -912,11 +942,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ip-search-analytics-manager-novartis-ch"
+        "ip-search-analytics-manager-novartis-ch",
+        "gestore-di-ricerca-e-analisi-ip-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ip-search-analytics-manager-novartis-ch"
+          "ip-search-analytics-manager-novartis-ch",
+          "gestore-di-ricerca-e-analisi-ip-novartis-basel-city"
         ],
         "de": [
           "ip-search-analytics-manager-novartis-ch"
@@ -926,6 +958,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:06:39.915Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -972,7 +1005,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/AI-Scientist---AI-Driven-Target-Identification_REQ-10084379-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:19.702Z",
+      "crawledAt": "2026-10-01T21:24:12.790Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -988,11 +1021,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-scientist-ai-driven-target-identification-novartis-ch"
+        "ai-scientist-ai-driven-target-identification-novartis-ch",
+        "ai-scientist-identificazione-dell-obiettivo-ai-driven-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-scientist-ai-driven-target-identification-novartis-ch"
+          "ai-scientist-ai-driven-target-identification-novartis-ch",
+          "ai-scientist-identificazione-dell-obiettivo-ai-driven-novartis-basel-city"
         ],
         "de": [
           "ai-scientist-ai-driven-target-identification-novartis-ch"
@@ -1002,6 +1037,7 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:40:47.939Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1048,7 +1084,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Disease-Area-Lead-Inmunology_REQ-10083500-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:18.831Z",
+      "crawledAt": "2026-10-01T21:24:11.885Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1066,7 +1102,8 @@
       "previousSlugsByLocale": {
         "en": [
           "disease-area-lead-immunology-novartis-ch",
-          "disease-area-lead-neuroscience-novartis-ch"
+          "disease-area-lead-neuroscience-novartis-ch",
+          "disease-area-lead-inmunology-novartis-ch"
         ],
         "it": [
           "disease-area-lead-inmunology-novartis-ch",
@@ -1075,7 +1112,8 @@
           "disease-area-lead-neuroscience-novartis-ch",
           "krankheitsgebiet-lead-neuroscience-novartis-basel-city",
           "secteur-de-la-maladie-neuroscience-principale-novartis-basel-city",
-          "krankheit-bereich-lead-neuroscience-novartis-basel-city"
+          "krankheit-bereich-lead-neuroscience-novartis-basel-city",
+          "area-malattia-piombo-inmunologia-novartis-basel-city"
         ],
         "de": [
           "disease-area-lead-inmunology-novartis-ch",
@@ -1093,7 +1131,8 @@
         "disease-area-lead-neuroscience-novartis-ch",
         "krankheitsgebiet-lead-neuroscience-novartis-basel-city",
         "secteur-de-la-maladie-neuroscience-principale-novartis-basel-city",
-        "krankheit-bereich-lead-neuroscience-novartis-basel-city"
+        "krankheit-bereich-lead-neuroscience-novartis-basel-city",
+        "area-malattia-piombo-inmunologia-novartis-basel-city"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T09:51:15.879Z",
@@ -1143,7 +1182,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Therapeutic-Area-Biomarker-Director----Cardiovascular-and-Metabolism_REQ-10086998-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:17.969Z",
+      "crawledAt": "2026-10-01T21:24:10.623Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1159,11 +1198,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "therapeutic-area-biomarker-director-cardiovascular-and-metabolism-novartis-ch"
+        "therapeutic-area-biomarker-director-cardiovascular-and-metabolism-novartis-ch",
+        "therapeutic-area-biomarker-direttore-cardiovascular-and-metabolism-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "therapeutic-area-biomarker-director-cardiovascular-and-metabolism-novartis-ch"
+          "therapeutic-area-biomarker-director-cardiovascular-and-metabolism-novartis-ch",
+          "therapeutic-area-biomarker-direttore-cardiovascular-and-metabolism-novartis-basel-city"
         ],
         "de": [
           "therapeutic-area-biomarker-director-cardiovascular-and-metabolism-novartis-ch"
@@ -1220,7 +1261,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Global-Head-Clinical-Assurance-Quality-Development-Unit_REQ-10083741",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:16.400Z",
+      "crawledAt": "2026-10-01T21:24:09.612Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1236,11 +1277,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "global-head-clinical-assurance-quality-development-unit-novartis-ch"
+        "global-head-clinical-assurance-quality-development-unit-novartis-ch",
+        "unita-di-sviluppo-della-qualita-dell-assicurazione-clinica-di-testa-globale-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-head-clinical-assurance-quality-development-unit-novartis-ch"
+          "global-head-clinical-assurance-quality-development-unit-novartis-ch",
+          "unita-di-sviluppo-della-qualita-dell-assicurazione-clinica-di-testa-globale-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-09-01T14:18:45.881Z",
@@ -1290,7 +1333,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Director-Associate---Cardiovascular---Metabolic_REQ-10087155-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:15.598Z",
+      "crawledAt": "2026-10-01T21:24:08.726Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1306,11 +1349,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
+        "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch",
+        "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
+          "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch",
+          "translational-medicine-direttore-associate-cardiovascular-metabolic-novartis-basel-city"
         ],
         "de": [
           "translational-medicine-director-associate-cardiovascular-metabolic-novartis-ch"
@@ -1367,7 +1412,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Translational-Medicine-Expert---Gastroenterology--Associate-Director_REQ-10086688-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:14.484Z",
+      "crawledAt": "2026-10-01T21:24:07.799Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1383,11 +1428,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
+        "translational-medicine-expert-gastroenterology-associate-director-novartis-ch",
+        "translational-medicine-expert-gastroenterology-associate-direttore-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
+          "translational-medicine-expert-gastroenterology-associate-director-novartis-ch",
+          "translational-medicine-expert-gastroenterology-associate-direttore-novartis-basel-city"
         ],
         "de": [
           "translational-medicine-expert-gastroenterology-associate-director-novartis-ch"
@@ -1397,6 +1444,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:12:56.338Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1443,7 +1491,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Biomarker-Therapeutic-Area-Head--Neuroscience_REQ-10087052-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:13.476Z",
+      "crawledAt": "2026-10-01T21:24:06.901Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1459,11 +1507,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "biomarker-therapeutic-area-head-neuroscience-novartis-ch"
+        "biomarker-therapeutic-area-head-neuroscience-novartis-ch",
+        "area-terapeutica-biomarker-head-neuroscience-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomarker-therapeutic-area-head-neuroscience-novartis-ch"
+          "biomarker-therapeutic-area-head-neuroscience-novartis-ch",
+          "area-terapeutica-biomarker-head-neuroscience-novartis-basel-city"
         ]
       },
       "needsRetranslation": true,
@@ -1514,7 +1564,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Therapeutic-Area-Strategy--Neuroscience_REQ-10086418-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:12.521Z",
+      "crawledAt": "2026-10-01T21:24:06.033Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1530,11 +1580,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-therapeutic-area-strategy-neuroscience-novartis-ch"
+        "director-therapeutic-area-strategy-neuroscience-novartis-ch",
+        "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-therapeutic-area-strategy-neuroscience-novartis-ch"
+          "director-therapeutic-area-strategy-neuroscience-novartis-ch",
+          "direttore-therapeutic-area-strategy-neuroscience-novartis-basel-city"
         ],
         "de": [
           "director-therapeutic-area-strategy-neuroscience-novartis-ch"
@@ -1588,7 +1640,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Expert-Engineering_REQ-10086916",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:11.557Z",
+      "crawledAt": "2026-10-01T21:24:05.062Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1604,11 +1656,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-expert-engineering-novartis-ch"
+        "senior-expert-engineering-novartis-ch",
+        "ingegneria-degli-esperti-senior-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-expert-engineering-novartis-ch"
+          "senior-expert-engineering-novartis-ch",
+          "ingegneria-degli-esperti-senior-novartis-basel-city"
         ],
         "de": [
           "senior-expert-engineering-novartis-ch"
@@ -1664,7 +1718,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Muttenz-with-Canteen/Equipment-Operator--m-f-d-_REQ-10078774-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:10.242Z",
+      "crawledAt": "2026-10-01T21:24:03.059Z",
       "addressLocality": "Muttenz (with Canteen)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1680,11 +1734,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "equipment-operator-m-f-d-novartis-ch"
+        "equipment-operator-m-f-d-novartis-ch",
+        "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "equipment-operator-m-f-d-novartis-ch"
+          "equipment-operator-m-f-d-novartis-ch",
+          "equipment-operatore-m-f-d-novartis-muttenz-with-canteen"
         ]
       },
       "needsRetranslation": true,
@@ -1714,7 +1770,7 @@
         "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
         "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
-        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
+        "fr": "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1738,7 +1794,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Legal-Counsel-Global-Procurement--DD-IT_REQ-10086997-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:09.299Z",
+      "crawledAt": "2026-10-01T21:24:02.074Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1755,17 +1811,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "legal-counsel-global-procurement-dd-it-novartis-ch",
+        "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
+        "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
         "legal-counsel-global-procurement-dd-it-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "legal-counsel-global-procurement-dd-it-novartis-ch"
+          "legal-counsel-global-procurement-dd-it-novartis-ch",
+          "avvocato-legale-global-procurement-dd-it-novartis-basel-city"
         ],
         "de": [
           "legal-counsel-global-procurement-dd-it-novartis-ch"
         ],
         "fr": [
           "legal-counsel-global-procurement-dd-it-novartis-ch",
+          "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city",
           "legal-counsel-global-procurement-dd-it-novartis-basel-city"
         ]
       },
@@ -1817,7 +1877,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Associate-Expert-Drug-Supply_REQ-10086875",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:18:08.329Z",
+      "crawledAt": "2026-10-01T21:24:01.117Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1833,11 +1893,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "associate-expert-drug-supply-novartis-ch"
+        "associate-expert-drug-supply-novartis-ch",
+        "alimentatore-di-droga-esperto-associato-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-expert-drug-supply-novartis-ch"
+          "associate-expert-drug-supply-novartis-ch",
+          "alimentatore-di-droga-esperto-associato-novartis-basel-city"
         ],
         "fr": [
           "associate-expert-drug-supply-novartis-ch"
@@ -1891,7 +1953,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Launch-Excellence-Director_REQ-10087832",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:07.454Z",
+      "crawledAt": "2026-10-01T21:24:00.208Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1907,11 +1969,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "launch-excellence-director-novartis-ch"
+        "launch-excellence-director-novartis-ch",
+        "launch-excellence-direttore-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "launch-excellence-director-novartis-ch"
+          "launch-excellence-director-novartis-ch",
+          "launch-excellence-direttore-novartis-basel-city"
         ],
         "de": [
           "launch-excellence-director-novartis-ch"
@@ -1941,7 +2005,7 @@
         "it": "direttore-international-value-access-immunology-novartis-basel-city",
         "en": "director-international-value-access-immunology-novartis-ch",
         "de": "direktor-international-value-access-immunology-novartis-basel-city",
-        "fr": "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city"
+        "fr": "director-international-value-access-immunology-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1965,7 +2029,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--International-Value---Access--Immunology_REQ-10086516-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:06.644Z",
+      "crawledAt": "2026-10-01T21:23:59.287Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -1982,16 +2046,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-international-value-access-immunology-novartis-ch",
+        "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
+        "direttore-international-value-access-immunology-novartis-basel-city",
         "director-international-value-access-immunology-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-international-value-access-immunology-novartis-ch"
+          "director-international-value-access-immunology-novartis-ch",
+          "direttore-international-value-access-immunology-novartis-basel-city"
         ],
         "de": [
           "director-international-value-access-immunology-novartis-ch"
         ],
         "fr": [
+          "directeur-valeur-internationale-et-acces-immunologie-novartis-basel-city",
           "director-international-value-access-immunology-novartis-basel-city"
         ]
       },
@@ -2043,7 +2111,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist-II--Laboratory-Automation---Drug-Discovery-Support_REQ-10087275-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:05.842Z",
+      "crawledAt": "2026-10-01T21:23:58.237Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2059,11 +2127,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+        "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+        "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
+          "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch",
+          "ricercatore-ii-supporto-per-l-automazione-dei-laboratori-e-scoperta-delle-droghe-novartis-basel-city"
         ],
         "de": [
           "research-scientist-ii-laboratory-automation-drug-discovery-support-novartis-ch"
@@ -2073,6 +2143,7 @@
         ]
       },
       "firstSeenAt": "2026-09-24T14:26:43.016Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2119,7 +2190,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Research-Scientist-II_REQ-10088017-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:04.993Z",
+      "crawledAt": "2026-10-01T21:23:56.698Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2135,11 +2206,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "research-scientist-ii-novartis-ch"
+        "research-scientist-ii-novartis-ch",
+        "ricerca-scientist-ii-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "research-scientist-ii-novartis-ch"
+          "research-scientist-ii-novartis-ch",
+          "ricerca-scientist-ii-novartis-basel-city"
         ],
         "de": [
           "research-scientist-ii-novartis-ch"
@@ -2196,7 +2269,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Translational-Medicine-Expert--Neurodegeneration-_REQ-10088329-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:04.131Z",
+      "crawledAt": "2026-10-01T21:23:55.884Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2212,11 +2285,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-translational-medicine-expert-neurodegeneration-novartis-ch"
+        "director-translational-medicine-expert-neurodegeneration-novartis-ch",
+        "direttore-translational-medicine-expert-neurodegeneration-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-translational-medicine-expert-neurodegeneration-novartis-ch"
+          "director-translational-medicine-expert-neurodegeneration-novartis-ch",
+          "direttore-translational-medicine-expert-neurodegeneration-novartis-basel-city"
         ],
         "de": [
           "director-translational-medicine-expert-neurodegeneration-novartis-ch"
@@ -2270,7 +2345,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Clinical-Program-Leader---Translational-Clinical-Oncology_REQ-10087767-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:02.986Z",
+      "crawledAt": "2026-10-01T21:23:54.876Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2287,11 +2362,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
-        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city"
+        "chef-de-programme-clinique-executif-oncologie-clinique-translationnelle-novartis-basel-city",
+        "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
+          "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch",
+          "executive-clinical-program-leader-oncologia-clinica-traduzionale-novartis-basel-city"
         ],
         "de": [
           "executive-clinical-program-leader-translational-clinical-oncology-novartis-ch"
@@ -2349,7 +2426,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Executive-Director--Pricing---Contracting_REQ-10087895-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:01.763Z",
+      "crawledAt": "2026-10-01T21:23:53.836Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2365,11 +2442,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "executive-director-pricing-contracting-novartis-ch"
+        "executive-director-pricing-contracting-novartis-ch",
+        "executive-direttore-pricing-contracting-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "executive-director-pricing-contracting-novartis-ch"
+          "executive-director-pricing-contracting-novartis-ch",
+          "executive-direttore-pricing-contracting-novartis-basel-city"
         ],
         "de": [
           "executive-director-pricing-contracting-novartis-ch"
@@ -2379,6 +2458,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:02:02.048Z",
+      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -2425,7 +2505,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Head-Legal-CLS-Operations--Launch-and-Customer-Activation_REQ-10088411-2",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:18:00.896Z",
+      "crawledAt": "2026-10-01T21:23:52.958Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2441,11 +2521,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
+        "head-legal-cls-operations-launch-and-customer-activation-novartis-ch",
+        "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
+          "head-legal-cls-operations-launch-and-customer-activation-novartis-ch",
+          "operazioni-cls-avvio-e-attivazione-del-cliente-novartis-basel-city"
         ],
         "de": [
           "head-legal-cls-operations-launch-and-customer-activation-novartis-ch"
@@ -2455,6 +2537,7 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:23:05.325Z",
+      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -2491,17 +2574,17 @@
       },
       "description": "Salary Range:\n63 980,00 CHF - 118 820,00 CHF\n\nJob Description Summary\nWe are looking for a dedicated QC Analyst to support Good 'x' Practice (GxP) activities in our quality department. This role involves managing quality systems, implementing operational processes and ensuring compliance with Novartis quality standards.\n\nThis role is limited to 24 months.\n\nJob Description\nKey Responsibilities:\n\n• Maintain compliance with current Standard Operating Procedures (SOPs), GxP-compliant documentation, and records within the Novartis quality management system.\n\n• Perform and evaluate analytical tasks in a pharmaceutical laboratory, including working in shifts where necessary.\n\n• Ensure the integrity of all quality assurance records and data, as applicable, and foster collaboration between your team and other functions and departments.\n\n• Ensure an appropriate level of education and GxP knowledge.\n\n• Support quality audits and health authority inspections.\n\nEssential Requirements:\n\n• Experience in quality assurance and analytical skills.\n\n• Proficiency in analytical technologies (e.g., HPLC, GC, titration).\n\n• Knowledge in the use of lab-specific software (e.g., Empower, Chromeleon, TiAmo).\n\n• GMP experience and technological expertise.\n\n• Willingness to work in shifts.\n\n• Fluency in German and good English.\n\nBenefits and Rewards : Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: https://www.novartis.com/careers/benefits-rewards\n\nCommitment to Diversity and Inclusion / EEO: Novartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, be-cause of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCollaboration, Communication Skills (Inactive), Data Integrity, Deadline Adherence, Digital saviness (Inactive), Health & Safety Regulations Knowledge (Inactive), Leadership, Managing Ambiguity, monitoring (Inactive), Problem Solving Skills (Inactive), Punctuality, Regulatory Requirements knowledge (Inactive)",
       "descriptionByLocale": {
-        "it": "Salary Range:\n63 980,00 CHF - 118 820,00 CHF\n\nJob Description Summary\nWe are looking for a dedicated QC Analyst to support Good 'x' Practice (GxP) activities in our quality department. This role involves managing quality systems, implementing operational processes and ensuring compliance with Novartis quality standards.\n\nThis role is limited to 24 months.\n\nJob Description\nKey Responsibilities:\n\n• Maintain compliance with current Standard Operating Procedures (SOPs), GxP-compliant documentation, and records within the Novartis quality management system.\n\n• Perform and evaluate analytical tasks in a pharmaceutical laboratory, including working in shifts where necessary.\n\n• Ensure the integrity of all quality assurance records and data, as applicable, and foster collaboration between your team and other functions and departments.\n\n• Ensure an appropriate level of education and GxP knowledge.\n\n• Support quality audits and health authority inspections.\n\nEssential Requirements:\n\n• Experience in quality assurance and analytical skills.\n\n• Proficiency in analytical technologies (e.g., HPLC, GC, titration).\n\n• Knowledge in the use of lab-specific software (e.g., Empower, Chromeleon, TiAmo).\n\n• GMP experience and technological expertise.\n\n• Willingness to work in shifts.\n\n• Fluency in German and good English.\n\nBenefits and Rewards : Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: https://www.novartis.com/careers/benefits-rewards\n\nCommitment to Diversity and Inclusion / EEO: Novartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, be-cause of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCollaboration, Communication Skills (Inactive), Data Integrity, Deadline Adherence, Digital saviness (Inactive), Health & Safety Regulations Knowledge (Inactive), Leadership, Managing Ambiguity, monitoring (Inactive), Problem Solving Skills (Inactive), Punctuality, Regulatory Requirements knowledge (Inactive)",
+        "it": "Gamma di insalata:\n63 980,00 CHF - 118 820,00 CHF\n\nDescrizione del lavoro\nStiamo cercando un QC Analyst dedicato per supportare le attività Good 'x' Practice (GxP) nel nostro reparto di qualità. Questo ruolo consiste nella gestione di sistemi di qualità, nell'attuazione dei processi operativi e nel rispetto degli standard di qualità Novartis.\n\nQuesto ruolo è limitato a 24 mesi.\n\nDescrizione del lavoro\nResponsabilità chiave:\n\n• Mantenere il rispetto delle attuali procedure operative standard (SOP), la documentazione conforme a GxP e i record all'interno del sistema di gestione della qualità Novartis.\n\n• Eseguire e valutare i compiti analitici in un laboratorio farmaceutico, compreso il lavoro in turni, se necessario.\n\n• Assicurare l'integrità di tutti i record di garanzia della qualità e dati, come applicabile, e promuovere la collaborazione tra il vostro team e altre funzioni e dipartimenti.\n\n• Assicurare un livello appropriato di istruzione e conoscenze GxP.\n\n• Sostegno controlli di qualità e controlli delle autorità sanitarie.\n\nRequisiti essenziali:\n\n• Esperienza nella garanzia della qualità e competenze analitiche.\n\n• La competenza nelle tecnologie analitiche (ad esempio, HPLC, GC, titolazione).\n\n• Conoscenza nell'uso del software specifico per il laboratorio (ad esempio Empower, Chromeleon, TiAmo).\n\n• Esperienza GMP e competenze tecnologiche.\n\n• Volontà a lavorare in turni.\n\n• Fluency in tedesco e buon inglese.\n\nVantaggi e premi: Leggi il nostro manuale per conoscere tutti i modi in cui ti aiuteremo a prosperare personalmente e professionalmente: https://www.novartis.com/careers/benefits-rewards\n\nImpegno alla diversità e all'inclusione / EEO: Novartis si impegna a costruire un ambiente di lavoro eccezionale e inclusivo e diverse squadre rappresentative dei pazienti e delle comunità che serviamo.\n\nAccessibilità e alloggio: Novartis si impegna a lavorare con e fornire alloggio ragionevole a tutti gli individui. Se, a causa di una condizione medica o disabilità, è necessario un alloggio ragionevole per qualsiasi parte del processo di reclutamento, o per ricevere informazioni più dettagliate sulle funzioni essenziali di una posizione, si prega di inviare una e-mail a Diversi.inclusion ch@novartis.com e farci conoscere la natura della vostra richiesta e le vostre informazioni di contatto. Si prega di includere il numero di richiesta di lavoro nel messaggio.\n\nCompetenze desiderate\nCollaborazione, Abilità di comunicazione (Inattiva), Integrità dei dati, Aderenza Deadline, Saviness Digitale (Inattiva), Conoscenza dei Regolamenti di Salute e Sicurezza (Inattiva), Leadership, Ambiguità di gestione, monitoraggio (Inattiva), Competenze di Risoluzione dei problemi (Inattiva), Puntuale, Requisiti di regolamentazione",
         "en": "Salary Range:\n63 980,00 CHF - 118 820,00 CHF\n\nJob Description Summary\nWe are looking for a dedicated QC Analyst to support Good 'x' Practice (GxP) activities in our quality department. This role involves managing quality systems, implementing operational processes and ensuring compliance with Novartis quality standards.\n\nThis role is limited to 24 months.\n\nJob Description\nKey Responsibilities:\n\n• Maintain compliance with current Standard Operating Procedures (SOPs), GxP-compliant documentation, and records within the Novartis quality management system.\n\n• Perform and evaluate analytical tasks in a pharmaceutical laboratory, including working in shifts where necessary.\n\n• Ensure the integrity of all quality assurance records and data, as applicable, and foster collaboration between your team and other functions and departments.\n\n• Ensure an appropriate level of education and GxP knowledge.\n\n• Support quality audits and health authority inspections.\n\nEssential Requirements:\n\n• Experience in quality assurance and analytical skills.\n\n• Proficiency in analytical technologies (e.g., HPLC, GC, titration).\n\n• Knowledge in the use of lab-specific software (e.g., Empower, Chromeleon, TiAmo).\n\n• GMP experience and technological expertise.\n\n• Willingness to work in shifts.\n\n• Fluency in German and good English.\n\nBenefits and Rewards : Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: https://www.novartis.com/careers/benefits-rewards\n\nCommitment to Diversity and Inclusion / EEO: Novartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, be-cause of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCollaboration, Communication Skills (Inactive), Data Integrity, Deadline Adherence, Digital saviness (Inactive), Health & Safety Regulations Knowledge (Inactive), Leadership, Managing Ambiguity, monitoring (Inactive), Problem Solving Skills (Inactive), Punctuality, Regulatory Requirements knowledge (Inactive)",
-        "de": "Salary Range:\n63 980,00 CHF - 118 820,00 CHF\n\nJob Description Summary\nWe are looking for a dedicated QC Analyst to support Good 'x' Practice (GxP) activities in our quality department. This role involves managing quality systems, implementing operational processes and ensuring compliance with Novartis quality standards.\n\nThis role is limited to 24 months.\n\nJob Description\nKey Responsibilities:\n\n• Maintain compliance with current Standard Operating Procedures (SOPs), GxP-compliant documentation, and records within the Novartis quality management system.\n\n• Perform and evaluate analytical tasks in a pharmaceutical laboratory, including working in shifts where necessary.\n\n• Ensure the integrity of all quality assurance records and data, as applicable, and foster collaboration between your team and other functions and departments.\n\n• Ensure an appropriate level of education and GxP knowledge.\n\n• Support quality audits and health authority inspections.\n\nEssential Requirements:\n\n• Experience in quality assurance and analytical skills.\n\n• Proficiency in analytical technologies (e.g., HPLC, GC, titration).\n\n• Knowledge in the use of lab-specific software (e.g., Empower, Chromeleon, TiAmo).\n\n• GMP experience and technological expertise.\n\n• Willingness to work in shifts.\n\n• Fluency in German and good English.\n\nBenefits and Rewards : Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: https://www.novartis.com/careers/benefits-rewards\n\nCommitment to Diversity and Inclusion / EEO: Novartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, be-cause of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCollaboration, Communication Skills (Inactive), Data Integrity, Deadline Adherence, Digital saviness (Inactive), Health & Safety Regulations Knowledge (Inactive), Leadership, Managing Ambiguity, monitoring (Inactive), Problem Solving Skills (Inactive), Punctuality, Regulatory Requirements knowledge (Inactive)",
-        "fr": "Salary Range:\n63 980,00 CHF - 118 820,00 CHF\n\nJob Description Summary\nWe are looking for a dedicated QC Analyst to support Good 'x' Practice (GxP) activities in our quality department. This role involves managing quality systems, implementing operational processes and ensuring compliance with Novartis quality standards.\n\nThis role is limited to 24 months.\n\nJob Description\nKey Responsibilities:\n\n• Maintain compliance with current Standard Operating Procedures (SOPs), GxP-compliant documentation, and records within the Novartis quality management system.\n\n• Perform and evaluate analytical tasks in a pharmaceutical laboratory, including working in shifts where necessary.\n\n• Ensure the integrity of all quality assurance records and data, as applicable, and foster collaboration between your team and other functions and departments.\n\n• Ensure an appropriate level of education and GxP knowledge.\n\n• Support quality audits and health authority inspections.\n\nEssential Requirements:\n\n• Experience in quality assurance and analytical skills.\n\n• Proficiency in analytical technologies (e.g., HPLC, GC, titration).\n\n• Knowledge in the use of lab-specific software (e.g., Empower, Chromeleon, TiAmo).\n\n• GMP experience and technological expertise.\n\n• Willingness to work in shifts.\n\n• Fluency in German and good English.\n\nBenefits and Rewards : Read our handbook to learn about all the ways we’ll help you thrive personally and professionally: https://www.novartis.com/careers/benefits-rewards\n\nCommitment to Diversity and Inclusion / EEO: Novartis is committed to building an outstanding, inclusive work environment and diverse teams representative of the patients and communities we serve.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, be-cause of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCollaboration, Communication Skills (Inactive), Data Integrity, Deadline Adherence, Digital saviness (Inactive), Health & Safety Regulations Knowledge (Inactive), Leadership, Managing Ambiguity, monitoring (Inactive), Problem Solving Skills (Inactive), Punctuality, Regulatory Requirements knowledge (Inactive)"
+        "de": "Gehaltsbereich:\n63 980,00 CHF - 118 820,00 CHF\n\nStellenbeschreibung Zusammenfassung\nWir suchen einen engagierten QC Analysten, der die Good 'x' Practice (GxP) Aktivitäten in unserer Qualitätsabteilung unterstützt. Diese Rolle umfasst das Management von Qualitätssystemen, die Implementierung von Betriebsprozessen und die Einhaltung der Novartis-Qualitätsstandards.\n\nDiese Rolle ist auf 24 Monate begrenzt.\n\nStellenbeschreibung\nWichtigste Aufgaben:\n\n• Einhaltung aktueller Standard Operating Procedures (SOPs), GxP-konformer Dokumentation und Aufzeichnungen innerhalb des Novartis Qualitätsmanagementsystems.\n\n• Führen und bewerten Sie analytische Aufgaben in einem pharmazeutischen Labor, einschließlich der Arbeit in Schichten, wo nötig.\n\n• Stellen Sie die Integrität aller Qualitätssicherungsaufzeichnungen und -daten sicher und fördern Sie die Zusammenarbeit zwischen Ihrem Team und anderen Funktionen und Abteilungen.\n\n• Stellen Sie ein angemessenes Bildungsniveau und GxP-Wissen sicher.\n\n• Unterstützung von Qualitätsaudits und Inspektionen der Gesundheitsbehörden.\n\nGrundlegende Anforderungen:\n\n• Erfahrung in der Qualitätssicherung und analytische Fähigkeiten.\n\n• Kenntnisse in analytischen Technologien (z. B. HPLC, GC, Titration).\n\n• Kenntnisse im Umgang mit laborspezifischer Software (z.B. Empower, Chromeleon, TiAmo).\n\n• GMP-Erfahrung und technologische Expertise.\n\n• Bereitschaft, in Schichten zu arbeiten.\n\n• Fließend in Deutsch und gutem Englisch.\n\nVorteile und Belohnungen: Lesen Sie unser Handbuch, um mehr über alle Möglichkeiten zu erfahren, wie wir Ihnen helfen, persönlich und professionell zu gedeihen: https://www.novartis.com/careers/benefits-rewards\n\nEngagement für Vielfalt und Inklusion / EEO: Novartis engagiert sich für den Aufbau eines hervorragenden, integrativen Arbeitsumfelds und verschiedener Teams, die die Patienten und Gemeinschaften repräsentieren, denen wir dienen.\n\nZugänglichkeit und Unterkunft: Novartis verpflichtet sich, mit allen Personen zusammenzuarbeiten und ihnen eine angemessene Unterkunft zu bieten. Wenn Sie aufgrund einer Erkrankung oder Behinderung eine angemessene Unterkunft für einen Teil des Rekrutierungsprozesses benötigen oder um detailliertere Informationen über die wesentlichen Funktionen einer Position zu erhalten, senden Sie bitte eine E-Mail an diversity.inclusion ch@novartis.com und teilen Sie uns die Art Ihrer Anfrage und Ihre Kontaktinformationen mit. Bitte geben Sie die Stellenanforderungsnummer in Ihrer Nachricht an.\n\nGewünschte Fähigkeiten\nZusammenarbeit, Kommunikationsfähigkeiten (inaktiv), Datenintegrität, Deadline Adherence, Digital Saviness (inaktiv), Gesundheits- und Sicherheitsvorschriften Wissen (inaktiv), Führung, Verwaltung von Mehrdeutigkeiten, Überwachung (inaktiv), Problemlösungskompetenzen (inaktiv), Pünktlichkeit, regulatorische Anforderungen Wissen (inaktiv)",
+        "fr": "Échelle salariale :\n63 980,00 CHF - 118 820,00 CHF\n\nSommaire de la description d'emploi\nNous sommes à la recherche d'un analyste QC dédié pour soutenir les activités de bonnes pratiques (GxP) dans notre département qualité. Ce rôle consiste à gérer les systèmes de qualité, à mettre en oeuvre des processus opérationnels et à assurer le respect des normes de qualité de Novartis.\n\nCe rôle est limité à 24 mois.\n\nDescription de l'emploi\nPrincipales responsabilités :\n\n• Maintenir la conformité aux procédures d'exploitation normalisées (PON), aux documents conformes au GxP et aux dossiers du système de gestion de la qualité de Novartis.\n\n• Effectuer et évaluer les tâches d'analyse dans un laboratoire pharmaceutique, y compris travailler en équipes au besoin.\n\n• Assurer l'intégrité de tous les dossiers et données d'assurance de la qualité, selon le cas, et favoriser la collaboration entre votre équipe et d'autres fonctions et ministères.\n\n• Assurer un niveau approprié d'éducation et de connaissances GxP.\n\n• Appuyer les vérifications de la qualité et les inspections des autorités sanitaires.\n\nExigences essentielles:\n\n• Expérience en assurance de la qualité et en compétences analytiques.\n\n• Compétence en technologies analytiques (p. ex. CLHP, GC, titrage).\n\n• Connaissance de l'utilisation de logiciels spécifiques au laboratoire (par exemple, Empower, Chromeleon, TiAmo).\n\n• Expérience BPF et expertise technologique.\n\n• Volonté de travailler par équipes.\n\n• Connaissance de l'allemand et de l'anglais.\n\nAvantages et récompenses : Lisez notre guide pour en apprendre davantage sur toutes les façons dont nous vous aiderons à prospérer personnellement et professionnellement : https://www.novartis.com/careers/ benefits-rewards\n\nEngagement envers la diversité et l'inclusion / OEE : Novartis s'engage à créer un environnement de travail exceptionnel et inclusif et des équipes diversifiées représentatives des patients et des communautés que nous servons.\n\nAccessibilité et hébergement : Novartis s'engage à travailler avec toutes les personnes et à leur fournir des aménagements raisonnables. Si, en raison d'une maladie ou d'un handicap, vous avez besoin d'un aménagement raisonnable pour toute partie du processus de recrutement, ou afin de recevoir des informations plus détaillées sur les fonctions essentielles d'un poste, veuillez envoyer un e-mail à diversity.inclusion ch@novartis.com et nous faire savoir la nature de votre demande et vos coordonnées. Veuillez inclure le numéro de demande d'emploi dans votre message.\n\nCompétences recherchées\nCollaboration, Compétences en communication (inactives), Intégrité des données, Adhérence à la date limite, Saviness numérique (inactives), Connaissances en matière de réglementation de la santé et de la sécurité (inactives), Leadership, Gestion de l'ambiguïté, Surveillance (inactives), Compétences en résolution de problèmes (inactives), Ponctualité, Connaissances en matière de réglementation (inactives)"
       },
       "location": "Basel (Land)",
       "canton": "BS",
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-Land/QC-Analyst-II_REQ-10076283-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:17:59.924Z",
+      "crawledAt": "2026-10-01T21:23:52.085Z",
       "addressLocality": "Basel (Land)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2516,18 +2599,20 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-Land/QC-Analyst-II_REQ-10076283-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "qc-analyst-ii-novartis-ch",
+        "qc-analista-ii-novartis-basel-land"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "qc-analyst-ii-novartis-ch"
+          "qc-analyst-ii-novartis-ch",
+          "qc-analista-ii-novartis-basel-land"
         ],
         "fr": [
           "qc-analyst-ii-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "qc-analyst-ii-novartis-ch"
-      ],
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2574,7 +2659,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Deployment-Strategist--Applied-AI_REQ-10084158-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:17:59.101Z",
+      "crawledAt": "2026-10-01T21:23:51.155Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2589,10 +2674,14 @@
       "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Deployment-Strategist--Applied-AI_REQ-10084158-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:20:51.454Z",
+      "previousSlugs": [
+        "director-of-applied-ai-scaling-strategist-novartis-ch",
+        "direttore-of-applied-ai-scaling-strategist-novartis-basel-city"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-applied-ai-scaling-strategist-novartis-ch"
+          "director-of-applied-ai-scaling-strategist-novartis-ch",
+          "direttore-of-applied-ai-scaling-strategist-novartis-basel-city"
         ],
         "de": [
           "director-of-applied-ai-scaling-strategist-novartis-ch"
@@ -2601,9 +2690,7 @@
           "director-of-applied-ai-scaling-strategist-novartis-ch"
         ]
       },
-      "previousSlugs": [
-        "director-of-applied-ai-scaling-strategist-novartis-ch"
-      ],
+      "firstSeenAt": "2026-09-30T21:20:51.454Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -2650,7 +2737,7 @@
       "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Lernende-r-ICT-Fachmann-frau-EFZ_REQ-10089048-1",
       "source": "Novartis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:17:57.627Z",
+      "crawledAt": "2026-10-01T21:23:49.619Z",
       "addressLocality": "Basel (City)",
       "addressCountry": "CH",
       "country": "CH",
@@ -2666,11 +2753,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-r-ict-fachmann-frau-efz-novartis-ch"
+        "lernende-r-ict-fachmann-frau-efz-novartis-ch",
+        "apprendista-ict-fachmann-frau-cfc-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-r-ict-fachmann-frau-efz-novartis-ch"
+          "lernende-r-ict-fachmann-frau-efz-novartis-ch",
+          "apprendista-ict-fachmann-frau-cfc-novartis-basel-city"
         ]
       },
       "needsRetranslation": true,
@@ -2685,6 +2774,70 @@
           "@type": "QuantitativeValue",
           "minValue": 52000,
           "maxValue": 78500,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "BS"
+    },
+    {
+      "id": "novartis-27108111d9eb",
+      "slug": "director-technology-engineering-for-software-and-workflows-novartis-ch",
+      "slugByLocale": {
+        "en": "director-technology-engineering-for-software-and-workflows-novartis-ch",
+        "it": "director-technology-engineering-for-software-and-workflows-novartis-ch",
+        "de": "director-technology-engineering-for-software-and-workflows-novartis-ch",
+        "fr": "director-technology-engineering-for-software-and-workflows-novartis-ch"
+      },
+      "company": "Novartis",
+      "companyKey": "novartis",
+      "companyDomain": "novartis.com",
+      "title": "Director, Technology & Engineering for Software and Workflows",
+      "titleByLocale": {
+        "en": "Director, Technology & Engineering for Software and Workflows",
+        "it": "Direttore, Technology & Engineering for Software and Workflows",
+        "de": "Direktor, Technology & Engineering for Software and Workflows",
+        "fr": "Directeur, Technology & Engineering for Software and Workflows"
+      },
+      "description": "Salary Range:\nCHF142,100.00 - CHF263,900.00\n\nJob Description Summary\nImagine leading the organization that turns emerging technologies, scientific ambition, and bold ideas into software that helps researchers discover medicines faster.\n\nAs Director of Technology & Engineering within Novartis Biomedical Research Data & Digital Software & Workflows, you will shape how high-quality, AI-enabled software solutions are designed, built, and delivered across scientific workflows and laboratory processes. You will lead software engineering and AI engineering leaders, set a clear technical direction, and create the conditions for teams to deliver meaningful outcomes with speed, quality, and confidence.\n\nThis is an opportunity for a curious, learning-oriented technology leader who can navigate complexity, anticipate what is next, and translate strategy into focused execution. You will bring together talented people across engineering, science, architecture, operations, security, and enterprise technology, challenging established approaches, making thoughtful trade-offs, and helping teams learn and grow as they deliver.\n\nJob Description\nInternal job title: Director, Technology & Engineering\nPosition Location : Basel, CH\n\nThis role is based in Basel, CH. Novartis is unable to offer relocation support for this role: please only apply if this location is accessible for you.\n\nThe Software & Workflows organization partners with scientists, data experts, and AI specialists across Novartis Biomedical Research to transform scientific workflows and laboratory processes. Our ambition is to make advanced digital and AI capabilities usable, scalable, and impactful, helping teams generate better insights, improve decisions, and accelerate the discovery of innovative medicines.\n\nYou will lead technology and engineering execution across a broad portfolio of time-bound software delivery initiatives. Your role will combine strategic technical leadership with delivery accountability: building a high-performing organization, advancing modern and AI-enabled engineering practices, and ensuring that solutions meet demanding standards for quality, performance, security, compliance, and reliability.\n\nKey Responsibilities\n\n• Lead with purpose: Set a compelling direction for technology and engineering, connecting team priorities and technical choices to scientific impact and organizational strategy.\n\n• Shape a learning culture: Encourage curiosity, experimentation, constructive challenge, and learning from outcomes while fostering urgency, trust, clarity, and shared ownership.\n\n• Build exceptional teams: Lead, coach, and develop engineering managers, technical leaders, and AI engineering capabilities while creating opportunities for people to grow and thrive.\n\n• Accelerate AI-enabled engineering: Champion the responsible integration of AI tools and agents into a robust, modern engineering framework and practices.\n\n• Raise the engineering bar: Advance scalable architecture, DevOps, continuous integration and delivery, test automation, observability, and operational excellence.\n\n• Protect sustainable value: Ensure engineering approaches align with enterprise strategy, architectural standards, security, compliance, and responsible AI governance.\n\n• Influence beyond authority: Build trusted relationships across organizational boundaries and communicate complex technical topics in ways that enable timely, informed decisions.\n\n• Create alignment: Partner with delivery, architecture, operations, security, compliance, enterprise technology teams, and software vendors to turn diverse perspectives into clear decisions and coordinated action.\n\n• Deliver meaningful outcomes: Own engineering execution across a broad portfolio of initiatives, ensuring high-quality solutions are delivered predictably within agreed scope, budget, and timelines.\n\n• Navigate complexity: Apply strategic agility to manage dependencies, risks, resources, and trade-offs, adapting plans as priorities and technologies evolve.\n\nEssential Requirements\nYou are an inspiring and pragmatic technology leader who combines strategic perspective with a strong bias for execution. In short, while your expertise is in technology, your passion is with the outcomes. You are energized by complex problems, motivated by scientific impact, and committed to helping people perform at their best.\n\nYou bring:\n\n• Significant experience leading technology functions, engineering managers, technical leaders, and multidisciplinary software teams in a global, matrixed environment.\n\n• A strong learning mindset and curiosity, with the ability to explore emerging technologies, seek diverse perspectives, and turn new insights into practical action.\n\n• Strategic agility—the ability to connect long-term direction with near-term priorities, simplify complexity, and adapt decisively as circumstances evolve.\n\n• A track record of leading large-scale SaaS, commercial, custom-built, on-premises, and cloud-based software solutions with measurable business or scientific impact.\n\n• Deep understanding of modern AI-enabled software engineering practices, including DevOps, continuous integration and delivery, test automation, and Agile or Lean delivery.\n\n• Experience integrating AI models, agents, or other AI-enabled capabilities into production software and engineering workflows.\n\n• Demonstrated success leading complex, time-bound initiatives and improving delivery predictability, quality, and operational performance.\n\n• Excellent communication and influencing skills, including the ability to engage senior leaders and translate technical complexity into clear choices and recommendations.\n\n• A leadership style grounded in integrity, empowerment, accountability, collaboration, and genuine commitment to developing others.\n\n• The courage to challenge the status quo, take thoughtful risks, learn quickly, and help teams turn uncertainty into progress.\n\nDesirable Requirements\n\n• Experience in the pharmaceutical industry, life sciences, research, or another highly regulated environment.\n\n• Experience leading globally distributed teams and collaborating across scientific, technical, vendor, and enterprise functions.\n\n• Evidence of building inclusive, high-performing cultures in which people learn from one another and achieve more together.\n\nWhat Success Looks Like\nIn this role, you will shape a technical organization known for clarity, learning, and dependable delivery excellence. Teams will understand how their work contributes to scientific outcomes, leaders will grow in capability and confidence, and partners will experience Technology & Engineering as a trusted force for progress. Together, you will turn emerging possibilities into reliable solutions that help advance drug discovery.\n\nAccessibility and Accommodation:\n\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAlgorithms, Computer Programming, Computer Science, Computer Vision, Data Science, Global Project Management, Operational Excellence, People Management, R&D (Research And Development) (Inactive), Solutions Design",
+      "descriptionByLocale": {
+        "en": "Salary Range:\nCHF142,100.00 - CHF263,900.00\n\nJob Description Summary\nImagine leading the organization that turns emerging technologies, scientific ambition, and bold ideas into software that helps researchers discover medicines faster.\n\nAs Director of Technology & Engineering within Novartis Biomedical Research Data & Digital Software & Workflows, you will shape how high-quality, AI-enabled software solutions are designed, built, and delivered across scientific workflows and laboratory processes. You will lead software engineering and AI engineering leaders, set a clear technical direction, and create the conditions for teams to deliver meaningful outcomes with speed, quality, and confidence.\n\nThis is an opportunity for a curious, learning-oriented technology leader who can navigate complexity, anticipate what is next, and translate strategy into focused execution. You will bring together talented people across engineering, science, architecture, operations, security, and enterprise technology, challenging established approaches, making thoughtful trade-offs, and helping teams learn and grow as they deliver.\n\nJob Description\nInternal job title: Director, Technology & Engineering\nPosition Location : Basel, CH\n\nThis role is based in Basel, CH. Novartis is unable to offer relocation support for this role: please only apply if this location is accessible for you.\n\nThe Software & Workflows organization partners with scientists, data experts, and AI specialists across Novartis Biomedical Research to transform scientific workflows and laboratory processes. Our ambition is to make advanced digital and AI capabilities usable, scalable, and impactful, helping teams generate better insights, improve decisions, and accelerate the discovery of innovative medicines.\n\nYou will lead technology and engineering execution across a broad portfolio of time-bound software delivery initiatives. Your role will combine strategic technical leadership with delivery accountability: building a high-performing organization, advancing modern and AI-enabled engineering practices, and ensuring that solutions meet demanding standards for quality, performance, security, compliance, and reliability.\n\nKey Responsibilities\n\n• Lead with purpose: Set a compelling direction for technology and engineering, connecting team priorities and technical choices to scientific impact and organizational strategy.\n\n• Shape a learning culture: Encourage curiosity, experimentation, constructive challenge, and learning from outcomes while fostering urgency, trust, clarity, and shared ownership.\n\n• Build exceptional teams: Lead, coach, and develop engineering managers, technical leaders, and AI engineering capabilities while creating opportunities for people to grow and thrive.\n\n• Accelerate AI-enabled engineering: Champion the responsible integration of AI tools and agents into a robust, modern engineering framework and practices.\n\n• Raise the engineering bar: Advance scalable architecture, DevOps, continuous integration and delivery, test automation, observability, and operational excellence.\n\n• Protect sustainable value: Ensure engineering approaches align with enterprise strategy, architectural standards, security, compliance, and responsible AI governance.\n\n• Influence beyond authority: Build trusted relationships across organizational boundaries and communicate complex technical topics in ways that enable timely, informed decisions.\n\n• Create alignment: Partner with delivery, architecture, operations, security, compliance, enterprise technology teams, and software vendors to turn diverse perspectives into clear decisions and coordinated action.\n\n• Deliver meaningful outcomes: Own engineering execution across a broad portfolio of initiatives, ensuring high-quality solutions are delivered predictably within agreed scope, budget, and timelines.\n\n• Navigate complexity: Apply strategic agility to manage dependencies, risks, resources, and trade-offs, adapting plans as priorities and technologies evolve.\n\nEssential Requirements\nYou are an inspiring and pragmatic technology leader who combines strategic perspective with a strong bias for execution. In short, while your expertise is in technology, your passion is with the outcomes. You are energized by complex problems, motivated by scientific impact, and committed to helping people perform at their best.\n\nYou bring:\n\n• Significant experience leading technology functions, engineering managers, technical leaders, and multidisciplinary software teams in a global, matrixed environment.\n\n• A strong learning mindset and curiosity, with the ability to explore emerging technologies, seek diverse perspectives, and turn new insights into practical action.\n\n• Strategic agility—the ability to connect long-term direction with near-term priorities, simplify complexity, and adapt decisively as circumstances evolve.\n\n• A track record of leading large-scale SaaS, commercial, custom-built, on-premises, and cloud-based software solutions with measurable business or scientific impact.\n\n• Deep understanding of modern AI-enabled software engineering practices, including DevOps, continuous integration and delivery, test automation, and Agile or Lean delivery.\n\n• Experience integrating AI models, agents, or other AI-enabled capabilities into production software and engineering workflows.\n\n• Demonstrated success leading complex, time-bound initiatives and improving delivery predictability, quality, and operational performance.\n\n• Excellent communication and influencing skills, including the ability to engage senior leaders and translate technical complexity into clear choices and recommendations.\n\n• A leadership style grounded in integrity, empowerment, accountability, collaboration, and genuine commitment to developing others.\n\n• The courage to challenge the status quo, take thoughtful risks, learn quickly, and help teams turn uncertainty into progress.\n\nDesirable Requirements\n\n• Experience in the pharmaceutical industry, life sciences, research, or another highly regulated environment.\n\n• Experience leading globally distributed teams and collaborating across scientific, technical, vendor, and enterprise functions.\n\n• Evidence of building inclusive, high-performing cultures in which people learn from one another and achieve more together.\n\nWhat Success Looks Like\nIn this role, you will shape a technical organization known for clarity, learning, and dependable delivery excellence. Teams will understand how their work contributes to scientific outcomes, leaders will grow in capability and confidence, and partners will experience Technology & Engineering as a trusted force for progress. Together, you will turn emerging possibilities into reliable solutions that help advance drug discovery.\n\nAccessibility and Accommodation:\n\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAlgorithms, Computer Programming, Computer Science, Computer Vision, Data Science, Global Project Management, Operational Excellence, People Management, R&D (Research And Development) (Inactive), Solutions Design",
+        "it": "Salary Range:\nCHF142,100.00 - CHF263,900.00\n\nJob Description Summary\nImagine leading the organization that turns emerging technologies, scientific ambition, and bold ideas into software that helps researchers discover medicines faster.\n\nAs Director of Technology & Engineering within Novartis Biomedical Research Data & Digital Software & Workflows, you will shape how high-quality, AI-enabled software solutions are designed, built, and delivered across scientific workflows and laboratory processes. You will lead software engineering and AI engineering leaders, set a clear technical direction, and create the conditions for teams to deliver meaningful outcomes with speed, quality, and confidence.\n\nThis is an opportunity for a curious, learning-oriented technology leader who can navigate complexity, anticipate what is next, and translate strategy into focused execution. You will bring together talented people across engineering, science, architecture, operations, security, and enterprise technology, challenging established approaches, making thoughtful trade-offs, and helping teams learn and grow as they deliver.\n\nJob Description\nInternal job title: Director, Technology & Engineering\nPosition Location : Basel, CH\n\nThis role is based in Basel, CH. Novartis is unable to offer relocation support for this role: please only apply if this location is accessible for you.\n\nThe Software & Workflows organization partners with scientists, data experts, and AI specialists across Novartis Biomedical Research to transform scientific workflows and laboratory processes. Our ambition is to make advanced digital and AI capabilities usable, scalable, and impactful, helping teams generate better insights, improve decisions, and accelerate the discovery of innovative medicines.\n\nYou will lead technology and engineering execution across a broad portfolio of time-bound software delivery initiatives. Your role will combine strategic technical leadership with delivery accountability: building a high-performing organization, advancing modern and AI-enabled engineering practices, and ensuring that solutions meet demanding standards for quality, performance, security, compliance, and reliability.\n\nKey Responsibilities\n\n• Lead with purpose: Set a compelling direction for technology and engineering, connecting team priorities and technical choices to scientific impact and organizational strategy.\n\n• Shape a learning culture: Encourage curiosity, experimentation, constructive challenge, and learning from outcomes while fostering urgency, trust, clarity, and shared ownership.\n\n• Build exceptional teams: Lead, coach, and develop engineering managers, technical leaders, and AI engineering capabilities while creating opportunities for people to grow and thrive.\n\n• Accelerate AI-enabled engineering: Champion the responsible integration of AI tools and agents into a robust, modern engineering framework and practices.\n\n• Raise the engineering bar: Advance scalable architecture, DevOps, continuous integration and delivery, test automation, observability, and operational excellence.\n\n• Protect sustainable value: Ensure engineering approaches align with enterprise strategy, architectural standards, security, compliance, and responsible AI governance.\n\n• Influence beyond authority: Build trusted relationships across organizational boundaries and communicate complex technical topics in ways that enable timely, informed decisions.\n\n• Create alignment: Partner with delivery, architecture, operations, security, compliance, enterprise technology teams, and software vendors to turn diverse perspectives into clear decisions and coordinated action.\n\n• Deliver meaningful outcomes: Own engineering execution across a broad portfolio of initiatives, ensuring high-quality solutions are delivered predictably within agreed scope, budget, and timelines.\n\n• Navigate complexity: Apply strategic agility to manage dependencies, risks, resources, and trade-offs, adapting plans as priorities and technologies evolve.\n\nEssential Requirements\nYou are an inspiring and pragmatic technology leader who combines strategic perspective with a strong bias for execution. In short, while your expertise is in technology, your passion is with the outcomes. You are energized by complex problems, motivated by scientific impact, and committed to helping people perform at their best.\n\nYou bring:\n\n• Significant experience leading technology functions, engineering managers, technical leaders, and multidisciplinary software teams in a global, matrixed environment.\n\n• A strong learning mindset and curiosity, with the ability to explore emerging technologies, seek diverse perspectives, and turn new insights into practical action.\n\n• Strategic agility—the ability to connect long-term direction with near-term priorities, simplify complexity, and adapt decisively as circumstances evolve.\n\n• A track record of leading large-scale SaaS, commercial, custom-built, on-premises, and cloud-based software solutions with measurable business or scientific impact.\n\n• Deep understanding of modern AI-enabled software engineering practices, including DevOps, continuous integration and delivery, test automation, and Agile or Lean delivery.\n\n• Experience integrating AI models, agents, or other AI-enabled capabilities into production software and engineering workflows.\n\n• Demonstrated success leading complex, time-bound initiatives and improving delivery predictability, quality, and operational performance.\n\n• Excellent communication and influencing skills, including the ability to engage senior leaders and translate technical complexity into clear choices and recommendations.\n\n• A leadership style grounded in integrity, empowerment, accountability, collaboration, and genuine commitment to developing others.\n\n• The courage to challenge the status quo, take thoughtful risks, learn quickly, and help teams turn uncertainty into progress.\n\nDesirable Requirements\n\n• Experience in the pharmaceutical industry, life sciences, research, or another highly regulated environment.\n\n• Experience leading globally distributed teams and collaborating across scientific, technical, vendor, and enterprise functions.\n\n• Evidence of building inclusive, high-performing cultures in which people learn from one another and achieve more together.\n\nWhat Success Looks Like\nIn this role, you will shape a technical organization known for clarity, learning, and dependable delivery excellence. Teams will understand how their work contributes to scientific outcomes, leaders will grow in capability and confidence, and partners will experience Technology & Engineering as a trusted force for progress. Together, you will turn emerging possibilities into reliable solutions that help advance drug discovery.\n\nAccessibility and Accommodation:\n\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAlgorithms, Computer Programming, Computer Science, Computer Vision, Data Science, Global Project Management, Operational Excellence, People Management, R&D (Research And Development) (Inactive), Solutions Design",
+        "de": "Salary Range:\nCHF142,100.00 - CHF263,900.00\n\nJob Description Summary\nImagine leading the organization that turns emerging technologies, scientific ambition, and bold ideas into software that helps researchers discover medicines faster.\n\nAs Director of Technology & Engineering within Novartis Biomedical Research Data & Digital Software & Workflows, you will shape how high-quality, AI-enabled software solutions are designed, built, and delivered across scientific workflows and laboratory processes. You will lead software engineering and AI engineering leaders, set a clear technical direction, and create the conditions for teams to deliver meaningful outcomes with speed, quality, and confidence.\n\nThis is an opportunity for a curious, learning-oriented technology leader who can navigate complexity, anticipate what is next, and translate strategy into focused execution. You will bring together talented people across engineering, science, architecture, operations, security, and enterprise technology, challenging established approaches, making thoughtful trade-offs, and helping teams learn and grow as they deliver.\n\nJob Description\nInternal job title: Director, Technology & Engineering\nPosition Location : Basel, CH\n\nThis role is based in Basel, CH. Novartis is unable to offer relocation support for this role: please only apply if this location is accessible for you.\n\nThe Software & Workflows organization partners with scientists, data experts, and AI specialists across Novartis Biomedical Research to transform scientific workflows and laboratory processes. Our ambition is to make advanced digital and AI capabilities usable, scalable, and impactful, helping teams generate better insights, improve decisions, and accelerate the discovery of innovative medicines.\n\nYou will lead technology and engineering execution across a broad portfolio of time-bound software delivery initiatives. Your role will combine strategic technical leadership with delivery accountability: building a high-performing organization, advancing modern and AI-enabled engineering practices, and ensuring that solutions meet demanding standards for quality, performance, security, compliance, and reliability.\n\nKey Responsibilities\n\n• Lead with purpose: Set a compelling direction for technology and engineering, connecting team priorities and technical choices to scientific impact and organizational strategy.\n\n• Shape a learning culture: Encourage curiosity, experimentation, constructive challenge, and learning from outcomes while fostering urgency, trust, clarity, and shared ownership.\n\n• Build exceptional teams: Lead, coach, and develop engineering managers, technical leaders, and AI engineering capabilities while creating opportunities for people to grow and thrive.\n\n• Accelerate AI-enabled engineering: Champion the responsible integration of AI tools and agents into a robust, modern engineering framework and practices.\n\n• Raise the engineering bar: Advance scalable architecture, DevOps, continuous integration and delivery, test automation, observability, and operational excellence.\n\n• Protect sustainable value: Ensure engineering approaches align with enterprise strategy, architectural standards, security, compliance, and responsible AI governance.\n\n• Influence beyond authority: Build trusted relationships across organizational boundaries and communicate complex technical topics in ways that enable timely, informed decisions.\n\n• Create alignment: Partner with delivery, architecture, operations, security, compliance, enterprise technology teams, and software vendors to turn diverse perspectives into clear decisions and coordinated action.\n\n• Deliver meaningful outcomes: Own engineering execution across a broad portfolio of initiatives, ensuring high-quality solutions are delivered predictably within agreed scope, budget, and timelines.\n\n• Navigate complexity: Apply strategic agility to manage dependencies, risks, resources, and trade-offs, adapting plans as priorities and technologies evolve.\n\nEssential Requirements\nYou are an inspiring and pragmatic technology leader who combines strategic perspective with a strong bias for execution. In short, while your expertise is in technology, your passion is with the outcomes. You are energized by complex problems, motivated by scientific impact, and committed to helping people perform at their best.\n\nYou bring:\n\n• Significant experience leading technology functions, engineering managers, technical leaders, and multidisciplinary software teams in a global, matrixed environment.\n\n• A strong learning mindset and curiosity, with the ability to explore emerging technologies, seek diverse perspectives, and turn new insights into practical action.\n\n• Strategic agility—the ability to connect long-term direction with near-term priorities, simplify complexity, and adapt decisively as circumstances evolve.\n\n• A track record of leading large-scale SaaS, commercial, custom-built, on-premises, and cloud-based software solutions with measurable business or scientific impact.\n\n• Deep understanding of modern AI-enabled software engineering practices, including DevOps, continuous integration and delivery, test automation, and Agile or Lean delivery.\n\n• Experience integrating AI models, agents, or other AI-enabled capabilities into production software and engineering workflows.\n\n• Demonstrated success leading complex, time-bound initiatives and improving delivery predictability, quality, and operational performance.\n\n• Excellent communication and influencing skills, including the ability to engage senior leaders and translate technical complexity into clear choices and recommendations.\n\n• A leadership style grounded in integrity, empowerment, accountability, collaboration, and genuine commitment to developing others.\n\n• The courage to challenge the status quo, take thoughtful risks, learn quickly, and help teams turn uncertainty into progress.\n\nDesirable Requirements\n\n• Experience in the pharmaceutical industry, life sciences, research, or another highly regulated environment.\n\n• Experience leading globally distributed teams and collaborating across scientific, technical, vendor, and enterprise functions.\n\n• Evidence of building inclusive, high-performing cultures in which people learn from one another and achieve more together.\n\nWhat Success Looks Like\nIn this role, you will shape a technical organization known for clarity, learning, and dependable delivery excellence. Teams will understand how their work contributes to scientific outcomes, leaders will grow in capability and confidence, and partners will experience Technology & Engineering as a trusted force for progress. Together, you will turn emerging possibilities into reliable solutions that help advance drug discovery.\n\nAccessibility and Accommodation:\n\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAlgorithms, Computer Programming, Computer Science, Computer Vision, Data Science, Global Project Management, Operational Excellence, People Management, R&D (Research And Development) (Inactive), Solutions Design",
+        "fr": "Salary Range:\nCHF142,100.00 - CHF263,900.00\n\nJob Description Summary\nImagine leading the organization that turns emerging technologies, scientific ambition, and bold ideas into software that helps researchers discover medicines faster.\n\nAs Director of Technology & Engineering within Novartis Biomedical Research Data & Digital Software & Workflows, you will shape how high-quality, AI-enabled software solutions are designed, built, and delivered across scientific workflows and laboratory processes. You will lead software engineering and AI engineering leaders, set a clear technical direction, and create the conditions for teams to deliver meaningful outcomes with speed, quality, and confidence.\n\nThis is an opportunity for a curious, learning-oriented technology leader who can navigate complexity, anticipate what is next, and translate strategy into focused execution. You will bring together talented people across engineering, science, architecture, operations, security, and enterprise technology, challenging established approaches, making thoughtful trade-offs, and helping teams learn and grow as they deliver.\n\nJob Description\nInternal job title: Director, Technology & Engineering\nPosition Location : Basel, CH\n\nThis role is based in Basel, CH. Novartis is unable to offer relocation support for this role: please only apply if this location is accessible for you.\n\nThe Software & Workflows organization partners with scientists, data experts, and AI specialists across Novartis Biomedical Research to transform scientific workflows and laboratory processes. Our ambition is to make advanced digital and AI capabilities usable, scalable, and impactful, helping teams generate better insights, improve decisions, and accelerate the discovery of innovative medicines.\n\nYou will lead technology and engineering execution across a broad portfolio of time-bound software delivery initiatives. Your role will combine strategic technical leadership with delivery accountability: building a high-performing organization, advancing modern and AI-enabled engineering practices, and ensuring that solutions meet demanding standards for quality, performance, security, compliance, and reliability.\n\nKey Responsibilities\n\n• Lead with purpose: Set a compelling direction for technology and engineering, connecting team priorities and technical choices to scientific impact and organizational strategy.\n\n• Shape a learning culture: Encourage curiosity, experimentation, constructive challenge, and learning from outcomes while fostering urgency, trust, clarity, and shared ownership.\n\n• Build exceptional teams: Lead, coach, and develop engineering managers, technical leaders, and AI engineering capabilities while creating opportunities for people to grow and thrive.\n\n• Accelerate AI-enabled engineering: Champion the responsible integration of AI tools and agents into a robust, modern engineering framework and practices.\n\n• Raise the engineering bar: Advance scalable architecture, DevOps, continuous integration and delivery, test automation, observability, and operational excellence.\n\n• Protect sustainable value: Ensure engineering approaches align with enterprise strategy, architectural standards, security, compliance, and responsible AI governance.\n\n• Influence beyond authority: Build trusted relationships across organizational boundaries and communicate complex technical topics in ways that enable timely, informed decisions.\n\n• Create alignment: Partner with delivery, architecture, operations, security, compliance, enterprise technology teams, and software vendors to turn diverse perspectives into clear decisions and coordinated action.\n\n• Deliver meaningful outcomes: Own engineering execution across a broad portfolio of initiatives, ensuring high-quality solutions are delivered predictably within agreed scope, budget, and timelines.\n\n• Navigate complexity: Apply strategic agility to manage dependencies, risks, resources, and trade-offs, adapting plans as priorities and technologies evolve.\n\nEssential Requirements\nYou are an inspiring and pragmatic technology leader who combines strategic perspective with a strong bias for execution. In short, while your expertise is in technology, your passion is with the outcomes. You are energized by complex problems, motivated by scientific impact, and committed to helping people perform at their best.\n\nYou bring:\n\n• Significant experience leading technology functions, engineering managers, technical leaders, and multidisciplinary software teams in a global, matrixed environment.\n\n• A strong learning mindset and curiosity, with the ability to explore emerging technologies, seek diverse perspectives, and turn new insights into practical action.\n\n• Strategic agility—the ability to connect long-term direction with near-term priorities, simplify complexity, and adapt decisively as circumstances evolve.\n\n• A track record of leading large-scale SaaS, commercial, custom-built, on-premises, and cloud-based software solutions with measurable business or scientific impact.\n\n• Deep understanding of modern AI-enabled software engineering practices, including DevOps, continuous integration and delivery, test automation, and Agile or Lean delivery.\n\n• Experience integrating AI models, agents, or other AI-enabled capabilities into production software and engineering workflows.\n\n• Demonstrated success leading complex, time-bound initiatives and improving delivery predictability, quality, and operational performance.\n\n• Excellent communication and influencing skills, including the ability to engage senior leaders and translate technical complexity into clear choices and recommendations.\n\n• A leadership style grounded in integrity, empowerment, accountability, collaboration, and genuine commitment to developing others.\n\n• The courage to challenge the status quo, take thoughtful risks, learn quickly, and help teams turn uncertainty into progress.\n\nDesirable Requirements\n\n• Experience in the pharmaceutical industry, life sciences, research, or another highly regulated environment.\n\n• Experience leading globally distributed teams and collaborating across scientific, technical, vendor, and enterprise functions.\n\n• Evidence of building inclusive, high-performing cultures in which people learn from one another and achieve more together.\n\nWhat Success Looks Like\nIn this role, you will shape a technical organization known for clarity, learning, and dependable delivery excellence. Teams will understand how their work contributes to scientific outcomes, leaders will grow in capability and confidence, and partners will experience Technology & Engineering as a trusted force for progress. Together, you will turn emerging possibilities into reliable solutions that help advance drug discovery.\n\nAccessibility and Accommodation:\n\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nAlgorithms, Computer Programming, Computer Science, Computer Vision, Data Science, Global Project Management, Operational Excellence, People Management, R&D (Research And Development) (Inactive), Solutions Design"
+      },
+      "location": "Basel (City)",
+      "canton": "BS",
+      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Technology---Engineering-for-Software-and-Workflows_REQ-10079472",
+      "source": "Novartis Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:23:48.837Z",
+      "addressLocality": "Basel (City)",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Farmaceutica / Biotecnologia",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Director--Technology---Engineering-for-Software-and-Workflows_REQ-10079472",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 99500,
+      "salaryMax": 151000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 99500,
+          "maxValue": 151000,
           "unitText": "YEAR"
         }
       },
@@ -2763,155 +2916,6 @@
         }
       },
       "addressRegion": "AG",
-      "crawlerMissStreak": 1
-    },
-    {
-      "id": "novartis-e70317a517a3",
-      "slug": "esperto-di-processo-junior-novartis-stein-aargau",
-      "slugByLocale": {
-        "it": "esperto-di-processo-junior-novartis-stein-aargau",
-        "en": "junior-process-expert-novartis-ch",
-        "de": "junior-process-expert-novartis-ch",
-        "fr": "junior-process-expert-novartis-ch"
-      },
-      "company": "Novartis",
-      "companyKey": "novartis",
-      "companyDomain": "novartis.com",
-      "title": "Junior Process Expert",
-      "titleByLocale": {
-        "it": "Esperto di processo Junior",
-        "en": "Junior Process Expert",
-        "de": "Junior Process Expert",
-        "fr": "Expert en processus junior"
-      },
-      "description": "Salary Range:\nCHF74,200.00 - CHF137,800.00\n\nJob Description Summary\n#LiOnSite\nLocation: Stein\n\nThe Junior Process Expert supports the Production Unit (PU) in all process-related matters with the objective of continuously improving existing processes, both qualitatively and quantitatively, and introducing and establishing new processes.\nThese activities are carried out in compliance with cGMP requirements, as well as applicable SOPs and guidelines.\n\nJob Description\nMajor accountabilities:\n\n• Supports the handling of deviations, complaints, actions, and CAPAs.\n\n• Provides support in decision-making related to production issues.\n\n• Assists in the creation and maintenance of manufacturing instructions, including bills of materials, process sub-steps, and process steps.\n\n• Supports the processing of quality notifications, including external and internal complaints.\n\n• Assists in the development of specific SOPs.\n\n• Ensures GMP-compliant documentation.\n\n• Consistently adheres to GSU guidelines.\n\n• Ensures cleanliness, hygiene, and order within the work environment.\n\n• Assists in implementing corrective measures for deviations.\n\n• Supports process and cleaning validations and assists with qualification activities (e.g., thermal requalification).\n\nEssential requirements:\n\n• Degree in Scientific disciplines.\n\n• Ability to work independently.\n\n• Proficiency in Microsoft Office applications.\n\n• Fluent in English and German.\n\nDesirable requirements:\n\n• Master's Degree.\n\n• Initial experience in a GMP manufacturing environment.\n\nWe offer a temporary contract of 12 months.\n\nRewards\n\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\n\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and a minimum of 14 weeks paid parental leave.\n\nExpected Annual Base Salary Range for role: CHF 74.200 - 137.800\n\nThe salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters. Further details will be provided during the application process.\n\nPay equity is a fundamental principle of our employment policy and reflects our commitment to create a diverse, equitable and inclusive environment that treats all employees with dignity and respect, as outlined in our Code of Ethics.\n\nRead our brochure to learn more about our global total rewards offering: https://www.novartis.com/sites/novartis_com/files/novartis-life-handbook.pdf\n\nNote: Benefits and compensation may vary by country and are subject to local legal requirements, including provisions of collective bargaining agreements where applicable. A full overview of your compensation package, including any relevant collective bargaining agreement details applicable to your role based on your employment location and Novartis employer entity, will be communicated separately to you during the application process.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nCommitment to Diversity and Inclusion / EEO paragraph:\nNovartis is committed to building an outstanding, inclusive work environment and diverse teams’ representative of the patients and communities we serve.\n\nSkills Desired\nData Analytics",
-      "descriptionByLocale": {
-        "it": "Gamma di insalata:\nCHF74.200.00 - CHF137,800.00\n\nDescrizione del lavoro\n#LiOnSite #\nPosizione: Stein\n\nIl Junior Process Expert supporta l'unità di produzione (PU) in tutte le questioni relative al processo con l'obiettivo di migliorare continuamente i processi esistenti, sia qualitativamente che quantitativamente, e di introdurre e stabilire nuovi processi.\nQueste attività sono svolte in conformità con i requisiti cGMP, così come le SOP e le linee guida applicabili.\n\nDescrizione del lavoro\nPrincipali passività:\n\n• Supporta il trattamento di deviazioni, reclami, azioni e CAPA.\n\n• Fornisce supporto nel processo decisionale relativo alle questioni di produzione.\n\n• Assiste nella creazione e manutenzione di istruzioni di fabbricazione, comprese le fatture di materiali, sub-steps di processo e passaggi di processo.\n\n• Supporta il trattamento delle notifiche di qualità, inclusi reclami esterni e interni.\n\n• Assiste nello sviluppo di SOP specifici.\n\n• Garantisce la documentazione conforme a GMP.\n\n• Con coerenza aderisce alle linee guida GSU.\n\n• Assicura pulizia, igiene e ordine all'interno dell'ambiente di lavoro.\n\n• Assiste nell'attuazione di misure correttive per le deviazioni.\n\n• Supporta validazioni di processo e pulizia e assiste con attività di qualificazione (ad esempio, riqualificazione termica).\n\nRequisiti essenziali:\n\n• Laurea in discipline scientifiche.\n\n• Capacità di lavorare indipendentemente.\n\n• Proficienza nelle applicazioni Microsoft Office.\n\n• Fluente in inglese e tedesco.\n\nRequisiti desiderabili:\n\n• Laurea magistrale.\n\n• Esperienza iniziale in un ambiente di produzione GMP.\n\nOffriamo un contratto temporaneo di 12 mesi.\n\nRicompense\n\nA Novartis, ci impegniamo a riimmaginare insieme la medicina e a premiare le persone che lo fanno accadere.\n\nLe ricompense di far parte del nostro team vanno ben oltre la retribuzione base e gli incentivi. Offriamo anche una varietà di vantaggi competitivi in genere per aiutare a prosperare personalmente e professionalmente, come piani di assicurazione, piani di pensionamento, risorse di benessere e programmi di riconoscimento globale. Inoltre, forniamo opzioni di lavoro flessibili e ibride, ove possibile, e un minimo di 14 settimane di congedo parentale pagato.\n\nCampo d'insalatura annuale previsto per il ruolo: CHF 74.200 - 137.800\n\nIl salario offerto è determinato sulla base di obiettivi di genere-neutral, quali competenze rilevanti, competenze ed esperienza in conformità con la politica di impostazione della retribuzione Novartis e dopo l'adesione Novartis saranno esaminati periodicamente.\n\nOltre al tuo stipendio base, potresti essere idoneo per un bonus basato sulle prestazioni a seconda di determinati parametri di prestazione. Ulteriori dettagli saranno forniti durante il processo di applicazione.\n\nPay equity è un principio fondamentale della nostra politica di occupazione e riflette il nostro impegno a creare un ambiente diverso, equo e inclusivo che tratta tutti i dipendenti con dignità e rispetto, come descritto nel nostro Codice Etico.\n\nLeggi la nostra brochure per saperne di più sulla nostra offerta globale di premi totali: https://www.novartis.com/sites/novartis com/files/novartis-life-handbook.pdf\n\nNota: i benefici e i risarcimenti possono variare per paese e sono soggetti a requisiti legali locali, comprese le disposizioni di contratti collettivi, ove applicabile. Una panoramica completa del pacchetto di compensazione, compresi i dettagli relativi del contratto collettivo applicabile al vostro ruolo sulla base della vostra posizione di lavoro e dell'entità del datore di lavoro Novartis, sarà comunicata separatamente all'utente durante il processo di applicazione.\n\nAccessibilità e alloggio: Novartis si impegna a lavorare con e fornire alloggio ragionevole a tutti gli individui. Se, a causa di una condizione medica o disabilità, avete bisogno di un alloggio ragionevole per qualsiasi parte del processo di reclutamento, o per ricevere informazioni più dettagliate sulle funzioni essenziali di una posizione, si prega di inviare una e-mail a Diversi.inclusion ch@novartis.com e fateci conoscere la natura della vostra richiesta e le vostre informazioni di contatto. Si prega di includere il numero di richiesta di lavoro nel messaggio.\n\nImpegno alla diversità",
-        "en": "Salary Range:\nCHF74,200.00 - CHF137,800.00\n\nJob Description Summary\n#LiOnSite\nLocation: Stein\n\nThe Junior Process Expert supports the Production Unit (PU) in all process-related matters with the objective of continuously improving existing processes, both qualitatively and quantitatively, and introducing and establishing new processes.\nThese activities are carried out in compliance with cGMP requirements, as well as applicable SOPs and guidelines.\n\nJob Description\nMajor accountabilities:\n\n• Supports the handling of deviations, complaints, actions, and CAPAs.\n\n• Provides support in decision-making related to production issues.\n\n• Assists in the creation and maintenance of manufacturing instructions, including bills of materials, process sub-steps, and process steps.\n\n• Supports the processing of quality notifications, including external and internal complaints.\n\n• Assists in the development of specific SOPs.\n\n• Ensures GMP-compliant documentation.\n\n• Consistently adheres to GSU guidelines.\n\n• Ensures cleanliness, hygiene, and order within the work environment.\n\n• Assists in implementing corrective measures for deviations.\n\n• Supports process and cleaning validations and assists with qualification activities (e.g., thermal requalification).\n\nEssential requirements:\n\n• Degree in Scientific disciplines.\n\n• Ability to work independently.\n\n• Proficiency in Microsoft Office applications.\n\n• Fluent in English and German.\n\nDesirable requirements:\n\n• Master's Degree.\n\n• Initial experience in a GMP manufacturing environment.\n\nWe offer a temporary contract of 12 months.\n\nRewards\n\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\n\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and a minimum of 14 weeks paid parental leave.\n\nExpected Annual Base Salary Range for role: CHF 74.200 - 137.800\n\nThe salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters. Further details will be provided during the application process.\n\nPay equity is a fundamental principle of our employment policy and reflects our commitment to create a diverse, equitable and inclusive environment that treats all employees with dignity and respect, as outlined in our Code of Ethics.\n\nRead our brochure to learn more about our global total rewards offering: https://www.novartis.com/sites/novartis_com/files/novartis-life-handbook.pdf\n\nNote: Benefits and compensation may vary by country and are subject to local legal requirements, including provisions of collective bargaining agreements where applicable. A full overview of your compensation package, including any relevant collective bargaining agreement details applicable to your role based on your employment location and Novartis employer entity, will be communicated separately to you during the application process.\n\nAccessibility and accommodation: Novartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to diversity.inclusion_ch@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nCommitment to Diversity and Inclusion / EEO paragraph:\nNovartis is committed to building an outstanding, inclusive work environment and diverse teams’ representative of the patients and communities we serve.\n\nSkills Desired\nData Analytics",
-        "de": "Gehaltsbereich:\nCHF74.200.00 - CHF137.800.00\n\nStellenbeschreibung Zusammenfassung\n#LiOnSite\nStandort: Stein\n\nDer Junior Process Expert unterstützt die Production Unit (PU) in allen prozessrelevanten Fragen mit dem Ziel, bestehende Prozesse qualitativ und quantitativ kontinuierlich zu verbessern sowie neue Prozesse einzuführen und zu etablieren.\nDiese Aktivitäten werden in Übereinstimmung mit den cGMP-Anforderungen sowie den geltenden SOPs und Richtlinien durchgeführt.\n\nStellenbeschreibung\nHauptrechenschaftspflichten:\n\n• Unterstützt den Umgang mit Abweichungen, Beschwerden, Aktionen und CAPAs.\n\n• Bietet Unterstützung bei der Entscheidungsfindung in Bezug auf Produktionsfragen.\n\n• Hilft bei der Erstellung und Wartung von Fertigungsanweisungen, einschließlich Stücklisten, Prozessunterschritten und Prozessschritten.\n\n• Unterstützt die Verarbeitung von Qualitätsbenachrichtigungen, einschließlich externer und interner Beschwerden.\n\n• Hilft bei der Entwicklung spezifischer SOPs.\n\n• Sicherstellt eine GMP-konforme Dokumentation.\n\n• Befolgt konsequent die GSU-Richtlinien.\n\n• Gewährleistet Sauberkeit, Hygiene und Ordnung im Arbeitsumfeld.\n\n• Hilft bei der Umsetzung von Korrekturmaßnahmen für Abweichungen.\n\n• Unterstützt Prozess- und Reinigungsvalidierungen und unterstützt Qualifizierungsaktivitäten (z. B. thermische Requalifikation).\n\nGrundlegende Anforderungen:\n\n• Abschluss in wissenschaftlichen Disziplinen.\n\n• Fähigkeit, unabhängig zu arbeiten.\n\n• Kenntnisse in Microsoft Office-Anwendungen.\n\n• Fließend in Englisch und Deutsch.\n\nErwünschte Anforderungen:\n\n• Master-Abschluss.\n\n• Erste Erfahrungen in einer GMP-Produktionsumgebung.\n\nWir bieten einen befristeten Vertrag von 12 Monaten an.\n\nPrämien\n\nBei Novartis setzen wir uns dafür ein, die Medizin gemeinsam neu zu gestalten - und die Menschen zu belohnen, die sie ermöglichen.\n\nDie Belohnungen, Teil unseres Teams zu sein, gehen weit über Grundlohn und Anreize hinaus. Wir bieten auch eine Vielzahl von Wettbewerbsvorteilen an, die Ihnen helfen, persönlich und professionell zu gedeihen, wie Versicherungspläne, Altersvorsorgepläne, Wohlbefindensressourcen und globale Anerkennungsprogramme. Darüber hinaus bieten wir flexible und hybride Arbeitsmöglichkeiten, wo möglich, und mindestens 14 Wochen bezahlten Elternurlaub.\n\nErwartete Jahresgrundgehaltsspanne für Rollen: CHF 74.200 - 137.800\n\nDas angebotene Gehalt wird auf der Grundlage von geschlechtsneutralen Zielen wie relevanten Fähigkeiten, Kompetenzen und Erfahrungen gemäß der Lohnpolitik von Novartis festgelegt und wird nach dem Beitritt von Novartis regelmäßig überprüft.\n\nZusätzlich zu Ihrem Grundgehalt haben Sie möglicherweise Anspruch auf einen leistungsbezogenen Bonus, der von bestimmten Leistungsparametern abhängt. Weitere Details werden während des Bewerbungsprozesses angegeben.\n\nLohngerechtigkeit ist ein Grundprinzip unserer Beschäftigungspolitik und spiegelt unsere Verpflichtung wider, ein vielfältiges, gerechtes und integratives Umfeld zu schaffen, das alle Mitarbeiter mit Würde und Respekt behandelt, wie in unserem Ethikkodex dargelegt.\n\nLesen Sie unsere Broschüre, um mehr über unser globales Gesamtprämienangebot zu erfahren: https://www.novartis.com/sites/novartis com/files/novartis-life-handbook.pdf\n\nHinweis: Leistungen und Entschädigungen können von Land zu Land variieren und unterliegen lokalen gesetzlichen Anforderungen, einschließlich der Bestimmungen von Tarifverträgen, sofern anwendbar. Eine vollständige Übersicht über Ihr Vergütungspaket, einschließlich aller relevanten Tarifvertragsdetails, die für Ihre Rolle auf der Grundlage Ihres Beschäftigungsorts und Ihrer Arbeitgebereinheit von Novartis gelten, wird Ihnen während des Bewerbungsprozesses separat mitgeteilt.\n\nZugänglichkeit und Unterkunft: Novartis verpflichtet sich, mit allen Personen zusammenzuarbeiten und ihnen eine angemessene Unterkunft zu bieten. Wenn Sie aufgrund einer Erkrankung oder Behinderung eine angemessene Unterkunft für einen Teil des Rekrutierungsprozesses benötigen oder um detailliertere Informationen über die wesentlichen Funktionen einer Position zu erhalten, senden Sie bitte eine E-Mail an diversity.inclusion ch@novartis.com und teilen Sie uns die Art Ihrer Anfrage und Ihre Kontaktinformationen mit. Bitte geben Sie die Stellenanforderungsnummer in Ihrer Nachricht an.\n\nEngagement für Vielfalt",
-        "fr": "Échelle salariale :\n74 200,00 CHF - 137 800,00 CHF\n\nSommaire de la description d'emploi\n#LiOnSite\nLieu: Stein\n\nL'expert en processus junior appuie le Groupe de la production (PU) dans toutes les questions liées aux processus afin d'améliorer continuellement les processus existants, tant sur le plan qualitatif que quantitatif, et d'introduire et d'établir de nouveaux processus.\nCes activités sont menées conformément aux exigences du PSGc, ainsi qu'aux PON et aux lignes directrices applicables.\n\nDescription de l'emploi\nPrincipales responsabilités :\n\n• Soutient le traitement des écarts, des plaintes, des actions et des APC.\n\n• Fournit un soutien dans la prise de décisions relatives aux questions de production.\n\n• Aide à la création et à l'entretien des instructions de fabrication, y compris les factures de matériaux, les sous-étapes du processus et les étapes du processus.\n\n• Appuie le traitement des notifications de qualité, y compris les plaintes externes et internes.\n\n• Aide à l'élaboration de SOP spécifiques.\n\n• S'assure que la documentation est conforme aux BPF.\n\n• Respecte les lignes directrices du GSU de façon cohérente.\n\n• Assurer la propreté, l'hygiène et l'ordre dans l'environnement de travail.\n\n• Aide à la mise en oeuvre de mesures correctives pour les écarts.\n\n• Soutient les validations de processus et de nettoyage et aide aux activités de qualification (p. ex., requalification thermique).\n\nExigences essentielles:\n\n• Diplôme en sciences.\n\n• Capacité de travailler indépendamment.\n\n• Compétence dans les applications Microsoft Office.\n\n• En anglais et en allemand.\n\nExigences souhaitables:\n\n• Maîtrise.\n\n• Expérience initiale dans un environnement de fabrication de BPF.\n\nNous offrons un contrat temporaire de 12 mois.\n\nPrimes\n\nÀ Novartis, nous nous engageons à réinventer la médecine ensemble - et à récompenser les gens qui y arrivent.\n\nLes récompenses de faire partie de notre équipe vont bien au-delà du salaire de base et des incitatifs. Nous offrons également une variété d'avantages concurrentiels en nature pour vous aider à prospérer personnellement et professionnellement, tels que les régimes d'assurance, les régimes de retraite, les ressources de bien-être et les programmes de reconnaissance mondiale. De plus, nous offrons des options de travail flexibles et hybrides, si possible, et un minimum de 14 semaines de congé parental payé.\n\nBarème des traitements de base annuels prévus pour le rôle : CHF 74.200 - 137.800\n\nLe salaire offert est déterminé en fonction d'objectifs non sexistes, tels que les compétences, les compétences et l'expérience pertinentes conformément à la politique d'établissement de la rémunération de Novartis et lors de l'adhésion de Novartis sera examiné périodiquement.\n\nEn plus de votre salaire de base, vous pourriez être admissible à une prime basée sur le rendement selon certains paramètres de rendement. Des détails supplémentaires seront fournis pendant le processus de demande.\n\nL'équité salariale est un principe fondamental de notre politique de l'emploi et reflète notre engagement à créer un environnement diversifié, équitable et inclusif qui traite tous les employés avec dignité et respect, comme l'indique notre Code d'éthique.\n\nLisez notre brochure pour en savoir plus sur notre offre globale de récompenses : https://www.novartis.com/sites/novartis com/files/novartis-life-handbook.pdf\n\nNote : Les avantages sociaux et l'indemnisation peuvent varier selon les pays et sont assujettis aux exigences juridiques locales, y compris les dispositions des conventions collectives, le cas échéant. Un aperçu complet de votre trousse de rémunération, y compris tous les détails pertinents de la convention collective applicable à votre rôle en fonction de votre lieu d'emploi et de l'entité employeur de Novartis, vous sera communiqué séparément au cours du processus de demande.\n\nAccessibilité et hébergement : Novartis s'engage à travailler avec toutes les personnes et à leur fournir des aménagements raisonnables. Si, en raison d'une maladie ou d'un handicap, vous avez besoin d'un aménagement raisonnable pour toute partie du processus de recrutement, ou afin de recevoir des informations plus détaillées sur les fonctions essentielles d'un poste, veuillez envoyer un e-mail à diversity.inclusion ch@novartis.com et nous faire savoir la nature de votre demande et vos coordonnées. Veuillez inclure le numéro de demande d'emploi dans votre message.\n\nEngagement en faveur de la diversité"
-      },
-      "location": "Stein Aargau",
-      "canton": "AG",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Stein-Aargau/Junior-Process-Expert_REQ-10086086-1",
-      "source": "Novartis Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:18.683Z",
-      "addressLocality": "Stein Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-26",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Stein-Aargau/Junior-Process-Expert_REQ-10086086-1",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "junior-process-expert-novartis-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "junior-process-expert-novartis-ch"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-26T14:02:15.120Z",
-      "salaryMin": 52000,
-      "salaryMax": 78500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 52000,
-          "maxValue": 78500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "AG",
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "novartis-c98a8b587ee6",
-      "slug": "senior-manager-pianificazione-fiscale-novartis-basel-city",
-      "slugByLocale": {
-        "it": "senior-manager-pianificazione-fiscale-novartis-basel-city",
-        "en": "senior-manager-tax-planning-novartis-ch",
-        "de": "senior-manager-steuerplanung-novartis-basel-city",
-        "fr": "gestionnaire-principal-planification-fiscale-novartis-basel-city"
-      },
-      "company": "Novartis",
-      "companyKey": "novartis",
-      "companyDomain": "novartis.com",
-      "title": "Senior Manager, Tax Planning",
-      "titleByLocale": {
-        "it": "Senior Manager, pianificazione fiscale",
-        "en": "Senior Manager, Tax Planning",
-        "de": "Senior Manager, Steuerplanung",
-        "fr": "Gestionnaire principal, Planification fiscale"
-      },
-      "description": "Salary Range:\nCHF115,500.00 - CHF214,500.00\n\nJob Description Summary\n#LI-Hybrid\nLocation: Basel, Switzerland\nRelocation Support: This role is based in Basel, Switzerland. Novartis is unable to offer relocation support: please only apply if accessible.\n\nAre you passionate about shaping complex tax strategies that drive business growth and innovation? As Senior Manager Tax Planning, you will play a pivotal role in supporting Novartis' Swiss Tax Planning agenda, acting as a trusted advisor on tax planning, financing, structuring, transactions, and mergers and acquisitions. Working closely with Finance, Treasury, Corporate Legal, Global Tax, and business leaders, you will help influence high-impact strategic decisions while ensuring a sustainable and efficient tax position. This is an exciting opportunity to apply your expertise to complex Swiss and cross-border initiatives, collaborate with senior stakeholders, and contribute to the continued success of a global healthcare leader.\n\nJob Description\nKey Responsibilities\n\n• Support Swiss tax planning, structuring and reorganization initiatives to support business growth and transformation.\n\n• Advise on cross-border transactions, intellectual property structures and value chain developments.\n\n• Partner with Treasury and Legal on financing structures, bond issuances and funding arrangements.\n\n• Support tax due diligence, risk assessments and structuring activities for mergers and acquisitions.\n\n• Prepare, negotiate and manage tax rulings with Swiss Tax Authorities.\n\n• Monitor tax risks, support audits and ensure compliance with Swiss tax legislation and policies.\n\n• Build trusted relationships across Finance, Treasury, Legal, Global Tax and external advisors.\n\nEssential Requirements\n\n• Degree in Tax, Accounting, Finance, Law or a related discipline.\n\n• Significant experience in Swiss corporate tax planning, structuring and financing matters.\n\n• Strong knowledge of Swiss tax legislation and international tax principles.\n\n• Experience supporting mergers and acquisitions, due diligence and business restructuring projects.\n\n• Proven ability to influence and collaborate with senior stakeholders across multiple functions.\n\n• Excellent analytical, communication and problem-solving skills with a pragmatic business-focused approach.\n\nDesirable Requirements\n\n• Professional Swiss tax qualification or equivalent advanced tax certification.\n\n• Experience within a multinational organization supporting complex cross-border transactions and financing structures.\n\nBenefits & Rewards\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\nExpected Annual Base Salary Range for role: 115,500 – 214,500 CHF Annual\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters.\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and minimum 14 weeks paid parental leave.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters. Long-term equity awards granted at group level may also be part of your package. Further details will be provided during the application process.\nPay equity is a fundamental principle of our employment policy and reflects our commitment to create a diverse, equitable and inclusive environment that treats all employees with dignity and respect, as outlined in our Code of Ethics.\nRead our brochure to learn more about our global total rewards offering:\nhttps://www.novartis.com/sites/novartis_com/files/novartis-life-handbook.pdf\n\nNote: Benefits and compensation may vary by country and are subject to local legal requirements, including provisions of collective bargaining agreements where applicable. A full overview of your compensation package, including any relevant collective bargaining agreement details applicable to your role based on your employment location and Novartis employer entity, will be communicated separately to you during the application process.\n\nCommitment to Diversity and Inclusion / EEO paragraph\nNovartis is committed to building an outstanding, inclusive work environment and diverse teams’ representative of the patients and communities we serve.\n\nAccessibility and Accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCritical Thinking, Financial Accounting, Mergers and Acquisitions (M&A)",
-      "descriptionByLocale": {
-        "it": "Gamma di insalata:\nCHF115,500.00 - CHF214,500.00\n\nDescrizione del lavoro\n#LI-Hybrid #\nUbicazione: Basilea, Svizzera\nSupporto di trasferimento: Questo ruolo è basato a Basilea, Svizzera. Novartis non è in grado di offrire il supporto di trasferimento: si prega di applicare solo se accessibile.\n\nSei appassionato di modellare strategie fiscali complesse che spingono la crescita aziendale e l'innovazione? In qualità di Senior Manager Tax Planning, si svolgerà un ruolo fondamentale nel sostenere l'agenda di pianificazione fiscale svizzera di Novartis, che funge da consulente affidabile per la pianificazione fiscale, il finanziamento, la strutturazione, le transazioni e le fusioni e le acquisizioni. Lavorando a stretto contatto con Finanza, Tesoro, Corporate Legal, Global Tax e business leader, aiuterà a influenzare le decisioni strategiche ad alto impatto, garantendo una posizione fiscale sostenibile ed efficiente. Questa è un'opportunità entusiasmante per applicare le tue competenze a complesse iniziative svizzere e transfrontaliere, collaborare con gli stakeholder senior e contribuire al continuo successo di un leader sanitario globale.\n\nDescrizione del lavoro\nPrincipali responsabilità\n\n• Sostenere le iniziative di pianificazione, strutturazione e riorganizzazione fiscale svizzere per sostenere la crescita e la trasformazione delle imprese.\n\n• Consigliare le transazioni transfrontaliere, le strutture di proprietà intellettuale e gli sviluppi della catena del valore.\n\n• Partner del Tesoro e del Legale su strutture di finanziamento, emissione di obbligazioni e accordi di finanziamento.\n\n• Tassa di sostegno dovuta diligenza, valutazione dei rischi e attività di strutturazione per fusioni e acquisizioni.\n\n• Preparare, negoziare e gestire le decisioni fiscali con le autorità fiscali svizzere.\n\n• Monitorare i rischi fiscali, sostenere gli audit e garantire il rispetto della legislazione fiscale e delle politiche svizzere.\n\n• Costruire relazioni di fiducia tra Finanza, Tesoro, Legale, Global Tax e consulenti esterni.\n\nRequisiti essenziali\n\n• Laurea in Fiscalità, Contabilità, Finanza, Diritto o disciplina relativa.\n\n• Esperienza significativa in materia di pianificazione fiscale, strutturazione e finanziamento delle imprese svizzere.\n\n• Forte conoscenza della legislazione fiscale svizzera e dei principi fiscali internazionali.\n\n• Esperienza a sostegno di fusioni e acquisizioni, due diligence e progetti di ristrutturazione aziendale.\n\n• Prove capacità di influenzare e collaborare con gli stakeholder senior attraverso molteplici funzioni.\n\n• Eccellente analitica, comunicazione e problem solving competenze con un approccio pragmatico focalizzato sul business.\n\nRequisiti desiderabili\n\n• Qualifica fiscale svizzera professionale o certificazione fiscale avanzata equivalente.\n\n• Esperienza all'interno di un'organizzazione multinazionale che supporta complesse operazioni transfrontaliere e strutture di finanziamento.\n\nVantaggi e premi\nA Novartis, ci impegniamo a riimmaginare insieme la medicina e a premiare le persone che lo fanno accadere.\nCampo d'insalatura annuale previsto per il ruolo: 115.500 – 214,500 CHF\nLo stipendio base offerto è determinato sulla base di obiettivi di genere-neutral, come competenze rilevanti, competenze ed esperienza in conformità con la politica di impostazione della retribuzione Novartis e dopo l'adesione Novartis saranno esaminati periodicamente.\n\nOltre al tuo stipendio base, potresti essere idoneo per un bonus basato sulle prestazioni a seconda di determinati parametri di prestazione.\nLe ricompense di far parte del nostro team vanno ben oltre la retribuzione base e gli incentivi. Offriamo anche una varietà di vantaggi competitivi in genere per aiutare a prosperare personalmente e professionalmente, come piani di assicurazione, piani di pensionamento, risorse di benessere e programmi di riconoscimento globale. Inoltre, forniamo opzioni di lavoro flessibili e ibride, dove possibile, e minimo 14 settimane congedo parentale pagato.\n\nOltre al tuo stipendio base, potresti essere idoneo per un bonus basato sulle prestazioni a seconda di determinati parametri di prestazione. I premi azionari a lungo termine concessi a livello di gruppo possono anche essere parte del pacchetto. Ulteriori dettagli saranno forniti durante il processo di applicazione.\nPay equity è un principio fondamentale della nostra politica di occupazione e riflette il nostro impegno a creare un ambiente diverso, equo e inclusivo che tratta tutti i dipendenti con dignità e rispetto, come descritto nel nostro Codice di",
-        "en": "Salary Range:\nCHF115,500.00 - CHF214,500.00\n\nJob Description Summary\n#LI-Hybrid\nLocation: Basel, Switzerland\nRelocation Support: This role is based in Basel, Switzerland. Novartis is unable to offer relocation support: please only apply if accessible.\n\nAre you passionate about shaping complex tax strategies that drive business growth and innovation? As Senior Manager Tax Planning, you will play a pivotal role in supporting Novartis' Swiss Tax Planning agenda, acting as a trusted advisor on tax planning, financing, structuring, transactions, and mergers and acquisitions. Working closely with Finance, Treasury, Corporate Legal, Global Tax, and business leaders, you will help influence high-impact strategic decisions while ensuring a sustainable and efficient tax position. This is an exciting opportunity to apply your expertise to complex Swiss and cross-border initiatives, collaborate with senior stakeholders, and contribute to the continued success of a global healthcare leader.\n\nJob Description\nKey Responsibilities\n\n• Support Swiss tax planning, structuring and reorganization initiatives to support business growth and transformation.\n\n• Advise on cross-border transactions, intellectual property structures and value chain developments.\n\n• Partner with Treasury and Legal on financing structures, bond issuances and funding arrangements.\n\n• Support tax due diligence, risk assessments and structuring activities for mergers and acquisitions.\n\n• Prepare, negotiate and manage tax rulings with Swiss Tax Authorities.\n\n• Monitor tax risks, support audits and ensure compliance with Swiss tax legislation and policies.\n\n• Build trusted relationships across Finance, Treasury, Legal, Global Tax and external advisors.\n\nEssential Requirements\n\n• Degree in Tax, Accounting, Finance, Law or a related discipline.\n\n• Significant experience in Swiss corporate tax planning, structuring and financing matters.\n\n• Strong knowledge of Swiss tax legislation and international tax principles.\n\n• Experience supporting mergers and acquisitions, due diligence and business restructuring projects.\n\n• Proven ability to influence and collaborate with senior stakeholders across multiple functions.\n\n• Excellent analytical, communication and problem-solving skills with a pragmatic business-focused approach.\n\nDesirable Requirements\n\n• Professional Swiss tax qualification or equivalent advanced tax certification.\n\n• Experience within a multinational organization supporting complex cross-border transactions and financing structures.\n\nBenefits & Rewards\nAt Novartis, we’re committed to reimagining medicine together - and rewarding the people who make it happen.\nExpected Annual Base Salary Range for role: 115,500 – 214,500 CHF Annual\nThe base salary offered is determined based on gender-neutral objectives, such as relevant skills, competencies and experience in accordance with the Novartis pay setting policy and upon joining Novartis will be reviewed periodically.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters.\nThe rewards of being part of our team go far beyond base pay and incentives. We also offer a variety of competitive benefits in kind to help you thrive personally and professionally, such as insurance plans, retirement plans, wellbeing resources and global recognition programs. In addition, we provide flexible and hybrid working options, where possible, and minimum 14 weeks paid parental leave.\n\nIn addition to your base salary, you may be eligible for a performance-based bonus depending on certain performance parameters. Long-term equity awards granted at group level may also be part of your package. Further details will be provided during the application process.\nPay equity is a fundamental principle of our employment policy and reflects our commitment to create a diverse, equitable and inclusive environment that treats all employees with dignity and respect, as outlined in our Code of Ethics.\nRead our brochure to learn more about our global total rewards offering:\nhttps://www.novartis.com/sites/novartis_com/files/novartis-life-handbook.pdf\n\nNote: Benefits and compensation may vary by country and are subject to local legal requirements, including provisions of collective bargaining agreements where applicable. A full overview of your compensation package, including any relevant collective bargaining agreement details applicable to your role based on your employment location and Novartis employer entity, will be communicated separately to you during the application process.\n\nCommitment to Diversity and Inclusion / EEO paragraph\nNovartis is committed to building an outstanding, inclusive work environment and diverse teams’ representative of the patients and communities we serve.\n\nAccessibility and Accommodation:\nNovartis is committed to working with and providing reasonable accommodation to all individuals. If, because of a medical condition or disability, you need a reasonable accommodation for any part of the recruitment process, or in order to receive more detailed information about the essential functions of a position, please send an e-mail to inclusion.switzerland@novartis.com and let us know the nature of your request and your contact information. Please include the job requisition number in your message.\n\nSkills Desired\nCritical Thinking, Financial Accounting, Mergers and Acquisitions (M&A)",
-        "de": "Gehaltsbereich:\nCHF115.500.00 - CHF214.500.00\n\nStellenbeschreibung Zusammenfassung\n#LI-Hybrid\nStandort: Basel, Schweiz\nRelocation Support: Diese Rolle hat ihren Sitz in Basel, Schweiz. Novartis kann keine Umzugsunterstützung anbieten: Bitte bewerben Sie sich nur, wenn Sie erreichbar sind.\n\nHaben Sie eine Leidenschaft für die Gestaltung komplexer Steuerstrategien, die das Unternehmenswachstum und die Innovation vorantreiben? Als Senior Manager Tax Planning spielen Sie eine zentrale Rolle bei der Unterstützung der Schweizer Steuerplanungsagenda von Novartis und fungieren als vertrauenswürdiger Berater für Steuerplanung, Finanzierung, Strukturierung, Transaktionen sowie Fusionen und Übernahmen. In enger Zusammenarbeit mit Finanz-, Finanz-, Corporate Legal-, Global Tax- und Unternehmensführern helfen Sie, strategische Entscheidungen mit hoher Wirkung zu beeinflussen und gleichzeitig eine nachhaltige und effiziente Steuerposition zu gewährleisten. Dies ist eine aufregende Gelegenheit, Ihre Expertise in komplexen Schweizer und grenzüberschreitenden Initiativen einzusetzen, mit hochrangigen Stakeholdern zusammenzuarbeiten und zum anhaltenden Erfolg eines globalen Gesundheitsführers beizutragen.\n\nStellenbeschreibung\nWichtigste Zuständigkeiten\n\n• Unterstützung der Schweizer Steuerplanung, -strukturierung und -reorganisationsinitiativen zur Unterstützung von Unternehmenswachstum und -transformation.\n\n• Beratung bei grenzüberschreitenden Transaktionen, Strukturen des geistigen Eigentums und Entwicklungen der Wertschöpfungskette.\n\n• Partnerschaft mit Treasury and Legal bei Finanzierungsstrukturen, Anleiheemissionen und Finanzierungsvereinbarungen.\n\n• Unterstützung von Tax Due Diligence, Risikobewertungen und Strukturierungsaktivitäten für Fusionen und Übernahmen.\n\n• Bereiten, verhandeln und verwalten Sie Steuervorbescheide mit Schweizer Steuerbehörden.\n\n• Steuerrisiken überwachen, Audits unterstützen und die Einhaltung der Schweizer Steuergesetze und -richtlinien sicherstellen.\n\n• Aufbau vertrauenswürdiger Beziehungen zwischen Finanz-, Finanz-, Rechts-, Global Tax- und externen Beratern.\n\nGrundlegende Anforderungen\n\n• Abschluss in Steuern, Rechnungswesen, Finanzen, Recht oder einer verwandten Disziplin.\n\n• Bedeutende Erfahrung in der Schweizer Unternehmenssteuerplanung, -strukturierung und -finanzierung.\n\n• Starke Kenntnisse der Schweizer Steuergesetzgebung und der internationalen Steuergrundsätze.\n\n• Erfahrung in der Unterstützung von Fusionen und Übernahmen, Due Diligence und Restrukturierungsprojekten.\n\n• Bewährte Fähigkeit, leitende Stakeholder über mehrere Funktionen hinweg zu beeinflussen und mit ihnen zusammenzuarbeiten.\n\n• Ausgezeichnete Analyse-, Kommunikations- und Problemlösungsfähigkeiten mit einem pragmatischen, geschäftsorientierten Ansatz.\n\nErwünschte Anforderungen\n\n• Professionelle Schweizer Steuerqualifikation oder gleichwertige fortgeschrittene Steuerbescheinigung.\n\n• Erfahrung in einer multinationalen Organisation, die komplexe grenzüberschreitende Transaktionen und Finanzierungsstrukturen unterstützt.\n\nVorteile & Belohnungen\nBei Novartis setzen wir uns dafür ein, die Medizin gemeinsam neu zu gestalten - und die Menschen zu belohnen, die sie ermöglichen.\nErwartete Jahresgrundgehaltsspanne für Rollen: 115.500 – 214.500 CHF Jährlich\nDas angebotene Grundgehalt wird auf der Grundlage von geschlechtsneutralen Zielen wie relevanten Fähigkeiten, Kompetenzen und Erfahrungen gemäß der Lohnpolitik von Novartis festgelegt und wird nach dem Beitritt von Novartis regelmäßig überprüft.\n\nZusätzlich zu Ihrem Grundgehalt haben Sie möglicherweise Anspruch auf einen leistungsbasierten Bonus, abhängig von bestimmten Leistungsparametern.\nDie Belohnungen, Teil unseres Teams zu sein, gehen weit über Grundlohn und Anreize hinaus. Wir bieten auch eine Vielzahl von Wettbewerbsvorteilen an, die Ihnen helfen, persönlich und professionell zu gedeihen, wie Versicherungspläne, Altersvorsorgepläne, Wohlbefindensressourcen und globale Anerkennungsprogramme. Darüber hinaus bieten wir flexible und hybride Arbeitsmöglichkeiten, wo möglich, und mindestens 14 Wochen bezahlten Elternurlaub.\n\nZusätzlich zu Ihrem Grundgehalt haben Sie möglicherweise Anspruch auf einen leistungsbasierten Bonus, abhängig von bestimmten Leistungsparametern. Langfristige Aktienprämien, die auf Gruppenebene gewährt werden, können ebenfalls Teil Ihres Pakets sein. Weitere Details werden während des Bewerbungsprozesses bereitgestellt.\nLohngerechtigkeit ist ein grundlegendes Prinzip unserer Beschäftigungspolitik und spiegelt unsere Verpflichtung wider, ein vielfältiges, gerechtes und integratives Umfeld zu schaffen, das alle Mitarbeiter mit Würde und Respekt behandelt, wie in unserem Kodex für Beschäftigung und Beschäftigung beschrieben.",
-        "fr": "Échelle salariale :\nCHF 115.500.00 - CHF 214.500.00\n\nRésumé de la description d'emploi\n#LI-Hybrid\nLieu: Bâle, Suisse\nSoutien à la réinstallation: Ce rôle est basé à Bâle, en Suisse. Novartis n'est pas en mesure d'offrir une aide à la réinstallation : veuillez soumettre une demande seulement si elle est accessible.\n\nÊtes-vous passionné par l'élaboration de stratégies fiscales complexes qui stimulent la croissance et l'innovation des entreprises? En tant que directeur principal de la planification fiscale, vous jouerez un rôle central en soutenant le programme de planification fiscale suisse de Novartis, en tant que conseiller de confiance en matière de planification fiscale, de financement, de structuration, de transactions et de fusions et acquisitions. En travaillant en étroite collaboration avec les dirigeants des finances, du Trésor, des sociétés juridiques, de la fiscalité mondiale et des entreprises, vous contribuerez à influencer les décisions stratégiques à impact élevé tout en assurant une position fiscale durable et efficace. C'est une occasion passionnante d'appliquer votre expertise à des initiatives suisses et transfrontalières complexes, de collaborer avec des acteurs seniors et de contribuer au succès continu d'un leader mondial des soins de santé.\n\nDescription de l'emploi\nPrincipales responsabilités\n\n• Soutenir les initiatives suisses de planification fiscale, de structuration et de réorganisation pour soutenir la croissance et la transformation des entreprises.\n\n• Conseiller sur les transactions transfrontalières, les structures de propriété intellectuelle et l'évolution de la chaîne de valeur.\n\n• Partenaire avec Trésorerie et juridique sur les structures de financement, les émissions d'obligations et les ententes de financement.\n\n• Soutenir la diligence fiscale, l'évaluation des risques et la structuration des activités de fusion et d'acquisition.\n\n• Préparer, négocier et gérer les décisions fiscales avec les autorités fiscales suisses.\n\n• Surveiller les risques fiscaux, soutenir les audits et assurer le respect de la législation et des politiques fiscales suisses.\n\n• Établir des relations de confiance entre les ministères des Finances, du Trésor, des Services juridiques, des Services fiscaux mondiaux et des conseillers externes.\n\nExigences essentielles\n\n• Diplôme en fiscalité, comptabilité, finances, droit ou une discipline connexe.\n\n• Expérience importante en matière de planification, de structuration et de financement de l'impôt des sociétés suisse.\n\n• Forte connaissance de la législation fiscale suisse et des principes fiscaux internationaux.\n\n• Expérience à l'appui des fusions et acquisitions, de la diligence raisonnable et des projets de restructuration des entreprises.\n\n• Capacité éprouvée d'influencer et de collaborer avec les principaux intervenants dans le cadre de fonctions multiples.\n\n• Excellente capacité d'analyse, de communication et de résolution de problèmes avec une approche pragmatique axée sur les entreprises.\n\nExigences souhaitables\n\n• Qualification fiscale suisse professionnelle ou certification fiscale supérieure équivalente.\n\n• Expérience au sein d'une organisation multinationale soutenant des opérations et des structures de financement transfrontalières complexes.\n\nAvantages et récompenses\nÀ Novartis, nous sommes déterminés à réinventer la médecine ensemble - et à récompenser les gens qui la rendent possible.\nSalaire annuel de base prévu : 115 500 – 214 500 CHF\nLe salaire de base offert est déterminé en fonction d'objectifs non sexistes, tels que les compétences, les compétences et l'expérience pertinentes conformément à la politique d'établissement de la rémunération de Novartis et lors de l'adhésion à Novartis sera examiné périodiquement.\n\nEn plus de votre salaire de base, vous pouvez être admissible à une prime basée sur le rendement selon certains paramètres de rendement.\nLes récompenses de faire partie de notre équipe vont bien au-delà de la rémunération de base et des incitatifs. Nous offrons également une variété d'avantages concurrentiels en nature pour vous aider à prospérer personnellement et professionnellement, tels que les régimes d'assurance, les régimes de retraite, les ressources de bien-être et les programmes de reconnaissance mondiale. En outre, nous offrons des options de travail flexibles et hybrides, dans la mesure du possible, et un congé parental payé d'au moins 14 semaines.\n\nEn plus de votre salaire de base, vous pouvez être admissible à une prime basée sur le rendement selon certains paramètres de rendement. Les bourses à long terme accordées au niveau du groupe peuvent également faire partie de votre forfait. Des détails supplémentaires seront fournis pendant le processus de demande.\nL'équité salariale est un principe fondamental de notre politique de l'emploi et reflète notre engagement à créer un environnement diversifié, équitable et inclusif qui traite tous les employés avec dignité et respect, comme l'indique notre Code de l'équité salariale."
-      },
-      "location": "Basel (City)",
-      "canton": "BS",
-      "url": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Manager--Tax-Planning_REQ-10086800-2",
-      "source": "Novartis Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:23:10.467Z",
-      "addressLocality": "Basel (City)",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Farmaceutica / Biotecnologia",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-24",
-      "applyUrl": "https://novartis.wd3.myworkdayjobs.com/en/Novartis_Careers/job/Basel-City/Senior-Manager--Tax-Planning_REQ-10086800-2",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-manager-tax-planning-novartis-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-manager-tax-planning-novartis-ch"
-        ],
-        "de": [
-          "senior-manager-tax-planning-novartis-ch"
-        ],
-        "fr": [
-          "senior-manager-tax-planning-novartis-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-24T14:26:43.918Z",
-      "salaryMin": 85500,
-      "salaryMax": 129500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 85500,
-          "maxValue": 129500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BS",
       "crawlerMissStreak": 2
     }
   ]

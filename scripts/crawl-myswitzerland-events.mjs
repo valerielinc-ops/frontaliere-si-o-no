@@ -53,6 +53,7 @@
  * Usage:
  *   node scripts/crawl-myswitzerland-events.mjs                # one time-budgeted, checkpointed slice of the catalog
  *   node scripts/crawl-myswitzerland-events.mjs --limit=5      # fast local test (bypasses the checkpoint)
+ *   node scripts/crawl-myswitzerland-events.mjs --ids=<id,id> # revisit selected catalog records with a separate checkpoint
  *   node scripts/crawl-myswitzerland-events.mjs --dry-run      # parse + report, no write
  *
  * Exit code is always 0 unless an unexpected crash occurs, EXCEPT when Algolia
@@ -63,6 +64,7 @@
 
 import path from 'node:path';
 import { existsSync, readFileSync } from 'node:fs';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import {
   EVENT_SOURCES,
@@ -80,7 +82,8 @@ import {
   enrichEventsWithGeoComune,
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
-import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
@@ -424,6 +427,25 @@ export function recoverExistingIndexedPrices(existingEvents, records) {
   });
 }
 
+/** Recover missing prices from retained source booking links, independently of the detail cursor. */
+export async function recoverExistingBookingPrices(existingEvents, records, { deadline = Infinity, fetchFn = fetchEventBookingPrice } = {}) {
+  const datesById = new Map(records.map(({ objectID, perLocaleHits }) => {
+    const primary = LOCALES.map(locale => perLocaleHits[locale]).find(Boolean);
+    return [eventStableId(SOURCE.key, objectID), extractDateInfo(primary)?.startDate];
+  }));
+  const updates = [];
+  for (const event of existingEvents) {
+    if (hasConfidentPrice(event.price) || datesById.get(event.id) !== event.startDate
+      || !event.startDate || !supportedEventBookingUrl(event.price?.url)) continue;
+    if (Date.now() >= deadline) break;
+    try {
+      const price = await fetchFn(event, event.price.url);
+      if (hasConfidentPrice(price)) updates.push({ ...event, price: { ...event.price, ...price } });
+    } catch { /* Optional enrichment must not abort the primary crawl. */ }
+  }
+  return updates;
+}
+
 /**
  * {street, postalCode, locality, region} from JSON-LD `location.address`
  * (PostalAddress), or undefined. `locality`/`region` (issue #3739) surface
@@ -762,7 +784,7 @@ export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeop
   return imageReady && organizerReady && performerReady && addressReady && priceReady;
 }
 
-function parseArgs(argv) {
+export function parseMySwitzerlandArgs(argv) {
   const dryRun = argv.includes('--dry-run');
   let limit;
   const eqArg = argv.find((a) => a.startsWith('--limit='));
@@ -773,11 +795,41 @@ function parseArgs(argv) {
     if (idx >= 0) limit = Number.parseInt(argv[idx + 1] || '', 10);
   }
   if (!Number.isFinite(limit) || limit <= 0) limit = undefined;
-  return { dryRun, limit };
+  const idsFlags = argv.filter(arg => arg === '--ids' || arg.startsWith('--ids='));
+  if (idsFlags.length > 1) throw new Error('Specify --ids only once');
+  let ids;
+  if (idsFlags.length) {
+    const flag = idsFlags[0];
+    const raw = flag === '--ids' ? argv[argv.indexOf(flag) + 1] : flag.slice('--ids='.length);
+    const tokens = typeof raw === 'string' ? raw.split(',').map(id => id.trim().replace(/^myswitzerland:/i, '').toLowerCase()) : [];
+    if (!tokens.length || tokens.some(id => !/^[a-f0-9]{32}$/.test(id))) {
+      throw new Error('--ids requires comma-separated MySwitzerland object IDs (32 hexadecimal characters)');
+    }
+    ids = [...new Set(tokens)].sort();
+  }
+  return { dryRun, limit, ids };
+}
+
+/** Keep catalog order for normal runs; targeted runs have stable ID order. */
+export function selectMySwitzerlandRecords(records, ids) {
+  if (!ids) return { records, selectionKey: null };
+  const requested = new Set(ids);
+  const selected = records.filter(record => requested.has(record.objectID.toLowerCase()))
+    .sort((left, right) => left.objectID.toLowerCase().localeCompare(right.objectID.toLowerCase()));
+  // Bind the cursor to both requested and currently available IDs. Catalog
+  // removals or reappearances must not shift a persisted position silently.
+  const selectionKey = createHash('sha256')
+    .update(JSON.stringify([ids, selected.map(record => record.objectID.toLowerCase())])).digest('hex');
+  return { records: selected, selectionKey };
+}
+
+export function targetedMySwitzerlandResumeIndex(checkpoint, selectionKey) {
+  return checkpoint?.selectionKey === selectionKey && Number.isInteger(checkpoint.nextIndex) && checkpoint.nextIndex >= 0
+    ? checkpoint.nextIndex : 0;
 }
 
 async function main() {
-  const { dryRun, limit } = parseArgs(process.argv.slice(2));
+  const { dryRun, limit, ids } = parseMySwitzerlandArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
   const deadline = Date.now() + RUN_BUDGET_MS;
   const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
@@ -789,18 +841,33 @@ async function main() {
   const localeMaps = {};
   for (const locale of LOCALES) {
     const index = LOCALE_INDEX[locale];
-    const map = limit ? await enumerateEventsForLocaleLimited(index, limit) : await enumerateEventsForLocale(index);
+    const map = limit && !ids ? await enumerateEventsForLocaleLimited(index, limit) : await enumerateEventsForLocale(index);
     localeMaps[locale] = map;
     console.log(`[myswitzerland] ${locale} (${index}): ${map.size} Event record(s)`);
   }
 
   let records = groupHitsByObjectId(localeMaps);
   console.log(`[myswitzerland] ${records.length} unique event(s) in catalog across ${LOCALES.length} locales`);
+  const selection = selectMySwitzerlandRecords(records, ids);
+  records = selection.records;
+  if (ids) {
+    console.log(`[myswitzerland] selected ${records.length}/${ids.length} requested event(s); other source records are retained`);
+    if (!records.length) throw new Error('None of the requested MySwitzerland IDs is available in the catalog');
+  }
   if (limit) records = records.slice(0, limit);
   const indexedPriceBackfills = recoverExistingIndexedPrices(existingSlice.events, records);
   console.log(`[myswitzerland] ${indexedPriceBackfills.length} existing unknown price(s) recovered from the public index`);
+  const indexedIds = new Set(indexedPriceBackfills.map(event => event.id));
+  const bookingPriceBackfills = await recoverExistingBookingPrices(
+    existingSlice.events.filter(event => !indexedIds.has(event.id)), records, { deadline },
+  );
+  console.log(`[myswitzerland] ${bookingPriceBackfills.length} existing unknown price(s) recovered from official booking pages`);
 
-  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(records.length, 1);
+  const targetedCheckpointPath = path.join(CHECKPOINT_DIR, 'myswitzerland-targeted.json');
+  const resumeIndex = ids
+    ? targetedMySwitzerlandResumeIndex(loadGenericCursor(targetedCheckpointPath, null), selection.selectionKey)
+    : loadCursor(SOURCE.key);
+  const startIndex = limit ? 0 : resumeIndex % Math.max(records.length, 1);
   if (!limit && startIndex > 0) {
     console.log(`[myswitzerland] resuming from checkpoint index ${startIndex}/${records.length}`);
   }
@@ -882,11 +949,14 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
     return;
   }
 
-  if (!limit && records.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+  if (!limit && records.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
@@ -912,18 +982,18 @@ async function main() {
       process.exitCode = 1;
       return;
     }
-    if (indexedPriceBackfills.length === 0) return;
+    if (indexedPriceBackfills.length === 0 && bookingPriceBackfills.length === 0) return;
   }
 
   const total = mergeEventsIntoSlice({
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: [...indexedPriceBackfills, ...translatedEvents],
+    freshEvents: [...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents],
     goneIds: [],
     crawledAt,
   });
-  console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
+  console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 
 // Only crawl when invoked directly (`node scripts/crawl-myswitzerland-events.mjs`),

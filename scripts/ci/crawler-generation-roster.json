@@ -280,6 +280,7 @@
     "19": [
       "alpiq",
       "bucher-suter",
+      "convit-holding",
       "cseb",
       "csl-behring",
       "forel-klinik",
@@ -403,6 +404,7 @@
       "brefispersonal",
       "capri-holdings",
       "christinavassalli",
+      "confederazione-ticino",
       "csd-engineers",
       "ecam",
       "fachkraft",
@@ -421,9 +423,6 @@
       "tsmg"
     ],
     "24": [
-      "confederazione-ticino",
-      "convit-holding",
-      "lwphr",
       "protectas"
     ],
     "01": [
@@ -664,6 +663,7 @@
       "hirslanden",
       "klinik-barmelweid",
       "localsearch",
+      "lwphr",
       "oetiker",
       "paraplegie",
       "solina",
@@ -1302,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:9b6aafbbe0496fc515ddb6308cb0e940ebe315841496708d82f560cbc9a3de0a"
+  "digest": "sha256:2dbb0cd78f2ac8487e04b89f96218c108b2871420ed3c3547001e33d806169ad"
 }

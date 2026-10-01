@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-10-01T09:11:26.954Z",
+  "assembledAt": "2026-10-01T21:13:31.063Z",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=67c1fc6e-8449-4514-bbc8-0a3f2ab28bda",
@@ -92,9 +92,9 @@
       "slug": "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-mendrisio",
       "slugByLocale": {
         "it": "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-mendrisio",
-        "en": "two-invaluable-food-aid-to-40-previous-two-internal-appointments-citta-di-mendrisio-mendrisio",
+        "en": "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-citta-di-mendrisio",
         "de": "zwei-unschatzbare-nahrungsmittelhilfe-zu-40-vorherige-zwei-interne-termine-citta-di-mendrisio-mendrisio",
-        "fr": "deux-aides-alimentaires-inestimables-a-40-deux-nominations-internes-anterieures-citta-di-mendrisio-mendrisio"
+        "fr": "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-citta-di-mendrisio"
       },
       "sourceLang": "it",
       "category": "general",
@@ -136,9 +136,11 @@
           "two-invaluable-food-aid-to-40-previous-two-internal-appointments-citta-di-mendrisio-mendrisio"
         ],
         "en": [
+          "two-invaluable-food-aid-to-40-previous-two-internal-appointments-citta-di-mendrisio-mendrisio",
           "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-citta-di-mendrisio"
         ],
         "fr": [
+          "deux-aides-alimentaires-inestimables-a-40-deux-nominations-internes-anterieures-citta-di-mendrisio-mendrisio",
           "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-citta-di-mendrisio"
         ]
       },
@@ -149,8 +151,7 @@
         "due-inservienti-aiuto-cucina-al-40-previste-due-nomine-interne-citta-di-mendrisio"
       ],
       "sourceIdentity": "url:https://mendrisio.ch/downloadconcorsipdf?uuid=decd3ad3-5164-460d-8815-1babeacdf2da",
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      "needsRetranslation": true
     },
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=01f9e1bd-f874-494b-a49e-1716eefab0ba",
