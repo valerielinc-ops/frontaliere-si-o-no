@@ -372,6 +372,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'i nomi dei dataset sono i valori ATTESI del rilevatore che il test verifica (`expect(read).toContain(...)`); le uniche letture da disco sono i .yml di .github/workflows',
   },
   {
+    file: 'tests/data-refresh-pr-wiring.test.ts',
+    roots: ['packages/articles/content/'],
+    reason: 'il test legge solo i workflow sotto .github/workflows/; packages/articles/content/** è il pattern YAML verificato e l’unico subprocess usa fixture sotto tests/__fixtures__/, non il corpus del checkout',
+  },
+  {
     file: 'tests/check-border-data-health.test.ts',
     roots: ['data/border-wait-averages.json'],
     reason: 'le medie vive entrano da data/borderCrossings.ts e sovrascrivono solo avgWaitMorning/avgWaitEvening, che nessun test asserisce: i casi guardano webcam e minBytes, campi curati a mano',
