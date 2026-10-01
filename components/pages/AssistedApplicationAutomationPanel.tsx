@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
-import { AlertTriangle, Bot, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+import { AlertTriangle, Bot, CheckCircle2, FileText, Loader2, Pause, Play, RefreshCw, Save, Send, UploadCloud, UserCheck, Wand2 } from 'lucide-react';
 import {
   runAutomationAdminAction,
   uploadAssistedApplicationCv,
@@ -136,6 +136,54 @@ export default function AssistedApplicationAutomationPanel({
       setBusy(null);
     }
   };
+
+  // The fill extension (scripts/assisted-application/extension): its bridge
+  // marks the page when installed. When the robot stopped on a portal,
+  // Valerie sends the application from her browser; the extension fills it
+  // and reports the portal's confirmation, which marks the order as sent.
+  const [extensionVersion, setExtensionVersion] = useState('');
+  useEffect(() => {
+    const read = () => setExtensionVersion(document.documentElement.dataset.compilaCandidatura || '');
+    read();
+    const timer = window.setTimeout(read, 800);
+    return () => window.clearTimeout(timer);
+  }, []);
+  const markedByExtension = useRef(false);
+  useEffect(() => {
+    const onMessage = (event: MessageEvent) => {
+      if (event.source !== window || event.origin !== window.location.origin) return;
+      const data = event.data as { source?: string; type?: string; orderId?: string; status?: string; detail?: string; ok?: boolean; error?: string } | null;
+      if (data?.source !== 'compila-candidatura' || data.orderId !== order.orderId) return;
+      if (data.type === 'fill-opened' && !data.ok) {
+        void onChanged({ ok: false, text: `L’estensione non ha aperto il portale: ${data.error || 'errore'}.` });
+      } else if (data.type === 'fill-status' && data.status === 'submitted' && !markedByExtension.current) {
+        markedByExtension.current = true;
+        void act('automationMarkSubmitted', { via: 'extension' }, 'Il portale ha confermato l’invio: candidatura segnata come inviata, il cliente riceve la conferma.');
+      } else if (data.type === 'fill-status' && data.status === 'ready') {
+        void onChanged({ ok: true, text: 'Tutto compilato: sul portale premi il pulsante d’invio evidenziato.' });
+      } else if (data.type === 'fill-status' && ['needs', 'stuck', 'refused'].includes(data.status || '')) {
+        const why = data.status === 'refused' ? 'il portale dice che non ha inviato la candidatura' : data.status === 'stuck' ? 'troppi passaggi, continua tu' : `manca: ${data.detail || 'una risposta'}`;
+        void onChanged({ ok: false, text: `Estensione ferma: ${why}.` });
+      }
+    };
+    window.addEventListener('message', onMessage);
+    return () => window.removeEventListener('message', onMessage);
+  });
+  const fillWithExtension = async () => {
+    if (busy) return;
+    setBusy('automationFillKit');
+    try {
+      const result = await runAutomationAdminAction(user, order.orderId, 'automationFillKit');
+      markedByExtension.current = false;
+      window.postMessage({ source: 'frontaliere-queue', type: 'fill-order', kit: result.kit }, window.location.origin);
+      await onChanged({ ok: true, text: 'Portale aperto in una nuova scheda: l’estensione compila e si ferma sul pulsante d’invio, che premi tu.' });
+    } catch (error) {
+      await onChanged({ ok: false, text: error instanceof Error ? error.message : 'Kit di compilazione non disponibile.' });
+    } finally {
+      setBusy(null);
+    }
+  };
+  const portalUrl = draft?.channel?.type !== 'email' ? (draft?.channel?.applyUrl || draft?.job?.applyUrl || '') : '';
 
   // Kept in memory only for this view: the password never goes to the order list.
   const [revealed, setRevealed] = useState<Record<string, string>>({});
@@ -420,6 +468,18 @@ export default function AssistedApplicationAutomationPanel({
           {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && draft?.round === flow.round && (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationRetrySubmit', {}, 'Invio automatico rilanciato: parte entro pochi minuti.'); }}>
               {spinner('automationRetrySubmit') || <Send size={14} aria-hidden="true" />} Riprova l’invio automatico
+            </button>
+          )}
+          {flow.state === 'owner_takeover' && draft?.round === flow.round && portalUrl && (extensionVersion ? (
+            <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void fillWithExtension(); }}>
+              {spinner('automationFillKit') || <Wand2 size={14} aria-hidden="true" />} Compila con l’estensione
+            </button>
+          ) : (
+            <p className="w-full text-xs text-subtle">Per compilare il portale con un clic installa l’estensione «Compila candidatura» (cartella <code>scripts/assisted-application/extension</code>, istruzioni nel README).</p>
+          ))}
+          {flow.state === 'owner_takeover' && draft?.round === flow.round && (
+            <button type="button" className={secondary} disabled={Boolean(busy)} onClick={() => { if (window.confirm('Confermi che la candidatura è stata inviata sul portale? Il cliente riceverà l’email di conferma.')) void act('automationMarkSubmitted', {}, 'Candidatura segnata come inviata: il cliente riceve la conferma.'); }}>
+              {spinner('automationMarkSubmitted') || <CheckCircle2 size={14} aria-hidden="true" />} Segna come inviata
             </button>
           )}
           {flow.state === 'owner_takeover' && draft?.round === flow.round && (

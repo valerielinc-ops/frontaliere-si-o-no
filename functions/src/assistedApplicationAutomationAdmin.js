@@ -30,6 +30,8 @@ import {
   orderRefFor,
   startAutomation,
 } from './assistedApplicationAutomation.js';
+import { buildFillKit } from './assistedApplicationFillKit.js';
+import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 
@@ -44,6 +46,8 @@ export const AUTOMATION_ADMIN_ACTIONS = new Set([
   'automationEditDraft',
   'automationSetAnswers',
   'automationRevealAccount',
+  'automationFillKit',
+  'automationMarkSubmitted',
 ]);
 
 const OWNER_FLAGS = new Set(['fact_check', 'knock_out', 'no_posting', 'channel_unknown', 'legitimacy']);
@@ -294,7 +298,70 @@ export async function handleAutomationAdminAction(db, raw, adminEmail, deps) {
       await ref.set({ [key]: { ...entry, revealedAt: nowMs, revealedBy: adminEmail } }, { merge: true });
       return { ok: true, host, email: entry.email || '', password };
     }
+    case 'automationFillKit':
+      return { ok: true, kit: await fillKitFor(db, orderId, deps) };
+    case 'automationMarkSubmitted': {
+      // The fill extension saw the portal's confirmation, or Valerie says so.
+      const via = raw.via === 'extension' ? 'owner_extension' : 'owner';
+      const result = await recordOwnerSubmission({ db, orderId, adminEmail, via, runEffect: deps.runEffect, nowMs });
+      if (!result.ok) throw new AutomationAdminError(result.ignored, 409);
+      return result;
+    }
     default:
       throw new AutomationAdminError('invalid_input');
   }
+}
+
+/**
+ * Valerie sent the application herself (the fill extension, or «Segna come
+ * inviata» in either part of the queue): the flow the robot left her closes
+ * (owner_submitted) and the round is on record as sent, so no later run or
+ * retry presses it again. A flow in any other state is left as it is.
+ * @returns {Promise<{ok:boolean, state?:string, ignored?:string}>}
+ */
+export async function recordOwnerSubmission({ db, orderId, adminEmail, via = 'owner', runEffect, nowMs = Date.now() }) {
+  const flow = (await flowRefFor(db, orderId).get()).data() || {};
+  const result = await applyAutomationEvent({
+    db, orderId, event: { type: 'owner_submitted' }, actor: `owner:${adminEmail}`, runEffect, nowMs, patchFlow: () => ({ submittedVia: via }),
+  });
+  if (!result.ok) return { ok: false, ignored: result.ignored || 'not_allowed' };
+  await submissionGuard(db, orderId, flow.round || 1).markSent({ channel: via, by: adminEmail }, nowMs);
+  return { ok: true, state: result.flow.state };
+}
+
+// The orders Valerie completes herself: the robot stopped (owner_takeover).
+const FILL_KIT_STATES = new Set(['owner_takeover']);
+
+/**
+ * The fill kit of one order (assistedApplicationFillKit.js), with signed
+ * links to the CV that leaves (submit.mjs chooseCv: the tailored one unless
+ * the candidate chose their original) and to the cover letter.
+ */
+async function fillKitFor(db, orderId, deps) {
+  const [orderSnapshot, draftSnapshot, flowSnapshot] = await Promise.all([
+    orderRefFor(db, orderId).get(),
+    draftRefFor(db, orderId).get(),
+    flowRefFor(db, orderId).get(),
+  ]);
+  const flow = flowSnapshot.data() || {};
+  const draft = draftSnapshot.data() || {};
+  const order = orderSnapshot.data() || {};
+  if (!flowSnapshot.exists || !draftSnapshot.exists) throw new AutomationAdminError('no_flow', 404);
+  if (!FILL_KIT_STATES.has(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  if ((await submissionGuard(db, orderId, flow.round || 1).read())?.state === 'sent') throw new AutomationAdminError('already_sent', 409);
+  const sign = (key) => (key && deps.signUrl && isAssistedApplicationCvKey(orderId, key) ? deps.signUrl(key).catch(() => null) : null);
+  const tailored = draft.tailoredCv?.status === 'ready' && draft.tailoredCv.pdfKey && flow.cvChoice !== 'original';
+  const originalKey = String(order.cvStorageKey || '');
+  const [cvUrl, letterUrl] = await Promise.all([
+    tailored ? sign(draft.tailoredCv.pdfKey) : deps.originalCvUrl ? deps.originalCvUrl(orderId, order) : null,
+    sign(draft.coverLetterPdfKey),
+  ]);
+  const extension = tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
+  return buildFillKit({
+    orderId,
+    order,
+    draft,
+    flow,
+    documents: { cv: cvUrl ? { url: cvUrl, extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null },
+  });
 }
