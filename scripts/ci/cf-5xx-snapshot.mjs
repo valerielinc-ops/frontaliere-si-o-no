@@ -285,8 +285,13 @@ export function checkUrlClean(history, url, {
   // Keep rejecting a key that has never matched a real 5xx URL: it may be a
   // typo or a sanitized issue title. Positive evidence can come from either
   // legacy top-50 records or the complete path lists added by this schema.
-  if (!all.some((s) =>
-    [...(s.errorPaths || []), ...(s.topPaths || [])].some((p) => historyUrlKey(p?.url) === target))) {
+  if (!all.some((s) => {
+    const paths = [
+      ...(Array.isArray(s.errorPaths) ? s.errorPaths : []),
+      ...(Number(s.topN) === TOP_PATHS && Array.isArray(s.topPaths) ? s.topPaths : []),
+    ];
+    return paths.some((p) => historyUrlKey(p?.url) === target);
+  })) {
     return {
       ok: false,
       reason: 'URL mai osservato fra i path 5xx: la chiave non fa match — non e\' una prova di guarigione',
