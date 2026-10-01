@@ -162,8 +162,8 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     expect(dedupe).toBeGreaterThan(-1);
     expect(graph).toBeGreaterThan(dedupe);
     expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title'");
-    expect(main).toContain("gh(['pr', 'close', String(dup.number), '--repo', REPO]");
-    expect(main).toContain("gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state']");
+    expect(source).toContain("gh(['pr', 'close', String(num), '--repo', REPO]");
+    expect(source).toContain("gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state']");
     expect(main).toContain('if (closeDuplicateAndConfirm(dup.number))');
     expect(main).not.toContain('--delete-branch');
   });
