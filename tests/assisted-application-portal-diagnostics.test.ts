@@ -9,7 +9,7 @@ function fixture() {
   });
   const context = Object.assign(new EventEmitter(), { pages: () => [page] });
   const request = { url: () => 'https://jobs.example/api/apply?email=private', method: () => 'POST', resourceType: () => 'fetch', failure: () => ({ errorText: 'net::ERR_FAILED' }) };
-  const response = (body: object, status = 200) => ({ request: () => request, url: request.url, status: () => status, headerValue: async (key: string) => key === 'content-type' ? 'application/json' : null, body: async () => Buffer.from(JSON.stringify(body)) });
+  const response = (body: object, status = 200) => ({ request: () => request, url: request.url, status: () => status, headerValue: async (key: string) => key === 'content-type' ? 'application/json' : String(Buffer.byteLength(JSON.stringify(body))), body: async () => Buffer.from(JSON.stringify(body)) });
   return { page, context, request, response };
 }
 
@@ -72,5 +72,17 @@ describe('encrypted portal diagnostics', () => {
     expect(diagnostics.data.pageErrors.at(-1).message).toBe('popup_error');
     await diagnostics.finish();
     expect(popup.listenerCount('pageerror')).toBe(0);
+  });
+
+  it.each([null, '', 'NaN', 'Infinity', '-1', '65537', '1.5'])('does not buffer a JSON response with unbounded size %s', async (size) => {
+    const { context, response } = fixture();
+    const diagnostics = startPortalDiagnostics(context);
+    const large = response({ error: 'x'.repeat(70_000) });
+    large.headerValue = async (key: string) => key === 'content-type' ? 'application/json' : size;
+    large.body = vi.fn(large.body);
+    context.emit('response', large);
+    await diagnostics.finish();
+    expect(large.body).not.toHaveBeenCalled();
+    expect(diagnostics.data.responses[0].bodySkipped).toBe('size_not_bounded');
   });
 });

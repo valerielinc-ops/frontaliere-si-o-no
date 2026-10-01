@@ -131,8 +131,9 @@ function fakePortal() {
       </script>`));
     }
     if (route === 'POST /diagnostic-error') {
-      res.writeHead(200, { 'content-type': 'application/json' });
-      return res.end(JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] }));
+      const body = JSON.stringify({ errors: [{ field: 'linkedin', code: 'INVALID_URL', message: 'Profile URL invalid' }] });
+      res.writeHead(200, { 'content-type': 'application/json', 'content-length': Buffer.byteLength(body) });
+      return res.end(body);
     }
     // The refusal shown on an error page the portal moves to (review of #10741).
     if (route === 'GET /refused-moved') {

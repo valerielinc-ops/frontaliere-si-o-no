@@ -128,8 +128,14 @@ export function startPortalDiagnostics(context, httpFailures = []) {
     const task = (async () => {
       const type = await response.headerValue('content-type');
       if (!/json/i.test(type || '')) return;
-      const size = Number(await response.headerValue('content-length'));
-      if (size > BODY_LIMIT) return;
+      const rawSize = await response.headerValue('content-length');
+      const size = Number(rawSize);
+      // Playwright exposes a buffered body, not a bounded stream. Unknown or
+      // chunked sizes stay metadata-only instead of buffering an arbitrary payload.
+      if (!/^[1-9]\d*$/.test(rawSize || '') || !Number.isSafeInteger(size) || size > BODY_LIMIT) {
+        if (!stopped) entry.bodySkipped = 'size_not_bounded';
+        return;
+      }
       const bytes = await response.body();
       if (stopped || bytes.length > BODY_LIMIT) return;
       const errors = responseErrors(JSON.parse(bytes.toString('utf8')), response.status() >= 400);
