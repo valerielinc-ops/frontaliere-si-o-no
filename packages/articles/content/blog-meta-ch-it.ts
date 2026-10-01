@@ -7391,6 +7391,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.pieno-cittadino-imposta-benzina.title': 'Il pieno lo paga sempre il cittadino',
     'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'Ad agosto 2026 l’inflazione mensile è +0,4% e quella annua +0,8%; l’imposta sulla benzina è 76,82 cent/litro, sul diesel 79,57 cent/litro; nel 2025 il gettito è stato 4,367 miliardi di franchi.',
     'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Nozzle di una pompa di benzina con una moneta franco svizzero e le Alpi sullo sfondo',
+    'blog.article.draghi-ue-riforme-crescita.title': 'Draghi all\'ETH: l\'UE segua l\'esempio svizzero per crescere',
+    'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi a Zurigo: debito/PIL al 130% nel 2040, servono 1,3 trilioni per l\'IA entro il 2030. L\'UE deve integrare come gli USA, citando la Confederazione come modello.',
+    'blog.article.draghi-ue-riforme-crescita.imageAlt': 'Politecnico federale di Zurigo dove ha parlato Mario Draghi',
 };
 
 export default blogMetaChIt;

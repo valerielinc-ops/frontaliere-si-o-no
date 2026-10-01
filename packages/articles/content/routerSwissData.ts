@@ -2486,6 +2486,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'occhiali-meta-sunrise': { it: 'occhiali-meta-sunrise', en: 'sunrise-meta-smart-glasses', de: 'sunrise-meta-smartbrillen', fr: 'lunettes-meta-sunrise' },
  'joya-rete-ricarica-svizzera': { it: 'joya-rete-ricarica-svizzera', en: 'joya-swiss-charging-network', de: 'joya-schweizer-ladenetz', fr: 'joya-reseau-recharge-suisse' },
  'pieno-cittadino-imposta-benzina': { it: 'pieno-cittadino-imposta-benzina', en: 'the-citizen-always-pays-for-the-full-tank', de: 'der-burger-zahlt-immer-fur-den-vollen-tank', fr: 'le-citoyen-paie-toujours-le-reservoir-plein' },
+ 'draghi-ue-riforme-crescita': { it: 'draghi-ue-riforme-crescita', en: 'draghi-eu-reforms-growth', de: 'draghi-eu-reformen-wachstum', fr: 'draghi-ue-reformes-croissance' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

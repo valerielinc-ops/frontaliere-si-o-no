@@ -7391,6 +7391,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pieno-cittadino-imposta-benzina.title': 'The citizen always pays for the full tank',
     'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'In August 2026, monthly inflation is +0.4% and annual inflation +0.8%; the tax on petrol is 76.82 cents/litre, on diesel 79.57 cents/litre; in 2025, the revenue was 4.367 billion francs.',
     'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Fuel pump nozzle with a Swiss franc coin and the Alps in the background',
+    'blog.article.draghi-ue-riforme-crescita.title': 'Draghi at ETH: EU should follow Swiss example to grow',
+    'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi in Zurich: debt/GDP at 130% in 2040, 1.3 trillion for AI by 2030. The EU must integrate like the US, citing the Confederation as a model.',
+    'blog.article.draghi-ue-riforme-crescita.imageAlt': 'ETH Zurich main building where Mario Draghi spoke',
 };
 
 export default blogMetaChEn;
