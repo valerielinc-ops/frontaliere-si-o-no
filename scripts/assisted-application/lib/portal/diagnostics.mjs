@@ -16,6 +16,18 @@ function fetchDiagnosticScript() {
 }
 const LIMIT = 40;
 
+/**
+ * A human challenge served to the browser: hCaptcha's `getcaptcha`, reCAPTCHA's
+ * image `payload`. Lever, TSMG 2026-10-01: SUBMIT APPLICATION opened an hCaptcha
+ * challenge that nobody passed and that was gone by the end of the wait.
+ */
+export function isChallengeRequest(url) {
+  const location = diagnosticLocation(url);
+  if (!location) return false;
+  return (/(^|\.)hcaptcha\.com$/.test(location.host) && /^\/getcaptcha(\/|$)/.test(location.path))
+    || (/(^|\.)(google\.com|recaptcha\.net)$/.test(location.host) && /^\/recaptcha\/(api2|enterprise)\/payload(\/|$)/.test(location.path));
+}
+
 /** Read validity without checkValidity/reportValidity, which would change the page. */
 export async function validationDiagnostics(page) {
   const frames = typeof page.frames === 'function' ? page.frames() : [page];
@@ -52,6 +64,10 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   const pending = new Set();
   let phase = 'navigation';
   let stopped = false;
+  // Outside the capped lists: a challenge's own image fetches can fill them.
+  // Armed by finalClick() at each attempt's own click, never earlier (review of #10810).
+  let clickArmed = false;
+  let challengeAfterClick = false;
   let bodyReads = 0;
   let fetchInstalled = false;
   const push = (list, entry) => { if (!stopped && list.length < LIMIT) list.push({ phase, ...entry }); };
@@ -74,7 +90,10 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   };
   listen(context, 'page', attach);
   for (const page of context.pages()) attach(page);
-  listen(context, 'request', (request) => { if (tracked(request)) push(data.requests, metadata(request)); });
+  listen(context, 'request', (request) => {
+    if (clickArmed && !stopped && isChallengeRequest(request.url())) challengeAfterClick = true;
+    if (tracked(request)) push(data.requests, metadata(request));
+  });
   listen(context, 'requestfailed', (request) => push(data.requestFailures, { ...metadata(request), error: diagnosticText(request.failure()?.errorText) }));
   listen(context, 'response', (response) => {
     const request = response.request();
@@ -106,6 +125,13 @@ export function startPortalDiagnostics(context, httpFailures = []) {
   });
   return {
     data,
+    /** Right before the final click of this attempt: only what follows it counts. */
+    finalClick() {
+      clickArmed = true;
+      challengeAfterClick = false;
+    },
+    /** The portal served a human challenge after this attempt's final click. */
+    challengeAfterClick: () => challengeAfterClick,
     async installFetchObserver() {
       await context.exposeBinding(FETCH_DIAGNOSTIC_BINDING, (_source, entry) => {
         if (stopped || !entry || !Array.isArray(entry.errors)) return;

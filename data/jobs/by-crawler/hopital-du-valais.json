@@ -4507,11 +4507,11 @@
     },
     {
       "id": "hopital-du-valais-146b0d2a7616",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice",
+      "slug": "assistente-per-la-salute-e-la-cura-della-comunita-chs-50-80-hopital-du-valais-st-maurice",
       "slugByLocale": {
         "fr": "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice",
-        "it": "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice",
-        "en": "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice",
+        "it": "assistente-per-la-salute-e-la-cura-della-comunita-chs-50-80-hopital-du-valais-st-maurice",
+        "en": "community-health-and-care-assistant-chs-50-80-hopital-du-valais-st-maurice",
         "de": "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice"
       },
       "company": "Hôpital du Valais",
@@ -4570,16 +4570,27 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-01T09:15:44.166Z"
+      "firstSeenAt": "2026-10-01T09:15:44.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice"
+        ],
+        "en": [
+          "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-assc-a-50-80-hopital-du-valais-st-maurice"
+      ]
     },
     {
       "id": "hopital-du-valais-4f9a2aa5a0a4",
-      "slug": "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st",
+      "slug": "infermieri-tra-80-e-100-per-il-polo-geriatrico-del-clinique-st-ame-a-st-maurice-hopital-du-valais-st-maurice",
       "slugByLocale": {
         "fr": "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st",
-        "it": "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st",
-        "en": "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st",
-        "de": "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st"
+        "it": "infermieri-tra-80-e-100-per-il-polo-geriatrico-del-clinique-st-ame-a-st-maurice-hopital-du-valais-st-maurice",
+        "en": "nurses-between-80-and-100-for-the-geriatric-pole-of-the-clinique-st-ame-in-st-maurice-hopital-du-valais-st-maurice",
+        "de": "krankenschwestern-zwischen-80-und-100-fur-den-geriatrischen-pol-der-clinique-st-ame-in-st-maurice-hopital-du-valais-st"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4637,16 +4648,30 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-01T09:15:43.831Z"
+      "firstSeenAt": "2026-10-01T09:15:43.831Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st"
+        ],
+        "en": [
+          "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st"
+        ],
+        "de": [
+          "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st"
+        ]
+      },
+      "previousSlugs": [
+        "infirmiers-eres-entre-80-et-100-pour-le-pole-de-geriatrie-de-la-clinique-st-ame-a-st"
+      ]
     },
     {
       "id": "hopital-du-valais-4105974dd579",
-      "slug": "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de",
+      "slug": "medico-ospedaliero-specializzato-in-malattie-cerebrovascolari-100-per-il-dipartimento-di-neurologia-hopital-du-valais",
       "slugByLocale": {
         "fr": "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de",
-        "it": "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de",
-        "en": "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de",
-        "de": "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de"
+        "it": "medico-ospedaliero-specializzato-in-malattie-cerebrovascolari-100-per-il-dipartimento-di-neurologia-hopital-du-valais",
+        "en": "hospital-doctor-specializing-in-cerebrovascular-diseases-100-for-the-neurology-department-hopital-du-valais-sion",
+        "de": "krankenhausarzt-spezialisiert-auf-zerebrovaskulare-erkrankungen-100-fur-die-abteilung-neurologie-hopital-du-valais-sion"
       },
       "company": "Hôpital du Valais",
       "companyKey": "hopital-du-valais",
@@ -4704,7 +4729,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-10-01T09:15:43.500Z"
+      "firstSeenAt": "2026-10-01T09:15:43.500Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de"
+        ],
+        "en": [
+          "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de"
+        ],
+        "de": [
+          "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de"
+        ]
+      },
+      "previousSlugs": [
+        "medecin-hospitalier-specialiste-en-maladies-cerebrovasculaires-a-100-pour-le-service-de"
+      ]
     },
     {
       "id": "hopital-du-valais-598720b7d8ca",

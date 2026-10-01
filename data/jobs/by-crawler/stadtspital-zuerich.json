@@ -582,12 +582,14 @@
       "unit": "Stadtspital Zürich",
       "referenceNumber": "51306",
       "previousSlugs": [
+        "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84",
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
         "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
         "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-um0f84",
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-51306",
           "dipl-pflegefachperson-herzchirurgie-e-traumatologie-triemli-stadtspital-zurich-dwaowz",
           "dipl-pflegefachperson-herzchirurgie-und-traumatologie-triemli-stadtspital-zuerich-50310"
@@ -7670,12 +7672,12 @@
     },
     {
       "id": "stadtspital-zuerich-eb1495e75643",
-      "slug": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842",
+      "slug": "specialista-di-chirurgia-sanitaria-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842",
-        "it": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842",
-        "en": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842",
-        "fr": "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842"
+        "it": "specialista-di-chirurgia-sanitaria-stadtspital-zurich-zurich",
+        "en": "health-surgery-specialist-stadtspital-zurich-zurich",
+        "fr": "specialiste-de-la-chirurgie-de-la-sante-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -7735,7 +7737,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:30:22.700Z"
+      "firstSeenAt": "2026-10-01T09:30:22.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842"
+        ],
+        "en": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842"
+        ],
+        "fr": [
+          "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-chirurgie-stadtspital-zuerich-51842"
+      ]
     },
     {
       "id": "stadtspital-zuerich-33a70716007d",

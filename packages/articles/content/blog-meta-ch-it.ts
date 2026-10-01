@@ -7388,6 +7388,21 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifica la mobilità elettrica in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Dal primo ottobre Joya riunisce quattro attività: oltre 25’000 punti di ricarica, più di 150’000 utenti attivi e un piano da circa 150 milioni entro il 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Stazione pubblica di ricarica per auto elettriche in una città svizzera',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'Il pieno lo paga sempre il cittadino',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'Ad agosto 2026 l’inflazione mensile è +0,4% e quella annua +0,8%; l’imposta sulla benzina è 76,82 cent/litro, sul diesel 79,57 cent/litro; nel 2025 il gettito è stato 4,367 miliardi di franchi.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Nozzle di una pompa di benzina con una moneta franco svizzero e le Alpi sullo sfondo',
+    'blog.article.draghi-ue-riforme-crescita.title': 'Draghi all\'ETH: l\'UE segua l\'esempio svizzero per crescere',
+    'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi a Zurigo: debito/PIL al 130% nel 2040, servono 1,3 trilioni per l\'IA entro il 2030. L\'UE deve integrare come gli USA, citando la Confederazione come modello.',
+    'blog.article.draghi-ue-riforme-crescita.imageAlt': 'Politecnico federale di Zurigo dove ha parlato Mario Draghi',
+    'blog.article.utile-bns-distribuzione-2030.title': 'BNS: fino a sei miliardi annui a Confederazione e Cantoni',
+    'blog.article.utile-bns-distribuzione-2030.excerpt': 'La nuova convenzione DFF-BNS per il 2026-2030 prevede fino a sei miliardi annui, se l\'utile e la situazione finanziaria lo consentono.',
+    'blog.article.utile-bns-distribuzione-2030.imageAlt': 'BNS e Confederazione: distribuzione dell\'utile 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO: dazi degli Stati Uniti, voto e dimissioni',
+    'blog.article.dazi-svizzera-voto.excerpt': 'Il 24 luglio 2026 gli Stati Uniti hanno adottato dazi aggiuntivi sulla Svizzera fino al 12,5%; il 29 novembre 2026 si vota sul materiale bellico.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Documenti su dazi e voto federale in un ufficio dell\'amministrazione svizzera',
+    'blog.article.agenda-federale-autunno-2026.title': 'Consiglio federale: affitti, integrazione e cibersicurezza',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 milioni per l\'integrazione nel 2028-2032, controprogetto sulle pigioni e proposta sulla cibersicurezza entro giugno 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Edificio istituzionale svizzero sullo sfondo delle decisioni federali',
 };
 
 export default blogMetaChIt;

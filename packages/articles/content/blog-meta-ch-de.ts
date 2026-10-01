@@ -7388,6 +7388,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 vereint die elektrische Mobilität in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Seit dem ersten Oktober bündelt Joya vier Geschäftsbereiche: über 25’000 Ladepunkte, mehr als 150’000 aktive Nutzer und einen Plan von rund 150 Millionen bis 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Öffentliche Ladestation für Elektroautos in einer Schweizer Stadt',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'Der Bürger zahlt immer für den vollen Tank',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'Im August 2026 beträgt die monatliche Inflation +0,4 % und die Jahresinflation +0,8 %; die Benzinsteuer beträgt 76,82 Cent pro Liter, auf Diesel 79,57 Cent pro Liter; im Jahr 2025 betrug der Umsatz 4,367 Milliarden Francs.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Kraftstoffpumpendüse mit einem Schweizer Franken Münze und den Alpen im Hintergrund',
+    'blog.article.draghi-ue-riforme-crescita.title': 'Draghi bei der ETH: Die EU sollte dem Schweizer Beispiel folgen, um zu wachsen',
+    'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi in Zürich: Schulden/BIP bei 130 % im Jahr 2040, 1,3 Billionen für KI bis 2030. Die EU muss sich wie die USA integrieren, wobei wir die Konföderation als Modell anführen.',
+    'blog.article.draghi-ue-riforme-crescita.imageAlt': 'ETH Zürich Hauptgebäude wo Mario Draghi sprach',
+    'blog.article.utile-bns-distribuzione-2030.title': 'SNB: Bis zu sechs Milliarden pro Jahr für den Bund und die Kantone',
+    'blog.article.utile-bns-distribuzione-2030.excerpt': 'Das neue FDF-SNB-Abkommen für 2026–2030 sieht bis zu sechs Milliarden pro Jahr vor, sofern Gewinn und finanzielle Lage es zulassen.',
+    'blog.article.utile-bns-distribuzione-2030.imageAlt': 'Schweizerische Nationalbank und Bund: Gewinnausschüttung 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO: Zölle der Vereinigten Staaten, Abstimmung und Rücktritt',
+    'blog.article.dazi-svizzera-voto.excerpt': 'Am 24. Juli 2026 verhängten die Vereinigten Staaten zusätzliche Zölle auf die Schweiz von bis zu 12,5 %; am 29. November 2026 findet die Abstimmung über Kriegsmaterial statt.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Unterlagen zu Zöllen und einer eidgenössischen Abstimmung in einem Schweizer Verwaltungsbüro',
+    'blog.article.agenda-federale-autunno-2026.title': 'Bundesrat: Mieten, Integration und Cybersicherheit',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 Millionen für die Integration im Zeitraum 2028-2032, Gegenvorschlag zu den Mieten und Vorschlag zur Cybersicherheit bis Juni 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Schweizerisches Regierungsgebäude zu aktuellen Bundesentscheiden',
 };
 
 export default blogMetaChDe;

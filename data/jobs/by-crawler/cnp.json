@@ -2113,11 +2113,11 @@
     },
     {
       "id": "cnp-2f6fc844aacd",
-      "slug": "createur-rice-de-contenu-cnp-marin-epagnier",
+      "slug": "creatore-di-contenuti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
       "slugByLocale": {
         "fr": "createur-rice-de-contenu-cnp-marin-epagnier",
-        "it": "createur-rice-de-contenu-cnp-marin-epagnier",
-        "en": "createur-rice-de-contenu-cnp-marin-epagnier",
+        "it": "creatore-di-contenuti-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
+        "en": "content-creator-centre-neuchatelois-de-psychiatrie-cnp-marin-epagnier",
         "de": "createur-rice-de-contenu-cnp-marin-epagnier"
       },
       "company": "Centre Neuchâtelois de Psychiatrie (CNP)",
@@ -2174,7 +2174,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T09:20:50.580Z"
+      "firstSeenAt": "2026-10-01T09:20:50.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "createur-rice-de-contenu-cnp-marin-epagnier"
+        ],
+        "en": [
+          "createur-rice-de-contenu-cnp-marin-epagnier"
+        ]
+      },
+      "previousSlugs": [
+        "createur-rice-de-contenu-cnp-marin-epagnier"
+      ]
     }
   ]
 }

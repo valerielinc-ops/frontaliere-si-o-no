@@ -7388,6 +7388,21 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.joya-rete-ricarica-svizzera.title': 'Energie 360 unifies electric mobility in Joya',
     'blog.article.joya-rete-ricarica-svizzera.excerpt': 'Since October 1, Joya has brought together four activities: over 25,000 charging points, more than 150,000 active users and a plan of around 150 million by 2030.',
     'blog.article.joya-rete-ricarica-svizzera.imageAlt': 'Public electric-car charging station in a Swiss city',
+    'blog.article.pieno-cittadino-imposta-benzina.title': 'The citizen always pays for the full tank',
+    'blog.article.pieno-cittadino-imposta-benzina.excerpt': 'In August 2026, monthly inflation is +0.4% and annual inflation +0.8%; the tax on petrol is 76.82 cents/litre, on diesel 79.57 cents/litre; in 2025, the revenue was 4.367 billion francs.',
+    'blog.article.pieno-cittadino-imposta-benzina.imageAlt': 'Fuel pump nozzle with a Swiss franc coin and the Alps in the background',
+    'blog.article.draghi-ue-riforme-crescita.title': 'Draghi at ETH: EU should follow Swiss example to grow',
+    'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi in Zurich: debt/GDP at 130% in 2040, 1.3 trillion for AI by 2030. The EU must integrate like the US, citing the Confederation as a model.',
+    'blog.article.draghi-ue-riforme-crescita.imageAlt': 'ETH Zurich main building where Mario Draghi spoke',
+    'blog.article.utile-bns-distribuzione-2030.title': 'SNB: Up to six billion per year to the Confederation and cantons',
+    'blog.article.utile-bns-distribuzione-2030.excerpt': 'The new FDF-SNB agreement for 2026-2030 provides for up to six billion per year, if profit and financial situation allow.',
+    'blog.article.utile-bns-distribuzione-2030.imageAlt': 'Swiss National Bank and Confederation: profit distribution for 2026-2030',
+    'blog.article.dazi-svizzera-voto.title': 'SECO: US tariffs, vote and resignation',
+    'blog.article.dazi-svizzera-voto.excerpt': 'On 24 July 2026, the United States adopted additional tariffs on Switzerland of up to 12.5%; on 29 November 2026, the vote will be held on war material.',
+    'blog.article.dazi-svizzera-voto.imageAlt': 'Documents on tariffs and a federal vote in a Swiss public administration office',
+    'blog.article.agenda-federale-autunno-2026.title': 'Federal Council: rents, integration and cybersecurity',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '€334.5 million for integration in 2028-2032, counter-proposal on rents and proposal on cybersecurity by June 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Swiss institutional building illustrating federal decisions',
 };
 
 export default blogMetaChEn;
