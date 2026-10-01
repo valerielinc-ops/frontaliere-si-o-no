@@ -251,6 +251,16 @@ describe('getActiveJobCountsByLocale', () => {
       fs.rmSync(tmp, { recursive: true, force: true })
     }
   })
+
+  it('keeps static Ticino landing metadata canton-scoped', () => {
+    const source = fs.readFileSync(
+      path.resolve(__dirname, '../build-plugins/staticPagesPlugin.ts'),
+      'utf8',
+    )
+    expect(source.match(/const jobBoardCounts = getActiveJobCountsByLocale\([^\n]+\)/g)).toEqual([
+      "const jobBoardCounts = getActiveJobCountsByLocale(rootDir, 'TI')",
+    ])
+  })
 })
 
 describe('JOB_BOARD_LANDING_PATHS', () => {
