@@ -68,13 +68,17 @@ vi.mock('../scripts/lib/expired-jobs-archive.mjs', () => ({
   archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
 }));
 
-vi.mock('../scripts/lib/transient-fetch.mjs', () => ({
-  RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
-  WAF_IP_BLOCK_STATUS: new Set([403]),
-  isTransientFetchError: vi.fn(() => false),
-  isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
-  fetchWithRetry: vi.fn(),
-}));
+vi.mock('../scripts/lib/transient-fetch.mjs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../scripts/lib/transient-fetch.mjs')>();
+  return {
+    RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
+    WAF_IP_BLOCK_STATUS: new Set([403]),
+    isTransientFetchError: vi.fn(() => false),
+    isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
+    fetchWithRetry: vi.fn(),
+    isRetryBudgetExhausted: actual.isRetryBudgetExhausted,
+  };
+});
 
 vi.mock('../scripts/lib/jina-proxy.mjs', () => ({
   fetchHtmlViaJinaWithRetry: vi.fn(),
