@@ -38,6 +38,7 @@ const read = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf-8
 
 const INDEX_HTML = read('index.html');
 const SEO_PAGES = read('services/seo/seo-pages.ts');
+const STATIC_PAGES_PLUGIN = read('build-plugins/staticPagesPlugin.ts');
 const STATIC_BLOG_SEO_FILES = [
   'packages/articles/content/seo/seo-blog-2.ts',
   'packages/articles/content/seo/seo-blog-3.ts',
@@ -151,6 +152,15 @@ describe('the canonical #organization entity', () => {
         '"creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization"',
       );
     }
+  });
+
+  it('gives every static editorial byline the canonical microdata itemid', () => {
+    const bylines = [
+      ...STATIC_PAGES_PLUGIN.matchAll(
+        /itemprop="author"[^>]*itemid="https:\/\/frontaliereticino\.ch\/#organization"/g,
+      ),
+    ];
+    expect(bylines).toHaveLength(4);
   });
 });
 
