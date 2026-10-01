@@ -1,7 +1,7 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-10-01T09:22:35.549Z",
+  "generatedAt": "2026-10-01T21:19:22.967Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5069,
-  "avgDurationMs": 5069,
+  "durationMs": 5434,
+  "avgDurationMs": 5434,
   "durationHistory": [
-    5069
+    5434
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:27.594Z",
+      "crawledAt": "2026-10-01T21:19:17.535Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -48,7 +48,6 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-29T21:25:52.569Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -70,7 +69,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:28.116Z",
+      "crawledAt": "2026-10-01T21:19:18.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -85,7 +84,7 @@
       "featured": false,
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:23:28.802Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
