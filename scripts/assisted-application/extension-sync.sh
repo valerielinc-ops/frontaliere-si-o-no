@@ -5,9 +5,11 @@
 # (extension/background.js), so nobody presses «Ricarica» after a merge.
 #
 #   scripts/assisted-application/extension-sync.sh install [folder]
-#       copy the extension to the folder (default: the one Chrome loads,
-#       ~/Documents/Frontaliere/compila-candidatura) and keep it updated
-#       every 15 minutes with a launch agent;
+#       copy the extension to the folder Chrome loads (default:
+#       ~/Library/Application Support/Frontaliere/compila-candidatura) and keep
+#       it updated every 15 minutes with a launch agent. Not in Documents,
+#       Desktop or Downloads: macOS does not let a launch agent write there
+#       (2026-10-01 on the owner's Mac: «rsync: open: Operation not permitted»);
 #   scripts/assisted-application/extension-sync.sh run
 #       one sync (what the launch agent runs);
 #   scripts/assisted-application/extension-sync.sh uninstall
@@ -60,7 +62,12 @@ sync_once() {
 xml_escape() { printf '%s' "$1" | sed -e 's/&/\&amp;/g' -e 's/</\&lt;/g' -e 's/>/\&gt;/g'; }
 
 install() {
-  local dest="${1:-$HOME/Documents/Frontaliere/compila-candidatura}"
+  local dest="${1:-$HOME/Library/Application Support/Frontaliere/compila-candidatura}"
+  case "$dest" in
+    "$HOME/Documents"|"$HOME/Documents/"*|"$HOME/Desktop"|"$HOME/Desktop/"*|"$HOME/Downloads"|"$HOME/Downloads/"*)
+      echo "$dest is in a folder macOS protects from launch agents (Documents, Desktop, Downloads): choose another one." >&2
+      exit 2 ;;
+  esac
   local git_dir
   git_dir="$(cd "$(git rev-parse --git-common-dir)" && pwd)"
   mkdir -p "$STATE_DIR" "$LOG_DIR" "$(dirname "$PLIST")"

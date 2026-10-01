@@ -13,13 +13,16 @@ inviato nella coda e il cliente riceve l'email di conferma.
 ## Installazione (una volta)
 
 1. Dal checkout del sito, sul Mac: `scripts/assisted-application/extension-sync.sh install`.
-   Copia l'estensione in `~/Documents/Frontaliere/compila-candidatura` (un'altra
-   cartella come argomento, se la preferisci) e la tiene allineata a `main` ogni
-   15 minuti con un launch agent (`ch.frontaliere.compila-candidatura-sync`, log in
-   `~/Library/Logs/frontaliere/compila-candidatura-sync.log`).
+   Copia l'estensione in `~/Library/Application Support/Frontaliere/compila-candidatura`
+   (un'altra cartella come argomento, se la preferisci) e la tiene allineata a
+   `main` ogni 15 minuti con un launch agent (`ch.frontaliere.compila-candidatura-sync`,
+   log in `~/Library/Logs/frontaliere/compila-candidatura-sync.log`). Non in
+   Documenti, Scrivania o Download: macOS non lascia scrivere lì un launch agent.
 2. Apri `chrome://extensions` e accendi **Modalità sviluppatore** (in alto a
    destra). Deve restare accesa: senza, Chrome spegne l'estensione quando si aggiorna.
-3. Premi **Carica estensione non pacchettizzata** e scegli quella cartella.
+3. Premi **Carica estensione non pacchettizzata**; nella finestra premi
+   ⇧⌘G, incolla `~/Library/Application Support/Frontaliere/compila-candidatura`
+   e scegli quella cartella.
 4. Ricarica la coda delle candidature: il pulsante **Compila con l'estensione**
    compare sugli ordini che il robot ti ha passato.
 
