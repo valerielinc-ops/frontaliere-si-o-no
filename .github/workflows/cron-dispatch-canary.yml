@@ -81,6 +81,8 @@ jobs:
             !/data/jobs/
             !/data/translation-cache/
             !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
             !/docs/
             !/public/data/
             !/data/related-search-candidates.json
