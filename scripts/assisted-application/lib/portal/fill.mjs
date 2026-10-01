@@ -16,7 +16,9 @@ const ACTION_TIMEOUT_MS = 6000;
 
 /**
  * Custom-styled radios and checkboxes hide the native input (Workday): the
- * normal check, then a forced one, then the element's own click.
+ * normal check, then a forced one, then a real click on the label. Never a
+ * script click (career-ops, Lever: a programmatic click on a box pops an
+ * hCaptcha challenge in the middle of the form).
  */
 async function setChoice(locator, checked) {
   try {
@@ -24,11 +26,58 @@ async function setChoice(locator, checked) {
   } catch {
     try {
       await locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS });
-    } catch {
+    } catch (error) {
       const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
-      if (current !== checked) await locator.evaluate((element) => element.click(), null, { timeout: 2000 });
+      if (current === checked) return;
+      // The label is what people click: marked in the page, then clicked in the same document (iframes too).
+      const marked = await locator.evaluate((element) => {
+        const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
+        label?.setAttribute('data-aa-label', 'choice');
+        return Boolean(label);
+      }, null, { timeout: 2000 }).catch(() => false);
+      if (!marked) throw error;
+      const label = locator.locator('xpath=ancestor::html[1]//label[@data-aa-label="choice"]').first();
+      await label.click({ timeout: ACTION_TIMEOUT_MS });
+      await label.evaluate((element) => element.removeAttribute('data-aa-label')).catch(() => {});
     }
   }
+}
+
+/** The text, shortened at a sentence end (else a word end) to fit `max` characters. */
+export function fitToLength(text, max) {
+  const value = String(text || '');
+  if (!max || value.length <= max) return value;
+  const cut = value.slice(0, max);
+  // The last sentence end in the second half of the limit: never a half sentence.
+  let end = -1;
+  for (const match of cut.matchAll(/[.!?…](?=\s|$)/g)) end = match.index + 1;
+  if (end >= max * 0.5) return cut.slice(0, end).trim();
+  const space = cut.lastIndexOf(' ');
+  return (space > 0 ? cut.slice(0, space) : cut).replace(/[\s,;:–—-]+$/, '').trim();
+}
+
+/**
+ * The choice took (career-ops: "verify each selection"): a native select
+ * shows the label, a custom control shows the option's text near it.
+ */
+async function choiceRegistered(locator, kind, label) {
+  const wanted = String(label || '').toLowerCase().trim();
+  return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
+    // Equal, never "contains" (review of #10715: "IT" is not "Italy").
+    const same = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim() === text;
+    if (fieldKind === 'select') return same(element.options?.[element.selectedIndex]?.text);
+    if (same(element.value) && element.getAttribute('aria-expanded') !== 'true') return true;
+    // A text shown next to the control equal to the choice, never one inside a
+    // list still open (NodeFilter.SHOW_TEXT = 4): an option is no proof of a choice.
+    let node = element.parentElement;
+    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+      const walker = document.createTreeWalker(node, 4);
+      for (let shown = walker.nextNode(); shown; shown = walker.nextNode()) {
+        if (!shown.parentElement?.closest('[role="listbox"], [role="option"], option, script, style') && same(shown.textContent)) return true;
+      }
+    }
+    return false;
+  }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
 }
 
 /** The option's own element, or (after a re-render dropped our id) the radio with that label. */
@@ -75,17 +124,24 @@ async function pickSuggestion(page, field, locator, value) {
   else await locator.press('Tab').catch(() => {});
 }
 
+/**
+ * Types to filter, then clicks the option that carries the value. No option,
+ * no choice: Enter would take whichever option is highlighted (career-ops,
+ * Workday: never pick by position), so the field fails and is planned again.
+ */
 async function fillCombobox(page, field, locator, value) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  const option = frame.getByRole('option', { name: value, exact: false }).first();
+  // The exact label only (review of #10715): "IT" never picks "Italy".
+  const option = frame.getByRole('option', { name: value, exact: true }).first();
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
-    await option.click({ timeout: ACTION_TIMEOUT_MS });
   } catch {
-    await locator.press('Enter');
+    await locator.press('Escape').catch(() => {});
+    throw new Error('option_not_found');
   }
+  await option.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
 /**
@@ -113,17 +169,22 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
         if (!option) throw new Error('radio_option_missing');
         await setChoice(await radioLocator(page, field, option), true);
-      } else if (field.kind === 'select') {
-        await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
-      } else if (field.kind === 'listbox') {
-        // Workday: open the listbox and click the option (OfferOS aria-driver).
-        await locator.click({ timeout: ACTION_TIMEOUT_MS });
-        const frame = page.frames()[field.frame || 0] || page.mainFrame();
-        await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
-      } else if (field.kind === 'combobox') {
-        await fillCombobox(page, field, locator, action.value);
+      } else if (['select', 'listbox', 'combobox'].includes(field.kind)) {
+        if (field.kind === 'select') {
+          await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
+        } else if (field.kind === 'listbox') {
+          // Workday: open the listbox and click the option (OfferOS aria-driver).
+          await locator.click({ timeout: ACTION_TIMEOUT_MS });
+          const frame = page.frames()[field.frame || 0] || page.mainFrame();
+          await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+        } else {
+          await fillCombobox(page, field, locator, action.value);
+        }
+        // A click that did not take leaves the field empty while the run goes on as if answered.
+        if (!await choiceRegistered(locator, field.kind, action.value)) throw new Error('choice_not_registered');
       } else {
-        await fillText(locator, field.maxLength ? action.value.slice(0, field.maxLength) : action.value);
+        // A long text is shortened at a sentence end, never cut in the middle of one.
+        await fillText(locator, fitToLength(action.value, field.maxLength));
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
       results.push({ fieldId: field.id, ok: true });

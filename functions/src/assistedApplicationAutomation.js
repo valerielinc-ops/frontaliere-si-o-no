@@ -30,6 +30,8 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { scheduleFollowups } from './assistedApplicationFollowup.js';
+import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -459,6 +461,65 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     claimRef: eventRef,
   });
   return result;
+}
+
+// ── Employer e-mail on the alias (inbox) ───────────────────────────────────
+
+const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
+
+/**
+ * career-ops apply.md: an application is sent on the success page OR the
+ * confirmation e-mail. A submit of unknown outcome (a portal after its final
+ * click, an e-mail send nobody confirmed) stays "sending" in the submission
+ * guard and the flow holds it for Valerie; an acknowledgement or a reply of
+ * the employer on the order's alias proves it arrived. The guard goes on
+ * record as sent, then the flow moves to `submitted` as on submit_succeeded.
+ * Nothing happens when nothing left (no final click: the message is about
+ * something else), for a message older than the send, or once the flow is
+ * past it: a second message finds it submitted.
+ *
+ * @param {{db, orderId:string, receivedAt:number, runEffect:Function, nowMs?:number}} args
+ */
+export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, runEffect, nowMs = Date.now() }) {
+  const flowSnapshot = await flowRefFor(db, orderId).get();
+  if (!flowSnapshot.exists) return { ok: false, ignored: 'no_flow' };
+  const flow = flowSnapshot.data() || {};
+  // The flow's own rule decides first: the guard is never touched for a flow past it.
+  const refused = transition(flow, ACKNOWLEDGED, { nowMs }).ignored;
+  if (refused) return { ok: false, ignored: refused };
+  const guard = submissionGuard(db, orderId, flow.round);
+  const record = await guard.read();
+  const leftAt = submissionLeftAt(record);
+  // Confirmed by an earlier message whose flow event did not land: applied now.
+  const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  if (!confirmedBefore) {
+    if (!isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
+    if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
+    await guard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
+  }
+  const result = await applyAutomationEvent({
+    db,
+    orderId,
+    event: ACKNOWLEDGED,
+    actor: 'employer_email',
+    runEffect,
+    nowMs,
+    patchFlow: () => ({ submittedVia: record.channel }),
+  });
+  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
+  return result;
+}
+
+/**
+ * The follow-ups the runner schedules after an e-mail application that went
+ * through; this one's outcome was unknown, so it had none. Its Message-ID is
+ * not on record: the "Re:" subject threads them anyway.
+ */
+async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
+  const draft = (await draftRefFor(db, orderId).get()).data() || {};
+  const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
+  if (!to) return null;
+  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
 }
 
 export function newRequestId() {

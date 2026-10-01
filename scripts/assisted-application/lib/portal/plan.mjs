@@ -22,6 +22,7 @@ export const PLAN_SCHEMA = OBJ({
     value: S,
     document: { type: 'string', enum: ['cv', 'cover_letter', 'none'] },
     source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule'] },
+    evidence: S,
   })),
   missingRequired: LIST(OBJ({
     fieldId: S,
@@ -46,6 +47,8 @@ ${candidateRules(candidateLocale)}`;
 export function candidateRules(candidateLocale) {
   return `- Use ONLY the candidate data given. Never invent facts, numbers, dates, employers, degrees or answers.
 - Work permit, visa, nationality, date of birth, salary expectation, notice period, start date, availability, relocation, criminal record, disability, gender, ethnicity or any other legal or demographic question: answer only when the candidate data states it (answers or profile). Otherwise, for a demographic question (gender, ethnicity, disability) choose the "prefer not to say / keine Angabe" option when one exists; failing that, when the field is required, put it in missingRequired; when optional, skip it.
+- Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
+- Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
 - Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (diplomas, references, certificates) are not available: skip them, or put them in missingRequired when required.
 - select and radio: value must be exactly one of the field's option labels.
@@ -89,6 +92,61 @@ export function planUserText({ snapshot, candidate }) {
 // The date of birth too (JOIN: "Quando sei nato?"): only the candidate knows it.
 // JOIN asks "Che sesso sei?": sex in Italian and French is demographic too.
 export const SENSITIVE = /permit|bewilligung|permesso|visa|nationalit|staatsangeh|salar|lohn|gehalt|pretes|rémun|kündigungsfrist|preavviso|notice|disabil|behinder|gender|geschlecht|genere|\bsesso\b|\bsexe\b|\bsex\b|ethnic|criminal|strafregister|casellario|birth|geburt|nascita|\bnat[oa]\b|naissance/i;
+// Questions that can rule the candidate out (career-ops apply.md, knock-outs), a CEFR level ("Deutsch C1?") among them:
+// answered only with a quote of the candidate's data that supports the answer.
+export const KNOCK_OUT = /\b[abc][12]\b|anni di esperienza|years? of (professional |work )?experience|berufserfahrung|jahre[n]? (an )?erfahrung|ann[ée]es d.exp[ée]rience|titolo di studio|\blaurea\b|\bdiplom|\bdegree\b|\bbachelor|\bmaster\b|abschluss|ausbildung|patente|f[üu]hrerschein|fahrausweis|driving licen[cs]e|permis de conduire|livello|niveau\b|\blevel\b|sprachkenntnisse|conoscenza (del|della|dell)|certificat|zertifi|abilitazione|iscrizione all|\balbo\b|berufsausübungsbewilligung|registrierung bei/i;
+
+/** A quote of the candidate's data: non-trivial and really in it. */
+export function evidenceInData(knownValues, evidence) {
+  const quote = String(evidence || '').toLowerCase().replace(/\s+/g, ' ').trim();
+  return quote.length >= 4 && knownValues !== null && knownValues.replace(/\s+/g, ' ').includes(quote);
+}
+
+const YES_RE = /^(ja|sì|si|yes|oui|vero|true|✓)$/i;
+const CEFR = ['a1', 'a2', 'b1', 'b2', 'c1', 'c2'];
+const levelsIn = (text) => [...String(text || '').toLowerCase().matchAll(/\b([abc][12])\b/g)].map((match) => CEFR.indexOf(match[1]));
+// One language in the four the portals use: "Deutsch C1?" is not answered by "Englisch C2".
+const LANGUAGES = [
+  /deutsch|tedesco|allemand|german/i,
+  /englisch|inglese|anglais|english/i,
+  /französisch|franzoesisch|francese|français|francais|french/i,
+  /italienisch|italiano|italien|italian/i,
+];
+const languagesIn = (text) => LANGUAGES.map((pattern, index) => (pattern.test(text) ? index : -1)).filter((index) => index >= 0);
+
+/**
+ * The quote SUPPORTS the answer, beyond being in the data (review of #10715:
+ * "Deutsch C1?" answered "Ja" with the quote "Deutsch B2"). A value must be in
+ * the quote; a yes to a level needs that language at that level or higher; a
+ * yes to anything countable (years, a minimum) is never read off a quote.
+ */
+export function evidenceSupports(question, answer, evidence) {
+  const value = String(answer || '').trim().toLowerCase();
+  const quote = String(evidence || '').toLowerCase();
+  if (!value || !quote) return false;
+  if (!YES_RE.test(value)) return quote.includes(value);
+  const required = levelsIn(question);
+  if (required.length) {
+    // Levels read only where the quote names the language asked: "Deutsch B2;
+    // Englisch C2" holds no German C2 (second review of #10715).
+    const asked = languagesIn(question);
+    const parts = asked.length
+      ? quote.split(/[;,|\n]|\s[-–—]\s/).filter((part) => languagesIn(part).some((language) => asked.includes(language)))
+      : [quote];
+    const held = parts.flatMap(levelsIn);
+    return held.length > 0 && Math.max(...held) >= Math.max(...required);
+  }
+  return !/\d/.test(String(question));
+}
+
+/** The candidate already answered this very question with this answer (review page). */
+export function answeredByCandidate(candidate, question, answer) {
+  const asked = questionFromLabel(question).toLowerCase();
+  const given = String(answer || '').trim().toLowerCase();
+  return Boolean(given) && (candidate?.portalQuestionsAnswered || [])
+    .some((item) => questionFromLabel(item.question).toLowerCase() === asked && String(item.answer || '').trim().toLowerCase() === given);
+}
+
 // Declining to answer invents nothing: the one sensitive answer a rule may give.
 export const PREFER_NOT = /prefer not|rather not|decline to|^\s*n\.?\s?\/\s?a\.?\s*$|non specificato|keine angabe|möchte (ich )?(es )?nicht|nicht angeben|preferisco non|non (desidero|voglio) (rispondere|specificare)|je préfère ne pas|ne (souhaite|veux) pas (répondre|le préciser)/i;
 
@@ -158,6 +216,16 @@ export function guardPlan(plan, fields, candidate = null) {
     const fromCandidate = ['answers', 'profile'].includes(action.source) && knownAnswer(knownValues, value);
     const declines = action.action === 'select' && field.options?.length && PREFER_NOT.test(action.value);
     if (SENSITIVE.test(field.label) && ['fill', 'select'].includes(action.action) && !fromCandidate && !declines) {
+      ask(field);
+      continue;
+    }
+    // "Deutsch C1?" answered "Ja" with nothing in the CV to show it: the candidate says.
+    // Not "the value occurs somewhere in the data": a "Ja" occurs everywhere. The
+    // candidate's own answer to this question, or a quote that supports the answer.
+    const given = action.action === 'check' ? 'ja' : action.value;
+    const supported = knownValues === null || answeredByCandidate(candidate, field.label, given)
+      || (evidenceInData(knownValues, action.evidence) && evidenceSupports(field.label, given, action.evidence));
+    if (KNOCK_OUT.test(field.label) && ['fill', 'select', 'check'].includes(action.action) && !supported && !declines) {
       ask(field);
       continue;
     }
