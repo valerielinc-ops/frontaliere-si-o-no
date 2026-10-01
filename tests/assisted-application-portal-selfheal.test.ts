@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { guardAgentStep, AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
-import { learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
-import { anonymizePath, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { labelsAt, learnedButton, normalizeLabel, portalKnowledgeStore, PORTAL_KNOWLEDGE_COLLECTION } from '../scripts/assisted-application/lib/portal/knowledge.mjs';
+import { anonymizePath, pageControls, stopReportFrom } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { CONFIRM_RE, REFUSED_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateValues, redactStopReport, stopIssue } from '../scripts/assisted-application/lib/portal/stop-report.mjs';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
@@ -15,19 +15,39 @@ describe('portal runner self-correction', () => {
     expect(guardAgentStep(turn('button:has-text("Invia")'), null).submitRef).toBe('');
   });
 
-  it('level 2: remembers a portal’s labels after a confirmed submission and recognises them next time', async () => {
+  it('level 2: remembers a portal’s buttons with their page after a confirmed submission and recognises them next time', async () => {
     const { db, read } = createMemoryFirestore();
     const store = portalKnowledgeStore({ db });
-    expect(await store.load('join.com')).toEqual({ finalLabels: [], nextLabels: [] });
-    await store.learn('join.com', { finalLabel: 'Conferma e  applica', nextLabels: ['Salva e prosegui'] });
-    await store.learn('JOIN.com', { finalLabel: 'Conferma e applica' });
+    expect(await store.load('join.com')).toEqual({ finalButtons: [], nextButtons: [] });
+    const review = '/companies/*/*/apply/review';
+    await store.learn('join.com', { finalButton: { path: review, label: 'Conferma e  applica' }, nextButtons: [{ path: '/companies/*/*/apply', label: 'Salva e prosegui' }] });
+    await store.learn('JOIN.com', { finalButton: { path: review, label: 'Conferma e applica' } });
     const known = await store.load('join.com');
-    expect(known).toEqual({ finalLabels: ['conferma e applica'], nextLabels: ['salva e prosegui'] });
+    expect(known).toEqual({ finalButtons: [{ path: review, label: 'conferma e applica' }], nextButtons: [{ path: '/companies/*/*/apply', label: 'salva e prosegui' }] });
     expect(read(`${PORTAL_KNOWLEDGE_COLLECTION}/join.com`)).toMatchObject({ confirmedSubmissions: 2 });
-    // Exact label only, enabled only.
+    // Exact label only, enabled only, on its own page only.
     const buttons = [{ id: 'b1', text: 'Conferma e applica filtro' }, { id: 'b2', text: ' Conferma e applica ', disabled: true }, { id: 'b3', text: 'Conferma e applica' }];
-    expect(learnedButton(buttons, known.finalLabels)).toEqual({ id: 'b3', text: 'Conferma e applica' });
+    expect(learnedButton(buttons, labelsAt(known.finalButtons, review))).toEqual({ id: 'b3', text: 'Conferma e applica' });
+    expect(labelsAt(known.finalButtons, '/companies/*/*/apply')).toEqual([]);
     expect(normalizeLabel('  A   b ')).toBe('a b');
+  });
+
+  // Review of #10741: a label learned on the summary page is not a send button elsewhere on the host.
+  it('level 2: a taught send button counts only on its page and never next to a step button', () => {
+    // An unusual name (a usual one, «Conferma e applica» since #10725, is a send button anywhere).
+    const known = { finalButtons: [{ path: '/jobs/*/review', label: 'abschliessen und übermitteln' }], nextButtons: [{ path: '/jobs/*/apply', label: 'salva e prosegui' }] };
+    const send = { id: 's', text: 'Abschliessen und übermitteln' };
+    const step = { id: 'n', text: 'Salva e prosegui' };
+    expect(pageControls([send], known, 'https://portal.example/jobs/123/review')).toEqual({ submit: send, next: null });
+    // Same label on an intermediate page: neither a send nor a step button, left to the page and the agent.
+    expect(pageControls([send], known, 'https://portal.example/jobs/123/apply')).toEqual({ submit: null, next: null });
+    expect(pageControls([send, step], known, 'https://portal.example/jobs/123/apply')).toEqual({ submit: null, next: step });
+    // On its own page, next to a usual step button, still not a send button.
+    const usualNext = { id: 'w', text: 'Weiter' };
+    expect(pageControls([send, usualNext], known, 'https://portal.example/jobs/123/review')).toEqual({ submit: null, next: usualNext });
+    // A usual send name keeps winning everywhere.
+    const usualSend = { id: 'u', text: 'Bewerbung absenden' };
+    expect(pageControls([usualSend, usualNext], known, 'https://portal.example/other')).toEqual({ submit: usualSend, next: usualNext });
   });
 
   it('level 3: the stop report names the page without the employer or the posting', () => {

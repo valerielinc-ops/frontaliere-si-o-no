@@ -22,7 +22,7 @@
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
-import { learnedButton } from './knowledge.mjs';
+import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
@@ -428,6 +428,23 @@ async function requiredLeftEmpty(page) {
 }
 
 /**
+ * The page's send and step buttons: a usual name, or one a confirmed
+ * submission on this portal taught (level 2) on this same page (review of
+ * #10741: a label is a control of the page it was learned on, not of every
+ * page of the host). A taught send button never counts next to a step button.
+ */
+export function pageControls(buttons, known, url) {
+  const here = anonymizePath(url);
+  const submit = findButton(buttons, SUBMIT_RE);
+  const usualNext = findButton(buttons, NEXT_RE);
+  const taughtNext = submit || usualNext ? null : learnedButton(buttons, labelsAt(known.nextButtons, here));
+  return {
+    submit: submit || (usualNext || taughtNext ? null : learnedButton(buttons, labelsAt(known.finalButtons, here))),
+    next: usualNext || taughtNext,
+  };
+}
+
+/**
  * After the final click: the same send button is still on the page, and the
  * portal loads an invisible reCAPTCHA (v3 badge or `api.js?render=`), the
  * kind that scores the browser and lets the portal drop a bot's submission
@@ -558,13 +575,13 @@ export async function submitViaPortal(ctx) {
     try {
       host = new URL(url).hostname;
     } catch {
-      return { finalLabels: [], nextLabels: [] };
+      return NO_PORTAL_KNOWLEDGE;
     }
-    if (!ctx.knowledge) return { finalLabels: [], nextLabels: [] };
-    if (!knowledge.has(host)) knowledge.set(host, await ctx.knowledge.load(host).catch(() => ({ finalLabels: [], nextLabels: [] })));
+    if (!ctx.knowledge) return NO_PORTAL_KNOWLEDGE;
+    if (!knowledge.has(host)) knowledge.set(host, await ctx.knowledge.load(host).catch(() => NO_PORTAL_KNOWLEDGE));
     return knowledge.get(host);
   };
-  // Step buttons the agent named in this run: learned only once the portal confirms.
+  // Step buttons the agent named in this run, with their page: learned only once the portal confirms.
   const namedNext = [];
   try {
     const context = await browser.newContext({
@@ -726,8 +743,7 @@ export async function submitViaPortal(ctx) {
       if (after.captcha) return await handoff('captcha');
       // A usual name, or one this portal taught a confirmed submission (level 2).
       const known = await knownFor(page.url());
-      let submit = findButton(after.buttons, SUBMIT_RE) || learnedButton(after.buttons, known.finalLabels);
-      let next = findButton(after.buttons, NEXT_RE) || (submit ? null : learnedButton(after.buttons, known.nextLabels));
+      let { submit, next } = pageControls(after.buttons, known, page.url());
       let advance = null;
       let finalByAgent = null;
       // The filler cannot move this page on (its Next stays disabled: JOIN's
@@ -752,8 +768,7 @@ export async function submitViaPortal(ctx) {
             await page.waitForTimeout(2000);
             after = await extractFields(page, NAVIGATION);
           }
-          submit = findButton(after.buttons, SUBMIT_RE) || learnedButton(after.buttons, known.finalLabels);
-          next = findButton(after.buttons, NEXT_RE) || (submit ? null : learnedButton(after.buttons, known.nextLabels));
+          ({ submit, next } = pageControls(after.buttons, known, page.url()));
           // A step button with an unusual name ("Salva e prosegui"), never one that may send.
           if (!submit && !next && agent.advanceRef) advance = await advanceLocator(page, agent.advanceRef);
           // The last page's send button with an unusual name («Conferma e applica», level 1):
@@ -768,8 +783,9 @@ export async function submitViaPortal(ctx) {
         const before = pageSignature(page, after);
         if (next) await clickButton(page, next);
         else {
+          const from = anonymizePath(page.url());
           await advance.locator.click({ timeout: 6_000 });
-          namedNext.push(advance.name);
+          namedNext.push({ path: from, label: advance.name });
         }
         await settle(page);
         snapshot = await extractFields(page);
@@ -820,9 +836,9 @@ export async function submitViaPortal(ctx) {
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
         // The portal confirmed: what this run had to learn is remembered for the next one (level 2).
-        const learnedFinal = final.by === 'agent' || !SUBMIT_RE.test(final.label) ? final.label : '';
+        const learnedFinal = final.by === 'agent' || !SUBMIT_RE.test(final.label) ? { path: anonymizePath(finalUrl), label: final.label } : null;
         if (ctx.knowledge && (learnedFinal || namedNext.length)) {
-          await ctx.knowledge.learn(new URL(finalUrl).hostname, { finalLabel: learnedFinal, nextLabels: namedNext }).catch((error) => log(`portal knowledge not saved: ${String(error?.message || error).slice(0, 80)}`));
+          await ctx.knowledge.learn(new URL(finalUrl).hostname, { finalButton: learnedFinal, nextButtons: namedNext }).catch((error) => log(`portal knowledge not saved: ${String(error?.message || error).slice(0, 80)}`));
         }
         return { event: { type: 'submit_succeeded', channel: 'portal' }, evidence };
       }
@@ -839,10 +855,11 @@ export async function submitViaPortal(ctx) {
       // a bot. Said to Valerie as such; still never re-sent automatically.
       const antibot = outcome === 'ambiguous' && page.url() === finalUrl && await refusedSilently(page, final.label);
       if (antibot) evidence.antibot = true;
-      // The portal said, on the same page, that the application did not go
-      // (JOIN, run 36846326334): not ambiguous. submit.mjs releases the guard,
-      // so Valerie's retry can claim it again; the runner itself never re-sends.
-      if (outcome === 'refused' && page.url() === finalUrl) {
+      // The portal said the application did not go (JOIN, run 36846326334),
+      // on the same page or on an error page it moved to (review of #10741):
+      // not ambiguous. submit.mjs releases the guard, so Valerie's retry can
+      // claim it again; the runner itself never re-sends.
+      if (outcome === 'refused') {
         evidence.antibot = await invisibleRecaptcha(page);
         return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence };
       }

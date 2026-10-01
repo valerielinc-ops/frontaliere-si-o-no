@@ -118,6 +118,12 @@ function fakePortal() {
     if (route === 'GET /refused') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
     }
+    // The refusal shown on an error page the portal moves to (review of #10741).
+    if (route === 'GET /refused-moved') {
+      return send(page('Candidatura', `<h1>La tua candidatura</h1>${form('/refused-moved', '<button type="submit">Conferma e applica</button>')}`));
+    }
+    if (route === 'POST /refused-moved') return redirect('/refused-moved/error');
+    if (route === 'GET /refused-moved/error') return send(page('Errore', '<p role="alert">Non siamo riusciti a inviare la tua candidatura. Riprova.</p>'));
     if (route === 'POST /widget') {
       const raw = await readBody(req);
       state.widgetApplications.push({ hasCv: /filename="CV_/.test(raw), dob: /name="dob"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
@@ -256,14 +262,15 @@ async function main() {
     await comboPage.context().browser().close();
     // Self-correction, levels 1 and 2: the agent names an unusual send button,
     // the runner presses it behind the guard, the portal's memory learns it.
-    const learnedLabels = new Map();
+    const portalMemory = new Map();
     const knowledge = {
-      async load(host) { return learnedLabels.get(host) || { finalLabels: [], nextLabels: [] }; },
-      async learn(host, { finalLabel = '', nextLabels = [] }) {
-        const current = learnedLabels.get(host) || { finalLabels: [], nextLabels: [] };
-        learnedLabels.set(host, {
-          finalLabels: [...new Set([normalizeLabel(finalLabel), ...current.finalLabels].filter(Boolean))],
-          nextLabels: [...new Set([...nextLabels.map(normalizeLabel), ...current.nextLabels])],
+      async load(host) { return portalMemory.get(host) || { finalButtons: [], nextButtons: [] }; },
+      async learn(host, { finalButton = null, nextButtons = [] }) {
+        const current = portalMemory.get(host) || { finalButtons: [], nextButtons: [] };
+        const clean = (button) => ({ path: button.path, label: normalizeLabel(button.label) });
+        portalMemory.set(host, {
+          finalButtons: [...(finalButton ? [clean(finalButton)] : []), ...current.finalButtons],
+          nextButtons: [...nextButtons.map(clean), ...current.nextButtons],
         });
       },
     };
@@ -291,6 +298,9 @@ async function main() {
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'
       && toast.event.error === 'portal_refused' && toast.evidence.antibot === true
       && typeof toast.evidence.browser?.userAgent === 'string' && !/headless/i.test(toast.evidence.browser.userAgent));
+    const moved = await run({ applyUrl: `${base}/refused-moved` });
+    check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
+      && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
