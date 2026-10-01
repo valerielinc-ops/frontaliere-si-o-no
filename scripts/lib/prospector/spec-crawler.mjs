@@ -634,6 +634,94 @@ export function findNextListingPageUrl(html, pageUrl) {
   return null;
 }
 
+function numericPathPage(url) {
+  const match = String(url.pathname || '').match(/^(.*\/page\/)(\d+)(\/.*)?$/i);
+  if (!match) return null;
+  return {
+    prefix: match[1],
+    number: Number(match[2]),
+    suffix: match[3] || '',
+  };
+}
+
+function numericQueryPage(url) {
+  for (const [name, value] of url.searchParams) {
+    if (/(?:^|[_-])(?:page|paged|p)(?:$|[_-])/i.test(name) && /^\d+$/.test(value)) {
+      return { name, number: Number(value) };
+    }
+  }
+  return null;
+}
+
+function comparableSearchParams(url, excludedName) {
+  return [...url.searchParams]
+    .filter(([name]) => name !== excludedName)
+    .sort(([leftName, leftValue], [rightName, rightValue]) => (
+      leftName.localeCompare(rightName) || leftValue.localeCompare(rightValue)
+    ));
+}
+
+/**
+ * Whether `nextUrl` is the last numbered page the current listing announces.
+ *
+ * A few sources expose a rel=next link to a one-past-the-end page. This helper
+ * only recognizes that case when the page itself contains a numbered
+ * pagination control whose largest same-route number is the rel=next target;
+ * an arbitrary 404 is never treated as a normal end marker.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
+  let current;
+  let next;
+  try {
+    current = new URL(pageUrl);
+    next = new URL(nextUrl, pageUrl);
+  } catch {
+    return false;
+  }
+  if (current.origin !== next.origin) return false;
+
+  const nextPathPage = numericPathPage(next);
+  const nextQueryPage = nextPathPage ? null : numericQueryPage(next);
+  if (!nextPathPage && !nextQueryPage) return false;
+
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  let largest = null;
+  while ((tag = tagRx.exec(String(html || '')))) {
+    const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+    if (!hrefValue) continue;
+    let candidate;
+    try { candidate = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
+    if (candidate.origin !== current.origin) continue;
+
+    if (nextPathPage) {
+      const candidatePage = numericPathPage(candidate);
+      if (!candidatePage
+        || candidatePage.prefix !== nextPathPage.prefix
+        || candidatePage.suffix !== nextPathPage.suffix
+        || candidate.search !== next.search) continue;
+      largest = Math.max(largest ?? 0, candidatePage.number);
+      continue;
+    }
+
+    const candidatePage = numericQueryPage(candidate);
+    if (!candidatePage
+      || candidate.pathname !== next.pathname
+      || candidatePage.name !== nextQueryPage.name
+      || JSON.stringify(comparableSearchParams(candidate, candidatePage.name))
+        !== JSON.stringify(comparableSearchParams(next, nextQueryPage.name))) continue;
+    largest = Math.max(largest ?? 0, candidatePage.number);
+  }
+
+  return largest != null && largest === (nextPathPage?.number ?? nextQueryPage?.number);
+}
+
 /**
  * Compare two listing URLs after URL parsing and fragment removal. A small
  * number of sources put a self-referential `rel=next` on their final page;
@@ -839,6 +927,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       let pageUrl = effectiveSeedUrl;
       let nextUrl = findNextListingPageUrl(html, pageUrl);
       let pages = 1;
+      let currentPageCandidateCount = candidates.length;
       while (nextUrl) {
         if (pagination.selfNextIsTerminal && isSameListingPageUrl(nextUrl, pageUrl)) {
           console.warn(
@@ -862,7 +951,27 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           );
         }
         visited.add(nextUrl);
-        const next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        let next;
+        try {
+          next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        } catch (error) {
+          const readRows = bySlug.size - seedRowsBefore;
+          const coverageSatisfied = declaredTotal != null
+            && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
+          const announcedFinal = currentPageCandidateCount > 0
+            && isLastAnnouncedListingPage(html, pageUrl, nextUrl);
+          const terminalNotFound = error?.status === 404
+            && error?.retryable === false
+            && !error?.antiBotExhausted;
+          if (terminalNotFound && (coverageSatisfied || announcedFinal)) {
+            console.warn(
+              `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404; `
+              + `fine della paginazione accettata (${coverageSatisfied ? 'copertura sufficiente' : 'ultima pagina annunciata'})`,
+            );
+            break;
+          }
+          throw error;
+        }
         pages += 1;
         pageUrl = next.url || nextUrl;
         const body = next.body || '';
@@ -870,12 +979,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           ? extractUmantisListingEvidence(body, pageUrl)
           : new Map();
         const extracted = extractListingCandidates(body, pageUrl, templateRx);
+        const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         await addListingCandidates(
-          filterListingCandidates(spec, extracted.candidates),
+          nextCandidates,
           nextEvidence,
           pageUrl,
           pagination.pageStateParams,
         );
+        html = body;
+        currentPageCandidateCount = nextCandidates.length;
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
       const seedRows = bySlug.size - seedRowsBefore;

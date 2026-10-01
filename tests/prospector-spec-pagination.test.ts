@@ -17,6 +17,7 @@ import {
   collectSpecListingRows,
   createSpecUrlPolicy,
   findNextListingPageUrl,
+  isLastAnnouncedListingPage,
   normalizeSpecPagination,
   readDeclaredListingTotal,
   stripListingPageState,
@@ -24,6 +25,10 @@ import {
 
 const ORIGIN = 'https://jobs.example.ch';
 const publicLookup = async () => [{ address: '93.184.216.34', family: 4 }];
+const STELLENTREFF_PAGE_58 = fs.readFileSync(
+  path.resolve(import.meta.dirname, 'fixtures/stellentreff-page-58.html'),
+  'utf8',
+);
 
 function listingPage({ ids, page, total, next }: { ids: string[], page: number, total?: number, next?: string }) {
   const query = page > 1 ? `?sf_paged=${page}` : '';
@@ -178,9 +183,37 @@ describe('spec.pagination', () => {
 
   it('una pagina successiva che risponde con errore non produce una listing parziale', async () => {
     const pages = {
-      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40, next: `${ORIGIN}/?sf_paged=2` })
+        + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
     };
     await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toThrow(/HTTP 404/);
+  });
+
+  it('accetta un 404 successivo quando la copertura dichiarata e sufficiente', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2', 'sa3', 'sa4'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` })
+        + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
+    };
+    const { rows } = await collect(specWith({ pagination: PAGINATION }), pages);
+    expect(rows).toHaveLength(4);
+  });
+
+  it('accetta il 404 della pagina finale annunciata dal fixture reale Stellentreff', async () => {
+    const pageUrl = 'https://www.stellentreff.ch/stellen/page/58/';
+    const nextUrl = 'https://www.stellentreff.ch/stellen/page/59/';
+    const spec = specWith({
+      companyKey: 'stellentreff',
+      companyName: 'Stellentreff AG',
+      companyHost: 'stellentreff.ch',
+      seedUrls: [pageUrl],
+      detailTemplate: '/stellen/*/',
+      pagination: { maxPages: 120 },
+    });
+    const { rows, fetched } = await collect(spec, { [pageUrl]: STELLENTREFF_PAGE_58 });
+    expect(isLastAnnouncedListingPage(STELLENTREFF_PAGE_58, pageUrl, nextUrl)).toBe(true);
+    expect(rows).toHaveLength(2);
+    expect(fetched).toContain(pageUrl);
+    expect(fetched).toContain(nextUrl);
   });
 
   it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {
