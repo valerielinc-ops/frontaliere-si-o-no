@@ -446,11 +446,6 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/events.json', 'packages/articles/content/', 'services/locales/'],
     reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
   },
-  {
-    file: 'tests/data-refresh-pr-wiring.test.ts',
-    roots: ['data/events.json', 'public/data/'],
-    reason: 'i due path sono argomenti `--path` di merge-open-data-refresh.mjs con base, remote e refresh tutti a HEAD: `git diff HEAD HEAD` resta vuoto, quindi lo script non apre e non scrive nessun file sotto data/ o public/data/; le letture dal checkout sono i workflow e gli script sotto test',
-  },
 ]);
 
 

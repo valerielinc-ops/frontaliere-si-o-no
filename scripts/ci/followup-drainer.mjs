@@ -1734,6 +1734,43 @@ export function findOverlapFile(paths, prFilesMap, { ignorePr = null } = {}) {
   return null;
 }
 
+// --- OVERLAP DICHIARATO DAL FIXER --------------------------------------------
+// Il pre-flight qui sopra vede solo i path di CODE_PATH_RE; il fixer applica la
+// regola Overlap-file del suo prompt a qualunque file citato, `tests/` compreso.
+// Quando il fixer rinvia (`FIX_OUTCOME: overlap-skip`) su un file che il drainer
+// non vede, il rescue lo contava come run morta: `fu-attempt`++, ri-promozione
+// al tick dopo, stesso rinvio, fino a `fu-parked`. #10586/#10587 sono arrivate
+// a `fu-attempt:3` in tre ore per `tests/data-refresh-pr-wiring.test.ts` «in
+// volo» in #10555, senza che il fixer avesse mai potuto provare.
+//
+// La PR che il fixer nomina nel suo commento diventa la condizione di rinvio:
+// finché resta aperta e attiva (non ferma, `isStalledPr`) la issue torna in coda
+// SENZA consumare un tentativo e il drain non la promuove; appena la PR mergia,
+// si chiude o si ferma, la issue riparte. Bounded: un giro gratuito richiede una
+// PR attiva diversa a ogni rinvio. PR illeggibile o non nominata → come prima
+// (tentativo consumato al rescue, promozione al drain).
+
+/** PR nominata dall'ultimo verdetto del fixer, se quel verdetto è `overlap-skip`. Pura. */
+export function overlapSkipBlocker(comments) {
+  const latest = latestFixOutcomeEntryFromComments(comments);
+  if (latest.outcome !== 'overlap-skip') return null;
+  const comment = (comments || []).find((c) => {
+    const match = FIX_OUTCOME_RE.exec(String(c?.body || ''));
+    return match && match[1].toLowerCase() === 'overlap-skip'
+      && Date.parse(String(c?.createdAt ?? c?.created_at ?? '')) === latest.at;
+  });
+  // La forma del prompt («già in volo nella PR #<n>») prima di qualunque altra
+  // PR citata: in un hand-off il commento nomina anche la PR da riapplicare.
+  const text = String(comment?.body || '');
+  const pr = /in volo nella PR\s+#(\d+)/i.exec(text) || /\bPR\s+#(\d+)/i.exec(text);
+  return pr ? Number(pr[1]) : null;
+}
+
+/** La PR bloccante è ancora lavoro in volo? (`gh pr view --json state,labels`). Pura. */
+export function overlapBlockerActive(pr) {
+  return String(pr?.state || '').toUpperCase() === 'OPEN' && !isStalledPr(pr?.labels || []);
+}
+
 /**
  * Un'issue è "queue-managed" (passata dalla coda `agent:fix-queued` drenata da
  * questo file)? Prima del 2026-07-05 SOLO i `follow-up` la attraversavano;
@@ -3313,6 +3350,16 @@ function issueComments(num) {
   }
 }
 
+/** Stato della PR nominata da un `overlap-skip`, o `null` su errore gh
+ * (`overlapBlockerActive(null)` è falso: nessun rinvio su un glitch API). */
+function readOverlapBlocker(num) {
+  try {
+    return gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state,labels']);
+  } catch {
+    return null;
+  }
+}
+
 /** Commenti della issue in forma REST, o `null` su errore gh. È l'unica
  * sorgente che porta `user.type` — il flag di bot autoritativo, che non
  * richiede alcuna allowlist da mantenere (vedi `isBotComment`) — e ora serve
@@ -4501,6 +4548,17 @@ export function runDrain() {
       edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
       continue;
     }
+    // OVERLAP DICHIARATO (vedi `overlapSkipBlocker`): aspettare una PR attiva
+    // non è un tentativo fallito. Il drain trattiene la issue finché la PR resta
+    // in volo; PR non nominata, illeggibile o già ferma → ramo età-tentativi.
+    if (outcome === 'overlap-skip') {
+      const blocker = overlapSkipBlocker(issueComments(iss.number) || []);
+      if (blocker !== null && overlapBlockerActive(readOverlapBlocker(blocker))) {
+        console.log(`RE-QUEUE #${iss.number} (overlap-skip sulla PR #${blocker}, ancora in volo) → tentativo NON consumato, il drain la trattiene finché #${blocker} è attiva`);
+        edit(iss.number, { add: [LBL_QUEUED], remove: [LBL_FIX] });
+        continue;
+      }
+    }
     if (outcome && NON_RETRYABLE.has(outcome)) {
       console.log(`PARK #${iss.number} (esito non-ri-tentabile: ${outcome}) → no re-queue, evito run identica`);
       edit(iss.number, { add: [LBL_PARKED], remove: [LBL_FIX, LBL_QUEUED] });
@@ -5277,6 +5335,18 @@ export function runDrain() {
         note: `🧩 **Pre-flight drainer → decomposizione (wide-scope)**: questa follow-up aggregata nasce con **${wide.items} item indipendenti** (il titolo ne dichiara ${wide.titleItems}, il body ne enumera ${wide.bodyItems} — vale il minimo dei due), sopra la soglia \`WIDE_SCOPE_MIN_ITEMS\`=${WIDE_SCOPE_MIN_ITEMS}.\n\nFino ad oggi allo scorporo ci si arrivava solo **dopo** un \`error_max_turns\`: la larghezza veniva diagnosticata post-mortem, a run pieni, quando era già dichiarata nel titolo dall'apertura. Instradata subito allo stadio di decomposizione (\`${LBL_DECOMP_QUEUED}\`): un run planner la scorpora in sub-issue atomiche con scheda verificabile, che il fixer chiude una a una. Il ciclo chiuderà questa issue quando tutte le sub-issue saranno chiuse.\n\n**Soglia misurata, non scelta**: sul tasso di \`fu-parked\` per numero di item (481 follow-up del sito) il salto è fra N≤2 (36%) e N≥3 (46%); fra 3 e 4 i tassi sono indistinguibili, e a decidere è il volume che questo stadio assorbe (una promozione per tick): N≥4 = 7% della popolazione, N≥3 = 26%.`,
       });
       continue; // prova il prossimo in coda
+    }
+
+    // Overlap dichiarato dal fixer all'ultimo giro (vedi `overlapSkipBlocker`):
+    // la PR che ha nominato è ancora attiva → rinvio, come l'overlap dei path
+    // qui sotto. Stessa direzione conservativa: commenti o PR illeggibili → si
+    // promuove. Ultimo controllo prima dei path: la lettura dei commenti la
+    // pagano solo i candidati che hanno superato tutti gli altri.
+    const declaredBlocker = overlapSkipBlocker(issueComments(cand.number) || []);
+    if (declaredBlocker !== null && overlapBlockerActive(readOverlapBlocker(declaredBlocker))) {
+      console.log(`OVERLAP-SKIP #${cand.number} (il fixer ha rinviato per la PR #${declaredBlocker}, ancora in volo) → rinvio al prossimo tick`);
+      overlapSkipped++;
+      continue;
     }
 
     // Check: overlap-file con PR aperta (escalation #3810). Zero-Claude, pre-promozione.
