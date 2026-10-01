@@ -36,6 +36,7 @@ export const AGENT_SCHEMA = OBJ({
     evidence: S,
   })),
   advanceRef: S,
+  submitRef: S,
   questions: LIST(OBJ({
     question: S,
     why: S,
@@ -69,7 +70,7 @@ export function agentSystemPrompt(candidateLocale) {
 
 Each turn you return actions for the snapshot you see; they run in order, then you receive a fresh snapshot and each action's result (history). Status:
 - "act": run these actions, then show me the page again.
-- "done": every question on this page is answered as the rules allow. advanceRef = the ref of the button that moves to the next step only when it has no usual name (Next, Continue, Weiter, Avanti, Continua, Suivant), else "".
+- "done": every question on this page is answered as the rules allow. advanceRef = the ref of the button that moves to the next step only when it has no usual name (Next, Continue, Weiter, Avanti, Continua, Suivant), else "". submitRef = on the LAST page (a review or summary with nothing left to answer), the ref of the button that sends the application (e.g. «Conferma e applica», «Bewerbung abschliessen»), else "": you never press it, the runner does after its checks.
 - "needs_candidate": a question only the candidate can answer: write it in questions.
 - "stuck": the page cannot be completed; say why in reason.
 
@@ -194,6 +195,7 @@ export function guardAgentStep(raw, candidate = null, grounded = new Set()) {
     truncated: actions.length > MAX_ACTIONS,
     questions,
     advanceRef: REF_RE.test(raw.advanceRef || '') ? raw.advanceRef : '',
+    submitRef: REF_RE.test(raw.submitRef || '') ? raw.submitRef : '',
   };
 }
 
@@ -296,7 +298,8 @@ export async function runAction(page, action, files = {}) {
 // "Salva e prosegui", "Vai al passo successivo", "Nächste Seite").
 export const ADVANCE_RE = /(\bnext\b|\bcontinue\b|\bproceed\b|\bforward\b|weiter|fortfahren|nächste|avanti|continua|prosegui|procedi|successiv|suivant|continuer|poursuivre)/i;
 // …and none of going back, leaving, signing in or out.
-const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|close|schließen|chiudi|fermer|sign|log ?in|log ?out|anmeld|abmeld|accedi|esci|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
+// Whole words where a send button may contain them: «Bewerbung abschließen» is no "schließen" (close).
+const NOT_ADVANCE_RE = /(\bback\b|zurück|indietro|précédent|retour|cancel|abbrechen|annulla|annuler|\bclose\b|\bschlie(ß|ss)en\b|\bchiudi\b|\bfermer\b|\bsign (in|up|out)\b|\bsign\b|log ?in|log ?out|anmeld|abmeld|accedi|\besci\b|connexion|regist|konto|account|delete|löschen|elimina|supprimer)/i;
 
 /**
  * The advance button the agent named, when it is safe to press as "Next":
@@ -309,7 +312,26 @@ export async function advanceLocator(page, ref) {
   const info = await describe(locator).catch(() => null);
   if (!info?.button || info.leaves || !advanceName(info.name)) return null;
   if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
-  return locator;
+  // The name too: after a confirmed submission the portal's memory learns it (knowledge.mjs).
+  return { locator, name: info.name };
+}
+
+/**
+ * The final button the agent named on the last page (self-correction, level
+ * 1: JOIN's «Conferma e applica» was no usual name): an enabled button whose
+ * name says sending or confirming (FINAL_RE) and nothing of going back,
+ * leaving or signing in. The runner checks the page has nothing left to
+ * answer and presses it behind the submission guard; a dry run stops before.
+ * @returns {Promise<{locator: import('playwright').Locator, name: string}|null>}
+ */
+export async function submitLocator(page, ref) {
+  if (!REF_RE.test(ref || '')) return null;
+  const locator = page.locator(`aria-ref=${ref}`);
+  const info = await describe(locator).catch(() => null);
+  if (!info?.button || !info.name || info.leaves || NOT_ADVANCE_RE.test(info.name)) return null;
+  if (!FINAL_RE.test(info.name) && !SUBMIT_RE.test(info.name)) return null;
+  if (!await locator.isEnabled({ timeout: 2000 }).catch(() => false)) return null;
+  return { locator, name: info.name };
 }
 
 /** A step's own button ("Salva e prosegui") may be pressed as Next; nothing that may send, go back or leave. */
@@ -353,7 +375,7 @@ export async function completeWithAgent({ page, hint, errors = [], candidate, ca
     log(`portal agent round ${round}: ${step.status} (${step.actions.length} actions)`);
     if (step.status === 'needs_candidate') return end({ status: 'needs_candidate', questions: step.questions, calls: round });
     if (step.status === 'stuck') return end({ status: 'stuck', reason: step.reason, calls: round });
-    if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, calls: round });
+    if (step.status === 'done') return end({ status: 'done', advanceRef: step.advanceRef, submitRef: step.submitRef, calls: round });
     const results = [];
     for (const action of step.actions) {
       const result = await runAction(page, action, files);

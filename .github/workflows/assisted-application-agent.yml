@@ -135,6 +135,8 @@ jobs:
           # The trial run printed MaxListenersExceededWarning on a PassThrough
           # with no stack: the trace names the library that adds the listeners.
           NODE_OPTIONS: --trace-warnings
+          # Where a portal stop is reported for the fix issue (self-correction, level 3).
+          ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
         # A real (headed) Chromium on a virtual screen: some ATS turn away a
         # browser that calls itself HeadlessChrome, in its user agent and in its
         # client hints. Nothing is disguised (owner decision 2026-10-01).
@@ -158,6 +160,18 @@ jobs:
           node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
             --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
             || echo "::warning::Codex auth broker cleanup did not complete"
+
+      # Self-correction, level 3 (owner decision 2026-10-01): a portal page the
+      # runner could not get through becomes a fix issue for the Codex fixer,
+      # with no candidate data (struck out by agent.mjs, and again here).
+      - name: Open the fix issue for a portal stop
+        if: always() && (inputs.mode == 'submit' || inputs.mode == 'dry_run')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STOP_REPORT: ${{ runner.temp }}/portal-stop.json
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/assisted-application/report-portal-stop.mjs
 
       - name: Report failure to GitHub Issues
         if: failure()
