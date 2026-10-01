@@ -120,6 +120,8 @@ describe('extractIndexedEventPrice', () => {
 
   it.each([
     'Il parcheggio è gratuito.',
+    'Parking, free',
+    'Drinks, gratis',
     'Ingresso gratuito per bambini sotto i 12 anni.',
     'Free drinks with your CHF 25 ticket.',
     'Children under 12 have free entrance.',
@@ -132,6 +134,10 @@ describe('extractIndexedEventPrice', () => {
 });
 
 describe('extractPrice', () => {
+  it('returns no price when a tariff cannot be interpreted', () => {
+    expect(extractPrice({}, '<table><tr><th>Price</th><td>su richiesta</td></tr></table>')).toBeUndefined();
+  });
+
   it('does not interpret the minimum participant age as an admission price', () => {
     const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
     expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
@@ -542,6 +548,23 @@ describe('mapEventRecord', () => {
     expect(mapEventRecord('abc123', { it: indexedHit }, {
       detailLd: { offers: { price: '25', priceCurrency: 'CHF' } },
     })?.event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
+  });
+
+  it('uses indexed admission when the detail tariff is unknown and keeps booking metadata', () => {
+    const indexedHit = { ...hitIt, content: 'Una fiera di quattro secoli.Gratuito\n' };
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailHtml: '<table><tr><th>Price</th><td>su richiesta</td></tr></table>',
+      detailLd: { offers: { url: '/booking/', availability: 'InStock' } },
+    })?.event.price).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+      url: 'https://www.myswitzerland.com/booking/', availability: 'https://schema.org/InStock',
+    });
+  });
+
+  it('keeps a booking link without inventing an amount when both price sources are unknown', () => {
+    expect(mapEventRecord('abc123', { it: hitIt }, {
+      detailLd: { offers: { url: '/booking/' } },
+    })?.event.price).toEqual({ url: 'https://www.myswitzerland.com/booking/' });
   });
 
   it('enriches category/price/address/venue from detail-page JSON-LD when available', () => {

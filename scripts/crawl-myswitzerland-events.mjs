@@ -77,6 +77,7 @@ import {
   loadGeocodeCache,
   saveGeocodeCache,
   enrichEventsWithGeoComune,
+  hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
 import {
@@ -374,7 +375,10 @@ export function extractPrice(ld, detailHtml, detailUrl) {
   const offerMetadata = extractEventOfferMetadata(offersRaw, detailUrl || SITE_ORIGIN) || {};
   if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true, ...offerMetadata };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
-  if (tablePrice) return { ...parseEventPriceText(tablePrice), ...offerMetadata };
+  if (tablePrice) {
+    const price = parseEventPriceText(tablePrice);
+    if (hasConfidentPrice(price)) return { ...price, ...offerMetadata };
+  }
   return undefined;
 }
 
@@ -386,7 +390,8 @@ export function extractPrice(ld, detailHtml, detailUrl) {
  */
 export function extractIndexedEventPrice(content) {
   if (typeof content !== 'string') return undefined;
-  const freeTariff = /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:gratuit[oea]?|kostenlos|gratis|free(?:\s+(?:admission|entry|entrance))?|(?:admission|entry|entrance)\s+(?:is\s+)?free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|libre|gratuit[oea]?))\s*[.!]?\s*$/iu.test(content);
+  const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
+    || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)\s+(?:is\s+)?free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|libre|gratuit[oea]?))\s*[.!]?\s*$/iu.test(content);
   return freeTariff ? { amount: 0, currency: 'CHF', isFree: true } : undefined;
 }
 
@@ -596,6 +601,12 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN)
     || detailImageSourceUrl
     || firstEventImageUrlFromHtml(detailHtml, detailUrl || SITE_ORIGIN);
+  const price = [
+    extractPrice(detailLd, detailHtml, detailUrl),
+    detailPrice,
+    ...LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)),
+  ].find(hasConfidentPrice);
+  const offerMetadata = extractEventOfferMetadata(detailLd?.offers, detailUrl || SITE_ORIGIN);
 
   return {
     event: fillEventPeopleDefaults({
@@ -614,8 +625,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd, detailHtml, detailUrl) || detailPrice
-        || LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(Boolean),
+      price: price || offerMetadata ? { ...offerMetadata, ...price } : undefined,
       address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
