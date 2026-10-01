@@ -7409,6 +7409,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.killsec-server-dati-svizzeri.title': 'KillSec: rete hacker smantellata, coinvolta la Svizzera',
     'blog.article.killsec-server-dati-svizzeri.excerpt': 'Operazione internazionale contro KillSec: tre arresti, cinque server sequestrati e 110 terabyte di dati rubati recuperati. Indagini svizzere in corso.',
     'blog.article.killsec-server-dati-svizzeri.imageAlt': 'Sala server di un\'azienda svizzera, immagine simbolica per l\'operazione contro KillSec',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.title': 'Fisioterapisti: 112mila firme per tariffe più alte, petizioni ai cantoni',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.excerpt': 'Physioswiss consegna 26 petizioni cantonali a ottobre: chiesto aumento minimo 30% per coprire costi studi e garantire accesso cure',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.imageAlt': 'Studio di fisioterapia in Svizzera con terapista al lavoro',
 };
 
 export default blogMetaChIt;

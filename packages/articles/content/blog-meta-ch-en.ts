@@ -7409,6 +7409,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.killsec-server-dati-svizzeri.title': 'KillSec: hacker network dismantled, Switzerland involved',
     'blog.article.killsec-server-dati-svizzeri.excerpt': 'International operation against KillSec: three arrests, five servers seized and 110 terabytes of stolen data recovered. Swiss investigations ongoing.',
     'blog.article.killsec-server-dati-svizzeri.imageAlt': 'Swiss company server room, symbolic image for the international operation against KillSec',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.title': 'Physiotherapists: 112k signatures for higher rates, cantonal petitions',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.excerpt': 'Physioswiss delivers 26 cantonal petitions in October: minimum 30% increase requested to cover study costs and guarantee access to care',
+    'blog.article.fisioterapisti-petizioni-tariffe-cantoni.imageAlt': 'Physiotherapy clinic in Switzerland with therapist working',
 };
 
 export default blogMetaChEn;
