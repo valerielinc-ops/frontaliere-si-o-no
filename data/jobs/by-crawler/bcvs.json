@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-10-01T09:26:40.778Z",
+  "assembledAt": "2026-10-01T21:36:42.684Z",
   "jobs": [
     {
       "id": "bcvs-479c7c8ed449",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:35.083Z",
+      "crawledAt": "2026-10-01T21:36:35.914Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -83,6 +83,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:48:06.057Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -95,8 +96,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671"
+      }
     },
     {
       "id": "bcvs-9ee203f89972",
@@ -129,7 +129,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:34.636Z",
+      "crawledAt": "2026-10-01T21:36:35.457Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -170,6 +170,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:52.591Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -182,8 +183,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-data-ia-2691"
+      }
     },
     {
       "id": "bcvs-06cbb126f58a",
@@ -216,7 +216,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:34.056Z",
+      "crawledAt": "2026-10-01T21:36:34.864Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -272,8 +272,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/expert-e-ia-power-platform-2693"
+      }
     },
     {
       "id": "bcvs-a7ac7dab4c55",
@@ -306,7 +305,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:33.476Z",
+      "crawledAt": "2026-10-01T21:36:34.271Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -347,6 +346,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:29:51.717Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -359,8 +359,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/data-analyst-bi-expert-2695"
+      }
     },
     {
       "id": "bcvs-9887e8d5b2a3",
@@ -393,7 +392,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:32.892Z",
+      "crawledAt": "2026-10-01T21:36:33.678Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -435,6 +434,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:04:10.904Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -447,8 +447,7 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/gestionnaire-back-office-credits-2513"
+      }
     },
     {
       "id": "bcvs-add4d1a4e3d9",
@@ -481,7 +480,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:26:32.441Z",
+      "crawledAt": "2026-10-01T21:36:33.219Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -508,11 +507,14 @@
           "Vous serez un acteur du changement et accompagnerez les collègues dans la transition digitale."
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-30T21:25:25.329Z",
+      "previousSlugs": [
+        "chef-fe-de-projets-it-business-analyste-bcvs-sion",
+        "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-fe-de-projets-it-business-analyste-bcvs-sion"
+          "chef-fe-de-projets-it-business-analyste-bcvs-sion",
+          "responsabile-di-progetto-it-e-business-analyst-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "chef-fe-de-projets-it-business-analyste-bcvs-sion"
@@ -521,9 +523,8 @@
           "chef-fe-de-projets-it-business-analyste-bcvs-sion"
         ]
       },
-      "previousSlugs": [
-        "chef-fe-de-projets-it-business-analyste-bcvs-sion"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:25:25.329Z",
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -536,8 +537,7 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/chef-fe-de-projets-it-business-analyste-2701"
+      }
     }
   ]
 }
