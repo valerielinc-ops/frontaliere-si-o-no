@@ -1,25 +1,26 @@
 {
   "key": "caritas-schweiz",
   "label": "Caritas Schweiz",
-  "generatedAt": "2026-10-01T09:16:49.854Z",
-  "total": 16,
+  "generatedAt": "2026-10-01T21:22:31.421Z",
+  "total": 13,
   "discovered": null,
   "parsed": 13,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 16,
+  "written": 13,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 12,
-  "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 10156,
-  "avgDurationMs": 10156,
+  "newCount": 0,
+  "updatedCount": 13,
+  "removedCount": 3,
+  "unchangedCount": 0,
+  "durationMs": 8488,
+  "avgDurationMs": 8488,
   "durationHistory": [
-    10156
+    8488
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "caritas-schweiz-46405d7e7155",
       "slug": "evaluation-bewaltigung-der-unwetter-2024-in-der-schweiz-caritas-schweiz-luzern",
@@ -27,13 +28,13 @@
       "companyKey": "caritas-schweiz",
       "companyDomain": "caritas.ch",
       "title": "Evaluation Bewältigung der Unwetter 2024 in der Schweiz",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Luzern",
       "canton": "LU",
       "url": "https://apply.refline.ch/126757/2370/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:39.014Z",
+      "crawledAt": "2026-10-01T21:22:21.660Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -51,16 +52,15 @@
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
-      "_qualityScore": 66,
+      "firstSeenAt": "2026-10-01T09:16:39.014Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "caritas-schweiz-40faabf58fb9",
       "slug": "sozialpadagogische-bezugspersonen-mna-80-100-in-zurich-uster-m-w-d-caritas-schweiz-zurich",
@@ -74,7 +74,7 @@
       "url": "https://apply.refline.ch/126757/2338/pub/8/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:38.547Z",
+      "crawledAt": "2026-10-01T21:22:21.242Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://apply.refline.ch/126757/2369/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:38.082Z",
+      "crawledAt": "2026-10-01T21:22:20.826Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -154,7 +154,7 @@
       "url": "https://apply.refline.ch/126757/2363/pub/2/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:36.682Z",
+      "crawledAt": "2026-10-01T21:22:19.569Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -194,7 +194,7 @@
       "url": "https://apply.refline.ch/126757/2366/pub/3/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:37.146Z",
+      "crawledAt": "2026-10-01T21:22:19.989Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -234,7 +234,7 @@
       "url": "https://apply.refline.ch/126757/2365/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:37.615Z",
+      "crawledAt": "2026-10-01T21:22:20.408Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -274,7 +274,7 @@
       "url": "https://apply.refline.ch/126757/2361/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:36.213Z",
+      "crawledAt": "2026-10-01T21:22:19.149Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -314,7 +314,7 @@
       "url": "https://apply.refline.ch/126757/2360/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:40.882Z",
+      "crawledAt": "2026-10-01T21:22:23.369Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -354,7 +354,7 @@
       "url": "https://apply.refline.ch/126757/2359/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:41.352Z",
+      "crawledAt": "2026-10-01T21:22:23.786Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -394,7 +394,7 @@
       "url": "https://apply.refline.ch/126757/2020/pub/4/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:39.948Z",
+      "crawledAt": "2026-10-01T21:22:22.508Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -434,7 +434,7 @@
       "url": "https://apply.refline.ch/126757/2354/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:40.414Z",
+      "crawledAt": "2026-10-01T21:22:22.952Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -474,7 +474,7 @@
       "url": "https://apply.refline.ch/126757/2356/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:16:39.479Z",
+      "crawledAt": "2026-10-01T21:22:22.078Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -514,7 +514,7 @@
       "url": "https://apply.refline.ch/126757/2345/pub/1/index.html",
       "source": "Caritas Schweiz Dedicated Parser (Refline 126757)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:35.726Z",
+      "crawledAt": "2026-10-01T21:22:18.728Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -542,8 +542,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "caritas-schweiz-7ec657c486a5",
       "slug": "betreuung-nacht-e-wochenende-asylzentrum-80-100-befristet-kollbrunn-caritas-schweiz-zurich",
@@ -623,7 +622,6 @@
       "salaryMax": 88000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -676,5 +674,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

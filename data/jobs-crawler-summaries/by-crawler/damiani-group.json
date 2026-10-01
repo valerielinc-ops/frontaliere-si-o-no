@@ -1,18 +1,18 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-10-01T09:17:39.799Z",
+  "generatedAt": "2026-10-01T21:26:45.255Z",
   "total": 9,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5969,
-  "avgDurationMs": 5969,
+  "durationMs": 4845,
+  "avgDurationMs": 4845,
   "durationHistory": [
-    5969
+    4845
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -205,11 +205,11 @@
       "salarySource": "estimated",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-it-support-&-junior-system-administrator/1362036255",
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -359,7 +359,6 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-08T23:23:15.400Z",
       "sourceIdentity": "url:https://careers.damianigroup.com/job/lugano-sales-advisor-salvini-gioielli-manor/1367607755",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -369,46 +368,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Specialista Customer Service - lingua araba o russa",
-      "slug": "specialista-servizio-clienti-lingua-araba-o-russa-damiani-group-mendrisio",
-      "url": "https://careers.damianigroup.com/job/Mendrisio-Customer-Service-Specialist-Arabic-or-Russian-Speaking/1344099155/",
-      "applyUrl": "https://careers.damianigroup.com/talentcommunity/apply/1344099155/?locale=en_US",
-      "company": "Damiani Group",
-      "companyKey": "damiani-group",
-      "companyDomain": "damianigroup.com",
-      "location": "Mendrisio",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Lusso & Gioielleria",
-      "source": "damiani-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-05-30",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "2026-09-30",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "streetAddress": "Via Penate 12",
-      "postalCode": "6850",
-      "id": "damiani-group-2fbffcd3e777",
-      "firstSeenAt": "2026-04-13T21:32:28.163Z",
-      "salarySource": "reported",
-      "sourceIdentity": "url:https://careers.damianigroup.com/job/mendrisio-customer-service-specialist-arabic-or-russian-speaking/1344099155",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
