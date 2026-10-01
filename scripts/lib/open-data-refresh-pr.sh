@@ -179,17 +179,20 @@ stage_paths() {
 }
 
 stage_paths
-if git diff --cached --quiet; then
-  echo "No refresh changes to publish."
-  exit 0
-fi
-
 # Data-refresh commits belong to the installed site automation identity, not a
 # personal account. Keep the author stable across scheduled PRs.
 git config user.name "frontaliere-automation[bot]"
 git config user.email "296434481+frontaliere-automation[bot]@users.noreply.github.com"
-git commit -m "$COMMIT_MESSAGE"
-REFRESH_COMMIT="$(git rev-parse HEAD)"
+if git diff --cached --quiet; then
+  if [ "$RECONCILE_MAIN" = false ] || [ "$RECONCILE_COMPAT" = true ] || [ -z "$REMOTE_HEAD" ]; then
+    echo "No refresh changes to publish."
+    exit 0
+  fi
+  echo "No refresh changes; reconciling the pending PR with main."
+else
+  git commit -m "$COMMIT_MESSAGE"
+  REFRESH_COMMIT="$(git rev-parse HEAD)"
+fi
 
 # A stable branch lets the next scheduled run update one in-flight PR instead
 # of opening an unbounded queue of equivalent data PRs. Start from the remote
@@ -211,13 +214,19 @@ if [ -n "$REMOTE_HEAD" ]; then
     # crawlers/helpers; selecting it in the workflow checkout would change the
     # code used by every later step, including after a best-effort failure.
     PUBLISH_PATHS=()
-    while IFS= read -r -d '' refresh_path; do
-      PUBLISH_PATHS+=("$refresh_path")
-    done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    if [ -n "$REFRESH_COMMIT" ]; then
+      while IFS= read -r -d '' refresh_path; do
+        PUBLISH_PATHS+=("$refresh_path")
+      done < <(git diff --name-only -z "$REFRESH_BASE" "$REFRESH_COMMIT")
+    fi
     REFRESH_PUBLISH_WORKTREE="$MERGE_REFRESH_SCRIPT_DIR/publish"
     git worktree add --detach --no-checkout "$REFRESH_PUBLISH_WORKTREE" "$REMOTE_HEAD"
     cd "$REFRESH_PUBLISH_WORKTREE"
-    printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+    if [ "${#PUBLISH_PATHS[@]}" -gt 0 ]; then
+      printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+    else
+      git sparse-checkout set --no-cone --stdin </dev/null
+    fi
     git checkout --quiet
     # These are the real committed paths, already resolved through symlinks
     # by the initial stage. The sparse checkout need not include alias paths.
@@ -256,7 +265,7 @@ if [ "$RECONCILE_COMPAT" = true ]; then
     merge_refresh_ref "$REFRESH_COMMIT"
   fi
   merge_refresh_ref origin/main
-elif [ -n "$REMOTE_HEAD" ]; then
+elif [ -n "$REMOTE_HEAD" ] && [ -n "$REFRESH_COMMIT" ]; then
   # The current refresh was committed from the workflow checkout before the
   # isolated stable-branch checkout was created. Reconcile with path-aware rules:
   # JSONL histories and Telegram ledgers union both runs, while complete

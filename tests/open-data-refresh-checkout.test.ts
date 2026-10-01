@@ -128,18 +128,20 @@ describe('data publisher preserves its source checkout', () => {
     expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
   });
 
-  it('leaves current code and uncommitted data intact when publication fails', () => {
+  it.each([false, true])('leaves code and uncommitted data intact on publication failure (main reconciliation: %s)', (reconcileMain) => {
     const setup = fixture();
+    const pendingHead = git(setup.remote, ['rev-parse', 'chore/refresh']);
     write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
     write(setup.repo, 'data/unpublished.json', '{"version":"unpublished"}\n');
-    expect(publish(setup, true).status).not.toBe(0);
+    expect(publish(setup, true, reconcileMain ? ['--reconcile-main'] : []).status).not.toBe(0);
+    if (reconcileMain) expect(git(setup.remote, ['rev-parse', 'chore/refresh'])).toBe(pendingHead);
     expect(git(setup.repo, ['branch', '--show-current'])).toBe('main');
     expect(fs.readFileSync(path.join(setup.repo, 'scripts/crawler.mjs'), 'utf8')).toContain('current crawler');
     expect(fs.readFileSync(path.join(setup.repo, 'data/unpublished.json'), 'utf8')).toBe('{"version":"unpublished"}\n');
     expect(git(setup.repo, ['worktree', 'list', '--porcelain']).match(/^worktree /gm)).toHaveLength(1);
   });
 
-  it('reconciles conflicting event caches against main with shallow branch tips', () => {
+  it.each([false, true])('reconciles conflicting event caches in a shallow clone (no fresh changes: %s)', (noFreshChanges) => {
     const setup = fixture();
     git(setup.repo, ['checkout', '-q', 'chore/refresh']);
     write(setup.repo, 'data/events-geocode-cache.json', '{"common":{"lat":1,"lng":2},"pending":{"lat":3,"lng":4}}\n');
@@ -159,8 +161,9 @@ describe('data publisher preserves its source checkout', () => {
     setup.repo = shallow;
     git(setup.repo, ['config', `url.${setup.remote}.insteadOf`, 'https://x-access-token:fixture-token@github.com/fixture/publisher.git']);
     expect(spawnSync('git', ['cat-file', '-e', `${setup.base}^{commit}`], { cwd: setup.repo }).status).not.toBe(0);
-    write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
+    if (!noFreshChanges) write(setup.repo, 'data/cache.json', '{"version":"current"}\n');
     write(setup.repo, 'data/unpublished.json', '{"version":"unpublished"}\n');
+    const sourceHead = git(setup.repo, ['rev-parse', 'HEAD']);
     const result = publish(setup, false, ['--reconcile-main']);
     expect(result.status, result.stderr).toBe(0);
     const geo = JSON.parse(git(setup.remote, ['show', 'chore/refresh:data/events-geocode-cache.json']));
@@ -168,6 +171,10 @@ describe('data publisher preserves its source checkout', () => {
     const translations = JSON.parse(git(setup.remote, ['show', 'chore/refresh:data/events-translation-cache.json']));
     expect(translations).toEqual({ title: { en: 'corrected', fr: 'main', de: 'pending' } });
     expect(git(setup.remote, ['rev-parse', 'chore/refresh^2'])).toBe(mainHead);
+    if (noFreshChanges) expect(git(setup.repo, ['rev-parse', 'HEAD'])).toBe(sourceHead);
+    expect(git(setup.remote, ['show', '-s', '--format=%an|%ae|%cn|%ce', 'chore/refresh'])).toBe(
+      `${identity.GIT_AUTHOR_NAME}|${identity.GIT_AUTHOR_EMAIL}|${identity.GIT_COMMITTER_NAME}|${identity.GIT_COMMITTER_EMAIL}`,
+    );
     expect(git(setup.repo, ['rev-parse', '--is-shallow-repository'])).toBe('true');
     expect(git(setup.repo, ['cat-file', '-t', setup.base])).toBe('commit');
     expect(git(setup.remote, ['merge-tree', '--write-tree', 'main', 'chore/refresh'])).not.toContain('CONFLICT');
