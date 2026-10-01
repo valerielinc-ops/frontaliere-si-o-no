@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
@@ -23,6 +23,8 @@ import {
  */
 
 const WAITING_STATES = new Set(['drafting', 'regenerating', 'owner_review', 'submitting']);
+// Actions whose outcome is the page's new state, shown at the top.
+const STATE_ACTIONS = new Set<ReviewAction>(['approve', 'reject', 'confirm_submitted', 'followup_send', 'followup_skip']);
 const INTL: Record<string, string> = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 
 function formatDeadline(ms: number | null, locale: string): string {
@@ -194,6 +196,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     return () => window.clearInterval(timer);
   }, [data, load]);
 
+  const top = useRef<HTMLElement | null>(null);
   const run = async (action: ReviewAction, extra = {}): Promise<boolean> => {
     if (busy) return false;
     setBusy(action);
@@ -204,6 +207,10 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
       await sendReviewAction(token, action, extra);
       setDone(action);
       await load();
+      // The buttons are at the bottom of a long page and the new state (sending,
+      // a new version on its way, the follow-up decided) is shown at the top:
+      // bring it into view. Saved answers and edits confirm next to their form.
+      if (STATE_ACTIONS.has(action)) top.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       return true;
     } catch (reason) {
       setError(reason instanceof ReviewRequestError ? reason.code : 'network');
@@ -361,7 +368,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
 
   return (
     <main className="mx-auto max-w-2xl px-4 py-8 sm:py-12">
-      <section className="space-y-6 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
+      <section ref={top} className="scroll-mt-4 space-y-6 rounded-2xl border border-edge bg-surface p-5 sm:p-7">
         <div className="flex items-start gap-3">
           <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-accent-subtle text-accent">
             <FileText className="h-5 w-5" aria-hidden="true" />
