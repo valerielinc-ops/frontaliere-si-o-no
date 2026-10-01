@@ -33,6 +33,7 @@ const jobs = Array.from({ length: 8 }, (_, i) => ({
 
 
 const archiveDates = { posted: daysAgo(10), crawled: daysAgo(5), expired: daysAgo(2), future: daysAgo(-2) };
+const historicalEstimate = (deadline: string) => new Date(Date.parse(deadline) - 30 * 86400000).toISOString();
 const archiveRecord = (slug: string, overrides: Record<string, unknown> = {}) => ({
   ...jobs[7], id: slug, slug, datePosted: archiveDates.posted, postedDate: archiveDates.posted,
   crawledAt: archiveDates.crawled, expiredAt: archiveDates.expired, ...overrides,
@@ -41,6 +42,8 @@ const noPostingDates = { datePosted: undefined, postedDate: undefined, crawledAt
 const archivedJobs = [
   archiveRecord('archived-audit-position'),
   archiveRecord('archived-crawl-only', { ...noPostingDates, crawledAt: archiveDates.crawled }),
+  archiveRecord('archived-first-seen', { datePosted: undefined, postedDate: undefined, firstSeenAt: archiveDates.posted }),
+  archiveRecord('archived-source-on-expiry', { datePosted: archiveDates.expired, postedDate: archiveDates.expired }),
   archiveRecord('archived-posted-only', { ...noPostingDates, postedDate: archiveDates.posted }),
   archiveRecord('archived-expiry-only', { ...noPostingDates, expiredAt: archiveDates.expired }),
   archiveRecord('archived-future-expiry', { expiredAt: archiveDates.future }),
@@ -167,16 +170,18 @@ describe('job-board emitted output', () => {
 
   it.each([
     ['archived-audit-position', archiveDates.posted, archiveDates.expired],
-    ['archived-crawl-only', archiveDates.crawled, archiveDates.crawled],
+    ['archived-crawl-only', historicalEstimate(archiveDates.crawled), archiveDates.crawled],
+    ['archived-first-seen', archiveDates.posted, archiveDates.expired],
+    ['archived-source-on-expiry', archiveDates.expired, archiveDates.expired],
     ['archived-posted-only', archiveDates.posted, archiveDates.posted],
-    ['archived-expiry-only', archiveDates.expired, archiveDates.expired],
+    ['archived-expiry-only', historicalEstimate(archiveDates.expired), archiveDates.expired],
     ['archived-future-expiry', archiveDates.posted, archiveDates.crawled],
     ['archived-late-posting', archiveDates.crawled, archiveDates.expired],
-    ['archived-sparse', archiveDates.crawled, archiveDates.crawled],
+    ['archived-sparse', historicalEstimate(archiveDates.crawled), archiveDates.crawled],
     ['archived-short-description', archiveDates.posted, archiveDates.expired],
     ['archived-medium-description', archiveDates.posted, archiveDates.expired],
     ['archived-markup-short', archiveDates.posted, archiveDates.expired],
-  ])('keeps complete expired schema using only observed past dates for %s', (slug, datePosted, validThrough) => {
+  ])('keeps complete expired schema with source dates or a bounded historical estimate for %s', (slug, datePosted, validThrough) => {
     for (const locale of locales) {
       const document = htmlDoc(`${hubPath(locale, 'TI')}${slug}/`);
       const entries = structured(document);
@@ -202,6 +207,10 @@ describe('job-board emitted output', () => {
       expect(posting.directApply).toBe(false);
       expect(Date.parse(posting.validThrough)).toBeLessThan(Date.now());
       expect(Date.parse(posting.datePosted)).toBeLessThanOrEqual(Date.parse(posting.validThrough));
+      if (['archived-crawl-only', 'archived-expiry-only', 'archived-sparse'].includes(slug)) {
+        expect(Date.parse(posting.datePosted)).toBeLessThan(Date.parse(posting.validThrough));
+        expect(Date.parse(posting.validThrough) - Date.parse(posting.datePosted)).toBe(30 * 86400000);
+      }
       expect(entries.flatMap(allTypes)).toEqual(expect.arrayContaining(['WebPage', 'BreadcrumbList']));
       expect(document.querySelector('h1')).toBeTruthy();
     }

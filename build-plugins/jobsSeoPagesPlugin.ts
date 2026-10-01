@@ -13852,11 +13852,18 @@ ${staticAnalyticsHtml}
  .map(safeIsoDate)
  .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
- // Reuse the builder's publication/crawl fallback contract without inventing
- // an earlier posting date. With one observed timestamp both dates coincide.
- const expiredDatePosted = [ejData?.datePosted, ejData?.postedDate, ejData?.crawledAt, realValidThrough]
+ const validThroughMs = Date.parse(realValidThrough);
+ // Preserve source publication dates, including a real same-day closure.
+ const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
  .map(safeIsoDate)
- .find((date): date is string => date !== null && Date.parse(date) <= Date.parse(realValidThrough)) || realValidThrough;
+ .find((date): date is string => date !== null && Date.parse(date) <= validThroughMs);
+ const observedDatePosted = [ejData?.firstSeenAt, ejData?.crawledAt]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
+ // With no usable publication/earlier observation, retain the bounded historical
+ // estimate: 30 days before the real past deadline, never relative to the build.
+ const expiredDatePosted = sourceDatePosted || observedDatePosted
+ || new Date(validThroughMs - 30 * 86400000).toISOString();
  // Match the builder's 50-character guarantee after visible-text normalization,
  // so short historical copy never falls back to an active application prompt.
  const archivedDescription = capJsonLdDescription(jobDescription);
