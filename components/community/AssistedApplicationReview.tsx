@@ -65,7 +65,12 @@ function QuestionField({ question, value, onChange, disabled, error }: {
   error?: string;
 }) {
   const { t } = useTranslation();
-  const inputClass = 'mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
+  // min-w-0 / max-w-full: iOS Safari gives date inputs an intrinsic width that
+  // ignores w-full and pushes them out of the card (giro di prova 2026-10-01).
+  const inputClass = 'mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2.5 text-sm text-heading';
+  // Without the native appearance a date input keeps the width it is given; the
+  // height stays that of the other fields even while it is empty.
+  const dateClass = `${inputClass} appearance-none min-h-[2.75rem] text-left`;
   return (
     <label className="block text-sm font-medium text-body">
       {question.question}{question.required && <span className="text-danger"> *</span>}
@@ -92,7 +97,7 @@ function QuestionField({ question, value, onChange, disabled, error }: {
           onChange={(event) => onChange(event.target.value)}
           disabled={disabled}
           maxLength={question.validation?.maxLength || 500}
-          className={inputClass}
+          className={question.type === 'date' ? dateClass : inputClass}
           aria-invalid={error ? true : undefined}
         />
       )}
@@ -114,7 +119,7 @@ function EditField({ field, value, onChange, disabled, error }: {
 }) {
   const { t } = useTranslation();
   const label = t(`jobBoard.assisted.review.field.${field.key}`, field.label);
-  const inputClass = 'mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading disabled:bg-surface-alt disabled:text-subtle';
+  const inputClass = 'mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading disabled:bg-surface-alt disabled:text-subtle';
   if (!field.editable) {
     return (
       <div className="text-sm">
@@ -492,7 +497,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     rows={14}
                     maxLength={data.editLimits?.coverLetterText.max || 8000}
                     disabled={Boolean(busy)}
-                    className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm leading-relaxed text-heading"
+                    className="mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm leading-relaxed text-heading"
                     aria-invalid={editError('coverLetterText') ? true : undefined}
                   />
                   {editError('coverLetterText') && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{editError('coverLetterText')}</span>}
@@ -507,7 +512,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                         onChange={(event) => changeEdit('emailSubject', event.target.value)}
                         maxLength={data.editLimits?.emailSubject.max || 250}
                         disabled={Boolean(busy)}
-                        className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading"
+                        className="mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading"
                         aria-invalid={editError('emailSubject') ? true : undefined}
                       />
                       {editError('emailSubject') && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{editError('emailSubject')}</span>}
@@ -520,7 +525,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                         rows={10}
                         maxLength={data.editLimits?.emailBody.max || 4000}
                         disabled={Boolean(busy)}
-                        className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm leading-relaxed text-heading"
+                        className="mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm leading-relaxed text-heading"
                         aria-invalid={editError('emailBody') ? true : undefined}
                       />
                       {editError('emailBody') && <span className="mt-1 block text-xs font-normal text-danger" role="alert">{editError('emailBody')}</span>}
@@ -668,7 +673,7 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               <form className="space-y-2" onSubmit={(event) => { event.preventDefault(); void run('reject', { feedback }); }}>
                 <label className="block text-sm font-medium text-body">
                   {t('jobBoard.assisted.review.feedbackLabel')}
-                  <textarea value={feedback} onChange={(event) => setFeedback(event.target.value)} rows={4} maxLength={2000} className="mt-1 w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading" />
+                  <textarea value={feedback} onChange={(event) => setFeedback(event.target.value)} rows={4} maxLength={2000} className="mt-1 block w-full min-w-0 max-w-full rounded-lg border border-edge bg-surface px-3 py-2 text-sm text-heading" />
                 </label>
                 <p className="text-xs text-subtle">{t('jobBoard.assisted.review.roundsLeft', { count: String(data.roundsLeft) })}</p>
                 <button type="submit" disabled={Boolean(busy) || feedback.trim().length < 5} className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-accent px-4 text-sm font-semibold text-accent disabled:opacity-60">
