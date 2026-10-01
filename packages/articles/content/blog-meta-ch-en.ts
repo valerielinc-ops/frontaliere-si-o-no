@@ -7412,6 +7412,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.title': 'Physiotherapists: 112k signatures for higher rates, cantonal petitions',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.excerpt': 'Physioswiss delivers 26 cantonal petitions in October: minimum 30% increase requested to cover study costs and guarantee access to care',
     'blog.article.fisioterapisti-petizioni-tariffe-cantoni.imageAlt': 'Physiotherapy clinic in Switzerland with therapist working',
+    'blog.article.operazione-ransomware-dati-sottratti.title': 'KillSec: three arrests and 110 terabytes of stolen data',
+    'blog.article.operazione-ransomware-dati-sottratti.excerpt': 'Three arrests, eight searches and five servers seized: the operation against KillSec recovered at least 110 terabytes of stolen data.',
+    'blog.article.operazione-ransomware-dati-sottratti.imageAlt': 'Computer screens and a Swiss map illustrating the KillSec ransomware investigation',
 };
 
 export default blogMetaChEn;

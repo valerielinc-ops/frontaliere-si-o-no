@@ -22264,6 +22264,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'operazione-ransomware-dati-sottratti',
+    category: 'novita',
+    date: '2026-10-01T22:55:16.816Z',
+    image: '/images/blog/operazione-ransomware-dati-sottratti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Thu, 01 Oct 2026 22:31:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 22:55:16 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,87 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>KillSec: tre arresti e 110 terabyte di dati rubati</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/operazione-ransomware-dati-sottratti/</link>
+      <description><![CDATA[Tre arresti, otto perquisizioni e cinque server sequestrati: l'operazione contro KillSec ha recuperato almeno 110 terabyte di dati rubati.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Tre arresti e otto perquisizioni in quattro Paesi
+- Recuperati almeno 110 terabyte di dati rubati
+- Attacchi a società svizzere tra ottobre 2023 e giugno 2025
+
+## Fatti chiave
+- Gruppo → KillSec (o KillSecurity)
+- Operazione → smantellamento di una struttura informatica
+- Arresti → tre
+- Perquisizioni → otto
+- Paesi → Spagna, Grecia, Regno Unito e Romania
+- Server sequestrati → cinque
+- Dati recuperati → almeno 110 terabyte
+- Attacchi → contro diverse società svizzere, tra ottobre 2023 e giugno 2025
+
+Mercoledì una vasta operazione internazionale ha permesso di smantellare la struttura informatica utilizzata dal gruppo di ransomware KillSec, noto anche come KillSecurity. Il bilancio comprende tre arresti, otto perquisizioni in Spagna, Grecia, Regno Unito e Romania, il sequestro di cinque server e il recupero di almeno 110 terabyte di dati rubati.
+
+### L'indagine svizzera
+
+Lo hanno reso noto l'Ufficio federale di polizia (fedpol) e il Ministero pubblico della Confederazione (MPC). Dall'estate del 2025 i due enti conducono un'inchiesta su una serie di attacchi contro diverse società svizzere, sferrati tra ottobre 2023 e giugno 2025. Il procedimento penale riguarda la sottrazione di dati, l'accesso abusivo a un sistema informatico, il danneggiamento di dati e l'estorsione.
+
+### Come funziona il ransomware
+
+Il meccanismo descritto nella fonte segue una sequenza precisa. Gli autori entrano indebitamente nel sistema informatico della vittima, copiano ed estraggono i dati di interesse, poi crittografano i server. Solo dopo chiedono un riscatto in cambio della chiave di decrittazione; la richiesta viene spesso formulata in criptovaluta.
+
+### La doppia estorsione
+
+KillSec pratica la cosiddetta doppia estorsione. Dopo la cifratura dei server, se l'azienda rifiuta di pagare, gli autori minacciano di pubblicare i dati sul darknet. Il rifiuto può dipendere, per esempio, da un backup effettuato prima della sottrazione: il ripristino dei dati non elimina, secondo la dinamica descritta, la minaccia di diffusione delle informazioni già copiate.
+
+Fedpol e MPC hanno partecipato alle indagini coordinate da Europol ed Eurojust insieme ad altri sette Paesi. La comunicazione diffusa giovedì sottolinea la necessità della cooperazione tra partner nazionali e internazionali: «Data la natura internazionale della criminalità informatica - si legge in un comunicato diffuso giovedì - è essenziale una stretta cooperazione tra i diversi partner, sia a livello nazionale che internazionale».
+## Il rischio non finisce con la cifratura
+
+Per una società svizzera, la sequenza descritta separa due problemi. La crittografia dei server riguarda l'accesso ai sistemi; la copia e l'estrazione avvengono prima e alimentano la minaccia di pubblicazione. Il backup citato dalla fonte può quindi spiegare il rifiuto del riscatto, ma non cancella automaticamente la seconda leva usata dal gruppo. È la differenza tra recuperare i propri sistemi e impedire che i dati già sottratti vengano diffusi.
+
+| Passaggio | Cosa indica la fonte | Pressione sulla vittima |
+|---|---|---|
+| Accesso | Ingresso abusivo nel sistema informatico | L'attacco prende avvio |
+| Estrazione | Copia dei dati di interesse | I dati vengono sottratti |
+| Cifratura | Server crittografati | Viene chiesta la chiave di decrittazione |
+| Backup | Può motivare il rifiuto del riscatto | Resta la minaccia del darknet |
+| Pagamento | Il riscatto è spesso richiesto in criptovaluta | La richiesta assume una forma economica |
+
+### Un bilancio da leggere senza sovrainterpretazioni
+
+Il riferimento ad almeno 110 terabyte riguarda il materiale recuperato nell'operazione. La fonte non attribuisce quel volume a una singola società svizzera, non indica l'identità delle aziende coinvolte e non riferisce eventuali pagamenti. Restare su questi dati evita di trasformare il bilancio dell'operazione in una stima dei danni per ogni vittima.
+
+Anche la geografia va letta senza semplificazioni. L'inchiesta nasce da attacchi contro società svizzere, mentre l'operazione ha coinvolto quattro Paesi e ha previsto il sequestro di server. La partecipazione di fedpol e MPC, insieme a Europol, Eurojust e ad altri sette Paesi, mostra una catena investigativa distribuita oltre il solo territorio svizzero.
+
+Il testo non indica i settori coinvolti. Il riferimento resta quindi circoscritto a diverse società svizzere; chi cerca un quadro distinto del tessuto produttivo può consultare le aziende che assumono.
+
+## Tool utili per massimizzare il netto
+Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
+## Una procedura di lettura per le aziende
+
+Per esaminare correttamente la notizia, chi lavora in una società svizzera può seguire una sequenza documentale senza aggiungere elementi non confermati.
+
+### Quattro controlli prima di trarre conclusioni
+
+1. **Separare le date.** Gli attacchi indicati nell'inchiesta risalgono al periodo compreso tra ottobre 2023 e giugno 2025. L'indagine svizzera è condotta dall'estate del 2025. L'operazione di smantellamento è avvenuta mercoledì, mentre la comunicazione è stata diffusa giovedì.
+
+2. Distinguere i luoghi. La fonte collega gli attacchi a diverse società svizzere e indica otto perquisizioni in Spagna, Grecia, Regno Unito e Romania. Non bisogna trasformare l'elenco dei Paesi dell'operazione nell'elenco delle sedi delle vittime.
+
+3. Separare i numeri. Cinque sono i server sequestrati; almeno 110 terabyte sono i dati recuperati. Il testo non assegna il volume a una singola azienda e non quantifica un danno individuale.
+
+4. Usare i termini del procedimento. La vicenda riguarda sottrazione di dati, accesso abusivo a un sistema informatico, danneggiamento di dati ed estorsione. Il riscatto, inoltre, è descritto come spesso richiesto in criptovaluta, non come un pagamento già effettuato.
+
+Questa griglia evita anche di confondere una minaccia con un evento già avvenuto. La fonte riferisce che, in caso di rifiuto, KillSec minaccia di pubblicare i dati sul darknet; non riferisce che i dati siano stati effettivamente pubblicati. Allo stesso modo, il recupero dei server e dei dati è il risultato comunicato dell'operazione, non una misura dei danni subiti da ogni società.
+
+Per altri indicatori della vita economica svizzera, il costo della vita in Svizzera è un percorso separato. Per un approfondimento sul reddito personale, usa il calcolatore stipendio.
+
+*Fonte: [rsi.ch](https://www.rsi.ch/s/4127529)*]]></content:encoded>
+      <pubDate>Thu, 01 Oct 2026 22:55:16 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/operazione-ransomware-dati-sottratti</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/operazione-ransomware-dati-sottratti.webp" medium="image"/>
+    </item>
     <item>
       <title>Fisioterapisti: 112mila firme per tariffe più alte, petizioni ai cantoni</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/fisioterapisti-petizioni-tariffe-cantoni/</link>
@@ -3622,78 +3703,6 @@ Per completare l'orientamento con gli strumenti del sito, consulta anche il calc
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/extramuro-soccorso-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/extramuro-soccorso-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Ticino, le sfide dell&apos;abitare discusse al LAC di Lugano</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/ticino-futuro-abitare-lugano/</link>
-      <description><![CDATA[Presentato HOMEspace, lo speciale di INFOpmi al LAC: architettura, finanza e istituzioni a confronto sul futuro del territorio ticinese nei prossimi 20 anni.]]></description>
-      <content:encoded><![CDATA[## In breve
-- HOMEspace presentata al LAC Lugano Arte e Cultura
-- Tavola rotonda sul Ticino dei prossimi vent'anni
-- Il dibattito ha unito architettura, finanza e istituzioni
-- Focus su qualità, sostenibilità e accesso all'abitare
-
-## Fatti chiave
-- Evento → Oltre l'abitare, visioni e opportunità per un Ticino sempre più attrattivo
-- Luogo → LAC Lugano Arte e Cultura
-- Promotore → Grafica Set Group, con il patrocinio della Città di Lugano
-- Pubblicazione → HOMEspace, speciale di INFOpmi
-- Partecipanti → Filippo Lombardi, Massimo Nicora, Marzio Grassi, Elena Guglielmin, David Dalsass, Riccardo Blumer ed Enrico Sassi
-
-Al LAC Lugano Arte e Cultura, Grafica Set Group ha presentato HOMEspace, il nuovo speciale di INFOpmi dedicato all'abitare, all'architettura e alla costruzione. La serata, promossa con il patrocinio della Città di Lugano, ha messo al centro una domanda precisa: il Ticino è pronto a cogliere le opportunità e ad affrontare le sfide dei prossimi vent'anni?
-
-Il punto di partenza della serata è la trasformazione del rapporto con il territorio. Il Ticino e, più in generale, la Svizzera sono stati descritti come poli d'attrazione per persone, famiglie e imprenditori in cerca di sicurezza e di una migliore qualità di vita. Di conseguenza cambiano anche le aspettative sullo spazio in cui vivere: il lusso viene associato non più soltanto a ostentazione ed esclusività, ma a benessere, sostenibilità, servizi, materiali sani, tecnologia e armonia con il territorio.
-
-Sacha Cattelan, CEO di Grafica Set Group SA, ha aperto i lavori spiegando l'origine editoriale del progetto:
-> «dalla volontà di raccontare in modo trasversale il mondo dell'abitare, un settore che in Ticino pesa molto sul piano economico e che è legato allo sviluppo e all'identità del territorio».
-
-Ha poi ricondotto il tema della casa a una domanda più ampia: non soltanto quanto costruire, ma come e che cosa costruire, e quale territorio immaginare per il futuro.
-
-### Il confronto tra città, norme e finanza
-
-Il giornalista e presentatore tv Gianfranco De Santis ha moderato il confronto, che comprendeva anche Enrico Sassi. Filippo Lombardi, capo del Dicastero sviluppo territoriale della Città di Lugano, ha richiamato l'equilibrio tra residenti, capitali, identità urbana, sostenibilità, norme, ricorsi e rapporto tra centro e periferia, con l'obiettivo di evitare che l'abitare diventi un privilegio per pochi.
-
-Massimo Nicora ha affrontato la burocrazia edilizia, tra tutela del territorio e possibile freno allo sviluppo, citando incertezze normative, procedure lunghe e semplificazione. Marzio Grassi, Regional Head Corporate & Real Estate Ticino di UBS, ha portato la prospettiva dei capitali internazionali, della sicurezza patrimoniale e della valutazione del rischio tra immobili moderni e tradizionali attraverso criteri di sostenibilità. Elena Guglielmin, Senior Credit Analyst di UBS, ha aggiunto gli standard per il credito residenziale, il divario tra domanda e offerta di immobili future-proof e l'accesso dei più giovani al credito ipotecario.
-
-David Dalsass ha parlato di domanda di qualità, valore del progetto per il quartiere e rapporto tra regolamentazione e grandi interventi. Il capitolo progettuale è stato aperto dall'architetto e designer Riccardo Blumer.
-Il nodo pratico emerso a Lugano riguarda la definizione stessa di abitare. La discussione non lo tratta come semplice somma di metri quadrati: mette insieme qualità dell'immobile, identità urbana, sostenibilità, credito e capacità di realizzare progetti. Per chi vive o lavora in Svizzera, questa lettura sposta l'attenzione dalla sola disponibilità di una casa alle condizioni che rendono un progetto coerente con il territorio.
-
-### Qualità e accesso non sono la stessa cosa
-
-La fonte usa il termine lusso in senso diverso dall'ostentazione. Benessere, servizi, materiali sani, tecnologia e armonia con il territorio diventano indicatori di qualità. Il termine future-proof compare nel confronto tra domanda e offerta di immobili di qualità. La sostenibilità entra inoltre nella valutazione del rischio per immobili moderni e tradizionali. Un progetto viene così letto per le caratteristiche che offre e per il rapporto che costruisce con il territorio, non soltanto per la sua esclusività.
-
-Il secondo nodo è l'accesso. Lombardi ha indicato il rapporto tra centro e periferia e la necessità che l'abitare non diventi un privilegio per pochi. Guglielmin ha aggiunto l'accesso al credito ipotecario da parte dei più giovani. Per una famiglia o per un nuovo residente, la valutazione riguarda così sia la qualità dell'offerta sia gli standard richiesti dal mondo bancario.
-
-Il terzo riguarda tempi e regole. Nicora ha descritto la burocrazia edilizia come equilibrio tra tutela e possibile freno allo sviluppo. Incertezze normative e procedure lunghe possono scoraggiare gli investitori; Lombardi ha richiamato anche il peso di norme e ricorsi nella pianificazione. Dalsass ha collegato la regolamentazione alla capacità di realizzare grandi interventi.
-
-Il quarto è finanziario. Grassi ha indicato sicurezza patrimoniale e progetti ad alto valore aggiunto come elementi cercati dai capitali internazionali. Dalsass ha riportato l'attenzione sul valore generato da un progetto per l'intero quartiere. Per il lato bancario sono disponibili i conti bancari in Svizzera; per collegare il tema alle spese quotidiane, il costo della vita in Svizzera.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
-Chi deve orientarsi davanti a un progetto abitativo può trasformare i temi emersi in una sequenza di verifiche. Non è una procedura amministrativa: è una griglia di lettura per tenere distinti qualità, territorio, regole e credito.
-
-### Cinque passaggi per valutare un progetto
-
-1. Definire la qualità richiesta. Mettere in fila benessere, servizi, materiali sani, tecnologia, sostenibilità e armonia con il territorio. Sono gli elementi associati al nuovo concetto di lusso e aiutano a descrivere cosa si cerca, senza fermarsi all'esclusività.
-
-2. Leggere il rapporto con il quartiere. Verificare come il progetto si inserisce nel centro o nella periferia e quale valore può generare per l'intero quartiere. La domanda non riguarda soltanto l'unità abitativa, ma il territorio che la ospita.
-
-3. Isolare il passaggio regolatorio. Chiedere quali norme, tempi dei ricorsi, incertezze e procedure incidono sulla pianificazione. La fonte collega la burocrazia sia alla tutela sia al possibile freno dello sviluppo; per i grandi interventi, Dalsass richiama la capacità di realizzazione.
-
-4. Mettere a confronto rischio e sostenibilità. Se si valuta un immobile moderno o tradizionale, considerare il modo in cui il rischio finanziario viene esaminato e il peso dei criteri di sostenibilità. Il confronto tra le due tipologie è stato uno dei temi affidati alla prospettiva finanziaria.
-
-5. Verificare il lato del credito. Chi cerca credito per un progetto residenziale di alto profilo deve considerare gli standard di qualità illustrati dal mondo bancario. Per i più giovani, l'accesso al credito ipotecario è un punto specifico del dibattito; per residenti locali e nuovi residenti internazionali sono state evidenziate differenze di clientela.
-
-Seguire questa sequenza aiuta a non mescolare piani diversi: una qualità desiderata non coincide automaticamente con la sostenibilità, una buona idea progettuale non elimina le procedure e l'attrattività finanziaria non risolve da sola l'accesso all'abitare. Sono proprio queste connessioni, secondo la discussione al LAC, a definire il Ticino di domani.
-
-Per tradurre la valutazione dell'abitare nel proprio bilancio, usa il calcolatore stipendio/imposte
-
-*Fonte: [tio.ch](https://www.tio.ch/rubriche/aziende-ticinesi-informano/1953866/ticino-territorio-qualita-architettura-lugano-lac)*]]></content:encoded>
-      <pubDate>Wed, 30 Sep 2026 23:49:04 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/ticino-futuro-abitare-lugano</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/ticino-futuro-abitare-lugano.webp" medium="image"/>
     </item>
   </channel>
 </rss>
