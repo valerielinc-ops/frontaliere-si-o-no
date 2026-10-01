@@ -106,18 +106,38 @@ PUSH_URL="https://x-access-token:${GH_TOKEN}@github.com/${REPOSITORY}.git"
 # main snapshot. The lease still protects the final push from a concurrent run.
 REMOTE_HEAD="$(git ls-remote "$PUSH_URL" "refs/heads/$BRANCH" | awk 'NR == 1 { print $1 }')"
 REFRESH_BASE="$(git rev-parse HEAD)"
+REFRESH_COMMIT=""
+MERGE_REFRESH_SCRIPT_DIR=""
+
+# The helper is called more than once by some workflows. Reconciliation uses a
+# local checkout of the stable branch, so always return the caller to this
+# run's commit before the helper exits. This keeps a best-effort early publish
+# from making the rest of the workflow run from the stale stable branch.
+cleanup_refresh_checkout() {
+  local restore_ref="${REFRESH_COMMIT:-$REFRESH_BASE}"
+  local current_ref
+  current_ref="$(git rev-parse HEAD 2>/dev/null || true)"
+  if [ -n "$restore_ref" ] && [ "$current_ref" != "$restore_ref" ]; then
+    git checkout --detach --force "$restore_ref" >/dev/null 2>&1 || true
+  fi
+  if [ -n "$MERGE_REFRESH_SCRIPT_DIR" ]; then
+    rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"
+  fi
+}
+trap cleanup_refresh_checkout EXIT
 
 # The stable branch may have been created by an older workflow revision. Keep
 # the reconciler from the current workflow checkout before switching to that
 # branch, otherwise a stale copy can reintroduce a fixed parser or merge rule.
-MERGE_REFRESH_SCRIPT_DIR=""
 if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
   MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
-  trap 'rm -rf -- "$MERGE_REFRESH_SCRIPT_DIR"' EXIT
+  mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
   git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs"
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"
   git show "${REFRESH_BASE}:scripts/ci/open-data-refresh-merge.mjs" \
-    > "$MERGE_REFRESH_SCRIPT_DIR/open-data-refresh-merge.mjs"
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/open-data-refresh-merge.mjs"
+  git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs" \
+    > "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib/resolve-git-add-path.mjs"
 fi
 
 # Validate the exact PR contract before creating a commit or remote branch.
@@ -213,7 +233,7 @@ elif [ -n "$REMOTE_HEAD" ]; then
   for refresh_path in "${PATHS[@]}"; do
     MERGE_ARGS+=(--path "$refresh_path")
   done
-  node "$MERGE_REFRESH_SCRIPT_DIR/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
+  node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs" "${MERGE_ARGS[@]}"
   stage_paths
   if git diff --cached --quiet; then
     echo "No new refresh changes after stable-branch reconciliation."
