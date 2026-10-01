@@ -7,8 +7,9 @@ on:
   schedule:
     - cron: '35 4 * * *'
   # Re-run the complete tree immediately after the Pages publish workflow finishes.
-  # The scheduled run remains the safety net for external/content-only changes;
-  # a failed publish must not create a noisy issue from a half-deployed tree.
+  # The gate below admits the run when the actual Pages deploy and live
+  # validation jobs are green, even if a separate dist-quality audit made the
+  # aggregate publish workflow red after the site was already live.
   workflow_run:
     workflows: ['Publish to GitHub Pages (deploy + validate)']
     types: [completed]
@@ -39,10 +40,50 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: read
 
 jobs:
+  # The workflow_run conclusion describes the aggregate publish workflow, so a
+  # failed post-build validator can hide a successful Pages deployment. Read
+  # the triggering run's job conclusions and crawl only when the live surface
+  # was actually published and validated. A failed deploy remains fail-closed.
+  publish-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      eligible: ${{ steps.gate.outputs.eligible }}
+    steps:
+      - name: Verify Pages deploy and live validation
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUBLISH_RUN_ID: ${{ github.event.workflow_run.id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ "${EVENT_NAME}" != 'workflow_run' ]; then
+            echo 'eligible=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! jobs_json="$(gh run view "${PUBLISH_RUN_ID}" --repo "${GITHUB_REPOSITORY}" --json jobs 2>/tmp/publish-gate-error); then
+            echo '::warning::Impossibile leggere i job del publish run; full-tree saltato in modo fail-closed.'
+            sed -n '1,4p' /tmp/publish-gate-error || true
+            echo 'eligible=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          deploy="$(jq -r '[.jobs[] | select(.name == "deploy") | .conclusion][0] // ""' <<<"${jobs_json}")"
+          live="$(jq -r '[.jobs[] | select(.name == "validate-live / validate-live") | .conclusion][0] // ""' <<<"${jobs_json}")"
+          echo "publish deploy=${deploy:-<missing>} validate-live=${live:-<missing>}"
+          if [ "${deploy}" = 'success' ] && [ "${live}" = 'success' ]; then
+            echo 'eligible=true' >> "$GITHUB_OUTPUT"
+          else
+            echo '::warning::Pages non verificato come live (deploy/validate-live non entrambi verdi); full-tree saltato.'
+            echo 'eligible=false' >> "$GITHUB_OUTPUT"
+          fi
+
   audit:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: publish-gate
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -231,7 +272,8 @@ jobs:
   # every URL is assigned to exactly one deterministic partition, so the
   # matrix below really covers the full published tree rather than a sample.
   tree-inventory:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: publish-gate
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -271,8 +313,8 @@ jobs:
           if-no-files-found: error
 
   tree-crawl:
-    needs: tree-inventory
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: [publish-gate, tree-inventory]
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' && needs.tree-inventory.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 50
     strategy:
@@ -330,8 +372,8 @@ jobs:
           if-no-files-found: error
 
   tree-report:
-    needs: [tree-inventory, tree-crawl]
-    if: ${{ always() && needs.tree-inventory.result == 'success' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
+    needs: [publish-gate, tree-inventory, tree-crawl]
+    if: ${{ always() && needs.publish-gate.outputs.eligible == 'true' && needs.tree-inventory.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
