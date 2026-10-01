@@ -9,7 +9,7 @@ function fixture() {
   });
   const context = Object.assign(new EventEmitter(), { pages: () => [page] });
   const request = { url: () => 'https://jobs.example/api/apply?email=private', method: () => 'POST', resourceType: () => 'fetch', failure: () => ({ errorText: 'net::ERR_FAILED' }) };
-  const response = (body: object, status = 200) => ({ request: () => request, url: request.url, status: () => status, headerValue: async (key: string) => key === 'content-type' ? 'application/json' : String(Buffer.byteLength(JSON.stringify(body))), body: async () => Buffer.from(JSON.stringify(body)) });
+  const response = (body: object, status = 200) => ({ request: () => request, url: request.url, status: () => status, headerValue: async (key: string): Promise<string | null> => key === 'content-type' ? 'application/json' : String(Buffer.byteLength(JSON.stringify(body))), body: async () => Buffer.from(JSON.stringify(body)) });
   return { page, context, request, response };
 }
 
