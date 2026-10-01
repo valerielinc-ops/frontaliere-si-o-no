@@ -23,9 +23,12 @@
       "employmentType": "40 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-01T09:20:05.307Z",
-      "slug": "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur",
+      "slug": "capo-dello-sviluppo-della-cura-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur"
+        "de": "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur",
+        "it": "capo-dello-sviluppo-della-cura-kantonsspital-graubunden-chur",
+        "en": "head-of-care-development-kantonsspital-graubunden-chur",
+        "fr": "chef-du-developpement-des-soins-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Leiter:in Pflegeentwicklung",
@@ -56,7 +59,21 @@
       "salaryMax": 154000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-30T21:20:19.639Z"
+      "firstSeenAt": "2026-09-30T21:20:19.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "leiter-in-pflegeentwicklung-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10209072",
@@ -79,9 +96,12 @@
       "employmentType": "90 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-01T09:20:05.308Z",
-      "slug": "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur",
+      "slug": "chirurgia-viscerale-del-direttore-di-stazione-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur"
+        "de": "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur",
+        "it": "chirurgia-viscerale-del-direttore-di-stazione-kantonsspital-graubunden-chur",
+        "en": "station-manager-nursing-visceral-surgery-kantonsspital-graubunden-chur",
+        "fr": "chef-de-poste-infirmiere-chirurgie-viscerale-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Stationsleiter:in Pflege Viszeralchirurgie",
@@ -112,7 +132,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-30T21:20:19.639Z"
+      "firstSeenAt": "2026-09-30T21:20:19.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "stationsleiter-in-pflege-viszeralchirurgie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10208981",
@@ -135,9 +169,12 @@
       "employmentType": "60 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-10-01T09:20:05.308Z",
-      "slug": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
+      "slug": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        "de": "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur",
+        "it": "infermieristica-professionale-infermieristica-professionale-cura-intermedia-kantonsspital-graubunden-chur",
+        "en": "nursing-professional-nursing-professional-intermediate-care-kantonsspital-graubunden-chur",
+        "fr": "soins-intermediaires-professionnels-et-infirmiers-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Pflegefachfrau / Pflegefachmann Intermediate Care",
@@ -168,7 +205,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-30T21:20:19.639Z"
+      "firstSeenAt": "2026-09-30T21:20:19.639Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-intermediate-care-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10207020",
@@ -5333,7 +5384,6 @@
           "vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf-kantonsspital-graubunden-chur"
         ]
       },
-      "needsRetranslation": true,
       "_targetScope": "grigioni",
       "applyUrl": "https://jobs.ksgr.ch/offene-stellen/vollzeitstudium-dipl-radiologiefachfrau-radiologiefachmann-hf/cb442750-9e6f-4eb0-ad42-cc11dc06dd00",
       "salaryMin": 41080,
