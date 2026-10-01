@@ -77,7 +77,10 @@ describe('protected data refreshes publish through pull requests', () => {
 
   it('fails closed when the crawler cannot authenticate its stable refresh branch probe', () => {
     const workflow = read('.github/workflows/crawl-events.yml');
-    expect(workflow).toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+    expect(workflow).toContain(
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}",
+    );
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
     expect(workflow).toContain(
       'remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"',
     );

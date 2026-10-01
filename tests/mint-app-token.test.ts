@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { generateKeyPairSync, createVerify } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { buildAppJwt, hasActionsWrite, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
+import { buildAppJwt, hasActionsWrite, hasDataRefreshWrite, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
 
 // Deterministic test keypair (no network, no real App key).
 const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
@@ -92,6 +92,23 @@ describe('hasActionsWrite — dispatch capability read from the token, not assum
     const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
     const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
     expect(tokenLine?.trim()).toBe("GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}");
+  });
+});
+
+describe('hasDataRefreshWrite — both PR-publisher permissions are required', () => {
+  it('contents + pull_requests write → true', () => {
+    expect(hasDataRefreshWrite({ contents: 'write', pull_requests: 'write' })).toBe(true);
+  });
+
+  it('missing either permission → false so the PAT remains eligible', () => {
+    expect(hasDataRefreshWrite({ contents: 'write' })).toBe(false);
+    expect(hasDataRefreshWrite({ pull_requests: 'write' })).toBe(false);
+  });
+
+  it('read-only or malformed permissions → false', () => {
+    expect(hasDataRefreshWrite({ contents: 'read', pull_requests: 'write' })).toBe(false);
+    expect(hasDataRefreshWrite(undefined)).toBe(false);
+    expect(hasDataRefreshWrite(null)).toBe(false);
   });
 });
 
