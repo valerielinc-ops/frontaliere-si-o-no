@@ -557,7 +557,8 @@ describe('runtime slug pairs in the router', () => {
 describe('static article fallback across the #root handoff', () => {
   const mountShardPage = (slug = POSTE, body = '## In breve\n- Un punto') => {
     visit(pathFor(slug));
-    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body]);
+    document.body.innerHTML = '<div id="root"></div>' + renderStaticArticle([body])
+      + '<div id="footer-root"><footer>Site footer</footer></div>';
   };
   const runClsHandoff = () => {
     const root = document.getElementById('root')!;
@@ -581,6 +582,19 @@ describe('static article fallback across the #root handoff', () => {
     expect(restored).not.toBeNull();
     expect(document.getElementById('root')!.contains(restored)).toBe(false);
     expect(restored?.querySelector('h1')?.textContent).toBe("Titolo dell'articolo");
+    expect(restored?.nextElementSibling).toBe(document.getElementById('footer-root'));
+    expect(document.getElementById('root')!.nextElementSibling).toBe(restored);
+  });
+
+  it('still restores the article when the page has no footer portal', () => {
+    mountShardPage();
+    document.getElementById('footer-root')!.remove();
+    runClsHandoff();
+    document.getElementById('root')!.innerHTML = '';
+
+    expect(restoreStaticArticleFallback()).toBe(true);
+    expect(document.getElementById('root')!.nextElementSibling)
+      .toBe(document.querySelector('main.seo-static-content'));
   });
 
   it('still yields the body after the handoff, so the article stays adoptable', async () => {
