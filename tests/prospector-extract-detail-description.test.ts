@@ -78,6 +78,24 @@ describe('nested vacancy containers are read once', () => {
     expect(description).toContain('Ihr Profil');
     expect(description.indexOf('Ihre Aufgaben')).toBeLessThan(description.indexOf('Ihr Profil'));
   });
+
+  it('cuts nested contact chrome from the outer vacancy region', () => {
+    const body = '<p>Wir suchen eine erfahrene Fachperson für die Betreuung unserer Kundschaft.</p>'
+      + '<ul><li>Sie planen Einsätze und koordinieren das Team im Tagesbetrieb.</li>'
+      + '<li>Sie dokumentieren die Arbeit sorgfältig und arbeiten selbständig.</li></ul>';
+    const html = `<main><article><h1>Fachperson Betreuung</h1>
+      <div class="job-detail-layout"><div class="jobDescription"><div class="jobDescriptionItem">
+        <div class="detail-block-description">${body}</div>
+      </div></div>
+      <section class="wwj-contact"><div class="contact-details"><p>Kontaktperson Recruiter Beispiel, Telefon 000 000 00 00</p></div></section>
+      <section class="related-jobs"><div class="job-card"><h2>OTHER vacancy</h2><p>OTHER related posting text.</p></div></section>
+      </div></article></main>`;
+    const { description } = extractDetailFields(html, 'https://jobs.example.ch/job/fachperson-betreuung');
+    expect(occurrences(description, 'Wir suchen eine erfahrene Fachperson')).toBe(1);
+    expect(description).toContain('koordinieren das Team');
+    expect(description).not.toContain('Kontaktperson Recruiter');
+    expect(description).not.toContain('OTHER related posting');
+  });
 });
 
 describe('SuccessFactors jobs2web sibling description spans', () => {
