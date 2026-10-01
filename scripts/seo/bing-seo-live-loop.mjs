@@ -368,11 +368,11 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'Il workflow deve eseguire inventario, matrix crawl completo e aggregazione con issue deduplicata.',
     ));
   }
-  if (!loopWorkflow.includes("workflows: ['Deploy to GitHub Pages']")) {
+  if (!loopWorkflow.includes("workflows: ['Publish to GitHub Pages (deploy + validate)']")) {
     findings.push(sourceFinding(
       'full-tree-deploy-trigger-source',
       '.github/workflows/bing-seo-loop.yml',
-      'Il full-tree crawl deve partire dal workflow_run del deploy Pages reale, non da un nome storico.',
+      'Il full-tree crawl deve partire dal workflow_run del publish Pages reale, dopo deploy e validazione, non dal solo build.',
     ));
   }
   if (!policy.includes('BING_ROUTE_CONTRACTS') || !policy.includes("'/calcolatore-5x1000/'")) {

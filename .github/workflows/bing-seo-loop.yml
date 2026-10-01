@@ -6,11 +6,11 @@ name: Bing SEO closed loop
 on:
   schedule:
     - cron: '35 4 * * *'
-  # Re-run the complete tree immediately after the Pages deploy workflow finishes.
+  # Re-run the complete tree immediately after the Pages publish workflow finishes.
   # The scheduled run remains the safety net for external/content-only changes;
   # a failed publish must not create a noisy issue from a half-deployed tree.
   workflow_run:
-    workflows: ['Deploy to GitHub Pages']
+    workflows: ['Publish to GitHub Pages (deploy + validate)']
     types: [completed]
     branches: [main]
   workflow_dispatch:
