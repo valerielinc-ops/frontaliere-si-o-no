@@ -12341,6 +12341,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.m5s-vco-frontalieri-incertezze.title': 'M5S: Unsicherheiten für Grenzgänger nach drei Jahren',
     'blog.article.m5s-vco-frontalieri-incertezze.excerpt': 'Am 17. September wurde das Dekret zum Fonds unterzeichnet: 1,66 mln für 2025 und 21,16 mln für 2026; Rundschreiben zur NASpI erwartet; ab 2024 strengere LPP-Anträge; interministerielle Arbeitsrunde am 9. Nov.',
     'blog.article.m5s-vco-frontalieri-incertezze.imageAlt': 'Realistische Ansicht des Luganer Sees mit Grenzgängern zwischen Italien und der Schweiz',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Die Schweiz lehnt EU-Grenzregeln ab',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Schweizer Parlament: 109 Stimmen dafür zu 72, weil neue EU-Regeln nicht umgesetzt werden, die jährlich 600–900 Millionen kosten würden',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Schweizer Parlament in Bellinzona beschliesst Grenzgänger-Regeln',
 };
 
 export default blogMetaDe;

@@ -12344,6 +12344,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.m5s-vco-frontalieri-incertezze.title': 'M5S: retards et incertitudes pour les frontaliers',
     'blog.article.m5s-vco-frontalieri-incertezze.excerpt': 'Le 17 septembre, le décret sur le Fonds a été signé : 1,66 million pour 2025 et 21,16 millions pour 2026 ; la circulaire NASpI est attendue ; à partir de 2024, les demandes LPP sont plus restrictives ; table interministérielle du 9 novembre.',
     'blog.article.m5s-vco-frontalieri-incertezze.imageAlt': 'Vue réelle du lac de Lugano avec les frontaliers traversant la frontière entre l\'Italie et la Suisse',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'La Suisse rejette les règles frontalières de l’UE',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlement suisse : 109 voix pour contre 72 pour ne pas mettre en œuvre de nouvelles règles de l’UE qui coûteraient 600 à 900 millions par an',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlement suisse à Bellinzone décidant des régles pour les frontaliers',
 };
 
 export default blogMetaFr;

@@ -12343,6 +12343,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.m5s-vco-frontalieri-incertezze.title': 'M5S: ritardi e incertezze per frontalieri dopo tre anni',
     'blog.article.m5s-vco-frontalieri-incertezze.excerpt': 'Il 17 settembre è stato firmato il decreto sul Fondo: 1,66 mln per il 2025 e 21,16 mln per il 2026; attesa la circolare NASpI; dal 2024 più restrittive le richieste LPP; tavolo interministeriale il 9 nov.',
     'blog.article.m5s-vco-frontalieri-incertezze.imageAlt': 'Vista reale del lago di Lugano con frontalieri che attraversano il confine tra Italia e Svizzera',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Svizzera respinge norme UE frontalieri',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlamento svizzero: 109 voti favorevoli contro 72 per non recepire nuove regole UE che costerebbero 600-900 milioni annui',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlamento svizzero a Bellinzona che delibera sulle regole per i frontalieri',
 };
 
 export default blogMetaIt;

@@ -12342,6 +12342,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.m5s-vco-frontalieri-incertezze.title': 'M5S: delays and uncertainty for cross-border workers after three years',
     'blog.article.m5s-vco-frontalieri-incertezze.excerpt': 'On 17 September, the decree on the Fund was signed: 1.66 million for 2025 and 21.16 million for 2026; the NASpI circular is awaited; from 2024 LPP requests are more restrictive; interministerial table on 9 Nov.',
     'blog.article.m5s-vco-frontalieri-incertezze.imageAlt': 'Real view of Lake Lugano with cross-border commuters between Italy and Switzerland',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Switzerland rejects EU border rules',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Swiss Parliament: 109 votes in favour to 72 for not implementing new EU rules that would cost 600-900 million per year',
+    'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Swiss Parliament in Bellinzona deciding on cross-border worker regulations',
 };
 
 export default blogMetaEn;
