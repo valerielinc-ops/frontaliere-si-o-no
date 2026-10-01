@@ -85,27 +85,58 @@ describe('computeColliders', () => {
 
 describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#10609)', () => {
   const owner = { login: 'valerielinc-ops' };
+  const repo = { name: 'frontaliere-si-o-no' };
+  const SHA = '9c388959fab7017806e820a417ba773e61f00644';
+  const twin = (number: number, extra: Record<string, unknown> = {}) => ({
+    number,
+    headRefName: 'fix/issue-10544',
+    headRefOid: SHA,
+    baseRefName: 'main',
+    headRepositoryOwner: owner,
+    headRepository: repo,
+    labels: [] as { name: string }[],
+    ...extra,
+  });
 
   it('REGRESSIONE #10609: tiene la più vecchia, chiude le altre e ne riporta le label', () => {
     expect(findDuplicateHeadPrs([
-      { number: 10609, headRefName: 'fix/issue-10544', headRepositoryOwner: owner, labels: [{ name: 'agent:autofix' }, { name: 'collision-risk' }] },
-      { number: 10608, headRefName: 'fix/issue-10544', headRepositoryOwner: owner, labels: [{ name: 'collision-risk' }] },
-      { number: 10555, headRefName: 'fix-gh013-data-refresh-triad-20260930', headRepositoryOwner: owner, labels: [] },
+      twin(10609, { labels: [{ name: 'agent:autofix' }, { name: 'collision-risk' }] }),
+      twin(10608, { labels: [{ name: 'collision-risk' }] }),
+      twin(10555, { headRefName: 'fix-gh013-data-refresh-triad-20260930', headRefOid: 'a'.repeat(40) }),
     ])).toEqual([{ number: 10609, keeper: 10608, labels: ['agent:autofix', 'collision-risk'] }]);
+  });
+
+  it('review 5375807051: stesso owner e branch ma repository diversi non sono gemelle', () => {
+    expect(findDuplicateHeadPrs([
+      twin(1, { headRefName: 'fix/x', headRefOid: 'a'.repeat(40), headRepositoryOwner: { login: 'alice' }, headRepository: { nameWithOwner: 'alice/site-a' } }),
+      twin(2, { headRefName: 'fix/x', headRefOid: 'b'.repeat(40), headRepositoryOwner: { login: 'alice' }, headRepository: { nameWithOwner: 'alice/site-b' } }),
+    ])).toEqual([]);
+    // Anche con lo stesso SHA il repository diverso li separa.
+    expect(findDuplicateHeadPrs([
+      twin(1, { headRepository: { nameWithOwner: 'alice/site-a' } }),
+      twin(2, { headRepository: { nameWithOwner: 'alice/site-b' } }),
+    ])).toEqual([]);
+  });
+
+  it('SHA di testa o base diversi non sono gemelle', () => {
+    expect(findDuplicateHeadPrs([twin(1), twin(2, { headRefOid: 'b'.repeat(40) })])).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1), twin(2, { baseRefName: 'release' })])).toEqual([]);
   });
 
   it('stesso nome di branch su owner diversi (fork) non è una gemella', () => {
     expect(findDuplicateHeadPrs([
-      { number: 1, headRefName: 'fix/x', headRepositoryOwner: owner },
-      { number: 2, headRefName: 'fix/x', headRepositoryOwner: { login: 'someone-else' } },
+      twin(1),
+      twin(2, { headRepositoryOwner: { login: 'someone-else' } }),
     ])).toEqual([]);
   });
 
-  it('owner o ref illeggibili → nessuna chiusura (fail-closed)', () => {
+  it('identità illeggibile → nessuna chiusura (fail-closed)', () => {
     expect(findDuplicateHeadPrs([
       { number: 1, headRefName: 'fix/x' },
       { number: 2, headRefName: 'fix/x' },
     ] as never)).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1, { headRefOid: undefined }), twin(2, { headRefOid: undefined })])).toEqual([]);
+    expect(findDuplicateHeadPrs([twin(1, { headRepository: undefined }), twin(2, { headRepository: undefined })])).toEqual([]);
     expect(findDuplicateHeadPrs(undefined as never)).toEqual([]);
   });
 
@@ -116,7 +147,7 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     const graph = main.indexOf('computeColliders(nums, funnelFiles)');
     expect(dedupe).toBeGreaterThan(-1);
     expect(graph).toBeGreaterThan(dedupe);
-    expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRepositoryOwner,title'");
+    expect(main).toContain("'--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title'");
     expect(main).toContain("gh(['pr', 'close', String(dup.number), '--repo', REPO]");
     expect(main).not.toContain('--delete-branch');
   });

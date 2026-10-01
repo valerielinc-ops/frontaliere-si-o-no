@@ -112,28 +112,48 @@ export function selectCollisionCandidates(prs) {
   return prs.filter((p) => p && p.isDraft !== true && Number.isInteger(p.number)).map((p) => p.number);
 }
 
+/** `owner/name` del repository di testa, minuscolo; null se non leggibile. */
+export function headRepositoryIdentity(pr) {
+  const full = pr?.headRepository?.nameWithOwner;
+  if (typeof full === 'string' && /^[^/\s]+\/[^/\s]+$/u.test(full)) return full.toLowerCase();
+  const owner = pr?.headRepositoryOwner?.login;
+  const name = pr?.headRepository?.name;
+  if (typeof owner === 'string' && owner && typeof name === 'string' && name) return `${owner}/${name}`.toLowerCase();
+  return null;
+}
+
 /**
- * PR GEMELLE: due PR aperte sullo stesso head ref (stesso repo) sono la stessa
- * PR due volte — stessi commit, stesso diff — non due lavori in parallelo.
- * Osservate #10608 e #10609 su `fix/issue-10544`, create nello stesso secondo:
- * condividendo ogni file si etichettavano `collision-risk` a vicenda, e la
- * «seconda a raggiungere il merge» non poteva esistere. Si tiene la piu'
- * vecchia; le altre sono duplicate da chiudere (il branch resta: e' quello
- * della PR tenuta). Pura → testabile.
+ * PR GEMELLE: due PR aperte sullo stesso head (stesso repository, stesso
+ * branch, stesso commit) verso la stessa base sono la stessa PR due volte —
+ * stessi commit, stesso diff — non due lavori in parallelo. Osservate #10608 e
+ * #10609 su `fix/issue-10544`, create nello stesso secondo: condividendo ogni
+ * file si etichettavano `collision-risk` a vicenda, e la «seconda a
+ * raggiungere il merge» non poteva esistere. Si tiene la piu' vecchia; le
+ * altre sono duplicate da chiudere (il branch resta: e' quello della PR
+ * tenuta). Pura → testabile.
  *
- * @param {Array<{number:number, headRefName?:string, headRepositoryOwner?:{login?:string}, labels?:Array<{name:string}>}>} prs
+ * L'identita' e' completa e fail-closed: repository di testa (non il solo
+ * owner, che puo' avere piu' repository con lo stesso nome di branch), branch,
+ * SHA di testa e base. Un campo mancante o illeggibile = nessun raggruppamento
+ * e quindi nessuna chiusura.
+ *
+ * @param {Array<{number:number, headRefName?:string, headRefOid?:string, baseRefName?:string,
+ *   headRepositoryOwner?:{login?:string}, headRepository?:{name?:string, nameWithOwner?:string},
+ *   labels?:Array<{name:string}>}>} prs
  * @returns {Array<{number:number, keeper:number, labels:string[]}>} duplicate da chiudere
  */
 export function findDuplicateHeadPrs(prs) {
   if (!Array.isArray(prs)) return [];
-  const byHead = new Map(); // owner:ref -> [pr]
+  const byHead = new Map(); // repo:ref:oid:base -> [pr]
   for (const pr of prs) {
-    if (!pr || !Number.isInteger(pr.number) || typeof pr.headRefName !== 'string' || !pr.headRefName) continue;
-    // Owner assente = non sappiamo se e' un fork con lo stesso nome di branch:
-    // nessun raggruppamento, nessuna chiusura (fail-closed).
-    const owner = pr.headRepositoryOwner?.login;
-    if (typeof owner !== 'string' || !owner) continue;
-    const key = `${owner.toLowerCase()}:${pr.headRefName}`;
+    if (!pr || !Number.isInteger(pr.number)) continue;
+    const repo = headRepositoryIdentity(pr);
+    const ref = pr.headRefName;
+    const oid = String(pr.headRefOid || '').toLowerCase();
+    const base = pr.baseRefName;
+    if (!repo || typeof ref !== 'string' || !ref || !/^[0-9a-f]{40}$/u.test(oid)
+      || typeof base !== 'string' || !base) continue;
+    const key = `${repo}:${ref}:${oid}:${base}`;
     if (!byHead.has(key)) byHead.set(key, []);
     byHead.get(key).push(pr);
   }
@@ -199,7 +219,7 @@ function main() {
   let prs;
   try {
     prs = gh(['pr', 'list', '--repo', REPO, '--state', 'open', '--limit', '50',
-      '--json', 'number,labels,isDraft,author,headRefName,headRepositoryOwner,title']);
+      '--json', 'number,labels,isDraft,author,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner,title']);
   } catch (e) {
     console.error(`gh pr list fallito: ${String(e).slice(0, 160)}`);
     process.exit(0);
