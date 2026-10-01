@@ -91,6 +91,20 @@ function hasApplicationForm(snapshot) {
   return kinds.includes('file') || (textish >= 3 && email);
 }
 
+/**
+ * A page that has just changed may still be drawing its form (JOIN's steps
+ * render a moment after the address changes, dry_run 36817633054 read none):
+ * up to 10 s for its fields, and while `unchanged` says it is the old page.
+ */
+async function awaitFields(page, snapshot, unchanged = () => false) {
+  let current = snapshot;
+  for (let waited = 0; waited < 10_000 && (unchanged(current) || !current.fields.length); waited += 2000) {
+    await page.waitForTimeout(2000);
+    current = await extractFields(page);
+  }
+  return current;
+}
+
 /** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
 function pageSignature(page, snapshot) {
   return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
@@ -363,7 +377,10 @@ export async function submitViaPortal(ctx) {
         continue;
       }
       if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
-        return await handoff('portal_needs_candidate');
+        snapshot = await awaitFields(page, snapshot);
+        if (!hasApplicationForm(snapshot) && !findButton(snapshot.buttons, SUBMIT_RE) && !findButton(snapshot.buttons, NEXT_RE)) {
+          return await handoff('portal_needs_candidate');
+        }
       }
 
       const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
@@ -387,7 +404,7 @@ export async function submitViaPortal(ctx) {
       // and shows the CV page a moment later): plan that page, instead of
       // judging it by the buttons of the one just filled. Giro di prova 2026-10-01.
       if (page.url() !== plannedUrl) {
-        snapshot = await extractFields(page);
+        snapshot = await awaitFields(page, await extractFields(page));
         continue;
       }
       // No usable button yet: a form re-rendering after a choice (Workday
@@ -408,10 +425,7 @@ export async function submitViaPortal(ctx) {
         snapshot = await extractFields(page);
         // A single-page form moves on after its own request (JOIN checks the
         // e-mail first): up to 10 s for the next page before calling it stuck.
-        for (let waited = 0; waited < 10_000 && pageSignature(page, snapshot) === before; waited += 2000) {
-          await page.waitForTimeout(2000);
-          snapshot = await extractFields(page);
-        }
+        snapshot = await awaitFields(page, snapshot, (current) => pageSignature(page, current) === before);
         // Still the same page: the form refused a value. Two corrections, then the owner.
         stuckOnPage = pageSignature(page, snapshot) === before ? stuckOnPage + 1 : 0;
         if (stuckOnPage > 2) return await handoff('portal_needs_candidate');
