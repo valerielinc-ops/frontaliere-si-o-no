@@ -35,6 +35,8 @@ beforeAll(async () => {
   root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-board-hub-output-'));
   fs.mkdirSync(path.join(root, 'data'), { recursive: true });
   fs.mkdirSync(path.join(root, 'dist'), { recursive: true });
+  // The canton emitter imports its ESM helpers relative to rootDir.
+  fs.symlinkSync(path.resolve('scripts'), path.join(root, 'scripts'), 'dir');
   fs.writeFileSync(path.join(root, 'dist/index.html'), '<!doctype html><html><head><script type="module" src="/assets/index-test.js"></script></head><body><div id="root"></div></body></html>');
   fs.copyFileSync(path.resolve('data/canton-url-slugs.json'), path.join(root, 'data/canton-url-slugs.json'));
   // One duplicate and a short translation reproduce the difference between the
