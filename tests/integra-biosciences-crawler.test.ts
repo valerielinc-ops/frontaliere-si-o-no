@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs';
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   INTEGRA_BIOSCIENCES_KEY,
@@ -5,13 +6,19 @@ import {
   isIntegraBiosciencesJob,
   isTrustedDomain,
   parseListingTable,
+  parseJobsAllData,
   parseDetailPage,
+  parseDetailLocation,
   detectCategory,
   detectExperienceLevel,
   inferEmploymentType,
   fetchAllIntegraBiosciencesJobs,
 } from '../scripts/lib/integra-biosciences-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 describe('INTEGRA Biosciences crawler parser', () => {
   // ── Constants ──
@@ -523,4 +530,122 @@ describe('fetchAllIntegraBiosciencesJobs — card without a vacancy body', () =>
     expect(jobs.map((job) => job.title)).toEqual(['Elektronikentwickler (m/w | 100%)']);
     for (const job of jobs) expect(job.description).not.toMatch(/— INTEGRA Biosciences/);
   }, 20_000);
+});
+
+// The live layout (verified through the Jina proxy on 2026-10-01): the
+// open-positions page renders its table client-side from
+// `drupalSettings.jobsAllData`; the server table is empty and always followed
+// by the "no job offers available" panel, while 13 offers (8 in Switzerland)
+// are live. Fixtures are the real pages, trimmed (settings reduced to the
+// vacancy array; detail contact names and phone numbers replaced).
+describe('INTEGRA Biosciences — jobsAllData listing and Umantis detail pages', () => {
+  const fixture = (name: string) => readFileSync(
+    new URL(`./fixtures/integra-biosciences/${name}`, import.meta.url),
+    'utf8',
+  );
+  const LISTING = fixture('open-positions-jobsalldata.html');
+  const DETAIL_EN = fixture('umantis-detail-326-en.html');
+  const DETAIL_DE = fixture('umantis-detail-330-de.html');
+  const detailFor = (url: string) => (url.includes('/Vacancies/326/') ? DETAIL_EN : DETAIL_DE);
+
+  afterEach(() => {
+    delete process.env.JOBS_CRAWLER_DELAY_MS;
+  });
+
+  it('reads every offer of the vacancy array, the empty server table notwithstanding', () => {
+    expect(parseListingTable(LISTING)).toEqual([]);
+    const cards = parseJobsAllData(LISTING)!;
+    expect(cards).toHaveLength(13);
+    const swiss = cards.filter((card) => card.country === 'Switzerland');
+    expect(swiss).toHaveLength(8);
+    expect(swiss[0]).toEqual({
+      title: 'NGS Sales Specialist (m/f/d | 100%)',
+      detailUrl: 'https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng',
+      businessArea: 'Sales & Customer Support',
+      country: 'Switzerland',
+      postedDate: '2026-08-06',
+    });
+    for (const card of cards) expect(isTrustedDomain(card.detailUrl)).toBe(true);
+  });
+
+  it('returns null when the page carries no vacancy array (legacy table layout)', () => {
+    expect(parseJobsAllData('<table><tbody><tr><td>x</td></tr></tbody></table>')).toBeNull();
+    expect(parseJobsAllData('<script type="application/json" data-drupal-selector="drupal-settings-json">{"path":{}}</script>')).toBeNull();
+  });
+
+  it('reads the vacancy text of an Umantis detail page without page furniture or commented markup', () => {
+    const en = parseDetailPage(DETAIL_EN);
+    expect(en.datePosted).toBe('2026-08-06');
+    expect(en.description).toContain('What you can expect from the role');
+    expect(en.description).toContain('• Drive sales growth in select locations');
+    expect(en.description).toContain('What you offer');
+    // The German heading the template keeps in a comment, and the comment end.
+    expect(en.description).not.toContain('Bist du bereit');
+    expect(en.description).not.toContain('-->');
+    // Benefits carousel, contact persons and the campus section are not the ad.
+    expect(en.description).not.toContain('Jane Doe');
+    expect(en.description).not.toContain('INTEGRA Campus');
+    expect(en.description).not.toMatch(/&#\d+;/);
+    expect(parseDetailLocation(DETAIL_EN)).toBe('Zizers');
+    expect(parseDetailLocation(DETAIL_DE)).toBe('Zizers');
+    expect(parseDetailPage(DETAIL_DE).description).toContain('Was du mitbringst');
+  });
+
+  it('publishes the Swiss offers with their Umantis vacancy URL and body', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const fetchDetail = vi.fn(async (url: string) => detailFor(url));
+    const jobs = await fetchAllIntegraBiosciencesJobs({ fetchListing: async () => LISTING, fetchDetail });
+
+    expect(fetchDetail).toHaveBeenCalledTimes(8);
+    expect(jobs).toHaveLength(8);
+    expect(new Set(jobs.map((job) => job.id)).size).toBe(8);
+    const sales = jobs.find((job) => job.title.startsWith('NGS Sales Specialist'))!;
+    expect(sales).toMatchObject({
+      url: 'https://jobs.integra-biosciences.com/Vacancies/326/Description/2?lang=eng',
+      location: 'Zizers',
+      canton: 'GR',
+      sourceLang: 'en',
+      postedDate: '2026-08-06',
+    });
+    expect(jobs.find((job) => job.title.startsWith('Plastic Design Engineer'))!.sourceLang).toBe('de');
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('proves a zero only from a complete vacancy array without a Swiss offer', async () => {
+    const usOnly = LISTING.replace(/"country":"Switzerland"/g, '"country":"United States"');
+    expect(usOnly).not.toBe(LISTING);
+    const fetchDetail = vi.fn(async () => '');
+    const proven = await fetchAllIntegraBiosciencesJobs({ fetchListing: async () => usOnly, fetchDetail });
+    expect(isAuthoritativeEmptySnapshot(proven)).toBe(true);
+    expect(authoritativeEmptySnapshotValidator(INTEGRA_BIOSCIENCES_COMPANY_NAME)(proven)).toBe(true);
+    expect(fetchDetail).not.toHaveBeenCalled();
+
+    // A listing that could not be read (Cloudflare + Jina both failed) is not a zero.
+    const unread = await fetchAllIntegraBiosciencesJobs({ fetchListing: async () => '', fetchDetail });
+    expect(unread).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(unread)).toBe(false);
+  });
+
+  it('does not stamp the Zizers HQ address on an ad that names another workplace', async () => {
+    process.env.JOBS_CRAWLER_DELAY_MS = '1';
+    const elsewhere = DETAIL_DE.replace('<h6>Zizers</h6>', '<h6>Basel</h6>');
+    expect(elsewhere).not.toBe(DETAIL_DE);
+    const jobs = await fetchAllIntegraBiosciencesJobs({
+      fetchListing: async () => LISTING,
+      fetchDetail: async (url: string) => (url.includes('/Vacancies/330/') ? elsewhere : detailFor(url)),
+    });
+    expect(jobs).toHaveLength(7);
+    expect(jobs.some((job) => job.url.includes('/Vacancies/330/'))).toBe(false);
+  });
+
+  it('asks the pipeline for a source-proven zero instead of an EMPTY_OK_CRAWLERS entry', () => {
+    const runner = readFileSync(new URL('../scripts/update-integra-biosciences-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(');
+    expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+    const monitor = readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
+    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+    expect(allowlist).toBeTruthy();
+    expect(allowlist![1]).not.toContain("'integra-biosciences'");
+  });
 });
