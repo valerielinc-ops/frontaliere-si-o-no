@@ -689,13 +689,41 @@ export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
   const nextQueryPage = nextPathPage ? null : numericQueryPage(next);
   if (!nextPathPage && !nextQueryPage) return false;
 
+  const sourceHtml = String(html || '');
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
   let tag;
   let largest = null;
-  while ((tag = tagRx.exec(String(html || '')))) {
+  while ((tag = tagRx.exec(sourceHtml))) {
+    const tagName = /^<\s*([a-z]+)/i.exec(tag[0])?.[1]?.toLowerCase() || '';
+    const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+    // The next link is the one-past-the-end signal being validated. It is not
+    // independent pagination evidence and must never make itself the largest
+    // announced page.
+    if (relValue.toLowerCase().split(/\s+/).includes('next')) continue;
     const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
     const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
     if (!hrefValue) continue;
+    const close = tagName === 'a' ? sourceHtml.indexOf('</a', tagRx.lastIndex) : -1;
+    const innerText = (close >= 0 ? sourceHtml.slice(tagRx.lastIndex, close) : '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&(?:nbsp|amp);/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const ariaLabel = /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const title = /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const controlLabel = [
+      innerText,
+      ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '') : '',
+      title ? (title[1] ?? title[2] ?? title[3] ?? '') : '',
+    ].join(' ');
+    // A same-origin job/detail link can itself contain `/page/<n>` or
+    // `?page=<n>`. Require a distinct numbered control label so those links
+    // do not masquerade as pagination evidence.
+    if (!/^\d+$/.test(innerText)
+      && !/^\d+$/.test(ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '').trim() : '')
+      && !/^\d+$/.test(title ? (title[1] ?? title[2] ?? title[3] ?? '').trim() : '')
+      && !/(?:page|seite|pagina)\s*#?\s*\d+/i.test(controlLabel)) continue;
     let candidate;
     try { candidate = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
     if (candidate.origin !== current.origin) continue;

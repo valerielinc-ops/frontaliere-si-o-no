@@ -248,6 +248,26 @@ describe('helper di paginazione', () => {
       .toBe(`${ORIGIN}/list?page=3`);
   });
 
+  it('richiede un controllo numerato distinto dal rel=next', () => {
+    const pageUrl = `${ORIGIN}/jobs/page/58`;
+    const nextUrl = `${ORIGIN}/jobs/page/59`;
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}">`,
+      pageUrl,
+      nextUrl,
+    )).toBe(false);
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}"><a href="${nextUrl}">59</a>`,
+      pageUrl,
+      nextUrl,
+    )).toBe(true);
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}"><a href="${nextUrl}">offerta</a>`,
+      pageUrl,
+      nextUrl,
+    )).toBe(false);
+  });
+
   it('toglie dall\'URL di dettaglio solo i parametri di paginazione dichiarati', () => {
     const state = ['sf_paged'];
     expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/sa3/`);
