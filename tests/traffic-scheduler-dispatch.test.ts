@@ -101,4 +101,12 @@ describe('traffic scheduler Cloud dispatch', () => {
     const timeout = Number(/jobs:\s+collect:[\s\S]*?timeout-minutes:\s*(\d+)/u.exec(workflow)?.[1]);
     expect(timeout).toBeGreaterThanOrEqual(15);
   });
+
+  it('uses a complete blobless checkout for the non-thin history push', () => {
+    const workflow = readFileSync(`${root}/.github/workflows/traffic-scheduler.yml`, 'utf8');
+    const checkout = workflow.match(/- name: Checkout[\s\S]*?- name: Setup Node\.js/u)?.[0] ?? '';
+
+    expect(checkout).toContain('fetch-depth: 0');
+    expect(checkout).toContain('filter: blob:none');
+  });
 });
