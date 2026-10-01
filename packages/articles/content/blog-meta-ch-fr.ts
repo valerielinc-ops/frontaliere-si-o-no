@@ -7376,6 +7376,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.operazione-internazionale-contro-killsec.title': 'KillSec démantelé : 110 To de données saisies',
     'blog.article.operazione-internazionale-contro-killsec.excerpt': 'Une opération internationale le 30 septembre 2026 a démantelé le réseau de KillSec, arrêté trois personnes, mené huit perquisitions en Espagne, en Grèce, au Royaume-Uni et en Roumanie, et saisi cinq serveurs.',
     'blog.article.operazione-internazionale-contro-killsec.imageAlt': 'Centre de données suisse moderne avec drapeau suisse, symbole de cybersécurité',
+    'blog.article.consiglio-stati-accordo-sanita-ue.title': 'Conseil des États : oui à l’accord sanitaire de l’UE',
+    'blog.article.consiglio-stati-accordo-sanita-ue.excerpt': '31 oui, 11 non : décret sanitaire approuvé. Référendum optionnel choisi. L’électricité est en pause.',
+    'blog.article.consiglio-stati-accordo-sanita-ue.imageAlt': 'Le Palais fédéral à Berne lors de la session du Conseil des États',
 };
 
 export default blogMetaChFr;
