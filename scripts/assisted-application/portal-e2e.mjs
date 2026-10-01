@@ -114,6 +114,10 @@ function fakePortal() {
     if (route === 'GET /antibot') {
       return send(page('Bewerbung', `<h1>Ihre Bewerbung</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div>${form('/antibot', '<button type="submit">Bewerbung absenden</button>').replace('<form ', '<form onsubmit="return false" ')}`));
     }
+    // Lever, TSMG 2026-10-01: the send click serves an hCaptcha challenge nobody passes; the form stays as it was.
+    if (route === 'GET /hchallenge') {
+      return send(page('Application', `<h1>Submit your application</h1>${form('/hchallenge', '<button type="submit">Submit application</button>').replace('<form ', '<form onsubmit="fetch(\'https://api.hcaptcha.com/getcaptcha/e2e-site\', { method: \'POST\' }).catch(() => {}); return false" ')}`));
+    }
     // JOIN run 36846326334: the portal answers the send click with its own refusal toast.
     if (route === 'GET /refused') {
       return send(page('Candidatura', `<h1>La tua candidatura</h1><div class="grecaptcha-badge" style="width:256px;height:60px"></div><div id="toast" role="status"></div>${form('/refused', '<button type="submit">Conferma e applica</button>').replace('<form ', '<form onsubmit="document.getElementById(\'toast\').textContent = \'Non siamo riusciti a inviare la tua candidatura. Riprova.\'; return false" ')}`));
@@ -221,6 +225,18 @@ async function main() {
     ...extra,
   });
 
+  // hCaptcha's own host answered locally: the test never calls the real service.
+  const launchWithLocalHcaptcha = async () => {
+    const browser = await launchChromium({ headless: true, executablePath });
+    const newContext = browser.newContext.bind(browser);
+    browser.newContext = async (options) => {
+      const context = await newContext(options);
+      await context.route('https://api.hcaptcha.com/**', (route) => route.fulfill({ status: 200, contentType: 'application/json', body: '{"success":false}' }));
+      return context;
+    };
+    return browser;
+  };
+
   const checks = [];
   const check = (name, ok) => { checks.push({ name, ok }); console.log(`${ok ? '✓' : '✗'} ${name}`); };
   try {
@@ -312,6 +328,10 @@ async function main() {
     const silent = await run({ applyUrl: `${base}/antibot` });
     check('a send the portal silently drops is reported as a likely anti-bot refusal', silent.event.type === 'submit_failed'
       && silent.event.error === 'portal_antibot_ambiguous' && silent.evidence.antibot === true);
+    // A challenge served after the click and never passed: the application never left, Valerie completes it.
+    const challenged = await run({ applyUrl: `${base}/hchallenge`, launch: launchWithLocalHcaptcha });
+    check('a CAPTCHA served after the send click and never passed is a CAPTCHA stop, not an unknown outcome', challenged.event.type === 'submit_handoff'
+      && challenged.event.reason === 'captcha' && challenged.evidence.challengeAfterClick === true);
     // The portal says it did not send: not ambiguous, and the browser used is in the evidence.
     const toast = await run({ applyUrl: `${base}/refused` });
     check('a send the portal refuses in words is a refusal, not an ambiguity', toast.event.type === 'submit_failed'

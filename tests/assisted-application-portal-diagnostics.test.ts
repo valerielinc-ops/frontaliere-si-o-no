@@ -1,6 +1,6 @@
 import { EventEmitter } from 'node:events';
 import { describe, expect, it, vi } from 'vitest';
-import { diagnosticLocation, diagnosticText, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
+import { diagnosticLocation, diagnosticText, isChallengeRequest, responseErrors, startPortalDiagnostics } from '../scripts/assisted-application/lib/portal/diagnostics.mjs';
 
 function fixture() {
   const page = Object.assign(new EventEmitter(), {
@@ -72,6 +72,36 @@ describe('encrypted portal diagnostics', () => {
     expect(diagnostics.data.pageErrors.at(-1).message).toBe('popup_error');
     await diagnostics.finish();
     expect(popup.listenerCount('pageerror')).toBe(0);
+  });
+
+  // Lever, TSMG 2026-10-01: an hCaptcha challenge after SUBMIT APPLICATION, gone by the end of the wait.
+  it('knows a human challenge served after the final click, even once the capped lists are full', async () => {
+    expect(isChallengeRequest('https://api.hcaptcha.com/getcaptcha/e33f87f8-88ec-4e1a-9a13-df9bbb1d8120?s=x')).toBe(true);
+    expect(isChallengeRequest('https://www.google.com/recaptcha/api2/payload?p=x&k=y')).toBe(true);
+    expect(isChallengeRequest('https://www.recaptcha.net/recaptcha/enterprise/payload')).toBe(true);
+    for (const url of [
+      'https://api.hcaptcha.com/checksiteconfig?v=1', 'https://imgs3.hcaptcha.com/tip/abc.jpeg', 'https://hcaptcha.com.evil.example/getcaptcha/x',
+      'https://www.google.com/recaptcha/api2/reload?k=y', 'https://jobs.example/getcaptcha', 'not a url',
+    ]) expect(isChallengeRequest(url)).toBe(false);
+
+    const { context, page, request } = fixture();
+    const challenge = { ...request, url: () => 'https://api.hcaptcha.com/getcaptcha/site', resourceType: () => 'xhr' };
+    const diagnostics = startPortalDiagnostics(context);
+    // Before the click a challenge (a checkbox on the form, or one arriving during beforeSubmit) is not the send's.
+    context.emit('request', challenge);
+    await diagnostics.beforeSubmit(page);
+    context.emit('request', challenge);
+    expect(diagnostics.challengeAfterClick()).toBe(false);
+    diagnostics.finalClick();
+    for (let i = 0; i < 60; i += 1) context.emit('request', request);
+    context.emit('request', challenge);
+    expect(diagnostics.data.requests).toHaveLength(40);
+    expect(diagnostics.challengeAfterClick()).toBe(true);
+    // The next attempt (after a validation error) starts clean: a challenge of the previous click does not count (review of #10810).
+    await diagnostics.beforeSubmit(page);
+    diagnostics.finalClick();
+    expect(diagnostics.challengeAfterClick()).toBe(false);
+    await diagnostics.finish();
   });
 
   it.each([null, '', 'NaN', 'Infinity', '-1', '65537', '1.5'])('does not buffer a JSON response with unbounded size %s', async (size) => {
