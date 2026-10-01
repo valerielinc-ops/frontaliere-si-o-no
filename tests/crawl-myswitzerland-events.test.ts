@@ -266,13 +266,19 @@ describe('extractPrice', () => {
     ['12,50–20 EUR', 12.5, 'EUR'],
     ['Prezzo: 20 franchi, categoria 1', 20, 'CHF'],
     ['EUR 12,50 pour 2 personnes', 12.5, 'EUR'],
+    ['EUR 15.–', 15, 'EUR'],
     ['25.–', 25, 'CHF'],
     ['25 pro Person', 25, 'CHF'],
   ])('parses monetary tariffs without including unrelated quantities: %s', (tariff, amount, currency) => {
     expect(parseEventPriceText(tariff)).toEqual({ amount, currency, isFree: false });
   });
 
-  it.each(['Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20', 'Children free, adults 20'])
+  it.each([
+    'Kategorie 1', '8 séances', 'CHF 1,000', 'CHF -25', 'CHF 25 / EUR 20', 'Children free, adults 20',
+    'EUR 20 / 15.–', 'Children 15.– / adults EUR 20',
+    'Free for children, adults 20', 'Free admission for children, adults 20', 'Admission: free for children',
+    'Gratuit pour les enfants, adultes 20', 'Gratis per bambini, adulti 20', 'Eintritt frei für Kinder, Erwachsene 20',
+  ])
     ('keeps absent or ambiguous monetary amounts unknown: %s', (tariff) => {
       expect(parseEventPriceText(tariff)).toEqual({ amount: null, currency: 'CHF', isFree: false });
     });

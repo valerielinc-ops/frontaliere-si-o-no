@@ -90,14 +90,15 @@ export function parseEventPriceText(value) {
     currency: /EUR|€/iu.test(groups.prefix || groups.suffix) ? 'EUR' : 'CHF',
   })).filter(({ amount }) => Number.isFinite(amount));
   const unknown = { amount: null, currency: 'CHF', isFree: false };
-  const currencies = new Set(money.map(({ currency }) => currency));
-  if (currencies.size > 1) return unknown;
   // Swiss trailing-dash prices are monetary markers too, unlike a category or
-  // quantity. Reuse an explicit currency in the same tariff, otherwise CHF.
-  const marked = [...tariff.matchAll(SWISS_MARKED_TARIFF_RE)]
+  // quantity. A standalone marker means CHF; an explicitly labelled amount
+  // such as EUR 15.– was already parsed with its own currency above.
+  const marked = [...tariff.replace(TARIFF_MONEY_RE, ' ').matchAll(SWISS_MARKED_TARIFF_RE)]
     .map(match => amountFromText(match[1])).filter(Number.isFinite);
   if (!money.length && TARIFF_CURRENCY_RE.test(tariff)) return unknown;
-  for (const amount of marked) money.push({ amount, currency: money[0]?.currency || 'CHF' });
+  for (const amount of marked) money.push({ amount, currency: 'CHF' });
+  const currencies = new Set(money.map(({ currency }) => currency));
+  if (currencies.size > 1) return unknown;
   if (money.length) {
     // Different currencies are not comparable without an exchange rate.
     const cheapest = money.reduce((best, candidate) => candidate.amount < best.amount ? candidate : best);
@@ -108,6 +109,7 @@ export function parseEventPriceText(value) {
   if (TARIFF_CURRENCY_RE.test(tariff)) return unknown;
   // A leading free tariff is authoritative even when dates or opening hours
   // follow it. Do not promote a conditional "Children free, adults 20".
+  if (/\b(?:free|gratuit[oa]?|gratis|kostenlos|frei|libre)(?:\s+(?:entrance|entry|admission))?\s+(?:for|pour|per|für|nur|solo|soltanto|seulement|under|below|children|kids|bambini|enfants|kinder)\b/iu.test(tariff)) return unknown;
   const leadingWords = tariff.trim().match(/^([\p{L}]+)(?:[\s:]+([\p{L}]+))?/u);
   if (leadingWords) {
     const freeWord = parsePriceText(leadingWords[1]);
