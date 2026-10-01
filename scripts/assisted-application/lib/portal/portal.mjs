@@ -23,6 +23,7 @@
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
 import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
+import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
 import { holdsValue, planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
@@ -567,6 +568,7 @@ export async function submitViaPortal(ctx) {
   const browser = extensionPath ? null : await launch();
   let context = null;
   let page = null;
+  let diagnostics = null;
   // Where the runner stopped, for whoever takes over (encrypted with the rest of the evidence).
   const handoff = async (reason) => {
     if (page) {
@@ -604,6 +606,8 @@ export async function submitViaPortal(ctx) {
     context = extensionPath
       ? await launchNopechaContext(extensionPath, { ...contextOptions, headless: !headedBrowser() })
       : await browser.newContext({ ...contextOptions, userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : '') });
+    diagnostics = startPortalDiagnostics(context, (evidence.submitHttpFailures = []));
+    evidence.diagnostics = diagnostics.data;
     page = await context.newPage();
     // Which browser the portal saw (the run's logs are deleted): headed on the
     // virtual screen or headless, and the user agent it sent.
@@ -843,25 +847,12 @@ export async function submitViaPortal(ctx) {
       evidence.beforeSubmit = (await page.screenshot({ fullPage: true })).toString('base64');
       evidence.finalButton = { label: final.label, by: final.by };
       const finalUrl = page.url();
+      await diagnostics.beforeSubmit(page);
       // From here the outcome may be unknown: the submission guard records the click.
       if (ctx.onBeforeSubmit) await ctx.onBeforeSubmit();
-      // Private evidence only: distinguish a server refusal from the mere presence
-      // of a CAPTCHA. Never collect headers, tokens, request bodies or URL queries.
-      const failures = (evidence.submitHttpFailures ||= []);
-      const recordFailure = (response) => {
-        const method = response.request().method();
-        if (response.status() < 400 || !/^(POST|PUT|PATCH)$/.test(method) || failures.length >= 10) return;
-        const url = new URL(response.url());
-        failures.push({ host: url.hostname, path: url.pathname, method, status: response.status() });
-      };
-      page.on('response', recordFailure);
-      let outcome;
-      try {
-        await final.click();
-        outcome = await waitForOutcome(page, Boolean(extensionPath));
-      } finally {
-        page.off('response', recordFailure);
-      }
+      await final.click();
+      const outcome = await waitForOutcome(page, Boolean(extensionPath));
+      await diagnostics.afterSubmit(page, outcome);
       evidence.afterSubmit = (await page.screenshot({ fullPage: true }).catch(() => Buffer.from(''))).toString('base64');
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
@@ -898,6 +889,7 @@ export async function submitViaPortal(ctx) {
     }
     return await handoff('portal_needs_candidate');
   } finally {
+    await diagnostics?.finish();
     await context?.close().catch(() => {});
     await browser?.close().catch(() => {});
   }
