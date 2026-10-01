@@ -149,6 +149,12 @@ export function requestSlot(id: string, priority: number): boolean {
  // re-requests with a new priority, include that candidate in the same
  // arbitration pass instead of leaving a stale activeId until the timer.
  if (promotionTimer !== null && activeId === id) {
+ // A new mount is a new offer, even while the old owner's exit animation
+ // retains its id. It must not bypass the cap by reusing that id.
+ if (isPromotional(id) && !canShowPromotionalPrompt()) {
+ setActive(null, null);
+ return false;
+ }
  return reconcileActiveRequest(id, priority);
  }
 

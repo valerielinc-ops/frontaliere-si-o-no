@@ -229,6 +229,16 @@ describe('unsolicited prompts obey the queue frequency policy', () => {
     vi.advanceTimersByTime(500);
     expect(isActive('job-alert-sticky-banner')).toBe(true);
   });
+  it('does not let a remounted promotion inherit the released owner during its exit window', () => {
+    requestSlot('guide-banner', POPUP_PRIORITY.GUIDE_BANNER);
+    markSlotShown('guide-banner');
+    requestSlot('feature-survey', POPUP_PRIORITY.NEWSLETTER);
+    releaseSlot('guide-banner');
+    expect(requestSlot('guide-banner', POPUP_PRIORITY.GUIDE_BANNER)).toBe(false);
+    expect(isActive('guide-banner')).toBe(false);
+    vi.advanceTimersByTime(500);
+    expect(getActiveSlotId()).toBe(null);
+  });
   it('does not promote an unmounted offer when the cooldown ends', async () => {
     const { markPromotionalPromptShown } = await import('@/services/popupQueue');
     markPromotionalPromptShown();
