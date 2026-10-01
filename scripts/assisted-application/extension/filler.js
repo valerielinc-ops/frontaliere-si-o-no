@@ -235,7 +235,10 @@
     const radiosByName = new Map();
     for (const element of controls) {
       const type = (element.getAttribute('type') || 'text').toLowerCase();
-      if (['hidden', 'submit', 'button', 'image', 'reset', 'search', 'password'].includes(type)) continue;
+      if (['hidden', 'submit', 'button', 'image', 'reset', 'password'].includes(type)) continue;
+      // The site's own search box is no question; Workday's «selectinput» (a search that picks an option) is.
+      const searchSelect = element.getAttribute('data-uxi-widget-type') === 'selectinput';
+      if (type === 'search' && !searchSelect) continue;
       if (inPicker(element) || element.disabled || element.readOnly) continue;
       if (type !== 'file' && !isShown(element)) continue;
       const required = element.required || element.getAttribute('aria-required') === 'true' || element.hasAttribute('data-required');
@@ -245,12 +248,28 @@
         radiosByName.get(key).push(element);
         continue;
       }
-      const kind = type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox'
+      const kind = searchSelect ? 'search-select' : type === 'file' ? 'file' : type === 'checkbox' ? 'checkbox'
         : element.tagName === 'SELECT' ? 'select'
           : element.getAttribute('role') === 'combobox' ? 'combobox'
             : element.tagName === 'TEXTAREA' ? 'textarea' : type === 'date' ? 'native-date' : 'text';
       const label = labelOf(element);
       entries.push({ kind, element, label, labels: labelsOf(element, label, runnerLabelOf(runner, element)), required, type });
+    }
+    // Workday's dropdowns: buttons that open a listbox (the runner's «listbox» fields).
+    for (const button of doc.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
+      if (button.disabled || !isShown(button) || inPicker(button)) continue;
+      const own = labelOf(button);
+      const label = own === textOf(button) ? questionOf(button) || nearbyText(button) || own : own;
+      // The site's own language menu is not part of the application.
+      if (/language.?selector|sprachauswahl/i.test(`${label} ${button.getAttribute('data-automation-id') || ''}`)) continue;
+      entries.push({
+        kind: 'listbox',
+        element: button,
+        label,
+        labels: labelsOf(button, label, runnerLabelOf(runner, button)),
+        required: button.getAttribute('aria-required') === 'true' || /\*/.test(label),
+        type: 'listbox',
+      });
     }
     for (const radios of radiosByName.values()) {
       const question = questionOf(radios[0]);
@@ -295,6 +314,8 @@
     if (entry.kind === 'file') return !(element.files && element.files.length);
     if (entry.kind === 'radio') return !entry.options.some((option) => option.element.checked);
     if (entry.kind === 'aria-radio') return !entry.options.some((option) => option.element.getAttribute('aria-checked') === 'true');
+    if (entry.kind === 'listbox') return LISTBOX_PLACEHOLDER_RE.test(normalize(textOf(element))) || !normalize(textOf(element));
+    if (entry.kind === 'search-select') return !chosenPills(element).length && !String(element.value || '').trim();
     if (entry.kind === 'date') return element.hasAttribute('data-empty') || !element.querySelector('[data-selected], [aria-selected="true"]');
     if (entry.kind === 'combobox') {
       if (String(element.value || '').trim()) return false;
@@ -304,6 +325,23 @@
     }
     if (entry.kind === 'select') return !element.value || /^(|0|-1|null|none|select|bitte wahlen|seleziona|choisir)$/i.test(normalize(element.options[element.selectedIndex]?.text));
     return !String(element.value || '').trim();
+  }
+
+  const LISTBOX_PLACEHOLDER_RE = /^(select|select one|seleziona|scegli|auswahlen|bitte wahlen|choisir|selectionner|choose)( one| an option| un elemento)?$/;
+
+  /** Workday shows a search-select's choice as a pill tied by `data-uxi-multiselect-id`. */
+  function chosenPills(input) {
+    const id = input.getAttribute('data-uxi-multiselect-id');
+    if (!id) return [];
+    const quoted = id.replace(/["\\]/g, (match) => `\\${match}`);
+    return [...input.ownerDocument.querySelectorAll(`[data-uxi-widget-type="selectinputlistitem"][data-uxi-multiselect-id="${quoted}"]`)]
+      .map((pill) => textOf(pill)).filter(Boolean);
+  }
+
+  /** The options of the listbox a control just opened (Workday renders it at the end of the page). */
+  function openOptions(doc) {
+    return [...doc.querySelectorAll('[role="listbox"] [role="option"], [role="option"]')].filter(isShown)
+      .map((element) => ({ element, label: textOf(element) }));
   }
 
   function comboBox(input) {
@@ -390,7 +428,7 @@
       return entry.required && CONSENT_RE.test(label) && !MARKETING_RE.test(label) ? { check: true } : null;
     }
     if (fromKit && fromKit.source !== 'documents') return { value: fromKit.answer };
-    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date'].includes(entry.kind) ? familyOf(entry) : null;
+    const family = ['text', 'textarea', 'combobox', 'select', 'native-date', 'date', 'listbox', 'search-select'].includes(entry.kind) ? familyOf(entry) : null;
     const value = family ? identityValue(family, kit) : '';
     if (value) return { value, family };
     if (entry.kind === 'textarea' && LETTER_RE.test(normalize(entry.label)) && kit.texts?.coverLetter) return { value: kit.texts.coverLetter };
@@ -563,6 +601,35 @@
       }
       case 'combobox':
         return chooseInCombobox(element, answer.value);
+      case 'listbox': {
+        // Open it, click the option the answer names (lib/portal/fill.mjs: exact label).
+        press(element);
+        const option = await waitFor(() => bestOption(openOptions(element.ownerDocument), answer.value));
+        if (!option) {
+          fire(element, 'keydown', { key: 'Escape' });
+          return false;
+        }
+        press(option.element);
+        await sleep(config.stepMs * 2);
+        return !isEmpty(entry);
+      }
+      case 'search-select': {
+        // Type, search with Enter, pick the option the answer names, else the one that contains it.
+        setValue(element, String(answer.value).slice(0, 60));
+        fire(element, 'keydown', { key: 'Enter', code: 'Enter' });
+        const wanted = normalize(answer.value);
+        const option = await waitFor(() => {
+          const options = openOptions(element.ownerDocument);
+          const named = bestOption(options, answer.value);
+          if (named) return named;
+          const containing = options.filter((item) => normalize(item.label).includes(wanted));
+          return containing.length === 1 ? containing[0] : null;
+        });
+        if (!option) return false;
+        press(option.element);
+        await sleep(config.stepMs * 2);
+        return !isEmpty(entry);
+      }
       case 'date':
         return chooseDate(element, answer.value);
       default: {

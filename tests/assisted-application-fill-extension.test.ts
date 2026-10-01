@@ -239,6 +239,44 @@ describe('fill extension: the runner’s reading on any portal', () => {
       </ul><button type="button">Submit application</button></form>`],
   ];
 
+  // Review of #10785: the runner also reads Workday's listbox buttons and «selectinput» search boxes.
+  it('fills Workday’s listbox buttons and search-select boxes as the runner reads them', async () => {
+    const { F, document, read } = runnerPage(`<div data-automation-id="applyFlowPage">
+      <div data-automation-id="formField-source"><label id="lbl-src" for="src">How did you hear about us?<abbr title="required">*</abbr></label>
+        <button id="src" type="button" aria-haspopup="listbox" aria-required="true" aria-labelledby="lbl-src">Select One</button></div>
+      <div data-automation-id="formField-country"><label for="country">Country of residence<abbr title="required">*</abbr></label>
+        <input id="country" type="search" data-uxi-widget-type="selectinput" data-uxi-multiselect-id="ms1" aria-required="true"></div>
+      <div id="pills"></div><div id="popup"></div>
+      <input type="search" id="site-search" placeholder="Search jobs">
+      <button type="button" data-automation-id="bottom-navigation-next-button">Save and Continue</button></div>`, 'https://acme.wd3.myworkdayjobs.com/en-US/careers/job/1/apply');
+    const popup = document.getElementById('popup')!;
+    const button = document.getElementById('src')!;
+    const country = document.getElementById('country') as HTMLInputElement;
+    const open = (labels: string[], choose: (label: string) => void) => {
+      popup.innerHTML = '<div role="listbox">' + labels.map((label) => '<div role="option">' + label + '</div>').join('') + '</div>';
+      popup.querySelectorAll('[role="option"]').forEach((option) => option.addEventListener('click', () => { choose(option.textContent || ''); popup.innerHTML = ''; }));
+    };
+    button.addEventListener('click', () => open(['Job board', 'LinkedIn', 'Referral'], (label) => { button.textContent = label; }));
+    country.addEventListener('keydown', (event) => {
+      if ((event as KeyboardEvent).key !== 'Enter') return;
+      open(['Switzerland', 'Swaziland'].filter((name) => name.toLowerCase().startsWith(country.value.toLowerCase().slice(0, 3))), (label) => {
+        document.getElementById('pills')!.innerHTML = '<div data-uxi-widget-type="selectinputlistitem" data-uxi-multiselect-id="ms1">' + label + '</div>';
+        country.value = '';
+      });
+    });
+    // The runner's pass: its labels for the two required fields.
+    const fields = read().fields.filter((field: any) => field.required);
+    expect(fields.map((field: any) => field.kind).sort()).toEqual(['listbox', 'text']);
+    const answers = fields.map((field: any) => ({ question: field.label, answer: field.kind === 'listbox' ? 'LinkedIn' : 'Switzerland', source: 'answers' }));
+    const entries = F.collect(document);
+    // The site's own job search is no question.
+    expect(entries.some((entry: any) => entry.element.id === 'site-search')).toBe(false);
+    const result = await F.fillPage(document, { ...kit, answers }, { getFile: async () => null, attempts: new WeakMap() });
+    expect(button.textContent).toBe('LinkedIn');
+    expect(document.getElementById('pills')!.textContent).toBe('Switzerland');
+    expect(result.missing).toEqual([]);
+  });
+
   for (const [portal, url, html] of portals) {
     it(`answers every field the runner answered, on a ${portal}-style form`, async () => {
       const { F, document, read } = runnerPage(html, url);
