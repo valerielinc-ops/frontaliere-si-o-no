@@ -21,12 +21,15 @@ import {
   applyQuarantineDecisions,
   assertQuarantineMembership,
   decideQuarantine,
+  holdLastQuarantineMember,
+  isMutatingDecision,
   quarantineDeadline,
+  quarantineRegistryDoc,
   toleratedQuarantineFailures,
   validateQuarantineRegistry,
   waveFromRunAnnotations,
 } from '../scripts/lib/crawler-quarantine.mjs';
-import { assignGroupsStable } from '../scripts/generate-crawler-group-workflows.mjs';
+import { assignGroupsStable, generate } from '../scripts/generate-crawler-group-workflows.mjs';
 import {
   buildQuarantineReviewPrBody,
   collectWaves,
@@ -200,6 +203,144 @@ describe('applyQuarantineDecisions', () => {
   });
 });
 
+describe('holdLastQuarantineMember: the quarantine group never empties', () => {
+  const green = (streak: number) => ({ latest: 'success', streak, streakStart: '2026-09-28T00:00:00Z', runs: [], observed: streak });
+  const red = (streak: number) => ({ latest: 'failure', streak, streakStart: '2026-09-28T00:00:00Z', runs: [], observed: streak });
+  const groupsWith = (members: string[]) => [['a'], ['b'], members];
+
+  it('holds the weakest rejoin when every member would leave (run 36789918924: 4 rejoins + 1 retirement)', () => {
+    const registry = {
+      ...registryOf({
+        confederazione: entry({ homeGroup: 2 }),
+        protectas: entry({ homeGroup: null, enteredAt: '2026-09-25T17:37:13Z', failingSince: '2026-09-26T14:06:21Z', issue: 10084 }),
+        lwphr: entry({ homeGroup: 1, issue: 10085 }),
+        'knowledge-lab': entry({ failingSince: '2026-09-26T23:46:18Z', issue: 10083 }),
+      }),
+      group: 3,
+    };
+    const assignments = groupsWith(['confederazione', 'protectas', 'lwphr', 'knowledge-lab']);
+    const decisions = holdLastQuarantineMember({
+      registry,
+      assignments,
+      decisions: [
+        { slug: 'confederazione', action: 'rejoin', homeGroup: 2, issue: null, evidence: green(5) },
+        { slug: 'protectas', action: 'rejoin', homeGroup: null, issue: 10084, evidence: green(4) },
+        { slug: 'lwphr', action: 'rejoin', homeGroup: 1, issue: 10085, evidence: green(7) },
+        { slug: 'knowledge-lab', action: 'retire', homeGroup: 15, issue: 10083, reason: 'r', evidence: red(11) },
+      ],
+    });
+    expect(decisions.map((d: any) => `${d.slug}:${d.action}`)).toEqual([
+      'confederazione:rejoin', 'protectas:hold', 'lwphr:rejoin', 'knowledge-lab:retire',
+    ]);
+    const held = decisions.find((d: any) => d.action === 'hold');
+    // protectas was a known failure: held, it must not keep a tolerance it no longer needs.
+    expect(held).toMatchObject({ dropsTolerance: true, issue: 10084, reason: expect.stringMatching(/gruppo vuoto/) });
+    expect(isMutatingDecision(held)).toBe(true);
+
+    const { registry: next, assignments: groups } = applyQuarantineDecisions({
+      registry,
+      assignments,
+      decisions: decisions.filter(isMutatingDecision),
+      now: '2026-10-01T00:00:00Z',
+      issues: { 'knowledge-lab': 10662 },
+    });
+    expect(groups[2]).toEqual(['protectas']);
+    expect(groups[0]).toEqual(['a', 'lwphr']);
+    expect(groups[1]).toEqual(['b', 'confederazione']);
+    expect(Object.keys(next.members)).toEqual(['protectas']);
+    expect(next.members.protectas.failingSince).toBeNull();
+    expect(next.retired['knowledge-lab']).toMatchObject({ issue: 10662 });
+  });
+
+  it('breaks a streak tie by the latest entry, then by slug, and holds without mutating a green member', () => {
+    const registry = {
+      ...registryOf({
+        older: entry({ enteredAt: '2026-09-20T00:00:00Z' }),
+        newer: entry({ enteredAt: '2026-09-22T00:00:00Z' }),
+      }),
+      group: 3,
+    };
+    const decisions = holdLastQuarantineMember({
+      registry,
+      assignments: groupsWith(['older', 'newer']),
+      decisions: [
+        { slug: 'older', action: 'rejoin', homeGroup: 13, evidence: green(4) },
+        { slug: 'newer', action: 'rejoin', homeGroup: 13, evidence: green(4) },
+      ],
+    });
+    const held = decisions.find((d: any) => d.action === 'hold');
+    expect(held).toMatchObject({ slug: 'newer', dropsTolerance: false });
+    expect(isMutatingDecision(held)).toBe(false);
+  });
+
+  it('leaves the decisions alone while another member stays', () => {
+    const registry = { ...registryOf({ x: entry(), y: entry() }), group: 3 };
+    const decisions = [
+      { slug: 'x', action: 'rejoin', homeGroup: 13, evidence: green(4) },
+      { slug: 'y', action: 'observe', evidence: green(2) },
+    ];
+    expect(holdLastQuarantineMember({ registry, assignments: groupsWith(['x', 'y']), decisions })).toBe(decisions);
+  });
+
+  it('never holds a retirement: with nothing to hold it stops before any side effect', () => {
+    const registry = { ...registryOf({ dead: entry({ failingSince: '2026-09-20T00:00:00Z', issue: 7 }) }), group: 3 };
+    expect(() => holdLastQuarantineMember({
+      registry,
+      assignments: groupsWith(['dead']),
+      decisions: [{ slug: 'dead', action: 'retire', homeGroup: 13, issue: 7, reason: 'r', evidence: red(10) }],
+    })).toThrow(/would leave the quarantine group 3 empty/);
+  });
+
+  it('applyQuarantineDecisions refuses to empty the quarantine group on its own', () => {
+    const registry = { ...registryOf({ x: entry() }), group: 3 };
+    expect(() => applyQuarantineDecisions({
+      registry,
+      assignments: groupsWith(['x']),
+      now: '2026-10-01T00:00:00Z',
+      decisions: [{ slug: 'x', action: 'rejoin', homeGroup: 1 }],
+    })).toThrow(/quarantine group 3 empty/);
+  });
+
+  it('keeps the committed corpus generatable when every current member rejoins at once', () => {
+    const registry = JSON.parse(fs.readFileSync(REGISTRY_PATH, 'utf8'));
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const members = Object.keys(registry.members);
+    expect(members.length).toBeGreaterThan(0);
+    const decisions = holdLastQuarantineMember({
+      registry,
+      assignments: pins.groups,
+      decisions: members.map((slug, i) => ({
+        slug,
+        action: 'rejoin',
+        homeGroup: registry.members[slug].homeGroup,
+        issue: registry.members[slug].issue ?? null,
+        evidence: green(QUARANTINE_REJOIN_GREEN_WAVES + i),
+      })),
+    });
+    expect(decisions.filter((d: any) => d.action === 'hold')).toHaveLength(1);
+    const next = applyQuarantineDecisions({
+      registry,
+      assignments: pins.groups,
+      decisions: decisions.filter(isMutatingDecision),
+      now: '2026-10-01T00:00:00Z',
+    });
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'quarantine-hold-'));
+    try {
+      const quarantinePath = path.join(dir, 'crawler-quarantine.json');
+      const assignmentsPath = path.join(dir, 'crawler-group-assignments.json');
+      fs.writeFileSync(quarantinePath, JSON.stringify(quarantineRegistryDoc(next.registry)));
+      fs.writeFileSync(assignmentsPath, JSON.stringify({ ...pins, groups: next.assignments }));
+      // Before the hold this threw `Invalid roster for group 24` (run 36789918924).
+      const results = generate({ write: false, assignmentsPath, quarantinePath });
+      expect(results).toHaveLength(pins.groupCount);
+      expect(results[registry.group - 1].members).toEqual(next.assignments[registry.group - 1]);
+      expect(results[registry.group - 1].memberCount).toBe(1);
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+});
+
 describe('waveFromRunAnnotations', () => {
   const run = { id: 1, createdAt: '2026-09-28T05:06:58Z' };
 
@@ -350,8 +491,11 @@ describe('buildQuarantineReviewPrBody', () => {
         { slug: 'x', action: 'rejoin', homeGroup: 13, evidence },
         { slug: 'dead', action: 'retire', reason: '10 ondate rosse consecutive (soglia 10)', evidence: { ...evidence, latest: 'failure', streak: 10 } },
         { slug: 'slow', action: 'keep-failing', issue: 9, deadline: '2026-10-03', evidence: { ...evidence, latest: 'failure', streak: 3 } },
+        { slug: 'last', action: 'hold', homeGroup: null, issue: 5, dropsTolerance: true, reason: 'ultimo membro del gruppo di quarantena 24: il roster di generazione rifiuta un gruppo vuoto', evidence },
       ],
     });
+    expect(body).toMatch(/- \*\*in questa PR\*\* — `last` e' tornato verde .* perde la tolleranza/);
+    expect(body).toMatch(/- \*\*per scelta\*\* — `last` resta nel gruppo 24 .*\*\*Motivo:\*\* ultimo membro .*\*\*Prossimo passo:\*\*/);
     expect(body).toContain('## Implementato');
     expect(body).toContain('## Non implementato (ancora)');
     const validation = validatePrBody(body, { diffPaths: ['.github/workflows/crawler-group-24.yml'] });
