@@ -38,6 +38,16 @@ const read = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf-8
 
 const INDEX_HTML = read('index.html');
 const SEO_PAGES = read('services/seo/seo-pages.ts');
+const STATIC_BLOG_SEO_FILES = [
+  'packages/articles/content/seo/seo-blog-2.ts',
+  'packages/articles/content/seo/seo-blog-3.ts',
+  'packages/articles/content/seo/seo-blog-4.ts',
+  'packages/articles/content/seo/seo-blog-5.ts',
+  'packages/articles/content/seo/seo-blog-6.ts',
+  'packages/articles/content/seo/seo-blog-7.ts',
+  'packages/articles/content/seo/seo-blog-ch.ts',
+  'packages/articles/content/seo/seo-blog.ts',
+].map((file) => [file, read(file)] as const);
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -130,6 +140,17 @@ describe('the canonical #organization entity', () => {
         name: ORGANIZATION_LD.name,
       },
     });
+  });
+
+  it('gives every static blog ImageObject creator the canonical identity', () => {
+    for (const [file, source] of STATIC_BLOG_SEO_FILES) {
+      expect(source, `${file} still emits an anonymous site ImageObject creator`).not.toContain(
+        '"creator": { "@type": "Organization", "name": "Frontaliere Ticino"',
+      );
+      expect(source, `${file} has no canonical image creator`).toContain(
+        '"creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization"',
+      );
+    }
   });
 });
 
