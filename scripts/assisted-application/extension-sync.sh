@@ -47,9 +47,11 @@ sync_once() {
   local staging
   staging="$(mktemp -d "${TMPDIR:-/tmp}/compila-candidatura.XXXXXX")"
   # Each file is replaced whole (rsync writes a temporary file and renames it).
+  # --checksum: git archive stamps every file with the commit's time, so two
+  # merges in the same second leave a same-size file looking unchanged.
   if ! { git --git-dir="$git_dir" archive "origin/main:$EXTENSION_PATH" | tar -x -C "$staging" \
     && mkdir -p "$dest" \
-    && rsync -a --delete --exclude '_metadata' "$staging/" "$dest/"; }; then
+    && rsync -a --checksum --delete --exclude '_metadata' "$staging/" "$dest/"; }; then
     rm -rf "$staging"
     log "sync of $dest failed"
     return 1

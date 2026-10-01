@@ -34,9 +34,12 @@ function setup() {
   const checkout = join(root, 'checkout');
   git(root, 'clone', '--quiet', upstream, checkout);
   const dest = join(root, 'Chrome folder');
+  const home = join(root, 'home');
+  mkdirSync(home);
+  // As the launch agent runs it: HOME and PATH set (Linux bash, unlike macOS's, does not invent a HOME).
   const run = () => execFileSync('/bin/bash', [SCRIPT, 'run'], {
     encoding: 'utf8',
-    env: { PATH: process.env.PATH || '/usr/bin:/bin', COMPILA_SYNC_GIT_DIR: join(checkout, '.git'), COMPILA_SYNC_DEST: dest, COMPILA_SYNC_STATE_DIR: join(root, 'state') },
+    env: { HOME: home, PATH: process.env.PATH || '/usr/bin:/bin', COMPILA_SYNC_GIT_DIR: join(checkout, '.git'), COMPILA_SYNC_DEST: dest, COMPILA_SYNC_STATE_DIR: join(root, 'state') },
   });
   return { write, commit, run, dest, upstream };
 }
