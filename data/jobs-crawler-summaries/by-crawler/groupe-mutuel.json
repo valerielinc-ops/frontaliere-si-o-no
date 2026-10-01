@@ -1,16 +1,16 @@
 {
   "key": "groupe-mutuel",
   "label": "Groupe Mutuel",
-  "generatedAt": "2026-10-01T09:14:10.501Z",
-  "total": 32,
+  "generatedAt": "2026-10-01T21:11:48.266Z",
+  "total": 31,
   "newCount": 0,
   "updatedCount": 31,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5286,
-  "avgDurationMs": 5286,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4467,
+  "avgDurationMs": 4467,
   "durationHistory": [
-    5286
+    4467
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,14 +37,13 @@
       },
       "jobReqId": "4382",
       "id": "groupe-mutuel-7ec000b8e178",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:13:42.224Z",
       "crawledAt": "",
-      "_qualityScore": 68,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -343,14 +342,13 @@
       },
       "jobReqId": "4371",
       "id": "groupe-mutuel-5f62e3078e11",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -377,14 +375,13 @@
       },
       "jobReqId": "4357",
       "id": "groupe-mutuel-be494013d591",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:47.178Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -751,14 +748,13 @@
       },
       "jobReqId": "4282",
       "id": "groupe-mutuel-304fc68db623",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T12:15:49.733Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -785,9 +781,9 @@
       },
       "jobReqId": "4259",
       "id": "groupe-mutuel-b5d5bdae0a39",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-23T12:03:45.120Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -819,14 +815,13 @@
       },
       "jobReqId": "4253",
       "id": "groupe-mutuel-e27c6cbd250d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-22T22:46:53.567Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -953,14 +948,13 @@
       },
       "jobReqId": "4137",
       "id": "groupe-mutuel-f1a70c521438",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T12:58:41.171Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -1021,20 +1015,18 @@
       },
       "jobReqId": "4082",
       "id": "groupe-mutuel-5dd175c9d179",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-05-22T22:18:14.485Z",
       "crawledAt": "",
-      "_qualityScore": 73,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 9
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4219?c=groupemutuel&lang=fr-FR",
       "applyUrl": "https://groupemutuel.csod.com/ux/ats/careersite/4/home/requisition/4219?c=groupemutuel&lang=fr-FR",
@@ -1076,5 +1068,6 @@
         "completeness": 14
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
