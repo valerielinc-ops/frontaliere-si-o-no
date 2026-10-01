@@ -11,6 +11,16 @@ const recoveryWorkflow = readFileSync(
 );
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
+  it('gives the full active-plus-expired assembly an explicit heap ceiling', () => {
+    const backfillStart = workflow.indexOf('  backfill:');
+    const stepsStart = workflow.indexOf('    steps:', backfillStart);
+
+    expect(backfillStart).toBeGreaterThanOrEqual(0);
+    expect(stepsStart).toBeGreaterThan(backfillStart);
+    expect(workflow.slice(backfillStart, stepsStart))
+      .toContain("NODE_OPTIONS: '--max-old-space-size=8192'");
+  });
+
   it('processes one crawler at a time and checkpoints partial batches', () => {
     const backfillStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
     const reassembleStart = workflow.indexOf('- name: Reassemble dataset');
