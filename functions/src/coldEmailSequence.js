@@ -19,8 +19,9 @@
  */
 
 export const PRICE = 'CHF 49 al mese per annuncio';
-// Indirizzo opt-out: chi risponde qui (o "STOP") va messo `suppressed` nel send-log.
-export const OPTOUT_EMAIL = 'valerie@frontaliereticino.ch';
+// Browser-safe default for previews. Sending runtimes pass their operational
+// reply address explicitly; the private sender is kept in outreachIdentity.js.
+export const OPTOUT_EMAIL = 'redazione@frontaliereticino.ch';
 
 /** The only metric labels the outreach copy is allowed to claim. */
 export const OUTREACH_METRIC_LABELS = Object.freeze({
@@ -146,7 +147,7 @@ export function formatItalianPeriodLabel(periodLabel, { strict = false } = {}) {
  * metrica dichiarata di interazione + RUOLO più cliccato, connessi al problema
  * del passaggio finale. Tono da pari, una sola call-to-action a basso attrito per touch.
  */
-export function buildSequence({ company, metricValue, metricLabel, periodLabel, contactName, topRole }) {
+export function buildSequence({ company, metricValue, metricLabel, periodLabel, contactName, topRole, optOutEmail = OPTOUT_EMAIL }) {
   // Solo il nome di battesimo nel saluto ("Ciao Denise,"), non nome+cognome.
   const firstName = (contactName || '').trim().split(/\s+/)[0];
   const hi = firstName ? `Ciao ${firstName},` : 'Buongiorno,';
@@ -179,7 +180,7 @@ export function buildSequence({ company, metricValue, metricLabel, periodLabel, 
   // sender (buildUnsubUrl(companyKey)). The STOP/email reply path is kept as a
   // fallback for clients that don't render the link. Drafts keep the literal
   // placeholder (no companyKey context).
-  const footer = `\n\n—\nPer non ricevere più queste email: {{UNSUB_URL}}\nIn alternativa rispondete con "STOP" (o scrivete a ${OPTOUT_EMAIL}) e vi rimuoviamo subito.`;
+  const footer = `\n\n—\nPer non ricevere più queste email: {{UNSUB_URL}}\nIn alternativa rispondete con "STOP" (o scrivete a ${optOutEmail}) e vi rimuoviamo subito.`;
   const seq = [
     {
       touch: 1, gapDays: 0, subject: 'interazioni candidatura',
