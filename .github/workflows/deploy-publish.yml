@@ -5,8 +5,8 @@ name: Publish to GitHub Pages (deploy + validate)
 # workflow-level `pages-build-run` lock that releases the moment the build
 # finishes. This workflow runs the rest — deploy to Pages + validate + publish —
 # triggered by a successful build run via `workflow_run`. It carries its own
-# `pages-deploy` lock so a new build can proceed while the previous build's
-# deploy/validate/publish tail runs here independently.
+# stage-specific locks so a new build can proceed while the previous build's
+# validation and post-deploy tail run here independently.
 #
 # Cross-run handoff: every artifact the deploy/validate/publish steps need was
 # produced by the BUILD run (`github.event.workflow_run.id`). The reusable
@@ -28,50 +28,21 @@ permissions:
   issues: write     # for github-issue-creator on deploy failure
   actions: read     # for cross-run download-artifact
 
-# One Pages publish cycle at a time, newest-wins (cancel-in-progress: false →
-# GitHub's 1 running + 1 pending cap drops the superseded middle). Decoupled
-# from deploy.yml's build lock: a new build can run while this publish proceeds.
+# There is deliberately NO workflow-level lock here. The Pages deploy job owns
+# the shared `pages-deploy` lock below; the long dist validator and the
+# post-deploy side-effects have independent locks. A workflow-level lock would
+# make a validator that is still rehydrating a 27 GB logical dist hold the
+# Pages upload slot, even after the current deploy already finished.
 #
-# ⚠️ The group is CONDITIONAL on the upstream build having SUCCEEDED. Do not
-# collapse it back to a bare `pages-deploy` — a bare group is what stopped this
-# workflow finishing for ten days. Last successful run: 30310076907,
-# 2026-07-27T22:15Z. The 300 runs after it (2026-08-01T20:25Z → 2026-08-07T05:40Z)
-# scored 0 success / 200 skipped / 65 cancelled / 33 failure.
+# The Pages job's group remains CONDITIONAL on the upstream build having
+# SUCCEEDED. Do not collapse it back to a bare `pages-deploy`: no-op runs from
+# cancelled builds would evict real pending publishes. The group is also shared
+# with restore-from-artifact.yml, so recovery cannot race a live upload.
 #
-# Why a no-op run is not free. `workflow_run` fires on `types: [completed]`,
-# which includes the build runs that deploy.yml's own newest-wins lock CANCELS —
-# and per deploy.yml's paths-ignore comment (#5251, measured 2026-08-06) that is
-# 121 of 141 build runs in 48 h. Each of those completions creates a run HERE.
-# Every job below is guarded by `conclusion == 'success'`, so such a run is a
-# ~2-second no-op: 200 of the last 300 runs, two thirds of everything entering
-# the group. It burns zero runner minutes — but a run joins its concurrency
-# group BEFORE any job `if:` is evaluated, and an arrival into a full group
-# (1 running + 1 pending) cancels the PENDING member. So a 2-second no-op evicts
-# a real queued publish. Measured 2026-08-06: run 31100206740 queued at 12:09:26
-# behind the live publish 31096435063; no-op 31100260885 arrived at 12:10:14 and
-# cancelled it at 12:10:15, then took the slot at 12:14:47 and skipped at
-# 12:14:48 — one second of work in exchange for a whole publish.
-#
-# Routing no-ops to a per-run group leaves only real publishes contending, so
-# the newest-wins semantics this comment has always claimed finally describe
-# what happens: one publish running, the newest pending, the middle dropped —
-# correct on a linear `main`, because the newer build already contains the
-# superseded commits (the same invariant deploy.yml relies on).
-#
-# Edge cases, deliberately unchanged. Two legitimate publishes back to back: the
-# second queues and waits — `cancel-in-progress` stays FALSE so an in-flight
-# `actions/deploy-pages` is never interrupted mid-upload. That is not
-# conservatism for its own sake: bursts of cancelled deployments are what latch
-# Pages into status=errored and freeze the site on an old build (prod outage
-# 2026-06-05 — see the "Reset Pages errored state" step below, which exists
-# solely to dig out of it). A publish that dies half-way reaches a terminal
-# conclusion and releases the group like any other run. A publish that wedges
-# WITHOUT reaching a terminal conclusion is the remaining hole — see the comment
-# on the `deploy` job's `environment:` below.
-concurrency:
-  group: ${{ github.event.workflow_run.conclusion == 'success' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
-  cancel-in-progress: false
-
+# Each job-scoped group routes its own no-op path per run. Legitimate deploys
+# and post-deploy side-effects use newest-wins with cancel=false: an in-flight
+# Pages upload or side-effect is never interrupted, while a newer cumulative
+# main build may supersede a pending older one.
 jobs:
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish the build run's dist/ to GitHub Pages.
@@ -93,6 +64,11 @@ jobs:
     # publish tail explicit at that maximum so a future default change cannot
     # shorten the window available to the extended Pages poll below.
     timeout-minutes: 360
+    # Only the actual Pages upload owns this cross-workflow lock. A long
+    # validator in another run must not keep a newer build from reaching Pages.
+    concurrency:
+      group: ${{ github.event.workflow_run.conclusion == 'success' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
+      cancel-in-progress: false
     permissions:
       pages: write
       id-token: write
@@ -432,6 +408,12 @@ jobs:
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # This is intentionally a different lock from pages-deploy. The complete
+    # logical-dist rehydrate can use the full five-hour validator budget; it
+    # must not serialize the Pages upload that already completed for its run.
+    concurrency:
+      group: ${{ github.event.workflow_run.conclusion == 'success' && 'dist-validation' || format('dist-validation-noop-{0}', github.run_id) }}
+      cancel-in-progress: false
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
@@ -502,6 +484,22 @@ jobs:
   publish:
     needs: [deploy, validate-dist, validate-live]
     if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    # Keep irreversible post-deploy side-effects serialized, but do not let
+    # their validator wait hold the Pages upload lock. Since tails can now
+    # complete out of order, deploy-registry.mjs also refuses to move
+    # last_known_good backwards. The reusable publisher re-checks the exact
+    # live build-id immediately before these side-effects, so a tail that is
+    # stale by the time it acquires this lock exits before announcing URLs or
+    # syncing previous-slug state.
+    concurrency:
+      group: >-
+        ${{ github.event.workflow_run.conclusion == 'success' &&
+            needs.deploy.result == 'success' &&
+            needs.validate-live.result == 'success' &&
+            needs.validate-dist.outputs.integrity_ok == 'true' &&
+            'pages-post-deploy' ||
+            format('pages-post-deploy-noop-{0}', github.run_id) }}
+      cancel-in-progress: false
     # Forward the complete source identity tuple from the workflow_run payload;
     # the reusable callee validates these values instead of inferring them from
     # the orchestrator before it can perform irreversible side effects.
