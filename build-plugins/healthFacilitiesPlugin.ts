@@ -57,7 +57,7 @@ import {
   type HealthFacilityLocale,
   type HealthFacilityRecord,
 } from './healthFacilitiesData';
-import { TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
+import { stableTitleToken, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
 import {
   aggregateHealthFacilityJobs,
   type FacilitySnapshot,
@@ -89,6 +89,7 @@ function compactFacilityTitle(
   name: string,
   locale: HealthFacilityLocale,
   generatedTitle: string,
+  facilityKey: string,
 ): string {
   const headline = String(generatedTitle || '').trim();
   if (headline.length <= TITLE_MAX_CHARS) return headline;
@@ -100,9 +101,10 @@ function compactFacilityTitle(
     fr: ' emplois',
   }[locale];
   const compact = `${shortName}${suffix}`.trim();
-  if (compact.length <= TITLE_MAX_CHARS) return compact;
-  if (shortName.length <= TITLE_MAX_CHARS) return shortName;
-  return truncateHeadline(shortName, TITLE_MAX_CHARS);
+  const token = ` · ${stableTitleToken(facilityKey || name)}`;
+  const base = compact.length + token.length <= TITLE_MAX_CHARS ? compact : shortName;
+  const budget = Math.max(1, TITLE_MAX_CHARS - token.length);
+  return `${base.length <= budget ? base : truncateHeadline(base, budget)}${token}`;
 }
 
 /** Italian province code → display name (from commuterOrigins). */
@@ -399,7 +401,7 @@ export function renderFacilityPage(
 
   const html = buildSeoPageHtml({
     locale,
-    title: compactFacilityTitle(facility.name, locale, copy.metaTitle),
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),
@@ -455,7 +457,7 @@ function renderBelowFloorBridge(
 
   return buildSeoPageHtml({
     locale,
-    title: compactFacilityTitle(facility.name, locale, copy.metaTitle),
+    title: compactFacilityTitle(facility.name, locale, copy.metaTitle, facility.slug),
     description: copy.metaDesc,
     canonicalUrl,
     hreflangHtml: renderHreflangTags(hreflangPaths),

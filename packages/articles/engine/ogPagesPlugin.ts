@@ -718,8 +718,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const articleTitleCollisions: Record<'it' | 'en' | 'de' | 'fr', Map<string, number>> = {
   it: new Map(), en: new Map(), de: new Map(), fr: new Map(),
  };
- // Source headlines remain intact in H1/body/schema; only the SERP title
- // probe below applies the metadata-only hard cap.
+ // Headline NEVER truncated — see build-plugins/shared/titleSuffix.ts.
 
  /* ── 2. Parse blog slug map from slug-data ── */
  // {slugConst}: Record<ArticleId, { it, en, de, fr }> — flat lookup
@@ -843,18 +842,13 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
 
  // Populate the title-collision map now that locale meta is available.
  // Mirror the title formula used inside html(): localizedTitle stripped of
- // the publisher suffix, capped for the SERP field, then re-joined with the
- // canonical brand suffix. Counting the capped form is essential: two long
- // historical headlines can differ only after the 66-char cut.
+ // the publisher suffix, then re-joined with the canonical brand suffix.
  for (const en of entries) {
   for (const locale of ['it', 'en', 'de', 'fr'] as const) {
    const localeMeta = locale === 'it' ? null : blogMetaByLocale[locale][en.articleId];
    const titleRaw = localeMeta?.title || en.ogT;
    const titlePure = titleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
-   const serpTitle = titlePure.length > TITLE_MAX_CHARS
-    ? truncateHeadline(titlePure, TITLE_MAX_CHARS)
-    : titlePure;
-   const baseT = buildTitleWithBrand(serpTitle);
+   const baseT = buildTitleWithBrand(titlePure);
    const m = articleTitleCollisions[locale];
    m.set(baseT, (m.get(baseT) || 0) + 1);
   }
@@ -1095,9 +1089,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const localizedTitleRaw = localizedMeta?.title || en.ogT;
  // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
  // headline structured data to match (Publisher Center answer/9607104)
- // Keep the source headline verbatim for the H1 and NewsArticle schema. The
- // SERP-facing HTML title is capped separately below so metadata warnings do
- // not force a destructive edit of historical article copy.
+ // Headline VERBATIM — no truncation. Brand applied conditionally below.
  const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
  // Repair descriptions the corpus generator already amputated mid-clause
  // BEFORE they reach this render layer. `scripts/create-article.mjs` cut the
@@ -1143,22 +1135,24 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // always ends on a content word — same helper every other template family
  // already reaches through clampMetaDescription.
  const metaDesc = truncateHeadline(metaDescRaw, 155);
- // <title>: the source headline remains intact everywhere except this SERP
- // field. A capped title prevents thousands of crawler warnings while H1,
- // body and NewsArticle headline keep the full historical wording. The brand
- // is still dropped first; a word-aware ellipsis is the final metadata-only
- // fallback for a headline that exceeds the hard title budget.
+ // <title>: headline VERBATIM, brand suffix only when total <= TITLE_MAX_CHARS.
+ // Per build-plugins/shared/titleSuffix.ts, mid-headline ellipsis truncation
+ // tanks CTR (see /calcola-stipendio/ regression doc). We only force a
+ // truncation when there's a real disambiguator collision that MUST be
+ // preserved to satisfy audit:title-uniqueness -- and even then, we drop the
+ // brand first (it's "nice-to-have", not a ranking signal) before resorting
+ // to mid-headline truncation.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
- const serpTitle = localizedTitle.length > TITLE_MAX_CHARS
-  ? truncateHeadline(localizedTitle, TITLE_MAX_CHARS)
-  : localizedTitle;
- const baseTitleProbe = buildTitleWithBrand(serpTitle);
+ const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
  let htmlPageTitle: string;
  if (!disamb) {
-  htmlPageTitle = buildTitleWithBrand(serpTitle);
+  // No collision: trust buildTitleWithBrand to either keep brand or drop it.
+  // It never truncates -- long headlines emit verbatim and the audit baseline
+  // ratchets them down at source.
+  htmlPageTitle = buildTitleWithBrand(localizedTitle);
  } else {
   // Disambiguator MUST survive (collision-resolution for title-uniqueness).
   // Try brand+disamb first; if it doesn't fit, drop brand and keep disamb;

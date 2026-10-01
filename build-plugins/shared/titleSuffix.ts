@@ -54,6 +54,22 @@ export const TITLE_TARGET_CHARS = 60;
 export const TITLE_MAX_CHARS = 66;
 
 /**
+ * Stable short token for metadata-only title disambiguation. Route and
+ * registry identifiers are not page copy, so the token can be appended to a
+ * capped `<title>` without changing the historical H1/body/schema content.
+ */
+export function stableTitleToken(value: string): string {
+  let hash = 0x811c9dc5;
+  for (const char of String(value || '')) {
+    hash ^= char.codePointAt(0) ?? 0;
+    hash = Math.imul(hash, 0x01000193) >>> 0;
+  }
+  // Keep the full 32-bit value: a six-digit token would make collisions
+  // needlessly likely across the large static-page tree.
+  return (hash >>> 0).toString(16).padStart(8, '0');
+}
+
+/**
  * Peel a truncated string back to the last COMPLETE clause: strip trailing
  * clause separators, then any dangling {@link TRAILING_STOPWORDS} function
  * word, repeating until the string ends on a content word.

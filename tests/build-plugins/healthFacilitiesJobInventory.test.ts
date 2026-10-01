@@ -61,6 +61,41 @@ describe('health-facility visible inventory', () => {
     expect((html.match(/"@type":"JobPosting"/g) || []).length).toBe(6);
   });
 
+  it('keeps long facility titles distinct after the metadata cap', () => {
+    const root = fixtureRoot(8);
+    const facility = getHealthFacility('usz');
+    const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');
+    if (!facility || !snapshot) throw new Error('USZ fixture did not aggregate');
+
+    // The source names differ only after the 66-character SERP budget. The
+    // route-derived token must survive the metadata-only cap, while the
+    // visible H1/body/schema keep their complete source names.
+    const prefix = 'N'.repeat(70);
+    const first = renderFacilityPage(
+      'it',
+      { ...facility, slug: 'fixture-long-facility-a', name: `${prefix}A` },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const second = renderFacilityPage(
+      'it',
+      { ...facility, slug: 'fixture-long-facility-b', name: `${prefix}B` },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const title = (html: string): string => html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+
+    const firstTitle = title(first);
+    const secondTitle = title(second);
+    expect(firstTitle.length).toBeLessThanOrEqual(66);
+    expect(secondTitle.length).toBeLessThanOrEqual(66);
+    expect(firstTitle).not.toBe(secondTitle);
+    expect(first).toContain(`${prefix}A`);
+    expect(second).toContain(`${prefix}B`);
+  });
+
   it('keeps a production-sized complete facility inventory under the finite weight ceiling', () => {
     const root = fixtureRoot(411);
     const facility = getHealthFacility('usz');
