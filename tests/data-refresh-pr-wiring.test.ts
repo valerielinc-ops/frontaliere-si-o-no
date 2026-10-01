@@ -59,6 +59,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain('trap cleanup_refresh_checkout EXIT');
     expect(helper).toContain('git checkout --detach --force "$restore_ref"');
+    expect(helper.match(/REFRESH_COMMIT="\$\(git rev-parse HEAD\)"/g)).toHaveLength(1);
     expect(helper).toContain('scripts/ci/merge-open-data-refresh.mjs');
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');

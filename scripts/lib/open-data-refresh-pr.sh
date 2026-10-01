@@ -240,7 +240,6 @@ elif [ -n "$REMOTE_HEAD" ]; then
     exit 0
   fi
   git commit -m "$COMMIT_MESSAGE"
-  REFRESH_COMMIT="$(git rev-parse HEAD)"
 fi
 
 if [ -n "$REMOTE_HEAD" ]; then
