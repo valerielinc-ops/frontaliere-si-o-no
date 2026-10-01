@@ -108,7 +108,14 @@ import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJo
 // Universal rule: keep the source headline in page content; the SERP title is
 // capped at TITLE_MAX_CHARS (66) when a static metadata path needs it. See
 // build-plugins/shared/titleSuffix.ts.
-import { buildTitleWithBrand, clampMetaDescription, stableTitleToken, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
+import {
+  buildTitleWithBrand,
+  clampMetaDescription,
+  stableTitleToken,
+  TITLE_BRAND_SUFFIX,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
 // ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
@@ -130,16 +137,22 @@ import {
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
-function capTitle70(s: string, routeKey = ''): string {
+export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
+ const escapedLength = (value: string): number => esc(value).length;
  // Keep the full source headline in the page H1/body, but cap only the SERP
  // title. Static SEO pages historically bypassed the shared shell's title
  // normaliser, so a few dynamic headlines could still ship over 66 chars.
- if (headline.length <= TITLE_MAX_CHARS) return buildTitleWithBrand(headline);
+ const branded = buildTitleWithBrand(headline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, escapedLength);
+ if (escapedLength(branded) <= TITLE_MAX_CHARS) return branded;
  const token = routeKey ? ` · ${stableTitleToken(routeKey)}` : '';
- const headlineBudget = Math.max(1, TITLE_MAX_CHARS - token.length);
- return `${truncateHeadline(headline, headlineBudget)}${token}`;
+ const cappedHeadline = truncateHeadlineToMeasuredBudget(
+   headline,
+   TITLE_MAX_CHARS,
+   (candidate) => escapedLength(`${candidate}${token}`),
+ );
+ return `${cappedHeadline}${token}`;
 }
 
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────

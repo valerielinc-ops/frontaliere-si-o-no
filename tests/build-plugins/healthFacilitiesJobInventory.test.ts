@@ -96,6 +96,30 @@ describe('health-facility visible inventory', () => {
     expect(second).toContain(`${prefix}B`);
   });
 
+  it('caps facility titles after HTML escaping metadata names', () => {
+    const root = fixtureRoot(8);
+    const facility = getHealthFacility('usz');
+    const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');
+    if (!facility || !snapshot) throw new Error('USZ fixture did not aggregate');
+
+    const html = renderFacilityPage(
+      'it',
+      {
+        ...facility,
+        slug: 'fixture-escaped-facility',
+        name: `${'N'.repeat(70)} &A<Z>\"`,
+      },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+
+    // This is the serialized title seen by the crawler: & becomes &amp; and
+    // the other reserved characters expand as well.
+    expect(title.length).toBeLessThanOrEqual(66);
+  });
+
   it('keeps a production-sized complete facility inventory under the finite weight ceiling', () => {
     const root = fixtureRoot(411);
     const facility = getHealthFacility('usz');

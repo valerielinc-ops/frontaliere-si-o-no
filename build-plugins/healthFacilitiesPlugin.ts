@@ -57,7 +57,11 @@ import {
   type HealthFacilityLocale,
   type HealthFacilityRecord,
 } from './healthFacilitiesData';
-import { stableTitleToken, TITLE_MAX_CHARS, truncateHeadline } from './shared/titleSuffix';
+import {
+  stableTitleToken,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 import {
   aggregateHealthFacilityJobs,
   type FacilitySnapshot,
@@ -92,7 +96,8 @@ function compactFacilityTitle(
   facilityKey: string,
 ): string {
   const headline = String(generatedTitle || '').trim();
-  if (headline.length <= TITLE_MAX_CHARS) return headline;
+  const escapedLength = (value: string): number => esc(value).length;
+  if (headline.length <= TITLE_MAX_CHARS && escapedLength(headline) <= TITLE_MAX_CHARS) return headline;
   const shortName = String(name || '').replace(/\s*\([^)]*\)\s*$/, '').trim();
   const suffix = {
     it: ': offerte sanitarie',
@@ -103,8 +108,12 @@ function compactFacilityTitle(
   const compact = `${shortName}${suffix}`.trim();
   const token = ` · ${stableTitleToken(facilityKey || name)}`;
   const base = compact.length + token.length <= TITLE_MAX_CHARS ? compact : shortName;
-  const budget = Math.max(1, TITLE_MAX_CHARS - token.length);
-  return `${base.length <= budget ? base : truncateHeadline(base, budget)}${token}`;
+  const cappedBase = truncateHeadlineToMeasuredBudget(
+    base,
+    TITLE_MAX_CHARS,
+    (candidate) => escapedLength(`${candidate}${token}`),
+  );
+  return `${cappedBase}${token}`;
 }
 
 /** Italian province code → display name (from commuterOrigins). */

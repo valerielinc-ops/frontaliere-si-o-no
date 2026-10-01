@@ -244,6 +244,32 @@ export function truncateHeadline(headline: string, max: number): string {
 }
 
 /**
+ * Truncate a headline against the length of the string that will actually be
+ * emitted, rather than its raw source length. This matters for HTML titles:
+ * `&`, `<`, `>` and `"` expand when escaped, so a raw 66-character headline
+ * can still produce a crawler-visible `<title>` longer than the 66-character
+ * budget.
+ *
+ * `measure` may include a stable suffix/token in its calculation. The caller
+ * therefore keeps the suffix intact while this helper backs off only the
+ * headline. The search is deliberately bounded by the title budget and uses
+ * the canonical word-aware truncator at every step.
+ */
+export function truncateHeadlineToMeasuredBudget(
+  headline: string,
+  max: number,
+  measure: (value: string) => number,
+): string {
+  const safe = String(headline || '');
+  if (measure(safe) <= max) return safe;
+  for (let rawBudget = Math.min(safe.length, max); rawBudget >= 1; rawBudget -= 1) {
+    const candidate = truncateHeadline(safe, rawBudget);
+    if (measure(candidate) <= max) return candidate;
+  }
+  return '…';
+}
+
+/**
  * Length a peeled title should reach to be preferred.
  *
  * Part of {@link truncateTitleAtClauseBoundary}'s CONTRACT, not a caller's local
