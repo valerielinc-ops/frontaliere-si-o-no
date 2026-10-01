@@ -107,27 +107,27 @@ export function buildListingHubMeta({ locale, count }: ListingHubArgs): string {
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `Scopri ${n} offerte di lavoro in Ticino aggiornate oggi: sanità, EOC, case anziani, banche, uffici. Candidati gratis online in 2 minuti.`
-        : `Scopri le offerte di lavoro in Ticino aggiornate ogni giorno: sanità, EOC, case anziani, banche, uffici. Candidati gratis online in 2 minuti.`;
-      qualifier = 'Senza registrazione.';
+        ? `Scopri ${n} offerte di lavoro in Ticino aggiornate oggi: sanità, EOC, case anziani, banche, uffici. Leggi gli annunci; accesso gratuito per candidarti.`
+        : `Scopri le offerte di lavoro in Ticino aggiornate ogni giorno: sanità, EOC, case anziani, banche, uffici. Leggi gli annunci; accesso gratuito per candidarti.`;
+      qualifier = 'Accesso gratuito per candidarti.';
       break;
     case 'en':
       base = n > 0
-        ? `Discover ${n} jobs in Ticino, Switzerland updated today: healthcare, EOC, care homes, banks, offices. Apply online for free in 2 minutes.`
-        : `Discover jobs in Ticino, Switzerland updated daily: healthcare, EOC, care homes, banks, offices. Apply online for free in 2 minutes.`;
-      qualifier = 'No signup required.';
+        ? `Discover ${n} jobs in Ticino, Switzerland updated today: healthcare, EOC, care homes, banks, offices. Read listings; free sign-in to apply.`
+        : `Discover jobs in Ticino, Switzerland updated daily: healthcare, EOC, care homes, banks, offices. Read listings; free sign-in to apply.`;
+      qualifier = 'Free sign-in to apply.';
       break;
     case 'de':
       base = n > 0
-        ? `Entdecke ${n} Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Altersheime, Banken, Büros. Kostenlos online bewerben in 2 Minuten.`
-        : `Entdecke Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Altersheime, Banken, Büros. Kostenlos online bewerben in 2 Minuten.`;
-      qualifier = 'Ohne Anmeldung.';
+        ? `Entdecke ${n} Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Altersheime, Banken, Büros. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`
+        : `Entdecke Stellenangebote im Tessin, täglich aktualisiert: Pflege, EOC, Altersheime, Banken, Büros. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`;
+      qualifier = 'Kostenlose Anmeldung zur Bewerbung.';
       break;
     case 'fr':
       base = n > 0
-        ? `Découvrez ${n} offres d'emploi au Tessin mises à jour aujourd'hui : santé, EOC, EMS, banques, bureaux. Postulez gratuitement en ligne en 2 minutes.`
+        ? `Découvrez ${n} offres d'emploi au Tessin mises à jour aujourd'hui : santé, EOC, EMS, banques, bureaux. Annonces en accès libre ; connexion gratuite pour postuler.`
         : `Découvrez les offres d'emploi au Tessin mises à jour chaque jour : santé, EOC, EMS, banques, bureaux. Postulez gratuitement en ligne.`;
-      qualifier = 'Sans inscription.';
+      qualifier = 'Connexion gratuite pour postuler.';
       break;
   }
   return finalize(base, qualifier);
@@ -164,25 +164,25 @@ export function buildCityHubMeta({ locale, cityDisplay, count, cantonDisplay }: 
       base = n > 0
         ? `Cerca tra ${n} offerte di lavoro a ${city} aggiornate oggi: sanità, banche, uffici, commercio. Candidati gratis online in pochi minuti.`
         : `Cerca offerte di lavoro a ${city} aggiornate ogni giorno: sanità, banche, uffici, commercio. Candidati gratis online in pochi minuti.`;
-      qualifier = 'Senza registrazione.';
+      qualifier = 'Accesso gratuito per candidarti.';
       break;
     case 'en':
       base = n > 0
-        ? `Browse ${n} jobs in ${city}, ${region.en} Switzerland — updated today: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`
-        : `Browse jobs in ${city}, ${region.en} Switzerland — updated daily: healthcare, banking, offices, retail, hospitality. Apply online for free in 2 minutes.`;
-      qualifier = 'No signup needed.';
+        ? `Browse ${n} jobs in ${city}, ${region.en} Switzerland — updated today: healthcare, banking, offices, retail, hospitality. Read listings; free sign-in to apply.`
+        : `Browse jobs in ${city}, ${region.en} Switzerland — updated daily: healthcare, banking, offices, retail, hospitality. Read listings; free sign-in to apply.`;
+      qualifier = 'Free sign-in to apply.';
       break;
     case 'de':
       base = n > 0
         ? `Durchsuche ${n} Stellenangebote in ${city}, ${region.de} — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben in Minuten.`
         : `Durchsuche Stellenangebote in ${city}, ${region.de} — täglich aktualisiert: Pflege, Banken, Büros, Handel. Kostenlos online bewerben.`;
-      qualifier = 'Ohne Anmeldung.';
+      qualifier = 'Kostenlose Anmeldung zur Bewerbung.';
       break;
     case 'fr':
       base = n > 0
         ? `Parcourez ${n} offres d'emploi à ${city}, ${region.fr} mises à jour aujourd'hui : santé, banques, bureaux, commerce. Postulez gratuitement en ligne.`
         : `Parcourez les offres d'emploi à ${city}, ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce. Postulez gratuitement.`;
-      qualifier = 'Sans inscription.';
+      qualifier = 'Connexion gratuite pour postuler.';
       break;
   }
   return finalize(base, qualifier);
@@ -227,26 +227,26 @@ export function buildCantonHubMeta({ locale, cantonDisplay, count, isAggregate }
       base = n > 0
         ? `Cerca lavoro in ${place}: ${n} offerte aggiornate ogni giorno per frontalieri e residenti. Candidati gratis online ad annunci di aziende svizzere.`
         : `Cerca lavoro in ${place}: offerte aggiornate ogni giorno per frontalieri e residenti. Candidati gratis online ad annunci verificati di aziende svizzere.`;
-      qualifier = 'Senza registrazione.';
+      qualifier = 'Accesso gratuito per candidarti.';
       break;
     case 'en':
       base = n > 0
-        ? `Find ${n} jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Apply online for free in 2 minutes.`
-        : `Find jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Apply online for free in 2 minutes.`;
-      qualifier = 'No signup required.';
+        ? `Find ${n} jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Read listings; free sign-in to apply.`
+        : `Find jobs in ${region.en} updated daily: healthcare, banking, offices, retail, engineering. Read listings; free sign-in to apply.`;
+      qualifier = 'Free sign-in to apply.';
       break;
     case 'de':
       base = n > 0
-        ? `${n} Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Kostenlos online bewerben in 2 Minuten.`
-        : `Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Kostenlos online bewerben in 2 Minuten.`;
-      qualifier = 'Ohne Anmeldung.';
+        ? `${n} Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`
+        : `Stellenangebote in ${region.de}, täglich aktualisiert: Pflege, Banken, Büros, Handel, Technik. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`;
+      qualifier = 'Kostenlose Anmeldung zur Bewerbung.';
       break;
     case 'fr':
     default:
       base = n > 0
         ? `${n} offres d'emploi en ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce, technique. Postulez gratuitement en ligne.`
         : `Offres d'emploi en ${region.fr} mises à jour chaque jour : santé, banques, bureaux, commerce, technique. Postulez gratuitement en ligne.`;
-      qualifier = 'Sans inscription.';
+      qualifier = 'Connexion gratuite pour postuler.';
       break;
   }
   return finalize(base, qualifier);
@@ -271,19 +271,19 @@ export function buildRoleHubMeta({ locale, roleDisplay, count }: RoleHubArgs): s
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `Scopri ${n} offerte ${role} in Ticino aggiornate oggi. Aziende che assumono: EOC, cliniche, case anziani, privati. Candidati online gratis in 2 minuti.`
-        : `Scopri le offerte ${role} in Ticino aggiornate ogni giorno da EOC, cliniche e case anziani. Candidati online gratis in 2 minuti, senza registrazione.`;
+        ? `Scopri ${n} offerte ${role} in Ticino aggiornate oggi. Aziende che assumono: EOC, cliniche, case anziani, privati. Leggi gli annunci; accesso gratuito per candidarti.`
+        : `Scopri le offerte ${role} in Ticino aggiornate ogni giorno da EOC, cliniche e case anziani. Leggi gli annunci; accesso gratuito per candidarti.`;
       qualifier = 'Subito.';
       break;
     case 'en':
       base = n > 0
-        ? `Discover ${n} ${role} jobs in Ticino, Switzerland updated today. Hiring employers: EOC, clinics, care homes, private. Apply online free in 2 minutes.`
+        ? `Discover ${n} ${role} jobs in Ticino, Switzerland updated today. Hiring employers: EOC, clinics, care homes, private. Read listings; free sign-in to apply.`
         : `Discover ${role} jobs in Ticino, Switzerland updated daily. Hiring employers: EOC, clinics, care homes, private firms. Apply online for free.`;
       qualifier = 'Today.';
       break;
     case 'de':
       base = n > 0
-        ? `Entdecke ${n} ${roleC}-Stellen im Tessin, heute aktualisiert. Einstellende Arbeitgeber: EOC, Kliniken, Altersheime. Kostenlos online bewerben in 2 Min.`
+        ? `Entdecke ${n} ${roleC}-Stellen im Tessin, heute aktualisiert. Einstellende Arbeitgeber: EOC, Kliniken, Altersheime. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`
         : `Entdecke ${roleC}-Stellen im Tessin, täglich aktualisiert. Einstellende Arbeitgeber: EOC, Kliniken, Altersheime. Kostenlos online bewerben.`;
       qualifier = 'Jetzt.';
       break;
@@ -317,25 +317,25 @@ export function buildEmployerHubMeta({ locale, companyDisplay, count }: Employer
       base = n > 0
         ? `Lavora con ${co} in Ticino: ${n} posizioni aperte oggi in sanità, amministrazione, tecnica, commercio. Candidati online gratis sul portale ufficiale.`
         : `Lavora con ${co} in Ticino: candidature aperte oggi in sanità, amministrazione, tecnica, commercio. Candidati online gratis sul portale ufficiale.`;
-      qualifier = 'Senza registrazione.';
+      qualifier = 'Accesso gratuito per candidarti.';
       break;
     case 'en':
       base = n > 0
         ? `Work with ${co} in Ticino, Switzerland: ${n} open roles today in healthcare, admin, tech, retail. Apply online for free via the official career portal.`
         : `Work with ${co} in Ticino, Switzerland: open roles updated daily in healthcare, admin, tech, retail. Apply online for free via the official portal.`;
-      qualifier = 'No signup.';
+      qualifier = 'Free sign-in to apply.';
       break;
     case 'de':
       base = n > 0
         ? `Arbeite bei ${co} im Tessin, Schweiz: ${n} offene Stellen heute in Pflege, Verwaltung, Technik, Handel. Kostenlos online bewerben auf dem offiziellen Portal.`
         : `Arbeite bei ${co} im Tessin, Schweiz: offene Stellen täglich aktuell in Pflege, Verwaltung, Technik, Handel. Kostenlos online bewerben.`;
-      qualifier = 'Ohne Anmeldung.';
+      qualifier = 'Kostenlose Anmeldung zur Bewerbung.';
       break;
     case 'fr':
       base = n > 0
         ? `Travaillez chez ${co} au Tessin, Suisse : ${n} postes ouverts aujourd'hui en santé, administration, tech, commerce. Postulez gratuitement en ligne en 2 min.`
         : `Travaillez chez ${co} au Tessin, Suisse : postes ouverts mis à jour chaque jour en santé, administration, tech, commerce. Postulez en ligne gratuit.`;
-      qualifier = 'Sans inscription.';
+      qualifier = 'Connexion gratuite pour postuler.';
       break;
   }
   return finalize(base, qualifier);
@@ -375,27 +375,27 @@ export function buildRecencyHubMeta({ locale, days, count, year }: RecencyHubArg
   switch (locale) {
     case 'it':
       base = n > 0
-        ? `${n} nuove offerte di lavoro in Ticino ${w}, aggiornate oggi nel ${y}: sanità, banche, commercio. Candidati gratis online in 2 minuti.`
+        ? `${n} nuove offerte di lavoro in Ticino ${w}, aggiornate oggi nel ${y}: sanità, banche, commercio. Leggi gli annunci; accesso gratuito per candidarti.`
         : `Nuove offerte di lavoro in Ticino ${w}, aggiornate ogni giorno nel ${y}: sanità, banche, commercio. Candidati gratis online.`;
-      qualifier = 'Senza registrazione.';
+      qualifier = 'Accesso gratuito per candidarti.';
       break;
     case 'en':
       base = n > 0
-        ? `${n} new jobs in Ticino, Switzerland ${w}, updated today in ${y}: healthcare, banking, retail, offices. Apply online for free in 2 minutes.`
-        : `New jobs in Ticino, Switzerland ${w}, updated daily in ${y}: healthcare, banking, retail, offices. Apply online for free in 2 minutes.`;
-      qualifier = 'No signup.';
+        ? `${n} new jobs in Ticino, Switzerland ${w}, updated today in ${y}: healthcare, banking, retail, offices. Read listings; free sign-in to apply.`
+        : `New jobs in Ticino, Switzerland ${w}, updated daily in ${y}: healthcare, banking, retail, offices. Read listings; free sign-in to apply.`;
+      qualifier = 'Free sign-in to apply.';
       break;
     case 'de':
       base = n > 0
-        ? `${n} neue Stellen im Tessin, Schweiz ${w}, heute im ${y} aktualisiert: Pflege, Banken, Handel, Büros. Kostenlos online bewerben in 2 Minuten.`
-        : `Neue Stellen im Tessin, Schweiz ${w}, täglich im ${y} aktualisiert: Pflege, Banken, Handel, Büros. Kostenlos online bewerben in 2 Minuten.`;
-      qualifier = 'Ohne Anmeldung.';
+        ? `${n} neue Stellen im Tessin, Schweiz ${w}, heute im ${y} aktualisiert: Pflege, Banken, Handel, Büros. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`
+        : `Neue Stellen im Tessin, Schweiz ${w}, täglich im ${y} aktualisiert: Pflege, Banken, Handel, Büros. Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.`;
+      qualifier = 'Kostenlose Anmeldung zur Bewerbung.';
       break;
     case 'fr':
       base = n > 0
         ? `${n} nouvelles offres d'emploi au Tessin Suisse ${w}, à jour en ${y} : santé, banques, commerce, bureaux. Postulez gratuit en ligne en 2 min.`
         : `Nouvelles offres d'emploi au Tessin Suisse ${w}, mises à jour en ${y} : santé, banques, commerce, bureaux. Postulez gratuitement en ligne.`;
-      qualifier = 'Sans inscription.';
+      qualifier = 'Connexion gratuite pour postuler.';
       break;
   }
   return finalize(base, qualifier);

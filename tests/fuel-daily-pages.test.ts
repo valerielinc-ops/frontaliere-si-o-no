@@ -242,12 +242,12 @@ describe('fuel-daily page generation — content quality', () => {
 
   it('includes localized H1 and no dark: color classes', () => {
     const itRegional = pages['/prezzi-diesel/oggi/'];
-    expect(itRegional).toMatch(/<title>Prezzi diesel oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
+    expect(itRegional).toMatch(/<title>Diesel Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itRegional).toMatch(/<h1[^>]*>.*Prezzo Diesel Svizzera oggi/i);
     const itBenzinaRegional = pages['/prezzi-benzina/oggi/'];
     // The CTR-facing title follows the exact regional query, while the
     // visible H1 and WebPage JSON-LD name stay on the existing source label.
-    expect(itBenzinaRegional).toMatch(/<title>Prezzi benzina oggi in Ticino · .*\(\d{2}\.\d{2}\.\d{4}\)<\/title>/i);
+    expect(itBenzinaRegional).toMatch(/<title>Benzina Ticino: [\d,]+ CHF\/l · TCS \d{2}\.\d{2}\.\d{4}(?: \| Frontaliere Ticino)?<\/title>/i);
     expect(itBenzinaRegional).toMatch(/<h1[^>]*>.*Prezzo Benzina Svizzera oggi/i);
     expect(itBenzinaRegional).toContain('"name":"Prezzo Benzina Svizzera oggi — Ticino"');
     for (const [path, html] of Object.entries(pages)) {
@@ -261,14 +261,16 @@ describe('fuel-daily page generation — content quality', () => {
     }
   });
 
-  it('derives the commuter fuel bill from distance and consumption, not four arbitrary tanks', () => {
+  it('labels its fill-up calculation as an example and uses the displayed price', () => {
     const italian = pages['/prezzi-benzina/chiasso/oggi/'];
-    expect(italian).toContain('105.6 litri al mese');
+    expect(italian).toContain('Ipotizzando un rifornimento di 50 litri');
+    expect(italian).toContain('89.75 CHF');
     expect(italian).not.toContain('4 × 50 ×');
     expect(italian).not.toContain('circa 200 litri');
 
     const english = pages['/en/gasoline-price-switzerland/chiasso/today/'];
-    expect(english).toContain('105.6 litres a month');
+    expect(english).toContain('Assuming a 50-litre fill');
+    expect(english).toContain('CHF 89.75');
     expect(english).not.toContain('4 × 50 ×');
     expect(english).not.toContain('about 200 litres');
   });
@@ -315,7 +317,7 @@ describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)',
     expect(chiassoDiesel).not.toContain('2,000 CHF');
   });
 
-  it('falls back to SP95 + legacy offset when dieselPriceChf is missing', () => {
+  it('does not publish an inferred current diesel price when dieselPriceChf is missing', () => {
     const isolated = {
       generatedAt: '2026-04-20T06:00:00.000Z',
       municipalities: [
@@ -332,8 +334,8 @@ describe('fuel-daily page generation — diesel data sourcing (F6 real diesel)',
     };
     const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-diesel-fallback', dataset: isolated, history: [], today });
     const locarnoDiesel = pages['/prezzi-diesel/locarno/oggi/'];
-    // Fallback: 1.90 + 0.08 = 1.98
-    expect(locarnoDiesel).toContain('1,980');
+    // No source diesel price: the page must not advertise the old 1.90 + 0.08 estimate.
+    expect(locarnoDiesel).not.toContain('1,980');
   });
 
   it('benzina price is unaffected by dieselPriceChf absence', () => {
