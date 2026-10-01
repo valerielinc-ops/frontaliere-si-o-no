@@ -371,9 +371,10 @@ export function extractPrice(ld, detailHtml, detailUrl) {
       ...(extractEventOfferMetadata(cheapest.offer, detailUrl || SITE_ORIGIN) || {}),
     };
   }
-  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
+  const offerMetadata = extractEventOfferMetadata(offersRaw, detailUrl || SITE_ORIGIN) || {};
+  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true, ...offerMetadata };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
-  if (tablePrice) return parseEventPriceText(tablePrice);
+  if (tablePrice) return { ...parseEventPriceText(tablePrice), ...offerMetadata };
   return undefined;
 }
 

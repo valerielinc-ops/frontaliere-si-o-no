@@ -117,6 +117,17 @@ describe('extractPrice', () => {
     expect(extractPrice({}, html)).toEqual({ amount: 25, currency: 'CHF', isFree: false });
   });
 
+  it('preserves source ticket metadata when the admission price lives in the detail table', () => {
+    const html = '<table><tr><th>Preis</th><td>Erwachsene und Kinder kostenlos. Geeignet für Kinder ab 12 Jahren</td></tr></table>';
+    expect(extractPrice({ offers: {
+      '@type': 'Offer', availability: 'InStock', validFrom: '2026-06-01T09:00:00+02:00', url: '/booking/tour',
+    } }, html, 'https://www.myswitzerland.com/de-ch/erlebnisse/veranstaltungen/tour/')).toEqual({
+      amount: 0, currency: 'CHF', isFree: true,
+      availability: 'https://schema.org/InStock', validFrom: '2026-06-01T09:00:00+02:00',
+      url: 'https://www.myswitzerland.com/booking/tour',
+    });
+  });
+
   it('returns undefined when there is no offers/isAccessibleForFree info', () => {
     expect(extractPrice({})).toBeUndefined();
     expect(extractPrice(undefined)).toBeUndefined();
