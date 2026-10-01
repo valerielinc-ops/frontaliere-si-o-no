@@ -26,6 +26,7 @@ import { planPage } from './plan.mjs';
 import { sanitizeValidation } from '../../../../functions/src/lib/answerRules.js';
 import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, applyActions, findButton, locatorFor } from './fill.mjs';
 import { launchChromium } from '../../../lib/ensure-chromium.mjs';
+import { classifyLiveness, isHardClosed } from '../liveness.mjs';
 
 export const WAVE1_CHANNELS = new Set([
   'employer_site', 'lever', 'greenhouse', 'smartrecruiters', 'personio', 'softgarden', 'umantis', 'refline', 'jobs_ch',
@@ -43,6 +44,20 @@ const OUTCOME_TIMEOUT_MS = 25_000;
 const NAVIGATION = { listboxOptions: false };
 // Codex turns of the agentic fallback in one run (each page has AGENT_ROUNDS at most).
 const MAX_AGENT_CALLS = 16;
+
+/**
+ * The browser's own user agent without "Headless", on the machine's real
+ * system: some ATS turn away a browser that calls itself HeadlessChrome
+ * (owner decision 2026-10-01). Same Chrome version, nothing else disguised.
+ */
+export function realisticUserAgent(version, platform = process.platform) {
+  const system = platform === 'darwin' ? 'Macintosh; Intel Mac OS X 10_15_7' : platform === 'win32' ? 'Windows NT 10.0; Win64; x64' : 'X11; Linux x86_64';
+  const major = /^\d+/.exec(String(version || ''))?.[0] || '140';
+  return `Mozilla/5.0 (${system}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/${major}.0.0.0 Safari/537.36`;
+}
+
+/** The workflow runs the browser headed on a virtual screen (xvfb-run) when it can. */
+export const headedBrowser = () => process.env.ASSISTED_APPLICATION_HEADED === '1';
 
 /** A label that is a generated name, not a question ("select-input-_r_p_", "file:_r_3_:input"). */
 export function machineLabel(label) {
@@ -78,8 +93,13 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       headline: profile.headline || '',
       currentOrLatestRole: [latest.role, latest.employer].filter(Boolean).join(' — '),
       employers: [...new Set((profile.experience || []).map((item) => item.employer).filter(Boolean))].slice(0, 15),
+      // Workday's, SuccessFactors' and umantis' "My Experience" steps: the work
+      // history as the CV states it, instead of questions to the candidate.
+      experience: (profile.experience || []).slice(0, 8)
+        .map(({ role = '', employer = '', location = '', start = '', end = '' }) => ({ role, employer, location, start, end })),
       languages: profile.languages || [],
-      education: (profile.education || []).slice(0, 2),
+      education: (profile.education || []).slice(0, 4)
+        .map(({ degree = '', institution = '', start = '', end = '' }) => ({ degree, institution, start, end })),
       workPermit: profile.workPermit || '',
       availability: profile.availability || '',
       dateOfBirth: profile.dateOfBirth || '',
@@ -121,6 +141,12 @@ async function awaitFields(page, snapshot, unchanged = () => false) {
 /** A page is the same page when the URL and the field labels are (Workday's steps share one URL). */
 function pageSignature(page, snapshot) {
   return `${page.url()}|${snapshot.fields.map((field) => field.label).join('|')}`;
+}
+
+/** The page's visible text, frames included (Greenhouse embeds its form). */
+async function pageText(page) {
+  const texts = await Promise.all(page.frames().slice(0, 5).map((frame) => frame.evaluate(() => document.body?.innerText || '').catch(() => '')));
+  return texts.join('\n').slice(0, 60_000);
 }
 
 async function settle(page) {
@@ -183,6 +209,28 @@ async function openApplicationForm(context, page, snapshot) {
     snapshot = await extractFields(page, NAVIGATION);
   }
   return { page, snapshot };
+}
+
+const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
+// Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc".
+const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
+const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
+
+/**
+ * Is this form the posting's (career-ops apply.md: company and role on the
+ * form match the posting, or stop)? A word of the company's name, or half
+ * the title's words (on a 6-letter stem: "Infermiere/a" = "Infermiera"),
+ * found on the page. 'unknown' when the order names neither.
+ */
+export function postingMatch(pageText, job = {}) {
+  const text = ` ${normalizeWords(pageText)} `;
+  const company = nameWords(job.company);
+  const title = nameWords(job.title).filter((word) => word.length >= 4);
+  if (!company.length && !title.length) return 'unknown';
+  const found = (word) => text.includes(` ${word} `) || text.includes(` ${word.slice(0, 6)}`);
+  if (company.some(found)) return 'match';
+  if (title.length && title.filter(found).length >= Math.ceil(title.length / 2)) return 'match';
+  return 'mismatch';
 }
 
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
@@ -306,17 +354,72 @@ async function handleAuth({ page, snapshot, ctx }) {
   return { snapshot: after, reopen: !after.passwordVisible };
 }
 
+// An address that says the application went through; a review step
+// ("review-and-confirm") is not one.
+const DONE_URL_RE = /(thank|danke|grazie|merci|success|confirmation|submitted|received|complete)/i;
+const REVIEW_URL_RE = /(review|preview|summary|riepilogo|zusammenfassung|überprüf|ueberpruef|vérif|verif|resume|récap)/i;
+
+/** The address alone confirms only once the page holds no send button any more. */
+export function urlConfirms(url, snapshot) {
+  return DONE_URL_RE.test(url) && !REVIEW_URL_RE.test(url) && Boolean(snapshot) && !findButton(snapshot.buttons || [], SUBMIT_RE, { includeDisabled: true });
+}
+
 async function waitForOutcome(page) {
   const deadline = Date.now() + OUTCOME_TIMEOUT_MS;
   while (Date.now() < deadline) {
     await page.waitForTimeout(1000);
     const text = await page.evaluate(() => document.body?.innerText || '').catch(() => '');
-    if (CONFIRM_RE.test(text) || /thank|confirm|success|danke|grazie|merci/i.test(page.url())) return 'confirmed';
+    if (CONFIRM_RE.test(text)) return 'confirmed';
     const snapshot = await extractFields(page, NAVIGATION).catch(() => null);
+    if (urlConfirms(page.url(), snapshot)) return 'confirmed';
     if (snapshot?.captcha) return 'captcha';
     if (Date.now() > deadline - OUTCOME_TIMEOUT_MS + 4000 && VALIDATION_RE.test(text)) return 'validation';
   }
   return 'ambiguous';
+}
+
+// Single-page forms only: reading them sends nothing. JOIN registers the
+// e-mail on its first step, Workday and SuccessFactors start with an account.
+export const PREREAD_CHANNELS = new Set(['greenhouse', 'lever', 'smartrecruiters', 'personio', 'softgarden']);
+
+/**
+ * The questions a portal will ask, read while drafting (career-ops apply.md:
+ * identify ALL the questions before answering), so the candidate answers them
+ * on the first review instead of in a second round at submit time. The form
+ * is opened and read, never filled, and nothing is pressed but "apply".
+ * Never fails the draft: any problem returns no questions.
+ * @returns {Promise<Array<object>>} questions for the review page (source 'portal')
+ */
+export async function readPortalQuestions(ctx) {
+  if (!PREREAD_CHANNELS.has(ctx.channelType) || !ctx.applyUrl || !ctx.codex) return [];
+  const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
+  let browser = null;
+  try {
+    browser = await launch();
+    const context = await browser.newContext({
+      userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
+      locale: INTL[ctx.language] || 'de-CH',
+      timezoneId: 'Europe/Zurich',
+      viewport: { width: 1366, height: 900 },
+      acceptDownloads: false,
+    });
+    let page = await context.newPage();
+    await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    await settle(page);
+    let snapshot;
+    ({ page, snapshot } = await openApplicationForm(context, page, await extractFields(page, NAVIGATION)));
+    snapshot = await awaitFields(page, await extractFields(page));
+    if (snapshot.captcha || snapshot.passwordVisible || !hasApplicationForm(snapshot)) return [];
+    const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+    // A field with a generated name is no question for a person: the submit run's agent reads it.
+    const readable = plan.missingRequired.filter((item) => !machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
+    return questionsFrom(readable);
+  } catch (error) {
+    (ctx.log || (() => {}))(`portal pre-read skipped: ${String(error?.message || error).split('\n')[0].slice(0, 120)}`);
+    return [];
+  } finally {
+    await browser?.close().catch(() => {});
+  }
 }
 
 /**
@@ -334,7 +437,7 @@ async function waitForOutcome(page) {
  * @returns {Promise<{event:object, evidence:object}>}
  */
 export async function submitViaPortal(ctx) {
-  const launch = ctx.launch || (() => launchChromium({ headless: true }));
+  const launch = ctx.launch || (() => launchChromium({ headless: !headedBrowser() }));
   const log = ctx.log || (() => {});
   // JOIN asks one question per page (e-mail, CV, details, links, permit, salary,
   // start date, the employer's own questions, review): 8 pages were not enough.
@@ -349,21 +452,48 @@ export async function submitViaPortal(ctx) {
   };
   try {
     const context = await browser.newContext({
+      userAgent: realisticUserAgent(typeof browser.version === 'function' ? browser.version() : ''),
       locale: INTL[ctx.language] || 'de-CH',
       timezoneId: 'Europe/Zurich',
       viewport: { width: 1366, height: 900 },
       acceptDownloads: false,
     });
     page = await context.newPage();
-    await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
+    const response = await page.goto(ctx.applyUrl, { waitUntil: 'domcontentloaded', timeout: 60_000 });
     await settle(page);
     let snapshot = await extractFields(page, NAVIGATION);
+    // The posting as a browser renders it (career-ops liveness-browser): the
+    // fetch before the run sees only the empty shell of a JavaScript portal.
+    const rendered = classifyLiveness({
+      status: response?.status() || 0,
+      requestedUrl: ctx.applyUrl,
+      finalUrl: page.url(),
+      bodyText: await pageText(page),
+      applyControls: snapshot.buttons.map((button) => button.text || button.label || ''),
+    });
+    evidence.liveness = { result: rendered.result, code: rendered.code };
+    if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
+    // The form must be the posting's: an address that lands on a list of jobs
+    // with a "Bewerben" must not apply to another one. Valerie's retry, after
+    // she looked at the screenshot, goes on.
+    const match = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`, ctx.job);
+    evidence.postingMatch = match;
+    if (match === 'mismatch' && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
     const uploaded = new Set();
+    // What went into the form, question by question (career-ops application-answers):
+    // for the interview prep, and for Valerie when she finishes by hand. The last answer wins.
+    const given = new Map();
+    evidence.answers = [];
+    const record = (question, answer, source) => {
+      if (!question || !String(answer ?? '').trim()) return;
+      given.set(question, { question: String(question).slice(0, 200), answer: String(answer).slice(0, 2000), source: source || '' });
+      evidence.answers = [...given.values()].slice(0, 80);
+    };
     // The agentic fallback: once per page and reason, within the run's budget.
     let agentCalls = 0;
     const agentTried = new Set();
@@ -390,6 +520,7 @@ export async function submitViaPortal(ctx) {
       }
       agentCalls += agent.calls;
       (evidence.steps.at(-1).agent ||= []).push({ ...agent.evidence, status: agent.status, ...(agent.reason ? { reason: agent.reason } : {}) });
+      for (const item of agent.answers || []) record(item.question, item.answer, item.source);
       return agent;
     };
     const askCandidate = (questions) => ({ event: { type: 'submit_needs_candidate', questions: questionsFrom(questions) }, evidence });
@@ -447,6 +578,11 @@ export async function submitViaPortal(ctx) {
         const results = await applyActions(page, snapshot.fields, actions, ctx.files);
         for (const result of results) {
           if (result.ok && actions.some((action) => action.fieldId === result.fieldId && action.action === 'upload')) uploaded.add(uploadKey(result.fieldId));
+          const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
+          const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
+          if (!field || field.inputType === 'password') continue;
+          const answer = { upload: action.document === 'cover_letter' ? '[lettera di presentazione]' : '[CV]', check: '✓', uncheck: '✗' }[action.action] ?? action.value;
+          record(field.label || field.name || field.id, answer, action.source);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);

@@ -318,8 +318,43 @@ export function safeFileStem(value) {
     .replace(/^_+|_+$/g, '') || 'Candidato';
 }
 
-/** Fact gate over every text that may leave in the candidate's name. */
+/**
+ * The initials of each line of the order that has two capitalised words or
+ * more: "Ente Ospedaliero Cantonale" is also "EOC", the employer's short name
+ * in its own posting, not a tool the letter claims.
+ */
+export function employerInitials(orderLine) {
+  return String(orderLine || '').split('\n')
+    .map((line) => line.split(/\s+/).filter((word) => /^\p{Lu}/u.test(word)).map((word) => word[0]).join(''))
+    .filter((initials) => initials.length >= 2)
+    .join(' ');
+}
+
+// The texts where a tool reads as the candidate's claim. Not `whyCompany`
+// (it talks about the employer), nor the interview pack or the follow-up,
+// which go through this gate with their own fields.
+const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationShort'];
+
+/**
+ * Fact gate over every text that may leave in the candidate's name.
+ *
+ * Numbers, e-mails, URLs and phones may come from any source, the posting
+ * included. A tool, a certificate or a standard (SAP, ISO 9001, PowerPoint) in
+ * the letter or the e-mail is a claim about the candidate, backed only by the
+ * candidate's own texts (CV, answers, edits) and by the order line, which
+ * holds the company name and the job title exactly as the letter is given them.
+ * The posting text backs none: a tool only the posting names, claimed in the
+ * letter, is the invention this catches, and nothing in a posting tells an
+ * employer's short name from a required tool, so an employer acronym written
+ * only there ("EOC" for an order that says "Ente Ospedaliero Cantonale") is
+ * flagged for the owner to confirm. The place reaches the letter as the
+ * posting's structured location, which is not among the sources; its only
+ * tool-shaped part, a canton code, is never a claim (NOT_A_CLAIM).
+ */
 export function checkDraftFacts(texts, sources) {
   // `candidate`: what the candidate wrote on the review page vouches for itself.
-  return checkGeneratedFacts(texts, buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate]));
+  const index = buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate], {
+    claimSources: [sources?.text, sources?.order, sources?.answers, sources?.candidate, employerInitials(sources?.order)],
+  });
+  return checkGeneratedFacts(texts, index, { toolFields: CLAIM_FIELDS });
 }

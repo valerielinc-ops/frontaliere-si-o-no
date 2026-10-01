@@ -84,6 +84,7 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   account: 'account sul portale da creare o verificare',
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
+  posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
 };
 
 function heldLabel(reason: string): string {
@@ -391,6 +392,19 @@ export default function AssistedApplicationAutomationPanel({
       )}
 
       {flow && (
+        {['owner_takeover', 'candidate_handoff'].includes(flow.state || '') && Boolean(draft?.portalAnswers?.answers?.length) && (
+          <details className="rounded-lg border border-edge p-3 text-sm">
+            <summary className="cursor-pointer font-medium">Già inserito nel portale ({draft?.portalAnswers?.answers.length} risposte)</summary>
+            <dl className="mt-2 space-y-1">
+              {draft?.portalAnswers?.answers.map((item) => (
+                <div key={item.question} className="flex flex-col sm:flex-row sm:gap-2">
+                  <dt className="text-muted sm:w-1/2">{item.question}</dt>
+                  <dd className="break-words sm:w-1/2">{item.answer}</dd>
+                </div>
+              ))}
+            </dl>
+          </details>
+        )}
         <div className="flex flex-wrap gap-2 border-t border-edge pt-3">
           {flow.state === 'owner_review' && (
             <button type="button" className={primary} disabled={Boolean(busy)} onClick={() => { void act('automationApprove', { acknowledgeFactWarnings: ackFacts, acknowledgeKnockOut: ackKnockOut, acknowledgeFlags: Object.keys(ackFlags).filter((flag) => ackFlags[flag]) }, 'Approvata: ora tocca al candidato (12 ore).'); }}>

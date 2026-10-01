@@ -20,6 +20,8 @@ import path from 'node:path';
 import { launchChromium } from '../lib/ensure-chromium.mjs';
 import { submitViaPortal } from './lib/portal/portal.mjs';
 import { aiSnapshot, runAction } from './lib/portal/agent.mjs';
+import { extractFields } from './lib/portal/fields.mjs';
+import { applyActions } from './lib/portal/fill.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
@@ -201,6 +203,21 @@ async function main() {
     const near = await runAction(listPage, { ref: yearRef, action: 'select', value: '1990' });
     check('a select never takes a near option', near.ok === false && near.error === 'option_not_found');
     await listPage.context().browser().close();
+    // career-ops apply.md: company and role on the form match the posting, or stop.
+    const elsewhere = await run({ applyUrl: `${base}/widget-job`, job: { company: 'Muster Elektro AG', title: 'Elektroinstallateur EFZ' }, candidate: { identity: { email: ALIAS }, profile: { dateOfBirth: '12.05.1990' }, answers: {}, portalQuestionsAnswered: [] } });
+    check('a form for another job is never filled', elsewhere.event.type === 'submit_handoff' && elsewhere.event.reason === 'posting_mismatch' && state.widgetApplications.length === 1);
+    // career-ops "verify each selection": a click that does not take is a failure, not an answer.
+    const comboPage = await (await launchChromium({ headless: true, executablePath })).newPage();
+    await comboPage.setContent(`<label for="good">Land</label><div><input id="good" role="combobox" aria-controls="gl"><span id="gv"></span><div role="listbox" id="gl"><div role="option" onclick="document.getElementById('gv').textContent='Schweiz'; this.parentElement.remove()">Schweiz</div></div></div>
+      <label for="bad">Nationalität</label><div><input id="bad" role="combobox" aria-controls="bl"><div role="listbox" id="bl"><div role="option" onclick="document.getElementById('bad').value=''">Italien</div></div></div>`);
+    const combo = await extractFields(comboPage);
+    const byLabel = (label) => combo.fields.find((field) => field.label === label)?.id;
+    const picked = await applyActions(comboPage, combo.fields, [
+      { fieldId: byLabel('Land'), action: 'select', value: 'Schweiz' },
+      { fieldId: byLabel('Nationalität'), action: 'select', value: 'Italien' },
+    ], {}, { pause: async () => {} });
+    check('a choice is verified on the page', picked[0]?.ok === true && picked[1]?.ok === false && picked[1]?.error === 'choice_not_registered');
+    await comboPage.context().browser().close();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');
