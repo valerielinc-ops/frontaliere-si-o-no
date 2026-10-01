@@ -381,8 +381,22 @@ describe('borderWaitPagesPlugin — page generation', () => {
       'Tempi di attesa non disponibili',
     );
 
-    const emptyPages = generateBorderWaitPages({ current: { updatedAt: null, perCrossing: {} }, history: [], today });
-    expect(swapOut(emptyPages[buildRootHubPath('it')], 'hub')).toContain('Tempi di attesa non disponibili');
+    // The leaf current card stays on the unknown tone without a reading.
+    const leaf = partialPages[buildOggiPath('it', 'crociale-dei-mulini')];
+    const currentStatusMarker = 'aria-labelledby=currentStatus';
+    const currentCard = leaf.slice(
+      leaf.indexOf(currentStatusMarker),
+      leaf.indexOf('</section>', leaf.indexOf(currentStatusMarker)),
+    );
+    expect(currentCard).toContain('background:var(--color-surface-alt)');
+    expect(currentCard).not.toContain('background:var(--color-success-subtle)');
+  });
+
+  it('keeps the unavailable banner for a hub with no reading at all', () => {
+    // MINIMAL_CURRENT only has Ticino readings: the Geneva corridor has none.
+    const shown = swapOut(pages[buildRegionalHubPath('it', 'geneve-francia')], 'hub');
+    expect(shown).toContain('Tempi di attesa non disponibili');
+    expect(shown).not.toContain('Traffico fluido');
   });
 
   it('ships every live variant as an inert template that the word gate ignores', () => {
@@ -396,30 +410,6 @@ describe('borderWaitPagesPlugin — page generation', () => {
     }
     expect(countHtmlBodyWords(root)).toBe(countHtmlBodyWords(root.replace(/<template[\s\S]*?<\/template>/g, '')));
     expect(countHtmlBodyWords('<p>uno due</p><template><p>tre quattro cinque</p></template>')).toBe(2);
-  });
-
-  it('keeps the leaf current card on the unknown tone without a reading', () => {
-    const partialCurrent: BorderWaitCurrent = {
-      updatedAt: '2026-04-21T06:00:00.000Z',
-      perCrossing: {
-        'chiasso-brogeda': {
-          waitTimeMinutes: 0,
-          source: 'tomtom',
-          lastUpdate: '2026-04-21T06:00:00.000Z',
-          status: 'green',
-        },
-      },
-    };
-    const partialPages = generateBorderWaitPages({ current: partialCurrent, history: [], today });
-
-    const leaf = partialPages[buildOggiPath('it', 'crociale-dei-mulini')];
-    const currentStatusMarker = 'aria-labelledby=currentStatus';
-    const currentCard = leaf.slice(
-      leaf.indexOf(currentStatusMarker),
-      leaf.indexOf('</section>', leaf.indexOf(currentStatusMarker)),
-    );
-    expect(currentCard).toContain('background:var(--color-surface-alt)');
-    expect(currentCard).not.toContain('background:var(--color-success-subtle)');
   });
 
   it('leaf pages without history show the "storico in accumulo" notice', () => {
