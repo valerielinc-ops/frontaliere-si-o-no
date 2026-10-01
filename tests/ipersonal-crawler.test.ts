@@ -680,6 +680,82 @@ describe('MediPersonal crawler parser', () => {
       );
     });
 
+    it('reuses only the matching rich previous detail after a bounded failure', async () => {
+      const seedUrl = 'https://ipersonal-previous-detail.example/';
+      const acceptedUrl = `${seedUrl}jobs/accepted/`;
+      const failedUrl = `${seedUrl}jobs/temporarily-blocked/`;
+      const previousDescription = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.\n• Ergebnisse zuverlässig dokumentieren';
+      const fetchImpl = async (input: string | URL | Request) => {
+        const url = String(typeof input === 'string' || input instanceof URL ? input : input.url);
+        if (url.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (url === seedUrl) {
+          return new Response(
+            `<a href="${acceptedUrl}">Fachperson Zürich</a><a href="${failedUrl}">Temporarily blocked role</a>`,
+            { status: 200 },
+          );
+        }
+        if (url === failedUrl) return new Response('temporary upstream outage', { status: 500 });
+        const description = 'Eine ausführliche Aufgabenbeschreibung mit professioneller Verantwortung, enger Zusammenarbeit und dokumentierten Qualitätsstandards. Die Fachperson plant Einsätze, berät Kundinnen und Kunden, koordiniert Termine und hält alle Ergebnisse nachvollziehbar fest.';
+        return new Response(`
+          <script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'JobPosting',
+            title: 'Fachperson Zürich',
+            url: acceptedUrl,
+            description,
+            jobLocation: {
+              '@type': 'Place',
+              address: { '@type': 'PostalAddress', addressLocality: 'Zürich', addressRegion: 'ZH', addressCountry: 'CH' },
+            },
+          })}</script>
+          <section class="job-profile-section"><div id="Jobdetails"><p>${description}</p>
+            <h3>Deine Aufgaben</h3><ul><li>Ergebnisse zuverlässig dokumentieren</li></ul>
+          </div></section>`, { status: 200 });
+      };
+      const jobs = await runIpersonalSpecInProduction({
+        companyKey: 'ipersonal',
+        companyName: 'MediPersonal',
+        platform: 'med-ipersonal.ch',
+        seedUrls: [seedUrl],
+        mode: 'template',
+        detailTemplate: '/jobs/*/',
+        detailFetchWorkers: 1,
+      } as any, {
+        fetchImpl: fetchImpl as typeof fetch,
+        lookupImpl: async () => [{ address: '93.184.216.34', family: 4 }],
+        sleepImpl: async () => undefined,
+        retries: 0,
+        previousJobs: [{
+          url: failedUrl,
+          title: 'Temporarily blocked role',
+          description: previousDescription,
+          descriptionByLocale: { de: previousDescription },
+          sourceLang: 'de',
+          location: 'Zürich',
+          canton: 'ZH',
+          addressLocality: 'Zürich',
+          addressRegion: 'ZH',
+          addressCountry: 'CH',
+          company: 'MediPersonal',
+        }],
+      });
+      const evidence = jobs as typeof jobs & {
+        detailFailureCount: number;
+        detailFailureUrls: string[];
+        reusedDetailCount: number;
+        reusedDetailUrls: string[];
+        previousSnapshotIdentityCollisionCount: number;
+      };
+
+      expect(jobs).toHaveLength(2);
+      expect(jobs.find((job) => job.url === failedUrl)?.description).toBe(previousDescription);
+      expect(evidence.detailFailureCount).toBe(1);
+      expect(evidence.detailFailureUrls).toEqual([failedUrl.replace(/\/$/, '')]);
+      expect(evidence.reusedDetailCount).toBe(1);
+      expect(evidence.reusedDetailUrls).toEqual(evidence.detailFailureUrls);
+      expect(evidence.previousSnapshotIdentityCollisionCount).toBe(0);
+    });
+
     it('surfaces two detail aliases resolving to one response identity', async () => {
       const seedUrl = 'https://ipersonal-redirect.example/';
       const firstUrl = `${seedUrl}jobs/first/`;

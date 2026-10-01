@@ -122,7 +122,9 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
 
 async function markSubmitted({ db, orderId, effect, flow }) {
   const orderRef = orderRefFor(db, orderId);
-  const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)' : `automazione (${flow.submittedVia || 'invio'})`;
+  const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)'
+    : effect.by === 'owner' ? 'Valerie sul portale, dopo lo stop del robot'
+      : `automazione (${flow.submittedVia || 'invio'})`;
   const notes = `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {
@@ -143,7 +145,7 @@ async function markSubmitted({ db, orderId, effect, flow }) {
       fromStatus: order.submissionStatus,
       toStatus: 'submitted',
       submissionNotes: notes,
-      channel: flow.submittedVia || (effect.by === 'candidate' ? 'handoff' : 'automation'),
+      channel: flow.submittedVia || (effect.by === 'candidate' ? 'handoff' : effect.by === 'owner' ? 'owner' : 'automation'),
     }));
     changed = true;
   });
