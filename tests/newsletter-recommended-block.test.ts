@@ -110,7 +110,9 @@ describe('recommendedBlock render', () => {
     const html = renderRecommendedBlock({ locale: 'it', interest: 'general', acquisitionSource: 'weather-hub' });
     expect(html).toContain('Consigliato per te');
     expect(html).toContain('/go/');
-    expect(html).toContain('link affiliato');
+    expect(html).toContain('Link con codice di invito o referral');
+    expect(html).toContain('nessun accordo di affiliazione attivo');
+    expect(html).not.toContain('In collaborazione con un partner');
     // Policy: never AdSense / Google Ads in email.
     expect(html).not.toMatch(/adsbygoogle|googlesyndication|adsense|data-ad-client/i);
   });
