@@ -129,4 +129,38 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     expect(fs.lstatSync(path.join(repo, 'services/locales/blog-body')).isSymbolicLink()).toBe(true);
     expect(fs.lstatSync(path.join(repo, 'data/blog-articles-data.ts')).isSymbolicLink()).toBe(true);
   });
+
+  it('reads large generated blobs during stable-branch reconciliation', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'merge-refresh-large-'));
+    tmpDirs.push(repo);
+    git(repo, ['init', '-q', '-b', 'main']);
+    write(repo, 'data/events.json', `${'base'.repeat(512 * 1024)}\n`);
+    git(repo, ['add', 'data/events.json']);
+    git(repo, ['commit', '-q', '-m', 'base']);
+    const base = git(repo, ['rev-parse', 'HEAD']);
+
+    git(repo, ['checkout', '-q', '-b', 'chore/refresh']);
+    write(repo, 'data/events.json', `${'remote'.repeat(512 * 1024)}\n`);
+    git(repo, ['add', 'data/events.json']);
+    git(repo, ['commit', '-q', '-m', 'remote']);
+    const remote = git(repo, ['rev-parse', 'HEAD']);
+
+    git(repo, ['checkout', '-q', 'main']);
+    write(repo, 'data/events.json', `${'refresh'.repeat(512 * 1024)}\n`);
+    git(repo, ['add', 'data/events.json']);
+    git(repo, ['commit', '-q', '-m', 'refresh']);
+    const refresh = git(repo, ['rev-parse', 'HEAD']);
+
+    git(repo, ['checkout', '-q', 'chore/refresh']);
+    const output = execFileSync(process.execPath, [
+      MERGE_SCRIPT,
+      '--base', base,
+      '--remote', remote,
+      '--refresh', refresh,
+      '--path', 'data/events.json',
+    ], { cwd: repo, encoding: 'utf8' });
+
+    expect(output).toContain('applied 1 path(s)');
+    expect(fs.readFileSync(path.join(repo, 'data/events.json'), 'utf8')).toBe(`${'refresh'.repeat(512 * 1024)}\n`);
+  });
 });
