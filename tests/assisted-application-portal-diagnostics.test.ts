@@ -27,6 +27,10 @@ describe('encrypted portal diagnostics', () => {
       .toEqual([{ code: 'INVALID_PROFILE', message: 'Profile URL required', field: 'linkedin' }]);
     expect(responseErrors({ errors: { linkedin: ['Invalid URL'], password: 'secret' } })).toEqual([{ message: 'Invalid URL', field: 'linkedin' }]);
     expect(responseErrors({ data: { user: 'private' }, token: 'secret' })).toEqual([]);
+    expect(responseErrors('opaque-credential')).toEqual([]);
+    expect(responseErrors({ code: 'opaque-credential', message: 'Welcome' })).toEqual([]);
+    expect(responseErrors({ message: 'Invalid URL' }, true)).toEqual([{ message: 'Invalid URL' }]);
+    expect(responseErrors({ success: false, code: 'INVALID_URL', message: 'Invalid URL' })).toEqual([{ code: 'INVALID_URL', message: 'Invalid URL' }]);
   });
 
   it('records console, page errors, failed requests and HTTP 200 validation errors around the final click', async () => {

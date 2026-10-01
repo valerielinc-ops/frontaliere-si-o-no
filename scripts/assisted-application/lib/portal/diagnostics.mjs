@@ -24,7 +24,7 @@ export function diagnosticText(value) {
 }
 
 /** Keep error fields, never the complete JSON response (which may contain an account). */
-export function responseErrors(body) {
+export function responseErrors(body, failedHttp = false) {
   const errors = [];
   const visit = (value, field = '', depth = 0) => {
     if (errors.length >= 8 || depth > 3 || value == null) return;
@@ -34,7 +34,7 @@ export function responseErrors(body) {
       for (const item of value.slice(0, 8)) visit(item, field, depth + 1);
     } else if (typeof value === 'object') {
       const detail = {};
-      for (const key of ['code', 'message', 'field', 'path']) {
+      for (const key of ['code', 'errorCode', 'message', 'field', 'path']) {
         if (['string', 'number'].includes(typeof value[key])) detail[key] = diagnosticText(value[key]);
       }
       if (Object.keys(detail).length) errors.push({ ...(field ? { field: diagnosticText(field) } : {}), ...detail });
@@ -50,7 +50,14 @@ export function responseErrors(body) {
       }
     }
   };
-  visit(body);
+  // A successful payload may itself be a token, OTP or an account's `code`.
+  // Only error envelopes (or an explicit failure) are diagnostic material.
+  if (failedHttp || body?.success === false || body?.ok === false || body?.errorCode != null) visit(body);
+  else if (body && typeof body === 'object' && !Array.isArray(body)) {
+    for (const key of ['error', 'errors', 'validationErrors']) {
+      if (body[key] != null) visit(body[key], '', 1);
+    }
+  }
   return errors.slice(0, 8);
 }
 
@@ -125,7 +132,7 @@ export function startPortalDiagnostics(context, httpFailures = []) {
       if (size > BODY_LIMIT) return;
       const bytes = await response.body();
       if (stopped || bytes.length > BODY_LIMIT) return;
-      const errors = responseErrors(JSON.parse(bytes.toString('utf8')));
+      const errors = responseErrors(JSON.parse(bytes.toString('utf8')), response.status() >= 400);
       if (errors.length) entry.errors = errors;
     })().catch(() => {});
     pending.add(task);
