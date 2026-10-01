@@ -1,7 +1,7 @@
 {
   "key": "climeworks",
   "label": "Climeworks",
-  "generatedAt": "2026-09-30T21:12:03.946Z",
+  "generatedAt": "2026-10-01T09:16:03.768Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2555,
-  "avgDurationMs": 2555,
+  "durationMs": 2721,
+  "avgDurationMs": 2721,
   "durationHistory": [
-    2555
+    2721
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "climeworks-01aa72db8a19",
       "slug": "legal-counsel-100-climeworks-zurich",
@@ -32,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:11:56.184Z",
+      "crawledAt": "2026-10-01T09:15:55.949Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -47,16 +48,15 @@
       "applyUrl": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
       "remote": true,
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-30T21:11:56.184Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 4,
+        "translation": 16,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "climeworks-ecfc8c7a030d",
       "slug": "commercial-operations-manager-100-climeworks-zurich",
@@ -69,7 +69,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:11:56.189Z",
+      "crawledAt": "2026-10-01T09:15:55.958Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,6 +83,7 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "remote": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-18T13:44:03.542Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -104,7 +105,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:11:56.191Z",
+      "crawledAt": "2026-10-01T09:15:55.961Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -118,6 +119,7 @@
       "postedDate": "2026-07-08",
       "applyUrl": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "remote": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-08T22:24:43.541Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -139,7 +141,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:11:56.194Z",
+      "crawledAt": "2026-10-01T09:15:55.963Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -153,6 +155,7 @@
       "postedDate": "2026-06-12",
       "applyUrl": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "remote": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.360Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -174,7 +177,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:11:56.196Z",
+      "crawledAt": "2026-10-01T09:15:55.966Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -188,6 +191,7 @@
       "postedDate": "2026-02-10",
       "applyUrl": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "remote": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
