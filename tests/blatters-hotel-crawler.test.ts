@@ -88,7 +88,7 @@ describe("Blatter's Arosa Hotel crawler parser", () => {
           companyKey: 'blatters-hotel', companyName: "Blatter's Arosa Hotel", companyHost: 'hotelcareer.ch',
           platform: 'hotelcareer.ch', mode: 'template', seedUrls: [seed],
           detailTemplate: '/jobs/blatter-s-hotel-arosa-4340/*', detailEnrichment: true,
-        },
+        } as any,
         runtime: {
           fetchImpl,
           jinaFetchImpl: vi.fn(async (url: string) => response(url, 200, challenge)),

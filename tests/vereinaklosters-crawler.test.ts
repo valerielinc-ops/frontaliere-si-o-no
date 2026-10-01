@@ -215,7 +215,7 @@ describe('Vereina crawler parser', () => {
 
     it('publishes the employer page statement as an authoritative zero', async () => {
       const runtime = runtimeServing(VEREINA_NO_VACANCY_PAGE);
-      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC, runtime });
+      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC as any, runtime });
 
       expect(isAuthoritativeEmptySnapshot(listings)).toBe(true);
       expect((listings as any).authoritativeEmptyEvidence)
@@ -234,7 +234,7 @@ describe('Vereina crawler parser', () => {
 
     it('keeps an unproven zero (challenge served on every path) as anti-bot evidence', async () => {
       const runtime = runtimeServing(challenge);
-      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC, runtime })
+      const listings = await fetchPrimaryJobListings({ spec: VEREINA_SPEC as any, runtime })
         .catch((error: any) => error);
 
       // Either the runtime throws the exhausted anti-bot error or it returns a
