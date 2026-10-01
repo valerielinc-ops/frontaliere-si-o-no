@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-09-30T21:38:32.732Z",
+  "generatedAt": "2026-10-01T09:35:14.275Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4689,
-  "avgDurationMs": 4689,
+  "durationMs": 6103,
+  "avgDurationMs": 6103,
   "durationHistory": [
-    4689
+    6103
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-30T21:38:23.729Z",
+      "crawledAt": "2026-10-01T09:35:04.621Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -77,9 +77,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-30T21:38:24.116Z",
+      "crawledAt": "2026-10-01T09:35:05.329Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -90,6 +90,7 @@
       "firstSeenAt": "2026-07-29T22:14:16.881Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-compliance_officer.php",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -119,9 +120,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-30T21:38:24.408Z",
+      "crawledAt": "2026-10-01T09:35:05.741Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -161,9 +162,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-09-30",
+      "postedDate": "2026-10-01",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-09-30T21:38:24.678Z",
+      "crawledAt": "2026-10-01T09:35:06.275Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -174,6 +175,7 @@
       "firstSeenAt": "2026-04-13T10:08:40.551Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.bps-suisse.ch/carriera-collaboratore_trice_gestione_crediti__100_.php",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
