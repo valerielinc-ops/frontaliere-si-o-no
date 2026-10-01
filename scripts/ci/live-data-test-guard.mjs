@@ -441,6 +441,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/border-wait', 'data/jobs/', 'data/pharmac'],
     reason: 'i path sono SORGENTI SINTETICI passati allo scanner (`scanTestSource`) e nomi interrogati sul matcher; il repo sintetico vive in os.tmpdir(). La scansione del repo legge test, moduli e workflow, mai un file sotto data/ (#9743)',
   },
+  {
+    file: 'tests/data-refresh-pr-wiring.test.ts',
+    roots: ['data/events.json', 'public/data/'],
+    reason: 'i path sono solo filtri `--path` di merge-open-data-refresh.mjs con base, remote e refresh tutti a HEAD: `git diff --name-only HEAD HEAD` non elenca file, lo script non legge né scrive dati e stampa "applied 0 path(s)"; le altre letture del test sono workflow e script (#10712)',
+  },
 ]);
 
 
