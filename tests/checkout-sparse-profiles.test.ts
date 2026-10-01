@@ -61,6 +61,21 @@ describe('profili di sparse-checkout', () => {
     expect(problems).toEqual([]);
   }, TIMEOUT);
 
+  it('i monitor che committano solo extra espliciti non trascinano i bucket dati', () => {
+    for (const file of [
+      'auth-signup-subscriber-monitor.yml',
+      'unsubscribe-credential-monitor.yml',
+      'autologin-refusal-monitor.yml',
+    ]) {
+      const workflow = analyzeAll().find((w) => w.file === file);
+      const job = workflow?.jobs.find((j) => j.jobId === 'check');
+      expect(job, file).toBeDefined();
+      expect(job!.needs, file).toContain('docs/');
+      expect(job!.needs, file).not.toContain('data/jobs/');
+      expect(job!.aboveCrossover, file).toBe(false);
+    }
+  }, TIMEOUT);
+
   it('usano la modalita non-cone: i pattern di negazione la richiedono', () => {
     const offenders: string[] = [];
     for (const f of workflowFiles) {
