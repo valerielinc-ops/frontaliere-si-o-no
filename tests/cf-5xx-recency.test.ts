@@ -34,7 +34,7 @@ vi.mock('node:child_process', () => {
 });
 
 const cfSync = await import('../scripts/cf-5xx-issue-sync.mjs');
-const { summarizeBursts, isStaleBurst } = cfSync;
+const { summarizeBursts, isStaleBurst, buildIssueBody } = cfSync;
 
 /** The moment cf-5xx-monitor.yml actually filed #5231 and #5232. */
 const RUN_AT = new Date('2026-08-06T06:18:14Z');
@@ -119,6 +119,55 @@ describe('summarizeBursts — the time dimension the feeder never had', () => {
     );
     expect(shapes.size).toBe(0);
   });
+
+  it('keeps endpoint status, origin and cache evidence correlated to the URL', () => {
+    const shape = summarizeBursts([
+      {
+        status: 503,
+        url: 'frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/',
+        hour: '2026-08-06T06:00:00Z',
+        count: 30,
+        originResponseStatus: 0,
+        cacheStatus: 'none',
+      },
+    ], RUN_AT).get('frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/');
+    expect(shape.endpointEvidence).toEqual([
+      { edgeStatus: '503', originStatus: '0', cacheStatus: 'none', count: 30 },
+    ]);
+  });
+});
+
+describe('issue triage for #8839, #8840 and #10342', () => {
+  const reports = [
+    { url: 'gh-default.frontaliereticino.ch/github/webhook', surface: 'github-webhook-default' },
+    { url: 'gh-nanako.frontaliereticino.ch/github/webhook', surface: 'github-webhook-nanako' },
+    { url: 'frontaliereticino.ch/fr/trouver-emploi-suisse/recherche-kurs-basel/', surface: 'worker-shard' },
+  ];
+
+  it.each(reports)('does not call $url a current outage without hourly evidence', ({ url, surface }) => {
+    const body = buildIssueBody({ url, status: 503, count: 30, shape: undefined });
+    expect(body).toContain(`Host/path classification: \`${surface}\``);
+    expect(body).toContain('current failure is unverified');
+    expect(body).toContain('Endpoint diagnostics:** unavailable');
+    expect(body).not.toContain('Questo URL sta rispondendo 5xx adesso');
+  });
+
+  it('includes only URL-correlated origin/cache rows when hourly evidence is complete', () => {
+    const url = reports[2].url;
+    const shape = summarizeBursts([
+      {
+        status: 503,
+        url,
+        hour: '2026-08-06T06:00:00Z',
+        count: 30,
+        originResponseStatus: 503,
+        cacheStatus: 'none',
+      },
+    ], RUN_AT).get(url);
+    const body = buildIssueBody({ url, status: 503, count: 30, shape });
+    expect(body).toContain('edge=503/origin=503/cache=none (30)');
+    expect(body).toContain('Host/path classification: `worker-shard`');
+  });
 });
 
 describe('isStaleBurst — refuses to guess', () => {
@@ -142,7 +191,7 @@ describe('isStaleBurst — refuses to guess', () => {
 
 describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
   it('files NOTHING for two bursts that were already over when the monitor ran', async () => {
-    mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS });
+    mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS, detailByHourComplete: true });
 
     await cfSync.main();
 
@@ -153,6 +202,7 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
   it('NEGATIVE CONTROL: the same counts still file when the burst is current', async () => {
     mockReport({
       detail: REAL_TOTALS,
+      detailByHourComplete: true,
       detailByHour: [
         { status: 502, url: VENDOR, hour: '2026-08-06T06:00:00Z', count: 24 },
         { status: 502, url: BORDER, hour: '2026-08-06T05:00:00Z', count: 21 },
@@ -173,6 +223,7 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
         { status: 502, url: VENDOR, count: 240 }, // biggest total, but over
         { status: 503, url: 'frontaliereticino.ch/live/', count: 22 },
       ],
+      detailByHourComplete: true,
       detailByHour: [
         { status: 502, url: VENDOR, hour: '2026-08-05T16:00:00Z', count: 240 },
         { status: 503, url: 'frontaliereticino.ch/live/', hour: '2026-08-06T06:00:00Z', count: 22 },
@@ -189,6 +240,7 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
   it('carries the burst shape into the body, so nobody re-derives it by hand', async () => {
     mockReport({
       detail: REAL_TOTALS,
+      detailByHourComplete: true,
       detailByHour: [{ status: 502, url: VENDOR, hour: '2026-08-06T06:00:00Z', count: 24 }],
     });
 
@@ -206,7 +258,7 @@ describe('cf-5xx-issue-sync.mjs — #5231 / #5232 must not be filed', () => {
 
 describe('the gate cannot be disarmed silently', () => {
   it('asks cf-status-report for the hourly rows', async () => {
-    mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS });
+    mockReport({ detail: REAL_TOTALS, detailByHour: REAL_BURSTS, detailByHourComplete: true });
 
     await cfSync.main();
 
@@ -227,6 +279,26 @@ describe('the gate cannot be disarmed silently', () => {
     expect(createCalls()).toHaveLength(2); // nothing suppressed on missing data
     const printed = warn.mock.calls.map((c) => String(c[0])).join('\n');
     expect(printed).toContain('recency gate inactive');
+    const bodies = createCalls().map((c) => c[c.indexOf('--body') + 1]);
+    expect(bodies.every((body) => body.includes('current failure is unverified'))).toBe(true);
+    expect(bodies.every((body) => !body.includes('sta rispondendo 5xx adesso'))).toBe(true);
+    warn.mockRestore();
+  });
+
+  it('does not suppress a stale-looking URL when hourly rows hit the result cap', async () => {
+    const warn = vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockReport({
+      detail: [REAL_TOTALS[0]],
+      detailByHour: REAL_BURSTS,
+      detailByHourComplete: false,
+    });
+
+    await cfSync.main();
+
+    expect(createCalls()).toHaveLength(1);
+    const body = createCalls()[0][createCalls()[0].indexOf('--body') + 1];
+    expect(body).toContain('current failure is unverified');
+    expect(warn.mock.calls.map((c) => String(c[0])).join('\n')).toContain('row cap reached');
     warn.mockRestore();
   });
 });
