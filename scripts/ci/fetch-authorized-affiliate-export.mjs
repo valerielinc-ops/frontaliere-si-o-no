@@ -175,6 +175,7 @@ export async function fetchAuthorizedAffiliateExport({
   if (!text(url)) {
     return {
       available: false,
+      status: 'not_configured',
       reason: 'AFFILIATE_REVENUE_EXPORT_URL is not configured',
       export: null,
     };

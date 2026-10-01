@@ -5,6 +5,7 @@ import { useTranslation, getLocale } from '@/services/i18n';
 import { buildExchangeHubPath } from '@/services/exchangeSsgPaths';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { SegmentControl } from '@/components/shared/SegmentControl';
+import AffiliateLink from '@/components/shared/AffiliateLink';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { reportCaughtError } from '@/services/errorReporter';
@@ -90,7 +91,7 @@ interface ExchangeProvider {
 
 /** /go/-routed href for a referral provider (falls back to the direct URL). */
 function providerAttribution(position: string): AffiliateLinkAttribution {
- return { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' };
+ return { surface: 'web', position, campaign: 'g4-contextual', variant: 'control' };
 }
 
 function providerGoHref(provider: ExchangeProvider, position: string): string {
@@ -439,17 +440,14 @@ const CurrencyExchange: React.FC = () => {
  const netBCents = Math.round(b.netAmount * 100);
  const diff = netBCents - netACents;
  if (diff !== 0) return diff;
- // At equal net amount, prefer Wise
- if (a.provider.name === 'Wise (TransferWise)') return -1;
- if (b.provider.name === 'Wise (TransferWise)') return 1;
- return 0;
+ return a.provider.name.localeCompare(b.provider.name, 'it');
  }), [amount, realRate]);
 
  const best = results[0];
  const worst = results[results.length - 1];
  const savingsVsWorst = worst.totalCost - best.totalCost;
- // Top-ranked provider with affiliate link (falls back across ranked list)
- const topAffiliate = results.find(r => r.provider.referralUrl);
+ // A commercial CTA can only claim the actual cost-ranked winner.
+ const topAffiliate = best.provider.referralUrl ? best : null;
 
  return (
  <div className="max-w-7xl mx-auto space-y-6">
@@ -463,42 +461,6 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
  </div>
-
- {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
- {topAffiliate && (
- <a
- href={providerGoHref(topAffiliate.provider, 'exchange-best-offer')}
- target="_blank"
- rel="noopener noreferrer"
- onClick={() => { Analytics.trackExternalLink(providerGoHref(topAffiliate.provider, 'exchange-best-offer'), topAffiliate.provider.name); Analytics.trackAffiliateClick(topAffiliate.provider.goId || topAffiliate.provider.name, 'exchange', providerAttribution('exchange-best-offer')); }}
- aria-label={`${t('currency.best_offer_cta')} — ${topAffiliate.provider.name}`}
- className="block rounded-2xl border-2 border-success bg-gradient-to-r from-success-subtle to-info-subtle p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-success-strong transition-all"
- >
- <div className="flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
- <div className="flex items-center gap-3 min-w-0">
- <div className="flex-shrink-0">
- <ProviderLogo slug={topAffiliate.provider.slug} name={topAffiliate.provider.name} size={28} className="rounded" />
- </div>
- <div className="min-w-0">
- <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-success-strong text-on-accent text-[10px] sm:text-xs font-bold rounded-full mb-1">
- <CheckCircle2 size={12} />
- {t('currency.best_offer_badge')}
- </div>
- <div className="text-sm sm:text-base font-bold font-display text-strong truncate">
- {topAffiliate.provider.name}
- </div>
- <div className="text-xs sm:text-sm text-subtle">
- {t('currency.best_offer_savings', { amount: `CHF ${savingsVsWorst.toFixed(2)}` })}
- </div>
- </div>
- </div>
- <span className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-xl text-sm font-semibold font-display transition-colors whitespace-nowrap">
- {t('currency.best_offer_cta')}
- <ArrowRightLeft size={16} />
- </span>
- </div>
- </a>
- )}
 
  {/* Sub-tab navigation */}
  <SegmentControl
@@ -594,11 +556,12 @@ const CurrencyExchange: React.FC = () => {
 
  <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
  {best.provider.referralUrl ? (
- <a
+ <AffiliateLink
+ partnerId={best.provider.goId} context="exchange" attribution={providerAttribution('exchange-best-summary')}
  href={providerGoHref(best.provider, 'exchange-best-summary')}
  target="_blank"
  rel="noopener noreferrer"
- onClick={() => { Analytics.trackExternalLink(providerGoHref(best.provider, 'exchange-best-summary'), best.provider.name); Analytics.trackAffiliateClick(best.provider.goId || best.provider.name, 'exchange', providerAttribution('exchange-best-summary')); }}
+ onClick={() => { Analytics.trackExternalLink(providerGoHref(best.provider, 'exchange-best-summary'), best.provider.name); }}
  className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5 hover:shadow-md hover:border-success transition-[color,background-color,border-color,box-shadow] cursor-pointer"
  >
  <div className="flex items-center gap-2 mb-2">
@@ -613,7 +576,7 @@ const CurrencyExchange: React.FC = () => {
  <div className="text-sm text-success mt-2 font-semibold">
  👆 {t('currency.click_referral')}
  </div>
- </a>
+ </AffiliateLink>
  ) : (
  <div className="bg-success-subtle rounded-xl sm:rounded-2xl border border-success-border p-3 sm:p-5">
  <div className="flex items-center gap-2 mb-2">
@@ -640,6 +603,45 @@ const CurrencyExchange: React.FC = () => {
  </div>
  </div>
  </div>
+
+ {/* Best-offer CTA — prominent affiliate banner for top-ranked partner */}
+ {topAffiliate && (
+ <AffiliateLink
+ partnerId={topAffiliate.provider.goId} context="exchange" attribution={providerAttribution('exchange-best-offer')}
+ href={providerGoHref(topAffiliate.provider, 'exchange-best-offer')}
+ target="_blank"
+ rel="noopener noreferrer"
+ onClick={() => { Analytics.trackExternalLink(providerGoHref(topAffiliate.provider, 'exchange-best-offer'), topAffiliate.provider.name); }}
+ aria-label={`${t('currency.best_offer_cta')} — ${topAffiliate.provider.name}`}
+ className="block rounded-2xl border-2 border-success bg-gradient-to-r from-success-subtle to-info-subtle p-4 sm:p-5 shadow-sm hover:shadow-md hover:border-success-strong transition-all"
+ >
+ <div className="flex items-center justify-between gap-3 sm:gap-4 flex-wrap">
+ <div className="flex items-center gap-3 min-w-0">
+ <div className="flex-shrink-0">
+ <ProviderLogo slug={topAffiliate.provider.slug} name={topAffiliate.provider.name} size={28} className="rounded" />
+ </div>
+ <div className="min-w-0">
+ <div className="inline-flex items-center gap-1.5 px-2 py-0.5 bg-success-strong text-on-accent text-[10px] sm:text-xs font-bold rounded-full mb-1">
+ <CheckCircle2 size={12} />
+ {t('currency.best_offer_badge')}
+ </div>
+ <div className="text-sm sm:text-base font-bold font-display text-strong truncate">
+ {topAffiliate.provider.name}
+ </div>
+ <div className="text-xs sm:text-sm text-subtle">
+ {t('currency.total_cost')}: CHF {topAffiliate.totalCost.toFixed(2)} ({topAffiliate.costPercent.toFixed(2)}%)
+ <p>{t('affiliate.conditions.exchange')}</p>
+ <p>{t('affiliate.disclosure')}</p>
+ </div>
+ </div>
+ </div>
+ <span className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] bg-success-strong hover:bg-success-strong-hover text-on-accent rounded-xl text-sm font-semibold font-display transition-colors whitespace-nowrap">
+ {t('currency.best_offer_cta')}
+ <ArrowRightLeft size={16} />
+ </span>
+ </div>
+ </AffiliateLink>
+ )}
 
  <div className="bg-gradient-to-r from-warning-subtle to-warning-subtle rounded-2xl border border-warning-border p-4">
  <div className="flex items-start gap-3">
@@ -678,12 +680,13 @@ const CurrencyExchange: React.FC = () => {
  const isWorst = idx === results.length - 1;
  const position = `exchange-comparison-${idx + 1}`;
  
- const CardWrapper = result.provider.referralUrl ? 'a' : 'div';
+ const CardWrapper = result.provider.referralUrl ? AffiliateLink : 'div';
  const cardProps = result.provider.referralUrl ? {
+ partnerId: result.provider.goId, context: 'exchange', attribution: providerAttribution(position),
  href: providerGoHref(result.provider, position),
  target: '_blank',
  rel: 'noopener noreferrer',
- onClick: () => { Analytics.trackExternalLink(providerGoHref(result.provider, position), result.provider.name); Analytics.trackAffiliateClick(result.provider.goId || result.provider.name, 'exchange', providerAttribution(position)); },
+ onClick: () => { Analytics.trackExternalLink(providerGoHref(result.provider, position), result.provider.name); },
  'aria-label': result.provider.name,
  className: `block min-w-0 bg-surface rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
  isBest ? 'border-success ring-2 ring-success/20 hover:ring-success/40' : isWorst ? 'border-danger ring-2 ring-danger/20' : 'border-edge hover:border-success'

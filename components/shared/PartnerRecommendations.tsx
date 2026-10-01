@@ -6,10 +6,11 @@
  * Appears at the bottom of comparator pages, after the educational section.
  */
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import AffiliateLink from './AffiliateLink';
 import { ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getPartnersForContext, buildAffiliateLinkHref, partnerRelAttr, resolveAffiliateExperimentVariant, type ComparatorContext, type AffiliatePartner, type AffiliateExperimentVariant } from '@/services/affiliateService';
+import { getPartnersForContext, buildAffiliateLinkHref, type ComparatorContext, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 interface PartnerRecommendationsProps {
@@ -39,14 +40,13 @@ const PartnerCard: React.FC<{
 
  const handleClick = () => {
  Analytics.trackExternalLink(href, `affiliate_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, context, { surface, position, campaign, variant });
  };
 
  return (
- <a
+ <AffiliateLink
+ partnerId={partner.id} context={context} attribution={{ surface, position, campaign, variant }}
  href={href}
  target="_blank"
- rel={partnerRelAttr(partner)}
  onClick={handleClick}
  aria-label={`${partner.name}: ${cta}`}
  className="group flex items-start gap-3 p-4 bg-surface/60 rounded-[6px] border border-edge/50 hover:border-edge hover:shadow-stripe-sm transition-[color,background-color,border-color,box-shadow] duration-200"
@@ -76,7 +76,7 @@ const PartnerCard: React.FC<{
  </div>
 
  <ExternalLink className="w-3.5 h-3.5 text-muted group-hover:text-body flex-shrink-0 mt-1 sm:opacity-0 sm:group-hover:opacity-100 transition-opacity" />
- </a>
+ </AffiliateLink>
  );
 };
 
@@ -89,18 +89,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({
 }) => {
  const { t } = useTranslation();
  const partners = getPartnersForContext(context, maxCards);
- const [assignedVariant, setAssignedVariant] = useState<AffiliateExperimentVariant>('control');
-
- useEffect(() => {
- if (variant) return;
- const nextVariant = resolveAffiliateExperimentVariant(context, surface);
- setAssignedVariant(nextVariant);
- if (surface === 'web' && (context === 'exchange' || context === 'banks')) {
- Analytics.trackAffiliateExperimentExposure(context, { surface, campaign, variant: nextVariant });
- }
- }, [campaign, context, surface, variant]);
-
- const effectiveVariant = variant || assignedVariant;
+ const effectiveVariant = variant || 'control';
 
  if (partners.length === 0) return null;
 

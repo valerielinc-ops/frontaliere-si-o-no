@@ -111,9 +111,28 @@ import {
  isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
-import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
+import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
+
+export interface AffiliateTelemetry {
+ surface?: string;
+ position?: string;
+ campaign?: string;
+ variant?: string;
+ attributionId?: string;
+}
+
+function affiliateTelemetry(partnerId: string, context: string, attribution: AffiliateTelemetry) {
+ const partner_id = safeAffiliateToken(partnerId, 'unknown');
+ const surface = safeAffiliateToken(attribution.surface, 'web');
+ const position = safeAffiliateToken(attribution.position, safeAffiliateToken(context, 'unknown'));
+ const campaign = safeAffiliateToken(attribution.campaign, 'affiliate');
+ const variant = safeAffiliateToken(attribution.variant, 'control');
+ const attribution_id = sanitizeAffiliatePubref(attribution.attributionId || buildAffiliatePubref({ partnerId: partner_id, surface, position, campaign, variant }));
+ return { partner_id, context: safeAffiliateToken(context, 'unknown'), surface, position, campaign, variant,
+  attribution_id, content_type: 'affiliate', item_id: attribution_id };
+}
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -1242,35 +1261,14 @@ export const Analytics = {
  return resolvedPageViewEmissionId;
  },
 
- /**
- * Affiliate click — tracks partner clicks with context for revenue attribution
- */
- trackAffiliateClick: (
-  partnerId: string,
-  context: string,
-  attribution?: {
-   surface?: string;
-   position?: string;
-   campaign?: string;
-   variant?: string;
-  },
- ) => {
- const safePartnerId = safeAffiliateToken(partnerId, 'unknown');
- const safeContext = safeAffiliateToken(context, 'unknown');
- const surface = safeAffiliateToken(attribution?.surface, 'web');
- const position = safeAffiliateToken(attribution?.position, safeContext);
- const campaign = safeAffiliateToken(attribution?.campaign, 'affiliate');
- const variant = safeAffiliateToken(attribution?.variant, 'control');
- log('affiliate_click', {
- partner_id: safePartnerId,
- context: safeContext,
- surface,
- position,
- campaign,
- variant,
- content_type: 'affiliate',
- item_id: `${safePartnerId}_${surface}_${position}_${campaign}_${variant}`,
- });
+ /** A visible paid CTA; Firebase is the unsampled source of truth. */
+ trackAffiliateImpression: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  logFirebaseOnly('affiliate_impression', affiliateTelemetry(partnerId, context, attribution));
+ },
+
+ /** Affiliate click retains the historical stream and the canonical network reference. */
+ trackAffiliateClick: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  log('affiliate_click', affiliateTelemetry(partnerId, context, attribution));
  },
 
  /** Bounded G4 affiliate experiment exposure; contains only categorical ids. */

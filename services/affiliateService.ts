@@ -103,28 +103,12 @@ export interface AffiliateLinkAttribution {
 
 export type AffiliateExperimentVariant = 'control' | 'benefit';
 
-/**
- * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
- * assigned a treatment. Session storage keeps the variant stable without
- * putting an account, email, or device identifier in the attribution URL.
- */
+/** No local random assignment: experiments require activated Firebase Remote Config. */
 export function resolveAffiliateExperimentVariant(
- context: ComparatorContext,
- surface: string,
+ _context: ComparatorContext,
+ _surface: string,
 ): AffiliateExperimentVariant {
- if (surface !== 'web' || (context !== 'exchange' && context !== 'banks')) return 'control';
- if (typeof window === 'undefined') return 'control';
-
- const storageKey = `g4-affiliate-variant-${context}`;
- try {
- const stored = window.sessionStorage.getItem(storageKey);
- if (stored === 'control' || stored === 'benefit') return stored;
- const assigned: AffiliateExperimentVariant = Math.random() < 0.5 ? 'control' : 'benefit';
- window.sessionStorage.setItem(storageKey, assigned);
- return assigned;
- } catch {
  return 'control';
- }
 }
 
 /**

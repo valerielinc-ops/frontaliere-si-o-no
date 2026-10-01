@@ -7,6 +7,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import AffiliateLink from '@/components/shared/AffiliateLink';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import DataFreshness from '@/components/shared/DataFreshness';
 
@@ -41,6 +42,7 @@ interface MobileOperator {
  setupCost: number;
  contractType: 'prepagato' | 'abbonamento';
  website?: string;
+ goId?: string;
 }
 
 const operators: MobileOperator[] = [
@@ -166,6 +168,7 @@ const operators: MobileOperator[] = [
  {
  name: 'Fastweb Mobile',
  slug: 'fastweb-mobile',
+ goId: 'fastweb',
  country: 'IT',
  monthlyCost: 9.95,
  dataGB: 150,
@@ -580,14 +583,16 @@ const MobileOperators: React.FC = () => {
 
  {/* Operators Grid */}
  <div className="grid md:grid-cols-2 gap-6">
- {filteredOperators.map((operator) => {
+ {filteredOperators.map((operator, index) => {
  const roaming = operator.country === 'IT' ? operator.roamingInSwitzerland : operator.roamingInItaly;
  const hasGoodRoaming = roaming?.included === true;
  const realMonthlyCost = calculateRealMonthlyCost(operator);
  const hasExtraCost = realMonthlyCost > operator.monthlyCost;
  
- const CardWrapper = operator.website ? 'a' : 'div';
+ const CardWrapper = operator.website ? AffiliateLink : 'div';
  const cardProps = operator.website ? {
+ partnerId: operator.goId, context: 'mobile',
+ attribution: { surface: 'web', position: `mobile-comparison-${index + 1}`, campaign: 'g4-contextual', variant: 'control' },
  href: operator.website,
  target: '_blank',
  rel: 'noopener noreferrer',
@@ -756,6 +761,9 @@ const MobileOperators: React.FC = () => {
  ))}
  </div>
  </div>
+ <p className="text-sm text-muted mb-2">{t('affiliate.conditions.mobile')}</p>
+ <span className="inline-flex items-center min-h-[44px] text-sm font-semibold text-link">{t('affiliate.cta.check')}</span>
+ {operator.goId && <p className="text-xs text-muted">{t('affiliate.disclosure')}</p>}
  </CardWrapper>
  );
  })}

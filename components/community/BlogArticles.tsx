@@ -1,3 +1,4 @@
+import AffiliateLink from '@/components/shared/AffiliateLink';
 import { useState, useEffect, useRef, useMemo, useCallback, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement, type CSSProperties } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
@@ -40,7 +41,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
-import { PARTNERS, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
+import { PARTNERS, buildAffiliateLinkHref, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const GptPocSlot = lazyRetry(() => import('@/components/shared/GptPocSlot'));
 const ArticleRailAdStack = lazyRetry(() => import('@/components/shared/ArticleRailAdStack'));
@@ -2181,17 +2182,16 @@ function BlogArticles({
 
  /** Compact vertical card for desktop side rails */
  const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
- const attribution = { surface: 'web', position: `article-rail-${article.category}-${idx + 1}`, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const attribution = { surface: 'web', position: `article-rail-${article.category}-${idx + 1}`, campaign: 'g4-contextual', variant: 'control' } as const;
  const href = buildAffiliateLinkHref(partner, attribution);
  const handleAffClick = () => {
  Analytics.trackExternalLink(href, `affiliate_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, `blog_${article.category}`, attribution);
  };
  return (
- <a
+ <AffiliateLink
+ partnerId={partner.id} context={`blog_${article.category}`} attribution={attribution}
  href={href}
  target="_blank"
- rel={partnerRelAttr(partner)}
  onClick={handleAffClick}
  className="group block p-3 bg-surface/70 rounded-xl border border-edge/60 hover:border-edge hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
  >
@@ -2206,7 +2206,7 @@ function BlogArticles({
  <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-link group-hover:underline">
  {t('affiliate.cta')} <ExternalLink size={9} />
  </span>
- </a>
+ </AffiliateLink>
  );
  };
 
