@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-11T17:04:51.001Z",
-    "label": "after",
-    "total": 33190,
-    "needsRetranslation": 16939,
-    "suppressed": 155,
-    "incomplete": 9804,
-    "complete": 23386,
-    "slotsPresent": 23386,
-    "flaggedAmongSlotsPresent": 7832,
-    "verifiedTranslated": 15554,
-    "sourceCopyExcused": 699,
-    "slotsPresentByLength": 33002,
-    "languageVerified": 24299,
-    "missingByLocale": {
-      "it": 1406,
-      "en": 1112,
-      "de": 283,
-      "fr": 1122
-    },
-    "queueAge": {
-      "count": 16939,
-      "withTimestamp": 16939,
-      "oldestAgeDays": 151.3,
-      "p50AgeDays": 23.3,
-      "p90AgeDays": 102.1,
-      "buckets": {
-        "0-1d": 1108,
-        "1-2d": 113,
-        "2-7d": 2865,
-        "0-7d": 4086,
-        "7-30d": 5346,
-        "30-90d": 5156,
-        "90-180d": 2351,
-        "180d+": 0
-      },
-      "alert": true,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 129,
-      "withTimestamp": 129,
-      "oldestAgeDays": 122.8,
-      "p50AgeDays": 4.8,
-      "p90AgeDays": 36.8,
-      "buckets": {
-        "0-1d": 21,
-        "1-2d": 1,
-        "2-7d": 52,
-        "0-7d": 74,
-        "7-30d": 38,
-        "30-90d": 15,
-        "90-180d": 2,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "STA Personal AG",
-        "pending": 1308
-      },
-      {
-        "company": "Roche",
-        "pending": 609
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 562
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 356
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 290
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 210
-      },
-      {
-        "company": "Sulzer",
-        "pending": 200
-      },
-      {
-        "company": "LANDI Pilatus AG",
-        "pending": 175
-      },
-      {
-        "company": "PEMSA",
-        "pending": 174
-      },
-      {
-        "company": "ACTIV FITNESS",
-        "pending": 163
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-12T01:46:58.918Z",
     "label": "before",
     "total": 33101,
@@ -19958,6 +19857,100 @@
       "seed": 20260908,
       "requested": 120,
       "queuedCandidates": 11131,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "fachkraft.ch GmbH",
+        "pending": 3585
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1776
+      },
+      {
+        "company": "STA Personal AG",
+        "pending": 1740
+      },
+      {
+        "company": "Stellentreff AG",
+        "pending": 994
+      },
+      {
+        "company": "Stellenpartner AG",
+        "pending": 854
+      },
+      {
+        "company": "yellowshark AG",
+        "pending": 774
+      },
+      {
+        "company": "Galaxus",
+        "pending": 576
+      },
+      {
+        "company": "LANDI",
+        "pending": 537
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 391
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 245
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-10-01T19:51:41.285Z",
+    "label": "before",
+    "total": 31979,
+    "needsRetranslation": 19328,
+    "suppressed": 132,
+    "incomplete": 22318,
+    "complete": 9661,
+    "slotsPresent": 9661,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 9661,
+    "sourceCopyExcused": 449,
+    "slotsPresentByLength": 31698,
+    "languageVerified": 16118,
+    "missingByLocale": {
+      "it": 4137,
+      "en": 4226,
+      "de": 763,
+      "fr": 4023
+    },
+    "queueAge": {
+      "count": 19328,
+      "withTimestamp": 19328,
+      "oldestAgeDays": 506.8,
+      "p50AgeDays": 11.9,
+      "p90AgeDays": 90.3,
+      "buckets": {
+        "0-1d": 576,
+        "1-2d": 994,
+        "2-7d": 6765,
+        "0-7d": 8335,
+        "7-30d": 4448,
+        "30-90d": 4604,
+        "90-180d": 1935,
+        "180d+": 6
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 11121,
       "sampled": 120,
       "processed": 0,
       "residual": 0,
