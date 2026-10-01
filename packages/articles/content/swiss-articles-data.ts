@@ -22201,6 +22201,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'draghi-ue-riforme-crescita',
+    category: 'novita',
+    date: '2026-10-01T19:33:26.381Z',
+    image: '/images/blog/draghi-ue-riforme-crescita.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
