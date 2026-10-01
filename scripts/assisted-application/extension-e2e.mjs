@@ -30,6 +30,8 @@ const queuePage = `<!doctype html><html><body><h1>Coda</h1><script>
     if (!event.data || event.data.source !== 'compila-candidatura') return;
     window.__statuses.push(event.data);
     if (event.data.type === 'fill-status' && event.data.status === 'verify-email') {
+      // First a link of another site (refused, the queue must hear it), then the portal's own.
+      window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: event.data.orderId, url: 'https://elsewhere.example/verify?token=e2e' }, window.location.origin);
       window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: event.data.orderId, url: window.__verifyUrl }, window.location.origin);
     }
   });
@@ -191,7 +193,9 @@ async function main() {
     await queue.waitForTimeout(3000);
     const statuses = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'fill-status').map((item) => item.status));
     check('her press is told to the queue before the portal answers', statuses.indexOf('clicked') >= 0 && statuses.indexOf('clicked') < statuses.indexOf('submitted'));
-    check('the portal asks to verify the alias and the extension opens the link the queue found', statuses.includes('verify-email') && verified === 1);
+    const openedLinks = await queue.evaluate(() => window.__statuses.filter((item) => item.type === 'verification-opened').map((item) => (item.ok ? 'ok' : item.error)));
+    check('the portal asks to verify the alias and the extension opens the link the queue found', statuses.includes('verify-email') && verified === 1 && openedLinks.includes('ok'));
+    check('a link of another site is refused and the queue hears it', openedLinks.includes('other_site'));
     check('after her click the queue hears once that the portal confirmed, on the verification page', submitted && thanks === 1 && statuses.filter((status) => status === 'submitted').length === 1);
   } finally {
     await context.close();

@@ -161,14 +161,29 @@ export default function AssistedApplicationAutomationPanel({
     if (openingVerification.current) return;
     openingVerification.current = true;
     try {
-      // Two minutes of slack for the clock of this computer against the server's.
-      const since = Math.max(0, (sendPressedAt.current || Date.now()) - 2 * 60_000);
+      // Only when the server did not record the press: then this computer's own time of it.
+      const since = sendPressedAt.current || Date.now();
       for (let attempt = 0; attempt < 24; attempt += 1) {
         const result = await runAutomationAdminAction(user, order.orderId, 'automationVerificationLink', { since }).catch(() => null);
         const url = typeof result?.url === 'string' ? result.url : '';
         if (url) {
+          // The extension answers whether it opened it (same site as the portal, its tab still open).
+          const opened = new Promise<{ ok: boolean; error: string }>((resolve) => {
+            const timer = window.setTimeout(() => { window.removeEventListener('message', onOpened); resolve({ ok: false, error: 'no_answer' }); }, 10_000);
+            function onOpened(event: MessageEvent) {
+              const data = event.data as { source?: string; type?: string; orderId?: string; ok?: boolean; error?: string } | null;
+              if (event.source !== window || data?.source !== 'compila-candidatura' || data.type !== 'verification-opened' || data.orderId !== order.orderId) return;
+              window.clearTimeout(timer);
+              window.removeEventListener('message', onOpened);
+              resolve({ ok: Boolean(data.ok), error: data.error || '' });
+            }
+            window.addEventListener('message', onOpened);
+          });
           window.postMessage({ source: 'frontaliere-queue', type: 'open-verification', orderId: order.orderId, url }, window.location.origin);
-          await onChanged({ ok: true, text: 'Il portale chiedeva di verificare l’email dell’alias: link aperto nel browser.' });
+          const answer = await opened;
+          await onChanged(answer.ok
+            ? { ok: true, text: 'Il portale chiedeva di verificare l’email dell’alias: link aperto nel browser.' }
+            : { ok: false, text: `L’estensione non ha aperto il link di verifica (${answer.error || 'errore'}): aprilo tu dall’email arrivata sull’alias dell’ordine.` });
           return;
         }
         await new Promise((resolve) => window.setTimeout(resolve, 10_000));

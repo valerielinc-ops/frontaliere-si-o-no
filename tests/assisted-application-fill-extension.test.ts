@@ -175,6 +175,9 @@ describe('fill extension: JOIN steps', () => {
   it('knows JOIN’s «verify your e-mail» page after the send, never the e-mail step of the form', () => {
     const waiting = page('<main><p>Completare la domanda</p><h1>Verificare l\'indirizzo e-mail</h1><button type="button">Reinvio della mail di verifica</button></main>');
     expect(waiting.F.pageState(waiting.document, { sawForm: true }).kind).toBe('verify');
+    // German puts the verb first (review of #10771).
+    const german = page('<main><h1>Fast geschafft</h1><p>Bitte verifizieren Sie Ihre E-Mail-Adresse.</p></main>');
+    expect(german.F.pageState(german.document, { sawForm: true }).kind).toBe('verify');
     const form = page(`<form><h2>Verificare l'indirizzo e-mail</h2><div role="group"><label for="email">Email</label><input id="email" type="email" required></div>${continueButtons}</form>`);
     expect(form.F.pageState(form.document, { sawForm: true }).kind).toBe('step');
   });

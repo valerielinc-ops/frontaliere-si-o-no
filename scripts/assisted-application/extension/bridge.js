@@ -13,7 +13,10 @@
     if (event.source !== window || event.origin !== window.location.origin) return;
     const data = event.data;
     if (data?.source === 'frontaliere-queue' && data.type === 'open-verification' && data.orderId && data.url) {
-      chrome.runtime.sendMessage({ type: 'open-verification', orderId: data.orderId, url: data.url }).catch(() => {});
+      // The service worker's answer goes back to the queue: it shows success only when the link opened.
+      const answer = (response) => window.postMessage({ source: 'compila-candidatura', type: 'verification-opened', orderId: data.orderId, ok: Boolean(response?.ok), error: response?.error || '' }, window.location.origin);
+      chrome.runtime.sendMessage({ type: 'open-verification', orderId: data.orderId, url: data.url })
+        .then(answer, (error) => answer({ ok: false, error: String(error?.message || error) }));
       return;
     }
     if (data?.source !== 'frontaliere-queue' || data.type !== 'fill-order' || !data.kit) return;

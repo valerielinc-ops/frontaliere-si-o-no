@@ -354,11 +354,17 @@ const millis = (value) => (typeof value?.toMillis === 'function' ? value.toMilli
  * only an https link copied verbatim from the e-mail. The fill extension
  * opens it in Valerie's browser, as she would from the e-mail: the alias is
  * ours. Only on an order she sends herself.
+ * The lower bound is Valerie's press as the server recorded it
+ * (automationMarkClicked, the round guard's clickedAt), never earlier: an
+ * older verification e-mail is not this send's (review of #10771). The
+ * caller's `sinceMs` counts only when the press was not recorded.
  * @returns {Promise<{url:string, receivedAt:number|null}>}
  */
 async function verificationLinkFor(db, orderId, { sinceMs = 0 } = {}) {
   const flow = (await flowRefFor(db, orderId).get()).data() || {};
   if (!['owner_takeover', 'submitted'].includes(flow.state)) throw new AutomationAdminError('not_taken_over', 409);
+  const clickedAt = Number((await submissionGuard(db, orderId, flow.round || 1).read())?.clickedAt) || 0;
+  if (clickedAt) sinceMs = clickedAt;
   const inbox = await orderRefFor(db, orderId).collection('inbox').get();
   const newest = inbox.docs.map((doc) => doc.data() || {})
     .filter((item) => item.category === 'verification' && /^https:\/\//i.test(String(item.verificationUrl || '')) && millis(item.receivedAt) >= sinceMs)

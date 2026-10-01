@@ -30,7 +30,7 @@
   const COOKIE_REJECT_RE = /^(ablehnen|alle ablehnen|nur (notwendige|erforderliche)( cookies)?|reject( all)?|decline( all)?|only necessary|rifiuta( tutti| tutto)?|solo necessari|refuser( tout)?|tout refuser|continuer sans accepter)$/i;
   // The portal waits for the address to be verified (JOIN after the send
   // click: «Completare la domanda — Verificare l'indirizzo e-mail»).
-  const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|bestätigen sie ihre e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
+  const VERIFY_RE = /(verifica(re)? (il tuo |l['’])?indirizzo e-?mail|conferma(re)? (il tuo |l['’])?indirizzo e-?mail|verify your (e-?mail|email address)|confirm your (e-?mail|email address)|check your (e-?mail|inbox)|e-?mail-?adresse (bestätigen|verifizieren)|(bestätigen|verifizieren) sie ihre e-?mail|(bestätige|verifiziere) deine e-?mail|vérifiez votre (adresse )?e-?mail|confirmez votre (adresse )?e-?mail)/i;
   // «Continua con Google»: a sign-in, never the next step.
   const SOCIAL_RE = /(google|linkedin|facebook|apple|microsoft|xing|indeed|github)/i;
 

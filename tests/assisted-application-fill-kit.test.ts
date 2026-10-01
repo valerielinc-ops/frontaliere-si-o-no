@@ -185,6 +185,14 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     expect(await call('automationVerificationLink', { since: T0 })).toEqual({ ok: true, url: '', receivedAt: null });
     await inbox.doc('new').set({ category: 'verification', verificationUrl: 'https://join.com/auth/candidates/verify-account?t=new', receivedAt: T0 + 60_000 });
     expect(await call('automationVerificationLink', { since: T0 })).toEqual({ ok: true, url: 'https://join.com/auth/candidates/verify-account?t=new', receivedAt: T0 + 60_000 });
+    // Review of #10771: the press the server recorded is the bound, whatever the browser says.
+    await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('submission').set({ r1: { state: 'sending', channel: 'owner_extension', clickedAt: T0 + 120_000 } });
+    await inbox.doc('before').set({ category: 'verification', verificationUrl: 'https://join.com/auth/candidates/verify-account?t=before', receivedAt: T0 + 60_000 });
+    await inbox.doc('after').set({ category: 'verification', verificationUrl: 'https://join.com/auth/candidates/verify-account?t=after', receivedAt: T0 + 180_000 });
+    await inbox.doc('new').delete();
+    expect(await call('automationVerificationLink', { since: 0 })).toEqual({ ok: true, url: 'https://join.com/auth/candidates/verify-account?t=after', receivedAt: T0 + 180_000 });
+    await inbox.doc('after').delete();
+    expect(await call('automationVerificationLink', { since: 0 })).toEqual({ ok: true, url: '', receivedAt: null });
     // Never while the robot still owns the order.
     await seed({ ...takenOver, state: 'submitting' });
     await expect(call('automationVerificationLink', { since: T0 })).rejects.toMatchObject({ code: 'not_taken_over', status: 409 });
