@@ -243,6 +243,18 @@ describe('verdict-job availability sentinel (#4828)', () => {
       expect(evaluateIntegrity([s]).integrityOk, `${s} must block`).toBe(false);
     }
   });
+
+  it('NEGATIVE CASE: a rehydrate stopped by its disk guard (`infra:disk`) blocks', () => {
+    // Named so the run says WHY nothing was validated — runs 36595840668 …
+    // 36830161110 could only report `__UNKNOWN__:dist` after the runner died
+    // with ENOSPC. Still deploy-invalidating: no validator ran, so publish
+    // would submit a sitemap nobody checked. Unblocking publish is the disk
+    // headroom's job, never an allowlist entry.
+    const v = evaluateIntegrity(['infra:disk']);
+    expect(v.integrityOk).toBe(false);
+    expect(v.blocking).toEqual(['infra:disk']);
+    expect(QUALITY_GATES).not.toHaveProperty('infra:disk');
+  });
 });
 
 describe('gate result parsing', () => {

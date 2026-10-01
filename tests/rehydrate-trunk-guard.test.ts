@@ -74,7 +74,12 @@ function runSectionRehydrate(
   const root = mkdtempSync(join(tmpdir(), 'trunk-guard-'));
   const lib = join(root, 'scripts', 'lib');
   mkdirSync(lib, { recursive: true });
-  for (const f of ['rehydrate-section-shards.sh', 'rehydrate-trunk-guard.sh', 'bounded-parallel.sh']) {
+  for (const f of [
+    'rehydrate-section-shards.sh',
+    'rehydrate-trunk-guard.sh',
+    'rehydrate-disk-guard.sh',
+    'bounded-parallel.sh',
+  ]) {
     copyFileSync(resolve('scripts/lib', f), join(lib, f));
   }
   writeFileSync(
@@ -116,6 +121,10 @@ function runSectionRehydrate(
         DEPLOY_RUN_ID: '0',
         GH_TOKEN: 'unused',
         FIXTURESEC_SHARD_LIVE: 'true',
+        // The fixture writes a few KiB: the disk guard must not depend on
+        // how full the machine running the suite happens to be.
+        REHYDRATE_DISK_RESERVE_MB: '0',
+        REHYDRATE_DISK_TRANSFER_MB: '0',
       },
     });
   } catch (e) {
@@ -655,16 +664,19 @@ describe('rehydrate-trunk-guard.sh — structural invariants', () => {
     expect(section).toMatch(/if \[ -z "\$slug" \] \|\| \[ "\$slug" = "null" \]; then/);
   });
 
-  it('keeps the fail-soft posture for infrastructure failures, adding exactly one fatal condition', () => {
+  it('keeps the fail-soft posture for infrastructure failures, adding only the content-loss and disk-guard exits', () => {
     // Same assertion as tests/rehydrate-section-shards.test.ts: no `set -e`.
     expect(section).not.toMatch(/^\s*set\s+-\S*e\S*\b/m);
     // Missing artifact / failed clone / absent subtree still warn + continue.
     expect(section).toMatch(/::warning::\$section-\$loc shard clone failed/);
     expect(section).toMatch(/::warning::frontaliere-\$section-\$loc has no \$sub subtree/);
     // The verdict is the only content-loss exit; malformed parallelism config
-    // is rejected separately before any worker starts.
+    // is rejected separately before any worker starts, and a disk-guard
+    // refusal (infrastructure, named `infra:disk` by the caller) stops the
+    // step before the runner dies with ENOSPC.
     const exits = liveCode(section).match(/^\s*exit\s+1\s*$/gm) ?? [];
-    expect(exits).toHaveLength(2);
+    expect(exits).toHaveLength(3);
+    expect(section).toMatch(/if rehydrate_disk_exhausted; then\n\s*echo "::error::\[disk-guard\][^\n]*\n\s*exit 1/);
     expect(section).toContain('trunk_guard_verdict "section shard rehydrate"');
   });
 

@@ -58,6 +58,18 @@ jobs:
       # extraction + node_modules + Playwright report leftovers crowded a
       # 14 GB default partition. Best-effort: `|| true` keeps the build
       # green if a path was already pruned by a future image refresh.
+      #
+      # Second wave (validate-dist out of space, runs 36595840668 …
+      # 36830161110): the section rehydrate alone now writes ~89 GB (45G →
+      # 134G of 145G on job 109312684750, 11G left at the end and less at
+      # the peak, when the last batch tars sit next to the full tree), so
+      # every toolchain this job never calls goes too. The job runs node
+      # (setup-node, below, takes it from /opt/hostedtoolcache/node — kept),
+      # npm, gh, git, jq and tar only: no Python/Go/Ruby/Java/Rust/Haskell
+      # (ubuntu-24.04 keeps GHC in /usr/local/.ghcup, not /opt/ghc), no
+      # browser, no cloud CLI. Swap is left alone: the validators below are
+      # memory-bound. The second `df` also prints /mnt, to measure whether
+      # the runner has a second disk the shard transport could move to.
       - name: Free disk space on runner
         run: |
           df -h /
@@ -65,8 +77,17 @@ jobs:
             /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
             /usr/local/share/chromium /usr/local/lib/node_modules \
             /usr/local/share/boost /usr/share/swift 2>/dev/null || true
-          sudo docker image prune -af 2>/dev/null || true
-          df -h /
+          sudo rm -rf /usr/local/.ghcup 2>/dev/null &
+          sudo find /opt/hostedtoolcache -mindepth 1 -maxdepth 1 ! -name node \
+            -exec rm -rf {} + 2>/dev/null &
+          sudo rm -rf /usr/lib/jvm "$HOME/.rustup" "$HOME/.cargo" 2>/dev/null &
+          sudo rm -rf /opt/microsoft /opt/google /usr/lib/firefox /opt/az \
+            /usr/share/az_* /usr/lib/google-cloud-sdk /opt/pipx \
+            /usr/local/julia* /usr/share/miniconda /usr/local/aws-cli \
+            /usr/local/aws-sam-cli /usr/local/share/vcpkg 2>/dev/null &
+          sudo docker image prune -af 2>/dev/null &
+          wait
+          df -h / /mnt 2>/dev/null || df -h /
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -333,7 +354,14 @@ jobs:
       # do reuse it, at no upload cost. Only the CI wiring that could never
       # hit is gone.
 
+      # Step bound: the last green rehydrate took 23 min (job 109312684750).
+      # A wedged one used to hold the runner to the 300-minute job ceiling
+      # (36566812671, 36656159822, 36706643053); bounded here it fails in an
+      # hour and the `if: always()` gate-result steps still run. Running out
+      # of disk is handled earlier and by name: scripts/lib/rehydrate-disk-guard.sh.
       - name: Rehydrate locale then section shards into dist/ (when sharding active)
+        id: rehydrate
+        timeout-minutes: 60
         env:
           GH_TOKEN: ${{ github.token }}
           DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
@@ -372,8 +400,23 @@ jobs:
           LOCALE_RC=0
           wait "$LOCALE_PID" || LOCALE_RC=$?
 
-          bash scripts/lib/rehydrate-section-shards.sh
+          SECTION_RC=0
+          bash scripts/lib/rehydrate-section-shards.sh || SECTION_RC=$?
 
+          # A disk-guard refusal is infrastructure, not a verdict on the site.
+          # Record it as a named gate row so integrity-verdict reports
+          # `infra:disk` instead of `__UNKNOWN__`; default-deny keeps it
+          # blocking, because no validator ran. Same row shape as the phase
+          # files below; the `❌ FAIL` line is what
+          # scripts/ci/report-validate-dist-failure.mjs turns into an issue.
+          if [ -s "$RUNNER_TEMP/rehydrate-disk-exhausted" ]; then
+            printf '%-40s %7.2f rc=%d\n' 'infra:disk' 0 1 > /tmp/infra-gate-results.txt
+            printf '❌ FAIL  %s\n' "$(cat /tmp/infra-gate-results.txt)"
+          fi
+
+          if [ "$SECTION_RC" -ne 0 ]; then
+            exit "$SECTION_RC"
+          fi
           if [ "$LOCALE_RC" -ne 0 ]; then
             exit "$LOCALE_RC"
           fi
@@ -1586,10 +1629,20 @@ jobs:
           FAILED=""
           add() { if [ -n "$1" ]; then FAILED="${FAILED:+$FAILED,}$1"; fi; }
 
+          # A rehydrate stopped by its disk guard never reaches the validator
+          # phases. Its named row explains their missing result files, which
+          # are then not re-reported as __UNKNOWN__; the row itself stays
+          # deploy-invalidating through the classifier's default-deny.
+          INFRA_FAILED=""
+          if [ -s /tmp/infra-gate-results.txt ]; then
+            INFRA_FAILED="$(awk 'NF && !/rc=0$/ {print $1}' /tmp/infra-gate-results.txt | paste -sd, -)"
+          fi
+          add "$INFRA_FAILED"
+
           collect_failed() {
             local stage="$1" file="$2"
             if [ ! -s "$file" ]; then
-              add "__UNKNOWN__:$stage"
+              [ -n "$INFRA_FAILED" ] || add "__UNKNOWN__:$stage"
               return
             fi
             while IFS= read -r gate; do

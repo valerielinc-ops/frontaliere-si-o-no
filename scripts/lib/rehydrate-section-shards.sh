@@ -3,6 +3,8 @@ set -uo pipefail
 
 # shellcheck source=scripts/lib/rehydrate-trunk-guard.sh
 . "$(dirname "${BASH_SOURCE[0]}")/rehydrate-trunk-guard.sh"
+# shellcheck source=scripts/lib/rehydrate-disk-guard.sh
+. "$(dirname "${BASH_SOURCE[0]}")/rehydrate-disk-guard.sh"
 
 # Mirrors post-deploy-validate-dist.yml's rehydrate_section(): sections write
 # disjoint dist/ subtrees, but their workers are deliberately bounded. Each
@@ -57,6 +59,16 @@ ensure_batch_downloaded() {
     return 0
   fi
   if mkdir "$lock" 2>/dev/null; then
+    # Sized before the transfer: the download unpacks every tar of the batch
+    # at once, and a download that fills the disk kills the runner itself.
+    # On refusal the losers are released through the done marker and every
+    # rehydrate_section stops on rehydrate_disk_exhausted — never on the
+    # clone fallback, which would write the same bytes another way.
+    if ! rehydrate_disk_guard "section batch $batch $loc artifact download" \
+         $((REHYDRATE_DISK_TRANSFER_MB * 1024)) "$RUNNER_TEMP"; then
+      touch "$done"
+      return 0
+    fi
     local batch_download_ok=1
     for attempt in 1 2; do
       rm -rf "$dl"; mkdir -p "$dl"
@@ -97,6 +109,12 @@ rehydrate_section() {
   local batch
   batch="$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
   for loc in it en de fr; do
+    # One disk-guard refusal stops every worker: the step is going to fail by
+    # name, and any further write only eats the room the runner needs to
+    # report it.
+    if rehydrate_disk_exhausted; then
+      return 0
+    fi
     slug="$(jq -r --arg s "$section" --arg l "$loc" '.[$s][$l] // empty' scripts/lib/section-shard-slugs.json)"
     # section-shard-slugs.json values are the URL slug ONLY (no locale
     # prefix) — same it/en-de-fr branch as push-section-shard.sh and
@@ -141,8 +159,23 @@ rehydrate_section() {
     fi
 
     ensure_batch_downloaded "$batch" "$loc"
+    if rehydrate_disk_exhausted; then
+      return 0
+    fi
     dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
     if [ -f "$dl/$section-dist-$loc.tar" ]; then
+      # Sized BEFORE trunk_replace_begin removes the trunk copy, so a refusal
+      # leaves dist/$sub exactly as it was. The extracted tree is larger than
+      # the tar (4 KiB blocks vs 512 B tar records), hence the 5/4 factor; the
+      # tar itself is already on disk and counted in the free space.
+      tar_kb="$(rehydrate_disk_file_kb "$dl/$section-dist-$loc.tar")"
+      case "$tar_kb" in
+        ''|*[!0-9]*) tar_kb=0 ;;
+      esac
+      if ! rehydrate_disk_guard "$section $loc tar extraction" $((tar_kb * 5 / 4)) dist; then
+        rm -f "$dl/$section-dist-$loc.tar"
+        return 0
+      fi
       mkdir -p "dist/$(dirname "$sub")"
       # Was a bare `rm -rf "dist/$sub"`. Same removal, now recorded first:
       # whatever the trunk still holds here is about to be replaced by the
@@ -221,6 +254,14 @@ rehydrate_section() {
       continue
     fi
 
+    # A clone lands twice (pack + checkout) and is then copied into dist/, with
+    # no size known in advance: same transfer bound as a batch download.
+    if ! rehydrate_disk_guard "$section $loc shard clone" \
+         $((REHYDRATE_DISK_TRANSFER_MB * 1024)) dist; then
+      # report what the tar path already emptied
+      trunk_replace_end "$section-$loc"
+      return 0
+    fi
     tmp="$RUNNER_TEMP/rehydrate-$section-$loc"
     rm -rf "$tmp"
     owner="$(jq -r --arg s "$section" '.[$s] // "valerielinc-ops"' scripts/lib/section-shard-owners.json 2>/dev/null || echo valerielinc-ops)"
@@ -281,6 +322,7 @@ rehydrate_section() {
 }
 
 trunk_guard_init section
+rehydrate_disk_guard_init
 
 # Keep the resource ceiling in one shared implementation. Four is the cap
 # already proven for the same runner's section-shard push fan-outs; unlike the
@@ -323,12 +365,27 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
 else
   echo "no live section shards to rehydrate"
 fi
+
+# The bounded fan-out has joined, so no worker can still need a batch tar. On
+# the normal path each tar is already gone (`rm -f` right after its own
+# extraction); this reclaims what a disk-guard refusal, a skipped section or
+# an interrupted worker left behind, so the following steps do not inherit it.
+rm -rf "${RUNNER_TEMP:-/tmp}"/shard-batch-*-dist-* 2>/dev/null || true
 df -h / | tail -1
 
-# The ONE new fatal condition in this deliberately fail-soft script, and it is
-# a correctness failure rather than an infrastructure one: a missing artifact,
-# a failed clone or an absent subtree still degrade with a ::warning:: and a
-# zero exit (unchanged), because retrying validation is the right answer there.
+# Infrastructure, not a verdict on the site: the disk guard refused a write
+# before the runner could die with ENOSPC. dist/ is incomplete, so stop here
+# with the reason named — the caller turns the marker into the `infra:disk`
+# gate row instead of an anonymous runner crash.
+if rehydrate_disk_exhausted; then
+  echo "::error::[disk-guard] section shard rehydrate stopped before ENOSPC: $(cat "$REHYDRATE_DISK_GUARD_FILE" 2>/dev/null)"
+  exit 1
+fi
+
+# The only correctness fatal in this deliberately fail-soft script: a missing
+# artifact, a failed clone or an absent subtree still degrade with a
+# ::warning:: and a zero exit (unchanged), because retrying validation is the
+# right answer there.
 # Indexable pages destroyed by the replace are different in kind — the dist/
 # the audits are about to walk no longer matches what the edge serves, so every
 # result computed from it is unsound. `wait … || true` above swallows a
