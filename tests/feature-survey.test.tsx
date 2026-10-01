@@ -15,6 +15,7 @@ import FeatureSurvey from '@/components/community/FeatureSurvey';
 import { captureEvent } from '@/services/posthog';
 import { Analytics } from '@/services/analytics';
 import { isLikelyBot } from '@/services/botPatterns';
+import { markSlotShown } from '@/services/popupQueue';
 
 vi.mock('@/services/i18n', () => ({
   useTranslation: () => ({
@@ -43,6 +44,7 @@ vi.mock('@/services/botPatterns', () => ({
 vi.mock('@/services/popupQueue', () => ({
   requestSlot: vi.fn(() => true),
   releaseSlot: vi.fn(),
+  markSlotShown: vi.fn(),
   isActive: vi.fn(() => true),
   subscribe: (listener: () => void) => {
     listener();
@@ -61,13 +63,14 @@ beforeEach(() => {
   sessionStorage.clear();
   captureMock.mockClear();
   trackEventMock.mockClear();
+  vi.mocked(markSlotShown).mockClear();
   isBotMock.mockReturnValue(false);
 });
 
 afterEach(() => {
+  cleanup();
   vi.runOnlyPendingTimers();
   vi.useRealTimers();
-  cleanup();
 });
 
 describe('FeatureSurvey engagement gate', () => {
@@ -127,6 +130,7 @@ describe('FeatureSurvey impression', () => {
 
     const impressions = captureMock.mock.calls.filter(([name]) => name === 'feature_survey_impression');
     expect(impressions).toHaveLength(1);
+    expect(markSlotShown).toHaveBeenCalledExactlyOnceWith('feature-survey');
     expect(impressions[0][1]).toMatchObject({ page: expect.any(String) });
     expect(trackEventMock).toHaveBeenCalledWith('feature_survey_impression', expect.any(Object));
   });
@@ -137,6 +141,7 @@ describe('FeatureSurvey impression', () => {
       render(<FeatureSurvey />);
     });
     // No timer advance → survey not shown yet.
+    expect(markSlotShown).not.toHaveBeenCalled();
     expect(captureMock).not.toHaveBeenCalledWith('feature_survey_impression', expect.anything());
   });
 });

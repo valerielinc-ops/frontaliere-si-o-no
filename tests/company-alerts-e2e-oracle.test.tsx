@@ -17,6 +17,7 @@ import { companyFilterSlugFromPath, shouldReloadForCompanyFilter } from '@/compo
 import CompanyFollowButton from '@/components/community/CompanyFollowButton';
 import JobBoardFilterAlertCta from '@/components/community/JobBoardFilterAlertCta';
 import JobDetailAlertPrompt from '@/components/community/JobDetailAlertPrompt';
+import { markPromotionalPromptShown } from '@/services/popupQueue';
 import {
   buildAlertProfile,
   scoreJobForAlert,
@@ -163,6 +164,8 @@ async function dedupApi(): Promise<Record<string, any>> {
 beforeEach(() => {
   localStorage.clear();
   sessionStorage.clear();
+  // Independent journeys must not inherit another case's in-memory cap.
+  markPromotionalPromptShown(0);
   vi.useRealTimers();
 });
 
