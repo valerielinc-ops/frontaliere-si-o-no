@@ -2414,12 +2414,12 @@
     },
     {
       "id": "hess-carrosserie-5d90a3593666",
-      "slug": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
+      "slug": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
       "slugByLocale": {
-        "it": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
-        "en": "carrosseriespengler-carrosserie-hess-ag-rothenburg",
+        "it": "carrosserie-pengler-carrosserie-hess-ag-rothenburg",
+        "en": "carrosseries-pengler-carrosserie-hess-ag-rothenburg",
         "de": "carrosseriespengler-hess-rothenburg",
-        "fr": "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+        "fr": "pengler-de-carrosseries-carrosserie-hess-ag-rothenburg"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2470,6 +2470,12 @@
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-hess-rothenburg",
+          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+        ],
+        "en": [
+          "carrosseriespengler-carrosserie-hess-ag-rothenburg"
+        ],
+        "fr": [
           "carrosseriespengler-carrosserie-hess-ag-rothenburg"
         ]
       },
