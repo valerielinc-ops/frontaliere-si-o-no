@@ -501,10 +501,10 @@
       "id": "stiftung-diaconis-86-r9faa7ca3",
       "slug": "cucina-60-100-stiftung-diaconis-bern",
       "slugByLocale": {
-        "it": "cucina-60-100-stiftung-diaconis-bern",
+        "it": "cuocere-cucinare-100-stiftung-diaconis-bern",
         "en": "cook-cook-60-100-stiftung-diaconis-bern",
         "de": "kochin-koch-60-100-stiftung-diaconis-bern",
-        "fr": "cuisiniere-60-100-stiftung-diaconis-bern"
+        "fr": "cuire-cuire-100-stiftung-diaconis-bern"
       },
       "company": "Stiftung Diaconis",
       "companyKey": "stiftung-diaconis",
@@ -555,7 +555,9 @@
         "kochin-koch-60-100-stiftung-diaconis-bern",
         "cook-cook-60-100-stiftung-diaconis-bern",
         "cuocere-cucinare-100-stiftung-diaconis-bern",
-        "kochin-koch-60-stiftung-diaconis-bern"
+        "kochin-koch-60-stiftung-diaconis-bern",
+        "cucina-60-100-stiftung-diaconis-bern",
+        "cuisiniere-60-100-stiftung-diaconis-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -568,7 +570,8 @@
           "kochin-koch-60-100-stiftung-diaconis-bern",
           "cook-cook-60-100-stiftung-diaconis-bern",
           "cuocere-cucinare-100-stiftung-diaconis-bern",
-          "kochin-koch-60-stiftung-diaconis-bern"
+          "kochin-koch-60-stiftung-diaconis-bern",
+          "cucina-60-100-stiftung-diaconis-bern"
         ],
         "en": [
           "cook-cook-100-stiftung-diaconis-bern",
@@ -588,7 +591,8 @@
           "cuire-cuire-100-stiftung-diaconis-bern",
           "kochin-koch-60-stiftung-diaconis-bern",
           "kochin-koch-100-stiftung-diaconis-bern",
-          "kochin-koch-60-100-stiftung-diaconis-bern"
+          "kochin-koch-60-100-stiftung-diaconis-bern",
+          "cuisiniere-60-100-stiftung-diaconis-bern"
         ]
       },
       "firstSeenAt": "2026-09-30T21:12:40.289Z",
