@@ -79,6 +79,14 @@ describe('automation e-mails', () => {
     expect(portal.text).toContain('Motivo: l’invio sul portale si è fermato: il portale ha chiesto un controllo anti-robot (CAPTCHA)');
     expect(portal.text).toContain('Il candidato non deve fare nulla');
     expect(portal.text).toContain('«Riprova l’invio automatico»');
+    // JOIN, 2026-10-01: a refusal in words is completed by Valerie (the candidate paid for it), with no check for an ambiguous send.
+    const refused = describeTakeover({ reason: 'portal_refused', stage: 'submit', attempts: 1 });
+    expect(refused.reason).toContain('NON è partita');
+    expect(refused.hint).toContain('completala tu sul portale');
+    expect(refused.hint).toContain('«Segna come inviata»');
+    expect(refused.hint).not.toContain('Affida al candidato');
+    expect(refused.hint).not.toContain('prima di inviarla di nuovo');
+    expect(describeTakeover({ reason: 'portal_ambiguous', stage: 'submit' }).hint).toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
     expect(describeTakeover({ reason: 'Unexpected token', stage: 'draft' })).toEqual({
       reason: 'la bozza non è stata generata',
