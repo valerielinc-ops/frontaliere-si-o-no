@@ -343,8 +343,10 @@ const STAGE_HINTS = {
 // What to do next when the runner's error says more than its stage. A refusal
 // in words is not ambiguous: nothing to check, and on an anti-robot portal a
 // new automatic send is refused again (JOIN, runs 36846326334 and 36859479435).
+// The candidate paid for the sending: Valerie completes it, never the candidate
+// (owner decision 2026-10-01).
 const RUNNER_HINTS = {
-  portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: dalla coda premi «Affida al candidato» (riceve link, risposte e documenti e invia dal suo browser) oppure completala tu sul portale.',
+  portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
 };
 
 /**
