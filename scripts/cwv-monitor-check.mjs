@@ -286,7 +286,8 @@ export async function main({
   const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
-  const WINDOW_DAYS = Number(process.env.CWV_MONITOR_WINDOW_DAYS || 7);
+  const rawWindowDays = process.env.CWV_MONITOR_WINDOW_DAYS || '7';
+  const WINDOW_DAYS = Number(rawWindowDays);
   if (!Number.isInteger(WINDOW_DAYS) || WINDOW_DAYS < 1 || WINDOW_DAYS > 90) {
     throw new Error('CWV_MONITOR_WINDOW_DAYS must be an integer from 1 to 90');
   }
