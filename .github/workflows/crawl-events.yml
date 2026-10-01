@@ -39,6 +39,11 @@ on:
         required: false
         default: ''
         type: string
+      guidle_ids:
+        description: 'Comma-separated Guidle codes to revisit; mutually exclusive with myswitzerland_ids.'
+        required: false
+        default: ''
+        type: string
 concurrency:
   group: crawl-events
   cancel-in-progress: true
@@ -159,9 +164,19 @@ jobs:
             fi
           done
 
+      - name: Validate targeted source inputs
+        env:
+          INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          if [ -n "$INPUT_MYSWITZERLAND_IDS" ] && [ -n "$INPUT_GUIDLE_IDS" ]; then
+            echo '::error::Select only one targeted source per run.'
+            exit 1
+          fi
+
       - name: Crawl tio.ch agenda
         id: crawl-tio
-        if: ${{ !inputs.myswitzerland_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         env:
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ github.event.inputs.days || '21' }}
@@ -177,7 +192,7 @@ jobs:
         # 2026-07-03) throws away the whole enrichment backlog and every
         # future run redoes it from scratch. if: always() so it still fires
         # even if a later step gets cancelled by timeout-minutes.
-        if: always() && !inputs.myswitzerland_ids && inputs.dry_run != true && inputs.dry_run != 'true'
+        if: always() && !inputs.myswitzerland_ids && !inputs.guidle_ids && inputs.dry_run != true && inputs.dry_run != 'true'
         # Best effort: a temporary PR-publisher failure must not skip the
         # remaining crawlers and the final dataset publication.
         continue-on-error: true
@@ -208,10 +223,18 @@ jobs:
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
         if: ${{ !inputs.myswitzerland_ids }}
-        run: node scripts/crawl-guidle-events.mjs
+        env:
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_GUIDLE_IDS" ]; then
+            args+=(--ids "$INPUT_GUIDLE_IDS")
+          fi
+          node scripts/crawl-guidle-events.mjs "${args[@]}"
 
       - name: Crawl myswitzerland.com (nationwide)
         id: crawl-myswitzerland
+        if: ${{ !inputs.guidle_ids }}
         env:
           INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
         run: |
@@ -223,7 +246,7 @@ jobs:
 
       - name: Crawl geneve.ch agenda (GE, pilot)
         id: crawl-ge
-        if: ${{ !inputs.myswitzerland_ids }}
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         # continue-on-error: geneve.ch is the newest, least battle-tested of
         # the four sources (own DOM-drift guard exists specifically because
         # selector drift is plausible on a brand-new source) and sits

@@ -2489,6 +2489,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'draghi-ue-riforme-crescita': { it: 'draghi-ue-riforme-crescita', en: 'draghi-eu-reforms-growth', de: 'draghi-eu-reformen-wachstum', fr: 'draghi-ue-reformes-croissance' },
  'utile-bns-distribuzione-2030': { it: 'utile-bns-distribuzione-2030', en: 'snb-profit-distribution-2030', de: 'snb-gewinnverteilung-2030', fr: 'bns-repartition-benefice-2030' },
  'dazi-svizzera-voto': { it: 'dazi-svizzera-voto', en: 'swiss-tariffs-federal-vote', de: 'schweizer-zoelle-abstimmung', fr: 'droits-douane-vote-suisse' },
+ 'agenda-federale-autunno-2026': { it: 'agenda-federale-autunno-2026', en: 'swiss-federal-agenda-autumn-2026', de: 'schweizer-bundesagenda-herbst-2026', fr: 'agenda-federal-automne-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

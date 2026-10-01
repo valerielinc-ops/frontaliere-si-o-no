@@ -7400,6 +7400,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dazi-svizzera-voto.title': 'SECO: Zölle der Vereinigten Staaten, Abstimmung und Rücktritt',
     'blog.article.dazi-svizzera-voto.excerpt': 'Am 24. Juli 2026 verhängten die Vereinigten Staaten zusätzliche Zölle auf die Schweiz von bis zu 12,5 %; am 29. November 2026 findet die Abstimmung über Kriegsmaterial statt.',
     'blog.article.dazi-svizzera-voto.imageAlt': 'Unterlagen zu Zöllen und einer eidgenössischen Abstimmung in einem Schweizer Verwaltungsbüro',
+    'blog.article.agenda-federale-autunno-2026.title': 'Bundesrat: Mieten, Integration und Cybersicherheit',
+    'blog.article.agenda-federale-autunno-2026.excerpt': '334,5 Millionen für die Integration im Zeitraum 2028-2032, Gegenvorschlag zu den Mieten und Vorschlag zur Cybersicherheit bis Juni 2027.',
+    'blog.article.agenda-federale-autunno-2026.imageAlt': 'Schweizerisches Regierungsgebäude zu aktuellen Bundesentscheiden',
 };
 
 export default blogMetaChDe;
