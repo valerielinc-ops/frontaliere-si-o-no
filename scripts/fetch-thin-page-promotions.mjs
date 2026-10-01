@@ -40,13 +40,14 @@
 // Exit codes
 //   0  ok, no-op (no hits, files untouched)
 //   0  ok, urls promoted (active.json updated)
-//   3  partial — one or two of the three feeds errored (promotions still committed)
-//   2  fatal — all three feeds errored
+//   3  partial — feeds incomplete (observed promotions still committed)
+//   2  all three feeds errored with no observations available
+// Incomplete feeds never expire previously promoted URLs.
 
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
 import { appendFileSync, existsSync } from 'node:fs';
-import { dirname, join } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { fetchGscPageImpressions } from './lib/evidence/gscFetcher.mjs';
 import { GSC_MIN_IMP } from './lib/evidence/constants.mjs';
@@ -163,7 +164,7 @@ function fmtDate(d) {
 // GOOGLE_APPLICATION_CREDENTIALS already prepared for GA4 above), just a
 // single page-dimension pass rather than the full 3-pass
 // `fetchGscQueries` used by the daily evidence-index build.
-async function fetchGscImpressions(windowHours) {
+export async function fetchGscImpressions(windowHours) {
   // GSC Search Analytics has ~2-day reporting lag and day-granularity
   // data — mirrors scripts/build-evidence-index.mjs `windowDates()`.
   const days = Math.max(1, Math.ceil(windowHours / 24));
@@ -180,13 +181,12 @@ async function fetchGscImpressions(windowHours) {
     // that much broader set verbatim.
     minImpressions: GSC_MIN_IMP,
   });
-  if (error) throw new Error(error);
   const urls = new Set();
   for (const path of Object.keys(pages)) {
     const norm = normalizePath(path);
     if (norm) urls.add(norm);
   }
-  return urls;
+  return { urls, error };
 }
 
 // ─── Active window rollup ────────────────────────────────────────────
@@ -201,15 +201,17 @@ async function readActive() {
   }
 }
 
-function rollupActive(prev, freshUrls, activeWindowDays) {
+export function rollupActive(prev, freshUrls, activeWindowDays, complete = true) {
   const today = new Date().toISOString().slice(0, 10);
   const seenAt = { ...prev._seenAt };
   for (const u of freshUrls) seenAt[u] = today;
   const cutoff = Date.now() - activeWindowDays * 86400_000;
-  const kept = Object.entries(seenAt).filter(([_, d]) => new Date(d).getTime() >= cutoff);
+  const kept = Object.entries(seenAt).filter(([_, d]) => !complete || new Date(d).getTime() >= cutoff);
   return {
     seenAt: Object.fromEntries(kept),
-    urls: kept.map(([u]) => u).sort(),
+    // Preserve legacy entries without timestamps too, without inventing a
+    // fresh observation. Only a complete refresh may age a promotion out.
+    urls: [...new Set([...kept.map(([u]) => u), ...(!complete ? prev.urls : [])])].sort(),
   };
 }
 
@@ -227,17 +229,25 @@ async function main() {
   catch (e) { errors.push(`posthog: ${e.message}`); console.error(`[thin-promotions] posthog error: ${e.message}`); }
   try { ga = await fetchGa4(args.windowHours); console.log(`[thin-promotions] ga4 hits: ${ga.size}`); }
   catch (e) { errors.push(`ga4: ${e.message}`); console.error(`[thin-promotions] ga4 error: ${e.message}`); }
-  try { gsc = await fetchGscImpressions(args.windowHours); console.log(`[thin-promotions] gsc hits: ${gsc.size}`); }
+  try {
+    const result = await fetchGscImpressions(args.windowHours);
+    gsc = result.urls;
+    console.log(`[thin-promotions] gsc observed hits: ${gsc.size}`);
+    if (result.error) {
+      errors.push(`gsc: ${result.error}`);
+      console.error(`[thin-promotions] gsc error: ${result.error}`);
+    }
+  }
   catch (e) { errors.push(`gsc: ${e.message}`); console.error(`[thin-promotions] gsc error: ${e.message}`); }
 
-  if (errors.length === 3) {
+  const fresh = new Set([...ph, ...ga, ...gsc]);
+  if (errors.length === 3 && fresh.size === 0) {
     console.error('[thin-promotions] all three feeds errored — leaving active.json unchanged');
     process.exit(2);
   }
 
-  const fresh = new Set([...ph, ...ga, ...gsc]);
   const prev = await readActive();
-  const { seenAt, urls } = rollupActive(prev, fresh, args.activeWindowDays);
+  const { seenAt, urls } = rollupActive(prev, fresh, args.activeWindowDays, errors.length === 0);
 
   // Append history row regardless (audit trail).
   const historyRow = {
@@ -248,17 +258,20 @@ async function main() {
     gscHits: gsc.size,
     freshUnion: fresh.size,
     activeTotal: urls.length,
+    complete: errors.length === 0,
     errors,
   };
   await mkdir(dirname(HISTORY_PATH), { recursive: true });
   appendFileSync(HISTORY_PATH, JSON.stringify(historyRow) + '\n');
 
-  // Commit active set only if it changed (avoid noisy commits when no
-  // new hits land in a quiet hour).
+  // Persist refreshed observation dates even when the URL set is unchanged;
+  // otherwise a repeatedly observed URL eventually expires on its first date.
   const prevSorted = [...prev.urls].sort();
   const changed =
     prevSorted.length !== urls.length ||
-    prevSorted.some((u, i) => u !== urls[i]);
+    prevSorted.some((u, i) => u !== urls[i]) ||
+    Object.keys(prev._seenAt).length !== Object.keys(seenAt).length ||
+    Object.entries(seenAt).some(([url, date]) => prev._seenAt[url] !== date);
 
   if (changed) {
     await writeFile(
@@ -282,4 +295,6 @@ async function main() {
   if (errors.length > 0) process.exit(3);
 }
 
-main().catch((e) => { console.error('[thin-promotions] fatal:', e); process.exit(2); });
+if (process.argv[1] && pathToFileURL(resolve(process.argv[1])).href === import.meta.url) {
+  main().catch((e) => { console.error('[thin-promotions] fatal:', e); process.exit(2); });
+}
