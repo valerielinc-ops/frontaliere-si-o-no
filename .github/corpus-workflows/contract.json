@@ -13,11 +13,11 @@
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 624,
+  "crawlerCount": 625,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3",
+    "rosterDigest": "sha256:ba98567d814678f3916901c23827894c2d19b99915f3ec678ca91eb5c40bc463",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -398,6 +398,7 @@
     "scripts/update-ottos-jobs.mjs",
     "scripts/update-pallas-kliniken-jobs.mjs",
     "scripts/update-palliativklinik-jobs.mjs",
+    "scripts/update-pantr-ch-jobs.mjs",
     "scripts/update-paraplegie-jobs.mjs",
     "scripts/update-parmag-jobs.mjs",
     "scripts/update-patek-philippe-jobs.mjs",
@@ -1442,8 +1443,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "a69754eae6ee6636f2199d75428c0b433366a8ad4bfbb9ad6b4245b079fefc55",
-      "artifactSha256": "4ec819fad20ff196514f69a808e8f7fe6889219b156365343a40b00c9bcd9dd6",
+      "sourceSha256": "e98d02b8c27f1f447a387c942946232e57e4f1e6663be92f2923e089b303e238",
+      "artifactSha256": "36eb2ab41437b9d07e28140f84cbec75dc00e78e0889d34f09e3ca4e70004d2d",
       "generatorSha256": "68b486c329c60803a41cc7e6d36a64f12cddb9545f77ee197136d200a2afe1e8",
       "members": [
         "albergo-gardenia",
@@ -1466,7 +1467,8 @@
         "capri-holdings",
         "anicura",
         "fisba",
-        "postauto"
+        "postauto",
+        "pantr-ch"
       ]
     },
     {
