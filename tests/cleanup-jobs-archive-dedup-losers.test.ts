@@ -624,6 +624,8 @@ describe('cleanup-jobs standard mode — archives within-slice slug-dedup losers
     fs.mkdirSync(sandbox, { recursive: true });
     fs.symlinkSync(path.resolve(process.cwd(), 'scripts'), path.join(sandbox, 'scripts'));
     fs.symlinkSync(path.resolve(process.cwd(), 'node_modules'), path.join(sandbox, 'node_modules'));
+    // Keep shared engine helpers reachable from the symlinked crawler modules.
+    fs.symlinkSync(path.resolve(process.cwd(), 'packages'), path.join(sandbox, 'packages'));
     fs.mkdirSync(path.join(sandbox, 'data'), { recursive: true });
     fs.mkdirSync(path.join(sandbox, 'public', 'data'), { recursive: true });
     // scripts/lib/target-swiss-locations.mjs statically imports this git-tracked
