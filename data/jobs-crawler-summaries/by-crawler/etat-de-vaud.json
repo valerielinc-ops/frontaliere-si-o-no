@@ -1,26 +1,28 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-30T21:27:03.773Z",
-  "total": 42,
+  "generatedAt": "2026-10-01T09:26:18.722Z",
+  "total": 47,
   "discovered": null,
   "parsed": 38,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 42,
+  "written": 47,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 21103,
-  "avgDurationMs": 21103,
+  "unchangedCount": 1,
+  "durationMs": 25601,
+  "avgDurationMs": 25601,
   "durationHistory": [
-    21103
+    25601
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "etat-de-vaud-5922",
       "slug": "interno-nella-comunicazione-digitale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
@@ -53,7 +55,8 @@
       "salaryMin": 51000,
       "salaryMax": 90500,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -62,7 +65,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
