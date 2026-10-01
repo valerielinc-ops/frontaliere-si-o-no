@@ -95882,6 +95882,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-utile-bns-distribuzione-2030': {
+    title: 'BNS: fino a sei miliardi annui a Confederazione e Cantoni',
+    description: 'Convenzione DFF-BNS 2026-2030: fino a sei miliardi annui a Confederazione e Cantoni. La distribuzione dipende dall\'utile di bilancio e dagli accantonamenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fino, miliardi, annui, confederazione',
+    ogTitle: 'BNS: distribuzione fino a sei miliardi annui',
+    ogDescription: 'La nuova convenzione firmata da DFF e BNS copre gli esercizi 2026-2030: fino a sei miliardi di franchi all\'anno a Confederazione e Cantoni, con quattro possibili aggiunte da un miliardo e accantonamenti dal 10% all\'8% dal 2026.',
+    canonicalPath: '/articoli-svizzera/utile-bns-distribuzione-2030/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS: fino a sei miliardi annui a Confederazione e Cantoni",
+      "description": "Convenzione DFF-BNS 2026-2030: fino a sei miliardi annui a Confederazione e Cantoni. La distribuzione dipende dall'utile di bilancio e dagli accantonamenti.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/utile-bns-distribuzione-2030.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "BNS e Confederazione: distribuzione dell'utile 2026-2030"
+      },
+      "datePublished": "2026-10-01T19:46:22+00:00",
+      "dateModified": "2026-10-01T19:46:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/utile-bns-distribuzione-2030/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

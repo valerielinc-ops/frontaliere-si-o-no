@@ -7394,6 +7394,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.draghi-ue-riforme-crescita.title': 'Draghi bei der ETH: Die EU sollte dem Schweizer Beispiel folgen, um zu wachsen',
     'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi in Zürich: Schulden/BIP bei 130 % im Jahr 2040, 1,3 Billionen für KI bis 2030. Die EU muss sich wie die USA integrieren, wobei wir die Konföderation als Modell anführen.',
     'blog.article.draghi-ue-riforme-crescita.imageAlt': 'ETH Zürich Hauptgebäude wo Mario Draghi sprach',
+    'blog.article.utile-bns-distribuzione-2030.title': 'SNB: Bis zu sechs Milliarden pro Jahr für den Bund und die Kantone',
+    'blog.article.utile-bns-distribuzione-2030.excerpt': 'Das neue FDF-SNB-Abkommen für 2026–2030 sieht bis zu sechs Milliarden pro Jahr vor, sofern Gewinn und finanzielle Lage es zulassen.',
+    'blog.article.utile-bns-distribuzione-2030.imageAlt': 'Schweizerische Nationalbank und Bund: Gewinnausschüttung 2026-2030',
 };
 
 export default blogMetaChDe;

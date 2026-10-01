@@ -7394,6 +7394,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.draghi-ue-riforme-crescita.title': 'Draghi all\'ETH: l\'UE segua l\'esempio svizzero per crescere',
     'blog.article.draghi-ue-riforme-crescita.excerpt': 'Draghi a Zurigo: debito/PIL al 130% nel 2040, servono 1,3 trilioni per l\'IA entro il 2030. L\'UE deve integrare come gli USA, citando la Confederazione come modello.',
     'blog.article.draghi-ue-riforme-crescita.imageAlt': 'Politecnico federale di Zurigo dove ha parlato Mario Draghi',
+    'blog.article.utile-bns-distribuzione-2030.title': 'BNS: fino a sei miliardi annui a Confederazione e Cantoni',
+    'blog.article.utile-bns-distribuzione-2030.excerpt': 'La nuova convenzione DFF-BNS per il 2026-2030 prevede fino a sei miliardi annui, se l\'utile e la situazione finanziaria lo consentono.',
+    'blog.article.utile-bns-distribuzione-2030.imageAlt': 'BNS e Confederazione: distribuzione dell\'utile 2026-2030',
 };
 
 export default blogMetaChIt;
