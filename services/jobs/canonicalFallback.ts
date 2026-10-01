@@ -21,6 +21,7 @@
 // `allowImportingTsExtensions: true`.
 import type { Locale } from '../i18n';
 import { decodeHtmlText } from '../../packages/articles/engine/shared/htmlEntities.ts';
+import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { cleanCanonicalItems } from '../relatedSearchClusters.ts';
 // Relative, not `@/`: this module is reachable from vite.config.ts, which Vite
 // bundles with esbuild BEFORE its own aliases exist (tests/vite-config-import-graph).
@@ -334,15 +335,11 @@ function fallbackIsUiNoiseChunk(line: string): boolean {
 }
 
 function fallbackNormalizeRaw(raw: string): string {
- let text = String(raw || '')
+ let text = stripHtmlTags(String(raw || '')
  .replace(/&(?:amp;)?newline;?/gi, '\n')
  .replace(/\\n/g, '\n')
  .replace(/<br\s*\/?>/gi, '\n')
- .replace(/<\/(p|li|h1|h2|h3|h4|div)>/gi, '\n')
- .replace(/<!--[\s\S]*?-->/g, ' ')
- // Recognize HTML tags rather than deleting plain tokens such as <SQL> or
- // List<T>, including when a persisted description also contains real <br>.
- .replace(/<\/?(?:a|abbr|address|article|aside|b|blockquote|br|caption|cite|code|col|colgroup|dd|del|details|div|dl|dt|em|figcaption|figure|font|footer|h[1-6]|header|hr|i|img|ins|label|li|main|mark|nav|ol|p|pre|s|section|small|span|strong|sub|summary|sup|table|tbody|td|tfoot|th|thead|tr|u|ul|wbr)(?=[\s/>])[^>]*>/gi, ' ');
+ .replace(/<\/(p|li|h1|h2|h3|h4|div)>/gi, '\n'));
  // Strip source markup before decoding text so &lt;SQL&gt; stays visible.
  text = fallbackDecodeLooseEntities(text)
  .replace(/ |»/g, ' ')

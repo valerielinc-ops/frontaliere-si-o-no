@@ -1,6 +1,7 @@
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import { stripHtmlTags, hasHtmlTags, countHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
@@ -1520,7 +1521,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // when base contains indentation/blank lines that normalizeSpace stripped.
       // Guard: if the base is raw HTML (>10 tags), it's unparsed page chrome — the
       // locale copy is the actual clean content, so never overwrite with HTML garbage.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSource = normalizeForLengthComparison(currentSourceDesc);
       const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
@@ -2111,10 +2112,9 @@ const MAX_DESC_CHARS = 12000;
  */
 export function stripHtmlBasic(s) {
   return normalize(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(String(s || '')
+      .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' '))
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -2233,16 +2233,15 @@ export function extractRequirementsFromText(description) {
 export function htmlToStructuredTextDCC(html, cleanFn) {
   if (!html) return '';
   const clean = cleanFn || cleanDescriptionDCC;
-  let text = String(html)
-    .replace(/<p[^>]*>\s*<strong[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
-    .replace(/<h[1-6][^>]*>/gi, '\n## ')
+  let text = stripHtmlTags(String(html)
+    .replace(/<p(?=[\s/>])[^>]*>\s*<strong(?=[\s/>])[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
+    .replace(/<h[1-6](?=[\s/>])[^>]*>/gi, '\n## ')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
+    .replace(/<\/p>/gi, '\n'));
   return clean(text);
 }
 
@@ -3113,7 +3112,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const rawDesc = out.description || '';
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
   if (shouldRunDescriptionLocalization && rawDesc.length >= 100 && !hasMarkdownStructure) {
-    const hasHtml = /<[^>]+>/.test(rawDesc);
+    const hasHtml = hasHtmlTags(rawDesc);
     if (hasHtml) {
       const structuredFromHtml = h2stFn(rawDesc);
       if (structuredFromHtml && structuredFromHtml.length >= 120) {
@@ -3522,7 +3521,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       // or has lost significant content vs the authoritative base (threshold: 85%).
       // Compare NORMALIZED lengths to avoid false positives from whitespace differences.
       // Guard: never overwrite clean locale content with raw HTML garbage base.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBaseDesc = normalizeForLengthComparison(baseDesc);
       const normCurrentSource = normalizeForLengthComparison(currentSourceDesc);
       const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
@@ -5281,7 +5280,7 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
 
 const HTML_RESIDUE_RE = /<\/?[a-z][\s\S]*?>/i;
 const ENCODED_ENTITY_RE = /&(?:amp|lt|gt|quot|#\d{2,5}|#x[0-9a-f]{2,4});/i;
-const SCRIPT_TAG_RE = /<script[\s\S]*?<\/script>/i;
+const SCRIPT_TAG_RE = /<script(?=[\s/>])[\s\S]*?<\/script>/i;
 
 /**
  * Compute a detailed quality score for a single job.
