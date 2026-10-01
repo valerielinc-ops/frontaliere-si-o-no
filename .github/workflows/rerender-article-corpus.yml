@@ -172,6 +172,10 @@ on:
       - 'services/seo/organizationLd.ts'
       - 'services/routeSlugs.data.ts'
       - 'data/authors.ts'
+      # Self-test on change, as rerender-article-hubs.yml does: an edit to this
+      # file runs the whole render + push, so a filter or step change is
+      # verified by a real run rather than by the next renderer commit.
+      - '.github/workflows/rerender-article-corpus.yml'
 
 permissions:
   contents: read
