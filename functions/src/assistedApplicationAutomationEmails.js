@@ -329,6 +329,7 @@ const PORTAL_STOPS = {
   account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
+  posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
 };
 const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
 const STAGE_HINTS = {

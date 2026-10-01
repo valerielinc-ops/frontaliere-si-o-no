@@ -129,6 +129,18 @@ export function extractFieldsInPage() {
     }
     return element.getAttribute('data-aa-id');
   };
+  // A limit the form states only in words or with a counter ("max. 500
+  // caratteri", "0 / 1000"): shortened by us at a sentence end rather than cut
+  // by the portal mid-sentence (career-ops counts the final answer).
+  const statedLimit = (element) => {
+    const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean)
+      .map((id) => document.getElementById(id)?.textContent || '').join(' ');
+    const zone = `${described} ${element.parentElement?.parentElement?.textContent || ''}`.slice(0, 2000);
+    const words = /(?:max(?:imum|imal)?\.?|massimo|höchstens|jusqu'à|bis zu|up to|fino a)\s*(\d{2,5})\s*(?:characters|chars|caratteri|zeichen|caractères)/i.exec(zone);
+    // A counter only from the field's own description: "Step 1 / 12" is no limit.
+    const counter = /\b\d{1,5}\s*\/\s*(\d{2,5})\b/.exec(described);
+    return Number(words?.[1] || counter?.[1]) || null;
+  };
   const fields = [];
   const radios = new Map();
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
@@ -167,7 +179,7 @@ export function extractFieldsInPage() {
       required: required || REQUIRED_LABEL.test(labelFor(element)),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
-      maxLength: Number(element.getAttribute('maxlength')) || null,
+      maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',

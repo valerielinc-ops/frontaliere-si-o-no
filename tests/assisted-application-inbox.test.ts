@@ -17,6 +17,8 @@ const {
 } = await import('../functions/src/assistedApplicationAlias.js');
 const { classifyByRules, handleAssistedApplicationInbound, processAssistedApplicationInbound } = await import('../functions/src/assistedApplicationInbound.js');
 const { candidateIdentity } = await import('../functions/src/assistedApplicationAiDraftCore.js');
+const { runAutomationEffect } = await import('../functions/src/assistedApplicationAutomationEffects.js');
+const { DAY_MS } = await import('../functions/src/assistedApplicationFollowup.js');
 const { decryptJson } = await import('../functions/src/lib/evidenceCrypto.js');
 
 const ORDER = 'order_INBOX1';
@@ -143,10 +145,10 @@ const request = (raw: Buffer, to: string, secret = SECRET) => ({
 });
 
 /** The Worker's handoff (accepted at once), then the trigger's processing. */
-async function deliver({ store, alias, raw, classify, sendCascade, bucket = fakeBucket(), nowMs = 1000 }: any) {
-  const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db: store.db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs });
+async function deliver({ store, alias, raw, classify, sendCascade, bucket = fakeBucket(), nowMs = 1000, runEffect = null, db = store.db }: any) {
+  const accepted = await handleAssistedApplicationInbound(request(raw, alias.address), { db, bucket, secret: SECRET, runKey: RUN_KEY, nowMs });
   const messageId = accepted.body.accepted;
-  const processed = await processAssistedApplicationInbound({ db: store.db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, nowMs });
+  const processed = await processAssistedApplicationInbound({ db, bucket, orderId: ORDER, messageId, runKey: RUN_KEY, classify, sendCascade, runEffect, nowMs });
   return { accepted, processed, messageId, bucket };
 }
 
@@ -286,5 +288,132 @@ describe('employer messages on the alias', () => {
     expect(classifyByRules({ subject: 'Votre candidature', text: 'Malheureusement nous avons retenu un autre candidat.' })).toBe('rejection');
     expect(classifyByRules({ subject: 'Candidatura', text: 'Abbiamo ricevuto la sua candidatura.' })).toBe('auto_acknowledgement');
     expect(classifyByRules({ subject: 'Hello', text: 'See attached', autoSubmitted: false })).toBe('other');
+  });
+});
+
+describe('employer acknowledgement of a submit of unknown outcome', () => {
+  // career-ops apply.md: an application is "sent" on the success page OR the confirmation e-mail.
+  const ORDER_PATH = `assisted_applications/${ORDER}`;
+  const GUARD_PATH = `${ORDER_PATH}/automation/submission`;
+  const FLOW_PATH = `${ORDER_PATH}/automation/flow`;
+  const classifyAs = (category: string) => async () => ({ category, summaryIt: '', summaryCandidate: '', interviewWhen: '', requestedDocuments: [], verificationCode: '', verificationUrl: '', needsReply: false });
+  const ackMail = () => employerMail({ subject: 'Ihre Bewerbung', text: 'Wir haben Ihre Bewerbung erhalten.', auto: true });
+
+  /** By default: the portal's final click at 600, the run reported portal_ambiguous, Valerie holds the order. */
+  async function ambiguousOrder({
+    flow = { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'] },
+    guard = { state: 'sending', channel: 'portal', startedAt: 500, clickedAt: 600 },
+    draft = null,
+  }: any = {}) {
+    const { store, alias } = await setupInbound();
+    const orderRef = store.db.collection('assisted_applications').doc(ORDER);
+    await orderRef.set({ submissionStatus: 'ready_for_manual_submission' }, { merge: true });
+    await orderRef.collection('automation').doc('flow').set(flow);
+    await orderRef.collection('automation').doc('submission').set({ r1: guard });
+    if (draft) await orderRef.collection('ai_drafts').doc('current').set(draft);
+    const effects: any[] = [];
+    const runEffect = async (context: any) => {
+      effects.push(context.effect);
+      return runAutomationEffect(context);
+    };
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{}] }));
+    const receive = async (category: string, { nowMs = 1000, db = store.db }: any = {}) => (
+      await deliver({ store, alias, db, raw: ackMail(), classify: classifyAs(category), sendCascade, runEffect, nowMs })
+    ).processed;
+    return { store, effects, sendCascade, receive };
+  }
+
+  it('confirms an ambiguous portal submit on the automatic acknowledgement, once', async () => {
+    const { store, effects, receive } = await ambiguousOrder();
+    expect(await receive('auto_acknowledgement')).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent', submissionConfirmed: true });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', channel: 'portal', sentAt: 600, confirmedBy: 'acknowledgement', confirmedAt: 1000 });
+    expect(store.read(FLOW_PATH)).toMatchObject({ state: 'submitted', heldBy: [], submittedVia: 'portal' });
+    expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'submitted', automationState: 'submitted', automationDueAt: null });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+    const audit = store.list(`${ORDER_PATH}/events/`).map((path) => store.read(path));
+    expect(audit.some((entry) => entry?.eventType === 'submit_acknowledged' && entry?.actor === 'employer_email' && entry?.fromState === 'owner_takeover')).toBe(true);
+
+    // A second acknowledgement changes nothing.
+    expect(await receive('auto_acknowledgement', { nowMs: 2000 })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(store.read(GUARD_PATH)!.r1.confirmedAt).toBe(1000);
+    expect(effects).toHaveLength(1);
+  });
+
+  it('confirms an ambiguous e-mail application on the employer’s reply and schedules its follow-ups', async () => {
+    const { store, effects, receive } = await ambiguousOrder({
+      flow: { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
+      guard: { state: 'sending', channel: 'email', startedAt: 600, clickedAt: null },
+      draft: { round: 1, channel: { type: 'email', email: 'jobs@employer.example' }, applicationEmail: { to: 'jobs@employer.example', subject: 'Bewerbung als Pflegefachfrau' } },
+    });
+    expect((await receive('interview_invite')).submissionConfirmed).toBe(true);
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', channel: 'email', sentAt: 600, confirmedBy: 'acknowledgement' });
+    expect(store.read(FLOW_PATH)).toMatchObject({ state: 'submitted', submittedVia: 'email' });
+    expect(store.read(ORDER_PATH)).toMatchObject({ submissionStatus: 'submitted', followupDueAt: 600 + 7 * DAY_MS });
+    expect(store.read(`${ORDER_PATH}/automation/followup`)).toMatchObject({ state: 'scheduled', to: 'jobs@employer.example', subject: 'Bewerbung als Pflegefachfrau', messageId: '', submittedAt: 600 });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+  });
+
+  it('never fires on an account verification or an unrelated message', async () => {
+    for (const category of ['verification', 'other']) {
+      const { store, effects, sendCascade, receive } = await ambiguousOrder();
+      expect((await receive(category)).submissionConfirmed).toBeUndefined();
+      expect(store.read(GUARD_PATH)!.r1).toEqual({ state: 'sending', channel: 'portal', startedAt: 500, clickedAt: 600 });
+      expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
+      expect(store.read(ORDER_PATH)!.submissionStatus).toBe('ready_for_manual_submission');
+      expect(effects).toEqual([]);
+      // Still forwarded to the candidate as before.
+      expect(sendCascade).toHaveBeenCalledTimes(1);
+    }
+  });
+
+  it('never fires when nothing left: no final click, or a message older than the click', async () => {
+    // The run died before pressing submit: an acknowledgement is about another application.
+    const unclicked = await ambiguousOrder({ flow: { state: 'submitting', round: 1 }, guard: { state: 'sending', channel: 'portal', startedAt: 500, clickedAt: null } });
+    expect((await unclicked.receive('auto_acknowledgement')).submissionConfirmed).toBeUndefined();
+    expect(unclicked.store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sending', clickedAt: null });
+    expect(unclicked.store.read(FLOW_PATH)!.state).toBe('submitting');
+    expect(unclicked.effects).toEqual([]);
+
+    // Received before the click (e.g. the portal account's welcome message, classified later).
+    const early = await ambiguousOrder({ flow: { state: 'submitting', round: 1 }, guard: { state: 'sending', channel: 'portal', startedAt: 500, clickedAt: 1500 } });
+    expect((await early.receive('auto_acknowledgement', { nowMs: 1000 })).submissionConfirmed).toBeUndefined();
+    expect(early.store.read(GUARD_PATH)!.r1.state).toBe('sending');
+    // After the click, a run still out is settled too.
+    expect((await early.receive('auto_acknowledgement', { nowMs: 2000 })).submissionConfirmed).toBe(true);
+    expect(early.store.read(FLOW_PATH)!.state).toBe('submitted');
+    expect(early.store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', sentAt: 1500, confirmedAt: 2000 });
+  });
+
+  it('leaves a flow already submitted, and its guard, untouched', async () => {
+    // e.g. the candidate confirmed it after a handoff: the guard still says "sending".
+    const { store, effects, receive } = await ambiguousOrder({ flow: { state: 'submitted', round: 1 } });
+    expect((await receive('auto_acknowledgement')).submissionConfirmed).toBeUndefined();
+    expect(store.read(GUARD_PATH)!.r1).toEqual({ state: 'sending', channel: 'portal', startedAt: 500, clickedAt: 600 });
+    expect(store.read(FLOW_PATH)!.state).toBe('submitted');
+    expect(effects).toEqual([]);
+  });
+
+  it('keeps the message processed when the settlement fails, and settles on the employer’s next message', async () => {
+    const { store, effects, sendCascade, receive } = await ambiguousOrder();
+    let transactions = 0;
+    // The inbox claim goes through; the flow's transaction is aborted once.
+    const flaky = {
+      ...store.db,
+      runTransaction: async (callback: any) => {
+        transactions += 1;
+        if (transactions === 2) throw new Error('transaction aborted');
+        return store.db.runTransaction(callback);
+      },
+    };
+    expect(await receive('auto_acknowledgement', { db: flaky })).toEqual({ ok: true, category: 'auto_acknowledgement', forwarded: 'sent' });
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ state: 'sent', confirmedBy: 'acknowledgement', confirmedAt: 1000 });
+    expect(store.read(FLOW_PATH)!.state).toBe('owner_takeover');
+    expect(effects).toEqual([]);
+
+    expect((await receive('rejection', { nowMs: 2000 })).submissionConfirmed).toBe(true);
+    expect(store.read(FLOW_PATH)!.state).toBe('submitted');
+    expect(store.read(GUARD_PATH)!.r1).toMatchObject({ sentAt: 600, confirmedAt: 1000 });
+    expect(effects).toEqual([{ type: 'mark_submitted' }]);
+    expect(sendCascade).toHaveBeenCalledTimes(2);
   });
 });

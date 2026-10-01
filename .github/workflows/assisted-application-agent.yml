@@ -120,9 +120,9 @@ jobs:
           # A slow draft must finish (owner decision 2026-09-30): 30 min per call.
           broker_max_timeout_ms: '1800000'
 
-      # The portal runner drives Chromium (headless) for portals without an account.
+      # The portal runner drives Chromium; the draft reads a single-page form's
+      # questions ahead (career-ops apply.md: identify all questions first).
       - name: Install Chromium for the portal runner
-        if: inputs.mode == 'submit' || inputs.mode == 'dry_run'
         run: npx playwright install --with-deps chromium
 
       - name: Run agent
@@ -135,7 +135,16 @@ jobs:
           # The trial run printed MaxListenersExceededWarning on a PassThrough
           # with no stack: the trace names the library that adds the listeners.
           NODE_OPTIONS: --trace-warnings
-        run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+        # A real (headed) Chromium on a virtual screen: some ATS turn away a
+        # browser that calls itself HeadlessChrome, in its user agent and in its
+        # client hints. Nothing is disguised (owner decision 2026-10-01).
+        run: |
+          if command -v xvfb-run >/dev/null 2>&1; then
+            export ASSISTED_APPLICATION_HEADED=1
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+          else
+            node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+          fi
 
       - name: Cleanup Codex auth broker
         if: always()

@@ -116,6 +116,20 @@ describe('portal field extraction', () => {
     expect(zero.errors).toEqual(['Invalid email']);
   });
 
+  // career-ops counts the final answer: a limit stated in words or by a counter is a limit too.
+  it('reads a length limit the form states only in words or with a counter', () => {
+    const page = extract(`
+      <div><label for="a">Motivazione</label><div><textarea id="a" aria-describedby="a-help"></textarea><small id="a-help">Massimo 500 caratteri</small></div></div>
+      <div><label for="b">Anschreiben</label><div><textarea id="b" aria-describedby="b-count"></textarea><span id="b-count">0 / 1000</span></div></div>
+      <div><p>Schritt 1 / 12</p><label for="c">Bemerkungen</label><div><textarea id="c"></textarea></div></div>
+      <div><label for="d">Telefono</label><input id="d" maxlength="20"></div>`);
+    const limit = (id: string) => page.fields.find((field: any) => field.name === '' && field.label && field.id && document.querySelector(`[data-aa-id="${field.id}"]`)?.id === id)?.maxLength;
+    expect(limit('a')).toBe(500);
+    expect(limit('b')).toBe(1000);
+    expect(limit('c')).toBeNull();
+    expect(limit('d')).toBe(20);
+  });
+
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>

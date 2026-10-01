@@ -6,6 +6,8 @@
  *   candidate_review ──(candidate approves, or 12 h pass)──► submitting ──► submitted
  *   candidate_review ──(candidate rejects with feedback)──► regenerating ──► owner_review …
  *   after the 3rd rejection ──► owner_takeover (Valerie gets every feedback)
+ *   a submit of unknown outcome (submitting, or held for Valerie) ──(the
+ *     employer's acknowledgement or reply on the alias)──► submitted
  *
  * Red flags stop the clocks, they never skip a step:
  *   - owner flags (invented facts in the texts, a knock-out requirement the
@@ -78,6 +80,10 @@ export const FLOW_STATES = Object.freeze([
 export const TERMINAL_STATES = new Set(['submitted', 'owner_takeover', 'failed']);
 // What Valerie can do on an order that stopped (each event still checks the state it accepts).
 const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_submit', 'owner_handoff']);
+// ...and what settles one without her: the employer's e-mail proving a held submit arrived.
+const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
+// The submit_failed errors of a send that may have reached the employer (never retried).
+const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'email_ambiguous']);
 
 /**
  * @param {object} draft the AI draft (ai_drafts/current)
@@ -182,7 +188,7 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
   const next = { ...current };
   const flags = evaluateRedFlags(draft, answers);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
-  if (TERMINAL_STATES.has(state) && !OWNER_EXITS.has(event.type)) return ignore('terminal');
+  if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
   let effects = [];
   switch (event.type) {
@@ -368,6 +374,20 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
     case 'submit_succeeded':
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'submitted';
+      effects = [{ type: 'mark_submitted' }];
+      break;
+    case 'submit_acknowledged':
+      // career-ops apply.md: an application is sent on the success page OR
+      // the confirmation e-mail. The employer's acknowledgement (or reply) on
+      // the alias settles a send of unknown outcome, while the run is still
+      // out or once Valerie holds it; the caller checked the submission guard.
+      if (state !== 'submitting' && !(state === 'owner_takeover' && current.heldBy.some((held) => AMBIGUOUS_SUBMIT_HOLDS.has(held)))) {
+        return ignore('not_ambiguous_submit');
+      }
+      next.state = 'submitted';
+      next.deadlineAt = null;
+      next.reminderAt = null;
+      next.heldBy = [];
       effects = [{ type: 'mark_submitted' }];
       break;
     case 'submit_needs_candidate':

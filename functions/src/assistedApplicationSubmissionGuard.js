@@ -10,7 +10,9 @@
  *         → 'in_flight'     a previous run started a send whose outcome is
  *                           unknown: never re-sent (career-ops), the owner
  *                           takes over
- *   markSent  the send went through (before the evidence and the event)
+ *   markSent  the send went through (before the evidence and the event), or
+ *             the employer's e-mail later proved that an unconfirmed one did
+ *             (`confirmedBy: 'acknowledgement'`)
  *   release   the send failed for certain: a later run may try again
  */
 
@@ -22,10 +24,27 @@ export function submissionRefFor(db, orderId) {
   return db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId)).collection('automation').doc(SUBMISSION_DOC_ID);
 }
 
+/**
+ * The submission may have reached the employer, and nothing confirmed it: a
+ * portal after its final click, or an e-mail whose send started (it is left
+ * "sending" only when its outcome is unknown). Before the click nothing left.
+ */
+export function isUnconfirmedSubmission(record) {
+  return record?.state === 'sending' && (Boolean(record.clickedAt) || record.channel === 'email');
+}
+
+/** When an unconfirmed submission left: the final click, or the start of the e-mail send. */
+export function submissionLeftAt(record) {
+  return Number(record?.clickedAt || record?.startedAt) || 0;
+}
+
 export function submissionGuard(db, orderId, round) {
   const ref = submissionRefFor(db, orderId);
   const key = `r${Number(round) || 1}`;
   return {
+    async read() {
+      return (await ref.get()).data()?.[key] || null;
+    },
     /**
      * @param {{resumable?: boolean}} [options] a portal submission: a run that
      *   died BEFORE pressing submit (no clickedAt) left nothing at the

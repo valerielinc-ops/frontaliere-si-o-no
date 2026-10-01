@@ -16,7 +16,10 @@
  *      classification in `assisted_applications/{id}/inbox`;
  *   5. the message goes to the candidate at once — full text, attachments up to
  *      10 MB, our one-line summary on top, Reply-To set to the recruiter so the
- *      candidate answers them directly.
+ *      candidate answers them directly;
+ *   6. an acknowledgement or a reply of the employer settles a submission of
+ *      unknown outcome (career-ops: "sent" on the success page OR the
+ *      confirmation e-mail): see confirmSubmissionByEmployer.
  */
 
 import { randomUUID, timingSafeEqual } from 'node:crypto';
@@ -24,6 +27,7 @@ import { FieldValue } from 'firebase-admin/firestore';
 import { ASSISTED_APPLICATIONS_COLLECTION, PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
 import { sameSite } from './assistedApplicationPortalSites.js';
 import { orderIdForAlias } from './assistedApplicationAlias.js';
+import { confirmSubmissionByEmployer } from './assistedApplicationAutomation.js';
 import { assistedEmailTracking } from './assistedApplicationEmailEvents.js';
 import { brandCallout, brandParagraph, brandSignature, renderBrandedEmail } from './assistedApplicationEmailLayout.js';
 import { customerEmailFor, resolveOrderLocale } from './assistedApplicationNotifications.js';
@@ -34,6 +38,11 @@ export const INBOUND_CATEGORIES = [
   'interview_invite', 'rejection', 'documents_request', 'question', 'assessment',
   'auto_acknowledgement', 'verification', 'offer', 'other',
 ];
+// The employer has the application: an automatic acknowledgement, or a reply
+// about it. An account verification or an unrelated message proves nothing.
+const RECEIPT_CATEGORIES = new Set([
+  'auto_acknowledgement', 'interview_invite', 'rejection', 'documents_request', 'question', 'assessment', 'offer',
+]);
 const MAX_RAW_BYTES = 12 * 1024 * 1024;
 const MAX_FORWARD_ATTACHMENTS_BYTES = 10 * 1024 * 1024;
 const OWNER_MAILBOX = 'valerie@frontaliereticino.ch';
@@ -209,14 +218,29 @@ export async function claimedByPortalAccount(orderRef, classification, sender = 
 }
 
 /**
- * Step 2, Firestore trigger on `inbox/{id}` (retried on failure): claim,
- * decrypt, classify, forward to the candidate, record. The claim makes a
- * redelivered trigger a no-op; a failure puts the message back to `received`
- * so the retry processes it.
- *
- * @param {{db, bucket, orderId:string, messageId:string, runKey:string, classify:Function, sendCascade:Function, nowMs?:number}} deps
+ * Best effort, once the message is recorded: a failure leaves the submission
+ * with Valerie, as before, and never forwards the message twice (a retry of
+ * the trigger would). The employer's next message settles it again.
  */
-export async function processAssistedApplicationInbound({ db, bucket, orderId, messageId, runKey, classify, sendCascade, nowMs = Date.now() }) {
+async function settleSubmission(args) {
+  try {
+    return await confirmSubmissionByEmployer(args);
+  } catch (error) {
+    console.error('[assistedApplicationInbound] submission not confirmed', args.orderId, error instanceof Error ? error.message : String(error));
+    return null;
+  }
+}
+
+/**
+ * Step 2, Firestore trigger on `inbox/{id}` (retried on failure): claim,
+ * decrypt, classify, forward to the candidate, record, settle a submission of
+ * unknown outcome. The claim makes a redelivered trigger a no-op; a failure
+ * puts the message back to `received` so the retry processes it.
+ *
+ * @param {{db, bucket, orderId:string, messageId:string, runKey:string, classify:Function, sendCascade:Function, runEffect?:Function, nowMs?:number}} deps
+ *   runEffect: the automation's effects (assistedApplicationAutomationEffects.js), for the settlement
+ */
+export async function processAssistedApplicationInbound({ db, bucket, orderId, messageId, runKey, classify, sendCascade, runEffect = null, nowMs = Date.now() }) {
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
   const ref = orderRef.collection('inbox').doc(messageId);
   let claimed = null;
@@ -306,7 +330,15 @@ export async function processAssistedApplicationInbound({ db, bucket, orderId, m
       lastEmployerReplyAt: claimed.receivedAt,
       lastEmployerReplyCategory: classification.category,
     }, { merge: true });
-    return { ok: true, category: classification.category, forwarded: forwarded?.status || null };
+    const settled = runEffect && RECEIPT_CATEGORIES.has(classification.category)
+      ? await settleSubmission({ db, orderId, receivedAt: claimed.receivedAt, runEffect, nowMs })
+      : null;
+    return {
+      ok: true,
+      category: classification.category,
+      forwarded: forwarded?.status || null,
+      ...(settled?.ok ? { submissionConfirmed: true } : {}),
+    };
   } catch (error) {
     // Back to `received`: the trigger's retry processes it again.
     await ref.set({ status: 'received', lastError: (error instanceof Error ? error.message : String(error)).slice(0, 120) }, { merge: true });

@@ -10,6 +10,7 @@ import {
   textWidth,
   wrapText,
 } from '../functions/src/assistedApplicationAiDocuments.js';
+import { checkDraftFacts } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
 import {
   classifyApplicationChannel,
@@ -149,6 +150,46 @@ describe('fact gate', () => {
       'number:7',
       'number:30',
     ]);
+  });
+
+  describe('tools in the letter and the e-mail', () => {
+    const sources = {
+      text: 'Maria Rossi\nInfermiera, Ospedale Civico 2018 – 2023. Rianimazione BLS, sistema qualità ISO 9001. Tedesco B2.',
+      posting: 'Ospedale ABC SA cerca un/a infermiere/a. Requisiti: esperienza con SAP e PowerPoint, ACLS, norma ISO 13485. Luogo di lavoro: Bellinzona. Rif. INF-45',
+      order: ['Infermiere/a', 'Ospedale ABC SA', 'Maria Rossi', 'maria.rossi@example.com', '', 'Infermiere/a'].join('\n'),
+      answers: '',
+    };
+    const warnings = (texts: Record<string, string>, extra: Record<string, string> = {}) =>
+      checkDraftFacts(texts, { ...sources, ...extra }).unsupported.map((item: any) => `${item.field}:${item.kind}:${item.token}`);
+
+    it('flags a tool, a certificate or a standard that only the posting names', () => {
+      expect(warnings({
+        coverLetter: 'Ho esperienza con SAP e PowerPoint, il corso ACLS e la norma ISO 13485.',
+        emailBody: 'Conosco bene SAP.',
+      })).toEqual(['coverLetter:tool:SAP', 'coverLetter:tool:PowerPoint', 'coverLetter:tool:ACLS', 'coverLetter:tool:ISO 13485', 'emailBody:tool:SAP']);
+    });
+
+    it('never flags the company, the job title, the place, the reference or the CV’s own tools', () => {
+      expect(checkDraftFacts({
+        coverLetter: 'Gentile team HR dell’Ospedale ABC SA,\n\ncon la presente mi candido come Infermiere/a a Bellinzona (TI). '
+          + 'Dal 2018 al 2023 ho lavorato all’Ospedale Civico, con BLS, ISO-9001 e tedesco B2. In allegato il mio CV.\n\nCordiali saluti',
+        emailSubject: 'Candidatura per la posizione di Infermiere/a – Maria Rossi (Rif. INF-45)',
+        emailBody: 'Gentili Signori,\n\nin allegato la mia candidatura.\n\nMaria Rossi\nmaria.rossi@example.com',
+      }, sources)).toEqual({ ok: true, unsupported: [] });
+    });
+
+    it('takes the candidate’s own word for a tool, and checks tools only where they are a claim', () => {
+      expect(warnings({ coverLetter: 'Uso SAP ogni giorno.' }, { answers: 'Uso SAP da due anni' })).toEqual([]);
+      expect(warnings({ coverLetter: 'Uso SAP ogni giorno.' }, { candidate: 'Uso SAP ogni giorno.' })).toEqual([]);
+      // "Why this company" talks about the employer; an interview question may name the posting's tools.
+      expect(warnings({ whyCompany: 'Il vostro reparto lavora con SAP.', question: 'Come userebbe SAP?' })).toEqual([]);
+    });
+
+    it('reads the employer’s initials as its name, not as a tool', () => {
+      const eoc = { order: ['Infermiere/a', 'Ente Ospedaliero Cantonale', 'Maria Rossi'].join('\n'), posting: 'L’EOC cerca un/a infermiere/a.' };
+      expect(warnings({ coverLetter: 'Vorrei lavorare all’EOC.' }, eoc)).toEqual([]);
+      expect(warnings({ coverLetter: 'Vorrei lavorare all’EOC con SAP.' }, eoc)).toEqual(['coverLetter:tool:SAP']);
+    });
   });
 });
 

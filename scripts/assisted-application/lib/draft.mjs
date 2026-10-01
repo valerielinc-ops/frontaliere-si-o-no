@@ -54,6 +54,7 @@ import {
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
+import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
@@ -221,6 +222,24 @@ export async function buildDraft(ctx) {
     postingText,
     applicationEmail: requirements.applicationEmail,
   });
+  // The portal's own required questions, read ahead on a single-page form
+  // (career-ops apply.md): the candidate answers them on the first review,
+  // not in a second round at submit time. Questions already asked are kept.
+  const formAnswers = buildFormAnswers({ identity, profile, documents, answers });
+  if (ctx.readPortalQuestions && channel.applyUrl) {
+    const portal = await ctx.readPortalQuestions({
+      channelType: channel.type,
+      applyUrl: channel.applyUrl,
+      language,
+      candidateLocale: locale,
+      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } } }),
+      codex,
+      log,
+    });
+    const known = new Set(questions.map((question) => question.id));
+    questions.push(...portal.filter((question) => !known.has(question.id)));
+    log('portal pre-read', channel.type, `${portal.length} questions`);
+  }
 
   const pdf = buildCoverLetterPdf(letterPdfBlocks({
     identity, profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
@@ -272,7 +291,7 @@ export async function buildDraft(ctx) {
       subject: emailSubject,
       body: `${documents.emailBody}\n\n${signature}`.trim(),
     },
-    formAnswers: buildFormAnswers({ identity, profile, documents, answers }),
+    formAnswers,
     profile,
     factCheck: { ...factCheck, basis: cvMethod },
     factSources,

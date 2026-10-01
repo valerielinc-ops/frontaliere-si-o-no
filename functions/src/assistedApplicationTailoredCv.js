@@ -14,6 +14,8 @@
  *   - a competency or skill with no trace in the CV text is dropped ("NEVER
  *     add skills that the candidate does not have", the career-ops `gap`
  *     bucket never reaches the competency grid);
+ *   - a role whose rewritten bullets bring in a tool the CV does not name
+ *     keeps its own highlights;
  *   - the fact gate runs on everything Codex wrote, against the CV and the
  *     candidate's own answers only (not the posting: a "10 Jahre" of the
  *     posting must not become the candidate's); one unsupported token and
@@ -22,7 +24,7 @@
  * header/footer, selectable text (career-ops' ATS rules by construction).
  */
 
-import { buildFactIndex, checkGeneratedFacts } from './assistedApplicationAiFactCheck.js';
+import { buildFactIndex, checkGeneratedFacts, mentionsTool, toolTokens } from './assistedApplicationAiFactCheck.js';
 import { renderPdf } from './assistedApplicationAiDocuments.js';
 import { normalizeText } from './assistedApplicationAts.js';
 
@@ -96,17 +98,39 @@ const DEFAULT_TITLES = {
 
 const clean = (value, max) => String(value ?? '').replace(/\s+/g, ' ').trim().slice(0, max);
 
-/** A phrase is grounded when one of its words (≥ 4 letters, as a 5-letter stem) appears in the CV. */
+// Words of four letters or more that name no skill on their own (it/de/fr/en,
+// as normalizeText writes them: lowercase, no accents).
+const STOPWORDS = new Set(`
+agli alla alle allo anche buona buone come competenza competenze conoscenza conoscenze degli della delle dello esperienza
+negli nella nelle nello ottima ottime ottimo presso sugli sulla sulle sullo tramite
+auch durch eine einem einen einer eines erfahrung fundierte gute guten kenntnisse oder sehr sowie uber unter
+avec bonne bonnes competence competences connaissance connaissances dans experience pour sans sous
+from good into knowledge skills strong that with
+`.split(/\s+/).filter(Boolean));
+
+/**
+ * A phrase is grounded when every significant word of it (≥ 4 letters, not a
+ * stopword) appears in the CV as a 5-letter stem, and every tool-like token
+ * (SAP, ISO 9001, PowerPoint) as a whole word. One word in common was enough
+ * before: "Gestione progetti SAP" passed on a CV that only said "gestione". A
+ * phrase with nothing to compare ("C#") is dropped, as before.
+ */
 export function groundedInCv(phrase, normalizedCv) {
-  return normalizeText(phrase).split(' ')
-    .filter((word) => word.length >= 4)
-    .some((word) => normalizedCv.includes(word.slice(0, Math.min(word.length, 5))));
+  const words = normalizeText(phrase).split(' ')
+    .map((word) => word.replace(/^[./]+|[./]+$/g, ''))
+    // A word with a digit is the tool check's ("S/4HANA" against "S/4 HANA").
+    .filter((word) => (word.match(/[a-z]/g) || []).length >= 4 && !/\d/.test(word) && !STOPWORDS.has(word));
+  const tools = toolTokens(phrase);
+  return (words.length > 0 || tools.length > 0)
+    && words.every((word) => normalizedCv.includes(word.slice(0, 5)))
+    && tools.every(({ token }) => mentionsTool(normalizedCv, token));
 }
 
 /**
  * The model's payload bound to the profile: roles from the profile in their
  * order, the model's bullets where it gave them, the original highlights
- * otherwise; ungrounded competencies and skills dropped.
+ * otherwise or when a bullet names a tool the CV does not; ungrounded
+ * competencies and skills dropped.
  */
 export function sanitizeTailoredCv(raw, { profile, cvText, language }) {
   const cv = ` ${normalizeText(cvText)} ${normalizeText(JSON.stringify(profile || {}))} `;
@@ -133,11 +157,20 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language }) {
     headline: withoutWorkload(clean(raw?.headline, 120)) || clean(profile?.headline, 120),
     summary: clean(raw?.summary, 700),
     competencies: keep(raw?.competencies, 8),
-    experience: (profile?.experience || []).map((role, index) => ({
-      role: role.role, employer: role.employer, location: role.location, start: role.start, end: role.end,
-      bullets: bulletsByIndex.get(index)?.length ? bulletsByIndex.get(index) : (role.highlights || []).slice(0, 4),
-      rewritten: Boolean(bulletsByIndex.get(index)?.length),
-    })),
+    experience: (profile?.experience || []).map((role, index) => {
+      const bullets = bulletsByIndex.get(index) || [];
+      // One bullet that brings in a tool, a certificate or a standard the CV
+      // does not name ("PowerBI", "ISO 13485") and the role's rewrite is not
+      // trusted: its own highlights are printed instead.
+      const invented = bullets.filter((line) => toolTokens(line).some(({ token }) => !mentionsTool(cv, token)));
+      dropped.push(...invented);
+      const rewritten = bullets.length > 0 && invented.length === 0;
+      return {
+        role: role.role, employer: role.employer, location: role.location, start: role.start, end: role.end,
+        bullets: rewritten ? bullets : (role.highlights || []).slice(0, 4),
+        rewritten,
+      };
+    }),
     skills: keep(raw?.skills, 16),
     titles,
     dropped,

@@ -2409,6 +2409,8 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
       classify: (request) => codexStructured(request),
       sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      // An acknowledgement or a reply settles a submission of unknown outcome.
+      runEffect: (context) => runAutomationEffect(context),
     });
     if (!result.skipped) console.log('[processAssistedApplicationInboundMessage]', result.category, result.forwarded);
   },

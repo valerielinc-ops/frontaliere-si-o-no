@@ -151,6 +151,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       legitimacy: draft.legitimacy || null,
       tailoredCv: draft.tailoredCv ? { status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl } : null,
       cvChoice: flow?.cvChoice || 'tailored',
+      // What the portal already received, for Valerie when she finishes by hand.
+      portalAnswers: draft.portalAnswers || null,
     } : null,
   };
 }

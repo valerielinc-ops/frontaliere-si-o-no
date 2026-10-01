@@ -194,6 +194,9 @@ export async function submitApplication(ctx) {
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
+        // The form must be this posting's; Valerie's retry, after she looked at it, goes on.
+        job: { title: draft.job?.title || order.jobTitle || '', company: order.companyName || '' },
+        skipPostingCheck: flow?.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
         candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions }),
@@ -214,7 +217,10 @@ export async function submitApplication(ctx) {
         else if (!clicked && !(event.type === 'submit_failed' && event.error === 'portal_ambiguous')) await guard.release(event.error || event.reason || event.type);
       }
       await storeEvidence({ bucket, orderId, name: `submit-portal-${event.type}`, payload: { applyUrl, event, evidence, cvSent }, key: runKey, nowMs });
-      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type } : event;
+      // What went into the form, for the interview prep and for Valerie: agent.mjs
+      // stores it with the draft, it never reaches the automation event.
+      const portalAnswers = { status: event.type, at: nowMs, answers: evidence.answers || [] };
+      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type, portalAnswers } : { ...event, portalAnswers };
     } catch (error) {
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.
