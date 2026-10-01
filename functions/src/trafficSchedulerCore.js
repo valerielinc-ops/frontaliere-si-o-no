@@ -406,7 +406,7 @@ async function getSegmentWithProviderFallback(originLat, originLng, destLat, des
     options.providerRuntime?.disabled?.add(providerId);
    }
    console.warn(
-    `⚠️ ${providerId} failed for one traffic segment (${transient ? `${kind}/transient` : kind}) — rotating fallback`,
+    `⚠️ ${providerId} failed for one traffic segment (${transient ? `${kind}/transient` : kind}) — rotating fallback: ${error?.message ?? error}`,
    );
   }
  }
@@ -806,7 +806,11 @@ async function runTrafficCollectionWithProviderMesh(options, providerChain) {
    // Same rule as the per-segment rotation: a transient reservation refusal
    // must not cost the provider the whole run before it has served anything.
    if (!isTransientProviderRefusal(error)) runtime.disabled.add(providerId);
-   console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider`);
+   // The class alone hid WHY a provider left the run: on 2026-09-30 (run
+   // 36768407121) google-routes logged only `(auth)` while google-maps, on the
+   // same key, said "legacy API … not enabled for your project". The adapter
+   // message is bounded (status + a short body slice) and carries no key.
+   console.warn(`🛑 ${providerId} preflight failed (${classifyProviderError(error)}) — rotating provider: ${error?.message ?? error}`);
   }
  }
 

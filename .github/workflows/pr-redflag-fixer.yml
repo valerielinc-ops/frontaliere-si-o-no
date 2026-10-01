@@ -1231,6 +1231,20 @@ jobs:
         # dell'App token/PAT.
         run: |
           git config --unset-all "http.https://github.com/.extraheader" || true
+          # actions/checkout v6+ (qui v7, da fe85af95) non scrive più l'header in
+          # .git/config ma in $RUNNER_TEMP/git-credentials-<uuid>.config, incluso via
+          # `includeIf.gitdir:…`: l'unset sopra non lo vede e il push resterebbe
+          # github-actions[bot]. Si staccano le include che puntano a quel file, come
+          # fa il post-step di checkout. Stessa logica di
+          # scripts/lib/clear-checkout-git-credentials.sh, qui inline perché questo
+          # albero è la head della PR, non codice fidato da eseguire col token.
+          while IFS= read -r inc_key; do
+            while IFS= read -r inc_path; do
+              if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
+                git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
+              fi
+            done < <(git config --local --get-all "$inc_key")
+          done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
           git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
 
       # SHA di partenza (post-merge origin/main, pre-Codex): il classify finale lo

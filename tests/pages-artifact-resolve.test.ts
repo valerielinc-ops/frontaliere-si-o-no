@@ -388,8 +388,10 @@ describe('github-pages artifact resolve has exactly one implementation', () => {
     expect(matrix.slice(rootCheckout, toolingCheckout)).not.toMatch(/\bgit\s/);
     expect(freeDisk).toBeGreaterThan(toolingCheckout);
     expect(freeDisk).toBeLessThan(fetch);
-    expect(matrix.slice(freeDisk, fetch)).toContain('df -h /');
-    expect(matrix.slice(freeDisk, fetch)).toContain('sudo rm -rf');
+    // The cleanup list is the shared one (scripts/ci/free-runner-disk.sh,
+    // which prints `df -h /` and `df -i /` itself), run from the `tooling`
+    // checkout like grow-build-swap.sh — still between checkout and fetch.
+    expect(matrix.slice(freeDisk, fetch)).toContain('bash tooling/scripts/ci/free-runner-disk.sh');
     expect(matrix).toMatch(/expected-sha: \$\{\{ github\.event\.inputs\.sha \}\}/);
     expect(actionSource).toContain('head-sha');
     expect(actionSource).toContain('INPUT_EXPECTED_SHA');
