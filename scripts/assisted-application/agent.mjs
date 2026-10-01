@@ -13,7 +13,7 @@
  * states and codes only: this repository is public.
  */
 
-import { appendFileSync } from 'node:fs';
+import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
@@ -21,6 +21,8 @@ import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
 import { portalAccountStore } from './lib/portal/account.mjs';
+import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
+import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
 import { readPortalQuestions } from './lib/portal/portal.mjs';
 import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
@@ -143,6 +145,8 @@ async function main() {
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
       // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
       accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
+      // What each portal taught earlier confirmed submissions (self-correction, level 2).
+      knowledge: portalKnowledgeStore({ db }),
     });
     // An application sent by e-mail gets its follow-ups (day 7 and 14); the
     // recipient and subject stay in Firestore, not in the automation event.
@@ -155,6 +159,21 @@ async function main() {
     if (event.portalAnswers) {
       if (!dryRun && event.portalAnswers.answers.length) await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
       delete event.portalAnswers;
+    }
+    // Where the runner stopped (self-correction, level 3): stripped of every
+    // value of the candidate, for the workflow's fix-issue step; never in the event.
+    if (event.stopReport) {
+      const file = process.env.ASSISTED_APPLICATION_STOP_REPORT;
+      if (file) {
+        const values = candidateValues([
+          personalValuesOf(order, previousDraft?.profile || {}),
+          Object.values(flow.answers || {}),
+          Object.values(flow.formOverrides || {}),
+          order.candidateAlias?.address || '',
+        ]);
+        writeFileSync(file, JSON.stringify(redactStopReport(event.stopReport, values)));
+      }
+      delete event.stopReport;
     }
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.

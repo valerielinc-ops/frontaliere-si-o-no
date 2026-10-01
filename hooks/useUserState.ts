@@ -15,8 +15,7 @@ import { claimOneTapPrompt } from '@/services/oneTapPromptGate';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import type { ContactPrefill } from '@/components/pages/ContactPage';
 import type { SimulationInputs } from '@/types';
-
-const ADMIN_EMAIL_WHITELIST = ['valerielinc@gmail.com'];
+import { isSiteAdminUid } from '@/services/adminIdentity';
 
 import { Analytics } from '@/services/analyticsProxy';
 
@@ -46,7 +45,7 @@ export function useUserState(
  const [contactPrefill, setContactPrefill] = useState<ContactPrefill | null>(null);
 
  const authEmail = authUser ? getAuthEmail(authUser) : null;
- const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
+ const isPrivilegedAdmin = isSiteAdminUid(authUser?.uid);
 
  // Load user profile for prefilling simulator inputs (deferred to idle)
  // Skipped when URL params already hydrated the inputs

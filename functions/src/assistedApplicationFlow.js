@@ -83,7 +83,8 @@ const OWNER_EXITS = new Set(['owner_resume', 'owner_regenerate', 'owner_retry_su
 // ...and what settles one without her: the employer's e-mail proving a held submit arrived.
 const STOPPED_EXITS = new Set([...OWNER_EXITS, 'submit_acknowledged']);
 // The submit_failed errors of a send that may have reached the employer (never retried).
-const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'email_ambiguous']);
+// portal_antibot_ambiguous: the same unknown outcome, on a portal with an invisible reCAPTCHA.
+const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambiguous', 'email_ambiguous']);
 
 /**
  * @param {object} draft the AI draft (ai_drafts/current)

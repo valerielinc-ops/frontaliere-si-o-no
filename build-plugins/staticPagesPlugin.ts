@@ -20,7 +20,8 @@ import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySection
 import { jobBoardHeadTags } from './jobBoardGpt';
 import { renderAuthoritativeSourcesHtml } from './shared/authoritativeSources';
 import { AD_SLOTS, resolveSlotPlaceholderMinHeight } from '../services/adsenseSlots';
-import { DATA_CONTROLLER_NAME, DATA_CONTROLLER_EMAIL } from '../functions/src/lib/dataControllerIdentity.js';
+import { DATA_CONTROLLER_NAME } from '../functions/src/lib/dataControllerIdentity.js';
+import { PUBLIC_CONTACT_EMAIL } from '../services/publicContact';
 // Single producer for the hub `ssg-article-grid` (issue #4974 item 4): nanako's
 // fast-publish refreshes the same grid on every article it publishes, so the
 // two emitters cannot drift. Extension is explicit for the same reason
@@ -105,9 +106,17 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { CITY_HUB_KEYS, CITY_HUB_DISPLAY_NAME, buildCityHubPath } from './cityJobsHub';
 
 // ── SPA shell <title> handling ────────────────────────────────────────
-// Universal rule: headline VERBATIM, brand suffix appended only when total
-// stays within TITLE_MAX_CHARS (66). See build-plugins/shared/titleSuffix.ts.
-import { buildTitleWithBrand, clampMetaDescription } from './shared/titleSuffix';
+// Universal rule: keep the source headline in page content; the SERP title is
+// capped at TITLE_MAX_CHARS (66) when a static metadata path needs it. See
+// build-plugins/shared/titleSuffix.ts.
+import {
+  buildTitleWithBrand,
+  clampMetaDescription,
+  stableTitleToken,
+  TITLE_BRAND_SUFFIX,
+  TITLE_MAX_CHARS,
+  truncateHeadlineToMeasuredBudget,
+} from './shared/titleSuffix';
 // Border-crossing <title> cascade + its slug→label transform. Leaf module so
 // the #4828 regression suite can assert the 66-char cap over every id in
 // ALL_BORDER_CROSSING_IDS without importing this plugin's data graph.
@@ -129,10 +138,22 @@ import {
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
-function capTitle70(s: string): string {
+export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
- return buildTitleWithBrand(headline);
+ const escapedLength = (value: string): number => esc(value).length;
+ // Keep the full source headline in the page H1/body, but cap only the SERP
+ // title. Static SEO pages historically bypassed the shared shell's title
+ // normaliser, so a few dynamic headlines could still ship over 66 chars.
+ const branded = buildTitleWithBrand(headline, TITLE_BRAND_SUFFIX, TITLE_MAX_CHARS, escapedLength);
+ if (escapedLength(branded) <= TITLE_MAX_CHARS) return branded;
+ const token = routeKey ? ` · ${stableTitleToken(routeKey)}` : '';
+ const cappedHeadline = truncateHeadlineToMeasuredBudget(
+   headline,
+   TITLE_MAX_CHARS,
+   (candidate) => escapedLength(`${candidate}${token}`),
+ );
+ return `${cappedHeadline}${token}`;
 }
 
 // ── FAQ page dedicated pre-rendering ──────────────────────────────────
@@ -4770,7 +4791,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
  `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
  `<h2 class="s-o3IET6">Titolare del trattamento e diritti dell'utente</h2>`,
- `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${DATA_CONTROLLER_EMAIL}">${DATA_CONTROLLER_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/privacy-policy/">informativa privacy completa</a>.</p>`,
+ `<p>Il titolare del trattamento (data controller ai sensi del GDPR e della LPD svizzera) è <strong>${DATA_CONTROLLER_NAME}</strong>. Per esercitare i diritti di accesso, rettifica, cancellazione e portabilità dei dati, o per qualsiasi richiesta relativa al trattamento, è possibile scrivere a <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. Per maggiori dettagli consultare l'<a href="/privacy-policy/">informativa privacy completa</a>.</p>`,
  `<h2 class="s-o3IET6">Base giuridica, conservazione e subresponsabili</h2>`,
  `<p>Il trattamento si fonda sul consenso dell'utente (art. 6 GDPR, art. 6 nLPD) per l'iscrizione a newsletter e allerte lavoro e per i cookie non essenziali, sull'esecuzione del servizio richiesto per la gestione delle allerte stesse, e sul legittimo interesse per la sicurezza della piattaforma e le statistiche aggregate. I dati di iscrizione a newsletter e allerte lavoro sono conservati fino alla revoca del consenso o alla cancellazione dell'iscrizione; le candidature inviate tramite la bacheca lavoro sono conservate 90 giorni e poi cancellate automaticamente; i dati inseriti nei calcolatori non lasciano mai il browser dell'utente. Il trattamento coinvolge alcuni subresponsabili esterni — tra cui Google (Analytics, Firebase, AdSense), Partnerize (attribuzione dei link ai partner affiliati), i fornitori di invio e-mail e i servizi elencati nell'informativa completa — ciascuno vincolato dalla propria informativa privacy.</p>`,
  );
@@ -4815,7 +4836,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  `<h2 class="s-o3IET6">Cookies and Tracking Technologies</h2>`,
  `The platform uses first-party cookies for essential functionality (language preference, consent state) and Google Analytics 4 for anonymised traffic analysis. No advertising or remarketing cookies are used. Users can opt out of analytics tracking via the cookie consent banner displayed on first visit. Consent preferences are stored locally and can be updated at any time from the footer settings link.`,
  `<h2 class="s-o3IET6">Your Rights Under GDPR and FADP</h2>`,
- `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${DATA_CONTROLLER_EMAIL}">${DATA_CONTROLLER_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
+ `<p>The data controller for Frontaliere Ticino is <strong>${DATA_CONTROLLER_NAME}</strong>. Under GDPR and Swiss FADP, you have the right to access, rectify, delete, and port your personal information. You may also object to processing or request restriction of processing. To exercise any of these rights, contact us at <a href="mailto:${PUBLIC_CONTACT_EMAIL}">${PUBLIC_CONTACT_EMAIL}</a>. We respond to all requests within 30 days as required by law. For more information about our team and mission, visit our <a href="/about/">about page</a> or <a href="/contact/">contact page</a>.</p>`,
  `<h2 class="s-o3IET6">Legal Basis for Processing</h2>`,
  `We only process personal data when a valid legal basis applies under GDPR Art. 6 and Swiss FADP Art. 6: <strong>consent</strong> for newsletter/job-alert sign-up and for non-essential (analytics and advertising) cookies, which can be withdrawn at any time without affecting the lawfulness of processing carried out before withdrawal; <strong>performance of the requested service</strong> for managing the alerts and account features you sign up for; and <strong>legitimate interest</strong> for platform security, abuse prevention, and aggregate usage statistics, always balanced against your rights.`,
  `<h2 class="s-o3IET6">Data Retention</h2>`,
@@ -5379,14 +5400,14 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
@@ -5523,14 +5544,14 @@ ${hubChromeSplit.bodyHtml}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">
@@ -5564,14 +5585,14 @@ ${hrefTags}
  <head>
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title))}</title>
- <meta name="description" content="${esc(clampMetaDescription(seoData.desc))}">
+ ${CDN_PRECONNECT_HINT ? `${CDN_PRECONNECT_HINT}\n ` : ''}<title>${esc(capTitle70(seoData.title, canonicalPath))}</title>
+ <meta name="description" content="${esc(clampMetaDescription(seoData.desc, undefined, locale))}">
  <meta name="robots" content="${NOINDEX_CANONICAL_PATHS.has(canonicalPath) ? 'noindex, nofollow' : ROBOTS_INDEX_ENHANCED_CONTENT}">
  <link rel="canonical" href="${fullUrl}">
  <meta property="og:type" content="website">
  <meta property="og:url" content="${fullUrl}">
  <meta property="og:title" content="${esc(seoData.ogT)}">
- <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(seoData.ogD, undefined, locale))}">
  <meta property="og:image" content="${ogImageUrl}">
  <meta property="og:image:width" content="${ogImageW}">
  <meta property="og:image:height" content="${ogImageH}">

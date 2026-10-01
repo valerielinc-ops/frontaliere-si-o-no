@@ -158,11 +158,23 @@
     "sector": "Industria / Automazione edifici",
     "expiredAt": "2026-09-30T21:14:10.809Z",
     "previousSlugs": [
-      "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
+      "head-of-district-energy-metering-emea-100-belimo-hinwil-2",
+      "head-of-district-energy-metering-emea-100-belimo-hinwil-y72rob",
+      "leiter-district-energy-metering-emea-100-belimo-hinwil",
+      "responsable-district-energy-metering-emea-100-belimo-hinwil"
     ],
     "previousSlugsByLocale": {
       "it": [
         "head-of-district-energy-metering-emea-100-belimo-hinwil-2"
+      ],
+      "en": [
+        "head-of-district-energy-metering-emea-100-belimo-hinwil-y72rob"
+      ],
+      "de": [
+        "leiter-district-energy-metering-emea-100-belimo-hinwil"
+      ],
+      "fr": [
+        "responsable-district-energy-metering-emea-100-belimo-hinwil"
       ]
     },
     "postalCode": "8340",
@@ -172,7 +184,19 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-district-energy-&-metering-%28emea%29-%28100%29-z%c3%bcri-8340/1163687855",
-    "firstSeenAt": "2026-08-14T21:34:42.685Z"
+    "firstSeenAt": "2026-08-14T21:34:42.073Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-district-energy-&-metering-%28emea%29-%28100%29-z%c3%bcri-8340/1163687855",
+        "firstSeenAt": "2026-08-14T21:34:42.073Z",
+        "title": "Head of District Energy & Metering (EMEA) (100%)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-district-energy-&-metering-%28emea%29-%28100%29-zuri-8340/1163687755",
+        "firstSeenAt": "2026-08-14T21:34:42.073Z",
+        "title": "Head of District Energy & Metering (EMEA) (100%)"
+      }
+    ]
   },
   {
     "slug": "responsabile-del-programma-di-conformita-80-100-belimo-hinwil",
@@ -308,7 +332,30 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-project-enabler-&-business-analyst-%2880-100%29-zuri-8340/1165370955",
-    "firstSeenAt": "2026-09-25T14:39:06.864Z"
+    "firstSeenAt": "2026-09-25T14:39:06.864Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-project-enabler-&-business-analyst-%2880-100%29-zuri-8340/1165370955",
+        "firstSeenAt": "2026-09-25T14:39:06.864Z",
+        "title": "Project Enabler & Business Analyst (80-100%)"
+      },
+      {
+        "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-project-management-officer-&-business-analyst-%2880-100%29-zuri-8340/1165370955",
+        "firstSeenAt": "2026-09-01T14:09:19.286Z",
+        "title": "Project Management Officer & Business Analyst (80-100%)"
+      }
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "project-management-officer-business-analyst-80-100-belimo-hinwil"
+      ],
+      "fr": [
+        "project-management-officer-business-analyst-80-100-belimo-hinwil"
+      ]
+    },
+    "previousSlugs": [
+      "project-management-officer-business-analyst-80-100-belimo-hinwil"
+    ]
   },
   {
     "slug": "systems-architetto-80-100-belimo-hinwil",
@@ -358,7 +405,7 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-systems-architect-%2880-100%29-zuri-8340/1165377055",
-    "firstSeenAt": "2026-09-02T23:06:05.517Z",
+    "firstSeenAt": "2026-07-12T22:18:17.598Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-systems-architect-%2880-100%29-zuri-8340/1164583155",
@@ -367,7 +414,7 @@
       },
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-systems-architect-%2880-100%29-zuri-8340/1165377055",
-        "firstSeenAt": "2026-09-02T23:06:05.517Z",
+        "firstSeenAt": "2026-07-12T22:18:17.598Z",
         "title": "Systems Architect (80-100%)"
       }
     ]
@@ -402,6 +449,58 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-trusted-firmware-verification-engineer-%2880-100%29-zuri-8340/1165337955",
     "firstSeenAt": "2026-08-26T09:54:16.624Z"
+  },
+  {
+    "slug": "apprendistato-come-efz-polimeccanico-belimo-hinwil",
+    "title": "Lehrstelle als Polymechaniker:in EFZ",
+    "titleByLocale": {
+      "it": "Apprendistato come EFZ polimeccanico",
+      "en": "Apprenticeship as polymechanic EFZ",
+      "de": "Lehrstelle als Polymechaniker:in EFZ",
+      "fr": "Apprentissage en tant que polymécanique: en EFZ"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "it": "Inizio dell'insegnamento 2027\n\nPolimeccanica: con la loro comprensione tecnica e l'alto livello di competenza, le donne sono professionisti della domanda nell'industria e nell'ingegneria. Dopo l'insegnamento, ci sono molte opportunità per lo sviluppo e l'ulteriore istruzione.\n\nCosa farai\n\n• Fabbricazione di singole parti, strumenti e dispositivi per la ricerca e lo sviluppo\n\n• Montaggio di attrezzature, macchinari o attrezzature\n\n• Lavori di regolazione, regolazione e test\n\n• Lavoro contrattuale e di progetto\n\n• Preparazione dei documenti tecnici\n\n• Costruzione di prototipi, test di conduzione\n\nChi sei\n\n• Livello di scuola secondaria A\n\n• Ottimi voti in matematica, fisica e geometria\n\n• Buona immaginazione, riconoscere le connessioni\n\n• Endurance e concentrazione\n\n• Competenze tecniche\n\n• Lavoro di squadra\n\nChi siamo\n\nA Belimo, siamo orgogliosi di rendere la nostra azienda un luogo gratificante per lavorare. I nostri leader sono orientati al valore e promuovono nuove idee nelle loro squadre in tutto il mondo. Attraverso la nostra passione, i nostri dipendenti non solo creano prodotti sorprendenti, ma anche rivoluzionano l'industria HVAC. Investire nei nostri dipendenti è al centro di Belimo quando si tratta di coinvolgere diversi talenti creativi per costruire una società leader del settore. Il successo del nostro marchio aziendale si basa sulla competenza e l'impegno di ogni individuo.",
+      "en": "Start of teaching 2027\n\nPolymechanics: with their technical understanding and high level of expertise, women are in demand professionals in industry and engineering. After teaching, there are many opportunities for development and further education.\n\nWhat will you do\n\n• Manufacture of individual parts, tools and devices for research and development\n\n• Assembly of equipment, machinery or equipment\n\n• Adjustment, regulation and testing work\n\n• Contract and project work\n\n• Preparation of technical documents\n\n• Construction of prototypes, conducting tests\n\nWho you are\n\n• Secondary School Level A\n\n• Very good grades in mathematics, physics and geometry\n\n• Good imagination, recognizing connections\n\n• Endurance and concentration\n\n• Technical understanding\n\n• Teamwork\n\nWho we are\n\nAt Belimo, we are proud to make our company a rewarding place to work. Our leaders are value-driven and promote new ideas in their teams around the world. Through our passion, our employees not only create amazing products, but also revolutionize the HVAC industry. Investing in our employees is at the heart of Belimo when it comes to engaging diverse creative talents to build an industry-leading company. The success of our corporate brand is based on the competence and commitment of each individual.",
+      "de": "Einführung\n\nPolymechaniker:innen sind mit ihrem technischen Verständnis und hohen Fachwissen gefragte Berufsleute in der Industrie und im Ingenieurswesen. Es bieten sich nach der Lehre vielfältige Entfaltungs- und Weiterbildungsmöglichkeiten.\n\nHauptverantwortlichkeiten\n\n• Fertigung von Einzelteilen, Werkzeugen und Vorrichtungen für die Forschung und Entwicklung\n\n• Montage von Geräten, Maschinen oder Anlagen\n\n• Einstell-, Regulier- und Prüfarbeiten\n\n• Auftrags- und Projektarbeiten\n\n• Erstellung technischer Dokumente\n\n• Bau von Prototypen, Versuche durchführen\n\nErforderliche Fachkenntnisse\n\n• Sekundarschule Stufe A\n\n• Sehr gute Noten in den Fächern Mathematik, Physik und Geometrie\n\n• Gutes Vorstellungsvermögen, Zusammenhänge erkennen\n\n• Ausdauer und Konzentrationsfähigkeit\n\n• Technischer Verständnis\n\n• Teamfähigkeit\n\nMenschen bei Belimo\n\nIntelligente Gebäude entstehen durch engagierte Menschen. Wir bringen talentierte Menschen zusammen und schaffen ein Umfeld, in dem sie erfolgreich sein können. Bei Belimo tragen Respekt, Vertrauen und gegenseitige Unterstützung über Abteilungsgrenzen hinweg dazu bei, dass aus Ideen rasch praktische Lösungen werden. Denn gemeinsam erreichen wir mehr, als wir alleine je erreichen könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in Entwicklung, Herstellung und Vertrieb von Feldgeräten zur energieeffizienten Regelung von Heizungs-, Lüftungs- und Klimaanlagen. Klappenantriebe, Regelventile, Sensoren und Zähler bilden dabei unser Kerngeschäft. Das 1975 gegründete Unternehmen ist seit 1995 an der Schweizer Börse (SIX) kotiert.\n\nVergütung und Zusatzleistungen\n\nWir bei Belimo glauben an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten ein Gehalt, das deinen Fähigkeiten, deiner Erfahrung, deiner Ausbildung und deinem Einsatzort entspricht. Neben der Vergütung profitierst du von umfassenden Zusatzleistungen, die dein mentales, körperliches, finanzielles und soziales Wohlbefinden unterstützen. Belimo ist stolz darauf, eine Arbeitgeberin zu sein, die Chancengleichheit fördert.",
+      "fr": "Début de l'enseignement 2027\n\nPolymécanique : avec leur compréhension technique et un haut niveau d'expertise, les femmes sont en demande des professionnels de l'industrie et de l'ingénierie. Après l'enseignement, il existe de nombreuses possibilités de développement et d'éducation.\n\nQue ferez-vous?\n\n• Fabrication de pièces, d'outils et de dispositifs individuels pour la recherche et le développement\n\n• Assemblage d'équipements, de machines ou d'équipements\n\n• Travaux d ' ajustement, de régulation et d ' essai\n\n• Travaux contractuels et projets\n\n• Préparation des documents techniques\n\n• Construction de prototypes, réalisation d ' essais\n\nQui vous êtes\n\n• Niveau A de l ' enseignement secondaire\n\n• Très bonnes notes en mathématiques, physique et géométrie\n\n• Bonne imagination, reconnaissance des liens\n\n• Endurance et concentration\n\n• Compréhension technique\n\n• Travail d'équipe\n\nQui nous sommes\n\nChez Belimo, nous sommes fiers de faire de notre entreprise un lieu de travail enrichissant. Nos dirigeants sont motivés par la valeur et font la promotion de nouvelles idées dans leurs équipes à travers le monde. Par notre passion, nos employés non seulement créent des produits étonnants, mais révolutionnent également l'industrie du CVC. Investir dans nos employés est au cœur de Belimo quand il s'agit de mobiliser divers talents créatifs pour construire une entreprise leader dans l'industrie. Le succès de notre marque est basé sur la compétence et l'engagement de chaque individu."
+    },
+    "slugByLocale": {
+      "it": "apprendistato-come-efz-polimeccanico-belimo-hinwil",
+      "en": "apprenticeship-as-a-polymechanic-in-efz-belimo-hinwil",
+      "de": "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+      "fr": "apprentissage-en-tant-que-polymecanique-en-efz-belimo-hinwil"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-26T23:30:39.295Z",
+    "previousSlugs": [
+      "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+      "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil",
+        "apprendistato-come-polymechaniker-in-cfc-belimo-hinwil"
+      ],
+      "en": [
+        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+      ],
+      "fr": [
+        "lehrstelle-als-polymechaniker-in-efz-belimo-hinwil"
+      ]
+    },
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-lehrstelle-als-polymechanikerin-efz-z%c3%bcri-8340/1165049655",
+    "firstSeenAt": "2026-07-31T22:31:20.400Z"
   },
   {
     "slug": "meccanica-di-approvvigionamento-teamleader-soluzioni-di-plastica-100-belimo-hinwil",
@@ -463,11 +562,11 @@
     "salaryCurrency": "CHF",
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-teamleader-procurement-mechanics-plastic-solutions-%28100%29-z%c3%bcri-8340/1165465855",
-    "firstSeenAt": "2026-09-19T22:49:58.725Z",
+    "firstSeenAt": "2026-07-12T22:18:01.260Z",
     "sourceIdentityHistory": [
       {
         "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-teamleader-procurement-mechanics-plastic-solutions-%28100%29-z%c3%bcri-8340/1165465855",
-        "firstSeenAt": "2026-09-19T22:49:58.725Z",
+        "firstSeenAt": "2026-07-12T22:18:01.260Z",
         "title": "Teamleader Procurement Mechanics - Plastic Solutions (100%)"
       },
       {
@@ -476,6 +575,42 @@
         "title": "Teamleader Procurement Mechanics - Plastic Solutions (100%)"
       }
     ]
+  },
+  {
+    "slug": "head-of-group-treasury-belimo-hinwil",
+    "title": "Head of Group Treasury",
+    "titleByLocale": {
+      "en": "Head of Group Treasury",
+      "it": "Responsabile Group Treasury",
+      "de": "Leiter Group Treasury",
+      "fr": "Responsable Group Treasury"
+    },
+    "company": "Belimo",
+    "companyKey": "belimo",
+    "location": "Hinwil",
+    "addressLocality": "Hinwil",
+    "descriptionByLocale": {
+      "en": "Introduction\n\nAs Head of Group Treasury , you will shape and further develop Belimo’s global Treasury function at an important stage of its growth. You will take ownership of liquidity planning, cash management, financing, banking relationships, and financial risk management across the Group. This is a hands-on leadership role for a treasury professional who combines strong technical expertise with the ability to understand complex cash flows, build trusted internal relationships, and establish structures that create resilience for Belimo worldwide.\n\nKey Responsibilities\n\n• Lead and continuously develop the Group Treasury function in alignment with BELIMO’s values and leadership principles.\n\n• Establish reliable global liquidity planning and create transparency across the Group’s cash flows.\n\n• Further develop cash management, cash pooling, and intercompany financing structures across key markets and currencies.\n\n• Define and implement treasury policies, governance frameworks, standards, and internal controls.\n\n• Lead financing activities and manage relationships with banks, investors, rating agencies, and other financing partners.\n\n• Define and oversee hedging strategies for foreign exchange, interest rate, and other treasury-related risks.\n\n• Drive treasury digitalization, automation, process improvements, and high-quality treasury reporting.\n\n• Advise Executive Management and Group Finance on strategic initiatives, including M&A, investments, and financing projects.\n\nRequired Expertise\n\n• You hold a university degree in Finance, Economics, Business Administration, or a related discipline. A professional treasury qualification and/or MBA is an advantage.\n\n• You bring substantial, relevant experience in corporate treasury, ideally gained in a multinational organization with complex international cash flows and group structures.\n\n• You have practical expertise in liquidity planning, cash management, cash pooling, intercompany financing, and financial risk management.\n\n• You have experience managing complex stakeholder relationships across an international organization, including finance teams, business leaders, subsidiaries, external partners, and financial institutions.\n\n• You are familiar with Treasury Management Systems, banking platforms, treasury digitalization, and the treasury-related implications of IFRS.\n\n• You communicate confidently in English, both verbally and in writing. German is a strong plus and will help you build meaningful connections across Belimo.\n\n• You are reliable, accountable, and pragmatic, with strong analytical skills and the confidence to make well-founded decisions.\n\n• You are a credible and collaborative leader who builds trust, communicates complex topics clearly, and enjoys developing both people and structures.\n\nPeople at Belimo\n\nSmart buildings start with dedicated people. We bring talented people together and foster an environment to succeed. At Belimo, respect, trust, and support across departments help ideas move quickly into real-world solutions, because we achieve more together than we ever could alone.\n\nAbout Belimo\n\nBelimo is the global market leader in the development, production, and sales of field devices for the energy-efficient control of heating, ventilation and air-conditioning systems. The focus of our core business is on damper actuators, control valves, sensors and meters. Founded in 1975, the company has been listed on the Swiss Exchange (SIX) since 1995.\n\nCompensation & Benefits\n\nAt Belimo, we believe in fair, equitable, and competitive compensation. We offer pay that reflects your skills, experience, education, and location. Beyond compensation, you'll benefit from a comprehensive rewards package designed to support your health, financial wellbeing, and long-term success. Belimo is proud to be an Equal Opportunity Employer.\n\nReady for your next step? We look forward to hearing from you.",
+      "it": "Introduzione\n\nCome Capo del Tesoro del Gruppo, si forma e svilupperà ulteriormente la funzione del Tesoro globale di Belimo in una fase importante della sua crescita. Prenderai la proprietà della pianificazione della liquidità, della gestione dei contanti, del finanziamento, delle relazioni bancarie e della gestione dei rischi finanziari in tutto il Gruppo. Questo è un ruolo di leadership pratico per un professionista del tesoro che combina una forte competenza tecnica con la capacità di comprendere flussi di cassa complessi, costruire relazioni interne affidabili e stabilire strutture che creano resilienza per Belimo in tutto il mondo.\n\nPrincipali responsabilità\n\n• Guidare e sviluppare continuamente la funzione del Tesoro del Gruppo in allineamento con i valori e i principi di leadership di BELIMO.\n\n• Stabilire una pianificazione di liquidità globale affidabile e creare trasparenza sui flussi di cassa del Gruppo.\n\n• Sviluppare ulteriormente cash management, cash pooling e strutture di finanziamento intercompany su mercati chiave e valute.\n\n• Definire e implementare politiche di tesoreria, quadri di governance, standard e controlli interni.\n\n• Leader attività di finanziamento e gestire le relazioni con banche, investitori, agenzie di rating e altri partner di finanziamento.\n\n• Definire e supervisionare le strategie di copertura per cambio, tasso di interesse e altri rischi legati al tesoro.\n\n• Digitalizzazione del tesoro di trasmissione, automazione, miglioramenti del processo e report del tesoro di alta qualità.\n\n• Consigliamo Executive Management e Group Finance a iniziative strategiche, tra cui M&A, investimenti e progetti di finanziamento.\n\nCompetenza richiesta\n\n• Hai una laurea in Finanza, Economia, Business Administration, o una disciplina relativa. Una qualifica professionale di tesoreria e/o MBA è un vantaggio.\n\n• Porti esperienza sostanziale e rilevante nel tesoro aziendale, idealmente acquisita in un'organizzazione multinazionale con flussi di cassa internazionali complessi e strutture di gruppo.\n\n• Hai competenze pratiche nella pianificazione della liquidità, gestione dei contanti, cash pooling, finanziamento intercompany e gestione dei rischi finanziari.\n\n• Hai esperienza nella gestione di complesse relazioni con gli stakeholder in un'organizzazione internazionale, tra cui team finanziari, leader aziendali, filiali, partner esterni e istituzioni finanziarie.\n\n• Conoscete i Sistemi di Gestione del Tesoro, le piattaforme bancarie, la digitalizzazione del tesoro e le implicazioni relative al tesoro di IFRS.\n\n• Si comunica con fiducia in inglese, sia verbalmente che per iscritto. Il tedesco è un vantaggio forte e vi aiuterà a costruire connessioni significative attraverso Belimo.\n\n• Sei affidabile, responsabile e pragmatico, con forti capacità analitiche e la fiducia di prendere decisioni ben fondate.\n\n• Sei un leader credibile e collaborativo che costruisce fiducia, comunica con chiarezza argomenti complessi, e gode di sviluppare sia persone che strutture.\n\nPersone a Belimo\n\nGli edifici intelligenti iniziano con persone dedicate. Portiamo insieme persone di talento e adottiamo un ambiente per avere successo. A Belimo, il rispetto, la fiducia e il supporto nei dipartimenti aiutano le idee a muoversi rapidamente in soluzioni del mondo reale, perché raggiungiamo più insieme di quanto mai potremmo soli.\n\nAbout Belimo\n\nBelimo è leader del mercato globale nello sviluppo, produzione e vendita di dispositivi di campo per il controllo efficiente dell'energia dei sistemi di riscaldamento, ventilazione e climatizzazione. Il focus del nostro core business è sugli attuatori ammortizzatori, valvole di controllo, sensori e metri. Fondata nel 1975, la società è quotata sulla Borsa Svizzera (SIX) dal 1995.\n\nCompensazioni e vantaggi\n\nA Belimo, crediamo in una compensazione equa, equa e competitiva. Offriamo la paga che riflette le vostre abilità, esperienza, istruzione e la posizione. Oltre alla compensazione, potrete beneficiare di un pacchetto completo di ricompense progettato per sostenere la vostra salute, benessere finanziario e successo a lungo termine. Belimo è orgogliosa di essere un Equal Opportunity Employer.\n\nPronti per il prossimo passo? Non vediamo l'ora di sentirti.",
+      "de": "Einleitung\n\nAls Head of Group Treasury werden Sie die globale Treasury-Funktion von Belimo in einer wichtigen Wachstumsphase gestalten und weiterentwickeln. Sie übernehmen die Verantwortung für Liquiditätsplanung, Cash Management, Finanzierung, Bankbeziehungen und Finanzrisikomanagement im gesamten Konzern. Dies ist eine praktische Führungsrolle für einen Treasury-Experten, der starkes technisches Know-how mit der Fähigkeit verbindet, komplexe Cashflows zu verstehen, vertrauenswürdige interne Beziehungen aufzubauen und Strukturen aufzubauen, die weltweit Widerstandsfähigkeit für Belimo schaffen.\n\nHauptzuständigkeiten\n\n• Leitung und kontinuierliche Weiterentwicklung der Konzern-Treasury-Funktion im Einklang mit den Werten und Führungsprinzipien von BELIMO.\n\n• Etablieren Sie eine zuverlässige globale Liquiditätsplanung und schaffen Sie Transparenz über die Cashflows der Gruppe.\n\n• Weitere Entwicklung von Cash Management, Cash Pooling und unternehmensübergreifenden Finanzierungsstrukturen in wichtigen Märkten und Währungen.\n\n• Definieren und implementieren Sie Treasury-Richtlinien, Governance-Rahmenbedingungen, Standards und interne Kontrollen.\n\n• Leiten Sie die Finanzierungsaktivitäten und verwalten Sie die Beziehungen zu Banken, Investoren, Ratingagenturen und anderen Finanzierungspartnern.\n\n• Definieren und beaufsichtigen Sie Sicherungsstrategien für Devisen-, Zins- und andere Treasury-bezogene Risiken.\n\n• Fördern Sie die Treasury-Digitalisierung, Automatisierung, Prozessverbesserungen und ein hochwertiges Treasury-Reporting.\n\n• Beratung von Executive Management und Group Finance bei strategischen Initiativen, einschließlich M&A, Investitionen und Finanzierungsprojekten.\n\nErforderliches Fachwissen\n\n• Sie haben einen Hochschulabschluss in Finanzen, Wirtschaft, Betriebswirtschaft oder einer verwandten Disziplin. Eine professionelle Treasury-Qualifikation und / oder MBA ist von Vorteil.\n\n• Sie bringen substanzielle, relevante Erfahrung im Corporate Treasury mit, idealerweise in einer multinationalen Organisation mit komplexen internationalen Cashflows und Gruppenstrukturen.\n\n• Sie verfügen über praktisches Fachwissen in den Bereichen Liquiditätsplanung, Cash Management, Cash Pooling, Unternehmensfinanzierung und Finanzrisikomanagement.\n\n• Sie haben Erfahrung in der Verwaltung komplexer Stakeholder-Beziehungen in einer internationalen Organisation, einschließlich Finanzteams, Führungskräften, Tochtergesellschaften, externen Partnern und Finanzinstituten.\n\n• Sie kennen Treasury Management Systeme, Bankenplattformen, Treasury Digitalisierung und die Treasury-bezogenen Implikationen der IFRS.\n\n• Sie kommunizieren selbstbewusst auf Englisch, sowohl mündlich als auch schriftlich. Deutsch ist ein starkes Plus und wird Ihnen helfen, sinnvolle Verbindungen in Belimo aufzubauen.\n\n• Sie sind zuverlässig, rechenschaftspflichtig und pragmatisch, mit starken analytischen Fähigkeiten und dem Vertrauen, fundierte Entscheidungen zu treffen.\n\n• Sie sind eine glaubwürdige und kooperative Führungskraft, die Vertrauen schafft, komplexe Themen klar kommuniziert und Spaß daran hat, Menschen und Strukturen zu entwickeln.\n\nMenschen in Belimo\n\nIntelligente Gebäude beginnen mit engagierten Menschen. Wir bringen talentierte Menschen zusammen und fördern ein Umfeld, um erfolgreich zu sein. Bei Belimo helfen Respekt, Vertrauen und Unterstützung abteilungsübergreifend, Ideen schnell in reale Lösungen zu bringen, weil wir gemeinsam mehr erreichen, als wir es jemals alleine könnten.\n\nÜber Belimo\n\nBelimo ist Weltmarktführer in der Entwicklung, Produktion und dem Vertrieb von Feldgeräten zur energieeffizienten Steuerung von Heizungs-, Lüftungs- und Klimaanlagen. Der Fokus unseres Kerngeschäfts liegt auf Dämpferaktoren, Regelventilen, Sensoren und Messgeräten. Das 1975 gegründete Unternehmen ist seit 1995 an der Swiss Exchange (SIX) notiert.\n\nEntschädigung und Vorteile\n\nBei Belimo glauben wir an eine faire, gerechte und wettbewerbsfähige Vergütung. Wir bieten eine Bezahlung an, die Ihre Fähigkeiten, Erfahrung, Ausbildung und Ihren Standort widerspiegelt. Über die Entschädigung hinaus profitieren Sie von einem umfassenden Belohnungspaket, das Ihre Gesundheit, Ihr finanzielles Wohlbefinden und Ihren langfristigen Erfolg unterstützt. Belimo ist stolz darauf, ein Arbeitgeber für Chancengleichheit zu sein.\n\nBereit für Ihren nächsten Schritt? Wir freuen uns darauf, von Ihnen zu hören.",
+      "fr": "Présentation\n\nEn tant que chef du groupe Trésorerie, vous façonnerez et développerez la fonction de Trésorerie mondiale de Belimo à un stade important de sa croissance. Vous serez propriétaire de la planification des liquidités, de la gestion de la trésorerie, du financement, des relations bancaires et de la gestion des risques financiers dans l'ensemble du Groupe. C'est un rôle de leadership pratique pour un professionnel de la trésorerie qui combine une solide expertise technique avec la capacité de comprendre les flux de trésorerie complexes, de construire des relations internes de confiance et d'établir des structures qui créent une résilience pour Belimo dans le monde entier.\n\nPrincipales responsabilités\n\n• Diriger et développer en permanence la fonction de Trésorerie du Groupe conformément aux valeurs et principes de leadership de BELIMO.\n\n• Établir une planification fiable de la liquidité mondiale et créer la transparence des flux de trésorerie du Groupe.\n\n• Développer davantage la gestion de la trésorerie, la mise en commun des liquidités et les structures de financement interentreprises sur les principaux marchés et monnaies.\n\n• Définir et mettre en oeuvre des politiques de trésorerie, des cadres de gouvernance, des normes et des contrôles internes.\n\n• Diriger les activités de financement et gérer les relations avec les banques, les investisseurs, les agences de notation et les autres partenaires financiers.\n\n• Définir et superviser les stratégies de couverture des risques de change, de taux d'intérêt et d'autres risques liés à la trésorerie.\n\n• Favoriser la numérisation, l'automatisation, l'amélioration des processus et l'établissement de rapports de trésorerie de haute qualité.\n\n• Conseiller la direction et les finances de groupe sur les initiatives stratégiques, y compris les fusions-acquisitions, les investissements et le financement de projets.\n\nExpertise requise\n\n• Vous êtes titulaire d'un diplôme universitaire en finance, économie, administration des affaires ou une discipline connexe. Une qualification professionnelle de trésorerie et/ou de MBA est un avantage.\n\n• Vous apportez une expérience importante et pertinente dans la trésorerie des entreprises, idéalement acquise dans une organisation multinationale avec des flux de trésorerie internationaux complexes et des structures de groupe.\n\n• Vous avez une expertise pratique en planification des liquidités, gestion de la trésorerie, gestion de la trésorerie commune, financement interentreprises et gestion des risques financiers.\n\n• Vous avez de l'expérience dans la gestion de relations complexes entre les parties prenantes d'une organisation internationale, y compris les équipes financières, les chefs d'entreprise, les filiales, les partenaires externes et les institutions financières.\n\n• Vous connaissez les systèmes de gestion de la trésorerie, les plateformes bancaires, la numérisation de la trésorerie et les implications d'IFRS liées à la trésorerie.\n\n• Vous communiquez avec confiance en anglais, verbalement et par écrit. L'allemand est un plus fort et vous aidera à créer des connexions significatives à travers Belimo.\n\n• Vous êtes fiable, responsable et pragmatique, avec de solides compétences analytiques et la confiance nécessaire pour prendre des décisions fondées.\n\n• Vous êtes un leader crédible et collaboratif qui renforce la confiance, communique clairement des sujets complexes et apprécie le développement des personnes et des structures.\n\nLes gens de Belimo\n\nLes bâtiments intelligents commencent par des personnes dédiées. Nous réunissons des gens talentueux et favorisons un environnement propice au succès. Chez Belimo, le respect, la confiance et le soutien à travers les ministères aident les idées à passer rapidement à des solutions concrètes, parce que nous obtenons plus ensemble que nous ne le pouvions jamais.\n\nÀ propos de Belimo\n\nBelimo est le leader mondial dans le développement, la production et la vente de dispositifs de terrain pour le contrôle énergétique des systèmes de chauffage, de ventilation et de climatisation. Nos activités principales sont les actionneurs d'amortisseurs, les vannes de commande, les capteurs et les compteurs. Fondée en 1975, la société est cotée à la Bourse suisse (SIX) depuis 1995.\n\nRémunération et avantages sociaux\n\nChez Belimo, nous croyons en une rémunération juste, équitable et concurrentielle. Nous offrons une rémunération qui reflète vos compétences, votre expérience, vos études et votre emplacement. Au-delà de la rémunération, vous bénéficierez d'un ensemble complet de récompenses conçu pour soutenir votre santé, votre bien-être financier et votre succès à long terme. Belimo est fier d'être un employeur pour l'égalité des chances.\n\nPrêt pour votre prochaine étape ? Nous avons hâte de vous entendre."
+    },
+    "slugByLocale": {
+      "en": "head-of-group-treasury-belimo-hinwil",
+      "it": "head-of-group-treasury-belimo-hinwil",
+      "de": "head-of-group-treasury-belimo-hinwil",
+      "fr": "head-of-group-treasury-belimo-hinwil"
+    },
+    "sector": "Industria / Automazione edifici",
+    "expiredAt": "2026-09-26T13:55:39.326Z",
+    "postalCode": "8340",
+    "streetAddress": "Brunnenbachstrasse 1",
+    "salaryMin": 101500,
+    "salaryMax": 154000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobsredirect.belimo.com/job/hinwil-head-of-group-treasury-zuri-8340/1165511855",
+    "firstSeenAt": "2026-09-25T14:39:12.341Z"
   },
   {
     "slug": "senior-project-manager-80-100-belimo-hinwil-2",
@@ -506,14 +641,16 @@
       "responsabile-di-progetto-senior-80-100-belimo-hinwil",
       "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
       "it-project-manager-80-100-belimo-hinwil",
-      "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil"
+      "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil",
+      "senior-project-manager-80-100-belimo-hinwil-2"
     ],
     "previousSlugsByLocale": {
       "it": [
         "senior-project-manager-80-100-belimo-hinwil",
         "responsabile-di-progetto-senior-80-100-belimo-hinwil",
         "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
-        "it-project-manager-80-100-belimo-hinwil"
+        "it-project-manager-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil-2"
       ],
       "en": [
         "senior-project-manager-80-100-belimo-hinwil",
@@ -521,11 +658,13 @@
       ],
       "fr": [
         "gestionnaire-principal-de-projet-80-100-belimo-hinwil",
-        "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil"
+        "gestionnaire-de-projet-de-ti-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil-2"
       ],
       "de": [
         "senior-project-manager-80-100-belimo-hinwil",
-        "it-project-manager-80-100-belimo-hinwil"
+        "it-project-manager-80-100-belimo-hinwil",
+        "senior-project-manager-80-100-belimo-hinwil-2"
       ]
     },
     "postalCode": "8340",
@@ -1210,13 +1349,15 @@
       "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
       "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
       "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil-khg4xl",
-      "expert-en-automatisation-des-batiments-80-100-belimo-hinwil"
+      "expert-en-automatisation-des-batiments-80-100-belimo-hinwil",
+      "hvac-building-automation-expert-80-100-belimo-hinwil-2"
     ],
     "previousSlugsByLocale": {
       "it": [
         "hvac-building-automation-expert-80-100-belimo-hinwil",
         "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
-        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil-khg4xl"
+        "esperto-di-automazione-edifici-hvac-80-100-belimo-hinwil-khg4xl",
+        "hvac-building-automation-expert-80-100-belimo-hinwil-2"
       ],
       "de": [
         "hvac-building-automation-expert-80-100-belimo-hinwil"
@@ -1224,10 +1365,12 @@
       "fr": [
         "expert-en-automatisation-des-batiments-de-cvc-80-100-belimo-hinwil",
         "specialiste-de-l-automatisation-des-batiments-80-100-belimo-hinwil",
-        "expert-en-automatisation-des-batiments-80-100-belimo-hinwil"
+        "expert-en-automatisation-des-batiments-80-100-belimo-hinwil",
+        "hvac-building-automation-expert-80-100-belimo-hinwil-2"
       ],
       "en": [
-        "hvac-building-automation-expert-80-100-belimo-hinwil"
+        "hvac-building-automation-expert-80-100-belimo-hinwil",
+        "hvac-building-automation-expert-80-100-belimo-hinwil-2"
       ]
     },
     "postalCode": "8340",
@@ -2507,7 +2650,8 @@
     "previousSlugs": [
       "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2",
       "working-student-hr-controlling-people-analytics-befristet-august-2026-bis-april-2027-60-80",
-      "working-student-hr-controlling-people-analytics-fixed-term-august-2026-to-april-2027-60-80"
+      "working-student-hr-controlling-people-analytics-fixed-term-august-2026-to-april-2027-60-80",
+      "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -2516,7 +2660,8 @@
         "working-student-hr-controlling-people-analytics-fixed-term-august-2026-to-april-2027-60-80"
       ],
       "en": [
-        "working-student-hr-controlling-people-analytics-fixed-term-august-2026-to-april-2027-60-80"
+        "working-student-hr-controlling-people-analytics-fixed-term-august-2026-to-april-2027-60-80",
+        "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil"
       ],
       "de": [
         "working-student-hr-controlling-people-analytics-60-80-belimo-hinwil-2"

@@ -37,7 +37,9 @@
  */
 
 export const DATA_CONTROLLER_NAME = 'Valerie Linc';
-export const DATA_CONTROLLER_EMAIL = 'valerie@frontaliereticino.ch';
+// Public shared mailbox: personal delivery addresses must not leak into
+// browser bundles through the newsletter preview template.
+export const DATA_CONTROLLER_EMAIL = 'redazione@frontaliereticino.ch';
 
 /**
  * Short one-line identification for an email footer, one per site locale

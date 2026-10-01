@@ -1,0 +1,22 @@
+{
+  "companyKey": "xeloba-ch",
+  "companyName": "Xeloba GmbH",
+  "companyHost": "xeloba.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://xeloba.ch/kandidaten/jobs/"
+  ],
+  "detailTemplate": "/jobs/verkauf/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "<span class=\"w-bl KEY ACCOUNT MANAGER REGION OST-/SÜDOSTSCHWEIZ",
+    "<span ARCHITEKTEN- UND OBJEKTBERATER/IN REGION BERN",
+    "<span class=\"w-bl VERKAUFSBERATER/IN REGION ZÜRCHER OBERLAND"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-10-01T11:42:05.480Z"
+}

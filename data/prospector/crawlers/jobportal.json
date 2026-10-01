@@ -1,20 +1,20 @@
 {
   "companyKey": "jobportal",
-  "companyName": "Ortho-Team AG",
+  "companyName": "VetTrust AG",
   "companyHost": "app.jobportal.abaservices.ch",
   "platform": "abaservices.ch",
   "mode": "jsonld",
   "seedUrls": [
-    "https://app.jobportal.abaservices.ch/job-advertisement/618207f9-d9a9-4276-a4e0-d3b53027b76a/7aa93175-4232-8652-2d04-0d1e4fb87097"
+    "https://app.jobportal.abaservices.ch/application-process/70bada86-f118-4388-8923-8d4034fbd8b4/507ec7f9-e0ea-11e2-4282-ddb4957e160c"
   ],
-  "detailTemplate": "/job-advertisement/618207f9-d9a9-4276-a4e0-d3b53027b76a/7aa93175-4232-8652-2d04-0d1e4fb87097",
-  "detailEnrichment": false,
+  "detailTemplate": "/application-process/70bada86-f118-4388-8923-8d4034fbd8b4/507ec7f9-e0ea-11e2-4282-ddb4957e160c",
+  "detailEnrichment": true,
   "detailFetchWorkers": 4,
   "sampleVacancyCount": 1,
   "sampleTitles": [
-    "Lernende:r / Praktikant:in Orthopädietechniker:in 1"
+    "Stelle für Spontanbewerbungen"
   ],
-  "canton": "VS",
+  "canton": "ZG",
   "sourceLang": "it",
-  "learnedAt": "2026-09-28T11:45:55.303Z"
+  "learnedAt": "2026-10-01T11:41:12.637Z"
 }

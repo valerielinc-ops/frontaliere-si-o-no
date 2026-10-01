@@ -6,6 +6,7 @@
 import { Fragment, useState, useEffect, useRef, useMemo } from 'react';
 import { getSerpExperimentDiagnostics } from '@/services/seoService';
 import { useAuth } from '@/services/authService';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import { buildNewsletterPreviewHtml } from '@/services/newsletterPreview';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { fetchAdminEmployerInsights, updateEmployerContact, sendColdEmail, type EmployerInsightsRow, type EmployerInsightsWindow, type EmployerOutreachStatus } from '@/services/adminInsights';
@@ -45,6 +46,7 @@ type EmployerSequenceInput = {
  periodLabel: string;
  contactName?: string;
  topRole?: string;
+ optOutEmail?: string;
 };
 
 // The declaration file still describes the pre-contract input shape; keep this
@@ -904,6 +906,7 @@ export default function AdminPanel() {
  : '',
  contactName: contactNameDraft,
  topRole: contactRoleDraft,
+ optOutEmail: PUBLIC_CONTACT_EMAIL,
  });
  // Fill the real INSIGHTS_URL; UNSUB_URL is per-send → human-readable note here.
  return touches.map(t => ({
