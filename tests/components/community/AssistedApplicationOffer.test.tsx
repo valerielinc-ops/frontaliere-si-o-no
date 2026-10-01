@@ -7,6 +7,8 @@ const mocks = vi.hoisted(() => ({
 }));
 
 vi.mock('@/services/i18n', () => ({
+  // The Terms and Privacy links are built with buildPath, which reads the locale.
+  getLocale: () => 'it',
   useTranslation: () => ({
     t: (key: string) => ({
       'common.close': 'Chiudi',
