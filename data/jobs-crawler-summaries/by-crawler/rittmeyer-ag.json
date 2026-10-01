@@ -1,53 +1,20 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-01T09:27:24.732Z",
+  "generatedAt": "2026-10-01T21:34:41.430Z",
   "total": 12,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
-  "newCount": 1,
-  "updatedCount": 11,
+  "newCount": 0,
+  "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12737,
-  "avgDurationMs": 12737,
+  "durationMs": 15021,
+  "avgDurationMs": 15021,
   "durationHistory": [
-    12737
+    15021
   ],
-  "newJobs": [
-    {
-      "title": "Sachbearbeiter Einkauf (a)",
-      "slug": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
-      "url": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
-      "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
-      "company": "Rittmeyer AG",
-      "companyKey": "rittmeyer-ag",
-      "companyDomain": "rittmeyer.com",
-      "location": "Baar",
-      "addressLocality": "Baar",
-      "addressRegion": "ZG",
-      "addressCountry": "CH",
-      "postalCode": "6340",
-      "streetAddress": "Inwilerriedstrasse 57",
-      "canton": "ZG",
-      "country": "CH",
-      "category": "other",
-      "sector": "Energia",
-      "source": "rittmeyer-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-10-01",
-      "employmentType": "other",
-      "contractType": "other",
-      "validThrough": "",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Service Techniker (a) Region Churer Rheintal, Imboden, Viamala, Sarganserland, Werdenberg",
@@ -119,11 +86,50 @@
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 23,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Sachbearbeiter Einkauf (a)",
+      "slug": "sachbearbeiter-einkauf-a-rittmeyer-ag-baar",
+      "url": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
+      "applyUrl": "https://karriere.rittmeyer.com/offene-stellen/sachbearbeiter-einkauf-a/",
+      "company": "Rittmeyer AG",
+      "companyKey": "rittmeyer-ag",
+      "companyDomain": "rittmeyer.com",
+      "location": "Baar",
+      "addressLocality": "Baar",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "postalCode": "6340",
+      "streetAddress": "Inwilerriedstrasse 57",
+      "canton": "ZG",
+      "country": "CH",
+      "category": "other",
+      "sector": "Energia",
+      "source": "rittmeyer-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "employmentType": "other",
+      "contractType": "other",
+      "validThrough": "",
+      "id": "rittmeyer-ag-d675cf3510c2",
+      "salaryMin": 69500,
+      "salaryMax": 106000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-10-01T09:27:19.173Z",
+      "needsRetranslation": true,
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -275,11 +281,11 @@
       "firstSeenAt": "2026-08-12T22:07:29.169Z",
       "salarySource": "reported",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 23,
         "completeness": 25
       }
     },

@@ -1,23 +1,23 @@
 {
   "key": "bachtelen",
   "label": "Stiftung Bachtelen",
-  "generatedAt": "2026-10-01T09:30:05.427Z",
-  "total": 11,
+  "generatedAt": "2026-10-01T21:36:20.429Z",
+  "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
   "sourceBodyFailureCount": 0,
   "sourceBodyFailures": [],
-  "written": 11,
+  "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5164,
-  "avgDurationMs": 5164,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5276,
+  "avgDurationMs": 5276,
   "durationHistory": [
-    5164
+    5276
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.bachtelen.ch/job/sozialpaedagoge-sozialpaedagogin-fh-hf-80/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.669Z",
+      "crawledAt": "2026-10-01T21:36:09.543Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       "url": "https://www.bachtelen.ch/job/fachangestellter-betreuung-kindheit-sozialpaedagogin-40-60/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.675Z",
+      "crawledAt": "2026-10-01T21:36:09.547Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://www.bachtelen.ch/job/schulleitung-ad-interim-zyklus-1-50/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.678Z",
+      "crawledAt": "2026-10-01T21:36:09.549Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -145,7 +145,7 @@
       "url": "https://www.bachtelen.ch/job/sozialpaedagogin-sozialpaedagoge-fh-hf-70-80/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.703Z",
+      "crawledAt": "2026-10-01T21:36:09.564Z",
       "addressLocality": "Hägendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -182,7 +182,7 @@
       "url": "https://www.bachtelen.ch/job/stellvertretender-psychologin-60-90/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.705Z",
+      "crawledAt": "2026-10-01T21:36:09.566Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -219,7 +219,7 @@
       "url": "https://www.bachtelen.ch/job/heilpaedagogen-heilpaedagoginnen-resp-lehrpersonen-60-100/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.708Z",
+      "crawledAt": "2026-10-01T21:36:09.568Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -256,7 +256,7 @@
       "url": "https://www.bachtelen.ch/job/heilpaedagogische-klassenlehrperson/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.710Z",
+      "crawledAt": "2026-10-01T21:36:09.569Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -293,7 +293,7 @@
       "url": "https://www.bachtelen.ch/job/praktikantinnen-schulsozialpaedagogik-70-75/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.713Z",
+      "crawledAt": "2026-10-01T21:36:09.571Z",
       "addressLocality": "Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -330,7 +330,7 @@
       "url": "https://www.bachtelen.ch/job/fruehlogopaedin-fruehlogopaede-50-70/",
       "source": "Bachtelen Dedicated Parser (WP REST job-listings)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:29:57.715Z",
+      "crawledAt": "2026-10-01T21:36:09.573Z",
       "addressLocality": "Solothurn und Grenchen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -355,8 +355,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "bachtelen-561e0890af91",
       "slug": "social-pedagogue-social-pedagogue-fh-hf-80-stiftung-bachtelen-grenchen",
@@ -390,6 +389,7 @@
       "salaryMax": 99600,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.bachtelen.ch/job/sozialpaedagogin-sozialpaedagoge-fh-hf-80",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -431,6 +431,7 @@
       "salaryMax": 99600,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://www.bachtelen.ch/job/5864",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -439,5 +440,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
