@@ -27,7 +27,7 @@ import { normalizeLabel } from './lib/portal/knowledge.mjs';
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 
 function fakePortal() {
-  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, newsletter: false, pending: null, refuseNextRegistration: false };
+  const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -98,6 +98,15 @@ function fakePortal() {
     }
     if (route === 'POST /summary') {
       state.summarySubmissions += 1;
+      return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
+    }
+    // The same unusual send button under a required CV: the upload counts as filled.
+    if (route === 'GET /summary-cv') {
+      return send(page('Zusammenfassung', `<h1>Ihre Bewerbung</h1>${form('/summary-cv', '<label for="cv">Lebenslauf *</label><input id="cv" type="file" name="cv" required><button type="submit">Abschliessen und übermitteln</button>', true)}`));
+    }
+    if (route === 'POST /summary-cv') {
+      const raw = await readBody(req);
+      state.summaryCv.push({ hasCv: /filename="CV_/.test(raw) });
       return send(page('Danke', '<h1>Vielen Dank für Ihre Bewerbung</h1>'));
     }
     if (route === 'GET /dead-end') return send(page('Bewerbung', '<h1>Bewerbung</h1><p>Diese Seite ist leer.</p>'));
@@ -266,6 +275,9 @@ async function main() {
     const taught = await run({ applyUrl: `${base}/summary`, knowledge });
     check('the next run presses the learned button without the agent', taught.event.type === 'submit_succeeded'
       && taught.evidence.finalButton?.by === 'runner' && state.summarySubmissions === 2 && agentTurns === turnsLearned);
+    const withCv = await run({ applyUrl: `${base}/summary-cv` });
+    check('the agent’s send button is pressed under a required CV the runner attached', withCv.event.type === 'submit_succeeded'
+      && withCv.evidence.finalButton?.by === 'agent' && state.summaryCv.length === 1 && state.summaryCv[0].hasCv);
     // Level 3: a page the runner cannot get through leaves an anonymous stop report.
     const dead = await run({ applyUrl: `${base}/dead-end` });
     check('a dead end leaves a stop report for the fix issue', dead.event.type === 'submit_handoff'

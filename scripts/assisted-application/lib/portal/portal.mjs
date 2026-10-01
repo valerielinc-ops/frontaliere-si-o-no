@@ -412,6 +412,22 @@ async function handleAuth({ page, snapshot, ctx }) {
 }
 
 /**
+ * A required field of the page is still empty. A file input's value is never
+ * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
+ * whether the CV went in; an upload widget that clears its input reads as empty.
+ */
+async function requiredLeftEmpty(page) {
+  for (const field of (await extractFields(page, NAVIGATION)).fields) {
+    if (!field.required) continue;
+    const filled = field.kind === 'file'
+      ? await locatorFor(page, field).evaluate((element) => (element.files?.length || 0) > 0, null, { timeout: 2000 }).catch(() => false)
+      : holdsValue(field);
+    if (!filled) return true;
+  }
+  return false;
+}
+
+/**
  * After the final click: the same send button is still on the page, and the
  * portal loads an invisible reCAPTCHA (v3 badge or `api.js?render=`), the
  * kind that scores the browser and lets the portal drop a bot's submission
@@ -744,8 +760,7 @@ export async function submitViaPortal(ctx) {
           // the agent names it, the runner presses it below, behind the submission guard,
           // only when nothing required is left empty on the page.
           if (!submit && !next && !advance && agent.submitRef) {
-            const open = (await extractFields(page, NAVIGATION)).fields.some((field) => field.required && !holdsValue(field));
-            if (!open) finalByAgent = await submitLocator(page, agent.submitRef);
+            if (!await requiredLeftEmpty(page)) finalByAgent = await submitLocator(page, agent.submitRef);
           }
         }
       }
