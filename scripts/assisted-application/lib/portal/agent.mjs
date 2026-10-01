@@ -90,15 +90,20 @@ ${candidateRules(candidateLocale)}
 }
 
 /**
- * The page as Playwright MCP shows it to a model (Playwright's own
- * `_snapshotForAI`: roles, names, values and refs, iframes included), or
- * null when this Playwright build has none: the fallback is then off.
+ * The page as Playwright MCP shows it to a model (roles, names, values and
+ * refs, iframes included), or null when this Playwright build has none: the
+ * fallback is then off. Playwright 1.63 (package-lock) has it as the public
+ * `ariaSnapshot({ mode: 'ai' })`; older builds only as the private
+ * `_snapshotForAI` (dry run 36822777464 found that one gone).
  */
 export async function aiSnapshot(page) {
-  if (typeof page._snapshotForAI !== 'function') return null;
-  const result = await page._snapshotForAI({ timeout: 15_000 }).catch(() => null);
-  const text = typeof result === 'string' ? result : result?.full;
-  return text ? compactSnapshot(text) : null;
+  let text = await page.ariaSnapshot?.({ mode: 'ai', timeout: 15_000 }).catch(() => null);
+  // A build that ignores the mode returns no refs: nothing to act on.
+  if (!/\[ref=/.test(text || '') && typeof page._snapshotForAI === 'function') {
+    const result = await page._snapshotForAI({ timeout: 15_000 }).catch(() => null);
+    text = typeof result === 'string' ? result : result?.full;
+  }
+  return /\[ref=/.test(text || '') ? compactSnapshot(text) : null;
 }
 
 /** Without link targets and bare images, and cut to SNAPSHOT_CHARS. */

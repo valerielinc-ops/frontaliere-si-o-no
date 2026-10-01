@@ -1,3 +1,4 @@
+import { existsSync, readFileSync } from 'node:fs';
 import { createRequire } from 'node:module';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
@@ -104,12 +105,16 @@ describe('portal agentic fallback (career-ops: snapshot with refs)', () => {
   });
 
   // The fallback reads the page through Playwright's own snapshot for models (as Playwright MCP does):
-  // an upgrade that renames it must fail here, not silently turn the fallback off.
+  // an upgrade that renames it must fail here, not silently turn the fallback off (dry run 36822777464:
+  // 1.63 dropped the private call the first version used).
   it('finds the AI snapshot in the installed Playwright', () => {
     const require = createRequire(import.meta.url);
-    // Not among the package's exports: the file itself, by its path.
+    // Not among the package's exports: the files themselves, by their path.
     const root = path.dirname(require.resolve('playwright-core/package.json'));
-    const { Page } = require(path.join(root, 'lib/client/page.js'));
-    expect(typeof Page.prototype._snapshotForAI).toBe('function');
+    const types = readFileSync(path.join(root, 'types/types.d.ts'), 'utf8');
+    const legacy = path.join(root, 'lib/client/page.js');
+    const publicMode = /ariaSnapshot\(options\?: \{[^}]*mode\?: "ai"/.test(types);
+    const privateCall = existsSync(legacy) && readFileSync(legacy, 'utf8').includes('async _snapshotForAI(');
+    expect(publicMode || privateCall).toBe(true);
   });
 });
