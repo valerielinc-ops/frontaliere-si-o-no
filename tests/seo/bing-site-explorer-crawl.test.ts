@@ -330,9 +330,36 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
   });
 
-  it('extracts same-site HTML links without assets, externals or router actions', () => {
-    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">bad</a>', `${BASE}/`, BASE);
-    expect(links).toEqual(['https://frontaliereticino.ch/cerca-lavoro-ticino/', 'https://frontaliereticino.ch/contattaci/']);
+  it('keeps same-site link evidence while excluding externals and router actions', () => {
+    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/?calc=1">query</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">router action</a><a href="<nav:calculator>">malformed editor token</a>', `${BASE}/`, BASE);
+    expect(links).toEqual([
+      '<nav:calculator>',
+      'https://frontaliereticino.ch/?calc=1',
+      'https://frontaliereticino.ch/assets/app.js',
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/',
+      'https://frontaliereticino.ch/contattaci/',
+    ]);
+  });
+
+  it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/source/`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => new Response(
+        '<a href="<nav:calculator>">malformed</a><a href="/?calc=1">query</a><a href="/asset.js">asset</a>',
+        { status: 200, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(report.discoveredOutOfSitemap).toEqual([
+      '<nav:calculator>',
+      `${BASE}/?calc=1`,
+      `${BASE}/asset.js`,
+    ]);
   });
 
   it('builds a bounded second frontier and keeps dynamic or malformed links as evidence', () => {
@@ -345,21 +372,25 @@ describe('Bing-compatible full-tree crawler', () => {
           `${BASE}/calcola-stipendio/?reddito=100000`,
           `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
           `${BASE}/assets/app.js`,
+          '<nav:calculator>',
         ],
       }],
     });
 
     expect(frontier.urls).toEqual([`${BASE}/storico/settimana-18-2026/`]);
-    expect(frontier.sourceDiscoveredCount).toBe(4);
+    expect(frontier.sourceDiscoveredCount).toBe(5);
     expect(frontier.excludedByReason).toEqual({
       'dynamic-query': 1,
-      'malformed-route': 1,
+      'malformed-route': 2,
       'non-html-or-private': 1,
     });
-    expect(frontier.findings).toEqual([expect.objectContaining({
-      code: 'internal-link-malformed',
-      url: `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
-    })]);
+    expect(frontier.findings).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        code: 'internal-link-malformed',
+        url: `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
+      }),
+      expect.objectContaining({ code: 'internal-link-malformed', url: '<nav:calculator>' }),
+    ]));
     expect(frontier.folders).toEqual({ '/storico/': 1 });
   });
 
@@ -428,5 +459,19 @@ describe('Bing-compatible full-tree crawler', () => {
     });
     expect(summary.coverageOk).toBe(false);
     expect(summary.coverageErrors.join(' ')).toContain('sitemap non letto');
+  });
+
+  it('fails closed when the internal-link frontier job fails before reporting', () => {
+    const summary = aggregateCrawlReports([], {
+      baseUrl: BASE,
+      sitemapCount: 1,
+      manifestCount: 0,
+      errors: [],
+    }, {
+      supplementalCoverageErrors: ['frontiera interna: tree-discovered-inventory=failure; manifest non disponibile'],
+    });
+
+    expect(summary.coverageOk).toBe(false);
+    expect(summary.coverageErrors).toContain('frontiera interna: tree-discovered-inventory=failure; manifest non disponibile');
   });
 });

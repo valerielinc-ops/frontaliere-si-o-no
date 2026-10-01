@@ -185,7 +185,8 @@ function validateScope(name, reports, manifest, coverageErrors) {
   const expectedPartitions = Number(first.partitions || 0);
   const manifestCount = Number(manifest?.manifestCount ?? first.manifestCount ?? 0);
   for (const error of manifest?.errors || []) {
-    coverageErrors.push(`${name}: sitemap non letto: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
+    const source = name === 'sitemap' ? 'sitemap' : 'frontiera interna';
+    coverageErrors.push(`${name}: ${source} non letto: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
   }
   if (name === 'sitemap' && manifest && Number(manifest.sitemapCount || 0) === 0) {
     coverageErrors.push('sitemap: nessun sitemap è stato letto dal manifest');
@@ -214,6 +215,9 @@ function validateScope(name, reports, manifest, coverageErrors) {
 
 export function aggregateCrawlReports(reports, manifest = null, options = {}) {
   const coverageErrors = [];
+  for (const error of options.supplementalCoverageErrors || []) {
+    if (String(error || '').trim()) coverageErrors.push(String(error).trim());
+  }
   // Keep validation scoped so a missing closure artifact cannot hide complete
   // sitemap coverage, and vice versa.
   const scopes = [validateScope('sitemap', reports, manifest, coverageErrors)];
@@ -400,6 +404,7 @@ async function main() {
   const supplementalManifest = supplementalManifestPath
     ? JSON.parse(readFileSync(resolve(supplementalManifestPath), 'utf8'))
     : null;
+  const supplementalCoverageError = arg(args, 'supplemental-coverage-error', '');
   let transientRescue = null;
   if (args['rescue-transients'] === true || args['rescue-transients'] === 'true') {
     const rescueOptions = {
@@ -419,6 +424,7 @@ async function main() {
   const summary = aggregateCrawlReports(reports, manifest, {
     supplementalReports,
     supplementalManifest,
+    supplementalCoverageErrors: supplementalCoverageError ? [supplementalCoverageError] : [],
   });
   if (transientRescue) summary.transientRescue = transientRescue;
   writeJson(output, summary);

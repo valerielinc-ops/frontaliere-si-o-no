@@ -533,6 +533,7 @@ jobs:
           merge-multiple: true
 
       - name: Download internal-link frontier manifest
+        continue-on-error: true
         if: ${{ needs.tree-discovered-inventory.result == 'success' }}
         uses: actions/download-artifact@v8
         with:
@@ -540,6 +541,7 @@ jobs:
           path: ${{ runner.temp }}/bing-site-tree-discovered-manifest
 
       - name: Download internal-link frontier reports
+        continue-on-error: true
         if: ${{ needs.tree-discovered-crawl.result == 'success' }}
         uses: actions/download-artifact@v8
         with:
@@ -550,6 +552,7 @@ jobs:
       - name: Ensure report directory exists
         run: |
           mkdir -p "$RUNNER_TEMP/bing-site-tree-reports"
+          mkdir -p "$RUNNER_TEMP/bing-site-tree-discovered-manifest"
           mkdir -p "$RUNNER_TEMP/bing-site-tree-frontier-reports"
 
       - name: Prepare Firebase credentials for GitHub App/PAT auth
@@ -582,13 +585,33 @@ jobs:
       - name: Aggregate coverage and findings
         id: report
         continue-on-error: true
+        env:
+          FRONTIER_INVENTORY_RESULT: ${{ needs.tree-discovered-inventory.result }}
+          FRONTIER_CRAWL_RESULT: ${{ needs.tree-discovered-crawl.result }}
         run: |
           set -euo pipefail
           extra_args=()
-          if [ -f "$RUNNER_TEMP/bing-site-tree-discovered-manifest/bing-site-tree-discovered-manifest.json" ]; then
+          frontier_manifest="$RUNNER_TEMP/bing-site-tree-discovered-manifest/bing-site-tree-discovered-manifest.json"
+          if [ -f "$frontier_manifest" ]; then
             extra_args+=(
-              --supplemental-manifest "$RUNNER_TEMP/bing-site-tree-discovered-manifest/bing-site-tree-discovered-manifest.json"
+              --supplemental-manifest "$frontier_manifest"
               --supplemental-reports-dir "$RUNNER_TEMP/bing-site-tree-frontier-reports"
+            )
+          fi
+          if [ "$FRONTIER_INVENTORY_RESULT" != 'success' ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              "frontiera interna: tree-discovered-inventory=${FRONTIER_INVENTORY_RESULT}; manifest non disponibile"
+            )
+          elif [ "$FRONTIER_CRAWL_RESULT" != 'success' ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              "frontiera interna: tree-discovered-crawl=${FRONTIER_CRAWL_RESULT}; copertura non completa"
+            )
+          elif [ ! -f "$frontier_manifest" ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              'frontiera interna: manifest non pubblicato dall’inventario'
             )
           fi
           node scripts/seo/bing-site-explorer-report.mjs \

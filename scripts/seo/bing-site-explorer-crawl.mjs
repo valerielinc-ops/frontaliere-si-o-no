@@ -39,6 +39,7 @@ export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
 export const DISCOVERY_SAMPLE_LIMIT = 100;
 export const TITLE_MAX_CHARS = 66;
 export const META_DESCRIPTION_MIN_CHARS = 120;
+const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
 
 function decodeXmlEntities(value) {
   return String(value || '')
@@ -274,6 +275,10 @@ function decodedPath(value) {
   try { return decodeURIComponent(new URL(value).pathname); } catch { return new URL(value).pathname; }
 }
 
+function isMalformedNavigationToken(value) {
+  return MALFORMED_NAVIGATION_TOKEN_RE.test(decodeXmlEntities(String(value || '')).trim());
+}
+
 /**
  * Decide whether a same-site link is an HTML route worth crawling as part of
  * the SEO tree. Query-string links are deliberately kept as evidence but not
@@ -281,6 +286,8 @@ function decodedPath(value) {
  * can create an unbounded parameter space and are not sitemap documents.
  */
 export function classifyDiscoveredUrl(value, baseUrl = DEFAULT_BASE_URL) {
+  const raw = decodeXmlEntities(String(value ?? '')).trim();
+  if (isMalformedNavigationToken(raw)) return { url: raw, reason: 'malformed-route' };
   const normalized = normalizeUrl(value, baseUrl);
   if (!normalized || !isSameOrigin(normalized, baseUrl)) return { url: normalized || String(value || ''), reason: 'outside-origin' };
   const parsed = new URL(normalized);
@@ -326,11 +333,12 @@ export function collectDiscoveredInventory({
     const samples = excludedSamplesByReason[classified.reason] || (excludedSamplesByReason[classified.reason] = []);
     if (samples.length < DISCOVERY_SAMPLE_LIMIT) samples.push(classified.url);
     if (classified.reason === 'malformed-route') {
+      const normalized = normalizeUrl(classified.url, baseUrl);
       frontierFindings.push({
         code: 'internal-link-malformed',
         url: classified.url,
         detail: 'Link interno verso un token di navigazione/editor non valido.',
-        root: folderFor(classified.url),
+        root: normalized ? folderFor(normalized) : '/',
       });
     }
   }
@@ -457,11 +465,22 @@ function isCrawlableLink(value) {
 
 export function extractInternalLinks(html, pageUrl, baseUrl = DEFAULT_BASE_URL) {
   const links = new Set();
-  for (const match of String(html || '').matchAll(/<a\b([^>]*)>/gi)) {
+  // Keep quoted hrefs intact even when an invalid editor token contains `>`.
+  // A plain `[^>]*` tag matcher would stop at that character and lose the
+  // token before the evidence classifier gets a chance to see it.
+  for (const match of String(html || '').matchAll(/<a\b((?:(?:[^"'<>]|"[^"]*"|'[^']*'|<(?!\/a\b)))*)>/gi)) {
     const href = attr(match[1], 'href');
     if (!href || href.startsWith('#')) continue;
+    const rawHref = decodeXmlEntities(href).trim();
+    // Preserve broken editor/navigation tokens as evidence. They are not
+    // crawlable routes, but dropping the raw href here would make the second
+    // frontier unable to report the internal link that produced the defect.
+    if (isMalformedNavigationToken(rawHref)) {
+      links.add(rawHref);
+      continue;
+    }
     const normalized = normalizeUrl(href, pageUrl);
-    if (!normalized || !isSameOrigin(normalized, baseUrl) || !isCrawlableLink(normalized)) continue;
+    if (!normalized || !isSameOrigin(normalized, baseUrl)) continue;
     links.add(normalized);
   }
   return [...links].sort();
