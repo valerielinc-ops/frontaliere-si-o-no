@@ -47,7 +47,7 @@ describe('404 discovery workflows publish protected data through PRs', () => {
     expect(publisher).toContain('RECONCILE_COMPAT=true');
     expect(publisher).toContain('if [ "$RECONCILE_COMPAT" = true ]; then');
     expect(publisher).toContain(
-      'git fetch --no-tags "$PUSH_URL" \\\n      "refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
+      'git fetch --no-tags "$PUSH_URL" \\\n      "+refs/heads/${BRANCH}:refs/remotes/refresh/${BRANCH}"',
     );
     expect(publisher).toContain('git fetch --no-tags --depth=1 "$PUSH_URL"');
     expect(publisher).toContain('refs/heads/main:refs/remotes/origin/main');
