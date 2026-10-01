@@ -1,7 +1,7 @@
 {
   "key": "oscam-castelrotto",
   "label": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-  "generatedAt": "2026-09-30T21:10:24.007Z",
+  "generatedAt": "2026-10-01T09:10:16.413Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,16 +12,16 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 2,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5257,
-  "avgDurationMs": 5257,
+  "durationMs": 4898,
+  "avgDurationMs": 4898,
   "durationHistory": [
-    5257
+    4898
   ],
   "newJobs": [
     {
-      "id": "oscam-castelrotto-concorso-generale-2026-d6feb03013ef",
+      "id": "oscam-castelrotto-concorso-generale-2026-22a0a1e4326f",
       "slug": "concorso-generale-2026-oscam-castelrotto-castelrotto",
       "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
       "companyKey": "oscam-castelrotto",
@@ -33,7 +33,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-30T21:10:12.393Z",
+      "crawledAt": "2026-10-01T09:10:05.157Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -46,19 +46,18 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-10-01",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
-      "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "_qualityScore": 81,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
+        "translation": 4,
         "completeness": 17
       }
     },
     {
-      "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-be80f019a870",
+      "id": "oscam-castelrotto-concorso-generale-2025-per-medici-assistenti-fb9ba0759bc6",
       "slug": "concorso-generale-assunzione-medico-assistente-2025-2026-oscam-castelrotto-castelrotto",
       "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
       "companyKey": "oscam-castelrotto",
@@ -70,7 +69,7 @@
       "url": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
       "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-30T21:10:12.666Z",
+      "crawledAt": "2026-10-01T09:10:05.526Z",
       "addressLocality": "Castelrotto",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -83,60 +82,18 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-05-19",
+      "postedDate": "2026-10-01",
       "applyUrl": "https://www.oscam.ch/wp-content/uploads/2025/01/Concorso-generale-2025-per-medici-assistenti.pdf",
-      "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "_qualityScore": 81,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
+        "translation": 4,
         "completeness": 17
       }
     }
   ],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "id": "oscam-castelrotto-concorso-generale-2026-d6feb03013ef",
-      "slug": "concorso-generale-2026-oscam-castelrotto-castelrotto",
-      "company": "Ospedale Malcantonese OSCAM (Fondazione Giuseppe Rossi)",
-      "companyKey": "oscam-castelrotto",
-      "companyDomain": "oscam.ch",
-      "title": "Concorso generale 2026",
-      "needsRetranslation": true,
-      "location": "Castelrotto",
-      "canton": "TI",
-      "url": "https://www.oscam.ch/lavoraconnoi/#concorso-generale-2026",
-      "source": "OSCAM Castelrotto Dedicated Parser (WordPress HTML, PDF concorsi)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-29T09:11:02.454Z",
-      "addressLocality": "Castelrotto",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6989",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "junior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-19",
-      "applyUrl": "https://www.oscam.ch/wp-content/uploads/2026/02/Concorso-generale-2026.pdf",
-      "firstSeenAt": "2026-05-19T21:17:11.055Z",
-      "salaryMin": 70500,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 0,
-        "translation": 13,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

@@ -1,18 +1,50 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-30T21:14:16.987Z",
+  "generatedAt": "2026-10-01T09:13:49.844Z",
   "total": 8,
   "newCount": 1,
-  "updatedCount": 6,
+  "updatedCount": 7,
   "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 18081,
-  "avgDurationMs": 18081,
+  "unchangedCount": 0,
+  "durationMs": 21454,
+  "avgDurationMs": 21454,
   "durationHistory": [
-    18081
+    21454
   ],
   "newJobs": [
+    {
+      "title": "Verfahrenstechniker 100% (w/m/div.) - REF297511W",
+      "slug": "verfahrenstechniker-100-w-m-div-ref297511w-bosch-st-niklaus",
+      "url": "https://jobs.bosch.com/en/job/REF297511W-verfahrenstechniker-100-w-m-div-ref297511w",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000152870889-verfahrenstechniker-100-w-m-div-ref297511w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "St. Niklaus",
+      "addressLocality": "St. Niklaus",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "canton": "VS",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "engineering",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-10-01",
+      "validThrough": "",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 10,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Praktikum - Business Unit Controlling",
       "slug": "praktikum-business-unit-controlling-bosch-solothurn-zuchwil",
@@ -35,16 +67,21 @@
       "sourceLang": "de",
       "postedDate": "2026-09-30",
       "validThrough": "",
-      "_qualityScore": 71,
+      "id": "bosch-thermotechnik-ag-75a51d088b82",
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-30T21:14:11.422Z",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 10,
-        "completeness": 14
+        "translation": 15,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Logisitker (w/m/div.) - REF297188H",
       "slug": "logisitker-w-m-div-ref297188h-bosch-st-niklaus",
@@ -182,6 +219,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-21T15:54:30.864Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref296638w-4-oder-5-tage-woche-servicetechniker-oel-gas-stadt-luzern-agglomeration-w-m-div-ref296638w",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -219,6 +257,7 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-21T15:54:30.864Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref293856u-4-oder-5-tage-woche-servicetechniker-waermepumpen-region-zh-ag-w-m-div-ref293856u",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -268,45 +307,6 @@
   ],
   "removedJobs": [
     {
-      "title": "Praktikum im Produktmanagement (w/m/d) REF296253F",
-      "slug": "stage-nella-gestione-dei-prodotti-m-f-d-ref296253f-bosch-thermotechnik-ag-frauenfeld",
-      "url": "https://jobs.bosch.com/en/job/REF296253F-praktikum-im-produktmanagement-w-m-d-ref296253f",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000149510369-praktikum-im-produktmanagement-w-m-d-ref296253f?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Frauenfeld",
-      "addressLocality": "Frauenfeld",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "canton": "TG",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-15",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-35ec498d20b1",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-09-26T23:31:04.313Z",
-      "needsRetranslation": true,
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
       "title": "Internship – Design Sustainable Packaging REF296423S",
       "slug": "internship-design-sustainable-packaging-ref296423s-bosch-solothurn-zuchwil",
       "url": "https://jobs.bosch.com/en/job/REF296423S-internship-design-sustainable-packaging-ref296423s",
@@ -335,6 +335,7 @@
       "salarySource": "reported",
       "firstSeenAt": "2026-09-16T23:43:27.195Z",
       "sourceIdentity": "url:https://jobs.bosch.com/en/job/ref296423s-internship-design-sustainable-packaging-ref296423s",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -343,5 +344,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
