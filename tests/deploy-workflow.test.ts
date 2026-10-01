@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readFileSync, readdirSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 
@@ -281,6 +281,61 @@ describe('Pages artifact extraction disk lifetime', () => {
       expect(cleanupIndex, `${workflowPath} must remove the source tar after extraction`).toBeGreaterThan(extractIndex);
       expect(run.slice(cleanupIndex, cleanupIndex + 160)).toMatch(/(artifact\.tar|TAR_PATH|tar-path)/);
     }
+  });
+
+  // deploy-publish run 36810296662 and cathedral-seo-gates-check run
+  // 36810296254 (2026-10-01) died with "No space left on device" inside the
+  // rehydrate: the logical dist now ends at 134 of the runner's 145 GB. The
+  // disk cleanup that keeps it inside existed in nine inline copies that had
+  // drifted (cathedral's had 6 paths and no docker prune, the others 9), so
+  // the class is "a job that rehydrates the logical dist without THE cleanup".
+  // Every such job — found by what it runs, not by a hand-kept list — must call
+  // the one shared script after its checkout and before the rehydrate.
+  it('every job that rehydrates section shards frees disk through the one shared script first', () => {
+    const workflowsDir = resolve(ROOT, '.github/workflows');
+    const rehydrating: string[] = [];
+    for (const file of readdirSync(workflowsDir).filter((f) => /\.ya?ml$/.test(f)).sort()) {
+      const workflow = YAML.parse(readFileSync(resolve(workflowsDir, file), 'utf-8')) as any;
+      for (const [jobName, job] of Object.entries<any>(workflow?.jobs ?? {})) {
+        const steps: any[] = Array.isArray(job?.steps) ? job.steps : [];
+        const runOf = (step: any) => (typeof step?.run === 'string' ? step.run : '');
+        const rehydrateIdx = steps.findIndex((step) => /rehydrate-section-shards\.sh/.test(runOf(step)));
+        if (rehydrateIdx === -1) continue;
+        const where = `${file} → ${jobName}`;
+        rehydrating.push(where);
+        const cleanupIdx = steps.findIndex((step) => /(^|\s)bash (tooling\/)?scripts\/ci\/free-runner-disk\.sh\b/.test(runOf(step)));
+        const checkoutIdx = steps.findIndex((step) => /^actions\/checkout@/.test(String(step?.uses ?? '')));
+        expect(cleanupIdx, `${where}: no step runs scripts/ci/free-runner-disk.sh`).toBeGreaterThan(-1);
+        expect(cleanupIdx, `${where}: the cleanup must run before the rehydrate`).toBeLessThan(rehydrateIdx);
+        expect(cleanupIdx, `${where}: the cleanup script lives in the repo, so it runs after a checkout`).toBeGreaterThan(checkoutIdx);
+        // A second, inline list next to the shared one is how the copies drifted.
+        for (const step of steps) {
+          expect(runOf(step), `${where}: inline toolchain cleanup — use the shared script`).not.toMatch(/rm -rf[^\n]*\/usr\/share\/dotnet/);
+        }
+      }
+    }
+    // The two reds of 2026-10-01 plus the replays that rebuild the same dist.
+    expect(rehydrating).toEqual(expect.arrayContaining([
+      'cathedral-seo-gates-check.yml → check',
+      'post-deploy-validate-dist.yml → validate-dist-postbuild',
+    ]));
+    expect(rehydrating.length).toBeGreaterThanOrEqual(9);
+  });
+
+  it('the shared cleanup reports blocks AND inodes before and after, and keeps node in the tool cache', () => {
+    const script = readFileSync(resolve(ROOT, 'scripts/ci/free-runner-disk.sh'), 'utf-8');
+    const live = script.split('\n').filter((line) => !/^\s*#/.test(line)).join('\n');
+    // One directory per job page: inode exhaustion reads exactly like a full
+    // disk ("No space left on device"), so both counters are printed.
+    expect(live).toMatch(/report\(\) \{\s*df -h \/\s*df -i \/\s*\}/);
+    expect(live.match(/^report$/gm)?.length, 'df before AND after the cleanup').toBe(2);
+    // setup-node reuses /opt/hostedtoolcache/node; deleting it would only
+    // force a re-download, never free the space the rehydrate needs.
+    expect(live).toContain('[ "$(basename "$p")" = node ] && continue');
+    // Best-effort like the inline copies it replaced: an image refresh that
+    // already dropped a path must not fail the job.
+    expect(live).not.toMatch(/^\s*set\s+-\S*e\S*\b/m);
+    expect(live.trimEnd().endsWith('exit 0')).toBe(true);
   });
 });
 
