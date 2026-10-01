@@ -22237,6 +22237,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'infomaniak-debutto-six',
+    category: 'novita',
+    date: '2026-10-01T21:29:11.717Z',
+    image: '/images/blog/infomaniak-debutto-six.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

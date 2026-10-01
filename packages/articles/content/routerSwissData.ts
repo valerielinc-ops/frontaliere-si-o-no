@@ -2490,6 +2490,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'utile-bns-distribuzione-2030': { it: 'utile-bns-distribuzione-2030', en: 'snb-profit-distribution-2030', de: 'snb-gewinnverteilung-2030', fr: 'bns-repartition-benefice-2030' },
  'dazi-svizzera-voto': { it: 'dazi-svizzera-voto', en: 'swiss-tariffs-federal-vote', de: 'schweizer-zoelle-abstimmung', fr: 'droits-douane-vote-suisse' },
  'agenda-federale-autunno-2026': { it: 'agenda-federale-autunno-2026', en: 'swiss-federal-agenda-autumn-2026', de: 'schweizer-bundesagenda-herbst-2026', fr: 'agenda-federal-automne-2026' },
+ 'infomaniak-debutto-six': { it: 'infomaniak-debutto-six', en: 'infomaniak-swiss-stock-debut', de: 'infomaniak-boersenstart-six', fr: 'infomaniak-debut-bourse-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
