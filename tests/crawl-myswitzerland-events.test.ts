@@ -11,6 +11,7 @@ import {
   humanizeCategory,
   extractPrice,
   extractIndexedEventPrice,
+  recoverExistingIndexedPrices,
   extractDetailTableValue,
   extractAddress,
   extractDetailAddress,
@@ -126,6 +127,18 @@ describe('extractIndexedEventPrice', () => {
   });
 
   it.each([
+    ['Self-service at the side dish buffetPrice: CHF 59.00Optional add-ons: pool CHF 5.00, sauna CHF 20.00', 59, 'CHF'],
+    ['Kosten & Leistungen• Preis: CHF 55.– pro Person• Inbegriffen: Fondue und Dessert.', 55, 'CHF'],
+    ['A movie event!"Single admission price: CHF 10.- for adults and children.', 10, 'CHF'],
+    ['Admission: EUR 12,50', 12.5, 'EUR'],
+    ['Ingresso: 20 CHF', 20, 'CHF'],
+    ['Price: CHF 20.', 20, 'CHF'],
+    ['Prix: 12,50 €', 12.5, 'EUR'],
+  ])('recovers an explicit indexed monetary tariff without ancillary amounts: %s', (content, amount, currency) => {
+    expect(extractIndexedEventPrice(content)).toEqual({ amount, currency, isFree: false });
+  });
+
+  it.each([
     'Il parcheggio è gratuito.',
     'Parking, free',
     'Drinks, gratis',
@@ -135,8 +148,54 @@ describe('extractIndexedEventPrice', () => {
     "Children's prices: Free entrance.",
     'Free entrance. Adult tickets CHF 20.',
     'Un evento nato nel 1980 per bambini da 12 anni.',
+    'Prices: CHF 10.00 (members), CHF 15.00 (general public)',
+    'Price: admission fee + CHF 7.–',
+    'Price: CHF 10 + admission fee',
+    'Price: CHF 10 for children under 12',
+    'Price: CHF 10 deposit; total price is available on request.',
+    'Price: CHF 5 supplement to the admission ticket.',
+    'Parking price: CHF 5.00. Entry tickets are available on request.',
+    'Win a watch worth CHF 2290.',
+    'Price: CHF 1\'234.50',
+    'Price: CHF 10.000',
+    'Price: CHF 20. Price: CHF 30.',
   ])('keeps ambiguous or qualified admission unknown: %s', (content) => {
     expect(extractIndexedEventPrice(content)).toBeUndefined();
+  });
+});
+
+describe('recoverExistingIndexedPrices', () => {
+  it('fills unknown prices across the existing slice and preserves booking and route metadata', () => {
+    const existing = {
+      id: 'myswitzerland:priced', title: 'An existing event', imageUrl: '/images/event.webp',
+      previousRoutes: [{ canton: 'ticino', comune: 'Lugano', slug: 'previous-event' }],
+      price: { url: 'https://tickets.example.org/booking/' },
+    };
+    const records = [{ objectID: 'priced', perLocaleHits: { en: { content: 'Admission: CHF 25.' } } }];
+    expect(recoverExistingIndexedPrices([existing], records)).toEqual([{
+      ...existing, price: { url: 'https://tickets.example.org/booking/', amount: 25, currency: 'CHF', isFree: false },
+    }]);
+    expect(existing.price).toEqual({ url: 'https://tickets.example.org/booking/' });
+  });
+
+  it('retains known prices, leaves absent or ambiguous sources unchanged, and never adds unseen events', () => {
+    const existing = [
+      { id: 'myswitzerland:known', price: { amount: 30, currency: 'CHF', isFree: false } },
+      { id: 'myswitzerland:ambiguous' },
+      { id: 'myswitzerland:absent' },
+    ];
+    const records = [
+      { objectID: 'known', perLocaleHits: { it: { content: 'Ingresso libero.' } } },
+      { objectID: 'ambiguous', perLocaleHits: { it: { content: 'Prezzo su richiesta' } } },
+      { objectID: 'unseen', perLocaleHits: { en: { content: 'Price: CHF 10.' } } },
+    ];
+    expect(recoverExistingIndexedPrices(existing, records)).toEqual([]);
+  });
+
+  it('can use another locale when the preferred index has no admission tariff', () => {
+    expect(recoverExistingIndexedPrices([{ id: 'myswitzerland:free' }], [{
+      objectID: 'free', perLocaleHits: { it: { content: 'Prezzo su richiesta' }, en: { content: 'Free entrance.' } },
+    }])).toEqual([{ id: 'myswitzerland:free', price: { amount: 0, currency: 'CHF', isFree: true } }]);
   });
 });
 
@@ -566,6 +625,18 @@ describe('mapEventRecord', () => {
       amount: 0, currency: 'CHF', isFree: true,
       url: 'https://www.myswitzerland.com/booking/', availability: 'https://schema.org/InStock',
     });
+  });
+
+  it('keeps booking metadata when the index supplies a monetary tariff', () => {
+    const indexedHit = { ...hitIt, content: 'Self-service buffetPrice: CHF 59.00Optional add-ons: pool CHF 5.00' };
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailLd: { offers: { url: '/booking/' } },
+    })?.event.price).toEqual({
+      amount: 59, currency: 'CHF', isFree: false, url: 'https://www.myswitzerland.com/booking/',
+    });
+    expect(mapEventRecord('abc123', { it: indexedHit }, {
+      detailLd: { offers: { price: '65', priceCurrency: 'CHF' } },
+    })?.event.price).toEqual({ amount: 65, currency: 'CHF', isFree: false });
   });
 
   it('keeps a booking link without inventing an amount when both price sources are unknown', () => {

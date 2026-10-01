@@ -62,6 +62,7 @@
  */
 
 import path from 'node:path';
+import { existsSync, readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import {
   EVENT_SOURCES,
@@ -384,15 +385,40 @@ export function extractPrice(ld, detailHtml, detailUrl) {
 
 /**
  * The public search index appends some admission tariffs to event content.
- * Recover only an unqualified, standalone free-admission statement at the
- * end: a free drink, child ticket, parking space or unrelated number elsewhere
- * in the description is not evidence that admission is free.
+ * Recover a terminal free-admission statement or one explicitly labelled
+ * monetary tariff. Ancillary amounts and conditional ticket prices are not
+ * evidence of the event's general admission price.
  */
 export function extractIndexedEventPrice(content) {
   if (typeof content !== 'string') return undefined;
   const freeTariff = /(?:^|[.!?\n])\s*(?:gratuit[oea]?|kostenlos|gratis|free)\s*[.!]?\s*$/iu.test(content)
     || /(?:^|[.!?\n,])\s*(?:(?:prices?|preis|prix|prezzo)\s*:\s*)?(?:free\s+(?:admission|entry|entrance)|(?:admission|entry|entrance)(?:\s*:\s*|\s+(?:is\s+)?)free|(?:eintritt|entrée|ingresso|entrata)\s*:?[ \t]*(?:frei|liber[oa]|libre|gratuit[oea]?|kostenlos|gratis))\s*[.!]?\s*$/iu.test(content);
-  return freeTariff ? { amount: 0, currency: 'CHF', isFree: true } : undefined;
+  if (freeTariff) return { amount: 0, currency: 'CHF', isFree: true };
+
+  // Index content can concatenate adjacent HTML blocks ("buffetPrice:").
+  // Require a field boundary or that exact concatenation, not "parking price".
+  const tariffs = [...content.matchAll(/(?:^\s*|[.!?\n•"“]\s*|(?<=\p{Ll}))(?:(?:prices?|preis|prix|prezzo)\s*:|(?:single\s+admission\s+price|admission|entry|entrance|eintritt|entrée|ingresso)\s*:?)\s*((?:CHF|EUR|€)\s*\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?(?!\d|[.,'’]\d)|\d+(?:[.,]\d{1,2})?(?:[.,][-–—]{1,2})?\s*(?:(?:CHF|EUR)\b|€))/giu)];
+  if (tariffs.length !== 1) return undefined;
+  const tariff = tariffs[0];
+  const qualifier = content.slice(tariff.index + tariff[0].length);
+  if (/^\s*(?:[+/%(]|(?:deposit|supplement|surcharge|anzahlung|zuschlag|acompte|caparra)\b|(?:(?:for|für|pour|per)\s+)?(?:members?|children|kids|students?|kinder|mitglieder|bambini|soci|enfants|membres|reduced|discounted|ermässigt|ridotto|réduit)\b|(?:mit|avec|con)\s+(?:gästekarte|carte|carta)\b)/iu.test(qualifier)) return undefined;
+  const price = parseEventPriceText(tariff[1]);
+  return hasConfidentPrice(price)
+    ? { ...price, currency: /EUR|€/iu.test(tariff[1]) ? 'EUR' : 'CHF' }
+    : undefined;
+}
+
+/** Fill existing unknown prices from the index independently of the detail cursor. */
+export function recoverExistingIndexedPrices(existingEvents, records) {
+  const pricesById = new Map(records.map(({ objectID, perLocaleHits }) => [
+    eventStableId(SOURCE.key, objectID),
+    LOCALES.map((locale) => extractIndexedEventPrice(perLocaleHits[locale]?.content)).find(hasConfidentPrice),
+  ]));
+  return existingEvents.flatMap((event) => {
+    if (hasConfidentPrice(event.price)) return [];
+    const price = pricesById.get(event.id);
+    return price ? [{ ...event, price: { ...event.price, ...price } }] : [];
+  });
 }
 
 /**
@@ -751,6 +777,11 @@ async function main() {
   const { dryRun, limit } = parseArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
   const deadline = Date.now() + RUN_BUDGET_MS;
+  const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
+  const existingSlice = existsSync(slicePath)
+    ? JSON.parse(readFileSync(slicePath, 'utf8'))
+    : { events: [] };
+  if (!Array.isArray(existingSlice.events)) throw new Error('Invalid MySwitzerland source slice');
 
   const localeMaps = {};
   for (const locale of LOCALES) {
@@ -763,6 +794,8 @@ async function main() {
   let records = groupHitsByObjectId(localeMaps);
   console.log(`[myswitzerland] ${records.length} unique event(s) in catalog across ${LOCALES.length} locales`);
   if (limit) records = records.slice(0, limit);
+  const indexedPriceBackfills = recoverExistingIndexedPrices(existingSlice.events, records);
+  console.log(`[myswitzerland] ${indexedPriceBackfills.length} existing unknown price(s) recovered from the public index`);
 
   const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(records.length, 1);
   if (!limit && startIndex > 0) {
@@ -846,7 +879,7 @@ async function main() {
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify(translatedEvents.slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
     return;
   }
 
@@ -864,7 +897,7 @@ async function main() {
     //  - records were actually visited this run and none mapped → likely
     //    index/key/facet drift; exit non-zero so crawl-events.yml opens a
     //    failure issue instead of letting the dataset go silently stale.
-    console.log('[myswitzerland] 0 events mapped this run — leaving existing slice untouched');
+    console.log('[myswitzerland] 0 events mapped by detail traversal this run');
     if (visited === 0) {
       console.log('[myswitzerland] time budget exhausted before any record was visited — transient, soft-exit 0');
     } else if (algoliaFailures > 0) {
@@ -874,16 +907,16 @@ async function main() {
         `[myswitzerland] ${visited} record(s) visited this run but 0 mapped — check ALGOLIA_APP_ID/ALGOLIA_SEARCH_KEY/LOCALE_INDEX for drift`,
       );
       process.exitCode = 1;
+      return;
     }
-    return;
+    if (indexedPriceBackfills.length === 0) return;
   }
 
-  const slicePath = path.join(EVENTS_SLICE_DIR, `${SOURCE.key}.json`);
   const total = mergeEventsIntoSlice({
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: translatedEvents,
+    freshEvents: [...indexedPriceBackfills, ...translatedEvents],
     goneIds: [],
     crawledAt,
   });
