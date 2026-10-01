@@ -58,10 +58,13 @@ describe('fill extension: patterns', () => {
   it('declares only what it needs and opens the queue bridge on the owner page alone', () => {
     const manifest = JSON.parse(readFileSync(resolve(extension, 'manifest.json'), 'utf8'));
     expect(manifest.manifest_version).toBe(3);
-    expect(manifest.permissions.sort()).toEqual(['scripting', 'storage', 'tabs']);
+    // alarms: the once-a-minute look at its own files on disk (it reloads itself after an update).
+    expect(manifest.permissions.sort()).toEqual(['alarms', 'scripting', 'storage', 'tabs']);
     expect(manifest.content_scripts).toEqual([{ matches: ['https://frontaliereticino.ch/*gestione-contenuti-xk9mp2q/*'], js: ['bridge.js'], run_at: 'document_start' }]);
     for (const file of ['background.js', 'bridge.js', 'content.js', 'filler.js']) {
-      const source = readFileSync(resolve(extension, file), 'utf8');
+      // The one thing kept across a reload is when the last reload happened (no candidate data).
+      const source = readFileSync(resolve(extension, file), 'utf8')
+        .replace(/chrome\.storage\.local\.(?:get\('lastReloadAt'\)|set\(\{ lastReloadAt: nowMs \}\))/g, '');
       // No remote code, no eval, no stored candidate data.
       expect(source).not.toMatch(/\beval\(|new Function|importScripts|localStorage|chrome\.storage\.local/);
     }

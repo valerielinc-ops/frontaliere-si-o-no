@@ -8,8 +8,16 @@
 (function () {
   'use strict';
   document.documentElement.dataset.compilaCandidatura = chrome.runtime.getManifest().version;
+  // Cut off when the extension reloads itself after an update (background.js):
+  // the service worker then injects a new bridge into this tab.
+  const alive = () => Boolean(chrome.runtime?.id);
+  globalThis.compilaCandidaturaBridgeAlive = alive;
 
-  window.addEventListener('message', (event) => {
+  const onMessage = (event) => {
+    if (!alive()) {
+      window.removeEventListener('message', onMessage);
+      return;
+    }
     if (event.source !== window || event.origin !== window.location.origin) return;
     const data = event.data;
     if (data?.source === 'frontaliere-queue' && data.type === 'open-verification' && data.orderId && data.url) {
@@ -23,7 +31,8 @@
     chrome.runtime.sendMessage({ type: 'fill-order', kit: data.kit })
       .then((response) => window.postMessage({ source: 'compila-candidatura', type: 'fill-opened', orderId: data.kit.orderId, ok: Boolean(response?.ok), error: response?.error || '' }, window.location.origin))
       .catch((error) => window.postMessage({ source: 'compila-candidatura', type: 'fill-opened', orderId: data.kit.orderId, ok: false, error: String(error?.message || error) }, window.location.origin));
-  });
+  };
+  window.addEventListener('message', onMessage);
 
   chrome.runtime.onMessage.addListener((message) => {
     if (message?.type !== 'fill-status') return;
