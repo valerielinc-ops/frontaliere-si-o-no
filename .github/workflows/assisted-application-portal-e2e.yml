@@ -35,7 +35,9 @@ permissions:
 jobs:
   e2e:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    # The fake portal alone takes about 13 minutes (run 36895734777).
+    # Leave time for setup and both real-extension checks that follow it.
+    timeout-minutes: 30
     steps:
       - name: Checkout
         uses: actions/checkout@v7
