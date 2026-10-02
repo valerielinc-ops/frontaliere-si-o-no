@@ -7469,6 +7469,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cambio-cassa-sondaggio.title': 'Krankenkassenprämien 2027: Immer mehr Wechseln die Krankenkasse',
     'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte schätzt, dass es zu 600\'000 bis 900\'000 Krankenkassenwechseln kommen wird; im Jahr 2027 wird der durchschnittliche Beitrag um 5 % auf 412 Franken pro Monat steigen.',
     'blog.article.cambio-cassa-sondaggio.imageAlt': 'Unterlagen und Rechner zur Prüfung der Schweizer Krankenkassenprämien',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Krankenkassen: Bis zu 900.000 Wechsel im nächsten Jahr',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Zwischen 600\'000 und 900\'000 Versicherte könnten im nächsten Jahr die Krankenkasse wechseln. Das geht aus einer YouGov-Umfrage für Deloitte hervor, die unter 1\'236 Personen durchgeführt wurde.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Deloitte-Prognosen zum Krankenkassenwechsel in der Schweiz und im Tessin',
 };
 
 export default blogMetaChDe;

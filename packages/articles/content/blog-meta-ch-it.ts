@@ -7469,6 +7469,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cambio-cassa-sondaggio.title': 'Premi cassa malati 2027: cresce il cambio di cassa',
     'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte stima 600\'000-900\'000 cambi di cassa malati; nel 2027 il premio medio salirà del 5% a 412 franchi mensili.',
     'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documenti e calcolatrice per valutare i premi della cassa malati in Svizzera',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse malati, fino a 900mila cambi per l\'anno prossimo',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Tra 600\'000 e 900\'000 assicurati potrebbero cambiare cassa malati l\'anno prossimo. Lo rivela un sondaggio YouGov per Deloitte condotto su 1236 persone.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Previsioni Deloitte sui cambi di cassa malati in Svizzera e Ticino',
 };
 
 export default blogMetaChIt;

@@ -7469,6 +7469,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cambio-cassa-sondaggio.title': '2027 Health Insurance Premiums: More People Are Switching Insurers',
     'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estimates that 600,000 to 900,000 people will switch health insurance providers; by 2027, the average premium will rise by 5% to 412 francs per month.',
     'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents and calculator for reviewing Swiss health insurance premiums',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Health Insurance Plans: Up to 900,000 Switchers Expected Next Year',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Between 600,000 and 900,000 insured individuals could switch health insurance providers next year. This finding comes from a YouGov survey conducted for Deloitte among 1,236 people.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Deloitte health insurance switching forecasts in Switzerland and Ticino',
 };
 
 export default blogMetaChEn;

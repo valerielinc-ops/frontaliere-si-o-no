@@ -7469,6 +7469,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cambio-cassa-sondaggio.title': 'Cassa malati 2027: boom dei cambi in Svizzera',
     'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estime que 600\'000 à 900\'000 personnes changeront de caisse-maladie ; en 2027, la prime moyenne augmentera de 5 % pour atteindre 412 francs par mois.',
     'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents et calcul pour examiner les primes d\'assurance maladie en Suisse',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse-maladies : 900\'000 changements attendus',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Entre 600 000 et 900 000 assurés pourraient changer de caisse d\'assurance maladie l\'année prochaine. C\'est ce que révèle un sondage YouGov réalisé pour Deloitte auprès de 1 236 personnes.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Prévisions de Deloitte sur le changement de caisse maladie en Suisse et au Tessin',
 };
 
 export default blogMetaChFr;
