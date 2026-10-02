@@ -333,6 +333,30 @@ describe('submit mode', () => {
     expect(calls.some((call) => call.includes('successfactors'))).toBe(false);
   });
 
+  // Coop's apprenticeships, 2026-10-02: the redirect ends on a WhatsApp chat (PastaHR).
+  it('hands a WhatsApp-only application over without running the browser', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const posting = 'https://jobs.coopjobs.ch/offene-stellen/detailhandel-efz/5ce03251-9c03-4836-9887-cdbd5753a42c';
+    const redirect = 'https://ohws.prospective.ch/public/v1/redirect/5ce03251-9c03-4836-9887-cdbd5753a42c/ats/';
+    const pasta = 'https://prod.pastahr.com/en/r/COFU2003?utm_medium=prospective-job-description';
+    const fetchImpl = vi.fn(async (url: string) => {
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) return new Response(null, { status: 200 });
+      if (url === redirect) return new Response(null, { status: 303, headers: { location: pasta } });
+      return new Response(`<main><p>${'Lehrstelle bei Coop. '.repeat(30)}</p><a href="${redirect}">Jetzt bewerben</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const runner = vi.fn();
+    const submit = (draft: any) => submitApplication({
+      order, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    await expect(submit({ ...baseDraft, channel: { type: 'employer_site', applyUrl: posting, host: 'jobs.coopjobs.ch', requiresAccount: false } }))
+      .resolves.toEqual({ type: 'submit_handoff', reason: 'whatsapp' });
+    await expect(submit({ ...baseDraft, channel: { type: 'pastahr', applyUrl: pasta, postingUrl: posting, via: 'prospective', host: 'prod.pastahr.com', requiresAccount: false } }))
+      .resolves.toEqual({ type: 'submit_handoff', reason: 'whatsapp' });
+    expect(runner).not.toHaveBeenCalled();
+  });
+
   // Rolex 2026-10-02: «Vos bulletins des trois dernières années scolaires», EVA and GRI results.
   const withDocuments = (draft: any) => ({
     ...draft,

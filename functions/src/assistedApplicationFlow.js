@@ -116,6 +116,12 @@ export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
 }
 
+/** Why the portal stopped ("whatsapp" from "portal:whatsapp"), or null. */
+function portalStopOf(heldBy = []) {
+  const hold = (Array.isArray(heldBy) ? heldBy : []).find((item) => String(item).startsWith('portal:'));
+  return hold ? String(hold).slice('portal:'.length) : null;
+}
+
 /** What only the candidate can give, as holds: the open questions, then the missing documents. */
 function candidateHolds(flags) {
   return [...flags.candidate.map((id) => `question:${id}`), ...(flags.documents || []).map((id) => `document:${id}`)];
@@ -359,8 +365,9 @@ export function transition(flow, event, { draft = null, answers = {}, documents 
       next.deadlineAt = null;
       next.reminderAt = nowMs + HANDOFF_REMINDER_MS;
       next.reminderSentAt = null;
+      // The candidate is told why: the portal's own stop (a WhatsApp-only application, a CAPTCHA…).
+      effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || portalStopOf(current.heldBy) }];
       next.heldBy = ['owner_handoff'];
-      effects = [{ type: 'email', kind: 'candidate_handoff', reason: event.reason || null }];
       break;
     case 'owner_submitted':
       // Valerie sent it herself on the portal (the fill extension, or by

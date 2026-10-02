@@ -255,10 +255,14 @@ const PORTALS = [
   { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
   { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
   { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
+  // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
+  // chat (QR code), from the candidate's own phone. No browser can send it.
+  { id: 'pastahr', label: 'PastaHR (WhatsApp)', re: /(^|\.)pastahr\.com$/, account: false },
 ];
 
 // The employers' own application portals (not job boards): used even when the
-// posting also names an e-mail address.
+// posting also names an e-mail address. PastaHR is not among them: a WhatsApp
+// chat cannot be sent for the candidate, an address the posting gives can.
 const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
 
 /** The known portal an address is on, or null. */

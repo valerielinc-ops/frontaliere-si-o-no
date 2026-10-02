@@ -228,6 +228,12 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
     expect(classifyApplicationChannel({ applyUrl: 'https://www.linkedin.com/jobs/view/1', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
   });
+
+  it('knows Coop’s WhatsApp applications (PastaHR): an address the posting gives comes first', () => {
+    const pasta = 'https://prod.pastahr.com/en/r/COFU2003?utm_medium=prospective-job-description';
+    expect(classifyApplicationChannel({ applyUrl: pasta })).toMatchObject({ type: 'pastahr', label: 'PastaHR (WhatsApp)', requiresAccount: false });
+    expect(classifyApplicationChannel({ applyUrl: pasta, postingText: 'Bewerbung an lehrstellen@coop.ch', applicationEmail: 'lehrstellen@coop.ch' }).type).toBe('email');
+  });
 });
 
 describe('apply redirect (Coop: Prospective.ch → SAP SuccessFactors)', () => {

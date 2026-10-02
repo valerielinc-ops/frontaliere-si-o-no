@@ -69,6 +69,9 @@ describe('automation e-mails', () => {
     const handoff = buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'de', reason: 'captcha' });
     expect(handoff.text).toContain('eine Anti-Roboter-Prüfung');
     expect(handoff.text).toContain('«Ich habe die Bewerbung gesendet»');
+    // Coop's apprenticeships: the application is a WhatsApp chat from the candidate's phone.
+    expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'it', reason: 'whatsapp' }).text).toContain('la candidatura si fa solo via WhatsApp, dal tuo telefono');
+    expect(buildCandidateAutomationEmail('candidate_handoff', { ...base, locale: 'fr', reason: 'whatsapp' }).text).toContain('uniquement par WhatsApp');
     const closed = buildCandidateAutomationEmail('candidate_posting_closed', { ...base, locale: 'fr', price: '0,99 €' });
     expect(closed.subject).toContain('vous êtes remboursé');
     expect(closed.text).toContain('0,99 €');
@@ -114,6 +117,9 @@ describe('automation e-mails', () => {
     expect(refused.hint).not.toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal_ambiguous', stage: 'submit' }).hint).toContain('prima di inviarla di nuovo');
     expect(describeTakeover({ reason: 'portal:portal_needs_candidate', stage: 'submit' }).reason).toBe('l’invio sul portale si è fermato: il robot non è riuscito a completare una pagina del portale');
+    const whatsapp = describeTakeover({ reason: 'portal:whatsapp', stage: 'submit' });
+    expect(whatsapp.reason).toContain('solo via WhatsApp');
+    expect(whatsapp.hint).toContain('«Affida al candidato»');
     expect(describeTakeover({ reason: 'Unexpected token', stage: 'draft' })).toEqual({
       reason: 'la bozza non è stata generata',
       hint: expect.stringContaining('Rigenera'),
