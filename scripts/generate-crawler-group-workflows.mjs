@@ -1334,30 +1334,35 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
 
 /**
  * WATCHDOG-KILL VISIBILITY. The launcher bounds each detached worker with
- * `timeout ${worker_watchdog_minutes}m`; the worker runs the crawler script,
- * and that script holds the per-crawler failure reporter. When the watchdog
- * fires, the reporter dies with the crawler and the launcher records 124 on
- * its behalf: the member fails with no issue at all (sbb, three generations
- * in a row at the 91 minute watchdog, never reported). The launcher leaves
+ * `timeout --kill-after=30s ${worker_watchdog_minutes}m`; the worker runs the
+ * crawler script, and that script holds the per-crawler failure reporter.
+ * When the watchdog fires, the reporter dies with the crawler and the
+ * launcher records the timeout status on its behalf: 124 when SIGTERM ended
+ * the worker, 137 when it had to escalate to SIGKILL after --kill-after. The
+ * member then failed with no issue at all (sbb, three generations in a row at
+ * the 91 minute watchdog, never reported). The launcher leaves
  * `<slug>.watchdog` (the effective minutes) only in that case — a worker that
- * published its own 124 (an explicit `targetTimeoutMinutes`, whose reporter
- * runs outside the inner timeout) has already reported — and the aggregate
- * files the same issue the reporter would have: same stable title, same
- * `--workflow` id, so dedup, escalation and recovery close treat it as one.
+ * published its own status (an explicit `targetTimeoutMinutes`, whose
+ * reporter runs outside the inner timeout, publishes 124 or 1) has already
+ * reported — and the aggregate files the same issue the reporter would have:
+ * same stable title, same `--workflow` id, so dedup, escalation and recovery
+ * close treat it as one.
  */
+const WATCHDOG_KILL_EXIT = 137;
 const WATCHDOG_MARK_LINES = [
-  `if [ "$terminal_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then printf '%s\\n' "$worker_watchdog_minutes" > "$watchdog_file"; fi`,
+  `if [ "$terminal_exit" -eq ${TARGET_TIMEOUT_EXIT} ] || [ "$terminal_exit" -eq ${WATCHDOG_KILL_EXIT} ]; then printf '%s\\n' "$worker_watchdog_minutes" > "$watchdog_file"; fi`,
 ];
 
 function buildWatchdogKillIssueLines(slug) {
   const statusFile = `"$state_dir/${slug}.status"`;
   return [
     `watchdog_file="$state_dir/${slug}.watchdog"`,
-    `if [ -e "$watchdog_file" ] && [ "$(cat ${statusFile} 2>/dev/null || true)" = "${TARGET_TIMEOUT_EXIT}" ]; then`,
+    `watchdog_status="$(cat ${statusFile} 2>/dev/null || true)"`,
+    `if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "${TARGET_TIMEOUT_EXIT}" ] || [ "$watchdog_status" = "${WATCHDOG_KILL_EXIT}" ]; }; then`,
     '  watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"',
     `  echo "::error::${slug}: the worker watchdog stopped the crawler after \${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"`,
     '  watchdog_description="$(printf \'%s\\n\' \'## Crawler fallito\' '
-      + '"**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ' + TARGET_TIMEOUT_EXIT + '), prima che potesse segnalare il fallimento." '
+      + '"**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." '
       + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
       + '"**Branch:** ${GITHUB_REF_NAME:-}" '
       + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',

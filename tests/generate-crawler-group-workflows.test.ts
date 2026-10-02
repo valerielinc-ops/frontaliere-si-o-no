@@ -1020,21 +1020,25 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     const temp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-watchdog-'));
     const bin = path.join(temp, 'bin');
     fs.mkdirSync(bin);
-    // timeout(1) stand-in: run the worker in its own process group and stop
-    // the whole group after ~1 s, the way the real watchdog would at N minutes.
+    // timeout(1) stand-in: run the command in its own process group and stop
+    // the whole group after N/20 seconds for an N minute budget, so an inner
+    // target timeout still expires before the outer watchdog. It answers
+    // FAKE_TIMEOUT_EXIT: 124 (SIGTERM was enough) or 137 (escalated to SIGKILL
+    // after --kill-after).
     fs.writeFileSync(path.join(bin, 'timeout'), [
       '#!/usr/bin/env bash',
       'while [[ "${1:-}" == --* ]]; do shift; done',
-      'shift',
+      'minutes="${1%m}"; shift',
       'setsid "$@" &',
       'child=$!',
-      'for _ in $(seq 1 10); do',
+      'for _ in $(seq 1 $(( minutes / 2 ))); do',
       '  if ! kill -0 "$child" 2>/dev/null; then wait "$child"; exit $?; fi',
       '  sleep 0.1',
       'done',
-      'kill -TERM -- "-$child" 2>/dev/null || kill -TERM "$child" 2>/dev/null',
+      'signal=TERM; if [ "${FAKE_TIMEOUT_EXIT:-124}" = "137" ]; then signal=KILL; fi',
+      'kill -"$signal" -- "-$child" 2>/dev/null || kill -"$signal" "$child" 2>/dev/null',
       'wait "$child" 2>/dev/null',
-      'exit 124',
+      'exit "${FAKE_TIMEOUT_EXIT:-124}"',
       '',
     ].join('\n'), { mode: 0o755 });
     const body = buildCrawlerLaunchShellBody({
@@ -1058,10 +1062,36 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
   }
 
   it.skipIf(!hasFlock)('marks a worker the watchdog killed before it published a status', () => {
-    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', { CRAWLER_WORKER_TIMEOUT_MINUTES: '91' });
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', { CRAWLER_WORKER_TIMEOUT_MINUTES: '20' });
     try {
       expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('124');
-      expect(fs.readFileSync(path.join(stateDir, 'slow-crawler.watchdog'), 'utf8').trim()).toBe('91');
+      expect(fs.readFileSync(path.join(stateDir, 'slow-crawler.watchdog'), 'utf8').trim()).toBe('20');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.skipIf(!hasFlock)('marks a worker the watchdog had to SIGKILL after --kill-after (137)', () => {
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', {
+      CRAWLER_WORKER_TIMEOUT_MINUTES: '20',
+      FAKE_TIMEOUT_EXIT: '137',
+    });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('137');
+      expect(fs.readFileSync(path.join(stateDir, 'slow-crawler.watchdog'), 'utf8').trim()).toBe('20');
+    } finally {
+      fs.rmSync(temp, { recursive: true, force: true });
+    }
+  });
+
+  it.skipIf(!hasFlock)('leaves no marker when the inner target timeout escalated to SIGKILL (already reported)', () => {
+    // targetTimeoutMinutes 30: the inner timeout (1.5 s here) kills the crawl
+    // with 137, the script's own reporter path runs and the worker publishes
+    // status 1 before the 40 minute watchdog (2 s here) would fire.
+    const { temp, stateDir, statusFile } = launchAndWait('sleep 30', { FAKE_TIMEOUT_EXIT: '137' }, { targetTimeoutMinutes: 30 });
+    try {
+      expect(fs.readFileSync(statusFile, 'utf8').trim()).toBe('1');
+      expect(fs.existsSync(path.join(stateDir, 'slow-crawler.watchdog'))).toBe(false);
     } finally {
       fs.rmSync(temp, { recursive: true, force: true });
     }
@@ -1141,6 +1171,18 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
     expect(output).toContain('wait_outcome=failure');
   });
 
+  it('files a SIGKILL watchdog stop (137) with its real exit code', () => {
+    const { argv } = runAggregate({ status: '137', marker: '91' });
+    expect(argv).toHaveLength(1);
+    expect(argv[0][argv[0].indexOf('--title') + 1]).toBe('Crawler Failure: Run sbb');
+    expect(argv[0][argv[0].indexOf('--description') + 1])
+      .toContain('**Causa:** il watchdog del worker ha fermato il crawler dopo 91 minuti (exit 137), prima che potesse segnalare il fallimento.');
+  });
+
+  it('does not file for a 137 without the watchdog marker', () => {
+    expect(runAggregate({ status: '137' }).argv).toHaveLength(0);
+  });
+
   it('does not file again for a 124 the crawler reported itself', () => {
     expect(runAggregate({ status: '124' }).argv).toHaveLength(0);
   });
@@ -1153,7 +1195,8 @@ describe('watchdog kill visibility (exit 124 without the in-script reporter)', (
   it('files from the quarantine aggregate too, as the in-script reporter would have', () => {
     const body = buildCrawlerAggregateShellBody([{ slug: 'sbb' }] as any, 15, { quarantine: { tolerated: new Map() } } as any);
     expect(body).toContain('### Crawler group 15 outcome (quarantine group)');
-    expect(body).toContain('if [ -e "$watchdog_file" ] && [ "$(cat "$state_dir/sbb.status" 2>/dev/null || true)" = "124" ]; then');
+    expect(body).toContain('watchdog_status="$(cat "$state_dir/sbb.status" 2>/dev/null || true)"');
+    expect(body).toContain('if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then');
     expect(body).toContain("node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sbb'");
   });
 
