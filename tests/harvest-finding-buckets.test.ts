@@ -354,6 +354,22 @@ describe('bucketFinding — workflow-scope-creds conta capability, non ogni push
     });
   }
 
+  it('#10637: una parola nei path citati non classifica un finding sul checkout', () => {
+    const line = 'PR body:L2; .github/workflows/auth-signup-subscriber-monitor.yml:L53; '
+      + '.github/workflows/autologin-refusal-monitor.yml:L68; '
+      + ' .github/workflows/unsubscribe-credential-monitor.yml:L69: '
+      + '🔴 Important: [contract] La PR dichiara che fetch-depth 50 elimina il timeout, '
+      + 'ma non fornisce una baseline pre/post misurata del checkout.';
+    expect(bucketFinding(line)).not.toBe('workflow-scope-creds');
+  });
+
+  it('#10540: la credenziale account di un’app non è una credenziale GitHub Actions', () => {
+    const line = 'scripts/assisted-application/lib/portal/portal.mjs:L250: '
+      + '🔴 Important: The credential is persisted before registration is submitted '
+      + 'and must be invalidated when account creation fails.';
+    expect(bucketFinding(line)).not.toBe('workflow-scope-creds');
+  });
+
   it('conserva i finding autentici su PAT/GitHub token e capability', () => {
     expect(bucketFinding(
       '🔴 Important: il workflow usa `${{ github.token }}` per creare issue, ma serve un App/PAT con la capability richiesta.',
@@ -362,7 +378,10 @@ describe('bucketFinding — workflow-scope-creds conta capability, non ogni push
       '🔴 Important: la guardia verifica solo che `PAT` sia non vuoto, non che il token sia autorizzato alla branch protection.',
     )).toBe('workflow-scope-creds');
     expect(bucketFinding(
-      '🔴 Important: il comando richiede una credential segreta prima della prima mutazione.',
+      '🔴 Important: il workflow richiede una credential segreta prima della prima mutazione.',
+    )).toBe('workflow-scope-creds');
+    expect(bucketFinding(
+      '🔴 Important: persist-credentials:false lascia il token nel remote del workflow.',
     )).toBe('workflow-scope-creds');
   });
 });
