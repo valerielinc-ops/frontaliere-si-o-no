@@ -7529,6 +7529,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.studio-eth-carico-fiscale-svizzera.title': 'Studio ETH: poveri e ricchi pagano le stesse tasse',
     'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Una ricerca del Politecnico di Zurigo rivela che quasi tutti pagano il 45% del reddito. Solo l\'1% più ricco versa meno a causa di premi sanitari e IVA.',
     'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'Veduta di Bellinzona che rappresenta le istituzioni federali e cantonali svizzere.',
+    'blog.article.cassa-malati-premi-ticino-aumento.title': 'Cassa malati: non chiamiamolo un successo',
+    'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Premi in Ticino +3,7% nel 2027 contro il 5% medio svizzero. Il premio medio arriva a 519,90 franchi, +56% in un decennio.',
+    'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Vista sul lago di Lugano con struttura sanitaria sullo sfondo, simbolo dei costi della sanità in Ticino',
 };
 
 export default blogMetaChIt;

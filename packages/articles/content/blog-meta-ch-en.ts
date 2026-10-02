@@ -7529,6 +7529,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.studio-eth-carico-fiscale-svizzera.title': 'ETH study: poor and rich pay the same taxes',
     'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Research by ETH Zurich reveals that almost everyone pays 45% of their income. Only the richest 1% pay less due to health premiums and VAT.',
     'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'View of Bellinzona representing Swiss federal and cantonal institutions.',
+    'blog.article.cassa-malati-premi-ticino-aumento.title': 'Health insurance: let\'s not call it a success',
+    'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Premiums in Ticino +3.7% in 2027 compared to the Swiss average of 5%. The average premium reaches 519.90 francs, +56% in a decade.',
+    'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Lake Lugano view with healthcare facility in background, symbolizing Ticino healthcare costs',
 };
 
 export default blogMetaChEn;

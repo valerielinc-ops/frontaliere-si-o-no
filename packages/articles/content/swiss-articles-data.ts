@@ -22615,6 +22615,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'cassa-malati-premi-ticino-aumento',
+    category: 'fiscale',
+    date: '2026-10-02T15:14:14.109Z',
+    image: '/images/blog/cassa-malati-premi-ticino-aumento.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

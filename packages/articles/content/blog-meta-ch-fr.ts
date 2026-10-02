@@ -7529,6 +7529,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.studio-eth-carico-fiscale-svizzera.title': 'Étude ETH : les pauvres et les riches paient les mêmes impôts',
     'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Des recherches de l’ETH Zurich révèlent que presque tout le monde paie 45 % de ses revenus. Seuls les 1 % les plus riches paient moins à cause des primes santé et de la TVA.',
     'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'Vue de Bellinzona représentant les institutions fédérales et cantonales suisses.',
+    'blog.article.cassa-malati-premi-ticino-aumento.title': 'Assurance santé : ne l’appelons pas un succès',
+    'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Primes au Tessin de +3,7 % en 2027 contre la moyenne suisse de 5 %. La prime moyenne atteint 519,90 francs, soit +56 % en une décennie.',
+    'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Vue sur le lac de Lugan avec une structure sanitaire en arrière-plan, symbole des coûts de santé au Tessin',
 };
 
 export default blogMetaChFr;

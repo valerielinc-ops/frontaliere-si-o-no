@@ -7529,6 +7529,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.studio-eth-carico-fiscale-svizzera.title': 'ETH-Studie: Arme und Reiche zahlen dieselben Steuern',
     'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Forschungen der ETH Zürich zeigen, dass fast jeder 45 % seines Einkommens zahlt. Nur die reichsten 1 % zahlen weniger aufgrund von Krankenversicherungsprämien und Mehrwertsteuer.',
     'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'Blick auf Bellinzona, der die schweizerischen Bundes- und Kantonsinstitutionen darstellt.',
+    'blog.article.cassa-malati-premi-ticino-aumento.title': 'Krankenversicherung: Nennen wir sie nicht als Erfolg',
+    'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Die Prämien im Tessin lagen 2027 bei +3,7 % gegenüber dem Schweizer Durchschnitt von 5 %. Die durchschnittliche Prämie beträgt 519,90 Franc, also +56 % innerhalb eines Jahrzehnts.',
+    'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Lago-Lugano-Ansicht mit medizinischer Einrichtung im Hintergrund, Symbol für Ticino-Gesundheitskosten',
 };
 
 export default blogMetaChDe;
