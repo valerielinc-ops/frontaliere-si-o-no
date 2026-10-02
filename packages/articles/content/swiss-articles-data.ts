@@ -22678,6 +22678,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'novartis-abo2203-rna-licenza',
+    category: 'novita',
+    date: '2026-10-02T18:52:20.917Z',
+    image: '/images/blog/novartis-abo2203-rna-licenza.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

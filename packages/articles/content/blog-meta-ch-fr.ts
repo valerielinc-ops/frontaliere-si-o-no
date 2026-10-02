@@ -7550,6 +7550,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.netto-professioni-stgallen-2026.title': 'Salaire professionnel moyen en Suisse 2026 : Saint-Gall',
     'blog.article.netto-professioni-stgallen-2026.excerpt': 'Comparaison 2026 entre professions, cantons et secteurs : cotisations AHV, BVG, impôts sur trois niveaux et KVG pour lire le canton de Saint-Gall.',
     'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Comparaison des salaires suisses par profession, avec un focus sur Saint-Gall',
+    'blog.article.novartis-abo2203-rna-licenza.title': 'Novartis et Abogen : licence ARN pour une valeur allant jusqu’à 7,2 milliards',
+    'blog.article.novartis-abo2203-rna-licenza.excerpt': 'Novartis obtient la licence mondiale sur ABO2203 d’Abogen : 575 millions de dollars initiaux et des paiements potentiels allant jusqu’à environ 7,2 milliards.',
+    'blog.article.novartis-abo2203-rna-licenza.imageAlt': 'Laboratoire pharmaceutique suisse avec visualisation graphique de l\'ARN',
 };
 
 export default blogMetaChFr;

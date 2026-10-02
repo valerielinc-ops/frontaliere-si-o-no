@@ -7550,6 +7550,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.netto-professioni-stgallen-2026.title': 'Salario medio professioni Svizzera 2026: San Gallo',
     'blog.article.netto-professioni-stgallen-2026.excerpt': 'Confronto 2026 tra professioni, cantoni e settori: contributi AVS, LPP, imposte su tre livelli e LAMal per leggere il canton San Gallo.',
     'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Confronto dei salari svizzeri per professione, con focus sul canton San Gallo',
+    'blog.article.novartis-abo2203-rna-licenza.title': 'Novartis e Abogen: licenza RNA fino a 7,2 miliardi',
+    'blog.article.novartis-abo2203-rna-licenza.excerpt': 'Novartis ottiene da Abogen la licenza mondiale su ABO2203: 575 milioni di dollari iniziali e pagamenti potenziali fino a circa 7,2 miliardi.',
+    'blog.article.novartis-abo2203-rna-licenza.imageAlt': 'Laboratorio farmaceutico svizzero con visualizzazione grafica dell\'RNA',
 };
 
 export default blogMetaChIt;

@@ -7550,6 +7550,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.netto-professioni-stgallen-2026.title': 'Durchschnittliches Berufsgehalt Schweiz 2026: St. Gallen',
     'blog.article.netto-professioni-stgallen-2026.excerpt': 'Vergleich 2026 zwischen Berufen, Kantonen und Sektoren: AHV- und BVG-Beiträge, Steuern auf drei Ebenen und KVG zur Einordnung des Kantons St. Gallen.',
     'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Schweizer Gehaltsvergleich nach Beruf mit Fokus auf den Kanton St. Gallen',
+    'blog.article.novartis-abo2203-rna-licenza.title': 'Novartis und Abogen: RNA-Lizenz für bis zu 7,2 Milliarden',
+    'blog.article.novartis-abo2203-rna-licenza.excerpt': 'Novartis erhält die weltweite Lizenz für ABO2203 von Abogen: 575 Millionen Anfangsdollar und potenzielle Zahlungen bis zu etwa 7,2 Milliarden.',
+    'blog.article.novartis-abo2203-rna-licenza.imageAlt': 'Schweizer Pharmalabor mit grafischer Darstellung von RNA',
 };
 
 export default blogMetaChDe;

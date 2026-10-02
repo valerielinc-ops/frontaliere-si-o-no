@@ -7550,6 +7550,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.netto-professioni-stgallen-2026.title': 'Average salary by profession Switzerland 2026: St. Gallen',
     'blog.article.netto-professioni-stgallen-2026.excerpt': '2026 comparison between professions, cantons and sectors: AHV contributions, BVG, taxes on three levels and KVG to read the canton of St. Gallen.',
     'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Swiss salary comparison by profession, focused on the canton of St. Gallen',
+    'blog.article.novartis-abo2203-rna-licenza.title': 'Novartis and Abogen: RNA license for up to 7.2 billion',
+    'blog.article.novartis-abo2203-rna-licenza.excerpt': 'Novartis obtains the worldwide license on ABO2203 from Abogen: 575 million initial dollars and potential payments up to about 7.2 billion.',
+    'blog.article.novartis-abo2203-rna-licenza.imageAlt': 'Swiss pharmaceutical laboratory with a graphic RNA visualization',
 };
 
 export default blogMetaChEn;
