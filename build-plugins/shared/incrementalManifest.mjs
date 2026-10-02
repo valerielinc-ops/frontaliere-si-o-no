@@ -519,14 +519,20 @@ export function relatedArticlesFeedDigest(relatedArticlesHtml) {
   return sha256(String(relatedArticlesHtml ?? '')).slice(0, 16);
 }
 
+/** Digest the rendered hreflang block without copying the block into JSONL. */
+export function activePageHreflangDigest(hreflangHtml) {
+  return sha256(String(hreflangHtml ?? '')).slice(0, 16);
+}
+
 /**
  * The whole page input of an active job page, in one place.
  *
  * It lives here rather than inline at the emit site because `buildMinimalJobInput()`
  * alone does NOT describe that page: the active template also renders the
- * recent-articles feed, the canton, the (possibly overridden) canonical URL and
- * the build-day bucket. Assembling them at the call site is what let the feed
- * stay out of the hash unnoticed.
+ * recent-articles feed, build-dependent hreflang eligibility, an optional
+ * employer-profile link, the canton, the (possibly overridden) canonical URL
+ * and the build-day bucket. Assembling them at the call site is what kept
+ * those emitted blocks out of the hash unnoticed.
  */
 export function buildActiveJobPageInput({
   job,
@@ -538,6 +544,8 @@ export function buildActiveJobPageInput({
   canton,
   canonicalUrl,
   relatedArticlesHtml,
+  hreflangHtml = '',
+  employerHubPath = '',
   renderDateBucket,
 }) {
   return {
@@ -545,6 +553,8 @@ export function buildActiveJobPageInput({
     canton,
     canonicalUrl,
     relatedArticlesDigest: relatedArticlesFeedDigest(relatedArticlesHtml),
+    hreflangDigest: activePageHreflangDigest(hreflangHtml),
+    employerHubPath: String(employerHubPath ?? ''),
     renderDateBucket,
   };
 }
