@@ -119,14 +119,17 @@ export async function buildDraft(ctx) {
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
     // Requirements read before the requested documents existed are read again.
-    && Array.isArray(previousDraft.requirementsRaw.requestedDocuments);
+    && Array.isArray(previousDraft.requirementsRaw.requestedDocuments)
+    // So is a profile read before the kinds of experience: an internship would count as a job.
+    && profileOfThisVersion(previousDraft.profile);
 
   let cvText = previousDraft?.factSources?.text && reuse ? previousDraft.factSources.text : '';
   let cvMethod = reuse ? previousDraft.cvTextMethod : 'none';
   let profile;
   let requirements;
   if (reuse) {
-    profile = previousDraft.profile;
+    // Capped and defaulted as a fresh read.
+    profile = sanitizeProfile(previousDraft.profile);
     requirements = previousDraft.requirementsRaw;
     log('reusing profile and requirements of the previous round');
   } else {
@@ -377,6 +380,13 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };
   }
+}
+
+// Fields every profile read by this version has (sanitizeProfile writes them, even empty).
+const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence'];
+
+function profileOfThisVersion(profile) {
+  return PROFILE_FIELDS.every((key) => key in profile) && (profile.experience || []).every((role) => typeof role?.kind === 'string');
 }
 
 function hashText(text) {

@@ -14,6 +14,8 @@
 
 const APPRENTICESHIP = /\b(?:lehrstelle|lernende[rn]?\b|lernende\/r|lehrling|lehrbeginn|lehre als|berufslehre|apprendist\w*|tirocinio|posto di tirocinio|apprenti(?:e|s)?\b|apprentissage|place d'apprentissage|apprenticeship|trainee position)/i;
 const HEALTH = /\b(?:pflege\w*|fage|fachfrau gesundheit|fachmann gesundheit|mpa\b|infermier\w*|infirmi\w*|oss\b|assc\b|ospedal\w*|spital\w*|hôpital|clinic\w*|klinik\w*|medizin\w*|médic\w*|medic\w*|nurs\w*|hebamme|sage-femme|ostetric\w*|physiotherap\w*|fisioterap\w*)/i;
+// "IT" alone only in capitals: case-insensitive it would read the English and Italian word.
+const IT_ACRONYM = /\bIT\b/;
 const IT = /\b(?:informatik\w*|informatic\w*|informaticien\w*|software|entwickl\w*|sviluppat\w*|développeu\w*|developer|devops|ict\b|it-|data engineer|full-?stack|front-?end|back-?end|applikationsentwicklung|plattformentwicklung)/i;
 
 const NOT_A_JOB = new Set(['internship', 'trial_apprenticeship', 'side_job', 'volunteer']);
@@ -29,7 +31,9 @@ export function candidateType({ profile = {}, postingTitle = '', postingText = '
     ? 'apprentice'
     : jobs.length === 0 ? 'first_job' : 'qualified';
   const profileText = [profile.headline, ...(profile.experience || []).map((role) => role.role), ...(profile.education || []).map((item) => item.degree)].join('\n');
-  const sector = HEALTH.test(postingTitle) || HEALTH.test(profileText) ? 'health' : IT.test(postingTitle) || IT.test(profileText) ? 'it' : 'other';
+  const sector = HEALTH.test(postingTitle) || HEALTH.test(profileText)
+    ? 'health'
+    : [postingTitle, profileText].some((text) => IT.test(text) || IT_ACRONYM.test(text)) ? 'it' : 'other';
   return { type, sector };
 }
 
