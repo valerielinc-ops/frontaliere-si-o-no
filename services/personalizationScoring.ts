@@ -361,6 +361,39 @@ export function scorePersonalJobs<J extends ScoredJob>(
 }
 
 /**
+ * Browser list scoring with an 8ms frame budget. useDeferredValue cannot yield
+ * inside scorePersonalJobs' synchronous loop (30k jobs on the national board).
+ * Publish only the complete map; a superseded search/unmount cancels the work.
+ */
+export function schedulePersonalJobScores<J extends ScoredJob>(
+ jobs: readonly J[],
+ scorer: PersonalScorer,
+ onComplete: (scores: Map<J, PersonalScore>) => void,
+): () => void {
+ const scores = new Map<J, PersonalScore>();
+ let index = 0;
+ let cancelled = false;
+ let frame = 0;
+ const run = () => {
+ if (cancelled) return;
+ const deadline = performance.now() + 8;
+ while (index < jobs.length) {
+ const job = jobs[index++];
+ scores.set(job, scorer(job));
+ // Amortize clock reads while still yielding on slower devices.
+ if ((index & 15) === 0 && performance.now() >= deadline) break;
+ }
+ if (index < jobs.length) frame = requestAnimationFrame(run);
+ else onComplete(scores);
+ };
+ frame = requestAnimationFrame(run);
+ return () => {
+ cancelled = true;
+ cancelAnimationFrame(frame);
+ };
+}
+
+/**
  * Return `previous` when `next` holds the same items in the same order, else
  * `next`. A re-sort whose inputs changed but whose order did not (the common
  * case while a search keyword is being typed) then keeps the array identity
@@ -397,6 +430,27 @@ export function computeNewJobsCount(
  const matching = newJobs.filter((j) => scorePersonal(j).score > 0).length;
 
  return { total: newJobs.length, matching };
+}
+
+/** The new-jobs badge uses the same scoring loop, with personalization only. */
+export function scheduleNewJobsCount(
+ jobs: ScoredJob[],
+ lastVisit: number | null,
+ behavior: BehaviorData,
+ profile: UserProfileData | null,
+ jobMatchProfile: JobMatchProfileData | null,
+ onComplete: (count: { total: number; matching: number }) => void,
+): () => void {
+ if (!lastVisit) {
+ onComplete({ total: 0, matching: 0 });
+ return () => {};
+ }
+ const newJobs = jobs.filter(job => new Date(job.firstSeenAt || job.crawledAt || job.postedDate).getTime() > lastVisit);
+ return schedulePersonalJobScores(newJobs, createPersonalScorer(behavior, profile, jobMatchProfile), scores => {
+ let matching = 0;
+ for (const score of scores.values()) if (score.score > 0) matching++;
+ onComplete({ total: newJobs.length, matching });
+ });
 }
 
 // ─── Trending by location ───────────────────────────────────────

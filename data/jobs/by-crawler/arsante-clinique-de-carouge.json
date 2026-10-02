@@ -1,6 +1,6 @@
 {
   "crawlerKey": "arsante-clinique-de-carouge",
-  "assembledAt": "2026-10-01T09:16:19.805Z",
+  "assembledAt": "2026-10-01T21:18:39.643Z",
   "jobs": [
     {
       "id": "arsante-clinique-de-carouge-32da6f6e8dee",
@@ -33,7 +33,7 @@
       "url": "https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:13.788Z",
+      "crawledAt": "2026-10-01T21:18:34.089Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -73,8 +73,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-assistant-en-pediatrie-4"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-fdb4b1bbe19a",
@@ -108,7 +107,7 @@
       "url": "https://arsante.ch/emploi/medecin-expert-18",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:13.199Z",
+      "crawledAt": "2026-10-01T21:18:33.414Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -154,8 +153,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-expert-18"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-6b5a4037b33c",
@@ -188,7 +186,7 @@
       "url": "https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:12.603Z",
+      "crawledAt": "2026-10-01T21:18:32.742Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -276,8 +274,7 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/apprenti-e-assistant-e-medical-e-20"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-32c29b4d3f12",
@@ -310,7 +307,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:12.017Z",
+      "crawledAt": "2026-10-01T21:18:32.071Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -364,8 +361,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-interniste-generaliste-fmh-28"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-8b41a33b6156",
@@ -399,7 +395,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:11.423Z",
+      "crawledAt": "2026-10-01T21:18:31.403Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -480,8 +476,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-specialiste-fmh-72"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-018ac2509b3e",
@@ -514,7 +509,7 @@
       "url": "https://arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:10.832Z",
+      "crawledAt": "2026-10-01T21:18:30.732Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -575,8 +570,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-interniste-generaliste-73"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-474f76316eeb",
@@ -601,16 +595,15 @@
       "descriptionByLocale": {
         "it": "Descrizione Sei un medico di base, neolaureato o in fase di finalizzazione della tua formazione? Vuoi esercitare in un ambiente strutturato, collettivo e impegnato, senza rinunciare alla tua libertà clinica o alla tua carriera accademica? Unisciti a uno dei centri medici Arsanté, situati nei distretti di Ginevra, al servizio della medicina locale.\n• Cosa offriamo - Una posizione retribuita part-time, con retribuzione allineata alla scala retributiva dei responsabili clinici HUG, in un ambiente di lavoro stabile, stimolante e cooperativo. - La possibilità di proseguire un'attività universitaria e ospedaliera, parallelamente al lavoro d'ufficio (didattica, ricerca, consulenze specialistiche, ecc.). - Un ambiente interprofessionale che promuove gli scambi clinici e il coordinamento delle cure. - Supporto nell'assunzione del proprio incarico, senza oneri gestionali, senza pressioni ad agire, in un modello dove conta davvero il tempo dedicato ai pazienti. - Un ambiente strutturato e innovativo: centri medici del Gruppo integrati nella rete Arsanté, collegati a progetti sanitari di rete. - Cartella clinica informatizzata comune (Mediway/SoKle), che facilita il monitoraggio e la continuità delle cure. - Accesso ai servizi condivisi: laboratorio, imaging, squadra infermieristica (IPS), psicologi, medici specialisti e paramedici. - Partecipazione a circoli di qualità e processi di riflessione etica, clinica e di popolazione.\n• Profilo ricercato - Titolo FMH in medicina interna generale o equivalente riconosciuto (o in corso di ottenimento). - Interesse per una pratica territoriale in connessione con gli abitanti e gli stakeholder del quartiere. - Vuoi contribuire alla medicina centrata sui corsi di vita, all'interno di un team impegnato. Contatto (nessuna informazione fornita)",
         "en": "Description Are you a general practitioner, recent graduate or in the process of finalizing your training? Do you want to practice in a structured, collective and committed environment, without giving up your clinical freedom or your academic career? Join one of the Arsanté medical centers, located in the Geneva neighborhoods, serving local medicine.\n• Cosa offriamo - A part-time salaried position, with remuneration aligned with the salary scale for HUG clinical heads, in a stable, stimulating and cooperative work environment. - The possibility of continuing a university and hospital activity, in parallel with work in an office (teaching, research, specialized consultations, etc.). - An interprofessional environment promoting clinical exchanges and coordination of care. - Support in taking up your position, without management burden, without pressure to act, in a model where the time devoted to patients really counts. - A structured and innovative environment: Group medical centers integrated within the Arsanté network, linked to network health projects. - Common computerized medical file (Mediway / SoKle), facilitating monitoring and continuity of care. - Access to shared services: laboratory, imaging, nursing team (IPS), psychologists, specialist doctors and paramedics. - Participation in quality circles and ethical, clinical and population reflection processes. Ricercato profile - FMH title in general internal medicine or recognized equivalent (or in the process of being obtained). - Interest in a territorial practice in connection with the inhabitants and stakeholders of the neighborhood. - Want to contribute to medicine centered on life courses, within a committed team. Contact (no information provided)",
-        "de": "Beschreibung Sind Sie Allgemeinmediziner, haben gerade Ihren Abschluss gemacht oder stehen kurz vor dem Abschluss Ihrer Ausbildung? Möchten Sie in einem strukturierten, kollektiven und engagierten Umfeld praktizieren, ohne Ihre klinische Freiheit oder Ihre akademische Karriere aufzugeben? Treten Sie einem der medizinischen Zentren von Arsanté in den Genfer Stadtteilen bei, die lokale Medizin anbieten.\n• Cosa offriamo – Eine Teilzeitstelle mit einer Vergütung, die sich an der Gehaltstabelle für HUG-Klinikleiter orientiert, in einem stabilen, anregenden und kooperativen Arbeitsumfeld. - Die Möglichkeit, parallel zur Tätigkeit in einem Büro (Lehre, Forschung, Fachberatung usw.) eine Universitäts- und Krankenhaustätigkeit fortzusetzen. - Ein interprofessionelles Umfeld, das den klinischen Austausch und die Koordination der Pflege fördert. - Unterstützung bei der Übernahme Ihrer Position, ohne Führungslast, ohne Handlungsdruck, in einem Modell, in dem die Zeit, die Sie den Patienten widmen, wirklich zählt. - Ein strukturiertes und innovatives Umfeld: Medizinische Zentren der Gruppe, integriert in das Arsanté-Netzwerk, verbunden mit Netzwerk-Gesundheitsprojekten. - Gemeinsame elektronische Krankenakte (Mediway/SoKle), die die Überwachung und Kontinuität der Pflege erleichtert. - Zugang zu gemeinsamen Diensten: Labor, Bildgebung, Pflegeteam (IPS), Psychologen, Fachärzte und Sanitäter. - Teilnahme an Qualitätszirkeln und ethischen, klinischen und bevölkerungsbezogenen Reflexionsprozessen. Ricercato-Profil – FMH-Titel in allgemeiner innerer Medizin oder anerkannter gleichwertiger Abschluss (oder im Erlangungsprozess). - Interesse an einer territorialen Praxis in Verbindung mit den Bewohnern und Interessenvertretern der Nachbarschaft. - Sie möchten in einem engagierten Team zu einer lebensverlaufsorientierten Medizin beitragen. Kontakt (keine Angaben gemacht)",
+        "de": "Sind Sie Allgemeinmediziner, junger Absolvent oder gerade dabei, Ihre Ausbildung abzuschließen? Möchten Sie in einem strukturierten, kollektiven und engagierten Umfeld üben, ohne Ihre klinische Freiheit oder Ihren akademischen Hintergrund aufzugeben? Schließen Sie sich einem der Arsanté-Medizinzentren an, das sich in den Vierteln von Genf befindet und im Dienste einer lokalen Medizin steht. Was wir anbieten:\n• Eine teilzeitbeschäftigte Position, mit einer auf das Gehaltsraster der HUG-Klinikleiter abgestimmten Bezahlung in einem stabilen, anregenden und kooperativen Arbeitsumfeld.\n• Die Möglichkeit, eine akademische und Krankenhaustätigkeit parallel zur Arbeit im Unternehmen fortzusetzen (Lehre, Forschung, Fachberatung usw.).\n• Ein interprofessionelles Umfeld, das den klinischen Austausch und die Koordination der Pflege schätzt.\n• Eine Begleitung in Ihrem Job, ohne Managementlast, ohne Handlungsdruck, in einem Modell, in dem die Zeit für Patienten wirklich zählt. Ein strukturiertes und innovatives Umfeld:\n• Integrierte medizinische Gruppenzentren innerhalb des Arhealth-Netzwerks, verbunden mit vernetzten Gesundheitsprojekten.\n• Gemeinsame computergestützte medizinische Datei (Mediway / SoKle), Erleichterung der Nachsorge und Kontinuität der Versorgung.\n• Zugang zu gemeinsam genutzten Diensten: Labor, Bildgebung, Pflegeteam (IPS), Psychologen, medizinische Fachkräfte und Sanitäter.\n• Beteiligung an Qualitätszirkeln und an der ethischen, klinischen und bevölkerungsbezogenen Reflexion. Gesuchtes Profil:\n• FMH Titel in der allgemeinen inneren Medizin oder anerkannt gleichwertig (oder erhalten).\n• Interesse an einer territorialen Praxis im Zusammenhang mit den Bewohnern und Akteuren der Nachbarschaft.\n• Möchten Sie zu einer Lebenswegmedizin beitragen, in einem engagierten Team.",
         "fr": "Vous êtes médecin généraliste, jeune diplômé·e ou en voie de finaliser votre formation ? Vous souhaitez exercer dans un cadre structuré, collectif et engagé, sans renoncer à votre liberté clinique ni à votre parcours académique ? Rejoignez l’un des centres médicaux Arsanté , implantés dans les quartiers genevois, au service d’une médecine de proximité . Ce que nous offrons :\n• Un poste salarié à temps partiel , avec une rémunération alignée sur la grille salariale des chefs de clinique des HUG , dans un cadre de travail stable, stimulant et coopératif.\n• La possibilité de poursuivre une activité universitaire et hospitalière , en parallèle du travail en cabinet (enseignement, recherche, consultations spécialisées, etc.).\n• Un environnement interprofessionnel valorisant les échanges cliniques et la coordination des soins.\n• Un accompagnement dans votre prise de poste, sans charge de gestion, sans pression à l’acte, dans un modèle où le temps consacré aux patient·e·s compte réellement . Un environnement structuré et innovant :\n• Centres médicaux de groupe intégrés au sein du réseau Arsanté, en lien avec des projets de santé en réseau.\n• Dossier médical informatisé commun (Mediway / SoKle), facilitant le suivi et la continuité des soins.\n• Accès à des services partagés : laboratoire, imagerie, équipe infirmière (IPS), psychologues, médecins spécialistes et paramédicaux.\n• Participation aux cercles de qualité et à des démarches de réflexion éthique, clinique et populationnelle. Profil recherché :\n• Titre FMH en médecine interne générale ou équivalent reconnu (ou en cours d’obtention).\n• Intérêt pour une pratique territoriale en lien avec les habitants et les acteurs du quartier .\n• Envie de contribuer à une médecine centrée sur les parcours de vie, au sein d’une équipe engagée ."
       },
-      "needsRetranslation": true,
       "location": "Carouge",
       "canton": "GE",
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:10.235Z",
+      "crawledAt": "2026-10-01T21:18:30.058Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -663,8 +656,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-74"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-326595ee1ef5",
@@ -698,7 +690,7 @@
       "url": "https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:09.647Z",
+      "crawledAt": "2026-10-01T21:18:29.391Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -758,8 +750,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-356c93d4d50b",
@@ -793,7 +784,7 @@
       "url": "https://arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:09.058Z",
+      "crawledAt": "2026-10-01T21:18:28.724Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -860,8 +851,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-b5ff45f0eb78",
@@ -895,7 +885,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-chef-fe-89",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:08.459Z",
+      "crawledAt": "2026-10-01T21:18:28.052Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -945,8 +935,7 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-chef-fe-89"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-59e02485ff01",
@@ -980,7 +969,7 @@
       "url": "https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:07.870Z",
+      "crawledAt": "2026-10-01T21:18:27.384Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1026,8 +1015,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/medecin-specialiste-fmh-en-gynecologie-et-obstetrique-90"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-6ecac6a7dbdd",
@@ -1060,7 +1048,7 @@
       "url": "https://arsante.ch/emploi/pharmacien-ne-92",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:07.278Z",
+      "crawledAt": "2026-10-01T21:18:26.696Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1119,8 +1107,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/pharmacien-ne-92"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-6d24d94f6092",
@@ -1154,7 +1141,7 @@
       "url": "https://arsante.ch/emploi/experts-medicaux-93",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:06.672Z",
+      "crawledAt": "2026-10-01T21:18:26.018Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1213,8 +1200,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/experts-medicaux-93"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-913da87db7a1",
@@ -1247,7 +1233,7 @@
       "url": "https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:06.081Z",
+      "crawledAt": "2026-10-01T21:18:25.336Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1308,8 +1294,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/psychologue-psychotherapeute-fsp-94"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-bce6b7cb58d0",
@@ -1343,7 +1328,7 @@
       "url": "https://arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:05.485Z",
+      "crawledAt": "2026-10-01T21:18:24.655Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1403,8 +1388,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/infirmier-ere-pediatrique-95"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-f487b1b9dbac",
@@ -1437,7 +1421,7 @@
       "url": "https://arsante.ch/emploi/comptable-96",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:04.888Z",
+      "crawledAt": "2026-10-01T21:18:23.967Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1483,8 +1467,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/comptable-96"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-49e162f692f7",
@@ -1518,7 +1501,7 @@
       "url": "https://arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:04.265Z",
+      "crawledAt": "2026-10-01T21:18:23.281Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1564,8 +1547,7 @@
           "maxValue": 74500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/conducteur-rice-de-travaux-junior-97"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-88fc673ce8e0",
@@ -1598,7 +1580,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:03.655Z",
+      "crawledAt": "2026-10-01T21:18:22.608Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1641,8 +1623,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-98"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-f0c8e6e7ec14",
@@ -1675,7 +1656,7 @@
       "url": "https://arsante.ch/emploi/coordinateur-rice-99",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:03.058Z",
+      "crawledAt": "2026-10-01T21:18:21.899Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1721,8 +1702,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/coordinateur-rice-99"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-230c0865fa50",
@@ -1755,7 +1735,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:02.319Z",
+      "crawledAt": "2026-10-01T21:18:21.200Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1795,8 +1775,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-100"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-f9f1efac6b4a",
@@ -1830,7 +1809,7 @@
       "url": "https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:01.720Z",
+      "crawledAt": "2026-10-01T21:18:20.525Z",
       "addressLocality": "Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1876,8 +1855,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101"
+      }
     },
     {
       "id": "arsante-clinique-de-carouge-413d1d3fa67f",
@@ -1910,7 +1888,7 @@
       "url": "https://arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "Arsanté (Clinique de Carouge) Dedicated Parser (Custom HTML — schema.org/JobPosting)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:01.106Z",
+      "crawledAt": "2026-10-01T21:18:19.850Z",
       "addressLocality": "Carouge",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1955,8 +1933,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://arsante.ch/emploi/assistant-e-medical-e-102"
+      }
     }
   ]
 }

@@ -1,5 +1,5 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import type { ReactNode } from 'react';
 import JobAlertStickyBanner from '@/components/community/JobAlertStickyBanner';
 
@@ -35,8 +35,19 @@ vi.mock('@/components/shared/BottomPromptShell', () => ({
  ),
 }));
 
+function readAndScroll() {
+ act(() => vi.advanceTimersByTime(20_000));
+ Object.defineProperty(window, 'scrollY', { configurable: true, value: 300 });
+ fireEvent.scroll(window);
+}
+
+vi.mock('@/services/jobAlertPromptPolicy', () => ({
+ canShowJobAlertPrompt: () => true, markJobAlertPromptShown: vi.fn(), dismissJobAlertPrompt: vi.fn(),
+}));
+
 describe('JobAlertStickyBanner', () => {
  beforeEach(() => {
+ vi.useFakeTimers();
  localStorage.clear();
  trackJobAlertCtaClick.mockClear();
  Object.defineProperty(window, 'innerHeight', { configurable: true, value: 600 });
@@ -51,10 +62,30 @@ describe('JobAlertStickyBanner', () => {
  afterEach(() => {
  cleanup();
  vi.restoreAllMocks();
+ vi.useRealTimers();
+ });
+
+ it('requires both twenty seconds and a deliberate scroll before offering an alert', () => {
+ render(<JobAlertStickyBanner />);
+ expect(screen.queryByRole('button', { name: 'Crea alert gratis' })).toBeNull();
+ act(() => vi.advanceTimersByTime(20_000));
+ expect(screen.queryByRole('button', { name: 'Crea alert gratis' })).toBeNull();
+ Object.defineProperty(window, 'scrollY', { configurable: true, value: 300 });
+ fireEvent.scroll(window);
+ expect(screen.getByRole('button', { name: 'Crea alert gratis' })).toBeTruthy();
+ });
+
+ it('keeps a dismissed banner closed on subsequent scrolls', () => {
+ render(<JobAlertStickyBanner />);
+ readAndScroll();
+ fireEvent.click(screen.getByRole('button', { name: 'Chiudi' }));
+ fireEvent.scroll(window);
+ expect(screen.queryByRole('button', { name: 'Crea alert gratis' })).toBeNull();
  });
 
  it('puts the primary CTA on its own full-width touch row on mobile', () => {
  render(<JobAlertStickyBanner />);
+ readAndScroll();
 
  const cta = screen.getByRole('button', { name: 'Crea alert gratis' });
  const close = screen.getByRole('button', { name: 'Chiudi' });
@@ -69,6 +100,7 @@ describe('JobAlertStickyBanner', () => {
  it('keeps the alert action as the conversion event, not the close control', () => {
  const dispatchSpy = vi.spyOn(window, 'dispatchEvent');
  render(<JobAlertStickyBanner />);
+ readAndScroll();
 
  fireEvent.click(screen.getByRole('button', { name: 'Crea alert gratis' }));
 

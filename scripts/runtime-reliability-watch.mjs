@@ -15,6 +15,8 @@
  * entry pages, edge vs origin in both cache variants, plus a link check of
  * every named import against what the edge serves. The five critical assets
  * below stay as the cheap, always-available core of the verdict.
+ * The runtime public-config endpoint is also checked at its stable and fresh
+ * URLs: a fail-open 200 with no Firebase API key cannot initialize Auth.
  *
  * No credentials are needed to probe. The script never prints response bodies;
  * it emits only status, sizes, hashes and URLs safe for a GitHub issue.
@@ -35,6 +37,7 @@ export const SITE_ORIGIN = 'https://frontaliereticino.ch';
 export const CDN_ORIGIN = 'https://cdn.frontaliereticino.ch';
 export const SITE_BUILD_ID_PATH = '/build-id.txt';
 export const CDN_BUILD_ID_PATH = '/cdn-build-id.txt';
+export const PUBLIC_CONFIG_URL = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
 export const RUNTIME_CIRCUIT_COOLDOWN_MS = 15 * 60 * 1000;
 
 // These are the stable bundle files involved in the observed version-skew
@@ -85,8 +88,9 @@ export function runtimeFailureFingerprint(result) {
     // link must reopen the repair path, a healthy chunk must not churn it.
     chunkGraph: chunkGraphSignature(result?.chunkGraph),
     markerState: result?.markerState || 'unknown',
+    publicConfig: result?.publicConfig || null,
     siteBuildId: result?.siteBuildId || null,
-    version: 'runtime-reliability/v2',
+    version: 'runtime-reliability/v3',
   };
   return sha256(JSON.stringify(signature)).slice(0, 16);
 }
@@ -212,6 +216,42 @@ export function classifyAssetResponses(cached, fresh) {
   return 'unavailable';
 }
 
+/** Only retain the public key's presence and syntax, never its value or a hash. */
+export function classifyPublicConfig(response) {
+  const result = {
+    status: response?.status || 0,
+    state: 'unavailable',
+    apiKeyPresent: false,
+    apiKeyFormatValid: false,
+  };
+  if (!response?.ok) return result;
+  let config;
+  try { config = JSON.parse(response.body); } catch {
+    return { ...result, state: 'invalid_json' };
+  }
+  if (!config || typeof config !== 'object' || Array.isArray(config)) {
+    return { ...result, state: 'invalid_payload' };
+  }
+  const key = typeof config.FIREBASE_API_KEY === 'string' ? config.FIREBASE_API_KEY.trim() : '';
+  result.apiKeyPresent = key.length > 0;
+  // This checks the Google API-key format, not the key's IAM restrictions or
+  // authorization. A 200 with {} is the endpoint's fail-open response and is
+  // not sufficient to initialize Firebase Auth in the browser.
+  result.apiKeyFormatValid = /^AIza[A-Za-z0-9_-]{35}$/.test(key);
+  result.state = !result.apiKeyPresent ? 'missing_api_key'
+    : result.apiKeyFormatValid ? 'healthy' : 'invalid_api_key_format';
+  return result;
+}
+
+export async function probePublicConfig({ fetchImpl = fetch, timeoutMs = DEFAULT_TIMEOUT_MS, nonce = Date.now() } = {}) {
+  const [cached, fresh] = await Promise.all([
+    readUrl(PUBLIC_CONFIG_URL, { fetchImpl, timeoutMs }),
+    readUrl(cacheBust(PUBLIC_CONFIG_URL, String(nonce)), { fetchImpl, timeoutMs }),
+  ]);
+  const result = { cached: classifyPublicConfig(cached), fresh: classifyPublicConfig(fresh) };
+  return { ok: result.cached.state === 'healthy' && result.fresh.state === 'healthy', ...result };
+}
+
 /**
  * Pure verdict used by the CLI and unit tests.
  *
@@ -247,7 +287,7 @@ export function classifyAssetResponses(cached, fresh) {
  * cdnBuildId` is the break worth failing on: the apex is serving HTML for a
  * generation whose assets the CDN never received.
  */
-export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkGraph = null }) {
+export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkGraph = null, publicConfig = null }) {
   // The cache-busted site marker is the authoritative current origin value.
   // Falling back to the normal cached marker would turn an origin/network
   // failure into a false green and could authorize a purge against an old
@@ -314,7 +354,8 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
   const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
     && blockingAssets.length === 0
-    && (graph ? graph.ok : true);
+    && (graph ? graph.ok : true)
+    && (publicConfig ? publicConfig.ok : true);
 
   const result = {
     ok,
@@ -331,6 +372,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
     siteCachedBuildId: validBuildId(siteCached?.body),
     siteFreshBuildId: validBuildId(siteFresh?.body),
     assets: assetResults,
+    publicConfig,
     chunkGraph: graph ? {
       ok: graph.ok,
       checked: graph.checked,
@@ -357,6 +399,9 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
         ? formatMarkerSkew(siteBehindMs)
         : null,
       ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...['cached', 'fresh'].flatMap((variant) => publicConfig?.[variant]?.state && publicConfig[variant].state !== 'healthy'
+        ? [`public config (${variant}): ${publicConfig[variant].state}, HTTP ${publicConfig[variant].status}`]
+        : []),
       ...(graph?.reasons || []),
     ].filter(Boolean),
   };
@@ -376,10 +421,11 @@ export async function probeRuntime({
   const nonce = `${now instanceof Date ? now.getTime() : Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
   const siteBuildUrl = `${SITE_ORIGIN}${SITE_BUILD_ID_PATH}`;
   const cdnMarkerUrl = `${CDN_ORIGIN}${CDN_BUILD_ID_PATH}`;
-  const [siteCached, siteFresh, cdnMarker] = await Promise.all([
+  const [siteCached, siteFresh, cdnMarker, publicConfig] = await Promise.all([
     readUrl(siteBuildUrl, { fetchImpl, timeoutMs }),
     readUrl(cacheBust(siteBuildUrl, nonce), { fetchImpl, timeoutMs }),
     readUrl(cacheBust(cdnMarkerUrl, nonce), { fetchImpl, timeoutMs }),
+    probePublicConfig({ fetchImpl, timeoutMs, nonce }),
   ]);
   const assets = await Promise.all(assetPaths.map(async (path) => {
     const url = `${CDN_ORIGIN}${path}`;
@@ -401,7 +447,7 @@ export async function probeRuntime({
   }
   return {
     checkedAt: new Date().toISOString(),
-    ...evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkGraph: graph }),
+    ...evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkGraph: graph, publicConfig }),
   };
 }
 
@@ -433,6 +479,12 @@ export function formatIssueDescription(final, { first = null, runUrl = '' } = {}
     `- Site build: ${final?.siteBuildId || 'unavailable'}`,
     `- CDN build: ${final?.cdnBuildId || 'unavailable'}`,
   );
+  if (final?.publicConfig) {
+    for (const variant of ['cached', 'fresh']) {
+      const config = final.publicConfig[variant];
+      lines.push(`- Public config (${variant}): ${config.state}, HTTP ${config.status}, API key present: ${config.apiKeyPresent}, format valid: ${config.apiKeyFormatValid}`);
+    }
+  }
   const graph = final?.chunkGraph;
   if (graph) {
     const families = (graph.families || [])

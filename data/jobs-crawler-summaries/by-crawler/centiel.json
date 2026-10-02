@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-10-01T09:18:20.812Z",
+  "generatedAt": "2026-10-01T21:25:28.012Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3395,
-  "avgDurationMs": 3395,
+  "durationMs": 2972,
+  "avgDurationMs": 2972,
   "durationHistory": [
-    3395
+    2972
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -84,12 +84,11 @@
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.06-jd-it-specialista-ufficio-tecnico.pdf",
-      "needsRetranslation": true,
-      "_qualityScore": 82,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -124,13 +123,11 @@
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-operatore-di-produzione.pdf",
-      "retranslationAttempts": 0,
-      "needsRetranslation": true,
-      "_qualityScore": 82,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -165,12 +162,11 @@
       "firstSeenAt": "2026-07-03T21:38:35.083Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/07/2026.03-jd-it-tecnico-collaudatore.pdf",
-      "needsRetranslation": true,
-      "_qualityScore": 82,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -244,7 +240,6 @@
       "firstSeenAt": "2026-05-05T10:19:57.725Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.centiel.com/wp-content/uploads/2026/05/2026.02-jd-eg-pre-sales-application-engineer-cp.pdf",
-      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,

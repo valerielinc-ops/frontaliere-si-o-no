@@ -1,6 +1,6 @@
 {
   "crawlerKey": "entero",
-  "assembledAt": "2026-10-01T09:22:31.208Z",
+  "assembledAt": "2026-10-01T21:24:25.552Z",
   "jobs": [
     {
       "id": "entero-c4ea9c79ee4e",
@@ -34,7 +34,7 @@
       "url": "https://www.entero.ch/de/karriere/psychotherapeutin-oder-psychotherapeut-80-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:24.893Z",
+      "crawledAt": "2026-10-01T21:24:19.000Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://www.entero.ch/de/karriere/diplomierte-pflegefachperson-hf-60-100",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:24.322Z",
+      "crawledAt": "2026-10-01T21:24:18.399Z",
       "addressLocality": "Niederlenz",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -132,16 +132,14 @@
       "previousSlugsByLocale": {
         "de": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
-          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz",
-          "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
         ],
         "it": [
           "diplomierte-pflegfachperson-hf-60-100-entero-egliswil",
           "graduated-nurse-hf-60-100-entero-egliswil",
           "infirmiere-diplomee-hf-60-100-entero-egliswil",
           "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz",
-          "infermiera-laureata-hf-60-100-entero-egliswil"
+          "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
         ],
         "en": [
           "diplomierte-pflegefachperson-hf-60-100-entero-egliswil"
@@ -155,8 +153,7 @@
         "graduated-nurse-hf-60-100-entero-egliswil",
         "infirmiere-diplomee-hf-60-100-entero-egliswil",
         "diplomierte-pflegefachperson-hf-60-100-entero-egliswil",
-        "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz",
-        "infermiera-laureata-hf-60-100-entero-egliswil"
+        "diplomierte-pflegefachperson-hf-60-100-entero-niederlenz"
       ],
       "firstSeenAt": "2026-08-13T10:39:45.203Z",
       "salaryMin": 88000,
@@ -205,7 +202,7 @@
       "url": "https://www.entero.ch/de/karriere/verantwortliche-r-qualitaetsmanagement-60-80",
       "source": "entero Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:22:23.747Z",
+      "crawledAt": "2026-10-01T21:24:17.792Z",
       "addressLocality": "Egliswil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -223,13 +220,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil",
-        "gestione-della-qualita-responsabile-60-80-entero-egliswil"
+        "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil",
-          "gestione-della-qualita-responsabile-60-80-entero-egliswil"
+          "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
         ],
         "en": [
           "verantwortliche-r-qualitatsmanagement-60-80-entero-egliswil"
@@ -252,6 +247,138 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "entero-22f1fa3284fe",
+      "slug": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
+      "slugByLocale": {
+        "de": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
+        "it": "koch-kochin-80-100-mit-agogischer-perspektive-entero-niederlenz",
+        "en": "chef-80-100-with-an-agogic-perspective-entero-niederlenz",
+        "fr": "chef-80-100-avec-une-perspective-agogique-entero-niederlenz"
+      },
+      "company": "entero",
+      "companyKey": "entero",
+      "companyDomain": "entero.ch",
+      "title": "Koch / Köchin 80 – 100% mit agogischer Perspektive",
+      "titleByLocale": {
+        "de": "Koch / Köchin 80 – 100% mit agogischer Perspektive",
+        "it": "Koch / Köchin 80 – 100% con agogischer Perspektive",
+        "en": "Chef 80 – 100% with an agogic perspective",
+        "fr": "Chef 80 – 100% avec une perspective agogique"
+      },
+      "description": "Die entero Stiftung bietet seit über 40 Jahren Therapien für Menschen mit Abhängigkeitserkrankungen. Unser ärztlich geleitetes Programm in unterstützt Jugendliche ab 16 Jahren und Erwachsene dabei, einen Weg aus der Sucht zu finden und ein selbstständiges Leben aufzubauen. Als Teil unseres interdisziplinären Teams gestaltest du diesen Prozess aktiv mit – in der Küche und darüber hinaus.\nWir suchen an unserem Standort in Niederlenz einen / eine\nKoch / Köchin 80 – 100% mit agogischer Perspektive\n\nArbeitsort: Entwöhnung Niederlenz\n\nDeine Aufgaben\n• Zubereitung von Mahlzeiten (inkl. Diätküche) unter Einhaltung der HACCP-Richtlinien\n• Selbstständige Menüplanung, Einkauf und Budgetverantwortung\n• Anleitung und Begleitung von 3–4 Patienten in der Küche (arbeitsagogische Komponente)\n• Erarbeitung individueller Ziele mit den Patienten und Dokumentation der Fortschritte\n• Teilnahme an interdisziplinären Standortgesprächen und Teambesprechungen\n\nAnforderungsprofil\n• Abgeschlossene Berufsausbildung als Koch/Köchin EFZ\n• Wirtepatent von Vorteil\n• Idealerweise arbeitsagogische Ausbildung oder Bereitschaft, diese zu absolvieren\n• Positive Grundhaltung gegenüber unseren Patienten\n• Selbstständige und verantwortungsvolle Arbeitsweise\n• Gültiger Führerausweis (Kat. B)\n• Mindestens 25 Jahre alt",
+      "descriptionByLocale": {
+        "de": "Die entero Stiftung bietet seit über 40 Jahren Therapien für Menschen mit Abhängigkeitserkrankungen. Unser ärztlich geleitetes Programm in unterstützt Jugendliche ab 16 Jahren und Erwachsene dabei, einen Weg aus der Sucht zu finden und ein selbstständiges Leben aufzubauen. Als Teil unseres interdisziplinären Teams gestaltest du diesen Prozess aktiv mit – in der Küche und darüber hinaus.\nWir suchen an unserem Standort in Niederlenz einen / eine\nKoch / Köchin 80 – 100% mit agogischer Perspektive\n\nArbeitsort: Entwöhnung Niederlenz\n\nDeine Aufgaben\n• Zubereitung von Mahlzeiten (inkl. Diätküche) unter Einhaltung der HACCP-Richtlinien\n• Selbstständige Menüplanung, Einkauf und Budgetverantwortung\n• Anleitung und Begleitung von 3–4 Patienten in der Küche (arbeitsagogische Komponente)\n• Erarbeitung individueller Ziele mit den Patienten und Dokumentation der Fortschritte\n• Teilnahme an interdisziplinären Standortgesprächen und Teambesprechungen\n\nAnforderungsprofil\n• Abgeschlossene Berufsausbildung als Koch/Köchin EFZ\n• Wirtepatent von Vorteil\n• Idealerweise arbeitsagogische Ausbildung oder Bereitschaft, diese zu absolvieren\n• Positive Grundhaltung gegenüber unseren Patienten\n• Selbstständige und verantwortungsvolle Arbeitsweise\n• Gültiger Führerausweis (Kat. B)\n• Mindestens 25 Jahre alt",
+        "it": "La Fondazione entero offre terapie per le persone con malattie da tossicodipendenza da oltre 40 anni. Il nostro programma guidato dal medico per aiutare gli adolescenti di età superiore ai 16 anni e gli adulti a trovare un modo per uscire dalla dipendenza e costruire una vita indipendente. Come parte del nostro team interdisciplinare, si forma attivamente questo processo – in cucina e oltre.\nStiamo cercando un / un\nChef 80 – 100% con una prospettiva agogica\n\nLuogo di lavoro: weaning Niederlenz\n\nI tuoi compiti\n• Preparazione dei pasti (inclusa la cucina dietetica) secondo le linee guida HACCP\n• Pianificazione, acquisto e responsabilità del budget\n• Guida e accompagnamento di 3-4 pazienti in cucina (componente lavorativo-agogico)\n• Sviluppo di obiettivi individuali con pazienti e documentazione del progresso\n• Partecipazione alle discussioni interdisciplinari sul luogo e alle riunioni di squadra\n\nProfilo di richiesta\n• Formazione professionale completa come chef/chef EFZ\n• Brevetto di filo di vantaggio\n• Idealmente, formazione orientata al lavoro o la volontà di completarlo\n• atteggiamento positivo nei confronti dei nostri pazienti\n• Pratiche di lavoro autonome e responsabili\n• Patente di guida valida (cat B)\n• Almeno 25 anni",
+        "en": "The entero Foundation has been offering therapies for people with addiction diseases for more than 40 years. Our doctor-led program in assists adolescents over the age of 16 and adults in finding a way out of addiction and building an independent life. As part of our interdisciplinary team, you actively shape this process – in the kitchen and beyond.\nWe are looking for a / an\nChef 80 – 100% with an agogic perspective\n\nPlace of work: weaning Niederlenz\n\nYour tasks\n• Preparation of meals (including diet kitchen) in compliance with the HACCP guidelines\n• Independent menu planning, purchasing and budget responsibility\n• Guidance and accompaniment of 3–4 patients in the kitchen (work-agogic component)\n• Development of individual goals with patients and documentation of progress\n• Participation in interdisciplinary location discussions and team meetings\n\nRequirement profile\n• Completed vocational training as chef/chef EFZ\n• Wire patent of advantage\n• Ideally, work-oriented training or willingness to complete it\n• Positive attitude towards our patients\n• Self-employed and responsible working practices\n• Valid driving licence (cat B)\n• At least 25 years old",
+        "fr": "Depuis plus de 40 ans, la Fondation entero offre des thérapies aux personnes atteintes de toxicomanie. Notre programme dirigé par un médecin aide les adolescents âgés de plus de 16 ans et les adultes à trouver un moyen de sortir de la dépendance et de bâtir une vie indépendante. Dans le cadre de notre équipe interdisciplinaire, vous façonnez activement ce processus – dans la cuisine et au-delà.\nNous cherchons\nChef 80 – 100% avec une perspective agogique\n\nLieu de travail: sevrage Niederlenz\n\nVos tâches\n• Préparation des repas (y compris la cuisine diététique) conformément aux directives HACCP\n• Planification indépendante des menus, achats et responsabilité budgétaire\n• Orientation et accompagnement de 3 à 4 patients dans la cuisine (composante pédagogique de travail)\n• Élaboration d'objectifs individuels avec les patients et documentation des progrès accomplis\n• Participation aux discussions interdisciplinaires sur les lieux et aux réunions d'équipe\n\nProfil des besoins\n• Formation professionnelle terminée en tant que chef/chef EFZ\n• Brevet filaire d'avantage\n• Idéalement, une formation orientée vers le travail ou la volonté de la compléter\n• Une attitude positive envers nos patients\n• Travailleurs indépendants et pratiques de travail responsables\n• Permis de conduire valide (catégorie B)\n• Au moins 25 ans"
+      },
+      "needsRetranslation": true,
+      "location": "Niederlenz",
+      "canton": "AG",
+      "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
+      "source": "entero Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T21:24:17.194Z",
+      "addressLocality": "Niederlenz",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5702",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Suchtmedizin / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive-1",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T21:24:17.194Z"
+    },
+    {
+      "id": "entero-2074edc0ec48",
+      "slug": "koch-kochin-80-100-mit-agogischer-perspektive-entero-egliswil",
+      "slugByLocale": {
+        "de": "koch-kochin-80-100-mit-agogischer-perspektive-entero-egliswil",
+        "it": "koch-kochin-80-100-mit-agogischer-perspektive-entero-egliswil",
+        "en": "chef-80-100-with-an-agogic-perspective-entero-egliswil",
+        "fr": "chef-80-100-avec-une-perspective-agogique-entero-egliswil"
+      },
+      "company": "entero",
+      "companyKey": "entero",
+      "companyDomain": "entero.ch",
+      "title": "Koch / Köchin 80 – 100% mit agogischer Perspektive",
+      "titleByLocale": {
+        "de": "Koch / Köchin 80 – 100% mit agogischer Perspektive",
+        "it": "Koch / Köchin 80 – 100% con agogischer Perspektive",
+        "en": "Chef 80 – 100% with an agogic perspective",
+        "fr": "Chef 80 – 100% avec une perspective agogique"
+      },
+      "description": "Die entero Stiftung bietet seit über 40 Jahren Therapien für Menschen mit Abhängigkeitserkrankungen. Unser ärztlich geleitetes Programm unterstützt Jugendliche ab 16 Jahren und Erwachsene dabei, einen Weg aus der Sucht zu finden und ein selbstständiges Leben aufzubauen. Als Teil unseres interdisziplinären Teams gestaltest du diesen Prozess aktiv mit – in der Küche und darüber hinaus.\nWir suchen an unserem Standort in Egliswil einen / eine\nKoch / Köchin 80 – 100% mit agogischer Perspektive\n\nArbeitsort: Entwöhnung Egliswil\n\nDeine Aufgaben\n• Zubereitung von Mahlzeiten (inkl. Diätküche) unter Einhaltung der HACCP-Richtlinien\n• Selbstständige Menüplanung, Einkauf und Budgetverantwortung\n• Anleitung und Begleitung von 3–4 Patienten in der Küche (arbeitsagogische Komponente)\n• Erarbeitung individueller Ziele mit den Patienten und Dokumentation der Fortschritte\n• Teilnahme an interdisziplinären Standortgesprächen und Teambesprechungen\n\nAnforderungsprofil\n• Abgeschlossene Berufsausbildung als Koch/Köchin EFZ\n• Wirtepatent von Vorteil\n• Idealerweise arbeitsagogische Ausbildung oder Bereitschaft, diese zu absolvieren\n• Positive Grundhaltung gegenüber unseren Patienten\n• Selbstständige und verantwortungsvolle Arbeitsweise\n• Gültiger Führerausweis (Kat. B)\n• Mindestens 25 Jahre alt",
+      "descriptionByLocale": {
+        "de": "Die entero Stiftung bietet seit über 40 Jahren Therapien für Menschen mit Abhängigkeitserkrankungen. Unser ärztlich geleitetes Programm unterstützt Jugendliche ab 16 Jahren und Erwachsene dabei, einen Weg aus der Sucht zu finden und ein selbstständiges Leben aufzubauen. Als Teil unseres interdisziplinären Teams gestaltest du diesen Prozess aktiv mit – in der Küche und darüber hinaus.\nWir suchen an unserem Standort in Egliswil einen / eine\nKoch / Köchin 80 – 100% mit agogischer Perspektive\n\nArbeitsort: Entwöhnung Egliswil\n\nDeine Aufgaben\n• Zubereitung von Mahlzeiten (inkl. Diätküche) unter Einhaltung der HACCP-Richtlinien\n• Selbstständige Menüplanung, Einkauf und Budgetverantwortung\n• Anleitung und Begleitung von 3–4 Patienten in der Küche (arbeitsagogische Komponente)\n• Erarbeitung individueller Ziele mit den Patienten und Dokumentation der Fortschritte\n• Teilnahme an interdisziplinären Standortgesprächen und Teambesprechungen\n\nAnforderungsprofil\n• Abgeschlossene Berufsausbildung als Koch/Köchin EFZ\n• Wirtepatent von Vorteil\n• Idealerweise arbeitsagogische Ausbildung oder Bereitschaft, diese zu absolvieren\n• Positive Grundhaltung gegenüber unseren Patienten\n• Selbstständige und verantwortungsvolle Arbeitsweise\n• Gültiger Führerausweis (Kat. B)\n• Mindestens 25 Jahre alt",
+        "it": "La Fondazione entero offre terapie per le persone con malattie da tossicodipendenza da oltre 40 anni. Il nostro programma guidato dal medico supporta gli adolescenti di età superiore ai 16 anni e gli adulti nel trovare un modo per uscire dalla dipendenza e costruire una vita indipendente. Come parte del nostro team interdisciplinare, si forma attivamente questo processo – in cucina e oltre.\nStiamo cercando un / un\nChef 80 – 100% con una prospettiva agogica\n\nLuogo di lavoro: weaning Egliswil\n\nI tuoi compiti\n• Preparazione dei pasti (inclusa la cucina dietetica) secondo le linee guida HACCP\n• Pianificazione, acquisto e responsabilità del budget\n• Guida e accompagnamento di 3-4 pazienti in cucina (componente lavorativo-agogico)\n• Sviluppo di obiettivi individuali con pazienti e documentazione del progresso\n• Partecipazione alle discussioni interdisciplinari sul luogo e alle riunioni di squadra\n\nProfilo di richiesta\n• Formazione professionale completa come chef/chef EFZ\n• Brevetto di filo di vantaggio\n• Idealmente, formazione orientata al lavoro o la volontà di completarlo\n• atteggiamento positivo nei confronti dei nostri pazienti\n• Pratiche di lavoro autonome e responsabili\n• Patente di guida valida (cat B)\n• Almeno 25 anni",
+        "en": "The entero Foundation has been offering therapies for people with addiction diseases for more than 40 years. Our doctor-led program supports adolescents over the age of 16 and adults in finding a way out of addiction and building an independent life. As part of our interdisciplinary team, you actively shape this process – in the kitchen and beyond.\nWe are looking for a / an\nChef 80 – 100% with an agogic perspective\n\nPlace of work: weaning Egliswil\n\nYour tasks\n• Preparation of meals (including diet kitchen) in compliance with the HACCP guidelines\n• Independent menu planning, purchasing and budget responsibility\n• Guidance and accompaniment of 3–4 patients in the kitchen (work-agogic component)\n• Development of individual goals with patients and documentation of progress\n• Participation in interdisciplinary location discussions and team meetings\n\nRequirement profile\n• Completed vocational training as chef/chef EFZ\n• Wire patent of advantage\n• Ideally, work-oriented training or willingness to complete it\n• Positive attitude towards our patients\n• Self-employed and responsible working practices\n• Valid driving licence (cat B)\n• At least 25 years old",
+        "fr": "Depuis plus de 40 ans, la Fondation entero offre des thérapies aux personnes atteintes de toxicomanie. Notre programme dirigé par un médecin aide les adolescents de plus de 16 ans et les adultes à trouver un moyen de sortir de la dépendance et de bâtir une vie indépendante. Dans le cadre de notre équipe interdisciplinaire, vous façonnez activement ce processus – dans la cuisine et au-delà.\nNous cherchons\nChef 80 – 100% avec une perspective agogique\n\nLieu de travail: sevrage Egliswil\n\nVos tâches\n• Préparation des repas (y compris la cuisine diététique) conformément aux directives HACCP\n• Planification indépendante des menus, achats et responsabilité budgétaire\n• Orientation et accompagnement de 3 à 4 patients dans la cuisine (composante pédagogique de travail)\n• Élaboration d'objectifs individuels avec les patients et documentation des progrès accomplis\n• Participation aux discussions interdisciplinaires sur les lieux et aux réunions d'équipe\n\nProfil des besoins\n• Formation professionnelle terminée en tant que chef/chef EFZ\n• Brevet filaire d'avantage\n• Idéalement, une formation orientée vers le travail ou la volonté de la compléter\n• Une attitude positive envers nos patients\n• Travailleurs indépendants et pratiques de travail responsables\n• Permis de conduire valide (catégorie B)\n• Au moins 25 ans"
+      },
+      "needsRetranslation": true,
+      "location": "Egliswil",
+      "canton": "AG",
+      "url": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive",
+      "source": "entero Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T21:24:16.594Z",
+      "addressLocality": "Egliswil",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5704",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Suchtmedizin / Psychiatrie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://www.entero.ch/de/karriere/koch-koechin-80-100-mit-agogischer-perspektive",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "salaryMin": 64500,
+      "salaryMax": 110000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 64500,
+          "maxValue": 110000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T21:24:16.594Z"
     }
   ]
 }

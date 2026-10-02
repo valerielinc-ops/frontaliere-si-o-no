@@ -42,6 +42,7 @@ import {
   mergeLocaleTextMap,
   captureLostSlugs,
 } from './lib/dedicated-crawler-common.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 import { dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
@@ -399,6 +400,42 @@ function validateLocales() {
   });
 }
 
+async function publishAuthoritativeEmptySnapshot() {
+  const previousJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+  const beforeSnapshot = snapshotJobSlugs(previousJobs);
+  const diff = computeCrawlDiff(beforeSnapshot, new Map());
+  const durationMs = getCrawlerElapsedMs();
+
+  updateAdapterConfig([]);
+  archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY);
+  writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true });
+  writeSummaryCrawlerSlice({
+    key: COMPANY_KEY,
+    label: COMPANY_NAME,
+    generatedAt: new Date().toISOString(),
+    total: 0,
+    discovered: 0,
+    parsed: 0,
+    written: 0,
+    authoritativeEmptySnapshot: true,
+    sourceProvenEmpty: true,
+    newCount: 0,
+    updatedCount: 0,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: 0,
+    durationMs,
+    avgDurationMs: durationMs,
+    durationHistory: [durationMs],
+    newJobs: [],
+    updatedJobs: [],
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: [],
+  });
+  printCrawlChangeSummary(diff, COMPANY_NAME);
+  writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
+  await assembleJobsDataset();
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
@@ -412,8 +449,8 @@ async function main() {
   const positions = await discoverListings();
 
   if (positions.length === 0) {
-    console.log('ℹ️ No active positions found on the Tinext Kenjo API.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, COMPANY_NAME);
+    console.log('ℹ️ Kenjo confirmed no active positions; publishing an authoritative empty snapshot.');
+    await publishAuthoritativeEmptySnapshot();
     return;
   }
 

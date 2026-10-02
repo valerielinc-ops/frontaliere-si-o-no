@@ -133,6 +133,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
+  it('plans a JOIN date picker from the candidate date and asks when it is absent', () => {
+    const date = { id: 'dob', kind: 'date', label: 'Quando sei nato?', required: true, value: '' };
+    const candidate = { answers: {}, profile: { dateOfBirth: '12.05.1990' }, portalQuestionsAnswered: [] };
+    const filled = guardPlan({ actions: [{ fieldId: 'dob', action: 'fill', value: '1990-05-12', source: 'profile' }], missingRequired: [] }, [date], candidate);
+    expect(filled).toEqual({ actions: [expect.objectContaining({ fieldId: 'dob', action: 'fill', value: '1990-05-12' })], missingRequired: [] });
+    expect(holdsValue({ ...date, value: '1990-05-12' })).toBe(true);
+
+    const missing = guardPlan({ actions: [], missingRequired: [] }, [date], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(missing.missingRequired).toEqual([expect.objectContaining({ fieldId: 'dob', type: 'date', question: 'Quando sei nato?' })]);
+  });
+
   it('asks each missing field once and never a field the plan already answers', () => {
     const guarded = guardPlan({
       actions: [{ fieldId: 'f1', action: 'fill', value: 'Luca', document: 'none', source: 'identity' }],

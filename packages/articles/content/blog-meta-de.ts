@@ -12344,6 +12344,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Die Schweiz lehnt EU-Grenzregeln ab',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Schweizer Parlament: 109 Stimmen dafür zu 72, weil neue EU-Regeln nicht umgesetzt werden, die jährlich 600–900 Millionen kosten würden',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Schweizer Parlament in Bellinzona beschliesst Grenzgänger-Regeln',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Leben in Rovello Porro: Arbeit im Tessin als grenzüberschreitende Arbeiterin',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024: Selbstbeteiligungen von 7.500 € bzw. 10.000 € und Einkommensteuer nur in der Schweiz einbehalten.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio im Tessin mit einem Grenzgänger',
+    'blog.article.brunello-fisco-frontaliere.title': 'Leben in Brunello und Arbeit im Tessin als grenzüberschreitender Pendler',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Leben bei Brunello und Arbeit in Tessin: Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024, absetzbar 10.000 € und Quellensteuer nur in der Schweiz.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Grenzgänger unterwegs mit der Tessiner Landschaft im Hintergrund',
+    'blog.article.cairate-fisco-confine.title': 'Leben in Cairate und Arbeit als Grenzpendler im Tessin',
+    'blog.article.cairate-fisco-confine.excerpt': 'Neues Grenzgängerabkommen ab 1° gennaio 2024 in Kraft: Quellensteuer, Freibeträge, AHV, BVG und KVG für Personen, die in Cairate leben.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Tessiner Landschaft zum Grenzgänger-Arbeiten aus Cairate',
+    'blog.article.fondo-avs-solidarieta-giovani.title': 'Dreizehnte AHV, der Generationenpakt-Fonds wird geboren',
+    'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'Im Tessin werden über 86.000 Begünstigte mehr als 140 Millionen Franken erhalten: Ein Teil der dreizehnten AHV-Rente könnte zur Unterstützung von Jugendprojekten eingesetzt werden.',
+    'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Ältere und junge Menschen sprechen in der Tessiner Landschaft über Solidarität',
 };
 
 export default blogMetaDe;

@@ -1,6 +1,12 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v3971.readableJobs.title": "Offerte leggibili prima dell’accesso",
+ "whatsNew.v3971.readableJobs.desc": "Puoi leggere la descrizione completa prima di accedere e aprire la candidatura. I suggerimenti per gli alert arrivano dopo la lettura e rispettano la tua scelta di chiuderli.",
+ "jobBoard.gate.descriptionUnavailable": "La fonte non ha fornito una descrizione completa. Verifica i dettagli sul sito del datore prima di candidarti.",
+ 'whatsNew.v3971.title': 'Offerte più leggibili e dati più chiari',
+ 'whatsNew.v3971.tools.title': 'Comuni più fluidi, date più chiare',
+ 'whatsNew.v3971.tools.desc': 'Esplora tutti i comuni con elenchi paginati. Prezzi, premi e tempi alle dogane indicano quando sono stati rilevati o acquisiti.',
  'whatsNew.v3970.title': 'Candidatura assistita: la prepariamo in poche ore',
  'whatsNew.v3970.assistedAutomation.title': 'Candidatura assistita più veloce',
  'whatsNew.v3970.assistedAutomation.desc': 'Quando ci invii il CV prepariamo in automatico una lettera e le risposte su misura per l’annuncio e te le mandiamo per email: puoi correggerle o approvarle. Se non rispondi entro 12 ore la candidatura parte così com’è, per email o sul portale dell’azienda, e ti avvisiamo quando è stata inviata.',
@@ -988,7 +994,8 @@ const translations: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Continua con email',
  'jobBoard.authGateNewsletterNote': 'Inserendo la tua email riceverai anche la newsletter con aggiornamenti per frontalieri.',
  'jobBoard.gate.title': 'Scopri come candidarti a questo lavoro',
- 'jobBoard.gate.subtitle': 'Un click per accedere. Gratis, per sempre.',
+ "jobBoard.gate.applicationTitle": "Accedi gratis per proseguire con la candidatura",
+ "jobBoard.gate.subtitle": "Puoi leggere qui la descrizione completa. Per aprire la candidatura accedi o continua con email; la candidatura si completa sul sito del datore. Le comunicazioni incluse sono indicate qui sotto.",
  'jobBoard.gate.emailCta': 'Continua con email',
  'jobBoard.gate.benefit1': 'Descrizione completa e requisiti',
  'jobBoard.gate.benefit2': 'Come candidarsi e contatti',
@@ -1087,7 +1094,7 @@ const translations: Record<string, string> = {
  'jobAlert.postAuthPromptPersonalizeLink': 'Personalizza',
  'jobAlert.postAuthPromptRetryCta': 'Riprova',
  'jobAlert.jobDetailPrompt.title': 'Vuoi alert per {category}?',
- 'jobAlert.jobDetailPrompt.body': 'Una email a ogni nuovo annuncio.',
+ "jobAlert.jobDetailPrompt.body": "Nuove offerte nella categoria e nel cantone scelti, con frequenza adattiva. Puoi gestire frequenza e pausa dalle preferenze.",
  'jobAlert.jobDetailPrompt.acceptCta': 'Sì, attiva',
  'jobAlert.jobDetailPrompt.dismissCta': 'Non ora',
  'jobAlert.jobDetailPrompt.successTitle': 'Alert attivato ✓',
@@ -1510,6 +1517,12 @@ const translations: Record<string, string> = {
 
  // --- InputCard ---
  'dataFreshness.updated': 'Aggiornato',
+ 'dataFreshness.observed': 'Osservazione dei dati',
+ 'dataFreshness.fetched': 'Dati acquisiti',
+ 'dataFreshness.reviewed': 'Revisione editoriale',
+ 'dataFreshness.missing': 'data non documentata',
+ 'dataFreshness.referenceYear': 'Anno dei premi',
+ 'dataFreshness.outdatedYear': 'Premi di un anno precedente',
  'dataFreshness.source': 'Fonte',
  'freshness.source.cantonTicino': 'Canton Ticino DFE — Divisione delle Contribuzioni',
  'freshness.source.bfs': 'BFS — Ufficio federale di statistica',

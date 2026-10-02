@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "guidle",
   "sourceName": "Guidle",
-  "assembledAt": "2026-10-01T17:08:57.430Z",
+  "assembledAt": "2026-10-01T20:36:39.832Z",
   "events": [
     {
       "id": "guidle:AJdd68h",
@@ -30302,16 +30302,16 @@
       "id": "guidle:AGwng3C",
       "title": "Zwischen Klang und Sinn: Wenn Sprache zu Musik wird – und zurück",
       "titleByLocale": {
-        "it": "Zwischen Klang und Sinn: Wenn Sprache zu Musik wird – und zurück",
+        "it": "Tra suono e significato: quando il linguaggio diventa musica – e di nuovo",
         "en": "Between Sound and Meaning: When Speech Becomes Music – and Back Again",
-        "de": "Zwischen Klang und Sinn: Wenn Sprache zu Musik wird – und zurück",
+        "de": "Zwischen Klang und Bedeutung: Wenn Sprache zur Musik wird – und wieder zurück",
         "fr": "Entre son et sens : quand la parole devient musique, et retour"
       },
       "description": "Laboratorien",
       "descriptionByLocale": {
-        "it": "Laboratorien",
+        "it": "Laboratori",
         "en": "Laboratories",
-        "de": "Laboratorien",
+        "de": "Labore",
         "fr": "Les Laboratoires"
       },
       "startDate": "2026-11-24",
@@ -30324,6 +30324,12 @@
       "url": "https://www.guidle.com/it/events/small-stage/sion/between-sound-and-meaning-when-speech-becomes-music-and-back-again_AGwng3C",
       "sourceKey": "guidle",
       "sourceName": "Guidle",
+      "price": {
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true,
+        "url": "https://ticketing-nodabcvs.mapado.com/event/817593-les-laboratoires-entre-son-et-sens-quand-la-parole-devient-musique-et-retour"
+      },
       "address": {
         "street": "Avenue de Tourbillon 22",
         "postalCode": "1950"
@@ -30333,6 +30339,15 @@
         "lng": 7.3624633
       },
       "recurring": false,
+      "organizer": {
+        "@type": "Organization",
+        "name": "Guidle",
+        "url": "https://www.guidle.com/"
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "NODA BCVS - Salle de concerts et congrès"
+      },
       "imageUrl": "/images/events/guidle-AGwng3C.webp"
     },
     {
@@ -37623,16 +37638,16 @@
       "title": "Elevate",
       "titleByLocale": {
         "it": "Elevate",
-        "en": "Elevate",
-        "de": "Elevate",
-        "fr": "Elevate"
+        "en": "High",
+        "de": "Hoch",
+        "fr": "Haut"
       },
       "description": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.​",
       "descriptionByLocale": {
         "it": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.​",
-        "en": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.​",
-        "de": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.​",
-        "fr": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.​"
+        "en": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.",
+        "de": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive.",
+        "fr": "Freu dich auf ein erstklassiges Line-up und einen musikalischen Mix aus Afro House, Tech House, Melodic House und Progressive."
       },
       "startDate": "2026-10-09",
       "endDate": "2026-10-10",
@@ -37644,6 +37659,14 @@
       "url": "https://www.guidle.com/it/veranstaltungen/musik/zuerich/elevate_Aq91Knx",
       "sourceKey": "guidle",
       "sourceName": "Guidle",
+      "price": {
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-07-08T12:10:23Z",
+        "url": "https://tickets.club-bellevue.ch/events/adulte-elevate-house?fbclid=IwY2xjawUVvhxwZG9mAWV4dG4DYWVtAjEwAGJyaWQRMEVrUm1tSnZmVW9mN255TEZzcnRjBmFwcF9pZBAyMjIwMzkxNzg4MjAwODkyAAEeiH6o2g0ku2gOnKM0Lccc9KYF-3eyIigTOuT8Rd27fR8gBr2Ci6Gklo49RFA_aem_UMoFIk4pTyrqIwIMix9Kbg",
+        "amount": 21.6,
+        "currency": "CHF",
+        "isFree": false
+      },
       "address": {
         "street": "Rämistrasse 6",
         "postalCode": "8001"
@@ -38018,14 +38041,14 @@
       "id": "guidle:AHtMkZp",
       "title": "FILMKONZERT",
       "titleByLocale": {
-        "it": "FILMKONZERT",
+        "it": "CONCERTO CINEMATOGRAFICO",
         "en": "FILM-CONCERT",
-        "de": "FILMKONZERT",
+        "de": "FILM-KONZERT",
         "fr": "CINÉ-CONCERT"
       },
       "description": "DAS LÖTSCHENTAL VON 1916 BIS 1971",
       "descriptionByLocale": {
-        "it": "DAS LÖTSCHENTAL VON 1916 BIS 1971",
+        "it": "LÖTSCHENTAL DAL 1916 AL 1971",
         "en": "LÖTSCHENTAL FROM 1916 TO 1971",
         "de": "DAS LÖTSCHENTAL VON 1916 BIS 1971",
         "fr": "LE LÖTSCHENTAL DE 1916 À 1971"
@@ -38040,6 +38063,14 @@
       "url": "https://www.guidle.com/it/veranstaltungen/musik/lens/filmkonzert_AHtMkZp",
       "sourceKey": "guidle",
       "sourceName": "Guidle",
+      "price": {
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2026-09-11T15:28:20+02:00",
+        "url": "https://infomaniak.events/fr-ch/concerts/cine-concert-le-lotschental-de-1916-a-1971/7bcc4483-8c3b-43d1-b0d0-7900cd7176aa/events/399136",
+        "amount": 0,
+        "currency": "CHF",
+        "isFree": true
+      },
       "address": {
         "street": "Route de Crans 1",
         "postalCode": "1978"

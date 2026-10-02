@@ -13,17 +13,12 @@ import { SKIP_LIVE_DATA } from './helpers/live-data';
 /**
  * Full-pipeline test for the /aziende/<slug>/ employer-profile plugin (#4462).
  * Runs the real closeBundle() against a temp dist and asserts:
- *  - above-floor company → indexable page with COMPLETE JobPosting JSON-LD
+ *  - above-floor company → indexable page with linked ItemList JSON-LD
  *    (Non-Negotiable #3), the publisher CTA and stat facts,
  *  - below-floor company → noindex,follow bridge at the SAME URL (no 404),
  *  - sitemap lists the indexable IT canonical only,
  *  - all 4 locales emitted with trailing-slash paths.
  */
-
-const MANDATORY_JOBPOSTING_KEYS = [
-  'title', 'description', 'datePosted', 'employmentType',
-  'hiringOrganization', 'jobLocation', 'baseSalary', 'url',
-];
 
 let root: string;
 
@@ -232,21 +227,19 @@ describe('employerProfilePagesPlugin', () => {
     expect(source).toContain('${esc(JOBS_HEADING[locale])} (${profile.activeJobs})');
   });
 
-  it('embeds COMPLETE JobPosting structured data (Non-Negotiable #3)', () => {
+  it('links each visible position without emitting JobPosting on an employer list', () => {
+    for (const locale of ['', 'en/', 'de/', 'fr/']) {
+      expect(read(`${locale}aziende/acme-corp/index.html`)).not.toContain('"@type":"JobPosting"');
+    }
     const html = read('aziende/acme-corp/index.html');
     const scripts = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
       .map((m) => JSON.parse(m[1]));
     const itemList = scripts.find((s) => s['@type'] === 'ItemList');
-    expect(itemList, 'ItemList JSON-LD present').toBeTruthy();
     expect(itemList.itemListElement.length).toBeGreaterThan(0);
     const posting = itemList.itemListElement[0].item;
-    for (const key of MANDATORY_JOBPOSTING_KEYS) {
-      expect(posting[key], `JobPosting.${key}`).toBeTruthy();
-    }
-    expect(posting.jobLocation.address.postalCode).toBeTruthy();
-    expect(posting.jobLocation.address.streetAddress).toBeTruthy();
-    expect(posting.hiringOrganization.name).toBe('Acme Corp');
-    expect(posting.baseSalary.value.minValue).toBeGreaterThan(0);
+    expect(posting['@type']).toBe('WebPage');
+    expect(posting.name).toBeTruthy();
+    expect(posting.url).toMatch(/\/cerca-lavoro-ticino\/.+\/$/);
     // Slugless job guard: no ListItem may point at the bare homepage, and
     // positions stay contiguous 1..N after the skip (reviewer 🔴, PR #4511).
     const urls = itemList.itemListElement.map((el: { item: { url: string } }) => el.item.url);

@@ -656,21 +656,21 @@ function fetchCalculatorFunnel(startDate, endDate) {
       .map(s => funnelData.find(r => r[0] === s) || [s, 0, 0])
       .filter(r => r[1] > 0 || stepOrder.indexOf(r[0]) <= 2);
 
-    const headers = ['Step', 'Events', 'Users', 'Drop-off'];
+    const headers = ['Step', 'Events', 'Users at step', 'Users / previous step (unsequenced)'];
     const formatted = ordered.map((r, i) => {
       const prevUsers = i > 0 ? ordered[i-1][2] : r[2];
-      const dropOff = i > 0 && prevUsers > 0 ? `${((1 - r[2] / prevUsers) * 100).toFixed(0)}%` : '';
-      return [r[0], r[1], r[2], dropOff];
+      const userRatio = i > 0 && prevUsers > 0 ? `${((r[2] / prevUsers) * 100).toFixed(0)}%` : '';
+      return [r[0], r[1], r[2], userRatio];
     });
     nextRow = writeTable(sheet, nextRow, 1, headers, formatted);
 
-    // Overall conversion
+    // Descriptive ratio of independent populations; no session/order join.
     if (ordered.length >= 2) {
       const first = ordered[0][2];
       const last = ordered[ordered.length - 1][2];
-      const conv = first > 0 ? ((last / first) * 100).toFixed(1) : '0';
+      const conv = first > 0 ? ((last / first) * 100).toFixed(1) : 'N/D';
       nextRow += 1;
-      sheet.getRange(nextRow, 1).setValue(`Overall conversion: ${conv}% (${ordered[0][0]} → ${ordered[ordered.length-1][0]})`).setFontWeight('bold');
+      sheet.getRange(nextRow, 1).setValue(`Unsequenced user ratio: ${conv}% (${ordered[ordered.length-1][0]} / ${ordered[0][0]}); not a conversion rate`).setFontWeight('bold');
       nextRow += 2;
     }
 

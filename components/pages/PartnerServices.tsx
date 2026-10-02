@@ -1,3 +1,4 @@
+import AffiliateLink from '@/components/shared/AffiliateLink';
 /**
  * PartnerServices — Full partner/affiliate showcase page
  * 
@@ -9,7 +10,7 @@
 import React, { useMemo } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
-import { getAllPartners, buildAffiliateLinkHref, partnerRelAttr, type AffiliatePartner } from '@/services/affiliateService';
+import { getAllPartners, buildAffiliateLinkHref, partnerDisclosureKey, type AffiliatePartner } from '@/services/affiliateService';
 import { Analytics } from '@/services/analytics';
 
 const CATEGORIES = [
@@ -21,19 +22,18 @@ const CATEGORIES = [
 
 const PartnerServiceCard: React.FC<{ partner: AffiliatePartner; position: string }> = ({ partner, position }) => {
  const { t } = useTranslation();
- const attribution = { surface: 'web', position, campaign: 'g4-contextual', variant: 'v1' } as const;
+ const attribution = { surface: 'web', position, campaign: 'g4-contextual', variant: 'control' } as const;
  const href = buildAffiliateLinkHref(partner, attribution);
 
  const handleClick = () => {
  Analytics.trackExternalLink(href, `partner_page_${partner.id}`);
- Analytics.trackAffiliateClick(partner.id, 'partner_page', attribution);
  };
 
  return (
- <a
+ <AffiliateLink
+ partnerId={partner.id} context={'partner_page'} attribution={attribution}
  href={href}
  target="_blank"
- rel={partnerRelAttr(partner)}
  onClick={handleClick}
  className="group relative flex flex-col p-5 bg-surface rounded-2xl border border-edge hover:border-edge hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
  >
@@ -64,7 +64,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner; position: string
  {t('partners.visitSite')}
  <ExternalLink className="w-3 h-3" />
  </div>
- </a>
+ </AffiliateLink>
  );
 };
 
@@ -117,9 +117,9 @@ const PartnerServices: React.FC = () => {
 
  {/* Disclosure */}
  <div className="text-center">
- <p className="text-xs text-muted max-w-md mx-auto">
- {t('affiliate.disclosure')}
- </p>
+ {Array.from(new Set(allPartners.map(p => partnerDisclosureKey(p.id)).filter(Boolean))).map(key => (
+ <p key={key} className="text-xs text-muted max-w-md mx-auto">{t(key!)}</p>
+ ))}
  </div>
  </div>
  );

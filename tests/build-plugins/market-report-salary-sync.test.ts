@@ -16,6 +16,8 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { marketReportPlugin } from '../../build-plugins/marketReportPlugin';
+import { extractJsonLdBlocks, flattenSchemas } from '../post-build/seo-helpers';
+import { formatSourceDate } from '../../services/dataFreshness';
 
 const tempRoots: string[] = [];
 afterEach(() => {
@@ -66,5 +68,34 @@ describe('marketReportPlugin — salaryP tracks avgMid, no stale/fake hardcode',
 
     expect(html).not.toMatch(/CHF 73[ .,']?000/);
     expect(html).toMatch(/stipendio medio annuo si attesta intorno a N\/D lordi/);
+  });
+});
+
+
+describe('market report source timestamps', () => {
+  it('keeps the compiled dataset date separate from page generation', async () => {
+    const generatedAt = '2020-09-27T22:15:00.000Z';
+    const html = await buildItHtml({ generatedAt, totals: { activeJobs: 500 } });
+    const schemas = flattenSchemas(extractJsonLdBlocks(html));
+    for (const type of ['Article', 'Dataset']) {
+      const schema = schemas.find((item) => item['@type'] === type);
+      expect(schema).toBeDefined();
+      expect(schema?.dateModified).toBe(generatedAt);
+      expect(schema?.datePublished).toBeUndefined();
+    }
+    expect(html).toContain(`Dati elaborati · ${formatSourceDate(generatedAt, 'it')}`);
+    expect(html).toContain('Pagina generata:');
+  });
+
+  it.each([undefined, 'invalid', '2999-01-01T00:00:00.000Z'])('does not replace unknown or invalid dates (%s) with build time', async (generatedAt) => {
+    const html = await buildItHtml({ generatedAt, totals: { activeJobs: 500 } });
+    const schemas = flattenSchemas(extractJsonLdBlocks(html));
+    for (const type of ['Article', 'Dataset']) {
+      const schema = schemas.find((item) => item['@type'] === type);
+      expect(schema).toBeDefined();
+      expect(schema?.dateModified).toBeUndefined();
+      expect(schema?.datePublished).toBeUndefined();
+    }
+    expect(html).toContain('Data di elaborazione non disponibile');
   });
 });

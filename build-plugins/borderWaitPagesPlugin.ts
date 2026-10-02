@@ -37,12 +37,14 @@
  */
 
 import type { Plugin } from 'vite';
+import { sourceDateIso, formatSourceDate, borderReadingState } from '../services/dataFreshness';
+import { BORDER_WAIT_SOURCE_URLS } from './borderWaitSourceUrls';
 import fs from 'node:fs';
 import np from 'node:path';
 import { truncateToClauseNonEmpty } from './shared/clauseTail.mjs';
 import {
   BASE_URL,
-  BUILD_DATE_STAMP,
+  BUILD_ID,
   MIN_INDEXABLE_WORDS,
   countHtmlBodyWords,
   DRIVEBY_AD_SNIPPET,
@@ -549,6 +551,25 @@ function crossingRegistry(slug: BorderCrossingSlug): BorderCrossing | undefined 
   return borderCrossings.find(
     (c) => slugifyCrossingName(c.name) === slug,
   );
+}
+
+const BORDER_FRESHNESS_COPY = {
+  it: { observed: 'Ultima osservazione', generated: 'Pagina generata', snapshot: 'Snapshot osservato', stale: 'Dato scaduto: non descrive il traffico attuale', missing: 'Data osservazione non disponibile', status: 'Ultima lettura disponibile' },
+  en: { observed: 'Last observation', generated: 'Page generated', snapshot: 'Observed snapshot', stale: 'Outdated reading: not current traffic', missing: 'Observation date unavailable', status: 'Last available reading' },
+  de: { observed: 'Letzte Beobachtung', generated: 'Seite erstellt', snapshot: 'Beobachteter Stand', stale: 'Veraltete Messung: kein aktueller Verkehr', missing: 'Beobachtungsdatum nicht verfügbar', status: 'Letzte verfügbare Messung' },
+  fr: { observed: 'Dernière observation', generated: 'Page générée', snapshot: 'Instantané observé', stale: 'Mesure périmée : trafic actuel inconnu', missing: 'Date d’observation indisponible', status: 'Dernière mesure disponible' },
+};
+
+function observationBadge(value: string | null | undefined, locale: BorderWaitLocale, today: Date): string {
+  const copy = BORDER_FRESHNESS_COPY[locale];
+  const formatted = formatSourceDate(value, locale, today);
+  if (!formatted) return copy.missing;
+  return `${copy.snapshot}: ${formatted}${borderReadingState(value, today) === 'stale' ? ` · ${copy.stale}` : ''}`;
+}
+
+function sourceLink(source: WaitSource, label: string): string {
+  const url = BORDER_WAIT_SOURCE_URLS[source];
+  return `<a data-bw-field="source"${url ? ` href="${esc(url)}"` : ''} class="underline">${esc(label)} (${esc(source)})</a>`;
 }
 
 // Color tokens and thresholds live in `borderWaitTone.ts`, shared with the
@@ -1484,7 +1505,7 @@ function renderWebcamSection(
       return `<figure class="s-WFzTLc">
     <img
       src="${esc(w.imageUrl)}"
-      alt="${esc(w.label)} — ${esc(copy.updatedLabel)} ${new Date().toISOString().slice(0, 16).replace('T', ' ')}"
+      alt="${esc(w.label)}"
       width="640"
       height="360"
       loading="lazy"
@@ -1783,10 +1804,13 @@ function renderLeafPage(inp: LeafInputs): string {
   // `components/guide/FrontierGuide.tsx`. Fallback to `waitTimeMinutes` for
   // legacy snapshots that did not record the total.
   const snapshot = current.perCrossing[crossing];
+  const observedAt = sourceDateIso(snapshot?.lastUpdate, today);
+  const readingState = borderReadingState(snapshot?.lastUpdate, today);
+  const freshnessCopy = BORDER_FRESHNESS_COPY[locale];
   const liveWait = snapshot?.totalCrossingMinutes ?? snapshot?.waitTimeMinutes ?? null;
   const liveSource: WaitSource = snapshot?.source ?? 'static';
   const staticFallback = liveWait === null;
-  const status = statusColor(liveWait);
+  const status = statusColor(readingState === 'live' ? liveWait : null);
   const statusWord =
     locale === 'it'
       ? liveWait === null
@@ -1846,7 +1870,9 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Content pieces
   let h1 = copy.leafH1(crossingDisplay, dateStamp);
-  const intro = copy.intro(crossingDisplay, statusWord, dateStamp);
+  const intro = readingState === 'live'
+    ? copy.intro(crossingDisplay, statusWord, formatSourceDate(snapshot?.lastUpdate, locale, today)!)
+    : `${crossingDisplay}: ${observationBadge(snapshot?.lastUpdate, locale, today)}.`;
   // «Passa ora» is a present-tense claim: the hydration swaps it to the
   // variant of the live reading's tone (same thresholds as the status tile).
   const adviceTemplates: Record<string, string> = {
@@ -1856,7 +1882,7 @@ function renderLeafPage(inp: LeafInputs): string {
     unavailable: renderBorderWaitUnavailableBanner(locale),
   };
   // statusColor(null) is 'unknown', which the leaf shows as «non disponibile».
-  const adviceState = status.label === 'unknown' ? 'unavailable' : status.label;
+  const adviceState = readingState !== 'live' || status.label === 'unknown' ? 'unavailable' : status.label;
   const adviceBannerHtml = renderLiveSwap(
     'advice',
     adviceState,
@@ -1903,21 +1929,12 @@ function renderLeafPage(inp: LeafInputs): string {
     ? `<div class="s-rUEUjv" data-bw-unless-live>${esc(copy.staticFallbackBanner)}</div>`
     : '';
 
-  // Live-badge pre-rendered text: defaults to "snapshot di {date}" so SEO/bot
-  // visitors and zero-JS users see an honest indicator that the value is the
-  // build-time snapshot. The hydration IIFE swaps it in-place to
-  // "live (Firestore, agg. HH:MM)" once the REST request resolves.
-  const snapshotBadgeText =
-    locale === 'it'
-      ? `snapshot di ${dateStamp}`
-      : locale === 'de'
-        ? `Snapshot vom ${dateStamp}`
-        : locale === 'fr'
-          ? `instantané du ${dateStamp}`
-          : `snapshot of ${dateStamp}`;
+  // Source observation time is independent of page generation. Hydration
+  // replaces this badge only with the reading for this crossing.
+  const snapshotBadgeText = observationBadge(snapshot?.lastUpdate, locale, today);
 
-  const currentCardHtml = `<section class="s-ziawP1" aria-labelledby="currentStatus" data-bw-crossing="${esc(crossing)}">
-    <h2 id="currentStatus" style="${H2_STYLE}">${esc(copy.currentStatusLabel)} <span class="s-k7sbVR" data-bw-live-badge>${esc(snapshotBadgeText)}</span></h2>
+  const currentCardHtml = `<section class="s-ziawP1" aria-labelledby="currentStatus" data-bw-crossing="${esc(crossing)}" data-bw-data-state="${readingState}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">
+    <h2 id="currentStatus" style="${H2_STYLE}">${esc(freshnessCopy.status)} <span class="s-k7sbVR" data-bw-live-badge data-bw-badge-crossing="${esc(crossing)}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">${esc(snapshotBadgeText)}</span></h2>
     ${staticBannerHtml}
     <div class="s-nzJw8o">
       <div data-bw-tone-bg style="padding:18px;border-radius:18px;background:${status.bg};border:1px solid ${status.border}">
@@ -1926,11 +1943,11 @@ function renderLeafPage(inp: LeafInputs): string {
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
-        <div class="s-iUCmjg" data-bw-field="source">${esc(sourceText)}</div>
+        <div class="s-iUCmjg">${sourceLink(liveSource, sourceText)}</div>
       </div>
       <div class="s-Zv0TZw">
-        <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
-        <div class="s-54GADM" data-bw-field="lastUpdate">${esc(dateStamp)}</div>
+        <div class="s-QHHL-d">${esc(freshnessCopy.observed)}</div>
+        <div class="s-54GADM" data-bw-field="lastUpdate">${esc(formatSourceDate(snapshot?.lastUpdate, locale, today) ?? freshnessCopy.missing)}</div>
       </div>
     </div>
   </section>`;
@@ -2065,8 +2082,7 @@ function renderLeafPage(inp: LeafInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    ...(observedAt ? { dateModified: observedAt } : {}),
   });
 
   // B.3 — Enhanced Place + TouristAttraction (@type array) schema with
@@ -2162,7 +2178,6 @@ function renderLeafPage(inp: LeafInputs): string {
         copyrightNotice: webcams[0].sourceName
           ? `© ${webcams[0].sourceName}`
           : undefined,
-        datePublished: `${dateStamp}T00:00:00Z`,
         inLanguage: locale,
       }))
     : '';
@@ -2226,7 +2241,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <span>${esc(crossingDisplay)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(intro)}</p>
   </header>
@@ -2318,7 +2333,7 @@ interface HubInputs {
 function renderHubPage(inp: HubInputs): string {
   const { locale, region, current, today, alternates, distDir } = inp;
   const copy = COPY[locale];
-  const dateStamp = today.toISOString().slice(0, 10);
+  const freshnessCopy = BORDER_FRESHNESS_COPY[locale];
   const canonicalPath = region ? buildRegionalHubPath(locale, region) : buildRootHubPath(locale);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
@@ -2372,18 +2387,19 @@ function renderHubPage(inp: HubInputs): string {
     const snap = current.perCrossing[c];
     const wait = snap?.totalCrossingMinutes ?? snap?.waitTimeMinutes ?? null;
     const src: WaitSource = snap?.source ?? 'static';
-    const sc = statusColor(wait);
     const waitFmt = wait === null ? '—' : `${wait} min`;
-    const updated = snap?.lastUpdate ? snap.lastUpdate.slice(0, 16).replace('T', ' ') : '—';
-    return `<tr data-bw-crossing="${esc(c)}">
+    const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
+    const readingState = borderReadingState(snap?.lastUpdate, today);
+    const sc = statusColor(readingState === 'live' ? wait : null);
+    return `<tr data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
       <td class="s-tcl">
         <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td class="s-tcl" style="text-align:right">
         <span data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}</td>
-      <td class="s-tcl" data-bw-field="source" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
+      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</td>
+      <td class="s-tcl" style="font-size:12px;color:var(--color-subtle)">${sourceLink(src, sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
@@ -2393,7 +2409,7 @@ function renderHubPage(inp: HubInputs): string {
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
       <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
-      <th class="s-thd">${esc(copy.updatedLabel)}</th>
+      <th class="s-thd">${esc(freshnessCopy.observed)}</th>
       <th class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
     <tbody>${rows.join('')}</tbody>
@@ -2409,7 +2425,9 @@ function renderHubPage(inp: HubInputs): string {
   // affermazione di «fluido». La regola sta in `hubHeroState`; lo script di
   // idratazione la ripete sulle letture live (`hub()`, vedi `renderLiveSwap`).
   const scopeWaits = crossingsInScope.map(
-    (c) => current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null,
+    (c) => borderReadingState(current.perCrossing[c]?.lastUpdate, today) === 'live'
+      ? current.perCrossing[c]?.totalCrossingMinutes ?? current.perCrossing[c]?.waitTimeMinutes ?? null
+      : null,
   );
   // Missing, negative or non-finite waits are unmeasured — same predicate as
   // `hubHeroState`, so the fastest card never sees a wait the state ignored.
@@ -2479,7 +2497,7 @@ function renderHubPage(inp: HubInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: today.toISOString(),
+    ...(sourceDateIso(current.updatedAt, today) ? { dateModified: sourceDateIso(current.updatedAt, today) } : {}),
   });
 
   // Root hub h1 (no region) overflows the 66-char cap once the brand suffix
@@ -2643,14 +2661,7 @@ function renderHubPage(inp: HubInputs): string {
   </section>`;
 
   // Live-badge pre-rendered text (see leaf page for rationale).
-  const hubSnapshotBadgeText =
-    locale === 'it'
-      ? `snapshot di ${dateStamp}`
-      : locale === 'de'
-        ? `Snapshot vom ${dateStamp}`
-        : locale === 'fr'
-          ? `instantané du ${dateStamp}`
-          : `snapshot of ${dateStamp}`;
+  const hubSnapshotBadgeText = observationBadge(current.updatedAt, locale, today);
 
   const bodyHtml = `<article class="s-xzWvwM">
   <nav class="s-bcr" aria-label="Breadcrumb">
@@ -2659,7 +2670,7 @@ function renderHubPage(inp: HubInputs): string {
     ${region ? `<a href="${buildRootHubPath(locale)}" class="s-bcl">${esc(copy.rootH1.split(' —')[0])}</a><span> / </span><span>${esc(regionDisplay)}</span>` : `<span>${esc(h1)}</span>`}
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp} <span class="s-k7sbVR" data-bw-live-badge>${esc(hubSnapshotBadgeText)}</span></p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(freshnessCopy.generated)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time> <span class="s-k7sbVR" data-bw-live-badge data-bw-observed-at="${sourceDateIso(current.updatedAt, today) ? Date.parse(current.updatedAt!) : ''}">${esc(hubSnapshotBadgeText)}</span></p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introTagline)}</p>
   </header>
@@ -2966,7 +2977,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
     url: canonicalUrl,
     description: intro,
     inLanguage: locale,
-    dateModified: today.toISOString(),
+    ...(daysInMonth.length ? { dateModified: daysInMonth.map((day) => day.date).filter((date) => sourceDateIso(date, today)).sort().at(-1) } : {}),
   });
 
   // Methodology + commuter-context prose + FAQ. Structural insurance for the
@@ -3316,7 +3327,7 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
         perCrossing: {},
       });
       const history = readHistory(rootDir);
-      // BUILD_DATE_STAMP (deploy-wide, derived from DEPLOY_BUILD_ID), NOT a
+      // BUILD_ID (deploy-wide timestamp, derived from DEPLOY_BUILD_ID), NOT a
       // fresh `new Date()` — this "today" gates which past months qualify
       // for archive pages, and on the matrix deploy the it/en/de/fr shards
       // are independent processes. A per-shard `new Date()` could cross a
@@ -3324,8 +3335,8 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       // "past" on one shard but not its siblings: the archive page (and its
       // sitemap-border-wait.xml entry, emitted from the same pass) exists on
       // one shard but not the others once merged (#6971, same class as #5911
-      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_DATE_STAMP doc.
-      const today = new Date(BUILD_DATE_STAMP);
+      // in eventsSeoPagesPlugin.ts). See build-plugins/constants.ts BUILD_ID doc.
+      const today = new Date(Number(BUILD_ID));
 
       // ── F8 social-virality: snapshot webcam frames for per-page og:image ──
       // Runs BEFORE page generation so `renderLeafPage` can detect the
@@ -3392,12 +3403,12 @@ export function borderWaitPagesPlugin(rootDir: string): Plugin {
       // ── Emit sitemap-border-wait.xml ───────────────────────
       if (sitemapPaths.length > 0) {
         try {
-          const dateStamp = today.toISOString().slice(0, 10);
           const urlEntries = sitemapPaths
-            .map(
-              (p) =>
-                `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>0.8</priority>\n  </url>`,
-            )
+            .map((p) => {
+              const modifiedAt = /"dateModified":"([^"\\]+)"/.exec(pages[p] ?? archives[p] ?? '')?.[1];
+              const lastmod = modifiedAt ? `<lastmod>${esc(modifiedAt)}</lastmod>` : '';
+              return `  <url>\n    <loc>${BASE_URL}${p}</loc>\n    ${lastmod}\n    <changefreq>hourly</changefreq>\n    <priority>0.8</priority>\n  </url>`;
+            })
             .join('\n');
           const sitemapXml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">

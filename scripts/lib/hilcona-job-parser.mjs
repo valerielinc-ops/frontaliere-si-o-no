@@ -14,7 +14,7 @@ import {
   normalizeDescriptionSpace,
 } from './crawler-template.mjs';
 import { extractMetaDescriptionRaw } from './meta-description-extract.mjs';
-import { decode as decodeEntities } from 'html-entities';
+import { decode as decodeHTML } from 'html-entities';
 
 const SITEMAP_URL = 'https://career.bellfoodgroup.com/sitemap.job.xml';
 const CAREERS_BASE = 'https://career.bellfoodgroup.com';
@@ -36,16 +36,14 @@ export function normalizeHilconaJobUrl(rawUrl = '') {
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\s+/g, ' ').trim();
 }
 
@@ -116,13 +114,13 @@ export function parseHilconaSitemapXml(xml) {
 
 /** HTML fragment → text with one `• ` line per list item, entities decoded. */
 function htmlToLines(html = '') {
-  return normalizeDescriptionSpace(decodeEntities(stripHtmlKeepLines(html)))
+  return normalizeDescriptionSpace(stripHtmlKeepLines(html))
     .replace(/•[ \t]*\n+[ \t]*/g, '• ')
     .replace(/\n{2,}(?=• )/g, '\n');
 }
 
 function oneLine(html = '') {
-  return decodeEntities(stripHtml(html)).replace(/\s+/g, ' ').trim();
+  return stripHtml(html).replace(/\s+/g, ' ').trim();
 }
 
 /**

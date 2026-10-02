@@ -34,7 +34,7 @@ import {
 } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { renderGuideHubBridge } from './shared/guideHubBridge';
-import { buildDayStampIso } from './shared/buildDayStamp';
+import { sourceDateIso, formatSourceDate } from '../services/dataFreshness';
 import { renderHreflangTags } from './shared/hreflang';
 import { WriteCollector } from './batchWrite';
 import {
@@ -267,6 +267,25 @@ function esc(s: unknown): string {
     .replace(/</g, '&lt;')
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;');
+}
+
+const PREMIUM_FRESHNESS_COPY = {
+  it: { year: 'Anno dei premi', fetched: 'Dati acquisiti', generated: 'Pagina generata', missing: 'data non documentata', stale: 'Premi di un anno precedente: verifica il premio attuale alla fonte.', source: 'Fonte' },
+  en: { year: 'Premium year', fetched: 'Data retrieved', generated: 'Page generated', missing: 'date not documented', stale: 'Previous-year premiums: check the current premium at the source.', source: 'Source' },
+  de: { year: 'Prämienjahr', fetched: 'Daten abgerufen', generated: 'Seite erstellt', missing: 'Datum nicht dokumentiert', stale: 'Prämien eines früheren Jahres: aktuelle Prämie an der Quelle prüfen.', source: 'Quelle' },
+  fr: { year: 'Année des primes', fetched: 'Données récupérées', generated: 'Page générée', missing: 'date non documentée', stale: 'Primes d’une année antérieure : vérifiez la prime actuelle à la source.', source: 'Source' },
+};
+
+function renderPremiumFreshness(dataset: HealthPremiumsDataset, locale: HealthPremiumLocale, today: Date): string {
+  const copy = PREMIUM_FRESHNESS_COPY[locale];
+  const fetchedAt = sourceDateIso(dataset.fetchedAt, today);
+  const oldYear = Number.isInteger(dataset.year) && dataset.year! < today.getUTCFullYear();
+  return `<p class="text-xs text-muted" data-premium-freshness="${oldYear ? 'stale' : fetchedAt ? 'dated' : 'unknown'}">
+    ${esc(copy.year)}: ${esc(dataset.year ?? '—')} · ${esc(copy.fetched)}: ${fetchedAt ? `<time datetime="${esc(fetchedAt)}">${esc(formatSourceDate(dataset.fetchedAt, locale, today))}</time>` : esc(copy.missing)} ·
+    ${esc(copy.source)}: <a href="https://www.priminfo.admin.ch/" class="underline">UFSP / BAG / FOPH / OFSP — Priminfo</a>
+    ${oldYear ? `<strong>${esc(copy.stale)}</strong>` : ''}
+    <span class="block">${esc(copy.generated)}: <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></span>
+  </p>`;
 }
 
 function median(nums: number[]): number | null {
@@ -2404,8 +2423,7 @@ function renderLeafPage(inp: LeafInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
+    ...(sourceDateIso(dataset.fetchedAt, today) ? { dateModified: sourceDateIso(dataset.fetchedAt, today) } : {}),
   });
 
   const faqLd = inlineScriptJson({
@@ -2458,6 +2476,7 @@ function renderLeafPage(inp: LeafInputs): string {
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introShort)}</p>
   </header>
+  ${renderPremiumFreshness(dataset, locale, today)}
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
@@ -2729,8 +2748,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     url: canonicalUrl,
     description: introLong.slice(0, 200),
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
+    ...(sourceDateIso(dataset.fetchedAt, today) ? { dateModified: sourceDateIso(dataset.fetchedAt, today) } : {}),
   });
 
   const faqLd = inlineScriptJson({
@@ -2759,10 +2777,11 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <span>${esc(cantonLabel)}</span>
   </nav>
   <header class="s-Nv0GaD">
-    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year} · ${esc(copy.updatedLabel)}</p>
+    <p style="${HERO_EYEBROW_STYLE}">LAMal ${year}</p>
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(introShort)}</p>
   </header>
+  ${renderPremiumFreshness(dataset, locale, today)}
   ${adviceBannerHtml}
   ${statsHtml}
   ${rankingLineHtml}
@@ -2959,8 +2978,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     url: canonicalUrl,
     description: intro.slice(0, 200),
     inLanguage: locale,
-    dateModified: buildDayStampIso(),
-    datePublished: buildDayStampIso(),
+    ...(sourceDateIso(dataset.fetchedAt, today) ? { dateModified: sourceDateIso(dataset.fetchedAt, today) } : {}),
   });
 
   const faqLd = inlineScriptJson({
@@ -2986,10 +3004,10 @@ function renderRootHubPage(inp: RootHubInputs): string {
   // text-to-HTML ratio) is preserved while the action area stays
   // mobile-first above the fold.
   const taglineByLocale: Record<HealthPremiumLocale, string> = {
-    it: `Premi LAMal ${year}: confronto live tra ${cantonsCount} cantoni svizzeri.`,
-    en: `LAMal premiums ${year}: live comparison across ${cantonsCount} Swiss cantons.`,
-    de: `KVG-Prämien ${year}: Live-Vergleich zwischen ${cantonsCount} Schweizer Kantonen.`,
-    fr: `Primes LAMal ${year} : comparaison en direct entre ${cantonsCount} cantons suisses.`,
+    it: `Premi LAMal ${year}: confronto tra ${cantonsCount} cantoni svizzeri.`,
+    en: `LAMal premiums ${year}: comparison across ${cantonsCount} Swiss cantons.`,
+    de: `KVG-Prämien ${year}: Vergleich zwischen ${cantonsCount} Schweizer Kantonen.`,
+    fr: `Primes LAMal ${year} : comparaison entre ${cantonsCount} cantons suisses.`,
   };
   const rootTileLabels: Record<HealthPremiumLocale, { cantons: string; median: string; cheapest: string; mostExp: string }> = {
     it: { cantons: 'Cantoni', median: 'Mediana CH', cheapest: 'Più economico', mostExp: 'Più caro' },
@@ -3032,6 +3050,7 @@ function renderRootHubPage(inp: RootHubInputs): string {
     <h1 style="${H1_STYLE}">${esc(h1)}</h1>
     <p style="${LEDE_STYLE}">${esc(taglineByLocale[locale])}</p>
   </header>
+  ${renderPremiumFreshness(dataset, locale, today)}
   ${rootStatsHtml}
   ${renderAboveFoldJobCta(locale, 'switzerland')}
   <section class="s-ziawP1" aria-labelledby="rootComparatorCta">
@@ -3281,10 +3300,10 @@ export function generateHealthPremiumsPages(opts: {
 
 function buildSitemapXml(
   paths: string[],
-  today: Date,
+  modifiedAt: string | undefined,
   pathsByCanonical: Record<string, { alternates: string[] }>,
 ): string {
-  const date = today.toISOString().slice(0, 10);
+  const date = modifiedAt?.slice(0, 10);
   const entries = paths
     .filter((p) => !p.startsWith('/en/') && !p.startsWith('/de/') && !p.startsWith('/fr/'))
     .map((canonical) => {
@@ -3297,7 +3316,7 @@ function buildSitemapXml(
       return `  <url>
     <loc>${BASE_URL}${canonical}</loc>
 ${alt}
-    <lastmod>${date}</lastmod>
+    ${date ? `<lastmod>${date}</lastmod>` : ''}
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>`;
@@ -3391,8 +3410,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       ]);
       cleanSitemapFiles(distDir, ['sitemap-health-premiums.xml']);
 
-      // `today` is fixed once per build and baked into JSON-LD
-      // `dateModified`/`datePublished`.
+      // Keep the generation date separate from the dataset retrieval date.
       const today = new Date();
       const dayKey = today.toISOString().slice(0, 10);
 
@@ -3515,7 +3533,7 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
           alts.push(`x-default:${BASE_URL}${pageRel}`);
           pathsByCanonical[pageRel] = { alternates: alts };
         }
-        const xml = buildSitemapXml(writtenPaths, today, pathsByCanonical);
+        const xml = buildSitemapXml(writtenPaths, sourceDateIso(dataset.fetchedAt, today), pathsByCanonical);
         const sitemapPath = np.join(distDir, 'sitemap-health-premiums.xml');
         fs.writeFileSync(sitemapPath, xml, 'utf-8');
       } catch (err) {

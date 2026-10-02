@@ -1,6 +1,6 @@
 {
   "crawlerKey": "benu",
-  "assembledAt": "2026-10-01T09:19:49.652Z",
+  "assembledAt": "2026-10-01T21:19:18.075Z",
   "jobs": [
     {
       "id": "benu-87ef9e88b729",
@@ -33,7 +33,7 @@
       "url": "https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.098Z",
+      "crawledAt": "2026-10-01T21:19:12.580Z",
       "addressLocality": "Köniz",
       "addressRegion": "Berne",
       "addressCountry": "CH",
@@ -64,8 +64,7 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/3292749-senior-controller-w-m-80-100"
+      }
     },
     {
       "id": "benu-546b3c2e5a16",
@@ -98,7 +97,7 @@
       "url": "https://job.benu.ch/de/jobs/7666453-apotheker-w-m-80-100-benu-luzern-bahnhof",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.097Z",
+      "crawledAt": "2026-10-01T21:19:12.579Z",
       "addressLocality": "Luzern",
       "addressRegion": "Lucerne",
       "addressCountry": "CH",
@@ -117,11 +116,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+        "pharmacist-m-f-80-100-benu-lucerna-station-benu-luzern-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+          "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+          "pharmacist-m-f-80-100-benu-lucerna-station-benu-luzern-lucerne"
         ],
         "en": [
           "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
@@ -144,8 +145,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/7666453-apotheker-w-m-80-100-benu-luzern-bahnhof"
+      }
     },
     {
       "id": "benu-3bbaab4e3b94",
@@ -178,7 +178,7 @@
       "url": "https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.096Z",
+      "crawledAt": "2026-10-01T21:19:12.578Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -197,11 +197,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+        "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
+        "assistente-farmaceutico-m-f-fino-al-40-nel-salario-orario-benu-rheineck-benu-rheineck"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+          "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
+          "assistente-farmaceutico-m-f-fino-al-40-nel-salario-orario-benu-rheineck-benu-rheineck"
         ],
         "en": [
           "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
@@ -224,8 +226,7 @@
           "maxValue": 34800,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/7820959-pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck"
+      }
     },
     {
       "id": "benu-3d9a49208e5e",
@@ -258,7 +259,7 @@
       "url": "https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.093Z",
+      "crawledAt": "2026-10-01T21:19:12.575Z",
       "addressLocality": "Schwerzenbach",
       "addressRegion": "Zurich",
       "addressCountry": "CH",
@@ -277,11 +278,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
+        "farmacista-responsabile-m-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+          "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
+          "farmacista-responsabile-m-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich"
         ],
         "en": [
           "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
@@ -304,8 +307,7 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8044173-verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach"
+      }
     },
     {
       "id": "benu-39541b7789ac",
@@ -338,7 +340,7 @@
       "url": "https://job.benu.ch/de/jobs/8053586-pharma-assistent-w-m-40-80-benu-baden-schlossberg",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.091Z",
+      "crawledAt": "2026-10-01T21:19:12.574Z",
       "addressLocality": "Baden",
       "addressRegion": "Argovie",
       "addressCountry": "CH",
@@ -357,11 +359,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+        "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
+        "assistente-farmaceutico-m-f-40-80-benu-baden-schlossberg-benu-baden-argovie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+          "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
+          "assistente-farmaceutico-m-f-40-80-benu-baden-schlossberg-benu-baden-argovie"
         ],
         "en": [
           "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
@@ -384,8 +388,7 @@
           "maxValue": 75200,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8053586-pharma-assistent-w-m-40-80-benu-baden-schlossberg"
+      }
     },
     {
       "id": "benu-2db7ab5da2ea",
@@ -418,7 +421,7 @@
       "url": "https://job.benu.ch/de/jobs/8292047-kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.089Z",
+      "crawledAt": "2026-10-01T21:19:12.572Z",
       "addressLocality": "Luzern",
       "addressRegion": "Lucerne",
       "addressCountry": "CH",
@@ -437,11 +440,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+        "cosmetico-efz-m-f-60-100-stazione-ferroviaria-benu-lucerne-benu-luzern-lucerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+          "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+          "cosmetico-efz-m-f-60-100-stazione-ferroviaria-benu-lucerne-benu-luzern-lucerne"
         ],
         "en": [
           "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
@@ -464,8 +469,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8292047-kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof"
+      }
     },
     {
       "id": "benu-1abb56dfe0d0",
@@ -498,7 +502,7 @@
       "url": "https://job.benu.ch/de/jobs/8477321-pharma-assistent-w-m-20-40-benu-dudingen",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.087Z",
+      "crawledAt": "2026-10-01T21:19:12.570Z",
       "addressLocality": "Düdingen",
       "addressRegion": "Fribourg",
       "addressCountry": "CH",
@@ -516,10 +520,14 @@
       "applyUrl": "https://job.benu.ch/de/jobs/8477321-pharma-assistent-w-m-20-40-benu-dudingen",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-30T21:14:51.630Z",
+      "previousSlugs": [
+        "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch",
+        "assistente-farmaceutico-m-f-20-40-benu-dudingen-benu-dudingen"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch"
+          "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch",
+          "assistente-farmaceutico-m-f-20-40-benu-dudingen-benu-dudingen"
         ],
         "en": [
           "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch"
@@ -528,9 +536,7 @@
           "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch"
         ]
       },
-      "previousSlugs": [
-        "pharma-assistent-w-m-20-40-benu-dudingen-dudingen-fribourg-benu-ch"
-      ],
+      "firstSeenAt": "2026-09-30T21:14:51.630Z",
       "salaryMin": 27400,
       "salaryMax": 41600,
       "salarySource": "estimated",
@@ -543,8 +549,7 @@
           "maxValue": 41600,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/8477321-pharma-assistent-w-m-20-40-benu-dudingen"
+      }
     },
     {
       "id": "benu-3f9eaf424ad7",
@@ -577,7 +582,7 @@
       "url": "https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100",
       "source": "benu Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:19:44.084Z",
+      "crawledAt": "2026-10-01T21:19:12.566Z",
       "addressLocality": "Köniz",
       "addressRegion": "Berne",
       "addressCountry": "CH",
@@ -598,12 +603,14 @@
       "previousSlugs": [
         "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
         "risorse-umane-service-specialista-w-m-60-100-benu-koniz",
-        "ressources-humaines-service-specialiste-w-m-60-100-benu-koniz"
+        "ressources-humaines-service-specialiste-w-m-60-100-benu-koniz",
+        "risorse-umane-service-specialista-w-m-60-100-benu-koniz-berne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
-          "risorse-umane-service-specialista-w-m-60-100-benu-koniz"
+          "risorse-umane-service-specialista-w-m-60-100-benu-koniz",
+          "risorse-umane-service-specialista-w-m-60-100-benu-koniz-berne"
         ],
         "fr": [
           "hr-service-specialist-w-m-60-100-koniz-berne-benu-ch",
@@ -624,8 +631,7 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      },
-      "sourceIdentity": "url:https://job.benu.ch/de/jobs/7378437-hr-service-specialist-w-m-60-100"
+      }
     }
   ]
 }

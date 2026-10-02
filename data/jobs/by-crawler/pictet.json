@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pictet",
-  "assembledAt": "2026-10-01T09:16:07.160Z",
+  "assembledAt": "2026-10-01T21:16:50.657Z",
   "jobs": [
     {
       "id": "pictet-9e0df2bb217f",
@@ -33,7 +33,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=124982&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:16:01.954Z",
+      "crawledAt": "2026-10-01T21:16:45.996Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "physical-security-coordinator-pictet-geneva",
-        "physical-security-coordinatore-pictet-group-geneva"
+        "physical-security-coordinator-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "physical-security-coordinator-pictet-geneva",
-          "physical-security-coordinatore-pictet-group-geneva"
+          "physical-security-coordinator-pictet-geneva"
         ],
         "de": [
           "physical-security-coordinator-pictet-geneva"
@@ -109,7 +107,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125052&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:15:59.986Z",
+      "crawledAt": "2026-10-01T21:16:44.252Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -127,13 +125,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-        "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+        "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva",
-          "junior-researcher-contratto-a-tempo-determinato-programma-2-anni-pictet-group-geneva"
+          "junior-researcher-fixed-term-contract-2-years-programme-pictet-geneva"
         ]
       },
       "needsRetranslation": true,
@@ -183,7 +179,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125071&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:15:58.699Z",
+      "crawledAt": "2026-10-01T21:16:43.218Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -263,7 +259,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125106&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:15:57.997Z",
+      "crawledAt": "2026-10-01T21:16:42.706Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -281,13 +277,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "private-assets-operations-specialist-pictet-geneva",
-        "private-assets-operations-specialista-pictet-group-geneva"
+        "private-assets-operations-specialist-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "private-assets-operations-specialist-pictet-geneva",
-          "private-assets-operations-specialista-pictet-group-geneva"
+          "private-assets-operations-specialist-pictet-geneva"
         ],
         "de": [
           "private-assets-operations-specialist-pictet-geneva"
@@ -342,7 +336,7 @@
       "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125130&selected_lang=en_GB",
       "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T09:15:56.240Z",
+      "crawledAt": "2026-10-01T21:16:41.454Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -374,6 +368,85 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "pictet-10b84f68e866",
+      "slug": "legal-consulente-pictet-group-geneva",
+      "slugByLocale": {
+        "en": "legal-advisor-pictet-geneva",
+        "it": "legal-consulente-pictet-group-geneva",
+        "de": "legal-berater-pictet-group-geneva",
+        "fr": "legal-conseiller-pictet-group-geneva"
+      },
+      "company": "Pictet Group",
+      "companyKey": "pictet",
+      "companyDomain": "pictet.com",
+      "title": "Legal Advisor",
+      "titleByLocale": {
+        "en": "Legal Advisor",
+        "it": "Legal Consulente",
+        "de": "Legal Berater",
+        "fr": "Legal Conseiller"
+      },
+      "description": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment group and a wholly owned subsidiary of Pictet with expertise in hedge funds, private equity, real estate, private debt and infrastructure. With teams based globally, PAA constructs, manages and advises portfolios of alternative investment solutions for institutional and private clients.\nYou will be part of a team of 20 professionals dedicated to Pictet’s pan-European Direct Real Estate franchise, which began in 2019 with the launch of Elevation Fund I, a EUR 700 million value-add fund. Elevation Fund II was launched in 2023, and a Core Plus fund, with approximately EUR 200 million under management, was launched in 2021. The team is distributed across several locations: in London, where the core investment and asset management teams are based; in Geneva, where the investment legal and investor relations teams operate; and in Berlin and Stockholm, where our regional heads are located. Additionally, fund support functions such as fund administration, compliance, and legal affairs are situated in Luxembourg and London.\n\nYour role\n\nAs part of the Direct Real Estate team based in Geneva you will:\n\n• Lead the review, drafting and negotiation of a wide range of real estate and financing documents, including shareholders’ agreements, financing agreements, lease agreements, SPAs, construction agreements, etc.\n• Support direct real estate transactions from inception to closing, helping to drive execution by coordinating legal workstreams, managing negotiations and liaising with internal stakeholders and external advisers.\n• Act as a key legal partner on cross-border matters, working closely with internal teams across jurisdictions on transaction status, documentation, payment mechanics and related execution steps.\n• Provide day-to-day legal support on asset management and project matters, combining strong technical legal drafting with a practical, commercially minded and solutions-oriented approach to business issues, focused on finding practical solutions to the team’s challenges rather than acting solely as a gatekeeper.\n• Lead and support legal documentation for development, construction and refurbishment matters, including preparing, revising and finalising project and works contracts for counterparties.\n\nYour profile\n\n• Between 5 and 8 years post-qualification in the real estate department of a major and reputable law firm ideally completed by in-house experience, and have experienced leading acquisitions, disposals and financings (beyond due diligence support or minor supporting roles).\n• Experience working on transactions in at least 3 different jurisdictions.\n• The candidate should have flexibility to travel within Europe for business purposes.\n• Fluent in English, any additional European language such as French, Spanish, German or Danish would be an asset.\n• You have a particular interest of and existing experience with AI tools for task/workflow automation.\n• Resident in Switzerland or willing to relocate.\n\nAs the selected candidate, you have developed a passion for real estate and are seeking to be involved in exciting real estate projects. You are a strong and dedicated professional who genuinely values team spirit and is comfortable with the level of commitment that an M&A role naturally involves, given the pace and unpredictability of live transactions.\nWith a flat hierarchy and a collaborative culture, success comes from teamwork, open information sharing, and constructive debate, enabling you to learn quickly, contribute meaningfully, and grow. If you are excited about the role but do not meet every single requirement, we still encourage you to apply. We value diverse perspectives and are committed to providing a supportive environment where people can grow.\n\nRef: LA/LT/MMC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+      "descriptionByLocale": {
+        "en": "Your team\n\nPictet Alternative Advisors (PAA) is a leading alternative investment group and a wholly owned subsidiary of Pictet with expertise in hedge funds, private equity, real estate, private debt and infrastructure. With teams based globally, PAA constructs, manages and advises portfolios of alternative investment solutions for institutional and private clients.\nYou will be part of a team of 20 professionals dedicated to Pictet’s pan-European Direct Real Estate franchise, which began in 2019 with the launch of Elevation Fund I, a EUR 700 million value-add fund. Elevation Fund II was launched in 2023, and a Core Plus fund, with approximately EUR 200 million under management, was launched in 2021. The team is distributed across several locations: in London, where the core investment and asset management teams are based; in Geneva, where the investment legal and investor relations teams operate; and in Berlin and Stockholm, where our regional heads are located. Additionally, fund support functions such as fund administration, compliance, and legal affairs are situated in Luxembourg and London.\n\nYour role\n\nAs part of the Direct Real Estate team based in Geneva you will:\n\n• Lead the review, drafting and negotiation of a wide range of real estate and financing documents, including shareholders’ agreements, financing agreements, lease agreements, SPAs, construction agreements, etc.\n• Support direct real estate transactions from inception to closing, helping to drive execution by coordinating legal workstreams, managing negotiations and liaising with internal stakeholders and external advisers.\n• Act as a key legal partner on cross-border matters, working closely with internal teams across jurisdictions on transaction status, documentation, payment mechanics and related execution steps.\n• Provide day-to-day legal support on asset management and project matters, combining strong technical legal drafting with a practical, commercially minded and solutions-oriented approach to business issues, focused on finding practical solutions to the team’s challenges rather than acting solely as a gatekeeper.\n• Lead and support legal documentation for development, construction and refurbishment matters, including preparing, revising and finalising project and works contracts for counterparties.\n\nYour profile\n\n• Between 5 and 8 years post-qualification in the real estate department of a major and reputable law firm ideally completed by in-house experience, and have experienced leading acquisitions, disposals and financings (beyond due diligence support or minor supporting roles).\n• Experience working on transactions in at least 3 different jurisdictions.\n• The candidate should have flexibility to travel within Europe for business purposes.\n• Fluent in English, any additional European language such as French, Spanish, German or Danish would be an asset.\n• You have a particular interest of and existing experience with AI tools for task/workflow automation.\n• Resident in Switzerland or willing to relocate.\n\nAs the selected candidate, you have developed a passion for real estate and are seeking to be involved in exciting real estate projects. You are a strong and dedicated professional who genuinely values team spirit and is comfortable with the level of commitment that an M&A role naturally involves, given the pace and unpredictability of live transactions.\nWith a flat hierarchy and a collaborative culture, success comes from teamwork, open information sharing, and constructive debate, enabling you to learn quickly, contribute meaningfully, and grow. If you are excited about the role but do not meet every single requirement, we still encourage you to apply. We value diverse perspectives and are committed to providing a supportive environment where people can grow.\n\nRef: LA/LT/MMC\n\nNote\n\nWe will not accept any CVs via agencies\n\nDiversity & Inclusion\n\nPictet is an equal opportunity employer and is committed to creating a diverse environment. We respect all individuals and seek their inclusion in the workplace.\n\nApply\n\nSave Job\n\nEmail to a contact\n\nReturn to List\n\n\n\n\n\nThe job has been sent to\n\nPlease provide the information below",
+        "it": "La tua squadra\n\nPictet Alternative Advisors (PAA) è un gruppo di investimento alternativo leader e una controllata interamente di Pictet con competenze in fondi di copertura, private equity, immobili, debito privato e infrastrutture. Con team basati a livello globale, PAA costruisce, gestisce e consiglia portafogli di soluzioni di investimento alternative per clienti istituzionali e privati.\nSarete parte di un team di 20 professionisti dedicati al franchise paneuropeo Direct Real Estate di Pictet, iniziato nel 2019 con il lancio di Elevation Fund I, un fondo di valore di 700 milioni di euro. Elevation Fund II è stato lanciato nel 2023, e un fondo Core Plus, con circa 200 milioni di euro sotto la gestione, è stato lanciato nel 2021. Il team è distribuito in diverse sedi: a Londra, dove si basano i principali team di investimento e asset management; a Ginevra, dove operano i team di investimento legali e di relazioni con gli investitori; e a Berlino e Stoccolma, dove si trovano i nostri capi regionali. Inoltre, le funzioni di sostegno dei fondi come l'amministrazione dei fondi, la conformità e gli affari legali si trovano a Lussemburgo e a Londra.\n\nIl tuo ruolo\n\nCome parte del team Direct Real Estate con sede a Ginevra:\n\n• Guidare la revisione, la redazione e la negoziazione di una vasta gamma di documenti immobiliari e finanziari, compresi gli accordi degli azionisti, accordi di finanziamento, accordi di locazione, SPA, accordi di costruzione, ecc.\n• Sostenere le transazioni immobiliari dirette dall'inizio alla chiusura, contribuendo a guidare l'esecuzione coordinando i flussi di lavoro legali, gestendo i negoziati e liaising con gli stakeholder interni e i consulenti esterni.\n• Agire come partner legale chiave in materia transfrontaliera, lavorando a stretto contatto con i team interni attraverso le giurisdizioni su stato di transazione, documentazione, meccanica di pagamento e relative fasi di esecuzione.\n• Fornire assistenza legale quotidiana in materia di asset management e di progetto, combinando una forte stesura legale tecnica con un approccio pratico, commercialmente pensato e orientato alle soluzioni alle questioni aziendali, focalizzato sulla ricerca di soluzioni pratiche alle sfide del team piuttosto che agire esclusivamente come gatekeeper.\n• Guidare e sostenere la documentazione legale per le questioni di sviluppo, costruzione e ristrutturazione, tra cui la preparazione, la revisione e la finalizzazione dei progetti e dei contratti di lavoro per le controparti.\n\nIl tuo profilo\n\n• Tra i 5 e gli 8 anni di post-qualifica nel reparto immobiliare di un importante e rispettabile studio legale idealmente completato da esperienza in-house, e hanno sperimentato acquisizioni, cessioni e finanziamenti (oltre il supporto di due diligence o ruoli di supporto minori).\n• Esperienza di lavoro sulle transazioni in almeno 3 diverse giurisdizioni.\n• Il candidato dovrebbe avere la flessibilità di viaggiare all'interno dell'Europa per scopi aziendali.\n• Fluente in inglese, qualsiasi altra lingua europea come francese, spagnolo, tedesco o danese sarebbe un bene.\n• Hai un particolare interesse e un'esperienza esistente con gli strumenti AI per l'automazione di attività / flusso di lavoro.\n• Residente in Svizzera o disposto a trasferirsi.\n\nCome candidato selezionato, hai sviluppato una passione per il settore immobiliare e stai cercando di essere coinvolto in entusiasmanti progetti immobiliari. Sei un professionista forte e dedicato che valorizza sinceramente lo spirito di squadra ed è a tuo agio con il livello di impegno che un ruolo M&A coinvolge naturalmente, dato il ritmo e l'imprevedibilità delle transazioni dal vivo.\nCon una gerarchia piana e una cultura collaborativa, il successo deriva dal lavoro di squadra, dalla condivisione di informazioni aperte e dal dibattito costruttivo, consentendo di imparare rapidamente, contribuire in modo significativo e crescere. Se siete entusiasti del ruolo, ma non soddisfare ogni singolo requisito, vi incoraggiamo ancora ad applicare. Apprezziamo diverse prospettive e ci impegniamo a fornire un ambiente di supporto in cui le persone possono crescere.\n\nRef: LA/LT/MMC\n\nNota\n\nNon accetteremo alcun CV tramite agenzie\n\nDiversità e inclusione\n\nPictet è un datore di lavoro pari opportunità e si impegna a creare un ambiente diverso. Rispettiamo tutti gli individui e cerchiamo la loro inclusione nel posto di lavoro.\n\nApplicare\n\nSalva lavoro\n\nEmail a un contatto\n\nTorna alla lista\n\n\n\n\n\nIl lavoro è stato inviato\n\nSi prega di fornire le informazioni qui sotto",
+        "de": "Dein Team\n\nPictet Alternative Advisors (PAA) ist eine führende alternative Investmentgruppe und eine hundertprozentige Tochtergesellschaft von Pictet mit Expertise in den Bereichen Hedgefonds, Private Equity, Immobilien, Private Debt und Infrastruktur. Mit weltweit ansässigen Teams konstruiert, verwaltet und berät PAA Portfolios alternativer Anlagelösungen für institutionelle und private Kunden.\nSie werden Teil eines Teams von 20 Fachleuten sein, das sich dem paneuropäischen Direct Real Estate-Franchise von Pictet widmet, das 2019 mit der Einführung des Elevation Fund I, eines Wertschöpfungsfonds in Höhe von 700 Millionen Euro, begann. Der Elevation Fund II wurde 2023 aufgelegt, und 2021 wurde ein Core Plus-Fonds mit rund 200 Mio. EUR verwaltet. Das Team ist auf mehrere Standorte verteilt: in London, wo die Kernteams für Investment und Asset Management ansässig sind; in Genf, wo die Teams für Investment Legal und Investor Relations tätig sind; und in Berlin und Stockholm, wo unsere regionalen Leiter angesiedelt sind. Darüber hinaus sind Fondsunterstützungsfunktionen wie Fondsverwaltung, Compliance und Rechtsangelegenheiten in Luxemburg und London angesiedelt.\n\nDeine Rolle\n\nAls Teil des Direct Real Estate Teams mit Sitz in Genf werden Sie:\n\n• Führen Sie die Überprüfung, Ausarbeitung und Verhandlung einer breiten Palette von Immobilien- und Finanzierungsdokumenten, einschließlich Aktionärsvereinbarungen, Finanzierungsvereinbarungen, Mietverträgen, SPAs, Bauverträgen usw.\n• Unterstützen Sie direkte Immobilientransaktionen von der Gründung bis zum Abschluss und tragen Sie dazu bei, die Ausführung zu beschleunigen, indem Sie rechtliche Workstreams koordinieren, Verhandlungen führen und mit internen Stakeholdern und externen Beratern zusammenarbeiten.\n• Handeln Sie als wichtiger Rechtspartner in grenzüberschreitenden Angelegenheiten und arbeiten Sie eng mit internen Teams in allen Jurisdiktionen in Bezug auf Transaktionsstatus, Dokumentation, Zahlungsmechanismen und damit verbundene Ausführungsschritte zusammen.\n• Bieten Sie tagtägliche rechtliche Unterstützung bei Asset Management und Projektangelegenheiten und kombinieren Sie eine starke technische Rechtsgestaltung mit einem praktischen, kaufmännischen und lösungsorientierten Ansatz für Geschäftsfragen, der sich darauf konzentriert, praktische Lösungen für die Herausforderungen des Teams zu finden, anstatt nur als Gatekeeper zu agieren.\n• Leitung und Unterstützung der rechtlichen Dokumentation für Entwicklungs-, Bau- und Sanierungsangelegenheiten, einschließlich Vorbereitung, Überarbeitung und Abschluss von Projekt- und Bauaufträgen für Geschäftspartner.\n\nDein Profil\n\n• Zwischen 5 und 8 Jahren nach der Qualifizierung in der Immobilienabteilung einer großen und renommierten Anwaltskanzlei, die idealerweise durch interne Erfahrung abgeschlossen wurde und führende Akquisitionen, Veräußerungen und Finanzierungen (über die Due Diligence-Unterstützung hinaus oder kleinere unterstützende Rollen) erfahren hat.\n• Erfahrung in der Arbeit an Transaktionen in mindestens 3 verschiedenen Gerichtsbarkeiten.\n• Der Kandidat sollte die Flexibilität haben, innerhalb Europas für geschäftliche Zwecke zu reisen.\n• Fließend in Englisch, jede zusätzliche europäische Sprache wie Französisch, Spanisch, Deutsch oder Dänisch wäre ein Gewinn.\n• Sie haben ein besonderes Interesse und Erfahrung mit KI-Tools für die Aufgaben- / Workflow-Automatisierung.\n• Wohnsitz in der Schweiz oder bereit zu verlagern.\n\nAls ausgewählter Kandidat haben Sie eine Leidenschaft für Immobilien entwickelt und möchten sich an spannenden Immobilienprojekten beteiligen. Sie sind ein starker und engagierter Profi, der den Teamgeist wirklich schätzt und mit dem Engagement vertraut ist, das eine M & A-Rolle natürlich mit sich bringt, angesichts des Tempos und der Unvorhersehbarkeit von Live-Transaktionen.\nMit einer flachen Hierarchie und einer kollaborativen Kultur kommt der Erfolg aus Teamarbeit, offenem Informationsaustausch und konstruktiver Debatte, so dass Sie schnell lernen, sinnvoll beitragen und wachsen können. Wenn Sie von der Rolle begeistert sind, aber nicht alle Anforderungen erfüllen, empfehlen wir Ihnen dennoch, sich zu bewerben. Wir schätzen vielfältige Perspektiven und setzen uns dafür ein, ein unterstützendes Umfeld zu schaffen, in dem Menschen wachsen können.\n\nRef.: LA/LT/MMC\n\nAnmerkung:\n\nWir akzeptieren keine CVs über Agenturen\n\nVielfalt & Inklusion\n\nPictet ist ein Arbeitgeber für Chancengleichheit und engagiert sich für die Schaffung eines vielfältigen Umfelds. Wir respektieren alle Menschen und suchen ihre Einbeziehung in den Arbeitsplatz.\n\nBeantragen\n\nSave Job\n\nE-Mail an einen Kontakt\n\nZurück zur Liste\n\n\n\n\n\nDer Job wurde geschickt an\n\nBitte geben Sie die nachstehenden Informationen an:",
+        "fr": "Votre équipe\n\nPictet Alternative Advisors (PAA) est un groupe d'investissement alternatif de premier plan et une filiale à part entière de Pictet avec une expertise dans les fonds spéculatifs, les capitaux propres, l'immobilier, la dette privée et l'infrastructure. Avec des équipes basées à l'échelle mondiale, l'AAP construit, gère et conseille des portefeuilles de solutions d'investissement alternatives pour les clients institutionnels et privés.\nVous ferez partie d'une équipe de 20 professionnels dédiée à la franchise Pittet, qui a débuté en 2019 avec le lancement du fonds Elevation I, un fonds à valeur ajoutée de 700 millions d'euros. Le Fonds d'élévation II a été lancé en 2023 et un fonds Core Plus, doté d'environ 200 millions d'euros, a été lancé en 2021. L'équipe est répartie sur plusieurs sites : à Londres, où sont implantées les équipes de base en matière d'investissement et de gestion des actifs, à Genève, où opèrent les équipes en matière d'investissement, de droit et de relations avec les investisseurs, et à Berlin et Stockholm, où se trouvent nos chefs régionaux. En outre, des fonctions d'appui aux fonds telles que l'administration des fonds, la conformité et les affaires juridiques sont situées à Luxembourg et à Londres.\n\nVotre rôle\n\nDans le cadre de l'équipe Direct Real Estate basée à Genève, vous:\n\n• Diriger l'examen, la rédaction et la négociation d'un large éventail de documents immobiliers et financiers, y compris les accords d'actionnaires, les accords de financement, les accords de location, les accords de location, les accords de location, les accords de construction, etc.\n• Soutenir les transactions immobilières directes depuis le début jusqu'à la clôture, contribuer à l'exécution en coordonnant les flux de travail juridiques, en gérant les négociations et en assurant la liaison avec les parties prenantes internes et les conseillers externes.\n• Agir en tant que partenaire juridique clé sur les questions transfrontalières, en travaillant en étroite collaboration avec les équipes internes de l'ensemble des administrations sur l'état des transactions, la documentation, les mécanismes de paiement et les étapes d'exécution connexes.\n• Fournir un soutien juridique quotidien en matière de gestion d'actifs et de projets, en combinant une solide rédaction juridique technique avec une approche pratique, commerciale et axée sur les solutions aux problèmes d'affaires, axée sur la recherche de solutions pratiques aux défis de l'équipe plutôt que d'agir uniquement comme gardien.\n• Diriger et appuyer la documentation juridique pour les questions de développement, de construction et de rénovation, y compris la préparation, la révision et la finalisation des contrats de projet et de travaux pour les contreparties.\n\nVotre profil\n\n• Entre 5 et 8 ans après la qualification dans le département immobilier d'un cabinet d'avocats majeur et réputé idéalement complété par l'expérience interne, et ont connu des acquisitions, des cessions et des financements de premier plan (au-delà du soutien de diligence raisonnable ou des rôles de soutien mineurs).\n• Expérience de travail sur les transactions dans au moins 3 juridictions différentes.\n• Le candidat devrait avoir la flexibilité de voyager en Europe à des fins professionnelles.\n• En anglais, toute autre langue européenne comme le français, l'espagnol, l'allemand ou le danois serait un atout.\n• Vous avez un intérêt particulier et l'expérience existante avec les outils d'IA pour l'automatisation des tâches / flux de travail.\n• Résident en Suisse ou prêt à déménager.\n\nEn tant que candidat sélectionné, vous avez développé une passion pour l'immobilier et cherchez à être impliqué dans des projets immobiliers passionnants. Vous êtes un professionnel fort et dévoué qui apprécie vraiment l'esprit d'équipe et qui est à l'aise avec le niveau d'engagement qu'implique naturellement un rôle de M et A, compte tenu du rythme et de l'imprévisibilité des transactions en direct.\nAvec une hiérarchie plate et une culture collaborative, le succès vient du travail d'équipe, du partage ouvert de l'information et du débat constructif, vous permettant d'apprendre rapidement, de contribuer de façon significative et de grandir. Si vous êtes excité par le rôle mais que vous ne respectez pas toutes les exigences, nous vous encourageons toujours à postuler. Nous apprécions les diverses perspectives et nous sommes déterminés à offrir un environnement favorable où les gens peuvent grandir.\n\nRéf: LA/LT/MMC\n\nRemarque\n\nNous n'accepterons aucun CV par l'intermédiaire des agences\n\nDiversité et inclusion\n\nPictet est un employeur à chances égales et s'engage à créer un environnement diversifié. Nous respectons toutes les personnes et nous cherchons à les inclure dans le milieu de travail.\n\nAppliquer\n\nEnregistrer l'emploi\n\nCourriel à un contact\n\nRetour à la liste\n\n\n\n\n\nLe travail a été envoyé à\n\nVeuillez fournir les informations ci-dessous."
+      },
+      "location": "Geneva",
+      "canton": "GE",
+      "url": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125075&selected_lang=en_GB",
+      "source": "Pictet Group Dedicated Parser (SuccessFactors career5)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:16:40.387Z",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Banca privata",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navBarLevel=JOB_SEARCH&career_job_req_id=125075&selected_lang=en_GB",
+      "jobReqId": "125075",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "salaryMin": 69000,
+      "salaryMax": 118000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69000,
+          "maxValue": 118000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T21:16:40.387Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-advisor-pictet-geneva"
+        ],
+        "de": [
+          "legal-advisor-pictet-geneva"
+        ],
+        "fr": [
+          "legal-advisor-pictet-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "legal-advisor-pictet-geneva"
+      ]
     }
   ]
 }

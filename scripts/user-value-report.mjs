@@ -50,7 +50,7 @@
  */
 
 import { writeFileSync, mkdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, resolve } from 'node:path';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 
@@ -231,8 +231,47 @@ async function checkLocaleDimension(propertyId, headers, period, registration) {
   return out;
 }
 
+// Property totals need their own dimensionless queries: active users may occur
+// in several devices, sources or mutable registration-state rows.
+export async function fetchUserValueTotals(propertyId, headers, period) {
+  const dateRanges = [{ startDate: period.start, endDate: period.end }];
+  const revenue = await runReport(propertyId, headers, {
+    dateRanges,
+    metrics: [{ name: 'totalAdRevenue' }, { name: 'activeUsers' }, { name: 'sessions' }],
+  });
+  const ads = await runReport(propertyId, headers, {
+    dateRanges,
+    metrics: [{ name: 'eventCount' }],
+    dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { value: 'ad_impression', matchType: 'EXACT' } } },
+  });
+  const usable = (result) => {
+    const meta = result.data?.metadata || {};
+    return result.ok && !meta.subjectToThresholding && !meta.dataLossFromOtherRow
+      && !meta.schemaRestrictionResponse?.activeMetricRestrictions?.length
+      && !meta.dataTruncationReasons?.length
+      && !meta.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize));
+  };
+  const errors = [];
+  if (!usable(revenue)) errors.push('Dimensionless revenue/users total unavailable or restricted');
+  if (!usable(ads)) errors.push('Dimensionless ad-impression total unavailable or restricted');
+  const revenueRow = rowsToObjects(revenue.data, [], ['totalAdRevenue', 'activeUsers', 'sessions'])[0];
+  const adRow = rowsToObjects(ads.data, [], ['eventCount'])[0];
+  return {
+    totals: usable(revenue) ? {
+      totalAdRevenue: revenueRow?.totalAdRevenue ?? 0,
+      activeUsers: revenueRow?.activeUsers ?? 0,
+      sessions: revenueRow?.sessions ?? 0,
+      arpu: computeArpu(revenueRow?.totalAdRevenue, revenueRow?.activeUsers),
+      adImpressions: usable(ads) ? adRow?.eventCount ?? 0 : null,
+    } : null,
+    currencyCode: revenue.data?.metadata?.currencyCode || null,
+    error: errors.length ? errors.join(' | ') : null,
+    method: 'dimensionless_property_queries_same_window',
+  };
+}
+
 // ── 3. Segmented ARPU report ──────────────────────────────────
-async function fetchSegmentedArpu(propertyId, headers, period, registration) {
+export async function fetchSegmentedArpu(propertyId, headers, period, registration, propertyTotals) {
   const requestedDims = [...NEW_CUSTOM_USER_DIMS, ...STANDARD_DIMS];
   const usableCustomDims = NEW_CUSTOM_USER_DIMS.filter((d) => registration[d].registered);
   const skipped = NEW_CUSTOM_USER_DIMS.filter((d) => !registration[d].registered).map((d) => ({
@@ -269,9 +308,6 @@ async function fetchSegmentedArpu(propertyId, headers, period, registration) {
     arpu: computeArpu(row.totalAdRevenue, row.activeUsers),
   }));
 
-  const totalRevenue = rows.reduce((s, r) => s + r.totalAdRevenue, 0);
-  const totalUsers = rows.reduce((s, r) => s + r.activeUsers, 0);
-
   return {
     dimensionsRequested: requestedDims,
     dimensionsUsed: dimNames,
@@ -279,21 +315,21 @@ async function fetchSegmentedArpu(propertyId, headers, period, registration) {
     error: null,
     rowCount: rows.length,
     rows,
-    totals: {
-      totalAdRevenue: Number(totalRevenue.toFixed(4)),
-      activeUsers: totalUsers,
-      arpu: computeArpu(totalRevenue, totalUsers),
-    },
+    totals: propertyTotals.totals,
+    totalsMethod: propertyTotals.method,
+    totalsError: propertyTotals.error,
+    segmentUsersAdditive: false,
     currencyCode: result.data?.metadata?.currencyCode || null,
   };
 }
 
 // ── 3b. Clean registered-vs-anonymous benchmark ─────────────────────────
 // Keep this query free of device/source dimensions: one row is one value of
-// the user property, so the comparison is additive and not a sum of repeated
-// user rows. `(not set)` remains a first-class row because it measures how much
+// the user property; a user can still change state during the window, so
+// these user rows are not additive. Property totals are queried separately.
+// `(not set)` remains a first-class row because it measures how much
 // of the property still lacks a reliable auth-state signal.
-async function fetchRegistrationSummary(propertyId, headers, period) {
+export async function fetchRegistrationSummary(propertyId, headers, period, propertyTotals) {
   const segmentDimension = 'customUser:is_registered';
   const revenueResult = await runReport(propertyId, headers, {
     dateRanges: [{ startDate: period.start, endDate: period.end }],
@@ -346,23 +382,20 @@ async function fetchRegistrationSummary(propertyId, headers, period) {
     };
   });
 
-  const totalRevenue = rows.reduce((sum, row) => sum + row.totalAdRevenue, 0);
-  const totalUsers = rows.reduce((sum, row) => sum + row.activeUsers, 0);
-  const totalAdImpressions = rows.reduce((sum, row) => sum + row.adImpressions, 0);
+  const totalUsers = propertyTotals.totals?.activeUsers;
   const notSetUsers = rows.find((row) => row.segment === '(not set)')?.activeUsers || 0;
 
   return {
     dimension: segmentDimension,
     rows,
-    totals: {
-      totalAdRevenue: Number(totalRevenue.toFixed(4)),
-      activeUsers: totalUsers,
-      sessions: rows.reduce((sum, row) => sum + row.sessions, 0),
-      arpu: computeArpu(totalRevenue, totalUsers),
-      adImpressions: totalAdImpressions,
-      notSetActiveUsers: notSetUsers,
-      notSetActiveUserShare: totalUsers > 0 ? Number((notSetUsers / totalUsers).toFixed(4)) : null,
-    },
+    totals: propertyTotals.totals ? {
+      ...propertyTotals.totals,
+      notSetActiveUsers: revenueResult.ok ? notSetUsers : null,
+      notSetActiveUserShare: revenueResult.ok && totalUsers > 0 ? Number((notSetUsers / totalUsers).toFixed(4)) : null,
+    } : null,
+    totalsMethod: propertyTotals.method,
+    totalsError: propertyTotals.error,
+    segmentUsersAdditive: false,
     revenueQuery: revenueResult.ok ? null : errors.find((error) => error.startsWith('revenue:')) || null,
     adImpressionQuery: adResult.ok ? null : errors.find((error) => error.startsWith('ad_impression:')) || null,
     error: errors.length ? errors.join(' | ') : null,
@@ -581,7 +614,7 @@ function renderConsoleSummary(report) {
   console.log(`   Used in this report: ${report.locale.dimensionUsedInThisReport}`);
   console.log('');
 
-  console.log('👤 Registered vs anonymous benchmark (additive user-property query):');
+  console.log('👤 Registered vs anonymous benchmark (state rows overlap; totals queried without dimensions):');
   if (report.registrationSummary?.error && report.registrationSummary.rows.length === 0) {
     console.log(`   ⚠️  Query failed: ${report.registrationSummary.error}`);
   } else {
@@ -591,6 +624,7 @@ function renderConsoleSummary(report) {
     console.log(`   "(not set)" active-user share: ${totals?.notSetActiveUserShare ?? '—'}`);
     if (report.registrationSummary?.error) console.log(`   ⚠️  Partial query warning: ${report.registrationSummary.error}`);
   }
+  if (report.registrationSummary?.totalsError) console.log(`   ⚠️  ${report.registrationSummary.totalsError}`);
   console.log('');
 
   console.log('💰 Segmented ARPU (top rows by totalAdRevenue):');
@@ -610,6 +644,8 @@ function renderConsoleSummary(report) {
     console.log(`   Totals: revenue=${report.segmentedArpu.totals?.totalAdRevenue} ${report.segmentedArpu.currencyCode ?? ''} | activeUsers=${report.segmentedArpu.totals?.activeUsers} | ARPU=${report.segmentedArpu.totals?.arpu}`);
   }
   console.log('');
+
+  if (report.segmentedArpu?.totalsError) console.log(`   ⚠️  ${report.segmentedArpu.totalsError}`);
 
   console.log(`📈 LTV curve (cohort report, DAILY granularity, ${COHORT_DAYS}-day acquisition window):`);
   if (report.ltv.baseCurve.error) {
@@ -675,7 +711,7 @@ async function main() {
 
   const cohortEnd = new Date(`${period.end}T00:00:00Z`);
   const cohortStart = new Date(cohortEnd);
-  cohortStart.setUTCDate(cohortStart.getUTCDate() - COHORT_DAYS);
+  cohortStart.setUTCDate(cohortStart.getUTCDate() - (COHORT_DAYS - 1));
   const cohortPeriod = { startDate: fmtDate(cohortStart), endDate: fmtDate(cohortEnd) };
 
   // 1. Custom dimension registration (read-only Admin API check).
@@ -711,9 +747,17 @@ async function main() {
     report.errors.push(`Locale check failed: ${e.message}`);
   }
 
-  // 3. Clean registered-vs-anonymous benchmark (no repeated device/source rows).
+  let propertyTotals;
   try {
-    report.registrationSummary = await fetchRegistrationSummary(propertyId, headers, period);
+    propertyTotals = await fetchUserValueTotals(propertyId, headers, period);
+  } catch (e) {
+    propertyTotals = { totals: null, currencyCode: null, method: 'dimensionless_property_queries_same_window', error: e.message };
+  }
+  if (propertyTotals.error) report.warnings.push(propertyTotals.error);
+
+  // 3. Registered-vs-anonymous state rows, with separate distinct totals.
+  try {
+    report.registrationSummary = await fetchRegistrationSummary(propertyId, headers, period, propertyTotals);
     log('👤', `Registered-vs-anonymous benchmark done — ${report.registrationSummary.rows.length} segments`);
   } catch (e) {
     report.errors.push(`Registration summary failed: ${e.message}`);
@@ -722,7 +766,7 @@ async function main() {
 
   // 4. Segmented ARPU.
   try {
-    report.segmentedArpu = await fetchSegmentedArpu(propertyId, headers, period, registration);
+    report.segmentedArpu = await fetchSegmentedArpu(propertyId, headers, period, registration, propertyTotals);
     log('💰', `Segmented ARPU query done — ${report.segmentedArpu.rowCount ?? 0} rows`);
   } catch (e) {
     report.errors.push(`Segmented ARPU query failed: ${e.message}`);
@@ -786,7 +830,7 @@ function writeOutput(report) {
   writeFileSync(OUTPUT_PATH, JSON.stringify(report, null, 2));
 }
 
-main().catch((e) => {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main().catch((e) => {
   console.error('user-value-report failed:', e.message);
   if (flags.debug) console.error(e.stack);
   process.exit(0);

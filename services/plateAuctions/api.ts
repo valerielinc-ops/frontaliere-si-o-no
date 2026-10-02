@@ -292,7 +292,9 @@ export async function fetchPlateAuctionSnapshot(now: number = Date.now()): Promi
   try {
     const snapshot = await fetchSnapshotFrom(cdnDataUrl('/data/plate-auctions.json'));
     const generatedMs = Date.parse(snapshot.generatedAt);
-    if (Number.isFinite(generatedMs) && now - generatedMs <= PLATE_AUCTION_STATIC_MAX_AGE_MS) return snapshot;
+    // A generatedAt in the future proves nothing about freshness: such a file
+    // goes to the function like an old one (corpus review on nanako 2037).
+    if (Number.isFinite(generatedMs) && generatedMs <= now && now - generatedMs <= PLATE_AUCTION_STATIC_MAX_AGE_MS) return snapshot;
     staleStatic = snapshot;
   } catch (error) {
     lastError = error;

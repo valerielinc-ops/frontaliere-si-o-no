@@ -27,6 +27,7 @@
  * `parsePostJobDetail` automatically falls back from JSON-LD to the token
  * structure so existing callers keep working.
  */
+import { decode as decodeHTML } from 'html-entities';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { readMetaContent } from './html-attr.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -55,14 +56,7 @@ export function formatPostJobLocation(places = [], fallback = '') {
 }
 
 function decodeHtml(value = '') {
-  return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&#x2F;/g, '/')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function normalizeDate(raw = '') {

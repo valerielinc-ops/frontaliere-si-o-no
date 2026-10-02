@@ -17,7 +17,45 @@ import {
   extractGeoAndCanton,
   mapDetailPageToLocaleData,
   mapGuidleEvent,
+  parseGuidleArgs,
+  selectGuidleEntries,
+  targetedGuidleResumeIndex,
 } from '../scripts/crawl-guidle-events.mjs';
+
+describe('targeted Guidle catalog refresh', () => {
+  it('validates codes without lowercasing case-sensitive Guidle identities', () => {
+    expect(parseGuidleArgs(['--ids', 'guidle:AGwng3C,AHtMkZp,AGwng3C', '--dry-run', '--limit=2']))
+      .toEqual({ ids: ['AGwng3C', 'AHtMkZp'], dryRun: true, limit: 2 });
+    expect(parseGuidleArgs([])).toEqual({ ids: undefined, dryRun: false, limit: undefined });
+    for (const args of [['--ids='], ['--ids=AGwng3C,'], ['--ids=../file'], ['--ids=AGwng3C', '--ids=AHtMkZp'], ['--ids']]) {
+      expect(() => parseGuidleArgs(args)).toThrow();
+    }
+  });
+
+  it('keeps normal catalog order and stabilizes targeted order and cursor identity', () => {
+    const entries = [['AHtMkZp', '/b'], ['AGwng3C', '/a'], ['Aq91Knx', '/c']];
+    expect(selectGuidleEntries(entries).entries).toBe(entries);
+    const ids = ['AGwng3C', 'AHtMkZp'];
+    const selected = selectGuidleEntries(entries, ids);
+    expect(selected.entries.map(([code]) => code)).toEqual(ids);
+    expect(selectGuidleEntries([...entries].reverse(), ids).selectionKey).toBe(selected.selectionKey);
+    expect(selectGuidleEntries(entries.slice(1), ids).selectionKey).not.toBe(selected.selectionKey);
+    expect(targetedGuidleResumeIndex({ selectionKey: selected.selectionKey, nextIndex: 1 }, selected.selectionKey)).toBe(1);
+    for (const checkpoint of [null, { selectionKey: 'other', nextIndex: 1 }, { selectionKey: selected.selectionKey, nextIndex: -1 }, { selectionKey: selected.selectionKey, nextIndex: 1.5 }]) {
+      expect(targetedGuidleResumeIndex(checkpoint, selected.selectionKey)).toBe(0);
+    }
+  });
+
+  it('extracts only the explicit ticketing link and keeps it off the public event record', () => {
+    const booking = 'https://infomaniak.events/fr-ch/concerts/example/events/123';
+    const data = mapDetailPageToLocaleData(buildDetailHtml() + `<a id="ticketingUrl" href="${booking}">Tickets</a>`, 'de');
+    expect(data.bookingUrl).toBe(booking);
+    const mapped = mapGuidleEvent('AGwng3C', { de: data });
+    expect(mapped.bookingUrl).toBe(booking);
+    expect(mapped.event).not.toHaveProperty('bookingUrl');
+    expect(mapDetailPageToLocaleData(buildDetailHtml() + '<a href="https://127.0.0.1/">Other link</a>', 'de').bookingUrl).toBeUndefined();
+  });
+});
 
 describe('parseSitemapIndexXml', () => {
   it('extracts gzipped shard URLs', () => {

@@ -9,6 +9,7 @@ import { fileURLToPath } from 'node:url';
 import {
   CRAWLER_SCHEMA_VERSION,
   DEFAULT_MAX_BODY_BYTES,
+  classifyDiscoveredUrl,
   folderFor,
   probeWithRetries,
 } from './bing-site-explorer-crawl.mjs';
@@ -17,6 +18,7 @@ const ACTIONABLE_CODES = new Set([
   'fetch-error', 'http-error', 'redirect', 'noindex-in-sitemap',
   'canonical-missing', 'canonical-drift', 'soft-404', 'title-missing',
   'title-too-long', 'meta-description-missing', 'meta-description-too-short',
+  'internal-link-malformed',
 ]);
 
 // The report job has a 15-minute Actions timeout. Leave room for artifact
@@ -67,9 +69,9 @@ function writeJson(filePath, value) {
   writeFileSync(resolve(filePath), `${JSON.stringify(value, null, 2)}\n`);
 }
 
-function readReports(reportsDir) {
+export function readPartitionReports(reportsDir, prefix = 'partition-') {
   return readdirSync(resolve(reportsDir))
-    .filter((name) => /^partition-\d+\.json$/.test(name))
+    .filter((name) => name.startsWith(prefix) && /^\d+\.json$/.test(name.slice(prefix.length)))
     .sort()
     .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
 }
@@ -177,63 +179,131 @@ export async function rescueTransientReports(reports, manifest, {
   };
 }
 
-export function aggregateCrawlReports(reports, manifest = null) {
-  const ordered = [...reports].sort((a, b) => Number(a.partition) - Number(b.partition));
+function validateScope(name, reports, manifest, coverageErrors) {
+  const ordered = [...(reports || [])].sort((a, b) => Number(a.partition) - Number(b.partition));
   const first = ordered[0] || {};
   const expectedPartitions = Number(first.partitions || 0);
-  const coverageErrors = [];
+  const manifestCount = Number(manifest?.manifestCount ?? first.manifestCount ?? 0);
   for (const error of manifest?.errors || []) {
-    coverageErrors.push(`sitemap non letto: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
+    const source = name === 'sitemap' ? 'sitemap' : 'frontiera interna';
+    coverageErrors.push(`${name}: ${source} non letto: ${error.url || 'sconosciuto'} — ${error.error || 'errore sconosciuto'}`);
   }
-  if (manifest && Number(manifest.sitemapCount || 0) === 0) {
-    coverageErrors.push('nessun sitemap è stato letto dal manifest');
+  if (name === 'sitemap' && manifest && Number(manifest.sitemapCount || 0) === 0) {
+    coverageErrors.push('sitemap: nessun sitemap è stato letto dal manifest');
+  }
+  if (ordered.length === 0 && manifestCount > 0) {
+    coverageErrors.push(`${name}: nessun report di partizione ricevuto`);
   }
   const seen = new Set();
   for (const report of ordered) {
     const id = Number(report.partition);
-    if (seen.has(id)) coverageErrors.push(`partizione duplicata: ${id}`);
+    if (seen.has(id)) coverageErrors.push(`${name}: partizione duplicata: ${id}`);
     seen.add(id);
   }
   for (let id = 0; id < expectedPartitions; id += 1) {
-    if (!seen.has(id)) coverageErrors.push(`partizione mancante: ${id}`);
+    if (!seen.has(id)) coverageErrors.push(`${name}: partizione mancante: ${id}`);
   }
   if (ordered.some((report) => Number(report.partitions) !== expectedPartitions)) {
-    coverageErrors.push('i report usano numeri diversi di partizioni');
+    coverageErrors.push(`${name}: i report usano numeri diversi di partizioni`);
   }
-  const manifestCount = Number(manifest?.manifestCount ?? first.manifestCount ?? 0);
   const checkedCount = ordered.reduce((sum, report) => sum + Number(report.checkedCount || 0), 0);
   const partitionTotal = ordered.reduce((sum, report) => sum + Number(report.partitionTotal || 0), 0);
-  if (partitionTotal !== manifestCount) coverageErrors.push(`somma partizioni ${partitionTotal} diversa dal manifest ${manifestCount}`);
-  if (checkedCount !== manifestCount) coverageErrors.push(`URL verificati ${checkedCount} diversi dal manifest ${manifestCount}`);
+  if (partitionTotal !== manifestCount) coverageErrors.push(`${name}: somma partizioni ${partitionTotal} diversa dal manifest ${manifestCount}`);
+  if (checkedCount !== manifestCount) coverageErrors.push(`${name}: URL verificati ${checkedCount} diversi dal manifest ${manifestCount}`);
+  return { name, reports: ordered, manifest, first, expectedPartitions, manifestCount, checkedCount, partitionTotal };
+}
 
+export function aggregateCrawlReports(reports, manifest = null, options = {}) {
+  const coverageErrors = [];
+  for (const error of options.supplementalCoverageErrors || []) {
+    if (String(error || '').trim()) coverageErrors.push(String(error).trim());
+  }
+  // Keep validation scoped so a missing closure artifact cannot hide complete
+  // sitemap coverage, and vice versa.
+  const scopes = [validateScope('sitemap', reports, manifest, coverageErrors)];
+  if (options.supplementalManifest || (options.supplementalReports || []).length > 0) {
+    scopes.push(validateScope(
+      'frontiera interna',
+      options.supplementalReports || [],
+      options.supplementalManifest || null,
+      coverageErrors,
+    ));
+  }
+
+  const primary = scopes[0];
+  const manifestCount = scopes.reduce((sum, scope) => sum + scope.manifestCount, 0);
+  const checkedCount = scopes.reduce((sum, scope) => sum + scope.checkedCount, 0);
+  const partitionTotal = scopes.reduce((sum, scope) => sum + scope.partitionTotal, 0);
   const codeCounts = {};
   const statusCounts = {};
   const folderStats = {};
   const findingMap = new Map();
   const discovered = new Set();
-  for (const report of ordered) {
-    mergeCounters(codeCounts, report.codeCounts);
-    mergeCounters(statusCounts, report.statusCounts);
-    for (const [root, stats] of Object.entries(report.folderStats || {})) {
-      const target = folderStats[root] || (folderStats[root] = { checked: 0, statuses: {}, findings: {} });
-      target.checked += Number(stats.checked || 0);
-      mergeCounters(target.statuses, stats.statuses);
-      mergeCounters(target.findings, stats.findings);
+  const verified = new Set();
+  const excludedDiscoveryCounts = {};
+  const excludedDiscoverySamples = {};
+  for (const scope of scopes) {
+    for (const url of scope.manifest?.urls || []) verified.add(url);
+    for (const [reason, count] of Object.entries(scope.manifest?.excludedByReason || {})) {
+      increment(excludedDiscoveryCounts, reason, Number(count) || 0);
     }
-    for (const item of report.findings || []) findingMap.set(`${item.code}\u0000${item.url}`, item);
-    for (const url of report.discoveredOutOfSitemap || []) discovered.add(url);
+    for (const [reason, urls] of Object.entries(scope.manifest?.excludedSamplesByReason || {})) {
+      const samples = excludedDiscoverySamples[reason] || (excludedDiscoverySamples[reason] = []);
+      for (const url of urls || []) {
+        if (samples.length >= 10) break;
+        if (!samples.includes(url)) samples.push(url);
+      }
+    }
+    for (const item of scope.manifest?.findings || []) {
+      findingMap.set(`${item.code}\u0000${item.url}`, item);
+      increment(codeCounts, item.code);
+      const root = item.root || folderFor(item.url);
+      const target = folderStats[root] || (folderStats[root] = { checked: 0, statuses: {}, findings: {} });
+      increment(target.findings, item.code);
+    }
+    for (const report of scope.reports) {
+      mergeCounters(codeCounts, report.codeCounts);
+      mergeCounters(statusCounts, report.statusCounts);
+      for (const [root, stats] of Object.entries(report.folderStats || {})) {
+        const target = folderStats[root] || (folderStats[root] = { checked: 0, statuses: {}, findings: {} });
+        target.checked += Number(stats.checked || 0);
+        mergeCounters(target.statuses, stats.statuses);
+        mergeCounters(target.findings, stats.findings);
+      }
+      for (const item of report.findings || []) findingMap.set(`${item.code}\u0000${item.url}`, item);
+      for (const url of report.discoveredOutOfSitemap || []) discovered.add(url);
+    }
+  }
+  const baseUrl = primary.first.baseUrl || manifest?.baseUrl || '';
+  const unverified = [];
+  const unverifiedByReason = {};
+  for (const url of discovered) {
+    if (verified.has(url)) continue;
+    const reason = classifyDiscoveredUrl(url, baseUrl).reason;
+    increment(unverifiedByReason, reason);
+    if (reason === 'crawl') unverified.push(url);
   }
   const findings = [...findingMap.values()].sort((a, b) => `${a.code}${a.url}`.localeCompare(`${b.code}${b.url}`));
   const actionableFindings = findings.filter((item) => ACTIONABLE_CODES.has(item.code));
   return {
     schemaVersion: CRAWLER_SCHEMA_VERSION,
     checkedAt: new Date().toISOString(),
-    baseUrl: first.baseUrl || manifest?.baseUrl || '',
+    baseUrl,
     sitemapCount: Number(manifest?.sitemapCount || 0),
     manifestCount,
+    sitemapManifestCount: primary.manifestCount,
+    supplementalManifestCount: manifestCount - primary.manifestCount,
     checkedCount,
     partitionTotal,
-    expectedPartitions,
+    expectedPartitions: primary.expectedPartitions,
+    scopes: scopes.map(({ name, manifest: scopeManifest, manifestCount: count, checkedCount: checked, partitionTotal: total, expectedPartitions: expected }) => ({
+      name,
+      kind: scopeManifest?.kind || (name === 'sitemap' ? 'sitemap' : 'discovered-frontier'),
+      manifestCount: count,
+      checkedCount: checked,
+      partitionTotal: total,
+      expectedPartitions: expected,
+    })),
     coverageOk: coverageErrors.length === 0,
     coverageErrors,
     statusCounts,
@@ -244,6 +314,11 @@ export function aggregateCrawlReports(reports, manifest = null) {
     actionableCount: actionableFindings.length,
     discoveredOutOfSitemap: [...discovered].sort(),
     discoveredOutOfSitemapCount: discovered.size,
+    unverifiedOutOfSitemap: unverified.sort(),
+    unverifiedOutOfSitemapCount: unverified.length,
+    unverifiedOutOfSitemapByReason: unverifiedByReason,
+    excludedDiscoveryCounts,
+    excludedDiscoverySamples,
   };
 }
 
@@ -258,12 +333,14 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
   const lines = [
     '## Bing-compatible full-tree crawl',
     '',
-    'Il crawler enumera il grafo completo dei sitemap pubblicati e verifica ogni URL in partizioni deterministiche. Le categorie sono candidati HTTP/SEO riproducibili: Bing Site Explorer non espone questi contatori tramite una REST API pubblica stabile, quindi il workflow non finge di leggere i bucket privati `Indexed/Warning/Excluded`.',
+    'Il crawler enumera il grafo completo dei sitemap pubblicati e una seconda frontiera di route HTML raggiunte dai link interni, verificando ogni URL in partizioni deterministiche. Query di calcolatori/filtri, asset e token di editor non vengono espansi: restano nel registro delle esclusioni per evitare un crawl infinito di URL dinamiche. Le categorie sono candidati HTTP/SEO riproducibili: Bing Site Explorer non espone questi contatori tramite una REST API pubblica stabile, quindi il workflow non finge di leggere i bucket privati `Indexed/Warning/Excluded`.',
     '',
-    `- Manifest: **${summary.manifestCount} URL** in **${summary.sitemapCount} sitemap**`,
-    `- Copertura: **${summary.checkedCount}/${summary.manifestCount}** URL, ${summary.coverageOk ? 'completa' : 'INCOMPLETA'}`,
+    `- Manifest sitemap: **${summary.sitemapManifestCount ?? summary.manifestCount} URL** in **${summary.sitemapCount} sitemap**`,
+    `- Frontiera interna crawlable: **${summary.supplementalManifestCount || 0} URL**`,
+    `- Copertura totale: **${summary.checkedCount}/${summary.manifestCount}** URL, ${summary.coverageOk ? 'completa' : 'INCOMPLETA'}`,
     `- Finding azionabili: **${summary.actionableCount}**`,
-    `- URL interne fuori sitemap (informative): **${summary.discoveredOutOfSitemapCount}**`,
+    `- URL interne fuori sitemap osservate: **${summary.discoveredOutOfSitemapCount}**`,
+    `- Route HTML ancora non verificate: **${summary.unverifiedOutOfSitemapCount || 0}**`,
     `- Verifica: ${summary.checkedAt}`,
   ];
   if (artifactUrl) lines.push(`- Report completi: [artifact del workflow](${artifactUrl})`);
@@ -292,11 +369,24 @@ export function buildIssueBody(summary, { maxSamples = 80, artifactUrl = '' } = 
       .reduce((total, [, count]) => total + count, 0);
     lines.push(`| \`${root}\` | ${stats.checked} | ${errors} | ${findings} |`);
   }
-  if (summary.discoveredOutOfSitemap.length > 0) {
-    lines.push('', '### Link interni non presenti nel manifest (informativi)', '', ...summary.discoveredOutOfSitemap.slice(0, maxSamples).map((url) => `- \`${url}\``));
-    if (summary.discoveredOutOfSitemap.length > maxSamples) lines.push(`\n_...altre ${summary.discoveredOutOfSitemap.length - maxSamples}; verificare se sono route private, dinamiche o da aggiungere al sitemap._`);
+  if (Object.keys(summary.excludedDiscoveryCounts || {}).length > 0) {
+    lines.push('', '### Link interni esclusi dalla frontiera HTML', '');
+    for (const [reason, count] of Object.entries(summary.excludedDiscoveryCounts).sort((a, b) => b[1] - a[1])) {
+      lines.push(`- \`${reason}\`: **${count}**`);
+      for (const url of summary.excludedDiscoverySamples?.[reason] || []) lines.push(`  - \`${url}\``);
+    }
   }
-  lines.push('', '### Regola di chiusura', '', 'Le pagine storiche non si cancellano: ogni URL storico deve restare raggiungibile con HTTP 200 e contenuto utile, self-canonical se è l\'archivio della pagina oppure full-content bridge verso il successore esatto quando esiste. Si corregge il sitemap rimuovendo solo URL non self-canonical, noindex o non serviti; questa riconciliazione modifica esclusivamente gli XML e non elimina file HTML. 301/410 sono ammessi soltanto per URL tecnici realmente non-pagina, con decisione esplicita. Il prossimo run deve riportare copertura completa e zero finding azionabili; i link interni fuori sitemap restano da valutare per root, privacy e route dinamiche.');
+  if (Object.keys(summary.unverifiedOutOfSitemapByReason || {}).length > 0) {
+    lines.push('', '### Link interni non ancora verificati', '');
+    for (const [reason, count] of Object.entries(summary.unverifiedOutOfSitemapByReason).sort((a, b) => b[1] - a[1])) {
+      lines.push(`- \`${reason}\`: **${count}**`);
+    }
+  }
+  if (summary.discoveredOutOfSitemap.length > 0) {
+    lines.push('', '### Link interni non presenti nel manifest (campione)', '', ...summary.discoveredOutOfSitemap.slice(0, maxSamples).map((url) => `- \`${url}\``));
+    if (summary.discoveredOutOfSitemap.length > maxSamples) lines.push(`\n_...altri ${summary.discoveredOutOfSitemap.length - maxSamples}; il JSON dell\'artifact contiene l\'elenco completo e la classificazione della frontiera._`);
+  }
+  lines.push('', '### Regola di chiusura', '', 'Le pagine storiche non si cancellano: ogni URL storico deve restare raggiungibile con HTTP 200 e contenuto utile, self-canonical se è l\'archivio della pagina oppure full-content bridge verso il successore esatto quando esiste. Si corregge il sitemap rimuovendo solo URL non self-canonical, noindex o non serviti; questa riconciliazione modifica esclusivamente gli XML e non elimina file HTML. 301/410 sono ammessi soltanto per URL tecnici realmente non-pagina, con decisione esplicita. Il prossimo run deve riportare copertura completa e zero finding azionabili; le sole URL escluse dalla frontiera devono essere dinamiche/non-HTML o token malformati esplicitamente classificati.');
   return lines.join('\n');
 }
 
@@ -306,20 +396,38 @@ async function main() {
   const output = arg(args, 'out', 'bing-site-tree-summary.json');
   const issueBodyPath = arg(args, 'issue-body', '');
   const manifestPath = arg(args, 'manifest', '');
-  const reports = readReports(reportsDir);
+  const supplementalReportsDir = arg(args, 'supplemental-reports-dir', '');
+  const supplementalManifestPath = arg(args, 'supplemental-manifest', '');
+  const reports = readPartitionReports(reportsDir);
   const manifest = manifestPath ? JSON.parse(readFileSync(resolve(manifestPath), 'utf8')) : null;
+  const supplementalReports = supplementalReportsDir
+    ? readPartitionReports(supplementalReportsDir, 'frontier-partition-')
+    : [];
+  const supplementalManifest = supplementalManifestPath
+    ? JSON.parse(readFileSync(resolve(supplementalManifestPath), 'utf8'))
+    : null;
+  const supplementalCoverageError = arg(args, 'supplemental-coverage-error', '');
   let transientRescue = null;
   if (args['rescue-transients'] === true || args['rescue-transients'] === 'true') {
-    transientRescue = await rescueTransientReports(reports, manifest, {
+    const rescueOptions = {
       concurrency: Number(arg(args, 'rescue-concurrency', '1')),
       retries: Number(arg(args, 'rescue-retries', '4')),
       delayMs: Number(arg(args, 'rescue-delay-ms', '3000')),
       deadlineMs: Number(arg(args, 'rescue-deadline-ms', String(DEFAULT_RESCUE_DEADLINE_MS))),
       timeoutMs: Number(arg(args, 'timeout-ms', '30000')),
       maxUrls: Number(arg(args, 'rescue-max-urls', '500')),
-    });
+    };
+    const sitemapRescue = await rescueTransientReports(reports, manifest, rescueOptions);
+    const frontierRescue = supplementalReports.length > 0
+      ? await rescueTransientReports(supplementalReports, supplementalManifest, rescueOptions)
+      : null;
+    transientRescue = frontierRescue ? { sitemap: sitemapRescue, frontier: frontierRescue } : sitemapRescue;
   }
-  const summary = aggregateCrawlReports(reports, manifest);
+  const summary = aggregateCrawlReports(reports, manifest, {
+    supplementalReports,
+    supplementalManifest,
+    supplementalCoverageErrors: supplementalCoverageError ? [supplementalCoverageError] : [],
+  });
   if (transientRescue) summary.transientRescue = transientRescue;
   writeJson(output, summary);
   if (issueBodyPath && (summary.actionableCount > 0 || !summary.coverageOk)) {
@@ -336,6 +444,8 @@ async function main() {
     coverageOk: summary.coverageOk,
     actionableCount: summary.actionableCount,
     discoveredOutOfSitemapCount: summary.discoveredOutOfSitemapCount,
+    supplementalManifestCount: summary.supplementalManifestCount,
+    unverifiedOutOfSitemapCount: summary.unverifiedOutOfSitemapCount,
     out: output,
   }, null, 2));
   if (!summary.coverageOk || summary.actionableCount > 0) process.exitCode = 1;

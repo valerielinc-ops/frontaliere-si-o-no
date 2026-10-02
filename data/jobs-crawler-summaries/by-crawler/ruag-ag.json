@@ -1,16 +1,16 @@
 {
   "key": "ruag-ag",
   "label": "RUAG",
-  "generatedAt": "2026-10-01T09:27:21.944Z",
-  "total": 64,
+  "generatedAt": "2026-10-01T21:23:31.396Z",
+  "total": 62,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 65,
-  "durationMs": 186915,
-  "avgDurationMs": 186915,
+  "unchangedCount": 64,
+  "durationMs": 93529,
+  "avgDurationMs": 93529,
   "durationHistory": [
-    186915
+    93529
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -155,7 +155,6 @@
       "postalCode": "3600",
       "firstSeenAt": "2026-07-02T22:37:51.768Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1025,7 +1024,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-14T21:55:03.983Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1098,7 +1096,6 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-20T21:52:29.815Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,

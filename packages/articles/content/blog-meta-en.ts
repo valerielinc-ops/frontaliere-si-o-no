@@ -12345,6 +12345,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Switzerland rejects EU border rules',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Swiss Parliament: 109 votes in favour to 72 for not implementing new EU rules that would cost 600-900 million per year',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Swiss Parliament in Bellinzona deciding on cross-border worker regulations',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Living in Rovello Porro: working in Ticino as a cross-border commuter',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'New Cross-Border Commuter Agreement effective from 1 January 2024: deductibles of €7,500 or €10,000 and income tax withheld only in Switzerland.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio in Ticino with a cross-border commuter',
+    'blog.article.brunello-fisco-frontaliere.title': 'Living in Brunello and working in Ticino as a cross-border commuter',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Living at Brunello and working in Ticino: New Cross-Border Commuter Agreement from 1 January 2024, deductible €10,000 and withholding tax only in Switzerland.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Cross-border worker travelling with the Ticino landscape in the background',
+    'blog.article.cairate-fisco-confine.title': 'Living in Cairate and working in Ticino as a cross-border commuter',
+    'blog.article.cairate-fisco-confine.excerpt': 'New Cross-Border Commuter Agreement in force from 1 January 2024: withholding tax, deductibles, AHV, BVG and KVG for those living in Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Ticino landscape linked to cross-border work from Cairate',
+    'blog.article.fondo-avs-solidarieta-giovani.title': '13th AVS payment, generational pact fund created',
+    'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'In Ticino, more than 86 thousand beneficiaries will receive more than 140 million francs: part of the thirteenth AHV will be able to support projects for young people.',
+    'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Older and younger people discuss solidarity in a Ticino landscape',
 };
 
 export default blogMetaEn;

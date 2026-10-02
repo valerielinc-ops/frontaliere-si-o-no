@@ -687,11 +687,13 @@ export async function upgradeBackfilledAlertConsent(
 export function findMatchingAlertForCategory(
   alerts: JobAlert[],
   category: string,
+  cantonCode?: string | null,
 ): JobAlert | null {
   const target = normalizeKeyword(category);
   if (!target) return null;
   for (const alert of alerts) {
     if (!alert.active) continue;
+    if (cantonCode && alert.cantonFilter?.length && !alert.cantonFilter.some((canton) => canton.toUpperCase() === cantonCode.toUpperCase())) continue;
     for (const kw of alert.keywords || []) {
       if (normalizeKeyword(kw) === target) return alert;
     }
@@ -724,9 +726,7 @@ export interface JobAlertSource {
  *
  * `cantonCode` optionally hard-scopes the alert to a canton (validated 2-letter
  * ISO code — see `services/cantonList.ts:CANTON_CODES`) when the caller already
- * has a real canton signal, e.g. the job-match profile's `canton` field
- * (`services/jobMatchProfile.ts`). Omitted/null for the job-detail prompt,
- * which has no canton signal to pre-fill from.
+ * has a real canton signal, including the viewed job and the job-match profile.
  */
 export async function subscribeJobAlertOneTap(
   userId: string,
