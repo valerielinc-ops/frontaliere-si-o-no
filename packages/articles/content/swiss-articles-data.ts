@@ -22759,6 +22759,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'diritti-inquilino-svizzera-2026',
+    category: 'pratico',
+    date: '2026-10-02T22:30:25.661Z',
+    image: '/images/blog/diritti-inquilino-svizzera-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

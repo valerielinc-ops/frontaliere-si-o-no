@@ -7577,6 +7577,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bvg-lucerna-previdenza-2026.title': 'Secondo pilastro LPP Svizzera: guida 2026, canton Lucerna',
     'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'Contributi LPP dal 7% al 18% per età, prelievo, riscatto lacune e pianificazione: guida 2026 per il canton Lucerna, con contributi e imposte nel quadro svizzero.',
     'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Guida al secondo pilastro LPP con focus sul canton Lucerna',
+    'blog.article.diritti-inquilino-svizzera-2026.title': 'Affitti Svizzera 2026: mercato immobiliare e diritti',
+    'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In Svizzera la cauzione non supera tre mesi di pigione: per la disdetta del locatore serve il modulo ufficiale cantonale e la contestazione scade in 30 giorni.',
+    'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Edificio residenziale svizzero con avviso di locazione e contratto tra le mani',
 };
 
 export default blogMetaChIt;

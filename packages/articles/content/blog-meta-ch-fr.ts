@@ -7577,6 +7577,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bvg-lucerna-previdenza-2026.title': 'Deuxième pilier LPP en Suisse : guide 2026, canton de Lucerne',
     'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'Cotisations LPP de 7% à 18% selon l’âge, retraits, rachats de lacunes et planification : guide 2026 pour le canton de Lucerne, avec cotisations et impôts dans le cadre suisse.',
     'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Guide du deuxième pilier suisse consacré au canton de Lucerne',
+    'blog.article.diritti-inquilino-svizzera-2026.title': 'Loyers en Suisse 2026 : marché immobilier et droits',
+    'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'En Suisse, la garantie de loyer ne dépasse pas trois mois de loyer : pour la résiliation par le bailleur, le formulaire officiel cantonal est nécessaire et la contestation doit être formée dans les 30 jours.',
+    'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Immeuble résidentiel suisse avec annonce de location et locataire consultant un bail',
 };
 
 export default blogMetaChFr;

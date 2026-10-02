@@ -7577,6 +7577,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bvg-lucerna-previdenza-2026.title': 'Zweite Säule BVG Schweiz: Leitfaden 2026, Kanton Luzern',
     'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'BVG-Beiträge von 7% bis 18% nach Alter, Bezug, Einkauf von Beitragslücken und Planung: Leitfaden 2026 für den Kanton Luzern, mit Beiträgen und Steuern im Schweizer Kontext.',
     'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Leitfaden zur Schweizer Pensionskasse mit Fokus auf den Kanton Luzern',
+    'blog.article.diritti-inquilino-svizzera-2026.title': 'Mieten Schweiz 2026: Immobilienmarkt und Rechte',
+    'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In der Schweiz beträgt die Kaution höchstens drei Mietmonate: Für die Kündigung des Vermieters benötigen Sie das offizielle kantonale Formular und die Beanstandung erlischt in 30 Tagen.',
+    'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Schweizer Wohngebäude mit Mietangebot und Mieter beim Prüfen des Vertrags',
 };
 
 export default blogMetaChDe;

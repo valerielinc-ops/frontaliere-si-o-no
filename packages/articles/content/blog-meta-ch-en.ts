@@ -7577,6 +7577,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bvg-lucerna-previdenza-2026.title': 'Swiss LPP second pillar: 2026 guide, canton of Lucerne',
     'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'LPP contributions from 7% to 18% by age, withdrawals, buy-ins to fill gaps and planning: 2026 guide for the canton of Lucerne, with contributions and taxes in the Swiss context.',
     'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Swiss second-pillar pension guide with a focus on the canton of Lucerne',
+    'blog.article.diritti-inquilino-svizzera-2026.title': 'Swiss Rents 2026: real estate market and rights',
+    'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In Switzerland, the security deposit may not exceed three months\' rent: for the landlord\'s termination, the official cantonal form is required, and the deadline for contesting is 30 days.',
+    'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Swiss residential building with a rental notice and a tenant reviewing a lease',
 };
 
 export default blogMetaChEn;
