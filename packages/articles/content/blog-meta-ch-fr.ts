@@ -7439,6 +7439,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cicli-basilea-campagna.title': 'Système scolaire de Bâle-Landschaft : effectifs et cycles',
     'blog.article.cicli-basilea-campagna.excerpt': 'Guide de la scolarité obligatoire à Bâle-Landschaft : inscription, cycles, calendrier, langues d’enseignement et transition vers le secondaire.',
     'blog.article.cicli-basilea-campagna.imageAlt': 'École publique dans le canton de Bâle-Campagne',
+    'blog.article.guida-san-gallo-lamal-2026.title': 'Primes d’assurance santé KVG 2026 : Canton de Saint-Gall',
+    'blog.article.guida-san-gallo-lamal-2026.excerpt': 'Primes KVG 2026 dans le canton de Saint-Gall : six franchises pour adultes, différences par canton et région, et réduction de primes cantonale.',
+    'blog.article.guida-san-gallo-lamal-2026.imageAlt': 'Guide des primes LAMal 2026 dans le canton de Saint-Gall',
 };
 
 export default blogMetaChFr;

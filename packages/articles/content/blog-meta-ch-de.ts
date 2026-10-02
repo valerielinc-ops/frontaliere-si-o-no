@@ -7439,6 +7439,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cicli-basilea-campagna.title': 'Schulsystem Basel-Landschaft: Einschreibung und Zyklen',
     'blog.article.cicli-basilea-campagna.excerpt': 'Leitfaden zur Schulpflicht in Basel-Landschaft: Einschreibung, Zyklen, Kalender, Unterrichtssprachen und Übergang zur weiterführenden Schule.',
     'blog.article.cicli-basilea-campagna.imageAlt': 'Öffentliche Schule im Kanton Basel-Landschaft',
+    'blog.article.guida-san-gallo-lamal-2026.title': 'Krankenkassenprämien LAMal 2026: Kanton St. Gallen',
+    'blog.article.guida-san-gallo-lamal-2026.excerpt': 'LAMal-Prämien 2026 im Kanton St. Gallen: sechs Franchisen für Erwachsene, Unterschiede nach Kanton und Region sowie kantonale Prämienverbilligung.',
+    'blog.article.guida-san-gallo-lamal-2026.imageAlt': 'Leitfaden zu LAMal-Prämien 2026 im Kanton St. Gallen',
 };
 
 export default blogMetaChDe;
