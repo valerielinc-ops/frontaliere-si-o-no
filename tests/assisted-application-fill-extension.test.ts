@@ -249,7 +249,8 @@ describe('fill extension: the tab the start link opens', () => {
     vm.runInNewContext(backgroundSource, { chrome, URL, Date, Number, String, Promise, setTimeout, console, crypto, TextEncoder, btoa, fetch: async () => ({ ok: false }) });
     const message = (msg: any, tabId: number) => new Promise((done) => listeners.message[0](msg, { tab: { id: tabId } }, done));
     const created = (tab: any) => listeners.created[0](tab);
-    return { store, message, created };
+    const updated = (tabId: number, info: any) => listeners.updated[0](tabId, info, { id: tabId, url: info.url || '' });
+    return { store, message, created, updated };
   }
 
   it('gives the order’s kit to the apply tab only, once per start click', async () => {
@@ -269,6 +270,28 @@ describe('fill extension: the tab the start link opens', () => {
     // Not even a popup whose address Chrome does not know yet, once the start is used up.
     await created({ id: 6, openerTabId: 1, pendingUrl: '' });
     expect(store.has('tab:6')).toBe(false);
+  });
+
+  it('waits for the address of a tab Chrome does not know yet, and adopts only the one that is the link', async () => {
+    // Review of #10980: an apply tab created with no address, then an unrelated popup.
+    const { store, message, created, updated } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    await created({ id: 4, openerTabId: 1, pendingUrl: '' });
+    await created({ id: 5, openerTabId: 1, pendingUrl: '' });
+    expect(store.has('tab:4') || store.has('tab:5')).toBe(false);
+    await updated(5, { url: 'https://www.pastahr.com/privacy', status: 'loading' });
+    expect(store.has('tab:5')).toBe(false);
+    expect(store.get('tab:1').startUrl).toBe(START);
+    await updated(4, { url: START, status: 'loading' });
+    expect(store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(store.has('tab:5')).toBe(false);
+    // A start control with no link: no tab is ever adopted.
+    const button = worker();
+    button.store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await button.message({ type: 'mark', startedAt: Date.now(), startUrl: '' }, 1);
+    await button.created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(button.store.has('tab:2')).toBe(false);
   });
 
   it('never takes a start that is not a time', async () => {

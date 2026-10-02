@@ -74,7 +74,7 @@ async function handle(message, sender) {
         sawFinal: entry.sawFinal || Boolean(message.sawFinal),
         // The engine pressed the posting's start: the tab it opens is the form's.
         ...(Number.isFinite(Number(message.startedAt)) && Number(message.startedAt) > 0
-          ? { startedAt: Number(message.startedAt), startUrl: String(message.startUrl || '').slice(0, 2000) }
+          ? { startedAt: Number(message.startedAt), startUrl: String(message.startUrl || '').slice(0, 8192) }
           : {}),
       } });
       return { ok: true };
@@ -128,7 +128,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Every page load of an order's tab (the posting, then each portal page):
 // the runner's field reading, the engine, then the loop, in every frame (some portals embed the form).
-chrome.tabs.onUpdated.addListener(async (tabId, info) => {
+chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
+  // A tab the posting opened, whose address Chrome tells only now: adopted
+  // when it is the link the start click pressed (adoptStartTab).
+  if (awaitingAddress.has(tabId)) {
+    const address = info.url || tab?.pendingUrl || tab?.url || '';
+    if (/^https?:/.test(address)) {
+      const opener = awaitingAddress.get(tabId);
+      awaitingAddress.delete(tabId);
+      await queue(() => adoptStartTab(tabId, opener, address));
+    }
+  }
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
   await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'filler.js', 'content.js'] }).catch(() => {});
 });
@@ -152,32 +162,43 @@ function sameTarget(a, b) {
 }
 
 /**
- * One tab per start click (review of #10980): the tab whose address is the
- * link the engine pressed, when Chrome already knows it; the start is used up
- * by it, so a second popup of the posting gets nothing.
+ * One tab per start click (reviews of #10980): only the tab whose address is
+ * exactly the link the engine pressed. A tab whose address Chrome does not
+ * know yet waits for it (onUpdated) instead of taking the kit; the start is
+ * used up by the matching tab, so no other popup of the posting (privacy,
+ * job alert, social) ever gets it. No link pressed, no tab adopted.
+ * @returns {Promise<'adopted'|'wait'|'no'>}
  */
-async function adoptStartTab(tab) {
-  if (tab.openerTabId == null) return;
-  const entry = await entryFor(tab.openerTabId);
-  if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tab.id)) return;
-  if (!entry.startedAt || Date.now() - entry.startedAt > START_TAB_WINDOW_MS) return;
-  const target = tab.pendingUrl || tab.url || '';
-  if (entry.startUrl && /^https?:/.test(target) && !sameTarget(target, entry.startUrl)) return;
+async function adoptStartTab(tabId, openerTabId, address) {
+  const entry = await entryFor(openerTabId);
+  if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tabId)) return 'no';
+  if (!entry.startedAt || Date.now() - entry.startedAt > START_TAB_WINDOW_MS || !entry.startUrl) return 'no';
+  if (!/^https?:/.test(address)) return 'wait';
+  if (!sameTarget(address, entry.startUrl)) return 'no';
   const kit = { ...entry, startedAt: null, startUrl: '' };
   await chrome.storage.session.set({
-    [tabKey(tab.openerTabId)]: kit,
-    [tabKey(tab.id)]: { ...kit, openedAt: Date.now(), openedFrom: tab.openerTabId },
+    [tabKey(openerTabId)]: kit,
+    [tabKey(tabId)]: { ...kit, openedAt: Date.now(), openedFrom: openerTabId },
   });
+  return 'adopted';
 }
 
+// Tabs a posting opened whose address is not known yet: tab id → opener.
+const awaitingAddress = new Map();
 // Serialized: two popups at once never both read the same unused start.
 let adopting = Promise.resolve();
-chrome.tabs.onCreated.addListener((tab) => {
-  adopting = adopting.then(() => adoptStartTab(tab)).catch(() => {});
+function queue(task) {
+  adopting = adopting.then(task).catch(() => {});
   return adopting;
-});
+}
+chrome.tabs.onCreated.addListener((tab) => queue(async () => {
+  if (tab.openerTabId == null) return;
+  const outcome = await adoptStartTab(tab.id, tab.openerTabId, tab.pendingUrl || tab.url || '');
+  if (outcome === 'wait') awaitingAddress.set(tab.id, tab.openerTabId);
+}));
 
 chrome.tabs.onRemoved.addListener((tabId) => {
+  awaitingAddress.delete(tabId);
   chrome.storage.session.remove(tabKey(tabId));
 });
 
