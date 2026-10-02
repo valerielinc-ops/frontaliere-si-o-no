@@ -29,13 +29,18 @@ export const BORDER_WAIT_TODAY_BY_LOCALE = Object.freeze({
   fr: 'aujourd-hui',
 });
 
+/** Canonical section roots paired with their locale. */
+export const BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE = Object.freeze({
+  it: BORDER_WAIT_SECTION_BY_LOCALE.it,
+  en: `en/${BORDER_WAIT_SECTION_BY_LOCALE.en}`,
+  de: `de/${BORDER_WAIT_SECTION_BY_LOCALE.de}`,
+  fr: `fr/${BORDER_WAIT_SECTION_BY_LOCALE.fr}`,
+});
+
 /** Canonical section roots as they appear in a pathname without a leading /. */
-export const BORDER_WAIT_CURRENT_SECTION_BASES = Object.freeze([
-  BORDER_WAIT_SECTION_BY_LOCALE.it,
-  `en/${BORDER_WAIT_SECTION_BY_LOCALE.en}`,
-  `de/${BORDER_WAIT_SECTION_BY_LOCALE.de}`,
-  `fr/${BORDER_WAIT_SECTION_BY_LOCALE.fr}`,
-]);
+export const BORDER_WAIT_CURRENT_SECTION_BASES = Object.freeze(
+  Object.values(BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE),
+);
 
 /**
  * Legacy section roots still emitted by the evergreen guide pages and by
@@ -134,6 +139,7 @@ function asSet(values) {
  *   regionSlugs?: Iterable<string>|null,
  *   crossingSlugs?: Iterable<string>|null,
  *   todaySlugs?: Iterable<string>|null,
+ *   todaySlugsByLocale?: Record<string, string>|null,
  *   includeLegacy?: boolean,
  * }} [options]
  */
@@ -154,6 +160,9 @@ export function isBorderWaitPath(pathname, options = {}) {
   const currentBase = currentBases.find((base) => pathUnderBase(path, base));
   if (!currentBase) return false;
 
+  const currentLocale = Object.entries(BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE)
+    .find(([, base]) => base === currentBase)?.[0];
+
   const tail = path.slice(currentBase.length).split('/').filter(Boolean);
   if (tail.length === 0) return true; // root hub
   if (tail.length === 1) {
@@ -172,7 +181,12 @@ export function isBorderWaitPath(pathname, options = {}) {
   // preserving the router's reject-unknown-crossing behaviour.
   if (crossings ? !crossings.has(crossing) : !CROSSING_SEGMENT_RE.test(crossing)) return false;
 
-  const today = asSet(options.todaySlugs) ?? DEFAULT_TODAY_SEGMENTS;
+  const localeToday = currentLocale
+    ? options.todaySlugsByLocale?.[currentLocale] ?? BORDER_WAIT_TODAY_BY_LOCALE[currentLocale]
+    : null;
+  const today = localeToday
+    ? new Set([localeToday])
+    : asSet(options.todaySlugs) ?? DEFAULT_TODAY_SEGMENTS;
   return today.has(suffix) || MONTH_PATH_RE.test(suffix);
 }
 

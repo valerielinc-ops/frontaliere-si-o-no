@@ -61,6 +61,24 @@ describe('information-gain: border-wait è un vertical data-driven', () => {
     expect(isRuntimeBorderWaitPath('/traffico-dogane/not-a-crossing/oggi/')).toBe(false);
   });
 
+  it('non appiattisce lo slug oggi tra locali diversi', () => {
+    const cases = new Map([
+      ['/en/border-wait/chiasso-brogeda/today/', true],
+      ['/en/border-wait/chiasso-brogeda/oggi/', false],
+      ['/traffico-dogane/chiasso-brogeda/oggi/', true],
+      ['/traffico-dogane/chiasso-brogeda/today/', false],
+      ['/de/wartezeit-grenze/chiasso-brogeda/heute/', true],
+      ['/de/wartezeit-grenze/chiasso-brogeda/oggi/', false],
+      ['/fr/temps-attente-douane/chiasso-brogeda/aujourd-hui/', true],
+      ['/fr/temps-attente-douane/chiasso-brogeda/today/', false],
+    ]);
+
+    for (const [path, expected] of cases) {
+      expect(isNodeBorderWaitPath(path), `node ${path}`).toBe(expected);
+      expect(isRuntimeBorderWaitPath(path), `runtime ${path}`).toBe(expected);
+    }
+  });
+
   it('esclude tutte le route border-wait prima del fingerprint editoriale', () => {
     const auditor = createInformationGainAuditor({ dist: '/virtual/dist', sampleRate: 1 });
     for (const path of [...CURRENT_PATHS, ...LEGACY_PATHS]) {

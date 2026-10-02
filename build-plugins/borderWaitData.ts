@@ -1060,7 +1060,6 @@ export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
 })();
 
 const BORDER_WAIT_REGION_SET: ReadonlySet<string> = new Set(BORDER_WAIT_REGIONS as readonly string[]);
-const BORDER_WAIT_TODAY_SET: ReadonlySet<string> = new Set(Object.values(BORDER_WAIT_TODAY_SLUG));
 const CROSSING_SET: ReadonlySet<string> = new Set(BORDER_WAIT_CROSSINGS as readonly string[]);
 
 /** Shared route matcher (accepts current and legacy paths, with or without trailing slash). */
@@ -1068,7 +1067,7 @@ export function isBorderWaitPath(pathname: string): boolean {
   return isSharedBorderWaitPath(pathname, {
     regionSlugs: BORDER_WAIT_REGION_SET,
     crossingSlugs: CROSSING_SET,
-    todaySlugs: BORDER_WAIT_TODAY_SET,
+    todaySlugsByLocale: BORDER_WAIT_TODAY_SLUG,
   });
 }
 
