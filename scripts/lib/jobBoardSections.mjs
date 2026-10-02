@@ -133,7 +133,7 @@ export const JOB_BOARD_PROFESSION_CITY_RX = new RegExp(
 function normalizeProfessionLandingPath(path) {
   const raw = String(path || '').replace(/\\/g, '/');
   const withLeadingSlash = raw.startsWith('/') ? raw : `/${raw}`;
-  return withLeadingSlash.replace(/\\/index\\.html$/, '/');
+  return withLeadingSlash.replace(/\/index\.html$/, '/');
 }
 
 export function isJobBoardProfessionCantonPath(normalisedPath) {
