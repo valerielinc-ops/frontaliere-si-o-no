@@ -7511,6 +7511,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.defr-successore-parmelin-sfide.title': 'Parmelin\'s successor: US tariffs, agriculture and housing',
     'blog.article.defr-successore-parmelin-sfide.excerpt': 'The new head of the EAER will tackle US tariffs, PA30+ and the housing plan with more than 30 measures, between the vote on November 29 and the 2028 deadline.',
     'blog.article.defr-successore-parmelin-sfide.imageAlt': 'The Federal Palace in Bern at dusk, with vineyards in the foreground, symbolizing the DEFR\'s agricultural and economic challenges.',
+    'blog.article.proroga-aiuto-monetario-fmi.title': 'Monetary aid: extension to 10 billion until 2033',
+    'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'The Federal Council proposes that Parliament extend the decree until April 2033, maintaining the cap of 10 billion.',
+    'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'The Federal Palace in Bern, seat of the Federal Council.',
 };
 
 export default blogMetaChEn;

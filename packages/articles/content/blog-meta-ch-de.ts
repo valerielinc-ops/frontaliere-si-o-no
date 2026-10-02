@@ -7511,6 +7511,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.defr-successore-parmelin-sfide.title': 'Parmelins Nachfolger: US-Zölle, Landwirtschaft und Wohnungsbau',
     'blog.article.defr-successore-parmelin-sfide.excerpt': 'Der neue Leiter des EAER wird sich zwischen der Abstimmung am 29. November und der Deadline 2028 mit mehr als 30 Maßnahmen mit US-Zöllen, PA30+ und dem Wohnungsbauplan befassen.',
     'blog.article.defr-successore-parmelin-sfide.imageAlt': 'Der Bundespalast in Bern bei Dämmerung, im Vordergrund Reben, Symbol für die landwirtschaftlichen und wirtschaftlichen Herausforderungen des WBF.',
+    'blog.article.proroga-aiuto-monetario-fmi.title': 'Währungshilfe: Verlängerung auf 10 Mrd. bis 2033',
+    'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'Der Bundesrat schlägt dem Parlament vor, das Dekret bis April 2033 zu verlängern und die Obergrenze von 10 Milliarden beizubehalten.',
+    'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'Das Bundeshaus in Bern, Sitz des Bundesrats.',
 };
 
 export default blogMetaChDe;

@@ -22561,6 +22561,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'proroga-aiuto-monetario-fmi',
+    category: 'novita',
+    date: '2026-10-02T13:01:16.412Z',
+    image: '/images/blog/proroga-aiuto-monetario-fmi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

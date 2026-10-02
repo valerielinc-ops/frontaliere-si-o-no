@@ -7511,6 +7511,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.defr-successore-parmelin-sfide.title': 'Le successeur de Parmelin : tarifs douaniers, agriculture et logement américains',
     'blog.article.defr-successore-parmelin-sfide.excerpt': 'Le nouveau responsable de l’EAER s’attaquera aux tarifs américains, au PA30+ et au plan logement avec plus de 30 mesures, entre le vote du 29 novembre et la date limite de 2028.',
     'blog.article.defr-successore-parmelin-sfide.imageAlt': 'Le Palais fédéral à Berne au crépuscule, avec des vignes au premier plan, symbole des défis agricoles et économiques du DFEP.',
+    'blog.article.proroga-aiuto-monetario-fmi.title': 'Aide financière : prolongation à 10 milliards jusqu’en 2033',
+    'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'Le Conseil fédéral propose au parlement de prolonger le décret jusqu’en avril 2033, en maintenant le plafond de 10 milliards.',
+    'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'Le Palais fédéral à Berne, siège du Conseil fédéral.',
 };
 
 export default blogMetaChFr;
