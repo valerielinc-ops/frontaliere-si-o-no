@@ -157,6 +157,14 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('creates the L5 exporter log directory before teeing live evidence', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l5-decision-moments.yml'), 'utf8');
+    const directorySetup = source.indexOf('mkdir -p "$RUNNER_TEMP/loop-fleet-l5"');
+    const logTee = source.indexOf('tee "$RUNNER_TEMP/loop-fleet-l5/export-cli-output.log"');
+    expect(directorySetup).toBeGreaterThanOrEqual(0);
+    expect(logTee).toBeGreaterThan(directorySetup);
+  });
+
   it('keeps read-only credential outages observable and fail-closed', () => {
     const contracts = [
       ['loop-l1-reliability.yml', 'LOOP_FLEET_L1_EXPORT_UNAVAILABLE=1', '--loop L1 --unavailable'],
