@@ -7505,6 +7505,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Mercati energetici: approvata nuova ordinanza',
     'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'Dal 1° gennaio 2027 entrano in vigore la legge e l\'ordinanza sulla vigilanza e trasparenza dei mercati energetici all\'ingrosso (OVTE). ElCom riceverà dati su transazioni e ordini.',
     'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Immagine che simboleggia la vigilanza sui mercati energetici svizzeri.',
+    'blog.article.franco-apprezzamento-eurozona.title': 'Franco in forte rialzo: l\'euro scende a 0,93 CHF',
+    'blog.article.franco-apprezzamento-eurozona.excerpt': 'Il franco si apprezza oltre un centesimo in un giorno. Timori sul debito pubblico europeo e tassi BNS allo 0%.',
+    'blog.article.franco-apprezzamento-eurozona.imageAlt': 'Vista sul Lago di Lugano con montagne sullo sfondo, luce mattutina sull\'acqua, atmosfera finanziaria svizzera.',
 };
 
 export default blogMetaChIt;

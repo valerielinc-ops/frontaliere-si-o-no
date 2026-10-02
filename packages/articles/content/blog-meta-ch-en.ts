@@ -7505,6 +7505,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Energy Markets: New Ordinance Approved',
     'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'Effective January 1, 2027, the law and the ordinance on the supervision and transparency of wholesale energy markets (OVTE) will take effect. ElCom will receive data on transactions and orders.',
     'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Image symbolizing supervision of Swiss energy markets.',
+    'blog.article.franco-apprezzamento-eurozona.title': 'Swiss franc rises sharply: euro falls to CHF 0.93',
+    'blog.article.franco-apprezzamento-eurozona.excerpt': 'The franc appreciates more than a cent in a day. Fears about European public debt and SNB rates at 0%.',
+    'blog.article.franco-apprezzamento-eurozona.imageAlt': 'View of Lake Lugano with mountains in the background, morning light on the water, Swiss financial atmosphere.',
 };
 
 export default blogMetaChEn;

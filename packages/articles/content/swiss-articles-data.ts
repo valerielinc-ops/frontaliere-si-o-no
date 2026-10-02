@@ -22543,6 +22543,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'franco-apprezzamento-eurozona',
+    category: 'novita',
+    date: '2026-10-02T12:25:43.305Z',
+    image: '/images/blog/franco-apprezzamento-eurozona.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
