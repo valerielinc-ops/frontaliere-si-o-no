@@ -7538,6 +7538,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.inventario-idroelettrico-storico.title': 'Inventory of Historic Hydropower Plants',
     'blog.article.inventario-idroelettrico-storico.excerpt': 'In Bern, the Federal Council took note of the report on hydroelectric power plants that were active in 1914 and still exist. The inventory completes the Swiss statistics.',
     'blog.article.inventario-idroelettrico-storico.imageAlt': 'Historic hydropower plant in a Swiss Alpine landscape',
+    'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin announces his resignation from the Federal Council',
+    'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'The head of the Federal Department of Economic Affairs will leave office on 31 December 2026. Excluding health reasons: \'I feel a certain tiredness\'.',
+    'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Federal Palace in Bern, seat of the Swiss government.',
 };
 
 export default blogMetaChEn;
