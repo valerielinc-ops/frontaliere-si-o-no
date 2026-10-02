@@ -4,6 +4,7 @@ import path from 'node:path';
 import { PARTNERS_REGISTRY, getAffiliateCommercialConfiguration } from '../functions/src/lib/affiliatePartnersRegistry.js';
 import { describe, expect, it } from 'vitest';
 import {
+  DEFAULT_MAX_AGE_HOURS,
   runL8,
   validateRevenueAttribution,
 } from '../scripts/ci/loop-l8-revenue-attribution.mjs';
@@ -197,6 +198,31 @@ describe('L8 Revenue & Attribution', () => {
     expect(verdict.quality).toBe('unmeasurable');
     expect(verdict.snapshot.history.validRows).toBe(0);
     expect(verdict.issues.join(' ')).toContain('clsP75Mobile is missing');
+  });
+
+  it('keeps missing metrics on expired history rows as warnings, without inferring values', () => {
+    const staleDate = new Date(NOW.getTime() - (DEFAULT_MAX_AGE_HOURS + 24) * 3_600_000).toISOString().slice(0, 10);
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const verdict = validateRevenueAttribution({
+      history: history(historyRow({ date: staleDate, posthog: undefined }), historyRow()),
+      affiliate: inactive,
+    }, { now: NOW });
+
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
+    expect(verdict.snapshot.history).toMatchObject({ validRows: 2, invalidRows: 0 });
+    expect(verdict.warnings.join(' ')).toContain('history[0].posthog.clsP75Mobile is missing');
+    expect(verdict.warnings.join(' ')).toContain('history[0].posthog.clsP75Desktop is missing');
+  });
+
+  it('still rejects malformed required metrics on expired history rows', () => {
+    const staleDate = new Date(NOW.getTime() - (DEFAULT_MAX_AGE_HOURS + 24) * 3_600_000).toISOString().slice(0, 10);
+    const verdict = validateRevenueAttribution({
+      history: history(historyRow({ date: staleDate, posthog: { clsP75Mobile: 'unknown', clsP75Desktop: 0.15 } }), historyRow()),
+      affiliate: { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() },
+    }, { now: NOW });
+
+    expect(verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(verdict.issues.join(' ')).toContain('history[0].posthog.clsP75Mobile is missing or not a non-negative number');
   });
 
   it('rejects dual web/email denominators when the money ledger has no channel attribution', () => {
