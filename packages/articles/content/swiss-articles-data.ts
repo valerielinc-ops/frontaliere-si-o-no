@@ -22525,6 +22525,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'parmelin-successore-defr',
+    category: 'novita',
+    date: '2026-10-02T11:55:57.494Z',
+    image: '/images/blog/parmelin-successore-defr.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

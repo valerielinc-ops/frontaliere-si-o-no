@@ -7499,6 +7499,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.automazione-ia-amministrazione-federale.title': 'IA e automazione: piano per l\'efficienza federale',
     'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Il Consiglio federale adotta il rapporto 2 ottobre 2026: cinque priorità per semplificare procedure e ridurre tempi di attesa.',
     'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Ufficio dell\'Amministrazione federale con schermi digitali per automazione e intelligenza artificiale',
+    'blog.article.parmelin-successore-defr.title': 'Parmelin lascia il Governo: corsa alla successione UDC',
+    'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin ha annunciato le dimissioni dal Governo il 2 ottobre 2026; la corsa alla successione UDC si chiude il 23 ottobre, con l\'elezione fissata per il 9 dicembre 2026.',
+    'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin lascia il Governo svizzero',
 };
 
 export default blogMetaChIt;

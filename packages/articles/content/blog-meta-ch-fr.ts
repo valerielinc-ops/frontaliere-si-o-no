@@ -7499,6 +7499,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.automazione-ia-amministrazione-federale.title': 'IA et automatisation : plan pour l\'efficacité au niveau fédéral',
     'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Le Conseil fédéral adopte le rapport du 2 octobre 2026 : cinq priorités pour simplifier les procédures et réduire les délais d\'attente.',
     'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Bureau de l\'Administration fédérale avec écrans numériques pour l\'automatisation et l\'IA',
+    'blog.article.parmelin-successore-defr.title': 'Parmelin quitte le gouvernement : la course à sa succession au sein de l\'UDC',
+    'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin a annoncé sa démission du gouvernement le 2 octobre 2026 ; la course à la succession au sein de l\'UDC s\'achève le 23 octobre, l\'élection étant prévue pour le 9 décembre 2026.',
+    'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin quitte le Conseil fédéral suisse',
 };
 
 export default blogMetaChFr;

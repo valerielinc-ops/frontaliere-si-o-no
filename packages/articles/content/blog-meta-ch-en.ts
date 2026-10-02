@@ -7499,6 +7499,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.automazione-ia-amministrazione-federale.title': 'AI and Automation: A Plan for Federal Efficiency',
     'blog.article.automazione-ia-amministrazione-federale.excerpt': 'The Federal Council Adopts the Report on October 2, 2026: Five Priorities for Streamlining Procedures and Reducing Wait Times.',
     'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Federal Administration office with digital screens for automation and artificial intelligence',
+    'blog.article.parmelin-successore-defr.title': 'Parmelin Leaves the Government: Race to Succeed Him in the SVP',
+    'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin announced his resignation from the government on October 2, 2026; the SVP succession race closes on October 23, with the election scheduled for December 9, 2026.',
+    'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin leaves the Swiss Federal Council',
 };
 
 export default blogMetaChEn;

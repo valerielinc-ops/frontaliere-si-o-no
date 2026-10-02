@@ -7499,6 +7499,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.automazione-ia-amministrazione-federale.title': 'KI und Automatisierung: Plan zur Steigerung der Effizienz auf Bundesebene',
     'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Der Bundesrat verabschiedet den Bericht vom 2. Oktober 2026: fünf Schwerpunkte zur Vereinfachung der Verfahren und zur Verkürzung der Wartezeiten.',
     'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Bundesverwaltungsamt mit digitalen Bildschirmen für Automatisierung und künstliche Intelligenz',
+    'blog.article.parmelin-successore-defr.title': 'Parmelin verlässt die Regierung: Wettlauf um die Nachfolge in der SVP',
+    'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin hat am 2. Oktober 2026 seinen Rücktritt aus der Regierung angekündigt; das Nachfolgeverfahren der SVP endet am 23. Oktober, die Wahl ist für den 9. Dezember 2026 angesetzt.',
+    'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin verlässt die Schweizer Bundesregierung',
 };
 
 export default blogMetaChDe;
