@@ -98002,6 +98002,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fondo-avs-solidarieta-giovani': {
+    title: 'Tredicesima AVS, nasce il fondo patto generazionale',
+    description: 'In Ticino la tredicesima AVS interesserà oltre 86mila beneficiari e porterà più di 140 milioni: nasce un fondo per progetti rivolti ai giovani ticinesi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tredicesima, nasce, fondo, patto',
+    ogTitle: 'Tredicesima AVS, nasce il Fondo Patto Generazionale',
+    ogDescription: 'La nuova mensilità AVS prevista per il prossimo dicembre apre una scelta volontaria: devolverla tutta o in parte al Fondo Patto Generazionale, che sosterrà progetti per giovani ticinesi residenti attraverso enti e associazioni.',
+    canonicalPath: '/articoli-frontaliere/fondo-avs-solidarieta-giovani',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tredicesima AVS, nasce il fondo patto generazionale",
+      "description": "In Ticino la tredicesima AVS interesserà oltre 86mila beneficiari e porterà più di 140 milioni: nasce un fondo per progetti rivolti ai giovani ticinesi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fondo-avs-solidarieta-giovani.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Anziani e giovani discutono di solidarietà in un paesaggio ticinese"
+      },
+      "datePublished": "2026-10-02T04:18:56+00:00",
+      "dateModified": "2026-10-02T04:18:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fondo-avs-solidarieta-giovani/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

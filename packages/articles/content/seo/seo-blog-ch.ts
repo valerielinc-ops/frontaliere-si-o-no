@@ -96506,6 +96506,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigia-lamal-lucerna-guida': {
+    title: 'Premi cassa malati LAMal 2026: canton Lucerna | Frontaliere Ticino',
+    description: 'Premi cassa malati LAMal 2026 nel canton Lucerna: franchigie adulti, differenze tra cantoni e regioni, cambio cassa e sussidi cantonali. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, lamal',
+    ogTitle: 'Premi cassa malati LAMal 2026: canton Lucerna',
+    ogDescription: 'Una guida pratica ai premi LAMal 2026 nel canton Lucerna: come leggere le differenze tra cantoni e regioni, scegliere tra le franchigie adulti, valutare il cambio cassa e cercare la riduzione premi cantonale.',
+    canonicalPath: '/articoli-svizzera/franchigia-lamal-lucerna-guida/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati LAMal 2026: canton Lucerna",
+      "description": "Premi cassa malati LAMal 2026 nel canton Lucerna: franchigie adulti, differenze tra cantoni e regioni, cambio cassa e sussidi cantonali. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigia-lamal-lucerna-guida.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto dei premi LAMal 2026 e delle franchigie nel canton Lucerna"
+      },
+      "datePublished": "2026-10-02T03:42:39+00:00",
+      "dateModified": "2026-10-02T03:42:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigia-lamal-lucerna-guida/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-stipendi-professioni-cantoni-2026': {
+    title: 'Salario medio professioni Svizzera 2026: confronto',
+    description: 'Salario medio per professione in Svizzera nel 2026: guida ai dati UST/BFS, imposte, contributi AVS/LPP, LAMal, cantoni e settori nel confronto nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, confronto',
+    ogTitle: 'Salario medio Svizzera 2026: professioni e cantoni',
+    ogDescription: 'Il dato medio non basta: tra Cantoni e settori vanno separati fiscalità, contributi sociali, LPP/BVG, premi LAMal/KVG e regole sul salario minimo. Una guida pratica per leggere il confronto 2026 senza confondere statistiche e busta paga.',
+    canonicalPath: '/articoli-svizzera/stipendi-professioni-cantoni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: confronto",
+      "description": "Salario medio per professione in Svizzera nel 2026: guida ai dati UST/BFS, imposte, contributi AVS/LPP, LAMal, cantoni e settori nel confronto nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/stipendi-professioni-cantoni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto dei salari medi per professione e cantone in Svizzera nel 2026"
+      },
+      "datePublished": "2026-10-02T04:00:04+00:00",
+      "dateModified": "2026-10-02T04:00:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/stipendi-professioni-cantoni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sostegno-formazione-basilea': {
+    title: 'Borse di studio canton Basilea Campagna: requisiti e importi',
+    description: 'Borse di studio a Basilea Campagna: requisiti, importi massimi, termini di presentazione, prestiti allo studio e ufficio cantonale competente in Svizzera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, borse, studio, canton, basilea',
+    ogTitle: 'Basilea Campagna: borse di studio e prestiti',
+    ogDescription: 'Il dossier sul Cantone di Basilea Campagna riunisce borse di studio e prestiti allo studio e organizza la verifica in quattro passaggi: requisiti, importi massimi, termini di presentazione e ufficio cantonale competente.',
+    canonicalPath: '/articoli-svizzera/sostegno-formazione-basilea/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Borse di studio canton Basilea Campagna: requisiti e importi",
+      "description": "Borse di studio a Basilea Campagna: requisiti, importi massimi, termini di presentazione, prestiti allo studio e ufficio cantonale competente in Svizzera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sostegno-formazione-basilea.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Borse di studio e prestiti nel Cantone di Basilea Campagna"
+      },
+      "datePublished": "2026-10-02T04:37:49+00:00",
+      "dateModified": "2026-10-02T04:37:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sostegno-formazione-basilea/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lordo-netto-cantoni-2026': {
+    title: 'Salario medio professioni Svizzera 2026: lordo e netto',
+    description: 'Salario medio per professione in Svizzera nel 2026: guida a lordo, imposte, AVS, LPP, LAMal e differenze tra Cantoni e settori, con trattenute sul salario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, lordo',
+    ogTitle: 'Salario medio professioni Svizzera 2026: lordo e netto',
+    ogDescription: 'Il confronto degli stipendi svizzeri nel 2026 richiede più del dato lordo: cantone, settore, imposta federale diretta, AVS/AI/IPG, LPP, LAMal, orari, vacanze e regole sul salario minimo cambiano la lettura pratica.',
+    canonicalPath: '/articoli-svizzera/lordo-netto-cantoni-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: lordo e netto",
+      "description": "Salario medio per professione in Svizzera nel 2026: guida a lordo, imposte, AVS, LPP, LAMal e differenze tra Cantoni e settori, con trattenute sul salario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lordo-netto-cantoni-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto di salari e trattenute su una scrivania in Svizzera"
+      },
+      "datePublished": "2026-10-02T05:03:16+00:00",
+      "dateModified": "2026-10-02T05:03:16+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lordo-netto-cantoni-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

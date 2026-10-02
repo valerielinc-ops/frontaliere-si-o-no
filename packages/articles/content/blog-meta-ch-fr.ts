@@ -7442,6 +7442,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-san-gallo-lamal-2026.title': 'Primes d’assurance santé KVG 2026 : Canton de Saint-Gall',
     'blog.article.guida-san-gallo-lamal-2026.excerpt': 'Primes KVG 2026 dans le canton de Saint-Gall : six franchises pour adultes, différences par canton et région, et réduction de primes cantonale.',
     'blog.article.guida-san-gallo-lamal-2026.imageAlt': 'Guide des primes LAMal 2026 dans le canton de Saint-Gall',
+    'blog.article.franchigia-lamal-lucerna-guida.title': 'Primes d’assurance santé KVG 2026 : Canton de Lucerne',
+    'blog.article.franchigia-lamal-lucerna-guida.excerpt': 'À Lucerne, les primes KVG dépendent du canton et de la région : franchises adultes, change de monnaie et réduction de primes cantonale pour 2026.',
+    'blog.article.franchigia-lamal-lucerna-guida.imageAlt': 'Comparaison des primes LAMal 2026 et franchises dans le canton de Lucerne',
+    'blog.article.stipendi-professioni-cantoni-2026.title': 'Salaire moyen des professions en Suisse 2026 : comparaison',
+    'blog.article.stipendi-professioni-cantoni-2026.excerpt': 'Comparaison des professions, secteurs et cantons en 2026 : impôt fédéral direct, AHV/IV/EO, BVG, KVG et salaire minimum.',
+    'blog.article.stipendi-professioni-cantoni-2026.imageAlt': 'Comparaison des salaires moyens par profession et canton en Suisse en 2026',
+    'blog.article.sostegno-formazione-basilea.title': 'Bourses dans le canton de Bâle-Landschaft : exigences et montants',
+    'blog.article.sostegno-formazione-basilea.excerpt': 'Guide des bourses et prêts étudiants dans le canton de Bâle-Landschaft : exigences, montants maximaux, délais de soumission et bureau cantonal compétent.',
+    'blog.article.sostegno-formazione-basilea.imageAlt': 'Bourses et prêts d\'études dans le canton de Basilea Campagna',
+    'blog.article.lordo-netto-cantoni-2026.title': 'Salaire moyen des professions en Suisse 2026 : brut et net',
+    'blog.article.lordo-netto-cantoni-2026.excerpt': 'Dans la comparaison de 2026, le canton, le secteur et les déductions comptent : AHV/IV/EO, ALV, UVG et BVG modifient la distance entre le salaire brut et net.',
+    'blog.article.lordo-netto-cantoni-2026.imageAlt': 'Comparaison des salaires et retenues suisses sur un bureau',
 };
 
 export default blogMetaChFr;

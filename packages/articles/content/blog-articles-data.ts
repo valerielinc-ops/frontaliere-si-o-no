@@ -37060,6 +37060,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'fondo-avs-solidarieta-giovani',
+ category: 'pensione',
+ date: '2026-10-02T04:18:56.269Z',
+ image: '/images/blog/fondo-avs-solidarieta-giovani.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
