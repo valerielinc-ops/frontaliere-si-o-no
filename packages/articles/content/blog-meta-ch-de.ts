@@ -7565,6 +7565,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inflazione-eurozona-picco-triennale.title': 'Inflation in der Eurozone: neuer Höchststand seit drei Jahren',
     'blog.article.inflazione-eurozona-picco-triennale.excerpt': 'Die erste Eurostat-Schätzung beziffert die Inflation der Eurozone im September auf 3,8%, nach 3,2% im August. Die Energiepreise steigen auf 18,8%.',
     'blog.article.inflazione-eurozona-picco-triennale.imageAlt': 'Schweizer Stadtansicht mit Monitor zur Inflation im Euroraum.',
+    'blog.article.micasa-quattro-negozi-2027.title': 'Micasa schließt bis Januar 2027 vier Filialen',
+    'blog.article.micasa-quattro-negozi-2027.excerpt': 'Micasa wird sich bis Januar 2027 von vier Geschäften trennen: Crissier schließt bis Ende 2026. Betroffen sind Langendorf, Brügg und Buchs; keine Stellungnahme zu den Arbeitsplätzen.',
+    'blog.article.micasa-quattro-negozi-2027.imageAlt': 'Schweizer Einrichtungsgeschäft mit Schaufenstern vor der Schliessung',
 };
 
 export default blogMetaChDe;

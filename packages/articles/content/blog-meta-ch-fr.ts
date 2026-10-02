@@ -7565,6 +7565,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inflazione-eurozona-picco-triennale.title': 'Inflation dans la zone euro : nouveau pic en trois ans',
     'blog.article.inflazione-eurozona-picco-triennale.excerpt': 'La première estimation d\'Eurostat porte l\'inflation de la zone euro à 3,8% en septembre, contre 3,2% en août. L\'énergie monte à 18,8%.',
     'blog.article.inflazione-eurozona-picco-triennale.imageAlt': 'Vue urbaine suisse avec un écran sur l\'inflation de la zone euro.',
+    'blog.article.micasa-quattro-negozi-2027.title': 'Micasa ferme quatre magasins d\'ici janvier 2027',
+    'blog.article.micasa-quattro-negozi-2027.excerpt': 'Micasa se séparera de quatre magasins d’ici janvier 2027 : Crissier fermera d’ici fin 2026. Langendorf, Brügg et Buchs sont concernés ; aucun commentaire sur les postes.',
+    'blog.article.micasa-quattro-negozi-2027.imageAlt': 'Magasin suisse d\'ameublement avec vitrines avant sa fermeture',
 };
 
 export default blogMetaChFr;
