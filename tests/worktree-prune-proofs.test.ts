@@ -215,6 +215,10 @@ describe('PR candidate e annotazioni', () => {
     expect(issueNumbersInBranch('worker-site-9336-20260920')).toEqual([9336]);
     expect(issueNumbersInBranch('fix/issue-9920')).toEqual([9920]);
     expect(issueNumbersInBranch('top50-e2e-final-20261001')).toEqual([]);
+    // Date con i separatori e numeri con lo zero davanti: non sono issue.
+    expect(issueNumbersInBranch('fix-cache-2026-09-20')).toEqual([]);
+    expect(issueNumbersInBranch('worker-site-9336-2026-09-20')).toEqual([9336]);
+    expect(issueNumbersInBranch('release-v2-07')).toEqual([]);
   });
 
   it('candidate per nome: la head stessa o una sua variante', () => {
@@ -290,6 +294,18 @@ describe('fatti letti da git', () => {
       'diff --git a/gone.txt b/gone.txt', 'deleted file mode 100644', '--- a/gone.txt', '+++ /dev/null', '@@ -1 +0,0 @@', '-x',
     ].join('\n'));
     expect(chunks.map((c) => [c.path, c.binary])).toEqual([['x.txt', false], ['img.png', true], ['gone.txt', false]]);
+  });
+
+  it('un path che git cita tra virgolette non si associa a nessun file: la prova fallisce', () => {
+    // core.quotePath=false lascia in chiaro i non-ASCII, ma tab, newline e
+    // virgolette restano citati: il pezzo resta senza path, quindi senza
+    // corrispondenza nello squash e senza prova (mai una rimozione).
+    const [chunk] = splitFileChunks([
+      'diff --git "a/x\\ty.txt" "b/x\\ty.txt"', '--- "a/x\\ty.txt"', '+++ "b/x\\ty.txt"', '@@ -1 +1 @@', '-a', '+b',
+    ].join('\n'));
+    expect(chunk.path).toBeNull();
+    expect(isCommitContained({ files: [{ path: chunk.path, binary: false, matched: true, inverseMatched: false, inSquash: false }] }))
+      .toBe(false);
   });
 
   it('l\'id del blob coincide con quello di git', () => {

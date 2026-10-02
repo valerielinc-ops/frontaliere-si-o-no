@@ -248,10 +248,13 @@ export function isProvenOrphan({ files, idle }) {
 
 // I numeri che un nome di branch dichiara: `fix/issue-9920`,
 // `fix-issue-9920-fingerprint-20260926`, `worker-site-9336-20260920`. Le date
-// in coda (8 cifre) non sono numeri di issue.
+// non sono numeri di issue: quelle compatte (8 cifre) superano il tetto, quelle
+// con i separatori (`2026-09-20`) si tolgono prima, e un numero con lo zero
+// davanti è un pezzo di data o di versione.
 export function issueNumbersInBranch(branch) {
   const out = [];
-  for (const match of String(branch || '').matchAll(/(?:^|[/_-])(\d{2,6})(?=$|[/_-])/g)) {
+  const name = String(branch || '').replace(/(?:19|20)\d{2}[-_.]\d{2}[-_.]\d{2}/g, '-');
+  for (const match of name.matchAll(/(?:^|[/_-])([1-9]\d{1,5})(?=$|[/_-])/g)) {
     const n = Number(match[1]);
     if (!out.includes(n)) out.push(n);
   }
