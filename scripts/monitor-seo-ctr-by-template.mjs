@@ -34,7 +34,7 @@
  * Auth: Firebase service-account JSON via GOOGLE_APPLICATION_CREDENTIALS
  * (same as scripts/seo-ctr-baseline.mjs).
  *
- * Usage: npx tsx scripts/monitor-seo-ctr-by-template.mjs [--dry-run]
+ * Usage: npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs [--dry-run]
  *        (`tsx`, not `node`: seo-ctr-curve.mjs imports .ts leaf modules)
  *
  * Always exits 0 — monitoring only, never blocks CI.
@@ -65,6 +65,7 @@ const STATE_PATH = resolve(ROOT, 'data', 'seo-ctr-monitor-state.json');
 const WINDOW_DAYS = 14;
 const CONSECUTIVE_RUNS_TO_ESCALATE = 2;
 const DISCOVERY_WINDOW_DAYS = 90;
+const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';
 
 const dryRun = process.argv.includes('--dry-run');
 
@@ -166,7 +167,7 @@ ${buildScheda({
     'sito.',
   ],
   metrica: `prima=${pct(ctr)} atteso=>=${pct(target)} (${targetBasis})`,
-  comando: 'node scripts/monitor-seo-ctr-by-template.mjs --dry-run',
+  comando: DRY_RUN_COMMAND,
   note: [
     'Il comando rimisura tutte le famiglie e stampa il verdetto senza coniare: la issue si',
     'chiude quando questa famiglia torna sopra il target. Vuole le credenziali della Search',
@@ -230,7 +231,7 @@ ${buildScheda({
     'sopra. | **REPO**: sito.',
   ],
   metrica: `prima=fuori registro con ${impressions90d} impressioni/90gg atteso=censita nel registro`,
-  comando: 'node scripts/monitor-seo-ctr-by-template.mjs --dry-run',
+  comando: DRY_RUN_COMMAND,
   note: [
     'Il comando rifa la passata di scoperta senza coniare: la issue si chiude quando questa',
     'famiglia non compare piu\' fra quelle non censite.',
