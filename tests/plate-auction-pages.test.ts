@@ -4,7 +4,8 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
-import { buildPlateAuctionPath, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
+import { allPlateAuctionCantonCodes, buildPlateAuctionPath, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
+import { TITLE_MAX_CHARS } from '../build-plugins/shared/titleSuffix';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { extractVisibleText } from '../scripts/audit-text-html-ratio.mjs';
@@ -217,6 +218,7 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('/aste-targhe-svizzera/grigioni-gr/gr2006/');
     expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/pagina-2/');
     expect((rendered.html.match(/href="[^\"]*\/gr\d+\//g) || []).length).toBeLessThanOrEqual(48);
+    expect(rendered.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1]).toContain('Altre aste pubblicate');
     expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
     // See the canton-page assertion above: metadata enrichment is head-only
     // and must not turn this approximate density check into a false failure.
@@ -229,6 +231,17 @@ describe('plate-auction static pages', () => {
     const itemList = JSON.parse(itemListPayload!) as { mainEntity: { numberOfItems: number; itemListElement: Array<unknown> } };
     expect(itemList.mainEntity.numberOfItems).toBe(2000);
     expect(itemList.mainEntity.itemListElement).toHaveLength(48);
+  });
+
+  it('keeps every localized catalogue title within the SERP budget', () => {
+    const rootDir = fixtureRoot();
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const canton of allPlateAuctionCantonCodes()) {
+        const rendered = renderPlateAuctionPage({ locale, view: 'directory', canton, rootDir });
+        const title = rendered.html.match(/<title>([^<]*)<\/title>/)?.[1] || '';
+        expect(title.length, `${locale}/${canton}: ${title}`).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      }
+    }
   });
 
   it('keeps every paginated detail block on a shallow crawl path', () => {
