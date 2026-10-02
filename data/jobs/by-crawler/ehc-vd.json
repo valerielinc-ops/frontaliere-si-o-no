@@ -1892,7 +1892,7 @@
       "slugByLocale": {
         "it": "medico-generico-ensemble-hospitalier-de-la-cote-ehc-morges",
         "en": "general-practitioner-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "de": "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "de": "allgemeiner-arzt-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "medecin-generaliste-ehc-vd-morges"
       },
       "company": "Ensemble hospitalier de la Côte (EHC)",
@@ -1958,14 +1958,16 @@
       },
       "previousSlugs": [
         "medecin-generaliste-ehc-vd-morges",
-        "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-generaliste-ehc-vd-morges"
         ],
         "de": [
-          "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "allgemeinmediziner-in-ensemble-hospitalier-de-la-cote-ehc-morges",
+          "medecin-generaliste-ensemble-hospitalier-de-la-cote-ehc-morges"
         ]
       },
       "firstSeenAt": "2026-05-19T09:58:50.972Z",
@@ -5333,7 +5335,7 @@
       "slug": "infermiera-h-f-in-plaice-e-stomaterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
       "slugByLocale": {
         "it": "infermiera-h-f-in-plaice-e-stomaterapia-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "en": "infirmier-m-w-d-au-pole-plaie-et-en-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
+        "en": "nurse-m-f-at-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "de": "krankenschwester-h-f-in-scholle-und-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
         "fr": "infirmier-h-f-au-pole-plaie-et-en-stomatherapie-ehc-vd-morges"
       },
@@ -5382,7 +5384,7 @@
         "nurse-h-f-in-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "nurse-h-f-at-plaice-and-stomotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
         "infirmier-h-f-au-pole-plaie-et-en-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
-        "nurse-m-f-at-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
+        "infirmier-m-w-d-au-pole-plaie-et-en-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5394,7 +5396,7 @@
           "nurse-h-f-in-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "nurse-h-f-at-plaice-and-stomotherapy-ensemble-hospitalier-de-la-cote-ehc-morges",
           "infirmier-h-f-au-pole-plaie-et-en-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges",
-          "nurse-m-f-at-plaice-and-stomatherapy-ensemble-hospitalier-de-la-cote-ehc-morges"
+          "infirmier-m-w-d-au-pole-plaie-et-en-stomatherapie-ensemble-hospitalier-de-la-cote-ehc-morges"
         ],
         "de": [
           "infirmier-h-f-au-pole-plaie-et-en-stomatherapie-ehc-vd-morges"

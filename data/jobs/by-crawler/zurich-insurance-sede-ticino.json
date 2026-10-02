@@ -163,8 +163,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino",
         "it": "sachbearbeiter-berufliche-previdenza-bvg-im-crm-services-m-w-d-zurich-insurance-zurich",
-        "en": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357",
-        "fr": "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
+        "en": "personnel-occupational-provision-bvg-in-the-crm-services-m-f-d-zurich-insurance-zurich-1373655357",
+        "fr": "formation-professionnelle-bvg-dans-les-services-crm-h-f-d-zurich-insurance-zurich-1373655357"
       },
       "slugDisambiguator": "1373655357",
       "company": "Zurich Insurance",
@@ -214,10 +214,17 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino"
+        ],
+        "en": [
+          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
+        ],
+        "fr": [
+          "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino"
+        "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-sede-ticino",
+        "sachbearbeiter-berufliche-vorsorge-bvg-im-crm-services-m-w-d-zurich-insurance-zurich-1373655357"
       ],
       "salaryMin": 113000,
       "salaryMax": 198500,
@@ -3431,7 +3438,7 @@
         "de": "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino",
         "it": "organisations-e-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich",
         "en": "organizational-and-language-talent-in-damage-sos-24-7-m-f-d-zurich-insurance-zurich-1373613557",
-        "fr": "talent-organisationnel-et-linguistique-en-dommages-sos-24-7-h-f-d-zurich-insurance-zurich-1373613557"
+        "fr": "les-talents-organisationnels-et-linguistiques-en-dommages-sos-24-7-h-f-d-zurich-insurance-zurich-1373613557"
       },
       "slugDisambiguator": "1373613557",
       "company": "Zurich Insurance",
@@ -3486,12 +3493,14 @@
           "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino"
         ],
         "fr": [
-          "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557"
+          "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557",
+          "talent-organisationnel-et-linguistique-en-dommages-sos-24-7-h-f-d-zurich-insurance-zurich-1373613557"
         ]
       },
       "previousSlugs": [
         "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-sede-ticino",
-        "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557"
+        "organisations-und-sprachtalent-im-schaden-sos-24-7-m-w-d-zurich-insurance-zurich-1373613557",
+        "talent-organisationnel-et-linguistique-en-dommages-sos-24-7-h-f-d-zurich-insurance-zurich-1373613557"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

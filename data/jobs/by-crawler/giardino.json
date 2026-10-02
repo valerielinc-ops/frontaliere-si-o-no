@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "giardino-decd4a786515",
-      "slug": "spa-therapist-giardino-group-champfer",
+      "slug": "terapia-spa-giardino-group-champfer",
       "slugByLocale": {
         "en": "spa-therapist-giardino-group-champfer",
-        "it": "spa-therapist-giardino-group-champfer",
-        "de": "spa-therapist-giardino-group-champfer",
-        "fr": "spa-therapist-giardino-group-champfer"
+        "it": "terapia-spa-giardino-group-champfer",
+        "de": "spa-therapeutin-giardino-group-champfer",
+        "fr": "therapeute-spa-giardino-group-champfer"
       },
       "company": "Giardino Group",
       "companyKey": "giardino",
@@ -87,7 +87,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:02.927Z"
+      "firstSeenAt": "2026-10-01T21:35:02.927Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spa-therapist-giardino-group-champfer"
+        ],
+        "de": [
+          "spa-therapist-giardino-group-champfer"
+        ],
+        "fr": [
+          "spa-therapist-giardino-group-champfer"
+        ]
+      },
+      "previousSlugs": [
+        "spa-therapist-giardino-group-champfer"
+      ]
     },
     {
       "id": "giardino-2403a22d9a66",
@@ -169,13 +183,11 @@
         ]
       },
       "previousSlugs": [
-        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer",
-        "chef-de-rank-50-nascondi-cerca-50-ecco-giardino-group-champfer"
+        "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer",
-          "chef-de-rank-50-nascondi-cerca-50-ecco-giardino-group-champfer"
+          "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
         ],
         "fr": [
           "chef-de-rang-50-hide-seek-50-ecco-giardino-group-champfer"
@@ -277,13 +289,11 @@
         ]
       },
       "previousSlugs": [
-        "night-auditor-giardino-group-champfer",
-        "auditore-notturno-giardino-group-champfer"
+        "night-auditor-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "night-auditor-giardino-group-champfer",
-          "auditore-notturno-giardino-group-champfer"
+          "night-auditor-giardino-group-champfer"
         ],
         "fr": [
           "night-auditor-giardino-group-champfer"
@@ -309,7 +319,7 @@
       "id": "giardino-e4acc19666d6",
       "slug": "chef-de-rang-giardino-group-champfer",
       "slugByLocale": {
-        "it": "chef-de-rang-giardino-group-champfer",
+        "it": "capo-di-stato-maggiore-giardino-group-champfer",
         "en": "chef-de-rang-giardino-group-champfer",
         "de": "chef-de-rang-giardino-group-champfer",
         "fr": "chef-de-rang-giardino-group-champfer"
@@ -387,13 +397,11 @@
         "capo-di-grado-giardino-group-champfer",
         "chef-de-rang-giardino-group-champfer-xfwxht",
         "chief-of-rank-giardino-group-champfer",
-        "head-of-rank-giardino-group-champfer",
-        "capo-di-stato-maggiore-giardino-group-champfer"
+        "head-of-rank-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "capo-di-grado-giardino-group-champfer",
-          "capo-di-stato-maggiore-giardino-group-champfer"
+          "capo-di-grado-giardino-group-champfer"
         ],
         "en": [
           "chef-de-rang-giardino-group-champfer-xfwxht",
@@ -503,13 +511,11 @@
         ]
       },
       "previousSlugs": [
-        "restaurant-manager-giardino-group-champfer",
-        "responsabile-del-ristorante-giardino-group-champfer"
+        "restaurant-manager-giardino-group-champfer"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "restaurant-manager-giardino-group-champfer",
-          "responsabile-del-ristorante-giardino-group-champfer"
+          "restaurant-manager-giardino-group-champfer"
         ]
       },
       "needsRetranslation": true,

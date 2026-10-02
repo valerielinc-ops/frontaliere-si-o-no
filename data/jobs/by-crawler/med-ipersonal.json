@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "med-ipersonal-9ae23a4ad36a",
-      "slug": "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden",
+      "slug": "grid-electricians-regione-di-sufers-ipersonal-ag-sufers-graubunden",
       "slugByLocale": {
         "de": "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden",
-        "it": "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden",
-        "en": "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden",
-        "fr": "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden"
+        "it": "grid-electricians-regione-di-sufers-ipersonal-ag-sufers-graubunden",
+        "en": "grid-electricians-sufers-region-ipersonal-ag-sufers-graubunden",
+        "fr": "electriciens-du-reseau-region-de-sufers-ipersonal-ag-sufers-graubunden"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -61,16 +61,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:33.064Z"
+      "firstSeenAt": "2026-10-01T21:35:33.064Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden"
+        ],
+        "en": [
+          "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden"
+        ],
+        "fr": [
+          "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden"
+        ]
+      },
+      "previousSlugs": [
+        "netzelektriker-region-sufers-ipersonal-ag-sufers-graubunden"
+      ]
     },
     {
       "id": "med-ipersonal-5b25aa3df146",
-      "slug": "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil",
+      "slug": "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
       "slugByLocale": {
         "de": "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "it": "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil",
-        "en": "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "fr": "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "it": "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "en": "electrical-installer-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "fr": "service-d-installation-electrique-region-wadenswil-ipersonal-ag-wadenswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -111,11 +125,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-service-100-fuer-die-region-waedenswil-temporaerbuero-ipersonal/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+          "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil"
+        ],
+        "en": [
+          "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "fr": [
           "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "elektroinstallateur-service-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "installatore-trice-elettrico-a-service-region-wadenswil-ipersonal-ag-wadenswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -134,12 +156,12 @@
     },
     {
       "id": "med-ipersonal-461c960c8762",
-      "slug": "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg",
+      "slug": "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
       "slugByLocale": {
         "de": "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
-        "it": "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg",
-        "en": "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
-        "fr": "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen"
+        "it": "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
+        "en": "electrical-installer-buchs-sg-region-ipersonal-ag-buchs-sg-st-gallen",
+        "fr": "installation-electrique-region-de-buchs-sg-ipersonal-ag-buchs-sg-st-gallen"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -180,11 +202,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-100-fuer-die-region-buchs-sg-gesucht/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
+          "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg"
+        ],
+        "en": [
+          "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen"
+        ],
+        "fr": [
           "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen"
+        "elektroinstallateur-region-buchs-sg-ipersonal-ag-buchs-sg-st-gallen",
+        "installatore-trice-elettrico-a-region-buchs-sg-ipersonal-ag-buchs-sg"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -203,10 +233,10 @@
     },
     {
       "id": "med-ipersonal-5776c1064a7a",
-      "slug": "akquisiteur-in-per-grundstucke-m-w-d-region-hinwil-ipersonal-ag-hinwil",
+      "slug": "akquisiteur-in-per-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
       "slugByLocale": {
         "de": "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
-        "it": "akquisiteur-in-per-grundstucke-m-w-d-region-hinwil-ipersonal-ag-hinwil",
+        "it": "akquisiteur-in-per-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
         "en": "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
         "fr": "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich"
       },
@@ -250,11 +280,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich"
+          "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
+          "akquisiteur-in-per-grundstucke-m-w-d-region-hinwil-ipersonal-ag-hinwil"
         ]
       },
       "previousSlugs": [
-        "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich"
+        "akquisiteur-in-fur-grundstucke-w-m-d-region-hinwil-ipersonal-ag-hinwil-zurich",
+        "akquisiteur-in-per-grundstucke-m-w-d-region-hinwil-ipersonal-ag-hinwil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -273,12 +305,12 @@
     },
     {
       "id": "med-ipersonal-ce6c79f6689d",
-      "slug": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+      "slug": "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
       "slugByLocale": {
         "de": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "it": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "en": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "fr": "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "it": "risorse-umane-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "en": "hr-specialist-wadenswil-region-ipersonal-ag-wadenswil-zurich",
+        "fr": "ressources-humaines-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -331,16 +363,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:31.860Z"
+      "firstSeenAt": "2026-10-01T21:35:31.860Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "en": [
+          "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "fr": [
+          "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachmann-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-a83832b2b938",
-      "slug": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
+      "slug": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
       "slugByLocale": {
         "de": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
-        "it": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
-        "en": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
-        "fr": "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        "it": "camion-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-regione-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
+        "en": "truck-chauffeur-recycling-chauffeur-c-e-springer-m-f-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich",
+        "fr": "chauffeur-de-camion-recyclage-chauffeur-c-e-springer-h-f-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -391,16 +437,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:31.560Z"
+      "firstSeenAt": "2026-10-01T21:35:31.560Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        ],
+        "en": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        ],
+        "fr": [
+          "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "lastwagenchauffeur-recycling-chauffeur-c-e-springer-m-w-d-region-niederglatt-zh-ipersonal-ag-niederglatt-zh-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-21c10b876975",
-      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil",
+      "slug": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
       "slugByLocale": {
         "de": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil",
-        "en": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
-        "fr": "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "it": "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "en": "electrical-installer-electrical-installer-new-and-renovation-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "fr": "installation-electrique-installation-electrique-nouveau-et-renovation-region-wadenswil-ipersonal-ag-wadenswil-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -441,11 +501,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroinstallateur-elektrinstallateur-neu-und-umbau-100-fuer-die-region-waedenswil-gesucht-jetzt-bewerben/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+          "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil"
+        ],
+        "en": [
+          "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        ],
+        "fr": [
           "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich"
         ]
       },
       "previousSlugs": [
-        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich"
+        "elektroinstallateur-elektrinstallateur-neu-und-umbau-region-wadenswil-ipersonal-ag-wadenswil-zurich",
+        "installatore-trice-elettrico-a-elektrinstallateur-neu-e-umbau-region-wadenswil-ipersonal-ag-wadenswil"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -464,12 +532,12 @@
     },
     {
       "id": "med-ipersonal-5eccbcc5510a",
-      "slug": "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf",
+      "slug": "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf-thurgau",
       "slugByLocale": {
         "de": "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau",
-        "it": "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf",
-        "en": "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau",
-        "fr": "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau"
+        "it": "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf-thurgau",
+        "en": "electrical-planner-region-aadorf-ipersonal-ag-aadorf-thurgau",
+        "fr": "planificateur-trice-electrique-region-aadorf-ipersonal-ag-aadorf-thurgau"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -510,11 +578,19 @@
       "applyUrl": "https://www.ipersonal.ch/jobs/elektroplaner-100-fuer-die-region-aadorf-freie-stelle/",
       "previousSlugsByLocale": {
         "it": [
+          "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau",
+          "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf"
+        ],
+        "en": [
+          "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau"
+        ],
+        "fr": [
           "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau"
         ]
       },
       "previousSlugs": [
-        "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau"
+        "elektroplaner-region-aadorf-ipersonal-ag-aadorf-thurgau",
+        "progettista-elettrico-a-region-aadorf-ipersonal-ag-aadorf"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -533,12 +609,12 @@
     },
     {
       "id": "med-ipersonal-f02cef8c5a5e",
-      "slug": "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich",
+      "slug": "commercialista-immobiliare-regione-wallisellen-ipersonal-ag-wallisellen-zurich",
       "slugByLocale": {
         "de": "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich",
-        "it": "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich",
-        "en": "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich",
-        "fr": "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich"
+        "it": "commercialista-immobiliare-regione-wallisellen-ipersonal-ag-wallisellen-zurich",
+        "en": "real-estate-marketer-region-wallisellen-ipersonal-ag-wallisellen-zurich",
+        "fr": "marche-immobilier-region-wallisellen-ipersonal-ag-wallisellen-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -590,16 +666,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:30.655Z"
+      "firstSeenAt": "2026-10-01T21:35:30.655Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich"
+        ],
+        "en": [
+          "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich"
+        ],
+        "fr": [
+          "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "immobilienvermarkter-region-wallisellen-ipersonal-ag-wallisellen-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-ed17616f466f",
-      "slug": "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich",
+      "slug": "responsabile-contabile-regione-di-bulach-ipersonal-ag-bulach-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich",
-        "it": "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich",
-        "en": "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich",
-        "fr": "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich"
+        "it": "responsabile-contabile-regione-di-bulach-ipersonal-ag-bulach-zurich",
+        "en": "accounting-officer-bulach-region-ipersonal-ag-bulach-zurich",
+        "fr": "comptable-region-de-bulach-ipersonal-ag-bulach-zurich"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -651,16 +741,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:30.353Z"
+      "firstSeenAt": "2026-10-01T21:35:30.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-rechnungswesen-region-bulach-ipersonal-ag-bulach-zurich"
+      ]
     },
     {
       "id": "med-ipersonal-8e3748865dfb",
-      "slug": "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
+      "slug": "riscaldamento-installatore-regione-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
       "slugByLocale": {
         "de": "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
-        "it": "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
-        "en": "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
-        "fr": "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
+        "it": "riscaldamento-installatore-regione-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
+        "en": "heating-installer-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus",
+        "fr": "installation-de-chauffage-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
       },
       "company": "iPersonal AG",
       "companyKey": "med-ipersonal",
@@ -711,7 +815,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:35:30.051Z"
+      "firstSeenAt": "2026-10-01T21:35:30.051Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
+        ],
+        "en": [
+          "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
+        ],
+        "fr": [
+          "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "heizungsinstallateur-region-diesbach-gl-ipersonal-ag-diesbach-gl-glarus"
+      ]
     }
   ]
 }

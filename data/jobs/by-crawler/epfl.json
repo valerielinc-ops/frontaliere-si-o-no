@@ -5072,12 +5072,12 @@
     },
     {
       "id": "epfl-830b705e54b0",
-      "slug": "coordinateur-trice-de-voyages-durables-epfl-lausanne",
+      "slug": "coordinatore-del-viaggio-sostenibile-epfl-lausanne",
       "slugByLocale": {
         "fr": "coordinateur-trice-de-voyages-durables-epfl-lausanne",
-        "it": "coordinateur-trice-de-voyages-durables-epfl-lausanne",
-        "en": "coordinateur-trice-de-voyages-durables-epfl-lausanne",
-        "de": "coordinateur-trice-de-voyages-durables-epfl-lausanne"
+        "it": "coordinatore-del-viaggio-sostenibile-epfl-lausanne",
+        "en": "sustainable-travel-coordinator-epfl-lausanne",
+        "de": "nachhaltiger-reisekoordinator-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5135,16 +5135,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-01T21:22:01.649Z"
+      "firstSeenAt": "2026-10-01T21:22:01.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-trice-de-voyages-durables-epfl-lausanne"
+        ],
+        "en": [
+          "coordinateur-trice-de-voyages-durables-epfl-lausanne"
+        ],
+        "de": [
+          "coordinateur-trice-de-voyages-durables-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-trice-de-voyages-durables-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-de1f3e13eac3",
-      "slug": "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne",
+      "slug": "phd-student-in-ai-affidabile-per-le-operazioni-di-impianto-autonome-epfl-lausanne",
       "slugByLocale": {
         "en": "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne",
-        "it": "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne",
-        "de": "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne",
-        "fr": "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne"
+        "it": "phd-student-in-ai-affidabile-per-le-operazioni-di-impianto-autonome-epfl-lausanne",
+        "de": "phd-student-in-trustworthy-ai-fur-autonomen-anlagenbetrieb-epfl-lausanne",
+        "fr": "doctorant-en-ai-digne-de-confiance-pour-les-operations-autonomes-des-usines-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -5202,7 +5216,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-01T21:22:01.043Z"
+      "firstSeenAt": "2026-10-01T21:22:01.043Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne"
+        ],
+        "de": [
+          "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne"
+        ],
+        "fr": [
+          "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "phd-student-in-trustworthy-ai-for-autonomous-plant-operations-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-609fc624da57",
