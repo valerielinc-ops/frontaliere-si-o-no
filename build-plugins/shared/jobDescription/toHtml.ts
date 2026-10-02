@@ -112,7 +112,44 @@ export function demoteEmbeddedH1(html: string): string {
     .replace(/<\/h1\s*>/gi, '</h2>');
 }
 
-function computeJobDescriptionTextToHtml(text: string): string {
+/**
+ * Drop embedded media and executable/presentational blocks from ATS markup
+ * before it reaches a static job page.
+ *
+ * Both passthrough branches below (`computeJobDescriptionTextToHtml` and
+ * `inlineTextToHtml`) return the employer's HTML almost verbatim, so whatever
+ * the ATS ships beyond text formatting lands in `<main>` too. Measured on
+ * validate-dist run 36922718485 (build f64b396c, 2026-10-01): the only
+ * `audit:all/page-weight` offender was
+ * `/en/find-jobs-ticino/data-ingenieur-microsoft-fabric-w-m-80-100-de-benu-koniz/`,
+ * whose Teamtailor description carries two
+ * `<figure …><img src="https://images.teamtailor-cdn.com/…/gallery picture-v6/image uploads/…">`
+ * — no width/height (layout shift, web.dev "optimize CLS"), no `loading`, a
+ * `src` with literal spaces, and a hotlink that hands every visitor's IP to the
+ * ATS CDN. The text of the listing is unaffected by removing them.
+ *
+ * Removed with their content: `script`, `style`, `noscript`, `template`,
+ * `iframe`, `object`, `svg`, `canvas`, `video`, `audio`, `picture`.
+ * Removed as void tags: `img`, `embed`, `source`, `track`.
+ * Unwrapped (tags gone, text kept): `figure`, `figcaption`.
+ * It runs on the INPUT of both renderers, before the structural-tag test: a
+ * description made only of `<figure><img>` and text would otherwise take the
+ * AST branch and ship the escaped tag as visible text.
+ * Regexes are function-local for the same `lastIndex` reason as
+ * `demoteEmbeddedH1`.
+ */
+export function stripEmbeddedMedia(html: string): string {
+  if (!html) return '';
+  return html
+    .replace(/<(script|style|noscript|template|iframe|object|svg|canvas|video|audio|picture)\b[^>]*>[\s\S]*?<\/\1\s*>/gi, '')
+    .replace(/<\/?(?:img|embed|source|track)\b[^>]*>/gi, '')
+    .replace(/<\/?(?:figure|figcaption)\b[^>]*>/gi, '');
+}
+
+function computeJobDescriptionTextToHtml(rawText: string): string {
+  // Before the branch test, so that markup made only of media (no <p>/<br>)
+  // does not reach the AST branch and get escaped into visible `<img …>` text.
+  const text = stripEmbeddedMedia(rawText);
   if (/<(p|ul|ol|li|h[1-6]|br|strong|em)\b/i.test(text)) {
     // Pre-structured HTML still needs literal-markdown scrub — descriptions
     // mixing `<br>`/`<strong>` with `**bold**` would otherwise leak `**` tokens
@@ -221,7 +258,7 @@ export function inlineTextToHtml(text: string): string {
   // Real examples: HFR job ads flatten bilingual copy to
   // `Ref.: HFR-M-251801 ____________ Le Département…`; Tether-style postings
   // wrap section headers in `===== Cosa offriamo: =====`.
-  const s = String(text).replace(/[_=~]{3,}/g, ' ').replace(/ {2,}/g, ' ');
+  const s = stripEmbeddedMedia(String(text)).replace(/[_=~]{3,}/g, ' ').replace(/ {2,}/g, ' ');
   if (/<(strong|em|a|span|br)\b/i.test(s)) {
     // Sources that mix real structural tags with literal, unconverted
     // `**bold**` markdown in the same string (seen from partially
