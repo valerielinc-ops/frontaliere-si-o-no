@@ -7520,6 +7520,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine: acht Schweizer Projekte im Wert von 135 Millionen',
     'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'Der Bundesrat stellt 135 Millionen Franken für acht Projekte Schweizer Unternehmen in der Ukraine bereit, in den Bereichen Energie, öffentlicher Verkehr und Wasserressourcen.',
     'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Castelgrande, redaktionelles Bild zu Schweizer Projekten in der Ukraine',
+    'blog.article.piloti-swiss-lettera-aperta.title': 'Schweizer Piloten schreiben: Mehr Freizeit, weniger Last',
+    'blog.article.piloti-swiss-lettera-aperta.excerpt': 'Mehr als tausend Mitglieder des Aeropers-Verbands unterzeichneten während der Verhandlungen über den neuen Tarifvertrag (CEA) einen offenen Brief an die Geschäftsleitung der Schweizer.',
+    'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'Blick auf die Stadt Zürich, schweizerisches Wirtschafts- und Finanzzentrum',
 };
 
 export default blogMetaChDe;

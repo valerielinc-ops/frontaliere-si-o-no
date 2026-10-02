@@ -7520,6 +7520,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine : huit projets suisses pour 135 millions',
     'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'Le Conseil fédéral alloue 135 millions de CHF à huit projets d’entreprises suisses en Ukraine, notamment l’énergie, les transports publics et l’eau.',
     'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Le Castelgrande, image éditoriale sur des projets suisses en Ukraine',
+    'blog.article.piloti-swiss-lettera-aperta.title': 'Les pilotes suisses écrivent : Plus de temps libre, moins de charge',
+    'blog.article.piloti-swiss-lettera-aperta.excerpt': 'Plus d’un millier de membres de l’association des Aéropers ont signé une lettre ouverte à la direction de Swiss lors des négociations pour la nouvelle convention collective de travail (CEA).',
+    'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'Vue de la ville de Zurich, centre économique et financier suisse',
 };
 
 export default blogMetaChFr;

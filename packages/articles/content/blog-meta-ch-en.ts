@@ -7520,6 +7520,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine: eight Swiss projects worth 135 million',
     'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'The Federal Council allocates 135 million francs to eight projects by Swiss companies in Ukraine, spanning energy, public transport and water resources.',
     'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Castelgrande, editorial image for Swiss projects in Ukraine',
+    'blog.article.piloti-swiss-lettera-aperta.title': 'Swiss pilots write: More free time, less load',
+    'blog.article.piloti-swiss-lettera-aperta.excerpt': 'More than a thousand members of the Aeropers association signed an open letter to the management of Swiss during the negotiations for the new collective employment agreement (CEA).',
+    'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'View of Zurich city, Swiss economic and financial center',
 };
 
 export default blogMetaChEn;

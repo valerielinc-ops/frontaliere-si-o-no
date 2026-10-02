@@ -2529,6 +2529,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'proroga-aiuto-monetario-fmi': { it: 'proroga-aiuto-monetario-fmi', en: 'monetary-aid-extension-imf', de: 'geldhilfe-verlaengerung-ifi', fr: 'prolongation-aide-monetaire-fmi' },
  'moderniz-perseguimento-penale': { it: 'moderniz-perseguimento-penale', en: 'switzerland-initiates-consultation-on-the-third-ecag-protocol', de: 'die-schweiz-leitet-eine-konsultation-zum-dritten-ecag-protokoll-ein', fr: 'la-suisse-engage-une-consultation-sur-le-troisieme-protocole-de-la-ceagg' },
  'otto-progetti-ricostruzione-ucraina': { it: 'otto-progetti-ricostruzione-ucraina', en: 'eight-ukraine-reconstruction-projects', de: 'acht-ukraine-wiederaufbauprojekte', fr: 'huit-projets-reconstruction-ukraine' },
+ 'piloti-swiss-lettera-aperta': { it: 'piloti-swiss-lettera-aperta', en: 'swiss-pilots-open-letter', de: 'swiss-piloten-offener-brief', fr: 'pilotes-swiss-lettre-ouverte' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
