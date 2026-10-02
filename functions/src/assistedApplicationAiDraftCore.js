@@ -435,10 +435,17 @@ export function letterEnclosures(language, documentLabels = []) {
 /** Swiss business-letter blocks for buildCoverLetterPdf. */
 export function letterPdfBlocks({ identity, profile, posting = {}, companyName, language, letter, title, now, enclosures = [] }) {
   const location = clean(profile?.location, 200);
-  const city = location.split(/[,(]/)[0].replace(/^via\s.*$/i, '').trim();
+  const address = profile?.address || {};
+  const addressCity = clean(address.city, 120);
+  // The street prints only while the place is still the address's city: a place the
+  // candidate corrected on the review page wins over the CV's street.
+  const street = addressCity && (!location || location.toLowerCase().includes(addressCity.toLowerCase())) ? clean(address.street, 200) : '';
+  const cityLine = street ? [clean(address.postalCode, 20), addressCity].filter(Boolean).join(' ') : location;
+  const city = (location.split(/[,(]/)[0].replace(/^via\s.*$/i, '').trim()) || addressCity;
   const date = formatLetterDate(language, now);
   return {
-    senderLines: [identity.name, location, identity.email, identity.phone],
+    language: language || 'it',
+    senderLines: [identity.name, street, cityLine, identity.phone, identity.email],
     recipientLines: [
       clean(companyName, 200),
       posting.contactPerson || '',

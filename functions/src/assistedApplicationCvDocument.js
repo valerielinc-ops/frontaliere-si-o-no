@@ -117,13 +117,14 @@ export function buildCvDocument(cv, { identity, profile = {}, language = 'it', t
     name: identity.name,
     headline: cv.headline || '',
     contact: [addressLine(profile), identity.phone, identity.email, profile.linkedin, sector === 'it' ? profile.website : ''].filter(Boolean),
+    personalTitle: titles.personal,
     personal,
     sections: (ORDER[type] || ORDER.qualified).filter((kind) => content[kind]).map((kind) => ({ kind, title: titles[kind], ...content[kind] })),
   };
 }
 
 /** The document as blocks of the standard-font PDF writer (renderPdf). */
-export function cvDocumentBlocks(document, { personalTitle } = {}) {
+export function cvDocumentBlocks(document, { personalTitle = document.personalTitle } = {}) {
   const heading = (text) => ({ text: text.toUpperCase(), bold: true, size: 10.5, gapBefore: 10 });
   const blocks = [{ text: document.name, bold: true, size: 16 }];
   if (document.headline) blocks.push({ text: document.headline, bold: true, size: 11, gapBefore: 2 });

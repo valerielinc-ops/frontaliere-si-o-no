@@ -43,7 +43,7 @@ export interface AutomationQuestionView {
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AtsReportView {
   structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
-  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null };
+  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null; ceiling?: number | null; overCeiling?: string[] };
 }
 
 export interface AssistedApplicationAutomationView {

@@ -26,10 +26,10 @@
  */
 
 import { backsClaim, buildFactIndex, checkGeneratedFacts, claimTokens, mentionsTool, numbersOf } from './assistedApplicationAiFactCheck.js';
-import { renderPdf } from './assistedApplicationAiDocuments.js';
 import { normalizeText } from './assistedApplicationAts.js';
 import { apprenticeHeadline } from './assistedApplicationCandidateType.js';
 import { buildCvDocument, cvDocumentBlocks } from './assistedApplicationCvDocument.js';
+import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
 
 const S = (description) => (description ? { type: 'string', description } : { type: 'string' });
 const LIST = (items) => ({ type: 'array', items });
@@ -247,8 +247,13 @@ export function tailoredCvBlocks(cv, { identity, profile }) {
   return cvDocumentBlocks(tailoredCvDocument(cv, { identity, profile }));
 }
 
-export function buildTailoredCvPdf(cv, { identity, profile }) {
-  return renderPdf(tailoredCvBlocks(cv, { identity, profile }), { title: `CV ${identity.name}` });
+/**
+ * The tailored CV's PDF: Typst with the embedded font, the standard-font
+ * writer as fallback (assistedApplicationPdfRenderer.js).
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
+ */
+export async function buildTailoredCvPdf(cv, { identity, profile, mode, log }) {
+  return renderCvPdf(tailoredCvDocument(cv, { identity, profile }), { mode: mode || await pdfRendererMode(), log });
 }
 
 /** Plain text of the tailored CV (ATS keyword check and the review page). */

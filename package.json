@@ -328,6 +328,7 @@
   "dependencies": {
     "@google/genai": "^2.24.0",
     "@huggingface/transformers": "^4.3.0",
+    "@myriaddreamin/typst-ts-node-compiler": "0.7.0",
     "@noble/hashes": "^2.4.0",
     "@resvg/resvg-js": "^2.6.2",
     "@types/leaflet": "^1.9.22",

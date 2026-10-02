@@ -280,6 +280,8 @@ describe('candidate review API', () => {
     // The PDF is rebuilt with the new text and the new phone in the header.
     expect(saved).toEqual([expect.stringMatching(/ai-cover-letter-r1-candidate-/)]);
     expect(stored.coverLetterPdfKey).toBe(saved[0]);
+    // The writer that produced the letter now on the draft is kept with it.
+    expect(['typst', 'legacy']).toContain(stored.coverLetterRenderer);
     expect(stored.factSources.candidate).toContain('20 persone');
     expect(stored.candidateEditedAt).toBe(T0);
     expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ state: 'candidate_review', formOverrides: { phone: '+41 91 000 00 00' } });
