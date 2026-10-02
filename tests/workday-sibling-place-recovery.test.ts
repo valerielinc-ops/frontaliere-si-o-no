@@ -165,7 +165,8 @@ describe('runners and shared paths route through the shared recovery', () => {
   const read = (rel: string) => fs.readFileSync(path.join(__dirname, '..', rel), 'utf8');
 
   it.each([
-    'scripts/update-julius-baer-jobs.mjs',
+    'scripts/lib/julius-baer-job-parser.mjs',
+    'scripts/update-swisscom-jobs.mjs',
     'scripts/update-fnz-jobs.mjs',
     'scripts/update-bracco-jobs.mjs',
     'scripts/lib/shared-jobs-crawler.mjs',

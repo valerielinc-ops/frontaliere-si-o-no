@@ -4,10 +4,14 @@
  * Tests parseWorkdayListings(), parseWorkdayJobDetail(),
  * isTicinoLocation(), and utility functions using mock Workday API responses.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   parseWorkdayListings,
   parseWorkdayJobDetail,
+  isJuliusBaerSwissListing,
+  resolveJuliusBaerPlace,
   isTicinoLocation,
   parseWorkdayCity,
   buildPublicUrl,
@@ -203,4 +207,43 @@ describe('detectEmploymentType', () => {
   it('detects FULL_TIME', () => { expect(detectEmploymentType('Full time')).toBe('FULL_TIME'); });
   it('detects PART_TIME', () => { expect(detectEmploymentType('Part time')).toBe('PART_TIME'); });
   it('defaults to FULL_TIME', () => { expect(detectEmploymentType('')).toBe('FULL_TIME'); });
+});
+
+/**
+ * Workday sibling (CI sibling-check on PR #10955): `parseWorkdayListings`
+ * dropped a Swiss locality outside the commune gazetteer before its detail was
+ * read, and `parseWorkdayJobDetail` took the canton from `inferAnyCanton` only.
+ * The rules now live here, once (`isJuliusBaerSwissListing`,
+ * `resolveJuliusBaerPlace`), and the runner calls them instead of a copy.
+ */
+describe('Julius Baer — a Swiss locality outside the BFS commune list', () => {
+  const CH = { descriptor: 'Switzerland', id: '187134fccb084a0ea9b4b95f23890dbe', alpha2Code: 'CH' };
+  const detail = (country: object | null) => ({
+    jobPostingInfo: {
+      title: 'Relationship Manager',
+      location: 'Brüttisellen',
+      jobRequisitionLocation: country ? { descriptor: 'Brüttisellen', country } : { descriptor: 'Brüttisellen' },
+      jobDescription: '<p>Role description.</p>',
+    },
+  });
+
+  it('keeps the listing row for its detail', () => {
+    const rows = parseWorkdayListings({ jobPostings: [{ title: 'Relationship Manager', externalPath: '/job/Bruttisellen/RM_R1', locationsText: 'Brüttisellen' }] });
+    expect(rows.map((r: any) => r.externalPath)).toEqual(['/job/Bruttisellen/RM_R1']);
+    expect(isJuliusBaerSwissListing('Petaling Jaya')).toBe(false);
+  });
+
+  it('places the detail on a structured Swiss country, and only there', () => {
+    expect(parseWorkdayJobDetail(detail(CH), '/job/Bruttisellen/RM_R1')).toMatchObject({ city: 'Brüttisellen', canton: 'ZH' });
+    expect(parseWorkdayJobDetail(detail(null), '/job/Bruttisellen/RM_R1')).toBeNull();
+    expect(parseWorkdayJobDetail(detail({ descriptor: 'Italy', alpha2Code: 'IT' }), '/job/Bruttisellen/RM_R1')).toBeNull();
+    expect(resolveJuliusBaerPlace({ location: 'CHE - Lugano' })).toEqual({ city: 'Lugano', canton: 'TI' });
+  });
+
+  it('the runner calls the parser rules instead of a copy', () => {
+    const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-julius-baer-jobs.mjs'), 'utf8');
+    expect(runner).toContain("allListings.filter((p) => isJuliusBaerSwissListing(p.locationsText || ''))");
+    expect(runner).toContain("resolveJuliusBaerPlace(info, listing.locationsText || '')");
+    expect(runner).not.toMatch(/recoverWorkdayPrimarySwissPlace|isWorkdaySwissPlaceCandidate|parseWorkdayCity\(/);
+  });
 });
