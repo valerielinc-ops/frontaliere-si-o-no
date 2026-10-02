@@ -393,8 +393,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "msc-cargo-4cce7fb6d42a",
@@ -549,8 +548,7 @@
           "maxValue": 163000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "msc-cargo-97510ebc6008",
@@ -988,7 +986,6 @@
         ]
       },
       "firstSeenAt": "2026-09-27T11:33:50.976Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 156000,
       "salarySource": "estimated",
@@ -1151,7 +1148,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T23:35:23.852Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 165500,
       "salarySource": "estimated",
