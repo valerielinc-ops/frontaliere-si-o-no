@@ -50,6 +50,7 @@
 
 import type { JobAlert } from './jobAlertService';
 import { clearIntent, peekIntent, saveIntent } from './pendingIntentStore';
+import { invalidateUserAlertsCache } from './userAlertsCache';
 
 const KEY = 'company_follow_pending';
 
@@ -202,6 +203,8 @@ export async function flushPendingCompanyFollows(
       if (!alert || typeof alert.id !== 'string' || !alert.id.trim()) {
         throw new Error('subscribeCompanyAlert: response did not contain an accepted alert');
       }
+      // Access-link replay writes outside CompanyFollowCta's success callback.
+      invalidateUserAlertsCache();
       created.push(alert);
       remaining = remaining.filter((candidate) => candidate !== intent);
       writeRaw(remaining);

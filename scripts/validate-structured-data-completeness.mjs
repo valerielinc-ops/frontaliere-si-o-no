@@ -197,11 +197,11 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // These four fields are part of the current Event page contract. Legacy
+  // These three fields are part of the current Event page contract. Legacy
   // fixtures may still fail here, which is intentional: a regression that
   // drops a deterministic default must block the build instead of passing as
   // an absent optional value.
-  for (const field of ['image', 'organizer', 'performer', 'offers']) {
+  for (const field of ['image', 'organizer', 'performer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
     }
@@ -220,29 +220,37 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // The builder emits a fallback Offer without a fabricated amount when the
-  // source has no price. A source-backed Offer still has a price; validate it
-  // when the property is present and always validate the defaulted fields.
+  // Offers are optional when the source has no verifiable price. When present,
+  // they must be source-backed, numeric and complete.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if ('price' in schema.offers && (schema.offers.price === undefined || schema.offers.price === null)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+      if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
+      } else if (schema.offers.price < 0) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
+      } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
       }
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
       }
-      if ('availability' in schema.offers && !isNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
-      }
-      if ('validFrom' in schema.offers && !isNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
-      }
-      if ('url' in schema.offers && !isNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
+      for (const field of ['availability', 'validFrom', 'url']) {
+        if (!isNonEmpty(schema.offers[field])) {
+          const hasEmptyValue = Object.prototype.hasOwnProperty.call(schema.offers, field);
+          errors.push({
+            file: filePath,
+            type: 'Event',
+            field: `offers.${field}`,
+            message: `Event offers ${hasEmptyValue ? 'has an empty' : 'missing'} "${field}"`,
+          });
+        }
       }
     }
+  }
+  if (schema.isAccessibleForFree === true && schema.offers?.price !== 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: 'isAccessibleForFree=true requires offers.price=0' });
   }
 
   return errors;

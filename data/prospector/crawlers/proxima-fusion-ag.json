@@ -1,0 +1,20 @@
+{
+  "companyKey": "proxima-fusion-ag",
+  "companyName": "Proxima Fusion AG",
+  "companyHost": "jobs.ashbyhq.com",
+  "platform": "ashbyhq.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://jobs.ashbyhq.com/proxima-fusion/421e64d3-c777-49a9-a8bc-006c32438fcc/application?utm_source=careers-site"
+  ],
+  "detailTemplate": "/proxima-fusion/421e64d3-c777-49a9-a8bc-006c32438fcc/application",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Lead Recruiter"
+  ],
+  "canton": "AG",
+  "sourceLang": "en",
+  "learnedAt": "2026-10-02T11:37:20.475Z"
+}

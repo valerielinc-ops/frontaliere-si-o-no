@@ -12361,6 +12361,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-rimborso-lpp-2024.title': 'Secondo pilastro e frontalieri: stop rimborso in Ticino',
     'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Dal 2024 il Canton Ticino non rimborsa più l\'imposta alla fonte sul capitale LPP per i frontalieri residenti in Italia. Ecco cosa cambia.',
     'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Castello di Bellinzona in Ticino con vista panoramica',
+    'blog.article.bollettino-frontaliere-2026-10-02.title': 'Bollettino del frontaliere – 2 ottobre 2026: a Chiasso-Strada 36 minuti di coda',
+    'blog.article.bollettino-frontaliere-2026-10-02.excerpt': 'I numeri di oggi, 2 ottobre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'I numeri del giorno per i frontalieri – 2 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Bollettino frontalieri del 2 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'I numeri del 2 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
