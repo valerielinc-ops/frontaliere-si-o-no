@@ -36,7 +36,7 @@ import JobAlertSection from '@/components/community/JobAlertSection';
 import type { ExpiredJob } from '@/hooks/useExpiredJob';
 import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/components/shared/useRailGridCollapse';
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
-import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
+import { jobDescriptionPlainText, jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
 
 interface RelatedJob {
@@ -185,25 +185,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
 
  const localizedTitle = job.titleByLocale?.[locale] ?? job.title;
  const description = job.descriptionByLocale?.[locale] ?? '';
- // Same teaser chain as JobBoard's gate, and the same defect: it strips HTML
- // and prints the rest verbatim, so a markdown heading reached the reader as
- // `## Mansioni`. Markdown first — after the HTML strip below, `<[^>]+>` has
- // already eaten the `(url)` half of a link and stranded its brackets.
- const descriptionPlain = stripMarkdownMarkers(description)
- .replace(/<br\s*\/?>/gi, '\n')
- .replace(/<\/(p|li|ul|ol|div|h[1-6]|blockquote)>/gi, '\n')
- .replace(/<[^>]+>/g, ' ')
- // Strip ATX markdown headings (`## Heading`) left over from descriptions
- // authored/crawled as markdown — same fix as the JobBoard gate teaser,
- // same root cause: `#` isn't HTML so the tag-stripping above never
- // touches it. Anchored to line start + required whitespace so mid-line
- // `#` (e.g. "C#", "row #3") is never touched.
- .replace(/(^|\n)#{1,6}\s+/g, '$1')
- .replace(/[^\S\n]+/g, ' ')
- .replace(/\n[ \t]*/g, '\n')
- .replace(/\n{3,}/g, '\n\n')
- .trim();
- const descriptionPreview = descriptionPlain.slice(0, 220);
+ const descriptionPlain = jobDescriptionPlainText(description);
+ const descriptionPreview = jobDescriptionPreview(description);
 
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -900,8 +883,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  maxHeight 0↔80px and shifting the gate below on every scroll direction change. */}
  {descriptionPreview && (
  <div className="relative mt-3 w-full overflow-hidden rounded-stripe [@media(max-height:540px)]:hidden max-h-[clamp(0px,calc(100svh_-_540px),80px)]">
- <p className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
- {descriptionPreview}...
+ <p data-job-description-preview className="px-3 py-2 text-sm text-body leading-relaxed whitespace-pre-line sm:py-3">
+ {descriptionPreview}
  </p>
  <div className="pointer-events-none absolute inset-x-0 bottom-0 h-10 bg-gradient-to-t from-surface to-transparent" />
  </div>
