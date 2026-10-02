@@ -24,6 +24,17 @@ export function photoAdvice(language) {
 }
 
 /**
+ * The photo the candidate gave on the review page, ready for the renderer:
+ * `{ photo, photoType }`, or `{}` without one. The runner's next round reads
+ * it too, so a new tailored CV keeps the photo the page says it has.
+ */
+export async function candidatePhoto(flow, bucket) {
+  if (!bucket || !flow?.photo?.key || !PHOTO_TYPES.has(flow.photo.detectedType)) return {};
+  const [buffer] = await bucket.file(flow.photo.key).download();
+  return { photo: Buffer.from(buffer), photoType: flow.photo.detectedType };
+}
+
+/**
  * @param {{bucket:object, order:object, orderId:string, draft:object, flow?:object, cv?:object, nowMs:number, mode?:string, log?:Function}} input
  *   cv: the tailored CV to print (default: the draft's)
  * @returns {Promise<{pdfKey:string, renderer:string}|null>} null when the draft has no tailored CV to rebuild
@@ -34,15 +45,7 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   if (tailored?.status !== 'ready' || !source || !bucket) return null;
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
   const document = tailoredCvDocument(source, { identity, profile });
-  let photo = null;
-  if (flow?.photo?.key && PHOTO_TYPES.has(flow.photo.detectedType)) {
-    const [buffer] = await bucket.file(flow.photo.key).download();
-    photo = Buffer.from(buffer);
-  }
-  const { pdf, renderer } = await renderCvPdf(
-    photo ? { ...document, photo, photoType: flow.photo.detectedType } : document,
-    { mode: mode || await pdfRendererMode(), log },
-  );
+  const { pdf, renderer } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   return { pdfKey, renderer };
