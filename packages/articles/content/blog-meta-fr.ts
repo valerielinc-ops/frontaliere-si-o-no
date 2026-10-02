@@ -12359,6 +12359,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fondo-avs-solidarieta-giovani.title': 'Le treizième AHV, le fonds de pacte générationnel, est né',
     'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'Au Tessin, plus de 86 000 bénéficiaires recevront plus de 140 millions de francs : une partie de la treizième AVS pourra soutenir des projets pour les jeunes.',
     'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Des aînés et des jeunes parlent de solidarité dans un paysage tessinois',
+    'blog.article.ticino-rimborso-lpp-2024.title': 'Deuxième pilier et frontaliers : fin des remboursements au Tessin',
+    'blog.article.ticino-rimborso-lpp-2024.excerpt': 'À partir de 2024, le canton du Tessin ne remboursera plus l\'impôt à la source sur le capital LPP aux frontaliers résidant en Italie. Voici ce qui change.',
+    'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Château de Bellinzone au Tessin avec vue panoramique',
 };
 
 export default blogMetaFr;
