@@ -82,7 +82,8 @@ import {
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
-import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
+import { cantonArchivePageCount, readCantonArchiveData, setLiveCantonArchiveJobs, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
@@ -9042,6 +9043,14 @@ ${staticAnalyticsHtml}
  }
  continue;
  }
+ // The canton "Aziende che assumono" page (seoHubsPlugin) links exactly
+ // the hubs registered here (build-plugins/shared/cantonCompanyHubRegistry.ts).
+ markCantonCompanyHub(canton, {
+ slug: cSlug,
+ name: companyName,
+ jobs: companyJobs.length,
+ logoKey: String((sortedJobs[0] as any)?.companyKey || (sortedJobs[0] as any)?.employerKey || cSlug),
+ });
  // Keep the live total in the intro, but use one shared payload boundary for
  // cards and ItemList so structured data describes every visible card.
  const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
@@ -10854,7 +10863,32 @@ ${staticAnalyticsHtml}
    // Counts describe the listing inventory, not the smaller set of jobs whose
    // translated details qualify for sitemap indexation.
    const cantonJobCounts = listingJobCounts;
-   const archiveSnapshot = readJobsData(fs, path, rootDir);
+   // The archive (`tutti/page-N/`, emitted by seoHubsPlugin) and the
+   // navigator planned below read the SAME source: the weekly snapshot plus
+   // this build's live listing inventory (build-plugins/shared/cantonArchivePlan.ts).
+   // Registered here, before the first read, with the exact detail path of
+   // every live job per locale.
+   const liveArchiveJobs = new Map<string, CantonJobEntry[]>();
+   for (const code of ALL_CANTON_CODES) {
+     if (code === 'TI') continue;
+     liveArchiveJobs.set(code, selectJobBoardInventory(validJobs, code).map((job: any): CantonJobEntry => {
+       const jobCanton = sharedResolveJobCanton(job as { canton?: string; location?: string });
+       return {
+         slug: localizedSlug(job, 'it'),
+         role: String(job.title || ''),
+         employer: String(job.company || ''),
+         employerKey: String(job.companyKey || job.employerKey || ''),
+         city: String(job.location || '').split(/[,(]/)[0].trim(),
+         postedAt: typeof job.datePosted === 'string' ? job.datePosted : undefined,
+         hrefByLocale: Object.fromEntries(localeList.map((l) => [
+           l,
+           withSlash(`${localePrefix[l]}/${buildCantonAwareSection(l, jobCanton)}/${localizedSlug(job, l)}`.replace(/\/+/g, '/')),
+         ])),
+       };
+     }));
+   }
+   setLiveCantonArchiveJobs(liveArchiveJobs);
+   const archiveSnapshot = readCantonArchiveData(fs, path, rootDir);
    let cantonIndexIndexable = 0;
    let cantonIndexNoindex = 0;
 

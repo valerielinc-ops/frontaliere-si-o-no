@@ -73,8 +73,9 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
-import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
+import { cantonArchivePageCount, readCantonArchiveData, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
@@ -2176,9 +2177,13 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             // 1) Try locale-specific path (cathedral-canton-aware).
             // 2) Fall back to IT path (acceptable — same content, IT URL).
             // 3) Last-resort legacy form `sectionRoot/slug/`.
+            // 0) Exact path from the build's live inventory, when the entry
+            //    is a live job (cantonArchivePlan.mergeLiveArchiveJobs).
+            const livePath = j.hrefByLocale?.[locale];
             const localePath = localeUrlMap[j.slug];
             const itPath = itUrlMap[j.slug];
-            const href = (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
+            const href = livePath
+              || (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
               || (itPath && (itPath.endsWith('/') ? itPath : `${itPath}/`))
               || `${sectionRoot}/${j.slug}/`;
             return {
@@ -2310,7 +2315,21 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // ── aziende (companies) — list employers with ≥1 active opening in this canton ──
       {
         const basePath = hubSlugFor(canton, locale, 'aziende');
-        const items = empArraySorted.map(([empKey, n]) => {
+        // Link the per-canton company hubs jobsSeoPagesPlugin actually emitted
+        // (build-plugins/shared/cantonCompanyHubRegistry.ts), under their own
+        // slug and this locale's route prefix. The snapshot employerKey list
+        // below is only the fallback for a build that skipped that phase: on
+        // build f3659686 it pointed 28 of Zurich's 100 links at noindex
+        // bridges and 26 at pages that do not exist.
+        const emittedHubs = cantonCompanyHubs(canton).slice(0, 100);
+        const items = emittedHubs.length > 0 ? emittedHubs.map((hub) => ({
+          href: `${sectionRoot}/${COMPANY_ROUTE_PREFIX[locale]}-${hub.slug}/`,
+          label: hub.name,
+          sub: jobsActiveLabel(locale, hub.jobs),
+          logo: resolveBrandLogoUrl(rootDir, hub.logoKey) ?? crawledLogos[hub.logoKey] ?? null,
+          metric: hub.jobs.toString(),
+          metricTone: 'accent' as const,
+        })) : empArraySorted.map(([empKey, n]) => {
           // Resolve a logo: try the (manifest|crawled) keyed lookup. Keys are
           // short employer keys (e.g. "unispital-basel"); the same key is used
           // for the URL slug here, so no separate lookup is needed.
@@ -2642,7 +2661,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonJobCounts,
     cantonJobs,
     cantonEmployerCounts,
-  } = readJobsData(fs, np, rootDir);
+  } = readCantonArchiveData(fs, np, rootDir); // snapshot ∪ live inventory, same source as the landing navigator
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
