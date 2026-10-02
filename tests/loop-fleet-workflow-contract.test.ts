@@ -40,6 +40,22 @@ describe('loop fleet workflow contract', () => {
     }
   });
 
+  it('includes the transitive consent reader in L4 triggers and its sparse checkout', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-l4-alert-return.yml'), 'utf8');
+    const core = fs.readFileSync(path.resolve('functions/src/jobAlertBackfillCore.js'), 'utf8');
+    const importedPath = core.match(/from ['"]([^'"]*subscriberConsent\.js)['"]/u)?.[1] ?? '';
+    const dependency = path.posix.join('functions/src', importedPath);
+    const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
+    const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
+    const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
+
+    expect(importedPath).toBe('./lib/subscriberConsent.js');
+    expect(dependency).toBe('functions/src/lib/subscriberConsent.js');
+    expect(pushPaths).toContain(`- '${dependency}'`);
+    expect(pullRequestPaths).toContain(`- '${dependency}'`);
+    expect(sparseCheckout).toContain(`/${dependency}`);
+  });
+
   it('does not feed an append-only ledger merge back into L11', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'technical-operations-supervisor.yml'), 'utf8');
     const pushBlock = source.match(/\n  push:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
@@ -283,46 +299,23 @@ describe('loop fleet workflow contract', () => {
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
   });
 
-  it('preserves independent L3/L9 pending sources and groups retries by source run', () => {
-    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
-    const group = source.match(/^  group: (.+)$/mu)?.[1] ?? '';
-    const sourceRunExpression = /\$\{\{\s*github\.event\.workflow_run\.id\s*\|\|\s*inputs\.run_id\s*\|\|\s*github\.run_id\s*\}\}/u;
-    expect(group.replace(sourceRunExpression, '<source-run-id>'))
-      .toBe('loop-fleet-durable-ledger-<source-run-id>');
-    expect(source).toContain('cancel-in-progress: false');
-
-    // With an existing bridge run active, GitHub retains one pending run per
-    // group. The old global group replaced L3 with the later L9 dispatch.
-    const runs = [
-      { loopId: 'L3', runId: '36949104952' },
-      { loopId: 'L9', runId: '36949104687' },
-    ];
-    const oldPending = new Map<string, string>();
-    for (const run of runs) oldPending.set('loop-fleet-durable-ledger', run.runId);
-    expect([...oldPending.values()]).toEqual(['36949104687']);
-
-    const groupFor = ({ workflowRunId = '', inputRunId = '', ownRunId = '' }: {
-      workflowRunId?: string;
-      inputRunId?: string;
-      ownRunId?: string;
-    }) => {
-      const sourceRunId = workflowRunId || inputRunId || ownRunId;
-      return group.replace(sourceRunExpression, sourceRunId);
-    };
-    const pendingBySource = new Map<string, string>();
-    for (const run of runs) {
-      pendingBySource.set(groupFor({ workflowRunId: run.runId, ownRunId: 'bridge-run' }), run.runId);
-    }
-    expect([...pendingBySource.values()]).toEqual(runs.map((run) => run.runId));
-    // A retry of the same dispatch stays in its original group; the ledger
-    // merge helper makes that replay idempotent by recordId.
-    expect(groupFor({ workflowRunId: runs[0].runId, ownRunId: 'bridge-run' }))
-      .toBe(groupFor({ inputRunId: runs[0].runId, ownRunId: 'manual-retry-run' }));
+  it('queues all writers that append to the durable ledger branch', () => {
+    const writers = ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml'];
+    const groups = writers.map((name) => {
+      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
+      const concurrency = source.match(/^concurrency:\n([\s\S]*?)(?=^jobs:)/mu)?.[1] ?? '';
+      expect(concurrency, name).toContain('queue: max');
+      expect(concurrency, name).toContain('cancel-in-progress: false');
+      expect(concurrency, name).not.toContain('workflow_run.id');
+      return concurrency.match(/^  group: (.+)$/mu)?.[1] ?? '';
+    });
+    expect(groups).toEqual(['loop-fleet-durable-ledger', 'loop-fleet-durable-ledger']);
   });
 
-  it('keeps independent lifecycle observer invocations serialized', () => {
+  it('keeps lifecycle observer appends in the shared queue', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
     expect(source).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
+    expect(source).toContain('queue: max');
     expect(source).toContain('cancel-in-progress: false');
   });
 
