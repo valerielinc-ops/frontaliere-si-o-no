@@ -5231,7 +5231,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // `buildPage`, e non dentro il ramo `guideSlugs` piu' sotto, perche' gli altri
  // due consumatori vivono nella shell: un `const` dentro quel ramo era
  // invisibile a entrambi. Una sola (family, key, locale) => i tre non possono
- // nominare card diverse.
+ // nominare card diverse. The same path set covers the translated glossary
+ // hubs so their locale shells keep the same hero contract as the Italian one.
  const glossaryHero: SeoHeroImageOpts | null = GLOSSARY_SECTION_SLUGS.has(firstSeg)
  ? {
  family: 'glossario',
@@ -5313,7 +5314,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // #5001 punto 2 — hero SOLO per il glossario. Misurato sulle sitemap live: le
  // 42 URL di `sitemap-glossario.xml` sono tutte italiane, tutte sotto
  // `glossario-frontaliere`, e tutte senza un solo `<img>`. Le altre voci di
- // `guideSlugs` (guida-frontaliere e varianti, domande-frequenti-frontalieri)
+ // `guideSlugs` (guida-frontaliere e varianti, glossario e FAQ)
  // NON fanno parte di quel gap e restano invariate: questo ramo e' condiviso, e
  // allargarlo qui toccherebbe famiglie che nessuna misura ha indicato come
  // difettose.
