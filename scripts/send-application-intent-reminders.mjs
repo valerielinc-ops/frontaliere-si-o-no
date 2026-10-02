@@ -28,6 +28,7 @@ import {
 import {
   applicationIntentUid,
   buildApplicationIntentEntry,
+  isApplicationIntentReminderEligible,
   rankSimilarApplicationJobs,
   snapshotData,
   APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION,
@@ -81,8 +82,13 @@ function makeUnsubscribeUrl(uid, email, locale = 'it') {
   return `${BASE_URL}${UNSUB_PATH}?uid=${encodeURIComponent(uid)}&email=${encodeURIComponent(email)}&token=${token}`;
 }
 
+let _jobsForTest = null;
+export function __setJobsForTest(jobs) {
+  _jobsForTest = jobs;
+}
+
 function loadJobsById() {
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = _jobsForTest || JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
   return new Map(jobs.map((job) => [job.id, job]));
 }
 
@@ -104,6 +110,24 @@ function intentDeliveryRef(db, intentId) {
 
 function deliveryExists(snapshot) {
   return typeof snapshot?.exists === 'function' ? snapshot.exists() : snapshot?.exists === true;
+}
+
+/**
+ * The outcome of a send lives in the delivery ledger, not on the intent, so a
+ * reminded intent stays eligible by its own data until it expires (90 days).
+ * Drop intents that already have a ledger row (sent, sending or unknown)
+ * before the per-email cap: otherwise the five oldest reminded intents fill
+ * every later selection, the claim returns nothing, and a sixth click is
+ * never reminded. The claim transaction stays the idempotency boundary.
+ */
+export async function withoutRecordedDelivery(db, entries) {
+  const kept = [];
+  for (const entry of entries) {
+    if (!entry?.intentId) continue;
+    const snapshot = await intentDeliveryRef(db, entry.intentId).get();
+    if (!deliveryExists(snapshot)) kept.push(entry);
+  }
+  return kept;
 }
 
 /**
@@ -400,6 +424,13 @@ export async function main() {
 
   let sentCount = 0;
   let skippedCount = 0;
+  // Per-account skip reasons, counts only (no address): a run that ends
+  // "sent 0" must say why, not just how many.
+  const skipReasons = new Map();
+  const skip = (reason) => {
+    skippedCount++;
+    skipReasons.set(reason, (skipReasons.get(reason) || 0) + 1);
+  };
   for (const [uid, snapshots] of byUid) {
     const userDoc = await db.collection('users').doc(uid).get();
     // A saved-jobs profile is not required for this channel. A signed-in user
@@ -410,10 +441,15 @@ export async function main() {
     try {
       email = await verifiedEmailForUid(uid, userData);
     } catch {
-      email = '';
+      skip('auth_lookup_failed');
+      continue;
     }
-    if (!email || (TARGET_EMAIL_RAW && email !== TARGET_EMAIL_RAW)) {
-      skippedCount++;
+    if (!email) {
+      skip('no_verified_email');
+      continue;
+    }
+    if (TARGET_EMAIL_RAW && email !== TARGET_EMAIL_RAW) {
+      skip('not_target');
       continue;
     }
 
@@ -422,18 +458,20 @@ export async function main() {
     try {
       accountDeleted = await isApplicationIntentAccountDeleted(db, uid);
     } catch {
-      skippedCount++;
+      skip('deletion_read_failed');
       continue;
     }
     const subscriberDoc = await db.collection('newsletter_subscribers').doc(email).get();
     const subscriberData = snapshotExists(subscriberDoc) ? subscriberDoc.data() || {} : null;
     if (subscriberData && isCrossChannelStop(subscriberData)) {
-      skippedCount++;
+      skip('cross_channel_stop');
       continue;
     }
 
     const eligible = [];
     const snapshotByIntentId = new Map();
+    let allowedIntents = 0;
+    let dueIntents = 0;
     for (const snapshot of snapshots) {
       const rawData = snapshotDataSafe(snapshot);
       if (!canSendApplicationIntentReminder({
@@ -443,6 +481,9 @@ export async function main() {
         accountDeleted,
         now: nowMs,
       })) continue;
+      allowedIntents++;
+      if (!isApplicationIntentReminderEligible(rawData, nowMs)) continue;
+      dueIntents++;
       const entry = buildApplicationIntentEntry(snapshot, jobsById, locale, jobPageUrl, nowMs);
       if (!entry) continue;
       entry.applicationMode = applicationMode(entry, rawData);
@@ -450,7 +491,9 @@ export async function main() {
       snapshotByIntentId.set(entry.intentId, snapshot);
     }
     if (eligible.length === 0) {
-      skippedCount++;
+      if (allowedIntents === 0) skip('intent_not_allowed');
+      else if (dueIntents === 0) skip('intent_not_due_or_closed');
+      else skip('job_not_live');
       continue;
     }
 
@@ -483,12 +526,24 @@ export async function main() {
       deliverable.push(entry);
     }
     if (deliverable.length === 0) {
-      skippedCount++;
+      skip('no_deliverable_intent');
       continue;
     }
 
-    deliverable.sort((a, b) => (a.intentAt || 0) - (b.intentAt || 0));
-    const selectedEntries = deliverable.slice(0, MAX_APPLICATION_INTENTS_PER_EMAIL);
+    let undelivered;
+    try {
+      undelivered = await withoutRecordedDelivery(db, deliverable);
+    } catch {
+      skip('delivery_read_failed');
+      continue;
+    }
+    if (undelivered.length === 0) {
+      skip('already_delivered');
+      continue;
+    }
+
+    undelivered.sort((a, b) => (a.intentAt || 0) - (b.intentAt || 0));
+    const selectedEntries = undelivered.slice(0, MAX_APPLICATION_INTENTS_PER_EMAIL);
     const sourceJobs = selectedEntries.map((entry) => entry.sourceJob).filter(Boolean);
     const excludedJobIds = new Set(selectedEntries.map((entry) => entry.id));
     const recommendedJobs = rankSimilarApplicationJobs(sourceJobs, allJobs, {
@@ -506,7 +561,7 @@ export async function main() {
         now,
       });
       if (claimedIds.length === 0) {
-        skippedCount++;
+        skip('claim_lost');
         continue;
       }
       const claimedSet = new Set(claimedIds);
@@ -524,10 +579,17 @@ export async function main() {
       campaignId,
     });
     if (result.sent) sentCount++;
-    else skippedCount++;
+    else skip('provider_not_accepted');
   }
 
   console.log(`\n📊 Done — sent ${sentCount}, skipped ${skippedCount}${DRY_RUN ? ' (dry-run)' : ''}`);
+  if (skipReasons.size > 0) {
+    const breakdown = [...skipReasons.entries()]
+      .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0]))
+      .map(([reason, count]) => `${reason}=${count}`)
+      .join(', ');
+    console.log(`   Skip reasons: ${breakdown}`);
+  }
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
