@@ -72,8 +72,10 @@ async function handle(message, sender) {
         ...entry,
         sawForm: entry.sawForm || Boolean(message.sawForm),
         sawFinal: entry.sawFinal || Boolean(message.sawFinal),
-        // The engine pressed the posting's start: a tab opened right after is the form's.
-        ...(message.startedAt ? { startedAt: Number(message.startedAt) } : {}),
+        // The engine pressed the posting's start: the tab it opens is the form's.
+        ...(Number.isFinite(Number(message.startedAt)) && Number(message.startedAt) > 0
+          ? { startedAt: Number(message.startedAt), startUrl: String(message.startUrl || '').slice(0, 2000) }
+          : {}),
       } });
       return { ok: true };
     }
@@ -137,12 +139,42 @@ chrome.tabs.onUpdated.addListener(async (tabId, info) => {
 // own start click opened: a social or privacy link of the posting, or a link a
 // form opens (a job alert), gets nothing.
 const START_TAB_WINDOW_MS = 30_000;
-chrome.tabs.onCreated.addListener(async (tab) => {
+
+/** Same page: origin and path (the query of a redirect may differ). */
+function sameTarget(a, b) {
+  try {
+    const x = new URL(a);
+    const y = new URL(b);
+    return x.origin === y.origin && x.pathname === y.pathname;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * One tab per start click (review of #10980): the tab whose address is the
+ * link the engine pressed, when Chrome already knows it; the start is used up
+ * by it, so a second popup of the posting gets nothing.
+ */
+async function adoptStartTab(tab) {
   if (tab.openerTabId == null) return;
   const entry = await entryFor(tab.openerTabId);
   if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tab.id)) return;
   if (!entry.startedAt || Date.now() - entry.startedAt > START_TAB_WINDOW_MS) return;
-  await chrome.storage.session.set({ [tabKey(tab.id)]: { ...entry, openedAt: Date.now(), openedFrom: tab.openerTabId } });
+  const target = tab.pendingUrl || tab.url || '';
+  if (entry.startUrl && /^https?:/.test(target) && !sameTarget(target, entry.startUrl)) return;
+  const kit = { ...entry, startedAt: null, startUrl: '' };
+  await chrome.storage.session.set({
+    [tabKey(tab.openerTabId)]: kit,
+    [tabKey(tab.id)]: { ...kit, openedAt: Date.now(), openedFrom: tab.openerTabId },
+  });
+}
+
+// Serialized: two popups at once never both read the same unused start.
+let adopting = Promise.resolve();
+chrome.tabs.onCreated.addListener((tab) => {
+  adopting = adopting.then(() => adoptStartTab(tab)).catch(() => {});
+  return adopting;
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {

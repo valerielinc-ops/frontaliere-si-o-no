@@ -1,4 +1,5 @@
 import { spawnSync } from 'node:child_process';
+import vm from 'node:vm';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -206,10 +207,76 @@ describe('fill extension: JOIN steps', () => {
     expect(page('<div role="status">Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').F.pageState(page('<div>Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').document).kind).toBe('refused');
     const done = page('<h1>Grazie per la tua candidatura!</h1>');
     expect(done.F.pageState(done.document).kind).toBe('confirmed');
-    for (const text of ['Du hast dich erfolgreich auf diese Stelle beworben.', 'Deine Bewerbung wurde erfolgreich übermittelt.', 'You have successfully applied for this job.', 'Vous avez postulé avec succès.', 'Ti sei candidato con successo.']) {
+    for (const text of ['Du hast dich erfolgreich auf diese Stelle beworben.', 'Sie haben sich erfolgreich beworben.', 'Deine Bewerbung wurde erfolgreich übermittelt.', 'You have successfully applied for this job.', 'Vous avez postulé avec succès.', 'Ti sei candidato con successo.']) {
       const shown = page(`<p>${text}</p>`);
       expect(shown.F.pageState(shown.document).kind, text).toBe('confirmed');
     }
+    // Review of #10980: a page's prose about other applicants is no confirmation.
+    const prose = 'Es haben sich erfolgreich auf diese Stelle beworben: 12 Personen.';
+    expect(CONFIRM_RE.test(prose)).toBe(false);
+    const posting = page(`<main><h1>Bäcker:in</h1><p>${prose}</p><a href="https://ohws.prospective.ch/public/v1/redirect/x/ats/">Jetzt bewerben</a></main>`);
+    expect(posting.F.pageState(posting.document).kind).toBe('posting');
+  });
+});
+
+// Coop, 2026-10-02: «Jetzt bewerben» opens SuccessFactors in a new tab (target=_blank).
+describe('fill extension: the tab the start link opens', () => {
+  const backgroundSource = readFileSync(resolve(extension, 'background.js'), 'utf8');
+  const START = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
+
+  /** background.js on a fake `chrome`: session storage and the listeners it registers. */
+  function worker() {
+    const store = new Map<string, any>([['loadedFingerprint', 'loaded']]);
+    const listeners: Record<string, Array<(...args: any[]) => any>> = { created: [], message: [] };
+    const on = (name: string) => ({ addListener: (listener: any) => (listeners[name] ||= []).push(listener) });
+    const chrome = {
+      storage: {
+        session: {
+          async get(key: string | null) {
+            if (key === null) return Object.fromEntries(store);
+            return store.has(key) ? { [key]: store.get(key) } : {};
+          },
+          async set(values: Record<string, any>) { for (const [key, value] of Object.entries(values)) store.set(key, value); },
+          async remove(key: string) { store.delete(key); },
+        },
+        local: { async get() { return {}; }, async set() {} },
+      },
+      tabs: { onCreated: on('created'), onUpdated: on('updated'), onRemoved: on('removed'), async query() { return []; }, async get() { return null; }, async create() { return { id: 99 }; }, async update() {}, async sendMessage() {} },
+      runtime: { onMessage: on('message'), onStartup: on('startup'), onInstalled: on('installed'), getURL: (file: string) => file, getManifest: () => ({ content_scripts: [{ matches: [], js: [] }] }), reload() {} },
+      alarms: { async get() { return {}; }, create() {}, onAlarm: on('alarm') },
+      scripting: { async executeScript() { return []; } },
+    };
+    vm.runInNewContext(backgroundSource, { chrome, URL, Date, Number, String, Promise, setTimeout, console, crypto, TextEncoder, btoa, fetch: async () => ({ ok: false }) });
+    const message = (msg: any, tabId: number) => new Promise((done) => listeners.message[0](msg, { tab: { id: tabId } }, done));
+    const created = (tab: any) => listeners.created[0](tab);
+    return { store, message, created };
+  }
+
+  it('gives the order’s kit to the apply tab only, once per start click', async () => {
+    const { store, message, created } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/offene-stellen/x/20d53107-db26-4a35-8f4c-b4d15bb4bb31' }, state: 'filling', openedAt: Date.now() });
+    // A popup before any start click: nothing.
+    await created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:2')).toBe(false);
+    await message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    // Another link of the posting first (a social page), then the apply tab, then a second popup.
+    await created({ id: 3, openerTabId: 1, pendingUrl: 'https://www.instagram.com/coop.jobs/' });
+    await created({ id: 4, openerTabId: 1, pendingUrl: START });
+    await created({ id: 5, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:3')).toBe(false);
+    expect(store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(store.has('tab:5')).toBe(false);
+    // Not even a popup whose address Chrome does not know yet, once the start is used up.
+    await created({ id: 6, openerTabId: 1, pendingUrl: '' });
+    expect(store.has('tab:6')).toBe(false);
+  });
+
+  it('never takes a start that is not a time', async () => {
+    const { store, message, created } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await message({ type: 'mark', startedAt: 'soon', startUrl: START }, 1);
+    await created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:2')).toBe(false);
   });
 });
 
