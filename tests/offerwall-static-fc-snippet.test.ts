@@ -21,7 +21,12 @@ import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { OFFERWALL_FC_SNIPPET, FC_PUBLISHER_ID, FC_JOBBOARD_OFFERWALL_GATE_JS } from '../build-plugins/constants';
+import {
+  OFFERWALL_FC_SNIPPET,
+  OFFERWALL_FC_SCRIPT_CONTENT,
+  FC_PUBLISHER_ID,
+  FC_JOBBOARD_OFFERWALL_GATE_JS,
+} from '../build-plugins/constants';
 import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
@@ -31,6 +36,18 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
     expect(OFFERWALL_FC_SNIPPET).not.toContain('customchoice');
     expect(OFFERWALL_FC_SNIPPET).not.toContain('__ftOfferwallSubscribe');
     expect(OFFERWALL_FC_SNIPPET).not.toContain('cc.registry');
+  });
+});
+
+describe('OFFERWALL_FC_SCRIPT_CONTENT — shared static carrier', () => {
+  it('keeps the inline article wrapper byte-identical to the external job-board body', () => {
+    expect(OFFERWALL_FC_SNIPPET).toBe(`<script>${OFFERWALL_FC_SCRIPT_CONTENT}</script>`);
+  });
+
+  it('emits the job-board body once as a cacheable static asset', () => {
+    const src = read('build-plugins/staticScriptsPlugin.ts');
+    expect(src).toContain('JOB_BOARD_FC_LOADER_FILENAME');
+    expect(src).toContain('OFFERWALL_FC_SCRIPT_CONTENT');
   });
 });
 

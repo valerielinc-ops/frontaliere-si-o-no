@@ -7,6 +7,8 @@ import {
   GPT_LOADER_CONTENT,
   GPT_SCRIPT_SRC,
   JOB_BOARD_HEAD_TAGS,
+  JOB_BOARD_FC_LOADER_FILENAME,
+  JOB_BOARD_FC_LOADER_TAG,
   jobBoardHeadTags,
   isJobBoardPageUrl,
 } from '@/build-plugins/jobBoardGpt';
@@ -68,11 +70,14 @@ describe('job-board GPT bootstrap', () => {
     expect(GPT_LOADER_CONTENT).not.toContain('<ins');
   });
 
-  it('keeps GPT and Funding Choices together for every job-board head', () => {
+  it('keeps GPT and Funding Choices together in cacheable carriers for every job-board head', () => {
     const tags = jobBoardHeadTags('/cerca-lavoro-zurigo/');
     expect(tags).toBe(JOB_BOARD_HEAD_TAGS);
     expect(tags).toContain(GPT_BOOTSTRAP_TAG);
-    expect(tags).toContain(OFFERWALL_FC_SNIPPET);
+    expect(tags).toContain(JOB_BOARD_FC_LOADER_TAG);
+    expect(JOB_BOARD_FC_LOADER_FILENAME).toBe('job-board-fc-loader.js');
+    expect(tags).not.toContain(OFFERWALL_FC_SNIPPET);
+    expect(GPT_LOADER_CONTENT).toContain('data-fc-loader');
     expect(jobBoardHeadTags('/')).toBe('');
   });
 
