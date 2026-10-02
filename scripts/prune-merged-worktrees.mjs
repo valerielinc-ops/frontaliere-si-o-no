@@ -34,20 +34,43 @@
 //      solo se contiene esclusivamente residui (`.DS_Store`, `node_modules`, il body
 //      della PR alla radice) ed è ferma da IDLE_WORKTREE_MS, altrimenti REPORT
 //
+// Prove di contenuto (2026-10-02, dopo lo smaltimento a mano di ~40 worktree che
+// lo sweep lasciava indietro). Valgono solo con le guardie di sempre (fermo da
+// IDLE_WORKTREE_MS, nessuna cwd dentro e lsof leggibile, gh disponibile) e ogni
+// rimozione lascia prima un tag `snapshot/purge/...`:
+//   • commit contenuti in una PR MERGED su main, anche non la propria: HEAD
+//      antenato della sua head, catena locale già nel suo albero, commit
+//      equivalenti per patch-id a commit della PR con il revert escluso, merge
+//      rifatti che differiscono dal gemello solo in file generati. La PR
+//      candidata viene dal nome, dall'upstream, dall'associazione commit→PR o
+//      dai soggetti dei commit nel corpo dello squash su main
+//   • sporco tracciato identico ai blob della PR tra HEAD e la sua head
+//   • PR CLOSED con HEAD == headRefOid, chiusa da 7 giorni (resta in
+//      refs/pull/N/head), o riapplicata dal flusso automatico (issue
+//      «riapplicare la PR #P» COMPLETED + PR `fix/issue-<issue>` MERGED)
+//   • vecchio checkout di main: tutto lo sporco uguale a UN commit first-parent
+//      di main, fermo da 7 giorni
+//   • directory orfana i cui file sono tutti in main allo stesso path
+// Ciò che è solo probabile (punta superata, issue chiusa, file in tmp/, sporco
+// vecchio su PR mergiata) resta REPORT-ONLY con un'annotazione.
+//
 // Lo sporco che NON è lavoro (output dei cron, il body della PR scritto per
-// `--body-file`) non trattiene il worktree: scripts/lib/worktree-dirty.mjs.
-// Uno stato git illeggibile invece sì: non si rimuove ciò che non si è letto.
+// `--body-file` quando la PR esiste) non trattiene il worktree:
+// scripts/lib/worktree-dirty.mjs. Uno stato git illeggibile invece sì: non si
+// rimuove ciò che non si è letto.
 //
 // Uso:
 //   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
 //   node scripts/prune-merged-worktrees.mjs --apply    # esegue le rimozioni safe
+//   node scripts/prune-merged-worktrees.mjs --only <testo>  # solo worktree,
+//        branch e directory il cui path o nome contiene <testo> (diagnosi)
 //
 // Richiede: git + gh CLI autenticato (per lo stato PR). Senza gh → degrada a
 // solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
 
 import { execFileSync, execSync } from 'node:child_process';
 import {
-  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, rmSync, statSync,
+  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, writeFileSync,
 } from 'node:fs';
 import { basename, join, relative, resolve } from 'node:path';
 
@@ -61,27 +84,59 @@ import {
 import { classifyDirty } from './lib/worktree-dirty.mjs';
 import {
   canDeleteClosedCandidate,
+  canRemoveClosedAtHead,
   canRemoveIdleOnMain,
+  canRemoveWithProof,
   hasAncestryProof,
   IDLE_WORKTREE_MS,
   isAbortedCheckout,
   isIdleSince,
   isOrphanResidueFile,
+  isOrphanSkippablePath,
   isPathBusy,
+  isProvenOrphan,
+  isReappliedClosedPr,
   isRemovableOrphanDir,
+  issueNumbersInBranch,
+  namePrefixCandidates,
+  needsProofSnapshot,
   needsSnapshot,
+  normalizeSubject,
+  orphanWindow,
+  reportAnnotation,
+  squashPrNumber,
+  squashSubjects,
+  STALE_CHECKOUT_IDLE_MS,
 } from './lib/branch-purge-policy.mjs';
+import {
+  isDanglingGitPointer, makeContentProver, makeGitRunner, workingBlob,
+} from './lib/merged-content-proof.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
 
+const STARTED_AT = Date.now();
 const APPLY = process.argv.includes('--apply');
+// --only <testo>: limita lo sweep ai worktree/branch/directory che lo contengono.
+const ONLY = (() => {
+  const eq = process.argv.find((a) => a.startsWith('--only='));
+  if (eq) return eq.slice('--only='.length) || null;
+  const i = process.argv.indexOf('--only');
+  return i > 0 ? process.argv[i + 1] || null : null;
+})();
+const selected = (...names) => !ONLY || names.some((n) => typeof n === 'string' && n.includes(ONLY));
 // --orphans-only: fast-path sicuro per il SessionEnd hook. Cancella SOLO i branch
 // `worktree-agent-<id>` 0-ahead orfani (dir worktree già auto-rimossa da
 // EnterWorktree). Zero gh, zero rimozione worktree → non-presidiabile.
 const ORPHANS_ONLY = process.argv.includes('--orphans-only');
 
+// Costo dello sweep, stampato in coda: le chiamate gh sono la risorsa scarsa
+// (quota condivisa col resto del workspace), le prove il tempo in più.
+let ghCalls = 0;
+let proofMs = 0;
+
 function sh(cmd, { allowFail = false } = {}) {
+  if (cmd.startsWith('gh ')) ghCalls++;
   try {
     return execSync(cmd, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] }).trim();
   } catch (e) {
@@ -103,11 +158,12 @@ function shOk(cmd) {
   }
 }
 
-function gitOut(args, { allowFail = false } = {}) {
+function gitOut(args, { allowFail = false, maxBuffer = 1024 * 1024 } = {}) {
   try {
     return execFileSync('git', args, {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'ignore'],
+      maxBuffer,
     }).trim();
   } catch (e) {
     if (allowFail) return '';
@@ -125,6 +181,7 @@ function gitOk(args) {
 }
 
 function ghOut(args, { allowFail = false } = {}) {
+  ghCalls++;
   try {
     return execFileSync('gh', args, {
       encoding: 'utf8',
@@ -258,13 +315,20 @@ const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees|wt)[/\\]/;
 let ghOk = sh('gh --version', { allowFail: true }) !== '';
 const prState = new Map();
 const prRecords = new Map();
-const PR_JSON_FIELDS = 'state,baseRefName,headRefName,headRefOid';
+const prByNumber = new Map(); // numero → record, per le PR candidate delle prove
+const windowPrs = []; // tutte le PR lette in blocco, per le candidate per nome
+const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 function ingestPrs(json) {
   let prs;
   try { prs = JSON.parse(json); } catch { return; }
   for (const pr of prs) {
     if (!pr?.headRefName) continue;
+    if (Number.isInteger(pr.number) && !prByNumber.has(pr.number)) {
+      prByNumber.set(pr.number, pr);
+      windowPrs.push(pr);
+    }
     const records = prRecords.get(pr.headRefName) || [];
+    if (records.some((r) => r.number === pr.number && r.headRefOid === pr.headRefOid)) continue;
     records.push(pr);
     prRecords.set(pr.headRefName, records);
     const prev = prState.get(pr.headRefName);
@@ -607,6 +671,298 @@ function snapshotDetachedBeforeRemove(sha, required) {
   return true;
 }
 
+// --- PROVE DI CONTENUTO -------------------------------------------------------
+// Le regole stanno in scripts/lib/branch-purge-policy.mjs, i fatti li legge
+// scripts/lib/merged-content-proof.mjs. Qui solo la scelta delle PR candidate
+// (nome, upstream, commit→PR, soggetti nello squash) con un tetto di chiamate:
+// la lista PR in blocco è già in memoria, il resto costa una chiamata per PR.
+const mainRef = `origin/${mainBranch}`;
+const prover = makeContentProver({ git: makeGitRunner(process.cwd()), mainRef });
+const MAX_CANDIDATES = 5; // PR provate per worktree
+const MAX_PR_LOOKUPS = 12; // `gh api pulls/<n>` per run, per le PR fuori finestra
+const MAX_REAPPLY_LOOKUPS = 6; // ricerche dell'issue di riapplicazione per run
+const SQUASH_SCAN_DAYS = 60; // storia first-parent di main letta per i soggetti
+let prLookups = 0;
+let reapplyLookups = 0;
+
+function timed(fn) {
+  const t0 = Date.now();
+  try { return fn(); } finally { proofMs += Date.now() - t0; }
+}
+
+// I tre formati (gh pr list, REST commit→PR, REST pulls/<n>) in quello di gh pr list.
+function asPrRecord(pr) {
+  if (!pr) return undefined;
+  const state = pr.merged_at || pr.mergedAt ? 'MERGED' : String(pr.state || '').toUpperCase();
+  return {
+    number: pr.number,
+    state,
+    baseRefName: pr.baseRefName || pr.base?.ref,
+    headRefName: pr.headRefName || pr.head?.ref,
+    headRefOid: pr.headRefOid || pr.head?.sha,
+    closedAt: pr.closedAt || pr.closed_at || null,
+  };
+}
+
+function prRecordByNumber(n) {
+  if (!Number.isInteger(n)) return undefined;
+  if (prByNumber.has(n)) return prByNumber.get(n) || undefined;
+  if (!ghOk || !repoSlug || prLookups >= MAX_PR_LOOKUPS) return undefined;
+  prLookups++;
+  const raw = ghOut(['api', `repos/${repoSlug}/pulls/${n}`], { allowFail: true });
+  let record;
+  try { record = raw ? asPrRecord(JSON.parse(raw)) : undefined; } catch { record = undefined; }
+  prByNumber.set(n, record || null);
+  return record;
+}
+
+// Indice soggetto → PR dagli squash su main: «titolo (#N)» più le righe
+// `* soggetto` dei commit della PR. Letto una volta per run.
+let squashIndex = null;
+function squashCandidates(tip) {
+  const subjects = gitOut(['log', '--no-merges', '--format=%s', '--max-count=120', tip, '--not', mainRef], { allowFail: true })
+    .split('\n').map(normalizeSubject).filter(Boolean);
+  if (!subjects.length) return [];
+  if (!squashIndex) {
+    squashIndex = new Map();
+    // Solo gli squash (`(#N)` in coda al soggetto): su main passano anche
+    // decine di migliaia di commit dei bot, 29 MB di messaggi in 60 giorni
+    // misurati il 2026-10-02, contro 3,5 MB degli squash.
+    const raw = gitOut(['log', '--first-parent', `--since=${SQUASH_SCAN_DAYS} days ago`, '-E', '--grep=\\(#[0-9]+\\)$',
+      '--format=%x1e%s%x1f%b', mainRef], { allowFail: true, maxBuffer: 256 * 1024 * 1024 });
+    for (const record of raw.split('\x1e')) {
+      const [subject, body] = record.split('\x1f');
+      const n = squashPrNumber(subject);
+      if (!n) continue;
+      for (const line of squashSubjects(subject, body)) {
+        if (!squashIndex.has(line)) squashIndex.set(line, new Set());
+        squashIndex.get(line).add(n);
+      }
+    }
+  }
+  const votes = new Map();
+  for (const subject of subjects) {
+    for (const n of squashIndex.get(subject) || []) votes.set(n, (votes.get(n) || 0) + 1);
+  }
+  return [...votes.entries()].sort((a, b) => b[1] - a[1] || b[0] - a[0]).slice(0, 3).map(([n]) => n);
+}
+
+function upstreamHeadRef(branch) {
+  if (!SAFE_BRANCH_RE.test(branch || '')) return null;
+  const merge = gitOut(['config', '--get', `branch.${branch}.merge`], { allowFail: true });
+  return merge.startsWith('refs/heads/') ? merge.slice('refs/heads/'.length) : null;
+}
+
+function recordsForHeadRef(ref) {
+  if (!ref || !SAFE_BRANCH_RE.test(ref)) return [];
+  resolvePrState(ref);
+  return prRecords.get(ref) || [];
+}
+
+// PR MERGED su main in cui cercare il contenuto, in ordine di plausibilità.
+function mergedCandidates({ branch, head }) {
+  const list = [];
+  const push = (pr) => {
+    const rec = asPrRecord(pr);
+    if (!rec || rec.state !== 'MERGED' || rec.baseRefName !== mainBranch || !rec.headRefOid) return;
+    if (list.some((x) => x.headRefOid === rec.headRefOid)) return;
+    list.push(rec);
+  };
+  if (branch) {
+    for (const pr of prRecords.get(branch) || []) push(pr);
+    for (const pr of namePrefixCandidates(branch, windowPrs)) push(pr);
+    const up = upstreamHeadRef(branch);
+    if (up && up !== branch) for (const pr of recordsForHeadRef(up)) push(pr);
+  }
+  push(associatedPrForCommit(head));
+  // Merge rifatto (detached): GitHub conosce i genitori, non il merge locale.
+  const parents = gitOut(['rev-list', '--parents', '-n', '1', head], { allowFail: true }).split(' ').slice(1);
+  if (parents.length > 1) push(associatedPrForCommit(parents[0]));
+  for (const n of squashCandidates(head)) {
+    if (list.length >= MAX_CANDIDATES) break;
+    push(prRecordByNumber(n));
+  }
+  return list.slice(0, MAX_CANDIDATES);
+}
+
+// PR CLOSED che potrebbero contenere l'HEAD: la propria, quella dell'upstream,
+// e le `fix/issue-N` dei numeri nel nome del branch.
+function closedCandidates(branch) {
+  if (!branch) return [];
+  const refs = [branch, upstreamHeadRef(branch), ...issueNumbersInBranch(branch).slice(0, 2).map((n) => `fix/issue-${n}`)];
+  const list = [];
+  for (const ref of [...new Set(refs.filter(Boolean))]) {
+    for (const pr of ref === branch ? prRecords.get(branch) || [] : recordsForHeadRef(ref)) {
+      if (pr.state === 'CLOSED' && pr.headRefOid && !list.some((x) => x.number === pr.number)) list.push(pr);
+    }
+  }
+  return list;
+}
+
+function reapplyIssues(prNumber) {
+  if (!ghOk || reapplyLookups >= MAX_REAPPLY_LOOKUPS) return [];
+  reapplyLookups++;
+  const raw = ghOut(['issue', 'list', '--state', 'closed', '--limit', '10',
+    '--search', `"riapplicare la PR #${prNumber}" in:title`,
+    '--json', 'number,title,state,stateReason'], { allowFail: true });
+  try { return raw ? JSON.parse(raw) : []; } catch { return []; }
+}
+
+// B2-2: HEAD dentro la head di una PR CLOSED che il flusso automatico ha
+// riapplicato su main.
+function reappliedProof(head, closedPr) {
+  if (!prover.hasCommit(closedPr.headRefOid) || !prover.isAncestor(head, closedPr.headRefOid)) return null;
+  for (const issue of reapplyIssues(closedPr.number)) {
+    const reapplyPr = recordsForHeadRef(`fix/issue-${issue.number}`)
+      .find((pr) => pr.state === 'MERGED' && pr.baseRefName === mainBranch);
+    if (isReappliedClosedPr({ closedPr, issue, reapplyPr, baseBranch: mainBranch })) return { issue, reapplyPr };
+  }
+  return null;
+}
+
+// Esiti NEGATIVI delle prove, per branch e tip, nella directory comune di git:
+// un branch che resta report-only non si riprova a ogni sessione (1-3 s e
+// qualche chiamata gh ciascuno, misurati il 2026-10-02). Solo i negativi e
+// solo a stato pulito: una rimozione si decide sempre a fresco, e un tip nuovo
+// è una chiave nuova. Dopo PROOF_CACHE_TTL_MS si riprova (una PR mergiata nel
+// frattempo può contenere il lavoro).
+const PROOF_CACHE_FILE = join(gitDir, 'frontaliere-prune-proofs.json');
+const PROOF_CACHE_TTL_MS = 6 * 60 * 60 * 1000;
+const proofCache = (() => {
+  if (process.env.PRUNE_PROOF_CACHE === '0') return null;
+  try {
+    const parsed = JSON.parse(readFileSync(PROOF_CACHE_FILE, 'utf8'));
+    return parsed && typeof parsed === 'object' ? parsed : {};
+  } catch { return {}; }
+})();
+let proofCacheChanged = false;
+
+function cachedNegative(key) {
+  const entry = proofCache?.[key];
+  return entry && Date.now() - entry.at < PROOF_CACHE_TTL_MS ? entry : null;
+}
+
+function rememberNegative(key, notes) {
+  if (!proofCache) return;
+  proofCache[key] = { at: Date.now(), notes };
+  proofCacheChanged = true;
+}
+
+function saveProofCache() {
+  if (!proofCache || !proofCacheChanged) return;
+  for (const [key, entry] of Object.entries(proofCache)) {
+    if (!(Date.now() - entry?.at < PROOF_CACHE_TTL_MS)) delete proofCache[key];
+  }
+  const tmp = `${PROOF_CACHE_FILE}.${process.pid}.tmp`;
+  try {
+    writeFileSync(tmp, JSON.stringify(proofCache));
+    renameSync(tmp, PROOF_CACHE_FILE); // atomico: due sweep concorrenti non lo corrompono
+  } catch {
+    try { rmSync(tmp, { force: true }); } catch { /* niente da pulire */ }
+  }
+}
+
+// Il cuore delle regole nuove, per un worktree o un branch. `wtPath` assente =
+// branch senza worktree: solo i commit contano. Ritorna { remove } con il
+// motivo, oppure le note per il report.
+function contentProof({ head, branch, wtPath = null, dirty = false, prExists = false, activityMs = 0, indexMs = 0 }) {
+  const cacheKey = !dirty && head ? `${branch || '-'}@${head}` : null;
+  const cached = cacheKey ? cachedNegative(cacheKey) : null;
+  if (cached) return { notes: cached.notes || {} };
+  const result = timed(() => {
+    const notes = {};
+    if (!head) return { notes };
+    // HEAD già su main: non c'è un commit da provare, solo l'eventuale sporco.
+    const onMain = aheadOfMain(head) === 0;
+    for (const pr of onMain ? [] : mergedCandidates({ branch, head })) {
+      const chain = prover.proveChain(head, pr.headRefOid);
+      if (!chain.proven) {
+        if (chain.sharesPr && !notes.partialPr) notes.partialPr = { number: pr.number, unproven: chain.unproven, example: chain.example };
+        continue;
+      }
+      if (!dirty) return { remove: `contenuto nella PR #${pr.number} MERGED: ${chain.how}` };
+      const d = prover.dirtyProof(wtPath, head, pr.headRefOid, { prExists });
+      if (d.proven) return { remove: `contenuto nella PR #${pr.number} MERGED: ${chain.how}; ${d.files} file non committati identici a blob della PR` };
+      if (d.tmpOnly && !notes.tmpOnly) notes.tmpOnly = { number: pr.number, count: d.tmpOnly };
+      notes.provenPr = notes.provenPr || pr;
+    }
+    if (branch && !onMain) {
+      const atHead = (prRecords.get(branch) || []).find((pr) => canRemoveClosedAtHead({ pr, head, dirty }));
+      if (atHead) {
+        return { remove: `PR #${atHead.number} CLOSED il ${String(atHead.closedAt).slice(0, 10)} con HEAD identico alla sua head: il contenuto resta in refs/pull/${atHead.number}/head` };
+      }
+      for (const closedPr of closedCandidates(branch)) {
+        const reapplied = reappliedProof(head, closedPr);
+        if (!reapplied) continue;
+        const why = `PR #${closedPr.number} CLOSED riapplicata: issue #${reapplied.issue.number} COMPLETED, PR #${reapplied.reapplyPr.number} MERGED; HEAD dentro refs/pull/${closedPr.number}/head`;
+        if (!dirty) return { remove: why };
+        const d = prover.dirtyProof(wtPath, head, closedPr.headRefOid, { prExists: true });
+        if (d.proven) return { remove: `${why}; ${d.files} file non committati identici a blob della PR` };
+      }
+    }
+    if (wtPath && dirty && onMain && isIdleSince(activityMs, { idleMs: STALE_CHECKOUT_IDLE_MS })) {
+      const stale = prover.staleMainCheckout(wtPath, head, { aroundMs: indexMs || activityMs, prExists });
+      if (stale.proven) {
+        return { remove: `vecchio checkout di main: ${stale.files} file sporchi identici a ${stale.commit.slice(0, 12)} (first-parent di main)` };
+      }
+    }
+    return { notes };
+  });
+  if (cacheKey && !result.remove) rememberNegative(cacheKey, result.notes);
+  return result;
+}
+
+// Report: i casi che NON sono prove ma meritano un'indicazione. Le issue nel
+// nome si leggono alla fine, in una sola chiamata GraphQL.
+const pendingIssueNotes = []; // { entry, numbers }
+function attachNotes(entry, notes = {}, { dirty = false, activityMs = 0, state } = {}) {
+  const staleDays = activityMs ? Math.floor((Date.now() - activityMs) / 86400000) : 0;
+  const staleDirty = dirty && isIdleSince(activityMs, { idleMs: STALE_CHECKOUT_IDLE_MS })
+    && (state === 'MERGED' || notes.provenPr)
+    ? { days: staleDays, what: `PR #${notes.provenPr?.number ?? entry.resolution?.pr?.number ?? '?'} mergiata` }
+    : null;
+  const note = reportAnnotation({ partialPr: notes.partialPr, tmpOnly: notes.tmpOnly, staleDirty });
+  if (note) entry.reason = `${entry.reason} — ${note}`;
+  const numbers = issueNumbersInBranch(entry.branch || entry.name || '').slice(0, 3);
+  if (numbers.length) pendingIssueNotes.push({ entry, numbers, dirty, activityMs });
+  return entry;
+}
+
+function resolveIssueNotes() {
+  if (!pendingIssueNotes.length || !ghOk || !repoSlug) return;
+  const numbers = [...new Set(pendingIssueNotes.flatMap((p) => p.numbers))].slice(0, 40);
+  const [owner, name] = repoSlug.split('/');
+  const fields = numbers.map((n) => `i${n}: issueOrPullRequest(number: ${n}) { __typename ... on Issue { state stateReason } }`).join(' ');
+  const raw = ghOut(['api', 'graphql', '-f', `query=query { repository(owner: "${owner}", name: "${name}") { ${fields} } }`], { allowFail: true });
+  let repo;
+  try { repo = JSON.parse(raw)?.data?.repository; } catch { repo = null; }
+  if (!repo) return;
+  for (const { entry, numbers: own, dirty, activityMs } of pendingIssueNotes) {
+    for (const n of own) {
+      const issue = repo[`i${n}`];
+      if (issue?.__typename !== 'Issue' || issue.state !== 'CLOSED') continue;
+      const note = reportAnnotation({ closedIssue: { number: n, stateReason: issue.stateReason } });
+      const stale = dirty && isIdleSince(activityMs, { idleMs: STALE_CHECKOUT_IDLE_MS })
+        ? `; ${reportAnnotation({ staleDirty: { days: Math.floor((Date.now() - activityMs) / 86400000), what: `issue #${n} chiusa` } })}`
+        : '';
+      entry.reason = `${entry.reason} — ${note}${stale}`;
+      break;
+    }
+  }
+}
+
+function proofGuardsOk() {
+  return ghOk && busySnapshot.known;
+}
+
+// Ultimo aggiornamento di un branch senza worktree: il suo reflog, altrimenti
+// la data del commit.
+function branchActivityMs(branch) {
+  try { return statSync(join(gitDir, 'logs', 'refs', 'heads', branch)).mtimeMs; } catch { /* niente reflog */ }
+  const ct = Number.parseInt(gitOut(['log', '-1', '--format=%ct', `refs/heads/${branch}`], { allowFail: true }), 10);
+  return Number.isFinite(ct) ? ct * 1000 : 0;
+}
+
 const wtPorcelain = sh('git worktree list --porcelain');
 const worktrees = [];
 let cur = null;
@@ -642,6 +998,7 @@ const removeWt = []; // {path, branch}
 const reportWt = []; // {path, branch, reason}
 for (const wt of worktrees) {
   if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees|.wt → mai toccare (incl. main checkout)
+  if (!selected(wt.path, wt.branch)) continue;
   if (isCurrentWorktree(wt.path)) {
     reportWt.push({ ...wt, reason: 'checkout corrente — KEEP, mai rimuovere automaticamente' });
     continue;
@@ -685,21 +1042,41 @@ for (const wt of worktrees) {
   const state = wt.branch ? resolveBranchPrState(wt.branch) : undefined;
   const resolution = wt.branch ? branchPrResolution.get(wt.branch) : undefined;
   if (state === 'OPEN') continue; // PR aperta → lavoro vivo
+  const activity = adminDir ? lastActivityMs(wt.path, adminDir) : 0;
+  const idle = isIdleSince(activity);
+
+  // Prove di contenuto: tentate solo dove lo sweep altrimenti lascerebbe il
+  // worktree in report, e solo con le guardie soddisfatte (il calcolo costa).
+  const proofOrReport = (reason, { dirtyNow = dirty, prExists = Boolean(state) } = {}) => {
+    let proof = {};
+    if (!statusError && idle && busySnapshot.known && ghOk) {
+      let indexMs = 0;
+      try { indexMs = statSync(join(adminDir, 'index')).mtimeMs; } catch { /* senza index */ }
+      proof = contentProof({
+        head, branch: wt.branch, wtPath: wt.path, dirty: dirtyNow, prExists, activityMs: activity, indexMs,
+      });
+    }
+    if (canRemoveWithProof({ proven: Boolean(proof.remove), idle, busy: false, busyKnown: busySnapshot.known, ghOk })) {
+      removeWt.push({
+        ...wt,
+        snapshot: wt.branch ? needsProofSnapshot({ hasSnapshot: hasSnapshotTag(wt.branch) }) : false,
+        snapshotDetached: wt.branch ? false : needsProofSnapshot({ hasSnapshot: hasSnapshotAt(head) }),
+        reason: proof.remove,
+      });
+      return;
+    }
+    reportWt.push(attachNotes({ ...wt, reason, resolution }, proof.notes, { dirty: dirtyNow, activityMs: activity, state }));
+  };
+
   const mergedAtHead = wt.branch && mergedPrAtHead(wt.branch, head);
   const mergedByCommit = resolution?.source === 'commit' && resolution.state === 'MERGED';
   if (state === 'MERGED' && wt.branch && !mergedAtHead && !mergedByCommit) {
-    reportWt.push({
-      ...wt,
-      reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY`,
-    });
+    proofOrReport(`PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY`);
     continue;
   }
   if (state === 'MERGED') {
     if (dirty) {
-      reportWt.push({
-        ...wt,
-        reason: `PR ${state} ma worktree ${dirtyNote} — ispeziona a mano: ${significant.slice(0, 5).join(', ')}`,
-      });
+      proofOrReport(`PR ${state} ma worktree ${dirtyNote} — ispeziona a mano: ${significant.slice(0, 5).join(', ')}`);
       continue;
     }
     if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / body della PR), PR ${state}.`);
@@ -716,7 +1093,7 @@ for (const wt of worktrees) {
     if (!dirty && canDeleteClosedCandidate({ ahead })) {
       removeWt.push({ ...wt, reason: 'PR CLOSED ma 0-ahead: nessun commit locale unico' });
     } else {
-      reportWt.push({ ...wt, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'}${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY` });
+      proofOrReport(`PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'}${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY`);
     }
   } else if (wt.detached) {
     if (!dirty && isAncestorOfMain(head)) {
@@ -735,21 +1112,24 @@ for (const wt of worktrees) {
       });
       continue;
     }
-    reportWt.push({ ...wt, reason: `detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY` });
+    proofOrReport(`detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY`, { prExists: true });
   } else {
-    // Worktree senza PR. Con commit propri resta sempre report-only: può essere
-    // lavoro pre-PR. Con 0 commit propri e niente sporco non c'è niente da
-    // perdere; lo si tiene solo finché potrebbe essere un agente appena partito
-    // (EnterWorktree / fast-worktree.sh e nessun commit ancora): oltre
-    // IDLE_WORKTREE_MS di inattività, e senza processi dentro, si rimuove.
+    // Worktree senza PR. Con commit propri resta report-only salvo una prova
+    // di contenuto: può essere lavoro pre-PR. Con 0 commit propri e niente
+    // sporco non c'è niente da perdere; lo si tiene solo finché potrebbe essere
+    // un agente appena partito (EnterWorktree / fast-worktree.sh e nessun
+    // commit ancora): oltre IDLE_WORKTREE_MS di inattività, e senza processi
+    // dentro, si rimuove. Senza PR il body non tracciato è il testo della PR che
+    // l'agente stava per aprire: lavoro, non rumore.
+    const noPr = ignored.length && !aborted ? classifyDirty(wt.path, { prExists: false }) : null;
+    const dirtyNoPr = noPr ? noPr.error || noPr.significant.length > 0 : dirty;
+    const ignoredNoPr = noPr ? noPr.ignored : ignored;
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
-    const activity = adminDir ? lastActivityMs(wt.path, adminDir) : 0;
-    const idle = isIdleSince(activity);
     // Un nome di branch che non si sa citare non è stato interrogato su GitHub:
     // per lui "nessuna PR" non è una risposta.
     const prStateKnown = ghOk && SAFE_BRANCH_RE.test(wt.branch || '');
     if (canRemoveIdleOnMain({
-      dirty, ahead, idle, busy: false, busyKnown: busySnapshot.known, ghOk: prStateKnown,
+      dirty: dirtyNoPr, ahead, idle, busy: false, busyKnown: busySnapshot.known, ghOk: prStateKnown,
     })) {
       const days = Math.floor((Date.now() - activity) / 86400000);
       removeWt.push({
@@ -759,11 +1139,13 @@ for (const wt of worktrees) {
       continue;
     }
     const gone = wt.branch && upstreamGone(wt.branch) ? ' upstream-GONE (remoto cancellato — probabile merged/closed altrove, es. worktree Codex)' : '';
-    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron/body PR)` : '';
-    const why = ahead === 0 && !dirty
+    const noise = ignoredNoPr.length ? ` (+${ignoredNoPr.length} sporchi ignorati: cron/body PR)` : '';
+    const why = ahead === 0 && !dirtyNoPr
       ? ` — attività ${idle ? 'vecchia' : 'recente'} (< ${IDLE_WORKTREE_MS / 3600000} h = agente forse attivo)${busySnapshot.known ? '' : ', lsof non disponibile'}${ghOk ? '' : ', gh non disponibile'}`
       : ' — agent forse attivo';
-    reportWt.push({ ...wt, reason: `clean=${!dirty}${statusError ? ' (stato git illeggibile)' : ''}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone}${why}, REPORT-ONLY` });
+    const reason = `clean=${!dirtyNoPr}${statusError ? ' (stato git illeggibile)' : ''}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone}${why}, REPORT-ONLY`;
+    if (prStateKnown) proofOrReport(reason, { dirtyNow: dirtyNoPr, prExists: false });
+    else reportWt.push(attachNotes({ ...wt, reason }, {}, { dirty: dirtyNoPr, activityMs: activity }));
   }
 }
 
@@ -804,6 +1186,74 @@ function scanOrphan(dir) {
   return { files, newest, work };
 }
 
+// C1: una directory orfana con file veri si rimuove solo se OGNI file è
+// rumore, ignorato da .gitignore, o identico al blob dello stesso path in main
+// (l'albero attuale o un commit first-parent nella finestra intorno all'ultima
+// scrittura). Il blob deve essere raggiungibile da main a quel path: che
+// esista nell'object DB non basta, gli irraggiungibili spariscono col gc.
+const ORPHAN_MAX_FILES = 60000;
+
+function fullOrphanScan(dir) {
+  const files = [];
+  let newest = 0;
+  let newestFile = 0;
+  let unreadable = null;
+  let tooMany = false;
+  const walk = (current) => {
+    if (unreadable || tooMany) return;
+    let entries;
+    try { entries = readdirSync(current, { withFileTypes: true }); } catch { unreadable = relative(dir, current) || '.'; return; }
+    try { newest = Math.max(newest, lstatSync(current).mtimeMs); } catch { /* sparito */ }
+    for (const entry of entries) {
+      const full = join(current, entry.name);
+      if (entry.isDirectory()) {
+        if (entry.name !== 'node_modules' && entry.name !== '.cache') walk(full);
+        continue;
+      }
+      let st;
+      try { st = lstatSync(full); } catch { continue; }
+      newest = Math.max(newest, st.mtimeMs);
+      newestFile = Math.max(newestFile, st.mtimeMs);
+      if (files.length >= ORPHAN_MAX_FILES) { tooMany = true; return; }
+      files.push({ rel: relative(dir, full), full });
+    }
+  };
+  walk(dir);
+  return { files, newest, newestFile, unreadable, tooMany };
+}
+
+function provenOrphan(dir) {
+  if (!busySnapshot.known || !ghOk) return null;
+  return timed(() => {
+    const scan = fullOrphanScan(dir);
+    if (scan.unreadable || scan.tooMany || !isIdleSince(scan.newest)) return null;
+    const files = scan.files.map((f) => ({
+      ...f,
+      skippable: isOrphanSkippablePath(f.rel) || isOrphanResidueFile(f.rel)
+        || (f.rel === '.git' && isDanglingGitPointer(f.full)),
+    }));
+    const toCheck = files.filter((f) => !f.skippable);
+    const ignored = prover.ignoredPaths(repoRoot || process.cwd(), toCheck.map((f) => f.rel));
+    const verify = [];
+    for (const f of toCheck) {
+      f.ignored = ignored.has(f.rel);
+      if (f.ignored) continue;
+      f.blob = workingBlob(f.full);
+      if (typeof f.blob !== 'string' || f.blob === 'deleted') return null;
+      verify.push(f);
+    }
+    const window = orphanWindow(scan.newestFile || scan.newest);
+    const matched = verify.length ? prover.orphanFilesMatch(verify, window || { sinceMs: 0, untilMs: 0 }) : new Map();
+    if (!matched) return null;
+    for (const f of verify) f.matched = matched.has(f.rel);
+    if (!isProvenOrphan({ files, idle: isIdleSince(scan.newest) })) {
+      const miss = verify.find((f) => !f.matched);
+      return { proven: false, miss: miss?.rel };
+    }
+    return { proven: true, files: files.length, verified: verify.length, newest: scan.newest };
+  });
+}
+
 function sweepOrphans(dir) {
   let entries;
   try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return; }
@@ -823,14 +1273,20 @@ function sweepOrphans(dir) {
       orphanReport.push({ path: full, reason: 'in uso: un processo ha la cwd dentro — KEEP' });
       continue;
     }
+    if (!selected(full)) continue;
     const { files, newest, work } = scanOrphan(full);
     if (!work && isRemovableOrphanDir({ files, idle: isIdleSince(newest) })) {
       orphanRemove.push({ path: full, files: files.length });
+      continue;
+    }
+    const proof = work ? provenOrphan(full) : null;
+    if (proof?.proven) {
+      orphanRemove.push({ path: full, files: proof.files, proven: proof });
     } else {
       orphanReport.push({
         path: full,
         reason: work
-          ? `nessun worktree git registrato ma contiene file (es. ${work}) — senza metadati git non si può dire se è lavoro, verifica a mano`
+          ? `nessun worktree git registrato ma contiene file (es. ${proof?.miss || work}${proof?.miss ? ', diverso da main' : ''}) — senza metadati git non si può dire se è lavoro, verifica a mano`
           : `solo residui (${files.length} file), modificata da meno di ${IDLE_WORKTREE_MS / 3600000} h`,
       });
     }
@@ -848,9 +1304,23 @@ const allLocal = sh("git for-each-ref --format='%(refname:short)' refs/heads")
 
 const delBranch = []; // name
 const reportBranch = []; // {name, reason}
+// Branch senza worktree: le stesse prove sui commit (lo sporco non c'è), con
+// l'inattività letta dal reflog del branch.
+function branchProofOrReport(b, head, state, reason) {
+  const activityMs = branchActivityMs(b);
+  const idle = isIdleSince(activityMs);
+  const proof = idle && proofGuardsOk() ? contentProof({ head, branch: b, activityMs }) : {};
+  if (canRemoveWithProof({ proven: Boolean(proof.remove), idle, busy: false, busyKnown: busySnapshot.known, ghOk })) {
+    delBranch.push({ name: b, snapshot: needsProofSnapshot({ hasSnapshot: hasSnapshotTag(b) }), reason: proof.remove });
+    return;
+  }
+  reportBranch.push(attachNotes({ name: b, reason }, proof.notes, { state }));
+}
+
 for (const b of allLocal) {
   if (b === mainBranch) continue;
   if (wtBranches.has(b)) continue; // gestito sopra come worktree
+  if (!selected(b)) continue;
   const state = resolveBranchPrState(b);
   if (state === 'OPEN') continue;
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) {
@@ -874,7 +1344,7 @@ for (const b of allLocal) {
           ? `PR #${resolution.pr?.number ?? '?'} MERGED: commit ${resolution.sha?.slice(0, 12)} antenato dell'HEAD PR ${resolution.pr?.head?.sha?.slice(0, 12) ?? resolution.pr?.headRefOid?.slice(0, 12) ?? '?'} (behind=0)`
           : 'PR MERGED con HEAD esatto su main',
       });
-    } else reportBranch.push({ name: b, reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY` });
+    } else branchProofOrReport(b, head, state, `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY`);
     continue;
   }
   if (state === 'CLOSED') {
@@ -882,14 +1352,19 @@ for (const b of allLocal) {
     if (canDeleteClosedCandidate({ ahead })) {
       delBranch.push({ name: b, snapshot: false, reason: 'PR CLOSED ma 0-ahead: nessun commit locale unico' });
     } else {
-      reportBranch.push({ name: b, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'} — REPORT-ONLY` });
+      branchProofOrReport(b, head, state, `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'} — REPORT-ONLY`);
     }
     continue;
   }
   const ahead = aheadOfMain(b);
   if (ahead === 0) delBranch.push({ name: b, snapshot: false, reason: '0-ahead su main, nessun commit locale unico' });
-  else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR${upstreamGone(b) ? ' upstream-GONE' : ''} — possibile lavoro non in PR, REPORT-ONLY` });
+  else if (!SAFE_BRANCH_RE.test(b)) reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR, nome non interrogabile — REPORT-ONLY` });
+  else branchProofOrReport(b, head, state, `ahead=${ahead ?? 'unknown'} no-PR${upstreamGone(b) ? ' upstream-GONE' : ''} — possibile lavoro non in PR, REPORT-ONLY`);
 }
+
+resolveIssueNotes();
+saveProofCache();
+const costLine = () => `ℹ️  costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s, di cui prove ${(proofMs / 1000).toFixed(1)} s; ${ghCalls} chiamate gh.`;
 
 // --- OUTPUT + APPLY ---------------------------------------------------------
 console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo worktree-agent-*+0-ahead)'} | mode=${APPLY ? 'APPLY' : 'dry-run'}`);
@@ -900,7 +1375,9 @@ removeWt.forEach((w) => console.log(
   `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${w.snapshot || w.snapshotDetached ? ' — crea snapshot prima della rimozione' : ''}`,
 ));
 console.log(`directory orfane da rimuovere (${orphanRemove.length}):`);
-orphanRemove.forEach((o) => console.log(`  - ${o.path} — nessun worktree registrato, solo residui (${o.files} file: .DS_Store / node_modules / body PR)`));
+orphanRemove.forEach((o) => console.log(o.proven
+  ? `  - ${o.path} — nessun worktree registrato, ${o.proven.verified} file identici a main allo stesso path (${o.files} in tutto, il resto rumore o ignorato)`
+  : `  - ${o.path} — nessun worktree registrato, solo residui (${o.files} file: .DS_Store / node_modules / body PR)`));
 console.log(`branch locali da cancellare (${delBranch.length}):`);
 delBranch.forEach((b) => console.log(
   `  - ${b.name}${b.reason ? ` — ${b.reason}` : ''}${b.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
@@ -917,6 +1394,7 @@ if (reportWt.length || reportBranch.length || orphanReport.length) {
 if (!APPLY) {
   console.log('');
   console.log('dry-run: niente rimosso. Ri-esegui con --apply per applicare.');
+  console.log(costLine());
   process.exit(0);
 }
 
@@ -960,8 +1438,12 @@ for (const b of delBranch) {
 }
 for (const o of orphanRemove) {
   // Ricontrollo subito prima: nel frattempo qualcuno può averci scritto.
-  const again = scanOrphan(o.path);
-  if (again.work || !isRemovableOrphanDir({ files: again.files, idle: isIdleSince(again.newest) })) {
+  const again = o.proven ? null : scanOrphan(o.path);
+  const recheck = o.proven ? fullOrphanScan(o.path) : null;
+  const changed = o.proven
+    ? recheck.files.length !== o.files || recheck.newest !== o.proven.newest || isBusy(o.path)
+    : again.work || !isRemovableOrphanDir({ files: again.files, idle: isIdleSince(again.newest) });
+  if (changed) {
     failed++;
     console.log(`⚠️  SALTATA directory ${o.path}: è cambiata durante lo sweep`);
     continue;
@@ -978,3 +1460,4 @@ for (const o of orphanRemove) {
 sh('git worktree prune', { allowFail: true });
 console.log('');
 console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
+console.log(costLine());

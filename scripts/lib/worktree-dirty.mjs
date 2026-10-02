@@ -63,16 +63,23 @@ export function classifyDirtyPaths(paths, { isCronManaged = isCronManagedPath } 
 }
 
 // Come classifyDirtyPaths, ma conosce lo stato porcelain: il body di una PR è
-// rumore solo se non è tracciato (`??`).
-export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPath } = {}) {
+// rumore solo se non è tracciato (`??`) e solo se la PR esiste, in qualunque
+// stato (`prExists`). Il body di una PR non ancora aperta è il testo che
+// l'agente stava per pubblicare: lavoro, non residuo.
+export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPath, prExists = true } = {}) {
   const significant = [];
+  const significantEntries = [];
   const ignored = [];
-  for (const { status, path: filePath } of entries) {
+  for (const entry of entries) {
+    const { status, path: filePath } = entry;
     if (isCronManaged(filePath)) ignored.push(filePath);
-    else if (status === '??' && isPrScratchPath(filePath)) ignored.push(filePath);
-    else significant.push(filePath);
+    else if (prExists && status === '??' && isPrScratchPath(filePath)) ignored.push(filePath);
+    else {
+      significant.push(filePath);
+      significantEntries.push(entry);
+    }
   }
-  return { significant, ignored };
+  return { significant, significantEntries, ignored };
 }
 
 // `null` = git non ha risposto. NON è "pulito": un worktree di cui non si può
@@ -94,8 +101,8 @@ function statusPorcelain(wtPath) {
   } catch { return null; }
 }
 
-export function classifyDirty(wtPath) {
+export function classifyDirty(wtPath, { prExists = true } = {}) {
   const porcelain = statusPorcelain(wtPath);
-  if (porcelain === null) return { significant: [], ignored: [], error: true };
-  return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain)), error: false };
+  if (porcelain === null) return { significant: [], significantEntries: [], ignored: [], error: true };
+  return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain), { prExists }), error: false };
 }
