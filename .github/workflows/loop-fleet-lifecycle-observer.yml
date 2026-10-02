@@ -13,12 +13,12 @@ permissions:
   actions: read
   pull-requests: read
 
-# Keep observer invocations serialized with each other. The ledger bridge uses
-# source-run groups to preserve independent pending work; both writers resolve
-# branch push races by reapplying their idempotent records on the latest tip.
+# Share one FIFO writer group with the durable ledger bridge. This serializes
+# branch appends while retaining concurrent observer invocations in the queue.
 # Neither workflow can write main directly.
 concurrency:
   group: loop-fleet-durable-ledger
+  queue: max
   cancel-in-progress: false
 
 jobs:
