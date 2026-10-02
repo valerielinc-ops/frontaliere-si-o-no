@@ -55,6 +55,7 @@ import { useMediaQuery } from '@/hooks/useMediaQuery';
 const LeadMagnetCTA = lazyRetry(() => import('@/components/shared/LeadMagnetCTA'));
 const ConsultingCTA = lazyRetry(() => import('@/components/calculator/ConsultingCTA').then(m => ({ default: m.ConsultingCTA })));
 const PreferredSourceCTA = lazyRetry(() => import('@/components/shared/PreferredSourceCTA'));
+const PreferredSourcePopup = lazyRetry(() => import('@/components/community/PreferredSourcePopup'));
 const InlineFuelPriceTable = lazyRetry(() => import('@/components/blog/InlineFuelPriceTable'));
 const InlineBorderWaitRanking = lazyRetry(() => import('@/components/blog/InlineBorderWaitRanking'));
 
@@ -2213,6 +2214,10 @@ function BlogArticles({
 
  return (
  <div className="max-w-3xl xlc:max-w-none mx-auto">
+ <Suspense fallback={null}>
+ <PreferredSourcePopup key={article.id} articleId={article.id} />
+ </Suspense>
+
  {/* Reading progress bar */}
  <div
  className="fixed top-0 left-0 z-50 h-[3px] w-full bg-gradient-to-r from-accent-strong via-accent-strong to-accent-strong-hover transition-transform duration-150 ease-out origin-left [transform:var(--sx)]"
