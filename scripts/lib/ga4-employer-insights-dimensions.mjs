@@ -1,4 +1,8 @@
 import { fetchRetry } from './ga4-service-account.mjs';
+import {
+  findGa4CustomDimension,
+  ga4EventDimensionContractMismatch,
+} from './ga4-event-dimension-contract.mjs';
 
 export const EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS = Object.freeze([
   Object.freeze({
@@ -27,25 +31,6 @@ function normalizePropertyId(propertyId) {
 function responseError(response, action, parameterName = '') {
   const label = parameterName ? ` ${parameterName}` : '';
   return `${action}${label}: HTTP ${response.status} ${response.statusText || ''}`.trim();
-}
-
-function findCustomDimension(customDimensions, parameterName) {
-  if (!Array.isArray(customDimensions)) return null;
-  return customDimensions.find((dimension) => dimension?.parameterName === parameterName) || null;
-}
-
-function dimensionContractMismatch(expected, actual) {
-  if (!actual) {
-    return `GA4 custom dimension ${expected.parameterName} was not listed after a 409 conflict; its contract cannot be verified`;
-  }
-  const mismatches = [];
-  if (actual.scope !== 'EVENT') mismatches.push('scope (expected EVENT)');
-  if (actual.displayName !== expected.displayName) {
-    mismatches.push(`displayName (expected "${expected.displayName}")`);
-  }
-  return mismatches.length
-    ? `GA4 custom dimension ${expected.parameterName} has mismatched ${mismatches.join(' and ')}`
-    : null;
 }
 
 /**
@@ -85,7 +70,7 @@ export async function ensureGa4CustomDimensions({
   for (const dimension of dimensions) {
     const existingDimension = existing.get(dimension.parameterName);
     if (existingDimension) {
-      const mismatch = dimensionContractMismatch(dimension, existingDimension);
+      const mismatch = ga4EventDimensionContractMismatch(dimension, existingDimension);
       if (mismatch) failures.push(mismatch);
       else alreadyPresent.push(dimension.parameterName);
       continue;
@@ -119,8 +104,8 @@ export async function ensureGa4CustomDimensions({
           continue;
         }
         const verifiedBody = await verified.json();
-        const concurrentDimension = findCustomDimension(verifiedBody.customDimensions, dimension.parameterName);
-        const mismatch = dimensionContractMismatch(dimension, concurrentDimension);
+        const concurrentDimension = findGa4CustomDimension(verifiedBody.customDimensions, dimension.parameterName);
+        const mismatch = ga4EventDimensionContractMismatch(dimension, concurrentDimension);
         if (mismatch) failures.push(mismatch);
         else raced.push(dimension.parameterName);
       } else {
