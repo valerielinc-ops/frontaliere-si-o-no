@@ -1,6 +1,6 @@
 {
   "crawlerKey": "transgourmet",
-  "assembledAt": "2026-10-01T21:19:40.031Z",
+  "assembledAt": "2026-10-02T09:14:16.386Z",
   "jobs": [
     {
       "id": "transgourmet-57aaf462-20f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/57aaf462-20f3-4c1f-8b7c-cff06ebbe1c8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.016Z",
+      "crawledAt": "2026-10-02T09:13:45.875Z",
       "addressLocality": "Gamsen",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -74,13 +74,15 @@
         "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
         "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
         "employee-employe-de-vente-en-marche-transgourmet-gamsen",
-        "sales-assistant-in-market-department-transgourmet-gamsen"
+        "sales-assistant-in-market-department-transgourmet-gamsen",
+        "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen",
           "addetta-addetto-alle-vendite-nel-reparto-mercato-transgourmet-gamsen",
-          "sales-assistant-in-market-department-transgourmet-gamsen"
+          "sales-assistant-in-market-department-transgourmet-gamsen",
+          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-gamsen"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-gamsen"
@@ -91,6 +93,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T11:07:22.804Z",
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -101,256 +104,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72000,
           "maxValue": 111000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-ee4631a4-c0a",
-      "slug": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
-      "slugByLocale": {
-        "it": "checkout-check-in-check-out-dei-dipendenti-transgourmet-pratteln",
-        "en": "employee-employee-sales-checkout-check-in-check-out-transgourmet-pratteln",
-        "de": "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-        "fr": "employe-vente-des-employes-check-out-check-in-check-out-transgourmet-pratteln"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Kasse/Check-In/Check-out",
-      "titleByLocale": {
-        "it": "Checkout/Check-in/Check-out dei dipendenti",
-        "en": "Employee Sales Cash desk/Check-in/Check-out",
-        "de": "Mitarbeiterin / Mitarbeiter Verkauf Kasse/Check-In/Check-out",
-        "fr": "Ventes des employés Trésorerie/enregistrement/départ"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du erfasst Kundendaten, erstellst Tageskarten und aktualisierst den Kundenstamm\n• Du nimmst Leergut und Retouren entgegen und kontrollierst Eintritte\n• Du betreust die Telefonzentrale sowie Info- und Prospektbereiche\n• Du wickelst das Inkasso effizient ab und machst die Kassenabrechnung korrekt\n• Du begrüsst unsere Kundschaft freundlich und sorgst für einen professionellen ersten Eindruck\n• Du übernimmst Zusatzaufgaben rund um Empfang und Service, wo's dich braucht\n• Am Check-out scannst du die Ware\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\n• Von Vorteil hast du bereits die Stapler-und/oder Deichselgerätausbildung ( SUVA-Norm) absolviert\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nZurlindenstrasse\n4133 Pratteln\nPratteln\n20%\nunbefristet\nStellenantritt: 01.10.2026\nFachrichtung: Verkauf Food\n\n## Wichtige Info\nNur Samstags\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Siamo qui per i nostri clienti con molto impegno. Nei nostri 31 mercati di ritiro, tramite servizio esterno e consegna, così come nel mondo digitale. Con un assortimento versatile, marchi propri attraenti, consulenza professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del gruppo internazionale Transgourmet. L'azienda è leader nel commercio all'ingrosso svizzero di forniture e ritiro e conta circa 2'100 dipendenti e 100'000 clienti (ristoranti, hotel, mense, case di cura e ospedali e commercio al dettaglio).\n\nCompiti\n• Raccogli i dati dei clienti, crei carte giornaliere e aggiorni la base clienti\n\n• Accetti vuoti e resi e controlli gli ingressi\n\n• Assisti la centrale telefonica e le aree informazioni e depliant\n\n• Gestisci l'incasso in modo efficiente e rendi corretta la contabilità di cassa\n\n• Dai un cordiale benvenuto ai nostri clienti e fai una prima impressione professionale\n\n• Ti occupi di compiti aggiuntivi relativi all'accoglienza e al servizio, dove è necessario\n\n• Al check-out scansionerai la merce\n\n• Accetti i reclami in modo professionale e li inoltri di conseguenza\n\nRequisiti\n• Formazione completata nel commercio al dettaglio o nel settore alimentare (ad es. B. Koch, panettiere, macellaio\n\n• Lavori in modo affidabile, efficiente e hai un aspetto curato\n\n• Sei in forma per gestire MS Office\n\n• Si apre apertamente",
-        "en": "Our heart beats for Swiss gastronomy. We are committed to our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive private brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is a member of the international Transgourmet Group. The company is a leader in Swiss wholesale and pick-up wholesale and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retail).\n\nTasks\n• You collect customer data, get daily tickets and update the customer base\n\n• You accept empty goods and returns and control entrances\n\n• You will be responsible for the telephone control centre and for information and brochure areas\n\n• You effectively discard the collection and make the cash settlement correct\n\n• You greet our customers friendly and provide for a professional first impression\n\n• You take on additional tasks around reception and service where you need\n\n• At the check-out you scan the goods\n\n• You take complaints professionally and forward them accordingly\n\nRequirements\n• Completed training in retail trade or in the food industry (e.g. cook, baker:in, messenger:in)\n\n• You work reliably, efficiently and have a well-kept appearance\n\n• You are fit to handle MS Office\n\n• You are open to people and enjoy customer contact\n\n• You are resilient and remain friendly even in hectic moments\n\n• You speak German and like to work in the team\n\n• You have already completed the forklift and/or drawer training (SUVA standard)",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du erfasst Kundendaten, erstellst Tageskarten und aktualisierst den Kundenstamm\n• Du nimmst Leergut und Retouren entgegen und kontrollierst Eintritte\n• Du betreust die Telefonzentrale sowie Info- und Prospektbereiche\n• Du wickelst das Inkasso effizient ab und machst die Kassenabrechnung korrekt\n• Du begrüsst unsere Kundschaft freundlich und sorgst für einen professionellen ersten Eindruck\n• Du übernimmst Zusatzaufgaben rund um Empfang und Service, wo's dich braucht\n• Am Check-out scannst du die Ware\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n\n## Anforderungen\n• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)\n• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten\n• Du bist fit im Umgang mit MS Office\n• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt\n• Du bist belastbar und bleibst auch in hektischen Momenten freundlich\n• Du sprichst fliessend Deutsch und arbeitest gerne im Team\n• Von Vorteil hast du bereits die Stapler-und/oder Deichselgerätausbildung ( SUVA-Norm) absolviert\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nZurlindenstrasse\n4133 Pratteln\nPratteln\n20%\nunbefristet\nStellenantritt: 01.10.2026\nFachrichtung: Verkauf Food\n\n## Wichtige Info\nNur Samstags\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Nos cœurs sont pour la gastronomie suisse. Nous sommes engagés envers nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques privées attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG est membre du groupe international Transgourmet. Elle est leader en gros et en gros en Suisse et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détail).\n\nTâches\n• Vous collectez des données client, obtenez des billets quotidiens et mettez à jour la base client\n\n• Vous acceptez les marchandises vides et les retours et contrôlez les entrées\n\n• Vous serez responsable du centre de contrôle téléphonique et des zones d'information et de brochure\n\n• Vous avez effectivement abandonné la collecte et vous avez fait le règlement en espèces correct\n\n• Vous saluez nos clients amical et vous offrez une première impression professionnelle\n\n• Vous assumez des tâches supplémentaires autour de la réception et du service où vous avez besoin\n\n• Au check-out, vous scannez les marchandises\n\n• Vous prenez des plaintes professionnellement et les transmettez en conséquence\n\n• Formation complète dans le commerce de détail ou dans l'industrie alimentaire (cuisinier, boulanger:in, messager:in)\n\n• Vous travaillez de façon fiable, efficace et vous avez une apparence bien gardée\n\n• Vous êtes apte à gérer MS Office\n\n• Vous êtes ouvert aux personnes et profitez du contact client\n\n• Vous êtes résilient et restez amical même dans les moments agités\n\n• Vous parlez allemand et aimez travailler dans l'équipe\n\n• Vous avez déjà terminé la formation de chariot élévateur et/ou tiroir (norme SUVA)"
-      },
-      "location": "Pratteln",
-      "canton": "BL",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out/ee4631a4-c0ad-4bb1-a36b-0773c2c12766",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.015Z",
-      "addressLocality": "Pratteln",
-      "addressRegion": "BL",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4133",
-      "streetAddress": "Zurlindenstrasse",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "pensum": "20%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169512",
-      "requirements": [
-        "• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)",
-        "• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten",
-        "• Du bist fit im Umgang mit MS Office",
-        "• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt",
-        "• Du bist belastbar und bleibst auch in hektischen Momenten freundlich",
-        "• Du sprichst fliessend Deutsch und arbeitest gerne im Team",
-        "• Von Vorteil hast du bereits die Stapler-und/oder Deichselgerätausbildung ( SUVA-Norm) absolviert"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Abgeschlossene Ausbildung im Detailhandel oder in der Lebensmittelbranche (z. B. Koch, Bäcker:in, Metzger:in)",
-          "• Du arbeitest zuverlässig, effizient und hast ein gepflegtes Auftreten",
-          "• Du bist fit im Umgang mit MS Office",
-          "• Du gehst offen auf Menschen zu und hast Freude am Kundenkontakt",
-          "• Du bist belastbar und bleibst auch in hektischen Momenten freundlich",
-          "• Du sprichst fliessend Deutsch und arbeitest gerne im Team",
-          "• Von Vorteil hast du bereits die Stapler-und/oder Deichselgerätausbildung ( SUVA-Norm) absolviert"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-moosseedorf",
-        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf",
-        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf",
-        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
-        "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
-        "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
-        "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln",
-        "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal",
-        "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal",
-        "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
-        "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal",
-        "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
-        "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
-        "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-check-in-check-out-transgourmet-pratteln",
-          "dipendenti-dipendenti-vendita-cassa-e-check-in-transgourmet-langenthal",
-          "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
-          "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
-        ],
-        "en": [
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-          "mitarbeiterin-sales-associate-kasse-check-in-check-out-transgourmet-pratteln",
-          "employee-employee-sale-cash-register-and-check-in-transgourmet-langenthal"
-        ],
-        "de": [
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-wilderswil",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-und-check-in-transgourmet-langenthal",
-          "mitarbeiterin-addetto-a-alle-vendite-kasse-e-check-in-transgourmet-langenthal",
-          "mitarbeiterin-sales-associate-kasse-und-check-in-transgourmet-langenthal",
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-langenthal"
-        ],
-        "fr": [
-          "mitarbeiterin-vendeur-se-kasse-und-check-in-transgourmet-moosseedorf",
-          "mitarbeiterin-mitarbeiter-verkauf-kasse-check-in-check-out-transgourmet-pratteln",
-          "mitarbeiterin-vendeur-se-kasse-check-in-check-out-transgourmet-pratteln",
-          "employe-employe-caisse-enregistreuse-et-enregistrement-des-ventes-transgourmet-langenthal"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-01T23:07:16.808Z",
-      "salaryMin": 74000,
-      "salaryMax": 113500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 74000,
-          "maxValue": 113500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-91d38dc5-927",
-      "slug": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
-      "slugByLocale": {
-        "it": "dipendenti-dipendenti-vendite-accettazione-di-beni-non-food-transgourmet-bellach",
-        "en": "employee-employee-sales-acceptance-of-goods-non-food-transgourmet-bellach",
-        "de": "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-        "fr": "ventes-d-employes-et-d-employes-acceptation-de-biens-et-de-produits-non-alimentaires-transgourmet-bellach"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Mitarbeiterin / Mitarbeiter Verkauf Warenannahme & Non-Food",
-      "titleByLocale": {
-        "it": "Dipendenti / Dipendenti vendite Accettazione di beni & Non-Food",
-        "en": "Employee / Employee Sales Acceptance of Goods & Non-Food",
-        "de": "Mitarbeiterin / Mitarbeiter Verkauf Warenannahme & Non-Food",
-        "fr": "Ventes d'employés et d'employés Acceptation de biens et de produits non alimentaires"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n• Du kommunizierst einwandfrei in Deutsch\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nGrederstrasse 35\n4512 Bellach\nBellach\n80–100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Si controllano le merci in arrivo per quantità, temperatura e qualità\n\n• Si segnalano deviazioni direttamente alla gestione del dipartimento\n\n• Accetti consegne, ritorni di processo e contenitori vuoti professionalmente\n\n• Tenere correttamente la rivista di flusso e disporre di materiali riciclabili in modo ecologico\n\n• Conformi in modo affidabile i requisiti interni e legali (QS, ASIB, BUWAL)\n\n• Hai un rapporto rispettoso con gli autisti e le attrezzature di maniglia con attenzione\n\n• Si crea un ambiente in cui i nostri clienti trovano la loro strada intorno bene e piace fare acquisti e comunicare con esperti a livello degli occhi\n\n• Oltre a garantire la freschezza e la presentazione delle merci, siete responsabili di una corretta etichettatura\n\n• Garantisci la costante disponibilità dei nostri prodotti e effettua regolarmente inventari\n\n• Prendere reclami professionalmente e trasmetterli di conseguenza\n\n• Al check-out si esegue la scansione della merce\n\n## Requisiti\n• Hai completato la formazione nel settore alimentare (cook, panettiere, rivenditore, macellaio)\n\n• Ti piace offrire ai nostri clienti una grande esperienza di shopping\n\n• Si distingue per il vostro modo di lavorare altamente affidabile ed efficiente e sono fisicamente resilienti\n\n• Sei un team capace personalità che è entusiasta di nuove sfide\n\n• Comunichi perfettamente in tedesco\n\n• Hai già completato l'allenamento del camion e/o del drawbar (standard SUVA)",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You control incoming goods for quantity, temperature and quality\n\n• You report deviations directly to the department management\n\n• You accept deliveries, process returns and empty containers professionally\n\n• You keep the flow journal correctly and dispose of recyclable materials in an environmentally friendly manner\n\n• You comply reliably with internal and legal requirements (QS, ASIB, BUWAL)\n\n• You have a respectful relationship with chauffeurs and handle equipment carefully\n\n• You create an environment in which our customers find their way around well and like to shop and communicate with experts at eye level\n\n• In addition to ensuring the freshness and presentation of goods, you are responsible for a correct labeling\n\n• You ensure the constant availability of our products and regularly carry out inventories\n\n• You take complaints professionally and forward them accordingly\n\n• At the check-out you scan the goods\n\n## Requirements\n• You have completed training in the food industry (cook, baker, retailer, butcher)\n\n• You enjoy offering our customers a great shopping experience\n\n• You stand out for your highly reliable and efficient way of working and are physically resilient\n\n• You are a team capable personality who is enthusiastic about new challenges\n\n• You communicate perfectly in German\n\n• You have already completed the truck and/or drawbar training (SUVA standard)",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du kontrollierst eintreffende Ware auf Menge, Temperatur und Qualität\n• Du meldest Abweichungen direkt an die Abteilungsleitung\n• Du nimmst Lieferungen an, bearbeitest Rückgaben und Leergebinde professionell\n• Du führst das Warenflussjournal korrekt und entsorgst Wertstoffe umweltgerecht\n• Du hältst interne und gesetzliche Vorgaben (QS, ASIB, BUWAL) zuverlässig ein\n• Du pflegst einen respektvollen Umgang mit Chauffeuren und gehst sorgfältig mit Geräten um\n• Du schaffst ein Umfeld, in dem sich unsere Kund/-innen gut zurechtfinden und gerne einkaufen und auf Augenhöhe mit Fachpersonen kommunizieren\n• Nebst der Sicherstellung der Frische und Warenpräsentation, bist du verantwortlich für eine korrekten Beschriftung\n• Du gewährleistest die ständige Verfügbarkeit unserer Produkte und führst regelmässig Inventaraufnahmen durch\n• Du nimmst Reklamationen professionell entgegen und leitest diese entsprechend weiter\n• Am Check-out scannst du die Ware\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)\n• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten\n• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar\n• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert\n• Du kommunizierst einwandfrei in Deutsch\n• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nGrederstrasse 35\n4512 Bellach\nBellach\n80–100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nVerkauf Food\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous contrôlez les marchandises entrantes pour la quantité, la température et la qualité\n\n• Vous signalez les écarts directement à la direction du ministère\n\n• Vous acceptez les livraisons, les retours et les conteneurs vides professionnellement\n\n• Vous gardez le journal de flux correctement et jetez des matériaux recyclables d'une manière respectueuse de l'environnement\n\n• Vous répondez de manière fiable aux exigences internes et légales (QS, ASIB, BUWAL)\n\n• Vous avez une relation respectueuse avec les chauffeurs et manipulez soigneusement les équipements\n\n• Vous créez un environnement dans lequel nos clients trouvent leur chemin et aiment acheter et communiquer avec des experts au niveau des yeux\n\n• En plus d'assurer la fraîcheur et la présentation des marchandises, vous êtes responsable d'un étiquetage correct\n\n• Vous assurez la disponibilité constante de nos produits et effectuez régulièrement des inventaires\n\n• Vous prenez des plaintes professionnellement et les transmettez en conséquence\n\n• Au check-out, vous scannez les marchandises\n\n## Exigences\n• Vous avez suivi une formation dans l'industrie alimentaire (cuisson, boulanger, détaillant, boucher)\n\n• Vous aimez offrir à nos clients une excellente expérience d'achat\n\n• Vous vous démarquez pour votre façon de travailler très fiable et efficace et êtes physiquement résistant\n\n• Vous êtes une personnalité capable d'équipe qui est enthousiaste face aux nouveaux défis\n\n• Vous communiquez parfaitement en allemand\n\n• Vous avez déjà terminé la formation de camion et/ou de timon (norme SUVA)"
-      },
-      "location": "Bellach",
-      "canton": "SO",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-warenannahme-non-food/91d38dc5-9277-446b-a01e-bf962a167f2b",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.014Z",
-      "addressLocality": "Bellach",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "4512",
-      "streetAddress": "Grederstrasse 35",
-      "category": "Commerciale",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-01",
-      "pensum": "80-100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169504",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)",
-        "• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten",
-        "• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar",
-        "• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert",
-        "• Du kommunizierst einwandfrei in Deutsch",
-        "• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du verfügst über eine abgeschlossene Ausbildung in der Lebensmittelbranche (Koch, Bäcker, Detailhandel, Metzger)",
-          "• Du hast Freude daran, unseren Kund/-innen ein tolles Einkaufserlebnis zu bieten",
-          "• Dich zeichnet deine äusserst zuverlässige und effiziente Arbeitsweise aus und bist körperlich belastbar",
-          "• Du bist eine teamfähige Persönlichkeit, die sich für neue Herausforderungen begeistert",
-          "• Du kommunizierst einwandfrei in Deutsch",
-          "• Von Vorteil hast du bereits die Stapler- und/oder Deichselgerätausbildung (SUVA-Norm) absolviert"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-        "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach",
-        "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach",
-        "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-          "mitarbeiterin-addetto-a-alle-vendite-warenannahme-non-food-transgourmet-bellach"
-        ],
-        "en": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-          "mitarbeiterin-sales-associate-warenannahme-non-food-transgourmet-bellach"
-        ],
-        "fr": [
-          "mitarbeiterin-mitarbeiter-verkauf-warenannahme-amp-non-food-transgourmet-bellach",
-          "mitarbeiterin-vendeur-se-warenannahme-non-food-transgourmet-bellach"
-        ]
-      },
-      "firstSeenAt": "2026-09-02T13:33:58.238Z",
-      "salaryMin": 77500,
-      "salaryMax": 118500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 77500,
-          "maxValue": 118500,
           "unitText": "YEAR"
         }
       }
@@ -386,7 +139,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/6f6017ea-b0fb-46c5-8197-a91364d76670",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.013Z",
+      "crawledAt": "2026-10-02T09:13:45.874Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -423,12 +176,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel",
         "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-basel",
         "mitarbeiterin-sales-associate-metzgerei-transgourmet-basel",
-        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-basel"
+        "mitarbeiterin-vendeur-se-metzgerei-transgourmet-basel",
+        "vendite-dipendenti-dipendenti-machery-transgourmet-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel",
-          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-basel"
+          "mitarbeiterin-addetto-a-alle-vendite-metzgerei-transgourmet-basel",
+          "vendite-dipendenti-dipendenti-machery-transgourmet-basel"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-basel",
@@ -440,6 +195,7 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.186Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -485,7 +241,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-markt/b5e2f911-4e94-4ec3-b9e9-e1a39622ca5a",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.013Z",
+      "crawledAt": "2026-10-02T09:13:45.874Z",
       "addressLocality": "Pratteln",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -524,12 +280,14 @@
         "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
         "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
         "mitarbeiterin-sales-associate-markt-transgourmet-pratteln",
-        "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln"
+        "mitarbeiterin-vendeur-se-markt-transgourmet-pratteln",
+        "mercato-commerciale-dei-dipendenti-transgourmet-pratteln"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
-          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln"
+          "mitarbeiterin-addetto-a-alle-vendite-markt-transgourmet-pratteln",
+          "mercato-commerciale-dei-dipendenti-transgourmet-pratteln"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-markt-transgourmet-pratteln",
@@ -541,6 +299,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:09:02.199Z",
+      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -586,7 +345,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/test-engineer/bbe8c228-9d30-4c70-b3eb-15b3bd7a7476",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.012Z",
+      "crawledAt": "2026-10-02T09:13:45.873Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -621,17 +380,20 @@
         ]
       },
       "previousSlugs": [
-        "test-engineer-transgourmet-moosseedorf"
+        "test-engineer-transgourmet-moosseedorf",
+        "test-ingegnere-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "test-engineer-transgourmet-moosseedorf"
+          "test-engineer-transgourmet-moosseedorf",
+          "test-ingegnere-transgourmet-moosseedorf"
         ],
         "fr": [
           "test-engineer-transgourmet-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.169Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -677,7 +439,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/system-engineer-windows/7e64ac0a-b198-4130-b569-bf0e22abf392",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.011Z",
+      "crawledAt": "2026-10-02T09:13:45.872Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -701,7 +463,7 @@
         "• Gute Kenntnisse in Netzwerktechnologien und Security-Grundlagen (LAN/WLAN, Cisco, 802.1x, Härtung, Identity- & Access-Konzepte)",
         "• Erfahrung mit Backup/Restore und Storage (z. B. Veeam) sowie Monitoring/Logging",
         "• Starke Skills in Automatisierung & Skripting (PowerShell; idealerweise Git-gestützte Arbeitsweise, CI/CD-nahe Methoden von Vorteil)",
-        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
+        "• Von Vorteil bist du vertraut mit Ansible und Quellcodeverwaltung mit Git",
         "• Strukturierte, eigenverantwortliche Arbeitsweise, hohe Serviceorientierung und gute Kommunikation; Anwenderkenntnisse in der Atlassian Cloud Suite",
         "• Sehr gutes Deutsch; Französisch- und/oder Italienischkenntnisse sind von Vorteil"
       ],
@@ -718,7 +480,8 @@
         "system-ingenieur-windows-transgourmet-moosseedorf",
         "system-engineer-windows-transgourmet-moosseedorf-dajfqy",
         "ingenieur-systemes-windows-transgourmet-moosseedorf",
-        "finestre-del-system-engineer-transgourmet-moosseedorf"
+        "finestre-del-system-engineer-transgourmet-moosseedorf",
+        "system-ingegnere-windows-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -726,13 +489,15 @@
           "system-ingenieur-windows-transgourmet-moosseedorf",
           "system-engineer-windows-transgourmet-moosseedorf-dajfqy",
           "ingenieur-systemes-windows-transgourmet-moosseedorf",
-          "finestre-del-system-engineer-transgourmet-moosseedorf"
+          "finestre-del-system-engineer-transgourmet-moosseedorf",
+          "system-ingegnere-windows-transgourmet-moosseedorf"
         ],
         "fr": [
           "system-engineer-windows-transgourmet-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-09-07T15:03:07.167Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -778,7 +543,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke/5974852a-cd24-4126-aab6-fb6593194577",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.010Z",
+      "crawledAt": "2026-10-02T09:13:45.870Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -824,7 +589,8 @@
         "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur",
         "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
         "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
-        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+        "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur",
+        "dipendenti-dipendenti-vendita-di-bevande-transgourmet-dubendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -836,7 +602,8 @@
           "boissons-de-vente-pour-employes-80-100-transgourmet-winterthur",
           "mitarbeiterin-addetto-a-alle-vendite-getranke-80-100-transgourmet-winterthur",
           "mitarbeiterin-sales-associate-getranke-80-100-transgourmet-winterthur",
-          "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur"
+          "mitarbeiterin-vendeur-se-getranke-80-100-transgourmet-winterthur",
+          "dipendenti-dipendenti-vendita-di-bevande-transgourmet-dubendorf"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-transgourmet-dubendorf",
@@ -856,6 +623,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:15.855Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -866,6 +634,108 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "transgourmet-abb6b65b-d4b",
+      "slug": "navetta-spedizioniere-spedizioniere-transgourmet-brunegg",
+      "slugByLocale": {
+        "it": "navetta-spedizioniere-spedizioniere-transgourmet-brunegg",
+        "en": "shuttle-dispatcher-dispatcher-transgourmet-brunegg",
+        "de": "shuttle-disponentin-disponent-transgourmet-brunegg",
+        "fr": "shuttle-repartiteur-repartiteur-transgourmet-brunegg"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Shuttle - Disponentin / Disponent",
+      "titleByLocale": {
+        "it": "Shuttle - Disponentin / Disponent",
+        "en": "Shuttle - dispatcher / dispatcher",
+        "de": "Shuttle - Disponentin / Disponent",
+        "fr": "Shuttle - répartiteur / répartiteur"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Touren und Transporte planen und koordinieren\n• Chauffeure einteilen, führen und instruieren\n• Fahrzeuge und Kapazitäten optimal einsetzen\n• Liefer- und Abholtermine überwachen\n• Aufträge erfassen, bearbeiten und disponieren\n• Kunden, Chauffeure und Geschäftspartner koordinieren\n• Bei Verzögerungen, Ausfällen und Problemen Lösungen organisieren\n• Einhaltung von Vorgaben, Arbeitszeiten und Sicherheitsstandards sicherstellen\n• Kundenbeanstandungen entgegennehmen, bearbeiten und entsprechende Lösungen koordinieren\n\n## Anforderungen\n• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil\n• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil\n• Quersteigerinnen oder Quereinsteiger sind willkommen\n• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren\n• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten\n• Kundenorientiertes und lösungsorientiertes Denken\n• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\nWas wir bieten\n\n## Arbeitsort\nSaviva\nIndustriestrasse 1\n5505 Brunegg\nRegion Brunegg\n100%\nbefristet 30.09.2026\nStellenantritt: 12.10.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Pianificare e coordinare tour e trasporti\n\n• Classificare, guidare e istruire gli autista\n\n• Utilizzo ottimale dei veicoli e delle capacità\n\n• Monitoraggio delle date di consegna e di raccolta\n\n• Registrazione, elaborazione e pianificazione degli ordini\n\n• Coordinare clienti, autista e partner commerciali\n\n• Organizzare soluzioni per ritardi, guasti e problemi\n\n• Assicurare il rispetto di specifiche, orari di lavoro e standard di sicurezza\n\n• Accettare, elaborare e coordinare reclami dei clienti\n\n## Requisiti\n• Formazione commerciale o logistica completa\n\n• L'esperienza nella pianificazione, nella logistica o nel settore dei trasporti è vantaggiosa\n\n• Crosswalker o crosswalker sono benvenuti\n\n• Buone capacità di comunicazione e leadership nel trattare con gli autisti\n\n• La capacità di tenere traccia anche in situazioni frenetiche\n\n• pensiero orientato al cliente e orientato alla soluzione\n\n• Conoscenza molto buona del tedesco; Ulteriori competenze linguistiche sono vantaggiose\n\n• Lavoro autonomo, affidabile e responsabile",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• Plan and coordinate tours and transports\n\n• Classify, guide and instruct chauffeurs\n\n• Optimal use of vehicles and capacities\n\n• Monitoring delivery and collection dates\n\n• Recording, processing and scheduling orders\n\n• Coordinating customers, chauffeurs and business partners\n\n• Organize solutions for delays, failures and problems\n\n• Ensure compliance with specifications, working hours and safety standards\n\n• Accepting, processing and coordinating customer complaints\n\n## Requirements\n• Completed commercial or logistical training beneficial\n\n• Experience in the scheduling, logistics or transport industry is advantageous\n\n• Crosswalkers or crosswalkers are welcome\n\n• Good communication and leadership skills in dealing with chauffeurs\n\n• The ability to keep track even in hectic situations\n\n• Customer-oriented and solution-oriented thinking\n\n• Very good knowledge of German; Further language skills are advantageous\n\n• Self-employed, reliable and responsible work",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Touren und Transporte planen und koordinieren\n• Chauffeure einteilen, führen und instruieren\n• Fahrzeuge und Kapazitäten optimal einsetzen\n• Liefer- und Abholtermine überwachen\n• Aufträge erfassen, bearbeiten und disponieren\n• Kunden, Chauffeure und Geschäftspartner koordinieren\n• Bei Verzögerungen, Ausfällen und Problemen Lösungen organisieren\n• Einhaltung von Vorgaben, Arbeitszeiten und Sicherheitsstandards sicherstellen\n• Kundenbeanstandungen entgegennehmen, bearbeiten und entsprechende Lösungen koordinieren\n\n## Anforderungen\n• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil\n• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil\n• Quersteigerinnen oder Quereinsteiger sind willkommen\n• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren\n• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten\n• Kundenorientiertes und lösungsorientiertes Denken\n• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\nWas wir bieten\n\n## Arbeitsort\nSaviva\nIndustriestrasse 1\n5505 Brunegg\nRegion Brunegg\n100%\nbefristet 30.09.2026\nStellenantritt: 12.10.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que les détaillants).\n\n## Tâches\n• Planifier et coordonner les visites et les transports\n\n• Classer, guider et enseigner les chauffeurs\n\n• Utilisation optimale des véhicules et des capacités\n\n• Surveillance des dates de livraison et de collecte\n\n• Enregistrement, traitement et calendrier des commandes\n\n• Coordonner clients, chauffeurs et partenaires commerciaux\n\n• Organiser des solutions pour les retards, les échecs et les problèmes\n\n• Assurer le respect des spécifications, des horaires de travail et des normes de sécurité\n\n• Acceptation, traitement et coordination des plaintes des clients\n\n## Exigences\n• Formation commerciale ou logistique complète bénéfique\n\n• L'expérience de l'industrie de la planification, de la logistique ou du transport est avantageuse\n\n• Les marcheurs ou les marcheurs sont les bienvenus\n\n• Bonnes compétences en communication et leadership dans le traitement des chauffeurs\n\n• La capacité de garder la trace même dans des situations agitées\n\n• Pensée axée sur le client et la solution\n\n• Très bonne connaissance de l'allemand; d'autres compétences linguistiques sont avantageuses\n\n• Travail indépendant, travail fiable et responsable"
+      },
+      "location": "Brunegg",
+      "canton": "AG",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/shuttle-disponentin-disponent/abb6b65b-d4b9-49f2-88e4-50b4da096c2a",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:13:45.869Z",
+      "addressLocality": "Brunegg",
+      "addressRegion": "AG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "5505",
+      "streetAddress": "Industriestrasse 1",
+      "category": "Altro",
+      "contract": "fixed-term",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169637",
+      "requirements": [
+        "• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil",
+        "• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil",
+        "• Quersteigerinnen oder Quereinsteiger sind willkommen",
+        "• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren",
+        "• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten",
+        "• Kundenorientiertes und lösungsorientiertes Denken",
+        "• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil",
+        "• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil",
+          "• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil",
+          "• Quersteigerinnen oder Quereinsteiger sind willkommen",
+          "• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren",
+          "• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten",
+          "• Kundenorientiertes und lösungsorientiertes Denken",
+          "• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil",
+          "• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise"
+        ]
+      },
+      "previousSlugs": [
+        "shuttle-disponentin-disponent-transgourmet-brunegg",
+        "navetta-spedizioniere-spedizioniere-transgourmet-brunegg"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "shuttle-disponentin-disponent-transgourmet-brunegg",
+          "navetta-spedizioniere-spedizioniere-transgourmet-brunegg"
+        ],
+        "en": [
+          "shuttle-disponentin-disponent-transgourmet-brunegg"
+        ],
+        "fr": [
+          "shuttle-disponentin-disponent-transgourmet-brunegg"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:20.667Z",
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -901,7 +771,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-1/6a389cb3-d61c-498f-a550-8a098250cba4",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.009Z",
+      "crawledAt": "2026-10-02T09:13:45.869Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -960,6 +830,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:05.967Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -970,106 +841,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-abb6b65b-d4b",
-      "slug": "navetta-spedizioniere-spedizioniere-transgourmet-brunegg",
-      "slugByLocale": {
-        "it": "navetta-spedizioniere-spedizioniere-transgourmet-brunegg",
-        "en": "shuttle-dispatcher-dispatcher-transgourmet-brunegg",
-        "de": "shuttle-disponentin-disponent-transgourmet-brunegg",
-        "fr": "shuttle-repartiteur-repartiteur-transgourmet-brunegg"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Shuttle - Disponentin / Disponent",
-      "titleByLocale": {
-        "it": "Shuttle - Disponentin / Disponent",
-        "en": "Shuttle - dispatcher / dispatcher",
-        "de": "Shuttle - Disponentin / Disponent",
-        "fr": "Shuttle - répartiteur / répartiteur"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Touren und Transporte planen und koordinieren\n• Chauffeure einteilen, führen und instruieren\n• Fahrzeuge und Kapazitäten optimal einsetzen\n• Liefer- und Abholtermine überwachen\n• Aufträge erfassen, bearbeiten und disponieren\n• Kunden, Chauffeure und Geschäftspartner koordinieren\n• Bei Verzögerungen, Ausfällen und Problemen Lösungen organisieren\n• Einhaltung von Vorgaben, Arbeitszeiten und Sicherheitsstandards sicherstellen\n• Kundenbeanstandungen entgegennehmen, bearbeiten und entsprechende Lösungen koordinieren\n\n## Anforderungen\n• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil\n• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil\n• Quersteigerinnen oder Quereinsteiger sind willkommen\n• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren\n• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten\n• Kundenorientiertes und lösungsorientiertes Denken\n• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\nWas wir bieten\n\n## Arbeitsort\nSaviva\nIndustriestrasse 1\n5505 Brunegg\nRegion Brunegg\n100%\nbefristet 30.09.2026\nStellenantritt: 12.10.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di consegna e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Pianificare e coordinare tour e trasporti\n\n• Classificare, guidare e istruire gli autista\n\n• Utilizzo ottimale dei veicoli e delle capacità\n\n• Monitoraggio delle date di consegna e di raccolta\n\n• Registrazione, elaborazione e pianificazione degli ordini\n\n• Coordinare clienti, autista e partner commerciali\n\n• Organizzare soluzioni per ritardi, guasti e problemi\n\n• Assicurare il rispetto di specifiche, orari di lavoro e standard di sicurezza\n\n• Accettare, elaborare e coordinare reclami dei clienti\n\n## Requisiti\n• Formazione commerciale o logistica completa\n\n• L'esperienza nella pianificazione, nella logistica o nel settore dei trasporti è vantaggiosa\n\n• Crosswalker o crosswalker sono benvenuti\n\n• Buone capacità di comunicazione e leadership nel trattare con gli autisti\n\n• La capacità di tenere traccia anche in situazioni frenetiche\n\n• pensiero orientato al cliente e orientato alla soluzione\n\n• Conoscenza molto buona del tedesco; Ulteriori competenze linguistiche sono vantaggiose\n\n• Lavoro autonomo, affidabile e responsabile",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss delivery and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• Plan and coordinate tours and transports\n\n• Classify, guide and instruct chauffeurs\n\n• Optimal use of vehicles and capacities\n\n• Monitoring delivery and collection dates\n\n• Recording, processing and scheduling orders\n\n• Coordinating customers, chauffeurs and business partners\n\n• Organize solutions for delays, failures and problems\n\n• Ensure compliance with specifications, working hours and safety standards\n\n• Accepting, processing and coordinating customer complaints\n\n## Requirements\n• Completed commercial or logistical training beneficial\n\n• Experience in the scheduling, logistics or transport industry is advantageous\n\n• Crosswalkers or crosswalkers are welcome\n\n• Good communication and leadership skills in dealing with chauffeurs\n\n• The ability to keep track even in hectic situations\n\n• Customer-oriented and solution-oriented thinking\n\n• Very good knowledge of German; Further language skills are advantageous\n\n• Self-employed, reliable and responsible work",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Touren und Transporte planen und koordinieren\n• Chauffeure einteilen, führen und instruieren\n• Fahrzeuge und Kapazitäten optimal einsetzen\n• Liefer- und Abholtermine überwachen\n• Aufträge erfassen, bearbeiten und disponieren\n• Kunden, Chauffeure und Geschäftspartner koordinieren\n• Bei Verzögerungen, Ausfällen und Problemen Lösungen organisieren\n• Einhaltung von Vorgaben, Arbeitszeiten und Sicherheitsstandards sicherstellen\n• Kundenbeanstandungen entgegennehmen, bearbeiten und entsprechende Lösungen koordinieren\n\n## Anforderungen\n• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil\n• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil\n• Quersteigerinnen oder Quereinsteiger sind willkommen\n• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren\n• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten\n• Kundenorientiertes und lösungsorientiertes Denken\n• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil\n• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise\nWas wir bieten\n\n## Arbeitsort\nSaviva\nIndustriestrasse 1\n5505 Brunegg\nRegion Brunegg\n100%\nbefristet 30.09.2026\nStellenantritt: 12.10.2026\n\n## Fachrichtung\nLogistik / Transport\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. La société est leader dans le commerce de gros suisse de livraison et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que les détaillants).\n\n## Tâches\n• Planifier et coordonner les visites et les transports\n\n• Classer, guider et enseigner les chauffeurs\n\n• Utilisation optimale des véhicules et des capacités\n\n• Surveillance des dates de livraison et de collecte\n\n• Enregistrement, traitement et calendrier des commandes\n\n• Coordonner clients, chauffeurs et partenaires commerciaux\n\n• Organiser des solutions pour les retards, les échecs et les problèmes\n\n• Assurer le respect des spécifications, des horaires de travail et des normes de sécurité\n\n• Acceptation, traitement et coordination des plaintes des clients\n\n## Exigences\n• Formation commerciale ou logistique complète bénéfique\n\n• L'expérience de l'industrie de la planification, de la logistique ou du transport est avantageuse\n\n• Les marcheurs ou les marcheurs sont les bienvenus\n\n• Bonnes compétences en communication et leadership dans le traitement des chauffeurs\n\n• La capacité de garder la trace même dans des situations agitées\n\n• Pensée axée sur le client et la solution\n\n• Très bonne connaissance de l'allemand; d'autres compétences linguistiques sont avantageuses\n\n• Travail indépendant, travail fiable et responsable"
-      },
-      "location": "Brunegg",
-      "canton": "AG",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/shuttle-disponentin-disponent/abb6b65b-d4b9-49f2-88e4-50b4da096c2a",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.008Z",
-      "addressLocality": "Brunegg",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "5505",
-      "streetAddress": "Industriestrasse 1",
-      "category": "Altro",
-      "contract": "fixed-term",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=169637",
-      "requirements": [
-        "• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil",
-        "• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil",
-        "• Quersteigerinnen oder Quereinsteiger sind willkommen",
-        "• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren",
-        "• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten",
-        "• Kundenorientiertes und lösungsorientiertes Denken",
-        "• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil",
-        "• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Abgeschlossene kaufmännische oder logistische Ausbildung von Vorteil",
-          "• Erfahrung in der Disposition, Logistik oder Transportbranche von Vorteil",
-          "• Quersteigerinnen oder Quereinsteiger sind willkommen",
-          "• Gute Kommunikations- und Führungsfähigkeiten im Umgang mit Chauffeuren",
-          "• Die Fähigkeit, auch in hektischen Situationen den Überblick zu behalten",
-          "• Kundenorientiertes und lösungsorientiertes Denken",
-          "• Sehr gute Deutschkenntnisse; weitere Sprachkenntnisse von Vorteil",
-          "• Selbstständige, zuverlässige und verantwortungsbewusste Arbeitsweise"
-        ]
-      },
-      "previousSlugs": [
-        "shuttle-disponentin-disponent-transgourmet-brunegg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "shuttle-disponentin-disponent-transgourmet-brunegg"
-        ],
-        "en": [
-          "shuttle-disponentin-disponent-transgourmet-brunegg"
-        ],
-        "fr": [
-          "shuttle-disponentin-disponent-transgourmet-brunegg"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-11T13:35:20.667Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       }
@@ -1105,7 +876,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/category-manager-category-managerin-near-non-food/28599679-9ca9-4b22-a082-c3a11b5452db",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.007Z",
+      "crawledAt": "2026-10-02T09:13:45.868Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1138,11 +909,13 @@
         ]
       },
       "previousSlugs": [
-        "category-manager-category-managerin-near-non-food-transgourmet-moosseedorf"
+        "category-manager-category-managerin-near-non-food-transgourmet-moosseedorf",
+        "categoria-manager-categoria-manager-near-non-food-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "category-manager-category-managerin-near-non-food-transgourmet-moosseedorf"
+          "category-manager-category-managerin-near-non-food-transgourmet-moosseedorf",
+          "categoria-manager-categoria-manager-near-non-food-transgourmet-moosseedorf"
         ]
       },
       "needsRetranslation": true,
@@ -1192,7 +965,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-bern/769b7c0b-1b3f-4cd6-9b16-c5e2a3b7eda0",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.006Z",
+      "crawledAt": "2026-10-02T09:13:45.867Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1228,17 +1001,20 @@
         ]
       },
       "previousSlugs": [
-        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
+        "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern",
+        "chauffeuse-chauffeur-cat-c-berna-20-transgourmet-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
+          "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern",
+          "chauffeuse-chauffeur-cat-c-berna-20-transgourmet-bern"
         ],
         "fr": [
           "chauffeuse-chauffeur-kat-c-bern-20-transgourmet-bern"
         ]
       },
       "firstSeenAt": "2026-09-17T03:50:11.396Z",
+      "needsRetranslation": true,
       "salaryMin": 13700,
       "salaryMax": 20800,
       "salarySource": "estimated",
@@ -1284,7 +1060,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-coolway/69b007bc-f7c9-4b3b-b014-a2b9e4f9a5f2",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.002Z",
+      "crawledAt": "2026-10-02T09:13:45.866Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1319,12 +1095,14 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-coolway-transgourmet-kriens",
-        "mitarbeiterin-addetto-a-alle-vendite-coolway-transgourmet-kriens"
+        "mitarbeiterin-addetto-a-alle-vendite-coolway-transgourmet-kriens",
+        "impiegato-impiegato-vendite-coolway-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-coolway-transgourmet-kriens",
-          "mitarbeiterin-addetto-a-alle-vendite-coolway-transgourmet-kriens"
+          "mitarbeiterin-addetto-a-alle-vendite-coolway-transgourmet-kriens",
+          "impiegato-impiegato-vendite-coolway-transgourmet-kriens"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-coolway-transgourmet-kriens"
@@ -1334,6 +1112,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:50:11.390Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -1355,7 +1134,7 @@
         "it": "ordina-picker-ordine-picker-transgourmet-neuendorf",
         "en": "order-picker-order-picker-transgourmet-neuendorf",
         "de": "kommissioniererin-kommissionierer-transgourmet-neuendorf",
-        "fr": "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf"
+        "fr": "kommissioniererin-kommissionierer-transgourmet-neuendorf"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1379,7 +1158,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer/b0225d96-a123-4332-ae31-6e55aa0873c9",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.001Z",
+      "crawledAt": "2026-10-02T09:13:45.865Z",
       "addressLocality": "Neuendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -1415,16 +1194,20 @@
         ]
       },
       "previousSlugs": [
-        "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+        "kommissioniererin-kommissionierer-transgourmet-neuendorf",
+        "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf",
+        "ordina-picker-ordine-picker-transgourmet-neuendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kommissioniererin-kommissionierer-transgourmet-neuendorf"
+          "kommissioniererin-kommissionierer-transgourmet-neuendorf",
+          "ordina-picker-ordine-picker-transgourmet-neuendorf"
         ],
         "en": [
           "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ],
         "fr": [
+          "recuperateur-de-commandes-recuperateur-de-commandes-transgourmet-neuendorf",
           "kommissioniererin-kommissionierer-transgourmet-neuendorf"
         ]
       },
@@ -1475,7 +1258,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/chauffeuse-chauffeur-kat-c-winterthur/e6e640e8-ac34-4446-9de8-4cccf703a5e3",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:08.000Z",
+      "crawledAt": "2026-10-02T09:13:45.864Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1511,6 +1294,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.097Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1532,7 +1316,7 @@
         "it": "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon",
         "en": "employee-employee-sales-butchery-transgourmet-dietikon",
         "de": "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
-        "fr": "boucherie-des-ventes-des-employes-transgourmet-dietikon"
+        "fr": "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon"
       },
       "company": "Transgourmet",
       "companyKey": "transgourmet",
@@ -1556,7 +1340,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-metzgerei/481eb24d-a01e-4abd-ba4b-9d403d580b9f",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.999Z",
+      "crawledAt": "2026-10-02T09:13:45.861Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1593,13 +1377,17 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
+        "boucherie-des-ventes-des-employes-transgourmet-dietikon",
+        "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon",
         "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon"
+          "mitarbeiterin-mitarbeiter-verkauf-metzgerei-transgourmet-dietikon",
+          "dipendenti-dipendenti-vendite-macelleria-transgourmet-dietikon"
         ],
         "fr": [
+          "boucherie-des-ventes-des-employes-transgourmet-dietikon",
           "mitarbeiterin-vendeur-se-metzgerei-transgourmet-dietikon"
         ]
       },
@@ -1650,7 +1438,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-fruechte-und-gemuese/23f87baf-258e-48c3-96bb-a1a8d08aa127",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.998Z",
+      "crawledAt": "2026-10-02T09:13:45.855Z",
       "addressLocality": "Risch-Rotkreuz",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -1689,12 +1477,14 @@
       },
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz",
-        "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-100-transgourmet-risch-rotkreuz"
+        "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-100-transgourmet-risch-rotkreuz",
+        "dipendenti-dipendenti-vendite-frutta-e-verdura-100-transgourmet-risch-rotkreuz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz",
-          "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-100-transgourmet-risch-rotkreuz"
+          "mitarbeiterin-addetto-a-alle-vendite-fruchte-e-gemuse-100-transgourmet-risch-rotkreuz",
+          "dipendenti-dipendenti-vendite-frutta-e-verdura-100-transgourmet-risch-rotkreuz"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-fruchte-und-gemuse-100-transgourmet-risch-rotkreuz"
@@ -1704,6 +1494,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:36.862Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -1749,7 +1540,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur/0a3823fc-ac23-408a-8890-604562a5f822",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.997Z",
+      "crawledAt": "2026-10-02T09:13:45.850Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1785,11 +1576,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
+        "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
+        "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
+          "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet",
+          "mitarbeiterin-addetto-a-alle-vendite-frischeprodukte-winterthur-80-100-transgourmet-winterthur"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-frischeprodukte-winterthur-80-100-transgourmet"
@@ -1845,7 +1638,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-fruechte-und-gemuese/8aee16ae-3885-40ea-92ce-0201c4189dbd",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.996Z",
+      "crawledAt": "2026-10-02T09:13:45.849Z",
       "addressLocality": "Dietikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1941,7 +1734,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/marktleiterin-marktleiter/97758c87-454e-406b-949c-859fd5f03951",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.995Z",
+      "crawledAt": "2026-10-02T09:13:45.844Z",
       "addressLocality": "Kriens",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1977,11 +1770,13 @@
         ]
       },
       "previousSlugs": [
-        "marktleiterin-marktleiter-transgourmet-kriens"
+        "marktleiterin-marktleiter-transgourmet-kriens",
+        "market-manager-market-manager-transgourmet-kriens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marktleiterin-marktleiter-transgourmet-kriens"
+          "marktleiterin-marktleiter-transgourmet-kriens",
+          "market-manager-market-manager-transgourmet-kriens"
         ],
         "en": [
           "marktleiterin-marktleiter-transgourmet-kriens"
@@ -1991,6 +1786,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:12.854Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 146000,
       "salarySource": "estimated",
@@ -2001,101 +1797,6 @@
           "@type": "QuantitativeValue",
           "minValue": 96000,
           "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "transgourmet-9628bba7-aee",
-      "slug": "personale-personale-finanza-transgourmet-moosseedorf",
-      "slugByLocale": {
-        "it": "personale-personale-finanza-transgourmet-moosseedorf",
-        "en": "personnel-personnel-finance-transgourmet-moosseedorf",
-        "de": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
-        "fr": "personnel-finances-du-personnel-transgourmet-moosseedorf"
-      },
-      "company": "Transgourmet",
-      "companyKey": "transgourmet",
-      "companyDomain": "transgourmet.ch",
-      "title": "Sachbearbeiterin / Sachbearbeiter Finanzen",
-      "titleByLocale": {
-        "it": "Personale / Personale Finanza",
-        "en": "Personnel / Personnel Finance",
-        "de": "Sachbearbeiterin / Sachbearbeiter Finanzen",
-        "fr": "Personnel / Finances du personnel"
-      },
-      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du bearbeitest Warenrechnungen und kümmerst dich um den Kreditorenworkflow (KWF) in SAP\n• Du erstellst Zahlläufe und führst diese termingerecht durch\n• Du übernimmst die Bearbeitung der Autobank sowie QR-Zahlungen und klärst offene Fragen.\n• Du führst Hauptbuch-Buchungen durch und stimmst diverse Konten ab\n• Du bearbeitest eingehende Kreditorenmahnungen\n• Du bist die Ansprechperson für zugewiesene Prodega-Märkte und eine wichtige Stütze beim Verbuchen von Tochtergesellschaften\n• Du führst Korrespondenz mit Kunden via E-Mail und Telefon\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung\n• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen\n• Französisch- und Italienisch-Kenntnisse sind von Vorteil\n• Du bist versiert in den MS Office Programmen\n• Du bringst von Vorteil SAP-Kenntnisse mit\n• Du hast ein Flair für Zahlen und Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nFinanzen / Controlling\nArbeitsort\nAufgaben\nAnforderungen",
-      "descriptionByLocale": {
-        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Elabori fatture di beni e ti occupi del flusso di lavoro del creditore (KWF) in SAP\n\n• È possibile creare operazioni di pagamento e eseguirli in orario\n\n• Si prende il controllo del trattamento della banca dell'automobile così come i pagamenti QR e chiarire le domande aperte.\n\n• Fai prenotazioni di registro e voti su vari account\n\n• Stai trattando in arrivo dei promemoria creditori\n\n• Sei la persona di contatto per i mercati di Prodega assegnati e un supporto importante durante la registrazione delle controllate\n\n• Conduci corrispondenza con i clienti via e-mail e telefono\n\n## Requisiti\n• Hai una formazione commerciale completa\n\n• Idealmente, hai già un'ulteriore formazione come un impiegato finanziario e contabile.\n\n• Le competenze francesi e italiane sono utili\n\n• Siete ben diversificati nei programmi di MS Office\n\n• Porti il vantaggio della conoscenza SAP\n\n• Hai un tocco per numeri e piacere nel contatto con il cliente",
-        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You process goods invoices and take care of the creditor workflow (KWF) in SAP\n\n• You create payment runs and carry them out on schedule\n\n• You take over the processing of the car bank as well as QR payments and clarify open questions.\n\n• You make ledger bookings and vote on various accounts\n\n• You are handling incoming creditor reminders\n\n• You are the contact person for assigned Prodega markets and an important support when registering subsidiaries\n\n• You conduct correspondence with customers via email and telephone\n\n## Requirements\n• You have a completed basic commercial training\n\n• Ideally, you already have a further education as a finance and accounting clerk.\n\n• French and Italian skills are beneficial\n\n• You are well-versed in the MS Office programs\n\n• You bring advantage SAP knowledge\n\n• You have a flair for numbers and pleasure in customer contact",
-        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du bearbeitest Warenrechnungen und kümmerst dich um den Kreditorenworkflow (KWF) in SAP\n• Du erstellst Zahlläufe und führst diese termingerecht durch\n• Du übernimmst die Bearbeitung der Autobank sowie QR-Zahlungen und klärst offene Fragen.\n• Du führst Hauptbuch-Buchungen durch und stimmst diverse Konten ab\n• Du bearbeitest eingehende Kreditorenmahnungen\n• Du bist die Ansprechperson für zugewiesene Prodega-Märkte und eine wichtige Stütze beim Verbuchen von Tochtergesellschaften\n• Du führst Korrespondenz mit Kunden via E-Mail und Telefon\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung\n• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen\n• Französisch- und Italienisch-Kenntnisse sind von Vorteil\n• Du bist versiert in den MS Office Programmen\n• Du bringst von Vorteil SAP-Kenntnisse mit\n• Du hast ein Flair für Zahlen und Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nFinanzen / Controlling\nArbeitsort\nAufgaben\nAnforderungen",
-        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous traitez les factures de marchandises et vous occupez du flux de travail du créancier (KWF) dans SAP\n\n• Vous créez des parcours de paiement et les exécutez dans les délais\n\n• Vous prenez en charge le traitement de la banque de voiture ainsi que les paiements QR et de clarifier les questions ouvertes.\n\n• Vous effectuez des réservations de grand livre et votez sur divers comptes\n\n• Vous traitez les rappels de créanciers entrants\n\n• Vous êtes la personne de contact pour les marchés Prodega assignés et un soutien important lors de l'enregistrement des filiales\n\n• Vous effectuez la correspondance avec les clients par courriel et par téléphone\n\n## Exigences\n• Vous avez une formation commerciale de base terminée\n\n• Idéalement, vous avez déjà une formation complémentaire comme commis aux finances et à la comptabilité.\n\n• Les compétences françaises et italiennes sont bénéfiques\n\n• Vous êtes bien au fait des programmes du MS Office\n\n• Vous apportez des connaissances SAP\n\n• Vous avez un flair pour les chiffres et le plaisir dans le contact client"
-      },
-      "location": "Moosseedorf",
-      "canton": "BE",
-      "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-finanzen/9628bba7-aeec-4207-b6d7-5f7928eba96c",
-      "source": "Transgourmet Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.993Z",
-      "addressLocality": "Moosseedorf",
-      "addressRegion": "BE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3302",
-      "streetAddress": "Lochackerweg 5",
-      "category": "Finanza",
-      "contract": "permanent",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Commercio all'ingrosso alimentare",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-25",
-      "pensum": "100%",
-      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170184",
-      "requirements": [
-        "• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung",
-        "• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen",
-        "• Französisch- und Italienisch-Kenntnisse sind von Vorteil",
-        "• Du bist versiert in den MS Office Programmen",
-        "• Du bringst von Vorteil SAP-Kenntnisse mit",
-        "• Du hast ein Flair für Zahlen und Freude am Kundenkontakt"
-      ],
-      "requirementsByLocale": {
-        "de": [
-          "• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung",
-          "• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen",
-          "• Französisch- und Italienisch-Kenntnisse sind von Vorteil",
-          "• Du bist versiert in den MS Office Programmen",
-          "• Du bringst von Vorteil SAP-Kenntnisse mit",
-          "• Du hast ein Flair für Zahlen und Freude am Kundenkontakt"
-        ]
-      },
-      "previousSlugs": [
-        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
-        ],
-        "en": [
-          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
-        ],
-        "fr": [
-          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
-        ]
-      },
-      "firstSeenAt": "2026-09-26T13:56:12.849Z",
-      "salaryMin": 105500,
-      "salaryMax": 185000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 105500,
-          "maxValue": 185000,
           "unitText": "YEAR"
         }
       }
@@ -2131,7 +1832,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-check-out-befristet-dez-sl/c409229c-c2e4-4ca0-b307-e703deac3cc8",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.993Z",
+      "crawledAt": "2026-10-02T09:13:45.842Z",
       "addressLocality": "Rüschlikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2168,14 +1869,16 @@
         "mitarbeiterin-mitarbeiter-verkauf-check-out-befristet-dez-sl-50-100-transgourmet",
         "vendite-dipendenti-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon",
         "employee-sales-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon",
-        "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon"
+        "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon",
+        "mitarbeiterin-addetto-a-alle-vendite-check-out-befristet-dez-sl-50-100-transgourmet-ruschlikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-verkauf-check-out-befristet-dez-sl-50-100-transgourmet",
           "vendite-dipendenti-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon",
           "employee-sales-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon",
-          "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon"
+          "depart-temporaire-des-ventes-des-employes-dec-sl-50-100-transgourmet-ruschlikon",
+          "mitarbeiterin-addetto-a-alle-vendite-check-out-befristet-dez-sl-50-100-transgourmet-ruschlikon"
         ],
         "en": [
           "employee-sales-check-out-temporary-dec-sl-50-100-transgourmet-ruschlikon",
@@ -2198,6 +1901,104 @@
           "@type": "QuantitativeValue",
           "minValue": 83000,
           "maxValue": 127500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "transgourmet-9628bba7-aee",
+      "slug": "personale-personale-finanza-transgourmet-moosseedorf",
+      "slugByLocale": {
+        "it": "personale-personale-finanza-transgourmet-moosseedorf",
+        "en": "personnel-personnel-finance-transgourmet-moosseedorf",
+        "de": "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
+        "fr": "personnel-finances-du-personnel-transgourmet-moosseedorf"
+      },
+      "company": "Transgourmet",
+      "companyKey": "transgourmet",
+      "companyDomain": "transgourmet.ch",
+      "title": "Sachbearbeiterin / Sachbearbeiter Finanzen",
+      "titleByLocale": {
+        "it": "Personale / Personale Finanza",
+        "en": "Personnel / Personnel Finance",
+        "de": "Sachbearbeiterin / Sachbearbeiter Finanzen",
+        "fr": "Personnel / Finances du personnel"
+      },
+      "description": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du bearbeitest Warenrechnungen und kümmerst dich um den Kreditorenworkflow (KWF) in SAP\n• Du erstellst Zahlläufe und führst diese termingerecht durch\n• Du übernimmst die Bearbeitung der Autobank sowie QR-Zahlungen und klärst offene Fragen.\n• Du führst Hauptbuch-Buchungen durch und stimmst diverse Konten ab\n• Du bearbeitest eingehende Kreditorenmahnungen\n• Du bist die Ansprechperson für zugewiesene Prodega-Märkte und eine wichtige Stütze beim Verbuchen von Tochtergesellschaften\n• Du führst Korrespondenz mit Kunden via E-Mail und Telefon\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung\n• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen\n• Französisch- und Italienisch-Kenntnisse sind von Vorteil\n• Du bist versiert in den MS Office Programmen\n• Du bringst von Vorteil SAP-Kenntnisse mit\n• Du hast ein Flair für Zahlen und Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nFinanzen / Controlling\nArbeitsort\nAufgaben\nAnforderungen",
+      "descriptionByLocale": {
+        "it": "Il nostro cuore batte per la gastronomia svizzera. Con un sacco di impegno, siamo lì per i nostri clienti. Nei nostri 31 mercati di pick-up, per servizio di campo e consegna, così come nel mondo digitale. Con una gamma versatile, marchi propri attraenti, consulenza specialistica professionale e servizi innovativi.\n\nTransgourmet Schweiz AG fa parte del Gruppo Transgourmet internazionale. L'azienda è leader nel commercio all'ingrosso di approvvigionamento e pick-up svizzero e ha circa 2.100 dipendenti e 100.000 clienti (ristoranti, hotel, mense, case e ospedali e rivenditori).\n\n## Compiti\n• Elabori fatture di beni e ti occupi del flusso di lavoro del creditore (KWF) in SAP\n\n• È possibile creare operazioni di pagamento e eseguirli in orario\n\n• Si prende il controllo del trattamento della banca dell'automobile così come i pagamenti QR e chiarire le domande aperte.\n\n• Fai prenotazioni di registro e voti su vari account\n\n• Stai trattando in arrivo dei promemoria creditori\n\n• Sei la persona di contatto per i mercati di Prodega assegnati e un supporto importante durante la registrazione delle controllate\n\n• Conduci corrispondenza con i clienti via e-mail e telefono\n\n## Requisiti\n• Hai una formazione commerciale completa\n\n• Idealmente, hai già un'ulteriore formazione come un impiegato finanziario e contabile.\n\n• Le competenze francesi e italiane sono utili\n\n• Siete ben diversificati nei programmi di MS Office\n\n• Porti il vantaggio della conoscenza SAP\n\n• Hai un tocco per numeri e piacere nel contatto con il cliente",
+        "en": "Our heart beats for Swiss gastronomy. With a lot of commitment, we are there for our customers. In our 31 pick-up markets, by field service and delivery, as well as in the digital world. With a versatile range, attractive own brands, professional specialist advice and innovative services.\n\nTransgourmet Schweiz AG is part of the international Transgourmet Group. The company is a leader in the Swiss supply and pick-up wholesale trade and has around 2,100 employees and 100,000 customers (restaurants, hotels, canteens, homes and hospitals as well as retailers).\n\n## Tasks\n• You process goods invoices and take care of the creditor workflow (KWF) in SAP\n\n• You create payment runs and carry them out on schedule\n\n• You take over the processing of the car bank as well as QR payments and clarify open questions.\n\n• You make ledger bookings and vote on various accounts\n\n• You are handling incoming creditor reminders\n\n• You are the contact person for assigned Prodega markets and an important support when registering subsidiaries\n\n• You conduct correspondence with customers via email and telephone\n\n## Requirements\n• You have a completed basic commercial training\n\n• Ideally, you already have a further education as a finance and accounting clerk.\n\n• French and Italian skills are beneficial\n\n• You are well-versed in the MS Office programs\n\n• You bring advantage SAP knowledge\n\n• You have a flair for numbers and pleasure in customer contact",
+        "de": "Unser Herz schlägt für die Schweizer Gastronomie. Mit viel Engagement sind wir für unsere Kunden da. In unseren 31 Abholmärkten, per Aussendienst und Belieferung, genauso wie in der digitalen Welt. Mit einem vielseitigen Sortiment, attraktiven Eigenmarken, professioneller Fachberatung und innovativen Services.\nTransgourmet Schweiz AG gehört zur internationalen Transgourmet-Gruppe. Das Unternehmen ist führend im Schweizer Belieferungs- und Abholgrosshandel und zählt rund 2'100 Mitarbeitende sowie 100'000 Kunden (Restaurants, Hotels, Kantinen, Heime und Spitäler sowie Detailhandel).\n\n## Aufgaben\n• Du bearbeitest Warenrechnungen und kümmerst dich um den Kreditorenworkflow (KWF) in SAP\n• Du erstellst Zahlläufe und führst diese termingerecht durch\n• Du übernimmst die Bearbeitung der Autobank sowie QR-Zahlungen und klärst offene Fragen.\n• Du führst Hauptbuch-Buchungen durch und stimmst diverse Konten ab\n• Du bearbeitest eingehende Kreditorenmahnungen\n• Du bist die Ansprechperson für zugewiesene Prodega-Märkte und eine wichtige Stütze beim Verbuchen von Tochtergesellschaften\n• Du führst Korrespondenz mit Kunden via E-Mail und Telefon\n\n## Anforderungen\n• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung\n• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen\n• Französisch- und Italienisch-Kenntnisse sind von Vorteil\n• Du bist versiert in den MS Office Programmen\n• Du bringst von Vorteil SAP-Kenntnisse mit\n• Du hast ein Flair für Zahlen und Freude am Kundenkontakt\nWas wir bieten\n\n## Arbeitsort\nTransgourmet/Prodega\nLochackerweg 5\n3302 Moosseedorf\nMoosseedorf\n100%\nunbefristet\nStellenantritt: per sofort oder nach Vereinbarung\n\n## Fachrichtung\nFinanzen / Controlling\nArbeitsort\nAufgaben\nAnforderungen",
+        "fr": "Notre cœur bat pour la gastronomie suisse. Avec beaucoup d'engagement, nous sommes là pour nos clients. Dans nos 31 marchés de ramassage, par service sur le terrain et par livraison, ainsi que dans le monde numérique. Avec une gamme polyvalente, des marques propres attrayantes, des conseils professionnels spécialisés et des services innovants.\n\nTransgourmet Schweiz AG fait partie du groupe international Transgourmet. L'entreprise est leader dans le commerce de gros suisse d'approvisionnement et de ramassage et compte environ 2 100 employés et 100 000 clients (restaurants, hôtels, cantines, maisons et hôpitaux ainsi que détaillants).\n\n## Tâche\n• Vous traitez les factures de marchandises et vous occupez du flux de travail du créancier (KWF) dans SAP\n\n• Vous créez des parcours de paiement et les exécutez dans les délais\n\n• Vous prenez en charge le traitement de la banque de voiture ainsi que les paiements QR et de clarifier les questions ouvertes.\n\n• Vous effectuez des réservations de grand livre et votez sur divers comptes\n\n• Vous traitez les rappels de créanciers entrants\n\n• Vous êtes la personne de contact pour les marchés Prodega assignés et un soutien important lors de l'enregistrement des filiales\n\n• Vous effectuez la correspondance avec les clients par courriel et par téléphone\n\n## Exigences\n• Vous avez une formation commerciale de base terminée\n\n• Idéalement, vous avez déjà une formation complémentaire comme commis aux finances et à la comptabilité.\n\n• Les compétences françaises et italiennes sont bénéfiques\n\n• Vous êtes bien au fait des programmes du MS Office\n\n• Vous apportez des connaissances SAP\n\n• Vous avez un flair pour les chiffres et le plaisir dans le contact client"
+      },
+      "location": "Moosseedorf",
+      "canton": "BE",
+      "url": "https://jobs.transgourmet.ch/offene-stellen/sachbearbeiterin-sachbearbeiter-finanzen/9628bba7-aeec-4207-b6d7-5f7928eba96c",
+      "source": "Transgourmet Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:13:45.840Z",
+      "addressLocality": "Moosseedorf",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "3302",
+      "streetAddress": "Lochackerweg 5",
+      "category": "Finanza",
+      "contract": "permanent",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Commercio all'ingrosso alimentare",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "pensum": "100%",
+      "applyUrl": "https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170184",
+      "requirements": [
+        "• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung",
+        "• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen",
+        "• Französisch- und Italienisch-Kenntnisse sind von Vorteil",
+        "• Du bist versiert in den MS Office Programmen",
+        "• Du bringst von Vorteil SAP-Kenntnisse mit",
+        "• Du hast ein Flair für Zahlen und Freude am Kundenkontakt"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "• Du verfügst über eine abgeschlossene kaufmännische Grundausbildung",
+          "• Idealerweise hast du bereits eine Weiterbildung zum Sachbearbeiter Finanz- und Rechnungswesen",
+          "• Französisch- und Italienisch-Kenntnisse sind von Vorteil",
+          "• Du bist versiert in den MS Office Programmen",
+          "• Du bringst von Vorteil SAP-Kenntnisse mit",
+          "• Du hast ein Flair für Zahlen und Freude am Kundenkontakt"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
+        "personale-personale-finanza-transgourmet-moosseedorf"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf",
+          "personale-personale-finanza-transgourmet-moosseedorf"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-finanzen-transgourmet-moosseedorf"
+        ]
+      },
+      "firstSeenAt": "2026-09-26T13:56:12.849Z",
+      "needsRetranslation": true,
+      "salaryMin": 105500,
+      "salaryMax": 185000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 105500,
+          "maxValue": 185000,
           "unitText": "YEAR"
         }
       }
@@ -2233,7 +2034,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/abteilungsleiterin-abteilungsleiter-fruechte-gemuese/1beb0c96-1912-4b6f-a184-185a3d7ea318",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.992Z",
+      "crawledAt": "2026-10-02T09:13:45.836Z",
       "addressLocality": "Heimberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2269,11 +2070,13 @@
         ]
       },
       "previousSlugs": [
-        "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg"
+        "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg",
+        "capo-reparto-frutta-e-verdura-transgourmet-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg"
+          "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg",
+          "capo-reparto-frutta-e-verdura-transgourmet-heimberg"
         ],
         "en": [
           "abteilungsleiterin-abteilungsleiter-fruchte-amp-gemuse-transgourmet-heimberg"
@@ -2283,6 +2086,7 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:13:48.475Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2328,7 +2132,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-fruechte-gemuese/45235893-abf5-45b2-ae53-4c77d255e953",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.991Z",
+      "crawledAt": "2026-10-02T09:13:45.832Z",
       "addressLocality": "Heimberg",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2364,11 +2168,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg"
+        "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg",
+        "mitarbeiterin-addetto-a-alle-vendite-fruchte-gemuse-transgourmet-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg"
+          "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg",
+          "mitarbeiterin-addetto-a-alle-vendite-fruchte-gemuse-transgourmet-heimberg"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-fruchte-amp-gemuse-transgourmet-heimberg"
@@ -2424,7 +2230,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/mitarbeiterin-mitarbeiter-verkauf-getraenke-und-tabak/7d26f486-9528-4979-ada4-18b78c1d5a3c",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.990Z",
+      "crawledAt": "2026-10-02T09:13:45.827Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -2462,11 +2268,13 @@
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
+        "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach",
+        "mitarbeiterin-addetto-a-alle-vendite-getranke-e-tabak-transgourmet-reinach"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
+          "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach",
+          "mitarbeiterin-addetto-a-alle-vendite-getranke-e-tabak-transgourmet-reinach"
         ],
         "en": [
           "mitarbeiterin-mitarbeiter-verkauf-getranke-und-tabak-transgourmet-reinach"
@@ -2522,7 +2330,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/kommissioniererin-kommissionierer-tiefkuehllager/23754c90-2149-4619-97e2-b92699325a43",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.988Z",
+      "crawledAt": "2026-10-02T09:13:45.825Z",
       "addressLocality": "Neuendorf",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -2559,12 +2367,14 @@
       },
       "previousSlugs": [
         "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf",
-        "kommissioniererin-kommissionierer-tiefkuhllager-transgourmet-neuendorf"
+        "kommissioniererin-kommissionierer-tiefkuhllager-transgourmet-neuendorf",
+        "ordina-picker-ordine-picker-congelatore-magazzino-1-transgourmet-neuendorf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf",
-          "kommissioniererin-kommissionierer-tiefkuhllager-transgourmet-neuendorf"
+          "kommissioniererin-kommissionierer-tiefkuhllager-transgourmet-neuendorf",
+          "ordina-picker-ordine-picker-congelatore-magazzino-1-transgourmet-neuendorf"
         ],
         "en": [
           "kommissioniererin-kommissionierer-tiefkuhllager-1-transgourmet-neuendorf"
@@ -2574,6 +2384,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:14:32.103Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2619,7 +2430,7 @@
       "url": "https://jobs.transgourmet.ch/postes-vacantes/collaboratrice-collaborateur-preparation-des-commandes/9e7074a3-1bc2-4e7a-82cc-9e488869cf2b",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:19:07.987Z",
+      "crawledAt": "2026-10-02T09:13:45.824Z",
       "addressLocality": "Gals",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2655,11 +2466,13 @@
         ]
       },
       "previousSlugs": [
-        "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals"
+        "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals",
+        "collaboratore-collaboratore-preparazione-degli-ordini-transgourmet-gals"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals"
+          "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals",
+          "collaboratore-collaboratore-preparazione-degli-ordini-transgourmet-gals"
         ],
         "en": [
           "collaboratrice-collaborateur-preparation-des-commandes-transgourmet-gals"
@@ -2669,6 +2482,7 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:40:47.372Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2714,7 +2528,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/applikationsmanagerin-applikationsmanager/d1313c4a-2efa-4638-b7ca-c0e7a9be25c7",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.986Z",
+      "crawledAt": "2026-10-02T09:13:45.822Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2756,11 +2570,13 @@
         ]
       },
       "previousSlugs": [
-        "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf"
+        "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf",
+        "gestione-applicazioni-gestione-applicazioni-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf"
+          "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf",
+          "gestione-applicazioni-gestione-applicazioni-transgourmet-moosseedorf"
         ],
         "en": [
           "applikationsmanagerin-applikationsmanager-transgourmet-moosseedorf"
@@ -2770,6 +2586,7 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:12:15.746Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2815,7 +2632,7 @@
       "url": "https://jobs.transgourmet.ch/offene-stellen/ict-supporterin-ict-supporter/635af6b6-7627-4bf6-aa18-39ee5f1c4e56",
       "source": "Transgourmet Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:07.982Z",
+      "crawledAt": "2026-10-02T09:13:45.815Z",
       "addressLocality": "Moosseedorf",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2855,17 +2672,20 @@
         ]
       },
       "previousSlugs": [
-        "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+        "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+        "supporto-ict-supporto-ict-transgourmet-moosseedorf"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
+          "ict-supporterin-ict-supporter-transgourmet-moosseedorf",
+          "supporto-ict-supporto-ict-transgourmet-moosseedorf"
         ],
         "fr": [
           "ict-supporterin-ict-supporter-transgourmet-moosseedorf"
         ]
       },
       "firstSeenAt": "2026-09-30T21:12:15.742Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
