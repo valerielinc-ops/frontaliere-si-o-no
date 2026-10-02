@@ -7580,6 +7580,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritti-inquilino-svizzera-2026.title': 'Mieten Schweiz 2026: Immobilienmarkt und Rechte',
     'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In der Schweiz beträgt die Kaution höchstens drei Mietmonate: Für die Kündigung des Vermieters benötigen Sie das offizielle kantonale Formular und die Beanstandung erlischt in 30 Tagen.',
     'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Schweizer Wohngebäude mit Mietangebot und Mieter beim Prüfen des Vertrags',
+    'blog.article.diritti-inquilini-zurigo-2026.title': 'Mieten in der Schweiz 2026: Rechte und Regeln in Zürich',
+    'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Kaution von höchstens drei Monatsmieten, ein auf den Namen des Mieters lautendes Sperrkonto und 30 Tage zur Anfechtung der Kündigung: Die bundesrechtlichen Regeln gelten auch im Kanton Zürich.',
+    'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Wohngebäude in einem Schweizer Stadtviertel.',
 };
 
 export default blogMetaChDe;

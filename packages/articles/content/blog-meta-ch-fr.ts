@@ -7580,6 +7580,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-inquilino-svizzera-2026.title': 'Loyers en Suisse 2026 : marché immobilier et droits',
     'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'En Suisse, la garantie de loyer ne dépasse pas trois mois de loyer : pour la résiliation par le bailleur, le formulaire officiel cantonal est nécessaire et la contestation doit être formée dans les 30 jours.',
     'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Immeuble résidentiel suisse avec annonce de location et locataire consultant un bail',
+    'blog.article.diritti-inquilini-zurigo-2026.title': 'Locations en Suisse 2026 : droits et règles à Zurich',
+    'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Dépôt de garantie maximal de trois mois de loyer, compte bloqué au nom du locataire et 30 jours pour contester la résiliation : les règles fédérales s\'appliquent également dans le canton de Zurich.',
+    'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Immeuble résidentiel dans un quartier urbain suisse.',
 };
 
 export default blogMetaChFr;

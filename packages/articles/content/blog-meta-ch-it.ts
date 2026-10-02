@@ -7580,6 +7580,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritti-inquilino-svizzera-2026.title': 'Affitti Svizzera 2026: mercato immobiliare e diritti',
     'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In Svizzera la cauzione non supera tre mesi di pigione: per la disdetta del locatore serve il modulo ufficiale cantonale e la contestazione scade in 30 giorni.',
     'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Edificio residenziale svizzero con avviso di locazione e contratto tra le mani',
+    'blog.article.diritti-inquilini-zurigo-2026.title': 'Affitti in Svizzera 2026: diritti e regole a Zurigo',
+    'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Deposito massimo di tre mensilità, conto vincolato all\'inquilino e 30 giorni per contestare la disdetta: le regole federali valgono anche nel canton Zurigo.',
+    'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Edificio residenziale svizzero in un quartiere urbano.',
 };
 
 export default blogMetaChIt;

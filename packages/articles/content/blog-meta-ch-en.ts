@@ -7580,6 +7580,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-inquilino-svizzera-2026.title': 'Swiss Rents 2026: real estate market and rights',
     'blog.article.diritti-inquilino-svizzera-2026.excerpt': 'In Switzerland, the security deposit may not exceed three months\' rent: for the landlord\'s termination, the official cantonal form is required, and the deadline for contesting is 30 days.',
     'blog.article.diritti-inquilino-svizzera-2026.imageAlt': 'Swiss residential building with a rental notice and a tenant reviewing a lease',
+    'blog.article.diritti-inquilini-zurigo-2026.title': 'Renting in Switzerland 2026: rights and rules in Zurich',
+    'blog.article.diritti-inquilini-zurigo-2026.excerpt': 'Maximum deposit of three months\' rent, a blocked account in the tenant\'s name, and 30 days to contest the termination: federal rules also apply in the canton of Zurich.',
+    'blog.article.diritti-inquilini-zurigo-2026.imageAlt': 'Residential building in a Swiss urban neighborhood.',
 };
 
 export default blogMetaChEn;

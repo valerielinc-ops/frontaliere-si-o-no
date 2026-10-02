@@ -2549,6 +2549,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'secondo-pilastro-lpp-ginevra-2026': { it: 'secondo-pilastro-lpp-ginevra-2026', en: 'second-pillar-lpp-geneva-2026', de: 'zweite-saeule-lpp-genf-2026', fr: 'deuxieme-pilier-lpp-geneve-2026' },
  'bvg-lucerna-previdenza-2026': { it: 'bvg-lucerna-previdenza-2026', en: 'bvg-lucerne-pension-2026', de: 'bvg-luzern-vorsorge-2026', fr: 'bvg-lucerne-prevoyance-2026' },
  'diritti-inquilino-svizzera-2026': { it: 'diritti-inquilino-svizzera-2026', en: 'swiss-tenant-rights-2026', de: 'mieterrechte-schweiz-2026', fr: 'droits-locataire-suisse-2026' },
+ 'diritti-inquilini-zurigo-2026': { it: 'diritti-inquilini-zurigo-2026', en: 'tenant-rights-zurich-2026', de: 'mieterrechte-zuerich-2026', fr: 'droits-locataire-zurich-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
