@@ -47,6 +47,14 @@ ricaricare la pagina.
 4. Alla conferma del portale l'ordine passa a «inviata» da solo. Se qualcosa
    non torna, in coda c'è sempre **Segna come inviata**.
 
+Se l'annuncio apre il modulo in una nuova scheda (Coop: «Jetzt bewerben» porta
+a SAP SuccessFactors), l'estensione segue quella scheda e continua lì; ignora
+«Später bewerben», che salva l'annuncio e non avvia la candidatura. Sui portali
+con account (SuccessFactors) la password non la scrive l'estensione: se il
+robot ha già creato l'account sull'alias, in coda, sotto «Account sui
+portali», **Mostra password** te la dà; altrimenti registralo tu sull'alias
+dell'ordine, l'estensione compila gli altri campi.
+
 ## Cosa non fa
 
 - Non preme mai il pulsante d'invio e non risolve CAPTCHA.

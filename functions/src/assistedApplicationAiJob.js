@@ -116,6 +116,74 @@ export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
   return null;
 }
 
+// ── Apply redirect ─────────────────────────────────────────────────────────
+
+// Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
+// «Jetzt bewerben» through a redirect to the employer's ATS (SAP SuccessFactors).
+const ATS_REDIRECT_RE = /^https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?$/i;
+const ATS_REDIRECT_LINK_RE = /<a\b[^>]*\bhref=["'](https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/([0-9a-f-]{36})\/ats\/?)["'][^>]*>([\s\S]*?)<\/a>/gi;
+const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+const APPLY_LABEL_RE = /(bewerben|\bapply\b|candidat|postuler|postulez)/i;
+const APPLY_LATER_LABEL_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+
+/**
+ * The posting's own redirect, never another job's (a "similar jobs" list):
+ * the one carrying the posting's id (Prospective uses the same UUID in both),
+ * else the only one labelled as the apply button. '' when it is not clear.
+ * Never the first redirect anywhere in the page (review of #10980): an
+ * unrelated first redirect and the posting's link second → the second
+ * (tests/assisted-application-ai-core.test.ts).
+ */
+export function postingAtsRedirect(postingUrl, html) {
+  const links = [...String(html || '').matchAll(ATS_REDIRECT_LINK_RE)]
+    .map((match) => ({ href: match[1], id: match[2].toLowerCase(), text: htmlToText(match[3]) }));
+  const own = String(postingUrl || '').match(UUID_RE)?.pop()?.toLowerCase();
+  if (own) return links.find((link) => link.id === own)?.href || '';
+  const apply = [...new Set(links.filter((link) => APPLY_LABEL_RE.test(link.text) && !APPLY_LATER_LABEL_RE.test(link.text)).map((link) => link.href))];
+  return apply.length === 1 ? apply[0] : '';
+}
+
+/** Where a redirect ends, each hop re-validated like fetchPublicPage; '' when it does not end. */
+async function redirectTarget(fetchImpl, startUrl, resolve) {
+  let url = startUrl;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
+    if (!(await resolvesToPublicHost(url, resolve))) return '';
+    // An ATS reached: its page is not needed, only its address.
+    if (hop > 0 && portalOf(url)) return url;
+    const response = await fetchWithTimeout(fetchImpl, url, { method: 'HEAD', redirect: 'manual' });
+    const location = response.headers?.get?.('location');
+    if (!(response.status >= 300 && response.status < 400 && location)) return hop > 0 && response.ok ? url : '';
+    url = new URL(location, url).toString();
+  }
+  return '';
+}
+
+/**
+ * The address «Apply» really leads to when the posting page sends it through
+ * a known ATS redirect: the channel is then the ATS's (its account, its
+ * quirks), not "Sito del datore". Any problem keeps the posting's address.
+ * @returns {Promise<{applyUrl:string, via:string}>} `via` is '' when nothing changed
+ */
+export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const url = String(applyUrl || '').trim();
+  const kept = { applyUrl: url, via: '' };
+  if (!isFetchablePublicUrl(url) || portalOf(url)) return kept;
+  try {
+    let redirect = ATS_REDIRECT_RE.test(url) ? url : '';
+    if (!redirect) {
+      const response = await fetchPublicPage(fetchImpl, url, resolve);
+      if (!response?.ok || !String(response.headers?.get?.('content-type') || '').includes('html')) return kept;
+      redirect = postingAtsRedirect(url, (await response.text()).slice(0, MAX_PAGE_BYTES));
+    }
+    if (!redirect) return kept;
+    const target = await redirectTarget(fetchImpl, redirect, resolve);
+    return target ? { applyUrl: target, via: 'prospective' } : kept;
+  } catch (error) {
+    console.warn('[assistedApplicationAi] apply redirect not resolved', error instanceof Error ? error.message : String(error));
+    return kept;
+  }
+}
+
 function salaryText(baseSalary) {
   const value = baseSalary?.value;
   if (!value || typeof value !== 'object') return '';
@@ -208,11 +276,25 @@ const PORTALS = [
   { id: 'softgarden', label: 'softgarden', re: /(^|\.)softgarden\.(io|de)$/, account: false },
   { id: 'jobs_ch', label: 'jobs.ch / jobup.ch', re: /(^|\.)(jobs\.ch|jobup\.ch)$/, account: false },
   { id: 'linkedin', label: 'LinkedIn', re: /(^|\.)linkedin\.com$/, account: true },
+  // Coop's apprenticeships (2026-10-02): «Jetzt bewerben» opens a WhatsApp
+  // chat (QR code), from the candidate's own phone. No browser can send it.
+  { id: 'pastahr', label: 'PastaHR (WhatsApp)', re: /(^|\.)pastahr\.com$/, account: false },
 ];
 
 // The employers' own application portals (not job boards): used even when the
-// posting also names an e-mail address.
+// posting also names an e-mail address. PastaHR is not among them: a WhatsApp
+// chat cannot be sent for the candidate, an address the posting gives can.
 const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+
+/** The known portal an address is on, or null. */
+function portalOf(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return PORTALS.find((candidate) => candidate.re.test(host)) || null;
+  } catch {
+    return null;
+  }
+}
 
 const EMAIL_ONLY_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 

@@ -1,11 +1,12 @@
 import { spawnSync } from 'node:child_process';
+import vm from 'node:vm';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import { JSDOM } from 'jsdom';
 import { CONFIRM_RE, NEXT_RE, REFUSED_RE, SUBMIT_RE } from '../scripts/assisted-application/lib/portal/fill.mjs';
-import { APPLY_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
+import { APPLY_LATER_RE, APPLY_RE, COOKIE_REJECT_RE } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { NOT_ADVANCE_RE } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
 const extension = resolve(fileURLToPath(new URL('..', import.meta.url)), 'scripts/assisted-application/extension');
@@ -50,7 +51,7 @@ const ariaChoices = (question: string, options: string[]) => `<form><h2>${questi
 describe('fill extension: patterns', () => {
   it('uses the runner’s own patterns', () => {
     const { F } = page('');
-    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE })) {
+    for (const [name, pattern] of Object.entries({ NEXT_RE, SUBMIT_RE, CONFIRM_RE, REFUSED_RE, APPLY_RE, APPLY_LATER_RE, NOT_ADVANCE_RE, COOKIE_REJECT_RE })) {
       expect(`${name}: ${F[name].source}/${F[name].flags}`).toBe(`${name}: ${pattern.source}/${pattern.flags}`);
     }
   });
@@ -81,6 +82,21 @@ describe('fill extension: JOIN steps', () => {
     const state = review.F.pageState(review.document);
     expect(state.kind).toBe('final');
     expect(review.F.textOf(state.final)).toBe('Invia candidatura');
+  });
+
+  it('starts Coop’s application with «Jetzt bewerben», never «Später bewerben»', () => {
+    // jobs.coopjobs.ch (Prospective.ch), 2026-10-02: the bookmark comes first in the page.
+    const coop = page('<header><a role="button" aria-label="Später bewerben">Später bewerben</a></header><main><h1>Bäcker:in</h1><a class="main-btn apply" target="_blank" href="https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a></main>', 'https://jobs.coopjobs.ch/offene-stellen/baecker/20d53107-db26-4a35-8f4c-b4d15bb4bb31');
+    const state = coop.F.pageState(coop.document);
+    expect(state.kind).toBe('posting');
+    expect(coop.F.textOf(state.start)).toBe('Jetzt bewerben');
+  });
+
+  it('highlights SuccessFactors’ bare «Bewerben» as the send button', () => {
+    const form = page('<form><label for="v">Vorname *</label><input id="v" required value="Luigi"><button type="button">Entwurf speichern</button><button type="submit">Bewerben</button></form>', 'https://career2.successfactors.eu/career?company=Coop');
+    const state = form.F.pageState(form.document, { sawForm: true });
+    expect(state.kind).toBe('final');
+    expect(form.F.textOf(state.final)).toBe('Bewerben');
   });
 
   it('types the alias and moves on with «Continua», never «Continua con Google»', async () => {
@@ -191,6 +207,113 @@ describe('fill extension: JOIN steps', () => {
     expect(page('<div role="status">Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').F.pageState(page('<div>Non siamo riusciti a inviare la tua candidatura. Riprova.</div>').document).kind).toBe('refused');
     const done = page('<h1>Grazie per la tua candidatura!</h1>');
     expect(done.F.pageState(done.document).kind).toBe('confirmed');
+    for (const text of ['Du hast dich erfolgreich auf diese Stelle beworben.', 'Sie haben sich erfolgreich beworben.', 'Deine Bewerbung wurde erfolgreich übermittelt.', 'You have successfully applied for this job.', 'Vous avez postulé avec succès.', 'Ti sei candidato con successo.']) {
+      const shown = page(`<p>${text}</p>`);
+      expect(shown.F.pageState(shown.document).kind, text).toBe('confirmed');
+    }
+    // Review of #10980: a page's prose about other applicants is no confirmation.
+    const prose = 'Es haben sich erfolgreich auf diese Stelle beworben: 12 Personen.';
+    expect(CONFIRM_RE.test(prose)).toBe(false);
+    const posting = page(`<main><h1>Bäcker:in</h1><p>${prose}</p><a href="https://ohws.prospective.ch/public/v1/redirect/x/ats/">Jetzt bewerben</a></main>`);
+    expect(posting.F.pageState(posting.document).kind).toBe('posting');
+  });
+});
+
+// Coop, 2026-10-02: «Jetzt bewerben» opens SuccessFactors in a new tab (target=_blank).
+describe('fill extension: the tab the start link opens', () => {
+  const backgroundSource = readFileSync(resolve(extension, 'background.js'), 'utf8');
+  const START = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
+
+  /** background.js on a fake `chrome`: session storage and the listeners it registers. */
+  function worker(store = new Map<string, any>([['loadedFingerprint', 'loaded']])) {
+    const listeners: Record<string, Array<(...args: any[]) => any>> = { created: [], message: [] };
+    const on = (name: string) => ({ addListener: (listener: any) => (listeners[name] ||= []).push(listener) });
+    const chrome = {
+      storage: {
+        session: {
+          async get(key: string | null) {
+            if (key === null) return Object.fromEntries(store);
+            return store.has(key) ? { [key]: store.get(key) } : {};
+          },
+          async set(values: Record<string, any>) { for (const [key, value] of Object.entries(values)) store.set(key, value); },
+          async remove(keys: string | string[]) { for (const key of [keys].flat()) store.delete(key); },
+        },
+        local: { async get() { return {}; }, async set() {} },
+      },
+      tabs: { onCreated: on('created'), onUpdated: on('updated'), onRemoved: on('removed'), async query() { return []; }, async get() { return null; }, async create() { return { id: 99 }; }, async update() {}, async sendMessage() {} },
+      runtime: { onMessage: on('message'), onStartup: on('startup'), onInstalled: on('installed'), getURL: (file: string) => file, getManifest: () => ({ content_scripts: [{ matches: [], js: [] }] }), reload() {} },
+      alarms: { async get() { return {}; }, create() {}, onAlarm: on('alarm') },
+      scripting: { async executeScript() { return []; } },
+    };
+    vm.runInNewContext(backgroundSource, { chrome, URL, Date, Number, String, Promise, setTimeout, console, crypto, TextEncoder, btoa, fetch: async () => ({ ok: false }) });
+    const message = (msg: any, tabId: number) => new Promise((done) => listeners.message[0](msg, { tab: { id: tabId } }, done));
+    const created = (tab: any) => listeners.created[0](tab);
+    const updated = (tabId: number, info: any) => listeners.updated[0](tabId, info, { id: tabId, url: info.url || '' });
+    return { store, message, created, updated };
+  }
+
+  it('gives the order’s kit to the apply tab only, once per start click', async () => {
+    const { store, message, created } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/offene-stellen/x/20d53107-db26-4a35-8f4c-b4d15bb4bb31' }, state: 'filling', openedAt: Date.now() });
+    // A popup before any start click: nothing.
+    await created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:2')).toBe(false);
+    await message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    // Another link of the posting first (a social page), then the apply tab, then a second popup.
+    await created({ id: 3, openerTabId: 1, pendingUrl: 'https://www.instagram.com/coop.jobs/' });
+    await created({ id: 4, openerTabId: 1, pendingUrl: START });
+    await created({ id: 5, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:3')).toBe(false);
+    expect(store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(store.has('tab:5')).toBe(false);
+    // Not even a popup whose address Chrome does not know yet, once the start is used up.
+    await created({ id: 6, openerTabId: 1, pendingUrl: '' });
+    expect(store.has('tab:6')).toBe(false);
+  });
+
+  it('waits for the address of a tab Chrome does not know yet, and adopts only the one that is the link', async () => {
+    // Review of #10980: an apply tab created with no address, then an unrelated popup.
+    const { store, message, created, updated } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    await created({ id: 4, openerTabId: 1, pendingUrl: '' });
+    await created({ id: 5, openerTabId: 1, pendingUrl: '' });
+    expect(store.has('tab:4') || store.has('tab:5')).toBe(false);
+    await updated(5, { url: 'https://www.pastahr.com/privacy', status: 'loading' });
+    expect(store.has('tab:5')).toBe(false);
+    expect(store.get('tab:1').startUrl).toBe(START);
+    await updated(4, { url: START, status: 'loading' });
+    expect(store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(store.has('tab:5')).toBe(false);
+    // A start control with no link: no tab is ever adopted.
+    const button = worker();
+    button.store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await button.message({ type: 'mark', startedAt: Date.now(), startUrl: '' }, 1);
+    await button.created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(button.store.has('tab:2')).toBe(false);
+  });
+
+  it('remembers a waiting tab across a service worker restart', async () => {
+    // Review of #10980: the opener of a tab with no address yet is not only in memory.
+    const first = worker();
+    first.store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await first.message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    await first.created({ id: 4, openerTabId: 1, pendingUrl: '' });
+    expect(first.store.has('tab:4')).toBe(false);
+    // The worker restarts: a new background.js on the same session storage.
+    const restarted = worker(first.store);
+    await restarted.updated(4, { url: START, status: 'loading' });
+    expect(restarted.store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(restarted.store.get('tab:1')).toMatchObject({ kit: { orderId: 'o' }, state: 'filling' });
+    expect(restarted.store.has('awaiting:4')).toBe(false);
+  });
+
+  it('never takes a start that is not a time', async () => {
+    const { store, message, created } = worker();
+    store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await message({ type: 'mark', startedAt: 'soon', startUrl: START }, 1);
+    await created({ id: 2, openerTabId: 1, pendingUrl: START });
+    expect(store.has('tab:2')).toBe(false);
   });
 });
 

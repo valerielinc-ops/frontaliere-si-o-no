@@ -26,7 +26,7 @@ import {
   sanitizeRequirements,
   verifyQuotes,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
-import { classifyApplicationChannel, fetchJobPosting } from '../../../functions/src/assistedApplicationAiJob.js';
+import { classifyApplicationChannel, fetchJobPosting, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import {
   DOCUMENTS_SCHEMA,
@@ -245,11 +245,24 @@ export async function buildDraft(ctx) {
     whyCompany: documents.whyCompany,
   }, factSources, { language });
 
-  const channel = classifyApplicationChannel({
+  let channel = classifyApplicationChannel({
     applyUrl: posting.applyUrl || order.jobUrl,
     postingText,
     applicationEmail: requirements.applicationEmail,
   });
+  // The employer's page may only pass «Apply» on to its ATS (Coop: Prospective.ch
+  // → SAP SuccessFactors): the channel is the ATS's, with its account.
+  if (channel.type === 'employer_site') {
+    const target = await resolveApplyUrl(channel.applyUrl, { fetchImpl, resolve: ctx.resolve });
+    if (target.via) {
+      channel = {
+        ...classifyApplicationChannel({ applyUrl: target.applyUrl, postingText, applicationEmail: requirements.applicationEmail }),
+        postingUrl: channel.applyUrl,
+        via: target.via,
+      };
+      log('apply redirect', target.via, channel.type);
+    }
+  }
   // The portal's own required questions, read ahead on a single-page form
   // (career-ops apply.md): the candidate answers them on the first review,
   // not in a second round at submit time. Questions already asked are kept.

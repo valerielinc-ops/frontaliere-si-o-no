@@ -327,6 +327,15 @@ describe('review link token', () => {
 });
 
 describe('career-ops handoff, closed ads and owner regeneration', () => {
+  // Coop's apprenticeships (2026-10-02): a WhatsApp-only application goes to Valerie, then to the candidate with that reason.
+  it('hands a WhatsApp-only application over with its reason', () => {
+    const roundDraft = { ...cleanDraft, round: 1 };
+    let step = transition({ state: 'submitting', round: 1, dispatch: { mode: 'submit', attempts: 1 } }, { type: 'submit_handoff', reason: 'whatsapp' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:whatsapp'] });
+    step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'whatsapp' }]);
+  });
+
   // Owner decision 2026-10-01 (giro di prova su JOIN): the candidate paid not to apply by hand.
   it('sends a portal the robot could not finish to Valerie, who retries it or chooses to hand it over', () => {
     const roundDraft = { ...cleanDraft, round: 1 };
@@ -342,7 +351,8 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
 
     step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
     expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['owner_handoff'], reminderAt: T0 + 24 * 60 * 60_000 });
-    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: null }]);
+    // The candidate is told the portal's own reason.
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'captcha' }]);
     const reminder = transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 24 * 60 * 60_000 });
     expect(reminder.effects).toEqual([{ type: 'email', kind: 'candidate_handoff_reminder' }]);
     expect(transition(reminder.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 48 * 60 * 60_000 }).ignored).toBe('nothing_due');

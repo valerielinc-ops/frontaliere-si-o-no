@@ -118,7 +118,7 @@ const CANDIDATE_COPY = {
       auto: 'Se non rispondi entro {deadline}, il sollecito partirà così com’è, a tuo nome come la candidatura. Dalla pagina puoi anche inviarlo subito o fermarlo.',
       cta: 'Invia o ferma il sollecito',
     },
-    reasons: { captcha: 'una verifica anti-robot', account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito' },
+    reasons: { captcha: 'una verifica anti-robot', account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito', whatsapp: 'la candidatura si fa solo via WhatsApp, dal tuo telefono' },
   },
   de: {
     greeting: (name) => (name ? `Hallo ${name},` : 'Hallo,'),
@@ -183,7 +183,7 @@ const CANDIDATE_COPY = {
       auto: 'Wenn du bis {deadline} nicht antwortest, geht die Nachfrage so in deinem Namen raus, wie die Bewerbung. Auf der Seite kannst du sie auch sofort senden oder stoppen.',
       cta: 'Nachfrage senden oder stoppen',
     },
-    reasons: { captcha: 'eine Anti-Roboter-Prüfung', account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website' },
+    reasons: { captcha: 'eine Anti-Roboter-Prüfung', account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website', whatsapp: 'die Bewerbung läuft nur über WhatsApp, von deinem Handy aus' },
   },
   fr: {
     greeting: (name) => (name ? `Bonjour ${name},` : 'Bonjour,'),
@@ -248,7 +248,7 @@ const CANDIDATE_COPY = {
       auto: 'Sans réponse de votre part avant {deadline}, la relance partira telle quelle, en votre nom comme la candidature. Depuis la page, vous pouvez aussi l’envoyer tout de suite ou l’arrêter.',
       cta: 'Envoyer ou arrêter la relance',
     },
-    reasons: { captcha: 'une vérification anti-robot', account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site' },
+    reasons: { captcha: 'une vérification anti-robot', account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site', whatsapp: 'la candidature se fait uniquement par WhatsApp, depuis votre téléphone' },
   },
   en: {
     greeting: (name) => (name ? `Hi ${name},` : 'Hi,'),
@@ -313,7 +313,7 @@ const CANDIDATE_COPY = {
       auto: 'If you don’t reply by {deadline}, the follow-up goes out as it is, in your name like the application. From the page you can also send it now or stop it.',
       cta: 'Send or stop the follow-up',
     },
-    reasons: { captcha: 'an anti-robot check', account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check' },
+    reasons: { captcha: 'an anti-robot check', account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check', whatsapp: 'the application goes through WhatsApp only, from your phone' },
   },
 };
 
@@ -358,6 +358,11 @@ const PORTAL_STOPS = {
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
   posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
+  whatsapp: 'il datore accetta candidature solo via WhatsApp (PastaHR, gli apprendistati Coop): la chat parte dal telefono del candidato e nessun robot può inviarla',
+};
+// What to do when the stop says more than "complete it on the portal".
+const PORTAL_STOP_HINTS = {
+  whatsapp: 'Non c’è un modulo da compilare: dalla coda premi «Affida al candidato». Riceve il link WhatsApp, le risposte già pronte e i documenti, e conferma quando ha inviato.',
 };
 const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
 const STAGE_HINTS = {
@@ -384,7 +389,7 @@ export function describeTakeover({ reason, stage, attempts }) {
   if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
   if (raw.startsWith('portal:')) {
     const code = raw.slice('portal:'.length);
-    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint: PORTAL_HINT, detail: '' };
+    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint: PORTAL_STOP_HINTS[code] || PORTAL_HINT, detail: '' };
   }
   const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
   const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));

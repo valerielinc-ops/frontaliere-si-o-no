@@ -85,6 +85,7 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
   rejected: 'il portale ha rifiutato l’invio automatico',
   portal_needs_candidate: 'una pagina del portale non completata dal robot',
   posting_mismatch: 'il modulo non sembra di questo annuncio: controlla e riprova',
+  whatsapp: 'candidatura solo via WhatsApp (PastaHR): affidala al candidato',
 };
 
 function heldLabel(reason: string): string {
