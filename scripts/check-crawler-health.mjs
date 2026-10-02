@@ -51,7 +51,11 @@
  * WITHOUT changing `status` away from 'healthy' — the intentional
  * allowlist/auto-filter behavior is preserved — and `main()` still opens a
  * (lower-priority, `advisory` status) `crawler-health` issue for it so a
- * multi-month zero is no longer silent.
+ * multi-month zero is no longer silent. A current
+ * `authoritativeEmptySnapshot` is different: the crawler has just proved
+ * that the source is alive and explicitly empty, so it does not need the
+ * long-run liveness advisory. If that proof disappears, the ordinary broken
+ * streak applies again.
  *
  * Auto-detected filtered-empty (issue #5945): a summary slice MAY report
  * `discovered` (count found before the crawler's Swiss/location filter) and
@@ -146,6 +150,10 @@ const BROKEN_AFTER_EMPTY_RUNS = 3;
 // 'healthy' (the EMPTY_OK_CRAWLERS design stays intentional either way).
 const EMPTY_OK_ADVISORY_AFTER_RUNS = 30;
 const MS_PER_DAY = 24 * 60 * 60 * 1000;
+// These custom runners used the pre-template field name before adopting the
+// canonical summary contract. Keep already-published summaries readable while
+// requiring every new runner to emit `authoritativeEmptySnapshot`.
+const LEGACY_SOURCE_PROVEN_EMPTY_CRAWLERS = new Set(['linnea', 'tpl-lugano']);
 const EMPTY_OK_CRAWLERS = new Set([
   // Current source page explicitly reports no open offers; a fresh successful
   // crawl is the useful health signal.
@@ -201,12 +209,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // cooperative bank legitimately has no openings for weeks at a time; the
   // crawler completes cleanly and re-arms when a vacancy is published.
   'banca-raiffeisen-vedeggio-cassarate',
-  // Linnea SA (Riazzino, TI): the careers page (https://www.linnea.ch/careers/)
-  // returns HTTP 200 and explicitly states "No open positions at this time."
-  // The parser correctly finds 0 accordion items; the botanical-ingredients
-  // manufacturer simply has no current openings. Healthy, re-arms when a
-  // vacancy is published.
-  'linnea',
   // Clinique CIC (Saxon VS & Clarens VD): the jobup.ch company mask
   // (https://www.jobup.ch/masks/clinique-cic/list_clinique-cic.asp) returns
   // HTTP 200 with its unchanged structure but currently only the two
@@ -465,25 +467,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
-  // TPL - Trasporti Pubblici Luganesi (Lugano public transport, tplsa.ch):
-  // verified live 2026-07-14 — the careers page
-  // (https://www.tplsa.ch/2/50/tpl-lavora-con-noi.html) returns HTTP 200 and the
-  // listing parser (parseTplListingPage) is healthy: it correctly discovers the
-  // current single vacancy ("Specialista Risorse Umane", idhr=748) and excludes
-  // the spontaneous-application form (idhr=0). The root break was that the
-  // dedicated crawler (refactored to the shared runDedicatedBaseCrawler engine)
-  // was never registered in the company census, so every run exited with
-  // "Missing company keys: tpl-lugano" and 0 jobs (born-broken, never produced a
-  // job) — now fixed by adding the company to data/ticino-companies-extra.json,
-  // so the engine resolves the key and crawls the careers page. TPL exposes its
-  // openings only as thin application-form pages (/2/50/candidati/?idhr=NNN) whose
-  // real job specification is a linked "Capitolato" PDF, which the generic engine
-  // correctly classifies as a non-job-detail page (html_not_target_relevant) → 0
-  // machine-extractable postings. A very small municipal transport operator
-  // legitimately has 0 (or PDF-only, non-extractable) openings for long stretches;
-  // the parser is healthy and re-arms if an extractable posting appears. Same
-  // legitimately-empty small-employer case as moncucco/linnea/ail-lugano.
-  'tpl-lugano',
   // Josef Müller Gemüse AG (Hünenberg ZG, produce/salad processing):
   // verified live 2026-07-21 — the jobs.ch company-profile page
   // (https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/) returns
@@ -859,6 +842,14 @@ function shouldCarryForwardCrawlerSlug(slug) {
  *     crawler MAY report on its summary slice (issue #5945); `null` when
  *     absent.
  */
+function summaryHasAuthoritativeEmpty(slug, summary) {
+  if (!summary || typeof summary !== 'object') return false;
+  return summary.authoritativeEmptySnapshot === true || (
+    LEGACY_SOURCE_PROVEN_EMPTY_CRAWLERS.has(slug) &&
+    summary.sourceProvenEmpty === true
+  );
+}
+
 async function inspectCrawler(slug) {
   const sliceFilePath = path.join(BY_CRAWLER_DIR, `${slug}.json`);
   const data = await readJsonSafe(sliceFilePath);
@@ -932,9 +923,11 @@ async function inspectCrawler(slug) {
       : null;
   const detailDrop = detailDropFromSummary(summary);
   // Source-proven empty state (crawler-template `evaluateAuthoritativeSnapshot`):
-  // absent for crawlers without an authoritative-snapshot validator.
-  const authoritativeEmpty =
-    summary && typeof summary === 'object' && summary.authoritativeEmptySnapshot === true;
+  // absent for crawlers without an authoritative-snapshot validator. The
+  // `sourceProvenEmpty` alias is retained only for summaries emitted by the
+  // two legacy custom runners while their already-published slices roll
+  // forward to the canonical field.
+  const authoritativeEmpty = summaryHasAuthoritativeEmpty(slug, summary);
   // Issue #7461 & al.: this slice was written by the process-exit guard
   // (`registerCrawlerSummaryGuard`, assemble-jobs-dataset.mjs), not by the
   // pipeline — the run RETURNED BEFORE PUBLISHING and kept the previous slice
@@ -1076,7 +1069,7 @@ function corpusObservationFromPayloads(slug, data, summary) {
       ? summary.parsed
       : null;
   const detailDrop = detailDropFromSummary(summary);
-  const authoritativeEmpty = summary.authoritativeEmptySnapshot === true;
+  const authoritativeEmpty = summaryHasAuthoritativeEmpty(slug, summary);
   // Same fetch verdict as `inspectCrawler` (#7897), mirrored here for the same
   // reason the counts above are: the corpus republishes the slice verbatim, and
   // for cross-repo crawlers this observation is usually the one that wins
@@ -1492,9 +1485,11 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
 
   // Unlike `consecutiveEmptyRuns` above, this counts EVERY empty observation
   // — emptyOk included — resetting only when jobs actually come back. It is
-  // the only thing that keeps growing while emptyOk masks a source that has
-  // gone from "legitimate lull" to "dead" (#6496). Same repeat-observation
-  // guard applies: a re-observed stale summary is not a new empty-ok run.
+  // the only thing that keeps growing while an unproven emptyOk signal masks
+  // a source that has gone from "legitimate lull" to "dead" (#6496). A
+  // current authoritative empty snapshot is already a liveness proof, so it
+  // does not need to raise that advisory. Same repeat-observation guard
+  // applies: a re-observed stale summary is not a new empty-ok run.
   const consecutiveEmptyOkRuns = isRepeatObservation
     ? (previous.consecutiveEmptyOkRuns ?? 0)
     : lastObservedJobs > 0
@@ -1503,6 +1498,7 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
   let advisory =
     lastObservedJobs === 0 &&
     emptyOk &&
+    !authoritativeEmpty &&
     consecutiveEmptyOkRuns >= EMPTY_OK_ADVISORY_AFTER_RUNS;
   let advisoryReason = advisory
     ? `${consecutiveEmptyOkRuns} consecutive empty-ok runs (>= ${EMPTY_OK_ADVISORY_AFTER_RUNS}) — verify the source is still alive, not just "legitimately quiet"`

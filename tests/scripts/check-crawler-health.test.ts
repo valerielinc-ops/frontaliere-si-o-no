@@ -1096,9 +1096,11 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
     expect(state._authoritativeEmptySnapshot).toBe(false);
   });
 
-  it('keeps the empty-ok advisory net armed instead of masking a dead source forever', () => {
-    // Unlike an EMPTY_OK_CRAWLERS entry the proof does not silence the
-    // long-run counter: it keeps climbing and raises the #6496 advisory.
+  it('does not raise the empty-ok advisory when the current run proves the source empty', () => {
+    // A current authoritative proof is stronger than an EMPTY_OK_CRAWLERS
+    // allowlist entry: it proves that the source was reached and explicitly
+    // reported no openings. If that proof disappears, the ordinary broken
+    // streak still catches the crawler.
     const { status, state } = nextCrawlerState(
       {
         ...brokenEligiblePrev,
@@ -1110,7 +1112,7 @@ describe('nextCrawlerState — authoritative empty-snapshot proof (#7324)', () =
       NOW_MS,
     );
     expect(status).toBe('healthy');
-    expect(state.advisory).toBe(true);
+    expect(state.advisory).toBe(false);
     expect(state.consecutiveEmptyOkRuns).toBe(41);
   });
 
