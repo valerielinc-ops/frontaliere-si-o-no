@@ -7532,6 +7532,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cassa-malati-premi-ticino-aumento.title': 'Cassa malati: non chiamiamolo un successo',
     'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Premi in Ticino +3,7% nel 2027 contro il 5% medio svizzero. Il premio medio arriva a 519,90 franchi, +56% in un decennio.',
     'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Vista sul lago di Lugano con struttura sanitaria sullo sfondo, simbolo dei costi della sanità in Ticino',
+    'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin si dimette: il mondo economico lo ringrazia',
+    'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Il consigliere federale 66enne Guy Parmelin ha annunciato oggi le dimissioni; Economiesuisse e USAM elogiano i suoi accordi con India, Vietnam e il rinnovo con la Cina, e la legge sullo sgravio imprese in vigore dal 2024.',
+    'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Palazzo federale di Berna con simboli commerciali, rappresenta la leadership economica svizzera.',
 };
 
 export default blogMetaChIt;

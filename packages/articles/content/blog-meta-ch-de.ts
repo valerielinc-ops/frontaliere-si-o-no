@@ -7532,6 +7532,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.cassa-malati-premi-ticino-aumento.title': 'Krankenversicherung: Nennen wir sie nicht als Erfolg',
     'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Die Prämien im Tessin lagen 2027 bei +3,7 % gegenüber dem Schweizer Durchschnitt von 5 %. Die durchschnittliche Prämie beträgt 519,90 Franc, also +56 % innerhalb eines Jahrzehnts.',
     'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Lago-Lugano-Ansicht mit medizinischer Einrichtung im Hintergrund, Symbol für Ticino-Gesundheitskosten',
+    'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin tritt zurück: Die Geschäftswelt dankt ihm',
+    'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Der 66-jährige Bundesrat Guy Parmelin gab heute seinen Rücktritt bekannt; Economiesuisse und die FSVO loben ihre Abkommen mit Indien, Vietnam und die Verlängerung mit China sowie das ab 2024 geltende Corporate Relief Act.',
+    'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Bundeshaus in Bern mit Handelssymbolen, Symbol für die wirtschaftliche Führungsrolle der Schweiz.',
 };
 
 export default blogMetaChDe;

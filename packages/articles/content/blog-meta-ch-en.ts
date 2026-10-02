@@ -7532,6 +7532,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cassa-malati-premi-ticino-aumento.title': 'Health insurance: let\'s not call it a success',
     'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Premiums in Ticino +3.7% in 2027 compared to the Swiss average of 5%. The average premium reaches 519.90 francs, +56% in a decade.',
     'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Lake Lugano view with healthcare facility in background, symbolizing Ticino healthcare costs',
+    'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin resigns: the business community thanks him',
+    'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'The 66-year-old Federal Councillor Guy Parmelin announced his resignation today; Economiesuisse and the FSVO praise its agreements with India, Vietnam and renewal with China, as well as the Corporate Relief Act in force from 2024.',
+    'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Federal Palace in Bern with trade symbols, symbolising Swiss economic leadership.',
 };
 
 export default blogMetaChEn;

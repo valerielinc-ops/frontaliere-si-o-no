@@ -22624,6 +22624,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'annuncio-parmelin-sgravio-2024',
+    category: 'novita',
+    date: '2026-10-02T15:48:01.677Z',
+    image: '/images/blog/annuncio-parmelin-sgravio-2024.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

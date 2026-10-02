@@ -2533,6 +2533,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'micasa-investitori-svizzeri-chiude-filiali': { it: 'micasa-investitori-svizzeri-chiude-filiali', en: 'micasa-swiss-investors-close-branches', de: 'micasa-schweizer-investoren-schliessen-filialen', fr: 'micasa-investisseurs-suisses-ferment-filiales' },
  'studio-eth-carico-fiscale-svizzera': { it: 'studio-eth-carico-fiscale-svizzera', en: 'eth-study-swiss-tax-burden', de: 'eth-studie-steuerbelastung-schweiz', fr: 'etude-eth-charge-fiscale-suisse' },
  'cassa-malati-premi-ticino-aumento': { it: 'cassa-malati-premi-ticino-aumento', en: 'health-insurance-premiums-ticino-increase', de: 'krankenversicherungspramien-tiino-erhohung', fr: 'primes-assurance-maladie-tessin-augmentation' },
+ 'annuncio-parmelin-sgravio-2024': { it: 'annuncio-parmelin-sgravio-2024', en: 'parmelin-resignation-economic-praise', de: 'parmelin-ruecktritt-wirtschaft-dank', fr: 'parmelin-demission-merci-economique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7532,6 +7532,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.cassa-malati-premi-ticino-aumento.title': 'Assurance santé : ne l’appelons pas un succès',
     'blog.article.cassa-malati-premi-ticino-aumento.excerpt': 'Primes au Tessin de +3,7 % en 2027 contre la moyenne suisse de 5 %. La prime moyenne atteint 519,90 francs, soit +56 % en une décennie.',
     'blog.article.cassa-malati-premi-ticino-aumento.imageAlt': 'Vue sur le lac de Lugan avec une structure sanitaire en arrière-plan, symbole des coûts de santé au Tessin',
+    'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin démissionne : le monde des affaires le remercie',
+    'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Le conseiller fédéral de 66 ans Guy Parmelin a annoncé aujourd’hui sa démission ; Economiesuisse et la FSVO saluent ses accords avec l’Inde, le Vietnam et le renouvellement avec la Chine, ainsi que la loi sur l’allègement des entreprises en vigueur à partir de 2024.',
+    'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Palais fédéral à Berne avec symboles commerciaux, représentant le leadership économique suisse.',
 };
 
 export default blogMetaChFr;
