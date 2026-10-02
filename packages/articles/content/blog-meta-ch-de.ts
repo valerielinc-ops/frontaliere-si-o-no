@@ -7562,6 +7562,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-retribuzioni-argovia-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Kanton Aargau',
     'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Vergleich 2026 zwischen Berufen, Branchen und Kantonen: Der Fokus auf den Aargau liegt auf Steuern, AHV/IV/EO-Beiträgen, BVG und KVG.',
     'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Schweizer Büro mit Grafiken zum Durchschnittslohn und Bezug zum Kanton Aargau.',
+    'blog.article.inflazione-eurozona-picco-triennale.title': 'Inflation in der Eurozone: neuer Höchststand seit drei Jahren',
+    'blog.article.inflazione-eurozona-picco-triennale.excerpt': 'Die erste Eurostat-Schätzung beziffert die Inflation der Eurozone im September auf 3,8%, nach 3,2% im August. Die Energiepreise steigen auf 18,8%.',
+    'blog.article.inflazione-eurozona-picco-triennale.imageAlt': 'Schweizer Stadtansicht mit Monitor zur Inflation im Euroraum.',
 };
 
 export default blogMetaChDe;

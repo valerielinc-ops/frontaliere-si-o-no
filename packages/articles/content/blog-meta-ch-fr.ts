@@ -7562,6 +7562,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-retribuzioni-argovia-2026.title': 'Salaire moyen professions Suisse 2026 : canton d\'Argovie',
     'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Comparaison 2026 entre professions, secteurs et cantons : le focus sur l’Argovie commence par les impôts, les cotisations AVS/AI/APG, la LPP et la LAMal.',
     'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Bureau suisse avec graphiques salariaux et référence au canton d\'Argovie.',
+    'blog.article.inflazione-eurozona-picco-triennale.title': 'Inflation dans la zone euro : nouveau pic en trois ans',
+    'blog.article.inflazione-eurozona-picco-triennale.excerpt': 'La première estimation d\'Eurostat porte l\'inflation de la zone euro à 3,8% en septembre, contre 3,2% en août. L\'énergie monte à 18,8%.',
+    'blog.article.inflazione-eurozona-picco-triennale.imageAlt': 'Vue urbaine suisse avec un écran sur l\'inflation de la zone euro.',
 };
 
 export default blogMetaChFr;

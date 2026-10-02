@@ -22714,6 +22714,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'inflazione-eurozona-picco-triennale',
+    category: 'novita',
+    date: '2026-10-02T20:35:47.736Z',
+    image: '/images/blog/inflazione-eurozona-picco-triennale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -7562,6 +7562,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-retribuzioni-argovia-2026.title': 'Average salary professions Switzerland 2026: canton Aargau',
     'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Comparison 2026 between professions, sectors and cantons: the focus on Aargau starts with taxes, AVS/AI/IPG contributions, LPP and LAMal.',
     'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Swiss office with salary comparison charts and a reference to canton Aargau.',
+    'blog.article.inflazione-eurozona-picco-triennale.title': 'Eurozone inflation: new three-year peak',
+    'blog.article.inflazione-eurozona-picco-triennale.excerpt': 'Eurostat\'s first estimate puts eurozone inflation at 3,8% in September, up from 3,2% in August. Energy rises to 18,8%.',
+    'blog.article.inflazione-eurozona-picco-triennale.imageAlt': 'Swiss city view with a monitor showing euro-area inflation.',
 };
 
 export default blogMetaChEn;

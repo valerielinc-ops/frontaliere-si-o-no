@@ -2543,6 +2543,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sondaggio-conciliazione-lavoro-vita': { it: 'sondaggio-conciliazione-lavoro-vita', en: 'work-life-balance-survey-ticino', de: 'umfrage-work-life-balance-tessin', fr: 'sondage-equilibre-vie-travail-tessin' },
  'analisi-traffico-gottardo-app': { it: 'analisi-traffico-gottardo-app', en: 'gotthard-traffic-analysis-app', de: 'gotthard-verkehrsanalyse-app', fr: 'analyse-trafic-gothard-app' },
  'guida-retribuzioni-argovia-2026': { it: 'guida-retribuzioni-argovia-2026', en: 'swiss-average-salary-aargau-2026', de: 'durchschnittslohn-berufe-aargau-2026', fr: 'salaire-moyen-metiers-argovie-2026' },
+ 'inflazione-eurozona-picco-triennale': { it: 'inflazione-eurozona-picco-triennale', en: 'eurozone-inflation-three-year-high', de: 'inflation-eurozone-drei-jahres-hoch', fr: 'inflation-zone-euro-pic-trois-ans' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
