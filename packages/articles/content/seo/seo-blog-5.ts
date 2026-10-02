@@ -98041,6 +98041,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-rimborso-lpp-2024': {
+    title: 'Secondo pilastro e frontalieri: stop rimborso in Ticino',
+    description: 'Scopri la svolta del 2024 nel Canton Ticino: le richieste di rimborso dell\'imposta alla fonte sul capitale LPP per i frontalieri residenti in Italia vengono',
+    keywords: 'frontalieri, ticino, svizzera, italia, secondo, pilastro, stop, rimborso',
+    ogTitle: 'Secondo pilastro e frontalieri: stop rimborso imposta alla fonte in Ticino',
+    ogDescription: 'Dal 2024 il Canton Ticino ha cambiato interpretazione: l\'imposta alla fonte svizzera sul capitale LPP non viene più rimborsata ai frontalieri residenti in Italia nonostante la tassazione del 5%. Scopri tutti i dettagli dell\'aggiornamento OCST.',
+    canonicalPath: '/articoli-frontaliere/ticino-rimborso-lpp-2024',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Secondo pilastro e frontalieri: stop rimborso in Ticino",
+      "description": "Scopri la svolta del 2024 nel Canton Ticino: le richieste di rimborso dell'imposta alla fonte sul capitale LPP per i frontalieri residenti in Italia vengono",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ticino-rimborso-lpp-2024.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castello di Bellinzona in Ticino con vista panoramica"
+      },
+      "datePublished": "2026-10-02T06:18:48+00:00",
+      "dateModified": "2026-10-02T06:18:48+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-rimborso-lpp-2024/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

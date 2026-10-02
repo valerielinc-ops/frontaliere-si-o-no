@@ -12357,6 +12357,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fondo-avs-solidarieta-giovani.title': '13th AVS payment, generational pact fund created',
     'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'In Ticino, more than 86 thousand beneficiaries will receive more than 140 million francs: part of the thirteenth AHV will be able to support projects for young people.',
     'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Older and younger people discuss solidarity in a Ticino landscape',
+    'blog.article.ticino-rimborso-lpp-2024.title': 'Second Pillar and Cross-Border Workers: Reimbursements Suspended in Ticino',
+    'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Starting in 2024, the Canton of Ticino will no longer refund withholding tax on LPP assets for cross-border workers residing in Italy. Here’s what’s changing.',
+    'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Bellinzona castle in Ticino with panoramic view',
 };
 
 export default blogMetaEn;

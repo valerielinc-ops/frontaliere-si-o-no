@@ -12356,6 +12356,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fondo-avs-solidarieta-giovani.title': 'Dreizehnte AHV, der Generationenpakt-Fonds wird geboren',
     'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'Im Tessin werden über 86.000 Begünstigte mehr als 140 Millionen Franken erhalten: Ein Teil der dreizehnten AHV-Rente könnte zur Unterstützung von Jugendprojekten eingesetzt werden.',
     'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Ältere und junge Menschen sprechen in der Tessiner Landschaft über Solidarität',
+    'blog.article.ticino-rimborso-lpp-2024.title': 'Zweite Säule und Grenzgänger: Keine Rückerstattungen mehr im Tessin',
+    'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Ab 2024 erstattet der Kanton Tessin die Quellensteuer auf BVG-Kapital für in Italien wohnhafte Grenzgänger nicht mehr. Hier erfahren Sie, was sich ändert.',
+    'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Bellinzona Burg im Tessin mit Panoramablick',
 };
 
 export default blogMetaDe;
