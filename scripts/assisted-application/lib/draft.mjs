@@ -11,12 +11,16 @@
 
 import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
 import {
+  applyLetterConventions,
   buildFormAnswers,
-  checkDraftFacts,
+  checkDraftTexts,
   ensureRequiredQuestions,
+  letterAddressOf,
+  letterEnclosures,
   letterPdfBlocks,
   letterText,
   sanitizeDocuments,
+  swissTypography,
   sanitizeMatch,
   sanitizeProfile,
   sanitizeRequirements,
@@ -54,7 +58,7 @@ import {
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
-import { requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -195,6 +199,13 @@ export async function buildDraft(ctx) {
   });
   const documents = sanitizeDocuments(documentsRaw);
   if (!documents.coverLetter.paragraphs.length || !documents.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+  // Swiss conventions in code (study 2026-10-02): salutation and closing per
+  // language, no "ß", no line break inside "81 %".
+  const contactPerson = requirements.contactPerson || posting.contactPerson;
+  documents.coverLetter = applyLetterConventions(documents.coverLetter, { language, contactPerson });
+  for (const key of ['emailBody', 'motivationShort', 'whyCompany']) documents[key] = swissTypography(documents[key], language);
+  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
+  const letterAddress = letterAddressOf(posting, contactPerson);
 
   // The CV text is the strict source of facts; the answers the candidate gave
   // are facts too. A CV with no readable text never gets here.
@@ -202,6 +213,8 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
+    // The work place backs a place name in the letter, never a figure.
+    place: String(posting.location || '').slice(0, 200),
     // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
     answers: [
       ...Object.values(answers),
@@ -211,14 +224,14 @@ export async function buildDraft(ctx) {
     ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
-  const emailSubject = applicationEmailSubject(language, title, identity.name, documents.emailSubject);
-  const factCheck = checkDraftFacts({
+  const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject), language);
+  const factCheck = checkDraftTexts({
     coverLetter: letterBody,
     emailSubject,
     emailBody: documents.emailBody,
     motivationShort: documents.motivationShort,
     whyCompany: documents.whyCompany,
-  }, factSources);
+  }, factSources, { language });
 
   const channel = classifyApplicationChannel({
     applyUrl: posting.applyUrl || order.jobUrl,
@@ -245,7 +258,8 @@ export async function buildDraft(ctx) {
   }
 
   const pdf = buildCoverLetterPdf(letterPdfBlocks({
-    identity, profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
+    identity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
+    enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)),
   }));
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
@@ -283,8 +297,10 @@ export async function buildDraft(ctx) {
     workPermitQuote: requirements.workPermitQuote,
     applicationInstructions: requirements.applicationInstructions,
     // School reports, test results… besides the CV and the letter: the candidate uploads them on the review page.
-    requiredDocuments: requiredDocumentsFromRequirements(requirements),
-    contactPerson: requirements.contactPerson || posting.contactPerson,
+    requiredDocuments,
+    contactPerson,
+    // The letter's recipient: every rebuild of the letter (candidate edits, owner edits, submission) prints it.
+    letterAddress,
     matches: match.matches,
     verdict: match.verdict,
     summaryIt: match.summaryIt,

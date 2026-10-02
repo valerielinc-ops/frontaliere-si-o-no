@@ -163,6 +163,17 @@ export function extraDocumentsToSend(draft, flow, orderId) {
     .map(({ quote, required, ...document }) => document);
 }
 
+/**
+ * The documents the letter lists under Beilagen/Annexes/Allegati. With the
+ * candidate's flow (review page, owner edits, submission): exactly the
+ * documents that leave with the application, so a waived one is not listed.
+ * Without it (the draft's first letter): the documents the posting requires.
+ */
+export function enclosedDocumentLabels(draft, flow, orderId) {
+  if (flow) return extraDocumentsToSend(draft, flow, orderId).map((document) => document.label);
+  return requiredDocumentsOf(draft).filter((document) => document.required).map((document) => document.label);
+}
+
 /** "Bulletins_scolaires_2_Mario_Rossi.pdf": the document's label, its number when it has several files, the candidate. */
 export function extraDocumentFileName({ label, index = 0, count = 1, name = '', type = 'pdf' }) {
   const ext = DOCUMENT_TYPES.includes(type) ? type : 'pdf';
