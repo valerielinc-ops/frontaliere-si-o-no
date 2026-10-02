@@ -7439,6 +7439,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.cicli-basilea-campagna.title': 'Basel-Landschaft school system: enrolment and cycles',
     'blog.article.cicli-basilea-campagna.excerpt': 'Guide to compulsory schooling in Basel-Landschaft: enrolment, cycles, calendar, languages of instruction and transition to secondary school.',
     'blog.article.cicli-basilea-campagna.imageAlt': 'Public school in the Canton of Basel Campagna',
+    'blog.article.guida-san-gallo-lamal-2026.title': 'KVG health insurance premiums 2026: Canton of St. Gallen',
+    'blog.article.guida-san-gallo-lamal-2026.excerpt': 'KVG premiums 2026 in the canton of St. Gallen: six adult deductibles, differences by canton and region, and cantonal premium reduction.',
+    'blog.article.guida-san-gallo-lamal-2026.imageAlt': 'Guide to 2026 LAMal premiums in the canton of St. Gallen',
 };
 
 export default blogMetaChEn;

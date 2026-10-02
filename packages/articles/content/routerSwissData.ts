@@ -2502,6 +2502,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franchigia-premi-vaud-2026': { it: 'franchigia-premi-vaud-2026', en: 'vaud-health-premium-deductible-2026', de: 'krankenkassenpraemie-waadt-franchise-2026', fr: 'franchise-primes-vaud-2026' },
  'c-basilea-campagna-criteri': { it: 'c-basilea-campagna-criteri', en: 'c-permit-basel-land-requirements', de: 'niederlassung-c-basel-landschaft', fr: 'permis-c-bale-campagne' },
  'cicli-basilea-campagna': { it: 'cicli-basilea-campagna', en: 'basel-campagna-school-cycles', de: 'schule-basel-landschaft-zyklen', fr: 'ecole-bale-campagne-cycles' },
+ 'guida-san-gallo-lamal-2026': { it: 'guida-san-gallo-lamal-2026', en: 'st-gallen-lamal-premiums-2026', de: 'lamal-praemien-st-gallen-2026', fr: 'primes-lamal-saint-gall-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

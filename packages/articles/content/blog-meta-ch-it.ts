@@ -7439,6 +7439,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.cicli-basilea-campagna.title': 'Sistema scolastico Basilea Campagna: iscrizione e cicli',
     'blog.article.cicli-basilea-campagna.excerpt': 'Guida alla scuola dell\'obbligo a Basilea Campagna: iscrizione, cicli, calendario, lingue di insegnamento e passaggio alle scuole medie superiori.',
     'blog.article.cicli-basilea-campagna.imageAlt': 'Scuola pubblica nel Cantone di Basilea Campagna',
+    'blog.article.guida-san-gallo-lamal-2026.title': 'Premi cassa malati lamal 2026: canton san gallo',
+    'blog.article.guida-san-gallo-lamal-2026.excerpt': 'Premi LAMal 2026 nel canton San Gallo: sei franchigie adulti, differenze per cantone e regione e riduzione premi cantonale.',
+    'blog.article.guida-san-gallo-lamal-2026.imageAlt': 'Guida ai premi LAMal 2026 nel canton San Gallo',
 };
 
 export default blogMetaChIt;

@@ -96467,6 +96467,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-san-gallo-lamal-2026': {
+    title: 'Premi cassa malati lamal 2026: canton san gallo',
+    description: 'Premi cassa malati LAMal 2026 nel canton San Gallo: franchigie adulti, differenze per cantone e regione, cambio cassa e riduzione premi cantonale 2026.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, lamal',
+    ogTitle: 'Premi cassa malati LAMal 2026: Canton San Gallo',
+    ogDescription: 'Guida pratica ai premi cassa malati LAMal 2026 nel canton San Gallo: confronta franchigia, area cantonale o regionale e riduzione premi, distinguendo il premio pro capite da imposte e contributi salariali.',
+    canonicalPath: '/articoli-svizzera/guida-san-gallo-lamal-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati lamal 2026: canton san gallo",
+      "description": "Premi cassa malati LAMal 2026 nel canton San Gallo: franchigie adulti, differenze per cantone e regione, cambio cassa e riduzione premi cantonale 2026.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-san-gallo-lamal-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Guida ai premi LAMal 2026 nel canton San Gallo"
+      },
+      "datePublished": "2026-10-02T03:29:09+00:00",
+      "dateModified": "2026-10-02T03:29:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-san-gallo-lamal-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
