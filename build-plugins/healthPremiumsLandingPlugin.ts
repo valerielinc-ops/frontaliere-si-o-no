@@ -40,6 +40,7 @@ import { WriteCollector } from './batchWrite';
 import {
   HEALTH_PREMIUM_AGE_BRACKETS,
   HEALTH_PREMIUM_AGE_LABEL,
+  HEALTH_PREMIUM_AGE_SLUG,
   HEALTH_PREMIUM_AGE_MULTIPLIER,
   HEALTH_PREMIUM_BRACKET_RISK_CLASS,
   HEALTH_PREMIUM_CANTON_BAG_CODE,
@@ -48,6 +49,7 @@ import {
   HEALTH_PREMIUM_CANTONS,
   HEALTH_PREMIUM_COMPARATOR_PATH,
   HEALTH_PREMIUM_LOCALES,
+  HEALTH_PREMIUM_SECTION_SLUG,
   buildHealthPremiumsCantonPath,
   buildHealthPremiumsLeafPath,
   buildHealthPremiumsRootPath,
@@ -3402,12 +3404,12 @@ export function healthPremiumsLandingPlugin(rootDir: string): Plugin {
       // every build (cache hit or miss): the cache restore later refills
       // the namespace with the canonical set, so wiping first ensures no
       // stale leaves survive a dataset shrink.
-      cleanNamespaces(distDir, [
-        'premi-cassa-malati',
-        'en/health-insurance-premiums',
-        'de/krankenkassenpraemien',
-        'fr/primes-assurance-maladie',
-      ]);
+      cleanNamespaces(
+        distDir,
+        HEALTH_PREMIUM_LOCALES.map((locale) =>
+          buildHealthPremiumsRootPath(locale).replace(/^\/+|\/+$/g, ''),
+        ),
+      );
       cleanSitemapFiles(distDir, ['sitemap-health-premiums.xml']);
 
       // Keep the generation date separate from the dataset retrieval date.
@@ -3568,18 +3570,9 @@ function deriveAltPath(itPath: string, targetLocale: HealthPremiumLocale): strin
   if (parts.length < 1) return null;
   // Expected: [section] or [section, canton] or [section, canton, age]
   const section = parts[0];
-  // Validate IT section slug
-  if (section !== 'premi-cassa-malati') return null;
-  // Import slug maps from the data module to avoid duplicating them here
-  // (we keep this inline to prevent a circular import).
-  const ageMap: Record<string, HealthPremiumAgeBracket> = {
-    'bambini-0-18': '0-18',
-    'giovani-adulti-19-25': '19-25',
-    'adulto-26-30': '26-30',
-    'adulto-31-45': '31-45',
-    'adulto-46-55': '46-55',
-    'adulto-56-piu': '56-plus',
-  };
+  // Validate the IT section slug and resolve the age slug from the same
+  // canonical table used by the generator and the audit.
+  if (section !== HEALTH_PREMIUM_SECTION_SLUG.it) return null;
   // Build the IT-slug → canton identifier lookup dynamically from the
   // canonical slug table so new cantons added to healthPremiumsData.ts are
   // recognised here without a hand-edit. The IT slug is used because this
@@ -3593,7 +3586,7 @@ function deriveAltPath(itPath: string, targetLocale: HealthPremiumLocale): strin
   const canton = cantonMap[parts[1]];
   if (!canton) return null;
   if (parts.length === 2) return buildHealthPremiumsCantonPath(targetLocale, canton);
-  const age = ageMap[parts[2]];
+  const age = Object.entries(HEALTH_PREMIUM_AGE_SLUG.it).find(([, slug]) => slug === parts[2])?.[0] as HealthPremiumAgeBracket | undefined;
   if (!age) return null;
   return buildHealthPremiumsLeafPath(targetLocale, canton, age);
 }
