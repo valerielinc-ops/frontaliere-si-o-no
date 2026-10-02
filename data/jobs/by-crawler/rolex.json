@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rolex",
-  "assembledAt": "2026-10-02T09:14:26.006Z",
+  "assembledAt": "2026-10-02T21:19:15.109Z",
   "jobs": [
     {
       "id": "rolex-c966b2c03e35",
@@ -33,7 +33,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Bien/1423820433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:17.785Z",
+      "crawledAt": "2026-10-02T21:19:05.173Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -83,7 +82,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-752a5e38a2ef",
@@ -116,7 +116,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-de-polisseur%C2%B7euse-AFP-Frib/1423949233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:16.758Z",
+      "crawledAt": "2026-10-02T21:19:03.173Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -195,7 +195,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'ordonnancement-%28HF%29-Gen%C3%A8/1423992233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:15.741Z",
+      "crawledAt": "2026-10-02T21:19:00.127Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -277,7 +277,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-d'automaticien%C2%B7ne-CFC-Frib/1423951633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:14.726Z",
+      "crawledAt": "2026-10-02T21:19:06.200Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -358,7 +358,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-horlogerie-AFP-Frib/1423950633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:13.713Z",
+      "crawledAt": "2026-10-02T21:19:01.135Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -437,7 +437,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Apprentissage-de-m%C3%A9canicien%C2%B7ne-de-production-CFC-Frib/1423950033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:12.687Z",
+      "crawledAt": "2026-10-02T21:19:02.159Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -518,7 +518,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Galvanoplaste-%28HF%29-Bien/1412901533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:11.678Z",
+      "crawledAt": "2026-10-02T21:19:04.166Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -590,7 +590,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Uhrenarbeiter%E2%88%99in-EBA-Bien/1424411333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:10.649Z",
+      "crawledAt": "2026-10-02T21:18:58.080Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -668,7 +668,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Chemielaborant%E2%88%99in-EFZ-Bien/1424410833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:14:09.627Z",
+      "crawledAt": "2026-10-02T21:18:56.034Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -745,7 +745,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-D%C3%A9colleteur-%28HF%29-Bien/1413186333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:08.612Z",
+      "crawledAt": "2026-10-02T21:18:57.061Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -781,7 +781,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:48.584Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -794,7 +793,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-b7783fa28147",
@@ -827,7 +827,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Synth%C3%A9tiser-des-additifs-pour-des-lubrifiants-Bien/1413425733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:07.572Z",
+      "crawledAt": "2026-10-02T21:18:59.091Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -902,7 +902,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-D%C3%A9colleteur-%28HF%29-Bien/1403307333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:06.551Z",
+      "crawledAt": "2026-10-02T21:18:55.031Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -939,7 +939,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:44.540Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -952,7 +951,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-032884c2ffad",
@@ -985,7 +985,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1434490333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:05.528Z",
+      "crawledAt": "2026-10-02T21:18:53.999Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1064,7 +1064,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Industrialisation-%28HF%29-Gen%C3%A8/1065577901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:04.473Z",
+      "crawledAt": "2026-10-02T21:18:50.973Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1153,7 +1153,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Op%C3%A9rateur-polyvalent-terminaison-%28HF%29-Frib/1272827501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:03.462Z",
+      "crawledAt": "2026-10-02T21:18:51.989Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1230,7 +1230,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Op%C3%A9rateur-polyvalent-d'usinage-%28HF%29-Frib/1282797101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:02.429Z",
+      "crawledAt": "2026-10-02T21:18:52.992Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1318,7 +1318,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-Usinage-%28HF%29-Gen%C3%A8/1116342701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:01.434Z",
+      "crawledAt": "2026-10-02T21:18:49.863Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1405,7 +1405,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-du-service-Industrialisation-%28HF%29-Gen%C3%A8/1012831801/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:14:00.396Z",
+      "crawledAt": "2026-10-02T21:18:48.799Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1478,7 +1478,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-M%C3%A9canicien-r%C3%A9gleur-robotique-%28HF%29-Gen%C3%A8/1425249633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:59.378Z",
+      "crawledAt": "2026-10-02T21:18:47.804Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1511,7 +1511,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:53:22.437Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1524,7 +1523,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-87c706572709",
@@ -1557,7 +1557,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-qualiticien%E2%88%99ne-en-microtechnique-CFC-Bien/1425110233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:58.360Z",
+      "crawledAt": "2026-10-02T21:18:45.793Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1636,7 +1636,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Microm%C3%A9canicien-%28HF%29-Bien/1384945633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:57.302Z",
+      "crawledAt": "2026-10-02T21:18:41.789Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1673,7 +1673,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:30.461Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1686,7 +1685,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-c7898d573c7c",
@@ -1719,7 +1719,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Technicien-de-maintenance-%28HF%29-Bien/1029187501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:56.279Z",
+      "crawledAt": "2026-10-02T21:18:42.806Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1794,7 +1794,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Gestion-de-production-Logistique-Supply-chain-Gen%C3%A8/1414219433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:55.267Z",
+      "crawledAt": "2026-10-02T21:18:43.809Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1824,7 +1824,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:36:23.392Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1837,7 +1836,8 @@
           "maxValue": 77500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-c8e4b139e226",
@@ -1870,7 +1870,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Syst%C3%A8mes-d'information-Data-Science-Gen%C3%A8/1414220133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:54.207Z",
+      "crawledAt": "2026-10-02T21:18:44.868Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -1948,7 +1948,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Communication-&-Image-Design-Gen%C3%A8/1414190233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:53.194Z",
+      "crawledAt": "2026-10-02T21:18:46.793Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2023,7 +2023,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Termineur-%28HF%29-Gen%C3%A8/893140301/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:52.165Z",
+      "crawledAt": "2026-10-02T21:18:37.660Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2067,8 +2067,8 @@
           "termineur-h-f-rolex-ch-nuy03u"
         ]
       },
-      "firstSeenAt": "2026-06-24T22:40:56.351Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T22:40:56.351Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2114,7 +2114,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Electroplaste-%28HF%29-Bien/1265782001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:51.147Z",
+      "crawledAt": "2026-10-02T21:18:40.783Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2190,7 +2190,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-R%C3%A9pondant-m%C3%A9thodes-assemblage-%28HF%29-Bien/1414763233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:50.075Z",
+      "crawledAt": "2026-10-02T21:18:39.747Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2223,7 +2223,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:58:29.477Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2236,7 +2235,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-214759dbe3c8",
@@ -2269,7 +2269,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-d%C3%A9couverte-apprentissage-Gen%C3%A8/1414675133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:49.061Z",
+      "crawledAt": "2026-10-02T21:18:38.734Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2349,7 +2349,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-de-maintenance-%28HF%29-Frib/1415099433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:48.025Z",
+      "crawledAt": "2026-10-02T21:18:36.648Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2426,7 +2426,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Space-planner-%28HF%29-Gen%C3%A8/1415271433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:47.014Z",
+      "crawledAt": "2026-10-02T21:18:35.619Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2513,7 +2513,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Cadranographe-%28HF%29-Assemblage-Prototypes-Cadran-Gen%C3%A8/1415416833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:45.986Z",
+      "crawledAt": "2026-10-02T21:18:34.610Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2566,8 +2566,8 @@
         "cadranographe-h-f-assemblage-prototypes-cadran-rolex-ch",
         "r-d-technician-assembly-prototypes-dial-rolex-geneve"
       ],
-      "firstSeenAt": "2026-07-16T11:07:56.134Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T11:07:56.134Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2613,7 +2613,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-Projets-PMO-Industrialisation-%28HF%29-Gen%C3%A8/1287266501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:44.913Z",
+      "crawledAt": "2026-10-02T21:18:31.579Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2646,7 +2646,6 @@
         "senior-project-manager-di-industrializzazione-m-f-rolex-geneve"
       ],
       "firstSeenAt": "2026-06-24T22:40:48.251Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2659,7 +2658,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-dd3aa2608d25",
@@ -2692,7 +2692,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/718066601/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:43.866Z",
+      "crawledAt": "2026-10-02T21:18:33.600Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2804,7 +2804,6 @@
           "cadranographe-tampographe-m-w-d-rolex-geneve"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2817,7 +2816,9 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-7217c61afa7b",
@@ -2850,7 +2851,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-D%C3%A9veloppeur-CAOFAO-%28HF%29-Gen%C3%A8/1415589333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:41.835Z",
+      "crawledAt": "2026-10-02T21:18:32.574Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -2928,7 +2929,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-en-horlogerie-AFP-Bien/1415832133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:40.794Z",
+      "crawledAt": "2026-10-02T21:18:30.555Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2999,7 +3000,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-laborantin%E2%88%99e-en-chimie-CFC-Bien/1415831333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:39.777Z",
+      "crawledAt": "2026-10-02T21:18:29.543Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3078,7 +3079,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-M%C3%A9thodes-%28HF%29-Gen%C3%A8/1395387933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:38.754Z",
+      "crawledAt": "2026-10-02T21:18:26.500Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3156,7 +3157,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-qualit%C3%A9-%28HF%29-Gen%C3%A8/804855901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:37.609Z",
+      "crawledAt": "2026-10-02T21:18:28.538Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3190,7 +3191,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T04:58:02.196Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3203,7 +3203,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-bf3876bb125d",
@@ -3236,7 +3237,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Planificateur-de-Production-Gen%C3%A8/1217429701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:36.568Z",
+      "crawledAt": "2026-10-02T21:18:24.509Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3285,7 +3286,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:38.546Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3298,7 +3298,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-5d3425af3e87",
@@ -3331,7 +3332,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'ordonnancement-%28HF%29-Gen%C3%A8/1208553901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:35.551Z",
+      "crawledAt": "2026-10-02T21:18:25.499Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3415,7 +3416,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Technicien-Salle-Blanche-R&D-%28HF%29-Bien/1406093433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:34.531Z",
+      "crawledAt": "2026-10-02T21:18:27.516Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3450,7 +3451,6 @@
         "r-d-technician-h-f-rolex-bienne"
       ],
       "firstSeenAt": "2026-09-26T13:58:15.445Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -3463,7 +3463,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-e91d4ad6d5e3",
@@ -3496,7 +3497,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Gen%C3%A8/1436684733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:33.501Z",
+      "crawledAt": "2026-10-02T21:18:23.471Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3532,7 +3533,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -3545,7 +3545,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-0bd162b8af02",
@@ -3578,7 +3579,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Ing%C3%A9nieur-Microfabrication-Silicium-Bien/1218320201/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:32.469Z",
+      "crawledAt": "2026-10-02T21:18:22.450Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3652,7 +3653,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-Planification-&-Ordonnancement-%28HF%29-Gen%C3%A8/1199831101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:31.447Z",
+      "crawledAt": "2026-10-02T21:18:21.443Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3678,8 +3679,8 @@
           "gestione-pianificazione-e-ordini-h-f-rolex-geneve"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:53:31.509Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:53:31.509Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3792,7 +3793,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "rolex-6ba52daa72ea",
@@ -3825,7 +3827,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Acheteur-%28HF%29-Gen%C3%A8/1427458533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:29.417Z",
+      "crawledAt": "2026-10-02T21:18:19.405Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3907,7 +3909,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Assistant-confirm%C3%A9-%28HF%29-Gen%C3%A8/1416642933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:28.475Z",
+      "crawledAt": "2026-10-02T21:18:20.414Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -3969,7 +3971,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:02:37.106Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3982,7 +3983,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-1ca3522d8f19",
@@ -4015,7 +4017,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-proximit%C3%A9-S%C3%BBret%C3%A9%2C-S%C3%A9curit%C3%A9-&-Environnement-%28HF%29-Gen%C3%A8/1438108833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:27.455Z",
+      "crawledAt": "2026-10-02T21:18:18.368Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4094,7 +4096,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-%28HF%29-Gen%C3%A8/1438032533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:26.424Z",
+      "crawledAt": "2026-10-02T21:18:17.295Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4144,7 +4146,6 @@
         "business-analytics-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-09-18T23:16:30.936Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4157,7 +4158,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-cc56ff16d64b",
@@ -4190,7 +4192,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Planificateur-PDP-Gen%C3%A8/1064279101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:25.385Z",
+      "crawledAt": "2026-10-02T21:18:16.258Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4217,7 +4219,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:15.075Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -4230,7 +4231,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-04c68cc905fa",
@@ -4263,7 +4265,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Graduate-program-Manager-junior-%28HF%29-Gen%C3%A8/903716101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:24.302Z",
+      "crawledAt": "2026-10-02T21:18:13.231Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4336,7 +4338,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-Production-%28HF%29-Gen%C3%A8/921320401/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:23.306Z",
+      "crawledAt": "2026-10-02T21:18:15.252Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4410,8 +4412,8 @@
           "responsable-de-production-h-f-rolex-ch"
         ]
       },
-      "firstSeenAt": "2026-06-10T07:53:12.749Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-10T07:53:12.749Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -4457,7 +4459,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1406899533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:22.292Z",
+      "crawledAt": "2026-10-02T21:18:14.253Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4536,7 +4538,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-Constructeur-Outillages-%28HF%29-Gen%C3%A8/1438289633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:21.282Z",
+      "crawledAt": "2026-10-02T21:18:12.228Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4615,7 +4617,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-%28HF%29-Bien/1438373533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:20.275Z",
+      "crawledAt": "2026-10-02T21:18:11.163Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4647,7 +4649,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:57:59.272Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -4660,7 +4661,8 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-fbb09f671876",
@@ -4693,7 +4695,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Contr%C3%B4leur-Qualit%C3%A9-%28HF%29-Gen%C3%A8/824357901/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:19.275Z",
+      "crawledAt": "2026-10-02T21:18:10.151Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4776,7 +4778,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Infirmier-d'entreprise-%28HF%29-Gen%C3%A8/1256519601/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:18.260Z",
+      "crawledAt": "2026-10-02T21:18:06.037Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4848,7 +4850,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-M%C3%A9thodes-Constructeur-Outillages-%28HF%29-Gen%C3%A8/1236878101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:17.247Z",
+      "crawledAt": "2026-10-02T21:18:07.085Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -4921,7 +4923,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-Garnissage-%28HF%29-Bien/1407275833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:16.229Z",
+      "crawledAt": "2026-10-02T21:18:09.131Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4992,7 +4994,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Animateur-en-bonnes-pratiques-de-production-%28HF%29-Gen%C3%A8/1407365233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:15.207Z",
+      "crawledAt": "2026-10-02T21:18:08.087Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5087,7 +5089,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-m%C3%A9thodes-usinage-%28HF%29-Frib/1407737333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:14.139Z",
+      "crawledAt": "2026-10-02T21:18:05.035Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5164,7 +5166,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Int%C3%A9grateur-SI-Industriel-%28HF%29-Gen%C3%A8/1418355033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:13.117Z",
+      "crawledAt": "2026-10-02T21:18:00.952Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5197,7 +5199,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:54.642Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5210,7 +5211,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-b1ad27e07e22",
@@ -5243,7 +5245,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-Solutions-Authentification-Produit-&-Tra%C3%A7abilit%C3%A9-%28HF%29-Gen%C3%A8/1418354633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:12.051Z",
+      "crawledAt": "2026-10-02T21:17:59.931Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5321,7 +5323,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Responsable-fonctionnel-PIM-Akeneo-%28HF%29-Gen%C3%A8/1418348233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:11.038Z",
+      "crawledAt": "2026-10-02T21:18:01.964Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5354,7 +5356,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:06:50.421Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -5367,7 +5368,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-ff99636a8bd5",
@@ -5400,7 +5402,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Termineur-%28HF%29-Gen%C3%A8/1418343033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:10.004Z",
+      "crawledAt": "2026-10-02T21:17:58.918Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5426,8 +5428,8 @@
           "terminator-m-f-rolex-geneve"
         ]
       },
-      "firstSeenAt": "2026-06-24T22:40:56.351Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T22:40:56.351Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5473,7 +5475,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-%C3%89tudier-l'impact-de-l'usinage-sur-un-mat%C3%A9riau-et-la-fonction-d'un-composant-horloger-Bien/1428540633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:08.936Z",
+      "crawledAt": "2026-10-02T21:18:04.028Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5550,7 +5552,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-Solutions-de-Pr%C3%A9vision-et-Planification-%28HF%29-Gen%C3%A8/1428673833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:07.800Z",
+      "crawledAt": "2026-10-02T21:18:02.971Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5645,7 +5647,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-m%C3%A9trologie-%28HF%29-Gen%C3%A8/1397201933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:06.787Z",
+      "crawledAt": "2026-10-02T21:17:57.899Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5679,7 +5681,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T07:53:02.244Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -5692,7 +5693,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-70c2f34fa5b5",
@@ -5725,7 +5727,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Participer-%C3%A0-l'%C3%A9volution-du-Services-Desk-Bien/1418766033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:05.773Z",
+      "crawledAt": "2026-10-02T21:17:54.819Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5802,7 +5804,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-de-maintenance-%28HF%29-Gen%C3%A8/1418656933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:04.748Z",
+      "crawledAt": "2026-10-02T21:17:56.890Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5880,7 +5882,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-d'exploitation-%28HF%29-Gen%C3%A8/1365301133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:03.717Z",
+      "crawledAt": "2026-10-02T21:17:55.876Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5963,7 +5965,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-Projets-M%C3%A9thodes-Nouveaux-Produits-%28HF%29-Gen%C3%A8/1168239501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:02.704Z",
+      "crawledAt": "2026-10-02T21:17:53.790Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -5990,7 +5992,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:16.351Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6003,7 +6004,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-b2a99b0c59fc",
@@ -6036,7 +6038,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Coordinateur-de-Production-%28HF%29-Gen%C3%A8/1116342001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:01.664Z",
+      "crawledAt": "2026-10-02T21:17:50.729Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6114,7 +6116,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-Evolution-Num%C3%A9rique-Logistique-%28HF%29-Gen%C3%A8/1379344833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:13:00.656Z",
+      "crawledAt": "2026-10-02T21:17:51.751Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6159,7 +6161,6 @@
         "projektleiter-m-w-d-rolex-geneve"
       ],
       "firstSeenAt": "2026-07-20T22:05:15.077Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6172,7 +6173,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-f3a71157c713",
@@ -6205,7 +6207,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Termineur-SAV-%28HF%29-Frib/1286745001/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:59.631Z",
+      "crawledAt": "2026-10-02T21:17:52.759Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -6277,7 +6279,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-Analyst-MES-%28HF%29-Gen%C3%A8/1440031633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:58.623Z",
+      "crawledAt": "2026-10-02T21:17:49.620Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6304,7 +6306,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:47.421Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6317,7 +6318,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-4875c87eaabf",
@@ -6350,7 +6352,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-logistique-%C3%A9v%C3%A9nements-%28HF%29-Gen%C3%A8/1369436433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:57.560Z",
+      "crawledAt": "2026-10-02T21:17:45.473Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6428,7 +6430,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Employ%C3%A9-CVC-%28HF%29-Gen%C3%A8/1429325233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:56.529Z",
+      "crawledAt": "2026-10-02T21:17:46.502Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6506,7 +6508,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-Cloud-D365-%28HF%29-Gen%C3%A8/1369395233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:55.510Z",
+      "crawledAt": "2026-10-02T21:17:47.513Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6533,7 +6535,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:42:09.251Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6546,7 +6547,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-c8583133e62a",
@@ -6579,7 +6581,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Horloger-restaurateur-%28HF%29-Gen%C3%A8/1429291833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:54.485Z",
+      "crawledAt": "2026-10-02T21:17:48.535Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6661,7 +6663,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-D%C3%A9velopper-la-simulation-d'empilements-de-couches-minces-Bien/1374989333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:53.467Z",
+      "crawledAt": "2026-10-02T21:17:39.419Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6732,7 +6734,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projet-DATA-Logistique-%28HF%29-Gen%C3%A8/1419395533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:52.429Z",
+      "crawledAt": "2026-10-02T21:17:41.438Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6792,7 +6794,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T22:07:54.925Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -6805,7 +6806,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-032f1785eb1c",
@@ -6838,7 +6840,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Employ%C3%A9-intendance-%28HF%29-Gen%C3%A8/1429540133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:51.411Z",
+      "crawledAt": "2026-10-02T21:17:40.428Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -6886,7 +6888,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:29:48.469Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -6899,7 +6900,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-5964177cf8ea",
@@ -6932,7 +6934,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Administrateur-postes-clients-%28HF%29-Bien/1269820701/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:50.402Z",
+      "crawledAt": "2026-10-02T21:17:42.454Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7007,7 +7009,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Technicien-automation-b%C3%A2timents-%28HF%29-Bien/1440975633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:49.390Z",
+      "crawledAt": "2026-10-02T21:17:38.416Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7039,7 +7041,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:57:22.766Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -7052,7 +7053,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-8040935c5770",
@@ -7085,7 +7087,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-polisseur%C2%B7euse-AFP-Gen%C3%A8/1429970933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:48.377Z",
+      "crawledAt": "2026-10-02T21:16:56.991Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7165,7 +7167,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-m%C3%A9canicien%C2%B7ne-de-production-CFC-Gen%C3%A8/1429970433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:47.357Z",
+      "crawledAt": "2026-10-02T21:17:00.029Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7247,7 +7249,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-menuisier%C2%B7%C3%A8re-CFC-Gen%C3%A8/1429970133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:46.322Z",
+      "crawledAt": "2026-10-02T21:17:27.494Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7282,7 +7284,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:16.504Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -7295,7 +7296,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-0b30e6b7c5ff",
@@ -7328,7 +7330,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-praticien%C2%B7ne-en-m%C3%A9canique-AFP-Gen%C3%A8/1429971233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:45.314Z",
+      "crawledAt": "2026-10-02T21:17:34.598Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7410,7 +7412,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-polym%C3%A9canicien%C2%B7ne-CFC-Gen%C3%A8/1429971133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:44.282Z",
+      "crawledAt": "2026-10-02T21:17:33.549Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7492,7 +7494,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-logisticien%C2%B7ne-CFC-Gen%C3%A8/1429969733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:43.253Z",
+      "crawledAt": "2026-10-02T21:17:25.471Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7571,7 +7573,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-laborantin%C2%B7e-en-physique-CFC-Gen%C3%A8/1429969633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:42.216Z",
+      "crawledAt": "2026-10-02T21:17:01.042Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7651,7 +7653,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-dessinateur%C2%B7trice-constructeur%C2%B7trice-industriel%C2%B7le-CFC-Gen%C3%A8/1429969133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:41.158Z",
+      "crawledAt": "2026-10-02T21:16:58.996Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7733,7 +7735,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'%C3%A9lectroplaste-CFC-Gen%C3%A8/1429968833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:40.102Z",
+      "crawledAt": "2026-10-02T21:17:35.717Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7767,7 +7769,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:07.896Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -7780,7 +7781,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-51ca4d3f1d0c",
@@ -7813,7 +7815,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-informatique-CFC-Gen%C3%A8/1429968733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:39.110Z",
+      "crawledAt": "2026-10-02T21:17:02.061Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7895,7 +7897,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'horloger%C2%B7%C3%A8re-de-production-CFC-Gen%C3%A8/1429967633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:38.092Z",
+      "crawledAt": "2026-10-02T21:16:57.998Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -7977,7 +7979,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-en-horlogerie-AFP-Gen%C3%A8/1429968333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:37.083Z",
+      "crawledAt": "2026-10-02T21:17:29.509Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8057,7 +8059,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'op%C3%A9rateur%C2%B7trice-de-machines-automatis%C3%A9es-CFC-Gen%C3%A8/1429968033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:35.996Z",
+      "crawledAt": "2026-10-02T21:16:55.968Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8148,7 +8150,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'informaticien%C2%B7ne-CFC-Gen%C3%A8/1429967733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:34.979Z",
+      "crawledAt": "2026-10-02T21:17:28.488Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8228,7 +8230,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Responsable-de-Production-%28HF%29-Gen%C3%A8/919583201/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:33.957Z",
+      "crawledAt": "2026-10-02T21:17:31.529Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8304,7 +8306,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'horloger%C2%B7%C3%A8re-CFC-Gen%C3%A8/1429967333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:32.938Z",
+      "crawledAt": "2026-10-02T21:17:26.478Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8386,7 +8388,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'employ%C3%A9%C2%B7e-de-commerce-CFC-Gen%C3%A8/1429967233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:31.926Z",
+      "crawledAt": "2026-10-02T21:17:30.520Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8468,7 +8470,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'automaticien%C2%B7ne-CFC-Gen%C3%A8/1429967033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:30.887Z",
+      "crawledAt": "2026-10-02T21:16:54.914Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8550,7 +8552,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-sertisseur%C2%B7euse-de-pierres-pr%C3%A9cieuses-CFC-Gen%C3%A8/1429971733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:29.859Z",
+      "crawledAt": "2026-10-02T21:17:24.446Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8630,7 +8632,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-qualiticien%C2%B7ne-en-microtechnique-CFC-Gen%C3%A8/1429971633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:28.846Z",
+      "crawledAt": "2026-10-02T21:16:53.913Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8712,7 +8714,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-d'agent%C2%B7e-d'exploitation-CFC-Gen%C3%A8/1429966933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:27.908Z",
+      "crawledAt": "2026-10-02T21:17:32.536Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8792,7 +8794,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Apprentissage-de-termineur%C2%B7euse-en-habillage-horloger-CFC-Gen%C3%A8/1429972033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:26.885Z",
+      "crawledAt": "2026-10-02T21:17:37.309Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -8872,7 +8874,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Stage-d%C3%A9couverte-apprentissage-Frib/1441464333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:25.870Z",
+      "crawledAt": "2026-10-02T21:16:51.855Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -8951,7 +8953,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-au-travail-%28HF%29-Gen%C3%A8/1441486533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:24.860Z",
+      "crawledAt": "2026-10-02T21:16:52.904Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -9029,7 +9031,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-PMO-%28HF%29-Gen%C3%A8/1379491033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:23.865Z",
+      "crawledAt": "2026-10-02T21:16:49.746Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -9086,7 +9088,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:10:15.291Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -9099,7 +9100,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-7221d7dfcafc",
@@ -9132,7 +9134,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/820554301/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:22.847Z",
+      "crawledAt": "2026-10-02T21:16:48.731Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -9159,7 +9161,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -9172,7 +9173,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-5ea0907f05af",
@@ -9205,7 +9207,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-s%C3%A9curit%C3%A9-%28HF%29-Gen%C3%A8/1429325933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:21.848Z",
+      "crawledAt": "2026-10-02T21:16:50.826Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -9238,7 +9240,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:47:08.778Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -9251,7 +9252,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-9d6fbfc1a35c",
@@ -9284,7 +9286,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Agent-d'exploitation-HF-avec-sp%C3%A9cialisation-en-menuiserie-Bien/1431044833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:20.777Z",
+      "crawledAt": "2026-10-02T21:16:47.719Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9361,7 +9363,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-en-informatique-CFC-Bien/1420760033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:19.742Z",
+      "crawledAt": "2026-10-02T21:16:39.567Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9440,7 +9442,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-logisticien%E2%88%99ne-CFC-Bien/1420762933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:18.709Z",
+      "crawledAt": "2026-10-02T21:16:38.534Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9474,7 +9476,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:54:59.396Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -9487,7 +9488,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-ebbc89022179",
@@ -9520,7 +9522,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'assistant%E2%88%99e-en-traitement-de-surface-AFP-Bien/1420758133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:17.733Z",
+      "crawledAt": "2026-10-02T21:16:46.710Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9554,7 +9556,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:56:43.487Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -9567,7 +9568,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-add078dd467c",
@@ -9600,7 +9602,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-m%C3%A9canicien%E2%88%99ne-de-production-CFC-Bien/1420770033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:16.716Z",
+      "crawledAt": "2026-10-02T21:16:35.487Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9679,7 +9681,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'employ%C3%A9%E2%88%99e-de-commerce-CFC-Bien/1420758833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:15.687Z",
+      "crawledAt": "2026-10-02T21:16:41.580Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9758,7 +9760,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'op%C3%A9rateur%E2%88%99trice-de-machines-automatis%C3%A9es-CFC-Bien/1420759833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:14.648Z",
+      "crawledAt": "2026-10-02T21:16:37.512Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9837,7 +9839,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'informaticien%E2%88%99ne-CFC-Bien/1420759633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:13.647Z",
+      "crawledAt": "2026-10-02T21:16:44.696Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9916,7 +9918,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-d'%C3%A9lectroplaste-CFC-Bien/1420760633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:12.625Z",
+      "crawledAt": "2026-10-02T21:16:36.489Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -9995,7 +9997,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-praticien%E2%88%99ne-en-m%C3%A9canique-AFP-Bien/1420792333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:11.582Z",
+      "crawledAt": "2026-10-02T21:16:45.710Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10074,7 +10076,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Apprentissage-de-polym%C3%A9canicien%E2%88%99ne-CFC-Bien/1420792033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:10.558Z",
+      "crawledAt": "2026-10-02T21:16:40.570Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10153,7 +10155,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Anlagenf%C3%BChrer%E2%88%99in-EFZ-Bien/1420792733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:09.535Z",
+      "crawledAt": "2026-10-02T21:16:43.648Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10224,7 +10226,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Business-analyst-CAI-%28HF%29-Gen%C3%A8/1420664333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:08.505Z",
+      "crawledAt": "2026-10-02T21:16:42.602Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -10266,7 +10268,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:15:34.997Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -10279,7 +10280,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-530dc2fffac3",
@@ -10312,7 +10314,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Qualit%C3%A4tsfachmann%E2%88%99frau-in-Mikrotechnik-EFZ-Bien/1421203933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:07.486Z",
+      "crawledAt": "2026-10-02T21:16:29.318Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10390,7 +10392,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Produktionsmechaniker%E2%88%99in-EFZ-Bien/1421203833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:06.408Z",
+      "crawledAt": "2026-10-02T21:16:31.361Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10468,7 +10470,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Polymechaniker%E2%88%99in-EFZ-Bien/1421203433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:05.338Z",
+      "crawledAt": "2026-10-02T21:16:33.420Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10546,7 +10548,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Oberfl%C3%A4chenbeschichter%E2%88%99in-EFZ-Bien/1421202933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:04.307Z",
+      "crawledAt": "2026-10-02T21:16:28.302Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10624,7 +10626,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Mechanikpraktiker%E2%88%99in-EBA-Bien/1421202633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:03.294Z",
+      "crawledAt": "2026-10-02T21:16:27.289Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10702,7 +10704,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Oberfl%C3%A4chenpratiker%E2%88%99in-EBA-Bien/1421203133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:02.277Z",
+      "crawledAt": "2026-10-02T21:16:30.358Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10780,7 +10782,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Lehrstelle-als-Logistiker%E2%88%99in-EFZ-Bien/1421202533/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:01.210Z",
+      "crawledAt": "2026-10-02T21:16:32.368Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10812,7 +10814,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:59:19.332Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -10825,7 +10826,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-ae515cfd877f",
@@ -10858,7 +10860,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-d%C3%A9couverte-apprentissage-Bien/1421206633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:00.198Z",
+      "crawledAt": "2026-10-02T21:16:34.451Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -10936,7 +10938,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Optimiser-des-mod%C3%A8les-de-simulation-de-flux-Bien/1429813233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:59.181Z",
+      "crawledAt": "2026-10-02T21:16:25.260Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11013,7 +11015,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Stage-Evaluer-des-mod%C3%A8les-auto-supervis%C3%A9s-pour-la-d%C3%A9tection-visuelle-Bien/1429811133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:58.179Z",
+      "crawledAt": "2026-10-02T21:16:24.234Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11090,7 +11092,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-R&D-%28HF%29-Construction-Habillement-Gen%C3%A8/1386855233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:57.167Z",
+      "crawledAt": "2026-10-02T21:16:26.272Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11138,7 +11140,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T11:39:53.532Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -11151,7 +11152,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-63c666ad0fa8",
@@ -11184,7 +11186,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-de-prix-de-revient-%28HF%29-Gen%C3%A8/1442474433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:56.125Z",
+      "crawledAt": "2026-10-02T21:16:23.223Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11264,7 +11266,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-communication-SI-%28HF%29-Gen%C3%A8/1442173133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:55.113Z",
+      "crawledAt": "2026-10-02T21:16:19.094Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11342,7 +11344,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-R%C3%A9dacteur-%28HF%29-Gen%C3%A8/1442168133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:54.064Z",
+      "crawledAt": "2026-10-02T21:16:22.203Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11420,7 +11422,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Portfolio-Management-Officer-%28HF%29-Gen%C3%A8/1442220833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:53.066Z",
+      "crawledAt": "2026-10-02T21:16:21.169Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11437,7 +11439,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-29T09:14:05.771Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -11450,7 +11451,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-d2231d054c2e",
@@ -11483,7 +11485,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Technicien-en-m%C3%A9trologie-%28HF%29-Frib/1442259733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:52.049Z",
+      "crawledAt": "2026-10-02T21:16:20.144Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -11560,7 +11562,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Business-Analyst-CAI-%28HF%29-Bien/1371878233/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:51.001Z",
+      "crawledAt": "2026-10-02T21:16:17.031Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11591,7 +11593,6 @@
         "analista-aziendale-cad-cam-m-f-rolex-bienne"
       ],
       "firstSeenAt": "2026-07-30T11:15:34.997Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -11604,7 +11605,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-0d4db6e7470f",
@@ -11637,7 +11639,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-R&D-%28HF%29-Mat%C3%A9riaux-Gen%C3%A8/1431821133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:49.925Z",
+      "crawledAt": "2026-10-02T21:16:18.037Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11670,7 +11672,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:01:02.551Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -11683,7 +11684,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-0eb7eccc0863",
@@ -11716,7 +11718,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-implantation-%28HF%29-Bien/1442710933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:48.919Z",
+      "crawledAt": "2026-10-02T21:16:13.946Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11731,24 +11733,7 @@
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-implantation-%28HF%29-Bien/1442710933/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "charge-de-projets-implantation-h-f-rolex-ch",
-        "attuazione-del-responsabile-del-progetto-m-f-rolex-bienne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "charge-de-projets-implantation-h-f-rolex-ch",
-          "attuazione-del-responsabile-del-progetto-m-f-rolex-bienne"
-        ],
-        "en": [
-          "charge-de-projets-implantation-h-f-rolex-ch"
-        ],
-        "de": [
-          "charge-de-projets-implantation-h-f-rolex-ch"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:11:39.757Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -11761,7 +11746,24 @@
           "maxValue": 143000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "charge-de-projets-implantation-h-f-rolex-ch",
+          "attuazione-del-responsabile-del-progetto-m-f-rolex-bienne"
+        ],
+        "en": [
+          "charge-de-projets-implantation-h-f-rolex-ch"
+        ],
+        "de": [
+          "charge-de-projets-implantation-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "charge-de-projets-implantation-h-f-rolex-ch",
+        "attuazione-del-responsabile-del-progetto-m-f-rolex-bienne"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "rolex-050a2209ea1e",
@@ -11794,7 +11796,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ma%C3%AEtre-d'apprentissage-horlogerie-%28HF%29-Gen%C3%A8/1442834633/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:47.909Z",
+      "crawledAt": "2026-10-02T21:16:15.991Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -11810,11 +11812,6 @@
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ma%C3%AEtre-d'apprentissage-horlogerie-%28HF%29-Gen%C3%A8/1442834633/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maitre-d-apprentissage-horlogerie-h-f-rolex-ch",
-        "maitre-d-apprentissage-horlogerie-m-w-d-rolex-geneve",
-        "master-di-apprendimento-orologiero-m-f-rolex-geneve"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "maitre-d-apprentissage-horlogerie-h-f-rolex-ch",
@@ -11828,7 +11825,11 @@
           "maitre-d-apprentissage-horlogerie-h-f-rolex-ch"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:14:17.354Z",
+      "previousSlugs": [
+        "maitre-d-apprentissage-horlogerie-h-f-rolex-ch",
+        "maitre-d-apprentissage-horlogerie-m-w-d-rolex-geneve",
+        "master-di-apprendimento-orologiero-m-f-rolex-geneve"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -11841,7 +11842,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:14:17.354Z"
     },
     {
       "id": "rolex-956b4bc30d2a",
@@ -11874,7 +11876,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Responsable-de-groupe-%28HF%29-Bien/1442759333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:46.896Z",
+      "crawledAt": "2026-10-02T21:16:14.969Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -11944,7 +11946,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-PMO-Bien/1110919501/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:45.871Z",
+      "crawledAt": "2026-10-02T21:16:12.913Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12015,7 +12017,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Ing%C3%A9nieur-en-gestion-de-donn%C3%A9es-industrielles-%28HF%29-Gen%C3%A8/1422074833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:44.855Z",
+      "crawledAt": "2026-10-02T21:16:11.900Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12048,7 +12050,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:33:56.644Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -12061,7 +12062,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-084eca086956",
@@ -12094,7 +12096,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-proximit%C3%A9-Logistique-Produit-%28HF%29-Gen%C3%A8/1443111033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:43.835Z",
+      "crawledAt": "2026-10-02T21:16:10.897Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12110,24 +12112,6 @@
       "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Manager-de-proximit%C3%A9-Logistique-Produit-%28HF%29-Gen%C3%A8/1443111033/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "manager-de-proximite-logistique-produit-h-f-rolex-ch",
-        "community-manager-product-logistics-m-f-rolex-geneve"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "manager-de-proximite-logistique-produit-h-f-rolex-ch",
-          "community-manager-product-logistics-m-f-rolex-geneve"
-        ],
-        "en": [
-          "manager-de-proximite-logistique-produit-h-f-rolex-ch"
-        ],
-        "de": [
-          "manager-de-proximite-logistique-produit-h-f-rolex-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:14:14.200Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -12140,7 +12124,25 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:14:14.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-de-proximite-logistique-produit-h-f-rolex-ch",
+          "community-manager-product-logistics-m-f-rolex-geneve"
+        ],
+        "de": [
+          "manager-de-proximite-logistique-produit-h-f-rolex-ch"
+        ],
+        "en": [
+          "manager-de-proximite-logistique-produit-h-f-rolex-ch"
+        ]
+      },
+      "previousSlugs": [
+        "manager-de-proximite-logistique-produit-h-f-rolex-ch",
+        "community-manager-product-logistics-m-f-rolex-geneve"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "rolex-f50450f4e641",
@@ -12173,7 +12175,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Gestionnaire-d'atelier-%28HF%29-Gen%C3%A8/1391839333/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:42.818Z",
+      "crawledAt": "2026-10-02T21:16:05.817Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12206,7 +12208,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:47.958Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -12219,7 +12220,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-42ddb6cf6360",
@@ -12252,7 +12254,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Mod%C3%A9liste-%28HF%29-Gen%C3%A8/1382328833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:41.775Z",
+      "crawledAt": "2026-10-02T21:16:09.877Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12289,8 +12291,8 @@
           "modelist-m-w-d-rolex-geneve"
         ]
       },
-      "firstSeenAt": "2026-06-24T22:41:48.989Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-06-24T22:41:48.989Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -12336,7 +12338,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-R%C3%A9pondant-m%C3%A9thodes-d%C3%A9cortaillage-%28HF%29-Bien/1411637733/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:40.751Z",
+      "crawledAt": "2026-10-02T21:16:08.886Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12420,7 +12422,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Ressources-Humaines-Ev%C3%A9nements-Formation-Gen%C3%A8/1411307833/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:39.720Z",
+      "crawledAt": "2026-10-02T21:16:06.858Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12498,7 +12500,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Ing%C3%A9nierie-Sciences-Qualit%C3%A9-Gen%C3%A8/1411372933/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:38.704Z",
+      "crawledAt": "2026-10-02T21:16:07.875Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12576,7 +12578,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-s%C3%A9curit%C3%A9-et-environnement-%28HF%29-Bien/1432764433/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:37.691Z",
+      "crawledAt": "2026-10-02T21:16:04.811Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -12653,7 +12655,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Environnement-Durabilit%C3%A9-Gen%C3%A8/1412085033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:36.648Z",
+      "crawledAt": "2026-10-02T21:15:59.673Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12731,7 +12733,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Fribourg-Employ%C3%A9-intendance-%28HF%29-Frib/1401645033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:35.624Z",
+      "crawledAt": "2026-10-02T21:16:00.690Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -12776,7 +12778,6 @@
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:44.903Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -12789,7 +12790,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rolex-4616ff09b908",
@@ -12822,7 +12824,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Charg%C3%A9-de-projets-qualit%C3%A9-%28HF%29-Gen%C3%A8/1293359401/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:34.579Z",
+      "crawledAt": "2026-10-02T21:16:03.792Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12913,7 +12915,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-R%C3%A9f%C3%A9rent-PLM-&-Donn%C3%A9es-Industrielles-Gen%C3%A8/1373589133/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:33.544Z",
+      "crawledAt": "2026-10-02T21:16:01.760Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -12991,7 +12993,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Stage-Gestion-d'entreprise-Management-Achats-Gen%C3%A8/1412115033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:32.480Z",
+      "crawledAt": "2026-10-02T21:16:02.766Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -13069,7 +13071,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Bienne-Charg%C3%A9-de-projets-%28HF%29-Bien/1433282033/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:11:31.461Z",
+      "crawledAt": "2026-10-02T21:15:58.671Z",
       "addressLocality": "Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -13219,7 +13221,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
     },
     {
@@ -13253,7 +13255,7 @@
       "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Technicien-Prototypiste-%28HF%29-Cadran-Gen%C3%A8/1289996101/",
       "source": "Rolex Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T09:15:26.295Z",
+      "crawledAt": "2026-10-02T21:17:43.449Z",
       "addressLocality": "Genève",
       "postalCode": "1211",
       "addressRegion": "Genève",
@@ -13272,11 +13274,13 @@
       "previousSlugs": [
         "technicien-prototypiste-h-f-cadran-rolex-ch",
         "prototypentechniker-m-w-dial-rolex-geneve",
-        "protot-technician-m-w-d-zifferblatt-rolex-geneve"
+        "protot-technician-m-w-d-zifferblatt-rolex-geneve",
+        "prototipante-tecnico-m-f-quadrante-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technicien-prototypiste-h-f-cadran-rolex-ch"
+          "technicien-prototypiste-h-f-cadran-rolex-ch",
+          "prototipante-tecnico-m-f-quadrante-rolex-geneve"
         ],
         "en": [
           "technicien-prototypiste-h-f-cadran-rolex-ch"
@@ -13386,7 +13390,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
     },
     {
@@ -13448,6 +13452,7 @@
           "capo-di-nuovi-progetti-di-prodotti-h-f-rolex-geneve"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -13462,8 +13467,83 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
+    },
+    {
+      "id": "rolex-7d6ac658ea61",
+      "slug": "data-scientist-m-f-rolex-geneve",
+      "slugByLocale": {
+        "fr": "data-scientist-h-f-rolex-ch",
+        "it": "data-scientist-m-f-rolex-geneve",
+        "en": "data-scientist-h-f-rolex-geneve",
+        "de": "data-scientist-m-w-d-rolex-geneve"
+      },
+      "company": "Rolex",
+      "companyKey": "rolex",
+      "companyDomain": "rolex.com",
+      "title": "Data Scientist (H/F)",
+      "titleByLocale": {
+        "fr": "Data Scientist (H/F)",
+        "en": "Data Scientist (H/F)",
+        "it": "Data Scientist (H/F)",
+        "de": "Data Scientist (H/F)"
+      },
+      "description": "Introduction\n\nAu sein de la division Production, vous mettez la data science au service de la performance industrielle, de la maîtrise des procédés et de la qualité. Vous intervenez sur des projets à fort impact opérationnel, en lien direct avec les équipes terrain, notamment sur des problématiques de process, de contrôle, avec entre autres l’utilisation de la vision.\n\nPrésent sur trois sites de production, le rôle demande à la fois une solide capacité d’analyse et de réalisation technique, mais aussi une vraie aptitude à comprendre les enjeux métier, à créer de l’adhésion autour des projets et à rendre accessibles des sujets parfois complexes.\n\nResponsabilités\n\nRôle et responsabilités :\n\n• Recueillir et analyser les besoins métiers pour les transformer en cas d’usage data science ou machine learning.\n\n• Concevoir des modèles pour répondre à des enjeux tels que, la détection d’anomalies, l’aide au diagnostic, l’amélioration du contrôle qualité\n\n• Assurer l’industrialisation, le suivi de performance et la maintenance des solutions en production.\n\n• Restituer les analyses de manière claire et formuler des recommandations utiles à la décision.\n\n• Contribuer à la diffusion des bonnes pratiques, à l’innovation et au développement de la culture data au sein de l’organisation.\n\nCompétences techniques :\n\n• Excellente maîtrise de Python et de l’écosystème associé : PyTorch, NumPy, Pandas, Polars, scikit-learn, MLflow, Seaborn, etc.\n\n• Capacité à construire des approches analytiques rigoureuses, dans une démarche scientifique et orientée résolution de problèmes.\n\n• Bonne compréhension des enjeux d’industrialisation des modèles : qualité de code, tests, versioning, documentation, maintenance.\n\n• Maîtrise des bonnes pratiques de développement logiciel : Qualité de code, Tests,gestion de version avec GIT, travail collaboratif\n\n• La connaissance de Dataiku constitue un atout\n\nProfil\n\n• Diplômé(e) d’un Master / MSc en Informatique, Data Science, Statistiques ou domaine équivalent.\n\n• Minimum 5 ans d'expérience en data science ou machine learning, idéalement dans un environnement industriel ou de production.\n\n• Vous savez rendre accessibles des sujets techniques complexes.\n\n• Vous faites preuve d’écoute, de curiosité, de rigueur et d’autonomie.\n\n• Vous êtes proactif(ve), orienté(e) solutions et aimez faire avancer les sujets de manière concrète.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
+      "descriptionByLocale": {
+        "fr": "Introduction\n\nAu sein de la division Production, vous mettez la data science au service de la performance industrielle, de la maîtrise des procédés et de la qualité. Vous intervenez sur des projets à fort impact opérationnel, en lien direct avec les équipes terrain, notamment sur des problématiques de process, de contrôle, avec entre autres l’utilisation de la vision.\n\nPrésent sur trois sites de production, le rôle demande à la fois une solide capacité d’analyse et de réalisation technique, mais aussi une vraie aptitude à comprendre les enjeux métier, à créer de l’adhésion autour des projets et à rendre accessibles des sujets parfois complexes.\n\nResponsabilités\n\nRôle et responsabilités :\n\n• Recueillir et analyser les besoins métiers pour les transformer en cas d’usage data science ou machine learning.\n\n• Concevoir des modèles pour répondre à des enjeux tels que, la détection d’anomalies, l’aide au diagnostic, l’amélioration du contrôle qualité\n\n• Assurer l’industrialisation, le suivi de performance et la maintenance des solutions en production.\n\n• Restituer les analyses de manière claire et formuler des recommandations utiles à la décision.\n\n• Contribuer à la diffusion des bonnes pratiques, à l’innovation et au développement de la culture data au sein de l’organisation.\n\nCompétences techniques :\n\n• Excellente maîtrise de Python et de l’écosystème associé : PyTorch, NumPy, Pandas, Polars, scikit-learn, MLflow, Seaborn, etc.\n\n• Capacité à construire des approches analytiques rigoureuses, dans une démarche scientifique et orientée résolution de problèmes.\n\n• Bonne compréhension des enjeux d’industrialisation des modèles : qualité de code, tests, versioning, documentation, maintenance.\n\n• Maîtrise des bonnes pratiques de développement logiciel : Qualité de code, Tests,gestion de version avec GIT, travail collaboratif\n\n• La connaissance de Dataiku constitue un atout\n\nProfil\n\n• Diplômé(e) d’un Master / MSc en Informatique, Data Science, Statistiques ou domaine équivalent.\n\n• Minimum 5 ans d'expérience en data science ou machine learning, idéalement dans un environnement industriel ou de production.\n\n• Vous savez rendre accessibles des sujets techniques complexes.\n\n• Vous faites preuve d’écoute, de curiosité, de rigueur et d’autonomie.\n\n• Vous êtes proactif(ve), orienté(e) solutions et aimez faire avancer les sujets de manière concrète.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
+        "it": "Introduction\n\nAu sein de la division Production, vous mettez la data science au service de la performance industrielle, de la maîtrise des procédés et de la qualité. Vous intervenez sur des projets à fort impact opérationnel, en lien direct avec les équipes terrain, notamment sur des problématiques de process, de contrôle, avec entre autres l’utilisation de la vision.\n\nPrésent sur trois sites de production, le rôle demande à la fois une solide capacité d’analyse et de réalisation technique, mais aussi une vraie aptitude à comprendre les enjeux métier, à créer de l’adhésion autour des projets et à rendre accessibles des sujets parfois complexes.\n\nResponsabilités\n\nRôle et responsabilités :\n\n• Recueillir et analyser les besoins métiers pour les transformer en cas d’usage data science ou machine learning.\n\n• Concevoir des modèles pour répondre à des enjeux tels que, la détection d’anomalies, l’aide au diagnostic, l’amélioration du contrôle qualité\n\n• Assurer l’industrialisation, le suivi de performance et la maintenance des solutions en production.\n\n• Restituer les analyses de manière claire et formuler des recommandations utiles à la décision.\n\n• Contribuer à la diffusion des bonnes pratiques, à l’innovation et au développement de la culture data au sein de l’organisation.\n\nCompétences techniques :\n\n• Excellente maîtrise de Python et de l’écosystème associé : PyTorch, NumPy, Pandas, Polars, scikit-learn, MLflow, Seaborn, etc.\n\n• Capacité à construire des approches analytiques rigoureuses, dans une démarche scientifique et orientée résolution de problèmes.\n\n• Bonne compréhension des enjeux d’industrialisation des modèles : qualité de code, tests, versioning, documentation, maintenance.\n\n• Maîtrise des bonnes pratiques de développement logiciel : Qualité de code, Tests,gestion de version avec GIT, travail collaboratif\n\n• La connaissance de Dataiku constitue un atout\n\nProfil\n\n• Diplômé(e) d’un Master / MSc en Informatique, Data Science, Statistiques ou domaine équivalent.\n\n• Minimum 5 ans d'expérience en data science ou machine learning, idéalement dans un environnement industriel ou de production.\n\n• Vous savez rendre accessibles des sujets techniques complexes.\n\n• Vous faites preuve d’écoute, de curiosité, de rigueur et d’autonomie.\n\n• Vous êtes proactif(ve), orienté(e) solutions et aimez faire avancer les sujets de manière concrète.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
+        "en": "Introduction\n\nAu sein de la division Production, vous mettez la data science au service de la performance industrielle, de la maîtrise des procédés et de la qualité. Vous intervenez sur des projets à fort impact opérationnel, en lien direct avec les équipes terrain, notamment sur des problématiques de process, de contrôle, avec entre autres l’utilisation de la vision.\n\nPrésent sur trois sites de production, le rôle demande à la fois une solide capacité d’analyse et de réalisation technique, mais aussi une vraie aptitude à comprendre les enjeux métier, à créer de l’adhésion autour des projets et à rendre accessibles des sujets parfois complexes.\n\nResponsabilités\n\nRôle et responsabilités :\n\n• Recueillir et analyser les besoins métiers pour les transformer en cas d’usage data science ou machine learning.\n\n• Concevoir des modèles pour répondre à des enjeux tels que, la détection d’anomalies, l’aide au diagnostic, l’amélioration du contrôle qualité\n\n• Assurer l’industrialisation, le suivi de performance et la maintenance des solutions en production.\n\n• Restituer les analyses de manière claire et formuler des recommandations utiles à la décision.\n\n• Contribuer à la diffusion des bonnes pratiques, à l’innovation et au développement de la culture data au sein de l’organisation.\n\nCompétences techniques :\n\n• Excellente maîtrise de Python et de l’écosystème associé : PyTorch, NumPy, Pandas, Polars, scikit-learn, MLflow, Seaborn, etc.\n\n• Capacité à construire des approches analytiques rigoureuses, dans une démarche scientifique et orientée résolution de problèmes.\n\n• Bonne compréhension des enjeux d’industrialisation des modèles : qualité de code, tests, versioning, documentation, maintenance.\n\n• Maîtrise des bonnes pratiques de développement logiciel : Qualité de code, Tests,gestion de version avec GIT, travail collaboratif\n\n• La connaissance de Dataiku constitue un atout\n\nProfil\n\n• Diplômé(e) d’un Master / MSc en Informatique, Data Science, Statistiques ou domaine équivalent.\n\n• Minimum 5 ans d'expérience en data science ou machine learning, idéalement dans un environnement industriel ou de production.\n\n• Vous savez rendre accessibles des sujets techniques complexes.\n\n• Vous faites preuve d’écoute, de curiosité, de rigueur et d’autonomie.\n\n• Vous êtes proactif(ve), orienté(e) solutions et aimez faire avancer les sujets de manière concrète.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes).",
+        "de": "Introduction\n\nAu sein de la division Production, vous mettez la data science au service de la performance industrielle, de la maîtrise des procédés et de la qualité. Vous intervenez sur des projets à fort impact opérationnel, en lien direct avec les équipes terrain, notamment sur des problématiques de process, de contrôle, avec entre autres l’utilisation de la vision.\n\nPrésent sur trois sites de production, le rôle demande à la fois une solide capacité d’analyse et de réalisation technique, mais aussi une vraie aptitude à comprendre les enjeux métier, à créer de l’adhésion autour des projets et à rendre accessibles des sujets parfois complexes.\n\nResponsabilités\n\nRôle et responsabilités :\n\n• Recueillir et analyser les besoins métiers pour les transformer en cas d’usage data science ou machine learning.\n\n• Concevoir des modèles pour répondre à des enjeux tels que, la détection d’anomalies, l’aide au diagnostic, l’amélioration du contrôle qualité\n\n• Assurer l’industrialisation, le suivi de performance et la maintenance des solutions en production.\n\n• Restituer les analyses de manière claire et formuler des recommandations utiles à la décision.\n\n• Contribuer à la diffusion des bonnes pratiques, à l’innovation et au développement de la culture data au sein de l’organisation.\n\nCompétences techniques :\n\n• Excellente maîtrise de Python et de l’écosystème associé : PyTorch, NumPy, Pandas, Polars, scikit-learn, MLflow, Seaborn, etc.\n\n• Capacité à construire des approches analytiques rigoureuses, dans une démarche scientifique et orientée résolution de problèmes.\n\n• Bonne compréhension des enjeux d’industrialisation des modèles : qualité de code, tests, versioning, documentation, maintenance.\n\n• Maîtrise des bonnes pratiques de développement logiciel : Qualité de code, Tests,gestion de version avec GIT, travail collaboratif\n\n• La connaissance de Dataiku constitue un atout\n\nProfil\n\n• Diplômé(e) d’un Master / MSc en Informatique, Data Science, Statistiques ou domaine équivalent.\n\n• Minimum 5 ans d'expérience en data science ou machine learning, idéalement dans un environnement industriel ou de production.\n\n• Vous savez rendre accessibles des sujets techniques complexes.\n\n• Vous faites preuve d’écoute, de curiosité, de rigueur et d’autonomie.\n\n• Vous êtes proactif(ve), orienté(e) solutions et aimez faire avancer les sujets de manière concrète.\n\nConclusion\n\nNous vous offrons un environnement stimulant, d’excellentes conditions de travail, des solutions de flexibilisation du temps de travail et des prestations sociales de premier ordre.\n\nNous vous remercions d'adresser un dossier de candidature complet (CV, lettre de motivation, certificats et diplômes)."
+      },
+      "location": "Genève",
+      "canton": "GE",
+      "url": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Data-Scientist-%28HF%29-Gen%C3%A8/1426438233/",
+      "source": "Rolex Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T21:19:07.203Z",
+      "addressLocality": "Genève",
+      "postalCode": "1211",
+      "addressRegion": "Genève",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Luxury / Watchmaking (Manufacturing)",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-14",
+      "applyUrl": "https://www.carrieres-rolex.com/Rolex/job/Gen%C3%A8ve-Data-Scientist-%28HF%29-Gen%C3%A8/1426438233/",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "data-scientist-h-f-rolex-ch"
+        ],
+        "de": [
+          "datenwissenschaftler-m-w-rolex-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "data-scientist-h-f-rolex-ch",
+        "datenwissenschaftler-m-w-rolex-geneve"
+      ],
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      }
     }
   ]
 }
