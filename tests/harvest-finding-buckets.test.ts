@@ -148,12 +148,25 @@ describe('bucketFinding — canonical-sitemap richiede un segnale SEO, non il so
     });
   }
 
+  it('affermazioni positive sulla copertura sitemap non sono finding', () => {
+    const claims = [
+      'sitemap includes every URL',
+      'sitemap coverage is complete and every URL is listed',
+      'the sitemap was updated and published with every route',
+    ];
+    for (const claim of claims) {
+      expect(isGenuineCanonicalSitemapFinding(claim), claim).toBe(false);
+      expect(bucketFinding(`🟡 Nit: ${claim}`), claim).not.toBe('canonical-sitemap');
+    }
+  });
+
   it('mantiene i difetti SEO espliciti anche quando il testo contiene canonical', () => {
     const findings = [
       '🔴 Important: an empty canonical href is accepted as self-canonical; report canonical-missing instead.',
       '🔴 Important: the sitemap inventory accepts an empty root and silently reports a clean crawl.',
       '🔴 Important: the page does not emit the canonical when the locale is missing.',
       '🔴 Important: a sitemap URL has noindex and must be removed from the published sitemap.',
+      '🔴 Important: the workflow does not republish the sitemap after a canonical slug changes.',
     ];
     for (const line of findings) {
       expect(isGenuineCanonicalSitemapFinding(line), line).toBe(true);

@@ -577,9 +577,19 @@ const CANONICAL_SEO_DEFECT_RE =
 const SITEMAP_SEO_DEFECT_RE =
   /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*|noindex|non[- ]canonical|canonical|loc|inventory|coverage|redirect\w*|unreachable|include(?:s|d)?|listed)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
 
+// These words can describe a correct sitemap just as easily as a broken one.
+// They only count as a finding when the same sentence also states an explicit
+// defect; otherwise a positive line like "sitemap includes every URL" must
+// remain in the fingerprint safety net instead of inflating this topic bucket.
+const SITEMAP_NEUTRAL_ACTIVITY_RE =
+  /\b(?:coverage|include(?:s|d)?|listed|update(?:s|d)?|aggiorna\w*|publish(?:es|ed)?|pubblic\w*|republish(?:es|ed)?|ripubblic\w*|emit(?:s|ted)?|emett\w*)\b/i;
+const SITEMAP_EXPLICIT_DEFECT_RE =
+  /\b(?:sitemaps?|noindex)\b[^.\n]{0,100}\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)\b|\b(?:missing|empty|unsupported|stale|wrong|incorrect|broken|not|non|doesn['’]?t|does\s+not|fails?|omits?|drop(?:s|ped)?|noindex|non[- ]canonical|unreachable|leak\w*)[^.\n]{0,100}\b(?:sitemaps?|noindex)\b/i;
+
 export function isGenuineCanonicalSitemapFinding(text) {
   const s = String(text || '');
   if (!s) return false;
+  if (/\bsitemaps?\b/i.test(s) && SITEMAP_NEUTRAL_ACTIVITY_RE.test(s) && !SITEMAP_EXPLICIT_DEFECT_RE.test(s)) return false;
   // noindex is an SEO indexing directive by definition; the negated-impact
   // strip has already removed the "not touched" recap when this is called from
   // bucketFinding().
