@@ -74,7 +74,7 @@ import {
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
 import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
-import { cantonArchivePageCount, readCantonArchiveData, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
 import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
@@ -2177,13 +2177,9 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             // 1) Try locale-specific path (cathedral-canton-aware).
             // 2) Fall back to IT path (acceptable — same content, IT URL).
             // 3) Last-resort legacy form `sectionRoot/slug/`.
-            // 0) Exact path from the build's live inventory, when the entry
-            //    is a live job (cantonArchivePlan.mergeLiveArchiveJobs).
-            const livePath = j.hrefByLocale?.[locale];
             const localePath = localeUrlMap[j.slug];
             const itPath = itUrlMap[j.slug];
-            const href = livePath
-              || (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
+            const href = (localePath && (localePath.endsWith('/') ? localePath : `${localePath}/`))
               || (itPath && (itPath.endsWith('/') ? itPath : `${itPath}/`))
               || `${sectionRoot}/${j.slug}/`;
             return {
@@ -2661,7 +2657,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
     cantonJobCounts,
     cantonJobs,
     cantonEmployerCounts,
-  } = readCantonArchiveData(fs, np, rootDir); // snapshot ∪ live inventory, same source as the landing navigator
+  } = readJobsData(fs, np, rootDir);
   const crawledLogos = readCrawledCompanyLogos(fs, np, rootDir);
 
   const ensuredDirs = new Set<string>();
