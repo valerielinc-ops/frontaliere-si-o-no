@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const enCore: Record<string, string> = {
+ "whatsNew.v3973.title": "Job listing previews",
+ "whatsNew.v3973.jobPreview.title": "Full description after sign-in",
+ "whatsNew.v3973.jobPreview.desc": "Job listings show a short preview. Sign in free to read the full description and requirements.",
  "whatsNew.v3971.readableJobs.title": "Read job descriptions before signing in",
  "whatsNew.v3971.readableJobs.desc": "Read the full description before signing in and opening the application. Alert suggestions wait until you have read and respect dismissals.",
  "jobBoard.gate.descriptionUnavailable": "The source has not supplied a full description. Check the details on the employer’s website before applying.",
@@ -995,8 +998,8 @@ const enCore: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Continue with email',
  'jobBoard.authGateNewsletterNote': 'By entering your email you will also receive our newsletter with updates for cross-border workers.',
  'jobBoard.gate.title': 'See how to apply for this job',
- "jobBoard.gate.applicationTitle": "Sign in free to continue with your application",
- "jobBoard.gate.subtitle": "Read the full description here. Sign in or continue with email to open the application; complete it on the employer’s website. Included communications are explained below.",
+ "jobBoard.gate.applicationTitle": "Sign in free to read the full listing",
+ "jobBoard.gate.subtitle": "Sign in or continue with email to read the full description and requirements and open the application on the employer’s website. Included communications are explained below.",
  'jobBoard.gate.emailCta': 'Continue with email',
  'jobBoard.gate.benefit1': 'Full description and requirements',
  'jobBoard.gate.benefit2': 'How to apply and contacts',
