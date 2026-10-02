@@ -712,6 +712,10 @@ const translations: Record<string, string> = {
  'preferredSource.title': 'Rendici una delle tue fonti preferite su Google',
  'preferredSource.body': 'Su Google puoi scegliere le fonti che vuoi vedere più spesso nei risultati e nelle risposte AI. Un click e Frontaliere Ticino entra nella tua lista.',
  'preferredSource.button': 'Aggiungi alle fonti preferite',
+ 'preferredSource.popupTitle': 'Vederci più spesso su Google?',
+ 'preferredSource.popupBody': 'Aggiungici alle tue fonti preferite con un click.',
+ 'preferredSource.popupAccept': 'Aggiungi',
+ 'preferredSource.popupDismiss': 'Non ora',
 
  // Consulting
  'jobBoard.badge': 'Offerte di Lavoro',

@@ -9,6 +9,7 @@
  * Priority levels (higher = more urgent, shows first):
  * 100 Achievement toast (short-lived, 3.5s — should interrupt)
  * 60 Guide welcome banner (contextual, auto-dismiss 15s)
+ * 30 Preferred Sources article popup
  * 20 Newsletter popup (least urgent, can wait)
  *
  * Components should:
@@ -39,6 +40,7 @@ let cooldownTimer: ReturnType<typeof setTimeout> | null = null;
 const PROMOTIONAL_IDS = new Set([
  'newsletter-popup', 'feature-survey', 'guide-banner', 'job-detail-alert-prompt',
  'saved-jobs-alert-nudge', 'profile-enrichment-prompt', 'job-alert-sticky-banner',
+ 'preferred-source-popup',
 ]);
 function isPromotional(id: string): boolean {
  return PROMOTIONAL_IDS.has(id) || id.startsWith('company-follow-prompt:');
@@ -239,6 +241,8 @@ export function subscribe(listener: Listener): () => void {
  *  · COMPANY_FOLLOW_PROMPT — the URL names exactly one employer, so this is
  *    more relevant than a category prompt (55), but still an unsolicited ask:
  *    it yields to cookie/consent (85) and auth gates (80+).
+ *  · PREFERRED_SOURCE — article context makes the ask relevant, but it is less
+ *    urgent than a job or company action and should yield to those prompts.
  *
  * All bottom prompts are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
  * banner or a sign-in gate is not an offer that can be postponed.
@@ -262,6 +266,7 @@ export const POPUP_PRIORITY = {
  SAVED_JOBS_NUDGE: 50,
  PROFILE_ENRICHMENT: 45,
  JOB_ALERT_STICKY: 40,
+ PREFERRED_SOURCE: 30,
  NEWSLETTER: 20,
 } as const;
 
