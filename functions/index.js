@@ -464,9 +464,11 @@ export const getTrafficCurrent = onRequest(
 
 // Public plate-auction snapshot. Firestore stays server-only; the response is
 // allow-listed in plateAuctions.js and deliberately excludes bidder/winner
-// identities from eCari sources. The body is built at most once per 5 minutes
-// per instance (getCachedPublicPlateAuctionSnapshotBody): one build is ~22'700
-// billed Firestore reads. 1GiB like refreshPlateAuctions, which reads the same
+// identities from eCari sources. The body is loaded at most once per 5 minutes
+// per instance (getCachedPublicPlateAuctionSnapshotBody), from the object each
+// refreshPlateAuctions run publishes to Cloud Storage; only when that object is
+// missing or stale is it built from Firestore, ~22'700 billed reads. 1GiB like
+// refreshPlateAuctions, which reads the same
 // collection: at 256MiB a build overran the limit (258-269 MiB measured
 // 2026-10-01) and every call in flight on the instance failed. Clients that
 // accept gzip get the copy compressed once per build: uncompressed, each
