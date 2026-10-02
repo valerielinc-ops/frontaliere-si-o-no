@@ -15,6 +15,8 @@ import {
   selectCollisionCandidates,
   computeColliders,
   findDuplicateHeadPrs,
+  findMergedTwin,
+  headIdentityKey,
   isAutonomousCollisionPr,
   duplicateClosureConfirmed,
 } from '../scripts/ci/pr-collision-detector.mjs';
@@ -165,6 +167,60 @@ describe('findDuplicateHeadPrs — PR gemelle sullo stesso head ref (#10608/#106
     expect(source).toContain("gh(['pr', 'close', String(num), '--repo', REPO]");
     expect(source).toContain("gh(['pr', 'view', String(num), '--repo', REPO, '--json', 'state']");
     expect(main).toContain('if (closeDuplicateAndConfirm(dup.number))');
+    expect(main).not.toContain('--delete-branch');
+  });
+});
+
+describe('findMergedTwin — gemella di una PR già mergiata (#10780/#10781)', () => {
+  // Valori reali: #10781 mergiata il 2026-10-01 alle 16:53, #10780 rimasta
+  // aperta sullo stesso branch e sullo stesso commit.
+  const SHA = '8252349d77305960bea59a5f899a67578d5ba3e7';
+  const pr = (number: number, extra: Record<string, unknown> = {}) => ({
+    number,
+    headRefName: 'fix/issue-10752',
+    headRefOid: SHA,
+    baseRefName: 'main',
+    headRepositoryOwner: { login: 'valerielinc-ops' },
+    headRepository: { name: 'frontaliere-si-o-no', nameWithOwner: 'valerielinc-ops/frontaliere-si-o-no' },
+    ...extra,
+  });
+
+  it('REGRESSIONE #10780: stesso head e stesso commit di una PR mergiata → gemella', () => {
+    expect(findMergedTwin(pr(10780), [pr(10781)])).toBe(10781);
+  });
+
+  it('un commit nuovo sulla PR aperta la tiene fuori: porta lavoro non ancora su main', () => {
+    expect(findMergedTwin(pr(10780, { headRefOid: 'c'.repeat(40) }), [pr(10781)])).toBeNull();
+  });
+
+  it('repository, branch o base diversi non sono gemelle', () => {
+    expect(findMergedTwin(pr(1), [pr(2, { headRepository: { nameWithOwner: 'fork/frontaliere-si-o-no' } })])).toBeNull();
+    expect(findMergedTwin(pr(1), [pr(2, { headRefName: 'fix/issue-1' })])).toBeNull();
+    expect(findMergedTwin(pr(1), [pr(2, { baseRefName: 'release' })])).toBeNull();
+  });
+
+  it('fail-closed: lettura delle mergiate fallita o identità illeggibile → nessuna chiusura', () => {
+    expect(findMergedTwin(pr(10780), null)).toBeNull();
+    expect(findMergedTwin(pr(10780), undefined as never)).toBeNull();
+    expect(findMergedTwin(pr(10780, { headRefOid: undefined }), [pr(10781)])).toBeNull();
+    expect(findMergedTwin(pr(10780), [pr(10781, { headRepository: null, headRepositoryOwner: null })])).toBeNull();
+    // La PR stessa non è la propria gemella.
+    expect(findMergedTwin(pr(10780), [pr(10780)])).toBeNull();
+  });
+
+  it('headIdentityKey resta la stessa chiave di findDuplicateHeadPrs', () => {
+    expect(headIdentityKey(pr(1))).toBe(`valerielinc-ops/frontaliere-si-o-no:fix/issue-10752:${SHA}:main`);
+    expect(headIdentityKey(pr(1, { baseRefName: '' }))).toBe('');
+  });
+
+  it('main() cerca le gemelle mergiate per branch prima del grafo e non cancella il branch', () => {
+    const source = readFileSync(new URL('../scripts/ci/pr-collision-detector.mjs', import.meta.url), 'utf8');
+    const main = source.slice(source.indexOf('function main()'));
+    const mergedLookup = main.indexOf("'--state', 'merged', '--head', pr.headRefName");
+    expect(mergedLookup).toBeGreaterThan(main.indexOf('findDuplicateHeadPrs(prs)'));
+    expect(main.indexOf('computeColliders(nums, funnelFiles)')).toBeGreaterThan(mergedLookup);
+    expect(main).toContain('findMergedTwin(pr, merged)');
+    expect(main).toContain('if (closeDuplicateAndConfirm(pr.number))');
     expect(main).not.toContain('--delete-branch');
   });
 });
