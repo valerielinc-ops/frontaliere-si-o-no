@@ -23,8 +23,11 @@ describe('company follow first render', () => {
     render(button);
     expect(modalLoaded).not.toHaveBeenCalled();
     expect(lookup).not.toHaveBeenCalled();
-    fireEvent.click(screen.getByRole('button', { name: /Segui questa azienda/i }));
-    expect(await screen.findByRole('dialog')).toBeTruthy();
+    await act(async () => {
+      fireEvent.click(screen.getByRole('button', { name: /Segui questa azienda/i }));
+      await vi.dynamicImportSettled();
+    });
+    expect(screen.getByRole('dialog')).toBeTruthy();
     expect(modalLoaded).toHaveBeenCalledTimes(1);
   });
 
