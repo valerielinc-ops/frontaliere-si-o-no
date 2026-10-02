@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schindler",
-  "assembledAt": "2026-10-02T09:17:14.233Z",
+  "assembledAt": "2026-10-02T21:17:26.608Z",
   "jobs": [
     {
       "id": "schindler-76c469d8faf2",
@@ -33,7 +33,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Le-Mont-sur-Lausanne-Apprentissage-de-Polym%C3%A9canicien-ne-CFC-Monteur-euse-d'ascenseurs-pour-2027-Vaud/1413387633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:54.624Z",
+      "crawledAt": "2026-10-02T21:17:11.843Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://job.schindler.com/ASZ/job/Le-Mont-sur-Lausanne-Team-Leader-Service-r%C3%A9gion-fribourgeoise-%28hfd%29-80-100-Vaud/1425621733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:53.882Z",
+      "crawledAt": "2026-10-02T21:17:12.477Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -204,7 +204,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254155001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:53.130Z",
+      "crawledAt": "2026-10-02T21:17:08.644Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -289,7 +289,7 @@
       "url": "https://job.schindler.com/Schindler/job/St_-Gallen-Sales-Support-Service-Region-St_-Gallen-%28mwd%29-80-100-Pensum-St_/1431536833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:52.393Z",
+      "crawledAt": "2026-10-02T21:17:09.938Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -368,7 +368,7 @@
       "url": "https://job.schindler.com/Schindler/job/Plan-les-Ouates-Responsable-Service-et-r%C3%A9paration-%28mfd%29-80-100-Gen%C3%A8/1429126133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:51.637Z",
+      "crawledAt": "2026-10-02T21:17:10.548Z",
       "addressLocality": "Plan-les-Ouates",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -401,7 +401,6 @@
         "servizio-manager-e-riparazione-m-f-d-80-100-schindler-fribourg"
       ],
       "firstSeenAt": "2026-09-08T13:59:20.287Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -414,7 +413,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6b09cfbd9644",
@@ -447,7 +447,7 @@
       "url": "https://job.schindler.com/SCH_Office_General/job/St_-Gallen-Teamleiterin-Service-Region-Wattwil-Wil-St_-Gallen-Winkeln-%28mwd%29-St_/1432933433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:50.907Z",
+      "crawledAt": "2026-10-02T21:17:09.270Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -528,7 +528,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254105201/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:50.164Z",
+      "crawledAt": "2026-10-02T21:17:11.178Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -607,7 +607,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-St_/1375687533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:49.439Z",
+      "crawledAt": "2026-10-02T21:17:07.392Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -688,7 +688,7 @@
       "url": "https://job.schindler.com/SBB/job/St_-Gallen-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-St_/1375689633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:48.664Z",
+      "crawledAt": "2026-10-02T21:17:06.064Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -773,7 +773,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/K%C3%BCssnacht-a_-R_-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Schw/1375698933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:47.926Z",
+      "crawledAt": "2026-10-02T21:17:08.001Z",
       "addressLocality": "Küssnacht a",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -847,7 +847,7 @@
       "url": "https://job.schindler.com/ASZ/job/St_-Gallen-Servicetechnikerin-Region-Schaffhausen-%28mwd%29-80-100-St_/1440827333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:47.170Z",
+      "crawledAt": "2026-10-02T21:17:06.722Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -926,7 +926,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/K%C3%BCssnacht-a_-R_-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Schw/1375697933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:46.439Z",
+      "crawledAt": "2026-10-02T21:17:05.405Z",
       "addressLocality": "Küssnacht a",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1000,7 +1000,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Aufzugsmonteurin-Region-ThurgauSchaffhausen-%28mwd%29-80-100-St_/1413854033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:45.629Z",
+      "crawledAt": "2026-10-02T21:17:04.167Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1040,7 +1040,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:17:35.545Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1053,7 +1052,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6585fefe51c3",
@@ -1086,7 +1086,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Teamleiterin-Service-Region-AppenzellerlandRheintalF%C3%BCrstentum-Liechtenstein-%28mwd%29-80-100-St_/1435603833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:44.822Z",
+      "crawledAt": "2026-10-02T21:17:03.505Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1165,7 +1165,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Aufzugsmonteurin-Region-Z%C3%BCri-Oberland-Winterthur-%28mwd%29-80-100-St_/1416229733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:44.064Z",
+      "crawledAt": "2026-10-02T21:17:04.783Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1245,7 +1245,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254185401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:43.324Z",
+      "crawledAt": "2026-10-02T21:17:02.236Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1322,7 +1322,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Montage-Koordinatorin-%28mwd%29-80-100-Steinach-St_/1422070333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:42.533Z",
+      "crawledAt": "2026-10-02T21:17:02.854Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1401,7 +1401,7 @@
       "url": "https://job.schindler.com/ASZ/job/Steinach-Leadmonteur-Boltshauser-Region-Ost-%28mwd%29-80-100-St_/1415752033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:41.710Z",
+      "crawledAt": "2026-10-02T21:17:01.554Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -1434,8 +1434,8 @@
         "leadmonteur-boltshauser-region-ost-m-w-d-80-100-schindler-steinach",
         "regione-di-boltshauser-di-leadmonteur-est-m-f-d-80-100-schindler-st-gallen"
       ],
-      "firstSeenAt": "2026-07-16T22:43:26.122Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-16T22:43:26.122Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1481,7 +1481,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Wettswil-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Z%C3%BCri/1375696233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:40.967Z",
+      "crawledAt": "2026-10-02T21:16:25.900Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1555,7 +1555,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-d'Employ%C3%A9-e-de-commerce-CFC-pour-2027-Vaud/1413388433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:40.177Z",
+      "crawledAt": "2026-10-02T21:16:30.321Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1597,7 +1597,6 @@
         "cookie-consent-manager-schindler-bussigny"
       ],
       "firstSeenAt": "2026-08-24T21:32:21.267Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -1610,7 +1609,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-2cd8baf8b2e6",
@@ -1643,7 +1643,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Einstieg-als-Aufzugsmonteur-Region-ZHAG-%28mwd%29-80-100-Z%C3%BCri/1123499901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:39.428Z",
+      "crawledAt": "2026-10-02T21:16:55.780Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1716,7 +1716,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Bioggio-Montatoretrice-di-ascensori-%28mfd%29-80-100-Tici/1440804133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T09:16:38.623Z",
+      "crawledAt": "2026-10-02T21:16:23.953Z",
       "addressLocality": "Bioggio",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -1734,7 +1734,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-24T14:21:14.743Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1749,7 +1748,8 @@
         }
       },
       "streetAddress": "Via Industria 11",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "needsRetranslation": true
     },
     {
       "id": "schindler-af11f019be4a",
@@ -1782,7 +1782,7 @@
       "url": "https://job.schindler.com/Schindler/job/Fribourg-Monteur-d'ascenseurs-%28hfd%29-80-100-Frib/1415876233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:37.860Z",
+      "crawledAt": "2026-10-02T21:17:00.297Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1841,9 +1841,9 @@
       "id": "schindler-2bfed4e32e3e",
       "slug": "manager-per-cookie-einwilligungen-schindler-ebikon",
       "slugByLocale": {
+        "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "it": "manager-per-cookie-einwilligungen-schindler-ebikon",
         "en": "manager-for-cookie-consents-schindler-ebikon",
-        "de": "manager-fur-cookie-einwilligungen-schindler-ebikon",
         "fr": "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon"
       },
       "company": "Schindler",
@@ -1851,16 +1851,16 @@
       "companyDomain": "schindler.com",
       "title": "Lehrstelle als Konstrukteur*in EFZ für 2027",
       "titleByLocale": {
+        "de": "Lehrstelle als Konstrukteur*in EFZ für 2027",
         "it": "Apprendistato come Konstrukteur*in CFC per 2027",
         "en": "Lehrstelle als Konstrukteur*in EFZ für 2027",
-        "de": "Lehrstelle als Konstrukteur*in EFZ für 2027",
         "fr": "Lehrstelle als Konstrukteur*in EFZ für 2027"
       },
       "description": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.",
       "descriptionByLocale": {
+        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.",
         "it": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.",
         "en": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.",
-        "de": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen.",
         "fr": "Mobilität | seit 1874 | weltweit im Einsatz\n\nDie Schindler Berufsbildung bildet schweizweit über 300 Lernende aus – du bist somit nie allein. Unser gesamtes Team setzt sich täglich für dich ein, damit du am Ende deiner Lehrzeit eine top ausgebildete Fachkraft bist.\n\nLehrstelle als Konstrukteur*in EFZ für 2027 in Ebikon\n\nDiese Aufgaben erwarten dich:\n\n• Skizzieren und Modellieren von Bauteilen nach Kundenwunsch\n\n• Erstellen von 3D-Modellen mit CAD-Programmen\n\n• Anfertigen von Zeichnungen\n\n• Enge Zusammenarbeit mit unserer Werkstatt\n\n• Leiten kleiner Projekte bereits während der Lehre\n\nIn diesem Video erhältst du einen Einblick in den Arbeitsalltag.\n\nDas bringst du mit:\n\n• Logisches Denken\n\n• Räumliches Vorstellungsvermögen\n\n• Gute Schulnoten, besonders in Mathematik, Englisch, technischem Zeichnen und Physik\n\n• Freude an Teamarbeit und am gemeinsamen Lernen mit anderen\n\nDeine Pluspunkte bei uns:\n\n• Überdurchschnittliche Anzahl Ferientage sowie J&S-Vergütung\n\n• Einführungswoche zu Beginn deiner Lehrzeit\n\n• Finanzielle Vergünstigung für ÖV-Abos\n\n• Sport- und Fitnessvergütung bei auserwählten Anbietern\n\n•... weitere Benefits findest du hier\n\nNoch Fragen?\n\nMelde dich bei unserer Personalabteilung, Cheyenne Sidler, Tel. (+41) 414454088. Wir freuen uns auf deine Online-Bewerbung!\n\nSchindler Berufsbildung\nwww.schindler-berufsbildung.ch\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, Rasse, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Behinderung für eine Einstellung in Betracht zu ziehen."
       },
       "location": "Ebikon",
@@ -1868,7 +1868,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Konstrukteurin-EFZ-f%C3%BCr-2027-Luze/1374679133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:37.131Z",
+      "crawledAt": "2026-10-02T21:16:36.829Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1884,7 +1884,9 @@
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1374679133/?locale=de_DE",
       "jobReqId": "1374679133",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugsByLocale": {
         "de": [
           "lehrstelle-als-konstrukteur-in-efz-fur-2027-schindler-ebikon",
@@ -1952,7 +1954,7 @@
       "url": "https://job.schindler.com/Schindler/job/Fribourg-Technicienne-de-service-pour-ascenseurs-%28hfd%29-80-100-Frib/1432313033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:36.366Z",
+      "crawledAt": "2026-10-02T21:16:43.863Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2031,7 +2033,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Working-Student-HR-Talent-&-Development-%28mwd%29-60-80-Luze/1436203733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:35.600Z",
+      "crawledAt": "2026-10-02T21:16:46.397Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2117,7 +2119,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Aufzugsmonteur-Modernisierungen-Region-Zentralschweiz-%28mwd%29-80-100-Z%C3%BCri/1392687533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:34.820Z",
+      "crawledAt": "2026-10-02T21:16:52.646Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2189,7 +2191,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperpraktikum-ICT-Lehrberufe-f%C3%BCr-Kantisch%C3%BClerinnen-Luze/1433230233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:34.055Z",
+      "crawledAt": "2026-10-02T21:16:39.322Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2206,16 +2208,15 @@
       "jobReqId": "1433230233",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:17:37.665Z",
+      "previousSlugs": [
+        "schnupperpraktikum-ict-lehrberufe-fur-kantischuler-innen-schindler-ebikon"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2228,7 +2229,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:17:37.665Z"
     },
     {
       "id": "schindler-9c3131208a87",
@@ -2261,7 +2263,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Chur-Aufzugsmonteurin-in-der-Region-Graub%C3%BCnden-%28mwd%29-80-100-Grau/1435389033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:33.221Z",
+      "crawledAt": "2026-10-02T21:16:38.080Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2337,7 +2339,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Sales-Customer-Service-Expert-%28mwd%29-Luze/1439639833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:32.468Z",
+      "crawledAt": "2026-10-02T21:16:38.703Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2411,7 +2413,7 @@
       "url": "https://job.schindler.com/ASZ/job/Bern-Leadmonteur-Boltshauser-Region-Bern-%28mwd%29-80-100-Bern/1192926601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:31.729Z",
+      "crawledAt": "2026-10-02T21:16:32.942Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2449,8 +2451,8 @@
           "chef-monteur-boltshauser-region-bale-berne-h-f-d-80-100-schindler-basel"
         ]
       },
-      "firstSeenAt": "2026-05-19T12:34:17.660Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-05-19T12:34:17.660Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2496,7 +2498,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bussigny-Working-Student-%C3%A0-Bussigny-%28hfd%29-40-Vaud/1436683333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:30.989Z",
+      "crawledAt": "2026-10-02T21:16:40.585Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2560,7 +2562,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bussigny-R%C3%A9f%C3%A9rent-Sales-Support-REP-%28mfd%29-80-100-Vaud/1425934333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:30.245Z",
+      "crawledAt": "2026-10-02T21:16:54.520Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2577,18 +2579,6 @@
       "jobReqId": "1425934333",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny",
-        "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny",
-          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:17:34.024Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -2601,15 +2591,27 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:17:34.024Z",
+      "previousSlugs": [
+        "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny",
+        "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "referent-sales-support-rep-m-f-d-80-100-schindler-bussigny",
+          "supporto-di-vendita-di-riferimento-rep-m-f-d-80-100-schindler-bussigny"
+        ]
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-76e786c7203d",
       "slug": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur",
       "slugByLocale": {
+        "de": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur",
         "it": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur",
         "en": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur",
-        "de": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur",
         "fr": "servicetechniker-in-m-w-d-im-bereich-fahrtreppen-80-100-schindler-winterthur"
       },
       "company": "Schindler",
@@ -2617,24 +2619,24 @@
       "companyDomain": "schindler.com",
       "title": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%",
       "titleByLocale": {
+        "de": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%",
         "it": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%",
         "en": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%",
-        "de": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%",
         "fr": "Servicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von Reparaturen\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug, welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Beeinträchtigung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
       "descriptionByLocale": {
-        "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano in su\n\nServizio tecnico (m/f/d) nell'area delle scale mobili, 80-100 %\n\nLa tua giornata – il tuo piano! Progetta la tua settimana di 40 ore secondo le tue esigenze. Alleghiamo grande importanza per il vostro ulteriore sviluppo e vi offriamo esattamente ciò di cui avete bisogno. Scopri di più su di noi in questo video\n\nLe nuove sfide:\n\n• Pianificazione e esecuzione indipendente dei lavori di manutenzione secondo i cicli specificati\n\n• Rimediazione degli incidenti\n\n• Costruzione di riparazioni\n\n• Comunicazioni dei clienti\n\nLe vostre condizioni ideali:\n\n• Apprendistato completo nel settore meccanico, elettrico o idraulico (es. polimeccanico, meccanico automobilistico, fabbricante di impianti ed apparecchi o installatore elettrico)\n\n• Alcuni anni di esperienza professionale, idealmente con il contatto del cliente\n\n• Modi impeccabili e alta disponibilità ad imparare\n\n• Buona conoscenza del tedesco, altre lingue benefiche\n\n• Licenza valida del driver – non puoi fare a meno di esso\n\nI nostri vantaggi:\n\n• Allenamento di 2 mesi a salario pieno nel nostro campo di sollevamento per la vostra preparazione ottimale per il vostro nuovo lavoro.\n\n• Proprio veicolo aziendale, che è anche possibile utilizzare privatamente.\n\n• Compensazione per il vostro pasto di pranzo, giusto in contanti per pikett e la pulizia dei vostri vestiti di lavoro, che naturalmente sarà fornito gratuitamente da noi.\n\n• Ottime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n• Bilancia della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n• Ambiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute aziendale, compresa la consulenza sociale e la promozione della salute.\n\n• Benefici del dipendente: Partecipazione genetica all'abbonamento fitness, sconti della flotta, acquisto ridotto del denaro Reka, premi assicurativi ridotti e vari vantaggi\n\nSei pronto a fare nuove vie? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere\n\nAl Gruppo Schindler, valutiamo l'inclusione e la diversità e pratichiamo l'uguaglianza per creare pari opportunità per tutti. Ci sforziamo di prendere in considerazione tutti i candidati qualificati per il reclutamento, indipendentemente dall'età, dall'origine etnica, dal colore, dalla religione, dall'appartenenza al sindacato, dal sesso, dall'identità di genere, dall'orientamento sessuale, dallo stato civile, dall'origine nazionale, dalla nazionalità, dalla predisposizione genetica e dalla salute o dal danno.\n\nQualsiasi domanda non sollecitata da agenzie di reclutamento è considerata respinta e non costituisce in alcun modo un'offerta da un'agenzia di reclutamento.",
-        "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nService technician (m/f/d) in the area of escalators, 80-100 %\n\nYour day – your plan! Design your 40-hour week according to your needs. We attach great importance to your further development and offer you exactly what you need. Learn more about us in this video\n\nYour new challenges:\n\n• Independent planning and execution of maintenance work according to specified cycles\n\n• Remediation of incidents\n\n• Construction of repairs\n\n• Customer communications\n\nYour ideal conditions:\n\n• Completed apprenticeship in the mechanical, electrical or hydraulic sector (e.g. polymechanic, car mechanic, plant and apparatus manufacturer or electrical installer)\n\n• Some years of professional experience, ideally with customer contact\n\n• Impeccable manners and high willingness to learn\n\n• Good knowledge of German, other languages beneficial\n\n• Valid driver’s license – you can’t do without it\n\nOur benefits:\n\n• 2-month training at full wage in our lift camp for your optimal preparation for your new job.\n\n• Own company vehicle, which you can also use privately.\n\n• Compensation for your lunchtime meal, fair on-call allowance for pikett and the cleaning of your work clothes, which of course will be provided free of charge by us.\n\n• Excellent development opportunities: Staff development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n• Work-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n• Healthy working environment: High health & safety standards and company health management including social counselling and health promotion.\n\n• Employee benefits: Generous participation in the fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere\n\nAt the Schindler Group, we value inclusion and diversity and practice equality to create equal opportunities for all. We strive to consider all qualified applicants for recruitment, irrespective of age, ethnic origin, colour, religion, trade union membership, gender, gender identity, sexual orientation, marital status, national origin, nationality, genetic predisposition and health or impairment.\n\nAny unsolicited application from recruitment agencies is considered rejected and in no way constitutes an offer from a recruitment agency.",
+        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von Reparaturen\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug, welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Beeinträchtigung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
+        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von Reparaturen\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug, welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Beeinträchtigung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
         "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von Reparaturen\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug, welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Beeinträchtigung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar.",
-        "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nTechnicien de service (h/f/d) dans le domaine des escaliers mécaniques, 80-100 %\n\nVotre journée – votre plan! Concevez votre semaine de 40 heures selon vos besoins. Nous attachons une grande importance à votre développement ultérieur et vous offrons exactement ce dont vous avez besoin. En savoir plus sur nous dans cette vidéo\n\nVos nouveaux défis:\n\n• Planification indépendante et exécution des travaux d'entretien selon des cycles spécifiés\n\n• Réparation des incidents\n\n• Construction de réparations\n\n• Communications avec les clients\n\nVos conditions idéales:\n\n• Apprentissage terminé dans le secteur mécanique, électrique ou hydraulique (p. ex. polymécanique, mécanicien automobile, fabricant d'installations et d'appareils ou installateur électrique)\n\n• Quelques années d'expérience professionnelle, idéalement avec contact client\n\n• Des manières impeccables et une grande volonté d'apprendre\n\n• Bonne connaissance de l'allemand, d'autres langues bénéfiques\n\n• Permis de conduire valide – vous ne pouvez pas faire sans\n\nNos avantages:\n\n• Formation de 2 mois à plein salaire dans notre camp d'ascenseur pour votre préparation optimale à votre nouvel emploi.\n\n• Automobile, que vous pouvez également utiliser en privé.\n\n• Indemnisation pour votre repas à l'heure du déjeuner, l'indemnité de garde pour le pikett et le nettoyage de vos vêtements de travail, qui bien sûr seront fournis gratuitement par nous.\n\n• Excellentes possibilités de perfectionnement: Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n• Équilibre travail-vie privée: 40h semaine, 25 à 30 jours de vacances, horaires de travail flexibles, travail à temps partiel et congés non rémunérés.\n\n• Environnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé de l'entreprise, y compris conseils sociaux et promotion de la santé.\n\n• Avantages sociaux: Participation généreuse à l'abonnement de fitness, rabais sur flotte, réduction de l'achat d'argent Reka, réduction des primes d'assurance et divers avantages\n\nÊtes-vous prêt à aller de nouvelles façons? Faites partie de #TeamSchindler!\n\nPour de plus amples informations, consulter le site suivant: www.schindler.ch/karriere\n\nAu sein du groupe Schindler, nous apprécions l'inclusion, la diversité et la pratique de l'égalité pour créer l'égalité des chances pour tous. Nous nous efforçons d'examiner tous les candidats qualifiés pour le recrutement, indépendamment de l'âge, de l'origine ethnique, de la couleur, de la religion, de l'appartenance syndicale, du sexe, de l'identité de genre, de l'orientation sexuelle, de l'état matrimonial, de l'origine nationale, de la nationalité, de la prédisposition génétique et de la santé ou de la déficience.\n\nToute demande non sollicitée émanant d'agences de recrutement est considérée comme rejetée et ne constitue en aucun cas une offre émanant d'une agence de recrutement."
+        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nServicetechniker*in (m/w/d) im Bereich Fahrtreppen, 80-100%\n\nDein Tag – dein Plan! Gestalte deine 40-Stunden-Woche nach deinen Bedürfnissen. Wir legen grossen Wert auf deine Weiterentwicklung und bieten dir genau das, was du brauchst. Mehr über uns erfährst du in diesem Video\n\nDeine neuen Herausforderungen:\n\n• Selbstständige Planung und Ausführung von Wartungsarbeiten nach vorgegebenem Turnus\n\n• Behebung von Störungen\n\n• Ausführung von Reparaturen\n\n• Kundenkommunikation\n\nDeine idealen Voraussetzungen:\n\n• Abgeschlossene Berufslehre im mechanischen, elektrischen oder hydraulischen Bereich (z. B. Polymechaniker*in, Automechaniker*in, Anlagen- und Apparatebauer*in oder Elektroinstallateur*in)\n\n• Einige Jahre Berufserfahrung, idealerweise mit Kundenkontakt\n\n• Tadellose Umgangsformen und hohe Lernbereitschaft\n\n• Gute Deutschkenntnisse, weitere Sprachen von Vorteil\n\n• Gültiger Führerschein – ohne geht’s nicht\n\nUnsere Benefits:\n\n• 2-monatige Einarbeitung bei vollem Lohn in unserem Lift Camp für deine optimale Vorbereitung auf deinen neuen Job.\n\n• Eigenes Firmenfahrzeug, welches du auch privat nutzen darfst.\n\n• Entschädigung für deine Mittagsverpflegung, faire Bereitschaftsentschädigung für Pikett und die Reinigung deiner Arbeitskleider, welche dir selbstverständlich von uns kostenlos zur Verfügung gestellt werden.\n\n• Exzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n• Work-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n• Gesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n• Mitarbeitervergünstigungen: Grosszügige Beteiligung am Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere\n\nBei der Schindler-Gruppe legen wir Wert auf Inklusion und Vielfalt und praktizieren Gleichberechtigung, um gleiche Chancen für alle zu schaffen. Wir sind bestrebt, alle qualifizierten Bewerbenden ohne Rücksicht auf Alter, ethnische Herkunft, Hautfarbe, Religionszugehörigkeit, Gewerkschaftszugehörigkeit, Geschlecht, Geschlechtsidentität, sexuelle Orientierung, Familienstand, nationale Herkunft, Nationalität, genetische Veranlagung und Gesundheit oder Beeinträchtigung für eine Einstellung in Betracht zu ziehen.\n\nJegliche unaufgeforderte Bewerbung von Personalvermittlungsagenturen wird als abgelehnt betrachtet und stellt in keiner Weise ein Angebot seitens einer Personalvermittlungsagentur dar."
       },
       "location": "Winterthur",
       "canton": "ZH",
       "url": "https://job.schindler.com/Schindler/job/Winterthur-Servicetechnikerin-%28mwd%29-im-Bereich-Fahrtreppen%2C-80-100-Z%C3%BCri/1443450633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:29.309Z",
+      "crawledAt": "2026-10-02T21:16:55.149Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2650,9 +2652,11 @@
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1443450633/?locale=de_DE",
       "jobReqId": "1443450633",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:13:54.243Z",
+      "firstSeenAt": "2026-10-02T21:16:55.149Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2698,7 +2702,7 @@
       "url": "https://job.schindler.com/Schindler/job/Winterthur-Servicetechnikerin-%28mwd%29-in-Winterthur%2C-80-100-Z%C3%BCri/1442871933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:28.394Z",
+      "crawledAt": "2026-10-02T21:16:53.896Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2762,7 +2766,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Visp-Aufzugsmonteurin-im-Oberwallis-%28mwd%29-80-100-Wall/1380428233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:27.625Z",
+      "crawledAt": "2026-10-02T21:16:57.101Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -2857,7 +2861,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Oberentfelden-Servicetechnikerin-in-der-Region-ZofingenOlten-%28mwd%29-80-100-Aarg/1433313233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:26.861Z",
+      "crawledAt": "2026-10-02T21:16:45.765Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2938,7 +2942,7 @@
       "url": "https://job.schindler.com/ASZ/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Basel-%28mwd%29-80-100-Bern/1389964833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:26.097Z",
+      "crawledAt": "2026-10-02T21:16:51.407Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3122,7 +3126,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Oberentfelden-Aufzugsmonteur-in-der-Region-Aarau-%28mwd%29-80-100-Aarg/1368065233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:24.600Z",
+      "crawledAt": "2026-10-02T21:16:48.271Z",
       "addressLocality": "Oberentfelden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3207,7 +3211,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Technischer-Sachbearbeiter-Ersatzteile-%28mwd%29-80-100-Luze/1423401333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:23.838Z",
+      "crawledAt": "2026-10-02T21:17:00.930Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3286,7 +3290,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Schnupperpraktikum-technische-Berufe-f%C3%BCr-Kantisch%C3%BClerinnen-Luze/1173037101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:23.088Z",
+      "crawledAt": "2026-10-02T21:16:52.032Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3358,7 +3362,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Ebikon-Servicetechniker-in-der-Region-Zug-80-100-%28mwd%29-Luze/1435234433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:22.322Z",
+      "crawledAt": "2026-10-02T21:16:37.450Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3394,7 +3398,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:45.734Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -3407,7 +3410,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a0263678dc22",
@@ -3440,7 +3444,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-Stadt-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1387781733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:21.570Z",
+      "crawledAt": "2026-10-02T21:16:50.132Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3541,7 +3545,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263538601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:20.755Z",
+      "crawledAt": "2026-10-02T21:16:49.511Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3620,7 +3624,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteur-f%C3%BCr-Aufzugsanlagen-in-der-Region-Z%C3%BCrich-%28mwd%29%2C-80-100-Z%C3%BCri/1129812001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:20.013Z",
+      "crawledAt": "2026-10-02T21:16:47.645Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3702,7 +3706,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Aufzugsmonteurin-Modernisierungen-Region-Z%C3%BCrich-und-Aargau-%28mwd%29-80-100-Z%C3%BCri/1389603133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:19.262Z",
+      "crawledAt": "2026-10-02T21:16:21.404Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3779,7 +3783,7 @@
       "url": "https://job.schindler.com/ASZ/job/Sch%C3%B6nb%C3%BChl-Aufzugsmonteurin-Region-Aargau-Solothurn-%28mwd%29-80-100-Bern/1431521133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:18.500Z",
+      "crawledAt": "2026-10-02T21:16:31.002Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3856,7 +3860,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Fachmannfrau-Kundendialog-EFZ-f%C3%BCr-2027-Luze/1373001933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:17.755Z",
+      "crawledAt": "2026-10-02T21:16:34.855Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3943,7 +3947,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Warehouse-Agent-%28mwd%29-50-Luze/1430445133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:16.797Z",
+      "crawledAt": "2026-10-02T21:16:50.771Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4021,7 +4025,7 @@
       "url": "https://job.schindler.com/ASZ/job/Sch%C3%B6nb%C3%BChl-Montagechefin-%28mwd%29-80-100-Bern/1437587833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:16.014Z",
+      "crawledAt": "2026-10-02T21:16:43.228Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4085,7 +4089,7 @@
       "url": "https://job.schindler.com/Schindler/job/Winterthur-Montagekoordinatorin-%28mwd%29%2C-100-Z%C3%BCri/1427603733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:15.272Z",
+      "crawledAt": "2026-10-02T21:16:53.275Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4167,7 +4171,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-Region-Stadt-Z%C3%BCrichGoldk%C3%BCste-%28mwd%29-80-100-Z%C3%BCri/1431542833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:14.469Z",
+      "crawledAt": "2026-10-02T21:16:31.700Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4246,7 +4250,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Chur-Servicetechnikerin-in-der-Region-ChurLenzerheide-%28mwd%29-80-100-Grau/1435385833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:13.706Z",
+      "crawledAt": "2026-10-02T21:16:34.220Z",
       "addressLocality": "Chur",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -4282,7 +4286,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:25:54.269Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -4295,7 +4298,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d5179197fde9",
@@ -4328,7 +4332,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Elektroinstallateurin-f%C3%BCr-die-Liftmontage-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1189247101/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:12.935Z",
+      "crawledAt": "2026-10-02T21:16:39.932Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4368,7 +4372,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:41.781Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -4381,7 +4384,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-5329457d542b",
@@ -4414,7 +4418,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Z%C3%BCrich-Monteurin-f%C3%BCr-Aufzugsanlagen-im-Grossraum-Z%C3%BCrich-mit-F%C3%BChrungspotenzial-%28mwd%29-80-100-Z%C3%BCri/1159664001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:12.195Z",
+      "crawledAt": "2026-10-02T21:16:28.470Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4452,7 +4456,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:33:40.284Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -4465,7 +4468,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-587361ccbd7b",
@@ -4498,7 +4502,7 @@
       "url": "https://job.schindler.com/Schindler/job/Winterthur-LagermitarbeiterChauffeur-%28mwd%29%2C-80-Z%C3%BCri/1434197533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:10.709Z",
+      "crawledAt": "2026-10-02T21:16:45.149Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4577,7 +4581,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Thun-Servicetechnikerin-in-der-Region-Interlaken-%28mwd%29-80-100-Bern/1434941033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:09.945Z",
+      "crawledAt": "2026-10-02T21:16:41.876Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4671,7 +4675,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Mediamatikerin-EFZ-Way-up-f%C3%BCr-2027-Luze/1374622733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:09.199Z",
+      "crawledAt": "2026-10-02T21:16:36.184Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4751,7 +4755,7 @@
       "url": "https://job.schindler.com/ASZ/job/Sch%C3%B6nb%C3%BChl-Verkaufsleiterin-Modernisierung-%28mwd%29-80-100-Bern/1434522833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:08.392Z",
+      "crawledAt": "2026-10-02T21:16:42.582Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4815,7 +4819,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Reparaturtechikerin-Regionen-ZH%2C-LU%2C-AG-%28mwd%29-80-100-Z%C3%BCri/1405604033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:07.637Z",
+      "crawledAt": "2026-10-02T21:16:32.309Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4889,7 +4893,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-Region-SarnenLungern-%28mwd%29-80-100-Z%C3%BCri/1440822533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:06.873Z",
+      "crawledAt": "2026-10-02T21:16:23.315Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4968,7 +4972,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Projektleiterin-%28mwd%29-80-100-Z%C3%BCri/1424293533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:06.126Z",
+      "crawledAt": "2026-10-02T21:16:22.025Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5001,7 +5005,6 @@
           "projektleiter-in-m-w-d-80-100-schindler-wettswil"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -5014,7 +5017,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-604676bbf76f",
@@ -5047,7 +5051,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263538801/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:05.367Z",
+      "crawledAt": "2026-10-02T21:16:48.894Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5126,7 +5130,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-mit-Springerfunktion-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1428769533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:04.587Z",
+      "crawledAt": "2026-10-02T21:16:29.697Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5203,7 +5207,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bussigny-Business-Controller-%28hfd%29-80-100-Vaud/1439612233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:16:03.846Z",
+      "crawledAt": "2026-10-02T21:16:29.091Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -5266,7 +5270,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-in-Region-Dietikon-%28mwd%29-80-100-Z%C3%BCri/1424793833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:03.062Z",
+      "crawledAt": "2026-10-02T21:16:59.016Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5306,7 +5310,6 @@
         "servicetechniker-in-region-fislisbach-niederrohrdorf-m-w-d-80-100-schindler-wettswil"
       ],
       "firstSeenAt": "2026-08-10T21:44:59.241Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5319,7 +5322,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-861a0eb4b222",
@@ -5352,7 +5356,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-Fahrtreppen-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1436239833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:02.321Z",
+      "crawledAt": "2026-10-02T21:16:35.533Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5431,7 +5435,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-Region-Oerlikon-%28mwd%29-80-100-Z%C3%BCri/1433469533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:00.819Z",
+      "crawledAt": "2026-10-02T21:16:44.537Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5470,7 +5474,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:53:00.429Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5483,7 +5486,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-81fc438808d0",
@@ -5516,7 +5520,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Fachspezialistin-Haustechnik-HLKKS-%28mwd%29-80-100-Luze/1430453433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:16:00.078Z",
+      "crawledAt": "2026-10-02T21:16:41.235Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5595,7 +5599,7 @@
       "url": "https://job.schindler.com/SCH_Fitter/job/Fribourg-Monteur-d'ascenseurs-%28hfd%29-80-100-Frib/1430259733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:59.331Z",
+      "crawledAt": "2026-10-02T21:16:47.026Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -5658,7 +5662,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-in-der-Stadt-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1423997433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:58.581Z",
+      "crawledAt": "2026-10-02T21:16:59.664Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5735,7 +5739,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Montagechef-Raum-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1423241833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:57.809Z",
+      "crawledAt": "2026-10-02T21:16:57.729Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5769,7 +5773,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:28:23.430Z",
-      "needsRetranslation": true,
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -5782,15 +5785,16 @@
           "maxValue": 172000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-2968382132d6",
       "slug": "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
       "slugByLocale": {
+        "de": "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
         "it": "sachbearbeiter-in-rechnungswesen-e-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
         "en": "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
-        "de": "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon",
         "fr": "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
       },
       "company": "Schindler",
@@ -5798,24 +5802,24 @@
       "companyDomain": "schindler.com",
       "title": "Sachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%",
       "titleByLocale": {
+        "de": "Sachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%",
         "it": "Sachbearbeiter/in Rechnungswesen e Pensionskassenverwaltung (m/w/d) 80%",
         "en": "Sachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%",
-        "de": "Sachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%",
         "fr": "Sachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%"
       },
       "description": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten:  Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance:  40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung:  Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus  mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen:  Grosszügige   Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt  und  Inklusion & Diversität  innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
       "descriptionByLocale": {
-        "it": "Più di due miliardi di persone si affidano a Schindler ogni giorno. I nostri molti anni di esperienza e di forza innovativa ci rendono il numero uno nel settore dell'ascensore e delle scale mobili svizzere. Nell'ambito della famiglia Schindler, progetta posti per tutti più accessibili, inclusivi e sostenibili. Uniamo innovazione, sicurezza e inclusione e diversità all'interno dell'azienda. Diventa parte della nostra storia di successo di 150 anni e modella il futuro della mobilità.\n\nInsieme un piano in su\n\nContabilità e amministrazione dei fondi pensione (m/f/d) 80 %\n\nIl Fondo Pensione Schindler garantisce la fornitura professionale dei nostri dipendenti in Svizzera. In questa funzione versatile, sei responsabile della contabilità finanziaria e dei titoli del fondo pensione dal monitoraggio e dalla prenotazione di tutti i flussi di pagamento alla preparazione dei conti annuali. Inoltre, si effettua in modo indipendente ed efficiente tutti i compiti tecnici e amministrativi relativi alla gestione dell'assicurazione.\n\nLe nuove sfide:\n\nContabilità\n\n•\nContabilità incl. Preparazione del bilancio secondo la Svizzera GAAP FER 26\n\n•\nPianificazione della liquidità incl. Acquisto e trasferimento di liquidità\n\n•\nCoordinamento tra contabilità finanziaria e amministrazione tecnica (M&S Pension)\n\n•\nImpostazione dell'IVA, ritenuta e ritenuta\n\n•\nRaccolta dei documenti necessari per gli auditor nel contesto dell'audit annuale\n\n•\nUlteriore sviluppo e ottimizzazione dei processi contabili\n\nServizi assicurativi\n\n•\nElaborazione di mutazioni, flussi e scarichi, registrazione dei contributi dei servizi di libera circolazione\n\n•\nElaborazione di vari incidenti come la promozione della proprietà domestica o il divorzio\n\n•\nVoti mensili sui contributi\n\n•\nPrevisioni delle prestazioni pensionistiche\n\n•\nPersona di contatto per gli assicurati\n\n•\nSostegno e rappresentanza nel fondo pensione\n\nLe vostre condizioni ideali:\n\n•\nFormazione commerciale di base con ulteriore formazione per / al responsabile del caso / contabilità o federale. Certificato finanziario e contabile\n\n•\nUn'ulteriore formazione nel campo della sicurezza sociale, idealmente una carta professionale per l'assicurazione sociale o la fornitura di personale\n\n•\nEsperienza nella contabilità finanziaria e dei titoli, preferibilmente in un fondo pensionistico\n\n•\nConoscenza del II pilastro\n\n•\nGestione sicura di MS Office, esperienza con ABACUS\n\n•\nUn forte tocco di paga e un metodo di lavoro preciso e indipendente\n\n•\nGestione discreta e responsabile dei dati riservati\n\n•\nPersonalità orientata al team\n\n•\nTedesco stilistico nella parola e nella scrittura; La conoscenza del francese e dell'italiano è un vantaggio\n\nI nostri vantaggi:\n\n•\nOttime opportunità di sviluppo: lo sviluppo del personale è vissuto con noi. Forniamo ai nostri dipendenti vari programmi di talento nazionali e internazionali e li sosteniamo temporaneamente e finanziariamente con formazione e formazione ulteriore.\n\n•\nBilancia della vita lavorativa: 40h settimana, 25-30 giorni di vacanza, orari di lavoro flessibili, lavoro part-time e congedo non pagato.\n\n•\nAmbiente di lavoro sano: elevati standard di salute e sicurezza e gestione della salute aziendale, compresa la consulenza sociale e la promozione della salute.\n\n•\ncampus moderno con il proprio personale ristorante e caffetteria, parcheggio gratuito, ottima connessione di trasporto pubblico, sala fitness con attrezzature e un parco per rimanere.\n\n•\nBenefici del dipendente: partecipazione generosa al trasporto pubblico e abbonamento di fitness, sconti della flotta, acquisto ridotto del denaro Reka, riduzione dei premi assicurativi e vari benefici.\n\n•\nDiversità culturale e inclusione e diversità all'interno dell'azienda.\n\nSei pronto a fare nuove vie? Diventa parte di #TeamSchindler!\n\nUlteriori informazioni sono disponibili su: www.schindler.ch/karriere",
-        "en": "Over two billion people rely on Schindler every day. Our many years of experience and innovative strength make us number one in the Swiss elevator and escalator business. As part of the Schindler family, you design places for everyone more accessible, inclusive and sustainable. We combine innovation, security and inclusion and diversity within the company. Become part of our 150-year success story and shape the future of mobility.\n\nTogether one floor up as\n\nAccounting and Pension Fund Administration (m/f/d) 80 %\n\nThe Schindler Pension Fund ensures the professional provision of our employees in Switzerland. In this versatile function, you are responsible for the financial and securities accounting of the pension fund from the monitoring and booking of all payment flows to the preparation of the annual accounts. In addition, you independently and efficiently carry out all the technical and administrative tasks relating to the insurance management.\n\nYour new challenges:\n\nAccounting\n\n•\nAccounting incl. Preparation of financial statements according to Swiss GAAP FER 26\n\n•\nLiquidity planning incl. Procurement and transfer of liquidity\n\n•\nCoordination between financial accounting and technical administration (M&S Pension)\n\n•\nSettlement of VAT, withholding tax and withholding tax\n\n•\nCompilation of the necessary documents for auditors in the context of the annual audit\n\n•\nFurther development and optimization of accounting processes\n\nInsurance services\n\n•\nProcessing of mutations as well as inflows and discharges, recording of contributions of free movement services\n\n•\nProcessing of various incidents such as home ownership promotion or divorce\n\n•\nMonthly votes on contributions\n\n•\nForecasts of pension benefits\n\n•\nContact person for insured persons\n\n•\nSupport and representation in the pension fund\n\nYour ideal conditions:\n\n•\nBasic commercial training with further training for/to the case manager/accounting or Federal. Financial and accounting certificate\n\n•\nFurther education in the field of social security, ideally a professional card for social insurance or staff provision\n\n•\nExperience in financial and securities accounting, preferably in a pension fund\n\n•\nSound knowledge of the 2nd pillar\n\n•\nSafe handling of MS Office, experience with ABACUS\n\n•\nStrong pay flair as well as an exact and independent working method\n\n•\nDiscreet and responsible handling of confidential data\n\n•\nTeam-oriented personality\n\n•\nStylistic German in word and writing; Knowledge of French and Italian is an advantage\n\nOur benefits:\n\n•\nExcellent development opportunities: Staff development is lived with us. We provide our employees with various national and international talent programs and support them temporarily and financially with training and further education.\n\n•\nWork-life balance: 40h week, 25 to 30 days of vacation, flexible working hours, part-time work and unpaid leave.\n\n•\nHealthy working environment: High health & safety standards and company health management including social counselling and health promotion.\n\n•\nModern campus with its own staff restaurant & cafeteria, free parking, very good public transport connection, fitness room with equipment and a park to stay.\n\n•\nEmployee benefits: generous participation in the public transport and fitness subscription, fleet discounts, reduced purchase of Reka money, reduced insurance premiums and various benefits.\n\n•\nCultural diversity and inclusion & diversity within the company.\n\nAre you ready to go new ways? Become part of #TeamSchindler!\n\nFurther information can be found at: www.schindler.ch/karriere",
-        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten: Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance: 40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung: Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen: Grosszügige Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt und Inklusion & Diversität innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
-        "fr": "Plus de deux milliards de personnes dépendent de Schindler chaque jour. Nos nombreuses années d'expérience et de force innovante font de nous la première entreprise suisse d'ascenseur et d'escalator. Dans le cadre de la famille Schindler, vous concevez des lieux pour tous plus accessibles, inclusifs et durables. Nous combinons innovation, sécurité, inclusion et diversité au sein de l'entreprise. Faites partie de notre réussite de 150 ans et façonnez l'avenir de la mobilité.\n\nEnsemble un étage vers le haut comme\n\nAdministration de la comptabilité et de la caisse de retraite (h/f/d) 80 %\n\nLa Caisse de Pensions Schindler assure la prestation professionnelle de nos collaborateurs en Suisse. Dans cette fonction polyvalente, vous êtes responsable de la comptabilité financière et des valeurs mobilières du fonds de pension, du suivi et de la réservation de tous les flux de paiement à la préparation des comptes annuels. En outre, vous exécutez de manière indépendante et efficace toutes les tâches techniques et administratives liées à la gestion des assurances.\n\nVos nouveaux défis:\n\nComptabilité\n\n•\nComptabilité y compris Préparation des états financiers selon la norme suisse GAAP FER 26\n\n•\nPlanification de la liquidité incl. Achat et transfert de liquidités\n\n•\nCoordination entre la comptabilité financière et l'administration technique (M&S Pension)\n\n•\nRèglement de la TVA, retenue à la source et retenue à la source\n\n•\nCompilation des documents nécessaires pour les auditeurs dans le cadre de l'audit annuel\n\n•\nDéveloppement et optimisation des processus comptables\n\nServices d'assurance\n\n•\nTraitement des mutations ainsi que des entrées et des sorties, enregistrement des contributions des services de libre circulation\n\n•\nTraitement de divers incidents tels que la promotion de la propriété ou le divorce\n\n•\nVotes mensuels sur les contributions\n\n•\nPrévisions des prestations de retraite\n\n•\nPersonne à contacter pour les assurés\n\n•\nSoutien et représentation au fonds de pension\n\nVos conditions idéales:\n\n•\nFormation commerciale de base avec une formation complémentaire pour/au gestionnaire de cas/comptable ou fédéral. Certificat financier et comptable\n\n•\nFormation complémentaire dans le domaine de la sécurité sociale, idéalement une carte professionnelle pour l'assurance sociale ou l'offre de personnel\n\n•\nExpérience en comptabilité financière et en valeurs mobilières, de préférence dans un fonds de pension\n\n•\nBonne connaissance du 2ème pilier\n\n•\nGestion sécuritaire de MS Office, expérience avec ABACUS\n\n•\nUn style de rémunération fort ainsi qu'une méthode de travail exacte et indépendante\n\n•\nTraitement discret et responsable des données confidentielles\n\n•\nPersonnalité axée sur l'équipe\n\n•\nL'allemand styliste dans la parole et l'écriture; La connaissance du français et de l'italien est un avantage\n\nNos avantages:\n\n•\nExcellentes possibilités de perfectionnement: Le perfectionnement du personnel est vécu avec nous. Nous fournissons à nos employés divers programmes nationaux et internationaux de talents et les soutenons temporairement et financièrement dans la formation et la formation continue.\n\n•\nÉquilibre travail-vie privée: 40h semaine, 25 à 30 jours de vacances, horaires de travail flexibles, travail à temps partiel et congés non rémunérés.\n\n•\nEnvironnement de travail sain: normes élevées en matière de santé et de sécurité et gestion de la santé de l'entreprise, y compris conseils sociaux et promotion de la santé.\n\n•\nCampus moderne avec son propre restaurant personnel & cafétéria, parking gratuit, très bonne connexion aux transports en commun, salle de fitness avec équipement et un parc à rester.\n\n•\nAvantages sociaux: participation généreuse à l'abonnement transport public et fitness, rabais sur flotte, réduction de l'achat de l'argent Reka, réduction des primes d'assurance et divers avantages.\n\n•\nDiversité culturelle et inclusion et diversité au sein de l'entreprise.\n\nÊtes-vous prêt à aller de nouvelles façons? Faites partie de #TeamSchindler!\n\nPour de plus amples informations, consulter le site suivant: www.schindler.ch/karriere"
+        "it": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten:  Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance:  40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung:  Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus  mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen:  Grosszügige   Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt  und  Inklusion & Diversität  innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
+        "en": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten:  Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance:  40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung:  Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus  mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen:  Grosszügige   Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt  und  Inklusion & Diversität  innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
+        "de": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten:  Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance:  40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung:  Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus  mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen:  Grosszügige   Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt  und  Inklusion & Diversität  innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere",
+        "fr": "Über zwei Milliarden Menschen vertrauen täglich auf Schindler. Unsere langjährige Erfahrung und Innovationskraft machen uns zur Nummer eins im Schweizer Aufzugs- und Fahrtreppengeschäft. Als Teil der Schindler Familie gestaltest du Orte für alle barrierefreier, inklusiver und nachhaltiger. Wir kombinieren Innovation, Sicherheit sowie Inklusion und Diversität innerhalb des Unternehmens. Werde Teil unserer 150-jährigen Erfolgsgeschichte und gestalte die Zukunft der Mobilität mit.\n\nGemeinsam ein Stockwerk nach oben als\n\nSachbearbeiter/in Rechnungswesen und Pensionskassenverwaltung (m/w/d) 80%\n\nDie Schindler Pensionskasse sorgt für die berufliche Vorsorge unserer Mitarbeitenden in der Schweiz. In dieser vielseitigen Funktion verantwortest du die Finanz- und Wertschriftenbuchhaltung der Pensionskasse von der Überwachung und Verbuchung sämtlicher Zahlungsflüsse bis zur Erstellung des Jahresabschlusses. Zudem führst du selbstständig und effizient alle versicherungstechnischen und administrativen Aufgaben rund um die Versichertenverwaltung aus.\n\nDeine neuen Herausforderungen:\n\nRechnungswesen\n\n•\nFühren der Buchhaltung inkl. Erstellung der Abschlüsse nach Swiss GAAP FER 26\n\n•\nLiquiditätsplanung inkl. Beschaffung und Transfer von Liquidität\n\n•\nAbstimmung zwischen Finanzbuchhaltung und technischer Verwaltung (M&S Pension)\n\n•\nAbwicklung von Mehrwertsteuer, Quellensteuer und Verrechnungssteuer\n\n•\nZusammenstellen der erforderlichen Unterlagen für Revisionsstelle im Rahmen der jährlichen Revision\n\n•\nWeiterentwicklung und Optimierung der buchhalterischen Prozesse\n\nVersichertenverwaltung\n\n•\nBearbeitung von Mutationen sowie Ein- und Austritten, Erfassung eingebrachter Freizügigkeitsleistungen\n\n•\nVerarbeitung verschiedener Ereignisfälle wie Wohneigentumsförderung oder Scheidungen\n\n•\nMonatliche Beitragsabstimmungen\n\n•\nVorausberechnungen von Altersleistungen\n\n•\nAnsprechperson für die Versicherten\n\n•\nUnterstützung und Stellvertretung in der Rentenkasse\n\nDeine idealen Voraussetzungen:\n\n•\nKaufmännische Grundausbildung mit Weiterbildung zur/zum Sachbearbeiter/in Rechnungswesen oder eidg. Fachausweis im Finanz- und Rechnungswesen\n\n•\nWeiterbildung im Sozialversicherungsbereich, idealerweise Fachausweis Sozialversicherungen oder Personalvorsorge\n\n•\nErfahrung in der Finanz- und Wertschriftenbuchhaltung, vorzugsweise in einer Pensionskasse\n\n•\nFundierte Kenntnisse der 2. Säule\n\n•\nSicherer Umgang mit MS Office, Erfahrung mit ABACUS\n\n•\nAusgeprägtes Zahlenflair sowie eine genaue und selbstständige Arbeitsweise\n\n•\nDiskreter und verantwortungsvoller Umgang mit vertraulichen Daten\n\n•\nTeamorientierte Persönlichkeit\n\n•\nStilsicheres Deutsch in Wort und Schrift; Französisch- und Italienischkenntnisse von Vorteil\n\nUnsere Benefits:\n\n•\nExzellente Entwicklungsmöglichkeiten:  Personalentwicklung wird bei uns gelebt. Unseren Mitarbeitenden stellen wir verschiedene nationale und internationale Talentprogramme zur Verfügung und unterstützen sie zeitlich sowie finanziell bei Aus- und Weiterbildungen.\n\n•\nWork-Life-Balance:  40h Woche, 25 bis 30 Ferientage, flexible Arbeitszeiten, Teilzeitpensum und unbezahlter Urlaub.\n\n•\nGesunde Arbeitsumgebung:  Hohe Gesundheits- & Sicherheitsstandards und eigenes betriebliches Gesundheitsmanagement inklusive Sozialberatung und Gesundheitsförderung.\n\n•\nModerner Campus  mit eigenem Personalrestaurant & Cafeteria, kostenlosem Parkhaus, sehr gutem ÖV-Anschluss, Fitnessraum mit Geräten sowie einem Park zum Verweilen.\n\n•\nMitarbeitervergünstigungen:  Grosszügige   Beteiligung am ÖV- und Fitness-Abo, Flottenrabatte, vergünstigter Bezug von Reka-Geld, vergünstigte Versicherungsprämien sowie diverse Vergünstigungen.\n\n•\nKulturelle Vielfalt  und  Inklusion & Diversität  innerhalb des Unternehmens.\n\nBist du bereit, neue Wege zu gehen? Werde Teil von #TeamSchindler!\n\nWeitere Informationen findest du unter: www.schindler.ch/karriere"
       },
       "location": "Ebikon",
       "canton": "LU",
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Sachbearbeiterin-Rechnungswesen-und-Pensionskassenverwaltung-%28mwd%29-80-Luze/1441054833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:57.076Z",
+      "crawledAt": "2026-10-02T21:16:27.149Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5831,7 +5835,9 @@
       "applyUrl": "https://job.schindler.com/talentcommunity/apply/1441054833/?locale=de_DE",
       "jobReqId": "1441054833",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "sachbearbeiter-in-rechnungswesen-und-pensionskassenverwaltung-m-w-d-80-schindler-ebikon"
       ],
@@ -5841,7 +5847,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:14:07.749Z",
+      "firstSeenAt": "2026-10-02T21:16:27.149Z",
       "salaryMin": 55600,
       "salaryMax": 84800,
       "salarySource": "estimated",
@@ -5887,7 +5893,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Wettswil-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Z%C3%BCri/1375693533/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:56.337Z",
+      "crawledAt": "2026-10-02T21:16:26.534Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5963,7 +5969,7 @@
       "url": "https://job.schindler.com/SCH_Service_TechnikerIn/job/Z%C3%BCrich-Servicetechnikerin-mit-Potenzial-in-der-Region-Z%C3%BCrich-%28mwd%29-80-100-Z%C3%BCri/1239281901/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:55.587Z",
+      "crawledAt": "2026-10-02T21:16:22.655Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6034,7 +6040,7 @@
       "url": "https://job.schindler.com/Schindler/job/Bussigny-Technicien-de-Service-r%C3%A9gion-Lausanne-%28hfd%29-80-100-Vaud/1442922633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:54.814Z",
+      "crawledAt": "2026-10-02T21:16:56.484Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -6098,7 +6104,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Compliance-Officer-Schweiz-%28mfd%29-80-100-Luze/1415632733/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:54.049Z",
+      "crawledAt": "2026-10-02T21:16:58.384Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6116,7 +6122,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-07-16T11:24:30.837Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -6129,7 +6134,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-59360b94bceb",
@@ -6162,7 +6168,7 @@
       "url": "https://job.schindler.com/ASZ/job/Wettswil-Servicetechnikerin-linkes-Z%C3%BCrichseeufer-%28mwd%29-80-100-Z%C3%BCri/1438034133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:53.275Z",
+      "crawledAt": "2026-10-02T21:16:27.805Z",
       "addressLocality": "Wettswil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -6241,7 +6247,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Le-Mont-sur-Lausanne-Apprentissage-d'Employ%C3%A9-e-de-commerce-CFC-pour-2027-Vaud/1410237633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:52.530Z",
+      "crawledAt": "2026-10-02T21:16:20.750Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -6332,7 +6338,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-St_/1375703633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:51.787Z",
+      "crawledAt": "2026-10-02T21:16:20.109Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6408,7 +6414,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Polymechanikerin-EFZ-Way-Up-f%C3%BCr-2027-Luze/1403715433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:51.035Z",
+      "crawledAt": "2026-10-02T21:16:19.476Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -6488,7 +6494,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-St_/1254183401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:50.290Z",
+      "crawledAt": "2026-10-02T21:16:18.843Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6526,7 +6532,6 @@
         ]
       },
       "firstSeenAt": "2026-05-19T12:34:28.033Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -6539,7 +6544,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-8f68c9fc6d74",
@@ -6572,7 +6578,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539001/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:49.523Z",
+      "crawledAt": "2026-10-02T21:16:18.219Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6657,7 +6663,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263539701/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:48.760Z",
+      "crawledAt": "2026-10-02T21:16:17.566Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6730,7 +6736,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Base/1263539301/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:47.985Z",
+      "crawledAt": "2026-10-02T21:16:16.921Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6815,7 +6821,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Steinach-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-St_/1375705933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:47.208Z",
+      "crawledAt": "2026-10-02T21:16:16.274Z",
       "addressLocality": "Steinach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -6889,7 +6895,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Schnupperlehre-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-%28Lehrstart-2027%29-Bern/1263540601/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:46.390Z",
+      "crawledAt": "2026-10-02T21:16:15.639Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -6965,7 +6971,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Luze/1403713833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:45.622Z",
+      "crawledAt": "2026-10-02T21:16:15.022Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7045,7 +7051,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Polymechanikerin-EFZ-f%C3%BCr-2027-Luze/1403712833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:44.808Z",
+      "crawledAt": "2026-10-02T21:16:14.366Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7125,7 +7131,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Luze/1403711933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:44.059Z",
+      "crawledAt": "2026-10-02T21:16:13.745Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7201,7 +7207,7 @@
       "url": "https://job.schindler.com/SBB/job/Ebikon-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-f%C3%BCr-2027-Luze/1403710033/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:43.250Z",
+      "crawledAt": "2026-10-02T21:16:13.097Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -7285,7 +7291,7 @@
       "url": "https://job.schindler.com/SBB/job/Sion-Apprentissage-de-Polym%C3%A9canicien-ne-CFC-Monteur-euse-d'ascenseurs-pour-2027-Vala/1410236133/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:42.479Z",
+      "crawledAt": "2026-10-02T21:16:12.415Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -7376,7 +7382,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Bern/1410211233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:41.725Z",
+      "crawledAt": "2026-10-02T21:16:11.792Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7461,7 +7467,7 @@
       "url": "https://job.schindler.com/SBB/job/Bern-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Bern/1410210833/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:40.864Z",
+      "crawledAt": "2026-10-02T21:16:11.158Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7478,8 +7484,6 @@
       "jobReqId": "1410210833",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-28T03:22:49.085Z",
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-bern",
@@ -7500,6 +7504,8 @@
         "manager-fur-cookie-einwilligungen-schindler-bern",
         "apprendistato-come-polymechaniker-in-cfc-con-schwerpunkt-liftmontage-per-2027-schindler-bern"
       ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-28T03:22:49.085Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7545,7 +7551,7 @@
       "url": "https://job.schindler.com/SBB/job/Bussigny-Apprentissage-de-Constructeur-d'appareils-industriels-CFC-monteur-d'ascenseurs-Vaud/1410236633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:40.067Z",
+      "crawledAt": "2026-10-02T21:16:10.536Z",
       "addressLocality": "Bussigny",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -7629,7 +7635,7 @@
       "url": "https://job.schindler.com/SBB/job/Sion-Apprentissage-d'Employ%C3%A9-e-de-commerce-CFC-pour-2027-Vala/1410238433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:15:39.299Z",
+      "crawledAt": "2026-10-02T21:16:09.895Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -7672,7 +7678,6 @@
         "montatore-polimeccanico-cfc-elevatore-per-2027-schindler-sion"
       ],
       "firstSeenAt": "2026-08-24T21:32:06.358Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 111000,
       "salarySource": "estimated",
@@ -7685,7 +7690,8 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-d6eff07d967b",
@@ -7718,7 +7724,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Base/1410234933/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:38.459Z",
+      "crawledAt": "2026-10-02T21:16:09.275Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7807,7 +7813,7 @@
       "url": "https://job.schindler.com/SBB/job/Basel-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Base/1410234633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:37.703Z",
+      "crawledAt": "2026-10-02T21:16:08.609Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -7889,7 +7895,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Lehrstelle-als-Anlagen-und-Apparatebauerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Bern/1410210233/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:36.954Z",
+      "crawledAt": "2026-10-02T21:16:07.968Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -7965,7 +7971,7 @@
       "url": "https://job.schindler.com/SBB_AS/job/Sch%C3%B6nb%C3%BChl-Lehrstelle-als-Polymechanikerin-EFZ-mit-Schwerpunkt-Liftmontage-f%C3%BCr-2027-Bern/1410210633/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:15:36.183Z",
+      "crawledAt": "2026-10-02T21:16:07.333Z",
       "addressLocality": "Schönbühl",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -8039,7 +8045,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Global-Finance-Transformation-Manager-%28mfd%29-100-Luce/1431143333/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:15:35.411Z",
+      "crawledAt": "2026-10-02T21:16:06.661Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8070,7 +8076,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:28:50.291Z",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
@@ -8083,7 +8088,8 @@
           "maxValue": 313000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-237ee2a0669c",
@@ -8116,7 +8122,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Working-Student-Global-HR-Inclusion-&-Diversity-%28mfd%29-40-60-Luce/1438003433/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:15:34.667Z",
+      "crawledAt": "2026-10-02T21:16:06.022Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -8195,7 +8201,7 @@
       "url": "https://job.schindler.com/Schindler/job/Ebikon-Recruiter-%28mfd%29-100-Luce/1277874401/",
       "source": "Schindler Dedicated Parser (SuccessFactors j2w)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:15:33.914Z",
+      "crawledAt": "2026-10-02T21:16:05.369Z",
       "addressLocality": "Ebikon",
       "addressRegion": "LU",
       "addressCountry": "CH",
