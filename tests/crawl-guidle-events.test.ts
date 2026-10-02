@@ -200,6 +200,8 @@ describe('parsePriceText', () => {
     expect(parsePriceText('2024CHF').amount).toBeNull();
     expect(parsePriceText('Price: call +41 91 123 45 67 CHF')).toEqual({ amount: null, currency: 'CHF', isFree: false });
     expect(parsePriceText('Parking: CHF 5, Admission free')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('10.– CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission free, call +41 91 123 45 67')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
