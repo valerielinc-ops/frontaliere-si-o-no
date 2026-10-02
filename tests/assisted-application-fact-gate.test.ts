@@ -11,6 +11,7 @@ const { normalizeText } = await import('../functions/src/assistedApplicationAts.
 const { buildCoverLetterPdf, extractPdfText, wrapText } = await import('../functions/src/assistedApplicationAiDocuments.js');
 const { mentionsVocabularyTool, vocabularyTools } = await import('../functions/src/lib/toolVocabulary.js');
 const { letterForSubmission } = await import('../scripts/assisted-application/lib/submit.mjs');
+const { enclosedDocumentLabels } = await import('../functions/src/assistedApplicationExtraDocuments.js');
 
 // Synthetic candidates of the study 2026-10-02 (report-cv-lettera): invented people, invented postings.
 const DEV = {
@@ -81,6 +82,10 @@ describe('fact gate: the 17 cases of the study 2026-10-02', () => {
     expect(verdict({ coverLetter: 'Je suis intéressée par ce poste à 80 %.' }, NURSE).ok).toBe(true); // the workload is in the order line
     // Outside the candidate's claims the posting still backs a figure ("why this company").
     expect(checkDraftFacts({ whyCompany: 'Cercate 5 anni di esperienza: il vostro team cresce.' }, DEV).ok).toBe(true);
+    // Review of PR 10919: a requirement word alone does not make the posting's figure a quote.
+    const bare = { text: '', answers: '', candidate: '', order: '', posting: '5 anni richiesti' };
+    expect(checkDraftFacts({ coverLetter: 'Ho 5 anni di esperienza; sono gli anni richiesti.' }, bare).unsupported).toContainEqual(expect.objectContaining({ kind: 'number', token: '5' }));
+    expect(verdict({ coverLetter: 'I do not have the 5 years this role requires yet.' }, DEV).ok).toBe(true);
     // The follow-up leaves in the candidate's name too.
     expect(verdict({ followup: 'Le ricordo che ho guidato un team di 5 sviluppatori.' }, DEV).unsupported).toEqual(['number:5']);
   });
@@ -89,6 +94,10 @@ describe('fact gate: the 17 cases of the study 2026-10-02', () => {
     expect(verdict({ coverLetter: 'Uso quotidianamente Kubernetes e AWS in produzione.' }, DEV).unsupported).toEqual(['tool:Kubernetes', 'tool:AWS']);
     expect(verdict({ coverLetter: 'Ich programmiere gerne mit Python und JavaScript.' }, APPRENTICE).unsupported).toEqual(['tool:JavaScript']);
     expect(verdict({ coverLetter: 'Ho lavorato con Git e Docker.' }, DEV).ok).toBe(true);
+    // Review of PR 10919: the job title is a name; it never backs a tool claimed outside it.
+    const titled = { text: '', answers: '', candidate: '', order: 'Kubernetes Engineer', place: '', posting: 'Kubernetes Engineer' };
+    expect(checkDraftFacts({ coverLetter: 'Uso quotidiano di Kubernetes.' }, titled).unsupported).toContainEqual(expect.objectContaining({ kind: 'tool', token: 'Kubernetes' }));
+    expect(checkDraftFacts({ coverLetter: 'Mi candido come Kubernetes Engineer.' }, titled).ok).toBe(true);
   });
 
   it('blocks an employer or a job title no source names', () => {
@@ -165,6 +174,8 @@ describe('Swiss letter conventions in code', () => {
     expect(letterSalutation('it', 'Signora Laura Esempio')).toBe('Gentile signora Esempio,');
     expect(letterSalutation('it', 'Laura Esempio')).toBe('Gentile Laura Esempio,');
     expect(letterSalutation('it', '')).toBe('Gentili signore, egregi signori,');
+    expect(letterSalutation('it', 'Signora Laura de Luca')).toBe('Gentile signora de Luca,');
+    expect(letterSalutation('de', 'Herr Peter von Arx, Leiter HR')).toBe('Sehr geehrter Herr von Arx');
   });
 
   it('sets the closing, the lowercase start in Italian and the Swiss typography', () => {
@@ -217,10 +228,17 @@ describe('letter at submission', () => {
       requiredDocuments: [{ id: 'diplomi', label: 'Diplomi', kind: 'diploma', required: true }],
       job: { title: 'Sviluppatore' }, profile: { location: 'Como' },
     };
-    const rebuilt = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: {}, nowMs: Date.now() });
+    const flow = { documents: { diplomi: { files: [{ key: 'assisted-application-uploads/order_X/diplomi.pdf', name: 'diplomi.pdf', detectedType: 'pdf' }] } } };
+    const rebuilt = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow, nowMs: Date.now() });
     const text = await extractPdfText(rebuilt);
     expect(text).toContain('Via Esempio 3');
     expect(text).toContain('Allegati: Curriculum vitae, Diplomi');
+    // Review of PR 10919: a waived document (no file) is not listed.
+    const waived = await extractPdfText(await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft, flow: { documents: { diplomi: { waivedAt: 1 } } }, nowMs: Date.now() }));
+    expect(waived).toContain('Allegati: Curriculum vitae');
+    expect(waived).not.toContain('Diplomi');
+    expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, null, 'order-1')).toEqual(['Diploma']);
+    expect(enclosedDocumentLabels({ requiredDocuments: [{ id: 'diploma', label: 'Diploma', kind: 'diploma', required: true }] }, { documents: { diploma: { waivedAt: 1 } } }, 'order-1')).toEqual([]);
     const older = await letterForSubmission({ bucket: bucket('stored'), order, orderId: 'order_X', draft: { ...draft, letterAddress: undefined, coverLetterPdfKey: 'k' }, flow: {}, nowMs: Date.now() });
     expect(older.toString()).toBe('stored');
   });
