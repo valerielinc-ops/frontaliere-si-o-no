@@ -20,13 +20,44 @@ import { describe, it, expect, beforeEach, vi } from 'vitest';
 // fake module is injected directly via `__setFirestoreModuleForTests`
 // instead of relying on module-registry mocking.
 const firestoreStore = new Map<string, Record<string, unknown>>();
+/** `users/{uid}` profile documents, keyed by uid. */
+const profileStore = new Map<string, Record<string, unknown>>();
 const TEST_FIREBASE_API_KEY = 'test-firebase-web-api-key';
 
+/** Firestore `set(..., { merge: true })` merges nested maps field by field. */
+function mergeDeep(base: Record<string, unknown>, patch: Record<string, unknown>): Record<string, unknown> {
+  const out: Record<string, unknown> = { ...base };
+  for (const [key, value] of Object.entries(patch)) {
+    const prior = out[key];
+    out[key] = value && typeof value === 'object' && !Array.isArray(value)
+      && prior && typeof prior === 'object' && !Array.isArray(prior)
+      ? mergeDeep(prior as Record<string, unknown>, value as Record<string, unknown>)
+      : value;
+  }
+  return out;
+}
+
+function writeProfile(uid: string, data: Record<string, unknown>, options?: { merge?: boolean }) {
+  profileStore.set(uid, options?.merge ? mergeDeep(profileStore.get(uid) || {}, data) : data);
+}
+
 const setDocMock = vi.fn(async (...args: unknown[]) => {
-  const ref = args[0] as { id: string; isSavedJobDoc: boolean };
+  const ref = args[0] as { id: string; isSavedJobDoc: boolean; isProfileDoc: boolean };
   const data = args[1] as Record<string, unknown>;
   if (ref.isSavedJobDoc) firestoreStore.set(ref.id, data);
+  if (ref.isProfileDoc) writeProfile(ref.id, data, args[2] as { merge?: boolean } | undefined);
 });
+const transactionSetMock = vi.fn();
+const runTransactionMock = vi.fn(async (_db: unknown, callback: (transaction: unknown) => Promise<unknown>) => callback({
+  get: async (ref: { id: string }) => ({
+    exists: () => profileStore.has(ref.id),
+    data: () => profileStore.get(ref.id),
+  }),
+  set: (ref: { id: string }, data: Record<string, unknown>, options?: { merge?: boolean }) => {
+    transactionSetMock(ref, data, options);
+    writeProfile(ref.id, data, options);
+  },
+}));
 const deleteDocMock = vi.fn(async (...args: unknown[]) => {
   const ref = args[0] as { id: string };
   firestoreStore.delete(ref.id);
@@ -48,8 +79,14 @@ const mockFirestoreModule = {
       // `doc(db, 'users', uid)` profile-doc ref — keeps profile writes out
       // of the fake savedJobs collection below.
       isSavedJobDoc: segments.length === 4 && segments[2] === 'savedJobs',
+      isProfileDoc: segments.length === 2 && segments[0] === 'users',
     };
   }),
+  runTransaction: (...args: unknown[]) => runTransactionMock(
+    args[0],
+    args[1] as (transaction: unknown) => Promise<unknown>,
+  ),
+  serverTimestamp: vi.fn(() => 'SERVER_TIMESTAMP'),
   setDoc: (...args: unknown[]) => setDocMock(...args),
   deleteDoc: (...args: unknown[]) => deleteDocMock(...args),
   getDoc: (...args: unknown[]) => getDocMock(...args),
@@ -119,6 +156,9 @@ describe('savedJobsService — persistence', () => {
     process.env.FIREBASE_API_KEY = TEST_FIREBASE_API_KEY;
     localStorage.clear();
     firestoreStore.clear();
+    profileStore.clear();
+    transactionSetMock.mockClear();
+    runTransactionMock.mockClear();
     setDocMock.mockClear();
     deleteDocMock.mockClear();
     getDocMock.mockClear();
@@ -217,6 +257,83 @@ describe('savedJobsService — persistence', () => {
     const unsubscribe = subscribeSavedJobsFirestore('test-uid', { email: 'a@b.ch', locale: 'it' });
     await vi.waitFor(() => expect(loadSavedJobs().map((e) => e.id)).toEqual(['ok'])); // junk + duplicate dropped
     unsubscribe();
+  });
+
+  // Owner decision 2026-10-02: saving a listing activates the weekly digest,
+  // unless the person turned it off. services/savedJobsDigestActivation.mjs.
+  describe('saved-jobs digest activation on save', () => {
+    it('activates a never-decided digest on the first save, without touching newsletter_subscribers', async () => {
+      toggleSavedJob(entry('a'), 'test-uid');
+      await vi.waitFor(() => expect(transactionSetMock).toHaveBeenCalledTimes(1));
+      const [ref, data, options] = transactionSetMock.mock.calls[0];
+      expect(ref).toMatchObject({ id: 'test-uid', isProfileDoc: true });
+      expect(data).toEqual({
+        savedJobsDigest: { optedIn: true, optedInAt: 'SERVER_TIMESTAMP', activationSource: 'saved_job' },
+      });
+      expect(options).toEqual({ merge: true });
+      expect(profileStore.get('test-uid')).toMatchObject({ savedJobsDigest: { optedIn: true } });
+      await vi.waitFor(() => expect(setDocMock).toHaveBeenCalledTimes(1));
+      // The only plain setDoc is the saved-job document itself.
+      expect(setDocMock.mock.calls.every(([target]) => (target as { isSavedJobDoc: boolean }).isSavedJobDoc)).toBe(true);
+    });
+
+    it('activates the legacy { optedIn: false, optedOut: false } default too', async () => {
+      profileStore.set('test-uid', { email: 'a@b.ch', savedJobsDigest: { optedIn: false, optedOut: false } });
+      toggleSavedJob(entry('a'), 'test-uid');
+      await vi.waitFor(() => expect(transactionSetMock).toHaveBeenCalledTimes(1));
+      expect(profileStore.get('test-uid')).toMatchObject({
+        email: 'a@b.ch',
+        savedJobsDigest: { optedIn: true, optedOut: false, activationSource: 'saved_job' },
+      });
+      await vi.waitFor(() => expect(setDocMock).toHaveBeenCalledTimes(1));
+    });
+
+    it('never turns back on a digest the person turned off', async () => {
+      const stopped = {
+        savedJobsDigest: { optedIn: false, optedOut: true, unsubscribe_method: 'one_click_post' },
+      };
+      profileStore.set('test-uid', stopped);
+      toggleSavedJob(entry('a'), 'test-uid');
+      toggleSavedJob(entry('b'), 'test-uid');
+      await vi.waitFor(() => expect(runTransactionMock).toHaveBeenCalledTimes(1));
+      await vi.waitFor(() => expect(setDocMock).toHaveBeenCalledTimes(2));
+      expect(transactionSetMock).not.toHaveBeenCalled();
+      expect(profileStore.get('test-uid')).toEqual(stopped);
+    });
+
+    it('writes nothing when the digest is already on, and checks once per page load', async () => {
+      profileStore.set('test-uid', { savedJobsDigest: { optedIn: true, optedOut: false, activationSource: 'preference_center' } });
+      toggleSavedJob(entry('a'), 'test-uid');
+      await vi.waitFor(() => expect(runTransactionMock).toHaveBeenCalledTimes(1));
+      toggleSavedJob(entry('b'), 'test-uid');
+      await vi.waitFor(() => expect(setDocMock).toHaveBeenCalledTimes(2));
+      expect(runTransactionMock).toHaveBeenCalledTimes(1);
+      expect(transactionSetMock).not.toHaveBeenCalled();
+      expect(profileStore.get('test-uid')).toMatchObject({ savedJobsDigest: { activationSource: 'preference_center' } });
+    });
+
+    it('does not activate from the migration of pre-account local saves (no backfill)', async () => {
+      localStorage.setItem(
+        SAVED_JOBS_STORAGE_KEY,
+        JSON.stringify({ version: 1, jobs: [savedEntry('x1', { savedAt: 111 })] }),
+      );
+      const unsubscribe = subscribeSavedJobsFirestore('test-uid', { email: 'a@b.ch', locale: 'it' });
+      await vi.waitFor(() => expect(loadSavedJobs().map((e) => e.id)).toEqual(['x1']));
+      await vi.waitFor(() => expect(profileStore.get('test-uid')).toEqual({ email: 'a@b.ch', locale: 'it' }));
+      expect(runTransactionMock).not.toHaveBeenCalled();
+      unsubscribe();
+    });
+
+    it('a profile created right after a replayed save keeps the activation', async () => {
+      // The race: the pending-save replay activates the digest while
+      // ensureUserProfileDoc has already read "no profile yet".
+      toggleSavedJob(entry('a'), 'test-uid');
+      await vi.waitFor(() => expect(transactionSetMock).toHaveBeenCalledTimes(1));
+      const unsubscribe = subscribeSavedJobsFirestore('test-uid', { email: 'a@b.ch', locale: 'it' });
+      await vi.waitFor(() => expect(profileStore.get('test-uid')).toMatchObject({ email: 'a@b.ch', locale: 'it' }));
+      expect(profileStore.get('test-uid')).toMatchObject({ savedJobsDigest: { optedIn: true, activationSource: 'saved_job' } });
+      unsubscribe();
+    });
   });
 
   it('migration: survives corrupt localStorage without writing to Firestore', async () => {
