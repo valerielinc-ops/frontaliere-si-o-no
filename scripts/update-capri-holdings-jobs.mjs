@@ -89,6 +89,8 @@ const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
 const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
 const WORKDAY_TOTAL_DRIFT_RETRIES = 2;
 const WORKDAY_TOTAL_DRIFT_RETRY_DELAY_MS = 500;
+const WORKDAY_QUERY_RESTARTS = 2;
+const WORKDAY_QUERY_RESTART_DELAY_MS = 1000;
 
 /* ── Helpers ──────────────────────────────────────────────── */
 
@@ -366,37 +368,70 @@ export async function listSwissJobs(site, brand) {
 
   // Strategy 1: Search for "Switzerland" to find Swiss jobs
   for (const searchText of ['Switzerland', 'Mendrisio', 'Lugano', 'Ticino', '']) {
-    let offset = 0;
-    const limit = 20;
-    let queryPostingsFetched = 0;
-    let queryExpectedTotal;
-    const queryPostingIdentities = new Set();
-    while (true) {
-      const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
-      const { jobPostings, declaredTotal } = await fetchWorkdayPage(apiUrl, body, {
-        brand,
-        searchText,
-        offset,
-        expectedTotal: queryExpectedTotal,
-      });
-      if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
-      const pageLength = jobPostings.length;
-      assertUniqueWorkdayPostings(jobPostings, {
-        brand,
-        searchText,
-        offset,
-        seen: queryPostingIdentities,
-      });
-      queryPostingsFetched += pageLength;
-      if (queryPostingsFetched > declaredTotal) {
-        throw new Error(
-          `Workday ${brand} ${searchText || 'empty'} search fetched `
-          + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+    let queryCompleted = false;
+    for (let queryAttempt = 0; queryAttempt <= WORKDAY_QUERY_RESTARTS; queryAttempt += 1) {
+      const limit = 20;
+      let offset = 0;
+      let queryPostingsFetched = 0;
+      let queryExpectedTotal;
+      const queryPostingIdentities = new Set();
+      const queryPostings = [];
+
+      try {
+        while (true) {
+          const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
+          const { jobPostings, declaredTotal } = await fetchWorkdayPage(apiUrl, body, {
+            brand,
+            searchText,
+            offset,
+            expectedTotal: queryExpectedTotal,
+          });
+          if (queryExpectedTotal === undefined) queryExpectedTotal = declaredTotal;
+          const pageLength = jobPostings.length;
+          assertUniqueWorkdayPostings(jobPostings, {
+            brand,
+            searchText,
+            offset,
+            seen: queryPostingIdentities,
+          });
+          queryPostingsFetched += pageLength;
+          if (queryPostingsFetched > declaredTotal) {
+            const error = new Error(
+              `Workday ${brand} ${searchText || 'empty'} search fetched `
+              + `${queryPostingsFetched}/${declaredTotal} rows at offset ${offset}`,
+            );
+            error.code = 'WORKDAY_TOTAL_CHANGED';
+            throw error;
+          }
+          queryPostings.push(...jobPostings);
+
+          if (queryPostingsFetched < declaredTotal && pageLength < limit) {
+            const error = new Error(
+              `Workday ${brand} ${searchText || 'empty'} search returned `
+              + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
+            );
+            error.code = 'WORKDAY_TOTAL_CHANGED';
+            throw error;
+          }
+          if (queryPostingsFetched === declaredTotal) break;
+          offset += limit;
+        }
+      } catch (error) {
+        if (error?.code !== 'WORKDAY_TOTAL_CHANGED' || queryAttempt >= WORKDAY_QUERY_RESTARTS) {
+          throw error;
+        }
+        const delayMs = WORKDAY_QUERY_RESTART_DELAY_MS * (queryAttempt + 1);
+        console.warn(
+          `⚠️ Workday ${brand} ${searchText || 'empty'} search snapshot drifted; `
+          + `restarting query (${queryAttempt + 1}/${WORKDAY_QUERY_RESTARTS}) in ${delayMs}ms`,
         );
+        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        continue;
       }
 
-      for (const posting of jobPostings) {
-        // Check if already found
+      // Keep each search query transactional: only merge its pages into the
+      // cross-query set after its total and pagination have been verified.
+      for (const posting of queryPostings) {
         if (allPostings.some((p) => p.externalPath === posting.externalPath)) continue;
 
         // Workday search matches arbitrary posting fields, so every result
@@ -406,15 +441,11 @@ export async function listSwissJobs(site, brand) {
         if (!isSwissWorkdayListing(posting)) continue;
         allPostings.push({ ...posting, brand });
       }
-
-      if (queryPostingsFetched < declaredTotal && pageLength < limit) {
-        throw new Error(
-          `Workday ${brand} ${searchText || 'empty'} search returned `
-          + `${queryPostingsFetched}/${declaredTotal} rows before a short page`,
-        );
-      }
-      if (queryPostingsFetched === declaredTotal) break;
-      offset += limit;
+      queryCompleted = true;
+      break;
+    }
+    if (!queryCompleted) {
+      throw new Error(`Workday ${brand} ${searchText || 'empty'} search did not complete`);
     }
   }
 
