@@ -27,6 +27,9 @@ runStandardCrawlerPipeline({
   isCompanyJob: isKiabiJob,
   isTrustedDomain,
   defaultSourceLang: 'fr',
+  validateAuthoritativeSnapshot: (jobs) => jobs?.authoritativeEmptySnapshot === true,
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
 }).catch((err) => {
   console.error(`❌ Kiabi Suisse crawler failed: ${err?.message || err}`);
   process.exit(1);
