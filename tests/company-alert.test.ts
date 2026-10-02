@@ -93,6 +93,7 @@ import {
 } from '../scripts/send-company-alerts.mjs';
 import { mergeSentJobs } from '../scripts/lib/alert-sent-jobs.mjs';
 import { FIRESTORE_BATCH_SIZE } from '../scripts/lib/firestore-batch.mjs';
+import { fetchUserAlertsCached, invalidateUserAlertsCache } from '@/services/userAlertsCache';
 import {
   flushPendingCompanyFollows,
   pruneExpired,
@@ -962,6 +963,7 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
 
   beforeEach(() => {
     clearPendingCompanyFollows();
+    invalidateUserAlertsCache();
     addDocMock.mockClear();
     getDocsMock.mockResolvedValue({ size: 0, docs: [] });
   });
@@ -978,6 +980,18 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     savePendingCompanyFollow(intent);
     savePendingCompanyFollow(intent);
     expect(readPendingCompanyFollows()).toHaveLength(1);
+  });
+
+  it('refreshes cached eligibility after an access-link replay creates the follow', async () => {
+    const read = vi.fn(async () => [] as never[]);
+    await fetchUserAlertsCached('uid-1', read);
+    savePendingCompanyFollow(intent);
+    const alert = { id: 'created-1', specificCompanyKey: companyAlertKey(intent.company) };
+    const subscribe = vi.fn(async () => alert);
+    await flushPendingCompanyFollows('uid-1', 'anon@example.com', subscribe as never);
+    read.mockResolvedValue([alert as never]);
+    await expect(fetchUserAlertsCached('uid-1', read)).resolves.toEqual([alert]);
+    expect(read).toHaveBeenCalledTimes(2);
   });
 
   it('replays the parked follow once the address is confirmed', async () => {
