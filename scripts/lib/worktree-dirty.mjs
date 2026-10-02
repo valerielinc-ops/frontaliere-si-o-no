@@ -8,25 +8,46 @@
 // `prune-merged-worktrees.mjs` di rimuovere worktree la cui PR era già
 // mergiata.
 //
+// Misurato di nuovo il 2026-10-02 su 85 worktree: 21 dei 44 rimovibili erano
+// tenuti in vita da UN solo file non tracciato, il body della PR scritto per
+// `gh pr create --body-file` (`.pr-body-9108.md`, `.codex-pr-body.md`,
+// `PR_BODY.md`, `.issue-831-comment.md`). Quel testo vive su GitHub nella PR o
+// nel commento: la copia locale è un residuo dello strumento, non lavoro.
+//
 // Gli ignorati vengono restituiti separatamente, mai scartati in silenzio: chi
 // chiama li conta e li riporta.
-import { execSync } from 'node:child_process';
+import { execFileSync } from 'node:child_process';
 
 import { isCronManagedPath } from './cron-managed-paths.mjs';
+
+// Solo file NON tracciati alla radice del worktree: un `PR_BODY.md` tracciato e
+// modificato, o lo stesso nome in una sottocartella, resta lavoro.
+const PR_SCRATCH_RE = /^(?:\.pr-body[\w.-]*|\.codex-pr-body|PR_BODY|\.issue-\d+-comment)\.md$/;
+
+export function isPrScratchPath(filePath) {
+  return PR_SCRATCH_RE.test(String(filePath));
+}
+
+function pathOf(rest) {
+  // Rename/copy: `R  vecchio -> nuovo`. Conta la destinazione.
+  return (rest.includes(' -> ') ? rest.split(' -> ').pop() : rest).replace(/^"|"$/g, '');
+}
 
 // Il porcelain v1 è `XY<spazio>PATH`. NON usare un helper che fa trim
 // sull'output: il trim mangia lo spazio iniziale della prima riga
 // (` M file` → `M file`) e sfasa il campo di stato di un carattere.
-export function parsePorcelainPaths(porcelain) {
-  const paths = [];
+export function parsePorcelainEntries(porcelain) {
+  const entries = [];
   for (const line of String(porcelain).split('\n')) {
     if (line.length < 4) continue;
-    const rest = line.slice(3).trim();
-    // Rename/copy: `R  vecchio -> nuovo`. Conta la destinazione.
-    const filePath = (rest.includes(' -> ') ? rest.split(' -> ').pop() : rest).replace(/^"|"$/g, '');
-    if (filePath) paths.push(filePath);
+    const filePath = pathOf(line.slice(3).trim());
+    if (filePath) entries.push({ status: line.slice(0, 2), path: filePath });
   }
-  return paths;
+  return entries;
+}
+
+export function parsePorcelainPaths(porcelain) {
+  return parsePorcelainEntries(porcelain).map((entry) => entry.path);
 }
 
 // Puro: decide su una lista di path già estratta, col predicato iniettabile —
@@ -41,6 +62,22 @@ export function classifyDirtyPaths(paths, { isCronManaged = isCronManagedPath } 
   return { significant, ignored };
 }
 
+// Come classifyDirtyPaths, ma conosce lo stato porcelain: il body di una PR è
+// rumore solo se non è tracciato (`??`).
+export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPath } = {}) {
+  const significant = [];
+  const ignored = [];
+  for (const { status, path: filePath } of entries) {
+    if (isCronManaged(filePath)) ignored.push(filePath);
+    else if (status === '??' && isPrScratchPath(filePath)) ignored.push(filePath);
+    else significant.push(filePath);
+  }
+  return { significant, ignored };
+}
+
+// `null` = git non ha risposto. NON è "pulito": un worktree di cui non si può
+// leggere lo stato non si rimuove (prima l'errore diventava '' e quindi
+// "nessuna modifica").
 function statusPorcelain(wtPath) {
   try {
     // `core.quotePath=false`: senza, git cita in stile C i path non-ASCII
@@ -48,12 +85,17 @@ function statusPorcelain(wtPath) {
     // esterni lascia gli escape, quindi `isCronManagedPath()` non matcha e il
     // file torna a contare come lavoro — il worktree resta immortale proprio
     // sul path che si voleva ignorare.
-    return execSync(`git -C "${wtPath}" -c core.quotePath=false status --porcelain`, {
-      encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
-    });
-  } catch { return ''; }
+    // `--no-optional-locks`: lo sweep non riscrive l'index dei worktree che
+    // ispeziona (ne cambierebbe la data, che è il segnale di attività) e non
+    // contende il lock a un agente che ci sta lavorando.
+    return execFileSync('git', [
+      '--no-optional-locks', '-C', wtPath, '-c', 'core.quotePath=false', 'status', '--porcelain',
+    ], { encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 256 * 1024 * 1024 });
+  } catch { return null; }
 }
 
 export function classifyDirty(wtPath) {
-  return classifyDirtyPaths(parsePorcelainPaths(statusPorcelain(wtPath)));
+  const porcelain = statusPorcelain(wtPath);
+  if (porcelain === null) return { significant: [], ignored: [], error: true };
+  return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain)), error: false };
 }
