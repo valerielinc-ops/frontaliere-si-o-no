@@ -348,6 +348,12 @@ describe('applyKnownPriceBackfills', () => {
     expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([{ ...fresh, price: { ...backfill.price } }]);
   });
 
+  it('retains a price when the fresh source broadens a specific venue to its town', () => {
+    const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Baden', price: { url: 'https://eventfrog.ch/labrats2' } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'Kurtheater Baden', price: { amount: 20, currency: 'CHF', isFree: false, url: fresh.price.url } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])[0].price.amount).toBe(20);
+  });
+
   it('does not replace a newly known fresh price', () => {
     const fresh = { id: 'myswitzerland:booking', startDate: '2026-11-07', venue: 'Chessu / Coupole', price: { amount: 25, currency: 'CHF', isFree: false } };
     const backfill = { id: fresh.id, startDate: fresh.startDate, venue: fresh.venue, price: { amount: 29.9, currency: 'CHF', isFree: false } };

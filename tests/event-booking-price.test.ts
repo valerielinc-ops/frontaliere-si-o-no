@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { extractEventBookingPrice, fetchEventBookingPrice, supportedEventBookingUrl } from '../scripts/lib/event-booking-price.mjs';
+import { extractEventBookingPrice, fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from '../scripts/lib/event-booking-price.mjs';
 
 const bookingUrl = 'https://infomaniak.events/fr-ch/concerts/example/events/123';
 const event = { startDate: '2026-10-04', venue: 'Fondation Opale' };
@@ -11,6 +11,11 @@ const node = {
 const ld = value => `<script type="application/ld+json">${JSON.stringify(value)}</script>`;
 
 describe('official event booking tariffs', () => {
+  it('matches a broad source place to its specific venue without merging sibling venues', () => {
+    expect(sameVenue('Baden', 'Kurtheater Baden')).toBe(true);
+    expect(sameVenue('New Hall', 'Old Hall')).toBe(false);
+  });
+
   it('preserves an explicit free Offer, date and venue from Infomaniak', () => {
     expect(extractEventBookingPrice(ld([node]), bookingUrl, event)).toEqual({
       amount: 0, currency: 'CHF', isFree: true, url: bookingUrl,

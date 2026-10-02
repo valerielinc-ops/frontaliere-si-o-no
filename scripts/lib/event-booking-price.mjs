@@ -19,7 +19,12 @@ export function sameVenue(left, right) {
     ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() : '';
   const a = normalize(left);
   const b = normalize(right);
-  return a.length >= 4 && b.length >= 4 && (a === b || a.startsWith(`${b} `) || b.startsWith(`${a} `));
+  if (a.length < 4 || b.length < 4) return false;
+  const aWords = a.split(' ');
+  const bWords = b.split(' ');
+  const broadPlaceMatchesSpecificVenue = (broad, specificWords) => broad.split(' ').length === 1 && specificWords.includes(broad);
+  return a === b || a.startsWith(`${b} `) || b.startsWith(`${a} `)
+    || broadPlaceMatchesSpecificVenue(a, bWords) || broadPlaceMatchesSpecificVenue(b, aWords);
 }
 
 function localDate(value) {
