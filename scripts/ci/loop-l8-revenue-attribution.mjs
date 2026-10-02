@@ -141,6 +141,8 @@ function validateHistory(history, { now, maxAgeHours, sourcePath }) {
     const stamp = finiteDate(row.date || row.generatedAt || row._meta?.generatedAt);
     if (!stamp) issues.push(`${prefix}.date is missing or invalid`);
     if (stamp && hoursBetween(stamp, now) > CLOCK_SKEW_HOURS) issues.push(`${prefix}.date is in the future`);
+    const staleMetrics = stamp && hoursBetween(now, stamp) > maxAgeHours;
+    const missingCanBeWarning = (value) => staleMetrics && (value === null || value === undefined);
     const day = stamp?.toISOString().slice(0, 10) || null;
     if (day && seenDates.has(day)) issues.push(`${prefix}.date duplicates ${day}`);
     if (day) seenDates.add(day);
@@ -152,26 +154,32 @@ function validateHistory(history, { now, maxAgeHours, sourcePath }) {
     const adsense = row.adsense;
     const gsc = row.gsc;
     const posthog = row.posthog;
-    if (!adsense || typeof adsense !== 'object' || Array.isArray(adsense)) {
+    if ((!adsense || typeof adsense !== 'object' || Array.isArray(adsense)) && !missingCanBeWarning(adsense)) {
       issues.push(`${prefix}.adsense is missing or not an object`);
     }
-    if (!gsc || typeof gsc !== 'object' || Array.isArray(gsc)) {
+    if ((!gsc || typeof gsc !== 'object' || Array.isArray(gsc)) && !missingCanBeWarning(gsc)) {
       issues.push(`${prefix}.gsc is missing or not an object`);
     }
-    if (!posthog || typeof posthog !== 'object' || Array.isArray(posthog)) {
+    if ((!posthog || typeof posthog !== 'object' || Array.isArray(posthog)) && !missingCanBeWarning(posthog)) {
       issues.push(`${prefix}.posthog is missing or not an object`);
     }
     for (const [section, key] of REQUIRED_HISTORY_METRICS) {
       const value = row[section]?.[key];
-    checkMetric(value, `${prefix}.${section}.${key}`, issues, {
-      integer: key.endsWith('Impressions7d'),
-      max: key.startsWith('clsP75') ? 1 : null,
-      nullable: false,
-    });
+      const label = `${prefix}.${section}.${key}`;
+      if (missingCanBeWarning(value)) {
+        warnings.push(`${label} is missing from a history row older than ${maxAgeHours}h`);
+      } else {
+        checkMetric(value, label, issues, {
+          integer: key.endsWith('Impressions7d'),
+          max: key.startsWith('clsP75') ? 1 : null,
+          nullable: false,
+        });
+      }
     }
     const ctr = gsc?.ctrByBucket;
     if (!ctr || typeof ctr !== 'object' || Array.isArray(ctr)) {
-      issues.push(`${prefix}.gsc.ctrByBucket is missing or not an object`);
+      if (missingCanBeWarning(ctr)) warnings.push(`${prefix}.gsc.ctrByBucket is missing from a history row older than ${maxAgeHours}h`);
+      else issues.push(`${prefix}.gsc.ctrByBucket is missing or not an object`);
     } else {
       for (const [bucket, value] of Object.entries(ctr)) {
         checkMetric(value, `${prefix}.gsc.ctrByBucket.${bucket}`, issues, { max: 100 });

@@ -99,12 +99,14 @@ describe('HTML entity publication boundaries', () => {
     });
     expect(metaIntro).toBe('Analyst &eacute; 𝐀 at Hôpital in Città.');
     expect(clean('Capacit&agrave; f&uuml;r &#x1D400; &amp;eacute;')).toBe('Capacità für 𝐀 &eacute;');
-    // The emitter now delegates composition to buildJobMetaDescription; exercise
-    // that live boundary instead of the removed descWithSalary variable.
+    // The active-job emitter now composes the final description through the
+    // shared helper, adding CTA/completeness text after the decoded intro.
     const description = boundary<string>(file, 'description', {
-      buildJobMetaDescription, locale: 'en', localizedTitle: 'Analyst &amp;eacute; &#x1D400;',
-      job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' }, cleanDesc: '',
+      buildJobMetaDescription,
+      locale: 'en', localizedTitle: 'Analyst &amp;eacute; &#x1D400;',
+      job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' },
+      cleanDesc: '',
     }, 'buildJobMetaDescription');
-    expect(description).toContain('Analyst &eacute; 𝐀 at Hôpital in Città.');
+    expect(description.startsWith(metaIntro)).toBe(true);
   });
 });

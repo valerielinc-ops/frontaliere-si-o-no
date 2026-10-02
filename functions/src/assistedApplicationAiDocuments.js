@@ -10,6 +10,7 @@
  *
  * The PDF writer uses the standard Helvetica font with WinAnsi encoding, so
  * every Italian, German and French letter renders without embedding a font.
+ * A letter outside WinAnsi (č, ł, ș) is written with its base letter.
  */
 
 import { inflateRawSync } from 'node:zlib';
@@ -137,17 +138,31 @@ const WIN_ANSI_EXTRA = new Map([
   ['Š', 0x8a], ['š', 0x9a], ['Œ', 0x8c], ['œ', 0x9c], ['Ž', 0x8e], ['ž', 0x9e], ['Ÿ', 0x9f],
 ]);
 
+// Letters NFD does not take apart, written with their base letter.
+const BASE_LETTER = new Map([['ł', 'l'], ['Ł', 'L'], ['đ', 'd'], ['Đ', 'D'], ['ı', 'i'], ['ħ', 'h'], ['Ħ', 'H'], ['ŧ', 't'], ['Ŧ', 'T']]);
+
+function representable(char) {
+  const code = char.codePointAt(0);
+  return WIN_ANSI_EXTRA.has(char) || (code >= 0x20 && code <= 0x7e) || (code >= 0xa0 && code <= 0xff);
+}
+
 function winAnsiCode(char) {
   if (WIN_ANSI_EXTRA.has(char)) return WIN_ANSI_EXTRA.get(char);
   const code = char.codePointAt(0);
   if (code === 0x09) return 0x20;
   if (code >= 0x20 && code <= 0x7e) return code;
   if (code >= 0xa0 && code <= 0xff) return code;
-  return 0x3f; // '?' for anything the standard font cannot show
+  // "Kovačević" was printed "Kova?evi?" (study 2026-10-02): a letter the
+  // standard font lacks is written with its base letter, "Kovacevic". Still a
+  // fallback; the name belongs in an embedded Unicode font.
+  const base = BASE_LETTER.get(char) || char.normalize('NFD')[0];
+  if (base && base !== char && representable(base)) return winAnsiCode(base);
+  return 0x3f; // '?' for anything else the standard font cannot show
 }
 
 function charWidth(char) {
   const code = winAnsiCode(char);
+  if (code === 0xa0) return HELVETICA_WIDTHS[0];
   if (code >= 32 && code <= 126) return HELVETICA_WIDTHS[code - 32];
   // Accented Latin-1 letters share their base letter's advance closely enough
   // for line breaking; 556 is the lowercase average.
@@ -164,7 +179,8 @@ export function textWidth(text, fontSize) {
 export function wrapText(text, fontSize, maxWidth) {
   const lines = [];
   for (const paragraph of String(text || '').split('\n')) {
-    const words = paragraph.split(/\s+/).filter(Boolean);
+    // Only ordinary spaces break a line: a no-break space keeps "81 %" and "CHF 80'000" together.
+    const words = paragraph.split(/[ \t\r]+/).filter(Boolean);
     if (words.length === 0) {
       lines.push('');
       continue;
@@ -274,7 +290,8 @@ export function renderPdf(blocks, { title = '' } = {}) {
 
 /**
  * The cover letter as Swiss business-letter blocks: sender, recipient,
- * place/date, subject in bold, body, signature.
+ * place/date, subject in bold, body, signature, then the enclosures
+ * (Beilagen/Annexes/Allegati) the official templates list.
  */
 export function buildCoverLetterPdf({
   senderLines = [],
@@ -285,6 +302,8 @@ export function buildCoverLetterPdf({
   paragraphs = [],
   closing = '',
   signature = '',
+  enclosuresLabel = '',
+  enclosures = [],
   title = '',
 }) {
   const blocks = [];
@@ -298,6 +317,9 @@ export function buildCoverLetterPdf({
     blocks.push({ text: paragraph, gapBefore: index === 0 ? 8 : 7 });
   });
   if (closing) blocks.push({ text: closing, gapBefore: 12 });
-  if (signature) blocks.push({ text: signature, gapBefore: 22 });
+  // About 16 mm above the typed name: room for a handwritten or scanned signature.
+  if (signature) blocks.push({ text: signature, gapBefore: 44 });
+  const listed = enclosures.filter(Boolean);
+  if (listed.length) blocks.push({ text: `${enclosuresLabel ? `${enclosuresLabel}: ` : ''}${listed.join(', ')}`, size: 9.5, gapBefore: 18 });
   return renderPdf(blocks, { title });
 }

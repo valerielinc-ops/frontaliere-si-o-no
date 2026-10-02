@@ -23,8 +23,8 @@ const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobA
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
-const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
-const CompanyFollowPopup = lazyRetry(() => import('@/components/community/CompanyFollowCta').then((m) => ({ default: m.CompanyFollowPopup })));
+// The inline action arrives with the detail; its registration modal loads on click.
+import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/CompanyFollowCta';
 // Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
@@ -9132,8 +9132,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    job: JobListing,
    surface: 'company_follow_button' | 'company_follow_gate',
  ) => (
-   // Reserving fallback: this CTA renders in the job-detail header now, so the
-   // lazy chunk landing must swap a same-sized block rather than insert one.
+   // Reserve space if a descendant suspends; the inline CTA itself is eager.
    <Suspense fallback={<CompanyFollowPlaceholder />}>
      <CompanyFollowCta
        company={String(job.company || '')}
@@ -10334,7 +10333,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
          two controls answer one question — "this company" — and reading them
          together is what makes the second one obvious;
        · CompanyFollowButton holds its follow/unfollow state locally and
-         resolves it with its own `findCompanyAlert` call. A second instance
+         resolves it through the shared alerts cache. A second instance
          on the same page would not just re-query: after one click the two
          would disagree, and clicking the stale one writes a SECOND alert
          document for the same employer, burning one of the visitor's few
