@@ -175,6 +175,20 @@ const IMAGE_MAX_BYTES = 320 * 1024;
  */
 const IMAGE_PATH_RE = /^images\/blog\/[a-z0-9][a-z0-9._-]*\.webp$/;
 
+/**
+ * Validate the cheap invariants that protect the committed hero-image tree.
+ * This is intentionally shared by the existing-file and download paths: a
+ * previously committed file can be truncated or contain a corrupt binary just
+ * as easily as a newly fetched response can be an HTML error page.
+ */
+function isValidHeroImage(bytes, expectedBytes) {
+  if (!bytes || bytes.length > IMAGE_MAX_BYTES) return false;
+  if (bytes.length <= 12) return false;
+  if (bytes.subarray(0, 4).toString('latin1') !== 'RIFF') return false;
+  if (bytes.subarray(8, 12).toString('latin1') !== 'WEBP') return false;
+  return typeof expectedBytes !== 'number' || expectedBytes === bytes.length;
+}
+
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
 
 /**
@@ -661,8 +675,16 @@ for (const name of FEEDS) {
       }
 
       if (fs.existsSync(dest)) {
-        present += 1;
-        continue;
+        try {
+          const localBytes = fs.readFileSync(dest);
+          if (isValidHeroImage(localBytes, entry.bytes)) {
+            present += 1;
+            continue;
+          }
+          log(`${relPath}: local file failed validation; refreshing from publisher`);
+        } catch (err) {
+          log(`${relPath}: local file could not be read (${err.message}); refreshing from publisher`);
+        }
       }
 
       let bytes;
@@ -682,11 +704,9 @@ for (const name of FEEDS) {
       // A WebP is "RIFF" + 4 size bytes + "WEBP". Checking it here rather than
       // trusting the extension is what stops an HTML error page that came back
       // with a 200 from being committed as an article's hero image.
-      const isWebp =
-        bytes.length > 12 &&
-        bytes.subarray(0, 4).toString('latin1') === 'RIFF' &&
-        bytes.subarray(8, 12).toString('latin1') === 'WEBP';
-      if (!isWebp) fail(`${relPath} is not a WebP file (bad RIFF/WEBP header) — refusing`);
+      if (!isValidHeroImage(bytes)) {
+        fail(`${relPath} is not a WebP file (bad RIFF/WEBP header) — refusing`);
+      }
 
       if (typeof entry.bytes === 'number' && entry.bytes !== bytes.length) {
         fail(
