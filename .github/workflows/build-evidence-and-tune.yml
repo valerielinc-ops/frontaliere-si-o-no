@@ -88,7 +88,7 @@ jobs:
 
       - name: Open PR with evidence snapshot
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           # Stage whichever evidence artifacts exist (embeddings.bin missing
           # if OPENAI_API_KEY is unset; meta JSON is always written).
@@ -208,7 +208,7 @@ jobs:
 
       - name: Update PR with tune state
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
           body="$RUNNER_TEMP/build-evidence-refresh-pr-body.md"
           cat > "$body" <<EOF

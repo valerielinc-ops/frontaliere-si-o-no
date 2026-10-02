@@ -85,6 +85,15 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
   });
 
+  it('uses the App token only when it has data-refresh write capability', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+  });
+
   it('passes named three-way merge arguments without treating a value as a flag', () => {
     const output = execFileSync(
       process.execPath,
