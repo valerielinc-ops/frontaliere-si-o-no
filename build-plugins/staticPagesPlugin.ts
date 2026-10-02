@@ -33,7 +33,7 @@ import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { routeAwarePreloadChunksFor } from './staticPagePreloadMap';
 import { normalizeArticleStructuredData, normalizeStructuredData } from '../services/seo/schema-normalizers';
 import { ORGANIZATION_LD_JSON } from '../services/seo/organizationLd';
-import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
+import { GLOSSARY_HUB_SEO, GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from '../services/seo/glossaryTermDefinitions';
 import { unescapeTsString as sharedUnescapeTsString, tsStringEscapesWithNewlineAs, repairLegacyDoubleEscapedBreaks } from '../scripts/lib/unescape-ts-string.mjs';
 // Statici, NON `await import()` dentro closeBundle (#5001). Quel doppio await
 // sospendeva il plugin prima di arrivare al render delle pagine, e
@@ -137,9 +137,23 @@ import {
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
-import { renderGlossaryTermDetail, localizedGlossaryMetaDescription, type GlossaryDetailLocale } from './shared/glossaryTermDetail';
+import {
+  glossaryTermSlugFromItalianPath,
+  renderGlossaryTermDetail,
+  localizedGlossaryMetaDescription,
+  resolveGlossaryTermIdFromItalianPath,
+  type GlossaryDetailLocale,
+} from './shared/glossaryTermDetail';
 import { renderBorderCrossingGuideDetail, type CrossingGuideLocale } from './shared/borderCrossingGuideDetail';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
+
+const GLOSSARY_SECTION_SLUGS = new Set([
+  'glossario-frontaliere',
+  'cross-border-glossary',
+  'grenzgaenger-glossar',
+  'glossaire-frontalier',
+]);
+const GLOSSARY_SOURCE_HUB_PATH = '/glossario-frontaliere/';
 export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
@@ -2898,6 +2912,8 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const deriveLocaleSeo = (locPath: string, locale: string, italianSeo: SeoEntry, italianPath?: string): SeoEntry => {
  const segs = locPath.split('/').filter(Boolean);
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
+ const sourcePath = italianPath ?? locPath;
+ const sourceCanonicalPath = withTrailingSlash(sourcePath);
 
  // ── Salary-landing net-comparison pages (4 scenarios × 3 non-IT locales) ──
  // services/seo/seo-landing.ts only ships IT copy for these 4 keys; without
@@ -2972,11 +2988,28 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  if (h) return { title: h.title, desc: h.desc, ogT: h.title, ogD: h.desc, sd: italianSeo.sd };
  }
 
+ // The locale glossary hubs have their own translated copy in the shared
+ // registry. Without this branch they fall through to the slug-derived
+ // generic description because only the Italian SEO map has an explicit hub
+ // entry.
+ const localizedGlossaryHub = locale === 'en' || locale === 'de' || locale === 'fr'
+   ? GLOSSARY_HUB_SEO[locale]
+   : null;
+ if (sourceCanonicalPath === GLOSSARY_SOURCE_HUB_PATH && GLOSSARY_SECTION_SLUGS.has(pathSegs[0] ?? '') && localizedGlossaryHub) {
+  const title = buildTitleWithBrand(localizedGlossaryHub.title);
+  return {
+   title,
+   desc: localizedGlossaryHub.description,
+   ogT: title,
+   ogD: localizedGlossaryHub.description,
+   sd: italianSeo.sd,
+  };
+ }
+
  // ── Glossary entries: extract proper term from Italian SEO title ────
  // Italian titles have correct casing: "AC (Glossario) | Frontaliere Ticino"
  // or "AVS | Glossario Frontalieri". We reuse the term + add locale qualifier.
- const GLOSSARY_SECTIONS = ['cross-border-glossary', 'grenzgaenger-glossar', 'glossaire-frontalier'];
- const isGlossary = pathSegs.some(s => GLOSSARY_SECTIONS.includes(s)) && pathSegs.length >= 2;
+ const isGlossary = pathSegs.some(s => GLOSSARY_SECTION_SLUGS.has(s)) && pathSegs.length >= 2;
  if (isGlossary) {
  const italianTerm = italianSeo.title
  .replace(/\s*\|\s*(Frontaliere Ticino|Glossario Frontalieri)$/i, '')
@@ -2994,7 +3027,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // strings, shared/glossaryTermDetail.ts) instead of the «Definition und
  // Erklärung von …» placeholder; the placeholder stays only as the
  // fallback for a term whose locale strings are missing.
- const glossarySlug = italianPath?.split('/').filter(Boolean).pop() ?? '';
+ const glossarySlug = glossaryTermSlugFromItalianPath(sourcePath) ?? '';
  const glossaryTermId = glossaryTermIdBySlug.get(glossarySlug);
  // Same function as the SPA head (services/seoService.ts).
  const localizedDesc = glossaryTermId && (locale === 'en' || locale === 'de' || locale === 'fr')
@@ -3151,7 +3184,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return clean ? `${clean}/` : '/';
  };
 
- const buildPage = (locale: string, urlPath: string, seoData: SeoEntry, hreflangs: { lang: string; href: string }[]) => {
+ const buildPage = (
+  locale: string,
+  urlPath: string,
+  seoData: SeoEntry,
+  hreflangs: { lang: string; href: string }[],
+  sourcePathForContent = urlPath,
+ ) => {
  const canonicalPath = withTrailingSlash(urlPath);
  // English-slug E-E-A-T aliases (`/about/`, `/contact/`, `/privacy-policy/`)
  // self-canonicalize. Earlier this routed them to `/en/about-us/` etc. to
@@ -3322,12 +3361,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // example and names in the other languages; the crossing's register entry,
  // translated tip and nearest crossings — go right under the H1.
  if (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') {
- const glossaryMatch = /^\/glossario-frontaliere\/([^/]+)\/?$/.exec(url.path);
- const glossaryTermId = glossaryMatch ? glossaryTermIdBySlug.get(glossaryMatch[1]) : undefined;
+ const glossaryTermId = resolveGlossaryTermIdFromItalianPath(sourcePathForContent, glossaryTermIdBySlug);
  if (glossaryTermId) {
  editorialBlocks.push(...renderGlossaryTermDetail(glossaryTermId, locale as GlossaryDetailLocale));
  }
- const crossingMatch = CROSSING_GUIDE_RX.exec(url.path);
+ const crossingMatch = CROSSING_GUIDE_RX.exec(sourcePathForContent);
  if (crossingMatch) {
  editorialBlocks.push(...renderBorderCrossingGuideDetail({
  locale: locale as CrossingGuideLocale,
@@ -3342,9 +3380,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Google sees original content on every static page, not boilerplate.
  // Non-IT locales: section-specific editorial from editorialContent.ts
  // Italian: inline path-based editorial below
- // Use the Italian path (from outer loop) for editorial lookup since
+ // Use the canonical Italian path (from outer loop) for editorial lookup since
  // SECTION_EDITORIAL_KEYS use Italian slugs, not locale-specific ones
- const italianPath = url.path; // e.g. '/tasse-e-pensione/credito-imposta'
+ const italianPath = sourcePathForContent; // e.g. '/tasse-e-pensione/credito-imposta'
  // Check SECTION_EDITORIAL for ALL locales (including Italian).
  // If the entry has an 'it' key, use it instead of the inline chain below.
  const sectionKey = SECTION_EDITORIAL_KEYS
@@ -5094,7 +5132,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const localePrefixes = ['en', 'de', 'fr'];
  const firstSeg = (urlSegs.length > 1 && localePrefixes.includes(urlSegs[0])) ? urlSegs[1] : (urlSegs[0] ?? '');
  const comparatorSlugs = ['compara-servizi', 'compare-services', 'dienste-vergleichen', 'comparer-services'];
- const guideSlugs = ['guida-frontaliere', 'frontier-guide', 'grenzgaenger-leitfaden', 'guide-frontalier', 'glossario-frontaliere', 'domande-frequenti-frontalieri'];
+ const guideSlugs = ['guida-frontaliere', 'frontier-guide', 'grenzgaenger-leitfaden', 'guide-frontalier', ...GLOSSARY_SECTION_SLUGS, 'domande-frequenti-frontalieri'];
  const fiscoSlugs = ['tasse-e-pensione', 'taxes-and-pension', 'steuern-und-rente', 'impots-et-retraite'];
  const statsSlugs = ['statistiche', 'statistics', 'statistiken', 'statistiques'];
  const blogSlugs = ['articoli-frontaliere', 'cross-border-articles', 'frontier-articles', 'grenzgaenger-artikel', 'articles-frontalier'];
@@ -5149,7 +5187,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // term pages and /tasse-e-pensione/ pages. Appended below the content
  // (mobile-first) and rendered from the single shared source registry so
  // the verified-200 URL list can't drift between templates.
- const isGlossaryDetailPage = /^\/(?:(?:en|de|fr)\/)?glossario-frontaliere\/[^/]+/.test(canonicalPath);
+ const isGlossaryDetailPage = resolveGlossaryTermIdFromItalianPath(sourcePathForContent, glossaryTermIdBySlug) !== undefined;
  const editorialSourcesHtml = (isGlossaryDetailPage || fiscoSlugs.includes(firstSeg))
  ? renderAuthoritativeSourcesHtml(localeKey, undefined, { section: 's-Zua2Uq', heading: 's-fd95FC', list: 's-2u1Hmp', item: 's-wP4Jn1' })
  : '';
@@ -5194,7 +5232,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // due consumatori vivono nella shell: un `const` dentro quel ramo era
  // invisibile a entrambi. Una sola (family, key, locale) => i tre non possono
  // nominare card diverse.
- const glossaryHero: SeoHeroImageOpts | null = firstSeg === 'glossario-frontaliere'
+ const glossaryHero: SeoHeroImageOpts | null = GLOSSARY_SECTION_SLUGS.has(firstSeg)
  ? {
  family: 'glossario',
  key: urlSegs.length > (localePrefixes.includes(urlSegs[0] ?? '') ? 2 : 1)
@@ -5427,7 +5465,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const contentSlugs = [
  ...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, ...statsSlugs, ...blogSlugs, ...vitaSlugs,
  'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
- 'dialetto-ticinese', 'mappa-del-sito', 'supporto',
+  'dialetto-ticinese', 'mappa-del-sito', 'supporto', ...GLOSSARY_SECTION_SLUGS,
  'petizione-dosso-stabio', 'stabio-speed-bump-petition',
  'petition-geschwindigkeitsrampe-stabio', 'petition-dos-d-ane-stabio',
  ];
@@ -5868,7 +5906,7 @@ ${hrefTags}
  }
 
  const locDir = np.join(distDir, locPath);
- let locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs);
+ let locPageHtml = buildPage(hl.lang, locPath, locSeo, url.hreflangs, url.path);
  // Inject route-specific SEO block on home-critical landings to lift the
  // text-to-HTML ratio above the 10 % gate. Each route gets its own block
  // (calculator vs job-board), never the homepage block (off-topic).
