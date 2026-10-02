@@ -77,6 +77,8 @@ function mockBoard(requisitionCountry: object | null) {
           location: PLACE,
           jobRequisitionLocation: requisitionCountry ? { descriptor: PLACE, country: requisitionCountry } : { descriptor: PLACE },
           ...(requisitionCountry === CH ? { country: { descriptor: 'Switzerland', id: CH.id } } : {}),
+          // The CXS listing row never carries `timeType`; only the detail does.
+          timeType: 'Part time',
           jobDescription: BODY,
         },
       });
@@ -93,6 +95,8 @@ describe('dedicated Workday parsers — a Swiss locality outside the BFS commune
       mockBoard(CH);
       const jobs: any[] = await fetchAll();
       expect(jobs.map((job) => [job.title, job.location, job.canton])).toEqual([['Service Engineer', PLACE, 'ZH']]);
+      // Typed from the detail's `timeType`, not from the empty listing row.
+      expect(jobs[0]).toMatchObject({ employmentType: 'PART_TIME', contract: 'part-time' });
     }, 20_000);
 
     it(`${name}: still drops it on text alone or against a foreign requisition`, async () => {

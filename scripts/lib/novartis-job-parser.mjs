@@ -20,7 +20,7 @@ import {
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -213,11 +213,14 @@ export async function fetchAllNovartisJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
 
     // Only the posting's own text is published (issue 5253): a req whose
@@ -259,8 +262,8 @@ export async function fetchAllNovartisJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Farmaceutica / Biotecnologia',
       currency: 'CHF',

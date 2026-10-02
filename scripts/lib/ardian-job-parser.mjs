@@ -26,7 +26,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -199,14 +199,16 @@ export async function fetchAllArdianJobs() {
       continue;
     }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     await new Promise((r) => setTimeout(r, 400));
 
     // Only the posting's own text is published (issue 5253): a req whose

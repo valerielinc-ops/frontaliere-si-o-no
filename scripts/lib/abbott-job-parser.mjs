@@ -277,7 +277,8 @@ export async function fetchAllAbbottJobs() {
       continue;
     }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
     const detailDescription = detailInfo.jobDescription

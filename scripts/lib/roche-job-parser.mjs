@@ -17,7 +17,7 @@ import { inferSwissTargetCanton, isSwissLocationText } from './target-swiss-loca
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -237,11 +237,14 @@ export async function fetchAllRocheJobs() {
     // from the per-job detail endpoint (jobPostingInfo.jobDescription). The
     // shared helper handles timeout + 4xx and returns '' on failure so we can
     // fall back to a structured stub built from listing metadata.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400)); // Polite rate limit between detail calls
 
     // Only the posting's own text is published (issue 5253): a req whose
@@ -283,8 +286,8 @@ export async function fetchAllRocheJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Farmaceutico',
       currency: 'CHF',

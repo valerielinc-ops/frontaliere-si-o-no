@@ -44,7 +44,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
@@ -296,14 +296,18 @@ export async function fetchAllBossardJobs() {
 
     // Workday listing endpoint never returns the job body — fetch detail.
     let detailDescription = '';
+    let detailInfo = {};
     try {
-      detailDescription = await fetchWorkdayJobDescriptionText(
+      // One detail request: the body, and the `timeType` the CXS listing
+      // row never carries.
+      ({ text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
         WORKDAY_API_BASE,
         listing.externalPath,
         stripHtml,
-      );
+      ));
     } catch {
       detailDescription = '';
+      detailInfo = {};
     }
     // Be polite to the Workday tenant between per-job detail fetches.
     await new Promise((r) => setTimeout(r, 400));
@@ -322,7 +326,7 @@ export async function fetchAllBossardJobs() {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} bossard ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {

@@ -30,7 +30,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   fetchWorkdaySidebarText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
@@ -204,11 +204,14 @@ export async function fetchAllKsbJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
 
     // Only the posting's own text is published (issue 5253). A req whose
@@ -258,8 +261,8 @@ export async function fetchAllKsbJobs() {
       country: 'CH',
       postalCode: '5404',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',
