@@ -83,7 +83,7 @@ import {
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
@@ -444,6 +444,29 @@ export async function recoverExistingBookingPrices(existingEvents, records, { de
     } catch { /* Optional enrichment must not abort the primary crawl. */ }
   }
   return updates;
+}
+
+/** Keep a verified backfill when a fresh detail record has no confident price. */
+export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
+  const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
+  return freshEvents.map(event => {
+    const backfill = backfills.get(event?.id);
+    if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)
+      || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
+      || !sameVenue(event.venue, backfill.venue)) return event;
+    const freshMetadata = Object.fromEntries(
+      Object.entries(event.price || {}).filter(([key, value]) => value != null && !Object.hasOwn(backfill.price, key)),
+    );
+    return { ...event, price: { ...freshMetadata, ...backfill.price } };
+  });
+}
+
+/** Include recovered records that the bounded detail traversal did not visit. */
+export function mergePriceBackfillRecords(freshEvents, ...backfillGroups) {
+  const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
+  const mergedFresh = applyKnownPriceBackfills(freshEvents, ...backfillGroups);
+  const freshIds = new Set(mergedFresh.map(event => event?.id).filter(Boolean));
+  return [...mergedFresh, ...[...backfills.values()].filter(event => !freshIds.has(event.id))];
 }
 
 /**
@@ -946,10 +969,11 @@ async function main() {
   });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
+  const freshEvents = mergePriceBackfillRecords(translatedEvents, indexedPriceBackfills, bookingPriceBackfills);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3), null, 2));
     return;
   }
 
@@ -989,7 +1013,7 @@ async function main() {
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: [...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents],
+    freshEvents: freshEvents,
     goneIds: [],
     crawledAt,
   });

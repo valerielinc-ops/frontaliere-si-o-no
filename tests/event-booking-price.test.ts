@@ -37,6 +37,21 @@ describe('official event booking tariffs', () => {
     expect(extractEventBookingPrice(html, url, { ...event, venue: 'Other theatre' })).toBeUndefined();
   });
 
+  it('recovers the published starting tariff from a PETZI event page', () => {
+    const html = `<h1>20 Years Fractal</h1><h4>Price starting at CHF 29.90</h4>
+      <h3>Saturday 7 November 2026</h3><h4>Chessu / Coupole – Biel</h4>`;
+    expect(extractEventBookingPrice(html, 'https://www.petzi.ch/events/64715/', {
+      startDate: '2026-11-07', venue: 'AJZ Chessu / la Coupole',
+    })).toEqual({ amount: 29.9, currency: 'CHF', isFree: false, url: 'https://www.petzi.ch/events/64715/' });
+  });
+
+  it('accepts localized PETZI date and tariff labels', () => {
+    const html = '<h3>Freitag, 7. November 2026</h3><h4>Ab CHF 29.90</h4><h4>Chessu / Coupole – Biel</h4>';
+    expect(extractEventBookingPrice(html, 'https://www.petzi.ch/events/64715/', {
+      startDate: '2026-11-07', venue: 'Chessu / Coupole',
+    })).toEqual({ amount: 29.9, currency: 'CHF', isFree: false, url: 'https://www.petzi.ch/events/64715/' });
+  });
+
   it('does not combine incomparable currencies or ambiguous matching events', () => {
     const priced = { ...node, offers: [{ price: 20, priceCurrency: 'CHF' }, { price: 10, priceCurrency: 'EUR' }] };
     expect(extractEventBookingPrice(ld(priced), bookingUrl, event)).toBeUndefined();
