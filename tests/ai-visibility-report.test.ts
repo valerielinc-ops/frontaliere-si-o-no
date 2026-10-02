@@ -237,6 +237,23 @@ describe('provider response parsing', () => {
     await expect(queryGitHubModels('costo vita Ticino')).resolves.toMatchObject({ content: 'GitHub Models answer' });
     expect(fetchMock).toHaveBeenCalledTimes(3);
   });
+
+  it('uses the first non-empty Gemini text part after non-text parts', async () => {
+    vi.stubEnv('GEMINI_API_KEY', 'gemini-test');
+    vi.spyOn(globalThis, 'fetch').mockResolvedValue(new Response(JSON.stringify({
+      candidates: [{
+        content: {
+          parts: [
+            { functionCall: { name: 'search' } },
+            { text: 'frontaliereticino.ch' },
+          ],
+        },
+      }],
+    }), { status: 200 }));
+
+    await expect(queryGemini('costo vita Ticino'))
+      .resolves.toMatchObject({ content: 'frontaliereticino.ch' });
+  });
 });
 
 /**

@@ -244,7 +244,7 @@ async function queryGemini(query) {
 
   const data = await readJsonResponse('Gemini', res, hasGeminiEnvelope);
   if (!data) return null;
-  const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const content = getGeminiText(data);
   const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
   // Grounding chunks expose the source both as a redirect uri (which never
   // contains the real host) and as `web.title`, which IS the domain — match
@@ -438,11 +438,16 @@ function hasChatCompletionEnvelope(data) {
     && message.content.trim().length > 0;
 }
 
+function getGeminiText(data) {
+  const parts = Array.isArray(data?.candidates)
+    ? data.candidates[0]?.content?.parts
+    : null;
+  if (!Array.isArray(parts)) return '';
+  return parts.find(part => isRecord(part) && typeof part.text === 'string' && part.text.trim().length > 0)?.text || '';
+}
+
 function hasGeminiEnvelope(data) {
-  const parts = data.candidates?.[0]?.content?.parts;
-  return Array.isArray(data.candidates)
-    && Array.isArray(parts)
-    && parts.some(part => isRecord(part) && typeof part.text === 'string' && part.text.trim().length > 0);
+  return getGeminiText(data).length > 0;
 }
 
 async function readJsonResponse(label, res, isExpectedEnvelope = isRecord) {
