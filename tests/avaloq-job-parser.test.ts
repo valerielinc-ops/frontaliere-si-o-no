@@ -16,6 +16,10 @@ afterEach(() => {
   vi.unstubAllGlobals();
 });
 
+function readSmartRecruitersFixture(name: string) {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'smartrecruiters', name), 'utf8'));
+}
+
 describe('avaloq-job-parser', () => {
   it('rejects an empty target without a complete source proof', () => {
     expect(() => assertCompleteAvaloqSnapshot([])).toThrow(/authoritative source snapshot/);
@@ -28,11 +32,38 @@ describe('avaloq-job-parser', () => {
       avaloqSourceReadComplete: { value: true },
       avaloqSourceTerminationProven: { value: true },
       avaloqSourcePaginationIntegrityProven: { value: true },
+      avaloqSourceProvesFilteredEmpty: { value: true },
       avaloqSourceTotalFound: { value: 2 },
       avaloqSourceRecordsSeen: { value: 2 },
       avaloqSourcePostingCount: { value: 2 },
       avaloqClassifiedPostingCount: { value: 2 },
     });
+    expect(assertCompleteAvaloqSnapshot(rows)).toBe(true);
+  });
+
+  it('rejects a zero target when the tenant declares no postings at all (unknown-tenant envelope)', async () => {
+    // SmartRecruiters answers this exact envelope for a company identifier it
+    // does not know; it must not certify that Avaloq has no Ticino openings.
+    const unknownTenant = readSmartRecruitersFixture('unknown-tenant-postings.json');
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(unknownTenant), { status: 200 })));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => true);
+    expect(rows).toHaveLength(0);
+    expect(() => assertCompleteAvaloqSnapshot(rows)).toThrow(/declared no postings at all/);
+  });
+
+  it('accepts a zero target after a complete read of a tenant with live postings elsewhere', async () => {
+    const zurich = { id: '744000000000011', name: 'Zürich role', location: { city: 'Zürich', country: { code: 'CH' } } };
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      if (url.pathname.endsWith(`/postings/${zurich.id}`)) {
+        return new Response(JSON.stringify(zurich), { status: 200 });
+      }
+      return new Response(JSON.stringify({ offset: 0, limit: 100, totalFound: 1, content: [zurich] }), { status: 200 });
+    }));
+
+    const rows = await fetchAvaloqJobsFromApi(100, () => false);
+    expect(rows).toHaveLength(0);
     expect(assertCompleteAvaloqSnapshot(rows)).toBe(true);
   });
 

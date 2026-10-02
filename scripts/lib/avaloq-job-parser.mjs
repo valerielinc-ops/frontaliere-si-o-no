@@ -9,6 +9,7 @@ import { isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { sourceLangOfBody } from './source-locale-slots.mjs';
 import {
   fetchSmartRecruitersJobs,
+  provesSmartRecruitersFilteredEmpty,
   SmartRecruitersApiError,
 } from './ats-clients/smartrecruiters-client.mjs';
 import { classifyCountryValue } from './prospector/country-inventory.mjs';
@@ -194,6 +195,13 @@ export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter =
         && (!Number.isFinite(sourceRead.totalFound) || sourceRead.recordsSeen >= sourceRead.totalFound),
       enumerable: false,
     },
+    // A tenant-wide zero is also what SmartRecruiters answers for an unknown
+    // or renamed company identifier: only a read that saw live postings can
+    // certify an empty Ticino/Grigioni target.
+    avaloqSourceProvesFilteredEmpty: {
+      value: provesSmartRecruitersFilteredEmpty(sourceRead),
+      enumerable: false,
+    },
     avaloqSourceTerminationProven: { value: sourceRead.terminationProven === true, enumerable: false },
     avaloqSourcePaginationIntegrityProven: { value: sourceRead.paginationIntegrityProven === true, enumerable: false },
     avaloqSourceTotalFound: { value: sourceRead.totalFound, enumerable: false },
@@ -243,6 +251,13 @@ export function assertCompleteAvaloqSnapshot(details) {
     throw new Error(
       'Avaloq result is not an authoritative source snapshot: '
       + 'the complete source read and location classification are not proven',
+    );
+  }
+  if (details.length === 0 && Reflect.get(details, 'avaloqSourceProvesFilteredEmpty') !== true) {
+    throw new Error(
+      'Avaloq result is not an authoritative source snapshot: '
+      + `the SmartRecruiters tenant declared no postings at all (totalFound=${totalFound}), `
+      + 'which an unknown or renamed tenant also returns',
     );
   }
   return true;

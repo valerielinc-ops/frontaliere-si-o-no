@@ -210,8 +210,10 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
 
     expect(parser).toContain('onComplete: (proof) => { sourceReadProof = proof; }');
-    expect(parser).toContain('sourceReadProof.paginationIntegrityProven === true');
-    expect(parser).toContain('sourceReadProof.recordsSeen === sourceReadProof.totalFound');
+    // Completeness and the filtered-zero proof come from the shared client, so
+    // every SmartRecruiters consumer applies the same live-tenant requirement.
+    expect(parser).toContain('if (!isCompleteSmartRecruitersSourceRead(sourceReadProof)) {');
+    expect(parser).toContain('value: listings.length === 0 && provesSmartRecruitersFilteredEmpty(sourceReadProof)');
     expect(runner).toContain('validateAuthoritativeSnapshot: (jobs) => jobs?.authoritativeEmptySnapshot === true');
     expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");

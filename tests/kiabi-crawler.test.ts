@@ -1,3 +1,5 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   KIABI_KEY,
@@ -9,6 +11,10 @@ import {
   fetchAllKiabiJobs,
 } from '../scripts/lib/kiabi-job-parser.mjs';
 import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+
+function readSmartRecruitersFixture(name: string) {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'smartrecruiters', name), 'utf8'));
+}
 
 describe('Kiabi Suisse crawler parser', () => {
   // ── Constants ──
@@ -304,6 +310,24 @@ describe('Kiabi Suisse crawler parser', () => {
         allowAuthoritativeEmptySnapshot: true,
         authoritativeSnapshotScope: 'empty-only',
       })).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+    });
+
+    it('proves the Swiss zero from the live group-tenant shape (postings only outside Switzerland)', async () => {
+      const groupTenant = readSmartRecruitersFixture('kiabi-group-tenant-no-swiss-postings.json');
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => groupTenant })));
+
+      const jobs = await fetchAllKiabiJobs();
+      expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptySnapshot).toBe(true);
+    });
+
+    it('refuses to certify a zero when the tenant declares no postings at all (unknown-tenant envelope)', async () => {
+      // SmartRecruiters answers this exact envelope for a company identifier
+      // it does not know; a renamed/retired tenant would read the same way.
+      const unknownTenant = readSmartRecruitersFixture('unknown-tenant-postings.json');
+      vi.stubGlobal('fetch', vi.fn(async () => ({ ok: true, json: async () => unknownTenant })));
+
+      await expect(fetchAllKiabiJobs()).rejects.toThrow(/declared no postings at all/);
     });
 
     it('fails closed when SmartRecruiters pagination is truncated', async () => {
