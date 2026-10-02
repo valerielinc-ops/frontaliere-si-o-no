@@ -147,6 +147,7 @@ import {
   swissMunicipalityCantons,
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   isFederalJobsPortalUrl,
   normalizeFederalDepartmentCompany,
@@ -3965,6 +3966,9 @@ async function crawlWorkdayJobs(
       let companyName = company.name;
       let applyUrl = detailUrl;
       let contractRaw = '';
+      // The req's own `jobPostingInfo` (structured primary + country), kept for
+      // the shared Workday place recovery below.
+      let apiInfo = null;
 
       // 1) Preferred: Workday CXS detail API.
       try {
@@ -3977,6 +3981,7 @@ async function crawlWorkdayJobs(
             // eslint-disable-next-line no-await-in-loop
             const apiPayload = await detailApiRes.json();
             const info = apiPayload?.jobPostingInfo || {};
+            apiInfo = info;
             const apiDesc = htmlToStructuredText(info.jobDescription || '');
             if (apiDesc.length >= 120) {
               descriptionSeed = apiDesc;
@@ -4065,18 +4070,26 @@ async function crawlWorkdayJobs(
       } catch {
         // Keep fallback descriptionSeed
       }
+      // A place the commune gazetteer cannot resolve (a locality such as
+      // `Rotkreuz`, an address with a postal code) gets the shared Workday
+      // recovery from the req's own primary: official directory or postal
+      // code, on its structured Swiss country only (workday-swiss-job-parser-common).
+      const recoveredPlace = apiInfo && !inferAnyCanton(location) ? recoverWorkdayPrimarySwissPlace(apiInfo) : null;
+      if (recoveredPlace) location = recoveredPlace.location;
       const geoSignal = `${title} ${location} ${descriptionSeed}`;
       if (isLocationExplicitlyForeign(location)) continue;
       if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
-      if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
+      if (requireConcreteLocation && !recoveredPlace && !isConcreteSwissWorkdayLocation(location)) {
         console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
         continue;
       }
-      if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = (requireConcreteLocation
-        ? inferAnyCanton(location)
-        : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
+      if (!recoveredPlace && !isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
+      const inferredCanton = (recoveredPlace
+        ? recoveredPlace.canton
+        : requireConcreteLocation
+          ? inferAnyCanton(location)
+          : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',

@@ -27,6 +27,7 @@ import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
 import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
@@ -127,7 +128,10 @@ async function fetchJuliusBaerJobs() {
   console.log(`  📋 Total listings: ${allListings.length}`);
 
   // Filter for any target Swiss canton
-  const swissListings = allListings.filter((p) => isSwissLocation(p.locationsText || ''));
+  // A row named after a Swiss locality outside the commune gazetteer is kept
+  // for its detail, whose structured country decides (shared Workday recovery).
+  const swissListings = allListings.filter((p) => isSwissLocation(p.locationsText || '')
+    || isWorkdaySwissPlaceCandidate(p.locationsText || ''));
   console.log(`  📋 Swiss target-canton listings: ${swissListings.length}`);
 
   if (swissListings.length === 0) return [];
@@ -143,8 +147,14 @@ async function fetchJuliusBaerJobs() {
     if (!title || title.length < 3) continue;
 
     const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayCity(locationRaw);
-    const inferredCanton = inferAnyCanton(`${city} ${locationRaw}`);
+    const parsedCity = parseWorkdayCity(locationRaw);
+    const parsedCanton = parsedCity ? inferAnyCanton(`${parsedCity} ${locationRaw}`) : '';
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country.
+    const recovered = parsedCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered ? recovered.location : parsedCity;
+    const inferredCanton = recovered ? recovered.canton : parsedCanton;
     if (!city || !inferredCanton) {
       console.warn(`  ⚠️ Skipping Julius Baer listing with unresolved Swiss canton: ${title} (${locationRaw || '?'})`);
       continue;

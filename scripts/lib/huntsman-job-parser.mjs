@@ -16,6 +16,7 @@ import { workdayPrimaryLocationState } from './ats-clients/workday-client.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -333,8 +334,14 @@ export async function fetchAllHuntsmanJobs() {
     // description: Huntsman's boilerplate names "a major production site in
     // Monthey (Valais), Switzerland" in EVERY description, so that rescue
     // corroborated the company, never the vacancy.
-    const city = resolveHuntsmanPublishCity(detail);
-    const canton = city ? inferCanton(city) : '';
+    const publishCity = resolveHuntsmanPublishCity(detail);
+    const publishCanton = publishCity ? inferCanton(publishCity) : '';
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = publishCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered ? recovered.location : publishCity;
+    const canton = recovered ? recovered.canton : publishCanton;
     if (!city || !canton) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${title}`);
       continue;

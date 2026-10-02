@@ -47,6 +47,7 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -339,15 +340,19 @@ export async function fetchAllBernerMontageJobs() {
     // their own `/job/<Segment>/` — so this is a LATENT fix that leaves those
     // 10 verdicts unchanged.
     const rawLocation = resolveBernerPrimaryLocation(info);
-    if (!rawLocation) {
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country.
+    const recovered = rawLocation ? null : recoverWorkdayPrimarySwissPlace(info);
+    if (!rawLocation && !recovered) {
       console.log(`  ⏭️ Skipped non-Swiss/unresolved primary location: ${String(info?.location || listing.location || 'unknown')} — ${title}`);
       continue;
     }
 
-    const resolvedCity = cityFromLocationText(rawLocation);
+    const resolvedCity = recovered ? recovered.location : cityFromLocationText(rawLocation);
     const { city, postalCode, streetAddress } = resolveAddress(resolvedCity);
     const location = resolvedCity;
-    const canton = inferSwissTargetCanton(location);
+    const canton = recovered ? recovered.canton : inferSwissTargetCanton(location);
     if (!canton) {
       console.warn(`  ⚠️ Skipping unresolvable primary location "${location}" — ${title}`);
       continue;
@@ -378,7 +383,8 @@ export async function fetchAllBernerMontageJobs() {
     const sourceLang = detectLang(description || title, 'de');
     const jobSlug = slugify(`${title} berner-montage ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
     const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {

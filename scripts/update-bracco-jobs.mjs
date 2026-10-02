@@ -54,6 +54,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
@@ -245,7 +246,10 @@ async function listSwissJobs() {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchBraccoJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)
+        || isWorkdaySwissPlaceCandidate(locText)) {
         candidates.push(posting);
       }
     }
@@ -414,20 +418,26 @@ export async function fetchBraccoJobs() {
     ];
 
     const swissLoc = locationCandidates.find((l) => isSwissLocationText(l));
-    if (!swissLoc) {
+    const parsedCity = swissLoc ? parseWorkdayLocation(swissLoc) : '';
+    const parsedConcrete = parsedCity && isTargetSwissLocation(parsedCity, { includeBorderProximity: false });
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = parsedConcrete && inferCanton(parsedCity) ? null : recoverWorkdayPrimarySwissPlace(info);
+    if (!swissLoc && !recovered) {
       console.log(`  ⏭️  Skipped — not a Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
 
-    const city = parseWorkdayLocation(swissLoc);
+    const city = recovered ? recovered.location : parsedCity;
     // A country-only descriptor proves Switzerland but does not identify the
     // vacancy's locality. Never turn that incomplete source data into a fixed
     // Cadempino address.
-    if (!city || !isTargetSwissLocation(city, { includeBorderProximity: false })) {
+    if (!recovered && !parsedConcrete) {
       console.log(`  ⏭️  Skipped — no concrete Swiss locality (${city || 'unknown'})`);
       continue;
     }
-    const canton = inferCanton(city);
+    const canton = recovered ? recovered.canton : inferCanton(city);
     if (!canton) {
       console.log(`  ⏭️  Skipped — Swiss locality has no inferable canton (${city})`);
       continue;
