@@ -1501,10 +1501,12 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit(?:[oaie])?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
-const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+\d{1,2}\s*[–—-]\s*\d{1,2})?\s+(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit|kostenlos|frei|liber[oa])/iu;
+const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
+const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+\d{1,2}\s*[–—-]\s*\d{1,2})?\s+(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])/iu;
 const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^,.;\n]*?\b\d{1,2}\s*[–—-]\s*\d{1,2}\b/giu;
 const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
+const PRICE_ADJACENT_AMOUNT_RE = /(?:(CHF|EUR|€|S?Fr\.?)((?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?)|((?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?)(CHF|EUR|€|S?Fr\.?))/giu;
+const PRICE_CURRENCY_RE = /(?:CHF|EUR|€|S?Fr\.?)/iu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
 const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
@@ -1512,6 +1514,37 @@ const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
 function priceResult(value, evidence) {
   Object.defineProperty(value, 'evidence', { value: evidence, enumerable: false, configurable: true });
   return value;
+}
+
+function normalizePriceAmount(raw) {
+  const normalized = raw.replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.');
+  return Number.parseFloat(normalized);
+}
+
+function canonicalPriceCurrency(raw) {
+  return /EUR|€/iu.test(raw) ? 'EUR' : 'CHF';
+}
+
+function collectPriceCandidates(text) {
+  const candidates = [];
+  const defaultCurrency = canonicalPriceCurrency(text);
+  PRICE_AMOUNT_RE.lastIndex = 0;
+  let match;
+  while ((match = PRICE_AMOUNT_RE.exec(text))) {
+    const before = text.slice(Math.max(0, match.index - 8), match.index);
+    const after = text.slice(match.index + match[0].length, match.index + match[0].length + 8);
+    const currency = before.match(PRICE_CURRENCY_RE)?.[0] || after.match(PRICE_CURRENCY_RE)?.[0] || defaultCurrency;
+    const amount = normalizePriceAmount(match[0]);
+    if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(currency) });
+  }
+  PRICE_ADJACENT_AMOUNT_RE.lastIndex = 0;
+  while ((match = PRICE_ADJACENT_AMOUNT_RE.exec(text))) {
+    const rawAmount = match[2] || match[3];
+    const rawCurrency = match[1] || match[4];
+    const amount = normalizePriceAmount(rawAmount);
+    if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(rawCurrency) });
+  }
+  return candidates;
 }
 
 /**
@@ -1527,7 +1560,7 @@ export function parsePriceText(rawText) {
   const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
   if (!t) return undefined;
   const free = PRICE_FREE_RE.test(t);
-  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
+  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
   if (free && conditionalFree && /\d/u.test(t)) {
     if (PRICE_DATE_OR_PHONE_RE.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
     // Remove the child-free clause first, then explicitly mask age ranges as
@@ -1537,11 +1570,10 @@ export function parsePriceText(rawText) {
     const conditionalText = t
       .replace(PRICE_CHILD_FREE_RE, ' ')
       .replace(PRICE_CHILD_AGE_RANGE_RE, (segment) => segment.replace(PRICE_AMOUNT_RE, ' '));
-    const conditionalAmounts = [...conditionalText.matchAll(PRICE_AMOUNT_RE)]
-      .map((match) => Number.parseFloat(match[0].replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.')))
-      .filter((amount) => Number.isFinite(amount) && amount >= 0);
+    const conditionalAmounts = collectPriceCandidates(conditionalText);
     if (conditionalAmounts.length) {
-      return priceResult({ amount: Math.min(...conditionalAmounts), currency: /EUR|€/iu.test(t) ? 'EUR' : 'CHF', isFree: false }, 'numeric');
+      const cheapest = conditionalAmounts.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
+      return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: false }, 'numeric');
     }
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
@@ -1557,16 +1589,10 @@ export function parsePriceText(rawText) {
   if (!PRICE_CONTEXT_RE.test(t) || PRICE_DATE_OR_PHONE_RE.test(t)) {
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
-  const numbers = [];
-  PRICE_AMOUNT_RE.lastIndex = 0;
-  let m;
-  while ((m = PRICE_AMOUNT_RE.exec(t))) {
-    const n = Number.parseFloat(m[0].replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.'));
-    if (Number.isFinite(n) && n >= 0) numbers.push(n);
-  }
-  if (numbers.length) {
-    const amount = Math.min(...numbers);
-    return priceResult({ amount, currency: /EUR|€/iu.test(t) ? 'EUR' : 'CHF', isFree: amount === 0 }, 'numeric');
+  const candidates = collectPriceCandidates(t);
+  if (candidates.length) {
+    const cheapest = candidates.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
+    return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: cheapest.amount === 0 }, 'numeric');
   }
   return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
 }
