@@ -134,28 +134,36 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
 
   // Tutto ciò che serve sapere di una PR, letto una volta: i patch-id dei suoi
   // file, i file del suo squash, i suoi merge per genitori.
+  // Una lettura fallita non diventa mai "vuoto": un elenco vuoto qui vorrebbe
+  // dire "niente da confrontare" e farebbe passare una prova. Senza indice,
+  // nessuna prova per questa PR.
   function prIndex(head) {
     return cached(`pr:${head}`, () => {
       const count = Number.parseInt(out(['rev-list', '--count', '--no-merges', head, '--not', mainRef]) || '', 10);
       if (!Number.isFinite(count) || count > L.prCommits) return null;
-      const chunks = splitFileChunks(out(['log', '-p', ...PATCH_OPTS, '--no-merges', '--format=commit %H', head, '--not', mainRef]) || '');
-      const pids = new Set(patchIds(chunks).filter(Boolean));
+      const patch = out(['log', '-p', ...PATCH_OPTS, '--no-merges', '--format=commit %H', head, '--not', mainRef]);
       const base = mergeBase(mainRef, head);
-      const squashFiles = new Set(base
-        ? (out(['diff', '--name-only', '--no-renames', '-z', base, head]) || '').split('\0').filter(Boolean)
-        : []);
+      const names = base ? out(['diff', '--name-only', '--no-renames', '-z', base, head]) : null;
+      const mergeRows = out(['rev-list', '--merges', '--parents', head, '--not', mainRef]);
+      const tree = treeOf(head);
+      if (patch === null || names === null || mergeRows === null || !tree) return null;
+      const pids = new Set(patchIds(splitFileChunks(patch)).filter(Boolean));
+      const squashFiles = new Set(names.split('\0').filter(Boolean));
       const merges = new Map();
-      for (const row of (out(['rev-list', '--merges', '--parents', head, '--not', mainRef]) || '').split('\n')) {
+      for (const row of mergeRows.split('\n')) {
         const [sha, ...parents] = row.split(' ');
         if (sha && parents.length) merges.set(parents.join(' '), sha);
       }
-      return { pids, squashFiles, merges, tree: treeOf(head) };
+      return { pids, squashFiles, merges, tree };
     });
   }
 
   function commitFacts(sha, parent, head, idx) {
-    if (treeOf(sha) === treeOf(parent)) return { empty: true };
-    const own = splitFileChunks(out(['log', '-p', ...PATCH_OPTS, '--format=commit %H', '-1', sha]) || '');
+    const ownTree = treeOf(sha);
+    if (ownTree && ownTree === treeOf(parent)) return { empty: true };
+    const ownPatch = out(['log', '-p', ...PATCH_OPTS, '--format=commit %H', '-1', sha]);
+    if (ownPatch === null) return { files: [] };
+    const own = splitFileChunks(ownPatch);
     const ownIds = patchIds(own);
     const files = own.map((chunk, i) => ({
       path: chunk.path,
@@ -164,11 +172,13 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       inSquash: idx.squashFiles.has(chunk.path),
     }));
     if (files.length && files.every((f) => f.matched && !f.binary)) {
-      // Il revert: l'inverso esatto di ogni file non deve essere un commit della PR.
-      const inverse = splitFileChunks(out(['diff', ...PATCH_OPTS, sha, parent]) || '');
+      // Il revert: l'inverso esatto di ogni file non deve essere un commit della
+      // PR. Se l'inverso non si legge, il revert non è escluso.
+      const inversePatch = out(['diff', ...PATCH_OPTS, sha, parent]);
+      const inverse = splitFileChunks(inversePatch || '');
       const invIds = patchIds(inverse);
       const revertedPaths = new Set(inverse.filter((_, i) => invIds[i] && idx.pids.has(invIds[i])).map((c) => c.path));
-      for (const f of files) f.inverseMatched = revertedPaths.has(f.path);
+      for (const f of files) f.inverseMatched = inversePatch === null || revertedPaths.has(f.path);
       if (isCommitContained({ files })) return { files };
     }
     const absorbedTree = mergeTree(parent, head, sha);
@@ -210,7 +220,9 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       let contained;
       if (parents.length > 1) {
         const twin = idx.merges.get(parents.join(' '));
-        const twinDiff = twin ? (out(['diff', '--name-only', '--no-renames', '-z', twin, sha]) || '').split('\0').filter(Boolean) : null;
+        // `git diff` fallito = differenza sconosciuta, non "nessuna differenza".
+        const names = twin ? out(['diff', '--name-only', '--no-renames', '-z', twin, sha]) : null;
+        const twinDiff = names === null ? null : names.split('\0').filter(Boolean);
         contained = isMergeContained({ twinDiff });
         if (contained) byTwin++;
       } else if (parents.length === 1) {

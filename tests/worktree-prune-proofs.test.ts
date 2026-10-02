@@ -368,6 +368,29 @@ describe('fatti letti da git', () => {
     expect(prover.dirtyProof(repo, head, head)).toMatchObject({ proven: true, clean: true });
   });
 
+  it('merge rifatto: provato col gemello, mai se il confronto col gemello non si legge', () => {
+    // Ultimo caso del blocco: sposta origin/main in avanti.
+    g('checkout', '-q', 'main');
+    write('main-only.txt', 'm\n');
+    const mainCommit = commit('main: avanti');
+    g('update-ref', 'refs/remotes/origin/main', mainCommit);
+    g('checkout', '-q', '-b', 'pr-merge', 'main~1');
+    write('y.txt', 'y1\n');
+    const y1 = commit('feat: y');
+    g('merge', '-q', '--no-edit', mainCommit);
+    write('y2.txt', 'y2\n');
+    const prHead = commit('feat: y2');
+    g('checkout', '-q', '--detach', y1);
+    g('merge', '-q', '--no-edit', '-m', 'merge rifatto in locale', mainCommit);
+    const redo = g('rev-parse', 'HEAD');
+    g('checkout', '-q', 'main');
+    const real = makeGitRunner(repo);
+    expect(makeContentProver({ git: real, mainRef: 'origin/main' }).proveChain(redo, prHead).proven).toBe(true);
+    const failingTwinDiff = (args: string[], opts?: { input?: string }) => (
+      args.includes('diff') && args.includes('--name-only') && args.includes(redo) ? null : real(args, opts));
+    expect(makeContentProver({ git: failingTwinDiff, mainRef: 'origin/main' }).proveChain(redo, prHead).proven).toBe(false);
+  });
+
   it('un puntatore .git verso un gitdir sparito è un residuo', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'prune-gitptr-'));
     fs.writeFileSync(path.join(dir, '.git'), `gitdir: ${path.join(dir, 'non-esiste')}\n`);
