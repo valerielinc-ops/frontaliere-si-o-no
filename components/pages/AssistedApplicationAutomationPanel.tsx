@@ -392,7 +392,8 @@ export default function AssistedApplicationAutomationPanel({
                 <div className="rounded-lg border border-edge bg-surface p-3">
                   <p className="font-semibold uppercase tracking-wide text-muted">ATS (career-ops)</p>
                   <p className="mt-1">CV del candidato: <strong>{draft.ats.original.structural.grade}</strong> ({draft.ats.original.structural.score}/100) · parole chiave {draft.ats.original.keywords.coverage ?? '—'}%</p>
-                  {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%</p>}
+                  {draft.ats.tailored && <p>CV adattato: <strong>{draft.ats.tailored.structural.grade}</strong> ({draft.ats.tailored.structural.score}/100) · parole chiave {draft.ats.tailored.keywords.coverage ?? '—'}%{typeof draft.ats.tailored.keywords.ceiling === 'number' ? <> · tetto onesto {draft.ats.tailored.keywords.ceiling}%</> : null}</p>}
+                  {(draft.ats.tailored?.keywords.overCeiling || []).length > 0 && <p className="text-muted">Termini oltre il tetto (nell’annuncio e nel CV adattato, non nel CV del candidato): {draft.ats.tailored?.keywords.overCeiling?.join(', ')}</p>}
                   {draft.ats.original.keywords.missing.length > 0 && <p className="mt-1 text-muted">Mancano nel CV: {draft.ats.original.keywords.missing.join(', ')}</p>}
                   {draft.ats.original.structural.issues.length > 0 && <p className="text-muted">Problemi: {draft.ats.original.structural.issues.map((issue) => `${issue.code} (${issue.severity})`).join(', ')}</p>}
                 </div>
