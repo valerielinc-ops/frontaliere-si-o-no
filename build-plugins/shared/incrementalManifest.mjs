@@ -36,11 +36,7 @@ export const SOURCE_VERSION = 'input@1';
 // article. Deploy 35507082715 reused 12'818 active pages and every one of the
 // 244 verified pages mismatched on that block alone. The rendered block now
 // enters the input as a digest (`relatedArticlesDigest`).
-// job-digest@8: active pages also render build-dependent hreflang eligibility
-// and an optional employer-profile link. Both are now represented in the
-// publish/reuse input so a changed cross-locale cluster or employer profile
-// cannot leave stale links behind in reused HTML.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@8';
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -533,9 +529,10 @@ export function activePageHreflangDigest(hreflangHtml) {
  *
  * It lives here rather than inline at the emit site because `buildMinimalJobInput()`
  * alone does NOT describe that page: the active template also renders the
- * recent-articles feed, the canton, the (possibly overridden) canonical URL and
- * the build-day bucket. Assembling them at the call site is what let the feed
- * stay out of the hash unnoticed.
+ * recent-articles feed, build-dependent hreflang eligibility, an optional
+ * employer-profile link, the canton, the (possibly overridden) canonical URL
+ * and the build-day bucket. Assembling them at the call site is what kept
+ * those emitted blocks out of the hash unnoticed.
  */
 export function buildActiveJobPageInput({
   job,

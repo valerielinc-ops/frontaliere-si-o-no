@@ -51,17 +51,17 @@ const activeInput = (
   relatedArticlesHtml: string,
   { hreflangHtml = HREFLANG_A, employerHubPath = EMPLOYER_HUB_A }: ActiveInputOptions = {},
 ) => buildActiveJobPageInput({
- job: JOB,
- locale: 'it',
- slug: JOB.slug,
- relatedJobs: [{ id: 'related-1', slug: 'related-1', title: 'Related one' }],
- canonicalJob: JOB,
- canton: 'AG',
- canonicalUrl: `https://frontaliereticino.ch/cerca-lavoro-argovia/${JOB.slug}/`,
- relatedArticlesHtml,
- hreflangHtml,
- employerHubPath,
- renderDateBucket: '2026-09-20',
+  job: JOB,
+  locale: 'it',
+  slug: JOB.slug,
+  relatedJobs: [{ id: 'related-1', slug: 'related-1', title: 'Related one' }],
+  canonicalJob: JOB,
+  canton: 'AG',
+  canonicalUrl: `https://frontaliereticino.ch/cerca-lavoro-argovia/${JOB.slug}/`,
+  relatedArticlesHtml,
+  hreflangHtml,
+  employerHubPath,
+  renderDateBucket: '2026-09-20',
 });
 
 const activeHash = (relatedArticlesHtml: string, options?: ActiveInputOptions) => computeInputHash(
