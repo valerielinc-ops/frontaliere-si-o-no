@@ -2531,6 +2531,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'otto-progetti-ricostruzione-ucraina': { it: 'otto-progetti-ricostruzione-ucraina', en: 'eight-ukraine-reconstruction-projects', de: 'acht-ukraine-wiederaufbauprojekte', fr: 'huit-projets-reconstruction-ukraine' },
  'piloti-swiss-lettera-aperta': { it: 'piloti-swiss-lettera-aperta', en: 'swiss-pilots-open-letter', de: 'swiss-piloten-offener-brief', fr: 'pilotes-swiss-lettre-ouverte' },
  'micasa-investitori-svizzeri-chiude-filiali': { it: 'micasa-investitori-svizzeri-chiude-filiali', en: 'micasa-swiss-investors-close-branches', de: 'micasa-schweizer-investoren-schliessen-filialen', fr: 'micasa-investisseurs-suisses-ferment-filiales' },
+ 'studio-eth-carico-fiscale-svizzera': { it: 'studio-eth-carico-fiscale-svizzera', en: 'eth-study-swiss-tax-burden', de: 'eth-studie-steuerbelastung-schweiz', fr: 'etude-eth-charge-fiscale-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7526,6 +7526,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa cambia proprietà e chiude quattro filiali',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Gruppo di investitori svizzeri rileva il 100% di Micasa; chiuderanno Crissier entro fine 2026 e Langendorf, Brügg, Buchs entro gennaio 2027. Gestione operativa invariata.',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Interno di un negozio di mobili svizzero moderno con divani e tavoli esposti',
+    'blog.article.studio-eth-carico-fiscale-svizzera.title': 'Studio ETH: poveri e ricchi pagano le stesse tasse',
+    'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Una ricerca del Politecnico di Zurigo rivela che quasi tutti pagano il 45% del reddito. Solo l\'1% più ricco versa meno a causa di premi sanitari e IVA.',
+    'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'Veduta di Bellinzona che rappresenta le istituzioni federali e cantonali svizzere.',
 };
 
 export default blogMetaChIt;

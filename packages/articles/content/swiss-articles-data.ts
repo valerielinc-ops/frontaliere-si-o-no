@@ -22606,6 +22606,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'studio-eth-carico-fiscale-svizzera',
+    category: 'fiscale',
+    date: '2026-10-02T14:34:59.056Z',
+    image: '/images/blog/studio-eth-carico-fiscale-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

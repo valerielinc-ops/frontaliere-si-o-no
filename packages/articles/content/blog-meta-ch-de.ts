@@ -7526,6 +7526,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa wechselt den Besitzer und schließt vier Filialen',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Eine Gruppe Schweizer Investoren übernimmt 100% von Micasa; Crissier wird bis Ende 2026 geschlossen und Langendorf, Brügg sowie Buchs bis Januar 2027. Die operative Führung bleibt unverändert.',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Modernes Schweizer Möbelgeschäft mit ausgestellten Sofas und Tischen',
+    'blog.article.studio-eth-carico-fiscale-svizzera.title': 'ETH-Studie: Arme und Reiche zahlen dieselben Steuern',
+    'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Forschungen der ETH Zürich zeigen, dass fast jeder 45 % seines Einkommens zahlt. Nur die reichsten 1 % zahlen weniger aufgrund von Krankenversicherungsprämien und Mehrwertsteuer.',
+    'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'Blick auf Bellinzona, der die schweizerischen Bundes- und Kantonsinstitutionen darstellt.',
 };
 
 export default blogMetaChDe;

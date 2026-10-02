@@ -7526,6 +7526,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa changes ownership and closes four branches',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Swiss investor group acquires 100% of Micasa; Crissier will close by the end of 2026 and Langendorf, Brügg, Buchs by January 2027. Operational management unchanged.',
     'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Modern Swiss furniture store interior with displayed sofas and tables',
+    'blog.article.studio-eth-carico-fiscale-svizzera.title': 'ETH study: poor and rich pay the same taxes',
+    'blog.article.studio-eth-carico-fiscale-svizzera.excerpt': 'Research by ETH Zurich reveals that almost everyone pays 45% of their income. Only the richest 1% pay less due to health premiums and VAT.',
+    'blog.article.studio-eth-carico-fiscale-svizzera.imageAlt': 'View of Bellinzona representing Swiss federal and cantonal institutions.',
 };
 
 export default blogMetaChEn;
