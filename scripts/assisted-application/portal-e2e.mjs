@@ -84,7 +84,8 @@ function fakePortal() {
       coop.sessions.add(sid);
       return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
     }
-    // «Konto anlegen»: the privacy statement opens only for a chosen country, in a dialog.
+    // «Konto anlegen»: the privacy statement opens only for a chosen country,
+    // and its required review checkbox enables the dialog's accept button.
     if (route === 'GET /sf/register') {
       return send(page('Karrierechancen: Konto anlegen', `${form('/sf/register', `<label for="e1">E-Mail-Adresse: *</label><input id="e1" type="text" name="email" required>
         <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" type="text" name="email2" required>
@@ -96,11 +97,14 @@ function fakePortal() {
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
         <button type="submit">Konto anlegen</button>`)}
-        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><button type="button" id="ok">Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
+        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
           const dialog = document.getElementById('dpcsDialog');
+          const review = document.getElementById('dpcsReview');
+          const accept = document.getElementById('ok');
+          review.addEventListener('change', () => { accept.disabled = !review.checked; });
           document.getElementById('dataPrivacyId').addEventListener('click', () => { if (document.getElementById('c').value) dialog.hidden = false; });
-          document.getElementById('ok').addEventListener('click', () => { document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
+          accept.addEventListener('click', () => { if (!review.checked) return; document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
           document.getElementById('no').addEventListener('click', () => { dialog.hidden = true; });
         </script>`));
     }
