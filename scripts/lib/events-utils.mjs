@@ -1501,29 +1501,29 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
-const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+(?:(?:under|below|moins\s+de|unter)\s+\d{1,2}|\d{1,2}\s*[–—-]\s*\d{1,2}))?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])/iu;
-const PRICE_CHILD_FREE_FOR_RE = /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)(?:\s+(?:under|below|moins\s+de|unter)\s+\d{1,2})?/iu;
+const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i|es|s)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i|es|s)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\b/iu;
+const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+(?:(?:under|below|moins\s+de|unter)\s+\d{1,2}|\d{1,2}\s*[–—-]\s*\d{1,2}))?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])/iu;
+const PRICE_CHILD_FREE_FOR_RE = /(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)(?:\s+(?:under|below|moins\s+de|unter)\s+\d{1,2})?/iu;
 const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^,.;\n]*?\b\d{1,2}\s*[–—-]\s*\d{1,2}\b/giu;
 const PRICE_AMOUNT_TOKEN = String.raw`(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d+)(?:[.,]\d{1,2})?`;
 const PRICE_AMOUNT_RE = new RegExp(String.raw`(?<![\p{L}\p{N}])${PRICE_AMOUNT_TOKEN}(?![\p{L}\p{N}])`, 'gu');
 const PRICE_ADJACENT_AMOUNT_RE = new RegExp(String.raw`(?:(?<![\p{L}\p{N}])(CHF|EUR|€|S?Fr\.?)(${PRICE_AMOUNT_TOKEN})(?![\p{L}\p{N}])|(?<![\p{L}\p{N}])(${PRICE_AMOUNT_TOKEN})(CHF|EUR|€|S?Fr\.?)(?![\p{L}\p{N}]))`, 'giu');
 const PRICE_RANGE_POSTFIX_RE = new RegExp(String.raw`(${PRICE_AMOUNT_TOKEN})\s*[–—-]\s*${PRICE_AMOUNT_TOKEN}\s*(CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)`, 'iu');
 const PRICE_CURRENCY_BEFORE_RE = /(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\s*$/iu;
-const PRICE_CURRENCY_AFTER_RE = /^\s*(?:[.]\s*[–—-]{1,2}\s*)?(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)(?=$|\s|[.,;:)])/iu;
+const PRICE_CURRENCY_AFTER_RE = /^\s*(?:[.]\s*[–—-]{1,2}\s*)?(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)(?=$|\s|[.,;:)/])/iu;
 const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
 const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
 const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
 const PRICE_AUDIENCE_AFTER_RE = /^\s*(?:adult(?:s|es)?|adulti|erwachsene)\b/iu;
-const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|entr[ée]e|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
+const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|entr[ée]e|ingresso|entrata|eintritt|accesso?|acc[eè]s|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
 const PRICE_DATE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b)/gu;
 const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
 const PRICE_PHONE_ALL_RE = /\+?\d[\d\s()./-]{6,}\d/gu;
 const PRICE_TIME_RE = /\b\d{1,2}:\d{2}\b/gu;
-const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i)?|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\s*[.!]?$/iu;
-const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;.\n]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;.\n]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
-const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b/iu;
+const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i|es|s)?|gratuit(?:e|s|es)?\s+(?:pour|per|for)\s+(?:tous|tutte|tutti|all)|gratis\s+per\s+tutti|free\s+for\s+all|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i|es|s)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\s*[.!]?$/iu;
+const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso|acc[eè]s)\b[^,;.\n]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b[^,;.\n]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso|acc[eè]s)\b)/iu;
+const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i|es|s)?)\b/iu;
 const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
 const PRICE_PARKING_BEFORE_RE = /(?:parking|parcheggio|parkplatz|stationnement)\s*[:=,-]?\s*(?:CHF|EUR|€|S?Fr\.?)?\s*$/iu;
 
@@ -1608,7 +1608,7 @@ export function parsePriceText(rawText) {
   const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
   if (!t) return undefined;
   const free = PRICE_FREE_RE.test(t);
-  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
+  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit(?:[aioe]|i|es|s)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
   if (free && conditionalFree) {
     // Remove the child-free clause first, then explicitly mask age ranges as
     // well. A source can spell the same condition in a way that does not fit
