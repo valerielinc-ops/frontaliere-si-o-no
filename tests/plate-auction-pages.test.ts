@@ -218,6 +218,7 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('/aste-targhe-svizzera/grigioni-gr/gr2006/');
     expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/pagina-2/');
     expect((rendered.html.match(/href="[^\"]*\/gr\d+\//g) || []).length).toBeLessThanOrEqual(48);
+    expect(rendered.html.match(/<h1[^>]*>([^<]*)<\/h1>/)?.[1]).toContain('Altre aste pubblicate');
     expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
     // See the canton-page assertion above: metadata enrichment is head-only
     // and must not turn this approximate density check into a false failure.
