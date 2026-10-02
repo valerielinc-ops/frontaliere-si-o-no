@@ -12353,6 +12353,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.brunello-fisco-frontaliere.title': 'Vivre à Brunello et travailler au Tessin en tant que navetteur transfrontalier',
     'blog.article.brunello-fisco-frontaliere.excerpt': 'Vivre au Brunello et travailler au Tessin : Nouvel accord transfrontalier de banlieue à partir du 1er janvier 2024, déductible de 10 000 € et retenue à la source uniquement en Suisse.',
     'blog.article.brunello-fisco-frontaliere.imageAlt': 'Frontalier en route avec le paysage du Tessin en arrière-plan',
+    'blog.article.cairate-fisco-confine.title': 'Vivre au Cairé et travailler au Tessin en tant que navetteur transfrontalier',
+    'blog.article.cairate-fisco-confine.excerpt': 'Nouvel accord transfrontalier pour les navetteurs en vigueur à partir du 1er janvier 2024 : retenue à la source, déductibles, AHV, BVG et KVG pour les habitants du Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Paysage tessinois lié au travail frontalier depuis Cairate',
 };
 
 export default blogMetaFr;

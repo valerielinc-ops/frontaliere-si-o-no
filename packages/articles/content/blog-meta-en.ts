@@ -12351,6 +12351,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.brunello-fisco-frontaliere.title': 'Living in Brunello and working in Ticino as a cross-border commuter',
     'blog.article.brunello-fisco-frontaliere.excerpt': 'Living at Brunello and working in Ticino: New Cross-Border Commuter Agreement from 1 January 2024, deductible €10,000 and withholding tax only in Switzerland.',
     'blog.article.brunello-fisco-frontaliere.imageAlt': 'Cross-border worker travelling with the Ticino landscape in the background',
+    'blog.article.cairate-fisco-confine.title': 'Living in Cairate and working in Ticino as a cross-border commuter',
+    'blog.article.cairate-fisco-confine.excerpt': 'New Cross-Border Commuter Agreement in force from 1 January 2024: withholding tax, deductibles, AHV, BVG and KVG for those living in Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Ticino landscape linked to cross-border work from Cairate',
 };
 
 export default blogMetaEn;

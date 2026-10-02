@@ -12352,6 +12352,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.brunello-fisco-frontaliere.title': 'Vivere a Brunello e lavorare in Ticino da frontaliere',
     'blog.article.brunello-fisco-frontaliere.excerpt': 'Vivere a Brunello e lavorare in Ticino: Nuovo Accordo Frontalieri dal 1° gennaio 2024, franchigia €10\'000 e imposta alla fonte solo in Svizzera.',
     'blog.article.brunello-fisco-frontaliere.imageAlt': 'Frontaliere in viaggio con il paesaggio del Ticino sullo sfondo',
+    'blog.article.cairate-fisco-confine.title': 'Vivere a Cairate e lavorare in Ticino da frontaliere',
+    'blog.article.cairate-fisco-confine.excerpt': 'Nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024: imposta alla fonte, franchigie, AVS, LPP e LAMal per chi vive a Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Paesaggio ticinese legato al lavoro transfrontaliero da Cairate',
 };
 
 export default blogMetaIt;

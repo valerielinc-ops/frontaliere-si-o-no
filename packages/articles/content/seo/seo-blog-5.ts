@@ -97963,6 +97963,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cairate-fisco-confine': {
+    title: 'Vivere a Cairate e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Cairate e lavorare in Ticino: accordo dal 2024, franchigie, imposta alla fonte solo in Svizzera, AVS, LPP, LAMal e credito nel 730 per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, cairate, lavorare, nuovo',
+    ogTitle: 'Vivere a Cairate e lavorare in Ticino da frontaliere',
+    ogDescription: 'Chi abita a Cairate e lavora in Canton Ticino deve distinguere vecchi e nuovi frontalieri, il credito d\'imposta nel quadro CE del 730, i contributi AVS e LPP e il diritto d\'opzione LAMal. Guida pratica alle regole dal 2024.',
+    canonicalPath: '/articoli-frontaliere/cairate-fisco-confine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Cairate e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Cairate e lavorare in Ticino: accordo dal 2024, franchigie, imposta alla fonte solo in Svizzera, AVS, LPP, LAMal e credito nel 730 per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cairate-fisco-confine.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio ticinese legato al lavoro transfrontaliero da Cairate"
+      },
+      "datePublished": "2026-10-02T02:05:10+00:00",
+      "dateModified": "2026-10-02T02:05:10+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cairate-fisco-confine/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

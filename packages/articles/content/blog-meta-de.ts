@@ -12350,6 +12350,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.brunello-fisco-frontaliere.title': 'Leben in Brunello und Arbeit im Tessin als grenzüberschreitender Pendler',
     'blog.article.brunello-fisco-frontaliere.excerpt': 'Leben bei Brunello und Arbeit in Tessin: Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024, absetzbar 10.000 € und Quellensteuer nur in der Schweiz.',
     'blog.article.brunello-fisco-frontaliere.imageAlt': 'Grenzgänger unterwegs mit der Tessiner Landschaft im Hintergrund',
+    'blog.article.cairate-fisco-confine.title': 'Leben in Cairate und Arbeit als Grenzpendler im Tessin',
+    'blog.article.cairate-fisco-confine.excerpt': 'Neues Grenzgängerabkommen ab 1° gennaio 2024 in Kraft: Quellensteuer, Freibeträge, AHV, BVG und KVG für Personen, die in Cairate leben.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Tessiner Landschaft zum Grenzgänger-Arbeiten aus Cairate',
 };
 
 export default blogMetaDe;
