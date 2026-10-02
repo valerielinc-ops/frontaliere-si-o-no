@@ -132,6 +132,30 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('push_attempt=$((push_attempt + 1))');
   });
 
+  it('passes the evidence PR branch from the build job into quota tuning', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
+    const tune = workflow.indexOf('node scripts/tune-discovery-quota.mjs');
+    const publishers = workflow.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    const branchPublishers = workflow.match(/--branch "\$DATA_REFRESH_BRANCH"/g) ?? [];
+
+    expect(workflow).toContain('git ls-remote --heads origin');
+    expect(branchCheckout).toBeGreaterThan(-1);
+    expect(tune).toBeGreaterThan(branchCheckout);
+    expect(publishers).toHaveLength(2);
+    expect(branchPublishers).toHaveLength(2);
+    expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
+  });
+
+  it('uses the App token only when it has data-refresh write capability', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+  });
+
   it('passes named three-way merge arguments without treating a value as a flag', () => {
     const output = execFileSync(
       process.execPath,
