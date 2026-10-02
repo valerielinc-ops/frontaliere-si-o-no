@@ -2542,6 +2542,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'novartis-abo2203-rna-licenza': { it: 'novartis-abo2203-rna-licenza', en: 'novartis-abo2203-rna-license', de: 'novartis-abo2203-rna-lizenz', fr: 'licence-rna-abo2203-novartis' },
  'sondaggio-conciliazione-lavoro-vita': { it: 'sondaggio-conciliazione-lavoro-vita', en: 'work-life-balance-survey-ticino', de: 'umfrage-work-life-balance-tessin', fr: 'sondage-equilibre-vie-travail-tessin' },
  'analisi-traffico-gottardo-app': { it: 'analisi-traffico-gottardo-app', en: 'gotthard-traffic-analysis-app', de: 'gotthard-verkehrsanalyse-app', fr: 'analyse-trafic-gothard-app' },
+ 'guida-retribuzioni-argovia-2026': { it: 'guida-retribuzioni-argovia-2026', en: 'swiss-average-salary-aargau-2026', de: 'durchschnittslohn-berufe-aargau-2026', fr: 'salaire-moyen-metiers-argovie-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

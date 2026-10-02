@@ -7559,6 +7559,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.analisi-traffico-gottardo-app.title': 'Gotthard : analyse des données pour éviter les files d’attente',
     'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini a créé l’application Gottardo Live en analysant 19 000 rapports FEDRO. Découvrez comment surveiller le trafic et mieux planifier votre voyage.',
     'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Trafic en attente devant l\'entrée d\'un tunnel autoroutier en Suisse.',
+    'blog.article.guida-retribuzioni-argovia-2026.title': 'Salaire moyen professions Suisse 2026 : canton d\'Argovie',
+    'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Comparaison 2026 entre professions, secteurs et cantons : le focus sur l’Argovie commence par les impôts, les cotisations AVS/AI/APG, la LPP et la LAMal.',
+    'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Bureau suisse avec graphiques salariaux et référence au canton d\'Argovie.',
 };
 
 export default blogMetaChFr;

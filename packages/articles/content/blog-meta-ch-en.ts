@@ -7559,6 +7559,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.analisi-traffico-gottardo-app.title': 'Gotthard: data analysis to avoid queues',
     'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini created the Gottardo Live app by analyzing 19 thousand FEDRO reports. Find out how to monitor traffic and better plan your trip.',
     'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Traffic waiting in front of a Swiss highway tunnel entrance.',
+    'blog.article.guida-retribuzioni-argovia-2026.title': 'Average salary professions Switzerland 2026: canton Aargau',
+    'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Comparison 2026 between professions, sectors and cantons: the focus on Aargau starts with taxes, AVS/AI/IPG contributions, LPP and LAMal.',
+    'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Swiss office with salary comparison charts and a reference to canton Aargau.',
 };
 
 export default blogMetaChEn;

@@ -7559,6 +7559,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.analisi-traffico-gottardo-app.title': 'Gottardo: l\'analisi dei dati per evitare le code',
     'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini ha creato l\'app Gottardo Live analizzando 19mila segnalazioni USTRA. Scopri come monitorare il traffico e pianificare meglio il viaggio.',
     'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Traffico in attesa davanti all\'ingresso di un tunnel autostradale in Svizzera.',
+    'blog.article.guida-retribuzioni-argovia-2026.title': 'Salario medio professioni Svizzera 2026: canton Argovia',
+    'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Confronto 2026 tra professioni, settori e cantoni: il focus sull\'Argovia parte da imposte, contributi AVS/AI/IPG, LPP e LAMal.',
+    'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Ufficio svizzero con grafici sul salario medio e riferimento al canton Argovia.',
 };
 
 export default blogMetaChIt;

@@ -7559,6 +7559,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.analisi-traffico-gottardo-app.title': 'Gotthard: Datenanalyse zur Vermeidung von Staus',
     'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini entwickelte die Gottardo Live-App, indem er 19.000 FEDRO-Berichte analysierte. Erfahren Sie, wie Sie den Verkehr überwachen und Ihre Reise besser planen können.',
     'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Stau vor einem Autobahntunnel in der Schweiz.',
+    'blog.article.guida-retribuzioni-argovia-2026.title': 'Durchschnittslohn Berufe Schweiz 2026: Kanton Aargau',
+    'blog.article.guida-retribuzioni-argovia-2026.excerpt': 'Vergleich 2026 zwischen Berufen, Branchen und Kantonen: Der Fokus auf den Aargau liegt auf Steuern, AHV/IV/EO-Beiträgen, BVG und KVG.',
+    'blog.article.guida-retribuzioni-argovia-2026.imageAlt': 'Schweizer Büro mit Grafiken zum Durchschnittslohn und Bezug zum Kanton Aargau.',
 };
 
 export default blogMetaChDe;
