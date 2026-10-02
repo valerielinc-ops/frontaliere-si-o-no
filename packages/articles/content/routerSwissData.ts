@@ -2519,6 +2519,22 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rientro-maternita-filanda': { it: 'rientro-maternita-filanda', en: 'return-to-work-maternity-filanda', de: 'wiedereinstieg-mutterschaft-filanda', fr: 'retour-travail-maternite-filanda' },
  'sessione-autunnale-mercosur-ubs': { it: 'sessione-autunnale-mercosur-ubs', en: 'autumn-session-mercosur-ubs', de: 'herbstsession-mercosur-ubs', fr: 'session-automne-mercosur-ubs' },
  'vendite-auto-elettrico-svizzera': { it: 'vendite-auto-elettrico-svizzera', en: 'car-sales-electric-switzerland', de: 'autoverkaeufe-elektroauto-schweiz', fr: 'ventes-voitures-electriques-suisse' },
+ 'parmelin-dimissioni-consiglio-federale': { it: 'parmelin-dimissioni-consiglio-federale', en: 'parmelin-resigns-federal-council', de: 'parmelin-tritt-bundesrat-zurueck', fr: 'parmelin-quitte-conseil-federal' },
+ 'bancarotte-imprese-nove-mesi': { it: 'bancarotte-imprese-nove-mesi', en: 'swiss-business-bankruptcies-nine-months', de: 'schweizer-unternehmenspleiten-neun-monate', fr: 'faillites-entreprises-suisses-neuf-mois' },
+ 'automazione-ia-amministrazione-federale': { it: 'automazione-ia-amministrazione-federale', en: 'federal-administration-ai-automation', de: 'bundesverwaltung-ki-automatisierung', fr: 'administration-federale-ia-automatisation' },
+ 'parmelin-successore-defr': { it: 'parmelin-successore-defr', en: 'parmelin-successor-defr', de: 'parmelin-nachfolger-defr', fr: 'parmelin-successeur-defr' },
+ 'ordinanza-vigilanza-mercati-energia': { it: 'ordinanza-vigilanza-mercati-energia', en: 'ordinance-supervision-energy-markets', de: 'verordnung-aufsicht-energiemaerkte', fr: 'ordonnance-surveillance-marches-energie' },
+ 'franco-apprezzamento-eurozona': { it: 'franco-apprezzamento-eurozona', en: 'franc-strengthens-eurozone', de: 'franken-verstarkt-eurozone', fr: 'franc-se-reforce-zoneuro' },
+ 'defr-successore-parmelin-sfide': { it: 'defr-successore-parmelin-sfide', en: 'defr-parmelin-successor-challenges', de: 'wbf-nachfolger-parmelin-herausforderungen', fr: 'dfep-successeur-parmelin-defis' },
+ 'proroga-aiuto-monetario-fmi': { it: 'proroga-aiuto-monetario-fmi', en: 'monetary-aid-extension-imf', de: 'geldhilfe-verlaengerung-ifi', fr: 'prolongation-aide-monetaire-fmi' },
+ 'moderniz-perseguimento-penale': { it: 'moderniz-perseguimento-penale', en: 'switzerland-initiates-consultation-on-the-third-ecag-protocol', de: 'die-schweiz-leitet-eine-konsultation-zum-dritten-ecag-protokoll-ein', fr: 'la-suisse-engage-une-consultation-sur-le-troisieme-protocole-de-la-ceagg' },
+ 'otto-progetti-ricostruzione-ucraina': { it: 'otto-progetti-ricostruzione-ucraina', en: 'eight-ukraine-reconstruction-projects', de: 'acht-ukraine-wiederaufbauprojekte', fr: 'huit-projets-reconstruction-ukraine' },
+ 'piloti-swiss-lettera-aperta': { it: 'piloti-swiss-lettera-aperta', en: 'swiss-pilots-open-letter', de: 'swiss-piloten-offener-brief', fr: 'pilotes-swiss-lettre-ouverte' },
+ 'micasa-investitori-svizzeri-chiude-filiali': { it: 'micasa-investitori-svizzeri-chiude-filiali', en: 'micasa-swiss-investors-close-branches', de: 'micasa-schweizer-investoren-schliessen-filialen', fr: 'micasa-investisseurs-suisses-ferment-filiales' },
+ 'studio-eth-carico-fiscale-svizzera': { it: 'studio-eth-carico-fiscale-svizzera', en: 'eth-study-swiss-tax-burden', de: 'eth-studie-steuerbelastung-schweiz', fr: 'etude-eth-charge-fiscale-suisse' },
+ 'cassa-malati-premi-ticino-aumento': { it: 'cassa-malati-premi-ticino-aumento', en: 'health-insurance-premiums-ticino-increase', de: 'krankenversicherungspramien-tiino-erhohung', fr: 'primes-assurance-maladie-tessin-augmentation' },
+ 'annuncio-parmelin-sgravio-2024': { it: 'annuncio-parmelin-sgravio-2024', en: 'parmelin-resignation-economic-praise', de: 'parmelin-ruecktritt-wirtschaft-dank', fr: 'parmelin-demission-merci-economique' },
+ 'inventario-idroelettrico-storico': { it: 'inventario-idroelettrico-storico', en: 'historic-hydropower-inventory', de: 'historisches-wasserkraft-inventar', fr: 'inventaire-hydroelectrique-historique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

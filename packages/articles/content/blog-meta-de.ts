@@ -12364,6 +12364,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 2. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Grenzgänger-Bulletin vom 2. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'Die Zahlen vom 2. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.adeguamento-pensioni-gennaio.title': 'AHV ist leicht gestiegen seit Januar',
+    'blog.article.adeguamento-pensioni-gennaio.excerpt': 'Ab Januar steigt die Mindestrente AHV/IV auf 1.280 Francs, das Maximum auf 2.560 Francs. Auch Mindestbeiträge und Zusatzleistungen werden erhöht.',
+    'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Anpassung der AHV- und IV-Renten ab Januar',
 };
 
 export default blogMetaDe;

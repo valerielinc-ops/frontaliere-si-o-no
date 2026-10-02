@@ -37087,6 +37087,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'adeguamento-pensioni-gennaio',
+ category: 'pensione',
+ date: '2026-10-02T16:04:33.287Z',
+ image: '/images/blog/adeguamento-pensioni-gennaio.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

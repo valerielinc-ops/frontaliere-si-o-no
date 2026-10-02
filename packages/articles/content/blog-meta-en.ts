@@ -12365,6 +12365,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'The day\'s numbers for cross-border commuters – October 2, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Cross-border brief, October 2, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'The numbers for October 2, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.adeguamento-pensioni-gennaio.title': 'AHV slightly up from January',
+    'blog.article.adeguamento-pensioni-gennaio.excerpt': 'From January, the minimum AHV/IV pension will rise to 1,280 francs, the maximum to 2,560 francs. Minimum contributions and supplementary benefits will also increase.',
+    'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'AVS and AI pensions adjusted from January',
 };
 
 export default blogMetaEn;

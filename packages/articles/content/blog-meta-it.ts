@@ -12366,6 +12366,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'I numeri del giorno per i frontalieri – 2 ottobre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Bollettino frontalieri del 2 ottobre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'I numeri del 2 ottobre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.adeguamento-pensioni-gennaio.title': 'AVS in leggero aumento da gennaio',
+    'blog.article.adeguamento-pensioni-gennaio.excerpt': 'Da gennaio la rendita minima AVS/AI sale a 1\'280 franchi, la massima a 2\'560. Aumentano anche i contributi minimi e le prestazioni complementari.',
+    'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Rendite AVS e AI adeguate da gennaio',
 };
 
 export default blogMetaIt;
