@@ -958,6 +958,17 @@ jobs:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs
 
+      # Keep the delivery assertion as the actual last step of every
+      # non-preview sync job. On the PR path the publisher has committed the
+      # generated snapshot in this checkout, so this check still proves that
+      # the pull was not silently discarded; the push-triggered replay proves
+      # the same snapshot reached main after the required PR check.
+      - name: Assert the non-preview sync snapshot was committed
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
+        run: node scripts/ci/assert-articles-sync-delivered.mjs
+
   # The stable refresh PR deliberately skips every live side effect until its
   # required check has passed. This push job is the other half of that contract:
   # it reads the merged main tree and replays every surface that the PR path
