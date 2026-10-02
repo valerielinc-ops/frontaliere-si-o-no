@@ -117,6 +117,14 @@ function mergeEventCache(file, baseRaw, remoteRaw, refreshRaw) {
 }
 
 function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
+  // Only the explicitly supported text histories/caches need decoding. All
+  // other paths are complete snapshots and must retain their original bytes.
+  const semantic = EVENT_CACHE_PATHS.has(file) || file.endsWith('.jsonl')
+    || TELEGRAM_LEDGER_PATHS.has(file) || file === INSPECTION_STATE_PATH;
+  if (!semantic) return refreshRaw;
+  baseRaw = baseRaw === null ? null : baseRaw.toString('utf8');
+  remoteRaw = remoteRaw.toString('utf8');
+  refreshRaw = refreshRaw.toString('utf8');
   if (EVENT_CACHE_PATHS.has(file)) return mergeEventCache(file, baseRaw, remoteRaw, refreshRaw);
   if (file.endsWith('.jsonl')) return mergeJsonLines(remoteRaw, refreshRaw);
   if (TELEGRAM_LEDGER_PATHS.has(file)) return mergePostedLedger(remoteRaw, refreshRaw, file);
@@ -133,8 +141,10 @@ function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
  * `null` represents a missing blob in a git ref.
  */
 export function mergeRefreshContent(file, baseRaw, remoteRaw, refreshRaw) {
-  const remoteChanged = remoteRaw !== baseRaw;
-  const refreshChanged = refreshRaw !== baseRaw;
+  const same = (left, right) => left === right
+    || (Buffer.isBuffer(left) && Buffer.isBuffer(right) && left.equals(right));
+  const remoteChanged = !same(remoteRaw, baseRaw);
+  const refreshChanged = !same(refreshRaw, baseRaw);
 
   if (!refreshChanged) return remoteRaw;
   if (!remoteChanged) return refreshRaw;

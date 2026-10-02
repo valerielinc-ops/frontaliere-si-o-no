@@ -64,7 +64,7 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     }).trim();
   }
 
-  function write(repo: string, file: string, content: string) {
+  function write(repo: string, file: string, content: string | Uint8Array) {
     fs.mkdirSync(path.dirname(path.join(repo, file)), { recursive: true });
     fs.writeFileSync(path.join(repo, file), content);
   }
@@ -131,6 +131,49 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     // The symlinks themselves stay symlinks: the merge writes the real blobs.
     expect(fs.lstatSync(path.join(repo, 'services/locales/blog-body')).isSymbolicLink()).toBe(true);
     expect(fs.lstatSync(path.join(repo, 'data/blog-articles-data.ts')).isSymbolicLink()).toBe(true);
+  });
+
+  it('keeps binary snapshots byte-exact while merging text histories', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'merge-refresh-binary-'));
+    tmpDirs.push(repo);
+    git(repo, ['init', '-q', '-b', 'main']);
+    const image = 'public/images/blog/hero.webp';
+    const addedImage = 'public/images/blog/new.webp';
+    const history = 'data/history.jsonl';
+    // Invalid UTF-8 bytes expose any accidental binary-to-text round trip.
+    const original = Buffer.from([0x52, 0x49, 0x46, 0x46, 0xff, 0x00, 0x80]);
+    const refreshed = Buffer.from([0x52, 0x49, 0x46, 0x46, 0xfe, 0x81, 0x00]);
+    write(repo, image, original);
+    write(repo, history, '{"run":"base"}\n');
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'base']);
+    const base = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', '-b', 'chore/refresh']);
+    write(repo, image, Buffer.from([0x80, 0xff, 0x00]));
+    write(repo, history, '{"run":"base"}\n{"run":"remote"}\n');
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'remote']);
+    const remote = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'main']);
+    write(repo, image, refreshed);
+    write(repo, addedImage, original);
+    write(repo, history, '{"run":"base"}\n{"run":"refresh"}\n');
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'refresh']);
+    const refresh = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'chore/refresh']);
+    execFileSync(process.execPath, [MERGE_SCRIPT,
+      '--base', base, '--remote', remote, '--refresh', refresh,
+      '--path', 'public/images/blog', '--path', history,
+    ], { cwd: repo, encoding: 'utf8' });
+    expect(fs.readFileSync(path.join(repo, image))).toEqual(refreshed);
+    expect(fs.readFileSync(path.join(repo, addedImage))).toEqual(original);
+    expect(fs.readFileSync(path.join(repo, history), 'utf8')).toBe(
+      '{"run":"base"}\n{"run":"remote"}\n{"run":"refresh"}\n',
+    );
+    // Distinct Buffer objects with identical bytes represent an unchanged ref.
+    expect(mergeRefreshContent(image, original, refreshed, Buffer.from(original))).toEqual(refreshed);
+    expect(mergeRefreshContent(image, original, Buffer.from(original), null)).toBeNull();
   });
 
   it('reads large generated blobs during stable-branch reconciliation', () => {
