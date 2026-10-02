@@ -197,11 +197,11 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // These four fields are part of the current Event page contract. Legacy
+  // These three fields are part of the current Event page contract. Legacy
   // fixtures may still fail here, which is intentional: a regression that
   // drops a deterministic default must block the build instead of passing as
   // an absent optional value.
-  for (const field of ['image', 'organizer', 'performer', 'offers']) {
+  for (const field of ['image', 'organizer', 'performer']) {
     if (schema[field] === undefined || schema[field] === null) {
       errors.push({ file: filePath, type: 'Event', field, message: `Event missing required structured-data field "${field}"` });
     }
@@ -236,14 +236,16 @@ function validateEvent(schema, filePath) {
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
       }
-      if ('availability' in schema.offers && !isNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
-      }
-      if ('validFrom' in schema.offers && !isNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
-      }
-      if ('url' in schema.offers && !isNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
+      for (const field of ['availability', 'validFrom', 'url']) {
+        if (!isNonEmpty(schema.offers[field])) {
+          const hasEmptyValue = Object.prototype.hasOwnProperty.call(schema.offers, field);
+          errors.push({
+            file: filePath,
+            type: 'Event',
+            field: `offers.${field}`,
+            message: `Event offers ${hasEmptyValue ? 'has an empty' : 'missing'} "${field}"`,
+          });
+        }
       }
     }
   }
