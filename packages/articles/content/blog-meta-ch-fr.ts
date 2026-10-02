@@ -7430,6 +7430,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franchigia-sussidi-ginevra.title': 'Primes d’assurance santé KVG en 2026 : Canton de Genève',
     'blog.article.franchigia-sussidi-ginevra.excerpt': 'Guide 2026 des primes KVG dans le canton de Genève : franchises pour adultes, comparaison entre cantons, échange de fonds et réduction cantonale des primes.',
     'blog.article.franchigia-sussidi-ginevra.imageAlt': 'Documents LAMal et calculatrice pour comparer les primes d\'assurance à Genève',
+    'blog.article.franchigia-premi-vaud-2026.title': 'Primes d’assurance maladie KVG en 2026 dans le canton de Vaud',
+    'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guide des primes d’assurance santé KVG en 2026 dans le canton de Vaud : franchises adultes, différences entre cantons et régions, subvention cantonale et changement de police d’assurance.',
+    'blog.article.franchigia-premi-vaud-2026.imageAlt': 'Documents sur les primes LAMal et calculatrice sur une table dans un logement suisse',
 };
 
 export default blogMetaChFr;

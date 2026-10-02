@@ -2499,6 +2499,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'bilancio-familiare-lucerna': { it: 'bilancio-familiare-lucerna', en: 'lucerne-household-budget', de: 'haushaltsbudget-luzern', fr: 'budget-menage-lucerne' },
  'argovia-spese-quotidiane-2026': { it: 'argovia-spese-quotidiane-2026', en: 'swiss-cost-of-living-2026-aargau', de: 'lebenshaltungskosten-schweiz-2026-aargau', fr: 'cout-vie-suisse-2026-argovie' },
  'franchigia-sussidi-ginevra': { it: 'franchigia-sussidi-ginevra', en: 'geneva-lamal-deductible-subsidies', de: 'genf-lamal-franchise-praemien', fr: 'geneve-lamal-franchise-subsides' },
+ 'franchigia-premi-vaud-2026': { it: 'franchigia-premi-vaud-2026', en: 'vaud-health-premium-deductible-2026', de: 'krankenkassenpraemie-waadt-franchise-2026', fr: 'franchise-primes-vaud-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

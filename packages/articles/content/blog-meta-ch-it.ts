@@ -7430,6 +7430,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franchigia-sussidi-ginevra.title': 'Premi cassa malati LAMal 2026: canton Ginevra',
     'blog.article.franchigia-sussidi-ginevra.excerpt': 'Guida 2026 ai premi LAMal nel canton Ginevra: franchigie adulti, confronto tra cantoni, cambio cassa e riduzione premi cantonale.',
     'blog.article.franchigia-sussidi-ginevra.imageAlt': 'Documenti LAMal e calcolatrice per confrontare i premi a Ginevra',
+    'blog.article.franchigia-premi-vaud-2026.title': 'Premi cassa malati LAMal 2026 nel canton Vaud',
+    'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guida ai premi cassa malati LAMal 2026 nel canton Vaud: franchigie adulti, differenze tra cantoni e regioni, sussidio cantonale e cambio cassa.',
+    'blog.article.franchigia-premi-vaud-2026.imageAlt': 'Documenti sui premi LAMal e calcolatrice su un tavolo in una casa svizzera',
 };
 
 export default blogMetaChIt;

@@ -7430,6 +7430,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franchigia-sussidi-ginevra.title': 'KVG-Krankenversicherungsprämien im Jahr 2026: Kanton Genf',
     'blog.article.franchigia-sussidi-ginevra.excerpt': 'Leitfaden 2026 zu KVG-Prämien im Kanton Genf: Selbstbeteiligungen für Erwachsene, Vergleich zwischen Kantonen, Geldaustausch und Reduktion der kantonalen Prämien.',
     'blog.article.franchigia-sussidi-ginevra.imageAlt': 'LAMal-Unterlagen und Rechner zum Vergleich der Krankenkassenprämien in Genf',
+    'blog.article.franchigia-premi-vaud-2026.title': 'Krankenkassenprämien LAMal 2026 im Kanton Waadt',
+    'blog.article.franchigia-premi-vaud-2026.excerpt': 'Leitfaden zu den Krankenkassenprämien LAMal 2026 im Kanton Waadt: Erwachsenenfranchisen, Unterschiede zwischen Kantonen und Regionen, kantonale Prämienverbilligung und Krankenkassenwechsel.',
+    'blog.article.franchigia-premi-vaud-2026.imageAlt': 'LAMal-Prämienunterlagen und Taschenrechner auf einem Tisch in einem Schweizer Haushalt',
 };
 
 export default blogMetaChDe;
