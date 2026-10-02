@@ -48,6 +48,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
+import { candidateType } from '../../../functions/src/assistedApplicationCandidateType.js';
 import {
   TAILORED_CV_SCHEMA,
   buildTailoredCvPdf,
@@ -160,9 +161,12 @@ export async function buildDraft(ctx) {
   const profileJson = JSON.stringify(profile);
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
+  // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
+  const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
   // The tailored ATS CV needs only the profile and the requirements: it runs
   // while the match and the letter are written.
   const tailoredCvPromise = buildTailoredCv({
+    kind,
     codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
   });
@@ -179,6 +183,7 @@ export async function buildDraft(ctx) {
   const documentsRaw = await codex({
     prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
       candidateName: identity.name,
+      candidateType: kind.type,
       profile,
       requirements,
       matches: match.matches,
@@ -319,6 +324,7 @@ export async function buildDraft(ctx) {
     coverLetterPdfKey: pdfKey,
     ats,
     legitimacy,
+    candidateType: kind,
     tailoredCv: tailored.record,
   };
 
@@ -340,16 +346,16 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
   try {
     const raw = await codex({
       prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
-        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers,
+        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type,
       })),
       schema: TAILORED_CV_SCHEMA,
       timeoutMs: CODEX_TIMEOUT_MS,
     });
-    const cv = sanitizeTailoredCv(raw, { profile, cvText, language });
+    const cv = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
     const text = tailoredCvPlainText(cv, { identity, profile });
     const facts = checkTailoredCvFacts(cv, { cvText, profile, answers: { ...answers, notes: candidateNotes } });
     if (!facts.ok) {
