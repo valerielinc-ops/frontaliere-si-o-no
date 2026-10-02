@@ -53,86 +53,34 @@
  * The value is lost only when the step never writes it — see #4828.
  */
 
+import { advisoryGateRationales } from './lib/seo-gate-classes.mjs';
+
 /**
- * Gates whose failure describes a defect in pages that are already live and
- * serving correctly. Not announcing such a page to Google does not fix the
- * defect — it only keeps a working page out of the index.
+ * Gates whose failure does NOT sequester `publish`: exactly the SEO gates in
+ * `advisory` mode in `scripts/ci/lib/seo-gate-classes.mjs` (class C, plus any
+ * owner-pending override). That module is the ONE classification shared with
+ * `cathedral-seo-gates-check`, so the same gate cannot be advisory here and
+ * blocking there (owner, 2026-10-02: «quei check non sono opzionali»).
  *
- * Everything not listed here is treated as deploy-invalidating. In
- * particular the sitemap validators stay blocking: `publish` submits the
- * sitemap URL set verbatim, so a bad sitemap means we would push wrong or
- * dead URLs to Google and Bing.
+ * The class comes from external evidence, cited per gate in that module:
+ *   - A (blocking): data/markup Google requires, or certain damage (blank
+ *     shell, unparseable JSON-LD, sitemap/canonical that `publish` would
+ *     submit verbatim). Any failure blocks.
+ *   - B (blocking on regression): documented impact on indexing/ranking/UX
+ *     with a measured backlog. The auditor's own ratchet only fails on a
+ *     regression, and that failure blocks like A. Since 2026-10-02 this is
+ *     `audit:max-bfs-depth`, `audit:orphan-sitemap-pages`, `audit:hreflang`,
+ *     `audit:all/information-gain`, `audit:all/page-weight` — previously
+ *     listed here as quality (history: #5114 for hreflang, #4828/#6462 for
+ *     the rest).
+ *   - C (advisory): no evidence of impact. The run stays RED and the issue
+ *     still opens (a regression stays root-cause-first, VISION.md D9), but a
+ *     working, already-live page is still announced.
+ *
+ * Everything not classified there is deploy-invalidating by default-deny
+ * below (non-SEO validators included).
  */
-export const QUALITY_GATES = Object.freeze({
-  // #5114. A broken <link rel="alternate"> is a real SEO defect, but the
-  // page itself renders and serves. Google tolerates a MISSING hreflang.
-  'audit:hreflang': 'broken cross-locale alternates; pages serve correctly',
-  // Internal-link depth. Affects discoverability, not validity.
-  'audit:max-bfs-depth': 'link-graph depth ratchet; pages serve correctly',
-  // In the sitemap but not internally linked. The page exists.
-  'audit:orphan-sitemap-pages': 'orphan pages; URLs resolve',
-  // Completeness of job records (salary, postcode, …) in already-live pages.
-  'validate:jobs-quality': 'job record completeness; pages serve correctly',
-  // Issue #5656 item 1: five vitest RUN_DIST_GATES files newly wired
-  // (duplicate meta descriptions, duplicate page-scoped JSON-LD, anchor-text
-  // budget, single-H1-per-page, related-search-cluster contract), running
-  // for the first time ever against production dist/. Same class as
-  // content-duplicates/h1-title-duplicates below — a page with one of these
-  // defects still renders and serves. Unreviewed-first-run, so it must not
-  // sequester the indexing notification of an already-live, valid deploy.
-  'dist:quality-tests': 'newly-wired dist content-quality gates; pages serve correctly',
-
-  // ── `audit:all` sub-auditors (#4828) ───────────────────────────────────
-  // `audit:all` is a bundle of 12 auditors reported under ONE gate name.
-  // Left opaque it is unclassifiable, so default-deny blocked `publish`
-  // whenever any of the 12 went red — including the purely cosmetic ones.
-  // Run 31077435060 is the proof: audit:all red for h1-title-duplicates +
-  // text-html-ratio + no-literal-markdown only, every structural auditor
-  // green, and `publish` skipped.
-  //
-  // validate-dist-postbuild now expands the bundle into `audit:all/<name>`.
-  // Only auditors whose failure describes a defect on a page that RENDERS
-  // AND SERVES are listed here. The four deliberately NOT listed —
-  // `audit:all/footer-root-presence` (hydration-safe shell: a failure means
-  // pages may be broken shells), `audit:all/jsonld-no-nested-scripts`
-  // (nested <script> wrappers can break the document), plus
-  // `audit:all/faqpage-validity` and `audit:all/image-object-license`
-  // (structured-data validity we submit alongside the URL) — stay blocking
-  // through default-deny, as does any auditor registered in future.
-  'audit:all/title-length': 'title over the length ratchet; page serves',
-  'audit:all/title-no-disambig-hash': 'cosmetic title suffix; page serves',
-  'audit:all/h1-title-duplicates': 'h1 duplicates title; page serves',
-  'audit:all/text-html-ratio': 'thin text/markup ratio; page serves',
-  'audit:all/content-duplicates': 'near-duplicate bodies; pages serve',
-  'audit:all/page-weight': 'page byte budget; page serves',
-  'audit:all/no-literal-markdown': 'unrendered markdown in <main>; page serves',
-  'audit:all/salary-landing-template': 'landing template drift; page serves',
-
-  // ── the four folded out of `gate:dist-quality` (#5845 item 6) ──────────
-  // These are the SAME four invariants `dist:quality-tests` above covers as
-  // QUALITY; they moved from a vitest pool that OOM'd at 597.95 s (run
-  // 31891126686) into scripts/audit-all.mjs's REGISTRY. Their class does not
-  // change with the runner: a page with two <h1>, a duplicated FAQPage block,
-  // an unnamed anchor or a recycled meta description still renders and
-  // serves. Omitting them here would silently RE-CLASSIFY all four as
-  // deploy-invalidating via default-deny — sequestering the indexing
-  // notification of a valid deploy for a cosmetic defect, which is exactly
-  // what #4828 removed and what the `dist:quality-tests` entry prevents today.
-  'audit:all/single-h1-per-page': 'ambiguous page topic; page serves',
-  'audit:all/duplicate-structured-data': 'duplicate page-scoped JSON-LD @type; page serves',
-  'audit:all/link-anchor-text': 'anchors without an accessible name; page serves',
-  'audit:all/duplicate-meta-description': 'recycled meta description; page serves',
-
-  // ── issue #6462 (VISION.md driver D9) ──────────────────────────────────
-  // Two auditors that were never given a QUALITY_GATES entry, so
-  // default-deny left them sequestering `publish` even though neither
-  // checks anything Google requires for indexing/rich-results: no
-  // structured-data mandatory field, no canonical/hreflang, no status
-  // code, no broken redirect. Both are opportunistic internal heuristics
-  // — a page missing either still renders and serves correctly.
-  'audit:all/breadcrumb-coverage': 'BreadcrumbList is an optional rich-result enhancement, not a mandatory field; page serves',
-  'audit:all/information-gain': 'near-duplicate/thin-value heuristic (docs/INFORMATION-GAIN.md), not a Google indexing requirement; page serves',
-});
+export const QUALITY_GATES = Object.freeze(advisoryGateRationales());
 
 /**
  * Split a failed-gate list into the two classes.
