@@ -1156,6 +1156,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `status_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status"`,
     `status_tmp="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.status.tmp.$$"`,
     `started_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.started"`,
+    `watchdog_file="$RUNNER_TEMP/crawler-generation/group-${nn}/${slug}.watchdog"`,
     `worker_watchdog_max=${CRAWLER_WORKER_WATCHDOG_MAX_MINUTES}`,
     `worker_watchdog_minutes="\${CRAWLER_WORKER_TIMEOUT_MINUTES:-${watchdogMinutes}}"`,
     'if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then',
@@ -1185,6 +1186,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '  fi',
     '  terminal_exit="$flock_exit"',
     '  if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi',
+    ...WATCHDOG_MARK_LINES.map((line) => `  ${line}`),
     '  printf "%s\\n" "$terminal_exit" > "$status_tmp"',
     '  mv "$status_tmp" "$status_file"',
     '  exit "$terminal_exit"',
@@ -1211,6 +1213,7 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     '      # fallback for a SIGTERM from the runner/host.',
     '      terminal_exit="$flock_exit"',
     '      if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi',
+    ...WATCHDOG_MARK_LINES.map((line) => `      ${line}`),
     '      printf \'%s\\n\' "$terminal_exit" > "$status_tmp"',
     '      mv "$status_tmp" "$status_file"',
     '      exit "$terminal_exit"',
@@ -1235,7 +1238,8 @@ export function buildCrawlerLaunchShellBody(crawler, groupIndex) {
     `pid_path="$state_dir/${slug}.pid"`,
     `status_path="$state_dir/${slug}.status"`,
     `started_path="$state_dir/${slug}.started"`,
-    'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"',
+    `watchdog_path="$state_dir/${slug}.watchdog"`,
+    'rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"',
     '# shellcheck disable=SC2016,SC1003',
     `printf '%s\\n' ${shellQuote(body)} > "$script_path"`,
     '# shellcheck disable=SC2016,SC1003',
@@ -1329,6 +1333,42 @@ export function buildCrawlerResultShellBody(crawler, groupIndex) {
 }
 
 /**
+ * WATCHDOG-KILL VISIBILITY. The launcher bounds each detached worker with
+ * `timeout ${worker_watchdog_minutes}m`; the worker runs the crawler script,
+ * and that script holds the per-crawler failure reporter. When the watchdog
+ * fires, the reporter dies with the crawler and the launcher records 124 on
+ * its behalf: the member fails with no issue at all (sbb, three generations
+ * in a row at the 91 minute watchdog, never reported). The launcher leaves
+ * `<slug>.watchdog` (the effective minutes) only in that case — a worker that
+ * published its own 124 (an explicit `targetTimeoutMinutes`, whose reporter
+ * runs outside the inner timeout) has already reported — and the aggregate
+ * files the same issue the reporter would have: same stable title, same
+ * `--workflow` id, so dedup, escalation and recovery close treat it as one.
+ */
+const WATCHDOG_MARK_LINES = [
+  `if [ "$terminal_exit" -eq ${TARGET_TIMEOUT_EXIT} ]; then printf '%s\\n' "$worker_watchdog_minutes" > "$watchdog_file"; fi`,
+];
+
+function buildWatchdogKillIssueLines(slug) {
+  const statusFile = `"$state_dir/${slug}.status"`;
+  return [
+    `watchdog_file="$state_dir/${slug}.watchdog"`,
+    `if [ -e "$watchdog_file" ] && [ "$(cat ${statusFile} 2>/dev/null || true)" = "${TARGET_TIMEOUT_EXIT}" ]; then`,
+    '  watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"',
+    `  echo "::error::${slug}: the worker watchdog stopped the crawler after \${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"`,
+    '  watchdog_description="$(printf \'%s\\n\' \'## Crawler fallito\' '
+      + '"**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ' + TARGET_TIMEOUT_EXIT + '), prima che potesse segnalare il fallimento." '
+      + '"**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" '
+      + '"**Branch:** ${GITHUB_REF_NAME:-}" '
+      + '"**Trigger:** ${GITHUB_EVENT_NAME:-}")"',
+    `  if ! node scripts/lib/github-issue-creator.mjs --title ${shellQuote(`Crawler Failure: Run ${slug}`)} --description "$watchdog_description" --priority 2 --label Bug --workflow ${shellQuote(`Run ${slug}`)}; then`,
+    `    echo "::warning::${slug}: the watchdog-timeout issue could not be filed; the group verdict is unchanged"`,
+    '  fi',
+    'fi',
+  ];
+}
+
+/**
  * Summarize every crawler independently after the result waiters have run.
  *
  * The result steps intentionally remain red when their own crawler failed, but
@@ -1385,6 +1425,7 @@ export function buildCrawlerAggregateShellBody(crawlers, groupIndex, { quarantin
       '    failure_count=$((failure_count + 1))',
       '  fi',
       'fi',
+      ...buildWatchdogKillIssueLines(slug),
     );
   }
   lines.push(
@@ -1493,6 +1534,7 @@ function buildQuarantineAggregateShellBody(crawlers, groupIndex, quarantine) {
       '    outcome=success',
       ...failureBranch,
       'fi',
+      ...buildWatchdogKillIssueLines(slug),
       `outcomes_json="\${outcomes_json}\${outcomes_json:+,}\\"${slug}\\":\\"$outcome\\""`,
     );
   }
