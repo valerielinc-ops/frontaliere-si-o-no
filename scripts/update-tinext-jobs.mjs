@@ -12,7 +12,8 @@
  *   4. Merges results into data/jobs.json.
  *   5. Updates the adapter config with current seed URLs.
  *   6. Runs locale fill + validation.
- *   7. Exits OK with 0 jobs when no vacancies are active.
+ *   7. Publishes 0 jobs only when the public career page proves that no
+ *      vacancies are active; otherwise preserves the existing slice.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -49,6 +50,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isKenjoCareerSiteEmpty, resolveKenjoPositionPath } from './lib/kenjo-career-site.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -232,7 +234,7 @@ async function discoverListings() {
 
   console.log(`📋 Found ${positions.length} active position(s):`);
   for (const p of positions) {
-    console.log(`  📄 ${p.jobTitle || '?'} (${p.officeName || '?'}) — customUrl: ${p.customUrl || '?'}`);
+    console.log(`  📄 ${p.jobTitle || p.title || '?'} (${p.officeName || '?'}) — customUrl: ${resolveKenjoPositionPath(p) || '?'}`);
   }
 
   return positions;
@@ -244,12 +246,12 @@ async function buildJobs(positions) {
   let skipped = 0;
 
   for (const position of positions) {
-    const rawTitle = (position.jobTitle || '').trim();
+    const rawTitle = String(position.jobTitle || position.title || '').trim();
     // Filter out titles that are clearly platform-company roles
     // (e.g., "[UNPLEX]" prefix; still keep the underlying vacancy)
     const title = rawTitle.replace(/^\[UNPLEX\]\s*/i, '').trim() || rawTitle;
     const office = (position.officeName || 'Lugano').trim();
-    const customUrl = (position.customUrl || '').trim();
+    const customUrl = resolveKenjoPositionPath(position);
 
     if (!customUrl) {
       console.warn(`  ⚠️  Position "${rawTitle}" has no customUrl — skipping`);
@@ -436,10 +438,25 @@ async function publishAuthoritativeEmptySnapshot() {
   await assembleJobsDataset();
 }
 
+async function confirmCareerSiteEmpty() {
+  try {
+    const html = await fetchHtml(CAREERS_URL);
+    const empty = isKenjoCareerSiteEmpty(html);
+    if (!empty) {
+      console.warn('⚠️ Kenjo career page does not show its explicit no-openings state; preserving existing Tinext jobs.');
+    }
+    return empty;
+  } catch (error) {
+    console.warn(`⚠️ Could not verify the Kenjo career page empty state: ${error.message}`);
+    return false;
+  }
+}
+
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext');
+  const summaryCounts = { discovered: null, parsed: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Tinext SA — Dedicated Crawler (Kenjo)');
   console.log('═══════════════════════════════════════════════');
@@ -447,18 +464,31 @@ async function main() {
 
   // 1. Fetch listing API
   const positions = await discoverListings();
+  summaryCounts.discovered = positions.length;
 
   if (positions.length === 0) {
-    console.log('ℹ️ Kenjo confirmed no active positions; publishing an authoritative empty snapshot.');
-    await publishAuthoritativeEmptySnapshot();
+    if (await confirmCareerSiteEmpty()) {
+      console.log('ℹ️ Kenjo confirms no active positions; publishing an authoritative empty snapshot.');
+      await publishAuthoritativeEmptySnapshot();
+      return;
+    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ Kenjo API returned no active positions without explicit public empty-state proof; preserving existing data.');
     return;
   }
 
   // 2. Fetch detail pages and build job objects
   const jobs = await buildJobs(positions);
+  summaryCounts.parsed = jobs.length;
 
   if (jobs.length === 0) {
-    console.log('ℹ️ No Tinext jobs built after detail fetch (all skipped).');
+    if (await confirmCareerSiteEmpty()) {
+      console.log('ℹ️ Kenjo confirms no active positions; publishing an authoritative empty snapshot.');
+      await publishAuthoritativeEmptySnapshot();
+      return;
+    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ No Tinext jobs built after detail fetch (all skipped); preserving existing data.');
     return;
   }
 
