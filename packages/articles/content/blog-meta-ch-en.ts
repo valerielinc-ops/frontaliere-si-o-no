@@ -7430,6 +7430,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franchigia-sussidi-ginevra.title': 'KVG health insurance premiums in 2026: Canton of Geneva',
     'blog.article.franchigia-sussidi-ginevra.excerpt': '2026 guide to KVG premiums in the canton of Geneva: adult deductibles, comparison between cantons, exchange of funds and cantonal premium reduction.',
     'blog.article.franchigia-sussidi-ginevra.imageAlt': 'LAMal documents and calculator for comparing health insurance premiums in Geneva',
+    'blog.article.franchigia-premi-vaud-2026.title': 'KVG health insurance premiums in 2026 in the canton of Vaud',
+    'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guide to KVG health insurance premiums in 2026 in the canton of Vaud: adult deductibles, differences between cantons and regions, cantonal subsidy and change of insurance policy.',
+    'blog.article.franchigia-premi-vaud-2026.imageAlt': 'LAMal premium documents and a calculator on a table in a Swiss home',
 };
 
 export default blogMetaChEn;

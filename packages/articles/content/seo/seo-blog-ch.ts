@@ -96350,6 +96350,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franchigia-premi-vaud-2026': {
+    title: 'Premi cassa malati LAMal 2026 nel canton Vaud | Frontaliere Ticino',
+    description: 'Premi cassa malati LAMal 2026 nel canton Vaud: confronto pratico delle franchigie adulti, differenze per cantone e regione, sussidio cantonale e cambio cassa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, lamal',
+    ogTitle: 'Premi cassa malati LAMal 2026 nel canton Vaud',
+    ogDescription: 'Nel 2026 il premio LAMal resta distinto da imposte e contributi salariali: confronta le sei franchigie adulti, considera il cantone o la regione e verifica la riduzione premi cantonale, con focus sul canton Vaud.',
+    canonicalPath: '/articoli-svizzera/franchigia-premi-vaud-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati LAMal 2026 nel canton Vaud",
+      "description": "Premi cassa malati LAMal 2026 nel canton Vaud: confronto pratico delle franchigie adulti, differenze per cantone e regione, sussidio cantonale e cambio cassa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/franchigia-premi-vaud-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti sui premi LAMal e calcolatrice su un tavolo in una casa svizzera"
+      },
+      "datePublished": "2026-10-02T02:25:28+00:00",
+      "dateModified": "2026-10-02T02:25:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/franchigia-premi-vaud-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
