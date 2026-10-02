@@ -141,9 +141,8 @@ describe('Klinik Wysshölzli crawler: degraded PDF postings', () => {
     ]);
   });
 
-  // A thin read (pages but under 50 chars, e.g. an image-only PDF) is a thin
-  // source, not an extraction failure (scripts/lib/source-body-failure.mjs):
-  // the stored body still wins over the empty fresh one, keyed on the floor.
+  // A thin read (pages but under 50 chars, e.g. an image-only PDF) leaves the
+  // same gap as a failed read: listed as a degraded source, stored body kept.
   const THIN_READ = {
     text: '',
     rawText: 'Seite 1',
@@ -165,7 +164,10 @@ describe('Klinik Wysshölzli crawler: degraded PDF postings', () => {
     expect(jobs.map((job: any) => job.url)).toEqual([PDF_A, PDF_B]);
     expect(jobs[0].description).toBe(body('Pflegefachfrau HF 60-80%'));
     expect(jobs[0].descriptionByLocale.de).toBe(body('Pflegefachfrau HF 60-80%'));
-    expect(summaryCounts().sourceBodyFailures).toEqual([]);
+    expect(jobs[0].sourceBodyFailureReason).toBeUndefined();
+    expect(summaryCounts().sourceBodyFailures).toEqual([
+      expect.objectContaining({ url: PDF_A, reason: 'pdf-extraction-failed', message: THIN_READ.warning }),
+    ]);
   });
 
   it('leaves out a thin PDF read without a publishable stored body rather than publishing it empty', async () => {
@@ -181,8 +183,10 @@ describe('Klinik Wysshölzli crawler: degraded PDF postings', () => {
     await expect(main()).rejects.toThrow(/sentinel: merged slice written/);
 
     expect(mergedJobs().map((job: any) => job.url)).toEqual([PDF_B]);
+    expect(summaryCounts().sourceBodyFailures).toEqual([
+      expect.objectContaining({ url: PDF_A, reason: 'pdf-extraction-failed' }),
+    ]);
   });
-
 
   it('drops a stored row under the floor when the PDF read fails, instead of republishing it empty', async () => {
     mocks.extractPdfJobContentFromUrl.mockImplementation(async (url: string) => (

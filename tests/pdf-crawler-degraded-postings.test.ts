@@ -142,6 +142,24 @@ describe.each(CASES)('$name crawler: degraded PDF postings', ({ main, companyKey
       .toEqual([expect.objectContaining({ url: FAILED_URL })]);
   });
 
+  it('reports a PDF without a text layer like a failed read, keeping the stored posting', async () => {
+    const warning = 'PDF has 1 page(s) but only 7 chars extracted (possible image-only/scanned PDF)';
+    mocks.extractPdfJobContentFromUrl.mockImplementation(async (url: string) => (
+      url === FAILED_URL
+        ? { text: '', rawText: 'Seite 1', thin: true, totalPages: 1, warning }
+        : { text: words('Frischer Quelltext.'), totalPages: 1 }
+    ));
+    stopAtMergedSlice();
+
+    await expect(main()).rejects.toThrow(/sentinel: merged slice written/);
+
+    const merged = mocks.writeJsonAtomic.mock.calls[1][1];
+    expect(merged.find((job: any) => job.url === FAILED_URL)).toMatchObject({ description: stored.description });
+    expect(mocks.registerCrawlerSummaryGuard.mock.calls[0][2].sourceBodyFailures).toEqual([
+      expect.objectContaining({ url: FAILED_URL, reason: 'pdf-extraction-failed', message: warning }),
+    ]);
+  });
+
   it('fails when no posting is publishable, before writing anything', async () => {
     mocks.extractPdfJobContentFromUrl.mockResolvedValue({ text: '', extractionFailed: true, error: 'HTTP 503 while fetching PDF' });
     mocks.readExistingCrawlerJobs.mockReturnValue([]);

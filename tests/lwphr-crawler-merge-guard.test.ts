@@ -129,6 +129,24 @@ describe('LWPHR crawler snapshot guard', () => {
     ]);
   });
 
+  it('reports a PDF without a text layer like a failed read, keeping the stored posting', async () => {
+    const warning = 'PDF has 1 page(s) but only 7 chars extracted (possible image-only/scanned PDF)';
+    mocks.extractPdfJobContentFromUrl.mockImplementation(async (url: string) => (
+      url.includes('existing-role.pdf')
+        ? { text: '', rawText: 'Pagina 1', thin: true, totalPages: 1, warning }
+        : { text: VALID_PDF_TEXT }
+    ));
+    stopAtMergedSlice();
+
+    await expect(main()).rejects.toThrow(/sentinel: merged slice written/);
+
+    const merged = mocks.writeJsonAtomic.mock.calls[1][1];
+    expect(merged.find((job: any) => job.url === EXISTING_URL)).toMatchObject({ description: STORED_BODY });
+    expect(mocks.registerCrawlerSummaryGuard.mock.calls[0][2].sourceBodyFailures).toEqual([
+      { title: 'Existing role', url: EXISTING_URL, reason: 'pdf-extraction-failed', message: warning },
+    ]);
+  });
+
   it('leaves out, and reports, an unreadable posting that has no stored body', async () => {
     mocks.readExistingCrawlerJobs.mockReturnValue([]);
     stopAtMergedSlice();

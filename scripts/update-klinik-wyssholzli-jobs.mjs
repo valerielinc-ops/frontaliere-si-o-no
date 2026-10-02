@@ -321,7 +321,9 @@ export async function main() {
     console.log(`  📄 Extracting PDF: ${listing.filename}`);
     const pdf = await extractPdfJobContentFromUrl(listing.pdfUrl);
     if (pdf.proxiedBy) console.log(`     ↪︎ read through ${pdf.proxiedBy} (direct HTTP ${pdf.httpStatus})`);
-    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error);
+    // A PDF without a text layer (pdf.thin) leaves the same gap as a failed
+    // read: both are listed as a degraded source, as ECAM does.
+    const pdfFailed = Boolean(pdf.extractionFailed || pdf.error || pdf.thin);
     if (pdfFailed) {
       const message = pdf.error || pdf.warning || 'PDF extraction failed';
       console.warn(`     ⚠️ PDF error: ${message}`);
@@ -331,13 +333,11 @@ export async function main() {
         reason: SOURCE_BODY_FAILURE_REASON,
         message,
       });
-    } else if (pdf.thin) {
-      console.warn(`     ⚠️ ${pdf.warning || 'PDF has no usable text layer'} — ${listing.filename}`);
     }
     const job = buildJob({
       title: listing.titleFromFilename,
       pdfUrl: listing.pdfUrl,
-      pdfText: pdfFailed || pdf.thin ? '' : (pdf.text || ''),
+      pdfText: pdfFailed ? '' : (pdf.text || ''),
       filename: listing.filename,
     });
     if (pdfFailed) {

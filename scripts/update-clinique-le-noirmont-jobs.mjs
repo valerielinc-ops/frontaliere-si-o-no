@@ -324,16 +324,17 @@ export async function main() {
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     const pdfText = pdf.text || '';
     if (!pdfText) {
-      if (pdf.error || pdf.extractionFailed) {
-        sourceBodyFailures.push({
-          title,
-          url: listing.pdfUrl,
-          reason: SOURCE_BODY_FAILURE_REASON,
-          message: pdf.error || pdf.warning || 'PDF extraction failed',
-        });
-      } else {
+      // A failed read and a PDF without a text layer leave the same gap: both
+      // are listed as a degraded source, as ECAM does.
+      if (!pdf.error && !pdf.extractionFailed) {
         console.warn(`     ⚠️ ${pdf.warning || 'Empty PDF text'} — ${listing.identifier}`);
       }
+      sourceBodyFailures.push({
+        title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdf.error || pdf.warning || 'official PDF has no usable text layer',
+      });
       storedTargetJobs ??= readStoredTargetJobs();
       const kept = storedJobForFailedSource(urlKey({ url: listing.pdfUrl }), storedTargetJobs, urlKey);
       if (kept) {

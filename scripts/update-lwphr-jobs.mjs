@@ -346,14 +346,14 @@ export async function main() {
     if (!isUsableLwphrPdf(pdf)) {
       const reason = pdf?.error || pdf?.warning || 'empty extracted text';
       console.warn(`  ⚠️ Unusable PDF for ${listing.title}: ${reason}`);
-      if (pdf?.error || pdf?.extractionFailed) {
-        sourceBodyFailures.push({
-          title: listing.title,
-          url: listing.pdfUrl,
-          reason: SOURCE_BODY_FAILURE_REASON,
-          message: reason,
-        });
-      }
+      // A failed read and a PDF without a text layer leave the same gap: both
+      // are listed as a degraded source, as ECAM does.
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: reason,
+      });
       storedTargetJobs ??= readStoredTargetJobs();
       const kept = storedJobForFailedSource(urlKey({ url: listing.pdfUrl }), storedTargetJobs, urlKey);
       if (kept) {
