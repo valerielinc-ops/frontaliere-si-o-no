@@ -6,6 +6,47 @@ afterEach(() => {
 });
 
 describe('SmartRecruiters strict source pagination', () => {
+  it('keeps list identity when a detail response is partial', async () => {
+    const requestedUrls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      requestedUrls.push(url.toString());
+      if (url.searchParams.has('limit')) {
+        return new Response(JSON.stringify({
+          totalFound: 1,
+          content: [{
+            id: 'posting-a',
+            name: 'Role A',
+            applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
+            location: { city: 'Lugano', country: 'ch' },
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        id: 'posting-a',
+        jobAd: { sections: { jobDescription: { text: '<p>Role A details.</p>' } } },
+      }), { status: 200 });
+    }));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      fetchDetail: true,
+      minDelayMs: 0,
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0]).toMatchObject({
+      jobReqId: 'posting-a',
+      title: 'Role A',
+      location: 'Lugano',
+      applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
+      descriptionHtml: '<p>Role A details.</p>',
+    });
+    expect(requestedUrls).toHaveLength(2);
+  });
+
   it('does not prove a complete source when a repeated page reaches totalFound by raw count', async () => {
     const firstPage = [
       { id: 'posting-a', name: 'Role A', location: { city: 'Zürich', country: { code: 'CH' } } },
