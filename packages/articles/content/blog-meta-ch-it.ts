@@ -7475,6 +7475,18 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Aprire un\'attività nei Grigioni: guida a costi e fisco',
     'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'Dalla forma giuridica ai contributi salariali: guida pratica sui tre livelli fiscali e gli obblighi previdenziali per chi avvia un\'impresa nei Grigioni.',
     'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documenti e scrivania con vista sulle montagne svizzere',
+    'blog.article.remunerazioni-ail-mps-lugano.title': 'Remunerazioni AIL e trasparenza: l\'interrogazione dell\'MPS',
+    'blog.article.remunerazioni-ail-mps-lugano.excerpt': 'Giuseppe Sergi e Matteo Pronzini interrogano il Consiglio di Stato sui compensi AIL e sulla tutela del patrimonio pubblico.',
+    'blog.article.remunerazioni-ail-mps-lugano.imageAlt': 'Veduta di Lugano con la sede e le attività delle Aziende Industriali',
+    'blog.article.fallimenti-aziendali-ticino-media.title': 'Fallimenti in aumento. E il Ticino è sopra la media',
+    'blog.article.fallimenti-aziendali-ticino-media.excerpt': 'Nei primi nove mesi dell\'anno i fallimenti aziendali in Svizzera salgono a 11\'412 (+37%). Il Ticino registra 721 bancarotte e un incremento del 48%.',
+    'blog.article.fallimenti-aziendali-ticino-media.imageAlt': 'Aumento dei fallimenti aziendali e nuove ditte in Ticino',
+    'blog.article.rientro-maternita-filanda.title': 'Rientro al lavoro dopo la maternità: incontri a Mendrisio',
+    'blog.article.rientro-maternita-filanda.excerpt': 'Le Città di Chiasso e Mendrisio promuovono a LaFilanda un percorso gratuito con colloqui, incontri e babysitting per il rientro al lavoro dopo la maternità.',
+    'blog.article.rientro-maternita-filanda.imageAlt': 'LaFilanda di Mendrisio, sede degli incontri sul rientro al lavoro dopo la maternità.',
+    'blog.article.sessione-autunnale-mercosur-ubs.title': 'Sessione autunnale: via a mercosur, lex UBS e bilaterali III',
+    'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'Le Camere federali chiudono la sessione autunnale. Semaforo verde per i Bilaterali III, l\'accordo Mercosur e la Lex UBS.',
+    'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Palazzo federale a Berna durante la sessione autunnale delle Camere',
 };
 
 export default blogMetaChIt;

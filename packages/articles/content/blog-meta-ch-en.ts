@@ -7475,6 +7475,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Starting a Business in Graubünden: A Guide to Costs and Taxes',
     'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'From Legal Structure to Payroll Taxes: A Practical Guide to the Three Tax Levels and Social Security Obligations for Those Starting a Business in Graubünden.',
     'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documents and desk with a view of the Swiss mountains',
+    'blog.article.remunerazioni-ail-mps-lugano.title': 'AIL Compensation and Transparency: The MPS Inquiry',
+    'blog.article.remunerazioni-ail-mps-lugano.excerpt': 'Giuseppe Sergi and Matteo Pronzini question the Council of State regarding AIL compensation and the protection of public assets.',
+    'blog.article.remunerazioni-ail-mps-lugano.imageAlt': 'View of Lugano representing municipal enterprises and public management',
+    'blog.article.fallimenti-aziendali-ticino-media.title': 'Bankruptcies on the rise. And Ticino is above average',
+    'blog.article.fallimenti-aziendali-ticino-media.excerpt': 'In the first nine months of the year, corporate bankruptcies in Switzerland rose to 11,412 (+37%). Ticino recorded 721 bankruptcies, an increase of 48%.',
+    'blog.article.fallimenti-aziendali-ticino-media.imageAlt': 'Increase in corporate bankruptcies and new companies in Ticino',
+    'blog.article.rientro-maternita-filanda.title': 'Returning to Work After Maternity Leave: Events in Mendrisio',
+    'blog.article.rientro-maternita-filanda.excerpt': 'The cities of Chiasso and Mendrisio are offering a free program at LaFilanda that includes counseling sessions, meetings, and childcare services to help women return to work after maternity leave.',
+    'blog.article.rientro-maternita-filanda.imageAlt': 'LaFilanda in Mendrisio, venue for meetings on returning to work after maternity.',
+    'blog.article.sessione-autunnale-mercosur-ubs.title': 'Fall Session: Mercosur, UBS Act & Bilaterals III',
+    'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'The Federal Chambers conclude their fall session. Green light for the Bilateral Agreements III, the Mercosur agreement, and the UBS Act.',
+    'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Federal Palace in Bern during the autumn session of the chambers',
 };
 
 export default blogMetaChEn;

@@ -96935,6 +96935,162 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-remunerazioni-ail-mps-lugano': {
+    title: 'Remunerazioni AIL e trasparenza: l\'interrogazione dell\'MPS',
+    description: 'Giuseppe Sergi e Matteo Pronzini interrogano il Consiglio di Stato sulle remunerazioni AIL e sulla tutela del patrimonio pubblico della Città di Lugano.',
+    keywords: 'frontalieri, ticino, svizzera, italia, remunerazioni, trasparenza, interrogazione, dell',
+    ogTitle: 'Remunerazioni AIL e trasparenza: l\'interrogazione dell\'MPS',
+    ogDescription: 'Approfondimento sull\'interrogazione presentata da Giuseppe Sergi e Matteo Pronzini in merito ai compensi del Cda delle Aziende Industriali di Lugano per il primo semestre del 2026, con focus sull\'autonomia societaria e la tutela del patrimonio',
+    canonicalPath: '/articoli-svizzera/remunerazioni-ail-mps-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Remunerazioni AIL e trasparenza: l'interrogazione dell'MPS",
+      "description": "Giuseppe Sergi e Matteo Pronzini interrogano il Consiglio di Stato sulle remunerazioni AIL e sulla tutela del patrimonio pubblico della Città di Lugano.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/remunerazioni-ail-mps-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di Lugano con la sede e le attività delle Aziende Industriali"
+      },
+      "datePublished": "2026-10-02T07:35:31+00:00",
+      "dateModified": "2026-10-02T07:35:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/remunerazioni-ail-mps-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-fallimenti-aziendali-ticino-media': {
+    title: 'Fallimenti in aumento. E il Ticino è sopra la media',
+    description: 'Nei primi nove mesi l\'aumento dei fallimenti in Svizzera tocca quota 11\'412. Il Ticino segna 721 bancarotte e un +48%. Tutti i dati e le novità fiscali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fallimenti, aumento, sopra, media',
+    ogTitle: 'Fallimenti aziendali in Ticino: dati Crif e aumento bancarotte',
+    ogDescription: 'Nei primi nove mesi l\'aumento dei fallimenti in Svizzera tocca quota 11\'412. Il Ticino segna 721 bancarotte e un +48%. Scopri tutti i dati ufficiali di Crif e le novità normative sui debiti fiscali.',
+    canonicalPath: '/articoli-svizzera/fallimenti-aziendali-ticino-media/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fallimenti in aumento. E il Ticino è sopra la media",
+      "description": "Nei primi nove mesi l'aumento dei fallimenti in Svizzera tocca quota 11'412. Il Ticino segna 721 bancarotte e un +48%. Tutti i dati e le novità fiscali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/fallimenti-aziendali-ticino-media.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aumento dei fallimenti aziendali e nuove ditte in Ticino"
+      },
+      "datePublished": "2026-10-02T07:43:55+00:00",
+      "dateModified": "2026-10-02T07:43:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/fallimenti-aziendali-ticino-media/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-rientro-maternita-filanda': {
+    title: 'Rientro al lavoro dopo la maternità: incontri a Mendrisio',
+    description: 'Chiasso e Mendrisio promuovono a LaFilanda un percorso gratuito per madri e donne: colloquio individuale, quattro incontri e babysitting per il rientro dopo',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, lavoro, dopo, maternità',
+    ogTitle: 'Maternità, il rientro al lavoro passa da LaFilanda',
+    ogDescription: 'Il percorso promosso dalle Città di Chiasso e Mendrisio parte da un colloquio individuale in ottobre e prosegue con quattro appuntamenti a LaFilanda il 19 e 24 novembre, il 1 e il 10 dicembre. Previsto anche il babysitting.',
+    canonicalPath: '/articoli-svizzera/rientro-maternita-filanda/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro al lavoro dopo la maternità: incontri a Mendrisio",
+      "description": "Chiasso e Mendrisio promuovono a LaFilanda un percorso gratuito per madri e donne: colloquio individuale, quattro incontri e babysitting per il rientro dopo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rientro-maternita-filanda.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "LaFilanda di Mendrisio, sede degli incontri sul rientro al lavoro dopo la maternità."
+      },
+      "datePublished": "2026-10-02T07:54:35+00:00",
+      "dateModified": "2026-10-02T07:54:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rientro-maternita-filanda/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-sessione-autunnale-mercosur-ubs': {
+    title: 'Sessione autunnale: via a mercosur, lex UBS e bilaterali III',
+    description: 'Le Camere federali chiudono la sessione autunnale: approvati i decreti sui Bilaterali III, l\'accordo Mercosur, la Lex UBS e la proroga dell\'IVA alberghiera.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sessione, autunnale, mercosur, bilaterali',
+    ogTitle: 'Sessione autunnale: via a Mercosur, Lex UBS e Bilaterali III',
+    ogDescription: 'Scopri le decisioni chiave della sessione autunnale delle Camere federali svizzere: dal voto obbligatorio sui Bilaterali III all\'accordo Mercosur, passando per la Lex UBS e l\'IVA alberghiera.',
+    canonicalPath: '/articoli-svizzera/sessione-autunnale-mercosur-ubs/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sessione autunnale: via a mercosur, lex UBS e bilaterali III",
+      "description": "Le Camere federali chiudono la sessione autunnale: approvati i decreti sui Bilaterali III, l'accordo Mercosur, la Lex UBS e la proroga dell'IVA alberghiera.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sessione-autunnale-mercosur-ubs.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna durante la sessione autunnale delle Camere"
+      },
+      "datePublished": "2026-10-02T08:08:27+00:00",
+      "dateModified": "2026-10-02T08:08:27+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/sessione-autunnale-mercosur-ubs/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

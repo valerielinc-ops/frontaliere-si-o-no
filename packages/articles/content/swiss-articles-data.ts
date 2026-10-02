@@ -22453,6 +22453,42 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'remunerazioni-ail-mps-lugano',
+    category: 'fiscale',
+    date: '2026-10-02T07:35:31.337Z',
+    image: '/images/blog/remunerazioni-ail-mps-lugano.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
+   {
+    id: 'fallimenti-aziendali-ticino-media',
+    category: 'pratico',
+    date: '2026-10-02T07:43:55.739Z',
+    image: '/images/blog/fallimenti-aziendali-ticino-media.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'rientro-maternita-filanda',
+    category: 'pratico',
+    date: '2026-10-02T07:54:35.169Z',
+    image: '/images/blog/rientro-maternita-filanda.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'sessione-autunnale-mercosur-ubs',
+    category: 'novita',
+    date: '2026-10-02T08:08:26.961Z',
+    image: '/images/blog/sessione-autunnale-mercosur-ubs.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -7475,6 +7475,18 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Créer une entreprise dans les Grisons : guide sur les coûts et la fiscalité',
     'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'De la forme juridique aux cotisations salariales : guide pratique sur les trois niveaux d\'imposition et les obligations en matière de sécurité sociale pour ceux qui créent une entreprise dans les Grisons.',
     'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documents et bureau avec vue sur les montagnes suisses',
+    'blog.article.remunerazioni-ail-mps-lugano.title': 'Rémunérations de l\'AIL et transparence : la question posée par le MPS',
+    'blog.article.remunerazioni-ail-mps-lugano.excerpt': 'Giuseppe Sergi et Matteo Pronzini interpellent le Conseil d\'État au sujet des rémunérations versées par l\'AIL et de la protection du patrimoine public.',
+    'blog.article.remunerazioni-ail-mps-lugano.imageAlt': 'Vue de Lugano représentant la gestion des entreprises publiques',
+    'blog.article.fallimenti-aziendali-ticino-media.title': 'Les faillites sont en hausse. Et le Tessin se situe au-dessus de la moyenne',
+    'blog.article.fallimenti-aziendali-ticino-media.excerpt': 'Au cours des neuf premiers mois de l\'année, le nombre de faillites d\'entreprises en Suisse s\'élève à 11 412 (+37 %). Le Tessin enregistre 721 faillites, soit une hausse de 48 %.',
+    'blog.article.fallimenti-aziendali-ticino-media.imageAlt': 'Augmentation des faillites d\'entreprises et nouvelles sociétés au Tessin',
+    'blog.article.rientro-maternita-filanda.title': 'Retour au travail après un congé maternité : rencontres à Mendrisio',
+    'blog.article.rientro-maternita-filanda.excerpt': 'Les villes de Chiasso et de Mendrisio proposent à LaFilanda un parcours gratuit comprenant des entretiens, des rencontres et un service de garde d\'enfants pour faciliter le retour au travail après un congé maternité.',
+    'blog.article.rientro-maternita-filanda.imageAlt': 'LaFilanda à Mendrisio, lieu des rencontres sur le retour au travail après la maternité.',
+    'blog.article.sessione-autunnale-mercosur-ubs.title': 'Session d\'automne : Mercosur, Lex UBS et Bilatérales III',
+    'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'Les Chambres fédérales clôturent la session d\'automne. Feu vert pour les accords bilatéraux III, l\'accord avec le Mercosur et la « Lex UBS ».',
+    'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Palais fédéral à Berne pendant la session d\'automne des chambres',
 };
 
 export default blogMetaChFr;
