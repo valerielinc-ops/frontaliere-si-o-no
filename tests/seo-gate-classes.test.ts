@@ -19,8 +19,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
-  CLASS_ISSUE_PRIORITY,
   CLASS_MODE,
+  MODE_ISSUE_PRIORITY,
   SEO_GATE_CLASSES,
   advisoryGateRationales,
   effectiveMode,
@@ -108,7 +108,7 @@ describe('cathedral e validate-dist danno a ogni gate la stessa modalità', () =
     for (const gate of GATES) {
       const c = gateClassification(gate);
       expect(c.mode).toBe(effectiveMode(gate.gateKey));
-      expect(c.issuePriority).toBe(CLASS_ISSUE_PRIORITY[SEO_GATE_CLASSES[gate.gateKey].class]);
+      expect(c.issuePriority).toBe(MODE_ISSUE_PRIORITY[c.mode as keyof typeof MODE_ISSUE_PRIORITY]);
       expect(evaluateIntegrity([gate.gateKey]).integrityOk).toBe(c.mode === 'advisory');
     }
   });
@@ -118,7 +118,8 @@ describe('cathedral e validate-dist danno a ogni gate la stessa modalità', () =
     expect(c).toMatchObject({ class: '?', mode: 'blocking', issuePriority: 1 });
   });
 
-  it('la issue di regressione prende la priorità dalla classe', () => {
+  it('la issue di regressione prende la priorità dalla modalità (A=1, B=2, C=3)', () => {
+    expect(MODE_ISSUE_PRIORITY).toEqual({ blocking: 1, 'blocking-on-regression': 2, advisory: 3 });
     const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf8');
     const failgate = wf.slice(wf.indexOf('- name: Open issue + fail workflow on regression'));
     expect(failgate).toContain(".issuePriority // 1'");

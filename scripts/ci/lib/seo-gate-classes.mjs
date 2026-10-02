@@ -84,8 +84,16 @@ export const CLASS_MODE = Object.freeze({
   C: 'advisory',
 });
 
-/** Priorità della issue di regressione (github-issue-creator.mjs: 1 = più alta). */
-export const CLASS_ISSUE_PRIORITY = Object.freeze({ A: 1, B: 2, C: 3 });
+/**
+ * Priorità della issue di regressione (github-issue-creator.mjs: 1 = più alta),
+ * per MODALITÀ effettiva e non per classe: un gate con `modeOverride` bloccante
+ * pesa come un bloccante finché lo resta.
+ */
+export const MODE_ISSUE_PRIORITY = Object.freeze({
+  blocking: 1,
+  'blocking-on-regression': 2,
+  advisory: 3,
+});
 
 /**
  * @param {'A'|'B'|'C'} cls

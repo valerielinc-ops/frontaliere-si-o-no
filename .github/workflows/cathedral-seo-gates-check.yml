@@ -508,7 +508,8 @@ jobs:
               # (scripts/ci/lib/seo-gate-classes.mjs), so a regression here is
               # filed with the same weight validate-dist gives the same gate:
               # A/B sequester `publish` there (priority 1/2), C does not (3).
-              # A gate the table does not know reports class `?`, priority 1.
+              # Priority follows the effective mode; a gate the table does not know
+              # reports class `?`, priority 1.
               gclass=$(jq -r --arg n "$name"    '.gates[] | select(.name == $n) | .class // "?"'   data/cathedral-seo-gates-verdict.json)
               gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "blocking"' data/cathedral-seo-gates-verdict.json)
               priority=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .issuePriority // 1' data/cathedral-seo-gates-verdict.json)

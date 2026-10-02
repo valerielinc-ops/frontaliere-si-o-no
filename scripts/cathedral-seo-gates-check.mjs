@@ -41,7 +41,7 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { auditReportPath } from './lib/auditReport.mjs';
 import { orphanPagesAuditReportPath } from './lib/orphan-pages-report-path.mjs';
-import { CLASS_ISSUE_PRIORITY, effectiveMode, seoGateClass } from './ci/lib/seo-gate-classes.mjs';
+import { MODE_ISSUE_PRIORITY, effectiveMode, seoGateClass } from './ci/lib/seo-gate-classes.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -587,11 +587,12 @@ export function gateClassification(gate) {
   if (!entry) {
     return { gateKey: gate.gateKey, class: '?', mode: 'blocking', issuePriority: 1 };
   }
+  const mode = /** @type {string} */ (effectiveMode(gate.gateKey));
   return {
     gateKey: gate.gateKey,
     class: entry.class,
-    mode: /** @type {string} */ (effectiveMode(gate.gateKey)),
-    issuePriority: CLASS_ISSUE_PRIORITY[entry.class],
+    mode,
+    issuePriority: MODE_ISSUE_PRIORITY[/** @type {keyof typeof MODE_ISSUE_PRIORITY} */ (mode)],
   };
 }
 
