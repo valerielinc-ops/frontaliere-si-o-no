@@ -212,7 +212,7 @@ const COOP_DIVISION_COMPANY_NAMES = new Set([
 function isCoopApiDivision(job) {
   const rawCompany = job?.attributes?.['70'];
   const company = Array.isArray(rawCompany) ? rawCompany[0] : rawCompany;
-  return COOP_DIVISION_COMPANY_NAMES.has(normalize(company || job?.company || ''));
+  return COOP_DIVISION_COMPANY_NAMES.has(normalize(company || ''));
 }
 
 /**

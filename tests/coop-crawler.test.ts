@@ -188,6 +188,7 @@ describe('Coop authoritative detail routing', () => {
     const coopUrl = 'https://jobs.coopjobs.ch/offene-stellen/coop/11111111-1111-4111-8111-111111111111';
     const jumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo/22222222-2222-4222-8222-222222222222';
     const proseJumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo-prose/33333333-3333-4333-8333-333333333333';
+    const missingAttributeUrl = 'https://jobs.coopjobs.ch/offene-stellen/missing-attribute/44444444-4444-4444-8444-444444444444';
     const calls: URL[] = [];
     const fetchImpl = vi.fn(async (rawUrl) => {
       const url = new URL(rawUrl);
@@ -208,6 +209,11 @@ describe('Coop authoritative detail routing', () => {
           links: { directlink: proseJumboUrl },
           attributes: { '30': ['Zurigo'], '70': ['Jumbo, Division der Coop Genossenschaft'] },
         },
+        {
+          links: { directlink: missingAttributeUrl },
+          attributes: {},
+          company: 'Coop Genossenschaft',
+        },
       ];
       return new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 });
     });
@@ -218,10 +224,10 @@ describe('Coop authoritative detail routing', () => {
     expect(calls[0].searchParams.get('f')).toMatch(/^70:/);
     expect(calls[1].searchParams.has('f')).toBe(false);
     expect(discovery).toMatchObject({
-      apiTotal: 3,
-      fetched: 3,
+      apiTotal: 4,
+      fetched: 4,
       urls: [coopUrl],
-      droppedNonCoop: 2,
+      droppedNonCoop: 3,
       droppedNonCh: 0,
       usedUnfilteredFallback: true,
     });
