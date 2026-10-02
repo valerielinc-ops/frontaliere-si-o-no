@@ -53,34 +53,29 @@
  * The value is lost only when the step never writes it — see #4828.
  */
 
-import { advisoryGateRationales } from './lib/seo-gate-classes.mjs';
+import { publishNonBlockingGateRationales } from './lib/seo-gate-classes.mjs';
 
 /**
- * Gates whose failure does NOT sequester `publish`: exactly the SEO gates in
- * `advisory` mode in `scripts/ci/lib/seo-gate-classes.mjs` (class C, plus any
- * owner-pending override). That module is the ONE classification shared with
- * `cathedral-seo-gates-check`, so the same gate cannot be advisory here and
- * blocking there (owner, 2026-10-02: «quei check non sono opzionali»).
+ * Gates whose failure does NOT sequester `publish`: every SEO gate of class B
+ * or C in `scripts/ci/lib/seo-gate-classes.mjs`, the ONE classification
+ * shared with `cathedral-seo-gates-check`.
  *
- * The class comes from external evidence, cited per gate in that module:
+ * Owner decision, 2026-10-02: «Nessuno blocca la pubblicazione: apriamo solo
+ * issue per gli errori riscontrati e poi saranno gli autofixer a sistemarle».
  *   - A (blocking): data/markup Google requires, or certain damage (blank
  *     shell, unparseable JSON-LD, sitemap/canonical that `publish` would
- *     submit verbatim). Any failure blocks.
- *   - B (blocking on regression): documented impact on indexing/ranking/UX
- *     with a measured backlog. The auditor's own ratchet only fails on a
- *     regression, and that failure blocks like A. Since 2026-10-02 this is
- *     `audit:max-bfs-depth`, `audit:orphan-sitemap-pages`, `audit:hreflang`,
- *     `audit:all/information-gain`, `audit:all/page-weight` — previously
- *     listed here as quality (history: #5114 for hreflang, #4828/#6462 for
- *     the rest).
- *   - C (advisory): no evidence of impact. The run stays RED and the issue
- *     still opens (a regression stays root-cause-first, VISION.md D9), but a
- *     working, already-live page is still announced.
+ *     submit verbatim). Any failure blocks — unchanged.
+ *   - B (issue on regression): documented impact, measured backlog. A
+ *     regression turns the run red and opens a P2 issue that only the gate's
+ *     own recovery closes; `publish` proceeds.
+ *   - C (advisory): no evidence of impact. Red run, P3 issue, `publish`
+ *     proceeds. `audit:all/faqpage-validity` moved here from A on the same
+ *     date (FAQ rich results are limited to government/health sites).
  *
  * Everything not classified there is deploy-invalidating by default-deny
  * below (non-SEO validators included).
  */
-export const QUALITY_GATES = Object.freeze(advisoryGateRationales());
+export const QUALITY_GATES = Object.freeze(publishNonBlockingGateRationales());
 
 /**
  * Split a failed-gate list into the two classes.

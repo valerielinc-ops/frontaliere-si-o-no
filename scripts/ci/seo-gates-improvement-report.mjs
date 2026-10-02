@@ -64,14 +64,12 @@ const PROJECT_ROOT = path.resolve(path.dirname(__filename), '..', '..');
  * Keying on the name AFTER the runner prefix covers every shape without either
  * table repeating the other's naming (issue #7413 item 2).
  *
- * Which classes D9 covers. Until 2026-10-02 the bucket was "listed in
- * `QUALITY_GATES`", i.e. "does not sequester `publish`". Since the shared
- * classification, two questions have two answers: class B gates
- * (`max-bfs-depth`, `orphan-sitemap-pages`, …) now block `publish` on a
- * REGRESSION, but an IMPROVEMENT on them is still not a rebaseline request —
- * the owner refused exactly that for `max-bfs-depth` (26398 stays, DECISIONS.md
- * 2026-08-25). Only class A gates, whose ratchet tracks data Google requires,
- * keep the rebaseline issue.
+ * Which classes D9 covers: B and C. A class B gate (`max-bfs-depth`,
+ * `orphan-sitemap-pages`, …) opens a P2 issue on a REGRESSION, but an
+ * IMPROVEMENT on it is not a rebaseline request — the owner refused exactly
+ * that for `max-bfs-depth` (26398 stays, DECISIONS.md 2026-08-25). Only class
+ * A gates, whose ratchet tracks data Google requires, keep the rebaseline
+ * issue.
  */
 const NICE_TO_HAVE_GATE_NAMES = new Set(
   Object.entries(SEO_GATE_CLASSES)

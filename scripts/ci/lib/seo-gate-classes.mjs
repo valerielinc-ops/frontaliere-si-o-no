@@ -15,37 +15,40 @@
  * ogni gate su EVIDENZA ESTERNA (documentazione Google Search Central, web.dev,
  * dichiarazioni Google) e derivare la modalità dalla classe, in UN posto solo.
  *
+ * Decisione del proprietario sulle modalità (2026-10-02): «Nessuno blocca la
+ * pubblicazione: apriamo solo issue per gli errori riscontrati e poi saranno
+ * gli autofixer a sistemarle». Quindi solo i gate A che già bloccavano
+ * restano bloccanti; B e C non sequestrano mai `publish`, e ciò che li
+ * distingue è il peso della issue.
+ *
  * Le tre classi
  * -------------
- *   A — bloccante assoluto: misura un dato/markup richiesto da Google o un
- *       danno reale certo (pagina che non serve contenuto, JSON-LD illeggibile,
+ *   A — bloccante: misura un dato/markup richiesto da Google o un danno reale
+ *       certo (pagina che non serve contenuto, JSON-LD illeggibile,
  *       sitemap/canonical che `publish` invierebbe tali e quali). Qualunque
- *       fallimento sequestra `publish`.
- *   B — bloccante sulla regressione: impatto documentato su indicizzazione,
- *       ranking o UX, ma con un arretrato storico misurato da un ratchet (o da
- *       un tetto). Il gate fallisce SOLO quando il suo ratchet segnala una
- *       regressione rispetto alla baseline; quel fallimento sequestra `publish`
- *       come per A. Un miglioramento non stringe mai la baseline (VISION.md D9).
+ *       fallimento sequestra `publish`; issue P1.
+ *   B — issue sulla regressione: impatto documentato su indicizzazione,
+ *       ranking o UX, con un arretrato storico misurato da un ratchet (o da un
+ *       tetto). Il gate fallisce SOLO quando il suo ratchet segnala una
+ *       regressione; quel fallimento rende rossa la run e apre una issue P2
+ *       che resta aperta finché il gate non rientra (esclusa dall'age-out),
+ *       ma NON sequestra `publish`. Un miglioramento non stringe mai la
+ *       baseline (VISION.md D9).
  *   C — advisory: nessuna evidenza di impatto (euristica di tool terzi, o
- *       raccomandazione senza effetto misurabile). Il fallimento NON sequestra
- *       `publish`; la run resta rossa e la issue di tracking si apre lo stesso
- *       (una regressione resta root-cause-first, D9). La fonte che motiva il C
- *       è nel campo `evidence`, come per A e B.
- *
- * `modeOverride` esiste per UN caso: l'evidenza indica una classe meno severa
- * di quella applicata oggi, ma declassare un gate verde è una decisione del
- * proprietario (AGENTS.md non-negotiable #2), non di questo file. La modalità
- * effettiva resta quella di oggi finché il proprietario non decide; il motivo è
- * scritto accanto.
+ *       raccomandazione senza effetto misurabile). Run rossa e issue P3, con
+ *       lo stesso ciclo di vita della B; `publish` procede. La fonte che
+ *       motiva il C è nel campo `evidence`, come per A e B.
  *
  * Chi la legge
  * ------------
  *   - `scripts/ci/classify-validate-dist-failures.mjs`: `QUALITY_GATES` = i gate
- *     in modalità advisory. Il default-deny resta là: un gate assente da qui
- *     (es. i validatori non SEO) blocca `publish` come prima.
+ *     che non bloccano `publish` (B e C). Il default-deny resta là: un gate
+ *     assente da qui (es. i validatori non SEO) blocca `publish` come prima.
  *   - `scripts/cathedral-seo-gates-check.mjs`: ogni gate dichiara la sua
  *     `gateKey` qui dentro; il verdetto riporta classe e modalità e la issue di
- *     regressione prende la priorità dalla classe.
+ *     regressione prende la priorità dalla modalità.
+ *   - `scripts/ci/report-validate-dist-failure.mjs`: non apre una seconda issue
+ *     per un gate non bloccante che cathedral già misura sul corpus intero.
  *   - `scripts/ci/seo-gates-improvement-report.mjs`: un miglioramento apre una
  *     issue di rebaseline solo per la classe A (D9 vieta di stringere B e C).
  *
@@ -77,21 +80,20 @@ const SRC = Object.freeze({
   clickDepthMueller: 'https://www.searchenginejournal.com/google-click-depth-matters-seo-url-structure/256779/',
 });
 
-/** Modalità derivata dalla classe. */
+/**
+ * Modalità derivata dalla classe. Solo `blocking` sequestra `publish`
+ * (decisione del proprietario, 2026-10-02).
+ */
 export const CLASS_MODE = Object.freeze({
   A: 'blocking',
-  B: 'blocking-on-regression',
+  B: 'issue-on-regression',
   C: 'advisory',
 });
 
-/**
- * Priorità della issue di regressione (github-issue-creator.mjs: 1 = più alta),
- * per MODALITÀ effettiva e non per classe: un gate con `modeOverride` bloccante
- * pesa come un bloccante finché lo resta.
- */
+/** Priorità della issue di regressione (github-issue-creator.mjs: 1 = più alta). */
 export const MODE_ISSUE_PRIORITY = Object.freeze({
   blocking: 1,
-  'blocking-on-regression': 2,
+  'issue-on-regression': 2,
   advisory: 3,
 });
 
@@ -99,19 +101,17 @@ export const MODE_ISSUE_PRIORITY = Object.freeze({
  * @param {'A'|'B'|'C'} cls
  * @param {string} why
  * @param {string[]} evidence
- * @param {{mode: string, reason: string}} [modeOverride]
  */
-function gate(cls, why, evidence, modeOverride) {
+function gate(cls, why, evidence) {
   return Object.freeze({
     class: cls,
     why,
     evidence: Object.freeze([...evidence]),
-    ...(modeOverride ? { modeOverride: Object.freeze({ ...modeOverride }) } : {}),
   });
 }
 
 export const SEO_GATE_CLASSES = Object.freeze({
-  // ── A — bloccante assoluto ───────────────────────────────────────────────
+  // ── A — bloccante ────────────────────────────────────────────────────────
   'gate:seo-source': gate('A',
     'suite vitest tests/seo/ (hreflang reciproco, JSON-LD, canonical, robots): test a tolleranza zero (AGENTS.md #1, eccezione 2026-08-20)',
     [SRC.hreflang, SRC.canonical]),
@@ -145,15 +145,7 @@ export const SEO_GATE_CLASSES = Object.freeze({
   'audit:all/image-object-license': gate('A',
     'ImageObject: Google richiede contentUrl + una fra creator/creditText/copyrightNotice/license; il gate chiede tutti e cinque (più severo di Google, oggi a 0 offender)',
     [SRC.imageLicense]),
-  'audit:all/faqpage-validity': gate('C',
-    'dal 2023-09-14 il rich result FAQ è mostrato solo a siti governativi/sanitari autorevoli: un FAQPage invalido qui non cambia la SERP',
-    [SRC.faqPage],
-    {
-      mode: 'blocking',
-      reason: 'resta bloccante finché il proprietario non approva il declassamento (AGENTS.md #2): oggi è verde, nessuna urgenza',
-    }),
-
-  // ── B — bloccante sulla regressione ──────────────────────────────────────
+  // ── B — issue sulla regressione (non blocca publish) ─────────────────────
   'audit:max-bfs-depth': gate('B',
     'Google scopre le pagine dai link; la profondità di click da / pesa sull\'importanza (Mueller). Ratchet per-sitemap sul tasso',
     [SRC.links, SRC.clickDepthMueller]),
@@ -171,6 +163,11 @@ export const SEO_GATE_CLASSES = Object.freeze({
     [SRC.googlebotLimits, SRC.coreWebVitals, SRC.optimizeCls]),
 
   // ── C — advisory ─────────────────────────────────────────────────────────
+  // Declassato da A a C il 2026-10-02, su decisione del proprietario: era
+  // bloccante solo per prudenza, l'evidenza era già C.
+  'audit:all/faqpage-validity': gate('C',
+    'dal 2023-09-14 il rich result FAQ è mostrato solo a siti governativi/sanitari autorevoli: un FAQPage invalido qui non cambia la SERP',
+    [SRC.faqPage]),
   'audit:all/text-html-ratio': gate('C',
     'euristica Semrush: Google non guarda il rapporto testo/HTML (Mueller, 2018)',
     [SRC.textHtmlRatioMueller]),
@@ -221,28 +218,31 @@ export function seoGateClass(key) {
 }
 
 /**
- * Modalità effettiva di un gate: quella della classe, salvo `modeOverride`.
- * `null` per un gate non classificato (il chiamante applica il proprio
- * default-deny).
+ * Modalità di un gate, o `null` per un gate non classificato (il chiamante
+ * applica il proprio default-deny).
  * @param {string} key
  * @returns {string | null}
  */
 export function effectiveMode(key) {
   const entry = seoGateClass(key);
-  if (!entry) return null;
-  return entry.modeOverride?.mode ?? CLASS_MODE[entry.class];
+  return entry ? CLASS_MODE[entry.class] : null;
+}
+
+/** True quando un fallimento del gate sequestra `publish` (solo classe A). */
+export function isPublishBlocking(key) {
+  return effectiveMode(key) === 'blocking';
 }
 
 /**
- * Gate che NON sequestrano `publish`: esattamente quelli in modalità advisory.
- * La forma `{gate: motivazione}` è quella che `QUALITY_GATES` ha sempre avuto.
+ * Gate che NON sequestrano `publish`: classi B e C. La forma
+ * `{gate: motivazione}` è quella che `QUALITY_GATES` ha sempre avuto.
  * @returns {Record<string, string>}
  */
-export function advisoryGateRationales() {
+export function publishNonBlockingGateRationales() {
   /** @type {Record<string, string>} */
   const out = {};
   for (const [key, entry] of Object.entries(SEO_GATE_CLASSES)) {
-    if (effectiveMode(key) === 'advisory') out[key] = `class ${entry.class}: ${entry.why}`;
+    if (!isPublishBlocking(key)) out[key] = `class ${entry.class}: ${entry.why}`;
   }
   return out;
 }

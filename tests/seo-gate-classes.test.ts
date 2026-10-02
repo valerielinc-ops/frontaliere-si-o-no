@@ -19,11 +19,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import {
-  CLASS_MODE,
   MODE_ISSUE_PRIORITY,
   SEO_GATE_CLASSES,
-  advisoryGateRationales,
   effectiveMode,
+  isPublishBlocking,
+  publishNonBlockingGateRationales,
 } from '../scripts/ci/lib/seo-gate-classes.mjs';
 import {
   QUALITY_GATES,
@@ -51,15 +51,14 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
       'audit:all/footer-root-presence': 'A/blocking',
       'audit:all/jsonld-no-nested-scripts': 'A/blocking',
       'audit:all/image-object-license': 'A/blocking',
-      // Evidenza C, resta bloccante finché il proprietario non decide (override).
-      'audit:all/faqpage-validity': 'C/blocking',
-      // B — bloccante sulla regressione (fino al 2026-10-01 erano QUALITY_GATES)
-      'audit:max-bfs-depth': 'B/blocking-on-regression',
-      'audit:orphan-sitemap-pages': 'B/blocking-on-regression',
-      'audit:hreflang': 'B/blocking-on-regression',
-      'audit:all/information-gain': 'B/blocking-on-regression',
-      'audit:all/page-weight': 'B/blocking-on-regression',
-      // C — advisory
+      // B — issue P2 sulla regressione, publish non bloccato (owner 2026-10-02)
+      'audit:max-bfs-depth': 'B/issue-on-regression',
+      'audit:orphan-sitemap-pages': 'B/issue-on-regression',
+      'audit:hreflang': 'B/issue-on-regression',
+      'audit:all/information-gain': 'B/issue-on-regression',
+      'audit:all/page-weight': 'B/issue-on-regression',
+      // C — advisory (faqpage-validity declassato da A il 2026-10-02)
+      'audit:all/faqpage-validity': 'C/advisory',
       'audit:all/text-html-ratio': 'C/advisory',
       'audit:all/title-length': 'C/advisory',
       'audit:all/title-no-disambig-hash': 'C/advisory',
@@ -77,20 +76,28 @@ describe('classe e modalità di ogni gate (cambiarle è una decisione da review)
     });
   });
 
-  it('QUALITY_GATES di validate-dist è esattamente l\'insieme advisory della tabella', () => {
-    expect(QUALITY_GATES).toEqual(advisoryGateRationales());
+  it('QUALITY_GATES di validate-dist è esattamente l\'insieme non bloccante (B e C)', () => {
+    expect(QUALITY_GATES).toEqual(publishNonBlockingGateRationales());
     for (const key of Object.keys(SEO_GATE_CLASSES)) {
-      const advisory = effectiveMode(key) === 'advisory';
-      expect(evaluateIntegrity([key]).integrityOk, `${key}: publish ${advisory ? 'procede' : 'sequestrato'}`)
-        .toBe(advisory);
+      const blocking = SEO_GATE_CLASSES[key].class === 'A';
+      expect(isPublishBlocking(key), key).toBe(blocking);
+      expect(evaluateIntegrity([key]).integrityOk, `${key}: publish ${blocking ? 'sequestrato' : 'procede'}`)
+        .toBe(!blocking);
     }
   });
 
-  it('un gate B blocca publish anche quando fallisce insieme a un C', () => {
-    const v = evaluateIntegrity(['audit:all/text-html-ratio', 'audit:max-bfs-depth']);
+  it('decisione del proprietario: nessun gate B o C blocca, nemmeno insieme', () => {
+    const nonBlocking = Object.keys(SEO_GATE_CLASSES).filter((k) => SEO_GATE_CLASSES[k].class !== 'A');
+    expect(nonBlocking.length).toBe(20);
+    const v = evaluateIntegrity(nonBlocking);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+  });
+
+  it('i gate A che già bloccavano restano bloccanti', () => {
+    const v = evaluateIntegrity(['audit:all/text-html-ratio', 'audit:max-bfs-depth', 'gate:seo-source']);
     expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:max-bfs-depth']);
-    expect(v.quality).toEqual(['audit:all/text-html-ratio']);
+    expect(v.blocking).toEqual(['gate:seo-source']);
   });
 });
 
@@ -109,7 +116,7 @@ describe('cathedral e validate-dist danno a ogni gate la stessa modalità', () =
       const c = gateClassification(gate);
       expect(c.mode).toBe(effectiveMode(gate.gateKey));
       expect(c.issuePriority).toBe(MODE_ISSUE_PRIORITY[c.mode as keyof typeof MODE_ISSUE_PRIORITY]);
-      expect(evaluateIntegrity([gate.gateKey]).integrityOk).toBe(c.mode === 'advisory');
+      expect(evaluateIntegrity([gate.gateKey]).integrityOk).toBe(c.mode !== 'blocking');
     }
   });
 
@@ -119,7 +126,7 @@ describe('cathedral e validate-dist danno a ogni gate la stessa modalità', () =
   });
 
   it('la issue di regressione prende la priorità dalla modalità (A=1, B=2, C=3)', () => {
-    expect(MODE_ISSUE_PRIORITY).toEqual({ blocking: 1, 'blocking-on-regression': 2, advisory: 3 });
+    expect(MODE_ISSUE_PRIORITY).toEqual({ blocking: 1, 'issue-on-regression': 2, advisory: 3 });
     const wf = fs.readFileSync(path.join(ROOT, '.github/workflows/cathedral-seo-gates-check.yml'), 'utf8');
     const failgate = wf.slice(wf.indexOf('- name: Open issue + fail workflow on regression'));
     expect(failgate).toContain(".issuePriority // 1'");
@@ -134,15 +141,6 @@ describe('la tabella non può diventare un silenziatore', () => {
       expect(entry.why.length, `${key} senza motivazione`).toBeGreaterThan(20);
       for (const url of entry.evidence) expect(url, key).toMatch(/^https:\/\//);
       if (entry.class !== 'C') expect(entry.evidence.length, `${key} (${entry.class}) senza fonte`).toBeGreaterThan(0);
-    }
-  });
-
-  it('un override può solo rendere un gate più severo della sua classe', () => {
-    const severity: Record<string, number> = { advisory: 0, 'blocking-on-regression': 1, blocking: 2 };
-    for (const [key, entry] of Object.entries(SEO_GATE_CLASSES)) {
-      if (!('modeOverride' in entry) || !entry.modeOverride) continue;
-      expect(severity[entry.modeOverride.mode], key).toBeGreaterThan(severity[CLASS_MODE[entry.class]]);
-      expect(entry.modeOverride.reason.length, key).toBeGreaterThan(20);
     }
   });
 

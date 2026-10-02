@@ -32,16 +32,15 @@ describe('validate-dist failure classification', () => {
     expect(v.blocking).toEqual([]);
   });
 
-  it('the #5128 case now blocks: audit:hreflang is class B (2026-10-02)', () => {
-    // Run 30974294824 had audit:hreflang red and everything else green; #5128
-    // made it quality so publish ran. The shared classification
-    // (scripts/ci/lib/seo-gate-classes.mjs) puts it in class B: Google ignores
-    // non-reciprocal hreflang, and the gate's baseline is 0. Owner approval of
-    // this mode change is pending (seo-gates proposal, 2026-10-02).
+  it('lets publish run when only quality gates failed — the #5128 case', () => {
+    // Exactly what run 30974294824 produced: audit:hreflang red, everything
+    // else green, deploy + validate-live both success. audit:hreflang is
+    // class B since 2026-10-02 (P2 issue on regression), and the owner decided
+    // that no B or C gate blocks publication.
     const v = evaluateIntegrity(['audit:hreflang']);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:hreflang']);
-    expect(v.quality).toEqual([]);
+    expect(v.integrityOk).toBe(true);
+    expect(v.quality).toEqual(['audit:hreflang']);
+    expect(v.blocking).toEqual([]);
   });
 
   it('blocks publish when the sitemap validators fail', () => {
@@ -115,16 +114,14 @@ describe('validate-dist failure classification', () => {
     // requires for indexing/rich-results. Same defect class as the other
     // `audit:all/*` entries above: a page missing either still serves.
     //
-    // Lowered 19 → 14 on 2026-10-02: the allowlist is now DERIVED from the
-    // shared classification (scripts/ci/lib/seo-gate-classes.mjs, advisory
-    // mode only). Five former entries are class B — `audit:hreflang`,
-    // `audit:max-bfs-depth`, `audit:orphan-sitemap-pages`,
-    // `audit:all/information-gain`, `audit:all/page-weight` — and block
-    // publish on a regression. The top-level entries left are the two
-    // non-`audit:all` quality gates.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(14);
+    // 2026-10-02: the allowlist is DERIVED from the shared classification
+    // (scripts/ci/lib/seo-gate-classes.mjs): every class B and C gate. Raised
+    // 19 → 20 by one deliberate owner decision: `audit:all/faqpage-validity`
+    // moved from A to C (FAQ rich results are limited to government/health
+    // sites since 2023-09-14).
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(20);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
-    expect(topLevel.sort()).toEqual(['dist:quality-tests', 'validate:jobs-quality']);
+    expect(topLevel).toHaveLength(5);
     // Every entry carries a rationale string, not a bare flag.
     for (const [gate, why] of Object.entries(QUALITY_GATES)) {
       expect(String(why).length, `${gate} needs a rationale`).toBeGreaterThan(10);
@@ -134,10 +131,9 @@ describe('validate-dist failure classification', () => {
   it('never classifies a sitemap or dist-integrity gate as quality', () => {
     // Guards the allowlist against future edits that would let publish
     // submit URLs from a dist we know is malformed. Exact names — note
-    // `audit:orphan-sitemap-pages` (class B since 2026-10-02: blocks only on a
-    // regression of its ratchet) must not be confused with
-    // `validate:sitemap-pages` (class A: the sitemap lists pages that do not
-    // exist).
+    // `audit:orphan-sitemap-pages` IS quality (the page exists, it is just
+    // not internally linked) and must not be confused with
+    // `validate:sitemap-pages` (the sitemap lists pages that do not exist).
     const MUST_BLOCK = [
       'validate:sitemap-pages',
       'validate:sitemap-links',
@@ -182,13 +178,15 @@ describe('audit:all bundle expansion (#4828)', () => {
   });
 
   it('NEGATIVE CASE: a structural sub-auditor still blocks', () => {
-    // The four auditors deliberately left off the allowlist. If any of these
-    // ever reads as quality, a broken shell or a broken document gets
-    // announced to Google — the failure this whole gate exists to prevent.
+    // The auditors deliberately left off the allowlist. If any of these ever
+    // reads as quality, a broken shell or a broken document gets announced to
+    // Google — the failure this whole gate exists to prevent.
+    // `audit:all/faqpage-validity` left this list on 2026-10-02 (owner
+    // decision, class C): an invalid FAQPage costs nothing on this site, FAQ
+    // rich results being limited to government/health sites.
     const MUST_BLOCK = [
       'audit:all/footer-root-presence',
       'audit:all/jsonld-no-nested-scripts',
-      'audit:all/faqpage-validity',
       'audit:all/image-object-license',
     ];
     for (const gate of MUST_BLOCK) {
@@ -209,15 +207,14 @@ describe('audit:all bundle expansion (#4828)', () => {
     expect(v.quality).toEqual(RUN_31077435060_SUB_AUDITS);
   });
 
-  it('issue #6462: breadcrumb-coverage stays quality; information-gain is class B since 2026-10-02', () => {
-    // BreadcrumbList is an optional SERP enhancement (Google docs): class C.
-    // information-gain measures mail-merge families, i.e. the "scaled content
-    // abuse" risk of Google's spam policies: class B, its cohort floor fails
-    // only on a regression and that failure now blocks publish.
+  it('issue #6462: breadcrumb-coverage and information-gain are quality, not blocking', () => {
+    // BreadcrumbList is an optional SERP enhancement (class C); information-gain
+    // is class B since 2026-10-02 (P2 issue on regression). Neither blocks
+    // publish: owner decision, 2026-10-02.
     const v = evaluateIntegrity(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
-    expect(v.integrityOk).toBe(false);
-    expect(v.blocking).toEqual(['audit:all/information-gain']);
-    expect(v.quality).toEqual(['audit:all/breadcrumb-coverage']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.blocking).toEqual([]);
+    expect(v.quality).toEqual(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
   });
 
   it('DEFAULT-DENY survives inside the namespace', () => {
