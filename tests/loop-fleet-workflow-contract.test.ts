@@ -283,16 +283,50 @@ describe('loop fleet workflow contract', () => {
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
   });
 
-  it('shares one repository-wide concurrency group across bridge and observer triggers', () => {
-    const writers = ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml'];
-    for (const name of writers) {
-      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      expect(source, name).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
-      expect(source, name).toContain('cancel-in-progress: false');
+  it('preserves independent L3/L9 pending sources and groups retries by source run', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    const group = source.match(/^  group: (.+)$/mu)?.[1] ?? '';
+    const sourceRunExpression = /\$\{\{\s*github\.event\.workflow_run\.id\s*\|\|\s*inputs\.run_id\s*\|\|\s*github\.run_id\s*\}\}/u;
+    expect(group.replace(sourceRunExpression, '<source-run-id>'))
+      .toBe('loop-fleet-durable-ledger-<source-run-id>');
+    expect(source).toContain('cancel-in-progress: false');
+
+    // With an existing bridge run active, GitHub retains one pending run per
+    // group. The old global group replaced L3 with the later L9 dispatch.
+    const runs = [
+      { loopId: 'L3', runId: '36949104952' },
+      { loopId: 'L9', runId: '36949104687' },
+    ];
+    const oldPending = new Map<string, string>();
+    for (const run of runs) oldPending.set('loop-fleet-durable-ledger', run.runId);
+    expect([...oldPending.values()]).toEqual(['36949104687']);
+
+    const groupFor = ({ workflowRunId = '', inputRunId = '', ownRunId = '' }: {
+      workflowRunId?: string;
+      inputRunId?: string;
+      ownRunId?: string;
+    }) => {
+      const sourceRunId = workflowRunId || inputRunId || ownRunId;
+      return group.replace(sourceRunExpression, sourceRunId);
+    };
+    const pendingBySource = new Map<string, string>();
+    for (const run of runs) {
+      pendingBySource.set(groupFor({ workflowRunId: run.runId, ownRunId: 'bridge-run' }), run.runId);
     }
+    expect([...pendingBySource.values()]).toEqual(runs.map((run) => run.runId));
+    // A retry of the same dispatch stays in its original group; the ledger
+    // merge helper makes that replay idempotent by recordId.
+    expect(groupFor({ workflowRunId: runs[0].runId, ownRunId: 'bridge-run' }))
+      .toBe(groupFor({ inputRunId: runs[0].runId, ownRunId: 'manual-retry-run' }));
   });
 
-  it('routes both writers to one serialized branch with bounded push retries', () => {
+  it('keeps independent lifecycle observer invocations serialized', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
+    expect(source).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
+    expect(source).toContain('cancel-in-progress: false');
+  });
+
+  it('routes both writers to one append-only branch with bounded push retries', () => {
     const writers = [
       ['loop-fleet-ledger.yml', 'merge-loop-fleet-ledger.mjs'],
       ['loop-fleet-lifecycle-observer.yml', 'append-loop-fleet-lifecycle.mjs'],

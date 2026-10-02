@@ -13,8 +13,10 @@ permissions:
   actions: read
   pull-requests: read
 
-# Serialize with the durable ledger bridge because both may update the same
-# append-only ledger branch. Neither workflow can write main directly.
+# Keep observer invocations serialized with each other. The ledger bridge uses
+# source-run groups to preserve independent pending work; both writers resolve
+# branch push races by reapplying their idempotent records on the latest tip.
+# Neither workflow can write main directly.
 concurrency:
   group: loop-fleet-durable-ledger
   cancel-in-progress: false

@@ -44,7 +44,11 @@ permissions:
   actions: read
 
 concurrency:
-  group: loop-fleet-durable-ledger
+  # Keep one pending slot per immutable source run: unrelated workflow_run
+  # events must not replace each other while the bridge appends to the ledger.
+  # Re-dispatching the same source run stays in the same group and is safe
+  # because the merge helper is idempotent by recordId.
+  group: loop-fleet-durable-ledger-${{ github.event.workflow_run.id || inputs.run_id || github.run_id }}
   cancel-in-progress: false
 
 jobs:
