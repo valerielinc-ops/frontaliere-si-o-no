@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-10-01T21:21:05.858Z",
+  "generatedAt": "2026-10-02T09:21:26.888Z",
   "total": 5,
   "newCount": 0,
-  "updatedCount": 5,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5370,
-  "avgDurationMs": 5370,
+  "unchangedCount": 1,
+  "durationMs": 5031,
+  "avgDurationMs": 5031,
   "durationHistory": [
-    5370
+    5031
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -119,7 +119,10 @@
         "translation": 23,
         "completeness": 11
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Global Wealth Management – Private Banking Assistant (Zurich)",
       "company": "Banca del Sempione",
@@ -136,16 +139,22 @@
       "id": "banca-sempione-f45acac33926",
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "employmentType": "FULL_TIME",
       "applyUrl": "https://www.bancasempione.ch/job/private-banking-assistant/",
-      "_qualityScore": 83,
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 25,
-        "completeness": 11
+        "completeness": 16
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
