@@ -588,7 +588,7 @@ const EMPLOYMENT_TYPE_LABEL: Record<string, Record<string, string>> = {
   INTERNSHIP: 'Praktikum',
   OTHER: '',
  },
- fr: {
+  fr: {
   PART_TIME: 'Temps partiel',
   TEMPORARY: 'Temporaire',
   CONTRACTOR: 'Contrat',
@@ -15176,7 +15176,7 @@ ${staticAnalyticsHtml}
    nextBody: 'Für aktive Stellen in derselben Region besuchen Sie die aktualisierte Jobbörse.',
    cta: 'Aktuelle Stellen ansehen',
   },
-  fr: {
+ fr: {
    notice: 'Cette page historique conserve le contenu disponible de l\'annonce originale. Le poste n\'est plus actif, mais l\'URL reste accessible depuis un moteur de recherche ou un lien enregistré.',
    original: 'Contenu de l\'annonce archivée',
    details: 'Détails historiques',
@@ -15186,11 +15186,32 @@ ${staticAnalyticsHtml}
    cta: 'Voir les offres à jour',
   },
  };
+  // Historical fallback pages are still indexable, so preserve the complete
+  // tracked locale cluster when one exists. These pages are emitted by the
+  // self-healing pass after the normal active/expired/bridge emitters have
+  // skipped a path; dropping the alternates here turns an otherwise complete
+  // four-locale cluster into a one-sided ZH page (P3-B).
+  const buildTrackedHreflangLinks = (
+   slugKey: string,
+   paths: Record<string, string>,
+  ): string => {
+   if (cantonDriftCompatSlugs.has(slugKey)) return '';
+   const entries = localeList
+    .map((l) => (paths[l] ? { lang: l as CantonLocale, href: `${BASE_URL}${withSlash(paths[l])}` } : null))
+    .filter((entry): entry is { lang: CantonLocale; href: string } => entry !== null);
+   if (entries.length !== localeList.length || !paths.it) return '';
+   return [
+    ...entries.map((entry) => ` <link rel="alternate" hreflang="${entry.lang}" href="${entry.href}">`),
+    ` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`,
+   ].join('\n');
+  };
+
   const buildHistoricalArchiveHtml = (
   slugKey: string,
   relPath: string,
   locale: CantonLocale,
   archive?: HistoricalArchiveFallback,
+  hreflangLinks = '',
  ): string => {
   const copy = historicalArchiveCopy[locale] || historicalArchiveCopy.it;
   const slugInfo = extractInfoFromSlug(slugKey);
@@ -15250,7 +15271,7 @@ ${staticAnalyticsHtml}
    pageDescription,
    ROBOTS_INDEX_ENHANCED,
    historicalUrl,
-   '',
+   hreflangLinks,
    `<script type="application/ld+json">${breadcrumb}</script>`,
    expiredPayload,
    staticBody,
@@ -15329,7 +15350,8 @@ ${staticAnalyticsHtml}
  }
 
  const archive = historicalArchiveFallbacks.get(relPath);
- const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive);
+ const hreflangLinks = buildTrackedHreflangLinks(slug, paths);
+ const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
  writeSoftLandingPage(relPath.replace(/^\//, ''), html);
  if (archive) historicalArchiveCount++;
  historicalFallbackCount++;
