@@ -7496,6 +7496,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bancarotte-imprese-nove-mesi.title': 'Corporate Bankruptcies in Switzerland: Up 37% in Nine Months',
     'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'In the first nine months, there were 11,412 bankruptcies in Switzerland, up 37% from 2025. Ticino and Graubünden were above average; 40,487 new companies were established.',
     'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Swiss offices and shops in an editorial scene about the business sector.',
+    'blog.article.automazione-ia-amministrazione-federale.title': 'AI and Automation: A Plan for Federal Efficiency',
+    'blog.article.automazione-ia-amministrazione-federale.excerpt': 'The Federal Council Adopts the Report on October 2, 2026: Five Priorities for Streamlining Procedures and Reducing Wait Times.',
+    'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Federal Administration office with digital screens for automation and artificial intelligence',
 };
 
 export default blogMetaChEn;

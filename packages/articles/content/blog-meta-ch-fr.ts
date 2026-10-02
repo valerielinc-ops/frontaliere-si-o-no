@@ -7496,6 +7496,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bancarotte-imprese-nove-mesi.title': 'Faillites d\'entreprises en Suisse : +37 % en neuf mois',
     'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'Au cours des neuf premiers mois, 11 412 faillites ont été enregistrées en Suisse, soit une hausse de 37 % par rapport à 2025. Le Tessin et les Grisons affichent des chiffres supérieurs à la moyenne ; 40 487 nouvelles entreprises ont été créées.',
     'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Bureaux et commerces suisses dans une scène éditoriale consacrée aux entreprises.',
+    'blog.article.automazione-ia-amministrazione-federale.title': 'IA et automatisation : plan pour l\'efficacité au niveau fédéral',
+    'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Le Conseil fédéral adopte le rapport du 2 octobre 2026 : cinq priorités pour simplifier les procédures et réduire les délais d\'attente.',
+    'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Bureau de l\'Administration fédérale avec écrans numériques pour l\'automatisation et l\'IA',
 };
 
 export default blogMetaChFr;

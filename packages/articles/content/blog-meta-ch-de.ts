@@ -7496,6 +7496,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bancarotte-imprese-nove-mesi.title': 'Unternehmensinsolvenzen in der Schweiz: +37 % in neun Monaten',
     'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'In den ersten neun Monaten gab es in der Schweiz 11\'412 Insolvenzen, ein Anstieg von 37 % gegenüber 2025. Das Tessin und Graubünden lagen über dem Durchschnitt; 40\'487 neue Unternehmen wurden gegründet.',
     'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Schweizer Büros und Geschäfte in einer redaktionellen Szene zur Unternehmenswelt.',
+    'blog.article.automazione-ia-amministrazione-federale.title': 'KI und Automatisierung: Plan zur Steigerung der Effizienz auf Bundesebene',
+    'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Der Bundesrat verabschiedet den Bericht vom 2. Oktober 2026: fünf Schwerpunkte zur Vereinfachung der Verfahren und zur Verkürzung der Wartezeiten.',
+    'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Bundesverwaltungsamt mit digitalen Bildschirmen für Automatisierung und künstliche Intelligenz',
 };
 
 export default blogMetaChDe;

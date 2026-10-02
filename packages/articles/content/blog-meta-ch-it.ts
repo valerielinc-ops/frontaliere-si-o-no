@@ -7496,6 +7496,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bancarotte-imprese-nove-mesi.title': 'Fallimenti aziendali in Svizzera: +37% in nove mesi',
     'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'Nei primi nove mesi 11\'412 bancarotte in Svizzera, +37% sul 2025. Ticino e Grigioni sopra la media; create 40\'487 nuove ditte.',
     'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Uffici e negozi svizzeri in una scena editoriale sul mondo delle imprese.',
+    'blog.article.automazione-ia-amministrazione-federale.title': 'IA e automazione: piano per l\'efficienza federale',
+    'blog.article.automazione-ia-amministrazione-federale.excerpt': 'Il Consiglio federale adotta il rapporto 2 ottobre 2026: cinque priorità per semplificare procedure e ridurre tempi di attesa.',
+    'blog.article.automazione-ia-amministrazione-federale.imageAlt': 'Ufficio dell\'Amministrazione federale con schermi digitali per automazione e intelligenza artificiale',
 };
 
 export default blogMetaChIt;

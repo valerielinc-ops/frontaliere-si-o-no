@@ -2521,6 +2521,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'vendite-auto-elettrico-svizzera': { it: 'vendite-auto-elettrico-svizzera', en: 'car-sales-electric-switzerland', de: 'autoverkaeufe-elektroauto-schweiz', fr: 'ventes-voitures-electriques-suisse' },
  'parmelin-dimissioni-consiglio-federale': { it: 'parmelin-dimissioni-consiglio-federale', en: 'parmelin-resigns-federal-council', de: 'parmelin-tritt-bundesrat-zurueck', fr: 'parmelin-quitte-conseil-federal' },
  'bancarotte-imprese-nove-mesi': { it: 'bancarotte-imprese-nove-mesi', en: 'swiss-business-bankruptcies-nine-months', de: 'schweizer-unternehmenspleiten-neun-monate', fr: 'faillites-entreprises-suisses-neuf-mois' },
+ 'automazione-ia-amministrazione-federale': { it: 'automazione-ia-amministrazione-federale', en: 'federal-administration-ai-automation', de: 'bundesverwaltung-ki-automatisierung', fr: 'administration-federale-ia-automatisation' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
