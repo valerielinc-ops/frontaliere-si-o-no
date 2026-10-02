@@ -468,11 +468,12 @@ function sameBackfillVenue(freshEvent, backfillEvent) {
     .map(normalizeVenueToken).filter(Boolean);
   const compatibleLocality = freshLocalities.some(freshLocality =>
     backfillLocalities.some(backfillLocality => sameVenue(freshLocality, backfillLocality)));
+  const localityProof = [...freshLocalities, ...backfillLocalities]
+    .some(locality => broadVenue && sameVenue(locality, broadVenue));
   if (freshLocalities.length && backfillLocalities.length && !compatibleLocality) return false;
   if (freshVenue === backfillVenue) return true;
-  if (!compatibleLocality) return false;
-  if (!broadVenue) return true;
-  return [...freshLocalities, ...backfillLocalities].some(locality => sameVenue(locality, broadVenue));
+  if (!broadVenue) return compatibleLocality;
+  return localityProof;
 }
 
 /** Keep a verified backfill when a fresh detail record has no confident price. */
