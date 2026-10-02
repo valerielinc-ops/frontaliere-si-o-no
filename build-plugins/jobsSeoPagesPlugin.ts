@@ -588,7 +588,7 @@ const EMPLOYMENT_TYPE_LABEL: Record<string, Record<string, string>> = {
   INTERNSHIP: 'Praktikum',
   OTHER: '',
  },
-  fr: {
+ fr: {
   PART_TIME: 'Temps partiel',
   TEMPORARY: 'Temporaire',
   CONTRACTOR: 'Contrat',
@@ -15176,7 +15176,7 @@ ${staticAnalyticsHtml}
    nextBody: 'Für aktive Stellen in derselben Region besuchen Sie die aktualisierte Jobbörse.',
    cta: 'Aktuelle Stellen ansehen',
   },
- fr: {
+  fr: {
    notice: 'Cette page historique conserve le contenu disponible de l\'annonce originale. Le poste n\'est plus actif, mais l\'URL reste accessible depuis un moteur de recherche ou un lien enregistré.',
    original: 'Contenu de l\'annonce archivée',
    details: 'Détails historiques',
