@@ -299,8 +299,132 @@ export function buildFormAnswers({ identity, profile, documents, answers = {} })
   ];
 }
 
+// ── Swiss letter conventions (study 2026-10-02, report-cv-lettera §5) ─────
+// Official templates of the cantonal career services (SDBB/CSFO, Città di
+// Lugano): German without a comma after the salutation and the closing,
+// French "Madame, Monsieur," and "Meilleures salutations", Italian "Gentile
+// signora …," then a lowercase start, and "Cordiali saluti". The salutation and
+// the closing are written here, never by the model.
+
+export const LETTER_CLOSING = {
+  it: 'Cordiali saluti',
+  de: 'Freundliche Grüsse',
+  fr: 'Meilleures salutations',
+  en: 'Kind regards',
+};
+
+export const ENCLOSURES_LABEL = { it: 'Allegati', de: 'Beilagen', fr: 'Annexes', en: 'Enclosures' };
+export const CV_ENCLOSURE = { it: 'Curriculum vitae', de: 'Lebenslauf', fr: 'CV', en: 'CV' };
+
+const HONORIFIC_FEMALE = /^(?:frau|madame|mme\.?|signora|sig\.ra|dott\.ssa|ms\.?|mrs\.?)\s+/i;
+const HONORIFIC_MALE = /^(?:herr|monsieur|m\.|signor|signore|sig\.|dott\.|mr\.?)\s+/i;
+const ACADEMIC = /^(?:dr\.?|prof\.?|dott\.?)\s+/i;
+const SURNAME_PARTICLES = new Set(['de', 'di', 'da', 'del', 'della', 'dal', 'dalla', 'von', 'van', 'der', 'den', 'du', 'des', 'le', 'la', 'lo', 'dos', 'das']);
+
+/**
+ * The salutation for the contact person the posting names. The gender comes
+ * only from an honorific the posting wrote ("Frau", "Monsieur", "signora"),
+ * never from the first name; without one the form stays neutral.
+ */
+export function letterSalutation(language, contactPerson = '') {
+  let rest = clean(contactPerson, 200).replace(/[,;].*$/, '');
+  let gender = '';
+  if (HONORIFIC_FEMALE.test(rest)) { gender = 'f'; rest = rest.replace(HONORIFIC_FEMALE, ''); }
+  else if (HONORIFIC_MALE.test(rest)) { gender = 'm'; rest = rest.replace(HONORIFIC_MALE, ''); }
+  rest = rest.replace(ACADEMIC, '').trim();
+  // The last name with its particles ("de Luca", "von Arx", "van der Berg").
+  const words = rest.split(' ').filter(Boolean);
+  let first = words.length - 1;
+  while (first > 1 && SURNAME_PARTICLES.has(words[first - 1].toLowerCase())) first -= 1;
+  const surname = words.slice(Math.max(first, 0)).join(' ');
+  const named = Boolean(surname) && /\p{L}/u.test(surname);
+  switch (language) {
+    case 'de':
+      if (named && gender) return gender === 'f' ? `Sehr geehrte Frau ${surname}` : `Sehr geehrter Herr ${surname}`;
+      return named ? `Guten Tag ${rest}` : 'Sehr geehrte Damen und Herren';
+    case 'fr':
+      if (gender) return gender === 'f' ? 'Madame,' : 'Monsieur,';
+      return 'Madame, Monsieur,';
+    case 'en':
+      if (named && gender) return gender === 'f' ? `Dear Ms ${surname},` : `Dear Mr ${surname},`;
+      return named ? `Dear ${rest},` : 'Dear Sir or Madam,';
+    default:
+      if (named && gender) return gender === 'f' ? `Gentile signora ${surname},` : `Gentile signor ${surname},`;
+      return named ? `Gentile ${rest},` : 'Gentili signore, egregi signori,';
+  }
+}
+
+// Italian words a letter's first paragraph often starts with; after "Gentile …," they take a lowercase letter.
+const IT_LOWERCASE_START = new Set('sono ho mi vi le la lo con in da dopo durante lavoro sviluppo attualmente grazie desidero vorrei da dal dalla nel nella seguo ricopro mi chiamo come'.split(' '));
+
+/** Swiss typography: no "ß" in German, no line break inside "81 %" or "CHF 80'000". */
+export function swissTypography(text, language) {
+  let out = String(text ?? '');
+  if (language === 'de') out = out.replace(/ß/g, 'ss');
+  if (language === 'de' || language === 'fr') out = out.replace(/(\d)[  ]?%/g, '$1 %');
+  else out = out.replace(/(\d) %/g, '$1 %');
+  return out.replace(/\b(CHF|EUR|Fr\.)\s+(?=\d)/g, '$1 ');
+}
+
+/** The model's letter with the conventions applied: salutation and closing in code, typography fixed. */
+export function applyLetterConventions(letter, { language, contactPerson } = {}) {
+  const paragraphs = (letter?.paragraphs || []).map((paragraph) => swissTypography(paragraph, language));
+  const salutation = letterSalutation(language, contactPerson);
+  if (language === 'it' && salutation.endsWith(',') && paragraphs.length) {
+    const first = paragraphs[0];
+    const word = (first.match(/^\p{L}+/u) || [''])[0];
+    if (IT_LOWERCASE_START.has(word.toLowerCase())) paragraphs[0] = first[0].toLowerCase() + first.slice(1);
+  }
+  return { ...letter, salutation, paragraphs, closing: LETTER_CLOSING[language] || LETTER_CLOSING.it };
+}
+
+// Phrases the Swiss career services and the job portals list as filler (BIZ Bern, SECO, jobs.ch).
+const FILLER_PHRASES = {
+  de: [/hiermit bewerbe ich mich/i, /mit (?:grossem|großem) interesse habe ich/i, /ich würde mich (?:sehr )?freuen/i, /neue herausforderung/i, /teamplayer/i],
+  fr: [/par la présente/i, /je me permets de/i, /nouveau défi/i, /je serais (?:ravie?|heureux|heureuse) de/i],
+  it: [/con la presente/i, /mi pregio/i, /nuova sfida/i, /team player/i],
+  en: [/i am writing to/i, /team player/i, /perfect fit/i, /new challenge/i],
+};
+const PLACEHOLDER_RE = /\[[^\]\n]{1,40}\]|\{[^}\n]{1,40}\}|<[^>\n]{1,30}>|\bX{3,}\b|\.\.\.\s*$|…\s*$/m;
+
+/**
+ * Quality checks of the letter body in code, three outcomes: pass, advisory
+ * (filler phrase, length out of 150-380 words) or block (a placeholder left in).
+ * @returns {Array<{field:string, kind:string, token:string, context:string, severity:'advisory'|'block'}>}
+ */
+export function letterQualityIssues(letterBody, language) {
+  const text = String(letterBody || '');
+  const issues = [];
+  const add = (kind, token, severity) => issues.push({ field: 'coverLetter', kind, token, context: '', severity });
+  for (const pattern of FILLER_PHRASES[language] || []) {
+    const match = pattern.exec(text);
+    if (match) add('filler_phrase', match[0], 'advisory');
+  }
+  const words = text.split(/\s+/).filter(Boolean).length;
+  if (words && words < 150) add('too_short', String(words), 'advisory');
+  if (words > 380) add('too_long', String(words), 'advisory');
+  const placeholder = PLACEHOLDER_RE.exec(text);
+  if (placeholder) add('placeholder', placeholder[0].trim(), 'block');
+  return issues;
+}
+
+/** The letter's recipient as the posting gives it, kept on the draft so every rebuild prints the same address. */
+export function letterAddressOf(posting = {}, contactPerson = '') {
+  return {
+    contactPerson: clean(contactPerson || posting.contactPerson, 200),
+    streetAddress: clean(posting.streetAddress, 200),
+    postalCode: clean(posting.postalCode, 20),
+    location: clean(posting.location, 120),
+  };
+}
+
+/** What the letter lists under Beilagen/Annexes/Allegati: the CV, then each other document. */
+export function letterEnclosures(language, documentLabels = []) {
+  return [CV_ENCLOSURE[language] || CV_ENCLOSURE.it, ...documentLabels.map((label) => clean(label, 120)).filter(Boolean)];
+}
+
 /** Swiss business-letter blocks for buildCoverLetterPdf. */
-export function letterPdfBlocks({ identity, profile, posting = {}, companyName, language, letter, title, now }) {
+export function letterPdfBlocks({ identity, profile, posting = {}, companyName, language, letter, title, now, enclosures = [] }) {
   const location = clean(profile?.location, 200);
   const city = location.split(/[,(]/)[0].replace(/^via\s.*$/i, '').trim();
   const date = formatLetterDate(language, now);
@@ -318,6 +442,8 @@ export function letterPdfBlocks({ identity, profile, posting = {}, companyName, 
     paragraphs: letter.paragraphs,
     closing: letter.closing,
     signature: identity.name,
+    enclosuresLabel: ENCLOSURES_LABEL[language] || ENCLOSURES_LABEL.it,
+    enclosures,
     title: `${LETTER_FILE_LABEL[language] || LETTER_FILE_LABEL.it} – ${identity.name}`,
   };
 }
@@ -341,10 +467,13 @@ export function employerInitials(orderLine) {
     .join(' ');
 }
 
-// The texts where a tool reads as the candidate's claim. Not `whyCompany`
-// (it talks about the employer), nor the interview pack or the follow-up,
-// which go through this gate with their own fields.
-const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationShort'];
+// The texts where a tool, a figure, an employer or a job title reads as the
+// candidate's claim: everything that leaves in the candidate's name, the
+// follow-up included (it is written to the employer too; its date and day
+// count are in the order line it is checked against). Not `whyCompany` (it
+// talks about the employer), nor the interview pack, which stays with the
+// candidate and may quote the posting.
+const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationShort', 'followup'];
 
 /**
  * Fact gate over every text that may leave in the candidate's name.
@@ -364,8 +493,30 @@ const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationSho
  */
 export function checkDraftFacts(texts, sources) {
   // `candidate`: what the candidate wrote on the review page vouches for itself.
+  const candidate = [sources?.text, sources?.answers, sources?.candidate];
   const index = buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate], {
-    claimSources: [sources?.text, sources?.order, sources?.answers, sources?.candidate, employerInitials(sources?.order)],
+    // Only the candidate's own texts back a tool. The order line (company, job title) and the
+    // posting's place are names: quoted whole they are not claims, and they never back one
+    // ("Kubernetes Engineer" in the title does not make "uso Kubernetes" the candidate's).
+    claimSources: [...candidate, employerInitials(sources?.order)],
+    nameSources: [sources?.order, sources?.place],
+    // A figure in the candidate's own texts comes from the candidate or the order line (the job
+    // title with its workload), never from the posting alone (study 2026-10-02: "un team di 5").
+    numberSources: [...candidate, sources?.order],
+    echoSources: [sources?.posting],
+    entitySources: [...candidate, sources?.order, sources?.place, sources?.posting],
   });
   return checkGeneratedFacts(texts, index, { toolFields: CLAIM_FIELDS });
+}
+
+/**
+ * The fact gate plus the letter's quality checks in code: a placeholder left in
+ * blocks like an unsupported fact, filler phrases and the length are advisories.
+ */
+export function checkDraftTexts(texts, sources, { language } = {}) {
+  const facts = checkDraftFacts(texts, sources);
+  const issues = letterQualityIssues(texts?.coverLetter, language);
+  const unsupported = [...facts.unsupported, ...issues.filter((issue) => issue.severity === 'block').map(({ severity, ...issue }) => issue)];
+  const advisories = [...(facts.advisories || []), ...issues.filter((issue) => issue.severity === 'advisory').map(({ severity, ...issue }) => issue)];
+  return { ok: unsupported.length === 0, unsupported, advisories };
 }

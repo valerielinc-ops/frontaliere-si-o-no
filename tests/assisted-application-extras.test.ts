@@ -171,9 +171,10 @@ describe('tailored ATS CV (career-ops modes/pdf.md)', () => {
     }
     // Tools the CV names stay, whatever their spacing.
     expect(role('Qualitätsmanagement nach ISO-9001 als Pflegefachfrau HF.').experience[0].rewritten).toBe(true);
-    // A plain capitalised word is not tool-shaped (nor is every noun of a German bullet): "Salesforce" is
-    // beyond a shape rule and stays; the prompt's rule, not this gate, keeps it out.
-    expect(role('Patientendaten in Salesforce gepflegt.').experience[0].rewritten).toBe(true);
+    // A plain capitalised word is not tool-shaped (nor is every noun of a German bullet), but the closed
+    // vocabulary names the tools a shape cannot see (study 2026-10-02: "Deploy su Kubernetes" was kept).
+    expect(role('Patientendaten in Salesforce gepflegt.').experience[0].rewritten).toBe(false);
+    expect(role('Patientendaten auf der Station gepflegt.').experience[0].rewritten).toBe(true);
   });
 });
 

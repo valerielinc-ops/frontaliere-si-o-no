@@ -105,7 +105,9 @@ async function draftFollowup({ db, orderId, context, nowMs, codex, sendCascade, 
     timeoutMs: 420_000,
   });
   const { body, violations } = sanitizeFollowup(raw, { n });
-  // The date and the day count the model was given are facts too.
+  // The date and the day count the model was given are facts too. The
+  // follow-up is a claim field (CLAIM_FIELDS): it leaves in the candidate's
+  // name, so a figure only the posting gives is not the candidate's.
   const facts = checkDraftFacts({ followup: body }, { ...draft.factSources, order: `${draft.factSources?.order || ''}\n${appliedOn}\n${days}` });
   const pending = { n, body, subject: replySubject(followup.subject), createdAt: nowMs, deadlineAt: nowMs + FOLLOWUP_REVIEW_MS, attempts: 0 };
   if (violations.length || !facts.ok) {

@@ -90,7 +90,7 @@ export interface AssistedApplicationAutomationView {
     coverLetter: { text: string; subject: string } | null;
     applicationEmail: { to: string; subject: string; body: string } | null;
     formAnswers: Array<{ key: string; label: string; value: string; needsConfirmation: boolean; note: string }>;
-    factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
+    factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; advisories?: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
     factCheckAcknowledgedAt: number | null;
     knockOutAcknowledgedAt: number | null;
     editedAt: number | null;

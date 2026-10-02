@@ -7,17 +7,16 @@
  * owner gate.
  */
 
-import { buildCoverLetterPdf } from './assistedApplicationAiDocuments.js';
 import {
-  checkDraftFacts,
+  checkDraftTexts,
   clean,
   cleanBlock,
-  letterPdfBlocks,
   letterText,
   parseLetterText,
 } from './assistedApplicationAiDraftCore.js';
+import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { isPlausibleEmail } from './assistedApplicationAiJob.js';
-import { candidateWithEdits, formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
+import { formAnswersWithEdits } from './assistedApplicationCandidateEdits.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { PORTAL_ACCOUNTS_DOC_ID } from './assistedApplicationConstants.js';
@@ -189,22 +188,12 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const channel = emailTo && draft.channel?.type !== 'email'
     ? { ...draft.channel, type: 'email', label: 'E-mail', email: emailTo, setBy: 'owner' }
     : draft.channel;
-  const factCheck = checkDraftFacts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body }, draft.factSources || {});
+  const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body }, draft.factSources || {}, { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
-    const { identity, profile } = candidateWithEdits({ order, draft, flow: flowSnapshot.data() || {} });
-    const pdf = buildCoverLetterPdf(letterPdfBlocks({
-      identity,
-      profile,
-      posting: { contactPerson: draft.contactPerson || '' },
-      companyName: order.companyName,
-      language: draft.language || 'it',
-      letter: coverLetter,
-      title: draft.job?.title || order.jobTitle || '',
-      now: new Date(nowMs),
-    }));
+    const pdf = rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
     await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   }

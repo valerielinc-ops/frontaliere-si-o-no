@@ -135,7 +135,7 @@ describe('fact gate', () => {
       letter: 'Dal 2018 al 2023 ho gestito un reparto da 24 letti e ridotto gli errori del 15%, con un grado 80-100%. '
         + 'Scrivetemi a maria.rossi@example.com, +41 79 123 45 67, www.linkedin.com/in/maria-rossi. CHF 6500.',
     }, index);
-    expect(result).toEqual({ ok: true, unsupported: [] });
+    expect(result).toEqual({ ok: true, unsupported: [], advisories: [] });
   });
 
   it('flags invented metrics, addresses and links', () => {
@@ -175,7 +175,7 @@ describe('fact gate', () => {
           + 'Dal 2018 al 2023 ho lavorato all’Ospedale Civico, con BLS, ISO-9001 e tedesco B2. In allegato il mio CV.\n\nCordiali saluti',
         emailSubject: 'Candidatura per la posizione di Infermiere/a – Maria Rossi (Rif. INF-45)',
         emailBody: 'Gentili Signori,\n\nin allegato la mia candidatura.\n\nMaria Rossi\nmaria.rossi@example.com',
-      }, sources)).toEqual({ ok: true, unsupported: [] });
+      }, { ...sources, place: 'Bellinzona' })).toEqual({ ok: true, unsupported: [], advisories: [] });
     });
 
     it('takes the candidate’s own word for a tool, and checks tools only where they are a claim', () => {
