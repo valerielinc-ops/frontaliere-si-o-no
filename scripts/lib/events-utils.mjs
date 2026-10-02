@@ -1501,7 +1501,7 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\b/iu;
+const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i|es|s)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|freier\s+eintritt|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i|es|s)?|libera)|entr[ée]e?s?\s+(?:libre?s?|gratuite?s?))\b/iu;
 const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+(?:(?:under|below|moins\s+de|unter)\s+\d{1,2}|\d{1,2}\s*[–—-]\s*\d{1,2}))?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])/iu;
 const PRICE_CHILD_FREE_FOR_RE = /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)(?:\s+(?:under|below|moins\s+de|unter)\s+\d{1,2})?/iu;
 const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^,.;\n]*?\b\d{1,2}\s*[–—-]\s*\d{1,2}\b/giu;
