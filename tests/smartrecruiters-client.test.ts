@@ -18,12 +18,15 @@ describe('SmartRecruiters strict source pagination', () => {
             id: 'posting-a',
             name: 'Role A',
             applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
-            location: { city: 'Lugano', country: 'ch' },
+            location: { city: 'Lugano', country: { code: 'CH' } },
+            typeOfEmployment: { id: 'FULL_TIME', label: 'Full-time' },
           }],
         }), { status: 200 });
       }
       return new Response(JSON.stringify({
         id: 'posting-a',
+        location: { city: 'Lugano', country: null },
+        typeOfEmployment: { id: 'FULL_TIME' },
         jobAd: { sections: { jobDescription: { text: '<p>Role A details.</p>' } } },
       }), { status: 200 });
     }));
@@ -44,6 +47,42 @@ describe('SmartRecruiters strict source pagination', () => {
       applyUrl: 'https://jobs.smartrecruiters.com/Avaloq1/posting-a-role-a',
       descriptionHtml: '<p>Role A details.</p>',
     });
+    expect(rows[0].rawPosting).toMatchObject({
+      location: { city: 'Lugano', country: { code: 'CH' } },
+      typeOfEmployment: { id: 'FULL_TIME', label: 'Full-time' },
+    });
+    expect(requestedUrls).toHaveLength(2);
+  });
+
+  it('keeps the listing location when detail returns an invalid array shape', async () => {
+    const listingLocation = { city: 'Lugano', country: { code: 'CH' } };
+    const requestedUrls: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (input) => {
+      const url = new URL(String(input));
+      requestedUrls.push(url.toString());
+      if (url.searchParams.has('limit')) {
+        return new Response(JSON.stringify({
+          totalFound: 1,
+          content: [{ id: 'posting-a', name: 'Role A', location: listingLocation }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        id: 'posting-a',
+        location: [],
+        jobAd: { sections: { jobDescription: { text: '<p>Role A details.</p>' } } },
+      }), { status: 200 });
+    }));
+
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs('Avaloq1', {
+      fetchDetail: true,
+      minDelayMs: 0,
+    })) {
+      rows.push(row);
+    }
+
+    expect(rows).toHaveLength(1);
+    expect(rows[0].rawPosting.location).toEqual(listingLocation);
     expect(requestedUrls).toHaveLength(2);
   });
 

@@ -371,16 +371,10 @@ async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent
     // detail payload that only carries a city does not discard the list
     // endpoint's country signal used by source-specific filters.
     const merged = { ...listingPosting, ...full };
-    if (listingPosting.location && full.location
-      && typeof listingPosting.location === 'object'
-      && typeof full.location === 'object'
-      && !Array.isArray(listingPosting.location)
-      && !Array.isArray(full.location)) {
-      merged.location = { ...listingPosting.location, ...full.location };
-    } else if (!full.location || typeof full.location !== 'object') {
-      merged.location = listingPosting.location;
+    for (const field of ['location', 'typeOfEmployment']) {
+      merged[field] = mergePartialRecord(listingPosting[field], full[field]);
     }
-    for (const field of ['id', 'name', 'applyUrl', 'releasedDate', 'createdOn', 'typeOfEmployment']) {
+    for (const field of ['id', 'name', 'applyUrl', 'releasedDate', 'createdOn']) {
       const value = full[field];
       if (value === undefined || value === null || (typeof value === 'string' && value.trim() === '')) {
         merged[field] = listingPosting[field];
@@ -390,6 +384,45 @@ async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent
   } catch {
     return listingPosting;
   }
+}
+
+/**
+ * Merge a JSON object from the detail endpoint without allowing partial or
+ * malformed fields to erase evidence from the listing endpoint. Nested
+ * records are merged recursively so e.g. `country: null` cannot discard a
+ * listing country code.
+ *
+ * @param {unknown} listingValue
+ * @param {unknown} detailValue
+ * @returns {unknown}
+ */
+function mergePartialRecord(listingValue, detailValue) {
+  const isRecord = (value) => value !== null
+    && typeof value === 'object'
+    && !Array.isArray(value);
+  const isUsableValue = (value) => value !== undefined
+    && value !== null
+    && !(typeof value === 'string' && value.trim() === '')
+    && !Array.isArray(value);
+
+  if (!isRecord(detailValue)) return listingValue;
+  if (!isRecord(listingValue)) return detailValue;
+
+  const merged = { ...listingValue };
+  for (const [key, value] of Object.entries(detailValue)) {
+    if (!isUsableValue(value)) continue;
+    const listingField = listingValue[key];
+    if (isRecord(listingField) && isRecord(value)) {
+      merged[key] = mergePartialRecord(listingField, value);
+    } else if (isUsableValue(listingField) && typeof listingField !== typeof value) {
+      // Keep a known listing shape when a detail response changes the field's
+      // JSON type instead of returning the same field partially populated.
+      continue;
+    } else {
+      merged[key] = value;
+    }
+  }
+  return merged;
 }
 
 /**
