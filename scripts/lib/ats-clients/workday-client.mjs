@@ -392,6 +392,85 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
   end('max-pages');
 }
 
+/* ── Board summary (total + facets) ───────────────────────────────────── */
+
+/**
+ * @typedef {Object} WorkdayBoardSummary
+ * @property {number|null} total `total` stated by page 0, or null when absent
+ *   or not a finite number.
+ * @property {number} postingCount postings shipped on page 0.
+ * @property {Array<{ facetParameter?: string, values?: unknown[] }>} facets the
+ *   `facets` array of page 0 (`[]` when absent).
+ */
+
+/**
+ * Read page 0 of a career site for what it says about the WHOLE board: its
+ * `total` and its `facets` (the tenant's own per-value counts, e.g. postings by
+ * country). The listing iterator never exposes the facets, and they are the
+ * only place a tenant states which countries it currently posts in.
+ *
+ * Fails loudly like the iterator: 401/403 → `WorkdayAuthError`, other HTTP
+ * errors (404 for a renamed or retired site) → `WorkdayApiError`.
+ *
+ * @param {string} apiBase Output of `buildWorkdayApiBase`.
+ * @param {{ appliedFacets?: Record<string, string[]>, userAgent?: string, timeoutMs?: number }} [options]
+ * @returns {Promise<WorkdayBoardSummary>}
+ */
+export async function fetchWorkdayBoardSummary(apiBase, options = {}) {
+  if (!apiBase) throw new TypeError('fetchWorkdayBoardSummary: apiBase is required');
+  const {
+    appliedFacets = {},
+    userAgent = DEFAULT_USER_AGENT,
+    timeoutMs = DEFAULT_TIMEOUT_MS,
+  } = options;
+  const endpoint = `${apiBase.replace(/\/+$/, '')}/jobs`;
+  const data = await fetchJsonWithRetry(endpoint, {
+    method: 'POST',
+    body: JSON.stringify({ appliedFacets, limit: DEFAULT_PAGE_SIZE, offset: 0, searchText: '' }),
+    userAgent,
+    timeoutMs,
+    retries: 1,
+  });
+  const postings = assertJsonListShape(data, { key: 'jobPostings', source: `workday:${apiBase}` });
+  return {
+    total: typeof data?.total === 'number' && Number.isFinite(data.total) ? data.total : null,
+    postingCount: postings.length,
+    facets: Array.isArray(data?.facets) ? data.facets : [],
+  };
+}
+
+/**
+ * The leaf values of one facet, flattened: `[{ id, descriptor, count }]`.
+ * Workday nests some facets (`locationMainGroup` → `Locations` → sites), so
+ * groups are walked and only leaves are returned. `null` when the facet is not
+ * on the page at all — which is not the same statement as "no values".
+ *
+ * @param {WorkdayBoardSummary['facets']} facets
+ * @param {string} facetParameter e.g. `Country`, `locationCountry`
+ * @returns {Array<{ id: string, descriptor: string, count: number|null }>|null}
+ */
+export function workdayFacetLeafValues(facets, facetParameter) {
+  const facet = (Array.isArray(facets) ? facets : []).find((f) => f?.facetParameter === facetParameter);
+  if (!facet || !Array.isArray(facet.values)) return null;
+  const leaves = [];
+  const walk = (values) => {
+    for (const value of values) {
+      if (!value || typeof value !== 'object') continue;
+      if (Array.isArray(value.values)) {
+        walk(value.values);
+        continue;
+      }
+      leaves.push({
+        id: String(value.id ?? ''),
+        descriptor: String(value.descriptor ?? ''),
+        count: typeof value.count === 'number' && Number.isFinite(value.count) ? value.count : null,
+      });
+    }
+  };
+  walk(facet.values);
+  return leaves;
+}
+
 /* ── Detail fetch ──────────────────────────────────────────────────────── */
 
 /**
