@@ -265,6 +265,7 @@ import {
   isCompanyHubNamespaceSlug,
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+import { historicalArchiveHeading } from './shared/historicalArchiveHeading';
 import {
  MIN_JOBS_PER_CANTON_COMPANY_CITY,
  buildCompanyCityPlan,
@@ -15250,7 +15251,10 @@ ${staticAnalyticsHtml}
    archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
   const staticBody = [
-   `<h1>${esc(titleRaw)}${company ? ` — ${esc(company)}` : ''}</h1>`,
+   // Location in the heading (shared/historicalArchiveHeading.ts): the
+   // title drops it when it does not fit, so a heading without it was the
+   // title verbatim on every such page (audit:all/h1-title-duplicates).
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location))}</h1>`,
    `<p><strong>${copy.notice}</strong></p>`,
    descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`
