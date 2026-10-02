@@ -97,6 +97,10 @@ import { inlineScriptJson } from './shared/inlineJsonScript';
 import { getCantonDisplayName, type CantonDisplayLocale } from './shared/cantonDisplay';
 import { buildTitleWithBrand } from './shared/titleSuffix';
 import {
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
+import {
   FUEL_LOCALE_PREFIX,
   FUEL_SECTION_SLUG,
   FUEL_TODAY_SLUG,
@@ -386,7 +390,7 @@ export function renderFastestCrossingCard(
 
   return `<div class="s-cLZUx7">
        <strong>${esc(label)}:</strong>
-       <a class="s-zFOCI6" data-bw-slot="link" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
+       <a class="s-zFOCI6" data-bw-slot="link" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${getCrossingHref(best.slug, locale)}">${esc(getCrossingLabel(best, locale))}</a>
        · <span class="s-4sIcQF" data-bw-slot="minutes">${best.waitTimeMinutes} min</span>
      </div>`;
 }
@@ -2393,7 +2397,7 @@ function renderHubPage(inp: HubInputs): string {
     const sc = statusColor(readingState === 'live' ? wait : null);
     return `<tr role="row" class="block border-b border-edge last:border-b-0 md:table-row" data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
       <td role="cell" class="block px-4 pt-3 pb-2 text-base text-body md:table-cell md:py-3">
-        <a class="flex min-h-11 items-center break-words font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent" href="${buildOggiPath(locale, c)}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+        <a class="flex min-h-11 items-center break-words font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_crossing" href="${buildOggiPath(locale, c)}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
       <td role="cell" class="block px-4 pb-3 text-base text-body md:table-cell md:py-3 md:text-right">
         <span class="mr-2 md:hidden" aria-hidden="true">${esc(copy.waitMinutesLabel)}:</span>
