@@ -67,9 +67,10 @@ describe('employer insights GA4 custom dimensions (#9403)', () => {
       json: async () => body,
     });
     const responses = [
-      response(200, { customDimensions: [{ parameterName: 'employer_key' }] }),
+      response(200, { customDimensions: [{ parameterName: 'employer_key', displayName: 'Employer Key', scope: 'EVENT' }] }),
       response(200, {}),
       response(409, {}),
+      response(200, { customDimensions: [{ parameterName: 'emission_id', displayName: 'Analytics Emission ID', scope: 'EVENT' }] }),
     ];
     const calls: Array<{ url: string; options: { method?: string; body?: string } }> = [];
     const result = await ensureGa4CustomDimensions({
@@ -87,13 +88,78 @@ describe('employer insights GA4 custom dimensions (#9403)', () => {
       raced: ['emission_id'],
       failures: [],
     });
-    expect(calls).toHaveLength(3);
+    expect(calls).toHaveLength(4);
     expect(calls[0].url).toContain('/properties/123456789/customDimensions?pageSize=200');
     expect(JSON.parse(calls[1].options.body || '{}')).toMatchObject({
       parameterName: 'job_slug',
       scope: 'EVENT',
     });
-    expect(JSON.parse(calls[2].options.body || '{}').parameterName).toBe('emission_id');
+    expect(JSON.parse(calls[2].options.body || '{}')).toMatchObject({
+      parameterName: 'emission_id',
+      displayName: 'Analytics Emission ID',
+      scope: 'EVENT',
+    });
+    expect(calls[3].url).toBe(calls[0].url);
+  });
+
+  it.each([
+    { mismatch: 'scope', scope: 'USER', displayName: 'Analytics Emission ID' },
+    { mismatch: 'displayName', scope: 'EVENT', displayName: 'Emission ID' },
+  ])('rejects an existing emission_id with mismatched $mismatch', async ({ mismatch, scope, displayName }) => {
+    const response = (status: number, body: unknown) => ({
+      ok: status >= 200 && status < 300,
+      status,
+      statusText: `S${status}`,
+      json: async () => body,
+    });
+    const calls: Array<{ url: string; options: { method?: string } }> = [];
+    const result = await ensureGa4CustomDimensions({
+      propertyId: '123456789',
+      token: 'test-token',
+      dimensions: EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
+      fetchImpl: async (url: string, options: { method?: string } = {}) => {
+        calls.push({ url, options });
+        return response(200, {
+          customDimensions: [{ parameterName: 'emission_id', displayName, scope }],
+        });
+      },
+    });
+
+    expect(result.alreadyPresent).toEqual([]);
+    expect(result.raced).toEqual([]);
+    expect(result.failures).toHaveLength(1);
+    expect(result.failures[0]).toContain(`mismatched ${mismatch}`);
+    expect(result.registered).toEqual([]);
+    expect(calls).toHaveLength(1);
+  });
+
+  it('verifies the contract after a concurrent create conflict', async () => {
+    const response = (status: number, body: unknown) => ({
+      ok: status >= 200 && status < 300,
+      status,
+      statusText: `S${status}`,
+      json: async () => body,
+    });
+    const responses = [
+      response(200, { customDimensions: [] }),
+      response(409, {}),
+      response(200, { customDimensions: [{ parameterName: 'emission_id', displayName: 'Analytics Emission ID', scope: 'USER' }] }),
+    ];
+    const calls: Array<{ url: string; options: { method?: string } }> = [];
+    const result = await ensureGa4CustomDimensions({
+      propertyId: '123456789',
+      token: 'test-token',
+      dimensions: EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS.filter(({ parameterName }) => parameterName === 'emission_id'),
+      fetchImpl: async (url: string, options: { method?: string } = {}) => {
+        calls.push({ url, options });
+        return responses.shift() as ReturnType<typeof response>;
+      },
+    });
+
+    expect(result.raced).toEqual([]);
+    expect(result.failures).toHaveLength(1);
+    expect(result.failures[0]).toContain('mismatched scope');
+    expect(calls).toHaveLength(3);
   });
 
   it.each([...new Set(requestedParameters)])('the analytics report registers %s', (parameter) => {
