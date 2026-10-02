@@ -1,6 +1,6 @@
 {
   "crawlerKey": "etat-de-vaud",
-  "assembledAt": "2026-10-02T09:24:23.218Z",
+  "assembledAt": "2026-10-02T21:25:33.308Z",
   "jobs": [
     {
       "id": "etat-de-vaud-5725",
@@ -33,7 +33,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5725",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:15.403Z",
+      "crawledAt": "2026-10-02T21:25:26.263Z",
       "addressLocality": "Puidoux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -118,7 +118,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5857",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:14.948Z",
+      "crawledAt": "2026-10-02T21:25:25.844Z",
       "addressLocality": "Coppet",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -198,7 +198,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5843",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:14.488Z",
+      "crawledAt": "2026-10-02T21:25:25.431Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -230,7 +230,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -243,7 +242,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5891",
@@ -276,7 +276,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5891",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:14.020Z",
+      "crawledAt": "2026-10-02T21:25:25.022Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -356,7 +356,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5898",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:13.552Z",
+      "crawledAt": "2026-10-02T21:25:24.607Z",
       "addressLocality": "Les Bioux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -436,7 +436,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5897",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:13.052Z",
+      "crawledAt": "2026-10-02T21:25:24.192Z",
       "addressLocality": "Ste-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -516,7 +516,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5881",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:12.570Z",
+      "crawledAt": "2026-10-02T21:25:23.772Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -547,7 +547,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -560,7 +559,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5909",
@@ -593,7 +593,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5909",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:12.114Z",
+      "crawledAt": "2026-10-02T21:25:23.362Z",
       "addressLocality": "Echallens",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -673,7 +673,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5904",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:11.654Z",
+      "crawledAt": "2026-10-02T21:25:22.955Z",
       "addressLocality": "St-Prex",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -753,7 +753,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5912",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:11.192Z",
+      "crawledAt": "2026-10-02T21:25:22.543Z",
       "addressLocality": "Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -788,7 +788,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -801,7 +800,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5899",
@@ -834,7 +834,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5899",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:10.517Z",
+      "crawledAt": "2026-10-02T21:25:22.124Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -912,7 +912,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5887",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:10.063Z",
+      "crawledAt": "2026-10-02T21:25:21.712Z",
       "addressLocality": "Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -990,7 +990,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5916",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:09.607Z",
+      "crawledAt": "2026-10-02T21:25:21.282Z",
       "addressLocality": "Morges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1070,7 +1070,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5907",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:09.098Z",
+      "crawledAt": "2026-10-02T21:25:20.860Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1150,7 +1150,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5905",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:08.620Z",
+      "crawledAt": "2026-10-02T21:25:20.444Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1230,7 +1230,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5893",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:08.163Z",
+      "crawledAt": "2026-10-02T21:25:20.039Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1310,7 +1310,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5900",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:07.705Z",
+      "crawledAt": "2026-10-02T21:25:19.633Z",
       "addressLocality": "Orbe",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1347,7 +1347,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1360,7 +1359,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5933",
@@ -1393,7 +1393,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5933",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:07.216Z",
+      "crawledAt": "2026-10-02T21:25:19.204Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1430,7 +1430,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1443,7 +1442,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5931",
@@ -1476,7 +1476,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5931",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:06.729Z",
+      "crawledAt": "2026-10-02T21:25:18.785Z",
       "addressLocality": "Penthalaz",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1558,7 +1558,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5877",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:06.245Z",
+      "crawledAt": "2026-10-02T21:25:18.376Z",
       "addressLocality": "Avenches",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1638,7 +1638,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5946",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:05.783Z",
+      "crawledAt": "2026-10-02T21:25:17.968Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1718,7 +1718,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5939",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:05.298Z",
+      "crawledAt": "2026-10-02T21:25:17.554Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1798,7 +1798,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5937",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:04.831Z",
+      "crawledAt": "2026-10-02T21:25:17.144Z",
       "addressLocality": "L'Isle",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1878,7 +1878,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5936",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:04.152Z",
+      "crawledAt": "2026-10-02T21:25:16.733Z",
       "addressLocality": "Cully",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -1958,7 +1958,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5928",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:03.684Z",
+      "crawledAt": "2026-10-02T21:25:16.315Z",
       "addressLocality": "Payerne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2038,7 +2038,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5914",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:03.206Z",
+      "crawledAt": "2026-10-02T21:25:15.885Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2103,7 +2103,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5906",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:02.747Z",
+      "crawledAt": "2026-10-02T21:25:15.481Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2138,7 +2138,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2151,7 +2150,8 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-vaud-5903",
@@ -2184,7 +2184,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5903",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:01.186Z",
+      "crawledAt": "2026-10-02T21:25:15.064Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2264,7 +2264,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5956",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:00.726Z",
+      "crawledAt": "2026-10-02T21:25:14.636Z",
       "addressLocality": "Epalinges",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2339,7 +2339,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5950",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:24:00.242Z",
+      "crawledAt": "2026-10-02T21:25:14.183Z",
       "addressLocality": "Renens VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2412,7 +2412,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5932",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:59.771Z",
+      "crawledAt": "2026-10-02T21:25:13.773Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2485,7 +2485,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5970",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:59.298Z",
+      "crawledAt": "2026-10-02T21:25:13.363Z",
       "addressLocality": "Villeneuve VD",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2504,7 +2504,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2517,7 +2516,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5967",
@@ -2550,7 +2550,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5967",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:58.826Z",
+      "crawledAt": "2026-10-02T21:25:12.954Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2569,7 +2569,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.866Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2582,7 +2581,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.866Z"
     },
     {
       "id": "etat-de-vaud-5966",
@@ -2615,7 +2615,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5966",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:58.368Z",
+      "crawledAt": "2026-10-02T21:25:12.546Z",
       "addressLocality": "Grandson",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2634,7 +2634,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2647,7 +2646,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5965",
@@ -2680,7 +2680,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5965",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:57.904Z",
+      "crawledAt": "2026-10-02T21:25:12.120Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2699,7 +2699,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2712,7 +2711,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5929",
@@ -2745,7 +2745,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5929",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:57.438Z",
+      "crawledAt": "2026-10-02T21:25:11.709Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2763,16 +2763,15 @@
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5929",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "adjoint-e-au-responsable-de-l-ucae-pour-la-section-du-civess-etat-de-vaud-lausanne"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "adjoint-e-au-responsable-de-l-ucae-pour-la-section-du-civess-etat-de-vaud-lausanne"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-05T11:43:25.035Z",
+      "previousSlugs": [
+        "adjoint-e-au-responsable-de-l-ucae-pour-la-section-du-civess-etat-de-vaud-lausanne"
+      ],
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2785,40 +2784,41 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-07-05T11:43:25.035Z"
     },
     {
       "id": "etat-de-vaud-5896",
       "slug": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
       "slugByLocale": {
+        "fr": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
         "it": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
         "en": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
-        "de": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne",
-        "fr": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne"
+        "de": "chef-fe-du-projet-d-agglomeration-lausanne-morges-palm-etat-de-vaud-lausanne"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
       "title": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
       "titleByLocale": {
+        "fr": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
         "it": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
         "en": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
-        "de": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)",
-        "fr": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)"
+        "de": "Chef·fe du projet d’agglomération Lausanne-Morges (PALM)"
       },
       "description": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
       "descriptionByLocale": {
+        "fr": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "it": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
         "en": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-        "de": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch.",
-        "fr": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
+        "de": "La Direction générale du territoire et du logement (DGTL) est chargée de l'aménagement du territoire, du cadastre et de la géoinformation, des autorisations en matière de construction ainsi que de la politique cantonale du logement. Au sein de la DGTL, la Direction des projets territoriaux stratégiques (DIPS) définit et met en œuvre les stratégies cantonales d'aménagement du territoire. Elle pilote notamment le Plan directeur cantonal (PDCn), accompagne les projets d'agglomération et les démarches régionales et intercommunales, conduit des planifications territoriales stratégiques et contribue au développement harmonieux du territoire vaudois. Le projet d’agglomération Lausanne-Morges (PALM) est un projet phare de la politique fédérale des agglomérations dans le canton de Vaud que vous pouvez découvrir ici : PALM – Agglomération Lausanne-Morges Vous avez un intérêt marqué pour le service public et les enjeux liés à l'aménagement du territoire ? Les projets complexes vous motivent ? Vous souhaitez rejoindre une équipe dynamique et soudée composée de deux profils complémentaires ? Alors n'hésitez pas à postuler. Nous vous offrons des conditions d'engagement attractives, un environnement de travail moderne et lumineux, ainsi que des possibilités de télétravail favorisant l'équilibre entre vie professionnelle et vie privée.\n\n• Conduire des projets stratégiques complexes à forts enjeux territoriaux ou thématiques à l'échelle intercantonale, des agglomérations et des régions, ainsi qu'intercommunale, en assurant la mise en œuvre du plan directeur cantonal\n• Assurer activement le suivi et la mise en œuvre des projets d'agglomération, régionaux, intercommunaux, ainsi que thématiques\n• Assurer la coordination, la communication et représenter la direction\n• Conseiller et partager son expertise en aménagement du territoire\n• Assurer des activités permanentes Pour de plus amples informations, veuillez consulter le cahier des charges ici ou contacter Madame Cynthia Martigner au 021 316 76 32 ou Madame Delphine Negrier 021 316 74 71\n\n• Titulaire d'un master en urbaniste, architecture ou géographie.\n• Formation complémentaire en aménagement du territoire, un atout.\n• Expérience professionnelle confirmée de 8 ans dans la conception et la mise en œuvre de projets territoriaux et thématiques de grande envergure\n• Compréhension des enjeux politique\n• Bonne connaissance du contexte institutionnel fédéral, vaudois et régional\n• Excellente aptitude à la collaboration, organisation et planification\n• Connaissance de l'allemand Seuls les dossiers complets seront pris en considération : CV, lettre de motivation, certificats de travail et diplômes pertinents pour la fonction.\n\nPoste au sein de l'Administration cantonale vaudoise (État de Vaud), Suisse. Candidature en ligne sur le portail carrière officiel offres-emploi.vd.ch."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5896",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:56.952Z",
+      "crawledAt": "2026-10-02T21:25:11.289Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2835,7 +2835,9 @@
       "postedDate": "2026-06-08",
       "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5896",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "fr": []
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
       "salaryMin": 60500,
@@ -2883,7 +2885,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5979",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:56.499Z",
+      "crawledAt": "2026-10-02T21:25:10.879Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2950,7 +2952,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5978",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:56.022Z",
+      "crawledAt": "2026-10-02T21:25:10.449Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3017,7 +3019,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5972",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:55.526Z",
+      "crawledAt": "2026-10-02T21:25:10.027Z",
       "addressLocality": "Palezieux",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3084,7 +3086,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5969",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:55.032Z",
+      "crawledAt": "2026-10-02T21:25:09.591Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3151,7 +3153,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5968",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:54.567Z",
+      "crawledAt": "2026-10-02T21:25:09.176Z",
       "addressLocality": "Yverdon-Les-Bains",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3226,7 +3228,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5961",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:54.085Z",
+      "crawledAt": "2026-10-02T21:25:08.768Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3293,7 +3295,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5949",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:53.627Z",
+      "crawledAt": "2026-10-02T21:25:08.361Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -3360,7 +3362,7 @@
       "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5927",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:23:53.102Z",
+      "crawledAt": "2026-10-02T21:25:07.935Z",
       "addressLocality": "Prilly",
       "addressRegion": "VD",
       "addressCountry": "CH",

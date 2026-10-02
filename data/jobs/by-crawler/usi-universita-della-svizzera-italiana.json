@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usi-universita-della-svizzera-italiana",
-  "assembledAt": "2026-10-02T09:27:30.558Z",
+  "assembledAt": "2026-10-02T21:27:39.685Z",
   "jobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-docenza-diritto-tributario-2026.pdf",
@@ -786,7 +786,7 @@
       "sourceLang": "it",
       "titleByLocale": {
         "it": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
-        "en": "Librarian Specializing in Electronic Resources (E-resources Librarian)",
+        "en": "Librarian specializing in electronic resources E-resources librarian",
         "de": "Spezialisierte/r Bibliothekar/in für elektronische Ressourcen",
         "fr": "Bibliothécaire spécialisé/e en ressources électroniques"
       },
@@ -858,7 +858,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T22:38:02.110Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -876,7 +875,8 @@
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
       "addressLocality": "Lugano",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-collab-amministrativo-2026.pdf",

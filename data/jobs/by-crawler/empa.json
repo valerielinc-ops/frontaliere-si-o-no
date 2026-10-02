@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-10-02T09:26:30.372Z",
+  "assembledAt": "2026-10-02T21:28:46.799Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.566Z",
+      "crawledAt": "2026-10-02T21:28:41.867Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.565Z",
+      "crawledAt": "2026-10-02T21:28:41.865Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -152,7 +152,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.182Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -165,7 +164,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-e5605f1e4107",
@@ -198,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.564Z",
+      "crawledAt": "2026-10-02T21:28:41.863Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -257,7 +257,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.178Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -270,7 +269,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-0f9fc065f003",
@@ -303,7 +303,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.562Z",
+      "crawledAt": "2026-10-02T21:28:41.861Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -377,7 +377,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.167Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -390,7 +389,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-18740ead79ed",
@@ -423,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.560Z",
+      "crawledAt": "2026-10-02T21:28:41.860Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -552,7 +552,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.559Z",
+      "crawledAt": "2026-10-02T21:28:41.859Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -619,7 +619,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.558Z",
+      "crawledAt": "2026-10-02T21:28:41.858Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -689,7 +689,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:49:43.418Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -702,7 +701,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-0b9d9a1440ab",
@@ -735,7 +735,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.556Z",
+      "crawledAt": "2026-10-02T21:28:41.857Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -855,7 +855,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.555Z",
+      "crawledAt": "2026-10-02T21:28:41.855Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -923,7 +923,6 @@
         ]
       },
       "firstSeenAt": "2026-08-19T10:17:17.406Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -936,7 +935,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-551ce77de7a9",
@@ -969,7 +969,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.553Z",
+      "crawledAt": "2026-10-02T21:28:41.854Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1039,7 +1039,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:51:51.012Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1052,7 +1051,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-46b7ef97e349",
@@ -1085,7 +1085,7 @@
       "url": "https://apply.refline.ch/673276/2225/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.552Z",
+      "crawledAt": "2026-10-02T21:28:41.851Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1167,7 +1167,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.551Z",
+      "crawledAt": "2026-10-02T21:28:41.851Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1249,7 +1249,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.550Z",
+      "crawledAt": "2026-10-02T21:28:41.849Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1286,7 +1286,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:24.050Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1299,7 +1298,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-916a5cd93e8a",
@@ -1332,7 +1332,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.548Z",
+      "crawledAt": "2026-10-02T21:28:41.848Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1408,7 +1408,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.546Z",
+      "crawledAt": "2026-10-02T21:28:41.844Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1490,7 +1490,7 @@
       "url": "https://apply.refline.ch/673276/2230/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.544Z",
+      "crawledAt": "2026-10-02T21:28:41.842Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1527,7 +1527,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:50.106Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1540,7 +1539,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-3fa00ba46829",
@@ -1573,7 +1573,7 @@
       "url": "https://apply.refline.ch/673276/2233/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.543Z",
+      "crawledAt": "2026-10-02T21:28:41.841Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1655,7 +1655,7 @@
       "url": "https://apply.refline.ch/673276/2232/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.540Z",
+      "crawledAt": "2026-10-02T21:28:41.838Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1692,7 +1692,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:47.417Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1705,7 +1704,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-cdaf38788288",
@@ -1738,7 +1738,7 @@
       "url": "https://apply.refline.ch/673276/2227/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.538Z",
+      "crawledAt": "2026-10-02T21:28:41.836Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1760,14 +1760,6 @@
       "requirementsByLocale": {},
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:08:47.414Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-        ]
-      },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1780,7 +1772,15 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
+        ]
+      },
+      "previousSlugs": [
+        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
+      ]
     },
     {
       "id": "empa-606a70e8b53e",
@@ -1813,7 +1813,7 @@
       "url": "https://apply.refline.ch/673276/2234/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.536Z",
+      "crawledAt": "2026-10-02T21:28:41.834Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1895,7 +1895,7 @@
       "url": "https://apply.refline.ch/673276/2236/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.533Z",
+      "crawledAt": "2026-10-02T21:28:41.832Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1929,7 +1929,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:52:11.703Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1942,7 +1941,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-32e0956786d8",
@@ -1975,7 +1975,7 @@
       "url": "https://apply.refline.ch/673276/2239/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:26:25.530Z",
+      "crawledAt": "2026-10-02T21:28:41.829Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -2057,7 +2057,7 @@
       "url": "https://apply.refline.ch/673276/2240/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.528Z",
+      "crawledAt": "2026-10-02T21:28:41.827Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -2094,7 +2094,6 @@
         ]
       },
       "firstSeenAt": "2026-09-29T21:31:20.304Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2107,7 +2106,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-f9da9f2a9440",
@@ -2140,7 +2140,7 @@
       "url": "https://apply.refline.ch/673276/2244/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:26:25.525Z",
+      "crawledAt": "2026-10-02T21:28:41.824Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -2176,7 +2176,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:26:25.525Z"
+      "firstSeenAt": "2026-10-02T21:28:41.824Z"
     }
   ]
 }
