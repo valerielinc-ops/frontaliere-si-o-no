@@ -148,6 +148,7 @@ on:
       - 'build-plugins/hreflangPostprocessPlugin.ts'
       - 'build-plugins/blogImageCdnFinalizePlugin.ts'
       - 'scripts/rerender-article-corpus.mjs'
+      - 'scripts/lib/install-article-renderer-runtime-deps.sh'
       # The renderer behind the shims and symlink above.
       - 'packages/articles/engine/**'
       - 'packages/articles/articleSections.ts'
@@ -235,6 +236,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install article renderer runtime dependencies
+        run: bash scripts/lib/install-article-renderer-runtime-deps.sh
+
       - name: Prepare Firebase credentials
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
@@ -249,10 +253,9 @@ jobs:
       # Same provider keys (R2/CDN etc.) the single-article fast-publish path
       # loads before calling the identical post-render plugin functions this
       # driver reuses — see scripts/load-rc-env.mjs's RC_TO_ENV mapping.
-      # Deliberately NO `npm ci`: the driver runs via `npx -y tsx@4.23.15`
-      # (on-demand, no repo install), same as publish-article-fast.mjs —
-      # this workflow exists precisely to stay off the full-install/full-build
-      # critical path.
+      # Deliberately NO full `npm ci`: the small workspace runtime dependency
+      # is installed from the root lockfile above; `tsx` stays on-demand so this
+      # workflow remains off the full-install/full-build critical path.
       - name: Load secrets from Remote Config (R2 + indexing)
         run: node scripts/load-rc-env.mjs
 
