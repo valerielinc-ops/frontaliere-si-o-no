@@ -36,7 +36,7 @@ type DecisionMomentWindow = Window & Record<string, unknown>;
 
 function queueFromWindow(create: boolean): DecisionMomentBridgePayload[] | null {
   if (typeof window === 'undefined') return null;
-  const host = window as DecisionMomentWindow;
+  const host = window as unknown as DecisionMomentWindow;
   const current = host[DECISION_MOMENT_QUEUE_KEY];
   if (Array.isArray(current)) return current as DecisionMomentBridgePayload[];
   if (!create) return null;
