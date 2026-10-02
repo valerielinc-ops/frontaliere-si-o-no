@@ -194,6 +194,10 @@ describe('parsePriceText', () => {
     expect(parsePriceText('Price 20, call +41 91 123 45 67')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
     expect(parsePriceText('Prezzi: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
     expect(parsePriceText('Tariffe: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Entry free, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Price: 41 91 123 45 67').amount).toBeNull();
+    expect(parsePriceText('ticketEUR20').amount).toBeNull();
+    expect(parsePriceText('2024CHF').amount).toBeNull();
   });
 
   it('recognizes free-language keywords when there is no number', () => {
