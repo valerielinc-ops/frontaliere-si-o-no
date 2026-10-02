@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pantr-ch",
-  "assembledAt": "2026-10-01T21:39:18.028Z",
+  "assembledAt": "2026-10-02T09:34:19.557Z",
   "jobs": [
     {
       "id": "pantr-ch-cfd0a7b808cb",
@@ -34,7 +34,7 @@
       "url": "https://pantr.ch/jobs/finanzbuchhalter-in-136/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.621Z",
+      "crawledAt": "2026-10-02T09:34:13.457Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -75,7 +75,7 @@
         "it": "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "en": "financial-accountants-pantr-gmbh-zurich-fa865fd8b331",
         "de": "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
-        "fr": "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331"
+        "fr": "financial-accountant-pantr-gmbh-zurich"
       },
       "slugDisambiguator": "fa865fd8b331",
       "company": "Pantr GmbH",
@@ -86,7 +86,7 @@
         "it": "Financial Contabile",
         "en": "Financial accountants",
         "de": "Financial Buchhalter",
-        "fr": "Comptables financiers"
+        "fr": "Financial Accountant"
       },
       "description": "Für eine der führenden und renommiertesten Schweizer Privatbankengruppen im Wealth Management suchen wir eine analytisch starke und abschlussorientierte Persönlichkeit als Financial Accountant. In dieser anspruchsvollen Funktion betreust du sowohl nationale als auch internationale Gesellschaften und trägst direkt zur Integrität sowie Effizienz der globalen Finanzoperationen bei. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Finanz- & Konzernwesen: Eigenständige Führung des Hauptbuchs sowie der Finanzberichterstattung für die Schweizer Kernbank und verbundene nationale sowie internationale Tochtergesellschaften.\n- Abschlüsse & Reporting: Erstellung von monatlichen Finanzberichten, lokalen statutarischen Abschlüssen sowie des Konzernreportings nach IFRS.\n- Compliance & Steuern: Sicherstellung und Überwachung des internen Kontrollsystems (IKS), Erstellung von Mehrwertsteuerabrechnungen nach lokalen Vorschriften sowie die Umsetzung neuer interner und externer Rechnungslegungsstandards.\n- Corporate Activities: Aktive Unterstützung bei strategischen Firmenaktivitäten wie der Gründung neuer Entitäten, Akquisitionen oder Liquidationen sowie Durchführung analytischer Reviews von Bilanz- und Erfolgsrechnungspositionen.\n- Schnittstellen & IT: Bereichsübergreifende Zusammenarbeit mit den Abteilungen Steuern, Controlling, IT und Payroll sowie die aktive Mitwirkung bei Prozessoptimierungen und SAP-Initiativen (R/3, S/4HANA).\nDas bringst du mit:\n- Ausbildung: Abgeschlossene höhere Weiterbildung im Finanz- und Rechnungswesen (z. B. eidg. diplomierte:r Wirtschaftsprüfer:in / Experte:in in Rechnungslegung und Controlling) oder ein betriebswirtschaftliches Studium mit Schwerpunkt Finance.\n- Erfahrung: Mindestens 3 Jahre fundierte Berufserfahrung in der Finanzbuchhaltung, idealerweise erworben innerhalb des Bankensektors oder der Finanzdienstleistungsbranche.\n- Fachwissen & IT: Fundierte, praxiserprobte Kenntnisse der internationalen Rechnungslegung nach IFRS sowie ein sicherer Umgang mit MS Office (SAP R/3 oder S/4HANA-Kenntnisse sind ein starker Vorteil).\n- Sprachen: Fliessende und stilsichere Deutsch- und Englischkenntnisse in Wort und Schrift für das internationale Umfeld.\n- Persönlichkeit: Ausgeprägte analytische Fähigkeiten, eine exakte Arbeitsweise sowie ein proaktiver, teamorientierter Arbeitsstil.\nDas erwartet dich beim Kunden:\n- Umfeld: Ein hochprofessionelles, internationales und stabiles Arbeitsumfeld bei einem der angesehensten Akteure des Schweizer Finanzplatzes.\n- Kultur: Eine von Unternehmertum und Eigenverantwortung geprägte Kultur, die individuellen Gestaltungsspielraum bietet.\n- Perspektiven: Erstklassige fachliche Entwicklungsmöglichkeiten an der Schnittstelle zu globalen Finanz- und IT-Projekten.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
       "descriptionByLocale": {
@@ -100,7 +100,7 @@
       "url": "https://pantr.ch/jobs/financial-accountant-138/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.620Z",
+      "crawledAt": "2026-10-02T09:34:13.456Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "Switzerland",
@@ -120,100 +120,26 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+        "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
+        "financial-contabile-pantr-gmbh-zurich-fa865fd8b331",
         "financial-accountant-pantr-gmbh-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
+          "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+          "financial-contabile-pantr-gmbh-zurich-fa865fd8b331"
         ],
         "en": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331"
         ],
         "fr": [
           "financial-accountant-pantr-gmbh-zurich-fa865fd8b331",
+          "comptables-financiers-pantr-gmbh-zurich-fa865fd8b331",
           "financial-accountant-pantr-gmbh-zurich"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.253Z",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "pantr-ch-ba1b6fb7d144",
-      "slug": "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144",
-      "slugByLocale": {
-        "it": "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144",
-        "en": "tax-consultants-pantr-gmbh-zurich-ba1b6fb7d144",
-        "de": "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
-        "fr": "conseillers-fiscaux-pantr-gmbh-zurich-ba1b6fb7d144"
-      },
-      "slugDisambiguator": "ba1b6fb7d144",
-      "company": "Pantr GmbH",
-      "companyKey": "pantr-ch",
-      "companyDomain": "pantr.ch",
-      "title": "Steuerberater",
-      "titleByLocale": {
-        "it": "Consulenti fiscali",
-        "en": "Tax consultants",
-        "de": "Steuerberater",
-        "fr": "Conseillers fiscaux"
-      },
-      "description": "Für eines der führenden Schweizer Beratungsunternehmen in den Bereichen Treuhand, Wirtschaftsprüfung, Steuer- und Rechtsberatung mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine versierte Persönlichkeit für das Steuerteam in Zürich. Das Unternehmen berät KMU, Privatkunden sowie börsenkotierte Firmen interdisziplinär auf höchstem Qualitätsniveau. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Steuerberatung: Ganzheitliche Betreuung von natürlichen und juristischen Personen bei anspruchsvollen nationalen und internationalen steuerrechtlichen Fragestellungen.\n- Lebenszyklus-Begleitung: Kompetente Beratung bei unternehmerischen Entscheidungen über den gesamten Lebenszyklus hinweg – von der Firmengründung über Umstrukturierungen bis hin zur Nachfolgeregelung.\n- Behördenkontakt & Vertretung: Führung von Verhandlungen mit Steuerbehörden sowie die Vertretung von Mandaten in komplexen Einschätzungs- und Rechtsmittelverfahren.\n- Mehrwertsteuer: Fachkundige Beratung und Unterstützung bei Fragestellungen im Bereich der indirekten Steuern (MWST).\nDas bringst du mit:\n- Ausbildung: Erfolgreich abgeschlossene Ausbildung zum/zur dipl. Steuerexperte:in (oder eine vergleichbare Qualifikation) beziehungsweise in fortgeschrittener Ausbildung dazu.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im nationalen sowie internationalen Steuerrecht und der Mehrwertsteuer.\n- Persönlichkeit: Ausgeprägte Dienstleistungs- und Kundenorientierung, hoher Qualitätsanspruch, Flexibilität sowie eine offene Persönlichkeit mit starkem Teamspirit.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende Arbeitsatmosphäre mit gelebter DU-Kultur in einem interdisziplinär aufgestellten Expertenteam.\n- Flexibilität: Moderne Arbeitszeitmodelle mit Kompensationsmöglichkeit und flexibler Homeoffice-Nutzung.\n- Entwicklung & Benefits: Eine zielgerichtete Aus- und Weiterbildung, viel Gestaltungsspielraum, moderne Arbeitsplätze an zentraler Lage in Zürich sowie attraktive Mitarbeiter-Benefits.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-      "descriptionByLocale": {
-        "it": "Per una delle principali società di consulenza svizzera nei settori della fiducia, dell'auditing, della consulenza fiscale e legale con circa 550 dipendenti in undici sedi, stiamo cercando una personalità esperta per il team fiscale di Zurigo. L'azienda consiglia PMI, clienti privati e società quotate su base interdisciplinare al massimo livello qualitativo. Immediatamente o con accordo, ti stiamo cercando!\nQuesto è il tuo lavoro:\n- Consulenza fiscale: supporto completo per persone fisiche e giuridiche in questioni di diritto tributario nazionale e internazionale.\n- Accompagnamento del ciclo di vita: consulenza competente sulle decisioni imprenditoriali in tutto il ciclo di vita – dalla fondazione di un'azienda alla ristrutturazione e alla successione.\n- Contatto e rappresentanza dell'autorità: condurre negoziati con le autorità fiscali e rappresentare i mandati nella valutazione complessa e nei procedimenti di appello.\n- IVA: consulenza esperta e sostegno alle questioni relative alla tassazione indiretta (IVA).\nQuesto è ciò che portate con voi:\n- Formazione: Formazione completata con successo per/per dipl. Esperto fiscale: in (o una qualifica simile) o in formazione avanzata.\n- Esperienza: Diversi anni di profonda esperienza professionale nel diritto tributario nazionale e internazionale e IVA.\n- Personalità: servizio pronunciato e orientamento al cliente, standard di alta qualità, flessibilità e una personalità aperta con un forte spirito di squadra.\nQuesto è ciò che vi aspetta dal cliente:\n- Cultura: Un'atmosfera di lavoro apprezzata con la cultura DU vissuta in un team interdisciplinare di esperti.\n- Flessibilità: Modelli moderni di tempo di lavoro con opzioni di compensazione e utilizzo flessibile dell'ufficio.\n- Sviluppo e vantaggi: istruzione mirata e formazione, un sacco di spazio per la manovra, posti di lavoro moderni in una posizione centrale a Zurigo e interessanti vantaggi per i dipendenti.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
-        "en": "For one of the leading Swiss consulting companies in the areas of trust, auditing, tax and legal consulting with around 550 employees at eleven locations, we are looking for an experienced personality for the tax team in Zurich. The company advises SMEs, private customers and listed companies on an interdisciplinary basis at the highest quality level. Immediately or by agreement, we are looking for you!\nThis is your job:\n- Tax consultancy: Comprehensive support for natural and legal persons in challenging national and international tax law issues.\n- Life cycle accompaniment: Competent advice on entrepreneurial decisions throughout the entire life cycle – from the founding of a company to restructuring and succession.\n- Authority contact & representation: conducting negotiations with tax authorities as well as representing mandates in complex assessment and appeal proceedings.\n- VAT: expert advice and support on issues relating to indirect taxation (VAT).\nThis is what you bring with you:\n- Training: Successfully completed training for/to dipl. Tax expert: in (or a comparable qualification) or in advanced training.\n- Experience: Several years of profound professional experience in national and international tax law and VAT.\n- Personality: Pronounced service and customer orientation, high quality standards, flexibility and an open personality with a strong team spirit.\nThis is what awaits you from the customer:\n- Culture: An appreciative working atmosphere with lived DU culture in an interdisciplinary team of experts.\n- Flexibility: Modern working time models with compensation options and flexible use of the home office.\n- Development & Benefits: Targeted education and training, plenty of room for manoeuvre, modern workplaces in a central location in Zurich and attractive employee benefits.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
-        "de": "Für eines der führenden Schweizer Beratungsunternehmen in den Bereichen Treuhand, Wirtschaftsprüfung, Steuer- und Rechtsberatung mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine versierte Persönlichkeit für das Steuerteam in Zürich. Das Unternehmen berät KMU, Privatkunden sowie börsenkotierte Firmen interdisziplinär auf höchstem Qualitätsniveau. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Steuerberatung: Ganzheitliche Betreuung von natürlichen und juristischen Personen bei anspruchsvollen nationalen und internationalen steuerrechtlichen Fragestellungen.\n- Lebenszyklus-Begleitung: Kompetente Beratung bei unternehmerischen Entscheidungen über den gesamten Lebenszyklus hinweg – von der Firmengründung über Umstrukturierungen bis hin zur Nachfolgeregelung.\n- Behördenkontakt & Vertretung: Führung von Verhandlungen mit Steuerbehörden sowie die Vertretung von Mandaten in komplexen Einschätzungs- und Rechtsmittelverfahren.\n- Mehrwertsteuer: Fachkundige Beratung und Unterstützung bei Fragestellungen im Bereich der indirekten Steuern (MWST).\nDas bringst du mit:\n- Ausbildung: Erfolgreich abgeschlossene Ausbildung zum/zur dipl. Steuerexperte:in (oder eine vergleichbare Qualifikation) beziehungsweise in fortgeschrittener Ausbildung dazu.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im nationalen sowie internationalen Steuerrecht und der Mehrwertsteuer.\n- Persönlichkeit: Ausgeprägte Dienstleistungs- und Kundenorientierung, hoher Qualitätsanspruch, Flexibilität sowie eine offene Persönlichkeit mit starkem Teamspirit.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende Arbeitsatmosphäre mit gelebter DU-Kultur in einem interdisziplinär aufgestellten Expertenteam.\n- Flexibilität: Moderne Arbeitszeitmodelle mit Kompensationsmöglichkeit und flexibler Homeoffice-Nutzung.\n- Entwicklung & Benefits: Eine zielgerichtete Aus- und Weiterbildung, viel Gestaltungsspielraum, moderne Arbeitsplätze an zentraler Lage in Zürich sowie attraktive Mitarbeiter-Benefits.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
-        "fr": "Pour l'une des plus grandes sociétés de conseil suisses dans les domaines de la confiance, de l'audit, de la fiscalité et de la consultation juridique auprès d'environ 550 employés dans onze sites, nous recherchons une personnalité expérimentée pour l'équipe fiscale de Zurich. L'entreprise conseille les PME, les clients privés et les entreprises cotées sur une base interdisciplinaire au plus haut niveau de qualité. Immédiatement ou d'accord, nous vous recherchons !\nC'est ton boulot :\n- Services de conseil fiscal : appui global aux personnes physiques et morales pour les questions de droit fiscal national et international.\n- Accompagnement du cycle de vie: Conseils compétents sur les décisions entrepreneuriales tout au long du cycle de vie – de la création d'une entreprise à la restructuration et la succession.\n- Contact et représentation de l'autorité : mener des négociations avec les autorités fiscales et représenter les mandats dans les procédures complexes d'évaluation et d'appel.\n- TVA: conseils d'experts et soutien en matière de fiscalité indirecte (TVA).\nC'est ce que vous apportez avec vous :\n- Formation: Formation réussie pour/pour dip. Expert fiscal: dans (ou une qualification comparable) ou en formation avancée.\n- Expérience: Plusieurs années d'expérience professionnelle approfondie en droit fiscal national et international et en TVA.\n- Personnalité : service et orientation clients prononcés, normes de qualité élevées, flexibilité et personnalité ouverte avec un esprit d'équipe fort.\nC'est ce qui vous attend du client :\n- Culture : Une ambiance de travail appréciée avec la culture DU vécue dans une équipe interdisciplinaire d'experts.\n- Flexibilité: modèles modernes de temps de travail avec des options de rémunération et une utilisation flexible du bureau à domicile.\n- Développement et avantages: éducation et formation ciblées, beaucoup de place pour la manoeuvre, des lieux de travail modernes dans un emplacement central à Zurich et des avantages sociaux attrayants.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
-      },
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://pantr.ch/jobs/steuerberater-159/",
-      "source": "Pantr GmbH Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.619Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "Switzerland",
-      "country": "Switzerland",
-      "postalCode": "8005",
-      "streetAddress": "Hardturmstrasse 120",
-      "category": "Altro",
-      "contract": "other",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Finanza / Revisione contabile e servizi fiduciari",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-04T15:15:06+00:00",
-      "applyUrl": "https://pantr.ch/jobs/steuerberater-159/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
-        ],
-        "en": [
-          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
-        ],
-        "fr": [
-          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:35:20.251Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -260,7 +186,7 @@
       "url": "https://pantr.ch/jobs/generalist-in-finanzen-143/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.619Z",
+      "crawledAt": "2026-10-02T09:34:13.455Z",
       "addressLocality": "Rüti",
       "addressRegion": "Zürich",
       "addressCountry": "Switzerland",
@@ -290,6 +216,88 @@
           "@type": "QuantitativeValue",
           "minValue": 113000,
           "maxValue": 198500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "pantr-ch-ba1b6fb7d144",
+      "slug": "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144",
+      "slugByLocale": {
+        "it": "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144",
+        "en": "tax-consultants-pantr-gmbh-zurich-ba1b6fb7d144",
+        "de": "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
+        "fr": "conseillers-fiscaux-pantr-gmbh-zurich-ba1b6fb7d144"
+      },
+      "slugDisambiguator": "ba1b6fb7d144",
+      "company": "Pantr GmbH",
+      "companyKey": "pantr-ch",
+      "companyDomain": "pantr.ch",
+      "title": "Steuerberater",
+      "titleByLocale": {
+        "it": "Consulenti fiscali",
+        "en": "Tax consultants",
+        "de": "Steuerberater",
+        "fr": "Conseillers fiscaux"
+      },
+      "description": "Für eines der führenden Schweizer Beratungsunternehmen in den Bereichen Treuhand, Wirtschaftsprüfung, Steuer- und Rechtsberatung mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine versierte Persönlichkeit für das Steuerteam in Zürich. Das Unternehmen berät KMU, Privatkunden sowie börsenkotierte Firmen interdisziplinär auf höchstem Qualitätsniveau. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Steuerberatung: Ganzheitliche Betreuung von natürlichen und juristischen Personen bei anspruchsvollen nationalen und internationalen steuerrechtlichen Fragestellungen.\n- Lebenszyklus-Begleitung: Kompetente Beratung bei unternehmerischen Entscheidungen über den gesamten Lebenszyklus hinweg – von der Firmengründung über Umstrukturierungen bis hin zur Nachfolgeregelung.\n- Behördenkontakt & Vertretung: Führung von Verhandlungen mit Steuerbehörden sowie die Vertretung von Mandaten in komplexen Einschätzungs- und Rechtsmittelverfahren.\n- Mehrwertsteuer: Fachkundige Beratung und Unterstützung bei Fragestellungen im Bereich der indirekten Steuern (MWST).\nDas bringst du mit:\n- Ausbildung: Erfolgreich abgeschlossene Ausbildung zum/zur dipl. Steuerexperte:in (oder eine vergleichbare Qualifikation) beziehungsweise in fortgeschrittener Ausbildung dazu.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im nationalen sowie internationalen Steuerrecht und der Mehrwertsteuer.\n- Persönlichkeit: Ausgeprägte Dienstleistungs- und Kundenorientierung, hoher Qualitätsanspruch, Flexibilität sowie eine offene Persönlichkeit mit starkem Teamspirit.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende Arbeitsatmosphäre mit gelebter DU-Kultur in einem interdisziplinär aufgestellten Expertenteam.\n- Flexibilität: Moderne Arbeitszeitmodelle mit Kompensationsmöglichkeit und flexibler Homeoffice-Nutzung.\n- Entwicklung & Benefits: Eine zielgerichtete Aus- und Weiterbildung, viel Gestaltungsspielraum, moderne Arbeitsplätze an zentraler Lage in Zürich sowie attraktive Mitarbeiter-Benefits.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+      "descriptionByLocale": {
+        "it": "Per una delle principali società di consulenza svizzera nei settori della fiducia, dell'auditing, della consulenza fiscale e legale con circa 550 dipendenti in undici sedi, stiamo cercando una personalità esperta per il team fiscale di Zurigo. L'azienda consiglia PMI, clienti privati e società quotate su base interdisciplinare al massimo livello qualitativo. Immediatamente o con accordo, ti stiamo cercando!\nQuesto è il tuo lavoro:\n- Consulenza fiscale: supporto completo per persone fisiche e giuridiche in questioni di diritto tributario nazionale e internazionale.\n- Accompagnamento del ciclo di vita: consulenza competente sulle decisioni imprenditoriali in tutto il ciclo di vita – dalla fondazione di un'azienda alla ristrutturazione e alla successione.\n- Contatto e rappresentanza dell'autorità: condurre negoziati con le autorità fiscali e rappresentare i mandati nella valutazione complessa e nei procedimenti di appello.\n- IVA: consulenza esperta e sostegno alle questioni relative alla tassazione indiretta (IVA).\nQuesto è ciò che portate con voi:\n- Formazione: Formazione completata con successo per/per dipl. Esperto fiscale: in (o una qualifica simile) o in formazione avanzata.\n- Esperienza: Diversi anni di profonda esperienza professionale nel diritto tributario nazionale e internazionale e IVA.\n- Personalità: servizio pronunciato e orientamento al cliente, standard di alta qualità, flessibilità e una personalità aperta con un forte spirito di squadra.\nQuesto è ciò che vi aspetta dal cliente:\n- Cultura: Un'atmosfera di lavoro apprezzata con la cultura DU vissuta in un team interdisciplinare di esperti.\n- Flessibilità: Modelli moderni di tempo di lavoro con opzioni di compensazione e utilizzo flessibile dell'ufficio.\n- Sviluppo e vantaggi: istruzione mirata e formazione, un sacco di spazio per la manovra, posti di lavoro moderni in una posizione centrale a Zurigo e interessanti vantaggi per i dipendenti.\nI tipi di file accettati sono DOC, DOCX, PDF, HTML e TXT. (Massima dimensione del file: 5 MB)\nMax. Dimensione del file: 5 MB per file\nUlteriori informazioni possono essere trovate nella nostra dichiarazione di protezione dei dati.",
+        "en": "For one of the leading Swiss consulting companies in the areas of trust, auditing, tax and legal consulting with around 550 employees at eleven locations, we are looking for an experienced personality for the tax team in Zurich. The company advises SMEs, private customers and listed companies on an interdisciplinary basis at the highest quality level. Immediately or by agreement, we are looking for you!\nThis is your job:\n- Tax consultancy: Comprehensive support for natural and legal persons in challenging national and international tax law issues.\n- Life cycle accompaniment: Competent advice on entrepreneurial decisions throughout the entire life cycle – from the founding of a company to restructuring and succession.\n- Authority contact & representation: conducting negotiations with tax authorities as well as representing mandates in complex assessment and appeal proceedings.\n- VAT: expert advice and support on issues relating to indirect taxation (VAT).\nThis is what you bring with you:\n- Training: Successfully completed training for/to dipl. Tax expert: in (or a comparable qualification) or in advanced training.\n- Experience: Several years of profound professional experience in national and international tax law and VAT.\n- Personality: Pronounced service and customer orientation, high quality standards, flexibility and an open personality with a strong team spirit.\nThis is what awaits you from the customer:\n- Culture: An appreciative working atmosphere with lived DU culture in an interdisciplinary team of experts.\n- Flexibility: Modern working time models with compensation options and flexible use of the home office.\n- Development & Benefits: Targeted education and training, plenty of room for manoeuvre, modern workplaces in a central location in Zurich and attractive employee benefits.\nAccepted file types are DOC, DOCX, PDF, HTML, and TXT. (Max. file size: 5 MB)\nMax. File size: 5 MB per file\nFurther information can be found in our data protection declaration.",
+        "de": "Für eines der führenden Schweizer Beratungsunternehmen in den Bereichen Treuhand, Wirtschaftsprüfung, Steuer- und Rechtsberatung mit rund 550 Mitarbeitenden an elf Standorten suchen wir eine versierte Persönlichkeit für das Steuerteam in Zürich. Das Unternehmen berät KMU, Privatkunden sowie börsenkotierte Firmen interdisziplinär auf höchstem Qualitätsniveau. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDas ist deine Tätigkeit:\n- Steuerberatung: Ganzheitliche Betreuung von natürlichen und juristischen Personen bei anspruchsvollen nationalen und internationalen steuerrechtlichen Fragestellungen.\n- Lebenszyklus-Begleitung: Kompetente Beratung bei unternehmerischen Entscheidungen über den gesamten Lebenszyklus hinweg – von der Firmengründung über Umstrukturierungen bis hin zur Nachfolgeregelung.\n- Behördenkontakt & Vertretung: Führung von Verhandlungen mit Steuerbehörden sowie die Vertretung von Mandaten in komplexen Einschätzungs- und Rechtsmittelverfahren.\n- Mehrwertsteuer: Fachkundige Beratung und Unterstützung bei Fragestellungen im Bereich der indirekten Steuern (MWST).\nDas bringst du mit:\n- Ausbildung: Erfolgreich abgeschlossene Ausbildung zum/zur dipl. Steuerexperte:in (oder eine vergleichbare Qualifikation) beziehungsweise in fortgeschrittener Ausbildung dazu.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im nationalen sowie internationalen Steuerrecht und der Mehrwertsteuer.\n- Persönlichkeit: Ausgeprägte Dienstleistungs- und Kundenorientierung, hoher Qualitätsanspruch, Flexibilität sowie eine offene Persönlichkeit mit starkem Teamspirit.\nDas erwartet dich beim Kunden:\n- Kultur: Eine wertschätzende Arbeitsatmosphäre mit gelebter DU-Kultur in einem interdisziplinär aufgestellten Expertenteam.\n- Flexibilität: Moderne Arbeitszeitmodelle mit Kompensationsmöglichkeit und flexibler Homeoffice-Nutzung.\n- Entwicklung & Benefits: Eine zielgerichtete Aus- und Weiterbildung, viel Gestaltungsspielraum, moderne Arbeitsplätze an zentraler Lage in Zürich sowie attraktive Mitarbeiter-Benefits.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
+        "fr": "Pour l'une des plus grandes sociétés de conseil suisses dans les domaines de la confiance, de l'audit, de la fiscalité et de la consultation juridique auprès d'environ 550 employés dans onze sites, nous recherchons une personnalité expérimentée pour l'équipe fiscale de Zurich. L'entreprise conseille les PME, les clients privés et les entreprises cotées sur une base interdisciplinaire au plus haut niveau de qualité. Immédiatement ou d'accord, nous vous recherchons !\nC'est ton boulot :\n- Services de conseil fiscal : appui global aux personnes physiques et morales pour les questions de droit fiscal national et international.\n- Accompagnement du cycle de vie: Conseils compétents sur les décisions entrepreneuriales tout au long du cycle de vie – de la création d'une entreprise à la restructuration et la succession.\n- Contact et représentation de l'autorité : mener des négociations avec les autorités fiscales et représenter les mandats dans les procédures complexes d'évaluation et d'appel.\n- TVA: conseils d'experts et soutien en matière de fiscalité indirecte (TVA).\nC'est ce que vous apportez avec vous :\n- Formation: Formation réussie pour/pour dip. Expert fiscal: dans (ou une qualification comparable) ou en formation avancée.\n- Expérience: Plusieurs années d'expérience professionnelle approfondie en droit fiscal national et international et en TVA.\n- Personnalité : service et orientation clients prononcés, normes de qualité élevées, flexibilité et personnalité ouverte avec un esprit d'équipe fort.\nC'est ce qui vous attend du client :\n- Culture : Une ambiance de travail appréciée avec la culture DU vécue dans une équipe interdisciplinaire d'experts.\n- Flexibilité: modèles modernes de temps de travail avec des options de rémunération et une utilisation flexible du bureau à domicile.\n- Développement et avantages: éducation et formation ciblées, beaucoup de place pour la manoeuvre, des lieux de travail modernes dans un emplacement central à Zurich et des avantages sociaux attrayants.\nLes types de fichiers acceptés sont DOC, DOCX, PDF, HTML et TXT. (taille maximale du fichier : 5 Mo)\nC'est ça. Taille du fichier: 5 Mo par fichier\nDe plus amples informations sont disponibles dans notre déclaration de protection des données."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://pantr.ch/jobs/steuerberater-159/",
+      "source": "Pantr GmbH Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:34:13.454Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "Switzerland",
+      "country": "Switzerland",
+      "postalCode": "8005",
+      "streetAddress": "Hardturmstrasse 120",
+      "category": "Altro",
+      "contract": "other",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Finanza / Revisione contabile e servizi fiduciari",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-04T15:15:06+00:00",
+      "applyUrl": "https://pantr.ch/jobs/steuerberater-159/",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
+        "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144",
+          "consulenti-fiscali-pantr-gmbh-zurich-ba1b6fb7d144"
+        ],
+        "en": [
+          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
+        ],
+        "fr": [
+          "steuerberater-pantr-gmbh-zurich-ba1b6fb7d144"
+        ]
+      },
+      "firstSeenAt": "2026-10-01T09:35:20.251Z",
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
           "unitText": "YEAR"
         }
       }
@@ -326,7 +334,7 @@
       "url": "https://pantr.ch/jobs/dipl-wirtschaftspruefer-in-als-mandatsleiter-in-165/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.618Z",
+      "crawledAt": "2026-10-02T09:34:13.453Z",
       "addressLocality": "Bern",
       "addressRegion": "Bern",
       "addressCountry": "Switzerland",
@@ -345,11 +353,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+        "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
+        "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484"
+          "dipl-wirtschaftsprufer-in-als-mandatsleiter-in-pantr-gmbh-bern-bern-a6cd462ca484",
+          "dipl-wirtschaftsprufer-in-come-mandatsleiter-in-pantr-gmbh-bern"
         ]
       },
       "needsRetranslation": true,
@@ -386,7 +396,7 @@
         "it": "Senior Business Controller",
         "en": "Senior Business Controller",
         "de": "Senior Business Controller",
-        "fr": "Contrôleur principal des entreprises"
+        "fr": "Senior Business Controller"
       },
       "description": "Für eine international führende, krisensichere Schweizer Fashion- und Wäschemarke mit einer über 80-jährigen Tradition suchen wir am Hauptsitz im Raum Sursee (Oberkirch) eine analytisch starke Persönlichkeit als Senior Business Controller Sales. In einem dynamischen Umfeld, das seit jeher auf Nachhaltigkeit und höchste Qualität setzt, berätst du das Sales Management sowie die Geschäftsleitung direkt mit wertvollen Insights. Per sofort oder nach Vereinbarung suchen wir genau dich!\nDein Wirkungsfeld:\n- Business Partnering: Proaktive Beratung der Geschäftsleitung, des Sales Managements und verschiedener Fachbereiche in allen betriebswirtschaftlichen Belangen.\n- Analysen & Entscheidungsfindung: Erstellung fundierter Wirtschaftlichkeits-, Profitabilitäts- und Business-Case-Analysen sowie das Ableiten konkreter Handlungsempfehlungen aus Umsatz-, Margen- und Ergebnisentwicklungen.\n- Reporting & Business Intelligence: Kontinuierliche Weiterentwicklung des Management-Reportings, Mitgestaltung der internen BI-Landschaft sowie Optimierung von Controlling- und Planungsprozessen.\n- Planung & Steuerung: Mitwirkung bei Budget-, Forecast- und Mittelfristplanungen, Durchführung von Soll-Ist-Vergleichen sowie Bewertung relevanter Performance-Kennzahlen.\n- Projekte & Datenqualität: Mitarbeit in bereichsübergreifenden Projekten zur Sicherstellung einer hohen Transparenz und Datenqualität aller Finanzinformationen.\nDas bringst du mit:\n- Ausbildung: Abgeschlossenes betriebswirtschaftliches Studium (Universität, Fachhochschule oder vergleichbare Ausbildung) mit Schwerpunkt Finance/Controlling.\n- Erfahrung: Mehrjährige, fundierte Berufserfahrung im Business Controlling, idealerweise gesammelt im Vertriebs- oder FMCG/Retail-Umfeld.\n- IT-Skills: Sattelfeste Anwenderkenntnisse in MS Excel; praktische Erfahrung mit SAP sowie Cognos Analytics oder vergleichbaren BI-Tools ist ein klarer Vorteil.\n- Sprachen: Stilsichere Kommunikation in Deutsch und Englisch für die tägliche Zusammenarbeit im internationalen Umfeld.\n- Persönlichkeit: Analytisches und vernetztes Denken, selbstständige und lösungsorientierte Arbeitsweise, ausgeprägte Beratungskompetenz sowie hohe Eigeninitiative.\nDas erwartet dich beim Kunden:\n- Work-Life-Balance & Flexibilität: Flexible Arbeitszeiten mit Mobile / Remote Working sowie die vollständige Kostenübernahme der KTG- und NBU-Prämien.\n- Benefits & Infrastruktur: Kostenlose Parkplätze am Hauptsitz, vergünstigte Verpflegung im eigenen Personalrestaurant, attraktive Mitarbeitendenrabatte auf das gesamte Markensortiment sowie regelmässige Rampenverkäufe.\n- Kultur & Events: Eine von Werten und Nachhaltigkeit geprägte Unternehmenskultur mit regelmässigen Teamevents, Firmen-Apéros und einzigartigen Anlässen.\n- Entwicklung: Gezielte berufliche und persönliche Entwicklungsmöglichkeiten durch finanzielle Kostenbeteiligung an externen Weiterbildungen.\nAkzeptierte Dateitypen sind DOC, DOCX, PDF, HTML, and TXT. (Max. Dateigrösse: 5 MB)\nMax. Dateigrösse: 5 MB pro Datei\nWeitere Informationen findest du in unserer Datenschutzerklärung.",
       "descriptionByLocale": {
@@ -400,7 +410,7 @@
       "url": "https://pantr.ch/jobs/senior-business-controller-196/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.617Z",
+      "crawledAt": "2026-10-02T09:34:13.452Z",
       "addressLocality": "Oberkirch",
       "addressRegion": "Luzern",
       "addressCountry": "Switzerland",
@@ -466,7 +476,7 @@
       "url": "https://pantr.ch/jobs/leiter-in-steuerteam-212/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.616Z",
+      "crawledAt": "2026-10-02T09:34:13.451Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "Switzerland",
@@ -485,11 +495,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
+        "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
+        "responsabile-steuerteam-pantr-gmbh-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61"
+          "leiter-in-steuerteam-pantr-gmbh-basel-09f427342f61",
+          "responsabile-steuerteam-pantr-gmbh-basel"
         ]
       },
       "needsRetranslation": true,
@@ -540,7 +552,7 @@
       "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
       "source": "Pantr GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:39:11.615Z",
+      "crawledAt": "2026-10-02T09:34:13.449Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "Switzerland",
@@ -559,17 +571,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
+        "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
+        "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
+          "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554",
+          "audit-aggiunto-senior-pantr-gmbh-st-gallen-7008056e5554"
         ],
         "fr": [
           "senior-assistant-wirtschaftsprufung-pantr-gmbh-st-gallen-7008056e5554"
         ]
       },
       "firstSeenAt": "2026-10-01T09:35:20.247Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",

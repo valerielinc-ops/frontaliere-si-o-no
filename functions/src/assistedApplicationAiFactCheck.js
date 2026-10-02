@@ -175,8 +175,11 @@ const wordsOf = (text) => new Set(foldText(text).split(/[^\p{L}\p{N}]+/u).filter
  *     order line); without them any source backs a number, as before.
  *   echoSources: the posting, for the advisory on capitalised words echoed from it.
  *   entitySources: the texts that may name an employer (candidate, order, posting); default: all sources.
+ *   nameSources: names the text may quote whole, one per line (the company, the job title, the place):
+ *     inside such a name a tool is not a claim ("Kubernetes Engineer" in "come Kubernetes Engineer"),
+ *     but a name never backs a claim made outside it ("uso Kubernetes" stays the candidate's claim).
  */
-export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources } = {}) {
+export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources } = {}) {
   const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
@@ -190,7 +193,9 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
     lowerText: text.toLowerCase(),
     claimText: claimRaw === null ? null : foldText(claimRaw),
     claimRaw,
-    claimWords: claimRaw === null ? null : wordsOf(claimRaw),
+    claimWords: claimRaw === null ? null : wordsOf(`${claimRaw}\n${join(nameSources)}`),
+    names: join(nameSources).split('\n').map((line) => line.trim()).filter((line) => line.length >= 3),
+    namesText: foldText(join(nameSources)),
     claimNumbers: numberSources ? numbersOf(join(numberSources)) : null,
     echoWords: echoSources ? wordsOf(join(echoSources)) : null,
     entityText: ` ${foldText(join(entitySources || sources)).replace(/[^\p{L}\p{N}]+/gu, ' ')} `,
@@ -198,17 +203,29 @@ export function buildFactIndex(sources, { claimSources, numberSources, echoSourc
 }
 
 // A number the posting gives may appear in the candidate's text only to quote
-// the requirement, never as the candidate's own figure. The cue is a word of
-// the requirement or of not having it, in the four letter languages.
-const REQUIREMENT_CUE = /(richiest|requisit|richied|pur non avend|non ho |non possied|ancora non|verlangt|gefordert|vorausgesetzt|gewünscht|noch nicht|noch keine|habe keine|fehlen|requis|exigé|demandé|n'ai pas|n’ai pas|n'aie pas|n’aie pas|pas encore|required|requires|requested|do not have|don't have|don’t have|not yet)/i;
+// the requirement the candidate does not meet ("pur non avendo i 5 anni
+// richiesti"), never as the candidate's own figure. Both cues, a word of not
+// having it and a word of the requirement, must be in the number's own clause:
+// "Ho 5 anni di esperienza; sono gli anni richiesti" is a claim.
+const NEGATION_CUE = /(pur non avend|non ho\b|non possied|non ancora|ancora non|non ho ancora|senza (?:i|gli|le)\b|ohne\b|noch nicht|noch keine|habe keine|fehlen|n'ai pas|n’ai pas|n'aie pas|n’aie pas|pas encore|sans les\b|do not have|don't have|don’t have|not yet|lack)/i;
+const REQUIREMENT_CUE = /(richiest|requisit|richied|verlangt|gefordert|vorausgesetzt|gewünscht|requis|exigé|demandé|required|requires|requested|asked)/i;
 
-function sentenceAround(text, index) {
-  const before = text.slice(0, index);
-  const start = Math.max(before.lastIndexOf('.'), before.lastIndexOf('!'), before.lastIndexOf('?'), before.lastIndexOf('\n')) + 1;
-  const rest = text.slice(index);
-  const ends = ['.', '!', '?', '\n'].map((mark) => rest.indexOf(mark)).filter((at) => at >= 0);
-  return text.slice(start, index + (ends.length ? Math.min(...ends) : rest.length));
+/** The clause of a text around a position: between the nearest . ! ? ; : , or line break. */
+function clauseAround(text, index) {
+  const marks = /[.!?;:,\n]/g;
+  let start = 0;
+  let end = text.length;
+  for (const match of text.matchAll(marks)) {
+    if (match.index < index) start = match.index + 1;
+    else { end = match.index; break; }
+  }
+  return text.slice(start, end);
 }
+
+const quotesRequirement = (text, index) => {
+  const clause = clauseAround(text, index);
+  return NEGATION_CUE.test(clause) && REQUIREMENT_CUE.test(clause);
+};
 
 // Legal forms that close an employer's name ("Esempio Software Srl", "Alpina Systems AG").
 const LEGAL_FORM = String.raw`(?:AG|SA|GmbH|Sagl|SAGL|Srl|SRL|S\.r\.l\.|SpA|S\.p\.A\.|Sàrl|SARL|SNC|Snc|KG|Ltd|Inc|LLC)`;
@@ -292,7 +309,10 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     const within = (spans, position) => spans.some(([start, length]) => position >= start && position < start + length);
     const isMasked = (position) => within(masked, position) || within(references, position);
     const checksClaims = typeof index.claimText === 'string' && claimField;
-    const claims = checksClaims ? claimTokens(text) : [];
+    // The company, the job title and the place quoted whole are names, not claims.
+    const nameSpans = (index.names || []).flatMap((name) => [...text.matchAll(new RegExp(escapeRegExp(name).replace(/\s+/g, '\\s+'), 'giu'))]
+      .map((match) => [match.index, match[0].length]));
+    const claims = checksClaims ? claimTokens(text).filter((claim) => !within(nameSpans, claim.index)) : [];
     // The digits of a tool's name ("ISO 13485", "Office 365") are judged with the tool, not as a figure.
     const toolSpans = claims.map((claim) => [claim.index, claim.length]);
     for (const match of text.matchAll(NUMBER_RE)) {
@@ -302,7 +322,7 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
       if (!digits) continue;
       const parts = token.split(/[^\d]+/).filter(Boolean);
       const supported = index.claimNumbers && claimField
-        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && REQUIREMENT_CUE.test(sentenceAround(text, match.index)))
+        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && quotesRequirement(text, match.index))
         : inSet(index.numbers, digits, parts);
       if (!supported) flag(field, 'number', token, contextAround(text, match.index, match[0].length));
     }
@@ -324,7 +344,8 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
     // Job titles: every significant word of "come/en tant que/as <Title>" in the candidate's texts or the
     // order line, by a five-letter stem. German capitalises every noun, so after "als" it is an advisory.
     for (const match of text.matchAll(AS_TITLE_RE)) {
-      const missing = significant(match[2]).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)));
+      // The posting's own title is a name the candidate applies as ("mi candido come Product Manager").
+      const missing = significant(match[2]).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)) && !(index.namesText || '').includes(word.slice(0, 5)));
       if (!missing.length) continue;
       (match[1].toLowerCase() === 'als' ? advise : flag)(field, 'title', tidy(match[2]), contextAround(text, match.index, match[0].length));
     }
