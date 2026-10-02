@@ -20,9 +20,9 @@
  *   - schema.org/Event JSON-LD on indexable live event-detail pages; historical
  *     archive pages remain indexable but omit stale Event rich-result markup
  *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
- *     description≥30) — deploy-blocking; image, organizer, performer and
- *     offers are always emitted with source-backed values or deterministic
- *     defaults.
+ *     description≥30) — deploy-blocking; image, organizer and performer use
+ *     source-backed values or deterministic defaults, while offers are emitted
+ *     only when the source provides a confident price signal.
  *     Aggregate pages expose an ItemList of event URLs,
  *     not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
@@ -98,6 +98,7 @@ type EventPrice = {
   availability?: string;
   validFrom?: string;
   url?: string;
+  evidence?: 'structured-zero' | 'structured-free-access' | 'label-free' | 'numeric' | 'unknown';
 };
 
 interface SiteEvent {
@@ -1208,10 +1209,10 @@ export function zurichOffset(isoDate: string): string {
  * schema.org/Event object for one agenda entry.
  *
  * Source values remain authoritative. Older and partial slices are completed
- * at detail-page render time with deterministic catalog/venue/image/offer
- * defaults so every published Event has a stable structured-data shape. A
- * direct caller without that explicit page-contract opt-in does not receive a
- * synthetic Offer when the source published no price.
+ * at detail-page render time with deterministic catalog/venue/image defaults.
+ * An Offer is emitted only when the source provides a confident price signal;
+ * unknown prices remain absent rather than becoming a fabricated zero or an
+ * incomplete Offer.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1242,14 +1243,10 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const eventWithDefaults = fillEventPeopleDefaults(event, EVENT_SOURCES[event.sourceKey] || SOURCE) as SiteEvent;
   const eventImage = mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale);
   const confidentPrice = hasConfidentPrice(event.price);
-  const offer = (confidentPrice || event.structuredDataDefaultsApplied)
+  const offer = confidentPrice
     ? {
       '@type': 'Offer',
-      // A fallback Offer describes the event page and availability defaults,
-      // but never fabricates a free/zero price when the source gave no amount.
-      ...(confidentPrice
-        ? { price: event.price!.isFree ? '0' : String(event.price!.amount) }
-        : {}),
+      price: event.price!.isFree ? 0 : event.price!.amount,
       priceCurrency: event.price?.currency || 'CHF',
       availability: event.price?.availability || 'https://schema.org/InStock',
       validFrom: event.price?.validFrom || event.startDate,
@@ -1288,6 +1285,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
+    ...(event.price?.isFree ? { isAccessibleForFree: true } : {}),
     ...(offer ? { offers: offer } : {}),
   };
 }

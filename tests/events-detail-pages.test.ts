@@ -278,7 +278,7 @@ describe('eventLd source attribution (#3125)', () => {
     const ld = eventLd(freeEvent as never, 'it') as Record<string, any>;
     expect(ld.offers).toMatchObject({
       '@type': 'Offer',
-      price: '0',
+      price: 0,
       priceCurrency: 'CHF',
     });
     expect(ld.offers.availability).toBe('https://schema.org/InStock');
@@ -289,7 +289,7 @@ describe('eventLd source attribution (#3125)', () => {
   it('emits verified price fields for a paid event', () => {
     const paidEvent = { ...EVENT, price: { amount: 25, currency: 'CHF', isFree: false } };
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
-    expect(ld.offers.price).toBe('25');
+    expect(ld.offers.price).toBe(25);
     expect(ld.offers.priceCurrency).toBe('CHF');
     expect(ld.offers.availability).toBe('https://schema.org/InStock');
     expect(ld.offers.validFrom).toBe(EVENT.startDate);
@@ -368,7 +368,7 @@ describe('renderEventDetailPage', () => {
     expect(page.html).toContain('"@type":"Event"');
     expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
-    expect(page.html).toContain('"offers":{"@type":"Offer","priceCurrency":"CHF"');
+    expect(page.html).not.toContain('"offers"');
     expect(page.html).toContain('"@type":"BreadcrumbList"');
     expect(page.html).toContain('"@type":"FAQPage"');
   });
