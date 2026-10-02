@@ -212,6 +212,13 @@ const ADSENSE_BOT_GATE_RE = new RegExp(
   String.raw`(?:${ADSENSE_BOT_GATE_AD_SURFACE}[\s\S]{0,180}${ADSENSE_BOT_GATE_SIGNAL}|${ADSENSE_BOT_GATE_SIGNAL}[\s\S]{0,180}${ADSENSE_BOT_GATE_AD_SURFACE})`,
   'i',
 );
+// A generic `credential`/`secret` can describe an application account, and
+// file locations can contain those words even when the finding is unrelated
+// (for example #10637's checkout-time measurement finding in
+// `unsubscribe-credential-monitor.yml`). Keep the topic tied to GitHub Actions
+// authentication or capability evidence.
+const WORKFLOW_SCOPE_CREDS_RE = /workflows? scope|github_pat|github[_ .-]?token|gh[_ .-]?token|\bpat\b|app[_ .-]?token|persist-credentials|branch protection|token\s+(?:scope|permission|capabilit)|(?:\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b[\s\S]{0,100}\b(?:credential|credentials|secret|token)\b|\b(?:credential|credentials|secret|token)\b[\s\S]{0,100}\b(?:github|workflow|actions\/checkout|checkout|branch protection|app installation)\b)/i;
+
 const TAXONOMY = [
   { key: 'structured-data', re: /structured data|json-?ld|basesalary|postalcode|hiringorganization|jobposting/i, docKeys: ['structured data', 'json-ld', 'basesalary'] },
   { key: 'missing-test-funnel', re: /missing test|test mancant|no test|senza test|test coverage/i, docKeys: ['test coverage', 'test mancant', 'senza test'] },
@@ -253,7 +260,7 @@ const TAXONOMY = [
   // trigger/retry correctness with credential scope and repeatedly re-firing
   // this escalation. Those findings still go through the fingerprint safety
   // net; they must not inflate the credential bucket.
-  { key: 'workflow-scope-creds', re: /workflows? scope|github_pat|github[_ .-]?token|\bpat\b|app token|credential|secret|branch protection|token\s+(?:scope|permission|capabilit)/i, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
+  { key: 'workflow-scope-creds', re: WORKFLOW_SCOPE_CREDS_RE, docKeys: ['workflows`', 'capability-guard', 'github_pat'] },
   // i18n-NAMING: genuine naming/i18n defects only — locale URL segments, translated
   // brand names, canton-aware slug naming, missing/untranslated keys. The old regex
   // `/locale|i18n|translat|canton-?aware|naming|brand/i` was far too loose: the bare
@@ -595,6 +602,16 @@ export function bucketFinding(text) {
   const scannable = stripNegatedImpactClauses(text);
   for (const t of TAXONOMY) {
     if (!t.re.test(scannable)) continue;
+    // A review line starts with one or more file locations before its severity
+    // marker. Do not let a path such as `unsubscribe-credential-monitor.yml`
+    // provide the workflow/auth context for an unrelated finding.
+    if (t.key === 'workflow-scope-creds') {
+      const severity = /(?:🔴\s*Important:|🟡\s*Nit:)/i.exec(scannable);
+      const finding = severity
+        ? scannable.slice(severity.index + severity[0].length)
+        : scannable;
+      if (!WORKFLOW_SCOPE_CREDS_RE.test(finding)) continue;
+    }
     // pr-body-contract: drop affirmations / location-label false positives so the
     // bucket counts only genuine contract violations (the deterministic gate
     // pr-body-contract.yml already blocks missing sections). Falls through to the
