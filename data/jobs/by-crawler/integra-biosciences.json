@@ -144,12 +144,12 @@
     },
     {
       "id": "integra-biosciences-26fd00a6423a",
-      "slug": "accountant-m-w-d-50-60-integra-biosciences-ch",
+      "slug": "contabile-m-w-d-50-60-integra-biosciences-zizers",
       "slugByLocale": {
         "de": "accountant-m-w-d-50-60-integra-biosciences-ch",
-        "it": "accountant-m-w-d-50-60-integra-biosciences-ch",
+        "it": "contabile-m-w-d-50-60-integra-biosciences-zizers",
         "en": "accountant-m-w-d-50-60-integra-biosciences-ch",
-        "fr": "accountant-m-w-d-50-60-integra-biosciences-zizers"
+        "fr": "comptable-h-f-d-50-60-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",
@@ -210,7 +210,19 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-01T21:26:22.925Z"
+      "firstSeenAt": "2026-10-01T21:26:22.925Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accountant-m-w-d-50-60-integra-biosciences-ch"
+        ],
+        "fr": [
+          "accountant-m-w-d-50-60-integra-biosciences-zizers"
+        ]
+      },
+      "previousSlugs": [
+        "accountant-m-w-d-50-60-integra-biosciences-ch",
+        "accountant-m-w-d-50-60-integra-biosciences-zizers"
+      ]
     },
     {
       "id": "integra-biosciences-dcc8891fa8d4",
@@ -289,8 +301,8 @@
       "slugByLocale": {
         "de": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
         "it": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
-        "en": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch",
-        "fr": "produktionsmitarbeiter-mit-bereitschaft-zur-schichtarbeit-m-w-d-100-integra-biosciences-ch"
+        "en": "production-staff-with-readiness-for-shift-work-m-f-d-100-integra-biosciences-zizers",
+        "fr": "personnel-de-production-pret-pour-le-travail-poste-h-f-d-100-integra-biosciences-zizers"
       },
       "company": "INTEGRA Biosciences",
       "companyKey": "integra-biosciences",

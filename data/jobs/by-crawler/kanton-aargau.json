@@ -81,12 +81,12 @@
     },
     {
       "id": "kanton-aargau-444b6c4c897d",
-      "slug": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch",
+      "slug": "prigionieri-prigioni-distrettuali-prigionieri-baden-90-kanton-aargau-baden",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch",
-        "it": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch"
+        "it": "prigionieri-prigioni-distrettuali-prigionieri-baden-90-kanton-aargau-baden",
+        "en": "prisoners-prisoners-district-prison-baden-90-kanton-aargau-baden",
+        "fr": "prisonniers-prisonniers-district-prison-baden-90-kanton-aargau-baden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -145,7 +145,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:21:09.773Z"
+      "firstSeenAt": "2026-10-01T21:21:09.773Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-baden-90-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-6c764059b0c9",
@@ -153,8 +167,8 @@
       "slugByLocale": {
         "de": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich",
         "it": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-e-analysen-im-bereich-behindertenhilfe-80-100-kanton-aargau-aarau",
-        "en": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich",
-        "fr": "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
+        "en": "university-intern-university-intern-project-work-and-analyses-in-the-field-of-disability-assistance-80-100-kanton-aargau",
+        "fr": "stage-universitaire-stage-universitaire-travaux-et-analyses-de-projets-dans-le-domaine-de-l-aide-aux-personnes"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -204,6 +218,12 @@
       "previousSlugsByLocale": {
         "it": [
           "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
+        ],
+        "en": [
+          "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
+        ],
+        "fr": [
+          "hochschulpraktikantin-hochschulpraktikant-projektarbeit-und-analysen-im-bereich"
         ]
       },
       "previousSlugs": [
@@ -230,8 +250,8 @@
       "slugByLocale": {
         "de": "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau",
         "it": "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-e-ressourcen-kanton-aargau-aarau",
-        "en": "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau",
-        "fr": "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        "en": "intern-intern-50-legal-service-department-finance-and-resources-kanton-aargau-aarau",
+        "fr": "stagiaire-stagiaire-50-service-juridique-ministere-finances-et-ressources-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -281,6 +301,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        ],
+        "en": [
+          "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        ],
+        "fr": [
+          "praktikantin-praktikant-50-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
         ]
       },
       "previousSlugs": [
@@ -307,8 +333,8 @@
       "slugByLocale": {
         "de": "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau",
         "it": "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-e-ressourcen-kanton-aargau-aarau",
-        "en": "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau",
-        "fr": "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        "en": "intern-intern-100-legal-service-department-finance-and-resources-kanton-aargau-aarau",
+        "fr": "stagiaire-stagiaire-100-service-juridique-ministere-finances-et-ressources-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -358,6 +384,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        ],
+        "en": [
+          "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
+        ],
+        "fr": [
+          "praktikantin-praktikant-100-rechtsdienst-departement-finanzen-und-ressourcen-kanton-aargau"
         ]
       },
       "previousSlugs": [
@@ -380,12 +412,12 @@
     },
     {
       "id": "kanton-aargau-ccc54145d62d",
-      "slug": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau",
+      "slug": "project-manager-project-manager-taxoptima-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
-        "it": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau",
+        "it": "project-manager-project-manager-taxoptima-80-100-kanton-aargau-aarau",
         "en": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
-        "fr": "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-taxoptima-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -433,11 +465,16 @@
       "department": "Kantonales Steueramt",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
+          "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau"
+        ],
+        "fr": [
           "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch"
+        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-ch",
+        "projektleiterin-projektleiter-taxoptima-80-100-kanton-aargau-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -456,12 +493,12 @@
     },
     {
       "id": "kanton-aargau-e2b1c840bc01",
-      "slug": "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch",
+      "slug": "program-manager-program-manager-attuazione-fiscale-individuale-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch",
-        "it": "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch",
-        "en": "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch",
-        "fr": "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch"
+        "it": "program-manager-program-manager-attuazione-fiscale-individuale-kanton-aargau-aarau",
+        "en": "program-manager-program-manager-implementation-individual-taxation-kanton-aargau-aarau",
+        "fr": "gestionnaire-de-programme-gestionnaire-de-programme-mise-en-oeuvre-fiscalite-individuelle-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -520,16 +557,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:21:04.774Z"
+      "firstSeenAt": "2026-10-01T21:21:04.774Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch"
+        ],
+        "en": [
+          "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch"
+        ],
+        "fr": [
+          "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "programm-managerin-programm-manager-umsetzung-individualbesteuerung-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-5eb5dcaae8de",
-      "slug": "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch",
+      "slug": "tax-commissioner-tax-commissioner-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch",
-        "it": "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch",
+        "it": "tax-commissioner-tax-commissioner-100-kanton-aargau-aarau",
         "en": "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch",
-        "fr": "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch"
+        "fr": "commissaire-a-la-fiscalite-commissaire-a-la-fiscalite-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -588,7 +639,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:21:03.783Z"
+      "firstSeenAt": "2026-10-01T21:21:03.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "steuerkommissarin-steuerkommissar-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a64af8d20e44",
@@ -664,8 +726,8 @@
       "slugByLocale": {
         "de": "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch",
         "it": "praktikum-im-bereich-naturgefahren-e-wasserbau-80-100-kanton-aargau-aarau",
-        "en": "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch",
-        "fr": "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"
+        "en": "internship-in-the-field-of-natural-hazards-and-hydraulic-engineering-80-100-kanton-aargau-aarau",
+        "fr": "stage-dans-le-domaine-des-risques-naturels-et-du-genie-hydraulique-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -715,6 +777,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikum-im-bereich-naturgefahren-und-wasserbau-80-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -741,8 +809,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch",
         "it": "apprendistato-come-gartnerin-gartner-cfc-kanton-aargau-wettingen",
-        "en": "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch",
-        "fr": "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
+        "en": "apprenticeship-as-a-gardener-gardener-efz-kanton-aargau-wettingen",
+        "fr": "apprentissage-comme-jardinier-jardinier-efz-kanton-aargau-wettingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -791,6 +859,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
+        ],
+        "en": [
+          "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
+        ],
+        "fr": [
+          "lehrstelle-als-gartnerin-gartner-efz-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -813,12 +887,12 @@
     },
     {
       "id": "kanton-aargau-ebfe86dacb65",
-      "slug": "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch",
+      "slug": "social-pedagogue-social-pedagogue-uma-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch",
-        "it": "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch",
+        "it": "social-pedagogue-social-pedagogue-uma-100-kanton-aargau-aarau",
         "en": "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch",
-        "fr": "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch"
+        "fr": "pedagogue-sociale-pedagogue-sociale-uma-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -876,16 +950,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:21:00.683Z"
+      "firstSeenAt": "2026-10-01T21:21:00.683Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagoge-uma-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a7d19c039ba9",
-      "slug": "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton",
+      "slug": "stage-universitario-nel-dipartimento-di-comunicazione-della-scuola-primaria-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton",
-        "it": "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton",
-        "en": "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton",
-        "fr": "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton"
+        "it": "stage-universitario-nel-dipartimento-di-comunicazione-della-scuola-primaria-80-100-kanton-aargau-aarau",
+        "en": "university-internship-in-the-communication-department-of-the-primary-school-80-100-kanton-aargau-aarau",
+        "fr": "stage-universitaire-dans-le-departement-de-communication-de-l-ecole-primaire-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -944,16 +1029,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:21:00.136Z"
+      "firstSeenAt": "2026-10-01T21:21:00.136Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton"
+        ],
+        "en": [
+          "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton"
+        ],
+        "fr": [
+          "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikum-im-fachbereich-kommunikation-der-abteilung-volksschule-80-100-kanton"
+      ]
     },
     {
       "id": "kanton-aargau-c22840cb9c7d",
-      "slug": "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch",
+      "slug": "assegnazioni-speciali-specialistiche-specialiste-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch"
+        "it": "assegnazioni-speciali-specialistiche-specialiste-80-100-kanton-aargau-aarau",
+        "en": "specialist-specialist-special-school-assignments-80-100-kanton-aargau-aarau",
+        "fr": "affectations-d-ecoles-specialisees-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1012,16 +1111,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:59.471Z"
+      "firstSeenAt": "2026-10-01T21:20:59.471Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-sonderschulzuweisungen-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-6ca7d4bf47ce",
-      "slug": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch",
+      "slug": "avvocato-servizio-giuridico-ufficio-fiscale-cantonale-60-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch",
-        "it": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch",
-        "en": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch",
-        "fr": "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch"
+        "it": "avvocato-servizio-giuridico-ufficio-fiscale-cantonale-60-100-kanton-aargau-aarau",
+        "en": "lawyer-legal-service-cantonal-tax-office-60-100-kanton-aargau-aarau",
+        "fr": "avocat-service-juridique-bureau-cantonal-des-impots-60-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1080,16 +1193,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:58.866Z"
+      "firstSeenAt": "2026-10-01T21:20:58.866Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristin-jurist-rechtsdienst-kantonales-steueramt-60-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-cefdb953bad1",
-      "slug": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch",
+      "slug": "prisoners-prisoners-distretto-prison-kulm-100-kanton-aargau-unterkulm",
       "slugByLocale": {
         "de": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch",
-        "it": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch",
-        "en": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch",
-        "fr": "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch"
+        "it": "prisoners-prisoners-distretto-prison-kulm-100-kanton-aargau-unterkulm",
+        "en": "prisoners-prisoners-district-prison-kulm-100-kanton-aargau-unterkulm",
+        "fr": "prisonniers-prisonniers-district-prison-kulm-100-kanton-aargau-unterkulm"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1148,16 +1275,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:58.251Z"
+      "firstSeenAt": "2026-10-01T21:20:58.251Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vollzugsangestellte-vollzugsangestellter-bezirksgefangnis-kulm-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a4ef52a3d4c3",
-      "slug": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
       "slugByLocale": {
         "de": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "it": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "en": "mittelschullehrperson-mathematik-50-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-secondaria-matematica-50-kanton-aargau-zofingen",
+        "en": "secondary-school-teacher-mathematics-50-kanton-aargau-zofingen",
+        "fr": "professeur-d-ecole-secondaire-mathematiques-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1216,16 +1357,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:57.713Z"
+      "firstSeenAt": "2026-10-01T21:20:57.713Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-mathematik-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-e239ab095a9a",
-      "slug": "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch",
+      "slug": "social-worker-social-worker-60-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch",
-        "it": "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch",
+        "it": "social-worker-social-worker-60-kanton-aargau-lenzburg",
         "en": "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch",
-        "fr": "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch"
+        "fr": "travailleur-social-travailleur-social-60-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1284,7 +1439,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:57.190Z"
+      "firstSeenAt": "2026-10-01T21:20:57.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiterin-sozialarbeiter-60-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-97bd4aeaa6e2",
@@ -1292,8 +1458,8 @@
       "slugByLocale": {
         "de": "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
         "it": "responsabile-di-progetto-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
-        "en": "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch",
-        "fr": "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+        "en": "project-manager-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau",
+        "fr": "chef-de-projet-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1342,6 +1508,12 @@
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+        ],
+        "en": [
+          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
+        ],
+        "fr": [
+          "projektleiter-in-sanitatsdienstliche-grossereignisbewaltigung-60-70-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -1368,8 +1540,8 @@
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch",
         "it": "fachspezialistin-fachspezialist-rettungs-e-katastrophenwesen-60-kanton-aargau-aarau",
-        "en": "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
+        "en": "specialist-rescue-and-disaster-management-60-kanton-aargau-aarau",
+        "fr": "specialiste-en-sauvetage-et-gestion-des-catastrophes-60-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1418,6 +1590,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-rettungs-und-katastrophenwesen-60-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -1440,12 +1618,12 @@
     },
     {
       "id": "kanton-aargau-59a9c36a8b30",
-      "slug": "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80-100-kanton-aargau-aarau",
+      "slug": "project-manager-project-manager-attuazione-politica-sanitaria-pianificazione-complessiva-2030-argomento-di-salvataggio",
       "slugByLocale": {
         "de": "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema",
-        "it": "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80-100-kanton-aargau-aarau",
-        "en": "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema",
-        "fr": "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema"
+        "it": "project-manager-project-manager-attuazione-politica-sanitaria-pianificazione-complessiva-2030-argomento-di-salvataggio",
+        "en": "project-manager-project-manager-implementation-health-policy-overall-planning-2030-rescue-topic-80-100-kanton-aargau",
+        "fr": "gestionnaire-de-projet-gestionnaire-de-projet-mise-en-oeuvre-de-la-politique-de-sante-planification-globale-2030-sujet"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1492,11 +1670,19 @@
       "department": "Abteilung Gesundheit",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema",
+          "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80-100-kanton-aargau-aarau"
+        ],
+        "en": [
+          "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema"
+        ],
+        "fr": [
           "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema"
         ]
       },
       "previousSlugs": [
-        "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema"
+        "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema",
+        "projektleiterin-projektleiter-umsetzung-gesundheitspolitische-gesamtplanung-2030-thema-rettungswesen-80-100-kanton-aargau-aarau"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -1515,12 +1701,12 @@
     },
     {
       "id": "kanton-aargau-8f8bf725ddf2",
-      "slug": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
+      "slug": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-suhr",
       "slugByLocale": {
         "de": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "it": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "en": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
-        "fr": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        "it": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-suhr",
+        "en": "personnel-consultant-personnel-consultant-rav-80-100-kanton-aargau-suhr",
+        "fr": "consultant-en-personnel-consultant-en-personnel-rav-80-100-kanton-aargau-suhr"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1579,16 +1765,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:55.089Z"
+      "firstSeenAt": "2026-10-01T21:20:55.089Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-197d7d90157d",
-      "slug": "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch",
+      "slug": "specialista-prevenzione-specialistica-disastri-50-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch",
-        "it": "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch",
-        "en": "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch",
-        "fr": "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch"
+        "it": "specialista-prevenzione-specialistica-disastri-50-kanton-aargau-aarau",
+        "en": "specialist-specialist-disaster-prevention-50-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-prevention-des-catastrophes-50-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1646,16 +1846,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:54.555Z"
+      "firstSeenAt": "2026-10-01T21:20:54.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-fachspezialistin-katastrophenvorsorge-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a695a811ee34",
-      "slug": "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch",
+      "slug": "specialista-specialista-wage-policy-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch"
+        "it": "specialista-specialista-wage-policy-80-100-kanton-aargau-aarau",
+        "en": "specialist-specialist-wage-policy-80-100-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-politique-salariale-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1714,7 +1928,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:54.035Z"
+      "firstSeenAt": "2026-10-01T21:20:54.035Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-lohnpolitik-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-14473ade4a37",
@@ -1722,8 +1950,8 @@
       "slugByLocale": {
         "de": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
         "it": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
-        "en": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch",
-        "fr": "handwerkerin-handwerker-mit-fuhrerausweis-ce-100-kanton-aargau-ch"
+        "en": "craftsman-craftsman-with-driver-s-license-ce-100-kanton-aargau-lenzburg",
+        "fr": "artisan-artisan-avec-permis-de-conduire-ce-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1786,12 +2014,12 @@
     },
     {
       "id": "kanton-aargau-1b2ff706ade5",
-      "slug": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
+      "slug": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
       "slugByLocale": {
         "de": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "it": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "en": "handwerkerin-handwerker-80-100-kanton-aargau-ch",
-        "fr": "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        "it": "artigiano-artigiano-80-100-kanton-aargau-wohlen",
+        "en": "craftsman-craftsman-80-100-kanton-aargau-wohlen",
+        "fr": "artisan-artisan-80-100-kanton-aargau-wohlen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1850,7 +2078,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:52.780Z"
+      "firstSeenAt": "2026-10-01T21:20:52.780Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "handwerkerin-handwerker-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-c2b21e672d30",
@@ -1858,8 +2100,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
         "it": "lehrperson-per-mathematik-60-80-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch",
-        "fr": "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
+        "en": "teacher-of-mathematics-60-80-kanton-aargau-wohlen",
+        "fr": "professeur-de-mathematiques-60-80-kanton-aargau-wohlen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1908,6 +2150,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "lehrperson-fur-mathematik-60-80-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -1934,8 +2182,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch",
         "it": "mitarbeiterin-collaboratore-trice-betreuung-uma-70-kanton-aargau-aarau",
-        "en": "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch",
-        "fr": "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
+        "en": "employee-employee-support-uma-70-kanton-aargau-aarau",
+        "fr": "soutien-aux-employes-uma-70-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -1984,6 +2232,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-betreuung-uma-70-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -2010,8 +2264,8 @@
       "slugByLocale": {
         "de": "lehrperson-fur-biologie-70-90-kanton-aargau-ch",
         "it": "lehrperson-per-biologie-70-90-kanton-aargau-wohlen",
-        "en": "lehrperson-fur-biologie-70-90-kanton-aargau-ch",
-        "fr": "lehrperson-fur-biologie-70-90-kanton-aargau-ch"
+        "en": "teacher-of-biology-70-90-kanton-aargau-wohlen",
+        "fr": "professeur-de-biologie-70-90-kanton-aargau-wohlen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2060,6 +2314,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-biologie-70-90-kanton-aargau-ch"
+        ],
+        "en": [
+          "lehrperson-fur-biologie-70-90-kanton-aargau-ch"
+        ],
+        "fr": [
+          "lehrperson-fur-biologie-70-90-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -2082,12 +2342,12 @@
     },
     {
       "id": "kanton-aargau-5f0199039709",
-      "slug": "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch",
+      "slug": "internship-fondo-swisslos-del-dipartimento-della-cultura-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch",
-        "it": "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch",
-        "en": "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch",
-        "fr": "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch"
+        "it": "internship-fondo-swisslos-del-dipartimento-della-cultura-80-100-kanton-aargau-aarau",
+        "en": "internship-swisslos-fund-of-the-department-of-culture-80-100-kanton-aargau-aarau",
+        "fr": "stages-fonds-swisslos-du-departement-de-la-culture-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2146,16 +2406,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:50.313Z"
+      "firstSeenAt": "2026-10-01T21:20:50.313Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-fachstelle-swisslos-fonds-der-abteilung-kultur-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a4eff2121790",
-      "slug": "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-secondaria-francese-50-100-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch",
-        "it": "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch",
-        "en": "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-secondaria-francese-50-100-kanton-aargau-wettingen",
+        "en": "secondary-school-teacher-french-50-100-kanton-aargau-wettingen",
+        "fr": "professeur-d-ecole-secondaire-francais-50-100-kanton-aargau-wettingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2214,7 +2488,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:49.745Z"
+      "firstSeenAt": "2026-10-01T21:20:49.745Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-franzosisch-50-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a7c6b4b30f36",
@@ -2287,12 +2575,12 @@
     },
     {
       "id": "kanton-aargau-70762918ed36",
-      "slug": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
+      "slug": "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
-        "it": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
-        "en": "mittelschullehrperson-italienisch-40-kanton-aargau-ch",
-        "fr": "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
+        "it": "insegnante-di-scuola-secondaria-italiano-40-kanton-aargau-wettingen",
+        "en": "secondary-school-teacher-italian-40-kanton-aargau-wettingen",
+        "fr": "professeur-d-ecole-secondaire-italien-40-kanton-aargau-wettingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2351,7 +2639,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:48.728Z"
+      "firstSeenAt": "2026-10-01T21:20:48.728Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
+        ],
+        "en": [
+          "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
+        ],
+        "fr": [
+          "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mittelschullehrperson-italienisch-40-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-cd2cf9549688",
@@ -2359,8 +2661,8 @@
       "slugByLocale": {
         "de": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
         "it": "praktikum-come-fachfrau-fachmann-betriebsunterhalt-cfc-kanton-aargau-aarau",
-        "en": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch",
-        "fr": "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        "en": "internship-as-a-specialist-specialist-business-maintenance-efz-kanton-aargau-aarau",
+        "fr": "stage-en-tant-que-specialiste-specialiste-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2410,6 +2712,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikum-als-fachfrau-fachmann-betriebsunterhalt-efz-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -2432,12 +2740,12 @@
     },
     {
       "id": "kanton-aargau-c57da13b31b8",
-      "slug": "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch",
+      "slug": "procuratore-capo-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch",
-        "it": "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch",
-        "en": "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch",
-        "fr": "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch"
+        "it": "procuratore-capo-80-100-kanton-aargau-aarau",
+        "en": "chief-prosecutor-80-100-kanton-aargau-aarau",
+        "fr": "procureur-general-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2496,16 +2804,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:47.722Z"
+      "firstSeenAt": "2026-10-01T21:20:47.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "oberstaatsanwaltin-oberstaatsanwalt-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-3865e497a869",
-      "slug": "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch",
+      "slug": "specialista-formazione-professionale-specialistica-80-90-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch"
+        "it": "specialista-formazione-professionale-specialistica-80-90-kanton-aargau-aarau",
+        "en": "specialist-specialist-vocational-training-80-90-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-formation-professionnelle-80-90-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2564,16 +2886,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:47.208Z"
+      "firstSeenAt": "2026-10-01T21:20:47.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-berufsbildung-80-90-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-ad545def2c05",
-      "slug": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
+      "slug": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "it": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "en": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch",
-        "fr": "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
+        "it": "esperto-esperto-strategia-politica-80-kanton-aargau-aarau",
+        "en": "expert-expert-political-strategy-80-kanton-aargau-aarau",
+        "fr": "expert-expert-strategie-politique-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2632,16 +2968,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:46.615Z"
+      "firstSeenAt": "2026-10-01T21:20:46.615Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachexpertin-fachexperte-politische-strategie-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-8f0059a943c4",
-      "slug": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
+      "slug": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
       "slugByLocale": {
         "de": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "it": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "en": "biologielaborantin-biologielaborant-50-kanton-aargau-ch",
-        "fr": "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
+        "it": "biologia-laboratorio-assistente-laboratorio-di-biologia-50-kanton-aargau-zofingen",
+        "en": "biology-laboratory-assistant-biology-laboratory-50-kanton-aargau-zofingen",
+        "fr": "assistant-de-laboratoire-de-biologie-laboratoire-de-biologie-50-kanton-aargau-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2700,16 +3050,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:45.969Z"
+      "firstSeenAt": "2026-10-01T21:20:45.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
+        ],
+        "en": [
+          "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
+        ],
+        "fr": [
+          "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "biologielaborantin-biologielaborant-50-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-4bc554cdeb3f",
-      "slug": "polizistinnen-polizisten-60-100-kanton-aargau-ch",
+      "slug": "agenti-di-polizia-60-100-kanton-aargau-aargau",
       "slugByLocale": {
         "de": "polizistinnen-polizisten-60-100-kanton-aargau-ch",
-        "it": "polizistinnen-polizisten-60-100-kanton-aargau-ch",
-        "en": "polizistinnen-polizisten-60-100-kanton-aargau-ch",
-        "fr": "polizistinnen-polizisten-60-100-kanton-aargau-ch"
+        "it": "agenti-di-polizia-60-100-kanton-aargau-aargau",
+        "en": "police-officers-60-100-kanton-aargau-aargau",
+        "fr": "agents-de-police-60-100-kanton-aargau-aargau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2767,16 +3131,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:45.337Z"
+      "firstSeenAt": "2026-10-01T21:20:45.337Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "polizistinnen-polizisten-60-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "polizistinnen-polizisten-60-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "polizistinnen-polizisten-60-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "polizistinnen-polizisten-60-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-2bd1868de951",
-      "slug": "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton",
+      "slug": "specialista-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton",
-        "it": "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton",
-        "en": "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton",
-        "fr": "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton"
+        "it": "specialista-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg",
+        "en": "specialist-specialist-health-service-central-detention-entry-50-100-kanton-aargau-lenzburg",
+        "fr": "specialiste-service-de-sante-specialise-entree-centrale-de-detention-50-100-kanton-aargau-lenzburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -2835,7 +3213,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:44.827Z"
+      "firstSeenAt": "2026-10-01T21:20:44.827Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-gesundheitsdienst-zentraler-hafteintritt-50-100-kanton"
+      ]
     },
     {
       "id": "kanton-aargau-ae2ce91fe4df",
@@ -2988,12 +3380,12 @@
     },
     {
       "id": "kanton-aargau-4ba16285f085",
-      "slug": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
+      "slug": "interno-legale-interno-legale-80-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        "it": "interno-legale-interno-legale-80-100-kanton-aargau-aarau",
+        "en": "legal-intern-legal-intern-80-100-kanton-aargau-aarau",
+        "fr": "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3051,7 +3443,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:43.102Z"
+      "firstSeenAt": "2026-10-01T21:20:43.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-d97a22ae8f03",
@@ -3059,8 +3465,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton",
         "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-schwerpunkt-hausdienst-100-kanton-aargau-baden",
-        "en": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton",
-        "fr": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
+        "en": "apprenticeship-as-a-specialist-business-maintenance-specialist-efz-focus-on-home-service-100-kanton-aargau-baden",
+        "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-maintenance-d-entreprise-efz-se-concentre-sur-le-service-a-domicile"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3109,6 +3515,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-schwerpunkt-hausdienst-100-kanton"
         ]
       },
       "previousSlugs": [
@@ -3131,12 +3543,12 @@
     },
     {
       "id": "kanton-aargau-5a3421df9aec",
-      "slug": "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
+      "slug": "istruttore-di-classe-evk-ciclo-1-60-kanton-aargau-wettingen",
       "slugByLocale": {
         "de": "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
-        "it": "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
-        "en": "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch",
-        "fr": "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+        "it": "istruttore-di-classe-evk-ciclo-1-60-kanton-aargau-wettingen",
+        "en": "class-instructor-evk-cycle-1-60-kanton-aargau-wettingen",
+        "fr": "instructeur-de-classe-evk-cycle-1-60-kanton-aargau-wettingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3194,7 +3606,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:39.283Z"
+      "firstSeenAt": "2026-10-01T21:20:39.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "klassenlehrperson-evk-zyklus-1-60-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-51258fad09e7",
@@ -3267,12 +3693,12 @@
     },
     {
       "id": "kanton-aargau-a6c285348f06",
-      "slug": "hauswartin-hauswart-100-kanton-aargau-ch",
+      "slug": "casa-governante-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "hauswartin-hauswart-100-kanton-aargau-ch",
-        "it": "hauswartin-hauswart-100-kanton-aargau-ch",
-        "en": "hauswartin-hauswart-100-kanton-aargau-ch",
-        "fr": "hauswartin-hauswart-100-kanton-aargau-ch"
+        "it": "casa-governante-100-kanton-aargau-aarau",
+        "en": "housekeeper-housekeeper-100-kanton-aargau-aarau",
+        "fr": "menageur-menageur-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3331,16 +3757,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:28.281Z"
+      "firstSeenAt": "2026-10-01T21:20:28.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hauswartin-hauswart-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "hauswartin-hauswart-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "hauswartin-hauswart-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hauswartin-hauswart-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-58b07298469d",
-      "slug": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
+      "slug": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-rheinfelden",
       "slugByLocale": {
         "de": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-6wixxl",
-        "it": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
-        "en": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2",
-        "fr": "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
+        "it": "consulente-personale-consulente-personale-rav-80-100-kanton-aargau-rheinfelden",
+        "en": "personnel-consultant-personnel-consultant-rav-80-100-kanton-aargau-rheinfelden",
+        "fr": "consultant-en-personnel-consultant-en-personnel-rav-80-100-kanton-aargau-rheinfelden"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3402,14 +3842,22 @@
       "firstSeenAt": "2026-10-01T21:20:22.781Z",
       "previousSlugsByLocale": {
         "it": [
-          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
         ],
         "de": [
           "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
+        ],
+        "fr": [
+          "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
         ]
       },
       "previousSlugs": [
-        "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch"
+        "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch",
+        "personalberaterin-personalberater-rav-80-100-kanton-aargau-ch-2"
       ]
     },
     {
@@ -3418,8 +3866,8 @@
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch",
         "it": "mitarbeiterin-collaboratore-trice-betreuung-80-100-kanton-aargau-rekingen",
-        "en": "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch",
-        "fr": "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
+        "en": "employee-care-80-100-kanton-aargau-rekingen",
+        "fr": "soins-aux-employes-80-100-kanton-aargau-rekingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3467,6 +3915,12 @@
       "department": "Kantonaler Sozialdienst",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
           "mitarbeiterin-mitarbeiter-betreuung-80-100-kanton-aargau-ch"
         ]
       },
@@ -3559,12 +4013,12 @@
     },
     {
       "id": "kanton-aargau-608903e22df5",
-      "slug": "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch",
+      "slug": "traffico-esperto-traffico-esperto-100-kanton-aargau-schafisheim",
       "slugByLocale": {
         "de": "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch",
-        "it": "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch",
-        "en": "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch",
-        "fr": "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch"
+        "it": "traffico-esperto-traffico-esperto-100-kanton-aargau-schafisheim",
+        "en": "traffic-expert-traffic-expert-100-kanton-aargau-schafisheim",
+        "fr": "expert-en-trafic-expert-en-trafic-100-kanton-aargau-schafisheim"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3623,16 +4077,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:17.124Z"
+      "firstSeenAt": "2026-10-01T21:20:17.124Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verkehrsexpertin-verkehrsexperte-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-c024e151fd84",
-      "slug": "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie",
+      "slug": "assistente-giudice-assistente-giudice-lavoro-sociale-psicologia-pedagogia-kanton-aargau-brugg-lenzburg-zurzach",
       "slugByLocale": {
         "de": "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie",
-        "it": "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie",
-        "en": "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie",
-        "fr": "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie"
+        "it": "assistente-giudice-assistente-giudice-lavoro-sociale-psicologia-pedagogia-kanton-aargau-brugg-lenzburg-zurzach",
+        "en": "assistant-judge-assistant-judge-social-work-psychology-pedagogy-kanton-aargau-brugg-lenzburg-zurzach",
+        "fr": "juge-adjoint-juge-adjoint-travail-social-psychologie-pedagogie-kanton-aargau-brugg-lenzburg-zurzach"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3690,7 +4158,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:16.457Z"
+      "firstSeenAt": "2026-10-01T21:20:16.457Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie"
+        ],
+        "en": [
+          "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie"
+        ],
+        "fr": [
+          "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie"
+        ]
+      },
+      "previousSlugs": [
+        "nebenamtliche-fachrichterin-nebenamtlicher-fachrichter-soziale-arbeit-psychologie"
+      ]
     },
     {
       "id": "kanton-aargau-720a7166f1e5",
@@ -3774,12 +4256,12 @@
     },
     {
       "id": "kanton-aargau-99219cdc64d0",
-      "slug": "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch",
+      "slug": "stage-universitario-tirocinio-universitario-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch",
-        "it": "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch",
-        "en": "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch",
-        "fr": "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch"
+        "it": "stage-universitario-tirocinio-universitario-80-kanton-aargau-aarau",
+        "en": "university-intern-university-intern-80-kanton-aargau-aarau",
+        "fr": "stage-universitaire-stage-universitaire-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3837,16 +4319,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:15.356Z"
+      "firstSeenAt": "2026-10-01T21:20:15.356Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikantin-hochschulpraktikant-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-2f1c603d535f",
-      "slug": "juristisches-praktikum-100-kanton-aargau-ch",
+      "slug": "stage-legale-100-kanton-aargau-schafisheim",
       "slugByLocale": {
         "de": "juristisches-praktikum-100-kanton-aargau-ch",
-        "it": "juristisches-praktikum-100-kanton-aargau-ch",
-        "en": "juristisches-praktikum-100-kanton-aargau-ch",
-        "fr": "juristisches-praktikum-100-kanton-aargau-ch"
+        "it": "stage-legale-100-kanton-aargau-schafisheim",
+        "en": "legal-internship-100-kanton-aargau-schafisheim",
+        "fr": "stage-juridique-100-kanton-aargau-schafisheim"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3905,7 +4401,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:14.760Z"
+      "firstSeenAt": "2026-10-01T21:20:14.760Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "juristisches-praktikum-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "juristisches-praktikum-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "juristisches-praktikum-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "juristisches-praktikum-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-ef0bed3ae0d5",
@@ -3913,8 +4423,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
         "it": "apprendistato-come-fachfrau-fachmann-betriebsunterhalt-cfc-specializzazione-hausdienst-100-kanton-aargau-wettingen",
-        "en": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton",
-        "fr": "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        "en": "apprenticeship-as-a-specialist-business-maintenance-specialist-efz-department-house-service-100-kanton-aargau-wettingen",
+        "fr": "apprentissage-en-tant-que-specialiste-specialiste-de-l-entretien-des-affaires-efz-service-de-maison-departemental-100"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -3963,6 +4473,12 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        ],
+        "en": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
+        ],
+        "fr": [
+          "lehrstelle-als-fachfrau-fachmann-betriebsunterhalt-efz-fachrichtung-hausdienst-100-kanton"
         ]
       },
       "previousSlugs": [
@@ -3985,12 +4501,12 @@
     },
     {
       "id": "kanton-aargau-2dc84bdc465d",
-      "slug": "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch",
+      "slug": "trainee-trainee-zootecnia-40-60-kanton-aargau-granichen",
       "slugByLocale": {
         "de": "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch",
-        "it": "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch",
-        "en": "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch",
-        "fr": "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch"
+        "it": "trainee-trainee-zootecnia-40-60-kanton-aargau-granichen",
+        "en": "trainee-trainee-animal-husbandry-40-60-kanton-aargau-granichen",
+        "fr": "stagiaire-stagiaire-elevage-40-60-kanton-aargau-granichen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4049,7 +4565,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:13.591Z"
+      "firstSeenAt": "2026-10-01T21:20:13.591Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikantin-praktikant-tierhaltung-40-60-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-378f7079f038",
@@ -4057,8 +4587,8 @@
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch",
         "it": "sachbearbeiterin-sachbearbeiter-weiterbildung-e-kommunikation-80-100-kanton-aargau-granichen",
-        "en": "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
+        "en": "personnel-personnel-training-and-communication-80-100-kanton-aargau-granichen",
+        "fr": "personnel-formation-et-communication-du-personnel-80-100-kanton-aargau-granichen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4108,6 +4638,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-weiterbildung-und-kommunikation-80-100-kanton-aargau-ch"
         ]
       },
       "previousSlugs": [
@@ -4130,12 +4666,12 @@
     },
     {
       "id": "kanton-aargau-d2ec958c5680",
-      "slug": "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch",
+      "slug": "giudice-di-sostituzione-giudice-di-sostituzione-presso-il-tribunale-amministrativo-ca-10-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch",
-        "it": "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch",
-        "en": "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch",
-        "fr": "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch"
+        "it": "giudice-di-sostituzione-giudice-di-sostituzione-presso-il-tribunale-amministrativo-ca-10-kanton-aargau-aarau",
+        "en": "replacement-judge-replacement-judge-at-the-administrative-court-approx-10-kanton-aargau-aarau",
+        "fr": "juge-de-remplacement-juge-de-remplacement-au-tribunal-administratif-approx-10-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4194,16 +4730,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:12.383Z"
+      "firstSeenAt": "2026-10-01T21:20:12.383Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch"
+        ],
+        "en": [
+          "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch"
+        ],
+        "fr": [
+          "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ersatzrichterin-ersatzrichter-beim-verwaltungsgericht-ca-10-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-a02a87d52d46",
-      "slug": "kaufmannisches-praktikum-wms-100-kanton-aargau-ch",
+      "slug": "stage-commerciale-wms-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "kaufmannisches-praktikum-wms-100-kanton-aargau-ch",
-        "it": "kaufmannisches-praktikum-wms-100-kanton-aargau-ch",
-        "en": "kaufmannisches-praktikum-wms-100-kanton-aargau-ch",
-        "fr": "kaufmannisches-praktikum-wms-100-kanton-aargau-ch"
+        "it": "stage-commerciale-wms-100-kanton-aargau-aarau",
+        "en": "commercial-internship-wms-100-kanton-aargau-aarau",
+        "fr": "stage-commercial-wms-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4262,16 +4812,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:11.776Z"
+      "firstSeenAt": "2026-10-01T21:20:11.776Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kaufmannisches-praktikum-wms-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "kaufmannisches-praktikum-wms-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "kaufmannisches-praktikum-wms-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kaufmannisches-praktikum-wms-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-e7aa21706ec1",
-      "slug": "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch",
+      "slug": "pedagoga-sociale-pedagoga-sociale-80-100-kanton-aargau-aarburg",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch",
-        "it": "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch",
-        "en": "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch",
-        "fr": "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch"
+        "it": "pedagoga-sociale-pedagoga-sociale-80-100-kanton-aargau-aarburg",
+        "en": "social-pedagogue-social-pedagogue-80-100-kanton-aargau-aarburg",
+        "fr": "pedagogue-sociale-pedagogue-sociale-80-100-kanton-aargau-aarburg"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4329,16 +4893,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:10.278Z"
+      "firstSeenAt": "2026-10-01T21:20:10.278Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagogin-sozialpadagogen-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-7bb7d35fdb90",
-      "slug": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
+      "slug": "interno-legale-interno-legale-80-100-kanton-aargau-aarau-a40b12",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-l3fw79",
-        "it": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
-        "en": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2",
-        "fr": "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
+        "it": "interno-legale-interno-legale-80-100-kanton-aargau-aarau-a40b12",
+        "en": "legal-intern-legal-intern-80-100-kanton-aargau-aarau-a40b12",
+        "fr": "stagiaire-juridique-stagiaire-juridique-80-100-kanton-aargau-aarau-a40b12"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4399,24 +4977,32 @@
       "firstSeenAt": "2026-10-01T21:20:08.292Z",
       "previousSlugsByLocale": {
         "it": [
-          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
         ],
         "de": [
           "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
         ]
       },
       "previousSlugs": [
-        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch"
+        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch",
+        "rechtspraktikantin-rechtspraktikant-80-100-kanton-aargau-ch-2"
       ]
     },
     {
       "id": "kanton-aargau-59d291ad1a63",
-      "slug": "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch",
+      "slug": "specialista-specialista-trattamento-delle-acque-reflue-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch"
+        "it": "specialista-specialista-trattamento-delle-acque-reflue-80-kanton-aargau-aarau",
+        "en": "specialist-specialist-wastewater-treatment-80-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-traitement-des-eaux-usees-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4475,16 +5061,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:06.312Z"
+      "firstSeenAt": "2026-10-01T21:20:06.312Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-abwasserreinigung-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-b095e9502cf0",
-      "slug": "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch",
+      "slug": "personale-personale-amministrazione-60-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch"
+        "it": "personale-personale-amministrazione-60-kanton-aargau-aarau",
+        "en": "personnel-personnel-administration-60-kanton-aargau-aarau",
+        "fr": "administration-du-personnel-60-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4543,16 +5143,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:04.298Z"
+      "firstSeenAt": "2026-10-01T21:20:04.298Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-administration-60-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-b46dcc3f51d2",
-      "slug": "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch",
+      "slug": "specialista-specialista-radio-mobile-radiazioni-non-ionizzanti-80-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch",
-        "it": "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch",
-        "en": "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch",
-        "fr": "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch"
+        "it": "specialista-specialista-radio-mobile-radiazioni-non-ionizzanti-80-kanton-aargau-aarau",
+        "en": "specialist-specialist-mobile-radio-non-ionizing-radiation-80-kanton-aargau-aarau",
+        "fr": "specialiste-specialiste-radio-mobile-rayonnement-non-ionisant-80-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4611,7 +5225,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:20:02.328Z"
+      "firstSeenAt": "2026-10-01T21:20:02.328Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch"
+        ],
+        "en": [
+          "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch"
+        ],
+        "fr": [
+          "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialistin-fachspezialist-mobilfunk-nichtionisierende-strahlung-80-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-d06713f724d4",
@@ -4619,8 +5247,8 @@
       "slugByLocale": {
         "de": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton",
         "it": "informatikerin-informatiker-applikationsmanagement-e-datenverarbeitung-80-100-kanton-aargau-schafisheim-5033-buchs",
-        "en": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton",
-        "fr": "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
+        "en": "computer-scientist-computer-science-application-management-and-data-processing-80-100-kanton-aargau-schafisheim-5033",
+        "fr": "informatique-informatique-gestion-des-applications-et-traitement-des-donnees-80-100-kanton-aargau-schafisheim-5033-buchs"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4669,6 +5297,12 @@
       "previousSlugsByLocale": {
         "it": [
           "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
+        ],
+        "en": [
+          "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
+        ],
+        "fr": [
+          "informatikerin-informatiker-applikationsmanagement-und-datenverarbeitung-80-100-kanton"
         ]
       },
       "previousSlugs": [
@@ -4695,8 +5329,8 @@
       "slugByLocale": {
         "de": "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau",
         "it": "praktikum-im-bereich-fliessgewasserokologie-e-siedlungsentwasserung-80-100-kanton-aargau-aarau",
-        "en": "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau",
-        "fr": "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
+        "en": "internship-in-river-ecology-and-urban-drainage-80-100-kanton-aargau-aarau",
+        "fr": "stage-en-ecologie-fluviale-et-drainage-urbain-80-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4746,6 +5380,12 @@
       "previousSlugsByLocale": {
         "it": [
           "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
+        ],
+        "en": [
+          "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
+        ],
+        "fr": [
+          "praktikum-im-bereich-fliessgewasserokologie-und-siedlungsentwasserung-80-100-kanton-aargau"
         ]
       },
       "previousSlugs": [
@@ -4768,12 +5408,12 @@
     },
     {
       "id": "kanton-aargau-843b432c80b4",
-      "slug": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
+      "slug": "interno-legale-praticante-legale-kanton-aargau-muri-und-zofingen",
       "slugByLocale": {
         "de": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "it": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "en": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch",
-        "fr": "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        "it": "interno-legale-praticante-legale-kanton-aargau-muri-und-zofingen",
+        "en": "legal-intern-legal-practitioner-kanton-aargau-muri-und-zofingen",
+        "fr": "stagiaire-juridique-avocat-kanton-aargau-muri-und-zofingen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4832,16 +5472,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:19:56.274Z"
+      "firstSeenAt": "2026-10-01T21:19:56.274Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ],
+        "en": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ],
+        "fr": [
+          "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "rechtspraktikantin-rechtspraktikant-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-9ba0aeea61fc",
-      "slug": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
+      "slug": "personale-personale-compensazione-disoccupazione-100-kanton-aargau-aarau",
       "slugByLocale": {
         "de": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
-        "it": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
-        "en": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch",
-        "fr": "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+        "it": "personale-personale-compensazione-disoccupazione-100-kanton-aargau-aarau",
+        "en": "personnel-personnel-unemployment-compensation-100-kanton-aargau-aarau",
+        "fr": "personnel-personnel-indemnite-de-chomage-100-kanton-aargau-aarau"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4900,16 +5554,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:19:54.265Z"
+      "firstSeenAt": "2026-10-01T21:19:54.265Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiterin-sachbearbeiter-arbeitslosenentschadigung-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-df40b78ba021",
-      "slug": "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch",
+      "slug": "assistenza-medica-carriera-80-100-kanton-aargau-oftringen",
       "slugByLocale": {
         "de": "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch",
-        "it": "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch",
-        "en": "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch",
-        "fr": "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch"
+        "it": "assistenza-medica-carriera-80-100-kanton-aargau-oftringen",
+        "en": "medical-caregiver-caregiver-80-100-kanton-aargau-oftringen",
+        "fr": "soins-medicaux-soins-medicaux-80-100-kanton-aargau-oftringen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -4967,16 +5635,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:19:52.273Z"
+      "firstSeenAt": "2026-10-01T21:19:52.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-betreuerin-betreuer-80-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-23bd68846106",
-      "slug": "handwerkerin-handwerker-100-kanton-aargau-ch",
+      "slug": "artigiano-artigiano-100-kanton-aargau-oftringen",
       "slugByLocale": {
         "de": "handwerkerin-handwerker-100-kanton-aargau-ch",
-        "it": "handwerkerin-handwerker-100-kanton-aargau-ch",
-        "en": "handwerkerin-handwerker-100-kanton-aargau-ch",
-        "fr": "handwerkerin-handwerker-100-kanton-aargau-ch"
+        "it": "artigiano-artigiano-100-kanton-aargau-oftringen",
+        "en": "craftsman-craftsman-100-kanton-aargau-oftringen",
+        "fr": "artisan-artisan-100-kanton-aargau-oftringen"
       },
       "company": "Kanton Aargau",
       "companyKey": "kanton-aargau",
@@ -5035,7 +5717,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-01T21:19:50.281Z"
+      "firstSeenAt": "2026-10-01T21:19:50.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ],
+        "en": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ],
+        "fr": [
+          "handwerkerin-handwerker-100-kanton-aargau-ch"
+        ]
+      },
+      "previousSlugs": [
+        "handwerkerin-handwerker-100-kanton-aargau-ch"
+      ]
     },
     {
       "id": "kanton-aargau-0f8c93fee8e8",

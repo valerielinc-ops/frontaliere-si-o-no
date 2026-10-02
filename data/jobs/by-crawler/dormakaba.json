@@ -8,7 +8,7 @@
       "slugByLocale": {
         "en": "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "de": "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
-        "fr": "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "fr": "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
         "it": "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
       },
       "company": "dormakaba",
@@ -59,24 +59,16 @@
         "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-ch",
-        "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
-        "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-        "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
           "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-          "configurable-materials-master-data-domain-lead-dormakaba-ch",
-          "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
+          "configurable-materials-master-data-domain-lead-dormakaba-ch"
         ],
         "fr": [
-          "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
-        ],
-        "de": [
-          "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
       "salaryMin": 189000,
@@ -148,17 +140,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
-        "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen"
+        "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch",
-          "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
-        ],
-        "fr": [
-          "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen"
+          "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
         ]
       },
       "salaryMin": 67000,
@@ -236,20 +222,16 @@
         "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
-        "servicetechniker-in-w-m-d-dormakaba-ch",
-        "servicetechniker-in-m-w-d-dormakaba-st-gallen",
-        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+        "servicetechniker-in-w-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
           "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-ch",
-          "servicetechniker-in-m-w-d-dormakaba-st-gallen"
+          "servicetechniker-in-w-m-d-dormakaba-ch"
         ],
         "en": [
-          "service-technician-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
+          "service-technician-in-f-m-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
@@ -278,8 +260,8 @@
       "slugByLocale": {
         "fr": "technicien-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -332,28 +314,23 @@
         "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-        "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne",
         "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-porta-automatica-f-m-d-dormakaba-le-mont-sur-lausanne",
           "porte-automatiche-tecniche-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "technicien-portes-automatiques-f-m-d-dormakaba-ch",
-          "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "technicien-portes-automatiques-f-m-d-dormakaba-ch"
         ],
         "en": [
           "automatic-door-technician-f-m-d-dormakaba-le-mont-sur-lausanne",
           "technician-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
           "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "automatischer-turtechniker-m-m-d-dormakaba-le-mont-sur-lausanne",
           "techniker-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
       "salaryMin": 71000,
@@ -425,21 +402,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch",
-        "computer-scienziato-in-servizio-campo-80-100-m-f-d-dormakaba-rumlang",
-        "computer-scientist-in-field-service-80-100-m-f-d-dormakaba-rumlang",
-        "computer-scientist-en-service-sur-le-terrain-80-100-m-f-d-dormakaba-rumlang"
+        "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch",
-          "computer-scienziato-in-servizio-campo-80-100-m-f-d-dormakaba-rumlang"
-        ],
-        "en": [
-          "computer-scientist-in-field-service-80-100-m-f-d-dormakaba-rumlang"
-        ],
-        "fr": [
-          "computer-scientist-en-service-sur-le-terrain-80-100-m-f-d-dormakaba-rumlang"
+          "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "salaryMin": 83000,
@@ -511,21 +478,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch",
-        "ciclo-tecnico-80-100-m-f-d-dormakaba-rumlang",
-        "technical-clerk-80-100-m-f-d-dormakaba-rumlang",
-        "commis-technique-80-100-m-f-j-dormakaba-rumlang"
+        "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch",
-          "ciclo-tecnico-80-100-m-f-d-dormakaba-rumlang"
-        ],
-        "en": [
-          "technical-clerk-80-100-m-f-d-dormakaba-rumlang"
-        ],
-        "fr": [
-          "commis-technique-80-100-m-f-j-dormakaba-rumlang"
+          "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "salaryMin": 83000,
@@ -550,7 +507,7 @@
         "fr": "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
         "it": "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne",
         "en": "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "de": "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -603,26 +560,20 @@
         "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
         "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
-        "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "porte-automatiche-f-m-d-dormakaba-le-mont-sur-lausanne",
           "leader-del-progetto-porte-automatiche-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
-          "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "projektleiter-automatische-turen-m-m-d-dormakaba-le-mont-sur-lausanne",
           "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
         ]
       },
@@ -647,8 +598,8 @@
       "slugByLocale": {
         "fr": "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
         "it": "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -703,8 +654,6 @@
         "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
         "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
-        "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
@@ -713,20 +662,18 @@
           "chef-de-projet-m-f-d-dormakaba-le-mont-sur-lausanne",
           "leader-del-progetto-m-f-d-dormakaba-le-mont-sur-lausanne",
           "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
-          "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch"
         ],
         "en": [
           "chef-de-projet-m-f-d-dormakaba-ch",
           "project-leader-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
           "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "chef-de-projet-m-f-d-dormakaba-ch",
           "projektleiter-m-w-d-dormakaba-le-mont-sur-lausanne",
           "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
-          "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "fr": [
           "chef-de-projet-m-f-d-dormakaba-ch"
@@ -803,24 +750,18 @@
         "consulente-tecnico-di-vendita-ammodernamento-80-100-f-m-d-dormakaba-rumlang",
         "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang",
         "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang",
-        "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch",
-        "consulenza-tecnica-ammodernamento-80-100-m-f-d-dormakaba-rumlang",
-        "technical-sales-advisor-modernizations-80-100-m-f-d-dormakaba-rumlang",
-        "technical-sales-advisor-modernisations-80-100-h-f-d-dormakaba-rumlang"
+        "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-tecnico-di-vendita-ammodernamento-80-100-f-m-d-dormakaba-rumlang",
-          "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch",
-          "consulenza-tecnica-ammodernamento-80-100-m-f-d-dormakaba-rumlang"
+          "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch"
         ],
         "en": [
-          "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang",
-          "technical-sales-advisor-modernizations-80-100-m-f-d-dormakaba-rumlang"
+          "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang"
         ],
         "fr": [
-          "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang",
-          "technical-sales-advisor-modernisations-80-100-h-f-d-dormakaba-rumlang"
+          "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang"
         ]
       },
       "salaryMin": 83000,
@@ -844,8 +785,8 @@
       "slugByLocale": {
         "fr": "coordinateur-de-commandes-f-m-d-dormakaba-ch",
         "it": "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "en": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "en": "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
+        "de": "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -893,22 +834,17 @@
       "previousSlugs": [
         "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-f-m-d-dormakaba-ch",
-        "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
-        "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne",
-        "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne",
         "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-de-commandes-f-m-d-dormakaba-ch",
-          "coordinatore-del-comando-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "coordinateur-de-commandes-f-m-d-dormakaba-ch"
         ],
         "en": [
-          "m-f-d-command-coordinator-dormakaba-le-mont-sur-lausanne",
           "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
-          "m-w-d-kommandokoordinator-dormakaba-le-mont-sur-lausanne"
+          "coordinateur-de-commandes-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "fr": [
           "coordinateur-de-commandes-f-m-d-dormakaba-le-mont-sur-lausanne"
@@ -934,9 +870,9 @@
       "slug": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
       "slugByLocale": {
         "fr": "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "it": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "en": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "de": "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "it": "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "en": "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "de": "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
       },
       "company": "dormakaba",
       "companyKey": "dormakaba",
@@ -983,23 +919,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-        "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
-        ],
-        "en": [
-          "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne"
-        ],
-        "de": [
-          "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
         ]
       },
       "salaryMin": 71000,
@@ -1071,21 +995,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch",
-        "supporto-di-2-livello-ead-80-100-m-f-d-dormakaba-rumlang",
-        "2nd-level-support-ead-80-100-m-w-d-dormakaba-rumlang",
-        "support-de-2eme-niveau-ead-80-100-h-f-d-dormakaba-rumlang"
+        "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch",
-          "supporto-di-2-livello-ead-80-100-m-f-d-dormakaba-rumlang"
-        ],
-        "en": [
-          "2nd-level-support-ead-80-100-m-w-d-dormakaba-rumlang"
-        ],
-        "fr": [
-          "support-de-2eme-niveau-ead-80-100-h-f-d-dormakaba-rumlang"
+          "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "salaryMin": 83000,
@@ -1158,22 +1072,12 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
-        "leiter-versand-80-100-m-w-d-dormakaba-ch",
-        "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon",
-        "head-of-shipping-80-100-m-f-d-dormakaba-wetzikon",
-        "responsable-de-la-livraison-80-100-h-f-d-dormakaba-wetzikon"
+        "leiter-versand-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
-          "leiter-versand-80-100-m-w-d-dormakaba-ch",
-          "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon"
-        ],
-        "en": [
-          "head-of-shipping-80-100-m-f-d-dormakaba-wetzikon"
-        ],
-        "fr": [
-          "responsable-de-la-livraison-80-100-h-f-d-dormakaba-wetzikon"
+          "leiter-versand-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "salaryMin": 101500,
@@ -1246,26 +1150,15 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch",
-        "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
-        "tecnologia-porta-servizio-partner-80-100-f-m-d-regione-est-dormakaba-wetzikon",
-        "partner-service-door-technology-80-100-f-m-d-east-region-dormakaba-wetzikon",
-        "technologie-de-porte-de-service-partenaire-80-100-f-m-d-region-est-dormakaba-wetzikon"
+        "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch",
-          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
-          "tecnologia-porta-servizio-partner-80-100-f-m-d-regione-est-dormakaba-wetzikon"
+          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
         ],
         "de": [
-          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
-          "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch"
-        ],
-        "en": [
-          "partner-service-door-technology-80-100-f-m-d-east-region-dormakaba-wetzikon"
-        ],
-        "fr": [
-          "technologie-de-porte-de-service-partenaire-80-100-f-m-d-region-est-dormakaba-wetzikon"
+          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
         ]
       },
       "salaryMin": 73500,
@@ -1338,18 +1231,12 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
-        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
-        "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
-        "directeur-de-projet-80-100-h-f-d-region-de-berne-basel-dormakaba-st-gallen"
+        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
-          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
-          "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
-        ],
-        "fr": [
-          "directeur-de-projet-80-100-h-f-d-region-de-berne-basel-dormakaba-st-gallen"
+          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch"
         ]
       },
       "salaryMin": 67000,
@@ -1372,7 +1259,7 @@
       "slug": "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
       "slugByLocale": {
         "de": "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "it": "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+        "it": "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
         "en": "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
         "fr": "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
       },
@@ -1422,24 +1309,14 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
-        "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
-        "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
+        "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
-          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+          "montagetechniker-m-w-d-region-zurich-dormakaba-ch"
         ],
         "fr": [
-          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
-          "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
-        ],
-        "en": [
-          "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen"
+          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
         ]
       },
       "salaryMin": 67000,
@@ -1511,21 +1388,11 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-        "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
-        "technical-services-80-100-m-f-d-dormakaba-st-gallen",
-        "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
+        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
-          "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen"
-        ],
-        "en": [
-          "technical-services-80-100-m-f-d-dormakaba-st-gallen"
-        ],
-        "fr": [
-          "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
         ]
       },
       "salaryMin": 67000,
@@ -1600,24 +1467,18 @@
         "sistemi-di-chiusura-e-accesso-80-100-m-f-d-dormakaba-rumlang",
         "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang",
         "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang",
-        "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch",
-        "chiusura-e-sistemi-di-accesso-80-100-m-f-d-dormakaba-rumlang",
-        "property-consultant-closure-access-systems-80-100-m-f-d-dormakaba-rumlang",
-        "conseiller-immobilier-systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
+        "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sistemi-di-chiusura-e-accesso-80-100-m-f-d-dormakaba-rumlang",
-          "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch",
-          "chiusura-e-sistemi-di-accesso-80-100-m-f-d-dormakaba-rumlang"
+          "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch"
         ],
         "en": [
-          "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang",
-          "property-consultant-closure-access-systems-80-100-m-f-d-dormakaba-rumlang"
+          "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang"
         ],
         "fr": [
-          "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang",
-          "conseiller-immobilier-systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
+          "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
         ]
       },
       "salaryMin": 73500,
