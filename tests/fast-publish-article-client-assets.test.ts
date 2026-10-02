@@ -113,6 +113,34 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('does not defer a published-ahead registry gap beyond the lag bound', async () => {
+    const published = Object.fromEntries(
+      Array.from({ length: 26 }, (_, index) => [`published-${index}`, { it: `published-${index}` }]),
+    );
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 1 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ swiss: published }) });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('svizzera', 1, {
+        localRegistry: { kept: { it: 'kept' } },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).not.toBe(true);
+      expect(verdict.note).toContain('refusing to publish a non-converged client registry');
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects local article IDs absent from the published registry', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {

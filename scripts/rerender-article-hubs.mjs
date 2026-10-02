@@ -485,13 +485,17 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     // render or publish this checkout: doing so would remove the newer live
     // article. It is a safe, observable defer. A mixed mismatch remains a
     // hard failure because it cannot be classified as a one-way upstream lag.
-    if (missingIds.length > 0 && unpublishedIds.length === 0) {
+    if (
+      missingIds.length > 0
+      && missingIds.length <= MAX_ARTICLES_BEHIND
+      && unpublishedIds.length === 0
+    ) {
       return {
         ok: false,
         deferred: true,
         note:
           `${section}: published article registry is ahead of this checkout (${mismatchDetails}); ` +
-          'deferring hub rerender until the corpus sync converges',
+          `deferring hub rerender until the corpus sync converges (bounded to ${MAX_ARTICLES_BEHIND} IDs)`,
       };
     }
     return {
