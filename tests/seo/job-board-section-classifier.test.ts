@@ -13,9 +13,15 @@
  * headroom) and auto-cover every present and future canton.
  */
 import { describe, it, expect } from 'vitest';
+import { factory as createInformationGainAuditor } from '../../scripts/audit-information-gain.mjs';
 import { classifyFeature } from '../../scripts/audit-title-length.mjs';
 import {
+  buildProfessionCantonPath,
+  PROFESSION_CANTON_ROUTES,
+} from '../../build-plugins/professionCantonData';
+import {
   isJobBoardContentPath,
+  isJobBoardProfessionCantonPath,
   isJobBoardSectionPath,
   isJobBoardSectionPathname,
   JOB_BOARD_PROFESSION_CITY_RX,
@@ -71,7 +77,44 @@ describe('job-board section matcher', () => {
   it('does not broaden the profession-city matcher to unknown or nested editorial paths', () => {
     expect(isJobBoardContentPath('/en/jobs-lugano/')).toBe(false);
     expect(isJobBoardContentPath('/en/jobs-lugano-welder/methodology/')).toBe(false);
-    expect(isJobBoardContentPath('/en/jobs-geneva-welder/')).toBe(false);
+    expect(isJobBoardContentPath('/en/jobs-rome-welder/')).toBe(false);
+  });
+
+  const professionCantonPaths = [
+    buildProfessionCantonPath('it', 'SG', 'infermiere'),
+    buildProfessionCantonPath('en', 'SG', 'infermiere'),
+    buildProfessionCantonPath('de', 'SG', 'infermiere'),
+    buildProfessionCantonPath('fr', 'SG', 'infermiere'),
+  ];
+
+  it.each(professionCantonPaths)('treats generated profession×canton path %s as a job-payload path', (p) => {
+    expect(isJobBoardProfessionCantonPath(p)).toBe(true);
+    expect(isJobBoardContentPath(p)).toBe(true);
+  });
+
+  it('matches every generated profession×canton route, not just the SG regression sample', () => {
+    expect(PROFESSION_CANTON_ROUTES).toHaveLength(2668);
+    expect(PROFESSION_CANTON_ROUTES.every((p) => isJobBoardProfessionCantonPath(p))).toBe(true);
+  });
+
+  it.each([
+    '/en/jobs-st-gallen/',
+    '/en/jobs-st-gallen-nurse/methodology/',
+    '/en/jobs-st-gallen-guide/',
+    '/de/arbeit-st-gallen-krankenpfleger/methodology/',
+  ])('does not classify editorial or nested profession×canton lookalike %s as payload', (p) => {
+    expect(isJobBoardProfessionCantonPath(p)).toBe(false);
+    expect(isJobBoardContentPath(p)).toBe(false);
+  });
+
+  it('keeps generated profession×canton pages out of information-gain cohorts', () => {
+    const auditor = createInformationGainAuditor({ dist: '/repo/dist' });
+    for (const p of professionCantonPaths) {
+      auditor.collect(`/repo/dist${p}index.html`, '<html><head><title>payload</title></head><body><h1>payload</h1><p>payload</p></body></html>');
+    }
+    const report = auditor.report();
+    expect(report.extra.pagesScored).toBe(0);
+    expect(report.offenders).toEqual([]);
   });
 
   const nonJobBoardPaths = [

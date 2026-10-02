@@ -656,20 +656,24 @@ function sourceEvidence(source, meta, rows) {
 export function buildD18RunEvidence({
   requestedWindow,
   measurementWindow = requestedWindow,
+  evidenceWindow = measurementWindow,
   runMode = 'replay',
   primarySource = 'ga4',
   ga4Source = {},
   ga4Rows = [],
+  ga4EvidenceSource = null,
+  ga4EvidenceRows = null,
   posthogSource = {},
   posthogRows = [],
 } = {}) {
   if (!D18_RUN_MODES.includes(runMode)) throw new Error(`D18 runMode is invalid: ${runMode}`);
   const window = normalizeD18Window(requestedWindow);
   const measured = normalizeD18Window(measurementWindow);
+  const observedEvidenceWindow = normalizeD18Window(evidenceWindow || measured);
   if (Date.parse(measured.from) < Date.parse(window.from) || Date.parse(measured.to) > Date.parse(window.to)) {
     throw new Error('D18 measurementWindow must be contained in requestedWindow');
   }
-  const ga4 = sourceEvidence('ga4', ga4Source, ga4Rows);
+  const ga4 = sourceEvidence('ga4', ga4EvidenceSource || ga4Source, ga4EvidenceRows ?? ga4Rows);
   const posthog = sourceEvidence('posthog', posthogSource, posthogRows);
   const blockers = [];
 
@@ -692,6 +696,7 @@ export function buildD18RunEvidence({
     blockers,
     window,
     measurementWindow: measured,
+    evidenceWindow: observedEvidenceWindow,
     ga4: {
       ...ga4,
       role: 'primary',
@@ -727,6 +732,7 @@ export function validateD18Evidence(evidence, requestedWindow) {
     if (Date.parse(measured.from) < Date.parse(expected.from) || Date.parse(measured.to) > Date.parse(expected.to)) {
       errors.push('evidence.measurementWindow must be contained in requestedWindow');
     }
+    normalizeD18Window(evidence.evidenceWindow || measured);
   } catch (error) {
     errors.push(error.message);
   }
