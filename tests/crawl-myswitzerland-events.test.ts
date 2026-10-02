@@ -13,6 +13,7 @@ import {
   extractIndexedEventPrice,
   recoverExistingIndexedPrices,
   recoverExistingBookingPrices,
+  applyKnownPriceBackfills,
   extractDetailTableValue,
   extractAddress,
   extractDetailAddress,
@@ -336,6 +337,20 @@ describe('recoverExistingBookingPrices', () => {
     expect(fetchFn).not.toHaveBeenCalled();
     expect(await recoverExistingBookingPrices([event], [record()], { fetchFn })).toEqual([]);
     expect(await recoverExistingBookingPrices([event], [record()], { fetchFn: vi.fn().mockRejectedValue(new Error('offline')) })).toEqual([]);
+  });
+});
+
+describe('applyKnownPriceBackfills', () => {
+  it('retains a recovered booking price when the fresh detail is unpriced', () => {
+    const fresh = { id: 'myswitzerland:booking', title: 'fresh', price: { url: 'https://www.petzi.ch/events/1/' } };
+    const backfill = { id: fresh.id, price: { amount: 29.9, currency: 'CHF', isFree: false, url: fresh.price.url } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([{ ...fresh, price: { ...backfill.price } }]);
+  });
+
+  it('does not replace a newly known fresh price', () => {
+    const fresh = { id: 'myswitzerland:booking', price: { amount: 25, currency: 'CHF', isFree: false } };
+    const backfill = { id: fresh.id, price: { amount: 29.9, currency: 'CHF', isFree: false } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
   });
 });
 
