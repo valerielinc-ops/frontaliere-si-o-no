@@ -404,7 +404,18 @@ async function sendReminder({ db, uid, email, locale, entries, recommendations, 
   return { sent, failed: result.failed };
 }
 
+/**
+ * Without the HMAC secret makeUnsubscribeUrl falls back to the profile URL,
+ * and the List-Unsubscribe one-click POST would reach a page that cannot
+ * unsubscribe anyone. Same rule as send-saved-jobs-digest.mjs: refuse the run.
+ */
+export function assertUnsubscribeSecret(dryRun = DRY_RUN, env = process.env) {
+  if (dryRun || env.NEWSLETTER_SECRET) return;
+  throw new Error('NEWSLETTER_SECRET is not set: refusing to send without a working one-click unsubscribe link');
+}
+
 export async function main() {
+  assertUnsubscribeSecret();
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
   const allJobs = [...jobsById.values()];

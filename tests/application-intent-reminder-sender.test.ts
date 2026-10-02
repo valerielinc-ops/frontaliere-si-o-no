@@ -7,7 +7,7 @@
  * "sent 0" (2026-09-29..10-01). The pieces were tested with fixtures the
  * producer can never write, and nothing ran them together.
  */
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const cascade = vi.hoisted(() => ({ calls: [] as Array<Array<Record<string, any>>> }));
 
@@ -90,6 +90,7 @@ function producerRecord(uid: string, listing: ReturnType<typeof job>, clickedDay
 
 function memoryDb() {
   const docs = new Map<string, Record<string, any>>();
+  let transactionTail = Promise.resolve();
   const snapshot = (path: string) => ({
     id: path.split('/').pop(),
     exists: docs.has(path),
@@ -118,8 +119,14 @@ function memoryDb() {
           })),
       }),
     }),
+    // Firestore serializes conflicting transactions; so does this fake.
     async runTransaction(callback: (transaction: any) => Promise<unknown>) {
-      return callback({
+      const previous = transactionTail;
+      let release!: () => void;
+      transactionTail = new Promise<void>((resolve) => { release = resolve; });
+      await previous;
+      try {
+        return await callback({
         get: async (target: { path: string }) => snapshot(target.path),
         create: (target: { path: string }, data: Record<string, any>) => {
           if (docs.has(target.path)) throw new Error('already_exists');
@@ -129,7 +136,10 @@ function memoryDb() {
           docs.set(target.path, options?.merge ? { ...(docs.get(target.path) || {}), ...data } : data);
         },
         delete: (target: { path: string }) => docs.delete(target.path),
-      });
+        });
+      } finally {
+        release();
+      }
     },
   };
   return { db, docs };
@@ -150,8 +160,16 @@ async function runSender(db: unknown) {
 }
 
 describe('application-intent reminder sender — main()', () => {
+  const previousSecret = process.env.NEWSLETTER_SECRET;
+
   beforeEach(() => {
     cascade.calls.length = 0;
+    process.env.NEWSLETTER_SECRET = 'test-newsletter-secret';
+  });
+
+  afterEach(() => {
+    if (previousSecret === undefined) delete process.env.NEWSLETTER_SECRET;
+    else process.env.NEWSLETTER_SECRET = previousSecret;
   });
 
   it('reminds a producer-written click once, and only once, after 48 hours', async () => {
@@ -201,6 +219,64 @@ describe('application-intent reminder sender — main()', () => {
     expect(cascade.calls).toHaveLength(1);
     expect(cascade.calls[0][0].payload.tags).toContainEqual({ name: 'intent_count', value: '1' });
     expect(docs.get(`${LEDGER}/${intents[5].intentId}`)).toMatchObject({ state: 'sent' });
+  });
+
+  it('does not remind a click on a job that is no longer online', async () => {
+    const listing = job(1);
+    __setJobsForTest([job(2)]); // job-1 left data/jobs.json (expired archive)
+    const { db, docs } = memoryDb();
+    const intent = producerRecord('uid-1', listing, 3);
+    docs.set(`application_intents/${intent.intentId}`, intent.data);
+
+    const output = await runSender(db);
+    expect(output).toContain('sent 0, skipped 1');
+    expect(output).toContain('job_not_live=1');
+    expect(cascade.calls).toHaveLength(0);
+    expect(docs.has(`${LEDGER}/${intent.intentId}`)).toBe(false);
+  });
+
+  it('sends the whole backlog with no age cap, each intent once even with two runs at the same time', async () => {
+    // The first run after the eligibility fix: every pending click since the
+    // channel started, up to the 90-day retention, for several accounts.
+    const listings = [1, 2, 3, 4].map(job);
+    __setJobsForTest(listings);
+    const { db, docs } = memoryDb();
+    const intents = [
+      producerRecord('uid-1', listings[0], 60),
+      producerRecord('uid-1', listings[1], 5),
+      producerRecord('uid-2', listings[2], 30),
+      producerRecord('uid-3', listings[3], 3),
+    ];
+    for (const intent of intents) docs.set(`application_intents/${intent.intentId}`, intent.data);
+
+    await Promise.all([runSender(db), runSender(db)]);
+
+    expect(cascade.calls.map((items) => items[0].payload.to[0]).sort()).toEqual([
+      'uid-1@example.invalid', 'uid-2@example.invalid', 'uid-3@example.invalid',
+    ]);
+    for (const intent of intents) {
+      expect(docs.get(`${LEDGER}/${intent.intentId}`)).toMatchObject({ state: 'sent' });
+    }
+    const uid1Email = cascade.calls.find((items) => items[0].payload.to[0] === 'uid-1@example.invalid')!;
+    expect(uid1Email[0].payload.tags).toContainEqual({ name: 'intent_count', value: '2' });
+
+    // A third run finds nothing left to send.
+    const again = await runSender(db);
+    expect(again).toContain('sent 0, skipped 3');
+    expect(again).toContain('already_delivered=3');
+    expect(cascade.calls).toHaveLength(3);
+  });
+
+  it('refuses to send without the secret that signs the unsubscribe link', async () => {
+    delete process.env.NEWSLETTER_SECRET;
+    const listing = job(1);
+    __setJobsForTest([listing]);
+    const { db, docs } = memoryDb();
+    const intent = producerRecord('uid-1', listing, 3);
+    docs.set(`application_intents/${intent.intentId}`, intent.data);
+    await expect(runSender(db)).rejects.toThrow(/NEWSLETTER_SECRET/);
+    expect(cascade.calls).toHaveLength(0);
+    expect(docs.has(`${LEDGER}/${intent.intentId}`)).toBe(false);
   });
 
   it('says why an account was skipped', async () => {
