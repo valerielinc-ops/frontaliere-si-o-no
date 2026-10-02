@@ -367,7 +367,7 @@ export function extractPrice(ld, detailHtml, detailUrl) {
       amount: 0,
       currency: zeroOffer?.priceCurrency || offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF',
       isFree: true,
-      ...(extractEventOfferMetadata(zeroOffer || offersRaw, detailUrl || SITE_ORIGIN) || {}),
+      ...(zeroOffer ? extractEventOfferMetadata(zeroOffer, detailUrl || SITE_ORIGIN) || {} : {}),
     };
   }
   const offersRaw = ld?.offers;
