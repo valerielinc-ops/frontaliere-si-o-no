@@ -12367,6 +12367,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.adeguamento-pensioni-gennaio.title': 'AHV ist leicht gestiegen seit Januar',
     'blog.article.adeguamento-pensioni-gennaio.excerpt': 'Ab Januar steigt die Mindestrente AHV/IV auf 1.280 Francs, das Maximum auf 2.560 Francs. Auch Mindestbeiträge und Zusatzleistungen werden erhöht.',
     'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Anpassung der AHV- und IV-Renten ab Januar',
+    'blog.article.incidente-a2-mendrisio-code.title': 'A2-Unfall in Mendrisio: Warteschlangen für grenzüberschreitende Pendler',
+    'blog.article.incidente-a2-mendrisio-code.excerpt': 'Unfall in Coldrerio auf der A2: Ein 68-Jähriger leicht verletzt, ein 73-Jähriger in Lebensgefahr und Verzögerungen von bis zu anderthalb Stunden in Richtung Chiasso für Grenzpendler.',
+    'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Stockender Verkehr auf der A2 bei Mendrisio nach einem Unfall in Coldrerio',
 };
 
 export default blogMetaDe;

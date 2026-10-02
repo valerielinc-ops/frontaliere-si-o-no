@@ -12370,6 +12370,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.adeguamento-pensioni-gennaio.title': 'Le taux de liquidation à la hausse par rapport à janvier',
     'blog.article.adeguamento-pensioni-gennaio.excerpt': 'À partir de janvier, la pension minimale AHV/IV passera à 1 280 francs, la maxime à 2 560 francs. Les cotisations minimales et les prestations complémentaires augmenteront également.',
     'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Rentes AVS et AI adaptées dès janvier',
+    'blog.article.incidente-a2-mendrisio-code.title': 'Accident A2 à Mendrisio : bouchons pour les frontaliers',
+    'blog.article.incidente-a2-mendrisio-code.excerpt': 'Incident à Coldrerio sur l’A2 : une femme de 68 ans légèrement blessée, un homme de 73 ans en danger de mort et des retards allant jusqu’à une heure et demie en direction de Chiasso pour les frontaliers.',
+    'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Trafic ralenti sur l\'A2 près de Mendrisio après un accident à Coldrerio',
 };
 
 export default blogMetaFr;

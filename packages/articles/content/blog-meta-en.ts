@@ -12368,6 +12368,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.adeguamento-pensioni-gennaio.title': 'AHV slightly up from January',
     'blog.article.adeguamento-pensioni-gennaio.excerpt': 'From January, the minimum AHV/IV pension will rise to 1,280 francs, the maximum to 2,560 francs. Minimum contributions and supplementary benefits will also increase.',
     'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'AVS and AI pensions adjusted from January',
+    'blog.article.incidente-a2-mendrisio-code.title': 'A2 accident in Mendrisio: queues for cross-border commuters',
+    'blog.article.incidente-a2-mendrisio-code.excerpt': 'Accident in Coldrerio on the A2: a 68-year-old woman slightly injured, a 73-year-old man in life-threatening condition, and delays of up to an hour and a half toward Chiasso for cross-border commuters.',
+    'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Traffic slowed on the A2 near Mendrisio after an accident in Coldrerio',
 };
 
 export default blogMetaEn;

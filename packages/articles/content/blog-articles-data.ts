@@ -37096,6 +37096,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'incidente-a2-mendrisio-code',
+ category: 'pratico',
+ date: '2026-10-02T16:59:41.343Z',
+ image: '/images/blog/incidente-a2-mendrisio-code.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
