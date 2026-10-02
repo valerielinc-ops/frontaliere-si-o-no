@@ -37,8 +37,10 @@ import {
   checkRunApiPath,
   decideCrawlerMemberConclusion,
   buildRunListArgs,
+  failureRunHistorySource,
   filterCrawlerRecoveryRuns,
   findCrawlerGroupWorkflow,
+  findCrawlerGroupWorkflowByDisplayName,
   findCrawlerGroupWorkflowName,
   isCrawlerRecoveryBranch,
   sortCrawlerRecoveryRuns,
@@ -259,6 +261,62 @@ describe('findCrawlerGroupWorkflowName — resolves a crawler slug to its CURREN
     expect(workflow).toContain('CRAWLER_RUN_REPO: nanakokyobashi-rgb/frontaliere-articles');
     expect(workflow).toContain('Load cross-repo token from Remote Config');
     expect(workflow).toContain('GITHUB_PAT_NANAKO non caricato');
+  });
+});
+
+// `CI Failure: Crawler Group 19 (27 crawlers)` (issue 10019) nasce da un dispatch
+// manuale dell'entry point del sito, che dopo la migrazione non ha piu' run di
+// produzione; nel frattempo il roster e' tornato a 28 e il `name:` e' cambiato.
+// Senza questa risoluzione la issue resta aperta per sempre mentre il gruppo gira
+// verde nel corpus.
+describe('failureRunHistorySource — a crawler GROUP failure is judged on its production runs', () => {
+  const site = 'valerielinc-ops/frontaliere-si-o-no';
+  const corpus = 'nanakokyobashi-rgb/frontaliere-articles';
+  let tmpDir: string;
+
+  afterEach(() => {
+    if (tmpDir) fs.rmSync(tmpDir, { recursive: true, force: true });
+  });
+
+  function writeWorkflow(filename: string, name: string) {
+    fs.writeFileSync(path.join(tmpDir, filename), `name: ${name}\non:\n  workflow_dispatch: {}\njobs: {}\n`);
+  }
+
+  it('resolves a stale `(N crawlers)` suffix to the current group file', () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'close-recovered-group-'));
+    writeWorkflow('crawler-group-19.yml', 'Crawler Group 19 (28 crawlers)');
+    writeWorkflow('crawler-group-19-logic.yml', 'Crawler Group 19 logic (reusable workflow)');
+
+    expect(findCrawlerGroupWorkflowByDisplayName('Crawler Group 19 (27 crawlers)', tmpDir))
+      .toEqual({ filename: 'crawler-group-19.yml', name: 'Crawler Group 19 (28 crawlers)' });
+    expect(failureRunHistorySource('Crawler Group 19 (27 crawlers)', { workflowsDir: tmpDir, issueRepo: site, runRepo: corpus }))
+      .toEqual({ workflowRef: 'crawler-group-19.yml', repo: corpus, includeCrawlerShadowBranches: true });
+    // Il twin del corpus legge le proprie run: lo stesso gruppo, per display name.
+    expect(failureRunHistorySource('Crawler Group 19 (27 crawlers)', { workflowsDir: tmpDir, issueRepo: corpus, runRepo: corpus }))
+      .toEqual({ workflowRef: 'Crawler Group 19 (28 crawlers)', repo: corpus, includeCrawlerShadowBranches: true });
+  });
+
+  it('pads the group number like the generator does', () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'close-recovered-group-'));
+    writeWorkflow('crawler-group-05.yml', 'Crawler Group 05 (25 crawlers)');
+    expect(findCrawlerGroupWorkflowByDisplayName('Crawler Group 5 (24 crawlers)', tmpDir)?.filename)
+      .toBe('crawler-group-05.yml');
+  });
+
+  it('leaves every other workflow on its own name, on main of the issue repo', () => {
+    tmpDir = fs.mkdtempSync(path.join(os.tmpdir(), 'close-recovered-group-'));
+    writeWorkflow('crawler-group-19.yml', 'Crawler Group 19 (28 crawlers)');
+    for (const name of ['Orchestrate Job Crawlers', 'Crawler Group 19 logic (reusable workflow)']) {
+      expect(failureRunHistorySource(name, { workflowsDir: tmpDir, issueRepo: site, runRepo: corpus }))
+        .toEqual({ workflowRef: name, repo: site, includeCrawlerShadowBranches: false });
+    }
+    // Gruppo senza file generato (rimosso): nessuna risoluzione inventata.
+    expect(findCrawlerGroupWorkflowByDisplayName('Crawler Group 31 (2 crawlers)', tmpDir)).toBeNull();
+  });
+
+  it('resolves the real issue 10019 title against the committed workflows', () => {
+    expect(failureRunHistorySource('Crawler Group 19 (27 crawlers)', { issueRepo: site, runRepo: corpus }))
+      .toEqual({ workflowRef: 'crawler-group-19.yml', repo: corpus, includeCrawlerShadowBranches: true });
   });
 });
 

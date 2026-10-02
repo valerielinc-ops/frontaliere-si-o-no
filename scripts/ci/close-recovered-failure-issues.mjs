@@ -1225,6 +1225,55 @@ export function crawlerWorkflowReference(group, issueRepo = REPO, runRepo = CRAW
   return runRepo && runRepo !== issueRepo ? group.filename : group.name;
 }
 
+// `CI Failure: Crawler Group 19 (27 crawlers)` (issue 10019) nomina il gruppo,
+// non uno step: la apre scan-unreported-failures quando fallisce l'entry point
+// del sito, che dopo la migrazione cross-repo gira solo su dispatch manuale.
+// Cercarla con `gh run list -w <titolo>` sul sito la lascia aperta per sempre:
+// quel file non ha piu' run di produzione, e il suffisso `(N crawlers)` cambia a
+// ogni rientro o uscita dal roster, quindi il titolo smette presto di essere il
+// `name:` corrente. Il numero del gruppo e' invece stabile: dal numero si
+// risale al file generato e si giudica il gruppo sulle stesse run di produzione
+// dei `Crawler Failure: Run <slug>` (shadow ref, nel corpus quando le run vivono
+// li'). Il `logic` riusabile non corrisponde: `Crawler Group 19 logic (...)`.
+export const CRAWLER_GROUP_WORKFLOW_NAME_RE = /^Crawler Group (\d{1,3}) \(/;
+
+/**
+ * Risolve il display name di un gruppo crawler, anche con un suffisso
+ * `(N crawlers)` non piu' attuale, al file `crawler-group-NN.yml` corrente.
+ * Ritorna `{ filename, name }` (come `findCrawlerGroupWorkflow`) o `null`.
+ */
+export function findCrawlerGroupWorkflowByDisplayName(workflowName, workflowsDir = WORKFLOWS_DIR) {
+  const match = CRAWLER_GROUP_WORKFLOW_NAME_RE.exec(String(workflowName ?? ''));
+  if (!match) return null;
+  const filename = `crawler-group-${match[1].padStart(2, '0')}.yml`;
+  const filePath = path.join(workflowsDir, filename);
+  if (!fs.existsSync(filePath)) return null;
+  const nameMatch = fs.readFileSync(filePath, 'utf8').match(/^name:\s*(.+)$/m);
+  if (!nameMatch) return null;
+  return { filename, name: nameMatch[1].trim().replace(/^["']|["']$/g, '') };
+}
+
+/**
+ * Dove leggere lo storico di recupero di una issue `Workflow|CI Failure:`.
+ * Un gruppo crawler si giudica sulle run di produzione del gruppo (repo delle
+ * run crawler, shadow ref inclusi); ogni altro workflow resta sul proprio
+ * nome, su `main` del repo delle issue.
+ */
+export function failureRunHistorySource(
+  workflowName,
+  { workflowsDir = WORKFLOWS_DIR, issueRepo = REPO, runRepo = CRAWLER_RUN_REPO } = {},
+) {
+  const group = findCrawlerGroupWorkflowByDisplayName(workflowName, workflowsDir);
+  if (!group) {
+    return { workflowRef: workflowName, repo: issueRepo, includeCrawlerShadowBranches: false };
+  }
+  return {
+    workflowRef: crawlerWorkflowReference(group, issueRepo, runRepo),
+    repo: runRepo,
+    includeCrawlerShadowBranches: true,
+  };
+}
+
 // Messaggi che lo step `Aggregate crawler outcomes` generato da
 // scripts/generate-crawler-group-workflows.mjs (buildCrawlerAggregateShellBody) emette
 // per ogni membro NON riuscito. Il prefisso `<slug>: ` e' lo stesso slug dello step
@@ -1563,7 +1612,12 @@ function main() {
     // la sola run di testa: ricostruire lo storico di UNO step di background costa una
     // chiamata alla Jobs API per ogni run storica, e il gate lì è per costruzione un
     // no-op (vedi decideRecurrenceHold).
-    const history = isCrawlerStepIdentifier ? null : recentCompletedRuns(it.workflow);
+    const historySource = isCrawlerStepIdentifier ? null : failureRunHistorySource(it.workflow);
+    const history = historySource
+      ? recentCompletedRuns(historySource.workflowRef, historySource.repo, crawlerRunToken(historySource.repo), {
+        includeCrawlerShadowBranches: historySource.includeCrawlerShadowBranches,
+      })?.map((r) => ({ ...r, repository: historySource.repo }))
+      : null;
     const run = isCrawlerStepIdentifier
       ? latestCompletedCrawlerStepRun(crawlerStepMatch[1])
       : (history ? history[0] : null);
@@ -1571,7 +1625,9 @@ function main() {
     if (!run) {
       const reason = isCrawlerStepIdentifier
         ? `crawler '${crawlerStepMatch[1]}' not found in any current crawler-group-*.yml, or its step/run not resolvable`
-        : 'no completed run on main (renamed/deleted?)';
+        : historySource?.includeCrawlerShadowBranches
+          ? `no completed production run of ${historySource.workflowRef} in ${historySource.repo || 'this repo'}`
+          : 'no completed run on main (renamed/deleted?)';
       console.log(`  #${it.number} "${it.workflow}" — ${reason}, keep open`);
       skipped++;
       continue;
