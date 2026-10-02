@@ -46,7 +46,11 @@ import {
   workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { resolveWorkdayPrimarySwissLocation, resolveWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
+import {
+  resolveWorkdayPostalPlace,
+  resolveWorkdayPrimarySwissLocation,
+  resolveWorkdaySwissCanton,
+} from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -111,10 +115,13 @@ export function resolveAbbottLocation(listingLocation = '', requisitionLocation 
     // country is CH and the official directory names one canton — the shared
     // rule of the Workday parsers (`resolveWorkdaySwissCanton`).
     const place = normalizeSpace(typeof requisitionLocation === 'object' ? requisitionLocation?.descriptor : requisitionLocation);
-    return swissCityFromLocationField(requisitionText)
-      || (place && resolveWorkdaySwissCanton(place, { jobRequisitionLocation: requisitionLocation }, { log: false })
-        ? place
-        : '');
+    const structured = { jobRequisitionLocation: requisitionLocation };
+    const city = swissCityFromLocationField(requisitionText);
+    if (city) return city;
+    if (place && resolveWorkdaySwissCanton(place, structured, { log: false })) return place;
+    // An address instead of a place (`Switzerland : Technoparkstrass 1 CH
+    // 8005`): its postal code names the locality, under the same guarantees.
+    return resolveWorkdayPostalPlace(place, structured)?.locality || '';
   }
   return cleanAbbottLocation(listingLocation);
 }

@@ -12,8 +12,10 @@ import { fetchAllRocheJobs } from '../scripts/lib/roche-job-parser.mjs';
 import { fetchAllStrykerJobs } from '../scripts/lib/stryker-job-parser.mjs';
 import {
   fetchWorkdaySwissCanton,
+  resolveWorkdayPostalPlace,
   resolveWorkdaySwissCanton,
 } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import { resolveSwissPostalCodePlace } from '../scripts/lib/swiss-locality-directory.mjs';
 
 /**
  * Same class as the Workday factory fix (imerys / kone, 2026-10-02): the
@@ -27,9 +29,10 @@ import {
  *
  * Measured live 2026-10-02: novartis +1 (Medical Manager, `Rotkreuz
  * (Office-Based)` → ZG), ksb +1 (MPA Kinderarztpraxis, `Muri` → AG); the other
- * seven had no locality-only req on their Swiss boards that day (abbott's 4
- * skipped Zürich reqs carry a street address, `Technoparkstrass 1 CH 8005`,
- * not a locality name — a different gap, left open).
+ * seven had no locality-only req on their Swiss boards that day. Abbott's 4
+ * Zürich reqs carried a street address instead (`Technoparkstrass 1 CH 8005`):
+ * they are placed by their postal code, under the same guarantees (see the
+ * last describe block) — abbott 18 → 22 live.
  */
 
 const BODY = '<p>'
@@ -141,5 +144,80 @@ describe('fetchWorkdaySwissCanton / resolveWorkdaySwissCanton', () => {
     expect(resolveWorkdaySwissCanton('Muri', swissReq)).toBe('AG');
     expect(resolveWorkdaySwissCanton('Rotkreuz (Office-Based)', {})).toBe('');
     expect(resolveWorkdaySwissCanton('Nowhere-Land (Site 4)', swissReq)).toBe('');
+  });
+});
+
+/**
+ * A requisition stated as an ADDRESS (Abbott, live 2026-10-02:
+ * `Switzerland : Technoparkstrass 1 CH 8005`, 4 Zürich reqs dropped). Its
+ * postal code names the locality — only on the req's structured Swiss country,
+ * with exactly one four-digit code in the text, and a code the official
+ * directory gives one canton and one locality (data/swiss-postal-code-index.json).
+ */
+describe('address-shaped requisitions — the Swiss postal code names the place', () => {
+  const addressDetail = JSON.parse(fs.readFileSync(
+    path.join(__dirname, 'fixtures', 'workday', 'abbott-detail-address-requisition.json'), 'utf8',
+  ));
+  const swissReq = { jobRequisitionLocation: addressDetail.jobPostingInfo.jobRequisitionLocation };
+
+  it('reads only unique postal codes from the official index', () => {
+    expect(resolveSwissPostalCodePlace('8005')).toEqual({ canton: 'ZH', locality: 'Zürich' });
+    expect(resolveSwissPostalCodePlace('6743')).toEqual({ canton: 'TI', locality: 'Bodio' });
+    expect(resolveSwissPostalCodePlace('6343')).toBeNull(); // Rotkreuz, Buonas, Holzhäusern
+    expect(resolveSwissPostalCodePlace('9485')).toBeNull(); // Liechtenstein
+    expect(resolveSwissPostalCodePlace('80')).toBeNull();
+  });
+
+  it('places an address only on a Swiss structured country with exactly one code', () => {
+    const address = addressDetail.jobPostingInfo.jobRequisitionLocation.descriptor;
+    expect(resolveWorkdayPostalPlace(address, swissReq)).toEqual({ canton: 'ZH', locality: 'Zürich' });
+    expect(resolveWorkdayPostalPlace(address, {})).toBeNull();
+    expect(resolveWorkdayPostalPlace(address, { jobRequisitionLocation: { country: { alpha2Code: 'DE' } } })).toBeNull();
+    expect(resolveWorkdayPostalPlace('Switzerland : Hauptstrasse 1234 CH 8005', swissReq)).toBeNull();
+  });
+
+  it('abbott publishes the address-shaped Zürich req at its postal locality', async () => {
+    const posting = {
+      title: addressDetail.jobPostingInfo.title,
+      externalPath: '/job/Switzerland---Zurich/EHS-Specialist_31155192',
+      locationsText: 'Switzerland - Zurich',
+      postedOn: 'Posted Today',
+      bulletFields: ['31155192'],
+    };
+    const serve = (detail: unknown) => {
+      vi.stubGlobal('fetch', vi.fn(async (url: string, init: any = {}) => {
+        const href = String(url);
+        if (init?.method === 'POST' && href.endsWith('/jobs')) {
+          const body = JSON.parse(init.body || '{}');
+          return json({ total: 1, jobPostings: body.offset > 0 ? [] : [posting] });
+        }
+        if (href.endsWith('_31155192')) return json(detail);
+        return new Response('', { status: 404 });
+      }));
+    };
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+
+    serve(addressDetail);
+    const jobs: any[] = await fetchAllAbbottJobs();
+    expect(jobs.map((job) => [job.title, job.location, job.canton])).toEqual([['EHS Specialist', 'Zürich', 'ZH']]);
+
+    const { country: _country, ...requisitionWithoutCountry } = addressDetail.jobPostingInfo.jobRequisitionLocation;
+    serve({ jobPostingInfo: { ...addressDetail.jobPostingInfo, country: undefined, jobRequisitionLocation: requisitionWithoutCountry } });
+    expect(await fetchAllAbbottJobs()).toHaveLength(0);
+  }, 20_000);
+
+  it('keeps the index honest: real cantons, no Liechtenstein codes, a pinned source', () => {
+    const index = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'swiss-postal-code-index.json'), 'utf8'));
+    const cantons = new Set(['AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU', 'NE', 'NW', 'OW', 'SG', 'SH', 'SO', 'SZ', 'TG', 'TI', 'UR', 'VD', 'VS', 'ZG', 'ZH']);
+    expect(index.sourceUrl).toContain('ortschaftenverzeichnis_plz');
+    expect(index.sourceSha256).toMatch(/^[0-9a-f]{64}$/);
+    expect(Object.keys(index.postalCodes)).toHaveLength(index.totalPostalCodes);
+    for (const [code, [canton, locality]] of Object.entries(index.postalCodes) as Array<[string, [string, string]]>) {
+      expect(code).toMatch(/^\d{4}$/);
+      expect(cantons.has(canton), code).toBe(true);
+      expect(locality.length, code).toBeGreaterThan(0);
+      expect(Number(code) >= 9485 && Number(code) <= 9498, code).toBe(false);
+    }
   });
 });

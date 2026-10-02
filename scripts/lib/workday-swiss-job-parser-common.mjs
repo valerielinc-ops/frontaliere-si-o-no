@@ -24,7 +24,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
-import { resolveSwissLocalityCanton } from './swiss-locality-directory.mjs';
+import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
@@ -266,6 +266,28 @@ export function resolveWorkdaySwissCanton(location, info = {}, { log = true } = 
   const { canton, locality } = swissCantonOf(location, info);
   if (log && canton && locality) console.log(`  📍 Canton from the Swiss locality directory: ${locality} → ${canton}`);
   return canton;
+}
+
+/**
+ * The Swiss place a req's ADDRESS names, from its postal code, or null.
+ *
+ * Some tenants state the requisition workplace as an address, not a place:
+ * Abbott's Zürich reqs read `Switzerland : Technoparkstrass 1 CH 8005` (live
+ * 2026-10-02, 4 reqs dropped). Same guarantees as the locality rule: the req's
+ * own structured country must be Switzerland, the text must carry exactly one
+ * four-digit code (a second one could be a street number), and the official
+ * directory must give that code one canton and one locality.
+ *
+ * @param {string} location
+ * @param {object} [info] the req's `jobPostingInfo` (or `{ jobRequisitionLocation }`)
+ * @returns {{ canton: string, locality: string } | null}
+ */
+export function resolveWorkdayPostalPlace(location, info = {}) {
+  const text = normalizeSpace(location);
+  if (!text || !workdayStructuredPrimaryCountryIsSwiss(info)) return null;
+  const codes = [...new Set(text.match(/\b\d{4}\b/g) || [])];
+  if (codes.length !== 1) return null;
+  return resolveSwissPostalCodePlace(codes[0]);
 }
 
 /**
