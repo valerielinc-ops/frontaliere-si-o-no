@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-10-01T21:28:01.637Z",
+  "assembledAt": "2026-10-02T09:36:06.412Z",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:57.688Z",
+      "crawledAt": "2026-10-02T09:35:57.197Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -72,6 +72,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -118,7 +119,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:57.332Z",
+      "crawledAt": "2026-10-02T09:35:56.839Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -183,6 +184,76 @@
       "addressRegion": "GR"
     },
     {
+      "id": "flury-stiftung-2736465a21b7",
+      "slug": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+      "slugByLocale": {
+        "de": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+        "it": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+        "en": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch",
+        "fr": "med-praxisassistent-in-mpa-60-100-flury-stiftung-ch"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Med. Praxisassistent*in (MPA) 60 - 100 %",
+      "titleByLocale": {
+        "de": "Med. Praxisassistent*in (MPA) 60 - 100 %",
+        "it": "Med. Praxisassistent*in (MPA) 60 - 100 %",
+        "en": "Med. Praxisassistent*in (MPA) 60 - 100 %",
+        "fr": "Med. Praxisassistent*in (MPA) 60 - 100 %"
+      },
+      "description": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, Kinderkrippe, Elternberatung und dem Medizinischen Zentrum Klos- ters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Medizinische Zentrum Klosters (MZK) bietet eine umfassende hausärztliche Versorgung für die Bevölkerung und Gäste der Region. Wir setzen auf eine enge Zusammenarbeit innerhalb des Teams, mit den entsprechenden Fachspezialisten sowie den Hausärzten und den Spitälern in der Region. Zur Ergänzung unseres Teams suchen wir per 1. Dezember 2026/ nach Vereinbarung/ oder für eine Wintersaison in der Bündner Bergwelt eine*n Med. Praxisassistent*in (MPA) 60 - 100 %\n\nDeine Aufgaben:\n\n- Organisation des Praxisalltages und Terminmanagement mit unserer Software Axenita\n\n- Medizinisch-technische Aufgaben wie Labor und Röntgen\n\n- Durchführung medizinischer Untersuchungen und Behandlungen\n\n- Selbstständige Patientenbetreuung\n\nDas bringst Du mit:\n\n- MPA EFZ, erweiterte konventionelle Aufnahme (EKA)-Kurs von Vorteil\n\n- Selbstständige, lösungsorientierte und zuverlässige Arbeitsweise\n\n- Freundliches, empathisches und kommunikatives Auftreten\n\n- Gute PC-/Office-Kenntnisse\n\n- Gute Deutsch- und Englischkenntnisse; weitere Sprachen von Vorteil\n\nDas bieten wir:\n\n- Du-Kultur\n\n- Abwechslungsreiche und verantwortungsvolle MPA – Tätigkeit\n\n- Moderne Infrastruktur und ein breites diagnostisches Spektrum\n\n- Selbstständiges Arbeiten in einem engagierten und wertschätzenden Team\n\n- Attraktive Anstellungsbedingungen\n\n- Fachliche und persönliche Entwickungsmöglichkeiten\n\n- Arbeiten und Leben in einer attraktiven Region\n\nFür Fragen steht Dir gerne Kristin Janowski, Praxismanagerin MZK unter Tel. +41 81 544 81 96 oder kristin.janowski@flurystiftung.ch. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung Deiner Bewerbungsunterlagen per Mail an hr@flurystiftung.ch freuen wir uns!",
+      "descriptionByLocale": {
+        "de": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, Kinderkrippe, Elternberatung und dem Medizinischen Zentrum Klos- ters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Medizinische Zentrum Klosters (MZK) bietet eine umfassende hausärztliche Versorgung für die Bevölkerung und Gäste der Region. Wir setzen auf eine enge Zusammenarbeit innerhalb des Teams, mit den entsprechenden Fachspezialisten sowie den Hausärzten und den Spitälern in der Region. Zur Ergänzung unseres Teams suchen wir per 1. Dezember 2026/ nach Vereinbarung/ oder für eine Wintersaison in der Bündner Bergwelt eine*n Med. Praxisassistent*in (MPA) 60 - 100 %\n\nDeine Aufgaben:\n\n- Organisation des Praxisalltages und Terminmanagement mit unserer Software Axenita\n\n- Medizinisch-technische Aufgaben wie Labor und Röntgen\n\n- Durchführung medizinischer Untersuchungen und Behandlungen\n\n- Selbstständige Patientenbetreuung\n\nDas bringst Du mit:\n\n- MPA EFZ, erweiterte konventionelle Aufnahme (EKA)-Kurs von Vorteil\n\n- Selbstständige, lösungsorientierte und zuverlässige Arbeitsweise\n\n- Freundliches, empathisches und kommunikatives Auftreten\n\n- Gute PC-/Office-Kenntnisse\n\n- Gute Deutsch- und Englischkenntnisse; weitere Sprachen von Vorteil\n\nDas bieten wir:\n\n- Du-Kultur\n\n- Abwechslungsreiche und verantwortungsvolle MPA – Tätigkeit\n\n- Moderne Infrastruktur und ein breites diagnostisches Spektrum\n\n- Selbstständiges Arbeiten in einem engagierten und wertschätzenden Team\n\n- Attraktive Anstellungsbedingungen\n\n- Fachliche und persönliche Entwickungsmöglichkeiten\n\n- Arbeiten und Leben in einer attraktiven Region\n\nFür Fragen steht Dir gerne Kristin Janowski, Praxismanagerin MZK unter Tel. +41 81 544 81 96 oder kristin.janowski@flurystiftung.ch. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung Deiner Bewerbungsunterlagen per Mail an hr@flurystiftung.ch freuen wir uns!",
+        "it": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, Kinderkrippe, Elternberatung und dem Medizinischen Zentrum Klos- ters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Medizinische Zentrum Klosters (MZK) bietet eine umfassende hausärztliche Versorgung für die Bevölkerung und Gäste der Region. Wir setzen auf eine enge Zusammenarbeit innerhalb des Teams, mit den entsprechenden Fachspezialisten sowie den Hausärzten und den Spitälern in der Region. Zur Ergänzung unseres Teams suchen wir per 1. Dezember 2026/ nach Vereinbarung/ oder für eine Wintersaison in der Bündner Bergwelt eine*n Med. Praxisassistent*in (MPA) 60 - 100 %\n\nDeine Aufgaben:\n\n- Organisation des Praxisalltages und Terminmanagement mit unserer Software Axenita\n\n- Medizinisch-technische Aufgaben wie Labor und Röntgen\n\n- Durchführung medizinischer Untersuchungen und Behandlungen\n\n- Selbstständige Patientenbetreuung\n\nDas bringst Du mit:\n\n- MPA EFZ, erweiterte konventionelle Aufnahme (EKA)-Kurs von Vorteil\n\n- Selbstständige, lösungsorientierte und zuverlässige Arbeitsweise\n\n- Freundliches, empathisches und kommunikatives Auftreten\n\n- Gute PC-/Office-Kenntnisse\n\n- Gute Deutsch- und Englischkenntnisse; weitere Sprachen von Vorteil\n\nDas bieten wir:\n\n- Du-Kultur\n\n- Abwechslungsreiche und verantwortungsvolle MPA – Tätigkeit\n\n- Moderne Infrastruktur und ein breites diagnostisches Spektrum\n\n- Selbstständiges Arbeiten in einem engagierten und wertschätzenden Team\n\n- Attraktive Anstellungsbedingungen\n\n- Fachliche und persönliche Entwickungsmöglichkeiten\n\n- Arbeiten und Leben in einer attraktiven Region\n\nFür Fragen steht Dir gerne Kristin Janowski, Praxismanagerin MZK unter Tel. +41 81 544 81 96 oder kristin.janowski@flurystiftung.ch. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung Deiner Bewerbungsunterlagen per Mail an hr@flurystiftung.ch freuen wir uns!",
+        "en": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, Kinderkrippe, Elternberatung und dem Medizinischen Zentrum Klos- ters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Medizinische Zentrum Klosters (MZK) bietet eine umfassende hausärztliche Versorgung für die Bevölkerung und Gäste der Region. Wir setzen auf eine enge Zusammenarbeit innerhalb des Teams, mit den entsprechenden Fachspezialisten sowie den Hausärzten und den Spitälern in der Region. Zur Ergänzung unseres Teams suchen wir per 1. Dezember 2026/ nach Vereinbarung/ oder für eine Wintersaison in der Bündner Bergwelt eine*n Med. Praxisassistent*in (MPA) 60 - 100 %\n\nDeine Aufgaben:\n\n- Organisation des Praxisalltages und Terminmanagement mit unserer Software Axenita\n\n- Medizinisch-technische Aufgaben wie Labor und Röntgen\n\n- Durchführung medizinischer Untersuchungen und Behandlungen\n\n- Selbstständige Patientenbetreuung\n\nDas bringst Du mit:\n\n- MPA EFZ, erweiterte konventionelle Aufnahme (EKA)-Kurs von Vorteil\n\n- Selbstständige, lösungsorientierte und zuverlässige Arbeitsweise\n\n- Freundliches, empathisches und kommunikatives Auftreten\n\n- Gute PC-/Office-Kenntnisse\n\n- Gute Deutsch- und Englischkenntnisse; weitere Sprachen von Vorteil\n\nDas bieten wir:\n\n- Du-Kultur\n\n- Abwechslungsreiche und verantwortungsvolle MPA – Tätigkeit\n\n- Moderne Infrastruktur und ein breites diagnostisches Spektrum\n\n- Selbstständiges Arbeiten in einem engagierten und wertschätzenden Team\n\n- Attraktive Anstellungsbedingungen\n\n- Fachliche und persönliche Entwickungsmöglichkeiten\n\n- Arbeiten und Leben in einer attraktiven Region\n\nFür Fragen steht Dir gerne Kristin Janowski, Praxismanagerin MZK unter Tel. +41 81 544 81 96 oder kristin.janowski@flurystiftung.ch. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung Deiner Bewerbungsunterlagen per Mail an hr@flurystiftung.ch freuen wir uns!",
+        "fr": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, Kinderkrippe, Elternberatung und dem Medizinischen Zentrum Klos- ters eine umfassende und integrierte Gesundheitsversorgung im Prättigau zwischen Grüsch und Klosters sicher. Das Medizinische Zentrum Klosters (MZK) bietet eine umfassende hausärztliche Versorgung für die Bevölkerung und Gäste der Region. Wir setzen auf eine enge Zusammenarbeit innerhalb des Teams, mit den entsprechenden Fachspezialisten sowie den Hausärzten und den Spitälern in der Region. Zur Ergänzung unseres Teams suchen wir per 1. Dezember 2026/ nach Vereinbarung/ oder für eine Wintersaison in der Bündner Bergwelt eine*n Med. Praxisassistent*in (MPA) 60 - 100 %\n\nDeine Aufgaben:\n\n- Organisation des Praxisalltages und Terminmanagement mit unserer Software Axenita\n\n- Medizinisch-technische Aufgaben wie Labor und Röntgen\n\n- Durchführung medizinischer Untersuchungen und Behandlungen\n\n- Selbstständige Patientenbetreuung\n\nDas bringst Du mit:\n\n- MPA EFZ, erweiterte konventionelle Aufnahme (EKA)-Kurs von Vorteil\n\n- Selbstständige, lösungsorientierte und zuverlässige Arbeitsweise\n\n- Freundliches, empathisches und kommunikatives Auftreten\n\n- Gute PC-/Office-Kenntnisse\n\n- Gute Deutsch- und Englischkenntnisse; weitere Sprachen von Vorteil\n\nDas bieten wir:\n\n- Du-Kultur\n\n- Abwechslungsreiche und verantwortungsvolle MPA – Tätigkeit\n\n- Moderne Infrastruktur und ein breites diagnostisches Spektrum\n\n- Selbstständiges Arbeiten in einem engagierten und wertschätzenden Team\n\n- Attraktive Anstellungsbedingungen\n\n- Fachliche und persönliche Entwickungsmöglichkeiten\n\n- Arbeiten und Leben in einer attraktiven Region\n\nFür Fragen steht Dir gerne Kristin Janowski, Praxismanagerin MZK unter Tel. +41 81 544 81 96 oder kristin.janowski@flurystiftung.ch. Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Über die Zustellung Deiner Bewerbungsunterlagen per Mail an hr@flurystiftung.ch freuen wir uns!"
+      },
+      "location": "Klosters",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:35:53.885Z",
+      "addressLocality": "Klosters",
+      "postalCode": "7250",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sanità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Medizinisches Zentrum Klosters",
+      "pensum": "60 - 100%",
+      "pensumMin": 60,
+      "pensumMax": 100,
+      "needsRetranslation": true,
+      "salaryMin": 81500,
+      "salaryMax": 114000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81500,
+          "maxValue": 114000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-02T09:35:53.885Z"
+    },
+    {
       "id": "flury-stiftung-1e6940acb70a",
       "slug": "dipl-pflegefachperson-hf-fh-o-fachperson-gesundheit-80-100-altersheim-jenaz-flury-stiftung-jenaz",
       "slugByLocale": {
@@ -213,7 +284,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:56.804Z",
+      "crawledAt": "2026-10-02T09:35:51.469Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -344,7 +415,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:56.433Z",
+      "crawledAt": "2026-10-02T09:35:48.906Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -431,7 +502,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:55.273Z",
+      "crawledAt": "2026-10-02T09:35:45.711Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -514,7 +585,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:54.892Z",
+      "crawledAt": "2026-10-02T09:35:42.054Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -598,7 +669,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:53.913Z",
+      "crawledAt": "2026-10-02T09:35:39.467Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -641,6 +712,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -687,7 +759,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:53.554Z",
+      "crawledAt": "2026-10-02T09:35:36.471Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -731,6 +803,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -777,7 +850,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:53.173Z",
+      "crawledAt": "2026-10-02T09:35:33.495Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -829,6 +902,7 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -875,7 +949,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:52.651Z",
+      "crawledAt": "2026-10-02T09:35:30.307Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -959,7 +1033,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Dipl.%20Pflegefachperson%20IMC%20Notfall%2080-%20100%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:52.301Z",
+      "crawledAt": "2026-10-02T09:35:28.170Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1045,7 +1119,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:51.931Z",
+      "crawledAt": "2026-10-02T09:35:25.982Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1129,7 +1203,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:50.962Z",
+      "crawledAt": "2026-10-02T09:35:22.990Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1216,7 +1290,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:50.580Z",
+      "crawledAt": "2026-10-02T09:35:20.531Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1300,7 +1374,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:49.676Z",
+      "crawledAt": "2026-10-02T09:35:18.001Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1384,7 +1458,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:27:49.285Z",
+      "crawledAt": "2026-10-02T09:35:15.515Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1438,93 +1512,6 @@
         }
       },
       "addressRegion": "GR"
-    },
-    {
-      "id": "flury-stiftung-218bf377d2e5",
-      "slug": "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers",
-      "slugByLocale": {
-        "it": "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers",
-        "en": "apprenticeship-specialist-care-specialty-children-from-summer-2027-flury-stiftung-schiers",
-        "de": "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
-        "fr": "apprentissage-en-tant-que-specialiste-de-la-garde-d-enfants-specialise-dans-les-enfants-a-partir-de-l-ete-2027-flury"
-      },
-      "company": "Flury Stiftung",
-      "companyKey": "flury-stiftung",
-      "companyDomain": "flurystiftung.ch",
-      "title": "Lehrstelle Fachperson Betreuung, Fachrichtung Kinder (ab Sommer 2027)",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista nell'assistenza all'infanzia, specializzato in bambini (dall'estate 2027)",
-        "en": "Apprenticeship as a childcare specialist, specialising in children (from summer 2027)",
-        "de": "Lehrstelle Fachperson Betreuung, Fachrichtung Kinder (ab Sommer 2027)",
-        "fr": "Apprentissage en tant que spécialiste de la garde d'enfants, spécialisé dans les enfants (à partir de l'été 2027)"
-      },
-      "description": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters sicher. Seit August 2011 führt die Flury Stiftung eine Kindertagesstätte, die Kinderkrippe Rätikon. Die öffentlich zu- gängliche Kinderkrippe bietet von Montag bis Freitag täglich 18 Betreuungsplätze in Schiers sowie 12 in Grüsch für Kinder im Vorschulbereich, das heisst ab 3 Monaten bis und mit Kindergarten oder bis zum Schul- eintritt. Per 1. August 2027 vergeben wir in unseren Kinderkrippen eine Lehrstelle Fachperson Betreuung EFZ, Fachrichtung Kinder\n\nWährend deiner Ausbildung lernst du:\n\n- Begleitung und Förderung von Kindern bei ihren Aktivitäten\n\n- Anregung zu kreativen Tätigkeiten an die Kinder\n\n- Mitwirkung zu einem abwechslungsreichen Gruppenleben\n\nDas bringst du mit:\n\n- Sekundar- oder Realschulabschluss\n\n- Freude am Arbeiten mit Kindern\n\n- Fähigkeit kreativ gestalten zu können\n\n- Team- und Kommunikationsfähigkeit\n\nWir bieten dir:\n\n- Eine abwechslungsreiche und spannende Ausbildung während 3 Jahren\n\n- Selbständiges und eigenverantwortliches Arbeiten\n\n- Ein kompetentes Team, welches dich während deiner Ausbildung begleitet und unterstützt\n\n- 6 Wochen Ferien\n\nErstfragen beantwortet dir gerne Frau Seraina Kleger, Leiterin Kinderkrippe, Tel. +41 81 308 08 10. Weitere Informationen zur Flury Stiftung findest du im Internet: flurystiftung.ch Über das Zustellen der Bewerbungsunterlagen an: hr@flurystiftung.ch freuen wir uns!",
-      "descriptionByLocale": {
-        "it": "KOMPETENT UNA SERZLICA Con oltre 600 dipendenti nell'ospedale Schiers, le tre case di riposo Schiers, Jenaz e Klosters, Spitex, che vivono con il servizio, il crèche, la consulenza genitoriale e il Klosters Medical Center, la Flury Foundation garantisce un'assistenza sanitaria completa e integrata nel Prättigau, tra Grüsch e Klosters. Dal mese di agosto 2011, la Fondazione Flury gestisce un centro diurno, il vivaio Rätikon. Il crèche accessibile al pubblico offre 18 posti per l'infanzia a Schiers e 12 a Grüsch tutti i giorni dal lunedì al venerdì per i bambini nella zona prescolare, cioè da 3 mesi fino all'asilo o fino all'ammissione scolastica. A partire dal 1o agosto 2027, assegnerà un apprendistato nelle nostre scuole, assistenza specialistica EFZ, bambini speciali Durante la vostra formazione imparerete:\n\n- Accompagnamento e promozione dei bambini nelle loro attività\n\n- Incoraggiare le attività creative per i bambini\n\n- Partecipazione a una variegata vita di gruppo\n\nQuesto è ciò che portate con voi:\n\n- Formazione secondaria o secondaria\n\n- Gioia di lavorare con i bambini\n\n- Capacità di essere creativo\n\n- Competenze di team e comunicazione\n\nVi offriamo:\n\n- Una formazione varia ed emozionante per 3 anni\n\n- Lavoro indipendente e responsabile\n\n- Un team competente che accompagna e ti supporta durante la tua formazione\n\n- 6 settimane di vacanza Le prime domande sono i benvenuti a rispondere Seraina Kleger, Direttore della scuola materna, tel. +41 81 308 08 10. Ulteriori informazioni sulla Fondazione Flury possono essere trovate su Internet: flurystiftung.ch Circa la consegna dei documenti di domanda a: hr@flurystiftung.ch siamo felici!",
-        "en": "KOMPETENT UND HERZLICH With more than 600 employees in the Schiers hospital, the three retirement homes Schiers, Jenaz and Klosters, Spitex, living with service, the crèche, the parental counselling and the Klosters Medical Center, the Flury Foundation ensures comprehensive and integrated health care in the Prättigau, between Grüsch and Klosters. Since August 2011, the Flury Foundation runs a daycare center, the Rätikon nursery. The publicly accessible crèche offers 18 childcare places in Schiers and 12 in Grüsch daily from Monday to Friday for children in the preschool area, i.e. from 3 months until kindergarten or until school admission. As of August 1, 2027, we will award an apprenticeship in our crèches, specialist care EFZ, specialty children During your education you will learn:\n\n- Accompaniment and promotion of children in their activities\n\n- Encouraging creative activities for children\n\n- Participation in a varied group life\n\nThis is what you bring with you:\n\n- Secondary or secondary education\n\n- Joy of working with children\n\n- Ability to be creative\n\n- Team and communication skills\n\nWe offer you:\n\n- A varied and exciting education for 3 years\n\n- Independent and self-responsible work\n\n- A competent team that accompanies and supports you during your training\n\n- 6 weeks of holiday First questions are welcome to answer you Seraina Kleger, Director of the nursery, tel. +41 81 308 08 10. Further information about the Flury Foundation can be found on the Internet: flurystiftung.ch About the delivery of the application documents to: hr@flurystiftung.ch we are happy!",
-        "de": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizinischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters sicher. Seit August 2011 führt die Flury Stiftung eine Kindertagesstätte, die Kinderkrippe Rätikon. Die öffentlich zu- gängliche Kinderkrippe bietet von Montag bis Freitag täglich 18 Betreuungsplätze in Schiers sowie 12 in Grüsch für Kinder im Vorschulbereich, das heisst ab 3 Monaten bis und mit Kindergarten oder bis zum Schul- eintritt. Per 1. August 2027 vergeben wir in unseren Kinderkrippen eine Lehrstelle Fachperson Betreuung EFZ, Fachrichtung Kinder\n\nWährend deiner Ausbildung lernst du:\n\n- Begleitung und Förderung von Kindern bei ihren Aktivitäten\n\n- Anregung zu kreativen Tätigkeiten an die Kinder\n\n- Mitwirkung zu einem abwechslungsreichen Gruppenleben\n\nDas bringst du mit:\n\n- Sekundar- oder Realschulabschluss\n\n- Freude am Arbeiten mit Kindern\n\n- Fähigkeit kreativ gestalten zu können\n\n- Team- und Kommunikationsfähigkeit\n\nWir bieten dir:\n\n- Eine abwechslungsreiche und spannende Ausbildung während 3 Jahren\n\n- Selbständiges und eigenverantwortliches Arbeiten\n\n- Ein kompetentes Team, welches dich während deiner Ausbildung begleitet und unterstützt\n\n- 6 Wochen Ferien\n\nErstfragen beantwortet dir gerne Frau Seraina Kleger, Leiterin Kinderkrippe, Tel. +41 81 308 08 10. Weitere Informationen zur Flury Stiftung findest du im Internet: flurystiftung.ch Über das Zustellen der Bewerbungsunterlagen an: hr@flurystiftung.ch freuen wir uns!",
-        "fr": "KOMPÉTENT UND HERZLICH Avec plus de 600 employés à l'hôpital Schiers, les trois maisons de retraite Schiers, Jenaz et Klosters, Spitex, vivant avec service, la crèche, le conseil parental et le Centre médical Klosters, la Fondation Flury assure des soins de santé complets et intégrés dans le Prättigau, entre Grüsch et Klosters. Depuis août 2011, la Fondation Flury gère une garderie, la crèche Rätikon. La crèche accessible au public offre 18 places de garde d'enfants à Schiers et 12 à Grüsch tous les jours du lundi au vendredi pour les enfants de la zone préscolaire, c'est-à-dire de 3 mois à la maternelle ou jusqu'à l'admission à l'école. À partir du 1er août 2027, nous décernerons un apprentissage dans nos crèches, soins spécialisés EFZ, enfants spécialisés.\n\n- Accompagnement et promotion des enfants dans leurs activités\n\n- Encourager les activités créatives pour les enfants\n\n- Participation à une vie de groupe variée\n\nVoici ce que vous apportez avec vous :\n\n- Enseignement secondaire ou secondaire\n\n- La joie de travailler avec les enfants\n\n- Capacité d'être créatif\n\n- Compétences en équipe et en communication\n\nNous vous offrons:\n\n- Une éducation variée et passionnante pendant 3 ans\n\n- Travail indépendant et autonome\n\n- Une équipe compétente qui vous accompagne et vous accompagne pendant votre entraînement\n\n- 6 semaines de vacances Les premières questions sont les bienvenues pour vous répondre Seraina Kleger, Directrice de la crèche, tél. +41 81 308 08 10. De plus amples informations sur la Fondation Flury sont disponibles sur Internet: flurystiftung.ch A propos de la livraison des documents d'application à: hr@flurystiftung.ch nous sommes heureux!"
-      },
-      "location": "Schiers",
-      "canton": "GR",
-      "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf",
-      "source": "Flury Stiftung Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:34:38.246Z",
-      "addressLocality": "Schiers",
-      "postalCode": "7220",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Formazione",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "intern",
-      "sector": "Sanità / Assistenza",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-27",
-      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachperson%20Betreuung%202027.pdf",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Lehrstellen",
-      "pensum": "100%",
-      "pensumMin": 100,
-      "pensumMax": 100,
-      "previousSlugs": [
-        "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
-        "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers",
-        "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers",
-        "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-ch",
-          "apprendistato-fachperson-betreuung-specializzazione-kinder-ab-sommer-2027-flury-stiftung-schiers"
-        ],
-        "en": [
-          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers"
-        ],
-        "fr": [
-          "lehrstelle-fachperson-betreuung-fachrichtung-kinder-ab-sommer-2027-flury-stiftung-schiers",
-          "soins-specialises-en-apprentissage-enfants-specialises-a-partir-de-l-ete-2027-flury-stiftung-schiers"
-        ]
-      },
-      "firstSeenAt": "2026-04-13T10:33:20.234Z",
-      "salaryMin": 41600,
-      "salaryMax": 76000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 41600,
-          "maxValue": 76000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1
     }
   ]
 }
