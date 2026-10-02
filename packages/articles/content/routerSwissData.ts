@@ -2498,6 +2498,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'spese-quotidiane-vaud-2026': { it: 'spese-quotidiane-vaud-2026', en: 'swiss-living-cost-vaud-2026', de: 'lebenskosten-waadt-2026', fr: 'cout-vie-vaud-2026' },
  'bilancio-familiare-lucerna': { it: 'bilancio-familiare-lucerna', en: 'lucerne-household-budget', de: 'haushaltsbudget-luzern', fr: 'budget-menage-lucerne' },
  'argovia-spese-quotidiane-2026': { it: 'argovia-spese-quotidiane-2026', en: 'swiss-cost-of-living-2026-aargau', de: 'lebenshaltungskosten-schweiz-2026-aargau', fr: 'cout-vie-suisse-2026-argovie' },
+ 'franchigia-sussidi-ginevra': { it: 'franchigia-sussidi-ginevra', en: 'geneva-lamal-deductible-subsidies', de: 'genf-lamal-franchise-praemien', fr: 'geneve-lamal-franchise-subsides' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

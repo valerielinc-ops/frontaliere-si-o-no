@@ -22309,6 +22309,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'franchigia-sussidi-ginevra',
+    category: 'pratico',
+    date: '2026-10-02T01:44:32.489Z',
+    image: '/images/blog/franchigia-sussidi-ginevra.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

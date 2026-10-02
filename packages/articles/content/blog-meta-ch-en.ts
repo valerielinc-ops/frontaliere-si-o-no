@@ -7427,6 +7427,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.argovia-spese-quotidiane-2026.title': 'Swiss cost of living 2026: canton of Aargau',
     'blog.article.argovia-spese-quotidiane-2026.excerpt': 'In the canton of Aargau, the 2026 cost of living should be viewed across three tax levels, LAMal within 3 months, and a national comparison of rents, groceries and transport.',
     'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Swiss cost of living: household budget for rent, groceries, transport and health insurance',
+    'blog.article.franchigia-sussidi-ginevra.title': 'KVG health insurance premiums in 2026: Canton of Geneva',
+    'blog.article.franchigia-sussidi-ginevra.excerpt': '2026 guide to KVG premiums in the canton of Geneva: adult deductibles, comparison between cantons, exchange of funds and cantonal premium reduction.',
+    'blog.article.franchigia-sussidi-ginevra.imageAlt': 'LAMal documents and calculator for comparing health insurance premiums in Geneva',
 };
 
 export default blogMetaChEn;

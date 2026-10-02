@@ -7427,6 +7427,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.argovia-spese-quotidiane-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Aargau',
     'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Im Kanton Aargau müssen die Lebenshaltungskosten im Jahr 2026 zwischen drei Steuerstufen gemessen werden: KVG innerhalb von 3 Monaten und einem nationalen Vergleich zu Mieten, Ausgaben und Verkehr.',
     'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Lebenshaltungskosten in der Schweiz: Haushaltsbudget für Miete, Einkauf, Verkehr und Krankenversicherung',
+    'blog.article.franchigia-sussidi-ginevra.title': 'KVG-Krankenversicherungsprämien im Jahr 2026: Kanton Genf',
+    'blog.article.franchigia-sussidi-ginevra.excerpt': 'Leitfaden 2026 zu KVG-Prämien im Kanton Genf: Selbstbeteiligungen für Erwachsene, Vergleich zwischen Kantonen, Geldaustausch und Reduktion der kantonalen Prämien.',
+    'blog.article.franchigia-sussidi-ginevra.imageAlt': 'LAMal-Unterlagen und Rechner zum Vergleich der Krankenkassenprämien in Genf',
 };
 
 export default blogMetaChDe;
