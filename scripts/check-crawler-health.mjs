@@ -392,9 +392,10 @@ const EMPTY_OK_CRAWLERS = new Set([
   'helsinn',
   // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
   'hugo-boss',
-  // Official careers 403-blocked but corroborated zero via TuttoJob.ch,
-  // LinkedIn, and RSI news reporting active layoffs at the Bodio site.
-  'imerys',
+  // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
+  // source (the SmartRecruiters company no longer exists) while its Workday
+  // board listed 3 Swiss reqs. It now proves its own zero every run
+  // (`proveSwissAbsentFromLiveBoard`, scripts/update-imerys-jobs.mjs).
   // 38 real postings exist but Switzerland isn't even a location-filter option.
   'interroll',
   // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.

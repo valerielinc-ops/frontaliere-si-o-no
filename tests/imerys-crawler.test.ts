@@ -1,11 +1,161 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   IMERYS_KEY,
   IMERYS_COMPANY_NAME,
+  fetchAllImerysJobs,
   isImerysJob,
   isTrustedDomain,
 } from '../scripts/lib/imerys-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
+
+// Live captures of the Imerys Workday tenant (2026-10-02), sanitized: job
+// bodies replaced by neutral text, error case ids redacted.
+function workdayFixture(name: string) {
+  return JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'workday', name), 'utf8'));
+}
+
+type WorkdayMock = {
+  faceted?: unknown;
+  unfiltered?: unknown;
+  details?: Record<string, unknown>;
+  siteStatus?: number;
+  unfilteredStatus?: number;
+};
+
+/** The tenant as it answers live: `Country` is its facet key, `locationCountry` is a 400. */
+function mockImerysWorkday({ faceted, unfiltered, details = {}, siteStatus = 200, unfilteredStatus = 200 }: WorkdayMock) {
+  const listCalls: Array<{ url: string; body: any }> = [];
+  vi.stubGlobal('fetch', vi.fn(async (input: unknown, init: any = {}) => {
+    const url = String(input);
+    if (url.endsWith('/jobs') && init?.method === 'POST') {
+      const body = JSON.parse(init.body);
+      listCalls.push({ url, body });
+      if (siteStatus !== 200) {
+        return new Response(JSON.stringify(workdayFixture('unknown-site-404.json')), { status: siteStatus });
+      }
+      if (body.appliedFacets?.locationCountry) return new Response('{"errorCode":"HTTP_422"}', { status: 400 });
+      if (Object.keys(body.appliedFacets || {}).length > 0) return new Response(JSON.stringify(faceted), { status: 200 });
+      if (unfilteredStatus !== 200) return new Response('blocked', { status: unfilteredStatus });
+      return new Response(JSON.stringify(unfiltered), { status: 200 });
+    }
+    const hit = Object.keys(details).find((p) => url.endsWith(p));
+    return hit ? new Response(JSON.stringify(details[hit]), { status: 200 }) : new Response('', { status: 404 });
+  }));
+  return listCalls;
+}
+
+function verdict(jobs: any[]) {
+  return evaluateAuthoritativeSnapshot(jobs, {
+    validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(IMERYS_COMPANY_NAME),
+    allowAuthoritativeEmptySnapshot: true,
+    authoritativeSnapshotScope: 'empty-only',
+    companyLabel: IMERYS_COMPANY_NAME,
+  });
+}
+
+const EMPTY_SWISS_FACET = workdayFixture('imerys-career2-swiss-facet-empty.json');
+const LIVE_BOARD_WITHOUT_CH = workdayFixture('imerys-career2-board.json');
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
+
+describe('Imerys crawler — Workday source (tenant imerys, site IMERYS-Careers)', () => {
+  it('reads the Swiss board through the tenant `Country` facet and publishes the Bodio req', async () => {
+    const listCalls = mockImerysWorkday({
+      faceted: workdayFixture('imerys-careers-swiss-facet.json'),
+      details: {
+        '/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824': workdayFixture('imerys-detail-bodio.json'),
+      },
+    });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(listCalls[0].url).toBe('https://imerys.wd3.myworkdayjobs.com/wday/cxs/imerys/IMERYS-Careers/jobs');
+    expect(listCalls[0].body.appliedFacets).toEqual({ Country: ['187134fccb084a0ea9b4b95f23890dbe'] });
+    // Bodio merged into Giornico in 2025, so the BFS commune list no longer
+    // names it; the req's structured country (CH) lets the official locality
+    // directory place it. The two Bironico reqs have no detail in this mock,
+    // so they carry no body and are not published.
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'MECHANICAL MAINTENANCE SUPERVISOR',
+      location: 'Bodio',
+      canton: 'TI',
+      addressCountry: 'CH',
+      companyKey: 'imerys',
+      url: 'https://imerys.wd3.myworkdayjobs.com/en-US/IMERYS-Careers/job/Bodio-Switzerland/MECHANICAL-MAINTENANCE-SUPERVISOR_REQ-11824',
+    });
+    expect(isTrustedDomain(jobs[0].url)).toBe(true);
+    expect(isImerysJob(jobs[0])).toBe(true);
+  });
+
+  it('publishes a proven zero when the live board lists no Swiss value in its country facet', async () => {
+    mockImerysWorkday({ faceted: EMPTY_SWISS_FACET, unfiltered: LIVE_BOARD_WITHOUT_CH });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 35 posting\(s\) in 9 countries .*Switzerland not among them/);
+    expect(verdict(jobs)).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+  });
+
+  it('fails loudly when the career site does not exist (renamed or retired site)', async () => {
+    mockImerysWorkday({ siteStatus: 404 });
+    await expect(fetchAllImerysJobs()).rejects.toThrow(/HTTP 404/);
+  });
+
+  it('keeps a bare zero when the site is live but holds no postings at all (a migrated board reads the same way)', async () => {
+    mockImerysWorkday({
+      faceted: EMPTY_SWISS_FACET,
+      unfiltered: { total: 0, jobPostings: [], facets: [{ facetParameter: 'Country', values: [] }] },
+    });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof when the board still lists Switzerland in its country facet', async () => {
+    const withSwiss = workdayFixture('imerys-careers-swiss-facet.json').facets;
+    mockImerysWorkday({ faceted: EMPTY_SWISS_FACET, unfiltered: { ...LIVE_BOARD_WITHOUT_CH, facets: withSwiss } });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof when the board summary cannot be read', async () => {
+    mockImerysWorkday({ faceted: EMPTY_SWISS_FACET, unfilteredStatus: 403 });
+
+    const jobs = await fetchAllImerysJobs();
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('wires the runner to accept only a proven empty snapshot', () => {
+    const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-imerys-jobs.mjs'), 'utf8');
+    expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(IMERYS_COMPANY_NAME)');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+    // The per-run proof replaces the allowlist entry, which kept masking the
+    // slug while it read a dead source.
+    const monitor = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'check-crawler-health.mjs'), 'utf8');
+    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+    expect(allowlist).toBeTruthy();
+    expect(allowlist![1]).not.toMatch(/^\s*'imerys',/m);
+  });
+});
+
 
 describe('Imerys crawler parser', () => {
   // ── Constants ──
