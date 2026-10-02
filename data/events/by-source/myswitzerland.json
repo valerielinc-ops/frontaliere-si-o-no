@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "sourceKey": "myswitzerland",
   "sourceName": "MySwitzerland",
-  "assembledAt": "2026-10-02T04:09:06.740Z",
+  "assembledAt": "2026-10-02T05:02:33.182Z",
   "events": [
     {
       "id": "myswitzerland:c04dc58cdaf845e0a02375c9baff1584",
@@ -151749,22 +151749,13 @@
       "startDate": "2027-01-13",
       "endDate": "2027-01-13",
       "startTime": "19:30",
-      "category": "Theater",
-      "venue": "Kurtheater Baden",
+      "category": "Event",
+      "venue": "Baden",
       "comune": "Baden",
       "canton": "AG",
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/lab-rats-2/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
-      "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://eventfrog.ch/labrats2"
-      },
-      "address": {
-        "street": "Parkstrasse 20",
-        "postalCode": "5400",
-        "locality": "Baden"
-      },
       "geo": {
         "lat": 47.4802454,
         "lng": 8.3102615
@@ -151772,12 +151763,12 @@
       "recurring": false,
       "organizer": {
         "@type": "Organization",
-        "name": "Kurtheater Baden Postfach",
-        "url": "https://www.myswitzerland.com/it-ch/experiences/events/lab-rats-2/"
+        "name": "MySwitzerland",
+        "url": "https://www.myswitzerland.com/en/"
       },
       "performer": {
         "@type": "Organization",
-        "name": "Kurtheater Baden"
+        "name": "Baden"
       },
       "imageUrl": "/images/events/myswitzerland-1e416c4502704f9fbd51ac39df9a9535.webp"
     },
@@ -266202,8 +266193,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/205364"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/205364",
+        "validFrom": "2025-01-01T01:01",
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -270622,8 +270617,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217732"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217732",
+        "validFrom": "2026-01-01T20:00",
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -273539,8 +273538,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/215073"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/215073",
+        "validFrom": "2026-01-01T01:01",
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -273605,16 +273608,16 @@
       "title": "20 Years Fractal",
       "titleByLocale": {
         "it": "20 Years Fractal",
-        "en": "20 Years Fractal",
-        "de": "20 Years Fractal",
-        "fr": "20 Years Fractal"
+        "en": "20 Fr",
+        "de": "20 Jahre Fraktal",
+        "fr": "20 ans de fractal"
       },
       "description": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
       "descriptionByLocale": {
         "it": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
-        "en": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
-        "de": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
-        "fr": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS"
+        "en": "The Circle Floor ALCHEMITYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fractal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
+        "de": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Fraktal Rec/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Fractal Rec./Nutek Rec.) IS",
+        "fr": "The Circle Floor ALCHEMISTYK Live (AthzirA & LunaRave) FR NEUROMOTOR (Rec fractal/Blacklight Rec.) SP LUNARAVE Live (Retro Future Rec) FR FREEZE Live (Rec./Nutek Rec.) IS"
       },
       "startDate": "2026-11-07",
       "endDate": "2026-11-07",
@@ -273628,7 +273631,10 @@
       "sourceName": "MySwitzerland",
       "price": {
         "availability": "http://schema.org/InStock",
-        "url": "https://www.petzi.ch/events/64715/"
+        "url": "https://www.petzi.ch/en/events/64715-ajz-caj-20-years-fractal/",
+        "amount": 29.9,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 47.1359849,
@@ -275991,8 +275997,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217734"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217734",
+        "validFrom": "2026-01-01T20:00",
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
