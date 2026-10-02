@@ -13,7 +13,7 @@
  * headroom) and auto-cover every present and future canton.
  */
 import { describe, it, expect } from 'vitest';
-import { createAuditor as createInformationGainAuditor } from '../../scripts/audit-information-gain.mjs';
+import { factory as createInformationGainAuditor } from '../../scripts/audit-information-gain.mjs';
 import { classifyFeature } from '../../scripts/audit-title-length.mjs';
 import {
   buildProfessionCantonPath,
@@ -77,7 +77,7 @@ describe('job-board section matcher', () => {
   it('does not broaden the profession-city matcher to unknown or nested editorial paths', () => {
     expect(isJobBoardContentPath('/en/jobs-lugano/')).toBe(false);
     expect(isJobBoardContentPath('/en/jobs-lugano-welder/methodology/')).toBe(false);
-    expect(isJobBoardContentPath('/en/jobs-geneva-welder/')).toBe(false);
+    expect(isJobBoardContentPath('/en/jobs-rome-welder/')).toBe(false);
   });
 
   const professionCantonPaths = [
