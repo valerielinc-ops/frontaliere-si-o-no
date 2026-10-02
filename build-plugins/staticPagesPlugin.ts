@@ -137,6 +137,8 @@ import {
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
+import { renderGlossaryTermDetail, localizedGlossaryLede, type GlossaryDetailLocale } from './shared/glossaryTermDetail';
+import { renderBorderCrossingGuideDetail, type CrossingGuideLocale } from './shared/borderCrossingGuideDetail';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
@@ -2684,6 +2686,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  routerSrc = fs.readFileSync(np.resolve(rootDir, 'services/router.ts'), 'utf-8');
  } catch { /* ignore */ }
 
+ // IT glossary slug → term id, filled by the glossary loop below and read by
+ // buildPage(), which only sees the Italian path of the page it renders.
+ const glossaryTermIdBySlug = new Map<string, string>();
  if (routerSrc) {
  // ─ Glossary terms ─
  const glossaryIdsMatch = routerSrc.match(/ALL_GLOSSARY_TERM_IDS[^=]*=\s*\[([\s\S]*?)\]/);
@@ -2718,6 +2723,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  for (const termId of glossaryIds) {
  const slug = itOverrides[termId] || defaultSlug(termId);
+ glossaryTermIdBySlug.set(slug, termId);
  const cp = `/glossario-frontaliere/${slug}`;
  if (seoMap.has(seoKey(cp))) continue; // hand-written entry wins
  const label = titleize(termId);
@@ -2889,7 +2895,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  },
  };
 
- const deriveLocaleSeo = (locPath: string, locale: string, italianSeo: SeoEntry): SeoEntry => {
+ const deriveLocaleSeo = (locPath: string, locale: string, italianSeo: SeoEntry, italianPath?: string): SeoEntry => {
  const segs = locPath.split('/').filter(Boolean);
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
 
@@ -2984,7 +2990,18 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  de: (t) => `Definition und Erklärung von ${t} für Grenzgänger (Schweiz–Italien): Bedeutung, Kontext und praktische Auswirkung.`,
  fr: (t) => `Définition et explication de ${t} pour travailleurs frontaliers (Suisse–Italie) : signification, contexte et impact pratique.`,
  };
- const desc = GLOSSARY_DESC[locale]?.(italianTerm) || italianSeo.desc;
+ // The term's own definition in the page language (the SPA glossary
+ // strings, shared/glossaryTermDetail.ts) instead of the «Definition und
+ // Erklärung von …» placeholder; the placeholder stays only as the
+ // fallback for a term whose locale strings are missing.
+ const glossarySlug = italianPath?.split('/').filter(Boolean).pop() ?? '';
+ const glossaryTermId = glossaryTermIdBySlug.get(glossarySlug);
+ const localizedLede = glossaryTermId && (locale === 'en' || locale === 'de' || locale === 'fr')
+ ? localizedGlossaryLede(glossaryTermId, locale)
+ : null;
+ const desc = localizedLede
+ ? truncateForMetaDescription(localizedLede)
+ : GLOSSARY_DESC[locale]?.(italianTerm) || italianSeo.desc;
  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
  }
 
@@ -3071,6 +3088,24 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  const p = u.path;
  return !p.startsWith('/en/') && !p.startsWith('/de/') && !p.startsWith('/fr/') && !p.startsWith('/en') && !p.startsWith('/de') && !p.startsWith('/fr');
  });
+
+ // Per-locale path of every crossing guide page, so the crossing fact sheet
+ // (shared/borderCrossingGuideDetail.ts) links its nearest crossings to their
+ // guide page in the SAME locale — read from the sitemap hreflang data, the
+ // same source the locale variants below are emitted from.
+ const CROSSING_GUIDE_RX = /^\/guida-frontaliere\/tempi-attesa-dogana\/([^/]+)\/?$/;
+ const crossingGuidePathByLocale = new Map<string, Partial<Record<string, string>>>();
+ for (const u of italianUrls) {
+ const m = CROSSING_GUIDE_RX.exec(u.path);
+ if (!m) continue;
+ const byLocale: Partial<Record<string, string>> = { it: `${u.path.replace(/\/+$/, '')}/` };
+ for (const h of u.hreflangs) {
+ if (h.lang !== 'en' && h.lang !== 'de' && h.lang !== 'fr') continue;
+ const hPath = h.href.replace(BASE_URL, '');
+ if (hPath.startsWith('/')) byLocale[h.lang] = `${hPath.replace(/\/+$/, '')}/`;
+ }
+ crossingGuidePathByLocale.set(m[1], byLocale);
+ }
 
  for (const url of italianUrls) {
  // Skip pages owned by ogPagesPlugin (blog articles from seo-blog*.ts).
@@ -3279,6 +3314,29 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // in the gray subtitle <p> above the editorial div. Duplicating it wastes
  // the most valuable content slot and signals thin/boilerplate to crawlers.
  const editorialBlocks: string[] = [];
+
+ // ── Page-specific facts first (content-first) ─────────────
+ // A glossary term and a single border crossing are the two SSG families
+ // whose body was otherwise the section editorial alone, identical on every
+ // sibling (audit:information-gain, run 36977215802: 0 % median on every
+ // gated cohort of both). Their own facts — the term's localized definition,
+ // example and names in the other languages; the crossing's register entry,
+ // translated tip and nearest crossings — go right under the H1.
+ if (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') {
+ const glossaryMatch = /^\/glossario-frontaliere\/([^/]+)\/?$/.exec(url.path);
+ const glossaryTermId = glossaryMatch ? glossaryTermIdBySlug.get(glossaryMatch[1]) : undefined;
+ if (glossaryTermId) {
+ editorialBlocks.push(...renderGlossaryTermDetail(glossaryTermId, locale as GlossaryDetailLocale));
+ }
+ const crossingMatch = CROSSING_GUIDE_RX.exec(url.path);
+ if (crossingMatch) {
+ editorialBlocks.push(...renderBorderCrossingGuideDetail({
+ locale: locale as CrossingGuideLocale,
+ slug: crossingMatch[1],
+ hrefFor: (peer) => crossingGuidePathByLocale.get(peer)?.[locale],
+ }));
+ }
+ }
 
  // ── Section-specific editorial content ────────────────────
  // Each section gets UNIQUE, topically-relevant paragraphs so that
@@ -5768,7 +5826,7 @@ ${hrefTags}
  // variants, so always regenerate so JSON-LD reflects current translations.
 
  // Look up locale-specific SEO or derive locale-appropriate metadata
- const locSeo = seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo);
+ const locSeo = seoMap.get(seoKey(locPath)) ?? deriveLocaleSeo(locPath, hl.lang, seo, url.path);
 
  // Dynamic override for per-locale job-board landings (en/de/fr): inject
  // live active-job count + fire emoji so each locale ships a unique title
