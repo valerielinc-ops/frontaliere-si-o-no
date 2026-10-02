@@ -96428,6 +96428,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cicli-basilea-campagna': {
+    title: 'Sistema scolastico Basilea Campagna: iscrizione e cicli',
+    description: 'Scuola dell\'obbligo a Basilea Campagna: guida pratica a iscrizione, cicli, età, calendario, lingue di insegnamento e passaggio alle scuole medie superiori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sistema, scolastico, basilea, campagna',
+    ogTitle: 'Basilea Campagna: iscrizione e cicli scolastici',
+    ogDescription: 'Il sistema scolastico di Basilea Campagna va letto attraverso cinque snodi: iscrizione, cicli, età di ingresso, calendario e lingue di insegnamento. La guida segue anche il passaggio dalla scuola dell\'obbligo alle scuole medie superiori.',
+    canonicalPath: '/articoli-svizzera/cicli-basilea-campagna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sistema scolastico Basilea Campagna: iscrizione e cicli",
+      "description": "Scuola dell'obbligo a Basilea Campagna: guida pratica a iscrizione, cicli, età, calendario, lingue di insegnamento e passaggio alle scuole medie superiori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cicli-basilea-campagna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola pubblica nel Cantone di Basilea Campagna"
+      },
+      "datePublished": "2026-10-02T03:08:59+00:00",
+      "dateModified": "2026-10-02T03:08:59+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/cicli-basilea-campagna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

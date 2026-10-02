@@ -7436,6 +7436,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.c-basilea-campagna-criteri.title': 'C Permit in Basel-Landschaft: Requirements and Application',
     'blog.article.c-basilea-campagna-criteri.excerpt': 'In the Canton of Basel-Landschaft: 10 years of residence, 5 for EU/EFTA, integration, language, and procedure for the C permit.',
     'blog.article.c-basilea-campagna-criteri.imageAlt': 'Application for a C residence permit in Basel-Landschaft',
+    'blog.article.cicli-basilea-campagna.title': 'Basel-Landschaft school system: enrolment and cycles',
+    'blog.article.cicli-basilea-campagna.excerpt': 'Guide to compulsory schooling in Basel-Landschaft: enrolment, cycles, calendar, languages of instruction and transition to secondary school.',
+    'blog.article.cicli-basilea-campagna.imageAlt': 'Public school in the Canton of Basel Campagna',
 };
 
 export default blogMetaChEn;

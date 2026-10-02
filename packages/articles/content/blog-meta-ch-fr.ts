@@ -7436,6 +7436,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.c-basilea-campagna-criteri.title': 'Permis C à Bâle-Landschaft : exigences et application',
     'blog.article.c-basilea-campagna-criteri.excerpt': 'Dans le canton de Bâle-Landschaft : 10 ans de résidence, 5 ans pour l’UE/EFTA, intégration, langue et procédure pour le permis C.',
     'blog.article.c-basilea-campagna-criteri.imageAlt': 'Demande de permis d\'établissement C à Bâle-Campagne',
+    'blog.article.cicli-basilea-campagna.title': 'Système scolaire de Bâle-Landschaft : effectifs et cycles',
+    'blog.article.cicli-basilea-campagna.excerpt': 'Guide de la scolarité obligatoire à Bâle-Landschaft : inscription, cycles, calendrier, langues d’enseignement et transition vers le secondaire.',
+    'blog.article.cicli-basilea-campagna.imageAlt': 'École publique dans le canton de Bâle-Campagne',
 };
 
 export default blogMetaChFr;

@@ -7436,6 +7436,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.c-basilea-campagna-criteri.title': 'Permesso C a Basilea Campagna: requisiti e domanda',
     'blog.article.c-basilea-campagna-criteri.excerpt': 'Nel Cantone di Basilea Campagna: 10 anni di residenza, 5 per UE/AELS, integrazione, lingua e procedura per il permesso C.',
     'blog.article.c-basilea-campagna-criteri.imageAlt': 'Domanda per il permesso di domicilio C a Basilea Campagna',
+    'blog.article.cicli-basilea-campagna.title': 'Sistema scolastico Basilea Campagna: iscrizione e cicli',
+    'blog.article.cicli-basilea-campagna.excerpt': 'Guida alla scuola dell\'obbligo a Basilea Campagna: iscrizione, cicli, calendario, lingue di insegnamento e passaggio alle scuole medie superiori.',
+    'blog.article.cicli-basilea-campagna.imageAlt': 'Scuola pubblica nel Cantone di Basilea Campagna',
 };
 
 export default blogMetaChIt;

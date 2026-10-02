@@ -22336,6 +22336,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cicli-basilea-campagna',
+    category: 'pratico',
+    date: '2026-10-02T03:08:58.952Z',
+    image: '/images/blog/cicli-basilea-campagna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

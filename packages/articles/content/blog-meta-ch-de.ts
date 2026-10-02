@@ -7436,6 +7436,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.c-basilea-campagna-criteri.title': 'C-Genehmigung in Basel-Landschaft: Anforderungen und Anwendung',
     'blog.article.c-basilea-campagna-criteri.excerpt': 'Im Kanton Basel-Landschaft: 10 Jahre Aufenthalt, 5 Jahre für EU/EFTA, Integration, Sprache und Verfahren für die C-Genehmigung.',
     'blog.article.c-basilea-campagna-criteri.imageAlt': 'Antrag für die Niederlassungsbewilligung C in Basel-Landschaft',
+    'blog.article.cicli-basilea-campagna.title': 'Schulsystem Basel-Landschaft: Einschreibung und Zyklen',
+    'blog.article.cicli-basilea-campagna.excerpt': 'Leitfaden zur Schulpflicht in Basel-Landschaft: Einschreibung, Zyklen, Kalender, Unterrichtssprachen und Übergang zur weiterführenden Schule.',
+    'blog.article.cicli-basilea-campagna.imageAlt': 'Öffentliche Schule im Kanton Basel-Landschaft',
 };
 
 export default blogMetaChDe;
