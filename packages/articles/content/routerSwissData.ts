@@ -2525,6 +2525,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parmelin-successore-defr': { it: 'parmelin-successore-defr', en: 'parmelin-successor-defr', de: 'parmelin-nachfolger-defr', fr: 'parmelin-successeur-defr' },
  'ordinanza-vigilanza-mercati-energia': { it: 'ordinanza-vigilanza-mercati-energia', en: 'ordinance-supervision-energy-markets', de: 'verordnung-aufsicht-energiemaerkte', fr: 'ordonnance-surveillance-marches-energie' },
  'franco-apprezzamento-eurozona': { it: 'franco-apprezzamento-eurozona', en: 'franc-strengthens-eurozone', de: 'franken-verstarkt-eurozone', fr: 'franc-se-reforce-zoneuro' },
+ 'defr-successore-parmelin-sfide': { it: 'defr-successore-parmelin-sfide', en: 'defr-parmelin-successor-challenges', de: 'wbf-nachfolger-parmelin-herausforderungen', fr: 'dfep-successeur-parmelin-defis' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

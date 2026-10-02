@@ -7508,6 +7508,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franco-apprezzamento-eurozona.title': 'Der Schweizer Franken steigt stark: Euro fällt auf 0,93 CHF',
     'blog.article.franco-apprezzamento-eurozona.excerpt': 'Der Franken steigt an einem Tag um mehr als einen Cent an. Befürchtungen über europäische Staatsanleihen und SNB-Zinsen bei 0 %.',
     'blog.article.franco-apprezzamento-eurozona.imageAlt': 'Aussicht auf den Luganersee mit Bergen im Hintergrund, Morgenlicht auf dem Wasser, Schweizer Finanzstimmung.',
+    'blog.article.defr-successore-parmelin-sfide.title': 'Parmelins Nachfolger: US-Zölle, Landwirtschaft und Wohnungsbau',
+    'blog.article.defr-successore-parmelin-sfide.excerpt': 'Der neue Leiter des EAER wird sich zwischen der Abstimmung am 29. November und der Deadline 2028 mit mehr als 30 Maßnahmen mit US-Zöllen, PA30+ und dem Wohnungsbauplan befassen.',
+    'blog.article.defr-successore-parmelin-sfide.imageAlt': 'Der Bundespalast in Bern bei Dämmerung, im Vordergrund Reben, Symbol für die landwirtschaftlichen und wirtschaftlichen Herausforderungen des WBF.',
 };
 
 export default blogMetaChDe;

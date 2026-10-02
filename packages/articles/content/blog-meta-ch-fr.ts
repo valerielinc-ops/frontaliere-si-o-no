@@ -7508,6 +7508,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franco-apprezzamento-eurozona.title': 'Le franc suisse grimpe fortement : l’euro chute à 0,93 CHF',
     'blog.article.franco-apprezzamento-eurozona.excerpt': 'Le franc apprécie plus d’un centime par jour. Craintes concernant la dette publique européenne et les taux de la BNS à 0 %.',
     'blog.article.franco-apprezzamento-eurozona.imageAlt': 'Vue du lac de Lugano avec des montagnes en arrière-plan, lumière du matin sur l\'eau, ambiance financière suisse.',
+    'blog.article.defr-successore-parmelin-sfide.title': 'Le successeur de Parmelin : tarifs douaniers, agriculture et logement américains',
+    'blog.article.defr-successore-parmelin-sfide.excerpt': 'Le nouveau responsable de l’EAER s’attaquera aux tarifs américains, au PA30+ et au plan logement avec plus de 30 mesures, entre le vote du 29 novembre et la date limite de 2028.',
+    'blog.article.defr-successore-parmelin-sfide.imageAlt': 'Le Palais fédéral à Berne au crépuscule, avec des vignes au premier plan, symbole des défis agricoles et économiques du DFEP.',
 };
 
 export default blogMetaChFr;

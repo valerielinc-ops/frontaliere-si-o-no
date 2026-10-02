@@ -7508,6 +7508,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franco-apprezzamento-eurozona.title': 'Franco in forte rialzo: l\'euro scende a 0,93 CHF',
     'blog.article.franco-apprezzamento-eurozona.excerpt': 'Il franco si apprezza oltre un centesimo in un giorno. Timori sul debito pubblico europeo e tassi BNS allo 0%.',
     'blog.article.franco-apprezzamento-eurozona.imageAlt': 'Vista sul Lago di Lugano con montagne sullo sfondo, luce mattutina sull\'acqua, atmosfera finanziaria svizzera.',
+    'blog.article.defr-successore-parmelin-sfide.title': 'Successore di Parmelin: dazi USA, agricoltura e alloggi',
+    'blog.article.defr-successore-parmelin-sfide.excerpt': 'Il nuovo capo del DEFR affronterà i dazi USA, la PA30+ e il piano alloggi con oltre 30 misure, tra voto del 29 novembre e scadenza 2028.',
+    'blog.article.defr-successore-parmelin-sfide.imageAlt': 'Il Palazzo federale a Berna al tramonto, con vigneti in primo piano, simbolo delle sfide agricole ed economiche del DEFR.',
 };
 
 export default blogMetaChIt;

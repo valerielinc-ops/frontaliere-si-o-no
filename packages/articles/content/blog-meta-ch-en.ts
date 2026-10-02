@@ -7508,6 +7508,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franco-apprezzamento-eurozona.title': 'Swiss franc rises sharply: euro falls to CHF 0.93',
     'blog.article.franco-apprezzamento-eurozona.excerpt': 'The franc appreciates more than a cent in a day. Fears about European public debt and SNB rates at 0%.',
     'blog.article.franco-apprezzamento-eurozona.imageAlt': 'View of Lake Lugano with mountains in the background, morning light on the water, Swiss financial atmosphere.',
+    'blog.article.defr-successore-parmelin-sfide.title': 'Parmelin\'s successor: US tariffs, agriculture and housing',
+    'blog.article.defr-successore-parmelin-sfide.excerpt': 'The new head of the EAER will tackle US tariffs, PA30+ and the housing plan with more than 30 measures, between the vote on November 29 and the 2028 deadline.',
+    'blog.article.defr-successore-parmelin-sfide.imageAlt': 'The Federal Palace in Bern at dusk, with vineyards in the foreground, symbolizing the DEFR\'s agricultural and economic challenges.',
 };
 
 export default blogMetaChEn;
