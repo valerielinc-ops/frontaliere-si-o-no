@@ -39,7 +39,16 @@ export const TAILORED_CV_SCHEMA = OBJ({
   headline: S('The target role in the posting\'s own wording when the candidate\'s real level supports it, else the candidate\'s current title'),
   summary: S('3-4 lines'),
   competencies: LIST(S('A short keyword phrase')),
-  experience: LIST(OBJ({ index: { type: 'integer' }, bullets: LIST(S()) })),
+  // Anchored rewrites (idea of Resume-Matcher): each bullet names the highlight of the role it
+  // rewrites and the requirement it answers, so the candidate reviews it line by line.
+  experience: LIST(OBJ({
+    index: { type: 'integer' },
+    bullets: LIST(OBJ({
+      text: S(),
+      source: { type: 'integer', description: 'Index of the role\'s highlight this bullet rewrites, -1 when it rewrites none' },
+      requirement: { type: 'integer', description: 'Index of the posting requirement it answers, -1 when none' },
+    })),
+  })),
   skills: LIST(S()),
 });
 
@@ -56,7 +65,7 @@ Rules (from career-ops):
 - headline: the posting's own title wording only when the candidate's real level supports it; never inflate the level.
 - summary: 3-4 lines answering "which role is this person targeting, and why this one?", with 1-2 proof points from the CV for the posting's most important requirements; up to five of the posting's key terms, only where true.
 - competencies: 6-8 short keyword phrases, each a skill the CV names or clearly demonstrates.
-- experience: one entry per role of the profile, with its index; keep every role. For each, 2-5 bullets, the strongest evidence for this posting first, results before tasks, short sentences, action verbs, no passive voice. Put a key term of the posting in the first bullet when the role truly supports it. A role with nothing relevant keeps 1-2 plain bullets.
+- experience: one entry per role of the profile, with its index; keep every role. Each bullet: text, source (the index of the role's highlight it rewrites; -1 only when it truly rewrites none) and requirement (the index of the requirement it answers, -1 if none). For each role, 2-5 bullets, the strongest evidence for this posting first, results before tasks, short sentences, action verbs, no passive voice. Put a key term of the posting in the first bullet when the role truly supports it. A role with nothing relevant keeps 1-2 plain bullets.
 - skills: the technical skills and tools the CV names, the ones the posting asks for first.
 - candidateType apprentice (an apprenticeship applicant, 14-16 years old): headline and summary "" (the code writes the trade as a goal); the bullets of the taster placements (Schnupperlehre, stage d'orientation) say what the candidate did and learned there, in plain words.
 - The section headings and the dates are written by the code: never write them.
@@ -77,7 +86,7 @@ export function withoutWorkload(title) {
 export function tailoredCvUserText({ profile, requirements, roleTitle, postingExcerpt, answers, candidateType = 'qualified' }) {
   return JSON.stringify({
     candidateType,
-    posting: { roleTitle: withoutWorkload(roleTitle), requirements: (requirements || []).map(({ requirement, importance }) => ({ requirement, importance })), excerpt: postingExcerpt },
+    posting: { roleTitle: withoutWorkload(roleTitle), requirements: (requirements || []).map(({ requirement, importance }, index) => ({ index, requirement, importance })), excerpt: postingExcerpt },
     profile: {
       headline: profile.headline,
       summary: profile.summary,
@@ -173,8 +182,12 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
     }
     return out;
   };
+  // A bullet is { text, source, requirement } (an older payload gives the text alone).
   const bulletsByIndex = new Map((Array.isArray(raw?.experience) ? raw.experience : [])
-    .map((item) => [Number(item?.index), (Array.isArray(item?.bullets) ? item.bullets : []).map((line) => clean(line, 300)).filter(Boolean).slice(0, 5)]));
+    .map((item) => [Number(item?.index), (Array.isArray(item?.bullets) ? item.bullets : [])
+      .map((bullet) => (typeof bullet === 'string' ? { text: bullet } : bullet || {}))
+      .map((bullet) => ({ text: clean(bullet.text, 300), source: Number.isInteger(bullet.source) ? bullet.source : -1, requirement: Number.isInteger(bullet.requirement) ? bullet.requirement : -1 }))
+      .filter((bullet) => bullet.text).slice(0, 5)]));
   // The headline: the apprentice's trade as a goal, written in code; else the model's when the
   // profile backs it, else the candidate's own (study 2026-10-02: a 15-year-old got
   // "Lernender Informatiker EFZ", a role they did not have yet).
@@ -198,7 +211,8 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
     summary: type === 'apprentice' ? '' : clean(raw?.summary, 700),
     competencies: keep(raw?.competencies, 8),
     experience: (profile?.experience || []).map((role, index, roles) => {
-      const bullets = bulletsByIndex.get(index) || [];
+      const anchored = bulletsByIndex.get(index) || [];
+      const bullets = anchored.map((bullet) => bullet.text);
       const own = roleNumbers(role);
       const others = new Set(roles.filter((_, other) => other !== index).flatMap((other) => [...roleNumbers(other)]));
       // One bullet that brings in a tool, a certificate or a standard the CV
@@ -209,15 +223,57 @@ export function sanitizeTailoredCv(raw, { profile, cvText, language, type = 'qua
         || [...numbersOf(line)].some((number) => !own.has(number) && others.has(number)));
       dropped.push(...invented);
       const rewritten = bullets.length > 0 && invented.length === 0;
+      const highlights = role.highlights || [];
       return {
         role: role.role, employer: role.employer, location: role.location, start: role.start, end: role.end,
-        bullets: rewritten ? bullets : (role.highlights || []).slice(0, 4),
+        bullets: rewritten ? bullets : highlights.slice(0, 4),
         rewritten,
+        // Each rewritten line with the highlight it rewrites: the candidate's line-by-line review.
+        lines: rewritten ? anchored.map((bullet, n) => {
+          const source = bullet.source >= 0 && bullet.source < highlights.length ? bullet.source : -1;
+          return { id: `r${index}-l${n}`, text: bullet.text, original: source >= 0 ? highlights[source] : '', requirement: bullet.requirement };
+        }) : [],
       };
     }),
     skills: keep(raw?.skills, 16),
     dropped,
   };
+}
+
+const CHOICES = new Set(['adapted', 'original', 'own']);
+const MAX_OWN_LINE = 300;
+
+/**
+ * The candidate's choices on the review page, applied: for each rewritten
+ * line the adapted text, the CV's own line it rewrote (dropped when it
+ * rewrote none) or the candidate's own words; the same for the summary (the
+ * profile's own summary, or none). Unknown ids and empty own texts are
+ * ignored, so a stale choice never breaks the CV.
+ * @param {object} cv sanitizeTailoredCv's result
+ * @param {Record<string, {use:string, text?:string}>} choices by line id, plus `summary`
+ * @param {{profile?:object}} [context]
+ */
+export function applyCvLineChoices(cv, choices = {}, { profile } = {}) {
+  if (!cv || !choices || typeof choices !== 'object') return cv;
+  const pick = (choice, adapted, original) => {
+    if (!choice || !CHOICES.has(choice.use)) return adapted;
+    if (choice.use === 'original') return original;
+    if (choice.use === 'own') return clean(choice.text, MAX_OWN_LINE) || adapted;
+    return adapted;
+  };
+  return {
+    ...cv,
+    summary: pick(choices.summary, cv.summary, clean(profile?.summary, 700)),
+    experience: (cv.experience || []).map((role) => (role.rewritten && role.lines?.length ? {
+      ...role,
+      bullets: role.lines.map((line) => pick(choices[line.id], line.text, line.original)).filter(Boolean),
+    } : role)),
+  };
+}
+
+/** The candidate's own words among the choices: they vouch for themselves in the fact gate, as letter edits do. */
+export function ownChoiceTexts(choices = {}) {
+  return Object.values(choices || {}).filter((choice) => choice?.use === 'own').map((choice) => clean(choice.text, MAX_OWN_LINE)).filter(Boolean);
 }
 
 /** Everything Codex wrote, as the fact gate reads it (a headline written in code is not). */
