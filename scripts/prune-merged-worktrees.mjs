@@ -51,6 +51,15 @@
 //   • vecchio checkout di main: tutto lo sporco uguale a UN commit first-parent
 //      di main, fermo da 7 giorni
 //   • directory orfana i cui file sono tutti in main allo stesso path
+//   • (corpus) head della PR scaricata da refs/pull/N/head se manca, con un
+//      tetto per run; PR riconosciuta dallo SHA della head, non dal nome; file
+//      identici a un commit della PR (trasporto `identical-twins` rifatto sopra
+//      main); commit e sporco identici a origin/main; symlink `node_modules`
+//      non tracciato = rumore, tolto senza seguirlo
+//   • cartelle `.wt/`, `.worktrees/`, `.claude/worktrees/` della ROOT del
+//      workspace: una directory lì è orfana solo se NESSUN repo del workspace la
+//      registra, e la prova usa i ref del repo a cui appartiene
+// Lo stesso script gira nel sito e nel corpus (cwd nel checkout del repo).
 // Ciò che è solo probabile (punta superata, issue chiusa, file in tmp/, sporco
 // vecchio su PR mergiata) resta REPORT-ONLY con un'annotazione.
 //
@@ -70,7 +79,8 @@
 
 import { execFileSync, execSync } from 'node:child_process';
 import {
-  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, writeFileSync,
+  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, renameSync, rmSync, statSync, unlinkSync,
+  writeFileSync,
 } from 'node:fs';
 import { basename, join, relative, resolve } from 'node:path';
 
@@ -103,13 +113,14 @@ import {
   needsSnapshot,
   normalizeSubject,
   orphanWindow,
+  prNumbersInBranch,
   reportAnnotation,
   squashPrNumber,
   squashSubjects,
   STALE_CHECKOUT_IDLE_MS,
 } from './lib/branch-purge-policy.mjs';
 import {
-  isDanglingGitPointer, makeContentProver, makeGitRunner, workingBlob,
+  isDanglingGitPointer, makeContentProver, makeGitRunner, nodeModulesLinks, removeTreeNoFollow, workingBlob,
 } from './lib/merged-content-proof.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
@@ -316,6 +327,10 @@ let ghOk = sh('gh --version', { allowFail: true }) !== '';
 const prState = new Map();
 const prRecords = new Map();
 const prByNumber = new Map(); // numero → record, per le PR candidate delle prove
+// headRefOid → record: la PR si riconosce dallo SHA, non dal nome. Nel corpus i
+// branch locali hanno spesso un nome diverso dalla PR (`merge-deps-1991` contro
+// `update-all-dependencies`), sono detached, o riusano `fix/issue-N` di PR diverse.
+const prByHeadOid = new Map();
 const windowPrs = []; // tutte le PR lette in blocco, per le candidate per nome
 const PR_JSON_FIELDS = 'number,state,baseRefName,headRefName,headRefOid,closedAt';
 function ingestPrs(json) {
@@ -326,6 +341,11 @@ function ingestPrs(json) {
     if (Number.isInteger(pr.number) && !prByNumber.has(pr.number)) {
       prByNumber.set(pr.number, pr);
       windowPrs.push(pr);
+    }
+    if (pr.headRefOid) {
+      const byOid = prByHeadOid.get(pr.headRefOid) || [];
+      if (!byOid.some((r) => r.number === pr.number)) byOid.push(pr);
+      prByHeadOid.set(pr.headRefOid, byOid);
     }
     const records = prRecords.get(pr.headRefName) || [];
     if (records.some((r) => r.number === pr.number && r.headRefOid === pr.headRefOid)) continue;
@@ -403,7 +423,7 @@ function commitIsAncestorOfPrHead(localTip, pr) {
   // taking too long to generate» appena i due commit sono lontani (misurato il
   // 2026-10-02 su #8862, #8849, #10025, #10051, #10417): la prova remota da
   // sola lasciava report-only proprio i branch di risoluzione più vecchi.
-  if (gitOk(['cat-file', '-e', `${prHead}^{commit}`])) {
+  if (gitOk(['cat-file', '-e', `${prHead}^{commit}`]) || ensurePrHead({ number: pr?.number, headRefOid: prHead })) {
     const provenLocally = gitOk(['merge-base', '--is-ancestor', localTip, prHead]);
     ancestryProofCache.set(key, provenLocally);
     return provenLocally;
@@ -759,6 +779,35 @@ function recordsForHeadRef(ref) {
   return prRecords.get(ref) || [];
 }
 
+// L'HEAD di una PR candidata deve essere nel clone. Il corpus (e il sito,
+// con delete_branch_on_merge) cancella il branch remoto al merge: l'HEAD resta
+// solo in refs/pull/N/head. Si scarica solo per le PR candidate, con un tetto
+// per run, sotto lo stesso lock single-flight del fetch di main e con un
+// timeout (AGENTS.md: hook non presidiato che fa rete). Lock occupato, tetto
+// raggiunto o fetch fallito = niente prova, mai un'eccezione.
+const MAX_PR_FETCHES = 6;
+const PR_FETCH_TIMEOUT_MS = 2 * 60 * 1000;
+let prFetches = 0;
+
+function ensurePrHead(pr) {
+  const oid = pr?.headRefOid;
+  if (!oid) return false;
+  if (prover.hasCommit(oid)) return true;
+  if (!Number.isInteger(pr.number) || prFetches >= MAX_PR_FETCHES) return false;
+  prFetches++;
+  let run;
+  try {
+    run = withSingleFlightLock(fetchLock, () => {
+      try {
+        execFileSync('git', ['fetch', '--no-write-fetch-head', '-q', 'origin', `refs/pull/${pr.number}/head`], {
+          stdio: 'ignore', timeout: PR_FETCH_TIMEOUT_MS, killSignal: 'SIGTERM',
+        });
+      } catch { /* PR assente o rete giù: niente prova */ }
+    });
+  } catch { return false; }
+  return run?.acquired === true && prover.hasCommit(oid);
+}
+
 // PR MERGED su main in cui cercare il contenuto, in ordine di plausibilità.
 function mergedCandidates({ branch, head }) {
   const list = [];
@@ -768,11 +817,14 @@ function mergedCandidates({ branch, head }) {
     if (list.some((x) => x.headRefOid === rec.headRefOid)) return;
     list.push(rec);
   };
+  for (const pr of prByHeadOid.get(head) || []) push(pr); // stesso SHA, qualunque nome
   if (branch) {
     for (const pr of prRecords.get(branch) || []) push(pr);
     for (const pr of namePrefixCandidates(branch, windowPrs)) push(pr);
     const up = upstreamHeadRef(branch);
     if (up && up !== branch) for (const pr of recordsForHeadRef(up)) push(pr);
+    // `repair-pr-1851`, `verify-pr1871-remote`: il numero nel nome indica la PR.
+    for (const n of prNumbersInBranch(branch).slice(0, 3)) push(prRecordByNumber(n));
   }
   push(associatedPrForCommit(head));
   // Merge rifatto (detached): GitHub conosce i genitori, non il merge locale.
@@ -811,7 +863,7 @@ function reapplyIssues(prNumber) {
 // B2-2: HEAD dentro la head di una PR CLOSED che il flusso automatico ha
 // riapplicato su main.
 function reappliedProof(head, closedPr) {
-  if (!prover.hasCommit(closedPr.headRefOid) || !prover.isAncestor(head, closedPr.headRefOid)) return null;
+  if (!ensurePrHead(closedPr) || !prover.isAncestor(head, closedPr.headRefOid)) return null;
   for (const issue of reapplyIssues(closedPr.number)) {
     const reapplyPr = recordsForHeadRef(`fix/issue-${issue.number}`)
       .find((pr) => pr.state === 'MERGED' && pr.baseRefName === mainBranch);
@@ -875,6 +927,7 @@ function contentProof({ head, branch, wtPath = null, dirty = false, prExists = f
     // HEAD già su main: non c'è un commit da provare, solo l'eventuale sporco.
     const onMain = aheadOfMain(head) === 0;
     for (const pr of onMain ? [] : mergedCandidates({ branch, head })) {
+      if (!ensurePrHead(pr)) continue;
       const chain = prover.proveChain(head, pr.headRefOid);
       if (!chain.proven) {
         if (chain.sharesPr && !notes.partialPr) notes.partialPr = { number: pr.number, unproven: chain.unproven, example: chain.example };
@@ -886,11 +939,15 @@ function contentProof({ head, branch, wtPath = null, dirty = false, prExists = f
       if (d.tmpOnly && !notes.tmpOnly) notes.tmpOnly = { number: pr.number, count: d.tmpOnly };
       notes.provenPr = notes.provenPr || pr;
     }
-    if (branch && !onMain) {
-      const atHead = (prRecords.get(branch) || []).find((pr) => canRemoveClosedAtHead({ pr, head, dirty }));
+    // PR con questo HEAD esatto, per nome o per SHA (detached, nomi diversi).
+    const sameHeadPrs = [...(branch ? prRecords.get(branch) || [] : []), ...(prByHeadOid.get(head) || [])];
+    if (!onMain) {
+      const atHead = sameHeadPrs.find((pr) => canRemoveClosedAtHead({ pr, head, dirty }));
       if (atHead) {
         return { remove: `PR #${atHead.number} CLOSED il ${String(atHead.closedAt).slice(0, 10)} con HEAD identico alla sua head: il contenuto resta in refs/pull/${atHead.number}/head` };
       }
+    }
+    if (branch && !onMain) {
       for (const closedPr of closedCandidates(branch)) {
         const reapplied = reappliedProof(head, closedPr);
         if (!reapplied) continue;
@@ -898,6 +955,16 @@ function contentProof({ head, branch, wtPath = null, dirty = false, prExists = f
         if (!dirty) return { remove: why };
         const d = prover.dirtyProof(wtPath, head, closedPr.headRefOid, { prExists: true });
         if (d.proven) return { remove: `${why}; ${d.files} file non committati identici a blob della PR` };
+      }
+    }
+    // CA6: commit propri e sporco tutti identici a origin/main (PR CLOSED il cui
+    // contenuto è arrivato su main per un'altra strada, o nessuna PR).
+    if (!onMain || dirty) {
+      const same = prover.identicalToMain(wtPath, head, { prExists });
+      const atPrHead = sameHeadPrs.find((pr) => pr.headRefOid === head);
+      if (same.proven && (!same.overridden.length || atPrHead)) {
+        const kept = same.overridden.length ? `; ${same.overridden.length} versioni committate restano in refs/pull/${atPrHead.number}/head` : '';
+        return { remove: `contenuto identico a origin/main: ${same.files} file allo stesso path${kept}` };
       }
     }
     if (wtPath && dirty && onMain && isIdleSince(activityMs, { idleMs: STALE_CHECKOUT_IDLE_MS })) {
@@ -1121,7 +1188,9 @@ for (const wt of worktrees) {
     // commit ancora): oltre IDLE_WORKTREE_MS di inattività, e senza processi
     // dentro, si rimuove. Senza PR il body non tracciato è il testo della PR che
     // l'agente stava per aprire: lavoro, non rumore.
-    const noPr = ignored.length && !aborted ? classifyDirty(wt.path, { prExists: false }) : null;
+    // Una PR con lo stesso HEAD (trovata dallo SHA) esiste anche se il nome no.
+    const prByOid = head ? prByHeadOid.get(head) || [] : [];
+    const noPr = ignored.length && !aborted && !prByOid.length ? classifyDirty(wt.path, { prExists: false }) : null;
     const dirtyNoPr = noPr ? noPr.error || noPr.significant.length > 0 : dirty;
     const ignoredNoPr = noPr ? noPr.ignored : ignored;
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
@@ -1144,7 +1213,7 @@ for (const wt of worktrees) {
       ? ` — attività ${idle ? 'vecchia' : 'recente'} (< ${IDLE_WORKTREE_MS / 3600000} h = agente forse attivo)${busySnapshot.known ? '' : ', lsof non disponibile'}${ghOk ? '' : ', gh non disponibile'}`
       : ' — agent forse attivo';
     const reason = `clean=${!dirtyNoPr}${statusError ? ' (stato git illeggibile)' : ''}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone}${why}, REPORT-ONLY`;
-    if (prStateKnown) proofOrReport(reason, { dirtyNow: dirtyNoPr, prExists: false });
+    if (prStateKnown) proofOrReport(reason, { dirtyNow: dirtyNoPr, prExists: prByOid.length > 0 });
     else reportWt.push(attachNotes({ ...wt, reason }, {}, { dirty: dirtyNoPr, activityMs: activity }));
   }
 }
@@ -1154,8 +1223,61 @@ for (const wt of worktrees) {
 // radice è quella del checkout PRINCIPALE (primo record del porcelain), non la
 // cwd: lanciato da hooks-main via bin/site-hook, `--show-toplevel` darebbe il
 // worktree degli hook.
-const registered = new Set(worktrees.map((w) => canonicalPath(w.path)));
 const mainWorktreeRoot = worktrees[0]?.path || repoRoot;
+
+// Il workspace: la cartella che contiene i checkout (sito, corpus, ...) e
+// `bin/site-hook`. I worktree nascono anche nelle sue `.wt/`, `.worktrees/` e
+// `.claude/worktrees/`, che ospitano worktree di PIÙ repo: lì una directory è
+// orfana solo se nessun repo del workspace la registra, e la prova C1 può
+// usare i ref di ciascun repo (un residuo del sito in `.wt/` della root si
+// prova con i ref del sito, anche se lo sweep gira nel corpus).
+// FRONTALIERE_WORKSPACE serve ai test; WORKSPACE no di proposito: nei test
+// erediterebbe il workspace vero.
+function detectWorkspaceRoot() {
+  for (const candidate of [process.env.FRONTALIERE_WORKSPACE, resolve(canonicalPath(mainWorktreeRoot), '..')]) {
+    if (candidate && existsSync(join(candidate, 'bin', 'site-hook'))) return canonicalPath(candidate);
+  }
+  return null;
+}
+const WORKSPACE_ROOT = detectWorkspaceRoot();
+const ORPHAN_FOLDERS = ['.claude/worktrees', '.worktrees', '.wt'];
+
+// Repo del workspace: la root (se è un repo) e ogni cartella figlia con una
+// directory `.git` (i clone, non i worktree). Il repo corrente c'è sempre.
+function workspaceRepos() {
+  const roots = new Set([canonicalPath(mainWorktreeRoot)]);
+  if (WORKSPACE_ROOT) {
+    if (existsSync(join(WORKSPACE_ROOT, '.git'))) roots.add(WORKSPACE_ROOT);
+    let entries = [];
+    try { entries = readdirSync(WORKSPACE_ROOT, { withFileTypes: true }); } catch { /* illeggibile */ }
+    for (const entry of entries) {
+      if (!entry.isDirectory() || entry.name.startsWith('.')) continue;
+      const dir = join(WORKSPACE_ROOT, entry.name);
+      try { if (lstatSync(join(dir, '.git')).isDirectory()) roots.add(canonicalPath(dir)); } catch { /* non è un clone */ }
+    }
+  }
+  return [...roots];
+}
+
+// Unione dei worktree registrati in tutti i repo del workspace. Se un repo non
+// risponde, le directory della root non si toccano (registrazione sconosciuta).
+const registered = new Set(worktrees.map((w) => canonicalPath(w.path)));
+let registrationKnown = true;
+const repoContexts = []; // { root, prover } per le prove C1, il repo corrente per primo
+for (const repo of workspaceRepos()) {
+  const isCurrent = repo === canonicalPath(mainWorktreeRoot);
+  const porcelain = isCurrent ? wtPorcelain : gitOut(['-C', repo, 'worktree', 'list', '--porcelain'], { allowFail: true });
+  if (!porcelain) { registrationKnown = false; continue; }
+  for (const line of porcelain.split('\n')) {
+    if (line.startsWith('worktree ')) registered.add(canonicalPath(line.slice('worktree '.length)));
+  }
+  const ref = isCurrent
+    ? mainRef
+    : gitOut(['-C', repo, 'symbolic-ref', '--quiet', '--short', 'refs/remotes/origin/HEAD'], { allowFail: true }) || 'origin/main';
+  const context = { root: repo, prover: isCurrent ? prover : makeContentProver({ git: makeGitRunner(repo), mainRef: ref }) };
+  if (isCurrent) repoContexts.unshift(context);
+  else repoContexts.push(context);
+}
 const orphanRemove = []; // {path, files}
 const orphanReport = []; // {path, reason}
 
@@ -1222,39 +1344,43 @@ function fullOrphanScan(dir) {
   return { files, newest, newestFile, unreadable, tooMany };
 }
 
-function provenOrphan(dir) {
-  if (!busySnapshot.known || !ghOk) return null;
+// `contexts`: i repo i cui ref possono provare la directory. Tutti i file
+// devono combaciare nello STESSO repo (un residuo appartiene a un repo solo).
+function provenOrphan(dir, contexts) {
+  if (!busySnapshot.known || !ghOk || !contexts.length) return null;
   return timed(() => {
     const scan = fullOrphanScan(dir);
     if (scan.unreadable || scan.tooMany || !isIdleSince(scan.newest)) return null;
-    const files = scan.files.map((f) => ({
+    const base = scan.files.map((f) => ({
       ...f,
       skippable: isOrphanSkippablePath(f.rel) || isOrphanResidueFile(f.rel)
         || (f.rel === '.git' && isDanglingGitPointer(f.full)),
     }));
-    const toCheck = files.filter((f) => !f.skippable);
-    const ignored = prover.ignoredPaths(repoRoot || process.cwd(), toCheck.map((f) => f.rel));
-    const verify = [];
-    for (const f of toCheck) {
-      f.ignored = ignored.has(f.rel);
-      if (f.ignored) continue;
+    for (const f of base) {
+      if (f.skippable) continue;
       f.blob = workingBlob(f.full);
       if (typeof f.blob !== 'string' || f.blob === 'deleted') return null;
-      verify.push(f);
     }
-    const window = orphanWindow(scan.newestFile || scan.newest);
-    const matched = verify.length ? prover.orphanFilesMatch(verify, window || { sinceMs: 0, untilMs: 0 }) : new Map();
-    if (!matched) return null;
-    for (const f of verify) f.matched = matched.has(f.rel);
-    if (!isProvenOrphan({ files, idle: isIdleSince(scan.newest) })) {
-      const miss = verify.find((f) => !f.matched);
-      return { proven: false, miss: miss?.rel };
+    const window = orphanWindow(scan.newestFile || scan.newest) || { sinceMs: 0, untilMs: 0 };
+    let firstMiss;
+    for (const { root, prover: repoProver } of contexts) {
+      const files = base.map((f) => ({ ...f }));
+      const toCheck = files.filter((f) => !f.skippable);
+      const ignored = repoProver.ignoredPaths(root, toCheck.map((f) => f.rel));
+      const verify = toCheck.filter((f) => { f.ignored = ignored.has(f.rel); return !f.ignored; });
+      const matched = verify.length ? repoProver.orphanFilesMatch(verify, window) : new Map();
+      if (!matched) continue;
+      for (const f of verify) f.matched = matched.has(f.rel);
+      if (isProvenOrphan({ files, idle: isIdleSince(scan.newest) })) {
+        return { proven: true, files: files.length, verified: verify.length, newest: scan.newest, repo: basename(root) };
+      }
+      firstMiss = firstMiss || verify.find((f) => !f.matched)?.rel;
     }
-    return { proven: true, files: files.length, verified: verify.length, newest: scan.newest };
+    return { proven: false, miss: firstMiss };
   });
 }
 
-function sweepOrphans(dir) {
+function sweepOrphans(dir, contexts) {
   let entries;
   try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return; }
   for (const entry of entries) {
@@ -1266,7 +1392,7 @@ function sweepOrphans(dir) {
     // dentro: si scende a guardare i fratelli, mai si cancella in blocco.
     const prefix = `${canonical}/`;
     if ([...registered].some((p) => p.startsWith(prefix))) {
-      sweepOrphans(full);
+      sweepOrphans(full, contexts);
       continue;
     }
     if (isBusy(full)) {
@@ -1279,7 +1405,7 @@ function sweepOrphans(dir) {
       orphanRemove.push({ path: full, files: files.length });
       continue;
     }
-    const proof = work ? provenOrphan(full) : null;
+    const proof = work ? provenOrphan(full, contexts) : null;
     if (proof?.proven) {
       orphanRemove.push({ path: full, files: proof.files, proven: proof });
     } else {
@@ -1292,9 +1418,16 @@ function sweepOrphans(dir) {
     }
   }
 }
-for (const root of ['.claude/worktrees', '.worktrees', '.wt']) {
-  const dir = join(mainWorktreeRoot, root);
-  if (existsSync(dir)) sweepOrphans(dir);
+for (const folder of ORPHAN_FOLDERS) {
+  const dir = join(mainWorktreeRoot, folder);
+  if (existsSync(dir)) sweepOrphans(dir, repoContexts.slice(0, 1));
+}
+// Le cartelle della root: solo se ogni repo ha risposto, e con i ref di tutti.
+if (WORKSPACE_ROOT && WORKSPACE_ROOT !== canonicalPath(mainWorktreeRoot) && registrationKnown) {
+  for (const folder of ORPHAN_FOLDERS) {
+    const dir = join(WORKSPACE_ROOT, folder);
+    if (existsSync(dir)) sweepOrphans(dir, repoContexts);
+  }
 }
 
 // --- 2. BRANCH LOCALI senza worktree ----------------------------------------
@@ -1364,7 +1497,7 @@ for (const b of allLocal) {
 
 resolveIssueNotes();
 saveProofCache();
-const costLine = () => `ℹ️  costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s, di cui prove ${(proofMs / 1000).toFixed(1)} s; ${ghCalls} chiamate gh.`;
+const costLine = () => `ℹ️  costo: ${((Date.now() - STARTED_AT) / 1000).toFixed(1)} s, di cui prove ${(proofMs / 1000).toFixed(1)} s; ${ghCalls} chiamate gh; ${prFetches} fetch di refs/pull.`;
 
 // --- OUTPUT + APPLY ---------------------------------------------------------
 console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo worktree-agent-*+0-ahead)'} | mode=${APPLY ? 'APPLY' : 'dry-run'}`);
@@ -1376,7 +1509,7 @@ removeWt.forEach((w) => console.log(
 ));
 console.log(`directory orfane da rimuovere (${orphanRemove.length}):`);
 orphanRemove.forEach((o) => console.log(o.proven
-  ? `  - ${o.path} — nessun worktree registrato, ${o.proven.verified} file identici a main allo stesso path (${o.files} in tutto, il resto rumore o ignorato)`
+  ? `  - ${o.path} — nessun worktree registrato in nessun repo, ${o.proven.verified} file identici a main di ${o.proven.repo} allo stesso path (${o.files} in tutto, il resto rumore o ignorato)`
   : `  - ${o.path} — nessun worktree registrato, solo residui (${o.files} file: .DS_Store / node_modules / body PR)`));
 console.log(`branch locali da cancellare (${delBranch.length}):`);
 delBranch.forEach((b) => console.log(
@@ -1410,6 +1543,11 @@ for (const w of removeWt) {
     failed++;
     console.log(`⚠️  FALLITO snapshot ${w.head} — worktree lasciato intatto`);
     continue;
+  }
+  // Il symlink `node_modules` non tracciato si toglie prima, senza seguirlo:
+  // `git worktree remove` non deve mai attraversarlo.
+  for (const link of nodeModulesLinks(w.path, classifyDirty(w.path).ignored)) {
+    try { if (lstatSync(join(w.path, link)).isSymbolicLink()) unlinkSync(join(w.path, link)); } catch { /* già via */ }
   }
   // Conta/logga solo a esito 0: una rimozione fallita (worktree lockato, branch
   // in checkout) NON deve gonfiare il totale.
@@ -1448,11 +1586,12 @@ for (const o of orphanRemove) {
     console.log(`⚠️  SALTATA directory ${o.path}: è cambiata durante lo sweep`);
     continue;
   }
-  try {
-    rmSync(o.path, { recursive: true, force: false });
+  // Mai `rm -rf`: un symlink (node_modules verso il checkout principale) si
+  // toglie senza seguirlo.
+  if (removeTreeNoFollow(o.path)) {
     done++;
     console.log(`removed directory ${o.path}`);
-  } catch {
+  } else {
     failed++;
     console.log(`⚠️  FALLITA rimozione directory ${o.path} — saltata`);
   }

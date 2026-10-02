@@ -261,6 +261,20 @@ export function issueNumbersInBranch(branch) {
   return out;
 }
 
+// Numeri di PR che un nome di branch può citare: quelli di issueNumbersInBranch
+// più la forma attaccata `pr1871`/`pr-1871` (`verify-pr1871-remote`,
+// `codex-pr1521-reviewfix`). Servono solo a TROVARE la PR candidata: un numero
+// nel nome può essere un'issue o una PR dell'altro repo, la prova resta
+// ancestralità, SHA o patch-id.
+export function prNumbersInBranch(branch) {
+  const out = issueNumbersInBranch(branch);
+  for (const match of String(branch || '').matchAll(/(?:^|[/_-])pr-?([1-9]\d{1,5})(?=$|[/_-])/gi)) {
+    const n = Number(match[1]);
+    if (!out.includes(n)) out.push(n);
+  }
+  return out;
+}
+
 // PR candidate per nome: stessa head o una sua variante `<branch>-r1`.
 export function namePrefixCandidates(branch, prs) {
   if (!branch) return [];

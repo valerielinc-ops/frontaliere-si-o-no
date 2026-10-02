@@ -157,6 +157,9 @@ beforeAll(() => {
   sha.Mx = commit(clone, 'main: refresh contract', 11 * DAY, { '.github/corpus-workflows/contract.json': '{"sourceCommit":"mx"}\n' });
   sha.M2 = commit(clone, 'main: s1 nuovo, s2 via, s3', 10 * DAY, { 's1.txt': 's1-new\n', 's2.txt': null, 's3.txt': 's3\n' });
   sha.W1 = commit(clone, 'main: w1', 6 * DAY, { 'w.txt': 'w1\n' });
+  // main va oltre M2 su s1.txt: il contenuto dei vecchi checkout NON è quello
+  // di main adesso (altrimenti li proverebbe già CA6, senza la guardia dei 7 g).
+  commit(clone, 'main: s1 ancora nuovo', 5 * DAY, { 's1.txt': 's1-newest\n' });
 
   // --- PR e branch locali ------------------------------------------------------
   // #10: cherry-pick poi modificato nella PR.
@@ -430,7 +433,7 @@ describe('prove di contenuto su un clone di prova', () => {
   it('il dry-run pianifica senza toccare niente', () => {
     expect(dryRun).toContain('dry-run: niente rimosso');
     for (const [name] of REMOVED) expect(dryRun).toContain(wt(name));
-    expect(dryRun).toMatch(/costo: [\d.]+ s, di cui prove [\d.]+ s; \d+ chiamate gh\./);
+    expect(dryRun).toMatch(/costo: [\d.]+ s, di cui prove [\d.]+ s; \d+ chiamate gh; \d+ fetch di refs\/pull\./);
   });
 
   it.each(REMOVED)('rimuove %s (%s)', (name) => {

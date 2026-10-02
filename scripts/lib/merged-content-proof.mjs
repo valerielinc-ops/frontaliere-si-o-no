@@ -8,14 +8,15 @@
 // la PR hanno un tetto oltre il quale la prova non si tenta (= report-only).
 import { execFileSync } from 'node:child_process';
 import { createHash } from 'node:crypto';
-import { existsSync, lstatSync, readFileSync, readlinkSync } from 'node:fs';
+import { existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, rmdirSync, unlinkSync } from 'node:fs';
 import { join } from 'node:path';
 
 import { DELETED, isCommitContained, isDirtyContained, isMergeContained } from './branch-purge-policy.mjs';
-import { classifyDirtyEntries } from './worktree-dirty.mjs';
+import { classifyDirtyEntries, symlinkProbe } from './worktree-dirty.mjs';
 
 const DEFAULT_LIMITS = Object.freeze({
   chain: 120, // commit locali non in PR né su main
+  chainFiles: 5000, // file confrontati blob per blob (CA5, CA6)
   prCommits: 400, // commit propri della PR candidata
   windowCommits: 600, // commit first-parent di main in una finestra
   probes: 200000, // righe `<commit>:<path>` per un solo cat-file
@@ -102,7 +103,16 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
   const out = (args, opts) => git(args, opts);
   const ok = (args) => out(args) !== null;
 
-  const hasCommit = (rev) => Boolean(rev) && cached(`has:${rev}`, () => ok(['cat-file', '-e', `${rev}^{commit}`]));
+  // Solo i positivi in memoria: un HEAD di PR assente può arrivare con un fetch
+  // di refs/pull/N/head durante lo stesso sweep.
+  const present = new Set();
+  const hasCommit = (rev) => {
+    if (!rev) return false;
+    if (present.has(rev)) return true;
+    const found = ok(['cat-file', '-e', `${rev}^{commit}`]);
+    if (found) present.add(rev);
+    return found;
+  };
   const isAncestor = (a, b) => ok(['merge-base', '--is-ancestor', a, b]);
   const treeOf = (rev) => cached(`tree:${rev}`, () => (out(['rev-parse', '--verify', '-q', `${rev}^{tree}`]) || '').trim() || null);
   const mergeBase = (a, b) => (out(['merge-base', a, b]) || '').trim() || null;
@@ -211,6 +221,8 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       const net = mergeTree(fork, head, tip);
       if (net && net === treeOf(head)) return { proven: true, how: `${chain.length} commit già nell'albero della PR`, sharesPr };
     }
+    const sameFiles = filesInPrHistory(tip, head, fork);
+    if (sameFiles) return { proven: true, how: `${sameFiles} file identici a blob di commit della PR`, sharesPr };
     const idx = prIndex(head);
     if (!idx) return { proven: false, reason: `PR oltre ${L.prCommits} commit`, sharesPr, unproven: chain.length, example: chain[0].sha };
     let byPatch = 0;
@@ -241,6 +253,73 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
     return { proven: true, how: `${chain.length} commit equivalenti a commit della PR${detail ? ` (${detail})` : ''}`, sharesPr };
   }
 
+  // CA5: ogni file che il ramo locale cambia (dal punto di biforcazione) è
+  // identico al blob dello stesso path nella head della PR, su main, oppure in
+  // un commit della PR il cui squash tocca ancora quel path. Le PR di trasporto
+  // `identical-twins` vengono rifatte sopra main: patch-id diversi, stessi
+  // file. Il vincolo sullo squash è lo stesso controcaso del patch-id: un file
+  // aggiunto e poi revertito nella PR ha il blob giusto ma non è su main.
+  // Ritorna il numero di file, o 0.
+  function filesInPrHistory(tip, head, fork) {
+    if (!fork) return 0;
+    const names = out(['diff', '--name-only', '--no-renames', '-z', fork, tip]);
+    const squashBase = mergeBase(mainRef, head);
+    const squashNames = squashBase ? out(['diff', '--name-only', '--no-renames', '-z', squashBase, head]) : null;
+    if (names === null || squashNames === null) return 0;
+    const paths = names.split('\0').filter(Boolean);
+    if (!paths.length || paths.length > L.chainFiles) return 0;
+    const inSquash = new Set(squashNames.split('\0').filter(Boolean));
+    const atTip = blobsAt(tip, paths);
+    const atHead = blobsAt(head, paths);
+    const atMain = blobsAt(mainRef, paths);
+    const inPr = blobsInRange([head, '--not', mainRef], paths);
+    if (!atTip || !atHead || !atMain || !inPr) return 0;
+    const all = paths.every((p) => {
+      const local = atTip.get(p) || DELETED;
+      return (atHead.get(p) || DELETED) === local
+        || (atMain.get(p) || DELETED) === local
+        || (inSquash.has(p) && inPr.get(p).has(local));
+    });
+    return all ? paths.length : 0;
+  }
+
+  // CA6: tutto il contenuto locale (commit propri e sporco) è identico a
+  // origin/main allo stesso path. Vale in qualunque stato della PR: niente di
+  // ciò che c'è qui manca da main. `overridden`: i path in cui un commit
+  // proprio porta una versione diversa da main che lo sporco riporta a main
+  // (seo-meta-mirror): quella versione vive solo nel commit, e il chiamante la
+  // accetta solo se il commit è la head di una PR (refs/pull/N/head).
+  function identicalToMain(wtPath, head, { prExists = true } = {}) {
+    const base = mergeBase(head, mainRef);
+    if (!base) return { proven: false };
+    const names = out(['diff', '--name-only', '--no-renames', '-z', base, head]);
+    const entries = wtPath ? dirtyEntries(wtPath, { prExists }) : [];
+    if (names === null || entries === null) return { proven: false };
+    if (entries.some((e) => /[RC]/.test(e.status))) return { proven: false };
+    const committed = names.split('\0').filter(Boolean);
+    const local = entries.length ? localVersions(wtPath, entries) : [];
+    if (!local || local.some((e) => !e.complete)) return { proven: false };
+    const paths = [...new Set([...committed, ...local.map((e) => e.path)])];
+    if (!paths.length || paths.length > L.chainFiles) return { proven: false };
+    const atHead = blobsAt(head, paths);
+    const atMain = blobsAt(mainRef, paths);
+    if (!atHead || !atMain) return { proven: false };
+    const mainOf = (p) => atMain.get(p) || DELETED;
+    const dirty = new Map(local.map((e) => [e.path, e]));
+    const overridden = [];
+    const same = paths.every((p) => {
+      const e = dirty.get(p);
+      const headBlob = atHead.get(p) || DELETED;
+      if (!e) return headBlob === mainOf(p);
+      // Working tree uguale a main; l'index uguale a main o a HEAD.
+      const [working, index] = e.versions;
+      if (working !== mainOf(p)) return false;
+      if (committed.includes(p) && headBlob !== mainOf(p)) overridden.push(p);
+      return e.status === '??' || index === mainOf(p) || index === headBlob;
+    });
+    return same ? { proven: true, files: paths.length, overridden } : { proven: false };
+  }
+
   // Stato sporco di un worktree, completo: ogni file non tracciato (anche dentro
   // cartelle nuove) e il percorso esatto (-z). Il rumore (output di cron, body
   // della PR se la PR esiste) è escluso come nel resto dello sweep.
@@ -256,7 +335,7 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       entries.push({ status, path: field.slice(3) });
       if (/[RC]/.test(status)) i++; // il path d'origine segue come campo a sé
     }
-    return classifyDirtyEntries(entries, { prExists }).significantEntries;
+    return classifyDirtyEntries(entries, { prExists, isSymlink: symlinkProbe(wtPath) }).significantEntries;
   }
 
   // Versioni locali di ogni path sporco: working tree e index.
@@ -439,6 +518,7 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
     isAncestor,
     onMain,
     proveChain,
+    identicalToMain,
     dirtyProof,
     staleMainCheckout,
     orphanFilesMatch,
@@ -457,4 +537,28 @@ export function isDanglingGitPointer(fullPath) {
   } catch {
     return false;
   }
+}
+
+// Rimozione di un albero SENZA seguire i symlink: un link (anche a una
+// directory, anche `node_modules` verso il checkout principale) si toglie con
+// unlink, mai attraversato. Ritorna false al primo errore, lasciando il resto.
+export function removeTreeNoFollow(dir) {
+  let st;
+  try { st = lstatSync(dir); } catch (e) { return e?.code === 'ENOENT'; }
+  if (!st.isDirectory()) {
+    try { unlinkSync(dir); return true; } catch { return false; }
+  }
+  let entries;
+  try { entries = readdirSync(dir); } catch { return false; }
+  for (const name of entries) {
+    if (!removeTreeNoFollow(join(dir, name))) return false;
+  }
+  try { rmdirSync(dir); return true; } catch { return false; }
+}
+
+// I symlink `node_modules` non tracciati di un worktree, da togliere (senza
+// seguirli) prima di `git worktree remove`.
+export function nodeModulesLinks(wtPath, ignoredPaths) {
+  const probe = symlinkProbe(wtPath);
+  return (ignoredPaths || []).filter((p) => String(p).replace(/\/+$/, '').split('/').pop() === 'node_modules' && probe(p));
 }

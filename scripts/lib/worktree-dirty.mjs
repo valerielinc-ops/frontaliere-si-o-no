@@ -17,12 +17,15 @@
 // Gli ignorati vengono restituiti separatamente, mai scartati in silenzio: chi
 // chiama li conta e li riporta.
 import { execFileSync } from 'node:child_process';
+import { lstatSync } from 'node:fs';
+import { join } from 'node:path';
 
 import { isCronManagedPath } from './cron-managed-paths.mjs';
 
 // Solo file NON tracciati alla radice del worktree: un `PR_BODY.md` tracciato e
 // modificato, o lo stesso nome in una sottocartella, resta lavoro.
-const PR_SCRATCH_RE = /^(?:\.pr-body[\w.-]*|\.codex-pr-body|PR_BODY|\.issue-\d+-comment)\.md$/;
+// `.observer-pr<N>-body-<data>.md`: il body che l'observer del corpus scrive per la sua PR.
+const PR_SCRATCH_RE = /^(?:\.pr-body[\w.-]*|\.codex-pr-body|PR_BODY|\.issue-\d+-comment|\.observer-pr\d+-body[\w.-]*)\.md$/;
 
 export function isPrScratchPath(filePath) {
   return PR_SCRATCH_RE.test(String(filePath));
@@ -62,11 +65,21 @@ export function classifyDirtyPaths(paths, { isCronManaged = isCronManagedPath } 
   return { significant, ignored };
 }
 
+// Un `node_modules` non tracciato che è un symlink (i worktree del corpus lo
+// fanno puntare al node_modules del checkout principale o del sito, con un
+// path relativo o assoluto) non è lavoro: è un collegamento, e toglierlo senza
+// seguirlo non tocca niente. Una CARTELLA node_modules vera resta sporco.
+export function isNodeModulesLinkEntry({ status, path: filePath }, isSymlink) {
+  const name = String(filePath).replace(/\/+$/, '').split('/').pop();
+  return status === '??' && name === 'node_modules' && typeof isSymlink === 'function' && isSymlink(filePath) === true;
+}
+
 // Come classifyDirtyPaths, ma conosce lo stato porcelain: il body di una PR è
 // rumore solo se non è tracciato (`??`) e solo se la PR esiste, in qualunque
 // stato (`prExists`). Il body di una PR non ancora aperta è il testo che
-// l'agente stava per pubblicare: lavoro, non residuo.
-export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPath, prExists = true } = {}) {
+// l'agente stava per pubblicare: lavoro, non residuo. `isSymlink` (path →
+// boolean) abilita il symlink `node_modules` come rumore.
+export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPath, prExists = true, isSymlink } = {}) {
   const significant = [];
   const significantEntries = [];
   const ignored = [];
@@ -74,6 +87,7 @@ export function classifyDirtyEntries(entries, { isCronManaged = isCronManagedPat
     const { status, path: filePath } = entry;
     if (isCronManaged(filePath)) ignored.push(filePath);
     else if (prExists && status === '??' && isPrScratchPath(filePath)) ignored.push(filePath);
+    else if (isNodeModulesLinkEntry(entry, isSymlink)) ignored.push(filePath);
     else {
       significant.push(filePath);
       significantEntries.push(entry);
@@ -101,8 +115,15 @@ function statusPorcelain(wtPath) {
   } catch { return null; }
 }
 
+// Il symlink si legge con lstat: mai seguito.
+export function symlinkProbe(wtPath) {
+  return (filePath) => {
+    try { return lstatSync(join(wtPath, String(filePath).replace(/\/+$/, ''))).isSymbolicLink(); } catch { return false; }
+  };
+}
+
 export function classifyDirty(wtPath, { prExists = true } = {}) {
   const porcelain = statusPorcelain(wtPath);
   if (porcelain === null) return { significant: [], significantEntries: [], ignored: [], error: true };
-  return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain), { prExists }), error: false };
+  return { ...classifyDirtyEntries(parsePorcelainEntries(porcelain), { prExists, isSymlink: symlinkProbe(wtPath) }), error: false };
 }

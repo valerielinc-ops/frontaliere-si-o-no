@@ -29,8 +29,11 @@ import {
   isDanglingGitPointer,
   makeContentProver,
   makeGitRunner,
+  nodeModulesLinks,
+  removeTreeNoFollow,
   splitFileChunks,
 } from '../scripts/lib/merged-content-proof.mjs';
+import { classifyDirtyEntries, isNodeModulesLinkEntry } from '../scripts/lib/worktree-dirty.mjs';
 
 // Le prove nate dallo smaltimento manuale del 2026-10-02: per ognuna il caso
 // che lo sweep deve rimuovere e il controcaso che deve restare.
@@ -250,6 +253,39 @@ describe('PR candidate e annotazioni', () => {
   });
 });
 
+describe('symlink node_modules (worktree del corpus)', () => {
+  it('un node_modules non tracciato che è un symlink è rumore; una cartella vera no', () => {
+    const link = (p: string) => p === 'node_modules';
+    expect(isNodeModulesLinkEntry({ status: '??', path: 'node_modules' }, link)).toBe(true);
+    expect(isNodeModulesLinkEntry({ status: '??', path: 'node_modules' }, () => false)).toBe(false);
+    expect(isNodeModulesLinkEntry({ status: ' M', path: 'node_modules' }, link)).toBe(false);
+    expect(isNodeModulesLinkEntry({ status: '??', path: 'node_modules' }, undefined)).toBe(false);
+    const { significant, ignored } = classifyDirtyEntries([
+      { status: '??', path: 'node_modules' },
+      { status: '??', path: 'generator/node_modules/' },
+    ], { isSymlink: link });
+    expect(ignored).toEqual(['node_modules']);
+    expect(significant).toEqual(['generator/node_modules/']);
+  });
+
+  it('la rimozione toglie il link senza seguirlo', () => {
+    const base = fs.realpathSync(fs.mkdtempSync(path.join(os.tmpdir(), 'prune-nofollow-')));
+    const target = path.join(base, 'main-node-modules');
+    fs.mkdirSync(path.join(target, 'pkg'), { recursive: true });
+    fs.writeFileSync(path.join(target, 'pkg', 'index.js'), 'x\n');
+    const wtDir = path.join(base, 'wt');
+    fs.mkdirSync(path.join(wtDir, 'sub'), { recursive: true });
+    fs.writeFileSync(path.join(wtDir, 'sub', 'a.txt'), 'a\n');
+    fs.symlinkSync(target, path.join(wtDir, 'node_modules'));
+    fs.symlinkSync('../main-node-modules', path.join(wtDir, 'sub', 'node_modules'));
+    expect(nodeModulesLinks(wtDir, ['node_modules', 'sub/node_modules', 'sub/a.txt'])).toEqual(['node_modules', 'sub/node_modules']);
+    expect(removeTreeNoFollow(wtDir)).toBe(true);
+    expect(fs.existsSync(wtDir)).toBe(false);
+    expect(fs.readFileSync(path.join(target, 'pkg', 'index.js'), 'utf8')).toBe('x\n');
+    fs.rmSync(base, { recursive: true });
+  });
+});
+
 describe('fatti letti da git', () => {
   let repo = '';
   const env: NodeJS.ProcessEnv = {};
@@ -325,7 +361,9 @@ describe('fatti letti da git', () => {
     const tip = commit('feat: add alpha (locale)');
     const proof = prover.proveChain(tip, prHead);
     expect(proof.proven).toBe(true);
-    expect(proof.how).toContain('per patch-id');
+    // Il file locale è identico al blob del primo commit della PR (CA5), e lo
+    // squash tocca ancora alpha.txt.
+    expect(proof.how).toMatch(/identici a blob di commit della PR|per patch-id/);
   });
 
   it('cherry-pick revertito nella PR: resta', () => {
@@ -389,6 +427,62 @@ describe('fatti letti da git', () => {
     const failingTwinDiff = (args: string[], opts?: { input?: string }) => (
       args.includes('diff') && args.includes('--name-only') && args.includes(redo) ? null : real(args, opts));
     expect(makeContentProver({ git: failingTwinDiff, mainRef: 'origin/main' }).proveChain(redo, prHead).proven).toBe(false);
+  });
+
+  it('PR di trasporto rifatta sopra main: file identici a un commit della PR (CA5)', () => {
+    g('checkout', '-q', 'main');
+    const oldMain = g('rev-parse', 'HEAD');
+    write('twin.txt', 'v1\n');
+    const mainTwin = commit('main: twin v1');
+    g('update-ref', 'refs/remotes/origin/main', mainTwin);
+    // La PR parte dal main nuovo; il ramo locale dal main vecchio: stessi
+    // file finali, patch diverse. La PR poi cambia ancora il file.
+    g('checkout', '-q', '-b', 'pr-transport', mainTwin);
+    write('twin.txt', 'v2\n');
+    commit('chore: porta il gemello');
+    write('twin.txt', 'v2b\n');
+    const prHead = commit('chore: gemello aggiornato');
+    g('checkout', '-q', '-b', 'local-transport', oldMain);
+    write('twin.txt', 'v2\n');
+    const tip = commit('chore: porta il gemello (locale)');
+    const proof = prover.proveChain(tip, prHead);
+    expect(proof).toMatchObject({ proven: true });
+    expect(proof.how).toContain('identici a blob di commit della PR');
+    g('checkout', '-q', '-b', 'local-transport-off', oldMain);
+    write('twin.txt', 'v3\n');
+    expect(prover.proveChain(commit('chore: gemello diverso'), prHead).proven).toBe(false);
+    g('checkout', '-q', 'main');
+  });
+
+  it('commit e sporco identici a origin/main (CA6), e il controcaso', () => {
+    // Da prima di main-only.txt e twin.txt: il commit porta twin.txt come su
+    // main, lo sporco (non tracciato) main-only.txt come su main.
+    g('checkout', '-q', '-b', 'closed-same', 'main~2');
+    write('twin.txt', 'v1\n');
+    const head = commit('fix: stessa cosa arrivata su main per altra strada');
+    write('main-only.txt', 'm\n');
+    expect(prover.identicalToMain(repo, head)).toMatchObject({ proven: true, files: 2 });
+    write('base.txt', 'diverso\n'); // sporco che main non ha: niente prova
+    expect(prover.identicalToMain(repo, head)).toMatchObject({ proven: false });
+    g('checkout', '-q', '--', 'base.txt');
+    write('main-only.txt', 'altro\n');
+    expect(prover.identicalToMain(repo, head)).toMatchObject({ proven: false });
+    fs.rmSync(path.join(repo, 'main-only.txt'));
+    // Il commit porta twin.txt diverso da main, lo sporco lo riporta a main:
+    // la versione committata è "overridden" (vale solo se HEAD è una head di PR).
+    g('checkout', '-q', '-b', 'closed-override', 'main~2');
+    write('twin.txt', 'vecchia\n');
+    const overrideHead = commit('fix: twin vecchia');
+    write('twin.txt', 'v1\n');
+    expect(prover.identicalToMain(repo, overrideHead)).toMatchObject({ proven: true, overridden: ['twin.txt'] });
+    g('checkout', '-q', '--', 'twin.txt');
+    g('checkout', '-q', 'main');
+  });
+
+  it('un HEAD che arriva dopo un fetch è visto: in memoria solo i commit presenti', () => {
+    const missing = 'f'.repeat(40);
+    expect(prover.hasCommit(missing)).toBe(false);
+    expect(prover.hasCommit(g('rev-parse', 'HEAD'))).toBe(true);
   });
 
   it('un puntatore .git verso un gitdir sparito è un residuo', () => {
