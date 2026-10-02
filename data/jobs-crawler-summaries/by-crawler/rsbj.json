@@ -1,7 +1,7 @@
 {
   "key": "rsbj",
   "label": "Réseau Santé Balcon du Jura Vaudois (RSBJ)",
-  "generatedAt": "2026-10-01T21:25:02.401Z",
+  "generatedAt": "2026-10-02T09:23:17.532Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -14,10 +14,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7221,
-  "avgDurationMs": 7221,
+  "durationMs": 6855,
+  "avgDurationMs": 6855,
   "durationHistory": [
-    7221
+    6855
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_18026/fr/des-medecins-porteurs-du-titre-federal-postgradue-de-medecine-interne-generale-fmh",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:24:53.483Z",
+      "crawledAt": "2026-10-02T09:23:07.566Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_42203/fr/un-e-medecin-generaliste-/-medecin-de-famille-independant-ou-dependant-taux-a-definir",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:24:52.380Z",
+      "crawledAt": "2026-10-02T09:23:06.600Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -107,7 +107,7 @@
       "url": "https://www.rsbj.ch/jcms/rsbj_54318/fr/infirmier-ere-expert-e-en-prevention-des-infections-associees-aux-soins-epias",
       "source": "RSBJ Dedicated Parser (Jalios JCMS vignettes)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:24:51.249Z",
+      "crawledAt": "2026-10-02T09:23:05.832Z",
       "addressLocality": "Sainte-Croix",
       "addressRegion": "VD",
       "addressCountry": "CH",
