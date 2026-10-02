@@ -12359,6 +12359,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-rimborso-lpp-2024.title': 'Zweite Säule und Grenzgänger: Keine Rückerstattungen mehr im Tessin',
     'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Ab 2024 erstattet der Kanton Tessin die Quellensteuer auf BVG-Kapital für in Italien wohnhafte Grenzgänger nicht mehr. Hier erfahren Sie, was sich ändert.',
     'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Bellinzona Burg im Tessin mit Panoramablick',
+    'blog.article.bollettino-frontaliere-2026-10-02.title': 'Grenzgänger-Tagesbulletin – 2. Oktober 2026: 36 Minuten Wartezeit in Chiasso-Strada',
+    'blog.article.bollettino-frontaliere-2026-10-02.excerpt': 'Die Zahlen von heute, 2. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 2. Oktober 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Grenzgänger-Bulletin vom 2. Oktober 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'Die Zahlen vom 2. Oktober 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
