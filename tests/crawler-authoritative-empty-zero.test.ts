@@ -192,6 +192,15 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(source).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
+  it.each([
+    ['scripts/update-linnea-jobs.mjs'],
+    ['scripts/update-tpl-lugano-jobs.mjs'],
+  ])('%s emits the canonical health proof for its explicit empty branch', (runner) => {
+    const source = readRepoFile(runner);
+    expect(source).toContain('authoritativeEmptySnapshot: true');
+    expect(source).not.toContain('sourceProvenEmpty: true');
+  });
+
   it('Kiabi opts into empty-only snapshots after a strict SmartRecruiters source walk', () => {
     const parser = readRepoFile('scripts/lib/kiabi-job-parser.mjs');
     const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
