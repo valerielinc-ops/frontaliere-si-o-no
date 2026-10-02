@@ -122,6 +122,8 @@ export const RC_TO_ENV = {
   ASSISTED_APPLICATION_RUN_KEY:   ['ASSISTED_APPLICATION_RUN_KEY'],
   // "legacy" switches the assisted application's PDFs back to the standard-font writer (default: typst).
   ASSISTED_APPLICATION_PDF_RENDERER: ['ASSISTED_APPLICATION_PDF_RENDERER'],
+  // "single" sends one PDF dossier by e-mail to a qualified candidate's employer (default: separate files).
+  ASSISTED_APPLICATION_DOSSIER_MODE: ['ASSISTED_APPLICATION_DOSSIER_MODE'],
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
   // `ac` autologin credential policy (#5685). The MINTING half of the switch —
