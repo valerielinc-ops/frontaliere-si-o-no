@@ -7466,6 +7466,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.camere-sessione-autunnale.title': 'Chambres fédérales : la session d\'automne s\'achève aujourd\'hui',
     'blog.article.camere-sessione-autunnale.excerpt': 'La session d\'automne s\'achève aujourd\'hui à Berne. Les Chambres fédérales doivent se prononcer en vote final sur 17 objets ; la session d\'hiver se tiendra du 30 novembre au 18 décembre.',
     'blog.article.camere-sessione-autunnale.imageAlt': 'Chambres fédérales à Berne à la clôture de la session d\'automne.',
+    'blog.article.cambio-cassa-sondaggio.title': 'Cassa malati 2027: boom dei cambi in Svizzera',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estime que 600\'000 à 900\'000 personnes changeront de caisse-maladie ; en 2027, la prime moyenne augmentera de 5 % pour atteindre 412 francs par mois.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents et calcul pour examiner les primes d\'assurance maladie en Suisse',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse-maladies : 900\'000 changements attendus',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Entre 600 000 et 900 000 assurés pourraient changer de caisse d\'assurance maladie l\'année prochaine. C\'est ce que révèle un sondage YouGov réalisé pour Deloitte auprès de 1 236 personnes.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Prévisions de Deloitte sur le changement de caisse maladie en Suisse et au Tessin',
+    'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Créer une entreprise dans les Grisons : guide sur les coûts et la fiscalité',
+    'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'De la forme juridique aux cotisations salariales : guide pratique sur les trois niveaux d\'imposition et les obligations en matière de sécurité sociale pour ceux qui créent une entreprise dans les Grisons.',
+    'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documents et bureau avec vue sur les montagnes suisses',
 };
 
 export default blogMetaChFr;
