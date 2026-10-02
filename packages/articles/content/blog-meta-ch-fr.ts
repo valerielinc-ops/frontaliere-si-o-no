@@ -7421,6 +7421,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spese-quotidiane-vaud-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Vaud',
     'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Loyers, dépenses, transports, KVG et taxes : guide du coût de la vie 2026 dans le canton de Vaud, avec des règles nationales à comparer entre cantons.',
     'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Comparaison du coût de la vie en Suisse, avec un focus sur le canton de Vaud',
+    'blog.article.bilancio-familiare-lucerna.title': 'Coût de la vie en Suisse 2026 : canton de Lucerne',
+    'blog.article.bilancio-familiare-lucerna.excerpt': 'Coût de la vie 2026 à Lucerne : imposition à trois niveaux, KVG en trois mois et cotisations salariales, sans salaire minimum fédéral.',
+    'blog.article.bilancio-familiare-lucerna.imageAlt': 'Coût de la vie 2026 : budget du ménage et logement dans le canton de Lucerne',
 };
 
 export default blogMetaChFr;

@@ -22291,6 +22291,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bilancio-familiare-lucerna',
+    category: 'pratico',
+    date: '2026-10-02T01:04:22.378Z',
+    image: '/images/blog/bilancio-familiare-lucerna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
