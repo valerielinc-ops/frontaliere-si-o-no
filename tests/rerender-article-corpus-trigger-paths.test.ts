@@ -27,7 +27,26 @@ const ROOT = process.cwd();
 const WORKFLOW = '.github/workflows/rerender-article-corpus.yml';
 const DRIVER = 'scripts/rerender-article-corpus.mjs';
 const BOOTSTRAP = 'build-plugins/articlesSiteShellBootstrap.ts';
+const RUNTIME_DEPS_INSTALLER = 'scripts/lib/install-article-renderer-runtime-deps.sh';
 const EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js', '/index.ts'];
+
+const RENDER_WORKFLOWS = [
+  {
+    file: WORKFLOW,
+    job: 'rerender',
+    renderStep: /^Rerender and push /,
+  },
+  {
+    file: '.github/workflows/fast-publish-article.yml',
+    job: 'fast-publish',
+    renderStep: /^Render article \(fast path\)$/,
+  },
+  {
+    file: '.github/workflows/audit-article-corpus-drift.yml',
+    job: 'audit',
+    renderStep: /^Run the drift audit$/,
+  },
+];
 
 function readPushPaths(): string[] {
   const doc = YAML.parse(fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf8'));
@@ -88,6 +107,7 @@ describe('rerender-article-corpus.yml push filter covers the real article render
   it('names only files that exist, so a rename cannot silently empty the filter', () => {
     const stale = FILTERS.filter(({ glob }) => !glob.includes('*') && !isTracked(glob)).map(({ glob }) => glob);
     expect(stale).toEqual([]);
+    expect(isCovered(RUNTIME_DEPS_INSTALLER)).toBe(true);
   });
 
   it('covers every module the driver renders with, behind shims and symlinks', () => {
@@ -112,5 +132,36 @@ describe('rerender-article-corpus.yml push filter covers the real article render
     // the drift run caught out of date; it must stay in this set.
     expect(imports).toContain('build-plugins/constants.ts');
     expect(imports.filter((rel) => !isCovered(rel))).toEqual([]);
+  });
+
+  it('installs the locked article-engine runtime dependency before each article render', () => {
+    const packageJson = JSON.parse(fs.readFileSync(path.join(ROOT, 'packages/articles/package.json'), 'utf8'));
+    const packageLock = JSON.parse(fs.readFileSync(path.join(ROOT, 'package-lock.json'), 'utf8'));
+    const installer = fs.readFileSync(path.join(ROOT, RUNTIME_DEPS_INSTALLER), 'utf8');
+
+    expect(Object.keys(packageJson.dependencies ?? {})).toEqual(['html-entities']);
+    expect(packageLock.packages?.['node_modules/html-entities']?.version).toBeTruthy();
+    expect(installer).toContain('node_modules/html-entities');
+    expect(installer).toContain('--workspaces=false');
+    expect(installer).toContain('--omit=peer');
+    expect(installer).toContain('--ignore-scripts');
+    expect(installer).toContain('--no-save');
+    expect(installer).toContain('--package-lock=false');
+    expect(installer).not.toContain('npm ci');
+
+    for (const { file, job, renderStep } of RENDER_WORKFLOWS) {
+      const workflow = YAML.parse(fs.readFileSync(path.join(ROOT, file), 'utf8'));
+      const steps = workflow?.jobs?.[job]?.steps;
+      expect(Array.isArray(steps), `${file} is missing jobs.${job}.steps`).toBe(true);
+
+      const installIndex = steps.findIndex((step: { name?: string }) =>
+        step.name === 'Install article renderer runtime dependencies',
+      );
+      const renderIndex = steps.findIndex((step: { name?: string }) => renderStep.test(step.name ?? ''));
+      expect(installIndex, `${file} does not install renderer runtime dependencies`).toBeGreaterThanOrEqual(0);
+      expect(renderIndex, `${file} has no expected renderer step`).toBeGreaterThanOrEqual(0);
+      expect(installIndex, `${file} must install dependencies before rendering`).toBeLessThan(renderIndex);
+      expect(steps[installIndex].run).toContain(`bash ${RUNTIME_DEPS_INSTALLER}`);
+    }
   });
 });
