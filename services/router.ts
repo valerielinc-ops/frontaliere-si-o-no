@@ -2366,8 +2366,12 @@ export function parsePath(pathname: string): ParseResult {
  // the SPA from elsewhere) lands on the right marker.
  {
    const normalized = pathname.endsWith('/') ? pathname : `${pathname}/`;
-   if (BORDER_WAIT_ROUTES.includes(normalized) || isBorderWaitPath(pathname)) {
-     const parsed = parseBorderWaitPath(pathname);
+   const parsed = parseBorderWaitPath(pathname);
+   // The shared matcher also covers legacy guide aliases so dist audits can
+   // classify historical pages. Those aliases are still handled by the
+   // interactive guia/border branch below; only a route parsed by the
+   // static-page parser may opt into staticOverlay here.
+   if (parsed && (BORDER_WAIT_ROUTES.includes(normalized) || isBorderWaitPath(pathname))) {
      const targetLocale: Locale = (parsed?.locale as Locale) || locale;
      if (parsed?.crossing && BORDER_CROSSING_ID_SET.has(parsed.crossing)) {
        return {
