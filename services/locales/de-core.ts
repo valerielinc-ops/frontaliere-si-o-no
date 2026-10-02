@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ "whatsNew.v3973.title": "Vorschau der Stellenanzeigen",
+ "whatsNew.v3973.jobPreview.title": "Vollständige Beschreibung nach der Anmeldung",
+ "whatsNew.v3973.jobPreview.desc": "Stellenanzeigen zeigen eine kurze Vorschau. Melde dich kostenlos an, um die vollständige Beschreibung und Anforderungen zu lesen.",
  'whatsNew.v3972.title': "Begleitete Bewerbung: auch die übrigen Unterlagen",
  'whatsNew.v3972.assistedDocuments.title': "Unterlagen, die das Inserat verlangt",
  'whatsNew.v3972.assistedDocuments.desc': "Verlangt das Inserat mehr als Lebenslauf und Motivationsschreiben, etwa Schulzeugnisse oder Ergebnisse eines Eignungstests, sagen wir es dir und du lädst sie auf der Seite deiner Bewerbung hoch. Wir prüfen sofort, ob die Datei passt, und hängen sie beim Versand an.",
@@ -990,8 +993,8 @@ const deCore: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Weiter mit E-Mail',
  'jobBoard.authGateNewsletterNote': 'Mit Eingabe Ihrer E-Mail erhalten Sie auch unseren Newsletter mit Updates für Grenzgänger.',
  'jobBoard.gate.title': 'So bewirbst du dich für diese Stelle',
- "jobBoard.gate.applicationTitle": "Kostenlos anmelden und mit der Bewerbung fortfahren",
- "jobBoard.gate.subtitle": "Die vollständige Beschreibung ist hier frei lesbar. Melde dich an oder fahre mit E-Mail fort, um die Bewerbung zu öffnen; abgeschlossen wird sie auf der Website des Arbeitgebers. Die enthaltenen Mitteilungen werden unten erläutert.",
+ "jobBoard.gate.applicationTitle": "Kostenlos anmelden und die vollständige Anzeige lesen",
+ "jobBoard.gate.subtitle": "Melde dich an oder fahre mit E-Mail fort, um die vollständige Beschreibung und Anforderungen zu lesen und die Bewerbung auf der Website des Arbeitgebers zu öffnen. Die enthaltenen Mitteilungen werden unten erläutert.",
  'jobBoard.gate.emailCta': 'Weiter mit E-Mail',
  'jobBoard.gate.benefit1': 'Vollständige Beschreibung und Anforderungen',
  'jobBoard.gate.benefit2': 'Bewerbungsinfos und Kontakte',

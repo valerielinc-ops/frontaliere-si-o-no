@@ -1,8 +1,9 @@
 import { test, expect, type Page } from 'playwright/test';
-import { listActiveJobDetailPaths } from './lib/live-jobs';
+import { listActiveJobDetailPaths, resolveActiveJobDetailPath } from './lib/live-jobs';
+import { JOB_DESCRIPTION_PREVIEW_LENGTH } from '../../services/jobs/descriptionPreview';
 
 /**
- * Full public descriptions precede the free-access gate and follow CTA on
+ * Bounded public previews precede the free-access gate and follow CTA on
  * active job details. Expired listings retain hub → follow CTA → gate order.
  * Also guard fixed-widget overlap and uncaught errors on mobile and desktop.
  * Discover live jobs at runtime so expiring fixtures do not break the guard.
@@ -190,7 +191,7 @@ async function assertSurface(page: Page, path: string, label: string): Promise<v
   await assertSurfaceLayout(page, label, pageErrors);
 }
 
-test('gated job detail: full description precedes access and follow, no fixed-widget collisions', async ({ page }) => {
+test('gated job detail: preview precedes access and follow, no fixed-widget collisions', async ({ page }) => {
   // Bounded discovery across up to 20 live candidates (see probeSettle above)
   // plus the full settle+assertion on the match — above the default 60s.
   test.setTimeout(120_000);
@@ -216,4 +217,31 @@ test('expired job detail: follow CTA sits above the auth gate, no fixed-widget c
     return;
   }
   await assertSurface(page, EXPIRED_JOB_PATH, 'expired job detail');
+});
+
+
+test('anonymous job descriptions stay bounded before and after hydration', async ({ browser, page }) => {
+  test.setTimeout(120_000);
+  const path = await resolveActiveJobDetailPath(page);
+  const staticContext = await browser.newContext({ javaScriptEnabled: false });
+  try {
+    const staticPage = await staticContext.newPage();
+    await staticPage.goto(`${LIVE_BASE_URL}${path}`, { waitUntil: 'domcontentloaded' });
+    const staticPreview = staticPage.locator('[data-job-description-preview]');
+    await expect(staticPreview).toHaveCount(1);
+    await expect(staticPreview).not.toHaveText('');
+    expect((await staticPreview.innerText()).trim().length).toBeLessThanOrEqual(JOB_DESCRIPTION_PREVIEW_LENGTH + 1);
+    await expect(staticPage.locator('.proposal .timeline, .proposal .highlights')).toHaveCount(0);
+  } finally {
+    await staticContext.close();
+  }
+
+  await navigateToSurface(page, path);
+  const preview = page.locator('#main-content [data-job-description-preview]');
+  // An attached but empty loading skeleton is not a successful check.
+  await expect(preview).toBeVisible({ timeout: 30_000 });
+  await expect(preview).not.toHaveText('', { timeout: 30_000 });
+  expect((await preview.innerText()).trim().length).toBeLessThanOrEqual(JOB_DESCRIPTION_PREVIEW_LENGTH + 1);
+  await expect(page.locator('#main-content #job-auth-gate')).toBeVisible();
+  await expect(page.locator('main.seo-static-content')).toBeHidden();
 });
