@@ -12,6 +12,7 @@ import { JSDOM } from 'jsdom';
 
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './pdf-job-content.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
 import { fetchHtml, slugify } from './crawler-template.mjs';
 
 export const ECAM_KEY = 'ecam';
@@ -326,11 +327,33 @@ export async function fetchAllEcamJobs({
 
   console.log(`  📋 Official PDF listings found: ${listings.length}`);
   const jobs = [];
+  const sourceBodyFailures = [];
   for (const listing of listings) {
     const pdf = await extractPdfText(listing.pdfUrl, { timeoutMs });
-    if (pdf?.error) throw new Error(`ECAM: unable to extract ${listing.pdfUrl}: ${pdf.error}`);
-    if (!String(pdf?.text || '').trim()) {
-      throw new Error(`ECAM: official PDF has no usable text layer (${listing.pdfUrl})`);
+    if (pdf?.error || !String(pdf?.text || '').trim()) {
+      // A PDF that cannot be read this run is a degraded source, handled by
+      // runStandardCrawlerPipeline: the row carries the source-body failure,
+      // keeps the stored record or is left out, and is listed in
+      // sourceBodyFailures. Title and slug come from the PDF text (an empty
+      // one gives the generic «Opportunità d’impiego ECAM»), so the row asks
+      // for the stored record whole. It used to throw and fail the crawler.
+      const message = pdf?.error
+        ? `unable to extract: ${pdf.error}`
+        : 'official PDF has no usable text layer';
+      console.warn(`  ⚠️ ECAM: ${listing.pdfUrl}: ${message}`);
+      sourceBodyFailures.push({
+        title: listing.filename,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message,
+      });
+      jobs.push({
+        ...buildEcamJob({ pdfUrl: listing.pdfUrl, filename: listing.filename, pdfText: '' }),
+        sourceBodyFailureReason: SOURCE_BODY_FAILURE_REASON,
+        sourceBodyFailureMessage: message,
+        sourceBodyFailureKeepsStoredRecord: true,
+      });
+      continue;
     }
     jobs.push(buildEcamJob({
       pdfUrl: listing.pdfUrl,
@@ -340,6 +363,7 @@ export async function fetchAllEcamJobs({
   }
 
   console.log(`\n📋 Total ${ECAM_COMPANY_NAME} jobs discovered: ${jobs.length}`);
+  jobs.sourceBodyFailures = sourceBodyFailures;
   return jobs;
 }
 

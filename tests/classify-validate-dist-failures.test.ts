@@ -25,9 +25,18 @@ import {
 } from '../scripts/ci/classify-validate-dist-failures.mjs';
 
 describe('validate-dist failure classification', () => {
+  it('lets publish run when only advisory (class C) gates failed', () => {
+    const v = evaluateIntegrity(['audit:all/text-html-ratio', 'audit:all/title-length']);
+    expect(v.integrityOk).toBe(true);
+    expect(v.quality).toEqual(['audit:all/text-html-ratio', 'audit:all/title-length']);
+    expect(v.blocking).toEqual([]);
+  });
+
   it('lets publish run when only quality gates failed — the #5128 case', () => {
     // Exactly what run 30974294824 produced: audit:hreflang red, everything
-    // else green, deploy + validate-live both success.
+    // else green, deploy + validate-live both success. audit:hreflang is
+    // class B since 2026-10-02 (P2 issue on regression), and the owner decided
+    // that no B or C gate blocks publication.
     const v = evaluateIntegrity(['audit:hreflang']);
     expect(v.integrityOk).toBe(true);
     expect(v.quality).toEqual(['audit:hreflang']);
@@ -49,10 +58,10 @@ describe('validate-dist failure classification', () => {
   });
 
   it('blocks when a structural gate fails alongside a quality one', () => {
-    const v = evaluateIntegrity(['audit:hreflang', 'audit:no-dotfile-html']);
+    const v = evaluateIntegrity(['audit:all/title-length', 'audit:no-dotfile-html']);
     expect(v.integrityOk).toBe(false);
     expect(v.blocking).toEqual(['audit:no-dotfile-html']);
-    expect(v.quality).toEqual(['audit:hreflang']);
+    expect(v.quality).toEqual(['audit:all/title-length']);
   });
 
   it('DEFAULT-DENY: an unclassified gate blocks', () => {
@@ -104,7 +113,13 @@ describe('validate-dist failure classification', () => {
     // them deploy-invalidating — despite neither checking anything Google
     // requires for indexing/rich-results. Same defect class as the other
     // `audit:all/*` entries above: a page missing either still serves.
-    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(21);
+    //
+    // 2026-10-02: the allowlist is DERIVED from the shared classification
+    // (scripts/ci/lib/seo-gate-classes.mjs): every class B and C gate. Raised
+    // 19 → 20 by one deliberate owner decision: `audit:all/faqpage-validity`
+    // moved from A to C (FAQ rich results are limited to government/health
+    // sites since 2023-09-14).
+    expect(Object.keys(QUALITY_GATES).length).toBeLessThanOrEqual(20);
     const topLevel = Object.keys(QUALITY_GATES).filter((g) => !g.startsWith('audit:all/'));
     expect(topLevel).toHaveLength(5);
     // Every entry carries a rationale string, not a bare flag.
@@ -163,13 +178,15 @@ describe('audit:all bundle expansion (#4828)', () => {
   });
 
   it('NEGATIVE CASE: a structural sub-auditor still blocks', () => {
-    // The four auditors deliberately left off the allowlist. If any of these
-    // ever reads as quality, a broken shell or a broken document gets
-    // announced to Google — the failure this whole gate exists to prevent.
+    // The auditors deliberately left off the allowlist. If any of these ever
+    // reads as quality, a broken shell or a broken document gets announced to
+    // Google — the failure this whole gate exists to prevent.
+    // `audit:all/faqpage-validity` left this list on 2026-10-02 (owner
+    // decision, class C): an invalid FAQPage costs nothing on this site, FAQ
+    // rich results being limited to government/health sites.
     const MUST_BLOCK = [
       'audit:all/footer-root-presence',
       'audit:all/jsonld-no-nested-scripts',
-      'audit:all/faqpage-validity',
       'audit:all/image-object-license',
     ];
     for (const gate of MUST_BLOCK) {
@@ -191,10 +208,9 @@ describe('audit:all bundle expansion (#4828)', () => {
   });
 
   it('issue #6462: breadcrumb-coverage and information-gain are quality, not blocking', () => {
-    // Neither checks a Google indexing/rich-results requirement (no
-    // structured-data mandatory field, no canonical/hreflang, no status
-    // code, no broken redirect) — both are opportunistic internal
-    // heuristics, same class as text-html-ratio/content-duplicates above.
+    // BreadcrumbList is an optional SERP enhancement (class C); information-gain
+    // is class B since 2026-10-02 (P2 issue on regression). Neither blocks
+    // publish: owner decision, 2026-10-02.
     const v = evaluateIntegrity(['audit:all/breadcrumb-coverage', 'audit:all/information-gain']);
     expect(v.integrityOk).toBe(true);
     expect(v.blocking).toEqual([]);
@@ -269,8 +285,8 @@ describe('gate result parsing', () => {
 
 describe('classifyFailures', () => {
   it('trims and drops empties', () => {
-    const { blocking, quality } = classifyFailures([' audit:hreflang ', '', '  ']);
-    expect(quality).toEqual(['audit:hreflang']);
+    const { blocking, quality } = classifyFailures([' audit:all/text-html-ratio ', '', '  ']);
+    expect(quality).toEqual(['audit:all/text-html-ratio']);
     expect(blocking).toEqual([]);
   });
 });

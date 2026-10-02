@@ -10,22 +10,42 @@
  * account also has a consented application intent, the signal may still feed
  * recommendation ranking below, without activating or changing this channel.
  *
- * Saving jobs / accepting the saved-jobs prompt activates this channel; an
- * explicit channel opt-out still wins. Delivery additionally requires the
- * central subscriber record and shared suppression predicate, but never a
- * second double-opt-in proof. An application intent is only a recommendation
- * signal here and cannot activate this recurring digest.
+ * ACTIVATION (owner decision 2026-10-02). Saving a listing activates this
+ * channel: services/savedJobsService.ts writes `users/{uid}.savedJobsDigest
+ * .optedIn = true` (with `activationSource: 'saved_job'`) in a transaction,
+ * only when the digest was never decided. The switch in /profilo/ is the
+ * other writer. `optedOut === true` is the person's explicit stop (the link
+ * below, the switch, "stop all") and a later save never overrides it; see
+ * services/savedJobsDigestActivation.mjs for the three states. No backfill:
+ * accounts that saved before the change and never used the switch stay off.
+ * An application intent is only a recommendation signal here and cannot
+ * activate this recurring digest.
+ *
+ * Delivery additionally requires the `newsletter_subscribers/{email}` record
+ * and the shared suppression predicate, but never a double-opt-in proof. A
+ * saver normally has that record already: a sign-in is the registration act
+ * (services/authService.ts) and saving requires being signed in. It is
+ * required because it is where the provider webhooks record a bounce or a
+ * complaint; for an address without it they record nothing
+ * (UNKNOWN_RECIPIENT, functions/src/lib/subscriberReactivation.js), and a
+ * complaint about this digest would then never stop it.
  *
  * The channel-specific preference stays on the user document and must never
  * mutate `newsletter_subscribers` or `job_alert_subscribers/*`. An explicit
  * unsubscribe, legacy stop-all flag or hard address suppression reaches this
  * sender through the shared predicate (see functions/src/lib/emailSuppression.js).
  *
+ * Every email carries a working one-click unsubscribe (link in the HTML and
+ * text parts, RFC 8058 List-Unsubscribe header) to savedJobsDigestUnsubscribe.
+ * The link is signed with NEWSLETTER_SECRET, so a run without it refuses to
+ * send rather than mail a link that cannot unsubscribe.
+ *
  * Env:
  *   GOOGLE_APPLICATION_CREDENTIALS — Firebase service account for Firestore
  *   NEWSLETTER_SECRET — HMAC secret for the unsubscribe token (shared with
  *     jobAlertUnsubscribe/newsletterManageSubscription — same secret, distinct
- *     per-channel token prefix so tokens don't cross channels)
+ *     per-channel token prefix so tokens don't cross channels). Required
+ *     unless --dry-run.
  *   TARGET_EMAIL — limit send to one address (test mode)
  *   --dry-run — build emails but don't send
  */
@@ -81,9 +101,10 @@ export const APPLICATION_INTENT_COLLECTION = APPLICATION_INTENTS_COLLECTION;
  * Decide whether this particular recurring channel may send.
  *
  * The user profile is the channel activation/opt-out source; the email-keyed
- * subscriber is the registration/suppression source. An explicit
- * `savedJobsDigest.optedIn` activation is required; neither a saved-job record
- * nor an application intent is an activation.
+ * subscriber is the registration/suppression source. `savedJobsDigest.optedIn`
+ * is required: the save path or the switch in /profilo/ writes it. A saved-job
+ * document alone (saves made before activation-on-save, no backfill) and an
+ * application intent are not an activation.
  */
 export function isSavedJobsDigestEligible(userData, subscriberData, _legacyOptions = undefined) {
   const digest = userData?.savedJobsDigest || {};
@@ -179,8 +200,13 @@ async function getFirestoreAdmin() {
 
 // ── data/jobs.json, indexed by id ────────────────────────────────────────
 
+let _jobsForTest = null;
+export function __setJobsForTest(jobs) {
+  _jobsForTest = jobs;
+}
+
 function loadJobsById() {
-  const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
+  const jobs = _jobsForTest || JSON.parse(fs.readFileSync(JOBS_PATH, 'utf8'));
   const byId = new Map();
   for (const job of jobs) byId.set(job.id, job);
   return byId;
@@ -1079,7 +1105,19 @@ async function sendDigest({ db, uid, email, locale, savedEntries, applicationInt
 
 // ── Main ──────────────────────────────────────────────────────────────────
 
+/**
+ * A real send without the HMAC secret would carry the profile URL as its
+ * "unsubscribe" link and List-Unsubscribe header: the one-click POST would
+ * reach a page that cannot unsubscribe anyone. Refuse the run instead; the
+ * workflow's failure step opens the issue.
+ */
+export function assertUnsubscribeSecret(dryRun = DRY_RUN, env = process.env) {
+  if (dryRun || env.NEWSLETTER_SECRET) return;
+  throw new Error('NEWSLETTER_SECRET is not set: refusing to send without a working one-click unsubscribe link');
+}
+
 async function main() {
+  assertUnsubscribeSecret();
   const db = await getFirestoreAdmin();
   const jobsById = loadJobsById();
   const nowMs = Date.now();

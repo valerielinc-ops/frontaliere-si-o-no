@@ -856,6 +856,28 @@ function activeJobArchiveKeys(job) {
 }
 
 /**
+ * Jobs of the previous active slice that the next one no longer carries.
+ *
+ * A crawler run that removes dead postings usually publishes new ones in the
+ * same write: the 2026-09-27 convit-holding wave dropped 81 of 90 jobs, every
+ * one 404 at the source, and added 18 new ones. Requiring the next slice to be
+ * a strict subset of the previous one made that proven removal look like an
+ * unproven rewrite, so the byte guard aborted a corroborated write (and with
+ * it a whole crawler step). Additions remove nothing, so they need no proof:
+ * the proofs below are about the REMOVED identities, and stay exactly as
+ * strict for those.
+ *
+ * Returns null when either side has a missing or duplicate identity: a payload
+ * that cannot be keyed one-to-one cannot be diffed safely.
+ */
+function removedActiveJobs(previousJobs, nextJobs) {
+  const previousIds = uniqueIdentities(previousJobs);
+  const nextIds = uniqueIdentities(nextJobs);
+  if (!previousIds || !nextIds) return null;
+  return previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+}
+
+/**
  * Prove, from the committed refs alone, that a catastrophic active-slice
  * shrink is an archive move rather than a lost accumulator (#9876).
  *
@@ -866,20 +888,22 @@ function activeJobArchiveKeys(job) {
  * of the same push: 79 jobs then lived in both files, assembly deduplicated
  * the expired slice by 98.6% and its own shrink guard broke every build.
  *
- * The in-repo evidence is closed-world:
- *   - the next slice is a strict subset of the previous one (no replacement,
- *     no identity collision), so nothing was rewritten or re-keyed;
- *   - every removed job has a slug and is present, by slug/previous slug or
- *     source identity, in the paired expired slice of the same AFTER commit,
- *     on an archive entry that carries a valid `expiredAt`.
- * A reader that degraded to an empty fallback archives nothing, so it still
- * fails this proof and the byte guard stays closed for it.
+ * The in-repo evidence is closed-world over the removed identities:
+ *   - both slices are keyed one-to-one (no missing or duplicate identity);
+ *   - at least one job was removed, and every removed job has a slug and is
+ *     present, by slug/previous slug or source identity, in the paired expired
+ *     slice of the same AFTER commit, on an archive entry that carries a valid
+ *     `expiredAt`.
+ * Jobs added by the same write (a crawler publishing new postings while it
+ * archives the dead ones) remove nothing and need no proof. A reader that
+ * degraded to an empty fallback archives nothing, so it still fails this
+ * proof and the byte guard stays closed for it.
  */
 export function isProvenArchiveMovePrune(filePath, previousRaw, nextRaw, expiredAfterRaw) {
   if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
-  if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length) return false;
+  if (!previousJobs || !nextJobs) return false;
 
   let archive;
   try {
@@ -889,13 +913,10 @@ export function isProvenArchiveMovePrune(filePath, previousRaw, nextRaw, expired
   }
   if (!Array.isArray(archive) || archive.length === 0) return false;
 
-  const previousIds = uniqueIdentities(previousJobs);
-  const nextIds = uniqueIdentities(nextJobs);
-  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) return false;
-
-  const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+  const removedJobs = removedActiveJobs(previousJobs, nextJobs);
   if (
-    removedJobs.length !== previousJobs.length - nextJobs.length
+    !removedJobs
+    || removedJobs.length === 0
     || removedJobs.some((job) => !jobIdentity(job) || nonEmptyStrings([job?.slug]).length === 0)
   ) {
     return false;
@@ -922,6 +943,12 @@ export function isProvenArchiveMovePrune(filePath, previousRaw, nextRaw, expired
  * Non-definitive failures are deliberately not accepted here, even though
  * ordinary housekeeping may remove an old unprotected row for those signals:
  * a catastrophic shrink needs stronger evidence than a normal prune.
+ *
+ * The same proof carries a source-verified crawler shrink
+ * (`writeJobsCrawlerSliceVerified`), whose write also publishes the postings
+ * that are new in this run. Those additions remove nothing and are not part of
+ * the proof; every REMOVED identity must still be covered, one-to-one, by a
+ * definitive entry (see `removedActiveJobs`).
  */
 export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofEntries) {
   if (!ACTIVE_JOB_SLICE_PATH_RE.test(normalizedPath(filePath))) return false;
@@ -931,7 +958,7 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
   const entries = proof?.entries;
   const previousJobs = parseJobs(previousRaw);
   const nextJobs = parseJobs(nextRaw);
-  if (!previousJobs || !nextJobs || previousJobs.length <= nextJobs.length) return false;
+  if (!previousJobs || !nextJobs) return false;
   if (!Array.isArray(entries) || entries.length === 0) return false;
   if (proof?.baseDigest && (!proof.baseRaw || sha256(proof.baseRaw) !== proof.baseDigest)) return false;
   if (proof?.candidateDigest && (!proof.candidateRaw || sha256(proof.candidateRaw) !== proof.candidateDigest)) return false;
@@ -946,15 +973,10 @@ export function isProvenHousekeepingPrune(filePath, previousRaw, nextRaw, proofE
     && String(proof.runAttempt) !== String(process.env.GITHUB_RUN_ATTEMPT)
   ) return false;
 
-  const previousIds = uniqueIdentities(previousJobs);
-  const nextIds = uniqueIdentities(nextJobs);
-  if (!previousIds || !nextIds || [...nextIds].some((identity) => !previousIds.has(identity))) {
-    return false;
-  }
-
-  const removedJobs = previousJobs.filter((job) => !nextIds.has(jobIdentity(job)));
+  const removedJobs = removedActiveJobs(previousJobs, nextJobs);
   if (
-    removedJobs.length !== previousJobs.length - nextJobs.length
+    !removedJobs
+    || removedJobs.length === 0
     || removedJobs.some((job) => !jobIdentity(job) || !hasNonEmptyJobUrl(job))
   ) {
     return false;

@@ -37,6 +37,9 @@ const {
   TITLE_PREFIX,
   LEGACY_TITLE,
   DEDUP_TITLE_PREFIX_LEN,
+  MAX_PER_GATE_ISSUES,
+  CATHEDRAL_OWNED_GATES,
+  gatesToResolve,
 } = await import('../../scripts/ci/report-validate-dist-failure.mjs');
 
 const ROOT = resolve(import.meta.dirname, '..', '..');
@@ -158,16 +161,54 @@ describe('titleForGate — sempre dentro la finestra di dedup (60 char)', () => 
   });
 });
 
+/**
+ * Lo scenario BFS reale con il gate rinominato `audit:hreflang`: dal
+ * 2026-10-02 `audit:max-bfs-depth` ha la sua issue in cathedral (vedi
+ * CATHEDRAL_OWNED_GATES), quindi i test sulla composizione del body usano un
+ * gate B che solo validate-dist misura. Log, estratto e riassunto restano
+ * quelli veri.
+ */
+function hreflangInput(overrides: Record<string, unknown> = {}) {
+  const base = bfsInput();
+  const job = base.failedJobs[0];
+  return {
+    ...base,
+    failedJobs: [{
+      ...job,
+      gates: [{ gate: 'audit:hreflang', seconds: 756.85, rc: 1, line: '❌ FAIL  audit:hreflang                           756.85 rc=1' }],
+    }],
+    ...overrides,
+  };
+}
+
 describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
-  it('1 gate → titolo per-gate, label Bug + ci-gate:<slug>', () => {
-    const payloads = buildIssuePayloads(bfsInput());
+  it('1 gate → titolo per-gate, label Bug + ci-gate:<slug>, priorità dalla classe', () => {
+    const payloads = buildIssuePayloads(hreflangInput());
     expect(payloads).toHaveLength(1);
-    expect(payloads[0].title).toBe('Validation Failure (dist): audit:max-bfs-depth');
-    expect(payloads[0].labels).toEqual(['Bug', 'ci-gate:audit-max-bfs-depth']);
+    expect(payloads[0].title).toBe('Validation Failure (dist): audit:hreflang');
+    expect(payloads[0].labels).toEqual(['Bug', 'ci-gate:audit-hreflang']);
+    expect(payloads[0].priority).toBe(2); // classe B
+    expect(payloads[0].gate).toBe('audit:hreflang');
   });
 
-  it('>3 gate → una sola issue riassuntiva col titolo legacy', () => {
-    const gates = ['audit:hreflang', 'audit:page-weight', 'audit:text-html-ratio', 'validate:sitemap'].map((gate) => ({
+  it('gate misurato da cathedral (max-bfs-depth) → nessuna issue qui, nemmeno la riassuntiva', () => {
+    expect(CATHEDRAL_OWNED_GATES.has('audit:max-bfs-depth')).toBe(true);
+    expect(buildIssuePayloads(bfsInput())).toEqual([]);
+  });
+
+  it('run 36922718485: 4 gate rossi → 4 issue, non una riassuntiva', () => {
+    const gates = ['gate:seo-source', 'audit:all/h1-title-duplicates', 'audit:all/page-weight', 'validate:sitemap'].map((gate) => ({
+      gate, seconds: 1, rc: 1, line: `❌ FAIL  ${gate}  1.00 rc=1`,
+    }));
+    const payloads = buildIssuePayloads(bfsInput({
+      failedJobs: [{ name: 'validate-dist / validate-dist-postbuild', gates, summaryLines: [], excerpt: '' }],
+    }));
+    expect(payloads.map((p: { title: string }) => p.title)).toEqual(gates.map((g) => titleForGate(g.gate)));
+    expect(payloads.map((p: { priority: number }) => p.priority)).toEqual([1, 3, 2, 1]);
+  });
+
+  it('>MAX_PER_GATE_ISSUES gate → una sola issue riassuntiva col titolo legacy', () => {
+    const gates = Array.from({ length: MAX_PER_GATE_ISSUES + 1 }, (_, i) => `validate:synthetic-${i}`).map((gate) => ({
       gate, seconds: 1, rc: 1, line: `❌ FAIL  ${gate}  1.00 rc=1`,
     }));
     const payloads = buildIssuePayloads(bfsInput({
@@ -176,6 +217,23 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
     expect(payloads).toHaveLength(1);
     expect(payloads[0].title).toBe(LEGACY_TITLE);
     for (const g of gates) expect(payloads[0].body).toContain(g.line);
+  });
+
+  it('body: sezione Offender dal report JSON del gate', () => {
+    const report = {
+      audit: 'hreflang', passed: false, offendersTotal: 2, ranAt: '2026-10-02T00:00:00Z',
+      byFeature: { 'job-board': 2 },
+      topOffenders: [{ path: 'dist/en/find-jobs-zurich/x/index.html', feature: 'job-board', metric: 1 }],
+    };
+    const [payload] = buildIssuePayloads(hreflangInput({
+      reports: { 'audit:hreflang': { report, source: '`audit-reports/hreflang.json`' } },
+    }));
+    expect(payload.body).toContain('## Offender');
+    expect(payload.body).toContain('`dist/en/find-jobs-zurich/x/index.html`');
+    expect(payload.body).toContain('`job-board`: 2');
+    // Senza report il body lo dice, non tace.
+    const [bare] = buildIssuePayloads(hreflangInput());
+    expect(bare.body).toContain('non disponibile');
   });
 
   it('0 gate riconosciuti (fallimento infra) → issue legacy, mai zero issue', () => {
@@ -188,33 +246,32 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
   });
 
   it('body: Suggested action con path scripts/, MAI path .github/workflows/', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain('## Suggested action');
-    // Path del gate derivati da package.json (audit:max-bfs-depth).
-    expect(payload.body).toContain('scripts/audit-bfs-depth.mjs');
-    expect(payload.body).toContain('data/bfs-depth-baseline.json');
+    // Path del gate derivati da package.json (audit:hreflang).
+    expect(payload.body).toContain('scripts/audit-hreflang.mjs');
     // Il capability guard del fixer (check-workflows-scope.mjs) blocca a zero
     // token qualunque body che citi un path .github/workflows/**.
     expect(payload.body).not.toContain('.github/workflows/');
   });
 
   it('body: Build SHA = deploy_ref (mai github.sha), job/step, gate verbatim, estratto', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain('`abc1234def5678`');
     expect(payload.body).toContain('deploy_ref');
     expect(payload.body).toContain('validate-dist / validate-dist-postbuild-bfs');
     expect(payload.body).toContain('BFS-depth + orphan-sitemap-pages audits (serial chain)');
-    expect(payload.body).toMatch(/❌ FAIL\s+audit:max-bfs-depth\s+756\.85 rc=1/);
+    expect(payload.body).toMatch(/❌ FAIL\s+audit:hreflang\s+756\.85 rc=1/);
     expect(payload.body).toContain('BFS-chain summary: 1 passed, 1 failed');
     expect(payload.body).toContain('How to fix');
     // Riproduzione locale: comando npm + artifact con gli offender completi.
-    expect(payload.body).toContain('npm run audit:max-bfs-depth');
+    expect(payload.body).toContain('npm run audit:hreflang');
     expect(payload.body).toContain('audit-reports*-31259344953-1');
     expect(payload.body).toContain('byFeature');
   });
 
   it('body: il workflow accorpato riporta il risultato del solo job dist', () => {
-    const [payload] = buildIssuePayloads(bfsInput({
+    const [payload] = buildIssuePayloads(hreflangInput({
       results: { dist: 'failure' },
       failedJobs: [],
     }));
@@ -223,15 +280,15 @@ describe('buildIssuePayloads — una issue per gate, fallback legacy', () => {
   });
 
   it('senza deploy_ref il body lo dice e NON ripiega su github.sha', () => {
-    const [payload] = buildIssuePayloads(bfsInput({ deployRef: '' }));
+    const [payload] = buildIssuePayloads(hreflangInput({ deployRef: '' }));
     expect(payload.body).toContain('deploy_ref non passato');
     expect(payload.body).not.toContain('abc1234def5678');
   });
 
   it('replay: deploy_run_id della BUILD, non del run di validazione', () => {
-    const [payload] = buildIssuePayloads(bfsInput());
+    const [payload] = buildIssuePayloads(hreflangInput());
     expect(payload.body).toContain(
-      'gh workflow run audit-dist-from-run.yml -f deploy_run_id=31250000000 -f audits=max-bfs-depth',
+      'gh workflow run audit-dist-from-run.yml -f deploy_run_id=31250000000 -f audits=hreflang',
     );
     expect(payload.body).not.toContain('deploy_run_id=31259344953');
   });
@@ -402,5 +459,61 @@ describe('titoli per-gate: distinti e non prefisso l\'uno dell\'altro (dedup sta
 
   it('ogni titolo reale sta dentro la finestra di dedup senza troncamento', () => {
     for (const g of REAL_GATES) expect(titleForGate(g)).toBe(TITLE_PREFIX + g);
+  });
+});
+
+describe('ciclo di vita per gate (owner 2026-10-02: ogni errore una issue)', () => {
+  // Righe nella forma del log reale del run 36922718485.
+  const LOG = [
+    '2026-10-01T23:57:00.4932966Z ❌ FAIL  audit:all                                2262.07 rc=1',
+    '2026-10-01T23:57:00.4932966Z ❌ FAIL  gate:seo-source                            97.55 rc=1',
+    '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:hreflang                            960.28 rc=0',
+    '2026-10-01T23:57:00.4932966Z ✅ PASS  audit:job-title-locale(report-only)        25.31 rc=0',
+    '2026-10-01T23:57:00.5340149Z audit-all: failed-audits=h1-title-duplicates,text-html-ratio,page-weight',
+  ].join('\n');
+
+  it('audit:all si espande nei sotto-auditor falliti, come failed_gates', () => {
+    const { failedGates, passedGates } = parseGateLines(LOG);
+    expect(failedGates.map((g: { gate: string }) => g.gate)).toEqual([
+      'gate:seo-source',
+      'audit:all/h1-title-duplicates',
+      'audit:all/text-html-ratio',
+      'audit:all/page-weight',
+    ]);
+    expect(passedGates).toContain('audit:hreflang');
+    expect(passedGates).toContain('audit:all/faqpage-validity');
+    expect(passedGates).not.toContain('audit:all/page-weight');
+  });
+
+  it('senza marker audit:all resta opaco (fail-closed)', () => {
+    const { failedGates } = parseGateLines(LOG.split('\n').slice(0, 2).join('\n'));
+    expect(failedGates.map((g: { gate: string }) => g.gate)).toEqual(['audit:all', 'gate:seo-source']);
+  });
+
+  it('si chiudono le issue dei soli gate rientrati in questo run', () => {
+    const { failedGates, passedGates } = parseGateLines(LOG);
+    const resolvable = gatesToResolve(passedGates, failedGates.map((g: { gate: string }) => g.gate));
+    expect(resolvable).toContain('audit:hreflang');
+    expect(resolvable).toContain('audit:all/title-length');
+    expect(resolvable).not.toContain('audit:all/page-weight');
+    expect(resolvable).not.toContain('gate:seo-source');
+    expect(resolvable).not.toContain('audit:all'); // il bundle non è passato per intero
+    expect(resolvable.some((g: string) => g.includes('('))).toBe(false); // righe report-only
+  });
+
+  it('resolveMode chiude a titolo esatto: «…audit:all» non chiude «…audit:all/page-weight»', () => {
+    const open = [
+      { number: 200, title: 'Validation Failure (dist): audit:all/page-weight', url: 'u', state: 'OPEN' },
+      { number: 201, title: 'Validation Failure (dist): audit:all', url: 'u', state: 'OPEN' },
+    ];
+    execFileSync.mockImplementation((_cmd: string, args: string[]) => {
+      if (args[0] === 'issue' && args[1] === 'list') return JSON.stringify(open);
+      if (args[0] === 'issue' && args[1] === 'view') return JSON.stringify({ state: 'CLOSED' });
+      return '';
+    });
+    process.env.GH_REPO = 'valerielinc-ops/frontaliere-si-o-no';
+    resolveMode({ dryRun: false });
+    const closes = ghCalls().filter((a) => a[0] === 'issue' && a[1] === 'close').map((a) => a[2]);
+    expect(closes.sort()).toEqual(['200', '201']);
   });
 });

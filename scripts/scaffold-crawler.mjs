@@ -761,6 +761,92 @@ ${locationBlock}
 }
 `;
 
+/* ── Template: Parser (Workday tier) ───────────────────────────
+ * A Workday tenant gets a thin wrapper over the shared factory, never a copy
+ * of the fetch loop: `createWorkdaySwissParser` owns the req's own primary
+ * workplace, the commune gazetteer then the official locality directory /
+ * postal code on a structured Swiss country, the detail's `timeType` and the
+ * source-body floor. The generic template above placed a req from its listing
+ * row with the gazetteer alone, read `timeType` from a CXS row that never
+ * carries it, and published nothing (the listing has no body).
+ */
+const workdayParserContent = `#!/usr/bin/env node
+/**
+ * ${companyName} job parser — Workday, through the shared factory.
+ *
+ * Source: ${careerUrl}
+ *
+ * \`createWorkdaySwissParser\` (./workday-swiss-job-parser-common.mjs) owns the
+ * whole Workday contract; do not copy its loop into this file.
+ *
+ * TODO before the first run:
+ *   - countryFacetParameter: the tenant's country facet key. POST {}/jobs with
+ *     \`appliedFacets: {}\` and read \`facets[].facetParameter\`: \`locationCountry\`
+ *     on most tenants, \`Country\` / \`Location_Country\` on others (a wrong key
+ *     answers HTTP 400 and the run falls back to the whole global board).
+ *   - defaultCanton / defaultCity: the HQ, required by the factory but never
+ *     used to place a req.
+ *   - proveSwissAbsentFromLiveBoard: switch it on, with the runner's
+ *     \`authoritativeEmptySnapshotValidator\` + \`authoritativeSnapshotScope:
+ *     'empty-only'\`, once the facet key is verified (see imerys / kone).
+ */
+import { createWorkdaySwissParser } from './workday-swiss-job-parser-common.mjs';
+
+/* ── Constants ─────────────────────────────────────────────── */
+
+export const ${CONST_PREFIX}_KEY = '${companyKey}';
+export const ${CONST_PREFIX}_COMPANY_NAME = '${companyName}';
+export const ${CONST_PREFIX}_COMPANY_DOMAIN = '${companyDomain}';
+
+const CAREER_URL = '${careerUrl}';
+const _WORKDAY_URL = new URL(CAREER_URL);
+
+const parser = createWorkdaySwissParser({
+  companyKey: ${CONST_PREFIX}_KEY,
+  companyName: ${CONST_PREFIX}_COMPANY_NAME,
+  companyDomain: ${CONST_PREFIX}_COMPANY_DOMAIN,
+  tenantHost: _WORKDAY_URL.hostname,
+  sitePath: _WORKDAY_URL.pathname.replace(/^\\/+|\\/+$/g, '').split('/').pop() || 'External',
+  careerUrl: CAREER_URL,
+  defaultCanton: 'TODO',
+  defaultCity: 'TODO',
+  defaultSourceLang: '${sourceLang}',
+  countryFacetParameter: 'locationCountry', // TODO: verify on the tenant
+});
+
+function normalize(value = '') {
+  return String(value || '').trim().toLowerCase();
+}
+
+/**
+ * Check if a job belongs to ${companyName}.
+ * Used by the template to filter this company's jobs from the global dataset.
+ */
+export function is${pascalKey}Job(job) {
+  const key = normalize(job?.companyKey || job?.company || '')
+    .normalize('NFD')
+    .replace(/[\\u0300-\\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  const company = normalize(job?.company || '');
+  const url = normalize(job?.url || '');
+
+  return (
+    key === ${CONST_PREFIX}_KEY ||
+    key.startsWith('${companyKey}-') ||
+    company.includes('${companyName.toLowerCase()}') ||
+    url.includes('${companyDomain}') ||
+    parser.isCompanyJob(job)
+  );
+}
+
+/** The corporate domain and the Workday tenant that serves the postings. */
+export const isTrustedDomain = parser.isTrustedDomain;
+
+/** Fetch and parse all Swiss jobs (source-locale only). */
+export const fetchAll${pascalKey}Jobs = parser.fetchAllJobs;
+`;
+
 /* ── Template: Runner ────────────────────────────────────────── */
 
 const runnerContent = `#!/usr/bin/env node
@@ -1112,7 +1198,7 @@ function upsertCrawlerManifestEntry(entry) {
 
 console.log(`\n🏗️  Scaffolding crawler: ${companyKey} (${companyName}) [--ats=${atsTier}${playwrightTier ? ', --playwright' : ''}${ignoreScriptsTier ? ', --ignore-scripts' : ''}]\n`);
 
-writeFile(files.parser, parserContent, 'Parser');
+writeFile(files.parser, atsTier === 'workday' ? workdayParserContent : parserContent, 'Parser');
 writeFile(files.runner, runnerContent, 'Runner');
 writeFile(files.test, testContent, 'Test');
 upsertCrawlerManifestEntry(workflowContentToManifestEntry(companyKey, workflowContent));

@@ -79,6 +79,8 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import {
   fetchSmartRecruitersJobs,
+  isCompleteSmartRecruitersSourceRead,
+  provesSmartRecruitersFilteredEmpty,
   SmartRecruitersApiError,
 } from './ats-clients/smartrecruiters-client.mjs';
 
@@ -252,13 +254,20 @@ async function fetchJobListings() {
     throw err;
   }
 
-  const completeSourceRead = sourceReadProof?.terminationProven === true
-    && sourceReadProof.paginationIntegrityProven === true
-    && Number.isSafeInteger(sourceReadProof.totalFound)
-    && sourceReadProof.recordsSeen === sourceReadProof.totalFound
-    && sourceReadProof.rawRecordsSeen === sourceReadProof.recordsSeen;
-  if (!completeSourceRead) {
+  if (!isCompleteSmartRecruitersSourceRead(sourceReadProof)) {
     throw new Error('SmartRecruiters postings walk was incomplete; keeping the existing Kiabi slice.');
+  }
+  // The group-wide tenant always carries live postings in other countries
+  // (192 on 2026-10-02, none Swiss). A tenant-wide zero is the envelope
+  // SmartRecruiters returns for an unknown or renamed company identifier, so
+  // it cannot certify that Kiabi Suisse has no openings: fail loudly instead
+  // of retiring the slice on a source that may no longer be Kiabi's board.
+  if (listings.length === 0 && !provesSmartRecruitersFilteredEmpty(sourceReadProof)) {
+    throw new Error(
+      `SmartRecruiters tenant "${SR_TENANT}" declared no postings at all (totalFound=${sourceReadProof.totalFound}); `
+      + 'an unknown or renamed tenant answers the same way, so this is not a proven Swiss zero. '
+      + 'Keeping the existing Kiabi slice.',
+    );
   }
 
   return { listings, sourceReadProof };
@@ -281,10 +290,7 @@ export async function fetchAllKiabiJobs() {
   const { listings, sourceReadProof } = await fetchJobListings();
   const jobs = [];
   Object.defineProperty(jobs, 'authoritativeEmptySnapshot', {
-    value: listings.length === 0
-      && sourceReadProof.terminationProven === true
-      && sourceReadProof.paginationIntegrityProven === true
-      && sourceReadProof.recordsSeen === sourceReadProof.totalFound,
+    value: listings.length === 0 && provesSmartRecruitersFilteredEmpty(sourceReadProof),
   });
   if (!listings || listings.length === 0) {
     console.warn('⚠️ SmartRecruiters source walk completed with no Swiss job listings.');

@@ -84,6 +84,7 @@ import {
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
 import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
+import { markCantonCompanyHub } from './shared/cantonCompanyHubRegistry';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
@@ -265,6 +266,17 @@ import {
   isCompanyHubNamespaceSlug,
 } from './shared/cantonSection';
 import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
+import { historicalArchiveHeading } from './shared/historicalArchiveHeading';
+import {
+ MIN_JOBS_PER_CANTON_COMPANY_CITY,
+ buildCompanyCityPlan,
+ companyCityCityHubHeading,
+ companyCityCompanyHubHeading,
+ companyCityLinksForCompany,
+ companyCityLinksForJobs,
+ renderCompanyCityLinks,
+ type CompanyCityKeyDeps,
+} from './shared/companyCityHubPlan';
 import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
 import { getPathHistory } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
@@ -3434,13 +3446,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with source context and a
  // locale-aware completeness fallback. The helper keeps this active-job
- // emitter in sync with its 120–160 character contract.
+ // emitter in sync with its 120–160 character contract. `cleanDesc` is
+ // already decoded once by cleanMetaDescription: it goes in as
+ // `decodedDescription`, which the helper never decodes again.
  const description = buildJobMetaDescription({
   locale,
   title: localizedTitle,
   company: String(job.company || ''),
   location: String(job.location || getCantonDisplayLabel(perJob_cantonCode, locale)),
-  cleanDescription: cleanDesc,
+  decodedDescription: cleanDesc,
   salaryMin: job.salaryMin,
   salaryMax: job.salaryMax,
   currency: job.currency,
@@ -7440,6 +7454,25 @@ ${staticAnalyticsHtml}
  releaseLocationPartition();
  }
 
+ // Company × city hub plan (build-plugins/shared/companyCityHubPlan.ts),
+ // built BEFORE Phase 3.1 so the city hubs (3.1) and the per-canton company
+ // hubs (3.3) link exactly the hubs Phase 3.4 emits. Until 2026-10-02 the
+ // set lived inside the 3.4 loop and nothing linked those pages: 3 112
+ // sitemap-jobs.xml URLs with no inbound link (587 of the 718 buried Zurich
+ // URLs in audit:max-bfs-depth, build f3659686).
+ type CompanyCityJob = (typeof validJobs)[number];
+ const companyCityDeps: CompanyCityKeyDeps<CompanyCityJob> = {
+ resolveCanton: (job) => sharedResolveJobCanton(job as { canton?: string; location?: string }),
+ companySlug: (job) => companyHubSlugBuild(job.company, job.companyKey),
+ location: (job) => String((job as any).location || ''),
+ company: (job) => job.company,
+ citySlug: (rawLocation) => normalizeCitySlug(rawLocation),
+ };
+ const companyCityPlan = buildCompanyCityPlan(validJobs, companyCityDeps);
+ /** Path of a company × city hub — the ONE builder used by Phase 3.4's emit and by every link to it. */
+ const companyCityHubPath = (locale: (typeof localeList)[number], canton: string, companySlug: string, citySlug: string): string =>
+ withSlash(`${localePrefix[locale]}/${sharedResolveCantonSection(locale, canton)}/${companyRoutePrefix[locale]}-${companySlug}-${citySlug}`.replace(/\/+/g, '/'));
+
  /* ── Per-canton city hubs (Phase 3.1) ────────────────────────
   * Additive: for every non-TI canton with >= MIN_JOBS_FOR_CANTON_PAGE jobs,
   * emit /cerca-lavoro-{cantonSlug}/{citySlug}/ for EVERY canon city in the
@@ -7603,6 +7636,9 @@ ${staticAnalyticsHtml}
  for (const { citySlug, cityDisplay: canonCityDisplay } of cantonCityList) {
  const cityJobs = byCity.get(citySlug) ?? ([] as typeof validJobs);
  const cityDisplay = cityDisplayByCantonCity.get(canton)?.get(citySlug) ?? canonCityDisplay;
+ // Every emitted company × city hub of this city, from ALL its jobs (not
+ // the capped card list), so none of them is left without a parent link.
+ const cityCompanyCityLinks = companyCityLinksForJobs(companyCityPlan, cityJobs, companyCityDeps);
  // Sort jobs for stable feed order. When the city has 0 active jobs,
  // expand the search to canton scope: show the latest canton-wide jobs
  // as a "0 results" fallback so the page is never a dead end.
@@ -7709,7 +7745,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -8985,6 +9021,14 @@ ${staticAnalyticsHtml}
  }
  continue;
  }
+ // The canton "Aziende che assumono" page (seoHubsPlugin) links exactly
+ // the hubs registered here (build-plugins/shared/cantonCompanyHubRegistry.ts).
+ markCantonCompanyHub(canton, {
+ slug: cSlug,
+ name: companyName,
+ jobs: companyJobs.length,
+ logoKey: String((sortedJobs[0] as any)?.companyKey || (sortedJobs[0] as any)?.employerKey || cSlug),
+ });
  // Keep the live total in the intro, but use one shared payload boundary for
  // cards and ItemList so structured data describes every visible card.
  const cappedJobs = sortedJobs.slice(0, COMPANY_JOB_PAYLOAD_CAP);
@@ -9111,7 +9155,16 @@ ${staticAnalyticsHtml}
  surface: 'employer_hub',
  popupEligible: true,
  });
- const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n${companyFollowHtml}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
+ // Links to this company's company × city hubs (Phase 3.4), from the
+ // shared plan: the natural parent of those pages.
+ const companyLocationsHtml = renderCompanyCityLinks(
+ companyCityLinksForCompany(companyCityPlan, canton, cSlug),
+ locale,
+ companyCityCompanyHubHeading(locale, companyName),
+ (l) => l.cityDisplay,
+ (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`,
+ );
+ const bodyHtml = `<h1>${esc(pageHeading)}</h1>\n<p>${esc(pageDesc)}</p>\n${intro}\n${companyFollowHtml}\n<ul class="s-0WjlyL">${listHtml}</ul>\n<p><a href="${sectionRootUrl}">${esc(openAllLabel)}</a></p>\n${companyLocationsHtml}\n${salaryBlockHtml}\n${alsoHiringHtml}\n${faqHtml}\n${marketSection}\n${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cDisplay, omitCommute: true, cantonDisplay: cDisplay, cantonSlot: 'company-landing', cantonEntityName: companyName }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -9194,28 +9247,11 @@ ${staticAnalyticsHtml}
   * scope for the additive expansion.
   */
  {
- const MIN_JOBS_PER_CANTON_COMPANY_CITY = 2;
  const COMPANY_CITY_JOB_CAP = 20;
- // Bucket: canton → company canonical → city slug → { jobs, display, name }
- type CompCityEntry = { name: string; cityDisplay: string; jobs: typeof validJobs };
- const buckets: Map<string, Map<string, Map<string, CompCityEntry>>> = new Map();
- for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
- const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
- if (c === 'TI') continue;
- const canonical = companyHubSlugBuild(job.company, job.companyKey);
- if (!canonical) continue;
- const rawLocation = String((job as any).location || '').split(/[,(]/)[0].trim();
- if (!rawLocation) continue;
- const citySlug = normalizeCitySlug(rawLocation);
- if (!citySlug) continue;
- if (!buckets.has(c)) buckets.set(c, new Map());
- const byCompany = buckets.get(c)!;
- if (!byCompany.has(canonical)) byCompany.set(canonical, new Map());
- const byCity = byCompany.get(canonical)!;
- if (!byCity.has(citySlug)) byCity.set(citySlug, { name: job.company, cityDisplay: rawLocation, jobs: [] });
- byCity.get(citySlug)!.jobs.push(job);
- }
+ // The (canton, company, city) buckets come from the shared plan built
+ // before Phase 3.1, so the pages emitted here are exactly the ones the city
+ // and company hubs link.
+ const buckets = companyCityPlan;
  const cantonDisplayLocalCC = (canton: string, locale: typeof localeList[number]): string => {
  return getCantonDisplayLabel(canton, locale);
  };
@@ -9282,8 +9318,8 @@ ${staticAnalyticsHtml}
  const __tCompanyCity = startTimer();
  const sectionSlug = sharedResolveCantonSection(locale, canton);
  const prefix = companyRoutePrefix[locale];
- const fullSlug = `${prefix}-${cSlug}-${citySlug}`;
- const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionSlug}/${fullSlug}`.replace(/\/+/g, '/'));
+ // Same builder as every link to this page (city hub, company hub).
+ const canonicalPath = companyCityHubPath(locale, canton, cSlug, citySlug);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
  const cDisplay = cantonDisplayLocalCC(canton, locale);
  const year = new Date().getFullYear();
@@ -15196,7 +15232,10 @@ ${staticAnalyticsHtml}
    archive?.expiredAt ? `<li><strong>${locale === 'it' ? 'Archiviata' : locale === 'en' ? 'Archived' : locale === 'de' ? 'Archiviert' : 'Archivée'}:</strong> ${esc(archive.expiredAt.slice(0, 10))}</li>` : '',
   ].filter(Boolean).join('');
   const staticBody = [
-   `<h1>${esc(titleRaw)}${company ? ` — ${esc(company)}` : ''}</h1>`,
+   // Location in the heading (shared/historicalArchiveHeading.ts): the
+   // title drops it when it does not fit, so a heading without it was the
+   // title verbatim on every such page (audit:all/h1-title-duplicates).
+   `<h1>${esc(historicalArchiveHeading(titleRaw, company, location))}</h1>`,
    `<p><strong>${copy.notice}</strong></p>`,
    descriptionHtml
     ? `<section><h2>${copy.original}</h2>${descriptionHtml}</section>`

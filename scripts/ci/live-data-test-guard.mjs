@@ -457,6 +457,11 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     reason: 'the same fixture as merge-open-data-refresh: packages/articles/content/body.ts is written and symlinked inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the five refresh scripts under test (#10754)',
   },
   {
+    file: 'tests/scripts/verified-shrink-with-additions.test.ts',
+    roots: ['data/jobs/'],
+    reason: 'data/jobs/by-crawler is only the anchor of a crawler key relative to the real slice directory: the slice, the housekeeping proofs and every write live in a mkdtemp directory under os.tmpdir(), and the test aborts if the resolved path escapes it',
+  },
+  {
     file: 'tests/job-board-seo-titles.test.ts',
     roots: ['data/jobs.json'],
     reason: 'data/jobs.json is written and read only under fs.mkdtempSync; the separate checkout read is the staticPagesPlugin.ts source used to verify the static landing call',

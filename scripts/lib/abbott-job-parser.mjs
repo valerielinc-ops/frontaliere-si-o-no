@@ -33,7 +33,6 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { normalizeDescriptionBullets, slugify, stripHtml } from './crawler-template.mjs';
 import {
-  inferSwissTargetCanton,
   isWorkModeLocationLabel,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
@@ -47,7 +46,11 @@ import {
   workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { resolveWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import {
+  resolveWorkdayPostalPlace,
+  resolveWorkdayPrimarySwissLocation,
+  resolveWorkdaySwissCanton,
+} from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -106,7 +109,20 @@ function cleanAbbottLocation(raw = '') {
 
 export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {
   const requisitionText = normalizeWorkdayLocationCandidate(requisitionLocation);
-  if (requisitionText) return swissCityFromLocationField(requisitionText) || '';
+  if (requisitionText) {
+    // A requisition placed in a LOCALITY outside the BFS commune list
+    // (Rotkreuz, Brüttisellen, …) stays its own place when its structured
+    // country is CH and the official directory names one canton — the shared
+    // rule of the Workday parsers (`resolveWorkdaySwissCanton`).
+    const place = normalizeSpace(typeof requisitionLocation === 'object' ? requisitionLocation?.descriptor : requisitionLocation);
+    const structured = { jobRequisitionLocation: requisitionLocation };
+    const city = swissCityFromLocationField(requisitionText);
+    if (city) return city;
+    if (place && resolveWorkdaySwissCanton(place, structured, { log: false })) return place;
+    // An address instead of a place (`Switzerland : Technoparkstrass 1 CH
+    // 8005`): its postal code names the locality, under the same guarantees.
+    return resolveWorkdayPostalPlace(place, structured)?.locality || '';
+  }
   return cleanAbbottLocation(listingLocation);
 }
 
@@ -254,14 +270,15 @@ export async function fetchAllAbbottJobs() {
     // Rübenberge (Germany) as `Basel/BS` (issue 9842).
     const location = cleaned || resolveWorkdayPrimarySwissLocation(detailInfo);
     const canton = location && !isWorkModeLocationLabel(location)
-      ? inferSwissTargetCanton(location)
+      ? resolveWorkdaySwissCanton(location, detailInfo)
       : '';
     if (!location || !canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;
     }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
     const detailDescription = detailInfo.jobDescription

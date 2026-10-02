@@ -48,6 +48,9 @@ import {
   CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE,
 } from './lib/clinique-le-noirmont-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { storedJobForFailedSource } from './lib/stored-source-body.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { fetchHtml, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -193,14 +196,23 @@ function buildJob({ title, pdfUrl, pdfText, identifier }) {
   };
 }
 
-async function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = dropFabricatedDescriptions(
-    existing.filter(isTargetJob),
+function urlKey(job = {}) {
+  return String(job?.url || '').trim().replace(/\/+$/, '');
+}
+
+/** Stored postings of this crawler, without text the crawler once invented. */
+function readStoredTargetJobs() {
+  return dropFabricatedDescriptions(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
     CLINIQUE_LE_NOIRMONT_FABRICATED_DESCRIPTION_RE,
     COMPANY_NAME,
   );
+}
+
+async function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const existingTarget = readStoredTargetJobs();
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
@@ -279,9 +291,10 @@ function validateLocales() {
   });
 }
 
-async function main() {
+export async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'Clinique Le Noirmont');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Clinique Le Noirmont', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  Clinique Le Noirmont — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -294,8 +307,16 @@ async function main() {
     throw new Error('Clinique Le Noirmont discovery returned 0 PDF jobs.');
   }
 
+  // A posting whose PDF cannot be read this run (timeout, 5xx, no text layer)
+  // is a degraded source, as in the other PDF crawlers: it republishes its
+  // stored record, is left out only when no stored body exists, and is listed
+  // in sourceBodyFailures either way. It used to abort the whole crawler. The
+  // stored slice is read only when a read fails.
   const discoveredJobs = [];
-  let skippedPdfCount = 0;
+  const sourceBodyFailures = [];
+  let storedTargetJobs = null;
+  let keptStoredCount = 0;
+  let leftOutCount = 0;
   for (const listing of listings) {
     const title = resolveCliniqueLeNoirmontTitle(listing);
     console.log(`  📄 Extracting PDF for "${title}"`);
@@ -303,8 +324,25 @@ async function main() {
     if (pdf.error) console.warn(`     ⚠️ PDF error: ${pdf.error}`);
     const pdfText = pdf.text || '';
     if (!pdfText) {
-      skippedPdfCount += 1;
-      console.warn(`     ⚠️ Empty PDF text — skipping ${listing.identifier}`);
+      // A failed read and a PDF without a text layer leave the same gap: both
+      // are listed as a degraded source, as ECAM does.
+      if (!pdf.error && !pdf.extractionFailed) {
+        console.warn(`     ⚠️ ${pdf.warning || 'Empty PDF text'} — ${listing.identifier}`);
+      }
+      sourceBodyFailures.push({
+        title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: pdf.error || pdf.warning || 'official PDF has no usable text layer',
+      });
+      storedTargetJobs ??= readStoredTargetJobs();
+      const kept = storedJobForFailedSource(urlKey({ url: listing.pdfUrl }), storedTargetJobs, urlKey);
+      if (kept) {
+        keptStoredCount += 1;
+        discoveredJobs.push(kept);
+      } else {
+        leftOutCount += 1;
+      }
       continue;
     }
     discoveredJobs.push(
@@ -317,13 +355,18 @@ async function main() {
     );
   }
 
-  if (skippedPdfCount > 0) {
-    throw new Error(
-      `Clinique Le Noirmont discovery was incomplete: ${skippedPdfCount} open posting(s) had unusable PDF content; refusing to update adapter seeds or merge jobs.`,
-    );
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
+  if (keptStoredCount > 0) {
+    console.warn(`  ⚠️ Clinique Le Noirmont: ${keptStoredCount} posting(s) with an unusable PDF keep their stored record.`);
+  }
+  if (leftOutCount > 0) {
+    console.warn(`  ⚠️ Clinique Le Noirmont: ${leftOutCount} posting(s) left out of this run: unusable PDF and no stored source body.`);
   }
   if (discoveredJobs.length === 0) {
-    throw new Error('Clinique Le Noirmont discovered 0 jobs with extractable PDF text.');
+    throw new Error(
+      `Clinique Le Noirmont has no publishable posting: ${listings.length} listed, `
+      + `${leftOutCount} with an unusable PDF and no stored source body.`,
+    );
   }
 
   updateAdapterConfig(discoveredJobs);
@@ -347,6 +390,8 @@ async function main() {
     label: 'Clinique Le Noirmont',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,
@@ -362,4 +407,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Clinique Le Noirmont'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Clinique Le Noirmont'));
+}

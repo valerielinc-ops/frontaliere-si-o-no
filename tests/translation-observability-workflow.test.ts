@@ -14,6 +14,7 @@ const mopupScript = fs.readFileSync(path.resolve('scripts/local-mt-mopup.mjs'), 
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
 const RUN_WIDE_TRANSLATION_DEADLINE_MS = 12_600_000;
+const PHASE_2C_DEADLINE_MS = 10_200_000;
 const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
 
 type YamlMapping = Record<string, unknown>;
@@ -177,8 +178,10 @@ describe('translation observability workflow', () => {
       expect(bulk, `${label}: Phase 2a missing`).toMatchObject({
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
+      // 2c stops at its own ceiling, inside the envelope: the rest belongs to
+      // the commit and the Phase 2d/2e lanes (budget test below).
       expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
-        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(PHASE_2C_DEADLINE_MS) },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true && steps.repair_lane_budget.outputs.run == 'true'",
@@ -196,7 +199,7 @@ describe('translation observability workflow', () => {
       });
     }
 
-    expect(titleFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
+    expect(titleFixScript).toContain("import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';");
     expect(titleFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
 

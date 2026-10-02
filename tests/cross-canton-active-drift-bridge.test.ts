@@ -75,7 +75,7 @@ describe('Historical tracking fallback preserves archived content', () => {
     expect(rendererEnd).toBeGreaterThan(rendererStart);
     const renderer = jobsSeoSrc.slice(rendererStart, rendererEnd);
 
-    expect(renderer).toContain('plainTextToHtml(description)');
+    expect(renderer).toContain('renderJobDescriptionGate(description, locale)');
     expect(renderer).toContain('ROBOTS_INDEX_ENHANCED');
     expect(renderer).toContain('descriptionByLocale');
     expect(renderer).toContain('historicalUrl,');

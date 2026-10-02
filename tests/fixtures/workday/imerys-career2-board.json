@@ -1,0 +1,85 @@
+{
+  "total": 35,
+  "jobPostings": [
+    {
+      "title": "Opérateur",
+      "externalPath": "/job/Toulouse-France/Laborantin_REQ-11887-1",
+      "locationsText": "Toulouse, France",
+      "postedOn": "Posted Yesterday",
+      "bulletFields": [
+        "REQ - 11887"
+      ]
+    },
+    {
+      "title": "Operator Level I",
+      "externalPath": "/job/Green-River-Wyoming-USA/Operator-Level-I_REQ-12072",
+      "locationsText": "Green River, Wyoming, USA",
+      "postedOn": "Posted 2 Days Ago",
+      "bulletFields": [
+        "REQ - 12072"
+      ]
+    },
+    {
+      "title": "Bulk Loader",
+      "externalPath": "/job/Sylacauga-Alabama-USA/Bulk-Loader_REQ-12068",
+      "locationsText": "Sylacauga, Alabama, USA",
+      "postedOn": "Posted 3 Days Ago",
+      "bulletFields": [
+        "REQ - 12068"
+      ]
+    }
+  ],
+  "facets": [
+    {
+      "facetParameter": "Country",
+      "descriptor": "Country",
+      "values": [
+        {
+          "descriptor": "United States of America",
+          "id": "bc33aa3152ec42d4995f4791a106ed09",
+          "count": 23
+        },
+        {
+          "descriptor": "Belgium",
+          "id": "a04ea128f43a42e59b1e6a19e8f0b374",
+          "count": 3
+        },
+        {
+          "descriptor": "France",
+          "id": "54c5b6971ffb4bf0b116fe7651ec789a",
+          "count": 2
+        },
+        {
+          "descriptor": "Italy",
+          "id": "8cd04a563fd94da7b06857a79faaf815",
+          "count": 2
+        },
+        {
+          "descriptor": "Bulgaria",
+          "id": "25f4875dc598484dbeee857eb2d81652",
+          "count": 1
+        },
+        {
+          "descriptor": "Türkiye",
+          "id": "c2e3bac5bbbb47b29dfc6e8b56a1586e",
+          "count": 1
+        },
+        {
+          "descriptor": "Brazil",
+          "id": "1a29bb1357b240ab99a2fa755cc87c0e",
+          "count": 1
+        },
+        {
+          "descriptor": "Chile",
+          "id": "53fe09ef12b9408682a1d2439823f2e0",
+          "count": 1
+        },
+        {
+          "descriptor": "China",
+          "id": "6cb77610a8a543aea2d6bc10457e35d4",
+          "count": 1
+        }
+      ]
+    }
+  ]
+}

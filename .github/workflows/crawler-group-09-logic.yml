@@ -181,7 +181,8 @@ jobs:
           pid_path="$state_dir/solina.pid"
           status_path="$state_dir/solina.status"
           started_path="$state_dir/solina.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/solina.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -256,6 +257,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/solina.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/solina.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/solina.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/solina.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-191}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -285,6 +287,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -311,6 +314,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -355,7 +359,8 @@ jobs:
           pid_path="$state_dir/spital-muri.pid"
           status_path="$state_dir/spital-muri.status"
           started_path="$state_dir/spital-muri.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/spital-muri.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -430,6 +435,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/spital-muri.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/spital-muri.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/spital-muri.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/spital-muri.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-151}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -459,6 +465,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -485,6 +492,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -529,7 +537,8 @@ jobs:
           pid_path="$state_dir/localsearch.pid"
           status_path="$state_dir/localsearch.status"
           started_path="$state_dir/localsearch.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/localsearch.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -604,6 +613,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/localsearch.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/localsearch.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/localsearch.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/localsearch.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-140}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -633,6 +643,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -659,6 +670,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -703,7 +715,8 @@ jobs:
           pid_path="$state_dir/livingcircle.pid"
           status_path="$state_dir/livingcircle.status"
           started_path="$state_dir/livingcircle.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/livingcircle.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -778,6 +791,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/livingcircle.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-131}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -807,6 +821,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -833,6 +848,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -877,7 +893,8 @@ jobs:
           pid_path="$state_dir/klinik-barmelweid.pid"
           status_path="$state_dir/klinik-barmelweid.status"
           started_path="$state_dir/klinik-barmelweid.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/klinik-barmelweid.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -952,6 +969,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/klinik-barmelweid.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/klinik-barmelweid.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/klinik-barmelweid.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/klinik-barmelweid.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-123}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -981,6 +999,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1007,6 +1026,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1051,7 +1071,8 @@ jobs:
           pid_path="$state_dir/hirslanden.pid"
           status_path="$state_dir/hirslanden.status"
           started_path="$state_dir/hirslanden.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/hirslanden.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1126,6 +1147,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/hirslanden.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/hirslanden.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/hirslanden.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/hirslanden.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-115}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1155,6 +1177,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1181,6 +1204,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1225,7 +1249,8 @@ jobs:
           pid_path="$state_dir/oetiker.pid"
           status_path="$state_dir/oetiker.status"
           started_path="$state_dir/oetiker.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/oetiker.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1300,6 +1325,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/oetiker.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/oetiker.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/oetiker.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/oetiker.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-108}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1329,6 +1355,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1355,6 +1382,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1399,7 +1427,8 @@ jobs:
           pid_path="$state_dir/suva.pid"
           status_path="$state_dir/suva.status"
           started_path="$state_dir/suva.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/suva.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1474,6 +1503,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/suva.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/suva.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/suva.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/suva.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-102}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1503,6 +1533,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1529,6 +1560,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1573,7 +1605,8 @@ jobs:
           pid_path="$state_dir/weisse-arena.pid"
           status_path="$state_dir/weisse-arena.status"
           started_path="$state_dir/weisse-arena.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/weisse-arena.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1648,6 +1681,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/weisse-arena.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/weisse-arena.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/weisse-arena.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/weisse-arena.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-96}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1677,6 +1711,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1703,6 +1738,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1747,7 +1783,8 @@ jobs:
           pid_path="$state_dir/csc-costruzioni.pid"
           status_path="$state_dir/csc-costruzioni.status"
           started_path="$state_dir/csc-costruzioni.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/csc-costruzioni.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1822,6 +1859,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/csc-costruzioni.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/csc-costruzioni.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/csc-costruzioni.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/csc-costruzioni.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-82}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -1851,6 +1889,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -1877,6 +1916,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -1921,7 +1961,8 @@ jobs:
           pid_path="$state_dir/spital-sts.pid"
           status_path="$state_dir/spital-sts.status"
           started_path="$state_dir/spital-sts.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/spital-sts.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -1996,6 +2037,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/spital-sts.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/spital-sts.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/spital-sts.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/spital-sts.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-76}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2025,6 +2067,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2051,6 +2094,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2095,7 +2139,8 @@ jobs:
           pid_path="$state_dir/ete.pid"
           status_path="$state_dir/ete.status"
           started_path="$state_dir/ete.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/ete.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2170,6 +2215,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/ete.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/ete.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/ete.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/ete.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2199,6 +2245,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2225,6 +2272,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2269,7 +2317,8 @@ jobs:
           pid_path="$state_dir/spital-oberengadin.pid"
           status_path="$state_dir/spital-oberengadin.status"
           started_path="$state_dir/spital-oberengadin.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/spital-oberengadin.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2344,6 +2393,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/spital-oberengadin.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/spital-oberengadin.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/spital-oberengadin.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/spital-oberengadin.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-73}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2373,6 +2423,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2399,6 +2450,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2443,7 +2495,8 @@ jobs:
           pid_path="$state_dir/paraplegie.pid"
           status_path="$state_dir/paraplegie.status"
           started_path="$state_dir/paraplegie.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/paraplegie.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2518,6 +2571,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/paraplegie.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/paraplegie.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/paraplegie.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/paraplegie.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-67}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2547,6 +2601,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2573,6 +2628,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2617,7 +2673,8 @@ jobs:
           pid_path="$state_dir/zegna.pid"
           status_path="$state_dir/zegna.status"
           started_path="$state_dir/zegna.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/zegna.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2692,6 +2749,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/zegna.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/zegna.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-58}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2721,6 +2779,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2747,6 +2806,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2791,7 +2851,8 @@ jobs:
           pid_path="$state_dir/fusalp.pid"
           status_path="$state_dir/fusalp.status"
           started_path="$state_dir/fusalp.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/fusalp.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -2866,6 +2927,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/fusalp.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/fusalp.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/fusalp.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/fusalp.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-49}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -2895,6 +2957,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -2921,6 +2984,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -2965,7 +3029,8 @@ jobs:
           pid_path="$state_dir/concara.pid"
           status_path="$state_dir/concara.status"
           started_path="$state_dir/concara.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/concara.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3040,6 +3105,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/concara.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/concara.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/concara.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/concara.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-44}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3069,6 +3135,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3095,6 +3162,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -3139,7 +3207,8 @@ jobs:
           pid_path="$state_dir/fielmann.pid"
           status_path="$state_dir/fielmann.status"
           started_path="$state_dir/fielmann.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/fielmann.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3214,6 +3283,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/fielmann.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/fielmann.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/fielmann.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/fielmann.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-36}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3243,6 +3313,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3269,6 +3340,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -3313,7 +3385,8 @@ jobs:
           pid_path="$state_dir/concordia.pid"
           status_path="$state_dir/concordia.status"
           started_path="$state_dir/concordia.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/concordia.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3388,6 +3461,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/concordia.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/concordia.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/concordia.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/concordia.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-32}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3417,6 +3491,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3443,6 +3518,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -3487,7 +3563,8 @@ jobs:
           pid_path="$state_dir/engadin-tourismus.pid"
           status_path="$state_dir/engadin-tourismus.status"
           started_path="$state_dir/engadin-tourismus.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/engadin-tourismus.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3562,6 +3639,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/engadin-tourismus.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/engadin-tourismus.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/engadin-tourismus.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/engadin-tourismus.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3591,6 +3669,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3617,6 +3696,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -3661,7 +3741,8 @@ jobs:
           pid_path="$state_dir/colin-cie.pid"
           status_path="$state_dir/colin-cie.status"
           started_path="$state_dir/colin-cie.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/colin-cie.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3736,6 +3817,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/colin-cie.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/colin-cie.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/colin-cie.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/colin-cie.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3765,6 +3847,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3791,6 +3874,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -3835,7 +3919,8 @@ jobs:
           pid_path="$state_dir/bcv.pid"
           status_path="$state_dir/bcv.status"
           started_path="$state_dir/bcv.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/bcv.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -3910,6 +3995,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/bcv.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/bcv.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/bcv.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/bcv.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -3939,6 +4025,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -3965,6 +4052,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4009,7 +4097,8 @@ jobs:
           pid_path="$state_dir/apple-retail-switzerland.pid"
           status_path="$state_dir/apple-retail-switzerland.status"
           started_path="$state_dir/apple-retail-switzerland.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/apple-retail-switzerland.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4084,6 +4173,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/apple-retail-switzerland.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/apple-retail-switzerland.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/apple-retail-switzerland.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/apple-retail-switzerland.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4113,6 +4203,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -4139,6 +4230,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4183,7 +4275,8 @@ jobs:
           pid_path="$state_dir/bethesda-spital.pid"
           status_path="$state_dir/bethesda-spital.status"
           started_path="$state_dir/bethesda-spital.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/bethesda-spital.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4258,6 +4351,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/bethesda-spital.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/bethesda-spital.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/bethesda-spital.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/bethesda-spital.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4287,6 +4381,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -4313,6 +4408,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4357,7 +4453,8 @@ jobs:
           pid_path="$state_dir/air-zermatt.pid"
           status_path="$state_dir/air-zermatt.status"
           started_path="$state_dir/air-zermatt.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/air-zermatt.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4432,6 +4529,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/air-zermatt.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/air-zermatt.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/air-zermatt.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/air-zermatt.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4461,6 +4559,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -4487,6 +4586,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4531,7 +4631,8 @@ jobs:
           pid_path="$state_dir/benu.pid"
           status_path="$state_dir/benu.status"
           started_path="$state_dir/benu.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/benu.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4606,6 +4707,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/benu.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/benu.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/benu.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/benu.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4635,6 +4737,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -4661,6 +4764,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4705,7 +4809,8 @@ jobs:
           pid_path="$state_dir/bitfinex.pid"
           status_path="$state_dir/bitfinex.status"
           started_path="$state_dir/bitfinex.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/bitfinex.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4780,6 +4885,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/bitfinex.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/bitfinex.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/bitfinex.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/bitfinex.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4809,6 +4915,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -4835,6 +4942,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -4879,7 +4987,8 @@ jobs:
           pid_path="$state_dir/sunrise.pid"
           status_path="$state_dir/sunrise.status"
           started_path="$state_dir/sunrise.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/sunrise.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -4954,6 +5063,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/sunrise.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/sunrise.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-86}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4983,6 +5093,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -5009,6 +5120,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -5053,7 +5165,8 @@ jobs:
           pid_path="$state_dir/lwphr.pid"
           status_path="$state_dir/lwphr.status"
           started_path="$state_dir/lwphr.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          watchdog_path="$state_dir/lwphr.watchdog"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path" "$watchdog_path"
           # shellcheck disable=SC2016,SC1003
           printf '%s\n' 'set -uo pipefail
           set +e
@@ -5128,6 +5241,7 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-09/lwphr.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-09/lwphr.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-09/lwphr.started"
+          watchdog_file="$RUNNER_TEMP/crawler-generation/group-09/lwphr.watchdog"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-91}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -5157,6 +5271,7 @@ jobs:
             fi
             terminal_exit="$flock_exit"
             if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
             printf "%s\n" "$terminal_exit" > "$status_tmp"
             mv "$status_tmp" "$status_file"
             exit "$terminal_exit"
@@ -5183,6 +5298,7 @@ jobs:
                 # fallback for a SIGTERM from the runner/host.
                 terminal_exit="$flock_exit"
                 if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                if [ "$terminal_exit" -eq 124 ] || [ "$terminal_exit" -eq 137 ]; then printf '\''%s\n'\'' "$worker_watchdog_minutes" > "$watchdog_file"; fi
                 printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
                 mv "$status_tmp" "$status_file"
                 exit "$terminal_exit"
@@ -6840,6 +6956,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/solina.watchdog"
+          watchdog_status="$(cat "$state_dir/solina.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::solina: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run solina' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run solina'; then
+              echo "::warning::solina: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/spital-muri.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::spital-muri: no terminal status was published"
@@ -6866,6 +6992,16 @@ jobs:
               echo "::error::spital-muri: crawler exited with status $status"
               printf '| spital-muri | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/spital-muri.watchdog"
+          watchdog_status="$(cat "$state_dir/spital-muri.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::spital-muri: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run spital-muri' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run spital-muri'; then
+              echo "::warning::spital-muri: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/localsearch.status"
@@ -6896,6 +7032,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/localsearch.watchdog"
+          watchdog_status="$(cat "$state_dir/localsearch.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::localsearch: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run localsearch' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run localsearch'; then
+              echo "::warning::localsearch: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/livingcircle.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::livingcircle: no terminal status was published"
@@ -6922,6 +7068,16 @@ jobs:
               echo "::error::livingcircle: crawler exited with status $status"
               printf '| livingcircle | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/livingcircle.watchdog"
+          watchdog_status="$(cat "$state_dir/livingcircle.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::livingcircle: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run livingcircle' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run livingcircle'; then
+              echo "::warning::livingcircle: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/klinik-barmelweid.status"
@@ -6952,6 +7108,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/klinik-barmelweid.watchdog"
+          watchdog_status="$(cat "$state_dir/klinik-barmelweid.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::klinik-barmelweid: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run klinik-barmelweid' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run klinik-barmelweid'; then
+              echo "::warning::klinik-barmelweid: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/hirslanden.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::hirslanden: no terminal status was published"
@@ -6978,6 +7144,16 @@ jobs:
               echo "::error::hirslanden: crawler exited with status $status"
               printf '| hirslanden | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/hirslanden.watchdog"
+          watchdog_status="$(cat "$state_dir/hirslanden.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::hirslanden: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run hirslanden' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run hirslanden'; then
+              echo "::warning::hirslanden: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/oetiker.status"
@@ -7008,6 +7184,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/oetiker.watchdog"
+          watchdog_status="$(cat "$state_dir/oetiker.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::oetiker: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run oetiker' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run oetiker'; then
+              echo "::warning::oetiker: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/suva.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::suva: no terminal status was published"
@@ -7034,6 +7220,16 @@ jobs:
               echo "::error::suva: crawler exited with status $status"
               printf '| suva | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/suva.watchdog"
+          watchdog_status="$(cat "$state_dir/suva.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::suva: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run suva' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run suva'; then
+              echo "::warning::suva: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/weisse-arena.status"
@@ -7064,6 +7260,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/weisse-arena.watchdog"
+          watchdog_status="$(cat "$state_dir/weisse-arena.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::weisse-arena: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run weisse-arena' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run weisse-arena'; then
+              echo "::warning::weisse-arena: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/csc-costruzioni.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::csc-costruzioni: no terminal status was published"
@@ -7090,6 +7296,16 @@ jobs:
               echo "::error::csc-costruzioni: crawler exited with status $status"
               printf '| csc-costruzioni | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/csc-costruzioni.watchdog"
+          watchdog_status="$(cat "$state_dir/csc-costruzioni.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::csc-costruzioni: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run csc-costruzioni' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run csc-costruzioni'; then
+              echo "::warning::csc-costruzioni: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/spital-sts.status"
@@ -7120,6 +7336,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/spital-sts.watchdog"
+          watchdog_status="$(cat "$state_dir/spital-sts.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::spital-sts: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run spital-sts' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run spital-sts'; then
+              echo "::warning::spital-sts: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/ete.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::ete: no terminal status was published"
@@ -7146,6 +7372,16 @@ jobs:
               echo "::error::ete: crawler exited with status $status"
               printf '| ete | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/ete.watchdog"
+          watchdog_status="$(cat "$state_dir/ete.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::ete: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run ete' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run ete'; then
+              echo "::warning::ete: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/spital-oberengadin.status"
@@ -7176,6 +7412,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/spital-oberengadin.watchdog"
+          watchdog_status="$(cat "$state_dir/spital-oberengadin.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::spital-oberengadin: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run spital-oberengadin' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run spital-oberengadin'; then
+              echo "::warning::spital-oberengadin: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/paraplegie.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::paraplegie: no terminal status was published"
@@ -7202,6 +7448,16 @@ jobs:
               echo "::error::paraplegie: crawler exited with status $status"
               printf '| paraplegie | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/paraplegie.watchdog"
+          watchdog_status="$(cat "$state_dir/paraplegie.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::paraplegie: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run paraplegie' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run paraplegie'; then
+              echo "::warning::paraplegie: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/zegna.status"
@@ -7232,6 +7488,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/zegna.watchdog"
+          watchdog_status="$(cat "$state_dir/zegna.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::zegna: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run zegna' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run zegna'; then
+              echo "::warning::zegna: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/fusalp.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::fusalp: no terminal status was published"
@@ -7258,6 +7524,16 @@ jobs:
               echo "::error::fusalp: crawler exited with status $status"
               printf '| fusalp | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/fusalp.watchdog"
+          watchdog_status="$(cat "$state_dir/fusalp.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::fusalp: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run fusalp' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run fusalp'; then
+              echo "::warning::fusalp: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/concara.status"
@@ -7288,6 +7564,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/concara.watchdog"
+          watchdog_status="$(cat "$state_dir/concara.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::concara: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run concara' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run concara'; then
+              echo "::warning::concara: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/fielmann.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::fielmann: no terminal status was published"
@@ -7314,6 +7600,16 @@ jobs:
               echo "::error::fielmann: crawler exited with status $status"
               printf '| fielmann | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/fielmann.watchdog"
+          watchdog_status="$(cat "$state_dir/fielmann.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::fielmann: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run fielmann' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run fielmann'; then
+              echo "::warning::fielmann: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/concordia.status"
@@ -7344,6 +7640,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/concordia.watchdog"
+          watchdog_status="$(cat "$state_dir/concordia.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::concordia: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run concordia' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run concordia'; then
+              echo "::warning::concordia: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/engadin-tourismus.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::engadin-tourismus: no terminal status was published"
@@ -7370,6 +7676,16 @@ jobs:
               echo "::error::engadin-tourismus: crawler exited with status $status"
               printf '| engadin-tourismus | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/engadin-tourismus.watchdog"
+          watchdog_status="$(cat "$state_dir/engadin-tourismus.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::engadin-tourismus: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run engadin-tourismus' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run engadin-tourismus'; then
+              echo "::warning::engadin-tourismus: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/colin-cie.status"
@@ -7400,6 +7716,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/colin-cie.watchdog"
+          watchdog_status="$(cat "$state_dir/colin-cie.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::colin-cie: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run colin-cie' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run colin-cie'; then
+              echo "::warning::colin-cie: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/bcv.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::bcv: no terminal status was published"
@@ -7426,6 +7752,16 @@ jobs:
               echo "::error::bcv: crawler exited with status $status"
               printf '| bcv | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/bcv.watchdog"
+          watchdog_status="$(cat "$state_dir/bcv.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::bcv: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run bcv' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run bcv'; then
+              echo "::warning::bcv: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/apple-retail-switzerland.status"
@@ -7456,6 +7792,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/apple-retail-switzerland.watchdog"
+          watchdog_status="$(cat "$state_dir/apple-retail-switzerland.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::apple-retail-switzerland: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run apple-retail-switzerland' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run apple-retail-switzerland'; then
+              echo "::warning::apple-retail-switzerland: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/bethesda-spital.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::bethesda-spital: no terminal status was published"
@@ -7482,6 +7828,16 @@ jobs:
               echo "::error::bethesda-spital: crawler exited with status $status"
               printf '| bethesda-spital | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/bethesda-spital.watchdog"
+          watchdog_status="$(cat "$state_dir/bethesda-spital.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::bethesda-spital: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run bethesda-spital' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run bethesda-spital'; then
+              echo "::warning::bethesda-spital: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/air-zermatt.status"
@@ -7512,6 +7868,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/air-zermatt.watchdog"
+          watchdog_status="$(cat "$state_dir/air-zermatt.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::air-zermatt: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run air-zermatt' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run air-zermatt'; then
+              echo "::warning::air-zermatt: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/benu.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::benu: no terminal status was published"
@@ -7538,6 +7904,16 @@ jobs:
               echo "::error::benu: crawler exited with status $status"
               printf '| benu | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/benu.watchdog"
+          watchdog_status="$(cat "$state_dir/benu.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::benu: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run benu' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run benu'; then
+              echo "::warning::benu: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           status_file="$state_dir/bitfinex.status"
@@ -7568,6 +7944,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/bitfinex.watchdog"
+          watchdog_status="$(cat "$state_dir/bitfinex.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::bitfinex: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run bitfinex' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run bitfinex'; then
+              echo "::warning::bitfinex: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/sunrise.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::sunrise: no terminal status was published"
@@ -7596,6 +7982,16 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          watchdog_file="$state_dir/sunrise.watchdog"
+          watchdog_status="$(cat "$state_dir/sunrise.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::sunrise: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run sunrise' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run sunrise'; then
+              echo "::warning::sunrise: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
+            fi
+          fi
           status_file="$state_dir/lwphr.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::lwphr: no terminal status was published"
@@ -7622,6 +8018,16 @@ jobs:
               echo "::error::lwphr: crawler exited with status $status"
               printf '| lwphr | failed (%s) |\n' "$status" >> "$summary_file"
               failure_count=$((failure_count + 1))
+            fi
+          fi
+          watchdog_file="$state_dir/lwphr.watchdog"
+          watchdog_status="$(cat "$state_dir/lwphr.status" 2>/dev/null || true)"
+          if [ -e "$watchdog_file" ] && { [ "$watchdog_status" = "124" ] || [ "$watchdog_status" = "137" ]; }; then
+            watchdog_minutes="$(cat "$watchdog_file" 2>/dev/null || true)"
+            echo "::error::lwphr: the worker watchdog stopped the crawler after ${watchdog_minutes:-?} minutes, before its own failure reporter could run; filing the per-crawler issue from the aggregate"
+            watchdog_description="$(printf '%s\n' '## Crawler fallito' "**Causa:** il watchdog del worker ha fermato il crawler dopo ${watchdog_minutes:-?} minuti (exit ${watchdog_status}), prima che potesse segnalare il fallimento." "**Run:** https://github.com/${GITHUB_REPOSITORY:-}/actions/runs/${GITHUB_RUN_ID:-}" "**Branch:** ${GITHUB_REF_NAME:-}" "**Trigger:** ${GITHUB_EVENT_NAME:-}")"
+            if ! node scripts/lib/github-issue-creator.mjs --title 'Crawler Failure: Run lwphr' --description "$watchdog_description" --priority 2 --label Bug --workflow 'Run lwphr'; then
+              echo "::warning::lwphr: the watchdog-timeout issue could not be filed; the group verdict is unchanged"
             fi
           fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"

@@ -41,6 +41,8 @@ import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { auditReportPath } from './lib/auditReport.mjs';
 import { orphanPagesAuditReportPath } from './lib/orphan-pages-report-path.mjs';
+import { MODE_ISSUE_PRIORITY, effectiveMode, seoGateClass } from './ci/lib/seo-gate-classes.mjs';
+import { renderOffenderSection } from './ci/lib/gate-issue-offenders.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -56,6 +58,10 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
 /**
  * @typedef {Object} GateSpec
  * @property {string} name
+ * @property {string} [gateKey]         key of this gate in
+ *   scripts/ci/lib/seo-gate-classes.mjs — the name validate-dist reports it
+ *   under. Class, mode and issue priority come from there, so cathedral and
+ *   validate-dist cannot give the same gate two different modes.
  * @property {string[]} cmd               argv to spawn
  * @property {string} auditCmd
  * @property {string} rebaselineCmd
@@ -131,6 +137,7 @@ export function baselineOffenders(baseline) {
 export const GATES = [
   {
     name: 'text-html-ratio',
+    gateKey: 'audit:all/text-html-ratio',
     cmd: [
       'node',
       'scripts/audit-text-html-ratio.mjs',
@@ -151,6 +158,7 @@ export const GATES = [
   },
   {
     name: 'orphan-sitemap-pages',
+    gateKey: 'audit:orphan-sitemap-pages',
     // Issue #5972: audit-orphan-pages-in-sitemaps.mjs gained its own
     // composition-shift-aware RATE ratchet in #1604 (mirrors evaluateBfsGate())
     // and exposes it via `--gate=baseline` (exit 1 only on a real per-sitemap
@@ -216,6 +224,7 @@ export const GATES = [
   },
   {
     name: 'image-object-license',
+    gateKey: 'audit:all/image-object-license',
     cmd: ['node', 'scripts/audit-image-object-license.mjs', '--json'],
     auditCmd: 'npm run audit:image-object-license',
     rebaselineCmd: 'N/A - zero-tolerance gate (target: 0)',
@@ -228,6 +237,7 @@ export const GATES = [
   },
   {
     name: 'max-bfs-depth',
+    gateKey: 'audit:max-bfs-depth',
     cmd: [
       'node',
       'scripts/audit-bfs-depth.mjs',
@@ -272,6 +282,7 @@ export const GATES = [
   },
   {
     name: 'title-length',
+    gateKey: 'audit:all/title-length',
     cmd: [
       'node',
       'scripts/audit-title-length.mjs',
@@ -319,6 +330,7 @@ export const GATES = [
   },
   {
     name: 'title-no-disambig-hash',
+    gateKey: 'audit:all/title-no-disambig-hash',
     cmd: [
       'node',
       'scripts/audit-title-no-disambig-hash.mjs',
@@ -563,13 +575,36 @@ async function readBaselineFile(relPath) {
 }
 
 /**
+ * Class, effective mode and regression-issue priority of a gate, from the
+ * shared classification. A gate missing there is a wiring bug, not a gate to
+ * guess about: report it as class `?` with the highest priority so the issue
+ * cannot be read as advisory (tests/seo-gate-classes.test.ts keeps every
+ * cathedral gate classified).
+ * @param {GateSpec} gate
+ * @returns {{ gateKey: string, class: string, mode: string, issuePriority: number }}
+ */
+export function gateClassification(gate) {
+  const entry = seoGateClass(gate.gateKey);
+  if (!entry) {
+    return { gateKey: gate.gateKey, class: '?', mode: 'blocking', issuePriority: 1 };
+  }
+  const mode = /** @type {string} */ (effectiveMode(gate.gateKey));
+  return {
+    gateKey: gate.gateKey,
+    class: entry.class,
+    mode,
+    issuePriority: MODE_ISSUE_PRIORITY[/** @type {keyof typeof MODE_ISSUE_PRIORITY} */ (mode)],
+  };
+}
+
+/**
  * Evaluate one gate.
  * @param {GateSpec} gate
  * @returns {Promise<Record<string, unknown>>}
  */
 export async function evaluateGate(gate, bundle = null) {
   /** @type {Record<string, unknown>} */
-  const entry0 = { name: gate.name };
+  const entry0 = { name: gate.name, ...gateClassification(gate) };
   // A bundled gate does not spawn: its audit already ran inside the single
   // shared dist/ walk. Synthesise the same `{code, stdout, stderr}` shape the
   // rest of this function reads, with the per-audit exit code recovered from
@@ -588,6 +623,7 @@ export async function evaluateGate(gate, bundle = null) {
   /** @type {Record<string, unknown>} */
   const entry = {
     name: gate.name,
+    ...gateClassification(gate),
     auditCmd: gate.auditCmd,
     rebaselineCmd: gate.rebaselineCmd,
     notes: gate.notes,
@@ -650,6 +686,32 @@ export async function evaluateGate(gate, bundle = null) {
   return entry;
 }
 
+/**
+ * The `## Offender` section of a gate's regression issue, from the audit's own
+ * JSON report (the one the extractors already read). An autofixer needs the
+ * pages, not just the counts: until 2026-10-02 the issue held current,
+ * baseline and a reproduce command, and the fixer had to rerun a multi-hour
+ * walk to learn which pages regressed. Best-effort: an unreadable report
+ * yields the section's own "non disponibile" line.
+ * @param {GateSpec} gate
+ * @param {NodeJS.ProcessEnv} [env]
+ * @returns {string}
+ */
+export function offenderSectionForGate(gate, env = process.env) {
+  const candidates = [auditReportPath(gate.name)];
+  if (gate.name === 'orphan-sitemap-pages') candidates.push(orphanPagesAuditReportPath(PROJECT_ROOT, env));
+  const runTag = env.GITHUB_RUN_ID ? `${env.GITHUB_RUN_ID}-${env.GITHUB_RUN_ATTEMPT || '1'}` : '';
+  for (const file of candidates) {
+    try {
+      const report = JSON.parse(readFileSync(file, 'utf8'));
+      const rel = path.relative(PROJECT_ROOT, file);
+      const source = runTag ? `\`${rel}\` nell'artifact \`audit-reports-cathedral-${runTag}\`` : `\`${rel}\``;
+      return renderOffenderSection(report, { gate: gate.gateKey, source }).join('\n');
+    } catch { /* next candidate */ }
+  }
+  return renderOffenderSection(null, { gate: gate.gateKey }).join('\n');
+}
+
 async function main() {
   const checkedAt = new Date().toISOString();
   /** @type {Array<Record<string, unknown>>} */
@@ -665,6 +727,7 @@ async function main() {
     const how = gate.bundledAs && bundle && !bundle.error ? 'bundled (shared walk)' : 'running';
     process.stderr.write(`[seo-gates-check] ${how} ${gate.name}...\n`);
     const r = await evaluateGate(gate, bundle);
+    if (r.status === 'regressed') r.offenderSection = offenderSectionForGate(gate);
     results.push(r);
     process.stderr.write(
       `[seo-gates-check]   ${gate.name}: status=${r.status} current=${r.current ?? '?'} baseline=${r.baseline ?? '?'}\n`,

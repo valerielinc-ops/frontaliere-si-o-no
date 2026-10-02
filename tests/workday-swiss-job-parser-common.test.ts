@@ -3,9 +3,11 @@ import {
   createWorkdaySwissParser,
   resolveWorkdayPrimarySwissLocation,
   workdayStructuredForeignPrimaryCountry,
+  workdayStructuredPrimaryCountryIsSwiss,
+  provesWorkdaySwissAbsentFromBoard,
   isCompleteWorkdayBoard,
 } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
-import { fetchWorkdayJobs } from '../scripts/lib/ats-clients/workday-client.mjs';
+import { fetchWorkdayJobs, workdayFacetLeafValues } from '../scripts/lib/ats-clients/workday-client.mjs';
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
 import {
   authoritativeEmptySnapshotValidator,
@@ -917,5 +919,119 @@ describe('createWorkdaySwissParser — req without a vacancy body', () => {
     expect(jobs.map((job: any) => job.title)).toEqual(['Controller 80-100%']);
     expect(jobs[0].description).toMatch(/^Responsibilities and requirements of the role/);
     for (const job of jobs) expect(job.description).not.toContain('Key details');
+  });
+});
+
+/**
+ * A workplace named after a LOCALITY rather than a BFS commune (Bodio, merged
+ * into Giornico in 2025; Bironico, part of Monteceneri; Brüttisellen, in
+ * Wangen-Brüttisellen) is placed by the official locality directory, but only
+ * on the req's own structured Swiss country — text alone never licenses it.
+ */
+describe('resolveWorkdayPrimarySwissLocation — locality directory, gated on the structured country', () => {
+  const ch = { descriptor: 'Switzerland', id: '187134fccb084a0ea9b4b95f23890dbe', alpha2Code: 'CH' };
+
+  it('places a Swiss locality that is not a BFS commune when the requisition says CH', () => {
+    for (const place of ['Bodio', 'Bironico', 'Brüttisellen']) {
+      expect(resolveWorkdayPrimarySwissLocation({
+        location: `${place}, Switzerland`,
+        jobRequisitionLocation: { descriptor: place, country: ch },
+      })).toBe(place);
+    }
+  });
+
+  it('does not place it from text alone, or against a foreign requisition', () => {
+    expect(resolveWorkdayPrimarySwissLocation({ location: 'Bodio' })).toBe('');
+    expect(resolveWorkdayPrimarySwissLocation({
+      location: 'Bodio',
+      jobRequisitionLocation: { descriptor: 'Bodio', country: { descriptor: 'Italy', alpha2Code: 'IT' } },
+      country: { descriptor: 'Switzerland', id: '187134fccb084a0ea9b4b95f23890dbe' },
+    })).toBe('');
+  });
+
+  it('reads the structured country: requisition alpha-2 first, then the posting country id or name', () => {
+    expect(workdayStructuredPrimaryCountryIsSwiss({ jobRequisitionLocation: { country: { alpha2Code: 'ch' } } })).toBe(true);
+    expect(workdayStructuredPrimaryCountryIsSwiss({ country: { id: '187134fccb084a0ea9b4b95f23890dbe' } })).toBe(true);
+    expect(workdayStructuredPrimaryCountryIsSwiss({ country: { descriptor: 'Schweiz' } })).toBe(true);
+    expect(workdayStructuredPrimaryCountryIsSwiss({ country: { descriptor: 'Zürich, Switzerland' } })).toBe(false);
+    expect(workdayStructuredPrimaryCountryIsSwiss({})).toBe(false);
+  });
+});
+
+/**
+ * Board vuota vs board inesistente. A renamed site answers 404 and never gets
+ * here; a site emptied by a migration answers `total: 0`, the same zero as the
+ * Swiss facet. Only a live board whose country facet omits Switzerland proves
+ * the Swiss zero.
+ */
+describe('provesWorkdaySwissAbsentFromBoard', () => {
+  const facet = (values: Array<{ id: string; descriptor: string; count?: number }>) => [
+    { facetParameter: 'Country', values },
+  ];
+  const FR = { id: 'fr', descriptor: 'France', count: 25 };
+  const CH = { id: '187134fccb084a0ea9b4b95f23890dbe', descriptor: 'Switzerland', count: 3 };
+
+  it('accepts a live board whose country facet omits Switzerland', () => {
+    expect(provesWorkdaySwissAbsentFromBoard({ total: 35, postingCount: 20, facets: facet([FR]) }, { facetParameter: 'Country' })).toBe(true);
+  });
+
+  it('refuses every other shape', () => {
+    const ok = { total: 35, postingCount: 20, facets: facet([FR]) };
+    expect(provesWorkdaySwissAbsentFromBoard(null, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, total: 0 }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, total: null }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: [] }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([]) }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard(ok, { facetParameter: 'locationCountry' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, CH]) }, { facetParameter: 'Country' })).toBe(false);
+    expect(provesWorkdaySwissAbsentFromBoard({ ...ok, facets: facet([FR, { id: 'other', descriptor: 'Switzerland' }]) }, { facetParameter: 'Country' })).toBe(false);
+  });
+
+  it('flattens nested facet groups to their leaves', () => {
+    expect(workdayFacetLeafValues([
+      { facetParameter: 'locationMainGroup', values: [{ descriptor: 'Locations', values: [{ id: 'a', descriptor: 'Bodio, Switzerland', count: 1 }] }] },
+    ], 'locationMainGroup')).toEqual([{ id: 'a', descriptor: 'Bodio, Switzerland', count: 1 }]);
+    expect(workdayFacetLeafValues([], 'Country')).toBeNull();
+  });
+});
+
+describe('createWorkdaySwissParser — countryFacetParameter', () => {
+  const ORIGINAL_FETCH = global.fetch;
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('sends the Swiss ids under the configured facet key, and only proves a zero when opted in', async () => {
+    const bodies: any[] = [];
+    global.fetch = vi.fn(async (_url: string, init: any = {}) => {
+      const body = JSON.parse(init.body);
+      bodies.push(body);
+      const filtered = Object.keys(body.appliedFacets).length > 0;
+      return new Response(JSON.stringify(filtered
+        ? { total: 0, jobPostings: [] }
+        : { total: 12, jobPostings: [], facets: [{ facetParameter: 'Country', values: [{ id: 'fr', descriptor: 'France', count: 12 }] }] }), { status: 200 });
+    }) as any;
+    const make = (proveSwissAbsentFromLiveBoard: boolean) => createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      careerUrl: 'https://testco.com/careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+      countryFacetParameter: 'Country',
+      proveSwissAbsentFromLiveBoard,
+    });
+
+    const unproven = await make(false).fetchAllJobs();
+    expect(bodies[0].appliedFacets).toEqual({ Country: ['187134fccb084a0ea9b4b95f23890dbe'] });
+    expect(bodies).toHaveLength(1);
+    expect(isAuthoritativeEmptySnapshot(unproven)).toBe(false);
+
+    const proven = await make(true).fetchAllJobs();
+    expect(isAuthoritativeEmptySnapshot(proven)).toBe(true);
+    expect(bodies.at(-1).appliedFacets).toEqual({});
   });
 });

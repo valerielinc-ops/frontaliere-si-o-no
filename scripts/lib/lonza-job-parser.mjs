@@ -13,6 +13,7 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   dropSameSourceReference,
   identicalAdvertisementKey,
@@ -355,7 +356,13 @@ export async function fetchAllLonzaJobs() {
  // names Visp in the boilerplate of reqs worked anywhere — the circular
  // corroboration audit-parser-quality.mjs counts as inconclusive, not as
  // evidence.
- const resolvedLocation = resolveLonzaPublishLocation(info);
+ // A primary the commune gazetteer cannot place (a locality, an address)
+ // gets the shared Workday recovery: official directory or postal code, only
+ // on the req's structured Swiss country (workday-swiss-job-parser-common).
+ const publishLocation = resolveLonzaPublishLocation(info);
+ const recovered = publishLocation ? null : recoverWorkdayPrimarySwissPlace(info);
+ const resolvedLocation = publishLocation
+  || (recovered ? { city: recovered.location, canton: recovered.canton } : null);
  if (!resolvedLocation) {
   console.log(`  ⏭️  Skipped (no Swiss primary location): ${primaryLocationText || '(empty)'} — ${title}`);
   continue;

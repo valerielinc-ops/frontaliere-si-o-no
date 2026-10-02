@@ -88,6 +88,31 @@ export function isKenjoCareerSiteEmpty(value = '') {
 }
 
 /**
+ * Whether one Kenjo read proves that the career site has no openings.
+ *
+ * Two independent public views must agree, and either one alone is not
+ * enough: the listing API must describe an ACTIVE career site whose position
+ * envelope is present and empty, and the rendered career page must show its
+ * own visible "no openings" state. A deactivated site, a drifted envelope, or
+ * an API that still lists positions while the page says empty is a
+ * contradiction, not a zero, so the caller keeps the existing slice. (An
+ * unknown subdomain never reaches this point: the API answers 404 "Company
+ * career site was not found.", verified live 2026-10-02.)
+ *
+ * @param {{ listing?: unknown, careerPageHtml?: unknown }} [read]
+ * @returns {boolean}
+ */
+export function provesKenjoCareerSiteEmpty({ listing, careerPageHtml } = {}) {
+  if (!listing || typeof listing !== 'object' || Array.isArray(listing)) return false;
+  if (listing.active !== true) return false;
+  const positions = Array.isArray(listing.activePositions)
+    ? listing.activePositions
+    : (Array.isArray(listing.positions) ? listing.positions : null);
+  if (!positions || positions.length !== 0) return false;
+  return isKenjoCareerSiteEmpty(careerPageHtml);
+}
+
+/**
  * Resolve the public career-site path used by the listing/detail APIs.
  * Kenjo has exposed the same value as customUrl and customJobUrl over time;
  * accept the public URL/slug variants too, but never turn an API endpoint or

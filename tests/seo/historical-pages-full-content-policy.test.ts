@@ -20,12 +20,15 @@ describe('historical job page content policy', () => {
     expect(configuredHistoricalPatterns).toEqual([]);
   });
 
-  it('renders the complete archived description in static HTML', () => {
+  // Since #10937 anonymous static HTML carries the shared description preview
+  // (tests/job-description-preview.test.ts); the archive keeps that section
+  // instead of dropping it, and signed-in readers still get the full text.
+  it('keeps the archived description section through the shared preview gate', () => {
     const source = fs.readFileSync(jobsSeoPluginPath, 'utf8');
     const archivedDescription = `## Mansioni\n\n${'contenuto archiviato '.repeat(180)}\n\nCoda originale oltre il vecchio limite`;
     const rendered = jobDescriptionTextToHtml(archivedDescription);
 
-    expect(source).toContain('const descriptionHtml = plainTextToHtml(jobDescription);');
+    expect(source).toMatch(/if \(jobDescription && jobDescription\.length > 30\) \{\s*staticBodyParts\.push\(renderJobDescriptionGate\(jobDescription, locale\)\);/);
     expect(source).not.toContain('descText.slice(0, 2000)');
     expect(rendered).toContain('Coda originale oltre il vecchio limite');
   });

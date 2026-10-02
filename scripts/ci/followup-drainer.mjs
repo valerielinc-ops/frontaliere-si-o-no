@@ -1860,12 +1860,23 @@ export function isPermanentTracker(iss) {
  *   - `CI Failure (deploy): …`      → step gemello `--resolve` del workflow di
  *                                     pubblicazione;
  *   - `Validation Failure (dist): …` → `report-validate-dist-failure.mjs --mode resolve`;
- *   - `Validation Failure (live): …` → step gemello `--resolve` del validatore live.
+ *   - `Validation Failure (live): …` → step gemello `--resolve` del validatore live;
+ *   - `SEO gates regression: <gate> above baseline` → step `Resolve regression
+ *     issues for gates back under baseline` di cathedral-seo-gates-check.yml,
+ *     per gate, quando il gate torna `pass`/`improved`.
  * `tests/followup-drainer-ageout-alarm-issues.test.ts` verifica che ognuno di
  * questi chiuditori esista davvero: una famiglia qui senza chiuditore sarebbe una
  * issue immortale.
+ *
+ * L'ultima famiglia è lo stesso difetto di #7918, misurato il 2026-10-02:
+ * `SEO gates regression: max-bfs-depth above baseline` (#9195) RIAPERTA da
+ * cathedral alle 06:39:44Z per una regressione vera e chiusa da questo drainer
+ * alle 06:44:06Z come «non funnel-blocking»; `… text-html-ratio …` (#8602)
+ * riaperta il 01/10 alle 22:04:41Z e chiusa alle 22:50:02Z con 232 896 offender
+ * contro 6 912. Il rosso di cathedral restava senza una issue aperta che lo
+ * dicesse: è uno dei motivi per cui il check sembrava «opzionale».
  */
-const OWNER_CLOSED_SCOPED_ALARM_RE = /^(?:CI Failure \((?:build|deploy)\)|Validation Failure \((?:dist|live)\)): /;
+const OWNER_CLOSED_SCOPED_ALARM_RE = /^(?:(?:CI Failure \((?:build|deploy)\)|Validation Failure \((?:dist|live)\)): |SEO gates regression: \S+ above baseline$)/;
 
 /**
  * La issue è un ALLARME automatico che ha un chiuditore proprio? Pura → testabile.

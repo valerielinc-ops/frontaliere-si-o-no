@@ -44,6 +44,7 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { parseSwisscomJobDescription, dropSwisscomFabricatedText } from './lib/swisscom-job-parser.mjs';
 import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
@@ -229,9 +230,11 @@ async function listSwissJobs() {
 
   console.log(`  📋 Fetched ${allPostings.length} job listings across all pages`);
 
-  // Keep jobs in any Swiss location.
+  // Keep jobs in any Swiss location. A row named after a Swiss locality
+  // outside the commune gazetteer is kept for its detail, whose structured
+  // country decides (shared Workday recovery in buildSwisscomJob).
   const relevantPostings = allPostings.filter(p =>
-    isSwissLocation(p.locationsText || '')
+    isSwissLocation(p.locationsText || '') || isWorkdaySwissPlaceCandidate(p.locationsText || '')
   );
 
   const tiCount = relevantPostings.filter(p => inferCanton(p.locationsText || '') === 'TI').length;
@@ -389,8 +392,14 @@ export function buildSwisscomJob(listing = {}, detail = {}) {
   const title = normalizeSpace(info.title || listing.title || '');
   const externalPath = listing.externalPath || '';
   const locationRaw = info.location || listing.locationsText || '';
-  const city = parseWorkdayLocation(locationRaw);
-  const canton = inferCanton(city);
+  const parsedCity = parseWorkdayLocation(locationRaw);
+  const parsedCanton = inferCanton(parsedCity);
+  // A primary the commune gazetteer cannot place (a locality, an address)
+  // gets the shared Workday recovery: official directory or postal code, only
+  // on the req's structured Swiss country (workday-swiss-job-parser-common).
+  const recovered = parsedCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+  const city = recovered ? recovered.location : parsedCity;
+  const canton = recovered ? recovered.canton : parsedCanton;
 
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);

@@ -2545,14 +2545,138 @@ interface CantonHubInputs {
   alternates: Record<HealthPremiumLocale, string>;
   today: Date;
   yoy: YoyCantonDelta | null;
+  /**
+   * YoY of every canton, so the hub can say where THIS canton's increase sits
+   * among the others (the adult figure ranked, sibling cantons named). Optional:
+   * a caller without the prior-year archive simply gets no YoY comparison.
+   */
+  allYoy?: Record<HealthPremiumCanton, YoyCantonDelta | null>;
   /** Tri-year trend (oldest→prior→current); null when no archive available. */
   triYear: TriYearCantonDelta | null;
   /** dist directory for entry-asset resolution (omit in tests). */
   distDir?: string;
 }
 
+/**
+ * Il confronto nazionale dell'hub cantonale — la parte della pagina che
+ * appartiene a QUEL cantone e a nessun altro.
+ *
+ * Misura del 2026-10-02 (run 36977215802, `audit:information-gain`): le quattro
+ * coorti dell'hub `/premi-cassa-malati/<cantone>/` stavano al 2,3-2,6 % di
+ * IGS mediano, 2 segmenti propri su ~80. Tutto il resto della pagina è lo stesso
+ * testo con il nome del cantone e le cifre cambiate — e le cifre la maschera
+ * n. 1 le riduce a `#` per costruzione. Le foglie cantone × fascia avevano già
+ * avuto la finestra dei cantoni pari (#7594); l'hub no.
+ *
+ * Qui entrano tre fatti che solo il dataset BAG sa e che cambiano DAVVERO da un
+ * cantone all'altro, con i nomi in chiaro (la maschera n. 2 piega solo i token
+ * identitari della pagina corrente, mai quelli di un vicino o di una cassa):
+ *   1. dove sta la mediana adulti fra i cantoni, con i vicini di classifica;
+ *   2. dove sta l'AUMENTO sull'anno precedente fra i cantoni — una classifica
+ *      diversa dalla prima (Ginevra può essere cara e crescere poco);
+ *   3. quali casse sono le tre più economiche e le tre più care per un adulto
+ *      in quel cantone, lette da `ranked`, non composte.
+ */
+function renderCantonNationalComparison(args: {
+  locale: HealthPremiumLocale;
+  canton: HealthPremiumCanton;
+  cantonLabel: string;
+  dataset: HealthPremiumsDataset;
+  stats: CantonPremiumStats;
+  allCantonStats: Record<HealthPremiumCanton, CantonPremiumStats | null>;
+  allYoy?: Record<HealthPremiumCanton, YoyCantonDelta | null>;
+  priceUnit: string;
+}): string {
+  const { locale, canton, cantonLabel, dataset, stats, allCantonStats, allYoy, priceUnit } = args;
+
+  const priceRows: PeerRow[] = HEALTH_PREMIUM_CANTONS.map((c) => {
+    const median = allCantonStats[c]?.adultMedian ?? null;
+    return {
+      key: c,
+      name: HEALTH_PREMIUM_CANTON_DISPLAY[locale][c],
+      href: buildHealthPremiumsCantonPath(locale, c),
+      value: median === null ? null : roundCHF(median),
+    };
+  });
+
+  // Le casse agli estremi, per nome. `ranked` è già ordinato per prezzo
+  // crescente; i pari merito si rompono sul nome perché l'HTML emesso non
+  // deve dipendere dall'ordine d'iterazione del dataset.
+  const insurers = stats.ranked
+    .map((r) => ({ name: resolveInsurerName(dataset, r.insurerId), price: r.price }))
+    .sort((a, b) => a.price - b.price || (a.name < b.name ? -1 : a.name > b.name ? 1 : 0));
+  const cheapest = insurers.slice(0, 3);
+  const dearest = insurers.length >= 6 ? insurers.slice(-3).reverse() : [];
+  const conjunction = { it: ' e ', en: ' and ', de: ' und ', fr: ' et ' }[locale];
+  const fmtIns = (rows: typeof insurers): string => {
+    const items = rows.map((r) => `${r.name} (${formatCHF(r.price, locale)} ${priceUnit})`);
+    return items.length <= 1 ? items.join('') : `${items.slice(0, -1).join(', ')}${conjunction}${items[items.length - 1]}`;
+  };
+  const insurerProse: string[] = [];
+  if (cheapest.length >= 2) {
+    insurerProse.push({
+      it: `Per un adulto (franchigia 300 CHF, modello standard) le casse più economiche del cantone sono ${fmtIns(cheapest)}.`,
+      en: `For an adult (300 CHF deductible, standard model) the cheapest funds in the canton are ${fmtIns(cheapest)}.`,
+      de: `Für Erwachsene (Franchise 300 CHF, Standardmodell) sind die günstigsten Kassen im Kanton ${fmtIns(cheapest)}.`,
+      fr: `Pour un adulte (franchise 300 CHF, modèle standard), les caisses les moins chères du canton sont ${fmtIns(cheapest)}.`,
+    }[locale]);
+  }
+  if (dearest.length > 0) {
+    insurerProse.push({
+      it: `All'estremo opposto, le più care: ${fmtIns(dearest)}.`,
+      en: `At the other end, the dearest: ${fmtIns(dearest)}.`,
+      de: `Am anderen Ende die teuersten: ${fmtIns(dearest)}.`,
+      fr: `À l’autre extrémité, les plus chères : ${fmtIns(dearest)}.`,
+    }[locale]);
+  }
+
+  const priceBlock = renderPeerComparison({
+    locale,
+    currentKey: canton,
+    rows: priceRows,
+    labels: {
+      it: { heading: `${cantonLabel} fra i cantoni: premio mediano adulti`, metricLabel: 'premio mediano adulti', peerNoun: 'cantoni' },
+      en: { heading: `${cantonLabel} among the cantons: adult median premium`, metricLabel: 'adult median premium', peerNoun: 'cantons' },
+      de: { heading: `${cantonLabel} im Kantonsvergleich: Medianprämie Erwachsene`, metricLabel: 'Medianprämie Erwachsene', peerNoun: 'Kantonen' },
+      fr: { heading: `${cantonLabel} parmi les cantons : prime médiane adultes`, metricLabel: 'prime médiane adultes', peerNoun: 'cantons' },
+    }[locale],
+    formatValue: (value) => `${formatCHF(value, locale)} ${priceUnit}`,
+    // Il premio più basso è il rango 1.
+    higherIsBetter: false,
+    sourceNote: insurerProse.join(' ') || undefined,
+  });
+
+  const yoyRows: PeerRow[] = allYoy
+    ? HEALTH_PREMIUM_CANTONS.map((c) => ({
+        key: c,
+        name: HEALTH_PREMIUM_CANTON_DISPLAY[locale][c],
+        href: buildHealthPremiumsCantonPath(locale, c),
+        value: allYoy[c]?.adultMedianPct ?? null,
+      }))
+    : [];
+  const priorYear = allYoy?.[canton]?.priorYear ?? null;
+  const yoyBlock = allYoy && priorYear !== null
+    ? renderPeerComparison({
+        locale,
+        currentKey: canton,
+        rows: yoyRows,
+        labels: {
+          it: { heading: `Aumento sul ${priorYear}: ${cantonLabel} rispetto agli altri cantoni`, metricLabel: `variazione sul ${priorYear}`, peerNoun: 'cantoni' },
+          en: { heading: `Change since ${priorYear}: ${cantonLabel} against the other cantons`, metricLabel: `change since ${priorYear}`, peerNoun: 'cantons' },
+          de: { heading: `Veränderung seit ${priorYear}: ${cantonLabel} im Vergleich`, metricLabel: `Veränderung seit ${priorYear}`, peerNoun: 'Kantonen' },
+          fr: { heading: `Évolution depuis ${priorYear} : ${cantonLabel} face aux autres cantons`, metricLabel: `évolution depuis ${priorYear}`, peerNoun: 'cantons' },
+        }[locale],
+        formatValue: (value) => formatPct(value, locale),
+        // L'aumento più contenuto è il rango 1.
+        higherIsBetter: false,
+      })
+    : '';
+
+  return `${priceBlock}${yoyBlock}`;
+}
+
 function renderCantonHubPage(inp: CantonHubInputs): string {
-  const { locale, canton, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, triYear, distDir } = inp;
+  const { locale, canton, dataset, stats, allCantonStats, canonicalPath, alternates, today, yoy, allYoy, triYear, distDir } = inp;
   const copy = HUB_COPY[locale];
   const leafCopy = LEAF_COPY[locale];
   const cantonLabel = HEALTH_PREMIUM_CANTON_DISPLAY[locale][canton];
@@ -2692,6 +2816,17 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     </section>`;
   })();
 
+  const nationalComparisonHtml = renderCantonNationalComparison({
+    locale,
+    canton,
+    cantonLabel,
+    dataset,
+    stats,
+    allCantonStats,
+    allYoy,
+    priceUnit: copy.priceUnit,
+  });
+
   // Canton FAQ
   const faqItems = copy.cantonFaq;
   const faqHtml = `<section class="s-ZqtBbL" aria-labelledby="hpFaq">
@@ -2797,6 +2932,7 @@ function renderCantonHubPage(inp: CantonHubInputs): string {
     <h2 id="ageGrid" style="${H2_STYLE}">${esc(copy.ageGridTitle(cantonLabel))}</h2>
     ${ageGridHtml}
   </section>
+  ${nationalComparisonHtml}
   ${DRIVEBY_AD_SNIPPET}
   ${yoyHubHtml}
   ${triYearHubHtml}
@@ -3265,6 +3401,7 @@ export function generateHealthPremiumsPages(opts: {
         alternates: cantonAlternates,
         today,
         yoy: yoyByCanton[canton],
+        allYoy: priorDataset ? yoyByCanton : undefined,
         triYear: triYearByCanton[canton],
         distDir,
       });

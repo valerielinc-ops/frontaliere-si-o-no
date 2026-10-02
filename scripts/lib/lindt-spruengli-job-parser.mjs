@@ -73,6 +73,7 @@ import {
   WorkdayAuthError,
   getWorkdayLocationCandidates,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -362,13 +363,19 @@ export async function fetchAllLindtSpruengliJobs() {
     const locationRaw = resolveLindtLocationText(info, listing.locationRaw);
     if (isLocationExplicitlyForeign(locationRaw)) continue;
 
-    const city = extractCityFromLocationText(locationRaw);
+    const extractedCity = extractCityFromLocationText(locationRaw);
+    const extractedCanton = extractedCity ? resolveLindtSpruengliCanton(extractedCity) : null;
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country.
+    const recovered = extractedCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered ? recovered.location : extractedCity;
     if (!city) {
       console.log(`   ⏭️ Skipped unresolved/ambiguous location: "${locationRaw || listing.locationRaw}" — ${title}`);
       continue;
     }
 
-    const canton = resolveLindtSpruengliCanton(city);
+    const canton = recovered ? recovered.canton : extractedCanton;
     if (canton === null) {
       console.warn(`   ⚠️ Skipping unresolvable location "${city}" (${title})`);
       continue;
@@ -400,7 +407,8 @@ export async function fetchAllLindtSpruengliJobs() {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} lindt spruengli ${city}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
     const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {

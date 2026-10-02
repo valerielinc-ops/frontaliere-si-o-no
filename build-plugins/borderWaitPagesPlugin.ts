@@ -90,6 +90,7 @@ import {
   renderBorderWaitComparison,
   renderBorderWaitPicker,
 } from './borderWaitComparison';
+import { renderArchiveMonthInsights } from './borderWaitArchiveInsights';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { imageObjectLdDocument } from '../services/seo/imageObjectLd';
@@ -3012,6 +3013,18 @@ function renderArchivePage(inp: ArchiveInputs): string {
     daysInMonth.length,
   );
 
+  // The month read by weekday and by date, plus the same-month ranking of the
+  // other archived crossings — the facts that belong to THIS cell of the
+  // crossing × month grid (see borderWaitArchiveInsights.ts for the
+  // information-gain measurement that motivated it).
+  const monthInsightsHtml = renderArchiveMonthInsights({
+    locale,
+    crossing,
+    monthKey,
+    history,
+    headingStyle: H2_STYLE,
+  });
+
   // Tagline above-the-fold (≤120 chars). Long intro migrates to the body
   // section above archiveProse, preserving text-to-HTML ratio.
   const archiveTaglineByLocale: Record<BorderWaitLocale, string> = {
@@ -3074,6 +3087,7 @@ function renderArchivePage(inp: ArchiveInputs): string {
             <tbody>${rows}</tbody>
           </table>
         </section>
+        ${monthInsightsHtml}
         <section class="s-Va7_33">
           <p class="s-E7ZJqo">${esc(intro)}</p>
         </section>

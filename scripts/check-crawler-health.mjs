@@ -385,16 +385,18 @@ const EMPTY_OK_CRAWLERS = new Set([
   'csc-costruzioni',
   // TUTTOJOB.ch "0 annunci"; official ATS also empty; last known ref inactive.
   'faulhaber',
-  // Workday API: 101 total postings, Switzerland absent from every facet.
-  'ferring',
+  // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
+  // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
+  // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
   // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
   // (same defunct AITI e-recruiting platform migration as imerys).
   'helsinn',
   // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
   'hugo-boss',
-  // Official careers 403-blocked but corroborated zero via TuttoJob.ch,
-  // LinkedIn, and RSI news reporting active layoffs at the Bodio site.
-  'imerys',
+  // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
+  // source (the SmartRecruiters company no longer exists) while its Workday
+  // board listed 3 Swiss reqs. It now proves its own zero every run
+  // (`proveSwissAbsentFromLiveBoard`, scripts/update-imerys-jobs.mjs).
   // 38 real postings exist but Switzerland isn't even a location-filter option.
   'interroll',
   // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
@@ -445,14 +447,10 @@ const EMPTY_OK_CRAWLERS = new Set([
   // no open postings on this ATS right now. Parser is healthy and will pick
   // up real jobs (CH-filtered) the moment any are published.
   'bally',
-  // KONE (elevators/escalators, Swiss entity KONE (Schweiz) AG, Zürich):
-  // the crawler pulls from the real, live SmartRecruiters tenant "KONE1"
-  // (https://api.smartrecruiters.com/v1/companies/KONE1/postings). Verified
-  // live 2026-07-08: `totalFound:0` for `country=CH`, and only 1 posting
-  // worldwide (Technicien de Maintenance, Charleroi, Belgium) — KONE
-  // genuinely has no open Swiss postings on this ATS right now. Parser is
-  // healthy and will pick up real jobs the moment any CH ones are published.
-  'kone',
+  // `kone` left this list on 2026-10-02: the SmartRecruiters tenant `KONE1`
+  // it read (1 posting, Belgium) was never KONE's board; its Workday site
+  // lists the Swiss reqs (6 live). It now proves its own zero every run
+  // (`proveSwissAbsentFromLiveBoard`, scripts/update-kone-jobs.mjs).
   // Clariant AG (SuccessFactors Jobs2Web, careers.clariant.com): verified
   // live 2026-07-12 — the `/search/?locationsearch=switzerland` filtered
   // listing returns "no open positions matching switzerland", and the

@@ -27,6 +27,7 @@ import {
 } from '../scripts/lib/visionapartments-job-parser.mjs';
 import {
   isKenjoCareerSiteEmpty,
+  provesKenjoCareerSiteEmpty,
   resolveKenjoPositionPath,
 } from '../scripts/lib/kenjo-career-site.mjs';
 import {
@@ -210,8 +211,10 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
 
     expect(parser).toContain('onComplete: (proof) => { sourceReadProof = proof; }');
-    expect(parser).toContain('sourceReadProof.paginationIntegrityProven === true');
-    expect(parser).toContain('sourceReadProof.recordsSeen === sourceReadProof.totalFound');
+    // Completeness and the filtered-zero proof come from the shared client, so
+    // every SmartRecruiters consumer applies the same live-tenant requirement.
+    expect(parser).toContain('if (!isCompleteSmartRecruitersSourceRead(sourceReadProof)) {');
+    expect(parser).toContain('value: listings.length === 0 && provesSmartRecruitersFilteredEmpty(sourceReadProof)');
     expect(runner).toContain('validateAuthoritativeSnapshot: (jobs) => jobs?.authoritativeEmptySnapshot === true');
     expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
@@ -239,7 +242,7 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(discovery).toContain("keys: ['activePositions', 'positions']");
     expect(discovery).toContain('if (envelopeDrifted)');
     expect(discovery).toContain('throw new Error(`Unexpected Kenjo API response shape');
-    expect(provenEmptyBranch).toContain('if (await confirmCareerSiteEmpty()) {');
+    expect(provenEmptyBranch).toContain('if (await confirmCareerSiteEmpty(listing)) {');
     expect(provenEmptyBranch).toContain('await publishAuthoritativeEmptySnapshot()');
     expect(provenEmptyBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
     expect(provenEmptyBranch).toContain('preserving existing data');
@@ -248,13 +251,39 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
     expect(helper).toContain('authoritativeEmptySnapshot: true');
     expect(helper).toContain('await assembleJobsDataset()');
-    // A non-empty API list whose details all fail is not a proven zero without
-    // the separate explicit empty-state proof from the public career page.
+    // A non-empty API list whose details all fail is never a proven zero: the
+    // API itself contradicts any empty page, so the slice is preserved.
     expect(unbuiltListingsBranch).toContain('return;');
+    expect(unbuiltListingsBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
     expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
+    expect(unbuiltListingsBranch).not.toContain('publishAuthoritativeEmptySnapshot');
     expect(source).toContain("registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts)");
     expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
-    expect(source).toContain('confirmCareerSiteEmpty()');
+    expect(source).toContain('provesKenjoCareerSiteEmpty({ listing, careerPageHtml: html })');
+  });
+
+  it('proves the Tinext zero only when the active-site API and the rendered page agree', () => {
+    // Fixtures: the live Kenjo listing envelope (sanitized to the fields the
+    // proof reads) and the server-rendered empty-state block of the career
+    // page, both captured on 2026-10-02.
+    const listing = JSON.parse(readRepoFile('tests/fixtures/kenjo/tinext-positions-empty.json'));
+    const careerPageHtml = readRepoFile('tests/fixtures/kenjo/tinext-career-site-empty.html');
+
+    expect(provesKenjoCareerSiteEmpty({ listing, careerPageHtml })).toBe(true);
+    // A deactivated or flag-less career site is not evidence of zero openings.
+    expect(provesKenjoCareerSiteEmpty({ listing: { ...listing, active: false }, careerPageHtml })).toBe(false);
+    const { active: _active, ...withoutActive } = listing;
+    expect(provesKenjoCareerSiteEmpty({ listing: withoutActive, careerPageHtml })).toBe(false);
+    // The API still listing a position contradicts the page: not a zero.
+    expect(provesKenjoCareerSiteEmpty({
+      listing: { ...listing, activePositions: [{ jobTitle: 'Security & Network Engineer', customUrl: 'secnetsys' }] },
+      careerPageHtml,
+    })).toBe(false);
+    // A drifted envelope, or a page without its visible empty state, is not a zero.
+    const { activePositions: _positions, ...drifted } = listing;
+    expect(provesKenjoCareerSiteEmpty({ listing: drifted, careerPageHtml })).toBe(false);
+    expect(provesKenjoCareerSiteEmpty({ listing, careerPageHtml: '<html><body><orgos-root></orgos-root></body></html>' })).toBe(false);
+    expect(provesKenjoCareerSiteEmpty({ listing: null, careerPageHtml })).toBe(false);
   });
 
   it('recognizes Kenjo URL variants without accepting foreign or API URLs', () => {

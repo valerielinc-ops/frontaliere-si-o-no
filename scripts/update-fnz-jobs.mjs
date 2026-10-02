@@ -60,6 +60,7 @@ import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 import { resolveFnzSwissLocation } from './lib/fnz-job-parser.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './lib/workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
@@ -263,7 +264,10 @@ async function listSwissJobs() {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchFnzJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)) {
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLocationText(locText)
+        || isWorkdaySwissPlaceCandidate(locText)) {
         candidates.push(posting);
       }
     }
@@ -446,7 +450,17 @@ export async function fetchFnzJobs() {
       listing.locationsText || '',
     ];
 
-    const resolvedLocation = resolveFnzLocation(locationCandidates);
+    const fnzLocation = resolveFnzLocation(locationCandidates);
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery — official directory or postal code,
+    // only on the req's structured Swiss country — before the req is dropped
+    // or kept with the country-only national fallback.
+    const recovered = !fnzLocation || fnzLocation.nationalFallback
+      ? recoverWorkdayPrimarySwissPlace(info)
+      : null;
+    const resolvedLocation = recovered
+      ? { raw: info.location || '', city: recovered.location, canton: recovered.canton }
+      : fnzLocation;
     if (!resolvedLocation) {
       console.log(`  ⏭️  Skipped — Swiss location unresolved; no concrete city/address/CAP signal (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;

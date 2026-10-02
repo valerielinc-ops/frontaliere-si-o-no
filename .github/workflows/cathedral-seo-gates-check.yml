@@ -45,6 +45,17 @@ name: cathedral-seo-gates-check
 # Regressions are untouched: `current > baseline` still opens one issue per
 # gate and still fails this workflow.
 #
+# 2026-10-02 — one classification for both places. Each gate now declares its
+# `gateKey` in scripts/ci/lib/seo-gate-classes.mjs, the same table validate-dist
+# reads to decide whether a red gate sequesters `publish` (only class A; owner
+# decision 2026-10-02: B and C open an issue for the autofixer and never block
+# publication). The verdict carries class and mode, and the regression issue
+# takes its priority from the mode (A=1, B=2, C=3) and carries a sample of the
+# offenders, so the same gate has one weight in both places. Its
+# title family `SEO gates regression: …` is also excluded from the
+# followup-drainer age-out, which used to close it minutes after a recurrence
+# reopened it (#9195: reopened 2026-10-02T06:39:44Z, closed 06:44:06Z).
+#
 # CLAUDE.md non-negotiable #14 — live test after merge:
 #   gh workflow run cathedral-seo-gates-check.yml --ref main
 #   gh run view <id>          # verify success or expected failure
@@ -407,10 +418,12 @@ jobs:
           {
             echo "## SEO Content Gates Verdict"
             echo ""
-            echo '| Gate | Status | Current | Baseline | Delta |'
-            echo '|------|--------|---------|----------|-------|'
-            jq -r '.gates[] | "| \(.name) | \(.status) | \(.current // "—") | \(.baseline // "—") | \(.delta // "—") |"' \
+            echo '| Gate | Class / mode | Status | Current | Baseline | Delta |'
+            echo '|------|--------------|--------|---------|----------|-------|'
+            jq -r '.gates[] | "| \(.name) | \(.class // "?") / \(.mode // "?") | \(.status) | \(.current // "—") | \(.baseline // "—") | \(.delta // "—") |"' \
               data/cathedral-seo-gates-verdict.json
+            echo ""
+            echo "Class/mode from \`scripts/ci/lib/seo-gate-classes.mjs\` — the same table validate-dist uses to decide whether a red gate sequesters \`publish\`."
             echo ""
             echo "_Checked at $(jq -r .checkedAt data/cathedral-seo-gates-verdict.json)_"
           } >> "$GITHUB_STEP_SUMMARY"
@@ -492,6 +505,17 @@ jobs:
               delta=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .delta'          data/cathedral-seo-gates-verdict.json)
               audit_cmd=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .auditCmd'       data/cathedral-seo-gates-verdict.json)
               notes=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .notes'          data/cathedral-seo-gates-verdict.json)
+              # Class, mode and priority come from the shared classification
+              # (scripts/ci/lib/seo-gate-classes.mjs): A=1 (blocks `publish` in
+              # validate-dist), B=2, C=3 (never block, owner 2026-10-02). A gate
+              # the table does not know reports class `?`, priority 1.
+              gclass=$(jq -r --arg n "$name"    '.gates[] | select(.name == $n) | .class // "?"'   data/cathedral-seo-gates-verdict.json)
+              gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "blocking"' data/cathedral-seo-gates-verdict.json)
+              priority=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .issuePriority // 1' data/cathedral-seo-gates-verdict.json)
+              # `## Offender` section built by the checker from the audit's
+              # own report (scripts/ci/lib/gate-issue-offenders.mjs): the
+              # pages an autofixer has to look at, not only the counts.
+              offenders=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .offenderSection // ""' data/cathedral-seo-gates-verdict.json)
               {
                 echo "Automated check detected a REGRESSION on the **${name}** gate."
                 echo ""
@@ -509,7 +533,12 @@ jobs:
                 echo "- Delta:    ${delta}"
                 echo "- Reproduce locally: \`${audit_cmd}\`"
                 echo "- Notes: ${notes}"
+                echo "- Class: **${gclass}** (mode \`${gmode}\`, scripts/ci/lib/seo-gate-classes.mjs)"
                 echo ""
+                if [ -n "$offenders" ]; then
+                  echo "$offenders"
+                  echo ""
+                fi
                 echo "Per CLAUDE.md non-negotiables #1 + #5, the fix is to ELIMINATE the new"
                 echo "offenders — do NOT widen the baseline as a workaround."
                 echo ""
@@ -518,7 +547,7 @@ jobs:
               node scripts/lib/github-issue-creator.mjs \
                 --title "$title" \
                 --description "$(cat /tmp/issue-body.md)" \
-                --priority 2 \
+                --priority "$priority" \
                 --label seo-gates \
                 --label regression \
                 --workflow "${{ github.workflow }}"
