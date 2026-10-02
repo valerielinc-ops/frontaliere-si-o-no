@@ -2527,6 +2527,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'franco-apprezzamento-eurozona': { it: 'franco-apprezzamento-eurozona', en: 'franc-strengthens-eurozone', de: 'franken-verstarkt-eurozone', fr: 'franc-se-reforce-zoneuro' },
  'defr-successore-parmelin-sfide': { it: 'defr-successore-parmelin-sfide', en: 'defr-parmelin-successor-challenges', de: 'wbf-nachfolger-parmelin-herausforderungen', fr: 'dfep-successeur-parmelin-defis' },
  'proroga-aiuto-monetario-fmi': { it: 'proroga-aiuto-monetario-fmi', en: 'monetary-aid-extension-imf', de: 'geldhilfe-verlaengerung-ifi', fr: 'prolongation-aide-monetaire-fmi' },
+ 'moderniz-perseguimento-penale': { it: 'moderniz-perseguimento-penale', en: 'switzerland-initiates-consultation-on-the-third-ecag-protocol', de: 'die-schweiz-leitet-eine-konsultation-zum-dritten-ecag-protokoll-ein', fr: 'la-suisse-engage-une-consultation-sur-le-troisieme-protocole-de-la-ceagg' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

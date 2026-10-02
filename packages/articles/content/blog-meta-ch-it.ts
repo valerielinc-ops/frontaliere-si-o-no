@@ -7514,6 +7514,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.proroga-aiuto-monetario-fmi.title': 'Aiuto monetario: proroga a 10 mld fino al 2033',
     'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'Il Consiglio federale propone al Parlamento di estendere il decreto fino ad aprile 2033, mantenendo il tetto di 10 miliardi.',
     'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'Il Palazzo federale a Berna, sede del Consiglio federale che ha approvato il messaggio.',
+    'blog.article.moderniz-perseguimento-penale.title': 'Svizzera avvia consulta sul terzo protocollo CEAG',
+    'blog.article.moderniz-perseguimento-penale.excerpt': 'Il Consiglio federale ha aperto la consultazione sul terzo protocollo CEAG il 2 ottobre 2026, che si chiuderà il 19 gennaio 2027; la Svizzera ha firmato il testo a Malta il 19 settembre 2025.',
+    'blog.article.moderniz-perseguimento-penale.imageAlt': 'Palazzo federale svizzero con simboli di scambio dati digitali che rappresentano la cooperazione giudiziaria transfrontaliera',
 };
 
 export default blogMetaChIt;

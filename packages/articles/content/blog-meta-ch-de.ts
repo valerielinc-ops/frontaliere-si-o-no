@@ -7514,6 +7514,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.proroga-aiuto-monetario-fmi.title': 'Währungshilfe: Verlängerung auf 10 Mrd. bis 2033',
     'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'Der Bundesrat schlägt dem Parlament vor, das Dekret bis April 2033 zu verlängern und die Obergrenze von 10 Milliarden beizubehalten.',
     'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'Das Bundeshaus in Bern, Sitz des Bundesrats.',
+    'blog.article.moderniz-perseguimento-penale.title': 'Die Schweiz leitet eine Konsultation zum dritten ECAG-Protokoll ein',
+    'blog.article.moderniz-perseguimento-penale.excerpt': 'Der Bundesrat hat am 2. Oktober 2026 die Vernehmlassung zum dritten CEAG-Protokoll eröffnet, die am 19. Januar 2027 abgeschlossen wird; die Schweiz hat den Text am 19. September 2025 in Malta unterzeichnet.',
+    'blog.article.moderniz-perseguimento-penale.imageAlt': 'Bundeshaus der Schweiz mit Symbolen für digitalen Datenaustausch, die die grenzüberschreitende Justizzusammenarbeit darstellen',
 };
 
 export default blogMetaChDe;

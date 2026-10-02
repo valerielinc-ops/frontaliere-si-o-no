@@ -7514,6 +7514,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.proroga-aiuto-monetario-fmi.title': 'Monetary aid: extension to 10 billion until 2033',
     'blog.article.proroga-aiuto-monetario-fmi.excerpt': 'The Federal Council proposes that Parliament extend the decree until April 2033, maintaining the cap of 10 billion.',
     'blog.article.proroga-aiuto-monetario-fmi.imageAlt': 'The Federal Palace in Bern, seat of the Federal Council.',
+    'blog.article.moderniz-perseguimento-penale.title': 'Switzerland initiates consultation on the third ECAG Protocol',
+    'blog.article.moderniz-perseguimento-penale.excerpt': 'The Federal Council opened the consultation on the third CEAG protocol on 2 October 2026, which will close on 19 January 2027; Switzerland signed the text in Malta on 19 September 2025.',
+    'blog.article.moderniz-perseguimento-penale.imageAlt': 'Swiss Federal Palace with digital data exchange symbols representing transborder judicial cooperation',
 };
 
 export default blogMetaChEn;
