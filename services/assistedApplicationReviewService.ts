@@ -6,7 +6,31 @@
 
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
-export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip';
+export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
+  | 'document_upload' | 'document_remove' | 'document_waive';
+
+/** A document the posting asks for besides the CV and the letter (functions/src/assistedApplicationExtraDocuments.js). */
+export interface ReviewDocument {
+  id: string;
+  /** As the posting names it. */
+  label: string;
+  kind: string;
+  /** Words printed on such a document: the browser's check looks for them. */
+  keywords: string[];
+  required: boolean;
+  /** The posting's own words asking for it. */
+  quote: string;
+  files: Array<{
+    id: string;
+    name: string;
+    size: number;
+    detectedType: string | null;
+    uploadedAt: number | null;
+    clientCheck: { verdict: 'match' | 'mismatch' | 'looks_like_cv' | 'unreadable'; matched: string };
+  }>;
+  /** The candidate chose to send without it. */
+  waived: boolean;
+}
 
 /** A follow-up to the employer waiting for the candidate (af1 link). */
 export interface FollowupPayload {
@@ -89,11 +113,14 @@ export interface ReviewPayload {
   editedAt?: number | null;
   questions: ReviewQuestion[];
   answers: Record<string, string>;
+  /** School reports, test results… the posting requires besides the CV and the letter. */
+  documents?: ReviewDocument[];
+  documentLimits?: { maxBytes: number; maxFiles: number };
   feedback: Array<{ round: number; text: string }>;
   /** The tailored ATS CV, sent unless the candidate chooses their original. */
   tailoredCv: { url: string | null; choice: 'tailored' | 'original' } | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
-  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean };
+  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean };
 }
 
 export interface ReviewAtsView {
@@ -135,7 +162,17 @@ export async function fetchReview(token: string): Promise<ReviewPayload | Follow
 export async function sendReviewAction(
   token: string,
   action: ReviewAction,
-  extra: { feedback?: string; answers?: Record<string, string>; cvChoice?: string } = {},
+  extra: {
+    feedback?: string;
+    answers?: Record<string, string>;
+    cvChoice?: string;
+    documentId?: string;
+    fileName?: string;
+    contentBase64?: string;
+    clientCheck?: { verdict: string; matched: string };
+    fileId?: string;
+    waive?: boolean;
+  } = {},
 ): Promise<{ ok: true; state: string }> {
   return parse(await fetch(ASSISTED_APPLICATION_REVIEW_URL, {
     method: 'POST',

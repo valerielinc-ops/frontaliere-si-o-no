@@ -15,12 +15,14 @@
 
 import { LETTER_FILE_LABEL, safeFileStem } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { extraDocumentFileName } from './assistedApplicationExtraDocuments.js';
 
 const text = (value, max = 500) => String(value ?? '').trim().slice(0, max);
 
 /**
  * @param {{orderId:string, order?:object, draft?:object, flow?:object,
- *   documents?:{cv?:{url:string, extension?:string}|null, coverLetter?:{url:string}|null}}} input
+ *   documents?:{cv?:{url:string, extension?:string}|null, coverLetter?:{url:string}|null,
+ *     extra?:Array<{slot:string, label:string, kind:string, keywords?:string[], files:Array<{url:string, detectedType:string}>}>}}} input
  * @returns {object} the kit (no secret: what the extension types and attaches)
  */
 export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, documents = {} }) {
@@ -83,6 +85,17 @@ export function buildFillKit({ orderId, order = {}, draft = {}, flow = {}, docum
     documents: {
       cv: documents.cv?.url ? { url: documents.cv.url, fileName: `CV_${stem}.${documents.cv.extension || 'pdf'}` } : null,
       coverLetter: documents.coverLetter?.url ? { url: documents.coverLetter.url, fileName: `${safeFileStem(LETTER_FILE_LABEL[language])}_${stem}.pdf` } : null,
+      // The requested documents (school reports, test results…) the candidate gave, by form slot.
+      extra: (documents.extra || []).map((document) => {
+        const files = (document.files || []).filter((file) => file?.url);
+        return {
+          slot: text(document.slot, 20),
+          label: text(document.label, 160),
+          kind: text(document.kind, 30),
+          keywords: (document.keywords || []).map((word) => text(word, 40)).filter(Boolean).slice(0, 12),
+          files: files.map((file, index) => ({ url: file.url, fileName: extraDocumentFileName({ label: document.label, index, count: files.length, name: identity.name, type: file.detectedType }) })),
+        };
+      }).filter((document) => document.slot && document.files.length),
     },
   };
 }

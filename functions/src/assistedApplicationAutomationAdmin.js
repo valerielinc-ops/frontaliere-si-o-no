@@ -32,6 +32,7 @@ import {
 } from './assistedApplicationAutomation.js';
 import { ensureOrderAlias } from './assistedApplicationAlias.js';
 import { buildFillKit } from './assistedApplicationFillKit.js';
+import { extraDocumentsToSend } from './assistedApplicationExtraDocuments.js';
 import { submissionGuard } from './assistedApplicationSubmissionGuard.js';
 import { decryptJson, runKeyFrom } from './lib/evidenceCrypto.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
@@ -421,11 +422,16 @@ async function fillKitFor(db, orderId, deps, { confirmNotReceived = false, nowMs
     sign(draft.coverLetterPdfKey),
   ]);
   const extension = tailored ? 'pdf' : (/\.([a-z0-9]{2,5})$/i.exec(originalKey)?.[1] || 'pdf').toLowerCase();
+  // The requested documents the candidate gave, each file a signed link too.
+  const extra = await Promise.all(extraDocumentsToSend(draft, flow, orderId).map(async (document) => ({
+    ...document,
+    files: (await Promise.all(document.files.map(async (file) => ({ url: await sign(file.key), detectedType: file.detectedType })))).filter((file) => file.url),
+  })));
   return buildFillKit({
     orderId,
     order,
     draft,
     flow,
-    documents: { cv: cvUrl ? { url: cvUrl, extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null },
+    documents: { cv: cvUrl ? { url: cvUrl, extension } : null, coverLetter: letterUrl ? { url: letterUrl } : null, extra },
   });
 }

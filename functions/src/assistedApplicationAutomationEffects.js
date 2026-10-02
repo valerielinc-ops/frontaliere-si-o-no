@@ -22,6 +22,7 @@ import {
   sendOrderNotification,
 } from './assistedApplicationNotifications.js';
 import { getReviewTokenSecret, mintReviewToken } from './assistedApplicationReviewToken.js';
+import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
 
 const SUBMITTABLE_STATUSES = new Set(['awaiting_upload', 'ready_for_manual_submission', 'in_progress']);
 const VERDICT_LABELS = { strong: 'forte', good: 'buono', weak: 'debole', poor: 'scarso' };
@@ -76,8 +77,10 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
     const order = snapshot.data() || {};
     reviewUrl = await reviewUrlFor(order, orderId, flow.round || 1, resolveOrderLocale(order), deps);
   }
+  // Open questions and the required documents still missing (school reports, test results…).
   const openQuestions = (draft.questions || []).filter((question) => question.required
-    && !String(flow.answers?.[question.id] ?? '').trim()).length;
+    && !String(flow.answers?.[question.id] ?? '').trim()).length
+    + openRequiredDocuments(draft, flow.documents || {}).length;
   const build = (order) => {
     const locale = resolveOrderLocale(order);
     const common = {

@@ -21,8 +21,23 @@ import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationRe
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
 import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
+import { randomUUID } from 'node:crypto';
+import {
+  DOCUMENT_CONTENT_TYPES,
+  MAX_DOCUMENT_BYTES,
+  MAX_FILES_PER_DOCUMENT,
+  detectDocumentType,
+  documentFileId,
+  documentsView,
+  openRequiredDocuments,
+  requiredDocumentsOf,
+  sanitizeClientCheck,
+} from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit']);
+const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_waive']);
+const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove', 'document_waive']);
+// Where the candidate can still give a document: their review, or a portal waiting for them.
+const DOCUMENT_STATES = new Set(['candidate_review', 'needs_candidate_action']);
 // What the candidate wrote vouches for itself in the fact check (bounded).
 const MAX_CANDIDATE_SOURCE = 20000;
 const CV_CHOICES = new Set(['tailored', 'original']);
@@ -96,6 +111,9 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
   const answers = flow?.answers || {};
   const questions = (draft?.questions || []).map((question) => questionView(question, nowMs));
   const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
+  // School reports, test results… the posting requires besides the CV and the letter.
+  const documents = documentsView(draft, flow);
+  const openDocuments = openRequiredDocuments(draft, flow?.documents || {});
   const channel = draft?.channel || {};
   const locale = order?.locale || 'it';
   // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
@@ -132,14 +150,17 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     editedAt: draft?.candidateEditedAt || null,
     questions,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
+    documents,
+    documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
     // The tailored ATS CV (sent unless the candidate chooses their original).
     tailoredCv: draft?.tailoredCv?.status === 'ready' ? { url: tailoredCvUrl, choice: flow?.cvChoice === 'original' ? 'original' : 'tailored' } : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
-      approve: !stale && state === 'candidate_review' && openRequired.length === 0,
+      approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
       reject: !stale && state === 'candidate_review',
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
+      uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
       confirmSubmitted: !stale && state === 'candidate_handoff',
       chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
       edit: !stale && state === 'candidate_review' && ready,
@@ -249,6 +270,59 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
 }
 
 /**
+ * One change to a requested document: a file uploaded (its real type from its
+ * bytes, the browser's verdict recorded as given), a file removed, or the
+ * candidate's choice to send without it (or to take that choice back).
+ */
+async function saveDocumentChange({ db, bucket, orderId, flow, requested, action, body, nowMs }) {
+  const flowRef = flowRefFor(db, orderId);
+  const filesOf = (current) => (Array.isArray(current?.documents?.[requested.id]?.files) ? current.documents[requested.id].files : []);
+  if (action === 'document_upload') {
+    const base64 = String(body.contentBase64 || '');
+    if (base64.length > Math.ceil(MAX_DOCUMENT_BYTES / 3) * 4 + 4) throw new ReviewError('file_too_large', 413);
+    const buffer = Buffer.from(base64, 'base64');
+    if (!buffer.length) throw new ReviewError('invalid_file');
+    if (buffer.length > MAX_DOCUMENT_BYTES) throw new ReviewError('file_too_large', 413);
+    const type = detectDocumentType(buffer.subarray(0, 16));
+    if (!type) throw new ReviewError('file_type_not_allowed');
+    if (filesOf(flow).length >= MAX_FILES_PER_DOCUMENT) throw new ReviewError('too_many_files', 409);
+    const key = `assisted-application-uploads/${orderId}/doc-${requested.id.slice(0, 30)}-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
+    if (!bucket) throw new ReviewError('storage_unavailable', 503);
+    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    const file = { key, name: clean(body.fileName, 120) || `${requested.id}.${type}`, size: buffer.length, detectedType: type, uploadedAt: nowMs, clientCheck: sanitizeClientCheck(body.clientCheck) };
+    const added = await db.runTransaction(async (transaction) => {
+      const current = (await transaction.get(flowRef)).data() || {};
+      const files = filesOf(current);
+      if (files.length >= MAX_FILES_PER_DOCUMENT) return false;
+      // A file given is no longer "sent without": the choice is taken back.
+      transaction.set(flowRef, { documents: { [requested.id]: { files: [...files, file], waivedAt: null } }, updatedAt: nowMs }, { merge: true });
+      return true;
+    });
+    if (!added) {
+      await bucket.file(key).delete().catch(() => {});
+      throw new ReviewError('too_many_files', 409);
+    }
+    return;
+  }
+  if (action === 'document_remove') {
+    const fileId = String(body.fileId || '');
+    let removed = null;
+    await db.runTransaction(async (transaction) => {
+      const current = (await transaction.get(flowRef)).data() || {};
+      const files = filesOf(current);
+      removed = files.find((file) => documentFileId(file.key) === fileId) || null;
+      if (!removed) return;
+      transaction.set(flowRef, { documents: { [requested.id]: { files: files.filter((file) => file !== removed) } }, updatedAt: nowMs }, { merge: true });
+    });
+    if (!removed) throw new ReviewError('invalid_file');
+    if (bucket) await bucket.file(removed.key).delete().catch(() => {});
+    return;
+  }
+  // document_waive: the candidate's choice, after the warning that the employer may discard the application.
+  await flowRef.set({ documents: { [requested.id]: { waivedAt: body.waive === false ? null : nowMs } }, updatedAt: nowMs }, { merge: true });
+}
+
+/**
  * @param {{method:string, query?:object, body?:object}} req
  * @param {{db, runEffect, getSecret?, signUrl?, nowMs?}} deps
  */
@@ -306,6 +380,18 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs });
       return { status: 200, body: { ok: true, state: flow.state, changed } };
+    }
+    if (DOCUMENT_ACTIONS.has(action)) {
+      if (!DOCUMENT_STATES.has(flow.state)) throw new ReviewError('not_allowed', 409);
+      const requested = requiredDocumentsOf(draft).find((item) => item.id === String(body.documentId || ''));
+      if (!requested) throw new ReviewError('invalid_document');
+      await saveDocumentChange({ db: deps.db, bucket: deps.bucket, orderId, flow, requested, action, body, nowMs });
+      // The holds are evaluated again: the last document given starts the 12 h clock,
+      // or (a portal waiting) sends the application again.
+      const result = await applyAutomationEvent({
+        db: deps.db, orderId, event: { type: 'candidate_answers' }, actor: 'candidate', runEffect: deps.runEffect, nowMs,
+      });
+      return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
     }
     if (action === 'answers') {
       const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it');

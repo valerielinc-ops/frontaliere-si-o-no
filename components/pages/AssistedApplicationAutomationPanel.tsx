@@ -89,6 +89,7 @@ const PORTAL_STOP_LABELS: Record<string, string> = {
 
 function heldLabel(reason: string): string {
   if (reason.startsWith('question:')) return `domanda aperta: ${reason.slice(9)}`;
+  if (reason.startsWith('document:')) return `documento mancante: ${reason.slice(9)}`;
   if (reason.startsWith('portal:')) return PORTAL_STOP_LABELS[reason.slice(7)] || PORTAL_STOP_LABELS.portal_needs_candidate;
   if (reason === 'owner_handoff') return 'affidata al candidato per l’ultimo passaggio';
   return HELD_LABELS[reason] || reason;

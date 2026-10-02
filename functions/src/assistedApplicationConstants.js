@@ -7,6 +7,12 @@
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
 /** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
 export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
+
+// The kinds of documents a posting may require besides the CV and the cover
+// letter (assistedApplicationExtraDocuments.js, the requirements schema).
+export const DOCUMENT_KINDS = Object.freeze([
+  'school_report', 'aptitude_test', 'diploma', 'certificate', 'reference', 'work_permit', 'identity', 'portfolio', 'other',
+]);
 /** Follow-ups of an application sent by e-mail: `{order}/automation/followup` (assistedApplicationFollowup.js). */
 export const FOLLOWUP_DOC_ID = 'followup';
 

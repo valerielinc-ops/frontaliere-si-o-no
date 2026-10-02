@@ -57,6 +57,8 @@
   const MARKETING_RE = /\b(newsletter|marketing|werbung|pubblicit|promozion|promotion|offerte|angebote|job alert|talent pool|talentpool)\b/;
   const CV_RE = /\b(cv|curriculum|lebenslauf|resume)\b/;
   const LETTER_RE = /\b(lettera|cover letter|anschreiben|motivation|motivazione|lettre)\b/;
+  // A generic attachments field: it takes the requested documents (kit.documents.extra).
+  const OTHER_DOCS_RE = /\b(altri documenti|ulteriori documenti|allegati|other documents|additional documents|supporting documents|attachments|weitere (unterlagen|dokumente)|anhange|anlagen|beilagen|autres documents|documents supplementaires|pieces jointes|annexes)\b/;
 
   const config = { waitMs: 3000, stepMs: 150 };
 
@@ -411,6 +413,22 @@
     }
   }
 
+  /**
+   * The requested document (school reports, test results…) a file field asks
+   * for: one of its keywords, or two words of its label, in the field's label.
+   * A generic attachments field takes them all (extra_all).
+   */
+  function extraDocumentFor(label, kit) {
+    const extras = kit.documents?.extra || [];
+    if (!extras.length) return null;
+    const words = (value) => normalize(value).split(' ').filter((word) => word.length > 3);
+    for (const document of extras) {
+      if ((document.keywords || []).some((keyword) => normalize(keyword).length > 2 && ` ${label} `.includes(` ${normalize(keyword)} `))) return document.slot;
+      if (words(document.label).filter((word) => label.includes(word)).length >= 2) return document.slot;
+    }
+    return OTHER_DOCS_RE.test(label) ? 'extra_all' : null;
+  }
+
   /** The value for one entry, or null: never invented, always from the kit. */
   function answerFor(entry, kit) {
     const fromKit = kitAnswer(entry.labels || [entry.label], kit);
@@ -419,7 +437,10 @@
       const accept = String(entry.element.getAttribute('accept') || '');
       if (/image|png|jpe?g/i.test(accept) && !/pdf|doc/i.test(accept)) return null;
       if (LETTER_RE.test(label) && !CV_RE.test(label)) return { document: 'coverLetter' };
-      if (CV_RE.test(label) || fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
+      if (CV_RE.test(label)) return { document: 'cv' };
+      const extra = extraDocumentFor(label, kit);
+      if (extra) return { document: extra };
+      if (fromKit?.source === 'documents' || CV_RE.test(normalize(questionOf(entry.element)))) return { document: 'cv' };
       return null;
     }
     if (entry.kind === 'checkbox') {
@@ -560,19 +581,21 @@
   // ---- Filling ----------------------------------------------------------------
 
   /**
-   * Fills one entry. getFile(document) resolves to a File (the extension
-   * downloads it from the kit's signed link).
+   * Fills one entry. getFile(document) resolves to a File, getFiles(document)
+   * to the Files of a requested document (the extension downloads them from
+   * the kit's signed links).
    * @returns {Promise<boolean>} true when the page now holds the answer
    */
-  async function fillEntry(entry, answer, { getFile }) {
+  async function fillEntry(entry, answer, { getFile, getFiles }) {
     const { element } = entry;
     switch (entry.kind) {
       case 'file': {
-        const file = await getFile(answer.document);
-        if (!file) return false;
+        const files = getFiles ? await getFiles(answer.document) : [await getFile(answer.document)].filter(Boolean);
+        if (!files.length) return false;
         const view = element.ownerDocument.defaultView;
         const transfer = new view.DataTransfer();
-        transfer.items.add(file);
+        // Every file of the document when the input takes several, else the first.
+        for (const file of element.multiple ? files : files.slice(0, 1)) transfer.items.add(file);
         element.files = transfer.files;
         fire(element, 'input');
         fire(element, 'change');
@@ -666,7 +689,7 @@
    * One pass on the page: answers every empty question the kit can answer.
    * @returns {Promise<{filled:string[], missing:Array<{label:string, answer:string}>, failed:string[], entries:number}>}
    */
-  async function fillPage(doc, kit, { getFile, attempts, uploaded = new Set() }) {
+  async function fillPage(doc, kit, { getFile, getFiles, attempts, uploaded = new Set() }) {
     const filled = [];
     const missing = [];
     const failed = [];
@@ -688,7 +711,7 @@
         if (entry.required) missing.push({ label: entry.label, answer: answer.value || answer.document || '' });
         continue;
       }
-      const ok = await fillEntry(entry, answer, { getFile }).catch(() => false);
+      const ok = await fillEntry(entry, answer, { getFile, getFiles }).catch(() => false);
       if (ok && documentKey) uploaded.add(documentKey);
       (ok ? filled : failed).push(entry.label || entry.kind);
       if (!ok && entry.required) missing.push({ label: entry.label, answer: answer.value || answer.document || '' });
