@@ -446,6 +446,13 @@ describe('report-workflow-failure: cosa finisce nel body (#5437)', () => {
     expect(repro.paths).toContain('scripts/rerender-article-hubs.mjs');
   });
 
+  it('preserva i runner `npx` e il path del test diretto', () => {
+    const repro = reproFromRun('npx playwright test tests/e2e/seo-visual-regression.spec.ts');
+
+    expect(repro.commands).toContain('npx playwright test tests/e2e/seo-visual-regression.spec.ts');
+    expect(repro.paths).toContain('tests/e2e/seo-visual-regression.spec.ts');
+  });
+
   it('il body non cita mai un path .github/workflows/** (il fixer morirebbe a zero token)', () => {
     const body = buildFailureBody({
       repo: 'o/r', runId: '1', workflowName: 'W', jobName: 'j',
