@@ -42,6 +42,7 @@ import { fileURLToPath } from 'node:url';
 import { auditReportPath } from './lib/auditReport.mjs';
 import { orphanPagesAuditReportPath } from './lib/orphan-pages-report-path.mjs';
 import { MODE_ISSUE_PRIORITY, effectiveMode, seoGateClass } from './ci/lib/seo-gate-classes.mjs';
+import { renderOffenderSection } from './ci/lib/gate-issue-offenders.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,7 +58,7 @@ const VERDICT_PATH = path.join(PROJECT_ROOT, 'data', 'cathedral-seo-gates-verdic
 /**
  * @typedef {Object} GateSpec
  * @property {string} name
- * @property {string} gateKey           key of this gate in
+ * @property {string} [gateKey]         key of this gate in
  *   scripts/ci/lib/seo-gate-classes.mjs — the name validate-dist reports it
  *   under. Class, mode and issue priority come from there, so cathedral and
  *   validate-dist cannot give the same gate two different modes.
@@ -685,6 +686,32 @@ export async function evaluateGate(gate, bundle = null) {
   return entry;
 }
 
+/**
+ * The `## Offender` section of a gate's regression issue, from the audit's own
+ * JSON report (the one the extractors already read). An autofixer needs the
+ * pages, not just the counts: until 2026-10-02 the issue held current,
+ * baseline and a reproduce command, and the fixer had to rerun a multi-hour
+ * walk to learn which pages regressed. Best-effort: an unreadable report
+ * yields the section's own "non disponibile" line.
+ * @param {GateSpec} gate
+ * @param {NodeJS.ProcessEnv} [env]
+ * @returns {string}
+ */
+export function offenderSectionForGate(gate, env = process.env) {
+  const candidates = [auditReportPath(gate.name)];
+  if (gate.name === 'orphan-sitemap-pages') candidates.push(orphanPagesAuditReportPath(PROJECT_ROOT, env));
+  const runTag = env.GITHUB_RUN_ID ? `${env.GITHUB_RUN_ID}-${env.GITHUB_RUN_ATTEMPT || '1'}` : '';
+  for (const file of candidates) {
+    try {
+      const report = JSON.parse(readFileSync(file, 'utf8'));
+      const rel = path.relative(PROJECT_ROOT, file);
+      const source = runTag ? `\`${rel}\` nell'artifact \`audit-reports-cathedral-${runTag}\`` : `\`${rel}\``;
+      return renderOffenderSection(report, { gate: gate.gateKey, source }).join('\n');
+    } catch { /* next candidate */ }
+  }
+  return renderOffenderSection(null, { gate: gate.gateKey }).join('\n');
+}
+
 async function main() {
   const checkedAt = new Date().toISOString();
   /** @type {Array<Record<string, unknown>>} */
@@ -700,6 +727,7 @@ async function main() {
     const how = gate.bundledAs && bundle && !bundle.error ? 'bundled (shared walk)' : 'running';
     process.stderr.write(`[seo-gates-check] ${how} ${gate.name}...\n`);
     const r = await evaluateGate(gate, bundle);
+    if (r.status === 'regressed') r.offenderSection = offenderSectionForGate(gate);
     results.push(r);
     process.stderr.write(
       `[seo-gates-check]   ${gate.name}: status=${r.status} current=${r.current ?? '?'} baseline=${r.baseline ?? '?'}\n`,

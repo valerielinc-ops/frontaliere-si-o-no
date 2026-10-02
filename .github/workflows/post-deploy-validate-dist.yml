@@ -1715,11 +1715,26 @@ jobs:
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
 
+      # The JSON audit reports of this run, so each gate issue carries its
+      # offenders (scripts/ci/lib/gate-issue-offenders.mjs) instead of only a
+      # pointer to a 7-day artifact. Both uploads (postbuild and bfs) land in
+      # one folder; a missing artifact leaves the reporter's "report non
+      # disponibile" line, never a failed step.
+      - name: Download audit reports for the gate issues
+        if: always() && needs.validate-dist-postbuild.result == 'failure'
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: audit-reports*-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/validate-dist-artifacts
+          merge-multiple: true
+
       - name: Report failure to GitHub Issues
         if: always() && needs.validate-dist-postbuild.result == 'failure'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_DIST_REPORTS_DIR: ${{ runner.temp }}/validate-dist-artifacts/audit-reports
           # Dispatch/call inputs reach the shell as DATA, never as script text.
           INPUT_DEPLOY_RUN_ID: ${{ inputs.deploy_run_id }}
           # deploy_ref = workflow_run.head_sha: il commit della BUILD. Prima
@@ -1734,8 +1749,10 @@ jobs:
         run: |
           # Reporter diagnostico (#5414 Parte B): legge i job falliti e i loro
           # log via jobs API e apre UNA issue per gate fallito (titolo stabile
-          # "Validation Failure (dist): <gate>", max 3; oltre, o senza righe
-          # gate riconoscibili, la issue riassuntiva legacy "…: post-deploy").
+          # "Validation Failure (dist): <gate>", audit:all espanso nei
+          # sotto-auditor, offender dal report JSON; senza righe gate
+          # riconoscibili, la issue riassuntiva legacy "…: post-deploy"), e
+          # chiude le issue dei gate che in questo run sono passati.
           # Dedup/reopen invariati: titoli stabili senza run-number (#5121),
           # reopen-within-hours 6 per il flap rosso→verde→rosso
           # (#928/#931/#937/#941). Il run-number resta nel body.

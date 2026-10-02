@@ -97,8 +97,8 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
  * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:1766:6':
-    'validatore post-deploy: il fallback vivo alla riga 1766 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
+  '.github/workflows/post-deploy-validate-dist.yml:1783:6':
+    'validatore post-deploy: il fallback vivo alla riga 1783 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml:518:6':
     'stessa famiglia post-deploy del precedente: il call site vivo Report failure to GitHub Issues passa 6h per ricadute dentro il ciclo, non per quelle a giorni.',
   '.github/workflows/deploy-publish.yml:376:6':
@@ -115,7 +115,7 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'audit ogni 3 giorni: 72h = il suo periodo.',
   '.github/workflows/job-title-locale-audit.yml:234:336':
     'audit quindicinale: 336h = il suo periodo.',
-  'scripts/ci/report-validate-dist-failure.mjs:572:6':
+  'scripts/ci/report-validate-dist-failure.mjs:673:6':
     'ramo `reportValidateDist` (post-deploy, con buildSha): è il caso benedetto dei 6h. Il ramo `reportBuild` dello stesso file NON nomina più la finestra ed eredita il default.',
   'scripts/ci/review-gate.mjs:mintFollowup:reopenWithinHours:0':
     'follow-up di scope già drenata: una issue completata non deve riaprirsi e reinserire finding già risolti nel ciclo successivo.',

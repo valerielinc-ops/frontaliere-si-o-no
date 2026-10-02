@@ -512,6 +512,10 @@ jobs:
               gclass=$(jq -r --arg n "$name"    '.gates[] | select(.name == $n) | .class // "?"'   data/cathedral-seo-gates-verdict.json)
               gmode=$(jq -r --arg n "$name"     '.gates[] | select(.name == $n) | .mode // "blocking"' data/cathedral-seo-gates-verdict.json)
               priority=$(jq -r --arg n "$name"  '.gates[] | select(.name == $n) | .issuePriority // 1' data/cathedral-seo-gates-verdict.json)
+              # `## Offender` section built by the checker from the audit's
+              # own report (scripts/ci/lib/gate-issue-offenders.mjs): the
+              # pages an autofixer has to look at, not only the counts.
+              offenders=$(jq -r --arg n "$name" '.gates[] | select(.name == $n) | .offenderSection // ""' data/cathedral-seo-gates-verdict.json)
               {
                 echo "Automated check detected a REGRESSION on the **${name}** gate."
                 echo ""
@@ -531,6 +535,10 @@ jobs:
                 echo "- Notes: ${notes}"
                 echo "- Class: **${gclass}** (mode \`${gmode}\`, scripts/ci/lib/seo-gate-classes.mjs)"
                 echo ""
+                if [ -n "$offenders" ]; then
+                  echo "$offenders"
+                  echo ""
+                fi
                 echo "Per CLAUDE.md non-negotiables #1 + #5, the fix is to ELIMINATE the new"
                 echo "offenders — do NOT widen the baseline as a workaround."
                 echo ""
