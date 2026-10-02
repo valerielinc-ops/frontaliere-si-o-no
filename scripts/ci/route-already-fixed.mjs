@@ -21,6 +21,8 @@
  *   3. L'evidenza si verifica via API: PR `MERGED` su `main`; commit della fix
  *      raggiungibile da `main`; run `completed/success` su `main`, diversa da
  *      questa run e da un'altra run del fixer, il cui HEAD contiene la fix.
+ *      Per i timeout creati da `scan-job-timeouts.mjs`, il run verde deve anche
+ *      appartenere allo stesso workflow del run originario segnalato.
  *   4. Solo allora: aggiunge `maybe-resolved` (la label di verifica gia' usata da
  *      reconcile-followups/check-issue-already-resolved), toglie `agent:fix` e
  *      `agent:fix-queued` se presenti, posta il marker
@@ -55,6 +57,38 @@ const TRUSTED_ASSOCIATIONS = new Set(['OWNER', 'MEMBER', 'COLLABORATOR']);
 const TRUSTED_BOTS = new Set(AUTHORIZED_QUOTA_BEACON_BOTS);
 
 const EVIDENCE_RE = /<!--\s*FIX_EVIDENCE:([^>]*?)-->/gu;
+const JOB_TIMEOUT_REPORT_SIGNATURE = 'scripts/ci/scan-job-timeouts.mjs';
+const WORKFLOW_FILE_RE = /^\.github\/workflows\/[A-Za-z0-9._/-]+\.ya?ml$/u;
+
+/**
+ * Extract the original Actions run from a timeout issue emitted by
+ * `scan-job-timeouts.mjs`. Those issues need evidence from the same workflow;
+ * an unrelated green `tests` run cannot prove an E2E timeout was fixed.
+ * @param {string} issueBody
+ * @param {string} repo owner/name
+ * @returns {{required: false, runId: null} | {required: true, runId: number|null, reason?: string}}
+ */
+export function timeoutReportSourceRun(issueBody, repo) {
+  const body = String(issueBody ?? '');
+  if (!body.includes(`\`${JOB_TIMEOUT_REPORT_SIGNATURE}\``)) {
+    return { required: false, runId: null };
+  }
+  const match = /^\*\*Run:\*\*\s*https:\/\/github\.com\/([^/\s]+\/[^/\s]+)\/actions\/runs\/([1-9][0-9]*)\s*$/mu.exec(body);
+  if (!match) return { required: true, runId: null, reason: 'run-originaria-assente' };
+  if (match[1].toLowerCase() !== String(repo ?? '').trim().toLowerCase()) {
+    return { required: true, runId: null, reason: 'run-originaria-repo-diverso' };
+  }
+  const runId = Number(match[2]);
+  if (!Number.isSafeInteger(runId)) return { required: true, runId: null, reason: 'run-originaria-id-invalido' };
+  return { required: true, runId };
+}
+
+/** Normalize a REST Actions run path and reject values outside workflow files. */
+export function workflowFileFromRunPath(value) {
+  const workflowPath = String(value ?? '').split('@', 1)[0];
+  if (!WORKFLOW_FILE_RE.test(workflowPath) || workflowPath.split('/').includes('..')) return null;
+  return workflowPath;
+}
 
 /**
  * Codice `FIX_OUTCOME` del body, o null. Stessa semantica di tutti gli altri
@@ -195,6 +229,19 @@ export function verifyEvidence(evidence, deps) {
   if (String(run?.path ?? '').split('@')[0] === FIXER_WORKFLOW_PATH) {
     return { ok: false, reason: `run-${evidence.run}-e-una-run-del-fixer` };
   }
+  if (deps.expectedWorkflowPath !== undefined) {
+    const expectedWorkflowPath = workflowFileFromRunPath(deps.expectedWorkflowPath);
+    const actualWorkflowPath = workflowFileFromRunPath(run?.path);
+    if (!expectedWorkflowPath || !actualWorkflowPath) {
+      return { ok: false, reason: `run-${evidence.run}-workflow-non-verificabile` };
+    }
+    if (actualWorkflowPath !== expectedWorkflowPath) {
+      return {
+        ok: false,
+        reason: `run-${evidence.run}-workflow-diverso:${actualWorkflowPath}-atteso:${expectedWorkflowPath}`,
+      };
+    }
+  }
   const runHeadSha = run?.head_sha;
   if (typeof runHeadSha !== 'string' || !/^[0-9a-f]{40}$/u.test(runHeadSha)) return { ok: false, reason: `run-${evidence.run}-senza-head-sha` };
   const covers = guard('compare-run', () => deps.compare(fixSha, runHeadSha));
@@ -264,7 +311,7 @@ function main() {
   const delivery = normalizeDeliveryEvidence(readJson(process.env.PR_DELIVERY_EVIDENCE_FILE));
   let view;
   try {
-    view = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'comments,labels,state']));
+    view = JSON.parse(gh(['issue', 'view', String(issue), '--repo', repo, '--json', 'body,comments,labels,state']));
   } catch (e) {
     setOutput('routed', 'false');
     console.log(`::warning::route-already-fixed: lettura issue non disponibile (${String(e?.message ?? e).slice(0, 120)}) — nessuna mutazione.`);
@@ -286,9 +333,41 @@ function main() {
     console.log(`route-already-fixed: issue non aperta (${view?.state}) — nessuna mutazione.`);
     return;
   }
+  const sourceRun = timeoutReportSourceRun(view?.body, repo);
+  let expectedWorkflowPath;
+  if (sourceRun.required) {
+    if (sourceRun.runId === null) {
+      setOutput('routed', 'false');
+      console.log(`route-already-fixed: workflow originario non verificabile (${sourceRun.reason}) — nessuna mutazione.`);
+      return;
+    }
+    let failedRun;
+    try {
+      failedRun = JSON.parse(gh([
+        'api', `repos/${repo}/actions/runs/${sourceRun.runId}`,
+        '--jq', '{status,conclusion,path}',
+      ]));
+    } catch (e) {
+      setOutput('routed', 'false');
+      console.log(`route-already-fixed: lookup workflow originario non disponibile (${String(e?.message ?? e).slice(0, 120)}) — nessuna mutazione.`);
+      return;
+    }
+    if (failedRun?.status !== 'completed' || !['cancelled', 'failure', 'timed_out'].includes(failedRun?.conclusion)) {
+      setOutput('routed', 'false');
+      console.log(`route-already-fixed: il run originario non risulta un timeout/fallimento terminale (${failedRun?.status}/${failedRun?.conclusion}) — nessuna mutazione.`);
+      return;
+    }
+    expectedWorkflowPath = workflowFileFromRunPath(failedRun?.path);
+    if (!expectedWorkflowPath) {
+      setOutput('routed', 'false');
+      console.log(`route-already-fixed: path workflow originario non verificabile (run ${sourceRun.runId}) — nessuna mutazione.`);
+      return;
+    }
+  }
   const verified = verifyEvidence(decision.evidence, {
     defaultBranch: process.env.DEFAULT_BRANCH || 'main',
     currentRunId: process.env.GITHUB_RUN_ID ? Number(process.env.GITHUB_RUN_ID) : null,
+    ...(expectedWorkflowPath ? { expectedWorkflowPath } : {}),
     pr: (n) => JSON.parse(gh(['pr', 'view', String(n), '--repo', repo, '--json', 'state,baseRefName,mergeCommit'])),
     run: (id) => JSON.parse(gh(['api', `repos/${repo}/actions/runs/${id}`, '--jq', '{status,conclusion,head_branch,head_sha,path}'])),
     // `per_page=1`: serve solo `.status`, non la lista dei commit fra i due ref.
