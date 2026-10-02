@@ -10,6 +10,7 @@ import { parseTschuggenDetailPage } from '../scripts/lib/tschuggen-job-parser.mj
 import { parseSfsGroupDetail } from '../scripts/lib/sfs-group-job-parser.mjs';
 import { parseHoneggerDetailPage } from '../scripts/lib/honegger-job-parser.mjs';
 import { buildFallbackCanonicalContent } from '../services/jobs/canonicalFallback';
+import { buildJobMetaDescription } from '../build-plugins/shared/jobMetaDescription';
 
 const encoded = 'Kenntnisse f&uuml;r Qualit&agrave; &lpar;R&amp;D&rpar; &#128640; &#x1F9EA; &lt;SQL&gt; &amp;lt;literal&amp;gt;';
 const decoded = 'Kenntnisse für Qualità (R&D) 🚀 🧪 <SQL> &lt;literal&gt;';
@@ -98,6 +99,12 @@ describe('HTML entity publication boundaries', () => {
     });
     expect(metaIntro).toBe('Analyst &eacute; 𝐀 at Hôpital in Città.');
     expect(clean('Capacit&agrave; f&uuml;r &#x1D400; &amp;eacute;')).toBe('Capacità für 𝐀 &eacute;');
-    expect(boundary<string>(file, 'description', { descWithSalary: metaIntro }, 'descWithSalary')).toBe(metaIntro);
+    // The emitter now delegates composition to buildJobMetaDescription; exercise
+    // that live boundary instead of the removed descWithSalary variable.
+    const description = boundary<string>(file, 'description', {
+      buildJobMetaDescription, locale: 'en', localizedTitle: 'Analyst &amp;eacute; &#x1D400;',
+      job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' }, cleanDesc: '',
+    }, 'buildJobMetaDescription');
+    expect(description).toContain('Analyst &eacute; 𝐀 at Hôpital in Città.');
   });
 });
