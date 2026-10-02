@@ -2391,28 +2391,37 @@ function renderHubPage(inp: HubInputs): string {
     const updated = formatSourceDate(snap?.lastUpdate, locale, today) ?? freshnessCopy.missing;
     const readingState = borderReadingState(snap?.lastUpdate, today);
     const sc = statusColor(readingState === 'live' ? wait : null);
-    return `<tr data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
-      <td class="s-tcl">
-        <a href="${buildOggiPath(locale, c)}" style="${LINK_ACCENT_STYLE};font-weight:600">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
+    return `<tr role="row" class="block border-b border-edge last:border-b-0 md:table-row" data-bw-crossing="${esc(c)}" data-bw-data-state="${readingState}" data-bw-observed-at="${sourceDateIso(snap?.lastUpdate, today) ? Date.parse(snap!.lastUpdate) : ''}">
+      <td role="cell" class="block px-4 pt-3 pb-2 text-base text-body md:table-cell md:py-3">
+        <a class="flex min-h-11 items-center break-words font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-2 focus-visible:outline-accent" href="${buildOggiPath(locale, c)}">${esc(BORDER_CROSSING_DISPLAY[c])}</a>
       </td>
-      <td class="s-tcl" style="text-align:right">
-        <span data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
+      <td role="cell" class="block px-4 pb-3 text-base text-body md:table-cell md:py-3 md:text-right">
+        <span class="mr-2 md:hidden" aria-hidden="true">${esc(copy.waitMinutesLabel)}:</span>
+        <span data-bw-field="totalCrossingMinutes" data-bw-tone-bg data-bw-tone-fg style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:14px;font-weight:700;white-space:nowrap;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
-      <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</td>
-      <td class="s-tcl" style="font-size:12px;color:var(--color-subtle)">${sourceLink(src, sourceLabel(src, copy))}</td>
+      <td role="cell" class="block px-4 pb-3 text-sm text-subtle md:table-cell md:py-3">
+        <span class="block font-semibold md:hidden" aria-hidden="true">${esc(freshnessCopy.observed)}</span>
+        <span data-bw-field="lastUpdate">${esc(updated)}${readingState === 'stale' ? `<span class="block" data-bw-stale-note>${esc(freshnessCopy.stale)}</span>` : ''}</span>
+      </td>
+      <td role="cell" class="block break-words px-4 pb-4 text-sm text-subtle md:table-cell md:py-3">
+        <span class="block font-semibold md:hidden" aria-hidden="true">${esc(copy.sourceLabel)}</span>
+        ${sourceLink(src, sourceLabel(src, copy))}
+      </td>
     </tr>`;
   });
 
-  const tableHtml = `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
-    <thead><tr>
-      <th class="s-thd">${esc(
+  // One set of rows for both layouts: live hydration updates the same values.
+  // Explicit roles preserve table semantics when mobile CSS changes display.
+  const tableHtml = `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="padding:0"><table role="table" aria-labelledby="crossingTable" class="block w-full border-collapse md:table">
+    <thead role="rowgroup" class="sr-only md:not-sr-only md:table-header-group"><tr role="row">
+      <th scope="col" role="columnheader" class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
       )}</th>
-      <th class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
-      <th class="s-thd">${esc(freshnessCopy.observed)}</th>
-      <th class="s-thd">${esc(copy.sourceLabel)}</th>
+      <th scope="col" role="columnheader" class="s-thd" style="text-align:right">${esc(copy.waitMinutesLabel)}</th>
+      <th scope="col" role="columnheader" class="s-thd">${esc(freshnessCopy.observed)}</th>
+      <th scope="col" role="columnheader" class="s-thd">${esc(copy.sourceLabel)}</th>
     </tr></thead>
-    <tbody>${rows.join('')}</tbody>
+    <tbody role="rowgroup" class="block md:table-row-group">${rows.join('')}</tbody>
   </table></div>`;
 
   // "Best crossing right now" hero, with a "traffico fluido" fallback
