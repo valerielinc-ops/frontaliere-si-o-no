@@ -68,7 +68,13 @@ async function handle(message, sender) {
       // button that loads a new confirmation page).
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
       if (!entry) return { ok: false };
-      await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, sawForm: entry.sawForm || Boolean(message.sawForm), sawFinal: entry.sawFinal || Boolean(message.sawFinal) } });
+      await chrome.storage.session.set({ [tabKey(sender.tab.id)]: {
+        ...entry,
+        sawForm: entry.sawForm || Boolean(message.sawForm),
+        sawFinal: entry.sawFinal || Boolean(message.sawFinal),
+        // The engine pressed the posting's start: a tab opened right after is the form's.
+        ...(message.startedAt ? { startedAt: Number(message.startedAt) } : {}),
+      } });
       return { ok: true };
     }
     case 'open-verification': {
@@ -127,12 +133,15 @@ chrome.tabs.onUpdated.addListener(async (tabId, info) => {
 
 // A posting that opens its form in a new tab (Coop's «Jetzt bewerben» goes to
 // SuccessFactors with target=_blank, 2026-10-02): the new tab keeps the
-// order's kit, so the engine is injected there too. Only from the posting:
-// a link a form opens (a job alert, a privacy statement) gets nothing.
+// order's kit, so the engine is injected there too. Only the tab the engine's
+// own start click opened: a social or privacy link of the posting, or a link a
+// form opens (a job alert), gets nothing.
+const START_TAB_WINDOW_MS = 30_000;
 chrome.tabs.onCreated.addListener(async (tab) => {
   if (tab.openerTabId == null) return;
   const entry = await entryFor(tab.openerTabId);
   if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tab.id)) return;
+  if (!entry.startedAt || Date.now() - entry.startedAt > START_TAB_WINDOW_MS) return;
   await chrome.storage.session.set({ [tabKey(tab.id)]: { ...entry, openedAt: Date.now(), openedFrom: tab.openerTabId } });
 });
 

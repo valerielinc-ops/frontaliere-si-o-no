@@ -158,6 +158,8 @@
         if (state.started === location.href) return;
         state.started = location.href;
         show('Apro il modulo di candidatura…');
+        // Before the click: a new tab it opens (Coop → SuccessFactors) keeps the order's kit.
+        await send({ type: 'mark', startedAt: Date.now() });
         F.press(page.start);
         return;
       }

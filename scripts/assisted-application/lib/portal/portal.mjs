@@ -458,7 +458,7 @@ async function handleAuth({ page, snapshot, ctx }) {
   const others = { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') };
   const plan = await planPage({ snapshot: others, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
   if (plan.missingRequired.length) return { questions: questionsFrom(plan.missingRequired) };
-  const password = newPortalPassword();
+  const password = newPortalPassword({ portal: host });
   // Stored (encrypted) before the click: a run that dies afterwards still knows it.
   await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
   const sinceMs = Date.now();

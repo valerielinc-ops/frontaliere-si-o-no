@@ -69,14 +69,20 @@ export function authPageKind(snapshot) {
   return 'none';
 }
 
-/**
- * 12 random base64 characters plus one of each class the usual policies ask
- * for: 16 in all, within SuccessFactors' 8–18 (Coop, 2026-10-02: a 20-character
- * password is refused).
- */
-export function newPortalPassword(bytes = randomBytes(24)) {
-  const core = bytes.toString('base64').replace(/[^A-Za-z0-9]/g, '').slice(0, 12);
-  if (core.length < 12) throw new Error('password_entropy');
+// SuccessFactors refuses more than 18 characters (Coop, 2026-10-02); every
+// other portal keeps the 20 it has always had.
+const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
+
+/** The password's length on this portal (its host, or its channel id). */
+export function portalPasswordLength(portal = '') {
+  return SHORT_PASSWORD_PORTAL_RE.test(String(portal)) ? 16 : 20;
+}
+
+/** Random base64 characters plus one of each class the usual policies ask for. */
+export function newPortalPassword({ portal = '', bytes = randomBytes(24) } = {}) {
+  const size = portalPasswordLength(portal) - 4;
+  const core = bytes.toString('base64').replace(/[^A-Za-z0-9]/g, '').slice(0, size);
+  if (core.length < size) throw new Error('password_entropy');
   return `${core}Aa7!`;
 }
 

@@ -29,6 +29,8 @@ import { normalizeLabel } from './lib/portal/knowledge.mjs';
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
 // The tenant id in the address names no company: the posting is checked on the form.
 const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
+// SuccessFactors' password policy (8–18 characters) follows its host name.
+const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.address().port}`;
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
@@ -67,7 +69,8 @@ function fakePortal() {
       coop.later += 1;
       return send(page('Später bewerben', '<p>Wir senden dir den Link per E-Mail.</p>'));
     }
-    if (url.pathname.startsWith('/ohws/redirect/')) return redirect(SF_JOB);
+    // To another host, as Coop's redirect does: SuccessFactors' own (a *.localhost name is the loopback for Chrome).
+    if (url.pathname.startsWith('/ohws/redirect/')) return redirect(`${sfOrigin(server)}${SF_JOB}`);
     if (route === 'GET /sf/career') {
       if (coop.sessions.has(sessionOf(req))) {
         return send(page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>${form('/sf/apply', '<label for="v">Vorname: *</label><input id="v" name="first" required><label for="n">Nachname: *</label><input id="n" name="last" required><label for="m">E-Mail-Adresse: *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf: *</label><input id="cv" type="file" name="cv" required><button type="button">Entwurf speichern</button><button type="submit">Bewerben</button>', true)}`));
@@ -513,7 +516,7 @@ async function main() {
       && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
-    const coopAgain = await run({ applyUrl: `${base}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'

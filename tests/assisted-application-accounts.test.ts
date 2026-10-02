@@ -8,6 +8,7 @@ import {
   loginFields,
   newPortalPassword,
   portalAccountStore,
+  portalPasswordLength,
   registrationOutcome,
   sameSite,
   verificationOutcome,
@@ -36,16 +37,26 @@ describe('portal account pages', () => {
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
   });
 
-  it('makes a password every usual policy accepts, within SuccessFactors’ 18 characters', () => {
-    const password = newPortalPassword();
-    // Coop's SuccessFactors (2026-10-02): at least 8 and at most 18 characters.
-    expect(password).toHaveLength(16);
+  it('makes a password every usual policy accepts: 20 characters, 16 on SuccessFactors', () => {
+    const password = newPortalPassword({ portal: 'workday' });
+    expect(password).toHaveLength(20);
     expect(password).toMatch(/[A-Z]/);
     expect(password).toMatch(/[a-z]/);
     expect(password).toMatch(/[0-9]/);
     expect(password).toMatch(/[^A-Za-z0-9]/);
-    expect(newPortalPassword()).not.toBe(password);
-    expect(() => newPortalPassword(Buffer.alloc(24, 0xff))).toThrow('password_entropy');
+    expect(newPortalPassword({ portal: 'workday' })).not.toBe(password);
+    expect(newPortalPassword({ portal: HOST })).toHaveLength(20);
+    expect(newPortalPassword()).toHaveLength(20);
+    // Coop's SuccessFactors (2026-10-02): at least 8 and at most 18 characters.
+    const short = newPortalPassword({ portal: 'career2.successfactors.eu' });
+    expect(short).toHaveLength(16);
+    expect(short).toMatch(/[A-Z]/);
+    expect(short).toMatch(/[^A-Za-z0-9]/);
+    expect(portalPasswordLength('career5.sapsf.eu')).toBe(16);
+    expect(portalPasswordLength('successfactors')).toBe(16);
+    expect(portalPasswordLength('workday')).toBe(20);
+    expect(() => newPortalPassword({ bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
+    expect(() => newPortalPassword({ portal: 'career2.successfactors.eu', bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
   });
 
   it('finds the create-account link and button of SuccessFactors in the four languages', () => {

@@ -18,6 +18,7 @@ import {
   htmlToText,
   isFetchablePublicUrl,
   isPrivateAddress,
+  postingAtsRedirect,
   resolveApplyUrl,
   resolvesToPublicHost,
 } from '../functions/src/assistedApplicationAiJob.js';
@@ -256,6 +257,29 @@ describe('apply redirect (Coop: Prospective.ch → SAP SuccessFactors)', () => {
     expect(calls).toEqual([`GET ${posting}`, `HEAD ${redirect}`]);
     const channel = classifyApplicationChannel({ applyUrl: (await resolveApplyUrl(posting, { fetchImpl: portal([]) as any, resolve: publicHost })).applyUrl });
     expect(channel).toMatchObject({ type: 'successfactors', requiresAccount: true, host: 'career2.successfactors.eu' });
+  });
+
+  it('follows the posting’s own apply link, never another job’s redirect on the same page', async () => {
+    // Review of #10980: a "similar jobs" link to another posting comes first in the page.
+    const other = 'https://ohws.prospective.ch/public/v1/redirect/11111111-2222-3333-4444-555555555555/ats/';
+    const otherAts = 'https://career2.successfactors.eu/career?company=Coop&career_job_req_id=999999';
+    const page = `<aside><a href="${other}">Verkäufer:in Food — Jetzt bewerben</a></aside><main><a class="main-btn apply" target="_blank" href="${redirect}"> Jetzt bewerben </a></main>`;
+    const calls: string[] = [];
+    const fetchImpl = async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url === posting) return new Response(page, { status: 200, headers: { 'content-type': 'text/html' } });
+      if (url === redirect) return new Response(null, { status: 303, headers: { location: ats } });
+      if (url === other) return new Response(null, { status: 303, headers: { location: otherAts } });
+      return new Response('', { status: 404 });
+    };
+    await expect(resolveApplyUrl(posting, { fetchImpl: fetchImpl as any, resolve: publicHost })).resolves.toEqual({ applyUrl: ats, via: 'prospective' });
+    expect(calls).not.toContain(`HEAD ${other}`);
+    // Without an id in the posting's address: the one link labelled as the apply button, else nothing.
+    const later = 'https://ohws.prospective.ch/public/v1/redirect/66666666-7777-8888-9999-000000000000/ats/';
+    expect(postingAtsRedirect('https://careers.example.ch/job/bäcker', `<a href="${other}">Bäcker:in Rickenbach</a><a role="button" href="${later}">Später bewerben</a><a href="${redirect}">Jetzt bewerben</a>`)).toBe(redirect);
+    expect(postingAtsRedirect('https://careers.example.ch/job/bäcker', `<a href="${other}">Jetzt bewerben</a><a href="${redirect}">Jetzt bewerben</a>`)).toBe('');
+    // A posting whose id has no redirect on its page: nothing, not the first one found.
+    expect(postingAtsRedirect(posting, `<a href="${other}">Jetzt bewerben</a>`)).toBe('');
   });
 
   it('keeps the posting’s address when there is nothing to follow, or it cannot be followed safely', async () => {

@@ -120,7 +120,25 @@ export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
 
 // Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
 // «Jetzt bewerben» through a redirect to the employer's ATS (SAP SuccessFactors).
-const ATS_REDIRECT_RE = /https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?/i;
+const ATS_REDIRECT_RE = /^https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?$/i;
+const ATS_REDIRECT_LINK_RE = /<a\b[^>]*\bhref=["'](https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/([0-9a-f-]{36})\/ats\/?)["'][^>]*>([\s\S]*?)<\/a>/gi;
+const UUID_RE = /[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}/gi;
+const APPLY_LABEL_RE = /(bewerben|\bapply\b|candidat|postuler|postulez)/i;
+const APPLY_LATER_LABEL_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+
+/**
+ * The posting's own redirect, never another job's (a "similar jobs" list):
+ * the one carrying the posting's id (Prospective uses the same UUID in both),
+ * else the only one labelled as the apply button. '' when it is not clear.
+ */
+export function postingAtsRedirect(postingUrl, html) {
+  const links = [...String(html || '').matchAll(ATS_REDIRECT_LINK_RE)]
+    .map((match) => ({ href: match[1], id: match[2].toLowerCase(), text: htmlToText(match[3]) }));
+  const own = String(postingUrl || '').match(UUID_RE)?.pop()?.toLowerCase();
+  if (own) return links.find((link) => link.id === own)?.href || '';
+  const apply = [...new Set(links.filter((link) => APPLY_LABEL_RE.test(link.text) && !APPLY_LATER_LABEL_RE.test(link.text)).map((link) => link.href))];
+  return apply.length === 1 ? apply[0] : '';
+}
 
 /** Where a redirect ends, each hop re-validated like fetchPublicPage; '' when it does not end. */
 async function redirectTarget(fetchImpl, startUrl, resolve) {
@@ -148,11 +166,11 @@ export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = l
   const kept = { applyUrl: url, via: '' };
   if (!isFetchablePublicUrl(url) || portalOf(url)) return kept;
   try {
-    let redirect = ATS_REDIRECT_RE.exec(url)?.[0] || '';
+    let redirect = ATS_REDIRECT_RE.test(url) ? url : '';
     if (!redirect) {
       const response = await fetchPublicPage(fetchImpl, url, resolve);
       if (!response?.ok || !String(response.headers?.get?.('content-type') || '').includes('html')) return kept;
-      redirect = ATS_REDIRECT_RE.exec((await response.text()).slice(0, MAX_PAGE_BYTES))?.[0] || '';
+      redirect = postingAtsRedirect(url, (await response.text()).slice(0, MAX_PAGE_BYTES));
     }
     if (!redirect) return kept;
     const target = await redirectTarget(fetchImpl, redirect, resolve);
