@@ -9,6 +9,7 @@ import { createConnection, createServer } from '../.github/actions/claude-codex-
 import {
   bodyCasDecision,
   bodyRevisionFromPullRequest,
+  isPullRequestCreateArgs,
   isPullRequestReviewArgs,
   isTransientReviewFailure,
   normalizeBodyRevision,
@@ -316,6 +317,68 @@ printf '%s' "$((count + 1))" > "$state"
       expect(readFileSync(state, 'utf8')).toBe('1');
 
       await post('## Findings (Important: 1, Nit: 0)\n\n🔴 Important: altro verdetto');
+      expect(readFileSync(state, 'utf8')).toBe('2');
+    } finally {
+      server.kill('SIGTERM');
+      await new Promise(resolve => server.once('exit', resolve));
+    }
+  });
+
+  it('never sends two concurrent `gh pr create` for one repository (#10780/#10781)', async () => {
+    expect(isPullRequestCreateArgs(['pr', 'create', '--head', 'fix/issue-1', '--body-file', 'b.md'])).toBe(true);
+    expect(isPullRequestCreateArgs(['-R', 'owner/repo', 'pr', 'create', '--body-file', 'b.md'])).toBe(true);
+    expect(isPullRequestCreateArgs(['pr', 'list', '--head', 'fix/issue-1'])).toBe(false);
+    expect(isPullRequestCreateArgs(['issue', 'create', '--title', 'x'])).toBe(false);
+
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-pr-create-once-'));
+    roots.push(root);
+    const endpoint = join(root, 'mailbox');
+    const state = join(root, 'creates');
+    writeFileSync(state, '0');
+    const fakeGh = join(root, 'gh');
+    // Una create lenta come quella della run 36884791182 (73 s nel gate
+    // sibling): la seconda arriva mentre la prima è ancora in volo.
+    writeFileSync(fakeGh, `#!/bin/sh
+set -eu
+state='${state}'
+[ "\${1:-}" = pr ] && [ "\${2:-}" = create ] || exit 2
+count=$(cat "$state")
+printf '%s' "$((count + 1))" > "$state"
+sleep 1
+printf 'https://github.com/owner/repo/pull/%s\\n' "$((10780 + count))"
+`, { mode: 0o755 });
+    const action = resolve('.github/actions/claude-codex-fallback');
+    const server = spawn(process.execPath, [join(action, 'gh-bridge-server.mjs')], {
+      env: { PATH: '/usr/bin:/bin', CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint,
+        CODEX_GH_AUTH: 'fixture-token', CODEX_REAL_GH: fakeGh, CODEX_GH_CWD: root,
+        CODEX_GH_WORKSPACE: root, CODEX_GH_SCRATCH: root, CODEX_GH_REPOSITORY: 'owner/repo', CODEX_GH_HOST: 'github.com' },
+      stdio: 'ignore',
+    });
+    writeFileSync(join(root, 'body.md'), '## Implementato\n\n- fix in questa PR\n\n## Non implementato (ancora)\n\nNessuno\n');
+    const create = () => run(process.execPath, [join(action, 'gh-bridge-client.mjs'),
+      'pr', 'create', '--base', 'main', '--head', 'fix/issue-10752', '--title', 'fix', '--body-file', join(root, 'body.md')], {
+      env: { CODEX_BRIDGE_TRANSPORT: 'files', CODEX_GH_SOCKET: endpoint }, timeout: 10_000,
+    }).then(
+      (result) => ({ code: 0, stdout: result.stdout, stderr: result.stderr }),
+      (error: any) => ({ code: error.code as number, stdout: String(error.stdout ?? ''), stderr: String(error.stderr ?? '') }),
+    );
+    try {
+      await vi.waitFor(() => expect(existsSync(endpoint)).toBe(true));
+      const first = create();
+      await vi.waitFor(() => expect(readFileSync(state, 'utf8')).toBe('1'));
+      const second = await create();
+      expect(second.code).not.toBe(0);
+      expect(second.stderr).toContain('is still running in this run; this one was not sent');
+      expect(second.stderr).toContain('Do not run `gh pr create` again');
+      const created = await first;
+      expect(created.code).toBe(0);
+      expect(created.stdout).toContain('/pull/10780');
+      expect(readFileSync(state, 'utf8')).toBe('1');
+
+      // Finita la prima, una create successiva arriva a GitHub, che rifiuta da
+      // solo il secondo head aperto: il blocco vale solo per le create in volo.
+      const later = await create();
+      expect(later.code).toBe(0);
       expect(readFileSync(state, 'utf8')).toBe('2');
     } finally {
       server.kill('SIGTERM');

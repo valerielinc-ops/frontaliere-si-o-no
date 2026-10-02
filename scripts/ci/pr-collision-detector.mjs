@@ -11,6 +11,8 @@
  * Logica:
  *   - PR gemelle (stesso head ref): chiude le duplicate e tiene la più vecchia
  *     (`findDuplicateHeadPrs`), prima di costruire il grafo.
+ *   - PR gemella di una PR già mergiata (stesso head, stesso commit): la chiude,
+ *     perché il suo contenuto è già su main (`findMergedTwin`).
  *   - lista PR OPEN NON-DRAFT; per ognuna i file cambiati (gh pr view N --json files).
  *   - FUNNEL-CRITICAL globs: scripts/lib/**, build-plugins/**,
  *     services/seoService.ts, services/seo/**, .github/workflows/**,
@@ -171,6 +173,44 @@ export function headRepositoryIdentity(pr) {
 }
 
 /**
+ * Identità completa della testa di una PR: repository, branch, SHA e base.
+ * Stringa vuota se un campo manca o è illeggibile (fail-closed). Pura.
+ */
+export function headIdentityKey(pr) {
+  const repo = headRepositoryIdentity(pr);
+  const ref = pr?.headRefName;
+  const oid = String(pr?.headRefOid || '').toLowerCase();
+  const base = pr?.baseRefName;
+  if (!repo || typeof ref !== 'string' || !ref || !/^[0-9a-f]{40}$/u.test(oid)
+    || typeof base !== 'string' || !base) return '';
+  return `${repo}:${ref}:${oid}:${base}`;
+}
+
+/**
+ * PR GEMELLA DI UNA PR GIÀ MERGIATA: stessa identità di testa di una PR
+ * mergiata, quindi stessi commit, già arrivati su main. Osservata #10780,
+ * gemella di #10781 (stesso `fix/issue-10752`, stesso SHA): le due sono
+ * rimaste aperte insieme per 69 minuti, fra due run del cron di questo
+ * detector (GitHub lo esegue ogni 3-6 ore, non ogni 30 minuti), poi #10781 è
+ * stata mergiata e #10780, ormai senza gemella aperta, restava `stale-review`
+ * per sempre. Un commit nuovo sulla PR aperta cambia lo SHA: quella PR porta
+ * lavoro nuovo e non viene toccata. Pura → testabile.
+ *
+ * @param {object} pr PR aperta, con i campi di `headIdentityKey`
+ * @param {Array<object>|null} mergedPrs PR mergiate con lo stesso branch
+ * @returns {number|null} numero della gemella mergiata, o null
+ */
+export function findMergedTwin(pr, mergedPrs) {
+  const key = headIdentityKey(pr);
+  if (!key || !Array.isArray(mergedPrs)) return null;
+  const twin = mergedPrs
+    .filter((merged) => merged && Number.isInteger(merged.number) && merged.number !== pr.number)
+    .filter((merged) => headIdentityKey(merged) === key)
+    .sort((a, b) => a.number - b.number)[0];
+  return twin ? twin.number : null;
+}
+
+/**
  * PR GEMELLE: due PR aperte sullo stesso head (stesso repository, stesso
  * branch, stesso commit) verso la stessa base sono la stessa PR due volte —
  * stessi commit, stesso diff — non due lavori in parallelo. Osservate #10608 e
@@ -195,13 +235,8 @@ export function findDuplicateHeadPrs(prs) {
   const byHead = new Map(); // repo:ref:oid:base -> [pr]
   for (const pr of prs) {
     if (!pr || !Number.isInteger(pr.number)) continue;
-    const repo = headRepositoryIdentity(pr);
-    const ref = pr.headRefName;
-    const oid = String(pr.headRefOid || '').toLowerCase();
-    const base = pr.baseRefName;
-    if (!repo || typeof ref !== 'string' || !ref || !/^[0-9a-f]{40}$/u.test(oid)
-      || typeof base !== 'string' || !base) continue;
-    const key = `${repo}:${ref}:${oid}:${base}`;
+    const key = headIdentityKey(pr);
+    if (!key) continue;
     if (!byHead.has(key)) byHead.set(key, []);
     byHead.get(key).push(pr);
   }
@@ -293,6 +328,26 @@ function main() {
         `Resta aperta #${dup.keeper} (la più vecchia); questa viene chiusa senza toccare il branch. ` +
         `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
       closedDuplicates.add(dup.number);
+    }
+  }
+
+  // Gemella di una PR già mergiata: la lettura delle mergiate è per branch e
+  // fail-closed (una risposta illeggibile non chiude niente).
+  for (const pr of prs) {
+    if (closedDuplicates.has(pr.number) || !headIdentityKey(pr)) continue;
+    const merged = gh(['pr', 'list', '--repo', REPO, '--state', 'merged', '--head', pr.headRefName,
+      '--limit', '20', '--json', 'number,headRefName,headRefOid,baseRefName,headRepository,headRepositoryOwner'],
+    { allowFail: true });
+    const twin = findMergedTwin(pr, merged);
+    if (!twin) continue;
+    console.log(`PR #${pr.number}: gemella di #${twin}, già mergiata con la stessa HEAD → chiusa.`);
+    if (closeDuplicateAndConfirm(pr.number)) {
+      commentOnce(pr.number, `<!-- DUPLICATE_HEAD_OF:${twin} -->`,
+        `♻️ **duplicata**: la PR #${twin} aveva lo stesso head branch e lo stesso commit ` +
+        `(\`${String(pr.headRefOid).slice(0, 12)}\`) ed è già mergiata, quindi questo contenuto è già su main. ` +
+        `Questa PR viene chiusa senza toccare il branch. ` +
+        `_Segnale deterministico da pr-collision-detector.yml (zero-Claude)._`);
+      closedDuplicates.add(pr.number);
     }
   }
   if (closedDuplicates.size) prs = prs.filter((p) => !closedDuplicates.has(p.number));

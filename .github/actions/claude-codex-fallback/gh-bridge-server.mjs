@@ -204,6 +204,20 @@ export function isPullRequestReviewArgs(args) {
   return args[commandIndex] === 'pr' && firstOperationArg(args, commandIndex + 1) === 'review';
 }
 
+/**
+ * Return whether a request opens a pull request.  GitHub refuses a second
+ * open PR on the same head only once the first is stored: two concurrent
+ * POSTs both pass.  On 2026-10-01 (run 36884791182) Codex re-ran
+ * `gh pr create` while the first call was still inside the sibling gate,
+ * its `gh pr list --head` saw nothing yet, and both calls opened a PR on
+ * `fix/issue-10752` within the same second (#10780 and #10781).
+ */
+export function isPullRequestCreateArgs(args) {
+  if (!Array.isArray(args)) return false;
+  const commandIndex = commandIndexFor(args);
+  return args[commandIndex] === 'pr' && firstOperationArg(args, commandIndex + 1) === 'create';
+}
+
 /** Classify only a failed review POST with a recognizable transient 5xx. */
 export function isTransientReviewFailure({ code, stderr } = {}) {
   return Number(code) !== 0 && TRANSIENT_REVIEW_FAILURE_RE.test(String(stderr || ''));
@@ -1032,6 +1046,8 @@ function main() {
   const children = new Set();
   const clients = new Set();
   const postedReviewKeys = new Set();
+  // One `gh pr create` at a time per repository (see isPullRequestCreateArgs).
+  const pullRequestCreatesInFlight = new Set();
   let shuttingDown = false;
   let shutdownFinalized = false;
   let shutdownTimer = null;
@@ -1219,6 +1235,23 @@ function main() {
         }
       }
       const commandIndex = commandIndexFor(args);
+      // Checked and taken with no await in between, so two requests cannot
+      // both pass.  A sequential create after this one ends reaches GitHub,
+      // which then refuses a duplicate head on its own.
+      const createRepository = isPullRequestCreateArgs(args) ? scope.repository : '';
+      if (createRepository && pullRequestCreatesInFlight.has(createRepository)) {
+        finish({
+          code: 1,
+          stderr: `Codex GitHub bridge: a \`gh pr create\` for ${createRepository} is still running in this run; this one was not sent. `
+            + 'Wait for the running command to finish, then read the PR with `gh pr list --head <branch> --state open`. '
+            + 'Do not run `gh pr create` again.\n',
+        });
+        return;
+      }
+      if (createRepository) pullRequestCreatesInFlight.add(createRepository);
+      const releaseCreate = () => {
+        if (createRepository) pullRequestCreatesInFlight.delete(createRepository);
+      };
       if (isMutatingGhArgs(args)) markSideEffect(sideEffectFile);
       let executionArgs = args;
       if (isConditionalPullRequestBodyPatch(args, commandIndex + 1, scope.repository)) {
@@ -1231,6 +1264,7 @@ function main() {
           executionArgs = materialized.args;
           cleanupExecution = materialized.cleanup;
         } catch (error) {
+          releaseCreate();
           finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
           return;
         }
@@ -1373,12 +1407,14 @@ function main() {
         child.on('error', (error) => {
           childExited = true;
           children.delete(child);
+          releaseCreate();
           finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
           if (shuttingDown && children.size === 0) finalizeShutdown();
         });
         child.on('close', async (code) => {
           childExited = true;
           children.delete(child);
+          releaseCreate();
           if (childTimer) clearTimeout(childTimer);
           childTimer = null;
           if (childTerminationTimer) clearTimeout(childTerminationTimer);
