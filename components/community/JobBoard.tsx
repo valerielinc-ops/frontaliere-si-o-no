@@ -1,3 +1,4 @@
+import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 /**
  * JobBoard — Ticino job board for cross-border workers
  *
@@ -9167,7 +9168,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
  const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
- const publicRequirements = sanitizeRequirementTokens(selectedJob.requirementsByLocale?.[locale] ?? selectedJob.requirements ?? []);
+ const descriptionPreview = jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  // The inline email form, rendered below the provider buttons (control) or
@@ -9382,9 +9383,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
- {/* Full source description is readable before any sign-in or follow action. */}
- <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description">
-  {publicDescription ? renderFormattedDescription(publicDescription) : (
+ {/* The anonymous preview has one text budget; requirements remain behind access. */}
+ <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description" data-job-description-preview>
+  {descriptionPreview ? <p className="text-sm leading-relaxed text-body">{descriptionPreview}</p> : (
    // Keep the empty-description slot stable when enrichment settles without a
    // public description. Otherwise the settled fallback collapses the space
    // reserved by the loading skeleton and shifts the auth gate upward.
@@ -9394,7 +9395,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
     ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
    </div>
   )}
-  {publicRequirements.length > 0 && <><h2 className="text-lg font-semibold text-heading">{t('jobBoard.requirementsHeading')}</h2><ul className="list-disc pl-5 space-y-1 text-sm text-body">{publicRequirements.map((requirement, index) => <li key={index}>{requirement}</li>)}</ul></>}
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}

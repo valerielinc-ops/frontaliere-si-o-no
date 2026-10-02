@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ "whatsNew.v3973.title": "Aperçu des offres",
+ "whatsNew.v3973.jobPreview.title": "Description complète après connexion",
+ "whatsNew.v3973.jobPreview.desc": "Les offres affichent un court aperçu. Connectez-vous gratuitement pour lire la description et les exigences complètes.",
  'whatsNew.v3972.title': "Candidature assistée : les autres documents aussi",
  'whatsNew.v3972.assistedDocuments.title': "Documents demandés par l’annonce",
  'whatsNew.v3972.assistedDocuments.desc': "Si l’annonce demande plus que le CV et la lettre, par exemple des bulletins scolaires ou les résultats d’un test d’aptitudes, nous vous le disons et vous les téléversez depuis la page de votre candidature. Nous vérifions tout de suite que le fichier semble être le bon et le joignons à l’envoi.",
@@ -959,8 +962,8 @@ const frCore: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Continuer avec email',
  'jobBoard.authGateNewsletterNote': 'En entrant votre email, vous recevrez aussi notre newsletter avec des mises à jour pour les frontaliers.',
  'jobBoard.gate.title': 'Découvrez comment postuler à cette offre',
- "jobBoard.gate.applicationTitle": "Connectez-vous gratuitement pour poursuivre la candidature",
- "jobBoard.gate.subtitle": "La description complète est accessible ici. Connectez-vous ou continuez par e-mail pour ouvrir la candidature ; elle se termine sur le site de l’employeur. Les communications incluses sont expliquées ci-dessous.",
+ "jobBoard.gate.applicationTitle": "Connectez-vous gratuitement pour lire l’offre complète",
+ "jobBoard.gate.subtitle": "Connectez-vous ou continuez par e-mail pour lire la description et les exigences complètes et ouvrir la candidature sur le site de l’employeur. Les communications incluses sont expliquées ci-dessous.",
  'jobBoard.gate.emailCta': 'Continuer avec email',
  'jobBoard.gate.benefit1': 'Description complète et exigences',
  'jobBoard.gate.benefit2': 'Comment postuler et contacts',

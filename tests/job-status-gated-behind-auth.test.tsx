@@ -78,6 +78,16 @@ describe('Offer status gated behind auth (logged-out)', () => {
   expect(screen.queryByText(/##\s*addetti/i)).not.toBeInTheDocument();
  });
 
+ it('does not expose the tail of a long description before access, then reveals it after access', () => {
+  const prefix = 'Stage servizio infermieristico a Bellinzona. '.repeat(25);
+  const tail = 'Requisiti riservati: iscrizione alla SUPSI';
+  const job = { ...expiredJob, descriptionByLocale: { it: `<p>${prefix}${tail}</p>` } };
+  const { rerender } = render(<JobExpiredView job={job} hasAccess={false} />);
+  expect(screen.queryByText(new RegExp(tail))).not.toBeInTheDocument();
+  rerender(<JobExpiredView job={job} hasAccess={true} />);
+  expect(screen.getByText(new RegExp(tail))).toBeInTheDocument();
+ });
+
  it('JobOrphanView hides "no longer available" banner until sign-in', () => {
   render(<JobOrphanView slug="software-engineer-acme-sa-lugano" />);
 
