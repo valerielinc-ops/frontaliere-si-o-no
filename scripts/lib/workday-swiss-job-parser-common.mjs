@@ -677,6 +677,9 @@ export function createWorkdaySwissParser(config) {
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
+      // The unfiltered retry is the last transport attempt. Do not replace its
+      // annotated empty array while probing for an authoritative zero.
+      if (listings?.fetchOutcome === 'anti_bot_block') return listings;
       if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
       return listings || [];
     }

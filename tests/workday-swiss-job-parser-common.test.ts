@@ -61,7 +61,7 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     vi.restoreAllMocks();
   });
 
-  const makeParser = () => createWorkdaySwissParser({
+  const makeParser = (overrides: Record<string, unknown> = {}) => createWorkdaySwissParser({
     companyKey: 'testco',
     companyName: 'Test Co',
     companyDomain: 'testco.com',
@@ -69,6 +69,7 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     sitePath: 'Test_Careers',
     defaultCanton: 'ZH',
     defaultCity: 'Zurich',
+    ...overrides,
   });
 
   it('refetches the live board unfiltered when the Swiss facet is blocked', async () => {
@@ -119,6 +120,19 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     )) as any;
 
     const jobs = await makeParser().fetchAllJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
+  });
+
+  it('preserves the anti-bot outcome when empty proof is enabled', async () => {
+    global.fetch = vi.fn(async (url: string) => (
+      String(url).endsWith('/jobs')
+        ? new Response('', { status: 403 })
+        : new Response('', { status: 404 })
+    )) as any;
+
+    const jobs = await makeParser({ proveSwissAbsentFromLiveBoard: true }).fetchAllJobs();
 
     expect(jobs).toHaveLength(0);
     expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
