@@ -17,6 +17,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'functions/src/jobAlertBackfillCore.js'
+      - 'functions/src/lib/subscriberConsent.js'
       - 'functions/src/lib/emailSuppression.js'
       - 'functions/src/lib/newsletterOptOut.js'
       - 'functions/src/lib/subscriberPersonalization.js'
@@ -44,6 +45,7 @@ on:
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'functions/src/jobAlertBackfillCore.js'
+      - 'functions/src/lib/subscriberConsent.js'
       - 'functions/src/lib/emailSuppression.js'
       - 'functions/src/lib/newsletterOptOut.js'
       - 'functions/src/lib/subscriberPersonalization.js'
@@ -98,6 +100,7 @@ jobs:
             /scripts/lib/github-issue-creator.mjs
             /scripts/lib/posthog-client.mjs
             /functions/src/jobAlertBackfillCore.js
+            /functions/src/lib/subscriberConsent.js
             /functions/src/lib/emailSuppression.js
             /functions/src/lib/newsletterOptOut.js
             /functions/src/lib/subscriberPersonalization.js

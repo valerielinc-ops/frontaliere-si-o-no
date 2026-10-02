@@ -1,7 +1,7 @@
 {
   "key": "yapeal",
   "label": "Yapeal",
-  "generatedAt": "2026-10-01T21:14:28.440Z",
+  "generatedAt": "2026-10-02T09:11:13.077Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4385,
-  "avgDurationMs": 4385,
+  "durationMs": 3583,
+  "avgDurationMs": 3583,
   "durationHistory": [
-    4385
+    3583
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "yapeal-762e79908815",
       "slug": "customer-support-specialist-embedded-digital-finance-yapeal-zurich-hybrid",
@@ -32,7 +33,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:14:20.437Z",
+      "crawledAt": "2026-10-02T09:11:02.139Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",
@@ -49,17 +50,15 @@
       "postedDate": "2026-09-30",
       "applyUrl": "https://yapeal-ag.jobs.personio.de/job/2821075",
       "jobReqId": "2821075",
-      "needsRetranslation": true,
-      "_qualityScore": 71,
+      "firstSeenAt": "2026-10-01T21:14:20.437Z",
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "yapeal-8d58ba85703f",
       "slug": "senior-harness-engineer-with-google-cloud-platform-experience-80-100-yapeal-zurich-hybrid",
@@ -72,7 +71,7 @@
       "url": "https://yapeal-ag.jobs.personio.de/job/2733274",
       "source": "Yapeal Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:14:20.441Z",
+      "crawledAt": "2026-10-02T09:11:02.143Z",
       "addressLocality": "Zurich - Hybrid",
       "addressRegion": "ZH",
       "streetAddress": "Max-Högger-Strasse 6",

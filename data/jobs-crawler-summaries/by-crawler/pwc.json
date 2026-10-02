@@ -1,51 +1,18 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-10-01T21:21:51.074Z",
-  "total": 151,
-  "newCount": 1,
+  "generatedAt": "2026-10-02T09:19:58.013Z",
+  "total": 150,
+  "newCount": 0,
   "updatedCount": 100,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 6,
-  "durationMs": 61365,
-  "avgDurationMs": 61365,
+  "durationMs": 52683,
+  "avgDurationMs": 52683,
   "durationHistory": [
-    61365
+    52683
   ],
-  "newJobs": [
-    {
-      "title": "Senior Associate - Marketing Consultant for Financial Services",
-      "slug": "senior-associate-marketing-consultant-for-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/senior-associate-marketing-consultant-for-financial-services/9984d496-8a05-4369-86f7-e748851850f7",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Senior-Associate---Marketing-Senior-Consultant-Financial-Services_735045WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "8050",
-      "streetAddress": "Birchstrasse 160",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "tax",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-13",
-      "validThrough": "2036-07-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 20
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Associate - Marketing Consultant",
@@ -462,7 +429,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:03:32.182Z",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1180,7 +1146,47 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Career Start in Audit – Asset Management – Herbst 2026",
+      "slug": "inizio-carriera-in-audit-asset-management-autunno-2026-pwc-switzerland-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/career-start-in-audit-asset-management-herbst-2026/953e14fd-174f-44b8-935f-366dc3b0ec79",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/Career-Start-in-Audit---Asset-Management---Herbst-2026_675730WD-1",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-01",
+      "validThrough": "2036-08-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "pwc-b09b70183d6d",
+      "salaryMin": 113000,
+      "salaryMax": 198500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-01T07:22:07.919Z",
+      "postalCode": "8050",
+      "streetAddress": "Birchstrasse 160",
+      "needsRetranslation": true,
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Senior Associate / Manager - Cloud, Data & AI - Data Management Specialist",
@@ -1207,12 +1213,12 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "id": "pwc-f634071eda20",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 180000,
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-30T21:21:24.995Z",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
