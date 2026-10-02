@@ -342,14 +342,20 @@ describe('recoverExistingBookingPrices', () => {
 
 describe('applyKnownPriceBackfills', () => {
   it('retains a recovered booking price when the fresh detail is unpriced', () => {
-    const fresh = { id: 'myswitzerland:booking', title: 'fresh', price: { url: 'https://www.petzi.ch/events/1/' } };
-    const backfill = { id: fresh.id, price: { amount: 29.9, currency: 'CHF', isFree: false, url: fresh.price.url } };
+    const fresh = { id: 'myswitzerland:booking', title: 'fresh', startDate: '2026-11-07', venue: 'Chessu / Coupole', price: { url: 'https://www.petzi.ch/events/1/' } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: fresh.venue, price: { amount: 29.9, currency: 'CHF', isFree: false, url: fresh.price.url } };
     expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([{ ...fresh, price: { ...backfill.price } }]);
   });
 
   it('does not replace a newly known fresh price', () => {
-    const fresh = { id: 'myswitzerland:booking', price: { amount: 25, currency: 'CHF', isFree: false } };
-    const backfill = { id: fresh.id, price: { amount: 29.9, currency: 'CHF', isFree: false } };
+    const fresh = { id: 'myswitzerland:booking', startDate: '2026-11-07', venue: 'Chessu / Coupole', price: { amount: 25, currency: 'CHF', isFree: false } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: fresh.venue, price: { amount: 29.9, currency: 'CHF', isFree: false } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
+  });
+
+  it('rejects a backfill when the fresh event changed date or venue', () => {
+    const fresh = { id: 'myswitzerland:booking', startDate: '2026-07-05', venue: 'New Hall', price: { url: 'https://www.petzi.ch/events/1/' } };
+    const backfill = { id: fresh.id, startDate: '2026-07-04', venue: 'Old Hall', price: { amount: 29.9, currency: 'CHF', isFree: false } };
     expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
   });
 });

@@ -83,7 +83,7 @@ import {
   hasConfidentPrice,
 } from './lib/events-utils.mjs';
 import { CHECKPOINT_DIR, loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
+import { fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractDetailContactName,
   extractDetailTableValue,
@@ -451,7 +451,9 @@ export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
   const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
   return freshEvents.map(event => {
     const backfill = backfills.get(event?.id);
-    if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)) return event;
+    if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)
+      || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
+      || !sameVenue(event.venue, backfill.venue)) return event;
     return { ...event, price: { ...backfill.price, ...(event.price || {}) } };
   });
 }

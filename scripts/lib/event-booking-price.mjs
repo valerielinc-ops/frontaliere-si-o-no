@@ -14,7 +14,7 @@ export function supportedEventBookingUrl(value) {
   }
 }
 
-function sameVenue(left, right) {
+export function sameVenue(left, right) {
   const normalize = value => typeof value === 'string'
     ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() : '';
   const a = normalize(left);
@@ -60,10 +60,20 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
     const host = new URL(supported).hostname;
     if (host === 'www.petzi.ch') {
       const date = [...doc.querySelectorAll('h3')]
-        .map(heading => heading.textContent.trim().match(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/i))
+        .map(heading => heading.textContent.trim().match(/^(?:[\p{L}.]+,?\s+)?(\d{1,2})\.?\s+([\p{L}]+)\s+(\d{4})$/iu))
         .find(Boolean);
-      const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
-      const month = date && months[date[2].toLowerCase()];
+      const normalizeToken = value => value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase();
+      const months = {
+        january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8,
+        september: 9, october: 10, november: 11, december: 12,
+        januar: 1, februar: 2, marz: 3, april: 4, mai: 5, juni: 6, juli: 7, august: 8,
+        oktober: 10, dezember: 12,
+        janvier: 1, fevrier: 2, mars: 3, avril: 4, mai: 5, juin: 6, juillet: 7, aout: 8,
+        septembre: 9, octobre: 10, novembre: 11, decembre: 12,
+        gennaio: 1, febbraio: 2, marzo: 3, aprile: 4, maggio: 5, giugno: 6, luglio: 7,
+        agosto: 8, settembre: 9, ottobre: 10, novembre: 11, dicembre: 12,
+      };
+      const month = date && months[normalizeToken(date[2])];
       const sourceDate = month ? `${date[3]}-${String(month).padStart(2, '0')}-${String(date[1]).padStart(2, '0')}` : undefined;
       const sourceVenue = [...doc.querySelectorAll('h4')]
         .map(heading => heading.textContent.trim().split(/\s+[–—-]\s+/)[0].trim())
@@ -71,8 +81,8 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
           || sameVenue(value, event.venue.replace(/^AJZ\s+/i, ''))
           || sameVenue(value, event.venue.replace(/^AJZ\s+/i, '').replace(/\b(?:la|le|the)\b/gi, '')));
       const priceText = [...doc.querySelectorAll('h4')].map(heading => heading.textContent.trim())
-        .find(value => /\bPrice starting at\b/i.test(value));
-      const price = parseEventPriceText(priceText?.replace(/^.*?\bPrice starting at\s*/i, ''));
+        .find(value => /\b(?:Price starting at|Prix à partir de|Ab|Prezzo a partire da|A partire da)\b/iu.test(value));
+      const price = parseEventPriceText(priceText?.replace(/^.*?\b(?:Price starting at|Prix à partir de|Ab|Prezzo a partire da|A partire da)\s*/iu, ''));
       return sourceDate === event.startDate && sourceVenue && price
         ? { ...price, url: supported } : undefined;
     }
