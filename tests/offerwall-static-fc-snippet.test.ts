@@ -1,12 +1,13 @@
 /**
  * Offerwall FC snippet for STATIC pages — regression + drift guard.
  *
- * Static SEO heads do NOT carry index.html's inline Offerwall block. Every
- * static job-board emitter therefore needs the publisher-id MESSAGING loader
- * at PARSE TIME: relying on the network-code loader pulled in by
- * adsbygoogle.js AFTER hydration can fetch the Offerwall message without
- * rendering its overlay. The custom newsletter choice is intentionally not
- * emitted; Ad Manager owns the available choices.
+ * Static SEO heads do NOT carry index.html's inline Offerwall block. Article
+ * pages keep the small inline carrier; job-board emitters reference the same
+ * publisher-id MESSAGING loader through a cacheable asset at PARSE TIME.
+ * Relying on the network-code loader pulled in by adsbygoogle.js AFTER
+ * hydration can fetch the Offerwall message without rendering its overlay.
+ * The custom newsletter choice is intentionally not emitted; Ad Manager owns
+ * the available choices.
  *
  * This test pins the snippet contract and asserts it cannot drift from the
  * index.html loader essentials (same pub-id loader URL, data-fc-loader marker,
@@ -21,7 +22,12 @@ import { resolve } from 'node:path';
 
 import { describe, expect, it } from 'vitest';
 
-import { OFFERWALL_FC_SNIPPET, FC_PUBLISHER_ID, FC_JOBBOARD_OFFERWALL_GATE_JS } from '../build-plugins/constants';
+import {
+  OFFERWALL_FC_SNIPPET,
+  OFFERWALL_FC_SCRIPT_CONTENT,
+  FC_PUBLISHER_ID,
+  FC_JOBBOARD_OFFERWALL_GATE_JS,
+} from '../build-plugins/constants';
 import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
@@ -31,6 +37,18 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
     expect(OFFERWALL_FC_SNIPPET).not.toContain('customchoice');
     expect(OFFERWALL_FC_SNIPPET).not.toContain('__ftOfferwallSubscribe');
     expect(OFFERWALL_FC_SNIPPET).not.toContain('cc.registry');
+  });
+});
+
+describe('OFFERWALL_FC_SCRIPT_CONTENT — shared static carrier', () => {
+  it('keeps the inline article wrapper byte-identical to the external job-board body', () => {
+    expect(OFFERWALL_FC_SNIPPET).toBe(`<script>${OFFERWALL_FC_SCRIPT_CONTENT}</script>`);
+  });
+
+  it('emits the job-board body once as a cacheable static asset', () => {
+    const src = readFileSync(resolve(__dirname, '..', 'build-plugins/staticScriptsPlugin.ts'), 'utf8');
+    expect(src).toContain('JOB_BOARD_FC_LOADER_FILENAME');
+    expect(src).toContain('OFFERWALL_FC_SCRIPT_CONTENT');
   });
 });
 
@@ -120,7 +138,7 @@ describe('OFFERWALL_FC_SNIPPET — wired into every static-page owner', () => {
     expect(src).toMatch(/\$\{OFFERWALL_FC_SNIPPET\}\s*\n\s*<\/head>\s*\n\s*<body>/);
   });
 
-  it('staticPagesPlugin injects the snippet for every job-board section and blog detail', () => {
+  it('staticPagesPlugin injects the shared carrier for job-board sections and the inline snippet for blog detail', () => {
     const src = read('build-plugins/staticPagesPlugin.ts');
     expect(src).toMatch(/jobBoardHeadTags\(fullUrl\)/);
     expect(src).toMatch(/isBlogDetailPage\s*\?\s*`\\n\s*\$\{OFFERWALL_FC_SNIPPET\}`/);

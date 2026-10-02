@@ -11,6 +11,7 @@ describe('protected data refreshes publish through pull requests', () => {
   const refreshes = [
     '.github/workflows/refresh-job-popularity.yml',
     '.github/workflows/refresh-article-trending.yml',
+    '.github/workflows/build-evidence-and-tune.yml',
     '.github/workflows/monitor-telegram-member-count.yml',
     '.github/workflows/newsletter-qa.yml',
     '.github/workflows/update-fuel-prices.yml',
@@ -92,6 +93,31 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('passes the evidence PR branch from the build job into quota tuning', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const branchCheckout = workflow.indexOf('git checkout -B "$DATA_REFRESH_BRANCH" FETCH_HEAD');
+    const tune = workflow.indexOf('node scripts/tune-discovery-quota.mjs');
+    const publishers = workflow.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    const branchPublishers = workflow.match(/--branch "\$DATA_REFRESH_BRANCH"/g) ?? [];
+
+    expect(workflow).toContain('git ls-remote --heads origin');
+    expect(branchCheckout).toBeGreaterThan(-1);
+    expect(tune).toBeGreaterThan(branchCheckout);
+    expect(publishers).toHaveLength(2);
+    expect(branchPublishers).toHaveLength(2);
+    expect(workflow).toContain('DATA_REFRESH_BRANCH: chore/build-evidence-and-tune');
+  });
+
+  it('uses the App token only when it has data-refresh write capability', () => {
+    const workflow = read('.github/workflows/build-evidence-and-tune.yml');
+    const guardedToken =
+      "GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}";
+
+    expect(workflow.split(guardedToken).length - 1).toBe(2);
+    expect(workflow).not.toContain('GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}');
+
   });
 
   it('reconciles the newest stable branch tip after a concurrent push loses its lease', () => {

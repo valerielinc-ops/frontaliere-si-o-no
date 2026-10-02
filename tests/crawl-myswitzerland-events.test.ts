@@ -11,6 +11,7 @@ import {
   humanizeCategory,
   extractPrice,
   extractIndexedEventPrice,
+  recoverExistingKnownPrices,
   recoverExistingIndexedPrices,
   recoverExistingBookingPrices,
   applyKnownPriceBackfills,
@@ -303,6 +304,24 @@ describe('recoverExistingIndexedPrices', () => {
   });
 });
 
+describe('recoverExistingKnownPrices', () => {
+  it('retains selected price metadata without adding unseen events', () => {
+    const known = {
+      id: 'myswitzerland:known', title: 'An existing event',
+      price: { amount: 30, currency: 'CHF', isFree: false, url: 'https://eventfrog.ch/example' },
+    };
+    const unselected = { id: 'myswitzerland:other', price: { amount: 10, currency: 'CHF', isFree: false } };
+    const records = [{ objectID: 'known', perLocaleHits: {} }];
+    expect(recoverExistingKnownPrices([known, unselected], records)).toEqual([known]);
+    expect(recoverExistingKnownPrices([{ id: 'myswitzerland:metadata', price: { url: 'https://eventfrog.ch/example' } }], [
+      { objectID: 'metadata', perLocaleHits: {} },
+    ])).toEqual([{ id: 'myswitzerland:metadata', price: { url: 'https://eventfrog.ch/example' } }]);
+    expect(recoverExistingKnownPrices([{ id: 'myswitzerland:unknown' }], [
+      { objectID: 'unknown', perLocaleHits: {} },
+    ])).toEqual([]);
+  });
+});
+
 describe('recoverExistingBookingPrices', () => {
   const record = (objectID = 'booking', from = '20260704T170000Z') => ({
     objectID, perLocaleHits: { it: { applicableDates: { rules: [{ conditions: { from } }] } } },
@@ -321,6 +340,14 @@ describe('recoverExistingBookingPrices', () => {
     }]);
     expect(fetchFn).toHaveBeenCalledWith(event, event.price.url);
     expect(event.price).not.toHaveProperty('amount');
+  });
+
+  it('passes a caller-verified venue matcher to the booking fetcher when requested', async () => {
+    const event = existing();
+    const fetchFn = vi.fn().mockResolvedValue({ amount: 10, currency: 'CHF', isFree: false });
+    const venueMatcher = vi.fn().mockReturnValue(true);
+    await recoverExistingBookingPrices([event], [record()], { fetchFn, venueMatcher });
+    expect(fetchFn).toHaveBeenCalledWith(event, event.price.url, { venueMatcher });
   });
 
   it('preserves known prices and skips unselected IDs, changed dates and unsupported hosts before fetching', async () => {
@@ -393,6 +420,12 @@ describe('applyKnownPriceBackfills', () => {
     const fresh = { id: 'myswitzerland:booking', startDate: '2026-11-07', venue: 'Chessu / Coupole', price: { amount: null, currency: 'CHF', availability: 'https://schema.org/InStock' } };
     const backfill = { id: fresh.id, startDate: fresh.startDate, venue: fresh.venue, price: { amount: 20, currency: 'CHF', isFree: false } };
     expect(mergePriceBackfillRecords([fresh], [backfill])[0].price).toEqual({ amount: 20, currency: 'CHF', isFree: false, availability: 'https://schema.org/InStock' });
+  });
+
+  it('retains a source booking URL when a refresh still has no amount', () => {
+    const fresh = { id: 'myswitzerland:booking', startDate: '2026-11-07', venue: 'Chessu / Coupole' };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: fresh.venue, price: { url: 'https://www.petzi.ch/events/1/' } };
+    expect(mergePriceBackfillRecords([fresh], [backfill])).toEqual([{ ...fresh, price: { url: backfill.price.url } }]);
   });
 });
 

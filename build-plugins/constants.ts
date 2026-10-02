@@ -982,7 +982,14 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * deliberately NOT included here — it is a separate feature, out of scope for
  * the Offerwall render fix.
  */
-export const OFFERWALL_FC_SNIPPET = `<script>${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+/**
+ * Script body shared by the inline article carrier and the cacheable job-board
+ * asset. Keeping the body in one value prevents the two parse-time carriers
+ * from drifting while removing several KB from every job-board HTML page.
+ */
+export const OFFERWALL_FC_SCRIPT_CONTENT = `${FC_JOBBOARD_OFFERWALL_GATE_JS}(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();`;
+
+export const OFFERWALL_FC_SNIPPET = `<script>${OFFERWALL_FC_SCRIPT_CONTENT}</script>`;
 
 /**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,
