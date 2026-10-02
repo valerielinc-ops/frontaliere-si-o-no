@@ -22597,6 +22597,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'micasa-investitori-svizzeri-chiude-filiali',
+    category: 'novita',
+    date: '2026-10-02T14:05:39.737Z',
+    image: '/images/blog/micasa-investitori-svizzeri-chiude-filiali.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

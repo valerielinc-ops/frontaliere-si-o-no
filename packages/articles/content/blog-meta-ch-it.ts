@@ -7523,6 +7523,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.piloti-swiss-lettera-aperta.title': 'Piloti Swiss scrivono: più tempo libero, meno carico',
     'blog.article.piloti-swiss-lettera-aperta.excerpt': 'Oltre mille membri dell\'associazione Aeropers hanno firmato una lettera aperta alla direzione di Swiss, durante le trattative per il nuovo contratto collettivo di lavoro (CCL).',
     'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'Vista della città di Zurigo, centro economico e finanziario svizzero',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa cambia proprietà e chiude quattro filiali',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Gruppo di investitori svizzeri rileva il 100% di Micasa; chiuderanno Crissier entro fine 2026 e Langendorf, Brügg, Buchs entro gennaio 2027. Gestione operativa invariata.',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Interno di un negozio di mobili svizzero moderno con divani e tavoli esposti',
 };
 
 export default blogMetaChIt;

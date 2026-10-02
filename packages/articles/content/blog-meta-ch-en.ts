@@ -7523,6 +7523,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.piloti-swiss-lettera-aperta.title': 'Swiss pilots write: More free time, less load',
     'blog.article.piloti-swiss-lettera-aperta.excerpt': 'More than a thousand members of the Aeropers association signed an open letter to the management of Swiss during the negotiations for the new collective employment agreement (CEA).',
     'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'View of Zurich city, Swiss economic and financial center',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa changes ownership and closes four branches',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Swiss investor group acquires 100% of Micasa; Crissier will close by the end of 2026 and Langendorf, Brügg, Buchs by January 2027. Operational management unchanged.',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Modern Swiss furniture store interior with displayed sofas and tables',
 };
 
 export default blogMetaChEn;

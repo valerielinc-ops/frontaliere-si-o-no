@@ -7523,6 +7523,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.piloti-swiss-lettera-aperta.title': 'Schweizer Piloten schreiben: Mehr Freizeit, weniger Last',
     'blog.article.piloti-swiss-lettera-aperta.excerpt': 'Mehr als tausend Mitglieder des Aeropers-Verbands unterzeichneten während der Verhandlungen über den neuen Tarifvertrag (CEA) einen offenen Brief an die Geschäftsleitung der Schweizer.',
     'blog.article.piloti-swiss-lettera-aperta.imageAlt': 'Blick auf die Stadt Zürich, schweizerisches Wirtschafts- und Finanzzentrum',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.title': 'Micasa wechselt den Besitzer und schließt vier Filialen',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.excerpt': 'Eine Gruppe Schweizer Investoren übernimmt 100% von Micasa; Crissier wird bis Ende 2026 geschlossen und Langendorf, Brügg sowie Buchs bis Januar 2027. Die operative Führung bleibt unverändert.',
+    'blog.article.micasa-investitori-svizzeri-chiude-filiali.imageAlt': 'Modernes Schweizer Möbelgeschäft mit ausgestellten Sofas und Tischen',
 };
 
 export default blogMetaChDe;
