@@ -100,7 +100,9 @@ export async function submitApplication(ctx) {
 
   const liveness = await checkPostingLiveness({
     order,
-    posting: { applyUrl: draft?.channel?.applyUrl || draft?.job?.applyUrl },
+    // The posting's own page when the channel is the ATS behind it (Coop:
+    // SuccessFactors' sign-in says nothing about the posting being open).
+    posting: { applyUrl: draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl },
     fetchImpl: ctx.fetchImpl || fetch,
     resolve: ctx.resolve,
   });

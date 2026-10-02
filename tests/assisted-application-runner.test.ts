@@ -303,6 +303,36 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
+  // Coop, 2026-10-02: jobs.coopjobs.ch → Prospective.ch redirect → SAP SuccessFactors.
+  it('starts Coop on SuccessFactors and checks the posting, not the ATS sign-in, for liveness', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const posting = 'https://jobs.coopjobs.ch/offene-stellen/baecker/20d53107-db26-4a35-8f4c-b4d15bb4bb31';
+    const redirect = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
+    const ats = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044';
+    const calls: string[] = [];
+    const fetchImpl = vi.fn(async (url: string, init: any = {}) => {
+      calls.push(`${init.method || 'GET'} ${url}`);
+      if (url.startsWith('https://cdn.frontaliereticino.ch/data/job-detail/')) return new Response(null, { status: 200 });
+      if (url === redirect) return new Response(null, { status: 303, headers: { location: ats } });
+      return new Response(`<main><p>${'Bäcker:in bei Coop. '.repeat(30)}</p><a class="main-btn apply" href="${redirect}">Jetzt bewerben</a></main>`, { status: 200, headers: { 'content-type': 'text/html' } });
+    });
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    const submit = (draft: any) => submitApplication({
+      order, orderId: ORDER_ID, draft, cvBuffer: cvPdf(), cvType: 'pdf', flow: { answers: { salary_expectation: 'CHF 80k' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl, log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    // A draft made before the redirect was resolved: resolved at submit time.
+    await submit({ ...baseDraft, channel: { type: 'employer_site', applyUrl: posting, host: 'jobs.coopjobs.ch', requiresAccount: false } });
+    expect((runner.mock.calls as any)[0][0].applyUrl).toBe(ats);
+    // A draft made today: the ATS for the runner, the posting for liveness, SuccessFactors never fetched.
+    calls.length = 0;
+    await submit({ ...baseDraft, channel: { type: 'successfactors', applyUrl: ats, postingUrl: posting, via: 'prospective', host: 'career2.successfactors.eu', requiresAccount: true } });
+    expect((runner.mock.calls as any)[1][0].applyUrl).toBe(ats);
+    expect(calls).toContain(`GET ${posting}`);
+    expect(calls.some((call) => call.includes('successfactors'))).toBe(false);
+  });
+
   // Rolex 2026-10-02: «Vos bulletins des trois dernières années scolaires», EVA and GRI results.
   const withDocuments = (draft: any) => ({
     ...draft,
