@@ -47,7 +47,10 @@ import {
   KLINIK_WYSSHOLZLI_FABRICATED_DESCRIPTION_RE,
 } from './lib/klinik-wyssholzli-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
-import { keepStoredSourceBodiesByKey } from './lib/stored-source-body.mjs';
+import {
+  dropUnreadableSourceJobsWithoutValidBody,
+  keepStoredSourceBodiesByKey,
+} from './lib/stored-source-body.mjs';
 import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
@@ -202,13 +205,18 @@ function buildJob({ title, pdfUrl, pdfText, filename }) {
   };
 }
 
-async function mergeJobs(discoveredJobs) {
+async function mergeJobs(discoveredJobs, parsedJobs = discoveredJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const existingTarget = readStoredTargetJobs();
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
-  const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
+  // A posting whose PDF gave no usable body this run (failed or image-only)
+  // is in discoveredJobs only with a stored body over the floor. Without one,
+  // the merge's grace retention must not re-add the stored row: its body is
+  // under the floor too, so it would go out empty.
+  const mergeExistingTarget = dropUnreadableSourceJobsWithoutValidBody(existingTarget, parsedJobs, urlKey);
+  const mergedTarget = mergePreserveLocaleData(mergeExistingTarget, discoveredJobs);
   for (const job of mergedTarget) {
     job.needsRetranslation = true;
   }
@@ -360,7 +368,7 @@ export async function main() {
 
   // Seeds name every listed posting, including one left out of this run.
   updateAdapterConfig(parsedJobs);
-  const { diff } = await mergeJobs(discoveredJobs);
+  const { diff } = await mergeJobs(discoveredJobs, parsedJobs);
 
   console.log('\n🌐 Running locale fill for Klinik Wysshölzli jobs...');
   await translateMissingJobLocales({

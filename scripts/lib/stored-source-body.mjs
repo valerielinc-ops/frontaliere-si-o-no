@@ -162,6 +162,36 @@ export function keepStoredSourceBodiesByKey(
 }
 
 /**
+ * The stored rows the merge may still re-add: every row except those whose
+ * key is in `keys` and whose own body is not publishable.
+ *
+ * @param {object[]} existingJobs
+ * @param {Set<string>} keys
+ * @param {(job: object) => string} keyOfJob
+ * @returns {object[]}
+ */
+function dropStoredJobsWithoutValidBody(existingJobs, keys, keyOfJob) {
+  const existing = Array.isArray(existingJobs) ? existingJobs : [];
+  if (keys.size === 0) return existing;
+  return existing.filter((job) => !keys.has(keyOfJob(job)) || hasPublishableStoredBody(job));
+}
+
+/**
+ * @param {object[]} discoveredJobs
+ * @param {(job: object) => boolean} predicate
+ * @param {(job: object) => string} keyOfJob
+ * @returns {Set<string>}
+ */
+function keysOfDiscovered(discoveredJobs, predicate, keyOfJob) {
+  return new Set(
+    (Array.isArray(discoveredJobs) ? discoveredJobs : [])
+      .filter(predicate)
+      .map(keyOfJob)
+      .filter(Boolean),
+  );
+}
+
+/**
  * Remove stored rows for source extractions that failed in this run when no
  * valid source body exists to keep publishing. A failed discovery is already
  * absent from keepStoredSourceBodiesByKey(); this second filter prevents the
@@ -177,20 +207,40 @@ export function dropFailedSourceJobsWithoutValidBody(
   discoveredJobs = [],
   keyOfJob = (job) => job?.url,
 ) {
-  const failedKeys = new Set(
-    (Array.isArray(discoveredJobs) ? discoveredJobs : [])
-      .filter(hasSourceBodyFailure)
-      .map(keyOfJob)
-      .filter(Boolean),
+  return dropStoredJobsWithoutValidBody(
+    existingJobs,
+    keysOfDiscovered(discoveredJobs, hasSourceBodyFailure, keyOfJob),
+    keyOfJob,
   );
-  if (failedKeys.size === 0) return Array.isArray(existingJobs) ? existingJobs : [];
+}
 
-  return (Array.isArray(existingJobs) ? existingJobs : []).filter((job) => {
-    const key = keyOfJob(job);
-    if (!failedKeys.has(key)) return true;
-    const sourceLang = String(job?.sourceLang || '').trim();
-    return Boolean(sourceLang) && meetsSourceBodyFloor(sourceBodyForJob(job));
-  });
+/**
+ * dropFailedSourceJobsWithoutValidBody() for every fresh read under the word
+ * floor: a failed extraction, and also a thin one (an image-only PDF). Only
+ * for a crawler without the thin-source quarantine (crawler-template.mjs runs
+ * one and needs the thin row in the merge to prove its removal): there,
+ * mergePreserveLocaleData() would keep the stored row under its grace period
+ * and republish a body that is under the floor too.
+ *
+ * @param {object[]} existingJobs stored jobs passed to the merge
+ * @param {object[]} discoveredJobs fresh jobs, before keepStoredSourceBodiesByKey()
+ * @param {(job: object) => string} keyOfJob stable job identity
+ * @returns {object[]}
+ */
+export function dropUnreadableSourceJobsWithoutValidBody(
+  existingJobs = [],
+  discoveredJobs = [],
+  keyOfJob = (job) => job?.url,
+) {
+  return dropStoredJobsWithoutValidBody(
+    existingJobs,
+    keysOfDiscovered(
+      discoveredJobs,
+      (job) => hasSourceBodyFailure(job) || !meetsSourceBodyFloor(sourceBodyForJob(job)),
+      keyOfJob,
+    ),
+    keyOfJob,
+  );
 }
 
 /**

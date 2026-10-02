@@ -8,6 +8,7 @@ import {
   buildThinSourceHousekeepingProof,
   collectThinSourceJobsForQuarantine,
   dropFailedSourceJobsWithoutValidBody,
+  dropUnreadableSourceJobsWithoutValidBody,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
   storedJobForFailedSource,
@@ -244,6 +245,29 @@ describe('keepStoredSourceBodies', () => {
     };
 
     expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([stored]);
+  });
+});
+
+describe('dropUnreadableSourceJobsWithoutValidBody', () => {
+  const url = 'https://jobs.example.ch/inserat.pdf';
+  const thinFresh = { url, sourceLang: 'de', description: '', descriptionByLocale: { de: '' } };
+  const emptyStored = { url, sourceLang: 'de', description: '', descriptionByLocale: { de: '' } };
+  const validStored = { url, sourceLang: 'de', description: BODY, descriptionByLocale: { de: BODY } };
+
+  it('drops a stored row under the floor for a thin fresh read, which the failure-only filter keeps', () => {
+    expect(dropFailedSourceJobsWithoutValidBody([emptyStored], [thinFresh], jobKey)).toEqual([emptyStored]);
+    expect(dropUnreadableSourceJobsWithoutValidBody([emptyStored], [thinFresh], jobKey)).toEqual([]);
+  });
+
+  it('drops it for a failed fresh read too', () => {
+    const failed = { ...thinFresh, sourceBodyFailureReason: 'pdf-extraction-failed' };
+    expect(dropUnreadableSourceJobsWithoutValidBody([emptyStored], [failed], jobKey)).toEqual([]);
+  });
+
+  it('keeps a stored row whose body clears the floor, and every row of a readable fresh posting', () => {
+    expect(dropUnreadableSourceJobsWithoutValidBody([validStored], [thinFresh], jobKey)).toEqual([validStored]);
+    const readable = { ...validStored };
+    expect(dropUnreadableSourceJobsWithoutValidBody([emptyStored], [readable], jobKey)).toEqual([emptyStored]);
   });
 });
 
