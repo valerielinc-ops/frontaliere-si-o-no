@@ -7475,6 +7475,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Ein Unternehmen in Graubünden gründen: Leitfaden zu Kosten und Steuern',
     'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'Von der Rechtsform bis zu den Lohnbeiträgen: Ein praktischer Leitfaden zu den drei Steuerstufen und den Sozialversicherungspflichten für Existenzgründer in Graubünden.',
     'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Dokumente und Schreibtisch mit Blick auf die Schweizer Berge',
+    'blog.article.remunerazioni-ail-mps-lugano.title': 'AIL-Vergütungen und Transparenz: die Anfrage der MPS',
+    'blog.article.remunerazioni-ail-mps-lugano.excerpt': 'Giuseppe Sergi und Matteo Pronzini befragen den Staatsrat zu den Vergütungen der AIL und zum Schutz des öffentlichen Vermögens.',
+    'blog.article.remunerazioni-ail-mps-lugano.imageAlt': 'Ansicht von Lugano mit Bezug auf die städtischen Betriebe',
+    'blog.article.fallimenti-aziendali-ticino-media.title': 'Die Zahl der Insolvenzen steigt. Und das Tessin liegt über dem Durchschnitt',
+    'blog.article.fallimenti-aziendali-ticino-media.excerpt': 'In den ersten neun Monaten des Jahres stieg die Zahl der Unternehmenskonkurse in der Schweiz auf 11\'412 (+37 %). Im Tessin wurden 721 Konkurse verzeichnet, was einem Anstieg von 48 % entspricht.',
+    'blog.article.fallimenti-aziendali-ticino-media.imageAlt': 'Zunahme von Firmenkonkursen und Neugründungen im Tessin',
+    'blog.article.rientro-maternita-filanda.title': 'Rückkehr in den Beruf nach dem Mutterschaftsurlaub: Veranstaltungen in Mendrisio',
+    'blog.article.rientro-maternita-filanda.excerpt': 'Die Städte Chiasso und Mendrisio bieten bei LaFilanda ein kostenloses Programm mit Beratungsgesprächen, Treffen und Kinderbetreuung an, um Frauen den Wiedereinstieg in den Beruf nach der Mutterschaft zu erleichtern.',
+    'blog.article.rientro-maternita-filanda.imageAlt': 'LaFilanda in Mendrisio, Treffpunkt für den Wiedereinstieg nach der Mutterschaft.',
+    'blog.article.sessione-autunnale-mercosur-ubs.title': 'Herbstsession: Startschuss für Mercosur, Lex UBS und die Bilateralen III',
+    'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'Die eidgenössischen Räte schließen die Herbstsession ab. Grünes Licht für die Bilateralen III, das Mercosur-Abkommen und die Lex UBS.',
+    'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Bundeshaus in Bern während der Herbstsession der Räte',
 };
 
 export default blogMetaChDe;
