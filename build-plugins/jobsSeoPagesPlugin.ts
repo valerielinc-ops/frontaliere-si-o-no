@@ -3648,6 +3648,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Surrogate-safe 5000-cap: this string is the JSON-LD JobPosting.description;
  // a raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
  const jobPostingDescriptionHtml = truncateCodeUnits(descriptionHtmlParts.join(''), 5000);
+ // Keep the structured-data fallback self-contained: the meta-description
+ // composer owns the SERP candidate, while JobPosting still needs the same
+ // localized intro when the assembled HTML body is genuinely empty.
+ const metaIntro = decodeHtmlEntities(locale === 'de'
+  ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
+  : locale === 'fr'
+  ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
+  : locale === 'en'
+  ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
+  : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
  // Fallback: use plain text description or metaIntro if HTML assembly is empty
  const jobPostingDescription = jobPostingDescriptionHtml.length >= 50
  ? jobPostingDescriptionHtml
