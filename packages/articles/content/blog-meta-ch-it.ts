@@ -7460,6 +7460,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-retribuzioni-ginevra-2026.title': 'Salario medio professioni Svizzera 2026: canton Ginevra',
     'blog.article.guida-retribuzioni-ginevra-2026.excerpt': 'Confronto 2026 tra professioni e cantoni: a Ginevra il lordo va letto con AVS/AI/IPG al 5,3%, imposte, LAMal e LPP.',
     'blog.article.guida-retribuzioni-ginevra-2026.imageAlt': 'Calcolatrice e busta paga su una scrivania con skyline di Ginevra',
+    'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte prevede fino a 900\'000 cambi di cassa malati',
+    'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte prevede tra 600\'000 e 900\'000 cambi di cassa malati. Quasi metà valuterebbe il cambio con 20 franchi in più al mese.',
+    'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Assicurati svizzeri confrontano i premi della cassa malati',
 };
 
 export default blogMetaChIt;
