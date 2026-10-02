@@ -21,6 +21,12 @@
  * No I/O, no side effects — tests can import directly.
  */
 
+import {
+  BORDER_WAIT_SECTION_BY_LOCALE,
+  BORDER_WAIT_TODAY_BY_LOCALE,
+  isBorderWaitPath as isSharedBorderWaitPath,
+} from '../scripts/lib/borderWaitSections.mjs';
+
 // ── Types ─────────────────────────────────────────────────────────
 
 export type BorderWaitLocale = 'it' | 'en' | 'de' | 'fr';
@@ -871,18 +877,18 @@ export const BORDER_WAIT_LOCALE_PREFIX: Record<BorderWaitLocale, string> = {
 
 /** Top-level section slug per locale. */
 export const BORDER_WAIT_SECTION: Record<BorderWaitLocale, string> = {
-  it: 'traffico-dogane',
-  en: 'border-wait',
-  de: 'wartezeit-grenze',
-  fr: 'temps-attente-douane',
+  it: BORDER_WAIT_SECTION_BY_LOCALE.it,
+  en: BORDER_WAIT_SECTION_BY_LOCALE.en,
+  de: BORDER_WAIT_SECTION_BY_LOCALE.de,
+  fr: BORDER_WAIT_SECTION_BY_LOCALE.fr,
 };
 
 /** "Today" keyword per locale. */
 export const BORDER_WAIT_TODAY_SLUG: Record<BorderWaitLocale, string> = {
-  it: 'oggi',
-  en: 'today',
-  de: 'heute',
-  fr: 'aujourd-hui',
+  it: BORDER_WAIT_TODAY_BY_LOCALE.it,
+  en: BORDER_WAIT_TODAY_BY_LOCALE.en,
+  de: BORDER_WAIT_TODAY_BY_LOCALE.de,
+  fr: BORDER_WAIT_TODAY_BY_LOCALE.fr,
 };
 
 /**
@@ -1053,20 +1059,27 @@ export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
   return out;
 })();
 
-const BORDER_WAIT_ROUTE_SET: ReadonlySet<string> = new Set(BORDER_WAIT_ROUTES);
+const BORDER_WAIT_REGION_SET: ReadonlySet<string> = new Set(BORDER_WAIT_REGIONS as readonly string[]);
+const BORDER_WAIT_TODAY_BY_SECTION_BASE: Readonly<Record<string, string>> = Object.freeze(
+  Object.fromEntries(
+    BORDER_WAIT_LOCALES.map((locale) => [
+      buildRootHubPath(locale).replace(/^\/+|\/+$/g, ''),
+      BORDER_WAIT_TODAY_SLUG[locale],
+    ]),
+  ),
+);
+const CROSSING_SET: ReadonlySet<string> = new Set(BORDER_WAIT_CROSSINGS as readonly string[]);
 
-/** O(1) router matcher (accepts paths with or without trailing slash). */
+/** Shared route matcher (accepts current and legacy paths, with or without trailing slash). */
 export function isBorderWaitPath(pathname: string): boolean {
-  if (!pathname) return false;
-  const leading = pathname.startsWith('/') ? pathname : `/${pathname}`;
-  const normalised = leading.endsWith('/') ? leading : `${leading}/`;
-  if (BORDER_WAIT_ROUTE_SET.has(normalised)) return true;
-  return isBorderWaitArchivePath(normalised);
+  return isSharedBorderWaitPath(pathname, {
+    regionSlugs: BORDER_WAIT_REGION_SET,
+    crossingSlugs: CROSSING_SET,
+    todaySlugByCurrentSectionBase: BORDER_WAIT_TODAY_BY_SECTION_BASE,
+  });
 }
 
 const MONTH_PATTERN = /^\d{4}-(0[1-9]|1[0-2])$/;
-const CROSSING_SET: ReadonlySet<string> = new Set(BORDER_WAIT_CROSSINGS as readonly string[]);
-
 /** Return true when the path ends in /YYYY-MM/ under a border-wait section. */
 export function isBorderWaitArchivePath(pathname: string): boolean {
   const parts = pathname.split('/').filter(Boolean);

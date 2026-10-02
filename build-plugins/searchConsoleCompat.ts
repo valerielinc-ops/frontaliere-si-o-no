@@ -623,9 +623,9 @@ export function resolveSearchConsoleCompatTarget(
  // path today, even if GSC's Coverage export captured it as 404 from
  // before the page existed / was below floor on an earlier build (e.g. any
  // of the 116 crossings that had live wait data but no page before this
- // corridor rollout). isBorderWaitPath checks a module-load-precomputed
- // Set (BORDER_WAIT_ROUTE_SET), so this stays O(1) per call inside the
- // 150k+-path compat loop.
+ // shared Node-compatible matcher, with the plugin supplying its exact
+ // module-load registries, so this stays O(1) per call inside the 150k+-path
+ // compat loop.
  if (isBorderWaitPath(path)) {
  return {
  canonicalPath: ensureTrailingSlash(path),
