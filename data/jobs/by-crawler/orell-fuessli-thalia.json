@@ -1,6 +1,6 @@
 {
   "crawlerKey": "orell-fuessli-thalia",
-  "assembledAt": "2026-10-02T09:29:49.230Z",
+  "assembledAt": "2026-10-02T21:28:59.077Z",
   "jobs": [
     {
       "id": "orell-fuessli-thalia-e4da5ba34cd3",
@@ -33,7 +33,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-30",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.397Z",
+      "crawledAt": "2026-10-02T21:28:53.046Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -136,7 +136,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/filialleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.396Z",
+      "crawledAt": "2026-10-02T21:28:53.044Z",
       "addressLocality": "Rapperswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -253,7 +253,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-bern",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.395Z",
+      "crawledAt": "2026-10-02T21:28:53.043Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -289,7 +289,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.319Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -302,7 +301,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-9c42abb1f2b1",
@@ -335,7 +335,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-zuerichnordwestschweiz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.394Z",
+      "crawledAt": "2026-10-02T21:28:53.043Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -417,7 +417,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-winterthurostschweiz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.393Z",
+      "crawledAt": "2026-10-02T21:28:53.042Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -499,7 +499,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/hms-praktikantin-marketing-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.392Z",
+      "crawledAt": "2026-10-02T21:28:53.039Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -575,7 +575,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-fachfrau-mann-kundendialog-efz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.392Z",
+      "crawledAt": "2026-10-02T21:28:53.040Z",
       "addressLocality": "Zürich",
       "addressRegion": "Zürich",
       "streetAddress": "Dietzingerstrasse 3",
@@ -616,7 +616,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:54:30.573Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -629,7 +628,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-7137bd1d8847",
@@ -662,7 +662,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-20-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.391Z",
+      "crawledAt": "2026-10-02T21:28:53.038Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -754,7 +754,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.390Z",
+      "crawledAt": "2026-10-02T21:28:53.037Z",
       "addressLocality": "Langnau im Emmental",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -834,7 +834,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.388Z",
+      "crawledAt": "2026-10-02T21:28:53.036Z",
       "addressLocality": "Thalwil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -870,7 +870,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.111Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -883,7 +882,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-5b2636db8662",
@@ -916,7 +916,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.386Z",
+      "crawledAt": "2026-10-02T21:28:53.033Z",
       "addressLocality": "Wädenswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -952,7 +952,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:19:30.108Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -965,7 +964,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-4b6305047e18",
@@ -998,7 +998,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-detailhandel-papeterie-efz-1",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.384Z",
+      "crawledAt": "2026-10-02T21:28:53.031Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1034,7 +1034,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:19:28.901Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1047,7 +1046,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-11b8f7d2df1e",
@@ -1080,7 +1080,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.382Z",
+      "crawledAt": "2026-10-02T21:28:53.028Z",
       "addressLocality": "Brig",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1156,7 +1156,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.381Z",
+      "crawledAt": "2026-10-02T21:28:53.027Z",
       "addressLocality": "Thalwil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1237,7 +1237,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-1",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.379Z",
+      "crawledAt": "2026-10-02T21:28:53.023Z",
       "addressLocality": "Adliswil",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1326,7 +1326,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/abteilungsleitung-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.376Z",
+      "crawledAt": "2026-10-02T21:28:53.019Z",
       "addressLocality": "Würenlos",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1362,7 +1362,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:15.701Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1375,7 +1374,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-70203f956024",
@@ -1408,7 +1408,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-40-50",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.375Z",
+      "crawledAt": "2026-10-02T21:28:53.018Z",
       "addressLocality": "Stäfa",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1491,7 +1491,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/detailhandelsfachfraumann-papeterie-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.372Z",
+      "crawledAt": "2026-10-02T21:28:53.016Z",
       "addressLocality": "Küsnacht",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1544,88 +1544,6 @@
       }
     },
     {
-      "id": "orell-fuessli-thalia-65aaeaf8c4dc",
-      "slug": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-      "slugByLocale": {
-        "it": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-        "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-        "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "fr": "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
-      },
-      "company": "Orell Füssli Thalia",
-      "companyKey": "orell-fuessli-thalia",
-      "companyDomain": "orellfuessli.ch",
-      "title": "Buchhändler*in 70 - 90% (a)",
-      "titleByLocale": {
-        "it": "Buchhändler*in 70 - 90% (a)",
-        "en": "Buchhändler*in 70 - 90% (a)",
-        "de": "Buchhändler*in 70 - 90% (a)",
-        "fr": "Buchhändler*in 70 - 90% (a)"
-      },
-      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Sach- und Fachbuch\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-      "descriptionByLocale": {
-        "it": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Sach- und Fachbuch\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "en": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Sach- und Fachbuch\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Sach- und Fachbuch\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
-        "fr": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Sach- und Fachbuch\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70-90",
-      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.347Z",
-      "addressLocality": "Bern",
-      "addressRegion": "Zürich",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Vendita",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Retail / Librerie e Cartoleria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-14",
-      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70-90",
-      "jobReqId": null,
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "libreria-70-90-a-orell-fussli-thalia-bern",
-        "librairie-70-90-a-orell-fussli-thalia-bern",
-        "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-          "libreria-70-90-a-orell-fussli-thalia-bern",
-          "buchhandler-in-70-90-a-orell-fussli-thalia-bern"
-        ],
-        "fr": [
-          "librairie-70-90-a-orell-fussli-thalia-bern"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:11:57.952Z",
-      "salaryMin": 69800,
-      "salaryMax": 106700,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69800,
-          "maxValue": 106700,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "orell-fuessli-thalia-5444e3a466dc",
       "slug": "collaboratore-trice-in-versandlogistik-80-100-a-orell-fussli-thalia-winterthur",
       "slugByLocale": {
@@ -1656,7 +1574,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/mitarbeiterin-versandlogistik-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.345Z",
+      "crawledAt": "2026-10-02T21:28:52.989Z",
       "addressLocality": "Winterthur",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1732,7 +1650,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-80-100",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.343Z",
+      "crawledAt": "2026-10-02T21:28:52.986Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1816,7 +1734,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/stv-filialleitung-buchhaendlerin-80",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.343Z",
+      "crawledAt": "2026-10-02T21:28:52.987Z",
       "addressLocality": "Wil SG",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1897,7 +1815,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-aargau",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.341Z",
+      "crawledAt": "2026-10-02T21:28:52.984Z",
       "addressLocality": "Aarau",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -1933,7 +1851,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.283Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -1946,7 +1863,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-15a1dd6aaf22",
@@ -1979,7 +1897,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/lernender-buchhandel-efz-region-luzern",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.340Z",
+      "crawledAt": "2026-10-02T21:28:52.983Z",
       "addressLocality": "Emmenbrücke",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2015,7 +1933,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:32:27.281Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2028,7 +1945,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-5673f77f1177",
@@ -2061,7 +1979,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-30-40",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.310Z",
+      "crawledAt": "2026-10-02T21:28:52.951Z",
       "addressLocality": "Zug",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2099,7 +2017,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.374Z",
-      "needsRetranslation": true,
       "salaryMin": 31600,
       "salaryMax": 48600,
       "salarySource": "estimated",
@@ -2112,7 +2029,8 @@
           "maxValue": 48600,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-090609cede70",
@@ -2145,7 +2063,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-40-60",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.309Z",
+      "crawledAt": "2026-10-02T21:28:52.950Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2183,7 +2101,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.373Z",
-      "needsRetranslation": true,
       "salaryMin": 46500,
       "salaryMax": 71100,
       "salarySource": "estimated",
@@ -2196,7 +2113,8 @@
           "maxValue": 71100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "orell-fuessli-thalia-40a2ff9f4792",
@@ -2229,7 +2147,7 @@
       "url": "https://karriere.orellfuessli.ch/de/offene-stellen/weihnachtsaushilfe-30-40-0",
       "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:43.305Z",
+      "crawledAt": "2026-10-02T21:28:52.946Z",
       "addressLocality": "Bern",
       "addressRegion": "Zürich",
       "streetAddress": "",
@@ -2267,7 +2185,6 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:31:42.369Z",
-      "needsRetranslation": true,
       "salaryMin": 31000,
       "salaryMax": 47400,
       "salarySource": "estimated",
@@ -2280,7 +2197,90 @@
           "maxValue": 47400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
+    },
+    {
+      "id": "orell-fuessli-thalia-1c511c321e2a",
+      "slug": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+      "slugByLocale": {
+        "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+        "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
+        "it": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+        "fr": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+      },
+      "company": "Orell Füssli Thalia",
+      "companyKey": "orell-fuessli-thalia",
+      "companyDomain": "orellfuessli.ch",
+      "title": "Buchhändler*in 70 - 90% (a)",
+      "titleByLocale": {
+        "de": "Buchhändler*in 70 - 90% (a)",
+        "en": "Buchhändler*in 70 - 90% (a)",
+        "it": "Buchhändler*in 70 - 90% (a)",
+        "fr": "Buchhändler*in 70 - 90% (a)"
+      },
+      "description": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Kinderbuch und Spiele\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+      "descriptionByLocale": {
+        "de": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Kinderbuch und Spiele\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "it": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Kinderbuch und Spiele\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "en": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Kinderbuch und Spiele\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:",
+        "fr": "Sehen Sie sich als Botschafter*in des Lesens?\nMit Ihrer Leidenschaft sind Sie bei uns genau richtig. Bei der Orell Füssli Thalia AG schaffen wir Räume für vielfältige Geschichten und Wissen, die unsere Gesellschaft inspirieren und bereichern. Ausserdem ist Orell Füssli ein Ort, an dem sich die Mitarbeitenden wohl fühlen, an dem man gerne und gut zusammenarbeitet sowie gemeinsam mehr erreicht.\nFür unsere Filiale Stauffacher in Bern suchen wir per 1. Dezember 2026 eine*n Buchhändler*in 70 - 90% (a) für die Abteilung Kinderbuch und Spiele\nIhre Hauptaufgaben:\n\n• Lots*in in der Welt von Geschichten und Wissen\n\n• Kompetente und inspirierende Beratung unserer Kundschaft\n\n• Lagerbewirtschaftung und Bestellwesen (bestellen, remittieren, recherchieren)\n\n• Markt- und Trendbeobachtung\n\n• Präsentation von Büchern und Non-Books\nIhr Profil:\n\n• Abgeschlossene Ausbildung als Buchhändler*in mit fundierter Berufserfahrung\n\n• Affinität zum Buch sowie zu den elektronischen Medien\n\n• Kunden- und verkaufsorientierte Persönlichkeit mit Erfahrung im Kundenkontakt\n\n• Interesse am aktuellen Zeitgeschehen\n\n• Stilsicheres Deutsch\nUnser Angebot:\n\n• Kollaborative und wertschätzende Unternehmenskultur\n\n• Zentraler Arbeitsort mit guten ÖV-Anbindungen\n\n• Der aktuellen Lebenssituation angepasste Arbeitszeitmodelle\n\n• Grosszügige Ferienregelung und vielseitiges Rabattangebot\n\n• Individuelle Weiterbildungsmöglichkeiten; filial- und bereichsübergreifende Entwicklungsoptionen\nBewerben Sie sich noch heute für den schönsten Job der Welt. Wir freuen uns auf Ihre vollständige Bewerbung über unser Recruitingtool. Bei Fragen wenden Sie sich gerne an:"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70-90-0",
+      "source": "Orell Füssli Thalia Dedicated Parser (Drupal career site)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:28:52.990Z",
+      "addressLocality": "Bern",
+      "addressRegion": "Zürich",
+      "streetAddress": "",
+      "postalCode": "",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Vendita",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Retail / Librerie e Cartoleria",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-14",
+      "applyUrl": "https://karriere.orellfuessli.ch/de/offene-stellen/buchhaendlerin-70-90-0",
+      "jobReqId": null,
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
+        "libreria-70-90-a-orell-fussli-thalia-bern",
+        "librairie-70-90-a-orell-fussli-thalia-bern"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
+          "libreria-70-90-a-orell-fussli-thalia-bern"
+        ],
+        "fr": [
+          "librairie-70-90-a-orell-fussli-thalia-bern"
+        ]
+      },
+      "salaryMin": 69800,
+      "salaryMax": 106700,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 69800,
+          "maxValue": 106700,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T23:11:57.952Z"
     }
   ]
 }

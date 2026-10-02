@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kellerhals-carrard",
-  "assembledAt": "2026-10-02T09:33:50.639Z",
+  "assembledAt": "2026-10-02T21:32:04.226Z",
   "jobs": [
     {
       "id": "kellerhals-carrard-232f97582a47",
@@ -33,7 +33,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2811560",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:33:44.997Z",
+      "crawledAt": "2026-10-02T21:31:59.270Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -110,7 +110,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:44.709Z",
+      "crawledAt": "2026-10-02T21:31:58.751Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -127,7 +127,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2807915",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "wissenschaftliche-mitarbeiterin-wissenschaftlicher-mitarbeiter-50-kellerhals-carrard-basel",
         "research-assistant-research-assistant-50-kellerhals-carrard-basel",
@@ -163,7 +162,8 @@
           "maxValue": 60300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kellerhals-carrard-c662b62ab750",
@@ -196,7 +196,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2791565",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:43.848Z",
+      "crawledAt": "2026-10-02T21:31:58.398Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -276,7 +276,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:43.484Z",
+      "crawledAt": "2026-10-02T21:31:57.825Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -293,7 +293,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2647836",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T22:51:03.191Z",
       "salaryMin": 131500,
       "salaryMax": 225500,
@@ -307,7 +306,8 @@
           "maxValue": 225500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kellerhals-carrard-5adbfb3c729a",
@@ -340,7 +340,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2626236",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:33:43.082Z",
+      "crawledAt": "2026-10-02T21:31:57.641Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -404,7 +404,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2454381",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:42.697Z",
+      "crawledAt": "2026-10-02T21:31:57.320Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -481,7 +481,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2437629",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:33:42.482Z",
+      "crawledAt": "2026-10-02T21:31:56.786Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -572,7 +572,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2397991",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:42.118Z",
+      "crawledAt": "2026-10-02T21:31:56.621Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -652,7 +652,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:41.737Z",
+      "crawledAt": "2026-10-02T21:31:56.005Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -669,7 +669,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2331466",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "initiativbewerbung-kellerhals-carrard-basel",
         "applicazione-d-iniziativa-kellerhals-carrard-basel"
@@ -699,7 +698,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kellerhals-carrard-bb382fb87437",
@@ -732,7 +732,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:41.337Z",
+      "crawledAt": "2026-10-02T21:31:55.722Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -749,7 +749,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2304547",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "kurzpraktikum-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
         "breve-stage-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
@@ -779,7 +778,8 @@
           "maxValue": 96500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kellerhals-carrard-d1e88c85f866",
@@ -812,7 +812,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:40.955Z",
+      "crawledAt": "2026-10-02T21:31:55.187Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -829,7 +829,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2303862",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "wildcard-bewerbung-kellerhals-carrard-bern",
         "applicazione-wildcard-kellerhals-carrard-bern"
@@ -859,7 +858,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kellerhals-carrard-2d723c52dfc3",
@@ -892,7 +892,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2303637",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:40.155Z",
+      "crawledAt": "2026-10-02T21:31:54.665Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -972,7 +972,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2301974",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:39.502Z",
+      "crawledAt": "2026-10-02T21:31:54.146Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1058,7 +1058,7 @@
       "url": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "source": "Kellerhals Carrard Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:33:38.669Z",
+      "crawledAt": "2026-10-02T21:31:53.693Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1075,7 +1075,6 @@
       "applyUrl": "https://kellerhals-carrard.jobs.personio.com/job/2293818",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "volontariat-bei-kellerhals-carrard-basel-kellerhals-carrard-basel",
         "volontario-presso-kellerhals-carrard-basel-kellerhals-carrard-basel"
@@ -1105,7 +1104,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

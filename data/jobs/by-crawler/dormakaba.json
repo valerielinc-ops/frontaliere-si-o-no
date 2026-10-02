@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dormakaba",
-  "assembledAt": "2026-10-02T09:29:38.166Z",
+  "assembledAt": "2026-10-02T21:28:48.193Z",
   "jobs": [
     {
       "id": "dormakaba-11716",
@@ -33,7 +33,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11716/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.421Z",
+      "crawledAt": "2026-10-02T21:28:41.801Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -56,11 +56,17 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
+        "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch",
+        "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+        "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
+          "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch",
+          "service-e-montegetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
+        ],
+        "fr": [
+          "techniciens-de-service-et-d-assemblage-m-f-d-dormakaba-st-gallen"
         ]
       },
       "salaryMin": 67000,
@@ -109,7 +115,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11162/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.421Z",
+      "crawledAt": "2026-10-02T21:28:41.801Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -138,16 +144,20 @@
         "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
         "service-technician-in-f-m-d-dormakaba-st-gallen",
         "technicien-in-f-m-d-dormakaba-st-gallen",
-        "servicetechniker-in-w-m-d-dormakaba-ch"
+        "servicetechniker-in-w-m-d-dormakaba-ch",
+        "servicetechniker-in-m-w-d-dormakaba-st-gallen",
+        "servicetechniker-in-w-m-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-di-assistenza-f-m-d-dormakaba-st-gallen",
           "servizio-tecnico-in-f-m-d-dormakaba-st-gallen",
-          "servicetechniker-in-w-m-d-dormakaba-ch"
+          "servicetechniker-in-w-m-d-dormakaba-ch",
+          "servicetechniker-in-m-w-d-dormakaba-st-gallen"
         ],
         "en": [
-          "service-technician-in-f-m-d-dormakaba-st-gallen"
+          "service-technician-in-f-m-d-dormakaba-st-gallen",
+          "servicetechniker-in-w-m-d-dormakaba-st-gallen"
         ],
         "fr": [
           "technicien-des-services-in-f-m-d-dormakaba-st-gallen",
@@ -201,7 +211,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11900/?locale=en_US",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:29:31.420Z",
+      "crawledAt": "2026-10-02T21:28:41.801Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -228,17 +238,23 @@
         "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
         "configurable-materials-master-data-domain-lead-dormakaba-ch",
         "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
-        "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        "configurable-materials-master-data-domain-lead-dormakaba-rumlang",
+        "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
+        "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsabile-del-dominio-dati-master-dei-materiali-configurabili-dormakaba-rumlang",
           "lead-dominio-dati-master-materiali-configurabili-dormakaba-rumlang",
-          "configurable-materials-master-data-domain-lead-dormakaba-ch"
+          "configurable-materials-master-data-domain-lead-dormakaba-ch",
+          "responsabile-dominio-dati-master-materiali-configurabili-dormakaba-rumlang"
         ],
         "fr": [
           "materiaux-configurables-chef-de-domaine-de-donnees-principal-dormakaba-rumlang",
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
+        ],
+        "de": [
+          "konfigurierbare-materialien-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
       "salaryMin": 189000,
@@ -287,7 +303,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11893/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:29:31.419Z",
+      "crawledAt": "2026-10-02T21:28:41.799Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -319,13 +335,15 @@
         "technicien-portes-automatiques-f-m-d-dormakaba-ch",
         "technician-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne",
         "techniker-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "technicien-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne",
+        "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "tecnico-porta-automatica-f-m-d-dormakaba-le-mont-sur-lausanne",
           "porte-automatiche-tecniche-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "technicien-portes-automatiques-f-m-d-dormakaba-ch"
+          "technicien-portes-automatiques-f-m-d-dormakaba-ch",
+          "porte-automatiche-tecniche-m-f-d-dormakaba-le-mont-sur-lausanne"
         ],
         "en": [
           "automatic-door-technician-f-m-d-dormakaba-le-mont-sur-lausanne",
@@ -386,7 +404,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11909/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.419Z",
+      "crawledAt": "2026-10-02T21:28:41.800Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -409,11 +427,21 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch"
+        "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch",
+        "computer-scienziato-in-servizio-campo-80-100-m-f-d-dormakaba-rumlang",
+        "computer-scientist-in-field-service-80-100-m-f-d-dormakaba-rumlang",
+        "computer-scientist-en-service-sur-le-terrain-80-100-m-f-d-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch"
+          "informatiker-im-aussendienst-80-100-m-w-d-dormakaba-ch",
+          "computer-scienziato-in-servizio-campo-80-100-m-f-d-dormakaba-rumlang"
+        ],
+        "en": [
+          "computer-scientist-in-field-service-80-100-m-f-d-dormakaba-rumlang"
+        ],
+        "fr": [
+          "computer-scientist-en-service-sur-le-terrain-80-100-m-f-d-dormakaba-rumlang"
         ]
       },
       "salaryMin": 83000,
@@ -462,7 +490,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11919/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.419Z",
+      "crawledAt": "2026-10-02T21:28:41.800Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -485,11 +513,21 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch"
+        "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch",
+        "ciclo-tecnico-80-100-m-f-d-dormakaba-rumlang",
+        "technical-clerk-80-100-m-f-d-dormakaba-rumlang",
+        "commis-technique-80-100-m-f-j-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch"
+          "technischer-sachbearbeiter-80-100-m-w-d-dormakaba-ch",
+          "ciclo-tecnico-80-100-m-f-d-dormakaba-rumlang"
+        ],
+        "en": [
+          "technical-clerk-80-100-m-f-d-dormakaba-rumlang"
+        ],
+        "fr": [
+          "commis-technique-80-100-m-f-j-dormakaba-rumlang"
         ]
       },
       "salaryMin": 83000,
@@ -538,7 +576,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11892/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:29:31.418Z",
+      "crawledAt": "2026-10-02T21:28:41.798Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -568,16 +606,20 @@
         "projektleiter-automatische-turen-w-m-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
         "projektmanager-automatische-turen-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "chef-de-projets-portes-automatiques-m-w-d-dormakaba-le-mont-sur-lausanne",
+        "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne",
+        "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "porte-automatiche-f-m-d-dormakaba-le-mont-sur-lausanne",
           "leader-del-progetto-porte-automatiche-f-m-d-dormakaba-le-mont-sur-lausanne",
-          "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch"
+          "chef-de-projets-portes-automatiques-f-m-d-dormakaba-ch",
+          "project-manager-porte-automatiche-m-f-d-dormakaba-le-mont-sur-lausanne"
         ],
         "en": [
-          "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne"
+          "project-leader-automatic-doors-f-m-d-dormakaba-le-mont-sur-lausanne",
+          "project-manager-automatic-doors-m-f-d-dormakaba-le-mont-sur-lausanne"
         ],
         "de": [
           "projektleiter-automatische-turen-m-m-d-dormakaba-le-mont-sur-lausanne",
@@ -632,7 +674,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11917/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:29:31.418Z",
+      "crawledAt": "2026-10-02T21:28:41.799Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -664,7 +706,8 @@
         "projektmanager-zugangskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
         "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
         "projektmanager-zugriffskontrolle-m-w-d-dormakaba-le-mont-sur-lausanne",
-        "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "chef-de-projets-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne",
+        "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -672,7 +715,8 @@
           "chef-de-projet-m-f-d-dormakaba-le-mont-sur-lausanne",
           "leader-del-progetto-m-f-d-dormakaba-le-mont-sur-lausanne",
           "project-manager-access-control-m-f-d-dormakaba-le-mont-sur-lausanne",
-          "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch"
+          "chef-de-projets-controle-d-acces-m-f-d-dormakaba-ch",
+          "gestione-del-progetto-controllo-di-accesso-m-f-d-dormakaba-le-mont-sur-lausanne"
         ],
         "en": [
           "chef-de-projet-m-f-d-dormakaba-ch",
@@ -737,7 +781,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11851/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.415Z",
+      "crawledAt": "2026-10-02T21:28:41.795Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -763,18 +807,24 @@
         "consulente-tecnico-di-vendita-ammodernamento-80-100-f-m-d-dormakaba-rumlang",
         "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang",
         "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang",
-        "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch"
+        "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch",
+        "consulenza-tecnica-ammodernamento-80-100-m-f-d-dormakaba-rumlang",
+        "technical-sales-advisor-modernizations-80-100-m-f-d-dormakaba-rumlang",
+        "technical-sales-advisor-modernisations-80-100-h-f-d-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "consulente-tecnico-di-vendita-ammodernamento-80-100-f-m-d-dormakaba-rumlang",
-          "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch"
+          "technischer-verkaufsberater-modernisierungen-80-100-w-m-d-dormakaba-ch",
+          "consulenza-tecnica-ammodernamento-80-100-m-f-d-dormakaba-rumlang"
         ],
         "en": [
-          "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang"
+          "technical-sales-consultant-modernizations-80-100-f-m-d-dormakaba-rumlang",
+          "technical-sales-advisor-modernizations-80-100-m-f-d-dormakaba-rumlang"
         ],
         "fr": [
-          "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang"
+          "consultant-technique-en-ventes-modernisations-80-100-f-m-j-dormakaba-rumlang",
+          "technical-sales-advisor-modernisations-80-100-h-f-d-dormakaba-rumlang"
         ]
       },
       "salaryMin": 83000,
@@ -823,7 +873,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/11908/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.414Z",
+      "crawledAt": "2026-10-02T21:28:41.794Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -847,15 +897,26 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch",
-        "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
+        "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
+        "tecnologia-porta-servizio-partner-80-100-f-m-d-regione-est-dormakaba-wetzikon",
+        "partner-service-door-technology-80-100-f-m-d-east-region-dormakaba-wetzikon",
+        "technologie-de-porte-de-service-partenaire-80-100-f-m-d-region-est-dormakaba-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch",
-          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
+          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
+          "tecnologia-porta-servizio-partner-80-100-f-m-d-regione-est-dormakaba-wetzikon"
         ],
         "de": [
-          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch"
+          "partnerbetreuer-turtechnik-100-w-m-d-region-ost-dormakaba-ch",
+          "partnerbetreuer-turtechnik-80-100-w-m-d-region-ost-dormakaba-ch"
+        ],
+        "en": [
+          "partner-service-door-technology-80-100-f-m-d-east-region-dormakaba-wetzikon"
+        ],
+        "fr": [
+          "technologie-de-porte-de-service-partenaire-80-100-f-m-d-region-est-dormakaba-wetzikon"
         ]
       },
       "salaryMin": 73500,
@@ -904,7 +965,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12228/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.414Z",
+      "crawledAt": "2026-10-02T21:28:41.795Z",
       "addressLocality": "Wetzikon",
       "postalCode": "8620",
       "streetAddress": "Mühlebühlstrasse 23",
@@ -928,12 +989,22 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
-        "leiter-versand-80-100-m-w-d-dormakaba-ch"
+        "leiter-versand-80-100-m-w-d-dormakaba-ch",
+        "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon",
+        "head-of-shipping-80-100-m-f-d-dormakaba-wetzikon",
+        "responsable-de-la-livraison-80-100-h-f-d-dormakaba-wetzikon"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-versand-80-100-m-w-d-dormakaba-wetzikon",
-          "leiter-versand-80-100-m-w-d-dormakaba-ch"
+          "leiter-versand-80-100-m-w-d-dormakaba-ch",
+          "testa-di-spedizione-80-100-m-f-d-dormakaba-wetzikon"
+        ],
+        "en": [
+          "head-of-shipping-80-100-m-f-d-dormakaba-wetzikon"
+        ],
+        "fr": [
+          "responsable-de-la-livraison-80-100-h-f-d-dormakaba-wetzikon"
         ]
       },
       "salaryMin": 101500,
@@ -982,7 +1053,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12323/?locale=fr_FR",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:29:31.413Z",
+      "crawledAt": "2026-10-02T21:28:41.794Z",
       "addressLocality": "Le Mont-sur-Lausanne",
       "postalCode": "1052",
       "streetAddress": "Le Mont-sur-Lausanne",
@@ -1008,12 +1079,14 @@
         "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
         "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
         "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne",
-        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne"
+        "spezialist-fur-zutrittskontrollsoftware-m-w-d-dormakaba-le-mont-sur-lausanne",
+        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
-          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne"
+          "specialista-nel-software-di-controllo-accessi-m-f-d-dormakaba-le-mont-sur-lausanne",
+          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "en": [
           "specialist-in-access-control-software-m-f-d-dormakaba-le-mont-sur-lausanne"
@@ -1068,7 +1141,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12274/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.413Z",
+      "crawledAt": "2026-10-02T21:28:41.794Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -1091,11 +1164,21 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch"
+        "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch",
+        "supporto-di-2-livello-ead-80-100-m-f-d-dormakaba-rumlang",
+        "2nd-level-support-ead-80-100-m-w-d-dormakaba-rumlang",
+        "support-de-2eme-niveau-ead-80-100-h-f-d-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch"
+          "2nd-level-support-ead-80-100-m-w-d-dormakaba-ch",
+          "supporto-di-2-livello-ead-80-100-m-f-d-dormakaba-rumlang"
+        ],
+        "en": [
+          "2nd-level-support-ead-80-100-m-w-d-dormakaba-rumlang"
+        ],
+        "fr": [
+          "support-de-2eme-niveau-ead-80-100-h-f-d-dormakaba-rumlang"
         ]
       },
       "salaryMin": 83000,
@@ -1144,7 +1227,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12355/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.409Z",
+      "crawledAt": "2026-10-02T21:28:41.789Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1168,12 +1251,18 @@
       "needsRetranslation": true,
       "previousSlugs": [
         "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
-        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch"
+        "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
+        "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen",
+        "directeur-de-projet-80-100-h-f-d-region-de-berne-basel-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-st-gallen",
-          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch"
+          "projektleiter-80-100-m-w-d-raum-bern-basel-dormakaba-ch",
+          "project-manager-80-100-m-f-d-bern-basel-area-dormakaba-st-gallen"
+        ],
+        "fr": [
+          "directeur-de-projet-80-100-h-f-d-region-de-berne-basel-dormakaba-st-gallen"
         ]
       },
       "salaryMin": 67000,
@@ -1222,7 +1311,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12356/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.408Z",
+      "crawledAt": "2026-10-02T21:28:41.788Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1247,15 +1336,23 @@
       "previousSlugs": [
         "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
         "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
+        "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
+        "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen",
+        "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen",
+        "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "montagetechniker-m-w-d-region-zurich-dormakaba-ch",
-          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen"
+          "tecnico-di-assemblaggio-m-f-d-regione-di-zurigo-dormakaba-st-gallen",
+          "montagetechniker-m-w-d-region-zurich-dormakaba-st-gallen"
         ],
         "fr": [
-          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen"
+          "technicien-de-montage-h-f-d-region-de-zurich-dormakaba-st-gallen",
+          "technicien-d-assemblage-h-f-d-zurich-dormakaba-st-gallen"
+        ],
+        "en": [
+          "assembly-technician-m-f-d-zurich-region-dormakaba-st-gallen"
         ]
       },
       "salaryMin": 67000,
@@ -1304,7 +1401,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12354/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.408Z",
+      "crawledAt": "2026-10-02T21:28:41.789Z",
       "addressLocality": "St. Gallen",
       "postalCode": "9000",
       "streetAddress": "St. Gallen",
@@ -1327,11 +1424,21 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+        "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
+        "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen",
+        "technical-services-80-100-m-f-d-dormakaba-st-gallen",
+        "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch"
+          "technischer-sachbearbeiter-services-80-100-m-w-d-dormakaba-ch",
+          "servizi-tecnici-80-100-m-f-d-dormakaba-st-gallen"
+        ],
+        "en": [
+          "technical-services-80-100-m-f-d-dormakaba-st-gallen"
+        ],
+        "fr": [
+          "services-techniques-80-100-h-f-d-dormakaba-st-gallen"
         ]
       },
       "salaryMin": 67000,
@@ -1380,7 +1487,7 @@
       "url": "https://jobs.dormakaba.com/job-invite/12019/?locale=de_DE",
       "source": "dormakaba Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:29:31.406Z",
+      "crawledAt": "2026-10-02T21:28:41.787Z",
       "addressLocality": "Rümlang",
       "postalCode": "8153",
       "streetAddress": "Hofwisenstrasse 24",
@@ -1406,18 +1513,24 @@
         "sistemi-di-chiusura-e-accesso-80-100-m-f-d-dormakaba-rumlang",
         "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang",
         "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang",
-        "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch"
+        "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch",
+        "chiusura-e-sistemi-di-accesso-80-100-m-f-d-dormakaba-rumlang",
+        "property-consultant-closure-access-systems-80-100-m-f-d-dormakaba-rumlang",
+        "conseiller-immobilier-systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sistemi-di-chiusura-e-accesso-80-100-m-f-d-dormakaba-rumlang",
-          "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch"
+          "objektberater-schliess-zutrittssysteme-80-100-m-w-d-dormakaba-ch",
+          "chiusura-e-sistemi-di-accesso-80-100-m-f-d-dormakaba-rumlang"
         ],
         "en": [
-          "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang"
+          "closure-and-access-systems-80-100-m-f-d-dormakaba-rumlang",
+          "property-consultant-closure-access-systems-80-100-m-f-d-dormakaba-rumlang"
         ],
         "fr": [
-          "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
+          "systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang",
+          "conseiller-immobilier-systemes-de-fermeture-et-d-acces-80-100-h-f-d-dormakaba-rumlang"
         ]
       },
       "salaryMin": 73500,
@@ -1603,7 +1716,7 @@
         }
       },
       "firstSeenAt": "2026-09-07T15:18:09.103Z",
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }

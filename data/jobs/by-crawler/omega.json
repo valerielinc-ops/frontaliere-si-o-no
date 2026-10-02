@@ -1,6 +1,6 @@
 {
   "crawlerKey": "omega",
-  "assembledAt": "2026-10-02T09:39:26.919Z",
+  "assembledAt": "2026-10-02T21:42:20.534Z",
   "jobs": [
     {
       "id": "omega-32963",
@@ -33,7 +33,7 @@
       "url": "https://www.swatchgroup.com/fr/job/32963",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:39:21.909Z",
+      "crawledAt": "2026-10-02T21:42:15.679Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -83,8 +83,8 @@
           "apprentissage-de-cuisinier-ere-cfc-omega-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:37:18.891Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -130,7 +130,7 @@
       "url": "https://www.swatchgroup.com/de/job/33095",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:39:00.571Z",
+      "crawledAt": "2026-10-02T21:41:53.757Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +175,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:28:54.037Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -188,7 +187,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33143",
@@ -221,7 +221,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33143",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:38:39.281Z",
+      "crawledAt": "2026-10-02T21:41:31.823Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -325,7 +325,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33153",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:38:17.110Z",
+      "crawledAt": "2026-10-02T21:41:10.312Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -354,7 +354,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:17:44.352Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 124500,
       "salarySource": "estimated",
@@ -367,7 +366,8 @@
           "maxValue": 124500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33154",
@@ -400,7 +400,7 @@
       "url": "https://www.swatchgroup.com/de/job/33154",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:37:55.799Z",
+      "crawledAt": "2026-10-02T21:40:48.441Z",
       "addressLocality": "Berne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -498,7 +498,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33168",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:37:34.275Z",
+      "crawledAt": "2026-10-02T21:40:26.558Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -595,7 +595,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33234",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:37:12.944Z",
+      "crawledAt": "2026-10-02T21:40:05.237Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -654,7 +654,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:10.043Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -667,7 +666,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33244",
@@ -700,7 +700,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33244",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:36:51.492Z",
+      "crawledAt": "2026-10-02T21:39:43.765Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -755,7 +755,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:53:31.231Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -768,7 +767,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33245",
@@ -801,7 +801,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33245",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:36:29.887Z",
+      "crawledAt": "2026-10-02T21:39:22.069Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -854,7 +854,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:27.421Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -867,7 +866,8 @@
           "maxValue": 116500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "omega-33260",
@@ -900,7 +900,7 @@
       "url": "https://www.swatchgroup.com/en/job/33260",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:36:08.675Z",
+      "crawledAt": "2026-10-02T21:39:00.252Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -988,7 +988,7 @@
       "url": "https://www.swatchgroup.com/fr/job/33298",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:35:47.365Z",
+      "crawledAt": "2026-10-02T21:38:38.672Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1020,6 +1020,20 @@
           "Excellentes connaissances du français ou de l'allemand avec de bonnes connaissances de l’autre langue"
         ]
       },
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:41:41.768Z",
       "previousSlugs": [
         "cuisinier-h-f-omega-biel-bienne",
         "kitchchen-m-f-omega-sa-biel-bienne"
@@ -1036,21 +1050,7 @@
           "cuisinier-h-f-omega-biel-bienne"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:41:41.768Z",
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "omega-33305",
@@ -1083,7 +1083,7 @@
       "url": "https://www.swatchgroup.com/en/job/33305",
       "source": "OMEGA SA Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:35:25.836Z",
+      "crawledAt": "2026-10-02T21:38:17.297Z",
       "addressLocality": "Biel/Bienne",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1123,8 +1123,6 @@
           "Creativity and flexibility coupled with a strong team-oriented mindset"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:41:19.947Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1137,7 +1135,9 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:41:19.947Z",
+      "needsRetranslation": true
     }
   ]
 }
