@@ -392,25 +392,73 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   return { snapshot: after, reopen: true };
 }
 
-// SuccessFactors' required privacy statement (Coop, 2026-10-02) is no box: a
-// link opens a dialog, only once the country is chosen, whose «Akzeptieren»
-// fills a hidden field. The application's own required consent (plan.mjs),
-// never a newsletter or a job alert.
+// SuccessFactors' required privacy statement (Coop, 2026-10-02) starts as a
+// link, only once the country is chosen. Its dialog can require a separate
+// “I have reviewed…” checkbox before «Akzeptieren» becomes enabled. This is
+// the application's own required consent (plan.mjs), never a newsletter or a
+// job alert.
 export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|lire et accepter|read and accept)/i;
-const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|accetta|accetto|accettare|accepter|j'accepte)$/i;
+export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
+export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|agree|zustimmen|accetta|accetto|accettare|accepter|j['’]accepte)(?:\s+(?:und|and|et|e)\s+.*)?\W*$/i;
+
+export function privacyConsentControls(snapshot = {}) {
+  const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
+  const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
+  const review = fields.find((field) => field.kind === 'checkbox'
+    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
+  return {
+    trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
+    review,
+    // A disabled accept button is useful evidence while the required review
+    // box is being checked; the caller still waits for it to become enabled.
+    accept: findButton(buttons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
+  };
+}
+
+async function scrollPrivacyStatement(page) {
+  await Promise.all(page.frames().map((frame) => frame.evaluate(() => {
+    const dialogs = [...document.querySelectorAll('[role="dialog"], [aria-modal="true"]')];
+    for (const dialog of dialogs) {
+      for (const element of [dialog, ...dialog.querySelectorAll('*')]) {
+        if (element.scrollHeight > element.clientHeight + 4) element.scrollTop = element.scrollHeight;
+      }
+    }
+  }).catch(() => {})));
+}
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
-async function acceptPrivacyStatement(page, snapshot) {
-  const trigger = findButton(snapshot.buttons, PRIVACY_STATEMENT_RE);
+export async function acceptPrivacyStatement(page, snapshot) {
+  const trigger = privacyConsentControls(snapshot).trigger;
   if (!trigger) return 'none';
   await clickButton(page, trigger).catch(() => {});
-  try {
-    await page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first().click({ timeout: 8_000 });
-  } catch {
-    return 'unavailable';
+  await scrollPrivacyStatement(page);
+
+  const deadline = Date.now() + 8_000;
+  while (Date.now() <= deadline) {
+    const current = await extractFields(page, NAVIGATION).catch(() => null);
+    if (current) {
+      const controls = privacyConsentControls(current);
+      if (controls.review && !controls.review.checked) {
+        await applyActions(page, current.fields, [{ fieldId: controls.review.id, action: 'check' }], {}, { pause: async () => {} });
+        await scrollPrivacyStatement(page);
+      }
+      const refreshed = await extractFields(page, NAVIGATION).catch(() => null);
+      const accept = privacyConsentControls(refreshed || {}).accept;
+      if (accept && !accept.disabled) {
+        try {
+          await clickButton(page, accept);
+          await page.waitForTimeout(800);
+          return 'accepted';
+        } catch {
+          // A portal can replace the dialog button after the review checkbox;
+          // rescan and retry within the bounded window.
+        }
+      }
+    }
+    if (Date.now() >= deadline) break;
+    await page.waitForTimeout(200);
   }
-  await page.waitForTimeout(800);
-  return 'accepted';
+  return 'unavailable';
 }
 
 /**

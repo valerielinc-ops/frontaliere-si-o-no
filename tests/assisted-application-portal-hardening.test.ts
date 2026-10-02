@@ -4,6 +4,7 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  privacyConsentControls,
   postingMatch,
   PREREAD_CHANNELS,
   readPortalQuestions,
@@ -36,6 +37,29 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
     expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
+  it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false },
+        { id: 'accept', text: 'Akzeptieren', disabled: true },
+      ],
+      fields: [
+        { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false },
+        {
+          id: 'review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+        },
+      ],
+    });
+    expect(controls.trigger).toMatchObject({ id: 'privacy' });
+    expect(controls.review).toMatchObject({ id: 'review', checked: false });
+    expect(controls.review?.id).not.toBe('abo');
+    expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
   });
 
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
