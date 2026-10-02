@@ -22,6 +22,8 @@
  * Keeping it free of I/O is what makes every edge of the diagram testable.
  */
 
+import { openRequiredDocuments } from './assistedApplicationExtraDocuments.js';
+
 export const OWNER_REVIEW_MS = 60 * 60 * 1000;
 export const CANDIDATE_REVIEW_MS = 12 * 60 * 60 * 1000;
 export const CANDIDATE_REMINDER_BEFORE_MS = 3 * 60 * 60 * 1000;
@@ -96,7 +98,7 @@ const AMBIGUOUS_SUBMIT_HOLDS = new Set(['portal_ambiguous', 'portal_antibot_ambi
  * @param {object} draft the AI draft (ai_drafts/current)
  * @param {Record<string,string>} answers candidate answers by question id
  */
-export function evaluateRedFlags(draft, answers = {}) {
+export function evaluateRedFlags(draft, answers = {}, documents = {}) {
   const owner = [];
   // A flag the owner explicitly acknowledged in the queue no longer holds.
   const acknowledged = (flag) => Boolean(draft?.acknowledgedFlags?.[flag]);
@@ -110,7 +112,13 @@ export function evaluateRedFlags(draft, answers = {}) {
   const candidate = (draft?.questions || [])
     .filter((question) => question.required && !String(answers?.[question.id] ?? '').trim())
     .map((question) => question.id);
-  return { owner, candidate };
+  // A required document (school reports, a test result…) the candidate has not given yet.
+  return { owner, candidate, documents: openRequiredDocuments(draft, documents) };
+}
+
+/** What only the candidate can give, as holds: the open questions, then the missing documents. */
+function candidateHolds(flags) {
+  return [...flags.candidate.map((id) => `question:${id}`), ...(flags.documents || []).map((id) => `document:${id}`)];
 }
 
 /** Current flow with every field present; transitions overwrite only what changes. */
@@ -132,7 +140,7 @@ function base(flow) {
 /** The flow waits for answers only the candidate can give (the review's questions, or the portal's). */
 function waitsForCandidate(flow) {
   return ['candidate_review', 'needs_candidate_action'].includes(flow.state)
-    && flow.heldBy.some((held) => String(held).startsWith('question:'));
+    && flow.heldBy.some((held) => /^(question|document):/.test(String(held)));
 }
 
 /** The wait for the candidate's answers starts its reminders, or keeps the ones of a wait already running. */
@@ -180,8 +188,8 @@ function enterOwnerReview(next, flags, nowMs) {
 
 function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline = null } = {}) {
   next.state = 'candidate_review';
-  next.heldBy = flags.candidate.map((id) => `question:${id}`);
-  if (flags.candidate.length) {
+  next.heldBy = candidateHolds(flags);
+  if (next.heldBy.length) {
     next.deadlineAt = null;
     waitForCandidate(next, nowMs);
   } else {
@@ -190,7 +198,7 @@ function enterCandidateReview(next, flags, nowMs, { resend = true, keepDeadline 
     next.deadlineAt = keepDeadline && keepDeadline > nowMs ? keepDeadline : nowMs + CANDIDATE_REVIEW_MS;
     next.reminderAt = next.reminderSentAt ? null : next.deadlineAt - CANDIDATE_REMINDER_BEFORE_MS;
   }
-  return resend ? [{ type: 'email', kind: 'candidate_review', held: flags.candidate.length > 0, round: next.round }] : [];
+  return resend ? [{ type: 'email', kind: 'candidate_review', held: next.heldBy.length > 0, round: next.round }] : [];
 }
 
 function enterSubmitting(next, reason) {
@@ -207,11 +215,11 @@ function enterSubmitting(next, reason) {
  * @param {{draft?:object, answers?:object, nowMs?:number}} context
  * @returns {{flow:object, effects:Array<object>, ignored?:string}}
  */
-export function transition(flow, event, { draft = null, answers = {}, nowMs = Date.now() } = {}) {
+export function transition(flow, event, { draft = null, answers = {}, documents = {}, nowMs = Date.now() } = {}) {
   const current = base(flow);
   const state = current.state;
   const next = { ...current };
-  const flags = evaluateRedFlags(draft, answers);
+  const flags = evaluateRedFlags(draft, answers, documents);
   const ignore = (why) => ({ flow: current, effects: [], ignored: why });
   if (TERMINAL_STATES.has(state) && !STOPPED_EXITS.has(event.type)) return ignore('terminal');
 
@@ -267,7 +275,7 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
         effects = redraftSameRound(next, 'owner_resume');
         break;
       }
-      effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate }, nowMs);
+      effects = enterOwnerReview(next, { owner: [], candidate: flags.candidate, documents: flags.documents }, nowMs);
       break;
     case 'tick': {
       const deadline = current.deadlineAt || 0;
@@ -299,8 +307,8 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
         break;
       }
       if (state === 'candidate_review' && deadline && nowMs >= deadline) {
-        if (flags.candidate.length) {
-          next.heldBy = flags.candidate.map((id) => `question:${id}`);
+        if (candidateHolds(flags).length) {
+          next.heldBy = candidateHolds(flags);
           next.deadlineAt = null;
           waitForCandidate(next, nowMs);
           effects = [];
@@ -391,13 +399,13 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
       break;
     case 'candidate_approve':
       if (state !== 'candidate_review') return ignore('not_candidate_review');
-      if (flags.candidate.length) return { flow: current, effects: [], ignored: 'questions_open' };
+      if (candidateHolds(flags).length) return { flow: current, effects: [], ignored: 'questions_open' };
       effects = enterSubmitting(next, 'candidate_approved');
       break;
     case 'candidate_answers':
       if (state !== 'candidate_review' && state !== 'needs_candidate_action') return ignore('not_waiting_for_candidate');
       if (state === 'needs_candidate_action') {
-        if (flags.candidate.length) return { flow: { ...current }, effects: [], ignored: 'questions_open' };
+        if (candidateHolds(flags).length) return { flow: { ...current }, effects: [], ignored: 'questions_open' };
         effects = enterSubmitting(next, 'candidate_answered');
         break;
       }
@@ -443,7 +451,10 @@ export function transition(flow, event, { draft = null, answers = {}, nowMs = Da
     case 'submit_needs_candidate':
       if (state !== 'submitting') return ignore('not_submitting');
       next.state = 'needs_candidate_action';
-      next.heldBy = (event.questions || []).map((question) => `question:${question.id}`);
+      next.heldBy = [
+        ...(event.questions || []).map((question) => `question:${question.id}`),
+        ...(event.documents || []).map((id) => `document:${id}`),
+      ];
       next.heldSince = null;
       if (next.heldBy.length) waitForCandidate(next, nowMs);
       effects = [{ type: 'email', kind: 'candidate_action_needed' }];

@@ -18,7 +18,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
-import { extraDocumentFileName, extraDocumentsToSend } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -87,7 +87,10 @@ export async function submitApplication(ctx) {
   if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
 
   const open = openRequiredQuestions(draft, answers);
-  if (open.length) return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })) };
+  const missingDocuments = openRequiredDocuments(draft, flow?.documents || {});
+  if (open.length || missingDocuments.length) {
+    return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
+  }
 
   const facts = checkDraftFacts({
     coverLetter: draft.coverLetter?.text,

@@ -69,7 +69,7 @@ const CANDIDATE_COPY = {
       preheader: 'Approvala o chiedi modifiche: se non rispondi entro 12 ore parte da sola.',
       lead: 'ho preparato la tua candidatura per {job} presso {company}: la lettera di presentazione, i testi per l’azienda e i documenti da allegare. Rivedila e approvala con un clic, oppure dimmi cosa cambiare.',
       auto: 'Se non rispondi entro {deadline}, la candidatura partirà automaticamente così com’è.',
-      held: 'Prima dell’invio mi servono alcune informazioni che solo tu puoi darmi ({count}). Finché non rispondi, la candidatura non parte.',
+      held: 'Prima dell’invio mi servono alcune informazioni o documenti che solo tu puoi darmi ({count}). Finché non rispondi, la candidatura non parte.',
       feedbackNote: 'Se qualcosa non ti convince, scrivimelo nella pagina: preparo una nuova versione e te la rimando.',
     },
     reminder: {
@@ -96,7 +96,7 @@ const CANDIDATE_COPY = {
       subject: 'Promemoria: la tua candidatura per {job} aspetta le tue risposte',
       hero: 'Mancano solo le tue risposte',
       preheader: 'Senza le tue risposte la candidatura non può partire.',
-      lead: 'la tua candidatura per {job} presso {company} è pronta, ma non può partire finché non rispondi ad alcune domande a cui solo tu puoi rispondere. Bastano pochi minuti: rispondi dalla pagina della candidatura e il resto riparte automaticamente.',
+      lead: 'la tua candidatura per {job} presso {company} è pronta, ma non può partire finché non mi dai alcune informazioni o documenti che solo tu puoi darmi. Bastano pochi minuti: completali dalla pagina della candidatura e il resto riparte automaticamente.',
     },
     action: {
       subject: 'Il portale di {company} chiede un’informazione in più',
@@ -134,7 +134,7 @@ const CANDIDATE_COPY = {
       preheader: 'Freigeben oder Änderungen wünschen: ohne Antwort geht sie nach 12 Stunden raus.',
       lead: 'ich habe deine Bewerbung für {job} bei {company} vorbereitet: Motivationsschreiben, Texte für das Unternehmen und die Unterlagen. Prüfe sie und gib sie mit einem Klick frei, oder sag mir, was ich ändern soll.',
       auto: 'Antwortest du nicht bis {deadline}, wird die Bewerbung automatisch so versendet.',
-      held: 'Vor dem Versand brauche ich noch Angaben, die nur du machen kannst ({count}). Solange du nicht antwortest, geht die Bewerbung nicht raus.',
+      held: 'Vor dem Versand brauche ich noch Angaben oder Unterlagen, die nur du mir geben kannst ({count}). Solange du nicht antwortest, geht die Bewerbung nicht raus.',
       feedbackNote: 'Wenn dir etwas nicht passt, schreib es mir auf der Seite: Ich bereite eine neue Version vor und schicke sie dir.',
     },
     reminder: {
@@ -161,7 +161,7 @@ const CANDIDATE_COPY = {
       subject: 'Erinnerung: deine Bewerbung für {job} wartet auf deine Antworten',
       hero: 'Es fehlen nur deine Antworten',
       preheader: 'Ohne deine Antworten kann die Bewerbung nicht raus.',
-      lead: 'deine Bewerbung für {job} bei {company} ist bereit, kann aber erst raus, wenn du ein paar Fragen beantwortest, die nur du beantworten kannst. Es dauert nur wenige Minuten: Antworte auf der Seite deiner Bewerbung, der Rest läuft automatisch weiter.',
+      lead: 'deine Bewerbung für {job} bei {company} ist bereit, kann aber erst raus, wenn du mir ein paar Angaben oder Unterlagen gibst, die nur du hast. Es dauert nur wenige Minuten: Ergänze sie auf der Seite deiner Bewerbung, der Rest läuft automatisch weiter.',
     },
     action: {
       subject: 'Das Portal von {company} braucht eine weitere Angabe',
@@ -199,7 +199,7 @@ const CANDIDATE_COPY = {
       preheader: 'Approuvez-la ou demandez des modifications : sans réponse, elle part après 12 heures.',
       lead: 'j’ai préparé votre candidature pour {job} chez {company} : la lettre de motivation, les textes pour l’entreprise et les documents à joindre. Relisez-la et approuvez-la d’un clic, ou dites-moi quoi modifier.',
       auto: 'Sans réponse de votre part d’ici {deadline}, la candidature partira automatiquement telle quelle.',
-      held: 'Avant l’envoi, j’ai besoin d’informations que vous seul pouvez me donner ({count}). Tant que vous n’avez pas répondu, la candidature ne part pas.',
+      held: 'Avant l’envoi, j’ai besoin d’informations ou de documents que vous seul pouvez me donner ({count}). Tant que vous n’avez pas répondu, la candidature ne part pas.',
       feedbackNote: 'Si quelque chose ne vous convient pas, écrivez-le sur la page : je prépare une nouvelle version et vous la renvoie.',
     },
     reminder: {
@@ -226,7 +226,7 @@ const CANDIDATE_COPY = {
       subject: 'Rappel : votre candidature pour {job} attend vos réponses',
       hero: 'Il ne manque que vos réponses',
       preheader: 'Sans vos réponses, la candidature ne peut pas partir.',
-      lead: 'votre candidature pour {job} chez {company} est prête, mais elle ne peut pas partir tant que vous n’avez pas répondu à quelques questions auxquelles vous seul pouvez répondre. Cela ne prend que quelques minutes : répondez depuis la page de votre candidature et la suite repart automatiquement.',
+      lead: 'votre candidature pour {job} chez {company} est prête, mais elle ne peut pas partir tant que vous ne m’avez pas donné quelques informations ou documents que vous seul avez. Cela ne prend que quelques minutes : complétez-les depuis la page de votre candidature et la suite repart automatiquement.',
     },
     action: {
       subject: 'Le portail de {company} demande une information supplémentaire',
@@ -264,7 +264,7 @@ const CANDIDATE_COPY = {
       preheader: 'Approve it or ask for changes: without a reply it goes out after 12 hours.',
       lead: 'I have prepared your application for {job} at {company}: the cover letter, the texts for the company and the documents to attach. Review it and approve it with one click, or tell me what to change.',
       auto: 'If you do not reply by {deadline}, the application will be sent automatically as it is.',
-      held: 'Before sending I need some information only you can give me ({count}). Until you reply, the application does not go out.',
+      held: 'Before sending I need some information or documents only you can give me ({count}). Until you reply, the application does not go out.',
       feedbackNote: 'If something is not right, write it on the page: I will prepare a new version and send it back to you.',
     },
     reminder: {
@@ -291,7 +291,7 @@ const CANDIDATE_COPY = {
       subject: 'Reminder: your application for {job} is waiting for your answers',
       hero: 'Only your answers are missing',
       preheader: 'Without your answers the application cannot go out.',
-      lead: 'your application for {job} at {company} is ready, but it cannot go out until you answer a few questions only you can answer. It takes a few minutes: answer on your application page and the rest resumes automatically.',
+      lead: 'your application for {job} at {company} is ready, but it cannot go out until you give me a few answers or documents only you have. It takes a few minutes: complete them on your application page and the rest resumes automatically.',
     },
     action: {
       subject: 'The {company} portal needs one more answer',

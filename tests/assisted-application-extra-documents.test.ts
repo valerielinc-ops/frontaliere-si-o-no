@@ -8,8 +8,11 @@ import {
   documentFilesOf,
   extraDocumentFileName,
   extraDocumentsToSend,
+  requiredDocumentsFromRequirements,
   requiredDocumentsOf,
 } from '../functions/src/assistedApplicationExtraDocuments.js';
+import { sanitizeRequirements, verifyQuotes } from '../functions/src/assistedApplicationAiDraftCore.js';
+import { REQUIREMENTS_SCHEMA } from '../functions/src/assistedApplicationAiPrompts.js';
 import { PLAN_SCHEMA } from '../scripts/assisted-application/lib/portal/plan.mjs';
 import { AGENT_SCHEMA } from '../scripts/assisted-application/lib/portal/agent.mjs';
 
@@ -68,6 +71,30 @@ describe('requested documents', () => {
     expect(extraDocumentFileName({ label: 'Résultats du test EVA', name: 'Maria Rossi', type: 'pdf' })).toBe('Resultats_du_test_EVA_Maria_Rossi.pdf');
     expect(extraDocumentFileName({ label: 'Pagelle', index: 1, count: 3, name: 'Maria Rossi', type: 'jpg' })).toBe('Pagelle_2_Maria_Rossi.jpg');
     expect(extraDocumentFileName({ label: 'X', name: 'M', type: 'exe' })).toBe('X_M.pdf');
+  });
+
+  // The requirements pass reads them from the posting (functions/src/assistedApplicationAiPrompts.js).
+  it('keeps only documents the posting really asks for, with a stable id from their wording', () => {
+    const posting = 'Votre dossier devra contenir : Un curriculum vitae, Une lettre de motivation, Vos bulletins des trois dernières années scolaires, Vos résultats au test EVA.';
+    const requirements = verifyQuotes(sanitizeRequirements({
+      requirements: [],
+      requestedDocuments: [
+        { document: 'Bulletins des trois dernières années scolaires', kind: 'school_report', required: true, quote: 'Vos bulletins des trois dernières années scolaires', keywords: ['bulletin', 'Zeugnis', 'pagella'] },
+        { document: 'Résultats du test EVA', kind: 'aptitude_test', required: true, quote: 'Vos résultats au test EVA', keywords: ['EVA', 'evatech'] },
+        // Invented by the model: no such words in the posting.
+        { document: 'Casier judiciaire', kind: 'identity', required: true, quote: 'Un extrait du casier judiciaire', keywords: [] },
+        { document: 'No quote', kind: 'other', required: true, quote: '', keywords: [] },
+      ],
+    }), posting);
+    expect(requirements.requestedDocuments.map((item: any) => item.document)).toEqual(['Bulletins des trois dernières années scolaires', 'Résultats du test EVA']);
+    const documents = requiredDocumentsFromRequirements(requirements);
+    expect(documents).toEqual([
+      { id: 'bulletins_des_trois_dernieres_annees_sco', label: 'Bulletins des trois dernières années scolaires', kind: 'school_report', keywords: ['bulletin', 'Zeugnis', 'pagella'], required: true, quote: 'Vos bulletins des trois dernières années scolaires' },
+      { id: 'resultats_du_test_eva', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA', 'evatech'], required: true, quote: 'Vos résultats au test EVA' },
+    ]);
+    // Requirements read before this existed (no requestedDocuments): nothing is asked.
+    expect(requiredDocumentsFromRequirements({ requirements: [] })).toEqual([]);
+    expect(Object.keys((REQUIREMENTS_SCHEMA as any).properties)).toContain('requestedDocuments');
   });
 
   it('lets the form planner and its agentic fallback name a requested document by slot', () => {

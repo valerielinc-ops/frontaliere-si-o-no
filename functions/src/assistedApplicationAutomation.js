@@ -222,7 +222,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
       outcome = { ok: false, ignored: 'stale_round' };
       return;
     }
-    const result = transition(flow, event, { draft, answers: flow.answers || {}, nowMs });
+    const result = transition(flow, event, { draft, answers: flow.answers || {}, documents: flow.documents || {}, nowMs });
     if (result.ignored) {
       claim(`ignored:${result.ignored}`);
       outcome = { ok: false, ignored: result.ignored, state: flow.state };

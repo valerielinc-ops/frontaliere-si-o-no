@@ -420,7 +420,7 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: {} }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket: fakeBucket(), runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
     });
-    expect(blocked).toEqual({ type: 'submit_needs_candidate', questions: [{ id: 'salary_expectation' }] });
+    expect(blocked).toEqual({ type: 'submit_needs_candidate', questions: [{ id: 'salary_expectation' }], documents: [] });
     const handoff = await submitApplication({
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } },
       draft: { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } },
