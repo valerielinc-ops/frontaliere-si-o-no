@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import {
   PREMIUMPFLEGE24_KEY,
   PREMIUMPFLEGE24_COMPANY_NAME,
+  extractPremiumpflege24ApplicationBody,
   extractPremiumpflege24NationwideApplicationListing,
   isPremiumpflege24Job,
   isTrustedDomain,
@@ -12,12 +13,21 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const NATIONWIDE_APPLICATION_PAGE = `
   <html>
-    <head><title>Jobs in der Seniorenbetreuung - PremiumPflege24</title></head>
+    <head>
+      <title>Jobs in der Seniorenbetreuung - PremiumPflege24</title>
+      <script type="application/ld+json">{
+        "@context": "https://schema.org",
+        "@type": "JobPosting",
+        "title": "Jobs in der Seniorenbetreuung - PremiumPflege24",
+        "description": "Entdecken Sie erfüllende Jobs in der Seniorenbetreuung bei PremiumPflege24 und bewerben Sie sich jetzt.",
+        "jobLocation": {"@type":"Place","address":{"@type":"PostalAddress","addressCountry":"CH"}}
+      }</script>
+    </head>
     <body>
       <header>PremiumPflege24</header>
-      <main class="content">
+      <main class="content" data-elementor-type="wp-page">
         <h1>Jobs</h1>
-        <section>
+        <section class="elementor-widget-text-editor">
           <h2>Ihre Zukunft in der Seniorenbetreuung in der Schweiz</h2>
           <p>Jobs in der ganzen Schweiz: PremiumPflege24 sucht engagierte Betreuungskräfte
             für die Seniorenbetreuung und Haushaltshilfe bei Menschen, die Unterstützung
@@ -39,6 +49,14 @@ const NATIONWIDE_APPLICATION_PAGE = `
 
 describe('PremiumPflege24 GmbH crawler parser', () => {
   describe('nationwide application-page fallback', () => {
+    it('selects the authored Elementor body and excludes footer/form chrome', () => {
+      const body = extractPremiumpflege24ApplicationBody(NATIONWIDE_APPLICATION_PAGE);
+
+      expect(body.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(body).toContain('Ihre Bewerbung ist willkommen');
+      expect(body).not.toContain('Gewerbestrasse 2');
+      expect(body).not.toContain('Name');
+    });
     it('rechecks the seed when JSON-LD exposes only a thin teaser', () => {
       expect(shouldUsePremiumpflege24NationwideFallback([
         { description: 'Entdecken Sie erfüllende Jobs bei PremiumPflege24.' },
@@ -66,6 +84,7 @@ describe('PremiumPflege24 GmbH crawler parser', () => {
         nationwide: true,
       });
       expect(listing.description.split(/\s+/).length).toBeGreaterThanOrEqual(50);
+      expect(listing.description).not.toContain('Gewerbestrasse 2');
       expect(resolvePremiumpflege24Geography(listing)).toEqual({
         location: 'Schweiz',
         canton: '',

@@ -11,6 +11,7 @@
  *   - slugify() / stripHtml()     — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { hardenJobsWithStructuredSalary } from './structured-salary.mjs';
@@ -22,7 +23,7 @@ import {
   loadSpec,
   runSpecInProduction,
 } from './prospector/spec-crawler.mjs';
-import { extractDetailFields } from './prospector/extract.mjs';
+import { bodyTextOf, extractDetailFields } from './prospector/extract.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -62,6 +63,35 @@ function extractPageTitle(html = '', fallback = '') {
 }
 
 /**
+ * Read only the authored application-page content. The live WordPress page
+ * promotes a short JSON-LD teaser, while its Elementor page body contains the
+ * actual role, conditions and application instructions. Header, footer and
+ * form chrome are intentionally excluded from vacancy content.
+ */
+export function extractPremiumpflege24ApplicationBody(html = '') {
+  const dom = new JSDOM(String(html || ''));
+  try {
+    const document = dom.window.document;
+    const sourceRoot = document.querySelector('[data-elementor-type="wp-page"]')
+      || document.querySelector('main, article');
+    if (!sourceRoot) return '';
+
+    const root = sourceRoot.cloneNode(true);
+    for (const node of root.querySelectorAll(
+      'script, style, noscript, form, nav, header, footer, [data-elementor-type="header"], [data-elementor-type="footer"], .elementor-widget-form',
+    )) node.remove();
+
+    const widgets = [...root.querySelectorAll('.elementor-widget-text-editor')];
+    const fragments = widgets.length > 0
+      ? widgets.map((widget) => bodyTextOf(widget.innerHTML))
+      : [bodyTextOf(root.innerHTML)];
+    return fragments.filter(Boolean).join('\n');
+  } finally {
+    dom.window.close();
+  }
+}
+
+/**
  * Recover PremiumPflege24's source-backed nationwide application page when
  * its generic JobPosting extraction has no rows. The page is a real caregiver
  * recruitment funnel, not a company footer: it explicitly names nationwide
@@ -76,7 +106,11 @@ export function extractPremiumpflege24NationwideApplicationListing(
   if (!isTrustedDomain(pageUrl)) return null;
 
   const detail = extractDetailFields(html, pageUrl);
-  const description = normalizeSpace(detail.description || '');
+  const pageBody = extractPremiumpflege24ApplicationBody(html);
+  const genericDescription = bodyTextOf(detail.description || '');
+  const description = [pageBody, genericDescription]
+    .map((candidate) => normalizeSpace(candidate))
+    .sort((left, right) => right.split(/\s+/).length - left.split(/\s+/).length)[0] || '';
   const title = extractPageTitle(html, detail.title);
   const sourceText = `${title} ${description}`;
 

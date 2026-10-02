@@ -108,6 +108,8 @@ import { createHash } from 'node:crypto';
 import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, normalizeSpace } from './crawler-template.mjs';
+import { bodyTextOf } from './prospector/extract.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
@@ -361,8 +363,8 @@ export function detectEmploymentType(text = '') {
  * no network/Playwright involved — so it is unit-testable with fixture rows
  * without spinning up a browser.
  *
- * @param {{ title?: string, location?: string, category?: string, url?: string }} raw
- * @returns {{ title: string, location: string, category: string, url?: string } | null}
+ * @param {{ title?: string, location?: string, category?: string, url?: string, description?: string }} raw
+ * @returns {{ title: string, location: string, category: string, description?: string, url?: string } | null}
  */
 export function normalizeHolmesPlaceListing(raw = {}) {
   const title = normalizeSpace(raw.title || '');
@@ -374,35 +376,9 @@ export function normalizeHolmesPlaceListing(raw = {}) {
   };
   const url = normalizeSpace(raw.url || '');
   if (url) listing.url = url;
+  const description = String(raw.description || '').trim();
+  if (description) listing.description = description;
   return listing;
-}
-
-/**
- * Build a safe-default description from the listing card. The parser keeps
- * the detail URL for identity and application, but does not fetch every job
- * detail page just to build copy. Kept >= a few sentences so the
- * AI-localization pipeline step (which runs after this parser,
- * `runStandardCrawlerPipeline` step 5) has real signal to enrich against
- * rather than a single bare sentence.
- *
- * @param {{ title: string, location: string, category: string }} listing
- * @returns {string}
- */
-export function buildDescription(listing) {
-  const { city } = resolveAddress({ title: listing.title, location: listing.location });
-  const clubLine = city
-    ? `Sede: ${HOLMES_PLACE_COMPANY_NAME} ${city}.`
-    : `Sede: ${HOLMES_PLACE_COMPANY_NAME}, Svizzera.`;
-  const categoryLine = listing.category ? `Area: ${listing.category}.` : '';
-  return [
-    `${listing.title} presso ${HOLMES_PLACE_COMPANY_NAME}.`,
-    clubLine,
-    categoryLine,
-    `${HOLMES_PLACE_COMPANY_NAME} è una catena internazionale di club fitness e wellness ` +
-      `con più sedi in Svizzera. Candidati per unirti al nostro team.`,
-  ]
-    .filter(Boolean)
-    .join(' ');
 }
 
 /* ── Fetch (Playwright, semantic DOM scrape) ─────────────────── */
@@ -414,6 +390,7 @@ const BRANCH_LOCATION_RE = /\b(?:oberrieden|zürich|zurich|geneva|gen[eè]ve|gen
 const CAREER_MARKER_RE = /(?:karriere|carri[eè]re|career|stellen(?:angebote)?|postes|offres? d['’]?emploi|jobangebote?|bewerb|candidatur|online[- ]tool|travaill(?:ez|er)\s+(?:bei|chez)|work(?:ing)?\s+(?:at|for))/i;
 const CAREER_TABLE_CONTAINER_SELECTOR = '.c-careerTable, .c-careerTable__table, .cvHolder';
 const CAREER_TABLE_ROW_SELECTOR = 'tr, .c-careerTable__row, [data-job-id], [data-career-id]';
+const CAREER_CONTEXT_SELECTOR = '.section-two-text-wrapper, .beginnen-paragraph';
 
 function annotateListings(listings, fetchOutcome, fetchDetail = '') {
   Object.defineProperties(listings, {
@@ -536,6 +513,18 @@ function collectCareerTableRows(document) {
   return [...rows];
 }
 
+function extractHolmesPlaceCareerContext(document) {
+  return [...document.querySelectorAll(CAREER_CONTEXT_SELECTOR)]
+    .map((node) => bodyTextOf(node.innerHTML))
+    .filter((text) => CAREER_MARKER_RE.test(text) && /holmes\s+place|team/i.test(text))
+    .sort((left, right) => right.length - left.length)[0] || '';
+}
+
+function sourceBackedDescription(...parts) {
+  const description = parts.map((part) => normalizeSpace(part)).filter(Boolean).join('\n\n');
+  return meetsSourceBodyFloor(description) ? description : '';
+}
+
 /**
  * Parse the rendered career document without treating CTA anchors as jobs.
  * The live page has appeared both as cards with `/jobs/...` links and as the
@@ -545,6 +534,7 @@ function collectCareerTableRows(document) {
 export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREER_URL) {
   const listings = [];
   const seen = new Set();
+  const careerContext = extractHolmesPlaceCareerContext(document);
 
   const pushListing = (raw, { allowMissingUrl = false } = {}) => {
     const listing = normalizeHolmesPlaceListing(raw);
@@ -595,11 +585,13 @@ export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREE
       nodeText(cells[1]) ||
       branchLocationFromText(nodeText(row));
     const category = metadataText(row, /category|department|bereich|secteur/i);
+    const summary = [...row.querySelectorAll('p')].map(nodeText).find(Boolean) || '';
     pushListing(
       {
         title: nodeText(titleNode),
         location,
         category,
+        description: sourceBackedDescription(summary, careerContext),
         href: detailLink?.getAttribute('href') || titleLink?.getAttribute('href') || '',
         jobId: row.getAttribute('data-job-id') || row.getAttribute('data-career-id') || '',
       },
@@ -616,6 +608,10 @@ export function extractHolmesPlaceListingsFromDocument(document, baseUrl = CAREE
       title: nodeText(card.heading),
       location: card.location || branchLocationFromText(nodeText(card.root)),
       category: card.category,
+      description: sourceBackedDescription(
+        [...card.root.querySelectorAll('p')].map(nodeText).find(Boolean) || '',
+        careerContext,
+      ),
       href: link.getAttribute('href') || '',
     });
   }
@@ -763,8 +759,8 @@ export async function fetchAllHolmesPlaceJobs() {
     });
     const location = normalizeSpace(listing.location || city);
 
-    const rawDescription = buildDescription(listing);
-    const description = stripContactPII(rawDescription);
+    const description = stripContactPII(listing.description || '');
+    if (!meetsSourceBodyFloor(description)) continue;
 
     const sourceLang = detectLang(`${title} ${listing.location}`, 'de');
     const jobUrl = listing.url || CAREER_URL;
