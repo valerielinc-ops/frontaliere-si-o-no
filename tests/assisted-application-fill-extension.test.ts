@@ -225,8 +225,7 @@ describe('fill extension: the tab the start link opens', () => {
   const START = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
 
   /** background.js on a fake `chrome`: session storage and the listeners it registers. */
-  function worker() {
-    const store = new Map<string, any>([['loadedFingerprint', 'loaded']]);
+  function worker(store = new Map<string, any>([['loadedFingerprint', 'loaded']])) {
     const listeners: Record<string, Array<(...args: any[]) => any>> = { created: [], message: [] };
     const on = (name: string) => ({ addListener: (listener: any) => (listeners[name] ||= []).push(listener) });
     const chrome = {
@@ -237,7 +236,7 @@ describe('fill extension: the tab the start link opens', () => {
             return store.has(key) ? { [key]: store.get(key) } : {};
           },
           async set(values: Record<string, any>) { for (const [key, value] of Object.entries(values)) store.set(key, value); },
-          async remove(key: string) { store.delete(key); },
+          async remove(keys: string | string[]) { for (const key of [keys].flat()) store.delete(key); },
         },
         local: { async get() { return {}; }, async set() {} },
       },
@@ -292,6 +291,21 @@ describe('fill extension: the tab the start link opens', () => {
     await button.message({ type: 'mark', startedAt: Date.now(), startUrl: '' }, 1);
     await button.created({ id: 2, openerTabId: 1, pendingUrl: START });
     expect(button.store.has('tab:2')).toBe(false);
+  });
+
+  it('remembers a waiting tab across a service worker restart', async () => {
+    // Review of #10980: the opener of a tab with no address yet is not only in memory.
+    const first = worker();
+    first.store.set('tab:1', { kit: { orderId: 'o', applyUrl: 'https://jobs.coopjobs.ch/x' }, state: 'filling' });
+    await first.message({ type: 'mark', startedAt: Date.now(), startUrl: START }, 1);
+    await first.created({ id: 4, openerTabId: 1, pendingUrl: '' });
+    expect(first.store.has('tab:4')).toBe(false);
+    // The worker restarts: a new background.js on the same session storage.
+    const restarted = worker(first.store);
+    await restarted.updated(4, { url: START, status: 'loading' });
+    expect(restarted.store.get('tab:4')).toMatchObject({ kit: { orderId: 'o' }, openedFrom: 1 });
+    expect(restarted.store.get('tab:1')).toMatchObject({ kit: { orderId: 'o' }, state: 'filling' });
+    expect(restarted.store.has('awaiting:4')).toBe(false);
   });
 
   it('never takes a start that is not a time', async () => {

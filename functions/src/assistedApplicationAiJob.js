@@ -130,6 +130,9 @@ const APPLY_LATER_LABEL_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|pl
  * The posting's own redirect, never another job's (a "similar jobs" list):
  * the one carrying the posting's id (Prospective uses the same UUID in both),
  * else the only one labelled as the apply button. '' when it is not clear.
+ * Never the first redirect anywhere in the page (review of #10980): an
+ * unrelated first redirect and the posting's link second → the second
+ * (tests/assisted-application-ai-core.test.ts).
  */
 export function postingAtsRedirect(postingUrl, html) {
   const links = [...String(html || '').matchAll(ATS_REDIRECT_LINK_RE)]

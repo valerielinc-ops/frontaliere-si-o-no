@@ -73,7 +73,11 @@ export function authPageKind(snapshot) {
 // other portal keeps the 20 it has always had.
 const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
 
-/** The password's length on this portal (its host, or its channel id). */
+/**
+ * The password's length on this portal (its host, or its channel id): not one
+ * length for all (review of #10980). career2.successfactors.eu → 16,
+ * workday → 20 (tests/assisted-application-accounts.test.ts).
+ */
 export function portalPasswordLength(portal = '') {
   return SHORT_PASSWORD_PORTAL_RE.test(String(portal)) ? 16 : 20;
 }

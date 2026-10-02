@@ -131,12 +131,12 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
   // A tab the posting opened, whose address Chrome tells only now: adopted
   // when it is the link the start click pressed (adoptStartTab).
-  if (awaitingAddress.has(tabId)) {
-    const address = info.url || tab?.pendingUrl || tab?.url || '';
-    if (/^https?:/.test(address)) {
-      const opener = awaitingAddress.get(tabId);
-      awaitingAddress.delete(tabId);
-      await queue(() => adoptStartTab(tabId, opener, address));
+  const address = info.url || tab?.pendingUrl || tab?.url || '';
+  if (/^https?:/.test(address)) {
+    const waiting = (await chrome.storage.session.get(awaitingKey(tabId)))[awaitingKey(tabId)];
+    if (waiting) {
+      await chrome.storage.session.remove(awaitingKey(tabId));
+      await queue(() => adoptStartTab(tabId, waiting.openerTabId, address));
     }
   }
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
@@ -183,23 +183,23 @@ async function adoptStartTab(tabId, openerTabId, address) {
   return 'adopted';
 }
 
-// Tabs a posting opened whose address is not known yet: tab id → opener.
-const awaitingAddress = new Map();
+// Tabs a posting opened whose address is not known yet, with their opener: in
+// session storage, so a service worker suspended in between still knows them.
+const awaitingKey = (tabId) => `awaiting:${tabId}`;
 // Serialized: two popups at once never both read the same unused start.
 let adopting = Promise.resolve();
 function queue(task) {
-  adopting = adopting.then(task).catch(() => {});
+  adopting = adopting.then(task).catch((error) => console.warn('[compila-candidatura] tab adoption', error));
   return adopting;
 }
 chrome.tabs.onCreated.addListener((tab) => queue(async () => {
   if (tab.openerTabId == null) return;
   const outcome = await adoptStartTab(tab.id, tab.openerTabId, tab.pendingUrl || tab.url || '');
-  if (outcome === 'wait') awaitingAddress.set(tab.id, tab.openerTabId);
+  if (outcome === 'wait') await chrome.storage.session.set({ [awaitingKey(tab.id)]: { openerTabId: tab.openerTabId, at: Date.now() } });
 }));
 
 chrome.tabs.onRemoved.addListener((tabId) => {
-  awaitingAddress.delete(tabId);
-  chrome.storage.session.remove(tabKey(tabId));
+  chrome.storage.session.remove([tabKey(tabId), awaitingKey(tabId)]);
 });
 
 // Updates: on the owner's Mac the folder Chrome loaded this extension from
