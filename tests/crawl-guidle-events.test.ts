@@ -213,6 +213,7 @@ describe('parsePriceText', () => {
     expect(parsePriceText('accès gratuit')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
     expect(parsePriceText('Gratuits pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
     expect(parsePriceText('Gratuites pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Accès gratuits')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
