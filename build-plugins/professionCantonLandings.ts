@@ -102,6 +102,14 @@ interface Copy {
   peerMetric: string;
   peerNoun: string;
   peerSource: string;
+  /**
+   * The same profession across the other cantons — the second peer axis.
+   * `cantonNoun` follows the same contract as `peerNoun` (dative plural in de).
+   */
+  crossCantonHeading: (role: string) => string;
+  cantonNoun: string;
+  /** Lead sentence of the employer list, so the names read as prose and not only as pills. */
+  employersLead: (role: string, canton: string, list: string) => string;
 }
 
 const COPY: Record<ProfessionLocale, Copy> = {
@@ -125,6 +133,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     peerMetric: 'offerte attive',
     peerNoun: 'professioni',
     peerSource: 'Conteggi dal corpus di annunci attivi, ricalcolati a ogni build.',
+    crossCantonHeading: (r) => `${r}: il confronto con gli altri cantoni`,
+    cantonNoun: 'cantoni',
+    employersLead: (r, c, list) => `Datori di lavoro con più offerte attive per ${r} nel Canton ${c}: ${list}.`,
   },
   en: {
     eyebrow: 'Jobs by profession',
@@ -146,6 +157,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     peerMetric: 'active openings',
     peerNoun: 'professions',
     peerSource: 'Counts from the live job corpus, recomputed on every build.',
+    crossCantonHeading: (r) => `${r}: how the other cantons compare`,
+    cantonNoun: 'cantons',
+    employersLead: (r, c, list) => `Employers with the most active ${r} openings in Canton ${c}: ${list}.`,
   },
   de: {
     eyebrow: 'Stellen nach Beruf',
@@ -169,6 +183,10 @@ const COPY: Record<ProfessionLocale, Copy> = {
     // «Von N vergleichbaren …», sintagma preposizionale che regge il dativo.
     peerNoun: 'Berufen',
     peerSource: 'Zahlen aus dem Bestand aktiver Stellen, bei jedem Build neu berechnet.',
+    crossCantonHeading: (r) => `${r}: der Vergleich mit den anderen Kantonen`,
+    // Dativo plurale, stesso contratto di `peerNoun`.
+    cantonNoun: 'Kantonen',
+    employersLead: (r, c, list) => `Arbeitgeber mit den meisten aktiven ${r}-Stellen im Kanton ${c}: ${list}.`,
   },
   fr: {
     eyebrow: 'Emplois par profession',
@@ -190,6 +208,9 @@ const COPY: Record<ProfessionLocale, Copy> = {
     peerMetric: 'offres actives',
     peerNoun: 'professions',
     peerSource: 'Comptages issus des offres actives, recalculés à chaque build.',
+    crossCantonHeading: (r) => `${r} : la comparaison avec les autres cantons`,
+    cantonNoun: 'cantons',
+    employersLead: (r, c, list) => `Employeurs avec le plus d'offres actives pour ${r} dans le canton ${c} : ${list}.`,
   },
 };
 
@@ -214,9 +235,14 @@ export function renderProfessionCantonPage(opts: {
    * fewer than three above-floor professions.
    */
   cantonProfessions?: Partial<Record<AnyProfessionId, ProfessionJobsSnapshot>>;
+  /**
+   * The SAME profession in every canton (canton key → snapshot): the page's
+   * second peer cohort. Optional for the same reason as `cantonProfessions`.
+   */
+  professionAcrossCantons?: Partial<Record<string, ProfessionJobsSnapshot>>;
   distDir: string;
 }): { html: string; words: number } {
-  const { locale, cantonKey, id, snapshot, cantonProfessions, distDir } = opts;
+  const { locale, cantonKey, id, snapshot, cantonProfessions, professionAcrossCantons, distDir } = opts;
   const c = COPY[locale];
   const cantonName = getCantonDisplayName(cantonKey, locale as CantonDisplayLocale);
   const role = professionLabel(locale, id);
@@ -247,8 +273,14 @@ export function renderProfessionCantonPage(opts: {
     { label: c.tileMedian, value: median > 0 ? `${medianStr}${c.perYear}` : medianStr, tone: 'accent' },
   ]);
 
+  const andWord = { it: ' e ', en: ' and ', de: ' und ', fr: ' et ' }[locale];
+  const employerNames = snapshot.topEmployers.map((e) => `${e.name} (${e.count})`);
+  const employerList = employerNames.length <= 1
+    ? employerNames.join('')
+    : `${employerNames.slice(0, -1).join(', ')}${andWord}${employerNames[employerNames.length - 1]}`;
   const employers = snapshot.topEmployers.length > 0
     ? `<h2 style="${H2_STYLE}">${esc(c.employersHeading(cantonName))}</h2>
+<p class="my-2">${esc(c.employersLead(role, cantonName, employerList))}</p>
 <ul class="flex flex-wrap gap-2 my-2">${snapshot.topEmployers
         .map((e) => `<li class="rounded-full bg-surface-alt px-3 py-1 text-sm">${esc(e.name)} <span class="text-subtle">(${e.count})</span></li>`)
         .join('')}</ul>`
@@ -292,6 +324,37 @@ export function renderProfessionCantonPage(opts: {
     currentKey: id,
     rows: peerRows,
     labels: { heading: c.peerHeading(cantonName), metricLabel: c.peerMetric, peerNoun: c.peerNoun },
+    formatValue: (value) => String(value),
+    sourceNote: c.peerSource,
+  });
+
+  // ── Lo stesso mestiere negli altri cantoni ──────────────────────────────
+  //
+  // Il confronto qui sopra mette la professione fra le sorelle del SUO
+  // cantone; questo mette il cantone fra gli altri per la STESSA professione.
+  // È la domanda di chi cerca lavoro da frontaliere («dove c'è più domanda per
+  // il mio mestiere?») ed è l'unico asse che distingue fra loro due pagine
+  // dello stesso cantone: la classifica dei cantoni cambia da un mestiere
+  // all'altro. Misura del 2026-10-02 (run 36977215802): le coorti
+  // `de:/de/arbeit-st-gallen-` e `en:/en/jobs-st-gallen-` — un cantone solo,
+  // quindi tutta la prosa cantonale è template per costruzione — stavano al
+  // 4,3-4,8 %, con 3-4 segmenti propri su ~90.
+  const crossCantonRows: PeerRow[] = PROFESSION_CANTON_KEYS.flatMap((otherCanton) => {
+    const other = professionAcrossCantons?.[otherCanton];
+    // Solo i cantoni sopra il floor: hanno una pagina vera, mai un bridge noindex.
+    if (!other || !meetsJobsFloor({ liveCount: other.liveCount }).meetsFloor) return [];
+    return [{
+      key: otherCanton,
+      name: getCantonDisplayName(otherCanton, locale as CantonDisplayLocale),
+      href: buildProfessionCantonPath(locale, otherCanton, id),
+      value: other.liveCount,
+    }];
+  });
+  const crossCantonComparison = renderPeerComparison({
+    locale,
+    currentKey: cantonKey,
+    rows: crossCantonRows,
+    labels: { heading: c.crossCantonHeading(role), metricLabel: c.peerMetric, peerNoun: c.cantonNoun },
     formatValue: (value) => String(value),
     sourceNote: c.peerSource,
   });
@@ -371,6 +434,7 @@ ${tiles}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
 ${peerComparison}
+${crossCantonComparison}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cantonName))} →</a></p>
 ${salaryLink}
 ${professionCantonInlineAd}
@@ -513,7 +577,17 @@ export async function emitProfessionCantonPages(opts: { rootDir: string; distDir
       // every locale in practice; this guard makes it safe regardless.
       const rendered = PROFESSION_LOCALES.map((locale) => ({
         locale,
-        ...renderProfessionCantonPage({ locale, cantonKey, id, snapshot, cantonProfessions: perProfession, distDir: opts.distDir }),
+        ...renderProfessionCantonPage({
+          locale,
+          cantonKey,
+          id,
+          snapshot,
+          cantonProfessions: perProfession,
+          professionAcrossCantons: Object.fromEntries(
+            PROFESSION_CANTON_KEYS.flatMap((k) => (byCanton[k]?.[id] ? [[k, byCanton[k][id]]] : [])),
+          ),
+          distDir: opts.distDir,
+        }),
       }));
       if (rendered.some((r) => r.words < MIN_INDEXABLE_WORDS)) {
         result.pagesSkippedForWordCount += PROFESSION_LOCALES.length;
