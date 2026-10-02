@@ -170,6 +170,13 @@ describe('extractAddress', () => {
 describe('parsePriceText', () => {
   it('takes the cheapest numeric amount found', () => {
     expect(parsePriceText('CHF 10.00 pro Person, Kinder CHF 5.00')).toEqual({ amount: 5, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF10')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('10CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF 20 (EUR 22)')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('20 euro')).toEqual({ amount: 20, currency: 'EUR', isFree: false });
+    expect(parsePriceText('CHF 20, 20:00')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Free for children under 12, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Bambini gratuiti, adulti CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
