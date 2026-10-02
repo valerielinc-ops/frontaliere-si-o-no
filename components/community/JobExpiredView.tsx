@@ -38,6 +38,7 @@ import { useRailGridCollapse, RAIL_GRID_CLASS_X, RAIL_ASIDE_CLASS_X } from '@/co
 import { formatJobLocation } from '../../scripts/lib/job-location-display.mjs';
 import { stripMarkdownMarkers } from '@/services/jobs/plainTextMarkdown';
 import { SECTION_LEGACY_TI } from '@/build-plugins/shared/cantonSection';
+import { jobDescriptionTextToHtml } from '@/build-plugins/shared/jobDescription/toHtml';
 
 interface RelatedJob {
  slug: string;
@@ -204,6 +205,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  .replace(/\n{3,}/g, '\n\n')
  .trim();
  const descriptionPreview = descriptionPlain.slice(0, 220);
+ // The full description is crawler/ATS HTML. It used to be injected raw, so a
+ // `<img onerror>`, an `on*` attribute or a `javascript:` link in the source
+ // ran on this page. Render it with the same serializer as the static job
+ // pages: markdown → AST, HTML → allowlist sanitizer
+ // (build-plugins/shared/jobDescription/sanitizeHtml.ts).
+ const descriptionHtml = jobDescriptionTextToHtml(description);
 
  const expiredDate = job.expiredAt
  ? new Date(job.expiredAt).toLocaleDateString(locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-CH' : locale === 'fr' ? 'fr-CH' : 'en-GB', { year: 'numeric', month: 'long', day: 'numeric' })
@@ -695,7 +702,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  </div>
 
  {descriptionPlain && (
- <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: description }} />
+ <div className="prose prose-sm dark:prose-invert max-w-none text-body" dangerouslySetInnerHTML={{ __html: descriptionHtml }} />
  )}
 
  {/* Mobile/tablet in-article ad */}

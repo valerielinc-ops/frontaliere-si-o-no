@@ -6,6 +6,7 @@
 
 import type { Block, Inline } from './parser';
 import { parseJobDescription, parseInline } from './parser';
+import { sanitizeJobDescriptionHtml } from './sanitizeHtml';
 
 function esc(s: string): string {
   return String(s || '')
@@ -99,9 +100,10 @@ const jobDescHtmlCache = new Map<string, string>();
  * convention. Levels 2-6 are left alone — only `<h1>` breaks a page-level
  * invariant.
  *
- * Attributes are preserved (only the tag name is rewritten) so nothing that
- * downstream CSS or `stripExternalHtmlAttributes` relies on shifts as a side
- * effect. Regexes are function-local: a module-scope `/g` literal shared
+ * Attributes are preserved (only the tag name is rewritten), so the function
+ * stays a pure rename. In `computeJobDescriptionTextToHtml` it runs on the
+ * output of `sanitizeJobDescriptionHtml`, which has already dropped every
+ * attribute of a heading. Regexes are function-local: a module-scope `/g` literal shared
  * across calls carries `lastIndex` state that a future `.test()`/`.exec()`
  * caller would silently trip over.
  */
@@ -114,7 +116,12 @@ export function demoteEmbeddedH1(html: string): string {
 
 /**
  * Drop embedded media and executable/presentational blocks from ATS markup
- * before it reaches a static job page.
+ * BEFORE the renderer picks its branch.
+ *
+ * Security is NOT this function's job: both passthrough branches end in
+ * `sanitizeJobDescriptionHtml` (`./sanitizeHtml.ts`, allowlist), and the AST
+ * branch escapes everything. What this pre-step decides is which branch a
+ * media-only description takes (see the last paragraph).
  *
  * Both passthrough branches below (`computeJobDescriptionTextToHtml` and
  * `inlineTextToHtml`) return the employer's HTML almost verbatim, so whatever
@@ -173,11 +180,14 @@ function computeJobDescriptionTextToHtml(rawText: string): string {
     if (doubleStars % 2 !== 0) {
       s = s.replace(/\*\*/g, '');
     }
-    return demoteEmbeddedH1(
+    // Sanitize LAST, so nothing after it can reintroduce markup: the
+    // allowlist rebuilds every tag (attributes gone, `a[href]` scheme-checked)
+    // and escapes any stray `<`. `demoteEmbeddedH1` only renames h1 → h2.
+    return demoteEmbeddedH1(sanitizeJobDescriptionHtml(
       s
         .replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>')
         .replace(/[_=~]{3,}/g, ' '),
-    );
+    ));
   }
   const blocks = parseJobDescription(text);
   return blocksToHtml(blocks);
@@ -211,37 +221,17 @@ export function jobDescriptionTextToHtml(text: string): string {
  * the text while converting `**bold**` → `<strong>` and `*em*` → `<em>`.
  * Strips literal markdown so audit:no-literal-markdown stays at 0.
  *
- * If the input already carries structural tags (strong/em/a/span/br),
- * we pass it through but FIRST sanitize attributes:
- *   - `<span>` and `<br>` are stripped of ALL attributes (no semantic
- *     attributes; the MS-Word-paste `<span style="font-family:"Times
- *     New Roman", serif">` pattern breaks html-minifier-terser AND
- *     silently malforms the rendered styles because inner double-
- *     quotes close the outer style attribute early — caught
- *     2026-05-21 by dist-shrink parse-error report on 28 Bachem
- *     job pages, runs #26250403558 + #26255102850)
- *   - `<a>` keeps ONLY `href` (drops class/style/target/etc that
- *     external sources inject)
- *   - `<strong>` / `<em>` are stripped of attributes (none have
- *     semantic value in our context)
- * The tag itself is preserved so visible text flow stays intact.
- *
- * Why regex (not a real HTML sanitizer): the input is malformed
- * enough that DOMParser would re-balance tags and change the visible
- * text flow. Each regex below targets one tag at a time so a broken
- * span doesn't eat into adjacent elements.
+ * If the input already carries structural tags (strong/em/a/span/br), it is
+ * passed through `sanitizeJobDescriptionHtml` (`./sanitizeHtml.ts`): every
+ * tag is rebuilt without attributes, `<a>` keeps only a scheme-checked
+ * `href`, non-allowlisted tags are dropped. That replaced
+ * `stripExternalHtmlAttributes` (2026-10-02), which stripped attributes from
+ * span/br/strong/em only and copied any `href` — `javascript:` included — and
+ * let `<p onclick>` or `<div onmouseover>` through untouched. The MS-Word
+ * `<span style="font-family:"Times New Roman", serif">` case it was written
+ * for (28 Bachem pages, runs #26250403558 + #26255102850) is still covered:
+ * the sanitizer reads a tag up to its first `>` and keeps none of it.
  */
-function stripExternalHtmlAttributes(s: string): string {
-  return s
-    // <span ... >  →  <span>      (always drop everything between tag name and `>`)
-    .replace(/<(span|br|strong|em)(\s[^>]*)?(\/?)>/gi, '<$1$3>')
-    // <a ... href="X" ... > → <a href="X">    (keep ONLY href)
-    .replace(/<a\s[^>]*>/gi, (m) => {
-      const hrefMatch = m.match(/\bhref\s*=\s*["']?([^"'>\s]+)["']?/i);
-      return hrefMatch ? `<a href="${hrefMatch[1]}">` : '<a>';
-    });
-}
-
 export function inlineTextToHtml(text: string): string {
   if (!text) return '';
   // Strip separator runs (3+ `_`/`=`/`~`) that AI-translation flattening
@@ -274,7 +264,7 @@ export function inlineTextToHtml(text: string): string {
     if (doubleStars % 2 !== 0) {
       stripped = stripped.replace(/\*\*/g, '');
     }
-    return stripExternalHtmlAttributes(
+    return sanitizeJobDescriptionHtml(
       stripped.replace(/\*\*([^*\n]{1,200}?)\*\*/g, '<strong>$1</strong>'),
     );
   }
