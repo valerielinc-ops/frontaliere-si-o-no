@@ -25,6 +25,7 @@ import {
   LIECHTENSTEIN_LOCALES,
   LIECHTENSTEIN_REGIME,
   LIECHTENSTEIN_COMMUTING_CONTEXT,
+  LIECHTENSTEIN_HUB_PATH,
   liechtensteinMunicipalityPathFor,
   isLiechtensteinBorderMunicipalityPath,
 } from '@/build-plugins/liechtensteinBorderMunicipalityData';
@@ -76,6 +77,20 @@ describe('Liechtenstein border municipality above-floor page render (#4884)', ()
       distDir: DIST,
     });
     expect(html).not.toMatch(/optionsrecht/i);
+  });
+
+  it('renders sourced municipal comparison facts and keeps the shared FAQ on the hub', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: schaan,
+      locale: 'it',
+      dateStamp: '2026-07-29',
+      distDir: DIST,
+    });
+    expect(html).toContain('Superficie');
+    expect(html).toContain('Densità 2020');
+    expect(html).toContain('Amt für Statistik / Amt für Bau und Infrastruktur');
+    expect(html).toContain(`${LIECHTENSTEIN_HUB_PATH.it}#faq`);
+    expect(html).not.toContain('"@type":"FAQPage"');
   });
 });
 
