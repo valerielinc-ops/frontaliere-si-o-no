@@ -17,13 +17,19 @@
  *      no canton facet, so all 26 cantons are covered in one pass), to
  *      discover every Coop (not-subsidiary) job detail URL, paginating
  *      through the full result set (API returns up to `limit` jobs per page).
+ *      If the server-side filter returns a coherent zero, it retries the
+ *      national feed without that filter and applies the same exact division
+ *      allowlist client-side. This keeps an upstream filter-id drift from
+ *      looking like an empty source while still excluding subsidiaries.
  *   2. Sets those SSR detail URLs as explicit adapter detail seeds.
  *   3. Runs the base crawler which fetches each detail page and parses
  *      the JSON-LD JobPosting structured data embedded in it.
  *
  * API endpoints used:
  *   - Jobs:       https://ohws.prospective.ch/public/v1/medium/1000103/jobs?lang=it&offset=0&limit=500&f=70:<COOP_DIVISION_FILTER_IDS>
- *                 (no `f=30:{cantonId}` filter → all CH cantons)
+ *                 (no `f=30:{cantonId}` filter → all CH cantons; an
+ *                 unfiltered national retry is used only when this scoped
+ *                 query returns a coherent zero)
  *   - Attributes: https://ohws.prospective.ch/public/v1/medium/1000103/attributes?lang=it
  *
  * Per-job canton is inferred from the canton label the API returns in
@@ -197,6 +203,17 @@ const COOP_DIVISION_COMPANY_NAMES = new Set([
   'coop cassa depositi',
   'cassa di compensazione coop',
 ]);
+
+/**
+ * Keep the zero-result recovery scoped to the same exact division contract as
+ * the server-side filter. The fallback must not use a host or substring match:
+ * the medium also contains Fust, Jumbo and other Coop Group subsidiaries.
+ */
+function isCoopApiDivision(job) {
+  const rawCompany = job?.attributes?.['70'];
+  const company = Array.isArray(rawCompany) ? rawCompany[0] : rawCompany;
+  return COOP_DIVISION_COMPANY_NAMES.has(normalize(company || ''));
+}
 
 /**
  * Match a job object as belonging to the Coop crawl.
@@ -375,10 +392,13 @@ function applyCoopLocationCantonPreference(job) {
 /**
  * Fetch Coop job detail URLs from the Prospective.ch JSON API CH-wide.
  *
- * Uses a single UNFILTERED query (no canton facet) paginated over the full
- * result set. This covers all 26 cantons and all 3 position categories
- * (regular offers, apprenticeships, trials) in one pass. Per-job canton is
- * inferred from the API canton label (attribute 30) by buildSeedMetaFromApiJob.
+ * Uses a server-scoped query (and no canton facet) paginated over the full
+ * result set. If the scoped query reports a coherent zero, the same national
+ * feed is retried without the potentially stale division ids and filtered by
+ * the exact attribute-70 allowlist. This covers all 26 cantons and all 3
+ * position categories (regular offers, apprenticeships, trials) in one pass.
+ * Per-job canton is inferred from the API canton label (attribute 30) by
+ * buildSeedMetaFromApiJob.
  *
  * Returns unique detail URLs + metadata indexed by URL.
  */
@@ -395,10 +415,13 @@ export async function fetchCoopJobDetailUrls(options = {}) {
   let apiTotal = null;
   let fetched = 0;
   let droppedNonCh = 0;
+  let droppedNonCoop = 0;
   let droppedMalformedUrl = 0;
   let droppedDuplicateUrl = 0;
   let droppedDuplicateIdentity = 0;
   const sourceIdentities = new Set();
+  let useCompanyFilter = true;
+  let usedUnfilteredFallback = false;
 
   for (let page = 0; page < API_MAX_PAGES; page += 1) {
     const offset = page * API_LIMIT;
@@ -409,9 +432,9 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     });
     // Company filter: Coop's own divisions only (server-side — see
     // COOP_DIVISION_FILTER_IDS above). Comma-joined ids are OR'd by the API.
-    params.append('f', `70:${COOP_DIVISION_FILTER_IDS}`);
+    if (useCompanyFilter) params.append('f', `70:${COOP_DIVISION_FILTER_IDS}`);
     const apiUrl = `${API_BASE}/jobs?${params}`;
-    console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (offset ${offset})…`);
+    console.log(`🔍 Fetching Coop CH-wide page ${page + 1} (${useCompanyFilter ? 'scoped' : 'unfiltered fallback'}, offset ${offset})…`);
 
     let jobs;
     try {
@@ -451,6 +474,30 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     }
 
     if (jobs.length === 0) {
+      // A zero from the filtered endpoint is ambiguous: the division ids may
+      // have drifted even though the national source still has live jobs.
+      // Retry from offset zero without the server filter, then apply the
+      // exact attribute-70 allowlist below. Do not silently accept a filtered
+      // zero as an authoritative empty source.
+      if (page === 0 && useCompanyFilter && apiTotal === 0) {
+        console.warn('⚠️ Coop division filter returned a coherent zero; retrying the national feed with exact client-side division filtering.');
+        useCompanyFilter = false;
+        usedUnfilteredFallback = true;
+        allUrls.clear();
+        allFingerprints.clear();
+        for (const key of Object.keys(seedMetaByUrl)) delete seedMetaByUrl[key];
+        apiTotals.clear();
+        apiTotal = null;
+        fetched = 0;
+        droppedNonCh = 0;
+        droppedNonCoop = 0;
+        droppedMalformedUrl = 0;
+        droppedDuplicateUrl = 0;
+        droppedDuplicateIdentity = 0;
+        sourceIdentities.clear();
+        page = -1;
+        continue;
+      }
       if (apiTotal !== null && fetched < apiTotal) {
         throw new Error(`Coop discovery incomplete: received ${fetched}/${apiTotal} unique source records before an empty page.`);
       }
@@ -475,6 +522,11 @@ export async function fetchCoopJobDetailUrls(options = {}) {
       sourceIdentities.add(fingerprint);
       fetched = sourceIdentities.size;
       pageNew += 1;
+
+      if (!useCompanyFilter && !isCoopApiDivision(job)) {
+        droppedNonCoop += 1;
+        continue;
+      }
 
       let parsedUrl;
       try {
@@ -540,7 +592,7 @@ export async function fetchCoopJobDetailUrls(options = {}) {
 
   // Summary log
   console.log(`\n📋 Coop API Discovery Summary (CH-wide):`);
-  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
+  console.log(`  API total: ${apiTotal ?? '?'} · fetched: ${fetched} · dropped non-Coop: ${droppedNonCoop} · dropped non-CH: ${droppedNonCh} · malformed/off-host: ${droppedMalformedUrl} · duplicate URL: ${droppedDuplicateUrl} · duplicate identity: ${droppedDuplicateIdentity} · unique detail URLs: ${allUrls.size}`);
   const sortedCantons = Object.entries(cantonCounts).sort((a, b) => b[1] - a[1]);
   console.log(`  Cantons seen (${sortedCantons.length}): ${sortedCantons.map(([c, n]) => `${c}=${n}`).join(', ')}`);
   if (DISCOVERED_COOP_HOSTS.size > 0) {
@@ -552,11 +604,13 @@ export async function fetchCoopJobDetailUrls(options = {}) {
     seedMetaByUrl,
     apiTotal,
     fetched,
+    droppedNonCoop,
     droppedNonCh,
     droppedMalformedUrl,
     droppedDuplicateUrl,
     droppedDuplicateIdentity,
     apiTotals: [...apiTotals],
+    usedUnfilteredFallback,
   };
 }
 
@@ -607,6 +661,7 @@ export function assertCoopAdapterParity(adapter, seedDetailUrls, seedMetaByUrl =
 export function assertCompleteCoopDiscovery(discovery) {
   const apiTotal = Number(discovery?.apiTotal);
   const fetched = Number(discovery?.fetched);
+  const droppedNonCoop = Number(discovery?.droppedNonCoop || 0);
   const droppedNonCh = Number(discovery?.droppedNonCh);
   const droppedMalformedUrl = Number(discovery?.droppedMalformedUrl || 0);
   const droppedDuplicateUrl = Number(discovery?.droppedDuplicateUrl || 0);
@@ -630,8 +685,8 @@ export function assertCompleteCoopDiscovery(discovery) {
       return false;
     }
   });
-  const droppedCounts = [droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
-  const accountedUnique = urls.length + droppedNonCh + droppedMalformedUrl;
+  const droppedCounts = [droppedNonCoop, droppedNonCh, droppedMalformedUrl, droppedDuplicateUrl, droppedDuplicateIdentity];
+  const accountedUnique = urls.length + droppedNonCoop + droppedNonCh + droppedMalformedUrl;
   if (droppedCounts.some((count) => !Number.isInteger(count) || count < 0)
       || accountedUnique !== fetched
       || apiTotals.length !== 1
@@ -641,7 +696,7 @@ export function assertCompleteCoopDiscovery(discovery) {
       || feedFingerprints.size !== urls.length
       || !trustedHostsOnly) {
     throw new Error(
-      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
+      `Coop discovery invariant failed: totals=${apiTotals.join(',')}, fetched=${fetched}, accountedUnique=${accountedUnique}, canonical=${urls.length}, identities=${feedFingerprints.size}, non-Coop=${droppedNonCoop}, non-CH=${droppedNonCh}, malformed=${droppedMalformedUrl}, duplicate-url=${droppedDuplicateUrl}, duplicate-identity=${droppedDuplicateIdentity}, metadata=${Object.keys(seedMetaByUrl).length}, trusted-hosts=${trustedHostsOnly}.`
     );
   }
   return true;
@@ -1172,18 +1227,23 @@ function validateCoopLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
-  registerCrawlerSummaryGuard(COOP_KEY, 'Coop');
+  const summaryCounts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COOP_KEY, 'Coop', summaryCounts);
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103)');
-  console.log('   Scope: CH-wide (all 26 cantons, unfiltered national query)');
+  console.log('   Scope: CH-wide (all 26 cantons, strict Coop division scope)');
   console.log('   Categories: Offerte di lavoro + Posti di apprendistato + Tirocini di prova');
   console.log('');
 
   // Step 1: Fetch job detail URLs from the Prospective.ch JSON API
   const discovery = await fetchCoopJobDetailUrls();
+  summaryCounts.discovered = discovery.fetched;
+  summaryCounts.parsed = discovery.urls.length;
+  summaryCounts.lastFetchOutcome = discovery.urls.length > 0 ? 'ok' : null;
   assertCompleteCoopDiscovery(discovery);
   const detailUrls = discovery.urls;
   if (detailUrls.length === 0) {
-    console.log('ℹ️ Nessun URL di dettaglio Coop trovato dall\'API. Uscita OK.');
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ La sorgente Coop è stata letta ma non ha prodotto URL di dettaglio; preservo la slice pubblicata e lascio una diagnosi esplicita.');
     return;
   }
 
@@ -1216,7 +1276,8 @@ async function main() {
   const stats = logCoopJobStats(_beforeSnapshot);
   const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
-    console.log('ℹ️ Nessun job Coop trovato in questa esecuzione. Nessun errore — uscita OK.');
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.warn('⚠️ La discovery Coop era non vuota, ma il crawl non ha prodotto job pubblicabili; preservo la slice pubblicata.');
     return;
   }
 
@@ -1258,6 +1319,10 @@ async function main() {
       label: 'Coop',
       generatedAt: new Date().toISOString(),
       total: stats.coopJobs.length,
+      discovered: summaryCounts.discovered,
+      parsed: summaryCounts.parsed,
+      written: stats.coopJobs.length,
+      lastFetchOutcome: 'ok',
       newCount: crawlDiff.newJobs.length,
       updatedCount: crawlDiff.updatedJobs.length,
       removedCount: crawlDiff.removedJobs.length,
