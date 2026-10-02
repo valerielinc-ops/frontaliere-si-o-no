@@ -96389,6 +96389,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-c-basilea-campagna-criteri': {
+    title: 'Permesso C a Basilea Campagna: requisiti e domanda',
+    description: 'Permesso C a Basilea Campagna: requisiti, 10 anni di residenza o 5 per UE/AELS, integrazione, lingua, domanda e rilascio anticipato. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, basilea, campagna, requisiti',
+    ogTitle: 'Permesso C a Basilea Campagna: requisiti e domanda',
+    ogDescription: 'Per il permesso C a Basilea Campagna la regola indicata è di 10 anni di residenza, oppure 5 per cittadini UE/AELS. La guida separa conteggio, integrazione, conoscenze linguistiche, naturalizzazione e casi di rilascio anticipato.',
+    canonicalPath: '/articoli-svizzera/c-basilea-campagna-criteri/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso C a Basilea Campagna: requisiti e domanda",
+      "description": "Permesso C a Basilea Campagna: requisiti, 10 anni di residenza o 5 per UE/AELS, integrazione, lingua, domanda e rilascio anticipato. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/c-basilea-campagna-criteri.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Domanda per il permesso di domicilio C a Basilea Campagna"
+      },
+      "datePublished": "2026-10-02T02:44:00+00:00",
+      "dateModified": "2026-10-02T02:44:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/c-basilea-campagna-criteri/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

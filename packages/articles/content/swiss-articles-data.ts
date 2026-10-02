@@ -22327,6 +22327,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'c-basilea-campagna-criteri',
+    category: 'pratico',
+    date: '2026-10-02T02:44:00.678Z',
+    image: '/images/blog/c-basilea-campagna-criteri.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

@@ -7433,6 +7433,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.franchigia-premi-vaud-2026.title': 'Premi cassa malati LAMal 2026 nel canton Vaud',
     'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guida ai premi cassa malati LAMal 2026 nel canton Vaud: franchigie adulti, differenze tra cantoni e regioni, sussidio cantonale e cambio cassa.',
     'blog.article.franchigia-premi-vaud-2026.imageAlt': 'Documenti sui premi LAMal e calcolatrice su un tavolo in una casa svizzera',
+    'blog.article.c-basilea-campagna-criteri.title': 'Permesso C a Basilea Campagna: requisiti e domanda',
+    'blog.article.c-basilea-campagna-criteri.excerpt': 'Nel Cantone di Basilea Campagna: 10 anni di residenza, 5 per UE/AELS, integrazione, lingua e procedura per il permesso C.',
+    'blog.article.c-basilea-campagna-criteri.imageAlt': 'Domanda per il permesso di domicilio C a Basilea Campagna',
 };
 
 export default blogMetaChIt;

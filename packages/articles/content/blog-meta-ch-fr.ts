@@ -7433,6 +7433,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.franchigia-premi-vaud-2026.title': 'Primes d’assurance maladie KVG en 2026 dans le canton de Vaud',
     'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guide des primes d’assurance santé KVG en 2026 dans le canton de Vaud : franchises adultes, différences entre cantons et régions, subvention cantonale et changement de police d’assurance.',
     'blog.article.franchigia-premi-vaud-2026.imageAlt': 'Documents sur les primes LAMal et calculatrice sur une table dans un logement suisse',
+    'blog.article.c-basilea-campagna-criteri.title': 'Permis C à Bâle-Landschaft : exigences et application',
+    'blog.article.c-basilea-campagna-criteri.excerpt': 'Dans le canton de Bâle-Landschaft : 10 ans de résidence, 5 ans pour l’UE/EFTA, intégration, langue et procédure pour le permis C.',
+    'blog.article.c-basilea-campagna-criteri.imageAlt': 'Demande de permis d\'établissement C à Bâle-Campagne',
 };
 
 export default blogMetaChFr;
