@@ -1,7 +1,7 @@
 import { JSDOM } from 'jsdom';
 import { eventOfferPriceAmount, extractEventOfferMetadata, parseEventPriceText } from './event-metadata.mjs';
 
-const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch']);
+const BOOKING_HOSTS = new Set(['infomaniak.events', 'tickets.club-bellevue.ch', 'ticketing-nodabcvs.mapado.com', 'www.ticketino.com', 'eventfrog.ch', 'www.petzi.ch']);
 const MAX_HTML_BYTES = 2 * 1024 * 1024;
 
 export function supportedEventBookingUrl(value) {
@@ -58,6 +58,24 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
   try {
     const doc = dom.window.document;
     const host = new URL(supported).hostname;
+    if (host === 'www.petzi.ch') {
+      const date = [...doc.querySelectorAll('h3')]
+        .map(heading => heading.textContent.trim().match(/^(?:Monday|Tuesday|Wednesday|Thursday|Friday|Saturday|Sunday)\s+(\d{1,2})\s+([A-Za-z]+)\s+(\d{4})$/i))
+        .find(Boolean);
+      const months = { january: 1, february: 2, march: 3, april: 4, may: 5, june: 6, july: 7, august: 8, september: 9, october: 10, november: 11, december: 12 };
+      const month = date && months[date[2].toLowerCase()];
+      const sourceDate = month ? `${date[3]}-${String(month).padStart(2, '0')}-${String(date[1]).padStart(2, '0')}` : undefined;
+      const sourceVenue = [...doc.querySelectorAll('h4')]
+        .map(heading => heading.textContent.trim().split(/\s+[–—-]\s+/)[0].trim())
+        .find(value => sameVenue(value, event.venue)
+          || sameVenue(value, event.venue.replace(/^AJZ\s+/i, ''))
+          || sameVenue(value, event.venue.replace(/^AJZ\s+/i, '').replace(/\b(?:la|le|the)\b/gi, '')));
+      const priceText = [...doc.querySelectorAll('h4')].map(heading => heading.textContent.trim())
+        .find(value => /\bPrice starting at\b/i.test(value));
+      const price = parseEventPriceText(priceText?.replace(/^.*?\bPrice starting at\s*/i, ''));
+      return sourceDate === event.startDate && sourceVenue && price
+        ? { ...price, url: supported } : undefined;
+    }
     const matching = eventNodes(doc).filter(node => localDate(node.startDate) === event.startDate
       && sameVenue(node.location?.name, event.venue));
     if (host === 'ticketing-nodabcvs.mapado.com') {

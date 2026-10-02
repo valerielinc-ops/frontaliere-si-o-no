@@ -446,6 +446,16 @@ export async function recoverExistingBookingPrices(existingEvents, records, { de
   return updates;
 }
 
+/** Keep a verified backfill when a fresh detail record has no confident price. */
+export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
+  const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
+  return freshEvents.map(event => {
+    const backfill = backfills.get(event?.id);
+    if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)) return event;
+    return { ...event, price: { ...backfill.price, ...(event.price || {}) } };
+  });
+}
+
 /**
  * {street, postalCode, locality, region} from JSON-LD `location.address`
  * (PostalAddress), or undefined. `locality`/`region` (issue #3739) surface
@@ -946,10 +956,11 @@ async function main() {
   });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
+  const freshEvents = applyKnownPriceBackfills(translatedEvents, indexedPriceBackfills, bookingPriceBackfills);
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
-    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents].slice(0, 3), null, 2));
+    console.log(JSON.stringify([...indexedPriceBackfills, ...bookingPriceBackfills, ...freshEvents].slice(0, 3), null, 2));
     return;
   }
 
@@ -989,7 +1000,7 @@ async function main() {
     slicePath,
     sourceKey: SOURCE.key,
     sourceName: SOURCE.label,
-    freshEvents: [...indexedPriceBackfills, ...bookingPriceBackfills, ...translatedEvents],
+    freshEvents: freshEvents,
     goneIds: [],
     crawledAt,
   });
