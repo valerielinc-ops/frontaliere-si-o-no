@@ -23,6 +23,12 @@ import {
   AD_PAGE_DIAG_GA4_SHARED_DIMENSIONS,
 } from './lib/ga4-ad-page-diag-definitions.mjs';
 import { OFFER_ADS_SNAPSHOT_GA4_CUSTOM_METRICS } from './lib/ga4-offer-ads-snapshot-definitions.mjs';
+import {
+  findGa4CustomDimension,
+  ga4EventDimensionContractMismatch,
+  ga4EventDimensionScopeMismatch,
+  validateGa4EventDimensionPlan,
+} from './lib/ga4-event-dimension-contract.mjs';
 
 const propertyId = process.env.GA4_PROPERTY_ID || DEFAULT_GA4_PROPERTY_ID;
 const dryRun = process.argv.includes('--dry-run');
@@ -48,7 +54,15 @@ async function create(headers, kind, definition) {
     headers,
     body: JSON.stringify({ ...definition, scope: 'EVENT' }),
   });
-  if (res.ok || res.status === 409) return res.status === 409 ? 'raced' : 'created';
+  if (res.ok) return 'created';
+  if (res.status === 409 && kind === 'customDimensions') {
+    const dimensions = await listAll(headers, kind);
+    const actual = findGa4CustomDimension(dimensions, definition.parameterName);
+    const mismatch = ga4EventDimensionContractMismatch(definition, actual);
+    if (mismatch) throw new Error(`verify concurrent custom dimension: ${mismatch}`);
+    return 'raced';
+  }
+  if (res.status === 409) return 'raced';
   throw new Error(`create ${kind} ${definition.parameterName}: HTTP ${res.status} ${(await res.text().catch(() => '')).slice(0, 300)}`);
 }
 
@@ -62,12 +76,13 @@ async function main() {
 
   const dimensions = await listAll(headers, 'customDimensions');
   const metrics = await listAll(headers, 'customMetrics');
-  const taken = new Set([...dimensions, ...metrics].map((d) => d.parameterName));
   const eventDims = dimensions.filter((d) => d.scope === 'EVENT').length;
   console.log(`GA4 ${propertyId}: ${eventDims} event dimensions, ${metrics.length} metrics registered`);
 
   for (const name of AD_PAGE_DIAG_GA4_SHARED_DIMENSIONS) {
-    if (!taken.has(name)) throw new Error(`shared dimension ${name} is missing from the property`);
+    const actual = findGa4CustomDimension(dimensions, name);
+    const mismatch = ga4EventDimensionScopeMismatch(name, actual);
+    if (mismatch) throw new Error(mismatch);
     console.log(`shared   ${name}`);
   }
 
@@ -77,8 +92,25 @@ async function main() {
     // The rewarded offer's ads snapshots (scripts/lib/ga4-offer-ads-snapshot-definitions.mjs).
     ...OFFER_ADS_SNAPSHOT_GA4_CUSTOM_METRICS.map((m) => ['customMetrics', m]),
   ];
+  const dimensionFailures = validateGa4EventDimensionPlan(
+    plan.filter(([kind]) => kind === 'customDimensions').map(([, definition]) => definition),
+    dimensions,
+    metrics,
+  );
   for (const [kind, definition] of plan) {
-    if (taken.has(definition.parameterName)) {
+    if (kind === 'customMetrics' && dimensions.some((dimension) => dimension.parameterName === definition.parameterName)) {
+      dimensionFailures.push(`GA4 custom metric ${definition.parameterName} conflicts with an existing custom dimension`);
+    }
+  }
+  if (dimensionFailures.length) {
+    throw new Error(`GA4 custom-definition preflight failed before writes: ${dimensionFailures.join(' | ')}`);
+  }
+
+  for (const [kind, definition] of plan) {
+    const alreadyExists = kind === 'customDimensions'
+      ? Boolean(findGa4CustomDimension(dimensions, definition.parameterName))
+      : metrics.some((metric) => metric.parameterName === definition.parameterName);
+    if (alreadyExists) {
       console.log(`exists   ${definition.parameterName}`);
       continue;
     }

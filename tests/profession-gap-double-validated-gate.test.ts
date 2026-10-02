@@ -20,6 +20,7 @@ import {
   professionKeywordLandingPath,
 } from '../scripts/lib/keyword-page-paths.mjs';
 import { SECTION_LEGACY_TI } from '../build-plugins/shared/cantonResolvers.mjs';
+import { NURSING_LANDING_IDS } from '../scripts/lib/nursing-landing-path.mjs';
 
 /**
  * Drift guard for #4564: profession-keyword-opportunities.mjs flags a gap
@@ -38,6 +39,19 @@ const ROOT = resolve(import.meta.dirname, '..');
 const OPPORTUNITIES_SRC = readFileSync(resolve(ROOT, 'scripts/profession-keyword-opportunities.mjs'), 'utf-8');
 const FEED_SRC = readFileSync(resolve(ROOT, 'scripts/generate-keyword-pages-config.mjs'), 'utf-8');
 const PLUGIN_SRC = readFileSync(resolve(ROOT, 'build-plugins/jobsSeoPagesPlugin.ts'), 'utf-8');
+
+describe('profession opportunity coverage source', () => {
+  it('reads nursing landing IDs from their shared literal source, not the TS alias wrapper', () => {
+    expect(OPPORTUNITIES_SRC).toContain(
+      "const NURSING_LANDING_IDS_PATH = path.join(ROOT, 'scripts/lib/nursing-landing-path.mjs');",
+    );
+    expect(OPPORTUNITIES_SRC).toContain(
+      'const { NURSING_LANDING_IDS } = await import(NURSING_LANDING_IDS_PATH);',
+    );
+    expect(OPPORTUNITIES_SRC).toContain('const covered = await buildCoverage();');
+    expect(Array.isArray(NURSING_LANDING_IDS)).toBe(true);
+  });
+});
 
 describe('DOUBLE_VALIDATED thresholds (#4564 drift guard)', () => {
   it('are the expected values (catches an accidental rename/retune of the shared consts)', () => {

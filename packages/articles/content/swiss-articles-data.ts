@@ -22426,6 +22426,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'cambio-cassa-sondaggio',
+    category: 'novita',
+    date: '2026-10-02T06:43:45.942Z',
+    image: '/images/blog/cambio-cassa-sondaggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'deloitte-previsione-cambi-cassa-malati',
+    category: 'pratico',
+    date: '2026-10-02T06:54:48.904Z',
+    image: '/images/blog/deloitte-previsione-cambi-cassa-malati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'aprire-attivita-grigioni-guida-costi',
+    category: 'pratico',
+    date: '2026-10-02T07:24:44.114Z',
+    image: '/images/blog/aprire-attivita-grigioni-guida-costi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

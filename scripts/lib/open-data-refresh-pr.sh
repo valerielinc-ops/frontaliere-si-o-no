@@ -224,13 +224,14 @@ if [ -n "$REMOTE_HEAD" ]; then
     cd "$REFRESH_PUBLISH_WORKTREE"
     if [ "${#PUBLISH_PATHS[@]}" -gt 0 ]; then
       printf '/%s\n' "${PUBLISH_PATHS[@]}" | git sparse-checkout set --no-cone --stdin
+      PATHS=("${PUBLISH_PATHS[@]}")
     else
       git sparse-checkout set --no-cone --stdin </dev/null
+      PATHS=()
     fi
     git checkout --quiet
     # These are the real committed paths, already resolved through symlinks
     # by the initial stage. The sparse checkout need not include alias paths.
-    PATHS=("${PUBLISH_PATHS[@]}")
     RESOLVE_SYMLINKS=false
   fi
 fi
