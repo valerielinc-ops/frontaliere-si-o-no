@@ -63,6 +63,7 @@ import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
 import { isWeeklyJobMarketSnapshotPath } from './lib/weeklyJobMarketSections.mjs';
 import { isFuelSectionPath } from './lib/fuelSections.mjs';
 import { isEventsSectionPath } from './lib/eventsSections.mjs';
+import { isHealthPremiumsPath } from './lib/healthPremiumSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -337,6 +338,12 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // matcher covers the national index, every canton, digests and detail
       // pages across all locales.
       if (isEventsSectionPath(relPath)) return;
+      // Health-premium pages are structured insurer/canton/age records. Their
+      // differentiating premiums are numeric and intentionally masked by
+      // informationGain, so the shared methodology prose must not turn the
+      // canonical root, canton hubs, or age leaves into editorial cohorts.
+      // The matcher is backed by the same 732-route table as the TS router.
+      if (isHealthPremiumsPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
