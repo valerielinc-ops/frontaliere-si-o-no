@@ -7574,6 +7574,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Swiss LPP second pillar: 2026 guide for Geneva',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Practical guide to the 2026 LPP second pillar: contributions, buy-ins to cover gaps and pension planning in the canton of Geneva and at the national level.',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'LPP pension planning documents in a Swiss office',
+    'blog.article.bvg-lucerna-previdenza-2026.title': 'Swiss LPP second pillar: 2026 guide, canton of Lucerne',
+    'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'LPP contributions from 7% to 18% by age, withdrawals, buy-ins to fill gaps and planning: 2026 guide for the canton of Lucerne, with contributions and taxes in the Swiss context.',
+    'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Swiss second-pillar pension guide with a focus on the canton of Lucerne',
 };
 
 export default blogMetaChEn;

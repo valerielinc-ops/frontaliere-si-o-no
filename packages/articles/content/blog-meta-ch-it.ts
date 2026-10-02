@@ -7574,6 +7574,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Secondo pilastro LPP Svizzera: guida 2026 per Ginevra',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Guida pratica al secondo pilastro LPP 2026: contributi, riscatto lacune e pianificazione previdenziale nel canton Ginevra e a livello nazionale.',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'Documenti di pianificazione pensionistica LPP in un ufficio svizzero',
+    'blog.article.bvg-lucerna-previdenza-2026.title': 'Secondo pilastro LPP Svizzera: guida 2026, canton Lucerna',
+    'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'Contributi LPP dal 7% al 18% per età, prelievo, riscatto lacune e pianificazione: guida 2026 per il canton Lucerna, con contributi e imposte nel quadro svizzero.',
+    'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Guida al secondo pilastro LPP con focus sul canton Lucerna',
 };
 
 export default blogMetaChIt;

@@ -7574,6 +7574,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Deuxième pilier LPP en Suisse : guide 2026 pour Genève',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Guide pratique du deuxième pilier LPP 2026 : cotisations, rachat des lacunes et planification de la prévoyance dans le canton de Genève et au niveau national.',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'Documents de planification des retraites LPP dans un bureau suisse',
+    'blog.article.bvg-lucerna-previdenza-2026.title': 'Deuxième pilier LPP en Suisse : guide 2026, canton de Lucerne',
+    'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'Cotisations LPP de 7% à 18% selon l’âge, retraits, rachats de lacunes et planification : guide 2026 pour le canton de Lucerne, avec cotisations et impôts dans le cadre suisse.',
+    'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Guide du deuxième pilier suisse consacré au canton de Lucerne',
 };
 
 export default blogMetaChFr;

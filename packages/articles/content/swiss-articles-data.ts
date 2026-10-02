@@ -22750,6 +22750,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'laura-bianchi',
     authorName: 'Laura Bianchi',
    },
+   {
+    id: 'bvg-lucerna-previdenza-2026',
+    category: 'pensione',
+    date: '2026-10-02T22:04:40.257Z',
+    image: '/images/blog/bvg-lucerna-previdenza-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

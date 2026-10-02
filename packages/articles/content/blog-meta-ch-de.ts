@@ -7574,6 +7574,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Zweite Säule BVG Schweiz: Leitfaden 2026 für Genf',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Praktischer Leitfaden zur zweiten Säule BVG 2026: Beiträge, Einkauf zur Schließung von Vorsorgelücken und Vorsorgeplanung im Kanton Genf und auf nationaler Ebene.',
     'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'LPP-Pensionsplanungsunterlagen in einem Schweizer Büro',
+    'blog.article.bvg-lucerna-previdenza-2026.title': 'Zweite Säule BVG Schweiz: Leitfaden 2026, Kanton Luzern',
+    'blog.article.bvg-lucerna-previdenza-2026.excerpt': 'BVG-Beiträge von 7% bis 18% nach Alter, Bezug, Einkauf von Beitragslücken und Planung: Leitfaden 2026 für den Kanton Luzern, mit Beiträgen und Steuern im Schweizer Kontext.',
+    'blog.article.bvg-lucerna-previdenza-2026.imageAlt': 'Leitfaden zur Schweizer Pensionskasse mit Fokus auf den Kanton Luzern',
 };
 
 export default blogMetaChDe;
