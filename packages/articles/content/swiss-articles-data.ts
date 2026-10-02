@@ -22417,6 +22417,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'camere-sessione-autunnale',
+    category: 'novita',
+    date: '2026-10-02T06:31:38.041Z',
+    image: '/images/blog/camere-sessione-autunnale.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'cambio-cassa-sondaggio',
+    category: 'novita',
+    date: '2026-10-02T06:43:45.942Z',
+    image: '/images/blog/cambio-cassa-sondaggio.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

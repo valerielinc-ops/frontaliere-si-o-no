@@ -7463,6 +7463,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte forecasts up to 900,000 health insurance plan switches',
     'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte forecasts between 600,000 and 900,000 health insurance plan switches. Nearly half would consider switching for an additional 20 francs per month.',
     'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Swiss residents comparing health insurance premiums',
+    'blog.article.camere-sessione-autunnale.title': 'Federal Chambers: The fall session ends today',
+    'blog.article.camere-sessione-autunnale.excerpt': 'The fall session ends today in Bern. Final votes on 17 items are on the agenda for the Federal Assembly; the winter session will run from November 30 to December 18.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Swiss federal chambers in Bern as the autumn parliamentary session closes.',
+    'blog.article.cambio-cassa-sondaggio.title': '2027 Health Insurance Premiums: More People Are Switching Insurers',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estimates that 600,000 to 900,000 people will switch health insurance providers; by 2027, the average premium will rise by 5% to 412 francs per month.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents and calculator for reviewing Swiss health insurance premiums',
 };
 
 export default blogMetaChEn;

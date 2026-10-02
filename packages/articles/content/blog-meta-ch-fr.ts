@@ -7463,6 +7463,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte prévoit jusqu\'à 900 000 changements de caisse d\'assurance maladie',
     'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte prévoit entre 600\'000 et 900\'000 changements de caisse maladie. Près de la moitié des personnes concernées envisageraient de changer de caisse pour 20 francs supplémentaires par mois.',
     'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Des assurés suisses comparent les primes d\'assurance maladie',
+    'blog.article.camere-sessione-autunnale.title': 'Chambres fédérales : la session d\'automne s\'achève aujourd\'hui',
+    'blog.article.camere-sessione-autunnale.excerpt': 'La session d\'automne s\'achève aujourd\'hui à Berne. Les Chambres fédérales doivent se prononcer en vote final sur 17 objets ; la session d\'hiver se tiendra du 30 novembre au 18 décembre.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Chambres fédérales à Berne à la clôture de la session d\'automne.',
+    'blog.article.cambio-cassa-sondaggio.title': 'Cassa malati 2027: boom dei cambi in Svizzera',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estime que 600\'000 à 900\'000 personnes changeront de caisse-maladie ; en 2027, la prime moyenne augmentera de 5 % pour atteindre 412 francs par mois.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents et calcul pour examiner les primes d\'assurance maladie en Suisse',
 };
 
 export default blogMetaChFr;

@@ -7463,6 +7463,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte rechnet mit bis zu 900\'000 Krankenkassenwechseln',
     'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte rechnet mit 600\'000 bis 900\'000 Krankenkassenwechseln. Fast die Hälfte würde einen Wechsel in Kauf nehmen, wenn sie dafür 20 Franken mehr pro Monat bekäme.',
     'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Versicherte in der Schweiz vergleichen Krankenkassenprämien',
+    'blog.article.camere-sessione-autunnale.title': 'Eidgenössische Räte: Die Herbstsession endet heute',
+    'blog.article.camere-sessione-autunnale.excerpt': 'In Bern endet heute die Herbstsession. Auf der Tagesordnung der eidgenössischen Räte stehen Schlussabstimmungen über 17 Vorlagen; die Wintersession findet vom 30. November bis zum 18. Dezember statt.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Schweizer Bundesversammlung in Bern zum Abschluss der Herbstsession.',
+    'blog.article.cambio-cassa-sondaggio.title': 'Krankenkassenprämien 2027: Immer mehr Wechseln die Krankenkasse',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte schätzt, dass es zu 600\'000 bis 900\'000 Krankenkassenwechseln kommen wird; im Jahr 2027 wird der durchschnittliche Beitrag um 5 % auf 412 Franken pro Monat steigen.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Unterlagen und Rechner zur Prüfung der Schweizer Krankenkassenprämien',
 };
 
 export default blogMetaChDe;
