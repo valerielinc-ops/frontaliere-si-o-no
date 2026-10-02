@@ -18,6 +18,7 @@ import {
   htmlToText,
   isFetchablePublicUrl,
   isPrivateAddress,
+  resolveApplyUrl,
   resolvesToPublicHost,
 } from '../functions/src/assistedApplicationAiJob.js';
 
@@ -226,6 +227,47 @@ describe('application channel', () => {
     expect(classifyApplicationChannel({ applyUrl: 'https://www.spital.ch/jobs/pflege', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
     expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
     expect(classifyApplicationChannel({ applyUrl: 'https://www.linkedin.com/jobs/view/1', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+  });
+});
+
+describe('apply redirect (Coop: Prospective.ch → SAP SuccessFactors)', () => {
+  const posting = 'https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-schwerpunkt-baeckerei/20d53107-db26-4a35-8f4c-b4d15bb4bb31';
+  const redirect = 'https://ohws.prospective.ch/public/v1/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/';
+  const ats = 'https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044&jobPipeline=coop-internet';
+  const publicHost = async () => [{ address: '93.184.216.34', family: 4 }];
+  // jobs.coopjobs.ch as saved on 2026-10-02: the bookmark first, then the apply link.
+  const html = `<a class="text-btn" role="button">Später bewerben</a><h1>Bäcker:in</h1><a class="main-btn apply" target="_blank" href="${redirect}"> Jetzt bewerben </a>`;
+  const portal = (calls: string[]) => async (url: string, init: any = {}) => {
+    calls.push(`${init.method || 'GET'} ${url}`);
+    if (url === posting) return new Response(html, { status: 200, headers: { 'content-type': 'text/html;charset=UTF-8' } });
+    if (url === redirect) return new Response(null, { status: 303, headers: { location: ats } });
+    return new Response('', { status: 404 });
+  };
+
+  it('follows «Jetzt bewerben» to the ATS, without loading the ATS page', async () => {
+    const calls: string[] = [];
+    await expect(resolveApplyUrl(posting, { fetchImpl: portal(calls) as any, resolve: publicHost })).resolves.toEqual({ applyUrl: ats, via: 'prospective' });
+    expect(calls).toEqual([`GET ${posting}`, `HEAD ${redirect}`]);
+    const channel = classifyApplicationChannel({ applyUrl: (await resolveApplyUrl(posting, { fetchImpl: portal([]) as any, resolve: publicHost })).applyUrl });
+    expect(channel).toMatchObject({ type: 'successfactors', requiresAccount: true, host: 'career2.successfactors.eu' });
+  });
+
+  it('keeps the posting’s address when there is nothing to follow, or it cannot be followed safely', async () => {
+    const plain = async () => new Response('<a href="/apply">Jetzt bewerben</a>', { status: 200, headers: { 'content-type': 'text/html' } });
+    await expect(resolveApplyUrl('https://careers.example.ch/jobs/1', { fetchImpl: plain as any, resolve: publicHost })).resolves.toEqual({ applyUrl: 'https://careers.example.ch/jobs/1', via: '' });
+    // Already an ATS: no request at all.
+    const none: string[] = [];
+    await expect(resolveApplyUrl(ats, { fetchImpl: portal(none) as any, resolve: publicHost })).resolves.toEqual({ applyUrl: ats, via: '' });
+    expect(none).toEqual([]);
+    // The redirect leads to a private address: never followed.
+    const toPrivate = async (url: string) => (url === posting
+      ? new Response(html, { status: 200, headers: { 'content-type': 'text/html' } })
+      : new Response(null, { status: 303, headers: { location: 'https://internal.example/x' } }));
+    const resolve = async (host: string) => [{ address: host === 'internal.example' ? '10.0.0.5' : '93.184.216.34', family: 4 }];
+    await expect(resolveApplyUrl(posting, { fetchImpl: toPrivate as any, resolve })).resolves.toEqual({ applyUrl: posting, via: '' });
+    // A network error keeps the posting.
+    const failing = async () => { throw new Error('ECONNRESET'); };
+    await expect(resolveApplyUrl(posting, { fetchImpl: failing as any, resolve: publicHost })).resolves.toEqual({ applyUrl: posting, via: '' });
   });
 });
 

@@ -19,7 +19,7 @@ import {
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvChoiceOf } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
@@ -216,7 +216,12 @@ export async function submitApplication(ctx) {
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
   // or anything it must not bypass ends in the career-ops handoff below.
-  const applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  let applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  // A draft from before the ATS redirect was resolved (Coop's first order,
+  // 2026-10-02): the runner starts on the ATS, not on the career page in front of it.
+  if (channel.type === 'employer_site' && !channel.via && applyUrl && ctx.codex) {
+    applyUrl = (await resolveApplyUrl(applyUrl, { fetchImpl: ctx.fetchImpl || fetch, resolve: ctx.resolve })).applyUrl;
+  }
   if (WAVE1_CHANNELS.has(channel.type) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
     // twice. A run that died before the final click may start again.

@@ -30,6 +30,14 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('anything', {})).toBe('unknown');
   });
 
+  it('reads "Coop Genossenschaft" as Coop: its SuccessFactors pages name only the tenant', () => {
+    const job = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    // Coop's sign-in page, 2026-10-02: the company is only in the address.
+    expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
+    expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
+    expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
     const sendButton = { buttons: [{ text: 'Submit application', disabled: false }] };
     expect(urlConfirms('https://jobs.example/apply/review-and-confirm', { buttons: [] })).toBe(false);

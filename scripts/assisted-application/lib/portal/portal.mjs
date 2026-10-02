@@ -43,6 +43,10 @@ const MAX_AUTH_STEPS = 5;
 const INTL = { it: 'it-CH', de: 'de-CH', fr: 'fr-CH', en: 'en-GB' };
 // Anywhere in the label: Personio says "Auf diese Stelle bewerben".
 export const APPLY_RE = /(\bapply\b|bewerben\b|bewerbung starten|zur bewerbung|\bcandidati\b|\bcandidarsi\b|invia (la tua )?candidatura|\bpostuler\b|\bpostulez\b|je postule)/i;
+// «Später bewerben» on Prospective.ch's career pages (Coop, 2026-10-02) keeps
+// the posting for later by e-mail: never the way into the form.
+export const APPLY_LATER_RE = /(später|spaeter|\blater\b|più tardi|piu tardi|plus tard|merken)/i;
+const startsApplication = (text) => APPLY_RE.test(text) && !APPLY_LATER_RE.test(text);
 const OUTCOME_TIMEOUT_MS = 25_000;
 // Scans that only look for buttons, a CAPTCHA or a login never open listboxes (see extractFields).
 const NAVIGATION = { listboxOptions: false };
@@ -241,10 +245,45 @@ const MANUAL_APPLY_RE = /^(manuell bewerben|apply manually|candidarsi manualment
 
 export async function dismissCookieBanner(page, snapshot) {
   const button = findButton(snapshot.buttons, COOKIE_REJECT_RE) || findButton(snapshot.buttons, COOKIE_ACCEPT_RE);
-  if (!button) return false;
-  await clickButton(page, button).catch(() => {});
+  if (button) {
+    await clickButton(page, button).catch(() => {});
+    await page.waitForTimeout(800);
+    return true;
+  }
+  // A banner inside a shadow root (Usercentrics on Coop's career pages,
+  // 2026-10-02) is out of the page scan's reach while its overlay takes every
+  // click. Only a shadow root's own buttons: marked in the page, clicked by a
+  // CSS locator (it pierces open shadow roots).
+  if (!await markShadowCookieButton(page)) return false;
+  await page.locator('[data-aa-cookie="1"]').first().click({ timeout: 6_000 }).catch(() => {});
   await page.waitForTimeout(800);
   return true;
+}
+
+async function markShadowCookieButton(page) {
+  return page.evaluate(([reject, accept]) => {
+    const roots = [document];
+    const shadows = [];
+    for (let index = 0; index < roots.length && index < 50; index += 1) {
+      for (const element of roots[index].querySelectorAll('*')) {
+        if (!element.shadowRoot) continue;
+        roots.push(element.shadowRoot);
+        shadows.push(element.shadowRoot);
+      }
+    }
+    for (const source of [reject, accept]) {
+      const pattern = new RegExp(source, 'i');
+      for (const shadow of shadows) {
+        const button = [...shadow.querySelectorAll('button, [role="button"]')]
+          .find((element) => element.getBoundingClientRect().width > 0 && pattern.test(String(element.innerText || element.textContent || '').trim()));
+        if (button) {
+          button.setAttribute('data-aa-cookie', '1');
+          return true;
+        }
+      }
+    }
+    return false;
+  }, [COOKIE_REJECT_RE.source, COOKIE_ACCEPT_RE.source]).catch(() => false);
 }
 
 /**
@@ -257,8 +296,8 @@ async function openApplicationForm(context, page, snapshot) {
     if (await dismissCookieBanner(page, snapshot)) snapshot = await extractFields(page, NAVIGATION);
     if (hasApplicationForm(snapshot)) return { page, snapshot };
     const manual = findButton(snapshot.buttons, MANUAL_APPLY_RE);
-    const apply = manual ? null : findButton(snapshot.buttons, APPLY_RE);
-    const link = manual || apply ? null : await page.getByRole('link', { name: APPLY_RE }).first().elementHandle().catch(() => null);
+    const apply = manual ? null : snapshot.buttons.find((button) => !button.disabled && startsApplication(button.text)) || null;
+    const link = manual || apply ? null : await page.getByRole('link', { name: APPLY_RE }).filter({ hasNotText: APPLY_LATER_RE }).first().elementHandle().catch(() => null);
     if (!manual && !apply && !link) return { page, snapshot };
     const popup = context.waitForEvent('page', { timeout: 6000 }).catch(() => null);
     if (manual || apply) await clickButton(page, manual || apply);
@@ -272,8 +311,9 @@ async function openApplicationForm(context, page, snapshot) {
 }
 
 const normalizeWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, ' ');
-// Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc".
-const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
+// Legal forms and short words name no company: "Ospedale ABC SA" is "ospedale abc",
+// "Coop Genossenschaft" is "coop" (its SuccessFactors pages say only "Coop").
+const NOT_A_NAME = new Set(['sa', 'ag', 'gmbh', 'sagl', 'srl', 'spa', 'sarl', 'ltd', 'inc', 'llc', 'kg', 'genossenschaft', 'cooperativa', 'cooperative', 'the', 'und', 'and', 'del', 'della', 'des', 'les', 'der', 'die', 'das']);
 const nameWords = (text) => normalizeWords(text).split(' ').filter((word) => word.length >= 3 && !NOT_A_NAME.has(word) && !/^\d+$/.test(word));
 
 /**
@@ -352,6 +392,27 @@ async function verifyAccount({ page, host, sinceMs, ctx, snapshot }) {
   return { snapshot: after, reopen: true };
 }
 
+// SuccessFactors' required privacy statement (Coop, 2026-10-02) is no box: a
+// link opens a dialog, only once the country is chosen, whose «Akzeptieren»
+// fills a hidden field. The application's own required consent (plan.mjs),
+// never a newsletter or a job alert.
+export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|lire et accepter|read and accept)/i;
+const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|accetta|accetto|accettare|accepter|j'accepte)$/i;
+
+/** @returns {Promise<'none'|'accepted'|'unavailable'>} */
+async function acceptPrivacyStatement(page, snapshot) {
+  const trigger = findButton(snapshot.buttons, PRIVACY_STATEMENT_RE);
+  if (!trigger) return 'none';
+  await clickButton(page, trigger).catch(() => {});
+  try {
+    await page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first().click({ timeout: 8_000 });
+  } catch {
+    return 'unavailable';
+  }
+  await page.waitForTimeout(800);
+  return 'accepted';
+}
+
 /**
  * One login page (account.mjs): sign in with the order's account, or create
  * it on the alias, or verify it. Returns the next page, a handoff reason,
@@ -404,10 +465,13 @@ async function handleAuth({ page, snapshot, ctx }) {
   const passwordActions = snapshot.fields.filter((field) => field.inputType === 'password')
     .map((field) => ({ fieldId: field.id, action: 'fill', value: password }));
   await applyActions(page, snapshot.fields, [...plan.actions, ...passwordActions], ctx.files);
+  // After the fields: SuccessFactors opens its statement only for a chosen country.
+  const privacy = await acceptPrivacyStatement(page, await extractFields(page, NAVIGATION));
+  const noted = (result) => (privacy === 'none' ? result : { ...result, privacy });
   const filled = await extractFields(page, NAVIGATION);
   if (!await clickFirst(page, filled, [CREATE_ACCOUNT_RE, SUBMIT_RE, NEXT_RE])) {
     await ctx.accounts.discard(host, 'no_create_button');
-    return { handoff: 'account' };
+    return noted({ handoff: 'account' });
   }
   await settle(page);
   const after = await extractFields(page);
@@ -415,11 +479,11 @@ async function handleAuth({ page, snapshot, ctx }) {
   if (outcome === 'refused') {
     // No account exists: the next run creates it again instead of signing in.
     await ctx.accounts.discard(host, 'registration_refused');
-    return { handoff: 'account_create_refused' };
+    return noted({ handoff: 'account_create_refused' });
   }
   await ctx.accounts.mark(host, { status: 'created' });
-  if (outcome === 'verify') return verifyAccount({ page, host, sinceMs, ctx, snapshot: after });
-  return { snapshot: after, reopen: !after.passwordVisible };
+  if (outcome === 'verify') return noted(await verifyAccount({ page, host, sinceMs, ctx, snapshot: after }));
+  return noted({ snapshot: after, reopen: !after.passwordVisible });
 }
 
 /**
@@ -645,9 +709,13 @@ export async function submitViaPortal(ctx) {
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const match = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`, ctx.job);
+    const formMatch = async () => postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`, ctx.job);
+    const match = await formMatch();
     evidence.postingMatch = match;
-    if (match === 'mismatch' && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
+    // A sign-in page often names neither the company nor the role
+    // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
+    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ctx.skipPostingCheck;
+    if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
@@ -700,7 +768,11 @@ export async function submitViaPortal(ctx) {
       if (snapshot.passwordVisible) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
         const auth = await handleAuth({ page, snapshot, ctx });
-        evidence.steps.at(-1).auth = { kind: authPageKind(snapshot), outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok') };
+        evidence.steps.at(-1).auth = {
+          kind: authPageKind(snapshot),
+          outcome: auth.handoff || (auth.questions ? 'questions' : auth.dryRun ? 'dry_run' : 'ok'),
+          ...(auth.privacy ? { privacy: auth.privacy } : {}),
+        };
         if (auth.handoff) return await handoff(auth.handoff);
         if (auth.questions) return { event: { type: 'submit_needs_candidate', questions: auth.questions }, evidence };
         if (auth.dryRun) {
@@ -718,6 +790,11 @@ export async function submitViaPortal(ctx) {
         }
         step -= 1; // a login page is not a form page
         continue;
+      }
+      if (postingCheckPending) {
+        postingCheckPending = false;
+        evidence.postingMatch = await formMatch();
+        if (evidence.postingMatch === 'mismatch') return await handoff('posting_mismatch');
       }
       // Inside the form, any page with a field is planned: a step with one
       // question and its Next disabled until it is answered (JOIN's work

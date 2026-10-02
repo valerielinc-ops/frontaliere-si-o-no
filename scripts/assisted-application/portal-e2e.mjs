@@ -12,6 +12,8 @@
  * activation link from the inbox → sign-in → form (CV upload) → submit →
  * confirmation. Three runs: a dry run (stops before creating the account),
  * the first real run (creates, verifies, applies), a second one (signs in).
+ * The same for Coop's way in (2026-10-02): its career page, the Prospective.ch
+ * redirect, SuccessFactors' registration with its privacy-statement dialog.
  */
 import http from 'node:http';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
@@ -25,9 +27,13 @@ import { applyActions } from './lib/portal/fill.mjs';
 import { normalizeLabel } from './lib/portal/knowledge.mjs';
 
 const ALIAS = 'c-abcdefghjk@candidature.frontaliereticino.ch';
+// The tenant id in the address names no company: the posting is checked on the form.
+const SF_JOB = '/sf/career?company=tenant1000103&career_ns=job_application&career_job_req_id=170044';
 
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
+  // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [] };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -43,6 +49,84 @@ function fakePortal() {
     const redirect = (to, headers = {}) => { res.writeHead(303, { location: to, ...headers }); res.end(); };
     const route = `${req.method} ${url.pathname}`;
     if (route === 'GET /job') return send(page('Pflegefachperson', '<h1>Pflegefachperson 80%</h1><a href="/login">Jetzt bewerben</a>'));
+    // jobs.coopjobs.ch as seen on 2026-10-02: «Später bewerben» (a bookmark by
+    // e-mail) comes first, a Usercentrics banner in a shadow root covers the
+    // page, «Jetzt bewerben» opens the ATS redirect in a new tab.
+    if (route === 'GET /coop-job') {
+      return send(page('Coop: Bäcker:in - Konditor:in', `<header><a role="button" tabindex="0" href="/coop-later">Später bewerben</a></header>
+        <h1>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h1><p>Coop Genossenschaft, Rickenbach</p>
+        <a class="main-btn apply" target="_blank" href="/ohws/redirect/20d53107-db26-4a35-8f4c-b4d15bb4bb31/ats/">Jetzt bewerben</a>
+        <div id="usercentrics-root"></div><script>
+          const host = document.getElementById('usercentrics-root');
+          const root = host.attachShadow({ mode: 'open' });
+          root.innerHTML = '<div style="position:fixed;inset:0;z-index:2147483647;background:rgba(0,0,0,.3)"><div role="dialog" aria-label="Privatsphäre"><button type="button">Einstellungen verwalten</button><button type="button" id="all">Alle akzeptieren</button></div></div>';
+          root.getElementById('all').addEventListener('click', () => host.remove());
+        </script>`));
+    }
+    if (route === 'GET /coop-later') {
+      coop.later += 1;
+      return send(page('Später bewerben', '<p>Wir senden dir den Link per E-Mail.</p>'));
+    }
+    if (url.pathname.startsWith('/ohws/redirect/')) return redirect(SF_JOB);
+    if (route === 'GET /sf/career') {
+      if (coop.sessions.has(sessionOf(req))) {
+        return send(page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>${form('/sf/apply', '<label for="v">Vorname: *</label><input id="v" name="first" required><label for="n">Nachname: *</label><input id="n" name="last" required><label for="m">E-Mail-Adresse: *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf: *</label><input id="cv" type="file" name="cv" required><button type="button">Entwurf speichern</button><button type="submit">Bewerben</button>', true)}`));
+      }
+      return send(page('Karrierechancen: Anmelden', `<p>Haben Sie schon ein Konto? Mit bestehendem Profil anmelden und bewerben</p>${form('/sf/login', '<label for="u">E-Mail-Adresse:*</label><input id="u" type="text" name="username" required><label for="p">Kennwort:*</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<p><a href="/sf/register">Noch kein Profil? Hier registrieren</a> und direkt bewerben</p>`));
+    }
+    if (route === 'POST /sf/login') {
+      const body = new URLSearchParams(await readBody(req));
+      if (coop.accounts.get(body.get('username')) !== body.get('password')) return send(page('Karrierechancen: Anmelden', '<p role="alert">Ungültige Anmeldedaten</p>'));
+      const sid = Math.random().toString(36).slice(2);
+      coop.sessions.add(sid);
+      return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
+    }
+    // «Konto anlegen»: the privacy statement opens only for a chosen country, in a dialog.
+    if (route === 'GET /sf/register') {
+      return send(page('Karrierechancen: Konto anlegen', `${form('/sf/register', `<label for="e1">E-Mail-Adresse: *</label><input id="e1" type="text" name="email" required>
+        <label for="e2">E-Mail-Adresse erneut eingeben: *</label><input id="e2" type="text" name="email2" required>
+        <label for="p1">Wähle ein Kennwort: *</label><input id="p1" type="password" name="p1" required>
+        <label for="p2">Kennwort erneut eingeben: *</label><input id="p2" type="password" name="p2" required>
+        <label for="f">Vorname: *</label><input id="f" name="first" required><label for="l">Nachname: *</label><input id="l" name="last" required>
+        <label for="c">Land/Region des Wohnorts:*</label><select id="c" name="country" required><option value="">- Bitte auswählen -</option><option value="CH">Schweiz</option><option value="IT">Italien</option></select>
+        <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
+        <input type="hidden" id="dpcs" name="dpcs" value="">
+        <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
+        <button type="submit">Konto anlegen</button>`)}
+        <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><button type="button" id="ok">Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
+        <script>
+          const dialog = document.getElementById('dpcsDialog');
+          document.getElementById('dataPrivacyId').addEventListener('click', () => { if (document.getElementById('c').value) dialog.hidden = false; });
+          document.getElementById('ok').addEventListener('click', () => { document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
+          document.getElementById('no').addEventListener('click', () => { dialog.hidden = true; });
+        </script>`));
+    }
+    if (route === 'POST /sf/register') {
+      const body = new URLSearchParams(await readBody(req));
+      const password = String(body.get('p1') || '');
+      const problems = [
+        body.get('email') !== body.get('email2') && 'email',
+        (password !== body.get('p2') || password.length < 8 || password.length > 18 || !/[A-Z]/.test(password) || !/[a-z]/.test(password) || !/[0-9\W]/.test(password)) && 'password',
+        (!body.get('first') || !body.get('last')) && 'name',
+        !body.get('country') && 'country',
+        body.get('dpcs') !== '1' && 'dpcs',
+      ].filter(Boolean);
+      if (body.get('abo')) coop.jobAbo = true;
+      if (problems.length) {
+        coop.refused.push(problems.join(','));
+        return send(page('Karrierechancen: Konto anlegen', `<p role="alert">${problems.join(', ')} ist erforderlich</p>`));
+      }
+      coop.privacyAccepted += 1;
+      coop.accounts.set(body.get('email'), password);
+      const sid = Math.random().toString(36).slice(2);
+      coop.sessions.add(sid);
+      return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
+    }
+    if (route === 'POST /sf/apply') {
+      const raw = await readBody(req);
+      coop.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
+    }
     if (route === 'GET /login') {
       if (state.sessions.has(sessionOf(req))) return redirect('/apply');
       return send(page('Anmelden', `${form('/login', '<label for="e">E-Mail-Adresse</label><input id="e" type="email" name="email" required><label for="p">Kennwort</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<a href="/register">Konto erstellen</a>`));
@@ -155,7 +239,7 @@ function fakePortal() {
     res.writeHead(404);
     res.end();
   });
-  return { server, state };
+  return { server, state, coop };
 }
 
 /**
@@ -188,6 +272,7 @@ async function fakeCodex({ prompt }) {
     if (/e-?mail/i.test(field.label)) return act('fill', ALIAS);
     if (/datenschutz/i.test(field.label)) return act('check', '', { source: 'consent' });
     if (/vorname/i.test(field.label)) return act('fill', 'Luca');
+    if (/land\/region/i.test(field.label)) return act('select', 'Italien', { source: 'profile' });
     if (/nachname/i.test(field.label)) return act('fill', 'Bianchi');
     if (field.kind === 'file') return act('upload', '', { document: 'cv', source: 'documents' });
     return act('skip', '', { source: 'rule' });
@@ -196,7 +281,7 @@ async function fakeCodex({ prompt }) {
 }
 
 async function main() {
-  const { server, state } = fakePortal();
+  const { server, state, coop } = fakePortal();
   await new Promise((resolve) => server.listen(0, '127.0.0.1', resolve));
   const base = `http://127.0.0.1:${server.address().port}`;
   const saved = new Map();
@@ -408,6 +493,29 @@ async function main() {
     const moved = await run({ applyUrl: `${base}/refused-moved` });
     check('a refusal on the error page the portal moved to is a refusal too', moved.event.type === 'submit_failed'
       && moved.event.error === 'portal_refused' && moved.evidence.finalUrl.endsWith('/refused-moved/error'));
+    // Coop (2026-10-02): career page → Prospective.ch redirect → SuccessFactors, on an account of its own.
+    const coopSaved = new Map();
+    const coopAccounts = {
+      async load(host) { return coopSaved.get(host) || null; },
+      async save(host, { email, password }) { coopSaved.set(host, { email, password, createdAt: Date.now(), verifiedAt: null }); },
+      async mark(host, patch) { coopSaved.set(host, { ...coopSaved.get(host), ...patch }); },
+      async discard(host) { coopSaved.delete(host); },
+      async waitForVerification() { return null; },
+    };
+    const coopJob = { company: 'Coop Genossenschaft', title: 'Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)' };
+    const coopDry = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts, dryRun: true });
+    check('Coop: past the shadow cookie banner, «Jetzt bewerben» (never «Später bewerben») reaches SuccessFactors’ registration', coopDry.event.type === 'dry_run_ready'
+      && coopDry.event.stage === 'account' && coop.later === 0 && coop.accounts.size === 0);
+    const coopFirst = await run({ applyUrl: `${base}/coop-job`, job: coopJob, accounts: coopAccounts });
+    const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
+    check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
+      coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
+      && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
+    check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
+    const coopAgain = await run({ applyUrl: `${base}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
+      && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
       && agentSteps.length === 1 && agentSteps[0].agent[0].status === 'done');

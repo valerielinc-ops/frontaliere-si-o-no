@@ -116,6 +116,53 @@ export async function fetchPublicPage(fetchImpl, startUrl, resolve = lookup) {
   return null;
 }
 
+// ── Apply redirect ─────────────────────────────────────────────────────────
+
+// Prospective.ch career pages (Coop's jobs.coopjobs.ch, 2026-10-02) send
+// «Jetzt bewerben» through a redirect to the employer's ATS (SAP SuccessFactors).
+const ATS_REDIRECT_RE = /https:\/\/ohws\.prospective\.ch\/public\/v1\/redirect\/[0-9a-f-]{36}\/ats\/?/i;
+
+/** Where a redirect ends, each hop re-validated like fetchPublicPage; '' when it does not end. */
+async function redirectTarget(fetchImpl, startUrl, resolve) {
+  let url = startUrl;
+  for (let hop = 0; hop <= MAX_REDIRECTS; hop += 1) {
+    if (!(await resolvesToPublicHost(url, resolve))) return '';
+    // An ATS reached: its page is not needed, only its address.
+    if (hop > 0 && portalOf(url)) return url;
+    const response = await fetchWithTimeout(fetchImpl, url, { method: 'HEAD', redirect: 'manual' });
+    const location = response.headers?.get?.('location');
+    if (!(response.status >= 300 && response.status < 400 && location)) return hop > 0 && response.ok ? url : '';
+    url = new URL(location, url).toString();
+  }
+  return '';
+}
+
+/**
+ * The address «Apply» really leads to when the posting page sends it through
+ * a known ATS redirect: the channel is then the ATS's (its account, its
+ * quirks), not "Sito del datore". Any problem keeps the posting's address.
+ * @returns {Promise<{applyUrl:string, via:string}>} `via` is '' when nothing changed
+ */
+export async function resolveApplyUrl(applyUrl, { fetchImpl = fetch, resolve = lookup } = {}) {
+  const url = String(applyUrl || '').trim();
+  const kept = { applyUrl: url, via: '' };
+  if (!isFetchablePublicUrl(url) || portalOf(url)) return kept;
+  try {
+    let redirect = ATS_REDIRECT_RE.exec(url)?.[0] || '';
+    if (!redirect) {
+      const response = await fetchPublicPage(fetchImpl, url, resolve);
+      if (!response?.ok || !String(response.headers?.get?.('content-type') || '').includes('html')) return kept;
+      redirect = ATS_REDIRECT_RE.exec((await response.text()).slice(0, MAX_PAGE_BYTES))?.[0] || '';
+    }
+    if (!redirect) return kept;
+    const target = await redirectTarget(fetchImpl, redirect, resolve);
+    return target ? { applyUrl: target, via: 'prospective' } : kept;
+  } catch (error) {
+    console.warn('[assistedApplicationAi] apply redirect not resolved', error instanceof Error ? error.message : String(error));
+    return kept;
+  }
+}
+
 function salaryText(baseSalary) {
   const value = baseSalary?.value;
   if (!value || typeof value !== 'object') return '';
@@ -213,6 +260,16 @@ const PORTALS = [
 // The employers' own application portals (not job boards): used even when the
 // posting also names an e-mail address.
 const APPLICANT_TRACKING_SYSTEMS = new Set(['workday', 'successfactors', 'umantis', 'refline', 'smartrecruiters', 'lever', 'greenhouse', 'personio', 'softgarden']);
+
+/** The known portal an address is on, or null. */
+function portalOf(url) {
+  try {
+    const host = new URL(url).hostname.toLowerCase();
+    return PORTALS.find((candidate) => candidate.re.test(host)) || null;
+  } catch {
+    return null;
+  }
+}
 
 const EMAIL_ONLY_RE = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
 

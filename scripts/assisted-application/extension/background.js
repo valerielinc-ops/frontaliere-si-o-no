@@ -80,8 +80,14 @@ async function handle(message, sender) {
       const portal = tabs[0]?.entry;
       if (!portal) return { ok: false, error: 'no_order_tab' };
       if (url.protocol !== 'https:' && !isLoopback(url)) return { ok: false, error: 'not_https' };
-      const portalSite = siteOf(new URL(portal.kit.applyUrl).hostname);
-      if (siteOf(url.hostname) !== portalSite) return { ok: false, error: 'other_site' };
+      // The kit's portal, or the one a tab of the order moved on to (Coop: the
+      // career page hands over to SuccessFactors in a new tab).
+      const sites = new Set([siteOf(new URL(portal.kit.applyUrl).hostname)]);
+      for (const { tabId } of tabs) {
+        const open = await chrome.tabs.get(tabId).catch(() => null);
+        if (/^https?:/.test(open?.url || '')) sites.add(siteOf(new URL(open.url).hostname));
+      }
+      if (!sites.has(siteOf(url.hostname))) return { ok: false, error: 'other_site' };
       const tab = await chrome.tabs.create({ url: 'about:blank', active: true });
       await chrome.storage.session.set({ [tabKey(tab.id)]: { ...portal, openedAt: Date.now(), verification: true } });
       await chrome.tabs.update(tab.id, { url: url.href });
@@ -117,6 +123,17 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 chrome.tabs.onUpdated.addListener(async (tabId, info) => {
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
   await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'filler.js', 'content.js'] }).catch(() => {});
+});
+
+// A posting that opens its form in a new tab (Coop's «Jetzt bewerben» goes to
+// SuccessFactors with target=_blank, 2026-10-02): the new tab keeps the
+// order's kit, so the engine is injected there too. Only from the posting:
+// a link a form opens (a job alert, a privacy statement) gets nothing.
+chrome.tabs.onCreated.addListener(async (tab) => {
+  if (tab.openerTabId == null) return;
+  const entry = await entryFor(tab.openerTabId);
+  if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tab.id)) return;
+  await chrome.storage.session.set({ [tabKey(tab.id)]: { ...entry, openedAt: Date.now(), openedFrom: tab.openerTabId } });
 });
 
 chrome.tabs.onRemoved.addListener((tabId) => {
