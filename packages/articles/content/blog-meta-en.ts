@@ -12371,6 +12371,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-a2-mendrisio-code.title': 'A2 accident in Mendrisio: queues for cross-border commuters',
     'blog.article.incidente-a2-mendrisio-code.excerpt': 'Accident in Coldrerio on the A2: a 68-year-old woman slightly injured, a 73-year-old man in life-threatening condition, and delays of up to an hour and a half toward Chiasso for cross-border commuters.',
     'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Traffic slowed on the A2 near Mendrisio after an accident in Coldrerio',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.title': 'S50 breakdown in Busto Arsizio: passengers stranded for 3 hours',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.excerpt': 'On 29 September, an S50 Malpensa-Bellinzona train remained stopped for more than three hours 200 meters from the station. Europa Verde asks Rfi and Trenord for explanations.',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.imageAlt': 'S50 train stopped on tracks near Busto Arsizio station',
 };
 
 export default blogMetaEn;

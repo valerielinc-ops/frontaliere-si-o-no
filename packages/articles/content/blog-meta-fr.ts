@@ -12373,6 +12373,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-a2-mendrisio-code.title': 'Accident A2 à Mendrisio : bouchons pour les frontaliers',
     'blog.article.incidente-a2-mendrisio-code.excerpt': 'Incident à Coldrerio sur l’A2 : une femme de 68 ans légèrement blessée, un homme de 73 ans en danger de mort et des retards allant jusqu’à une heure et demie en direction de Chiasso pour les frontaliers.',
     'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Trafic ralenti sur l\'A2 près de Mendrisio après un accident à Coldrerio',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.title': 'Panne du S50 à Busto Arsizio : passagers bloqués pendant 3 heures',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.excerpt': 'Le 29 septembre, un train S50 Malpensa-Bellinzona est resté à l\'arrêt pendant plus de trois heures à 200 mètres de la gare. Europa Verde demande des explications à Rfi et Trenord.',
+    'blog.article.guasto-treno-s50-busto-arsizio-2026.imageAlt': 'Train S50 arrêté sur les voies près de la gare de Busto Arsizio',
 };
 
 export default blogMetaFr;
