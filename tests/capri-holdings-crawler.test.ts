@@ -13,8 +13,10 @@ import {
   isCapriHoldingsSwissJob,
   isCapriHoldingsJob,
   CAPRI_WORKDAY_HOSTS,
+  WORKDAY_SITES,
 } from '@/scripts/lib/capri-holdings-job-parser.mjs';
 import {
+  fetchCapriHoldingsJobs,
   assertWorkdayPage,
   assertUniqueWorkdayPostings,
   listSwissJobs,
@@ -303,6 +305,30 @@ describe('Capri Workday location resolution', () => {
 
     expect(jobs).toHaveLength(40);
     expect(offset20Attempts).toBe(1);
+  });
+});
+
+describe('Capri Workday brand sites', () => {
+  // Versace's site on the capri tenant answers 403 S22 since the 2026-10-01
+  // runs (corpus runs 36842478998, 36928432579) and failed the whole crawler.
+  it('never queries the decommissioned Versace site', async () => {
+    const requested: string[] = [];
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+      requested.push(String(url));
+      if (String(url).includes('/Versace/')) {
+        return new Response(
+          JSON.stringify({ errorCode: 'S22', httpStatus: 403, message: 'permission denied' }),
+          { status: 403 },
+        );
+      }
+      return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+    }));
+
+    await expect(fetchCapriHoldingsJobs()).resolves.toEqual([]);
+
+    expect(WORKDAY_SITES.map((entry) => entry.site)).toEqual(['Michael_Kors']);
+    expect(requested.length).toBeGreaterThan(0);
+    expect(requested.every((url) => url.includes('/Michael_Kors/'))).toBe(true);
   });
 });
 
