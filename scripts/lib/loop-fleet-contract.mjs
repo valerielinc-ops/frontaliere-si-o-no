@@ -558,6 +558,20 @@ function sourceRefsMatch(actual, expected) {
     && expected.every((sourceRef) => actual.includes(sourceRef));
 }
 
+export function historicalSourceRefsMatchPolicy(actual, {
+  historicalSourceRefs = [],
+  historicalSourceRefsBefore = null,
+  recordedAt = null,
+} = {}) {
+  if (!historicalSourceRefsBefore) return false;
+  const recordedAtMs = Date.parse(String(recordedAt ?? ''));
+  const cutoffMs = Date.parse(String(historicalSourceRefsBefore));
+  return Number.isFinite(recordedAtMs)
+    && Number.isFinite(cutoffMs)
+    && recordedAtMs < cutoffMs
+    && historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(actual, sourceRefs));
+}
+
 function validateOutcomeAgainstPolicyInternal(registry, loopId, outcome, allowHistorical) {
   const policy = findLoopPolicy(registry, loopId);
   if (!outcome || typeof outcome !== 'object' || Array.isArray(outcome)) {
@@ -575,9 +589,11 @@ function validateOutcomeAgainstPolicyInternal(registry, loopId, outcome, allowHi
   }
   const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.outcome.sourceRefs);
   const historicalSourceRefsMatch = allowHistorical
-    && policy.outcome.historicalSourceRefsBefore
-    && Date.parse(normalized.recordedAt) < Date.parse(policy.outcome.historicalSourceRefsBefore)
-    && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
+    && historicalSourceRefsMatchPolicy(normalized.sourceRefs, {
+      historicalSourceRefs: policy.outcome.historicalSourceRefs,
+      historicalSourceRefsBefore: policy.outcome.historicalSourceRefsBefore,
+      recordedAt: normalized.recordedAt,
+    });
   if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.outcome.sourceRefs must exactly match the registry declaration`);
   }
@@ -692,9 +708,11 @@ function validateLifecycleEventInternal(registry, loopId, event, allowHistorical
   const normalized = buildLifecycleEvent(event);
   const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.sourceRefs);
   const historicalSourceRefsMatch = allowHistorical
-    && policy.outcome.historicalSourceRefsBefore
-    && Date.parse(normalized.recordedAt) < Date.parse(policy.outcome.historicalSourceRefsBefore)
-    && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
+    && historicalSourceRefsMatchPolicy(normalized.sourceRefs, {
+      historicalSourceRefs: policy.outcome.historicalSourceRefs,
+      historicalSourceRefsBefore: policy.outcome.historicalSourceRefsBefore,
+      recordedAt: normalized.recordedAt,
+    });
   if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.lifecycle event sourceRefs must exactly match the registry declaration`);
   }

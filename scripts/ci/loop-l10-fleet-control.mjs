@@ -21,6 +21,7 @@ import {
   buildObservation,
   loadLoopPolicyForRun,
   QUALITY_STATES,
+  historicalSourceRefsMatchPolicy,
   validateActionClassAgainstPolicy,
   validateHistoricalOutcomeAgainstPolicy,
   validateOutcomeAgainstPolicy,
@@ -386,9 +387,16 @@ function validateCanonicalHealthHistory(history, {
         rowIssues.push('operationalMetricsComplete does not match the persisted fields');
         operationalMetricsComplete = false;
       }
-      if (policy && Array.isArray(row.sourceRefs)
-          && JSON.stringify(row.sourceRefs) !== JSON.stringify(policy.sourceRefs)) {
-        rowIssues.push('sourceRefs do not match the registry');
+      if (policy && Array.isArray(row.sourceRefs)) {
+        const currentSourceRefsMatch = JSON.stringify(row.sourceRefs) === JSON.stringify(policy.sourceRefs);
+        const historicalSourceRefsMatch = historicalSourceRefsMatchPolicy(row.sourceRefs, {
+          historicalSourceRefs: policy.outcome.historicalSourceRefs,
+          historicalSourceRefsBefore: policy.outcome.historicalSourceRefsBefore,
+          recordedAt: row.recordedAt,
+        });
+        if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
+          rowIssues.push('sourceRefs do not match the registry');
+        }
       }
       for (const field of ['issueCount', 'warningCount', 'candidateCount']) {
         if (row[field] !== null && row[field] !== undefined && !integer(row[field])) {
