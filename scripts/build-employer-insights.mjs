@@ -2738,9 +2738,10 @@ function exactGa4EventExpression(eventName) {
  * Keep the GA4 report contract in one place. `pagePath` is intentional: the
  * static gtag pageview has no custom employer parameters, so the existing
  * explicit route aliases can still attribute that signal without guessing.
- * `emission_id` is requested only by the D18 evidence probe. The ordinary
- * employer snapshot keeps the supported dimension set, while the probe can
- * fail closed until the GA4 custom dimension is registered and populated.
+ * `emission_id` is requested for the D18 artifact's primary GA4 report and
+ * live evidence probe. Ordinary employer snapshots keep the supported
+ * dimension set, while the D18 path can fail closed until the custom
+ * dimension is registered and populated.
  */
 export function buildGa4EventQueryBody(window, {
   limit = GA4_EVENT_QUERY_PAGE_SIZE,
@@ -2959,7 +2960,7 @@ export async function queryGa4EmissionEvidence(window, options = {}) {
   const firstCompleteTime = Date.parse(firstCompleteIdentityAt || '');
   const requestedFrom = Date.parse(window?.from || '');
   if (!Number.isFinite(firstCompleteTime) || !Number.isFinite(requestedFrom) || firstCompleteTime <= requestedFrom) {
-    return { initial, result: initial, window };
+    return { result: initial, window };
   }
 
   const narrowedWindow = d18ReportWindow({
@@ -2969,7 +2970,7 @@ export async function queryGa4EmissionEvidence(window, options = {}) {
     inclusive: '[from,to)',
   });
   const narrowed = await queryGa4EventRows(narrowedWindow, queryOptions);
-  return { initial, result: narrowed, window: narrowedWindow };
+  return { result: narrowed, window: narrowedWindow };
 }
 
 function d18ReportWindow(window) {
@@ -3000,7 +3001,7 @@ function d18CurrentEvidenceWindow(window) {
  * allowed to observe the next settled/provider-visible day after a deploy.
  * The evidence query remains fail-closed on missing IDs or incomplete rows.
  */
-function d18LiveEvidenceWindow(window, now = new Date()) {
+export function d18LiveEvidenceWindow(window, now = new Date()) {
   const normalized = d18ReportWindow(window);
   const nowTime = typeof now === 'string' ? Date.parse(now) : now?.getTime?.();
   const from = Math.max(Date.parse(normalized.to), Date.parse(D18_J0));
@@ -3201,10 +3202,11 @@ export function buildD18PayloadFromQuerySnapshots({
   primarySource = 'ga4',
   ga4EvidenceWindow = null,
   ga4EvidenceResult = null,
+  ga4EvidenceUnavailableReason = null,
   measurementWindow = null,
 } = {}) {
   const requestedWindow = d18ReportWindow(window);
-  const hasSeparateGa4Evidence = Boolean(ga4EvidenceResult);
+  const hasSeparateGa4Evidence = Boolean(ga4EvidenceResult || ga4EvidenceUnavailableReason);
   const measuredGa4Window = measurementWindow
     ? d18ReportWindow(measurementWindow)
     : ga4EvidenceWindow && !hasSeparateGa4Evidence
@@ -3218,7 +3220,13 @@ export function buildD18PayloadFromQuerySnapshots({
     : d18UnavailableSource('ga4', measuredGa4Window, ga4UnavailableReason);
   const evidenceGa4Source = ga4EvidenceResult
     ? d18SourceMetadataFromQuery('ga4', evidenceGa4Window, ga4EvidenceResult)
-    : reportGa4Source;
+    : hasSeparateGa4Evidence
+      ? d18UnavailableSource(
+        'ga4',
+        evidenceGa4Window,
+        ga4EvidenceUnavailableReason || 'GA4 live emission_id evidence non disponibile',
+      )
+      : reportGa4Source;
   const ga4Source = hasSeparateGa4Evidence && ga4Result
     ? {
       ...reportGa4Source,
@@ -3263,7 +3271,7 @@ export function buildD18PayloadFromQuerySnapshots({
     generatedAt,
     catalog,
     ga4Rows: ga4Result?.rows || [],
-    ga4EvidenceRows: ga4EvidenceResult?.rows ?? null,
+    ga4EvidenceRows: hasSeparateGa4Evidence ? ga4EvidenceResult?.rows || [] : null,
     posthogRows: posthogResult?.rows || [],
     ga4Source,
     ga4EvidenceSource: hasSeparateGa4Evidence ? evidenceGa4Source : null,
@@ -3689,6 +3697,7 @@ async function main() {
       || d18Window;
     let d18Ga4Result = replay ? replay.sources.ga4 || null : source === 'ga4' ? primary.queried : null;
     let d18Ga4EvidenceResult = null;
+    let d18Ga4EvidenceUnavailableReason = null;
     let d18PosthogResult = replay ? replay.sources.posthog || null : source === 'posthog' ? primary.queried : null;
     let ga4UnavailableReason = 'GA4 query non eseguita';
     let posthogUnavailableReason = 'PostHog backup non interrogato';
@@ -3705,7 +3714,8 @@ async function main() {
         d18Ga4EvidenceResult = evidence.result;
         d18EvidenceWindow = evidence.window;
       } catch (error) {
-        ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        d18Ga4EvidenceUnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        ga4UnavailableReason = d18Ga4EvidenceUnavailableReason;
         console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
       if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
@@ -3721,13 +3731,15 @@ async function main() {
     } else if (!d18Ga4Options?.token || !d18Ga4Options.propertyId) {
       d18Ga4Result = null;
       ga4UnavailableReason = 'credenziali o proprietà GA4 non disponibili nel refresh';
+      d18Ga4EvidenceUnavailableReason = ga4UnavailableReason;
     } else {
       try {
         const evidence = await queryGa4EmissionEvidence(d18EvidenceWindow, d18Ga4Options);
         d18Ga4EvidenceResult = evidence.result;
         d18EvidenceWindow = evidence.window;
       } catch (error) {
-        ga4UnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        d18Ga4EvidenceUnavailableReason = 'GA4 emission_id evidence probe fallita; registrazione o dati forward-only non disponibili';
+        ga4UnavailableReason = d18Ga4EvidenceUnavailableReason;
         console.warn(`::warning::D18 GA4 emission_id probe failed: ${String(error?.message || error).split('\n')[0]}`);
       }
     }
@@ -3751,6 +3763,7 @@ async function main() {
       deliveryRecords: replay?.deliveryRecords || [],
       ga4EvidenceWindow: d18EvidenceWindow,
       ga4EvidenceResult: d18Ga4EvidenceResult,
+      ga4EvidenceUnavailableReason: d18Ga4EvidenceUnavailableReason,
       measurementWindow: replay ? d18EvidenceWindow : d18Window,
     });
     const d18Artifact = boundD18Artifact(d18Payload);
