@@ -66,6 +66,13 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { spawn } from 'node:child_process';
+import { ARTICLES_API_BASE } from './lib/articles-api-base.mjs';
+import {
+  ARTICLE_PATH_BASE,
+  ARTICLE_REGISTRY_FILES,
+  readSlugRegistryWithRows,
+} from './lib/article-slug-registry.mjs';
+import { renderedSlugs } from './lib/hydratedParity.mjs';
 
 import {
   pinRenderEnv,
@@ -81,12 +88,17 @@ const SECTIONS = ['frontaliere', 'svizzera'];
 const LOG = '[rerender-article-hubs]';
 
 /**
- * The published corpus manifest. `counts` is the only cross-repo statement of
- * "how many articles exist right now" that does not require cloning nanako,
- * and CLAUDE.md already names reading it first as the way to refuse a
- * truncated set before using it.
+ * The published corpus manifest is the coarse cross-repo count check. The
+ * published slug registry and the live Italian hub below add identity-level
+ * checks, so an equal count cannot hide a different article set.
  */
-const MANIFEST_URL = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/manifest.json';
+const MANIFEST_URL = `${ARTICLES_API_BASE}/manifest.json`;
+const PUBLISHED_SLUGS_URL = `${ARTICLES_API_BASE}/slugs.json`;
+const LIVE_SITE_BASE = (process.env.ARTICLE_HUB_SITE_BASE ?? 'https://frontaliereticino.ch').replace(/\/$/, '');
+const LIVE_HUB_TIMEOUT_MS = 20_000;
+const FETCH_HEADERS = {
+  'User-Agent': 'frontaliere-article-hub-refresh/1.0',
+};
 
 /**
  * How far behind the published corpus this repo's checked-out registry may be
@@ -111,6 +123,80 @@ const MANIFEST_URL = 'https://nanakokyobashi-rgb.github.io/frontaliere-articles/
  * normal; a pull that is stuck for hours is tens or hundreds.
  */
 const MAX_ARTICLES_BEHIND = 25;
+
+const publishedSlugsPromiseBySection = new Map();
+
+function readLocalRegistry(section) {
+  const config = ARTICLE_REGISTRY_FILES[section];
+  if (!config) throw new Error(`unknown article section ${section}`);
+  const parsed = readSlugRegistryWithRows(path.join(ROOT_DIR, config.file), config.constName);
+  const ids = Object.keys(parsed.registry);
+  if (parsed.rows === 0 || ids.length !== parsed.rows) {
+    throw new Error(
+      `${section}: local article registry ${config.file} parsed ${ids.length} of ${parsed.rows} rows`,
+    );
+  }
+  return parsed.registry;
+}
+
+function publishedSectionKey(section) {
+  return section === 'svizzera' ? 'swiss' : 'blog';
+}
+
+async function fetchPublishedSectionIds(section) {
+  if (!publishedSlugsPromiseBySection.has(section)) {
+    const promise = (async () => {
+      const response = await fetch(PUBLISHED_SLUGS_URL, {
+        headers: FETCH_HEADERS,
+        signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+      });
+      if (!response.ok) throw new Error(`HTTP ${response.status} for ${PUBLISHED_SLUGS_URL}`);
+      const payload = await response.json();
+      const records = payload?.[publishedSectionKey(section)];
+      if (!records || typeof records !== 'object' || Array.isArray(records)) {
+        throw new Error(`slugs.json has no usable ${publishedSectionKey(section)} registry`);
+      }
+      const ids = new Set(Object.keys(records).filter(Boolean));
+      if (ids.size === 0) throw new Error(`slugs.json ${publishedSectionKey(section)} registry is empty`);
+      return ids;
+    })();
+    publishedSlugsPromiseBySection.set(section, promise);
+  }
+  return publishedSlugsPromiseBySection.get(section);
+}
+
+async function fetchLiveHubSlugs(section) {
+  const hubPath = ARTICLE_PATH_BASE[section]?.it;
+  if (!hubPath) throw new Error(`no Italian hub path configured for ${section}`);
+  const url = `${LIVE_SITE_BASE}${hubPath}`;
+  const response = await fetch(url, {
+    headers: FETCH_HEADERS,
+    signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+  });
+  if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+  const slugs = renderedSlugs(await response.text(), hubPath);
+  if (slugs.length === 0) throw new Error(`no article cards found in the live hub ${url}`);
+  return { url, slugs };
+}
+
+function missingPublishedIds(localRegistry, publishedIds) {
+  const localIds = new Set(Object.keys(localRegistry));
+  return [...publishedIds].filter((id) => !localIds.has(id));
+}
+
+function unpublishedLocalIds(localRegistry, publishedIds) {
+  const publishedIdSet = new Set(publishedIds);
+  return Object.keys(localRegistry).filter((id) => !publishedIdSet.has(id));
+}
+
+function missingLiveHubSlugs(localRegistry, liveSlugs) {
+  const localItalianSlugs = new Set(
+    Object.values(localRegistry)
+      .map((slugs) => slugs?.it)
+      .filter((slug) => typeof slug === 'string' && slug),
+  );
+  return liveSlugs.filter((slug) => !localItalianSlugs.has(slug));
+}
 
 function parseArgs(argv) {
   const out = { section: 'all', locale: 'all', dryRun: false, out: null, summary: null };
@@ -337,27 +423,33 @@ function validateRenderedSection({ section, distDir, pathsByLocale, archivePaths
  * Compare what the archive just listed against the published corpus manifest.
  * See MAX_ARTICLES_BEHIND for the regression this exists to prevent.
  *
- * Fails OPEN on a network/parse problem: the manifest is a nice-to-have
- * cross-check, and a GitHub Pages hiccup must not be able to stop a repair
- * that is otherwise fully validated by checks 1-4 above, all of which read
- * local bytes.
+ * The count is only a coarse guard. A published fast-path article can make the
+ * live hub and `slugs.json` move ahead without changing the manifest count that
+ * this checkout reads. The identity checks below therefore compare the local
+ * registry with both published IDs and the cards already served by the hub.
+ * Any unreadable external source fails closed: this function authorises a
+ * destructive replacement of live bytes, so an unproved snapshot is not safe
+ * to publish.
  */
-async function checkCorpusFreshness(section, itemCount) {
+export async function checkCorpusFreshness(section, itemCount, { localRegistry = readLocalRegistry(section) } = {}) {
   let manifest;
   try {
-    const res = await fetch(MANIFEST_URL, { signal: AbortSignal.timeout(20_000) });
+    const res = await fetch(MANIFEST_URL, {
+      headers: FETCH_HEADERS,
+      signal: AbortSignal.timeout(LIVE_HUB_TIMEOUT_MS),
+    });
     if (!res.ok) throw new Error(`HTTP ${res.status}`);
     manifest = await res.json();
   } catch (err) {
     return {
-      ok: true,
-      note: `${section}: corpus manifest unreachable (${err.message}) — freshness cross-check skipped, local validation stands`,
+      ok: false,
+      note: `${section}: corpus manifest unreachable (${err.message}) — refusing publication without a freshness proof`,
     };
   }
   const published =
     section === 'svizzera' ? manifest?.counts?.swissArticles : manifest?.counts?.articles;
   if (typeof published !== 'number') {
-    return { ok: true, note: `${section}: manifest carries no usable count — freshness cross-check skipped` };
+    return { ok: false, note: `${section}: manifest carries no usable count — refusing publication without a freshness proof` };
   }
   const behind = published - itemCount;
   if (behind > MAX_ARTICLES_BEHIND) {
@@ -369,10 +461,63 @@ async function checkCorpusFreshness(section, itemCount) {
         'the corpus pull (sync-articles-sitemaps.yml) is behind; re-run this once it has caught up.',
     };
   }
+
+  let publishedIds;
+  try {
+    publishedIds = await fetchPublishedSectionIds(section);
+  } catch (err) {
+    return {
+      ok: false,
+      note: `${section}: published registry unreadable (${err.message}) — refusing publication without an identity proof`,
+    };
+  }
+  const missingIds = missingPublishedIds(localRegistry, publishedIds);
+  const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
+  if (missingIds.length > 0 || unpublishedIds.length > 0) {
+    const mismatchDetails = [
+      missingIds.length > 0 &&
+        `published ids absent locally (${missingIds.slice(0, 5).join(', ')})`,
+      unpublishedIds.length > 0 &&
+        `local ids absent from the published registry (${unpublishedIds.slice(0, 5).join(', ')})`,
+    ].filter(Boolean).join('; ');
+    return {
+      ok: false,
+      note:
+        `${section}: local and published article registry identities differ (${mismatchDetails}); ` +
+        'refusing to publish a non-converged client registry',
+    };
+  }
+
+  let liveHub;
+  try {
+    liveHub = await fetchLiveHubSlugs(section);
+  } catch (err) {
+    return {
+      ok: false,
+      note: `${section}: live hub unreadable (${err.message}) — refusing publication without a served-snapshot proof`,
+    };
+  }
+  const missingLiveSlugs = missingLiveHubSlugs(localRegistry, liveHub.slugs);
+  if (missingLiveSlugs.length > 0) {
+    return {
+      ok: false,
+      note:
+        `${section}: the live hub ${liveHub.url} contains ${missingLiveSlugs.length} article slug(s) absent from this checkout ` +
+        `(for example ${missingLiveSlugs.slice(0, 5).join(', ')}); refusing to move the client behind the hub`,
+    };
+  }
+
   return {
     ok: true,
-    note: `${section}: archive lists ${itemCount}, published corpus has ${published} (${behind} behind, tolerance ${MAX_ARTICLES_BEHIND})`,
+    note:
+      `${section}: archive lists ${itemCount}, published corpus has ${published} ` +
+      `(${behind} behind, tolerance ${MAX_ARTICLES_BEHIND}); registry and live hub identities converge`,
   };
+}
+
+/** Test seam — a test must not retain a mocked published registry between cases. */
+export function __resetCorpusFreshnessCache() {
+  publishedSlugsPromiseBySection.clear();
 }
 
 async function main() {
