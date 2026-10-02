@@ -42,6 +42,14 @@ export const BORDER_WAIT_CURRENT_SECTION_BASES = Object.freeze(
   Object.values(BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE),
 );
 
+/** Current "today" slug paired with each localized section base. */
+export const BORDER_WAIT_TODAY_BY_CURRENT_SECTION_BASE = Object.freeze({
+  [BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE.it]: BORDER_WAIT_TODAY_BY_LOCALE.it,
+  [BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE.en]: BORDER_WAIT_TODAY_BY_LOCALE.en,
+  [BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE.de]: BORDER_WAIT_TODAY_BY_LOCALE.de,
+  [BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE.fr]: BORDER_WAIT_TODAY_BY_LOCALE.fr,
+});
+
 /**
  * Legacy section roots still emitted by the evergreen guide pages and by
  * historical alias builds.  Keep the localized guide prefixes explicit:
@@ -93,8 +101,6 @@ const DEFAULT_REGION_SEGMENTS = new Set([
   'grigioni-italia',
   'vallese-italia',
 ]);
-const DEFAULT_TODAY_SEGMENTS = new Set(Object.values(BORDER_WAIT_TODAY_BY_LOCALE));
-
 /** @param {unknown} value */
 function normalizePath(value) {
   let path = String(value ?? '').trim();
@@ -129,6 +135,13 @@ function asSet(values) {
   return values instanceof Set ? values : new Set(values);
 }
 
+/** @param {unknown} registry @param {string} key */
+function registryValue(registry, key) {
+  if (registry instanceof Map) return registry.get(key);
+  if (registry && typeof registry === 'object') return registry[key];
+  return undefined;
+}
+
 /**
  * Classify canonical and legacy border-wait routes.
  *
@@ -138,8 +151,7 @@ function asSet(values) {
  *   legacySectionBases?: readonly string[],
  *   regionSlugs?: Iterable<string>|null,
  *   crossingSlugs?: Iterable<string>|null,
- *   todaySlugs?: Iterable<string>|null,
- *   todaySlugsByLocale?: Record<string, string>|null,
+ *   todaySlugByCurrentSectionBase?: Readonly<Record<string, string>>|ReadonlyMap<string, string>|null,
  *   includeLegacy?: boolean,
  * }} [options]
  */
@@ -160,9 +172,6 @@ export function isBorderWaitPath(pathname, options = {}) {
   const currentBase = currentBases.find((base) => pathUnderBase(path, base));
   if (!currentBase) return false;
 
-  const currentLocale = Object.entries(BORDER_WAIT_CURRENT_SECTION_BASES_BY_LOCALE)
-    .find(([, base]) => base === currentBase)?.[0];
-
   const tail = path.slice(currentBase.length).split('/').filter(Boolean);
   if (tail.length === 0) return true; // root hub
   if (tail.length === 1) {
@@ -181,13 +190,11 @@ export function isBorderWaitPath(pathname, options = {}) {
   // preserving the router's reject-unknown-crossing behaviour.
   if (crossings ? !crossings.has(crossing) : !CROSSING_SEGMENT_RE.test(crossing)) return false;
 
-  const localeToday = currentLocale
-    ? options.todaySlugsByLocale?.[currentLocale] ?? BORDER_WAIT_TODAY_BY_LOCALE[currentLocale]
-    : null;
-  const today = localeToday
-    ? new Set([localeToday])
-    : asSet(options.todaySlugs) ?? DEFAULT_TODAY_SEGMENTS;
-  return today.has(suffix) || MONTH_PATH_RE.test(suffix);
+  const today = registryValue(
+    options.todaySlugByCurrentSectionBase ?? BORDER_WAIT_TODAY_BY_CURRENT_SECTION_BASE,
+    currentBase,
+  );
+  return today === suffix || MONTH_PATH_RE.test(suffix);
 }
 
 export { normalizePath as normalizeBorderWaitPath };

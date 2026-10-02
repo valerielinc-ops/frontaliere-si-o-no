@@ -1060,6 +1060,14 @@ export const BORDER_WAIT_ROUTES: readonly string[] = (() => {
 })();
 
 const BORDER_WAIT_REGION_SET: ReadonlySet<string> = new Set(BORDER_WAIT_REGIONS as readonly string[]);
+const BORDER_WAIT_TODAY_BY_SECTION_BASE: Readonly<Record<string, string>> = Object.freeze(
+  Object.fromEntries(
+    BORDER_WAIT_LOCALES.map((locale) => [
+      buildRootHubPath(locale).replace(/^\/+|\/+$/g, ''),
+      BORDER_WAIT_TODAY_SLUG[locale],
+    ]),
+  ),
+);
 const CROSSING_SET: ReadonlySet<string> = new Set(BORDER_WAIT_CROSSINGS as readonly string[]);
 
 /** Shared route matcher (accepts current and legacy paths, with or without trailing slash). */
@@ -1067,7 +1075,7 @@ export function isBorderWaitPath(pathname: string): boolean {
   return isSharedBorderWaitPath(pathname, {
     regionSlugs: BORDER_WAIT_REGION_SET,
     crossingSlugs: CROSSING_SET,
-    todaySlugsByLocale: BORDER_WAIT_TODAY_SLUG,
+    todaySlugByCurrentSectionBase: BORDER_WAIT_TODAY_BY_SECTION_BASE,
   });
 }
 
