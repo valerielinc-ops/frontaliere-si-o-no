@@ -28,6 +28,10 @@ export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-regis
 export const DEFAULT_MAX_AGE_HOURS = 36;
 export const MINIMUM_SAMPLE = 100;
 
+// These are the lifecycle states emitted by services/pharmacies/types.ts and
+// pharmacy-ticino-duty-parser.mjs. Only unknown states are malformed here;
+// release readiness still decides whether pending/conflicting rows are usable.
+const VALID_DUTY_STATUSES = new Set(['verified', 'pending_review', 'expired', 'conflicting']);
 
 const SURFACES = [
   { key: 'calculator', path: '/calcola-stipendio/', label: 'calcolatore stipendio' },
@@ -277,8 +281,9 @@ function validateDuties(duties, { now, maxAgeHours, issues }) {
     if (!starts || !ends) issues.push(`${prefix}: startsAt or endsAt is invalid`);
     else if (ends.getTime() <= starts.getTime()) issues.push(`${prefix}: endsAt does not follow startsAt`);
     if (!httpsUrl(duty?.sourceUrl)) issues.push(`${prefix}: sourceUrl is not HTTPS`);
-    if (duty?.status !== 'verified' && duty?.status !== 'expired') issues.push(`${prefix}: status is invalid`);
-    if (starts && ends && ends.getTime() > starts.getTime() && httpsUrl(duty?.sourceUrl)) valid += 1;
+    const statusValid = VALID_DUTY_STATUSES.has(duty?.status);
+    if (!statusValid) issues.push(`${prefix}: status is invalid`);
+    if (starts && ends && ends.getTime() > starts.getTime() && httpsUrl(duty?.sourceUrl) && statusValid) valid += 1;
   }
   return {
     present: true,
