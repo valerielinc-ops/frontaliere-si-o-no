@@ -2508,6 +2508,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'sostegno-formazione-basilea': { it: 'sostegno-formazione-basilea', en: 'study-support-basilea-campagna', de: 'studienhilfe-basilea-campagna', fr: 'aides-etudes-basilea-campagna' },
  'lordo-netto-cantoni-2026': { it: 'lordo-netto-cantoni-2026', en: 'swiss-salary-gross-net-2026', de: 'schweizer-lohn-brutto-netto-2026', fr: 'salaire-suisse-brut-net-2026' },
  'retribuzioni-svizzere-netto': { it: 'retribuzioni-svizzere-netto', en: 'swiss-profession-salaries-2026', de: 'schweizer-berufsloehne-2026', fr: 'salaires-professions-suisse-2026' },
+ 'guida-retribuzioni-ginevra-2026': { it: 'guida-retribuzioni-ginevra-2026', en: 'swiss-salaries-geneva-2026', de: 'schweizer-loehne-genf-2026', fr: 'salaires-suisses-geneve-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
