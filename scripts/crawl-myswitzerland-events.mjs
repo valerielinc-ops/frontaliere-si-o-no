@@ -457,10 +457,9 @@ function sameBackfillVenue(freshEvent, backfillEvent) {
   const freshVenue = normalizeVenueToken(freshEvent?.venue);
   const backfillVenue = normalizeVenueToken(backfillEvent?.venue);
   const broadVenue = [freshVenue, backfillVenue].find(value => value && !value.includes(' '));
-  const broadVenueMatchesSpecific = broadVenue
-    && [freshVenue, backfillVenue]
-      .filter(value => value !== broadVenue)
-      .some(value => value.split(' ').includes(broadVenue));
+  const specificVenue = broadVenue
+    && [freshVenue, backfillVenue].find(value => value !== broadVenue && value.includes(' '));
+  const broadVenueMatchesSpecific = Boolean(specificVenue?.split(' ').includes(broadVenue));
   if (!freshVenue || !backfillVenue
     || (!sameVenue(freshEvent?.venue, backfillEvent?.venue) && !broadVenueMatchesSpecific)) return false;
   const freshLocalities = [freshEvent?.comune, freshEvent?.address?.locality]
