@@ -1,7 +1,7 @@
 {
   "key": "neoproconseils",
   "label": "NEO Pro conseils SA",
-  "generatedAt": "2026-10-02T09:12:46.752Z",
+  "generatedAt": "2026-10-02T21:14:16.443Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,11 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6481,
-  "avgDurationMs": 6481,
+  "durationMs": 5935,
+  "avgDurationMs": 5935,
   "durationHistory": [
-    6481
+    6481,
+    5935
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +34,7 @@
       "url": "https://neoproconseils.ch/emplois/installateur-electricien-h-f-ref-75124/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:39.585Z",
+      "crawledAt": "2026-10-02T21:14:09.354Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
@@ -70,7 +71,7 @@
       "url": "https://neoproconseils.ch/emplois/macon-genie-civil-h-f-ref-75114/",
       "source": "NEO Pro conseils SA Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:12:39.587Z",
+      "crawledAt": "2026-10-02T21:14:09.356Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "Suisse",
