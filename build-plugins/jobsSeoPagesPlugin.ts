@@ -3442,13 +3442,15 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with source context and a
  // locale-aware completeness fallback. The helper keeps this active-job
- // emitter in sync with its 120–160 character contract.
+ // emitter in sync with its 120–160 character contract. `cleanDesc` is
+ // already decoded once by cleanMetaDescription: it goes in as
+ // `decodedDescription`, which the helper never decodes again.
  const description = buildJobMetaDescription({
   locale,
   title: localizedTitle,
   company: String(job.company || ''),
   location: String(job.location || getCantonDisplayLabel(perJob_cantonCode, locale)),
-  cleanDescription: cleanDesc,
+  decodedDescription: cleanDesc,
   salaryMin: job.salaryMin,
   salaryMax: job.salaryMax,
   currency: job.currency,
