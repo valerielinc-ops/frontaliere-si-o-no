@@ -7421,6 +7421,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spese-quotidiane-vaud-2026.title': 'Switzerland\'s cost of living 2026: Canton of Vaud',
     'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Rents, spending, transport, KVG and taxes: guide to the cost of living 2026 in the canton of Vaud, with national rules to be compared between cantons.',
     'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Swiss cost-of-living comparison focused on housing, daily spending and insurance in Vaud',
+    'blog.article.bilancio-familiare-lucerna.title': 'Cost of living in Switzerland 2026: canton of Lucerne',
+    'blog.article.bilancio-familiare-lucerna.excerpt': 'Cost of living 2026 in Lucerne: three-tier taxation, KVG within three months and wage contributions, without federal minimum wage.',
+    'blog.article.bilancio-familiare-lucerna.imageAlt': '2026 cost of living: household budget and housing in the canton of Lucerne',
 };
 
 export default blogMetaChEn;

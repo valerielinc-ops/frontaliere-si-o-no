@@ -7421,6 +7421,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spese-quotidiane-vaud-2026.title': 'Costo della vita svizzera 2026: canton Vaud',
     'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Affitti, spesa, trasporti, LAMal e imposte: guida al costo della vita 2026 nel canton Vaud, con le regole nazionali da confrontare tra cantoni.',
     'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Confronto del costo della vita in Svizzera con focus sul canton Vaud',
+    'blog.article.bilancio-familiare-lucerna.title': 'Costo della vita svizzera 2026: canton Lucerna',
+    'blog.article.bilancio-familiare-lucerna.excerpt': 'Costo della vita 2026 a Lucerna: fisco a tre livelli, LAMal entro tre mesi e contributi sul salario, senza salario minimo federale.',
+    'blog.article.bilancio-familiare-lucerna.imageAlt': 'Costo della vita 2026: budget familiare e abitazioni nel canton Lucerna',
 };
 
 export default blogMetaChIt;

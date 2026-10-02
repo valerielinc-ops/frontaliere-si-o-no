@@ -7421,6 +7421,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spese-quotidiane-vaud-2026.title': 'Lebenshaltungskosten Schweiz 2026: Kanton Waadt',
     'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Mieten, Ausgaben, Transport, KVG und Steuern: Leitfaden zu den Lebenshaltungskosten 2026 im Kanton Vaud, mit nationalen Regeln zum Vergleich zwischen den Kantonen.',
     'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Vergleich der Lebenshaltungskosten in der Schweiz mit Fokus auf Mieten, Alltag und Versicherung im Waadtland',
+    'blog.article.bilancio-familiare-lucerna.title': 'Lebenshaltungskosten in der Schweiz 2026: Kanton Luzern',
+    'blog.article.bilancio-familiare-lucerna.excerpt': 'Lebenshaltungskosten 2026 in Luzern: dreistufige Besteuerung, KVG innerhalb von drei Monaten und Lohnbeiträge, ohne bundesstaatlichen Mindestlohn.',
+    'blog.article.bilancio-familiare-lucerna.imageAlt': 'Lebenskosten 2026: Haushaltsbudget und Wohnen im Kanton Luzern',
 };
 
 export default blogMetaChDe;

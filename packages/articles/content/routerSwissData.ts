@@ -2496,6 +2496,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'operazione-ransomware-dati-sottratti': { it: 'operazione-ransomware-dati-sottratti', en: 'killsec-ransomware-data-recovered', de: 'killsec-ransomware-daten', fr: 'killsec-ransomware-donnees' },
  'budget-familiare-basilea-2026': { it: 'budget-familiare-basilea-2026', en: 'family-budget-basel-2026', de: 'familienbudget-basel-2026', fr: 'budget-menage-bale-2026' },
  'spese-quotidiane-vaud-2026': { it: 'spese-quotidiane-vaud-2026', en: 'swiss-living-cost-vaud-2026', de: 'lebenskosten-waadt-2026', fr: 'cout-vie-vaud-2026' },
+ 'bilancio-familiare-lucerna': { it: 'bilancio-familiare-lucerna', en: 'lucerne-household-budget', de: 'haushaltsbudget-luzern', fr: 'budget-menage-lucerne' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
