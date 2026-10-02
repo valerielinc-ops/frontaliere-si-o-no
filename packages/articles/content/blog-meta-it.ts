@@ -12369,6 +12369,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.adeguamento-pensioni-gennaio.title': 'AVS in leggero aumento da gennaio',
     'blog.article.adeguamento-pensioni-gennaio.excerpt': 'Da gennaio la rendita minima AVS/AI sale a 1\'280 franchi, la massima a 2\'560. Aumentano anche i contributi minimi e le prestazioni complementari.',
     'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Rendite AVS e AI adeguate da gennaio',
+    'blog.article.incidente-a2-mendrisio-code.title': 'Incidente A2 a Mendrisio: code per i frontalieri',
+    'blog.article.incidente-a2-mendrisio-code.excerpt': 'Incidente a Coldrerio sulla A2: una 68enne ferita lievemente, un 73enne in pericolo di vita e ritardi fino a un\'ora e mezza verso Chiasso per i frontalieri.',
+    'blog.article.incidente-a2-mendrisio-code.imageAlt': 'Traffico rallentato sulla A2 a Mendrisio dopo un incidente a Coldrerio',
 };
 
 export default blogMetaIt;

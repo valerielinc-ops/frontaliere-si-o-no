@@ -98158,6 +98158,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-a2-mendrisio-code': {
+    title: 'Incidente A2 a Mendrisio: code per i frontalieri',
+    description: 'Incidente a Coldrerio sulla A2: una 68enne ferita lievemente, un 73enne in pericolo di vita e ritardi fino a un\'ora e mezza verso Chiasso per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, mendrisio, code, coldrerio',
+    ogTitle: 'A2 chiusa a Mendrisio: ritardi per i frontalieri',
+    ogDescription: 'Un tamponamento a Coldrerio ha bloccato temporaneamente la A2 tra Mendrisio e Chiasso. Dopo la riapertura, il TCS ha segnalato ritardi fino a un\'ora e mezza e code nel Mendrisiotto, con ripercussioni sul rientro dei frontalieri varesini.',
+    canonicalPath: '/articoli-frontaliere/incidente-a2-mendrisio-code',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente A2 a Mendrisio: code per i frontalieri",
+      "description": "Incidente a Coldrerio sulla A2: una 68enne ferita lievemente, un 73enne in pericolo di vita e ritardi fino a un'ora e mezza verso Chiasso per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/incidente-a2-mendrisio-code.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico rallentato sulla A2 a Mendrisio dopo un incidente a Coldrerio"
+      },
+      "datePublished": "2026-10-02T16:59:41+00:00",
+      "dateModified": "2026-10-02T16:59:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-a2-mendrisio-code/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
