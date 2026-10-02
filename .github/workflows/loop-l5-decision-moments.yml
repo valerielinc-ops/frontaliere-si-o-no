@@ -117,6 +117,7 @@ jobs:
           OUTCOME_PATH="$RUNNER_TEMP/decision-moment-outcomes.json"
           set -o pipefail
           mkdir -p "$(dirname "$OUTCOME_PATH")"
+          mkdir -p "$RUNNER_TEMP/loop-fleet-l5"
           if [ "$WORKFLOW_EVENT" = 'pull_request' ]; then
             node scripts/ci/export-loop-outcomes.mjs --loop L5 --unavailable --out "$OUTCOME_PATH"
             exit 0

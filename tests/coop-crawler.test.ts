@@ -184,6 +184,56 @@ describe('Coop authoritative detail routing', () => {
     expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
   });
 
+  it('recovers from a stale division filter without admitting Coop subsidiaries', async () => {
+    const coopUrl = 'https://jobs.coopjobs.ch/offene-stellen/coop/11111111-1111-4111-8111-111111111111';
+    const jumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo/22222222-2222-4222-8222-222222222222';
+    const proseJumboUrl = 'https://jobs.coopjobs.ch/offene-stellen/jumbo-prose/33333333-3333-4333-8333-333333333333';
+    const missingAttributeUrl = 'https://jobs.coopjobs.ch/offene-stellen/missing-attribute/44444444-4444-4444-8444-444444444444';
+    const calls: URL[] = [];
+    const fetchImpl = vi.fn(async (rawUrl) => {
+      const url = new URL(rawUrl);
+      calls.push(url);
+      if (url.searchParams.has('f')) {
+        return new Response(JSON.stringify({ total: 0, jobs: [] }), { status: 200 });
+      }
+      const jobs = [
+        {
+          links: { directlink: coopUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Coop Genossenschaft'] },
+        },
+        {
+          links: { directlink: jumboUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Jumbo'] },
+        },
+        {
+          links: { directlink: proseJumboUrl },
+          attributes: { '30': ['Zurigo'], '70': ['Jumbo, Division der Coop Genossenschaft'] },
+        },
+        {
+          links: { directlink: missingAttributeUrl },
+          attributes: {},
+          company: 'Coop Genossenschaft',
+        },
+      ];
+      return new Response(JSON.stringify({ total: jobs.length, jobs }), { status: 200 });
+    });
+
+    const discovery = await fetchCoopJobDetailUrls({ fetchImpl });
+
+    expect(calls).toHaveLength(2);
+    expect(calls[0].searchParams.get('f')).toMatch(/^70:/);
+    expect(calls[1].searchParams.has('f')).toBe(false);
+    expect(discovery).toMatchObject({
+      apiTotal: 4,
+      fetched: 4,
+      urls: [coopUrl],
+      droppedNonCoop: 3,
+      droppedNonCh: 0,
+      usedUnfilteredFallback: true,
+    });
+    expect(assertCompleteCoopDiscovery(discovery)).toBe(true);
+  });
+
   it('prefers a canton encoded in the listing location over a conflicting attr-30 stamp', async () => {
     const url = 'https://jobs.coopjobs.ch/offene-stellen/reinach/11111111-1111-4111-8111-111111111111';
     const jobs = [{
