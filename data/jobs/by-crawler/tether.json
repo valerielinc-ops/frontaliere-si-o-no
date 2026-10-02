@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tether",
-  "assembledAt": "2026-10-02T09:11:37.917Z",
+  "assembledAt": "2026-10-02T21:14:30.428Z",
   "jobs": [
     {
       "id": "tether-f90910adcedb",
@@ -33,7 +33,7 @@
       "url": "https://tether.recruitee.com/o/solutions-partner-manager-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:30.987Z",
+      "crawledAt": "2026-10-02T21:14:22.276Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -64,7 +64,6 @@
         ]
       },
       "firstSeenAt": "2026-06-08T13:53:38.703Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -77,7 +76,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-3dddd8db6d3e",
@@ -110,7 +110,7 @@
       "url": "https://tether.recruitee.com/o/research-engineer-intern-videomultimodal-llm-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:30.982Z",
+      "crawledAt": "2026-10-02T21:14:22.268Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -194,7 +194,7 @@
       "url": "https://tether.recruitee.com/o/marketing-project-manager-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.854Z",
+      "crawledAt": "2026-10-02T21:14:21.136Z",
       "addressLocality": "Lisbon",
       "addressRegion": "Lisboa",
       "addressCountry": "",
@@ -225,7 +225,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.957Z",
-      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -238,7 +237,8 @@
           "maxValue": 133000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-8127434fcadb",
@@ -271,7 +271,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-and-licensing-middle-east-4",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.844Z",
+      "crawledAt": "2026-10-02T21:14:21.117Z",
       "addressLocality": "Riyadh",
       "addressRegion": "Mecca Province",
       "addressCountry": "",
@@ -356,7 +356,7 @@
       "url": "https://tether.recruitee.com/o/head-of-licensing-and-regulatory-authorisations-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.820Z",
+      "crawledAt": "2026-10-02T21:14:21.073Z",
       "addressLocality": "Abu Dhabi",
       "addressRegion": "Abu Dhabi",
       "addressCountry": "",
@@ -434,7 +434,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-ai-and-p2p-100-remote-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.813Z",
+      "crawledAt": "2026-10-02T21:14:21.061Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -545,7 +545,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:44.766Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -558,7 +557,9 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     },
     {
       "id": "tether-2a27f78b9990",
@@ -591,7 +592,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-southern-africa-lead-100-remote",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.805Z",
+      "crawledAt": "2026-10-02T21:14:21.055Z",
       "addressLocality": "Johannesburg",
       "addressRegion": "Gauteng",
       "addressCountry": "",
@@ -671,7 +672,7 @@
       "url": "https://tether.recruitee.com/o/ai-inference-engineer-qvac-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.801Z",
+      "crawledAt": "2026-10-02T21:14:21.048Z",
       "addressLocality": "Bogotá",
       "addressRegion": "Distrito Capital de Bogotá",
       "addressCountry": "",
@@ -751,7 +752,7 @@
       "url": "https://tether.recruitee.com/o/head-of-regulatory-affairs-japan-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.798Z",
+      "crawledAt": "2026-10-02T21:14:21.042Z",
       "addressLocality": "Osaka",
       "addressRegion": "Osaka",
       "addressCountry": "",
@@ -836,7 +837,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-hn",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:29.793Z",
+      "crawledAt": "2026-10-02T21:14:21.036Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -919,7 +920,7 @@
       "url": "https://tether.recruitee.com/o/backend-engineer-wallets-100-remote-31",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.426Z",
+      "crawledAt": "2026-10-02T21:14:19.674Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1001,7 +1002,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-lead-mexico-and-colombia-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.421Z",
+      "crawledAt": "2026-10-02T21:14:19.669Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -1039,7 +1040,6 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:13:35.548Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1052,7 +1052,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-3905835f5bd8",
@@ -1085,7 +1086,7 @@
       "url": "https://tether.recruitee.com/o/finance-analyst",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:27.298Z",
+      "crawledAt": "2026-10-02T21:14:18.529Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1126,7 +1127,6 @@
         ]
       },
       "firstSeenAt": "2026-05-25T14:19:17.785Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 150000,
       "salarySource": "estimated",
@@ -1139,7 +1139,8 @@
           "maxValue": 150000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-57a657b5dbf2",
@@ -1172,7 +1173,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-agentic-post-training-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:27.292Z",
+      "crawledAt": "2026-10-02T21:14:18.516Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1255,7 +1256,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-reinforcement-learning-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:26.173Z",
+      "crawledAt": "2026-10-02T21:14:17.397Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1337,7 +1338,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:25.050Z",
+      "crawledAt": "2026-10-02T21:14:16.275Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1419,7 +1420,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-16",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:22.761Z",
+      "crawledAt": "2026-10-02T21:14:14.003Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -1501,7 +1502,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-model-compression-quantization-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:22.754Z",
+      "crawledAt": "2026-10-02T21:14:13.998Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -1583,7 +1584,7 @@
       "url": "https://tether.recruitee.com/o/trading-operations-associate-hedge-fund-exposure",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:21.628Z",
+      "crawledAt": "2026-10-02T21:14:12.879Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1614,7 +1615,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:45:17.475Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -1627,7 +1627,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-b4724aac3061",
@@ -1660,7 +1661,7 @@
       "url": "https://tether.recruitee.com/o/financial-controller-vc-or-hedge-fund-investment-accountant",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:21.624Z",
+      "crawledAt": "2026-10-02T21:14:12.875Z",
       "addressLocality": "London",
       "addressRegion": "Greater London",
       "addressCountry": "",
@@ -1740,7 +1741,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:21.592Z",
+      "crawledAt": "2026-10-02T21:14:12.850Z",
       "addressLocality": "Barcelona",
       "addressRegion": "Catalunya [Cataluña]",
       "addressCountry": "",
@@ -1777,7 +1778,6 @@
         ]
       },
       "firstSeenAt": "2026-06-17T13:52:18.289Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -1790,7 +1790,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-f67d4afd9dca",
@@ -1823,7 +1824,7 @@
       "url": "https://tether.recruitee.com/o/brands-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:21.560Z",
+      "crawledAt": "2026-10-02T21:14:12.825Z",
       "addressLocality": "Dubai",
       "addressRegion": "Dubai",
       "addressCountry": "",
@@ -1905,7 +1906,7 @@
       "url": "https://tether.recruitee.com/o/expansion-event-coordinator-7",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:21.536Z",
+      "crawledAt": "2026-10-02T21:14:12.805Z",
       "addressLocality": "Amsterdam",
       "addressRegion": "Noord-Holland",
       "addressCountry": "",
@@ -1987,7 +1988,7 @@
       "url": "https://tether.recruitee.com/o/senior-business-analyst-mining-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:16.230Z",
+      "crawledAt": "2026-10-02T21:14:07.526Z",
       "addressLocality": "Medellin",
       "addressRegion": "Antioquia",
       "addressCountry": "",
@@ -2067,7 +2068,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-8",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:15.090Z",
+      "crawledAt": "2026-10-02T21:14:06.386Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -2149,7 +2150,7 @@
       "url": "https://tether.recruitee.com/o/program-manager-mining-100-remote-11",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:15.070Z",
+      "crawledAt": "2026-10-02T21:14:06.367Z",
       "addressLocality": "Brasilia",
       "addressRegion": "Distrito Federal",
       "addressCountry": "",
@@ -2186,7 +2187,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T23:55:59.305Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2199,7 +2199,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-fb1dbc71185e",
@@ -2232,7 +2233,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-multi-modal-vision-6",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:13.942Z",
+      "crawledAt": "2026-10-02T21:14:05.230Z",
       "addressLocality": "Bangalore",
       "addressRegion": "Karnātaka",
       "addressCountry": "",
@@ -2314,7 +2315,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-tokenization-100-remote-17",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:13.928Z",
+      "crawledAt": "2026-10-02T21:14:05.178Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2348,7 +2349,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T13:11:42.981Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2361,7 +2361,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-55797506931f",
@@ -2394,7 +2395,7 @@
       "url": "https://tether.recruitee.com/o/regulatory-affairs-and-licensing-francophone-africa-lead",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:13.925Z",
+      "crawledAt": "2026-10-02T21:14:05.170Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -2476,7 +2477,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:12.797Z",
+      "crawledAt": "2026-10-02T21:14:04.049Z",
       "addressLocality": "Mexico City",
       "addressRegion": "Ciudad de México",
       "addressCountry": "",
@@ -2552,7 +2553,7 @@
       "url": "https://tether.recruitee.com/o/engagement-manager-ai-implementations-19",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:12.721Z",
+      "crawledAt": "2026-10-02T21:14:04.001Z",
       "addressLocality": "Brussels",
       "addressRegion": "Brussels",
       "addressCountry": "",
@@ -2586,7 +2587,6 @@
         ]
       },
       "firstSeenAt": "2026-07-21T11:14:38.832Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -2599,7 +2599,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-3abd0d85e6f4",
@@ -2632,7 +2633,7 @@
       "url": "https://tether.recruitee.com/o/p2p-nodejs-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:12.711Z",
+      "crawledAt": "2026-10-02T21:14:03.995Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2714,7 +2715,7 @@
       "url": "https://tether.recruitee.com/o/senior-nodejs-software-engineer-holepunch-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:12.710Z",
+      "crawledAt": "2026-10-02T21:14:03.995Z",
       "addressLocality": "Phnom Penh",
       "addressRegion": "Phnom Penh",
       "addressCountry": "",
@@ -2798,7 +2799,7 @@
       "url": "https://tether.recruitee.com/o/frontend-software-engineer-100-remote-10",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:11.426Z",
+      "crawledAt": "2026-10-02T21:14:02.262Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -2829,7 +2830,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:38:33.163Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -2842,7 +2842,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-dd58047c2dc1",
@@ -2875,7 +2876,7 @@
       "url": "https://tether.recruitee.com/o/investment-trading-operations-associate-multi-asset-exposure-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:11.417Z",
+      "crawledAt": "2026-10-02T21:14:02.256Z",
       "addressLocality": "Dublin",
       "addressRegion": "Leinster",
       "addressCountry": "",
@@ -2912,7 +2913,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:15:33.919Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -2925,7 +2925,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-a5dfe8e22377",
@@ -2958,7 +2959,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-pre-training-llm-multi-modal-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:11.405Z",
+      "crawledAt": "2026-10-02T21:14:02.243Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -3040,7 +3041,7 @@
       "url": "https://tether.recruitee.com/o/senior-product-designer-wallets-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:10.268Z",
+      "crawledAt": "2026-10-02T21:14:01.112Z",
       "addressLocality": "United Kindom",
       "addressRegion": "Armagh City, Banbridge and Craigavon",
       "addressCountry": "",
@@ -3120,7 +3121,7 @@
       "url": "https://tether.recruitee.com/o/devops-engineer-100-remote-12",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:07.866Z",
+      "crawledAt": "2026-10-02T21:13:58.333Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3167,7 +3168,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:48.657Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -3180,7 +3180,8 @@
           "maxValue": 88000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-a9da09c6c8ba",
@@ -3213,7 +3214,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-nigeria",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:07.861Z",
+      "crawledAt": "2026-10-02T21:13:58.332Z",
       "addressLocality": "Lagos",
       "addressRegion": "Lagos",
       "addressCountry": "",
@@ -3292,7 +3293,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-ivory-coast-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:07.852Z",
+      "crawledAt": "2026-10-02T21:13:58.320Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -3329,7 +3330,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:34:55.151Z",
-      "needsRetranslation": true,
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -3342,7 +3342,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-d2e784aa8cf7",
@@ -3375,7 +3376,7 @@
       "url": "https://tether.recruitee.com/o/technical-content-creator-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:02.606Z",
+      "crawledAt": "2026-10-02T21:13:53.039Z",
       "addressLocality": "Madrid",
       "addressRegion": "Comunidad de Madrid",
       "addressCountry": "",
@@ -3460,7 +3461,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:59.727Z",
+      "crawledAt": "2026-10-02T21:13:49.876Z",
       "addressLocality": "Tiranë",
       "addressRegion": "Tiranë",
       "addressCountry": "",
@@ -3497,7 +3498,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:20.649Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3510,7 +3510,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-4a918d0959bc",
@@ -3543,7 +3544,7 @@
       "url": "https://tether.recruitee.com/o/usat-institutional-associate-junior-mid-2",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:58.276Z",
+      "crawledAt": "2026-10-02T21:13:48.300Z",
       "addressLocality": "San Francisco",
       "addressRegion": "California",
       "addressCountry": "",
@@ -3610,7 +3611,7 @@
       "url": "https://tether.recruitee.com/o/technical-lead-gpu-infrastructure-poland",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:58.220Z",
+      "crawledAt": "2026-10-02T21:13:48.259Z",
       "addressLocality": "Warsaw",
       "addressRegion": "Mazowieckie",
       "addressCountry": "",
@@ -3647,7 +3648,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T23:30:34.362Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -3660,7 +3660,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-d96611324cfe",
@@ -3693,7 +3694,7 @@
       "url": "https://tether.recruitee.com/o/ai-harness-engineer-100-remote-worldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:58.211Z",
+      "crawledAt": "2026-10-02T21:13:48.243Z",
       "addressLocality": "Copenhagen",
       "addressRegion": "Hovedstaden",
       "addressCountry": "",
@@ -3775,7 +3776,7 @@
       "url": "https://tether.recruitee.com/o/blockchain-investigator-and-law-enforcement-liaison-nz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:56.838Z",
+      "crawledAt": "2026-10-02T21:13:46.577Z",
       "addressLocality": "Auckland",
       "addressRegion": "Auckland",
       "addressCountry": "",
@@ -3825,36 +3826,36 @@
     },
     {
       "id": "tether-19d9c6464275",
-      "slug": "event-design-coordinatore-remote-europe-tether-operations-lugano",
+      "slug": "event-design-coordinator-remote-europe-tether-ch",
       "slugByLocale": {
-        "it": "event-design-coordinatore-remote-europe-tether-operations-lugano",
+        "it": "event-design-coordinator-remote-europe-tether-ch",
         "en": "event-design-coordinator-remote-europe-tether-ch",
-        "de": "event-design-koordinator-remote-europe-tether-operations-lugano",
-        "fr": "event-design-coordinateur-remote-europe-tether-operations-lugano"
+        "de": "event-design-coordinator-remote-europe-tether-ch",
+        "fr": "event-design-coordinator-remote-europe-tether-ch"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
       "companyDomain": "tether.io",
       "title": "Event Design Coordinator (Remote / Europe)",
       "titleByLocale": {
-        "it": "Event Design Coordinatore (Remote / Europe)",
         "en": "Event Design Coordinator (Remote / Europe)",
+        "it": "Event Design Coordinatore (Remote / Europe)",
         "de": "Event Design Koordinator (Remote / Europe)",
         "fr": "Event Design Coordinateur (Remote / Europe)"
       },
       "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
       "descriptionByLocale": {
-        "it": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "de": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "fr": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website."
+        "it": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "en": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "de": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "fr": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking an Event Design Coordinator to manage the intake, production, and quality assurance of event-related creative requests coming from a wide range of teams across the business. This is a builder-and-gatekeeper role: you'll work hand-in-hand with designers to turn varied, often fast-turnaround requests into flawless deliverables, including booth graphics, signage, decks, digital assets, swag, and invites, while proactively spotting risks (timeline, brand, print spec, or logistical) before they become problems.\n\nWe are not looking for someone who simply routes tickets. We're looking for someone who understands both the creative process and the operational realities of live events well enough to catch a misaligned bleed line, a missing dieline, or a vendor deadline that's about to slip, and to fix it before anyone else notices.\n\nResponsibilities\n\n• Request Intake & Triage\n\n• Serve as the primary point of contact for event-related creative requests coming from varied teams across Tether.\n\n• Scope each request clearly: deliverable type, format (print vs. digital), quantity, deadline, dimension, venue/vendor constraints, and brand requirements.\n\n• Flag conflicting timelines, unrealistic turnarounds, or missing information immediately, and propose a workable plan rather than waiting to be asked.\n\nDesign Collaboration & Project Management\n\n• Brief designers with complete, unambiguous specs so work is right the first time.\n\n• Manage multiple concurrent event workstreams across different teams and deadlines without dropping details.\n\n• Track status across all active requests and proactively surface bottlenecks before they affect the event date.\n\nQuality Assurance (Print & Digital)\n\n• Review every designer deliverable before it goes back to the requesting team, checking brand consistency, copy accuracy, resolution, color mode (CMYK vs. RGB), bleed/trim/safe zones, file formats, and platform specs (e.g., booth panel dimensions, social crop ratios, slide aspect ratios).\n\n• Catch errors that would be costly or embarrassing to fix on-site or post-launch (typos, wrong sizing, low-res exports, broken links, outdated logos).\n\n• Maintain a QA checklist/process that scales across event types and gets sharper over time.\n\nEvent Documentation & Knowledge Management\n\n• Document and file all assets, briefs, and final deliverables for each event in a shared drive, using a clear, consistent structure.\n\n• Organize files so the wider team can easily find past work, reuse assets, and cross-reference specs, timelines, or creative direction from previous events.\n\n• Keep a running record of vendor details, production specs, and lessons learned per event to speed up planning for future ones.\n\nRisk & Logistics Ownership\n\n• Anticipate what can go wrong, such as vendor lead times, print production windows, last-minute scope changes, and shipping delays, and build buffer and contingency plans into every project timeline.\n\n• Coordinate with vendors and print/production partners as needed to confirm specs and delivery windows.\n\n• Keep stakeholders across requesting teams and design aligned with clear, proactive status updates rather than reactive fire drills.\n\nCross-Team Partnership\n\n• Act as a trusted liaison between business requesters and the design team, protecting designers' time from ambiguous briefs while protecting requesters from missed deadlines.\n\n• Continuously improve the intake and review process based on what goes wrong (or almost goes wrong) on each event.\n\n• 5+ years of experience in event marketing, event production, creative operations, or project management with a strong events component.\n\n• Proven experience managing print and digital production processes; you know what a dieline is, what \"safe area\" means, and why RGB assets can't go straight to print.\n\n• Strong organizational and multitasking skills: demonstrated ability to manage several concurrent, cross-functional requests with competing deadlines.\n\n• Sharp attention to detail, comfortable being the last line of defense before a deliverable ships.\n\n• Experience reviewing and giving actionable feedback on creative work from designers, without needing to be a designer yourself.\n\n• A proactive, risk-first mindset: you naturally ask \"what could go wrong here?\" and build a plan around the answer.\n\n• Excellent written and verbal communication; comfortable managing stakeholders across different teams with different priorities.\n\n• Familiarity with project management tools (Asana, Monday, or similar) and design review tools like Figma\n\n• Experience setting up shared drive structures or asset libraries for teams.\n\n• Fluent in English and Spanish / Italian is a plus.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website."
       },
       "location": "Lugano, Ticino",
       "canton": "TI",
       "url": "https://tether.recruitee.com/o/event-design-coordinator-remote-europe-switz",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:55.453Z",
+      "crawledAt": "2026-10-02T21:13:45.297Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -3873,22 +3874,30 @@
       "applyUrl": "https://careers.tether.io/o/event-design-coordinator-remote-europe-switz/c/new",
       "department": "Marketing",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:43:14.450Z",
       "previousSlugsByLocale": {
         "it": [
-          "event-design-coordinator-remote-europe-tether-ch"
+          "event-design-coordinator-remote-europe-tether-ch",
+          "event-design-coordinatore-remote-europe-tether-operations-lugano"
         ],
         "de": [
-          "event-design-coordinator-remote-europe-tether-ch"
+          "event-design-coordinator-remote-europe-tether-ch",
+          "event-design-koordinator-remote-europe-tether-operations-lugano"
         ],
         "fr": [
-          "event-design-coordinator-remote-europe-tether-ch"
+          "event-design-coordinator-remote-europe-tether-ch",
+          "event-design-coordinateur-remote-europe-tether-operations-lugano"
         ]
       },
       "previousSlugs": [
-        "event-design-coordinator-remote-europe-tether-ch"
+        "event-design-coordinator-remote-europe-tether-ch",
+        "event-design-coordinatore-remote-europe-tether-operations-lugano",
+        "event-design-koordinator-remote-europe-tether-operations-lugano",
+        "event-design-coordinateur-remote-europe-tether-operations-lugano"
       ],
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -3935,7 +3944,7 @@
       "url": "https://tether.recruitee.com/o/ai-research-engineer-kernel-inference-optimization-100-remoteworldwide",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:55.452Z",
+      "crawledAt": "2026-10-02T21:13:45.291Z",
       "addressLocality": "Andorra la Vella",
       "addressRegion": "Andorra la Vella",
       "addressCountry": "",
@@ -4017,7 +4026,7 @@
       "url": "https://tether.recruitee.com/o/expansion-manager-cote-divoire-1",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:53.975Z",
+      "crawledAt": "2026-10-02T21:13:44.096Z",
       "addressLocality": "Yamoussoukro",
       "addressRegion": "Lacs",
       "addressCountry": "",
@@ -4055,36 +4064,36 @@
     },
     {
       "id": "tether-07e0555ede26",
-      "slug": "responsabile-ai-expansion-tether-operations-lugano-ticino",
+      "slug": "head-of-ai-expansion-tether-ch",
       "slugByLocale": {
-        "it": "responsabile-ai-expansion-tether-operations-lugano-ticino",
+        "it": "head-of-ai-expansion-tether-ch",
         "en": "head-of-ai-expansion-tether-ch",
-        "de": "leiter-ai-expansion-tether-operations-lugano-ticino",
-        "fr": "responsable-ai-expansion-tether-operations-lugano-ticino"
+        "de": "head-of-ai-expansion-tether-ch",
+        "fr": "head-of-ai-expansion-tether-ch"
       },
       "company": "Tether Operations",
       "companyKey": "tether",
       "companyDomain": "tether.io",
       "title": "Head of AI Expansion",
       "titleByLocale": {
-        "it": "Responsabile AI Expansion",
         "en": "Head of AI Expansion",
+        "it": "Responsabile AI Expansion",
         "de": "Leiter AI Expansion",
         "fr": "Responsable AI Expansion"
       },
       "description": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
       "descriptionByLocale": {
-        "it": "Unisciti a Tether e Forma il futuro della finanza digitale\nA Tether, non stiamo solo costruendo prodotti, siamo pionieri di una rivoluzione finanziaria globale. Le nostre soluzioni all'avanguardia consentono alle aziende, dagli scambi e dai portafogli ai processori di pagamento e agli sportelli bancomat, di integrare senza soluzione di continuità i gettoni di riserva in blockchains. Imbragando la potenza della tecnologia blockchain, Tether consente di memorizzare, inviare e ricevere gettoni digitali istantaneamente, in modo sicuro e globale, il tutto ad una frazione del costo. La trasparenza è la base di tutto ciò che facciamo, garantendo fiducia in ogni transazione.\n\nInnovare con Tether\nTether Finance: La nostra innovativa suite di prodotti presenta il più affidabile stablecoin al mondo, USDT , basato su centinaia di milioni di persone in tutto il mondo, insieme ai servizi di tokenizzazione degli asset digitali pionieristici.\nMa questo è solo l’inizio:\nTether Power: Guidare la crescita sostenibile, le nostre soluzioni energetiche ottimizzano l'eccesso di potenza per l'estrazione mineraria di Bitcoin utilizzando pratiche eco-friendly nelle strutture all'avanguardia e geo-diverse.\nTether Data: Riduciamo i costi delle infrastrutture e miglioriamo le comunicazioni globali con soluzioni all'avanguardia come KEET , la nostra app di punta che ridefinisce la condivisione dei dati sicura e privata.\nTether Education: Democratizzazione dell'accesso all'apprendimento digitale di alto livello, forniamo agli individui di prosperare nelle economie digitali e di gig, guidando la crescita globale e l'opportunità.\nTether Evolution: All'incrocio tra tecnologia e potenziale umano, stiamo spingendo i confini di ciò che è possibile, realizzando un futuro in cui innovazione e capacità umane si fondono in modi potenti e senza precedenti.\n\nPerché unirsi a noi?\nIl nostro team è una potenza di talento globale, lavorando da remoto da ogni angolo del mondo. Se siete appassionati di fare un segno nello spazio fintech, questa è la vostra opportunità di collaborare con alcune delle menti più brillanti, spingendo i confini e stabilendo nuovi standard. Siamo cresciuti veloci, siamo stati magra, e assicurato il nostro posto come leader nel settore.\nSe avete eccellenti capacità di comunicazione inglese e siete pronti a contribuire alla piattaforma più innovativa del pianeta, Tether è il posto per voi.\nSei pronto a far parte del futuro?\n\nRiguardo al lavoro\nStiamo cercando un leader altamente guidato di AI Expansion per guidare l'adozione globale dell'ecosistema AI di Tether, con un focus su QVAC e decentralizzato, privacy-conservazione dell'infrastruttura AI.\n\nIl ruolo coinvolgerà imprese, istituzioni e governi leader a livello globale, aiutandoli a implementare soluzioni AI costruite attorno all'informatica locale, alla sovranità dei dati, alla privacy e all'indipendenza dall'infrastruttura cloud centralizzata.\n\nQuesto è un ruolo di leadership pratico che combina eccezionali capacità commerciali e di costruzione di relazioni con profonda conoscenza AI. Identificherete e priorità opportunità, strutturare progetti complessi, strette partnership strategiche, monitorare il successo delle partnership e costruire il team necessario per scalare Tether AI a livello globale.\n\nIl candidato ideale può muoversi comodamente tra le discussioni tecniche con i team di intelligenza artificiale e ingegneria e conversazioni strategiche con CEO, CTO, CIO e leader governativi e dovrebbe essere utilizzato per lavorare in più geografie / culture.\n\nIl viaggio internazionale è richiesto.\n\nRicordiamo che bello avere è la persona ha bisogno di parlare almeno 3 lingue (più come un segno di flessibilità di qualsiasi altra cosa)\n\nresponsabilità\n\nSviluppo aziendale e partnership\n\n• Guidare l'adozione globale di QVAC e Tether AI attraverso imprese, istituzioni e governi.\n\n• Identificare le organizzazioni in cui l'IA locale, privata, decentralizzata o sovrana offre un vantaggio strategico.\n\n• Casi di uso di corrispondenza con le esigenze di organizzazioni identificate e costruire casi di business per l'implementazione del caso di utilizzo\n\n• Nurture esistenti e costruire nuove relazioni con CEO, CTO, CIO, leader dell'IA e stakeholder del governo.\n\n• Personalmente originano, struttura, negoziano e chiudono partnership strategiche AI e distribuzioni.\n\n• Sviluppare partnership attraverso l'ecosistema AI, tra cui compute, hardware, infrastrutture e fornitori di tecnologia.\n\n• Monitorare le prestazioni dei partenariati, identificare proattivamente i rischi e i piani di mitigazione della progettazione\n\nStrategia e esecuzione del mercato\n\n• Definire ed eseguire la strategia globale di Go-to-market di Tether AI.\n\n• Identificare i mercati prioritari, le industrie e i casi di uso AI ad alto valore.\n\n• Co-sviluppare con i clienti le loro esigenze e tradurli in soluzioni implementabili insieme a team di prodotto e ingegneria.\n\n• Costruire e gestire una pipeline globale di opportunità AI strategiche.\n\n• Monitorare il mercato, gli sviluppi competitivi, normativi e tecnologici.\n\nLeadership del team\n\n• Costruire e guidare il team AI Expansion a livello globale.\n\n• Recluta espansioni manager, partnership lead, soluzioni architetti e altri profili chiave.\n\n• Stabilire KPI, cartelle di esecuzione e processi commerciali.\n\n• Lavorare a stretto contatto con i team di Tether AI, ingegneria, prodotto e espansione regionale.\n\nRappresentanza strategica\n\n• Posiziona Tether come partner strategico per le organizzazioni che cercano la sovranità dell'AI, la privacy, la resilienza e l'indipendenza delle infrastrutture.\n\n• Rappresentare Tether AI in incontri strategici, impegni governativi, conferenze e forum del settore.\n\nHai\n\n• 7+ anni di esperienza in AI, tecnologia aziendale, infrastrutture o sviluppo tecnologico.\n\n• Forte conoscenza di AI/ML, LLM, inferenza, calcolo locale/edge, infrastruttura dei dati e architetture decentrate.\n\n• Esperienza comprovata di carattere personale, strutturazione e chiusura di grandi imprese offerte di tecnologia e partenariati.\n\n• Rapporti forti con i decisori senior in aziende, aziende tecnologiche e/o governi.\n\n• Comunicazione eccezionale, negoziazioni e capacità di costruzione di relazioni.\n\n• Sperimentare la costruzione e la gestione di squadre ad alto rendimento.\n\n• Mindset Entrepreneurial e la capacità di operare in modo indipendente in ambienti in rapida evoluzione.\n\n• Laurea in AI, Informatica, Ingegneria, Business o campo relativo.\n\nInformazioni importanti per i candidati\nLe truffe di reclutamento sono diventate sempre più comuni. Per proteggere se stessi, si prega di tenere a mente il seguente quando si applica per i ruoli:\n\n• Applicare solo attraverso i nostri canali ufficiali. Non utilizziamo piattaforme o agenzie di terze parti per il reclutamento, a meno che non sia chiaro. Tutti i ruoli aperti sono elencati nella nostra pagina di carriera ufficiale: https://tether.recruitee.com/\n\n• Verificare l’identità del reclutatore. Tutti i nostri reclutatori hanno verificato i profili LinkedIn. Se non sei sicuro, puoi confermare la loro identità controllando il loro profilo o contattandoci attraverso il nostro sito web.\n\n• Siate cauti di metodi di comunicazione insoliti. Non conduciamo interviste su WhatsApp, Telegram o SMS. Tutta la comunicazione avviene tramite e-mail e piattaforme aziendali ufficiali.\n\n• Doppio check indirizzi e-mail. Tutte le comunicazioni da noi verranno da e-mail che terminano in @ tether.to o @ tether.io\n\n• Non chiederemo mai il pagamento o i dettagli finanziari. Se qualcuno chiede informazioni finanziarie personali o il pagamento in qualsiasi momento durante il processo di assunzione, è una truffa. Si prega di segnalarlo immediatamente.\n\nQuando in dubbio, non esitate a raggiungere il nostro sito ufficiale.",
-        "en": "Join Tether and Shape the Future of Digital Finance\nAt Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\nTether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\nBut that’s just the beginning:\nTether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\nTether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\nTether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\nTether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\nOur team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\nIf you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\nAre you ready to be part of the future?\n\nAbout the job\nWe are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
-        "de": "Treten Sie Tether bei und gestalten Sie die Zukunft der digitalen Finanzen\nBei Tether bauen wir nicht nur Produkte, wir sind Vorreiter einer globalen Finanzrevolution. Unsere innovativen Lösungen ermöglichen es Unternehmen - von Börsen und Wallets bis hin zu Zahlungsprozessoren und Geldautomaten -, reservegestützte Token nahtlos in Blockchains zu integrieren. Durch die Nutzung der Blockchain-Technologie können Sie digitale Token sofort, sicher und global zu einem Bruchteil der Kosten speichern, senden und empfangen. Transparenz ist das Fundament von allem, was wir tun, und gewährleistet das Vertrauen in jede Transaktion.\n\nInnovation mit Tether\nTether Finance: Unsere innovative Produktsuite verfügt über den weltweit vertrauenswürdigsten Stablecoin, USDT, auf den sich Hunderte von Millionen Menschen weltweit verlassen, neben bahnbrechenden Tokenisierungsdiensten für digitale Vermögenswerte.\nAber das ist erst der Anfang:\nTether Power: Unsere Energielösungen, die nachhaltiges Wachstum vorantreiben, optimieren überschüssige Energie für den Bitcoin-Mining mit umweltfreundlichen Praktiken in hochmodernen, geodiversen Anlagen.\nTether Data: Durch die Förderung von Durchbrüchen in der KI und Peer-to-Peer-Technologie senken wir die Infrastrukturkosten und verbessern die globale Kommunikation mit innovativen Lösungen wie KEET, unserer Flaggschiff-App, die den sicheren und privaten Datenaustausch neu definiert.\nTether Education: Indem wir den Zugang zu erstklassigem digitalem Lernen demokratisieren, befähigen wir Einzelpersonen, in den digitalen und Gig-Wirtschaften zu gedeihen und das globale Wachstum und die Chancen zu fördern.\nTether Evolution: An der Schnittstelle von Technologie und menschlichem Potenzial erweitern wir die Grenzen des Möglichen und gestalten eine Zukunft, in der Innovation und menschliche Fähigkeiten auf kraftvolle, beispiellose Weise verschmelzen.\n\nWarum mitmachen?\nUnser Team ist ein globales Talent-Powerhouse, das aus allen Ecken der Welt fern arbeitet. Wenn Sie sich leidenschaftlich für eine Marke im Fintech-Bereich interessieren, ist dies Ihre Gelegenheit, mit einigen der klügsten Köpfe zusammenzuarbeiten, Grenzen zu überschreiten und neue Standards zu setzen. Wir sind schnell gewachsen, sind schlank geblieben und haben uns unseren Platz als Marktführer in der Branche gesichert.\nWenn Sie über ausgezeichnete Englisch-Kommunikationsfähigkeiten verfügen und bereit sind, zur innovativsten Plattform der Welt beizutragen, ist Tether der richtige Ort für Sie.\nBist du bereit, Teil der Zukunft zu sein?\n\nÜber den Job\nWir suchen einen stark motivierten Leiter der KI-Expansion, der die globale Einführung des KI-Ökosystems von Tether mit Schwerpunkt auf QVAC und dezentraler, datenschutzschonender KI-Infrastruktur leitet.\n\nDie Rolle wird führende Unternehmen, Institutionen und Regierungen weltweit einbeziehen und ihnen dabei helfen, KI-Lösungen rund um lokales Computing, Datensouveränität, Datenschutz und Unabhängigkeit von zentralisierter Cloud-Infrastruktur einzusetzen.\n\nDies ist eine praktische Führungsrolle, die außergewöhnliche kommerzielle und beziehungsbildende Fähigkeiten mit fundiertem KI-Wissen kombiniert. Sie identifizieren und priorisieren Chancen, strukturieren komplexe Projekte, schließen strategische Partnerschaften, überwachen den Erfolg von Partnerschaften und bauen das Team auf, das für die globale Skalierung von Tether AI erforderlich ist.\n\nDer ideale Kandidat kann bequem zwischen technischen Diskussionen mit KI- und Ingenieurteams und strategischen Gesprächen mit CEOs, CTOs, CIOs und Regierungsführern wechseln und sollte für die Arbeit in mehreren Regionen / Kulturen verwendet werden.\n\nInternationale Reisen sind erforderlich.\n\nSollen wir erwähnen, dass schön zu haben ist, dass die Person mindestens 3 Sprachen sprechen muss (mehr als Zeichen der Flexibilität als alles andere)\n\nZuständigkeiten\n\nBusiness Development & Partnerschaften\n\n• Globale Einführung von QVAC und Tether AI in Unternehmen, Institutionen und Regierungen.\n\n• Identifizieren Sie Organisationen, in denen lokale, private, dezentrale oder souveräne KI einen strategischen Vorteil bietet.\n\n• Abgleichen von Anwendungsfällen mit den Bedürfnissen identifizierter Organisationen und Erstellen von Business Cases für die Implementierung des Anwendungsfalls\n\n• Pflegen Sie bestehende und neue Beziehungen zu CEOs, CTOs, CIOs, KI-Führungskräften und Regierungsvertretern.\n\n• Persönlich erstellen, strukturieren, verhandeln und schließen Sie strategische KI-Partnerschaften und -Einsätze.\n\n• Entwicklung von Partnerschaften im gesamten KI-Ökosystem, einschließlich Compute-, Hardware-, Infrastruktur- und Technologieanbietern.\n\n• Überwachung der Leistung von Partnerschaften, proaktive Identifizierung von Risiken und Gestaltung von Minderungsplänen\n\nMarktstrategie & Ausführung\n\n• Definieren und implementieren Sie die globale Go-to-Market-Strategie von Tether AI.\n\n• Identifizieren Sie vorrangige Märkte, Branchen und hochwertige KI-Anwendungsfälle.\n\n• Entwickeln Sie gemeinsam mit den Kunden ihre Anforderungen und übersetzen Sie sie in einsetzbare Lösungen zusammen mit Produkt- und Engineering-Teams.\n\n• Aufbau und Verwaltung einer globalen Pipeline strategischer KI-Möglichkeiten.\n\n• Überwachung der Markt-, Wettbewerbs-, Regulierungs- und technologischen Entwicklungen.\n\nTeamleitung\n\n• Aufbau und Leitung des AI Expansion Teams weltweit.\n\n• Rekrutieren Sie Expansionsmanager, Partnerschaftsleiter, Lösungsarchitekten und andere Schlüsselprofile.\n\n• Etablieren Sie KPIs, Ausführungs-Playbooks und kommerzielle Prozesse.\n\n• Arbeiten Sie eng mit den KI-, Engineering-, Produkt- und regionalen Expansionsteams von Tether zusammen.\n\nStrategische Vertretung\n\n• Positionieren Sie Tether als strategischen Partner für Unternehmen, die KI-Souveränität, Datenschutz, Resilienz und Infrastrukturunabhängigkeit anstreben.\n\n• Repräsentieren Sie Tether AI in strategischen Meetings, Regierungsverpflichtungen, Konferenzen und Branchenforen.\n\nSie haben\n\n• Über 7 Jahre Erfahrung in den Bereichen KI, Unternehmenstechnologie, Infrastruktur oder Technologieentwicklung.\n\n• Starkes Wissen über AI / ML, LLMs, Inferenz, Local / Edge Computing, Dateninfrastruktur und dezentrale Architekturen.\n\n• Bewährte Erfahrung in der persönlichen Erstellung, Strukturierung und Schließung von Technologiedeals und Partnerschaften für große Unternehmen.\n\n• Starke Beziehungen zu leitenden Entscheidungsträgern in Unternehmen, Technologieunternehmen und / oder Regierungen.\n\n• Außergewöhnliche Kommunikations-, Verhandlungs- und Beziehungsaufbaufähigkeiten.\n\n• Erleben Sie den Aufbau und das Management von leistungsstarken Teams.\n\n• Unternehmerische Denkweise und Fähigkeit, in schnelllebigen Umgebungen unabhängig zu agieren.\n\n• Abschluss in AI, Informatik, Ingenieurwesen, Business oder verwandten Bereichen.\n\nWichtige Informationen für Kandidaten\nRekrutierungsbetrug ist immer häufiger geworden. Um sich zu schützen, beachten Sie bitte Folgendes, wenn Sie sich für Rollen bewerben:\n\n• Bewerben Sie sich nur über unsere offiziellen Kanäle. Wir verwenden keine Plattformen oder Agenturen von Drittanbietern für die Rekrutierung, es sei denn, dies ist eindeutig angegeben. Alle offenen Rollen sind auf unserer offiziellen Karriereseite aufgeführt: https://tether.recruitee.com/\n\n• Überprüfen Sie die Identität des Recruiters. Alle unsere Recruiter haben LinkedIn-Profile verifiziert. Wenn sie unsicher sind, können sie ihre identität bestätigen, indem sie ihr profil überprüfen oder uns über unsere website kontaktieren.\n\n• Seien Sie vorsichtig bei ungewöhnlichen Kommunikationsmethoden. Wir führen keine Interviews über WhatsApp, Telegram oder SMS. Die gesamte Kommunikation erfolgt über offizielle Firmen-E-Mails und Plattformen.\n\n• Überprüfen Sie die E-Mail-Adressen. Die gesamte Kommunikation von uns erfolgt über E-Mails, die auf @ tether.to oder @ tether.io enden.\n\n• Wir werden niemals Zahlungen oder finanzielle Details verlangen. Wenn jemand zu irgendeinem Zeitpunkt während des Einstellungsprozesses nach persönlichen Finanzinformationen oder Zahlungen fragt, ist dies ein Betrug. Bitte melden Sie es sofort.\n\nFühlen Sie sich im Zweifelsfall frei, über unsere offizielle Website zu erreichen.",
-        "fr": "Joindre Tether et façonner l'avenir du financement numérique\nChez Tether, nous ne sommes pas seulement des produits de construction, nous sommes pionniers d'une révolution financière mondiale. Nos solutions de pointe permettent aux entreprises – des échanges et des portefeuilles aux processeurs de paiement et aux distributeurs automatiques de billets – d'intégrer de façon transparente les jetons à l'aide de réserves dans toutes les chaînes de blocs. En exploitant la puissance de la technologie blockchain, Tether vous permet de stocker, d'envoyer et de recevoir des jetons numériques instantanément, en toute sécurité et globalement, le tout à une fraction du coût. La transparence est le fondement de tout ce que nous faisons, assurant la confiance dans chaque transaction.\n\nInnover avec Tether\nTether Finance: Notre suite de produits innovants dispose de la plus fiable écurie du monde, USDT, sur laquelle s'appuient des centaines de millions de monde entier, ainsi que des services de tokenisation numériques pionniers.\nMais c'est juste le début :\nTether Power: moteur de la croissance durable, nos solutions énergétiques optimisent l'excès de puissance pour l'exploitation minière Bitcoin en utilisant des pratiques écologiques dans des installations géo-diverses à la fine pointe de la technologie.\nTether Data: En alimentant les percées dans l'IA et la technologie pair à pair, nous réduisons les coûts d'infrastructure et améliorons les communications mondiales avec des solutions de pointe comme KEET , notre application phare qui redéfinit le partage de données sécurisé et privé.\nTether Education : Démocratisation de l'accès à l'apprentissage numérique de haut niveau, nous autonomisons les individus à prospérer dans les économies du numérique et des concerts, favorisant la croissance mondiale et les opportunités.\nÉvolution de l'enseignement : À l'intersection de la technologie et du potentiel humain, nous repoussons les limites de ce qui est possible, écrivant un avenir où l'innovation et les capacités humaines fusionnent de manière puissante et sans précédent.\n\nPourquoi nous rejoindre ?\nNotre équipe est une puissance mondiale de talent, travaillant à distance de tous les coins du monde. Si vous êtes passionné par la marque dans l'espace fintech, c'est l'occasion de collaborer avec certains des esprits les plus brillants, de repousser les frontières et de fixer de nouvelles normes. Nous avons grandi rapidement, sommes restés maigres et nous avons obtenu notre place de leader dans l'industrie.\nSi vous avez d'excellentes compétences en communication anglaise et êtes prêt à contribuer à la plateforme la plus innovante de la planète, Tether est l'endroit pour vous.\nÊtes-vous prêt à faire partie du futur ?\n\nSur le travail\nNous sommes à la recherche d'un chef de l'expansion de l'IA très motivé pour diriger l'adoption mondiale de l'écosystème de l'IA de Tether, en mettant l'accent sur la Vacca et l'infrastructure décentralisée de protection de la vie privée.\n\nCe rôle impliquera des entreprises, des institutions et des gouvernements de premier plan à l'échelle mondiale, les aidant à déployer des solutions d'IA basées sur l'informatique locale, la souveraineté des données, la protection de la vie privée et l'indépendance de l'infrastructure cloud centralisée.\n\nIl s'agit d'un rôle de leadership pratique combinant des capacités commerciales et de relations exceptionnelles avec une connaissance approfondie de l'IA. Vous identifierez et prioriserez les possibilités, structurerez des projets complexes, établirez des partenariats stratégiques étroits, surveillerez le succès des partenariats et bâtirez l'équipe nécessaire pour étendre l'IA à l'échelle mondiale.\n\nLe candidat idéal peut se déplacer confortablement entre les discussions techniques avec les équipes d'IA et d'ingénierie et les conversations stratégiques avec les PDG, les CTO, les CIO et les dirigeants gouvernementaux et devrait être utilisé pour travailler dans de multiples géographies/cultures.\n\nUn voyage international est nécessaire.\n\nDoit-on mentionner qu'il est agréable d'avoir la personne doit parler au moins 3 langues (plus comme marqueur de flexibilité que tout autre)\n\nResponsabilités\n\nDéveloppement des entreprises et partenariats\n\n• Favoriser l'adoption mondiale de QVAC et de Tether AI par les entreprises, les institutions et les gouvernements.\n\n• Identifier les organisations où l'IA locale, privée, décentralisée ou souveraine offre un avantage stratégique.\n\n• Faire correspondre les cas d'utilisation aux besoins des organisations identifiées et établir des analyses de rentabilisation pour la mise en oeuvre de l'analyse de rentabilisation\n\n• Stimuler les relations existantes et établir de nouvelles relations avec les PDG, les CTO, les CIO, les leaders de l'IA et les intervenants gouvernementaux.\n\n• D'origine personnelle, structurer, négocier et fermer les partenariats et les déploiements stratégiques d'IA.\n\n• Développer des partenariats dans l'ensemble de l'écosystème de l'IA, y compris le calcul, le matériel, l'infrastructure et les fournisseurs de technologie.\n\n• Surveiller le rendement des partenariats, cerner les risques de façon proactive et concevoir des plans d'atténuation\n\nStratégie de marché et exécution\n\n• Définir et exécuter la stratégie globale d'accès au marché de Tether AI.\n\n• Identifier les marchés prioritaires, les industries et les cas d'utilisation d'IA de grande valeur.\n\n• Co-développer avec les clients leurs exigences et les traduire en solutions déployables avec des équipes de produits et d'ingénierie.\n\n• Créer et gérer un réseau mondial d'opportunités stratégiques en matière d'IA.\n\n• Suivre l'évolution du marché, de la concurrence, de la réglementation et de la technologie.\n\nLeadership d'équipe\n\n• Construire et diriger l'équipe d'expansion de l'IA au niveau mondial.\n\n• Recruter des gestionnaires d'expansion, des chefs de partenariat, des architectes de solutions et d'autres profils clés.\n\n• Établir des KPI, des playbooks d'exécution et des processus commerciaux.\n\n• Travailler en étroite collaboration avec les équipes d'IA, d'ingénierie, de produits et d'expansion régionale de Tether.\n\nReprésentation stratégique\n\n• Positionnez Tether comme un partenaire stratégique pour les organisations qui recherchent la souveraineté, la protection de la vie privée, la résilience et l'indépendance de l'infrastructure.\n\n• Représenter Tether AI dans les réunions stratégiques, les engagements gouvernementaux, les conférences et les forums de l'industrie.\n\nVous avez\n\n• 7 ans et plus d'expérience dans l'IA, la technologie d'entreprise, l'infrastructure ou le développement d'entreprises technologiques.\n\n• Connaissance approfondie de l'IA/ML, des LLM, de l'inférence, de l'informatique locale/de pointe, de l'infrastructure de données et des architectures décentralisées.\n\n• Expérience éprouvée personnellement à l'origine, à la structuration et à la clôture d'accords et de partenariats technologiques de grande entreprise.\n\n• De solides relations avec les décideurs supérieurs des entreprises, des entreprises technologiques et/ou des gouvernements.\n\n• Compétences exceptionnelles en communication, négociation et établissement de relations.\n\n• Expérimentez la constitution et la gestion d'équipes performantes.\n\n• L'esprit d'entreprise et la capacité d'opérer de façon indépendante dans des environnements en mouvement rapide.\n\n• Diplôme en intelligence artificielle, informatique, génie, affaires ou domaine connexe.\n\nInformations importantes pour les candidats\nLes escroqueries de recrutement sont devenues de plus en plus fréquentes. Pour vous protéger, veuillez garder à l'esprit ce qui suit au moment de postuler pour des rôles :\n\n• Appliquer uniquement par nos canaux officiels. Nous n'utilisons pas de plates-formes ou d'agences tierces pour le recrutement, sauf indication claire. Tous les rôles ouverts sont énumérés sur notre page officielle des carrières : https://tether.recruitee.com/\n\n• Vérifiez l'identité du recruteur. Tous nos recruteurs ont vérifié les profils LinkedIn. Si vous n'êtes pas sûr, vous pouvez confirmer leur identité en vérifiant leur profil ou en nous contactant via notre site Web.\n\n• Méfiez-vous des méthodes de communication inhabituelles. Nous ne menons pas d'entrevues sur WhatsApp, Telegram ou SMS. Toute communication se fait par l'intermédiaire de courriels et de plateformes officiels de l'entreprise.\n\n• Vérifiez les adresses e-mail. Toute communication de nous viendra de courriels se terminant par @ tether.to ou @ tether.io\n\n• Nous ne demanderons jamais de paiement ou de détails financiers. Si quelqu'un demande des renseignements financiers personnels ou un paiement à tout moment pendant le processus d'embauche, c'est une escroquerie. Veuillez le signaler immédiatement.\n\nEn cas de doute, n'hésitez pas à contacter notre site officiel."
+        "it": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "en": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "de": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website.",
+        "fr": "Join Tether and Shape the Future of Digital Finance\n At Tether, we’re not just building products, we’re pioneering a global financial revolution. Our cutting-edge solutions empower businesses—from exchanges and wallets to payment processors and ATMs—to seamlessly integrate reserve-backed tokens across blockchains. By harnessing the power of blockchain technology, Tether enables you to store, send, and receive digital tokens instantly, securely, and globally, all at a fraction of the cost. Transparency is the bedrock of everything we do, ensuring trust in every transaction.\n\nInnovate with Tether\n Tether Finance: Our innovative product suite features the world’s most trusted stablecoin, USDT , relied upon by hundreds of millions worldwide, alongside pioneering digital asset tokenization services.\n But that’s just the beginning:\n Tether Power: Driving sustainable growth, our energy solutions optimize excess power for Bitcoin mining using eco-friendly practices in state-of-the-art, geo-diverse facilities.\n Tether Data: Fueling breakthroughs in AI and peer-to-peer technology, we reduce infrastructure costs and enhance global communications with cutting-edge solutions like KEET , our flagship app that redefines secure and private data sharing.\n Tether Education : Democratizing access to top-tier digital learning, we empower individuals to thrive in the digital and gig economies, driving global growth and opportunity.\n Tether Evolution : At the intersection of technology and human potential, we are pushing the boundaries of what is possible, crafting a future where innovation and human capabilities merge in powerful, unprecedented ways.\n\nWhy Join Us?\n Our team is a global talent powerhouse, working remotely from every corner of the world. If you’re passionate about making a mark in the fintech space, this is your opportunity to collaborate with some of the brightest minds, pushing boundaries and setting new standards. We’ve grown fast, stayed lean, and secured our place as a leader in the industry.\n If you have excellent English communication skills and are ready to contribute to the most innovative platform on the planet, Tether is the place for you.\n Are you ready to be part of the future?\n\nAbout the job\n We are seeking a highly driven Head of AI Expansion to lead the global adoption of Tether’s AI ecosystem, with a focus on QVAC and decentralized, privacy-preserving AI infrastructure.\n\nThe role will engage leading enterprises, institutions, and governments globally, helping them deploy AI solutions built around local computing, data sovereignty, privacy, and independence from centralized cloud infrastructure.\n\nThis is a hands-on leadership role combining exceptional commercial and relationship-building capabilities with deep AI knowledge. You will identify and prioritize opportunities, structure complex projects, close strategic partnerships, monitor success of partnerships and build the team required to scale Tether AI globally.\n\nThe ideal candidate can comfortably move between technical discussions with AI and engineering teams and strategic conversations with CEOs, CTOs, CIOs, and government leaders and should be used to work in multiple geographies/ cultures.\n\nInternational travel is required.\n\nShall we mention that nice to have is the person needs to speak at least 3 languages (more as a marker of flexibility than anything else)\n\nResponsibilities\n\nBusiness Development & Partnerships\n\n• Drive global adoption of QVAC and Tether AI across enterprises, institutions, and governments.\n\n• Identify organizations where local, private, decentralized, or sovereign AI provides a strategic advantage.\n\n• Match use cases with needs of identified organizations and build business cases for the implementation of the use case\n\n• Nurture existing and build new relationships with CEOs, CTOs, CIOs, AI leaders, and government stakeholders.\n\n• Personally originate, structure, negotiate, and close strategic AI partnerships and deployments.\n\n• Develop partnerships across the AI ecosystem, including compute, hardware, infrastructure, and technology providers.\n\n• Monitor performance of partnerships, proactively identify risks and design mitigation plans\n\nMarket Strategy & Execution\n\n• Define and execute Tether AI’s global go-to-market strategy.\n\n• Identify priority markets, industries, and high-value AI use cases.\n\n• Co-develop with clients their requirements and translate them into deployable solutions together with product and engineering teams.\n\n• Build and manage a global pipeline of strategic AI opportunities.\n\n• Monitor market, competitive, regulatory, and technological developments.\n\nTeam Leadership\n\n• Build and lead the AI Expansion team globally.\n\n• Recruit expansion managers, partnership leads, solution architects, and other key profiles.\n\n• Establish KPIs, execution playbooks, and commercial processes.\n\n• Work closely with Tether’s AI, engineering, product, and regional Expansion teams.\n\nStrategic Representation\n\n• Position Tether as a strategic partner for organizations seeking AI sovereignty, privacy, resilience, and infrastructure independence.\n\n• Represent Tether AI in strategic meetings, government engagements, conferences, and industry forums.\n\nYou Have\n\n• 7+ years of experience across AI, enterprise technology, infrastructure, or technology business development.\n\n• Strong knowledge of AI/ML, LLMs, inference, local/edge computing, data infrastructure, and decentralized architectures.\n\n• Proven experience personally originating, structuring, and closing large enterprise technology deals and partnerships.\n\n• Strong relationships with senior decision-makers across enterprises, technology companies, and/or governments.\n\n• Exceptional communication, negotiation, and relationship-building skills.\n\n• Experience building and managing high-performing teams.\n\n• Entrepreneurial mindset and ability to operate independently in fast-moving environments.\n\n• Degree in AI, Computer Science, Engineering, Business, or related field.\n\nImportant information for candidates\nRecruitment scams have become increasingly common. To protect yourself, please keep the following in mind when applying for roles:\n\n• Apply only through our official channels. We do not use third-party platforms or agencies for recruitment unless clearly stated. All open roles are listed on our official careers page: https://tether.recruitee.com/\n\n• Verify the recruiter’s identity. All our recruiters have verified LinkedIn profiles. If you’re unsure, you can confirm their identity by checking their profile or contacting us through our website.\n\n• Be cautious of unusual communication methods. We do not conduct interviews over WhatsApp, Telegram, or SMS. All communication is done through official company emails and platforms.\n\n• Double-check email addresses. All communication from us will come from emails ending in @ tether.to or @ tether.io\n\n• We will never request payment or financial details. If someone asks for personal financial information or payment at any point during the hiring process, it is a scam. Please report it immediately.\n\nWhen in doubt, feel free to reach out through our official website."
       },
       "location": "Lugano, Ticino",
       "canton": "TI",
       "url": "https://tether.recruitee.com/o/head-of-ai-expansion-3",
       "source": "tether-careers-crawler",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:10:52.564Z",
+      "crawledAt": "2026-10-02T21:13:42.765Z",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -4103,10 +4112,14 @@
       "applyUrl": "https://careers.tether.io/o/head-of-ai-expansion-3/c/new",
       "department": "Expansion",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "previousSlugs": [
         "head-of-ai-expansion-tether-ch",
-        "responsabile-ai-expansion-tether-operations-lugano-ticino"
+        "responsabile-ai-expansion-tether-operations-lugano-ticino",
+        "leiter-ai-expansion-tether-operations-lugano-ticino",
+        "responsable-ai-expansion-tether-operations-lugano-ticino"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4114,13 +4127,15 @@
           "responsabile-ai-expansion-tether-operations-lugano-ticino"
         ],
         "de": [
-          "head-of-ai-expansion-tether-ch"
+          "head-of-ai-expansion-tether-ch",
+          "leiter-ai-expansion-tether-operations-lugano-ticino"
         ],
         "fr": [
-          "head-of-ai-expansion-tether-ch"
+          "head-of-ai-expansion-tether-ch",
+          "responsable-ai-expansion-tether-operations-lugano-ticino"
         ]
       },
-      "firstSeenAt": "2026-10-01T21:15:18.739Z",
+      "firstSeenAt": "2026-10-02T21:13:42.765Z",
       "salaryMin": 68000,
       "salaryMax": 103000,
       "salarySource": "estimated",
@@ -4133,7 +4148,8 @@
           "maxValue": 103000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "tether-7814dd8b2ccb",
@@ -4214,7 +4230,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     }
   ]
 }
