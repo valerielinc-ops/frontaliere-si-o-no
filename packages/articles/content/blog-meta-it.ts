@@ -12346,6 +12346,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Svizzera respinge norme UE frontalieri',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlamento svizzero: 109 voti favorevoli contro 72 per non recepire nuove regole UE che costerebbero 600-900 milioni annui',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlamento svizzero a Bellinzona che delibera sulle regole per i frontalieri',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Vivere a Rovello Porro: lavoro in Ticino da frontaliere',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024: franchigie da €7\'500 o €10\'000 e imposta sul reddito trattenuta solo in Svizzera.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio in Ticino con un pendolare frontaliere',
 };
 
 export default blogMetaIt;

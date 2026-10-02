@@ -12347,6 +12347,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'La Suisse rejette les règles frontalières de l’UE',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlement suisse : 109 voix pour contre 72 pour ne pas mettre en œuvre de nouvelles règles de l’UE qui coûteraient 600 à 900 millions par an',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlement suisse à Bellinzone décidant des régles pour les frontaliers',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Vivre à Rovello Porro : travailler au Tessin en tant qu’ouvrier transfrontalier',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Nouvel accord sur les travailleurs frontaliers en vigueur à partir du 1er janvier 2024 : franchises de €7\'500 ou €10\'000 et impôt sur le revenu retenu uniquement en Suisse.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio au Tessin avec un travailleur frontalier',
 };
 
 export default blogMetaFr;
