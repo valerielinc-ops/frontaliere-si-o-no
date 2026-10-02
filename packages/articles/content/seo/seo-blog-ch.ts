@@ -96740,6 +96740,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-deloitte-cambi-assicuratori': {
+    title: 'Deloitte prevede fino a 900\'000 cambi di cassa malati',
+    description: 'Deloitte prevede 600\'000-900\'000 cambi di cassa malati. Il sondaggio Yougov rileva confronti, difficoltà nel pagamento e preoccupazioni finanziarie per i premi.',
+    keywords: 'frontalieri, ticino, svizzera, italia, deloitte, prevede, fino, cambi',
+    ogTitle: 'Deloitte prevede fino a 900\'000 cambi di cassa malati',
+    ogDescription: 'Il sondaggio Yougov, condotto per Deloitte nel terzo trimestre del 2026 su 1\'236 persone tra Svizzera tedesca, Svizzera romanda e Ticino, rileva una maggiore sensibilità ai premi, difficoltà di pagamento e interesse crescente per l\'IA.',
+    canonicalPath: '/articoli-svizzera/deloitte-cambi-assicuratori/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Deloitte prevede fino a 900'000 cambi di cassa malati",
+      "description": "Deloitte prevede 600'000-900'000 cambi di cassa malati. Il sondaggio Yougov rileva confronti, difficoltà nel pagamento e preoccupazioni finanziarie per i premi.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/deloitte-cambi-assicuratori.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Assicurati svizzeri confrontano i premi della cassa malati"
+      },
+      "datePublished": "2026-10-02T06:07:33+00:00",
+      "dateModified": "2026-10-02T06:07:33+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/deloitte-cambi-assicuratori/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
