@@ -52,6 +52,10 @@ type Record_ = {
   lng: number;
   population: number;
   populationYear: number;
+  areaKm2: number;
+  elevationM: number;
+  populationDensity2020: number;
+  region: 'Oberland' | 'Unterland';
 };
 
 const allRecords: Record_[] = [...committedDataset.aboveFloor, ...committedDataset.belowFloor];
@@ -151,6 +155,11 @@ describe('liechtenstein-municipalities dataset — per-record shape (#4884)', ()
 
       expect(Number.isFinite(m.populationYear)).toBe(true);
       expect(m.populationYear).toBeLessThanOrEqual(new Date().getFullYear());
+
+      expect(m.areaKm2).toBeGreaterThan(0);
+      expect(m.elevationM).toBeGreaterThan(0);
+      expect(m.populationDensity2020).toBeGreaterThan(0);
+      expect(['Oberland', 'Unterland']).toContain(m.region);
     }
   });
 
