@@ -191,11 +191,13 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   const factCheck = checkDraftTexts({ coverLetter: text, emailSubject: applicationEmail.subject, emailBody: applicationEmail.body }, draft.factSources || {}, { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
+  let coverLetterRenderer = null;
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
-    const pdf = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
+    const rebuilt = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
-    await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    coverLetterRenderer = rebuilt.renderer;
+    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
   await draftRef.set({
     coverLetter: { ...coverLetter, text, subject: draft.coverLetter?.subject || '' },
@@ -205,6 +207,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
     // An edit is a new text: a previous acknowledgement does not cover it.
     factCheckAcknowledgedAt: factCheck.ok ? draft.factCheckAcknowledgedAt || null : null,
     coverLetterPdfKey,
+    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
     editedAt: nowMs,
     editedBy: adminEmail,
   }, { merge: true });
