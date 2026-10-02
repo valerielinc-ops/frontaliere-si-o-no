@@ -230,7 +230,10 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(discovery).toContain("keys: ['activePositions', 'positions']");
     expect(discovery).toContain('if (envelopeDrifted)');
     expect(discovery).toContain('throw new Error(`Unexpected Kenjo API response shape');
+    expect(provenEmptyBranch).toContain('if (await confirmCareerSiteEmpty()) {');
     expect(provenEmptyBranch).toContain('await publishAuthoritativeEmptySnapshot()');
+    expect(provenEmptyBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(provenEmptyBranch).toContain('preserving existing data');
     expect(helper).toContain('updateAdapterConfig([])');
     expect(helper).toContain('archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)');
     expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
@@ -254,8 +257,17 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
   });
 
   it('requires Kenjo’s explicit public empty-state text before publishing a zero', () => {
-    expect(isKenjoCareerSiteEmpty('Join Our Growing Family No job openings are available at this moment.')).toBe(true);
-    expect(isKenjoCareerSiteEmpty('Join Our Growing Family Security & Network Engineer')).toBe(false);
+    expect(isKenjoCareerSiteEmpty('<div class="empty-state">No job openings are available at this moment.</div>')).toBe(true);
+    expect(isKenjoCareerSiteEmpty('<div class="jobs">Security & Network Engineer</div>')).toBe(false);
+  });
+
+  it('ignores hidden/template Kenjo copy when active job markup is present', () => {
+    expect(isKenjoCareerSiteEmpty(
+      '<div hidden>No job openings are available at this moment</div><article>Active job</article>',
+    )).toBe(false);
+    expect(isKenjoCareerSiteEmpty(
+      '<template><div>No job openings are available at this moment</div></template><article>Active job</article>',
+    )).toBe(false);
   });
 
   it('never masks these three with an EMPTY_OK_CRAWLERS entry', () => {

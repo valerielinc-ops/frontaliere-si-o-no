@@ -12,7 +12,8 @@
  *   4. Merges results into data/jobs.json.
  *   5. Updates the adapter config with current seed URLs.
  *   6. Runs locale fill + validation.
- *   7. Exits OK with 0 jobs when no vacancies are active.
+ *   7. Publishes 0 jobs only when the public career page proves that no
+ *      vacancies are active; otherwise preserves the existing slice.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -440,7 +441,7 @@ async function publishAuthoritativeEmptySnapshot() {
 async function confirmCareerSiteEmpty() {
   try {
     const html = await fetchHtml(CAREERS_URL);
-    const empty = isKenjoCareerSiteEmpty(stripHtml(html));
+    const empty = isKenjoCareerSiteEmpty(html);
     if (!empty) {
       console.warn('⚠️ Kenjo career page does not show its explicit no-openings state; preserving existing Tinext jobs.');
     }
@@ -466,8 +467,13 @@ async function main() {
   summaryCounts.discovered = positions.length;
 
   if (positions.length === 0) {
-    console.log('ℹ️ Kenjo confirmed no active positions; publishing an authoritative empty snapshot.');
-    await publishAuthoritativeEmptySnapshot();
+    if (await confirmCareerSiteEmpty()) {
+      console.log('ℹ️ Kenjo confirms no active positions; publishing an authoritative empty snapshot.');
+      await publishAuthoritativeEmptySnapshot();
+      return;
+    }
+    summaryCounts.abortKind = 'no-jobs-parsed';
+    console.log('⚠️ Kenjo API returned no active positions without explicit public empty-state proof; preserving existing data.');
     return;
   }
 
