@@ -271,6 +271,16 @@ export function applyCvLineChoices(cv, choices = {}, { profile } = {}) {
   };
 }
 
+/**
+ * The candidate's line-by-line choices for the draft on the page: only those
+ * made on its round. A new round writes a new tailored CV whose line ids
+ * (r0-l1…) name other lines, so older choices would land on the wrong ones.
+ */
+export function cvChoicesOf(draft, flow) {
+  const round = Number(draft?.round) || 1;
+  return flow?.cvChoices && Number(flow.cvChoicesRound) === round ? flow.cvChoices : {};
+}
+
 /** The candidate's own words among the choices: they vouch for themselves in the fact gate, as letter edits do. */
 export function ownChoiceTexts(choices = {}) {
   return Object.values(choices || {}).filter((choice) => choice?.use === 'own').map((choice) => clean(choice.text, MAX_OWN_LINE)).filter(Boolean);
