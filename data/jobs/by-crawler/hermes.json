@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-10-01T21:12:52.512Z",
+  "assembledAt": "2026-10-02T09:12:52.093Z",
   "jobs": [
     {
       "id": "hermes-bfa10b4da950",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:12:46.784Z",
+      "crawledAt": "2026-10-02T09:12:46.411Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -50,11 +50,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-responsable-mecanique-h-f-hermes-ch"
+        "cdi-responsable-mecanique-h-f-hermes-ch",
+        "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-responsable-mecanique-h-f-hermes-ch"
+          "cdi-responsable-mecanique-h-f-hermes-ch",
+          "cdi-direttore-meccanico-m-f-hermes-le-noirmont-jura-switzerland"
         ],
         "en": [
           "cdi-responsable-mecanique-h-f-hermes-ch"
@@ -64,6 +66,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -109,7 +112,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:12:46.040Z",
+      "crawledAt": "2026-10-02T09:12:45.780Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -126,11 +129,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
+        "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch",
+        "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont-jura-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
+          "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch",
+          "cdi-meccanico-m-f-staple-maker-hermes-le-noirmont-jura-switzerland"
         ],
         "en": [
           "cdi-mecanicien-faiseur-d-etampes-h-f-hermes-ch"
@@ -140,6 +145,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -185,7 +191,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23939/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:12:45.421Z",
+      "crawledAt": "2026-10-02T09:12:45.034Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -203,11 +209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stage-developpement-durable-f-h-hermes-ch"
+        "stage-developpement-durable-f-h-hermes-ch",
+        "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stage-developpement-durable-f-h-hermes-ch"
+          "stage-developpement-durable-f-h-hermes-ch",
+          "stage-sviluppo-sostenibile-m-f-hermes-geneve-geneva-switzerland"
         ],
         "en": [
           "stage-developpement-durable-f-h-hermes-ch"
@@ -217,6 +225,7 @@
         ]
       },
       "firstSeenAt": "2026-09-30T21:17:00.701Z",
+      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -233,9 +242,9 @@
     },
     {
       "id": "hermes-f368fe61a72d",
-      "slug": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
+      "slug": "stage-offre-produit-m-w-d-hermes-geneve",
       "slugByLocale": {
-        "it": "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
+        "it": "stage-offre-produit-m-w-d-hermes-geneve",
         "en": "internship-product-offer-m-f-hermes-geneve-geneva-switzerland",
         "de": "praktikum-produktangebot-m-w-hermes-geneve-geneva-switzerland",
         "fr": "stage-offre-produit-f-h-hermes-ch"
@@ -245,7 +254,7 @@
       "companyDomain": "hermes.com",
       "title": "Stage - Offre Produit (F/H)",
       "titleByLocale": {
-        "it": "Internship - Offerta prodotto (M/F)",
+        "it": "Stage - Offre Produit (F/H)",
         "en": "Internship - Product offer (M/F)",
         "de": "Praktikum - Produktangebot (M/W)",
         "fr": "Stage - Offre Produit (F/H)"
@@ -262,7 +271,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23937/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:12:44.748Z",
+      "crawledAt": "2026-10-02T09:12:44.449Z",
       "addressLocality": "Geneve",
       "postalCode": "1204",
       "addressRegion": "Genève",
@@ -281,11 +290,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stage-offre-produit-f-h-hermes-ch",
+        "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
         "stage-offre-produit-m-w-d-hermes-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stage-offre-produit-f-h-hermes-ch",
+          "internship-offerta-prodotto-m-f-hermes-geneve-geneva-switzerland",
           "stage-offre-produit-m-w-d-hermes-geneve"
         ],
         "en": [
