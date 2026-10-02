@@ -7418,6 +7418,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.budget-familiare-basilea-2026.title': 'Costo della vita svizzera 2026: canton Basilea a confronto',
     'blog.article.budget-familiare-basilea-2026.excerpt': 'Costo della vita svizzera 2026: a Basilea contano tre livelli fiscali, LAMal entro 3 mesi dall\'arrivo e deposito d\'affitto massimo di tre mensilità.',
     'blog.article.budget-familiare-basilea-2026.imageAlt': 'Tavolo con bilancio familiare sulle voci del costo della vita svizzera a Basilea',
+    'blog.article.spese-quotidiane-vaud-2026.title': 'Costo della vita svizzera 2026: canton Vaud',
+    'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Affitti, spesa, trasporti, LAMal e imposte: guida al costo della vita 2026 nel canton Vaud, con le regole nazionali da confrontare tra cantoni.',
+    'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Confronto del costo della vita in Svizzera con focus sul canton Vaud',
 };
 
 export default blogMetaChIt;

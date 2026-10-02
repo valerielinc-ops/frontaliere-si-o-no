@@ -2495,6 +2495,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'fisioterapisti-petizioni-tariffe-cantoni': { it: 'fisioterapisti-petizioni-tariffe-cantoni', en: 'physiotherapists-petitions-tariffs-cantons', de: 'physiotherapeuten-petitionen-tarife-kantone', fr: 'physiotherapeutes-petitions-tarifs-cantons' },
  'operazione-ransomware-dati-sottratti': { it: 'operazione-ransomware-dati-sottratti', en: 'killsec-ransomware-data-recovered', de: 'killsec-ransomware-daten', fr: 'killsec-ransomware-donnees' },
  'budget-familiare-basilea-2026': { it: 'budget-familiare-basilea-2026', en: 'family-budget-basel-2026', de: 'familienbudget-basel-2026', fr: 'budget-menage-bale-2026' },
+ 'spese-quotidiane-vaud-2026': { it: 'spese-quotidiane-vaud-2026', en: 'swiss-living-cost-vaud-2026', de: 'lebenskosten-waadt-2026', fr: 'cout-vie-vaud-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

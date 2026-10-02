@@ -7418,6 +7418,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.budget-familiare-basilea-2026.title': 'Swiss cost of living 2026: Canton of Basel in comparison',
     'blog.article.budget-familiare-basilea-2026.excerpt': 'Swiss cost of living 2026: in Basel there are three tax levels, KVG within 3 months of arrival and a maximum rent deposit of three months.',
     'blog.article.budget-familiare-basilea-2026.imageAlt': 'Table with a household budget for Swiss living costs in Basel',
+    'blog.article.spese-quotidiane-vaud-2026.title': 'Switzerland\'s cost of living 2026: Canton of Vaud',
+    'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Rents, spending, transport, KVG and taxes: guide to the cost of living 2026 in the canton of Vaud, with national rules to be compared between cantons.',
+    'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Swiss cost-of-living comparison focused on housing, daily spending and insurance in Vaud',
 };
 
 export default blogMetaChEn;
