@@ -122,6 +122,64 @@ describe('auditEvergreen', () => {
   });
 });
 
+describe('auditEvergreen calendar cutoff', () => {
+  const year = new Date().getUTCFullYear();
+
+  const article = (id: string, articleYear: number, month: number, day: number) => ({
+    id,
+    category: 'pratico',
+    date: new Date(Date.UTC(articleYear, month - 1, day, 12)).toISOString(),
+  });
+
+  const staleIds = (now: Date, articles: ReturnType<typeof article>[]) =>
+    auditEvergreen(articles, now).stale.map((item: { id: string }) => item.id);
+
+  it('uses the day within the month and keeps the exact cutoff date fresh', () => {
+    const now = new Date(Date.UTC(year, 8, 22, 12));
+    const articles = [
+      article('one-day-before-cutoff', year, 3, 21),
+      article('on-cutoff', year, 3, 22),
+      article('one-day-after-cutoff', year, 3, 23),
+    ];
+
+    expect(staleIds(now, articles)).toEqual(['one-day-before-cutoff']);
+  });
+
+  it('crosses the year boundary using the full calendar date', () => {
+    const now = new Date(Date.UTC(year, 2, 5, 12));
+    const articles = [
+      article('before-previous-year-cutoff', year - 1, 9, 4),
+      article('on-previous-year-cutoff', year - 1, 9, 5),
+      article('after-previous-year-cutoff', year - 1, 9, 6),
+    ];
+
+    expect(staleIds(now, articles)).toEqual(['before-previous-year-cutoff']);
+  });
+
+  it('preserves the calendar-month result on the first day of a month', () => {
+    const now = new Date(Date.UTC(year, 9, 1, 12));
+    const articles = [
+      article('last-day-before-cutoff-month', year, 3, 31),
+      article('first-day-of-cutoff-month', year, 4, 1),
+      article('day-after-cutoff', year, 4, 2),
+    ];
+
+    expect(staleIds(now, articles)).toEqual(['last-day-before-cutoff-month']);
+  });
+
+  it('clamps a month-end cutoff to the final day of the target month', () => {
+    const now = new Date(Date.UTC(year, 7, 31, 12));
+    const lastDayOfFebruary = new Date(Date.UTC(year, 2, 0)).getUTCDate();
+    const articles = [
+      article('before-clamped-cutoff', year, 2, lastDayOfFebruary - 1),
+      article('on-clamped-cutoff', year, 2, lastDayOfFebruary),
+      article('after-clamped-cutoff', year, 3, 1),
+    ];
+
+    expect(staleIds(now, articles)).toEqual(['before-clamped-cutoff']);
+  });
+});
+
 describe('the audit issue is one issue, with instructions that exist', () => {
   it('uses a STABLE title so the helper dedups instead of opening one a month', () => {
     // The title carried `$(date +"%B %Y")` inside the 60 chars

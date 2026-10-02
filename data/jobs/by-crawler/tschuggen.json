@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tschuggen",
-  "assembledAt": "2026-10-01T09:21:40.344Z",
+  "assembledAt": "2026-10-01T21:22:12.065Z",
   "jobs": [
     {
       "id": "bewerbermanagement-stellen-f444ba36dc64",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1331/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:35.038Z",
+      "crawledAt": "2026-10-01T21:22:05.330Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -117,7 +117,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1069/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:34.125Z",
+      "crawledAt": "2026-10-01T21:22:04.369Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1390/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:33.210Z",
+      "crawledAt": "2026-10-01T21:22:03.644Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -308,7 +308,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1394/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:32.004Z",
+      "crawledAt": "2026-10-01T21:22:02.208Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -387,7 +387,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1395/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:31.294Z",
+      "crawledAt": "2026-10-01T21:22:01.249Z",
       "addressLocality": "Arosa",
       "postalCode": "7050",
       "addressCountry": "CH",
@@ -405,7 +405,22 @@
       "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Tschuggen Grand Hotel",
+      "previousSlugs": [
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "en": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ],
+        "fr": [
+          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-30T21:22:49.716Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -419,22 +434,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-30T21:22:49.716Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-        ],
-        "en": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-        ],
-        "fr": [
-          "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-        ]
-      },
-      "previousSlugs": [
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-f6a67a2f17b2",
@@ -467,7 +467,7 @@
       "url": "https://recruitingapp-2904.umantis.com/Vacancies/1393/Description/1",
       "source": "Tschuggen Collection Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T09:21:30.369Z",
+      "crawledAt": "2026-10-01T21:22:00.318Z",
       "addressLocality": "Ascona",
       "postalCode": "6612",
       "addressCountry": "CH",
@@ -485,6 +485,11 @@
       "requirementsByLocale": {},
       "department": "Rooms Division",
       "hotelName": "Hotel Eden Roc",
+      "previousSlugs": [
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
+        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
+        "reservation-manager-m-w-d-tschuggen-collection-ascona"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
@@ -494,11 +499,6 @@
           "reservation-manager-m-w-d-tschuggen-collection-ascona"
         ]
       },
-      "previousSlugs": [
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch-2",
-        "reservation-manager-m-w-d-in-unbefristeter-jahresanstellung-tschuggen-ch",
-        "reservation-manager-m-w-d-tschuggen-collection-ascona"
-      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:22:49.716Z",
       "salaryMin": 72000,

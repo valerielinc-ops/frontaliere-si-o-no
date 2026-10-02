@@ -12347,6 +12347,15 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'La Suisse rejette les règles frontalières de l’UE',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlement suisse : 109 voix pour contre 72 pour ne pas mettre en œuvre de nouvelles règles de l’UE qui coûteraient 600 à 900 millions par an',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlement suisse à Bellinzone décidant des régles pour les frontaliers',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Vivre à Rovello Porro : travailler au Tessin en tant qu’ouvrier transfrontalier',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Nouvel accord sur les travailleurs frontaliers en vigueur à partir du 1er janvier 2024 : franchises de €7\'500 ou €10\'000 et impôt sur le revenu retenu uniquement en Suisse.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio au Tessin avec un travailleur frontalier',
+    'blog.article.brunello-fisco-frontaliere.title': 'Vivre à Brunello et travailler au Tessin en tant que navetteur transfrontalier',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Vivre au Brunello et travailler au Tessin : Nouvel accord transfrontalier de banlieue à partir du 1er janvier 2024, déductible de 10 000 € et retenue à la source uniquement en Suisse.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Frontalier en route avec le paysage du Tessin en arrière-plan',
+    'blog.article.cairate-fisco-confine.title': 'Vivre au Cairé et travailler au Tessin en tant que navetteur transfrontalier',
+    'blog.article.cairate-fisco-confine.excerpt': 'Nouvel accord transfrontalier pour les navetteurs en vigueur à partir du 1er janvier 2024 : retenue à la source, déductibles, AHV, BVG et KVG pour les habitants du Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Paysage tessinois lié au travail frontalier depuis Cairate',
 };
 
 export default blogMetaFr;

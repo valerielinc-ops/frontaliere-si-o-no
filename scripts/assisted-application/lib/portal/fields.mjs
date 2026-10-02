@@ -142,6 +142,30 @@ export function extractFieldsInPage() {
     return Number(words?.[1] || counter?.[1]) || null;
   };
   const fields = [];
+  // JOIN's date picker is a question made of two comboboxes and a grid of day
+  // buttons. Treat the widget as one field: exposing its implementation
+  // controls separately gives the planner two generated questions and leaves
+  // the disabled next button untouched.
+  const datePickerSelector = '[data-scope="date-picker"][data-part="root"]';
+  for (const picker of document.querySelectorAll(datePickerSelector)) {
+    if (!visible(picker)) continue;
+    const label = clean(picker.getAttribute('aria-label') || headingBefore(picker) || zoneText(picker));
+    const selected = picker.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value') || '';
+    fields.push({
+      id: idFor(picker),
+      kind: 'date',
+      inputType: 'date',
+      name: clean(picker.getAttribute('name') || ''),
+      label,
+      required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
+      value: clean(selected),
+      search: false,
+      maxLength: null,
+      accept: '',
+      autocomplete: clean(picker.getAttribute('autocomplete') || ''),
+      invalid: picker.getAttribute('aria-invalid') === 'true',
+    });
+  }
   const radios = new Map();
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
@@ -151,6 +175,7 @@ export function extractFieldsInPage() {
     // The site's own search box is not part of the application; Workday's
     // "selectinput" (a search box that picks an option) is.
     if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
+    if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {

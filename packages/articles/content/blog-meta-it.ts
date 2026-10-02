@@ -12346,6 +12346,15 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Svizzera respinge norme UE frontalieri',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Parlamento svizzero: 109 voti favorevoli contro 72 per non recepire nuove regole UE che costerebbero 600-900 milioni annui',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Parlamento svizzero a Bellinzona che delibera sulle regole per i frontalieri',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Vivere a Rovello Porro: lavoro in Ticino da frontaliere',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024: franchigie da €7\'500 o €10\'000 e imposta sul reddito trattenuta solo in Svizzera.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio in Ticino con un pendolare frontaliere',
+    'blog.article.brunello-fisco-frontaliere.title': 'Vivere a Brunello e lavorare in Ticino da frontaliere',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Vivere a Brunello e lavorare in Ticino: Nuovo Accordo Frontalieri dal 1° gennaio 2024, franchigia €10\'000 e imposta alla fonte solo in Svizzera.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Frontaliere in viaggio con il paesaggio del Ticino sullo sfondo',
+    'blog.article.cairate-fisco-confine.title': 'Vivere a Cairate e lavorare in Ticino da frontaliere',
+    'blog.article.cairate-fisco-confine.excerpt': 'Nuovo Accordo Frontalieri in vigore dal 1° gennaio 2024: imposta alla fonte, franchigie, AVS, LPP e LAMal per chi vive a Cairate.',
+    'blog.article.cairate-fisco-confine.imageAlt': 'Paesaggio ticinese legato al lavoro transfrontaliero da Cairate',
 };
 
 export default blogMetaIt;

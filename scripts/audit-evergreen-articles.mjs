@@ -129,6 +129,27 @@ function monthsBetween(older, newer) {
   );
 }
 
+/** Start of a date's UTC calendar day; registry dates are ISO timestamps. */
+function utcDay(date) {
+  return Date.UTC(date.getUTCFullYear(), date.getUTCMonth(), date.getUTCDate());
+}
+
+/** The calendar date `months` before `date`, clamped to the target month's end. */
+function calendarMonthsAgo(date, months) {
+  const targetMonth = new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() - months, 1));
+  const lastTargetDay = new Date(Date.UTC(
+    targetMonth.getUTCFullYear(),
+    targetMonth.getUTCMonth() + 1,
+    0,
+  )).getUTCDate();
+
+  return Date.UTC(
+    targetMonth.getUTCFullYear(),
+    targetMonth.getUTCMonth(),
+    Math.min(date.getUTCDate(), lastTargetDay),
+  );
+}
+
 // ── Audit ──────────────────────────────────────────────────────────
 /**
  * Split a set of articles into the evergreen pool, the stale subset of it,
@@ -147,14 +168,23 @@ export function auditEvergreen(articles, now = new Date()) {
     .map((a) => ({ id: a.id, category: a.category, date: a.date }));
   const datedIds = new Set(datedExcluded.map((a) => a.id));
   const evergreen = inEvergreenCategory.filter((a) => !datedIds.has(a.id));
+  // Month age remains the display/sort value; membership uses the full date.
+  const staleBefore = calendarMonthsAgo(now, STALE_THRESHOLD_MONTHS);
 
   const stale = evergreen
     .map((a) => {
       const freshnessDate = new Date(a.updatedAt || a.date);
       const ageMonths = monthsBetween(freshnessDate, now);
-      return { id: a.id, category: a.category, date: a.date, updatedAt: a.updatedAt ?? null, ageMonths };
+      return { article: a, freshnessDate, ageMonths };
     })
-    .filter((a) => a.ageMonths > STALE_THRESHOLD_MONTHS)
+    .filter(({ freshnessDate }) => utcDay(freshnessDate) < staleBefore)
+    .map(({ article, ageMonths }) => ({
+      id: article.id,
+      category: article.category,
+      date: article.date,
+      updatedAt: article.updatedAt ?? null,
+      ageMonths,
+    }))
     .sort((a, b) => b.ageMonths - a.ageMonths); // oldest first
 
   return {

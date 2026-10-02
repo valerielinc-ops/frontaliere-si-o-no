@@ -2490,6 +2490,19 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'utile-bns-distribuzione-2030': { it: 'utile-bns-distribuzione-2030', en: 'snb-profit-distribution-2030', de: 'snb-gewinnverteilung-2030', fr: 'bns-repartition-benefice-2030' },
  'dazi-svizzera-voto': { it: 'dazi-svizzera-voto', en: 'swiss-tariffs-federal-vote', de: 'schweizer-zoelle-abstimmung', fr: 'droits-douane-vote-suisse' },
  'agenda-federale-autunno-2026': { it: 'agenda-federale-autunno-2026', en: 'swiss-federal-agenda-autumn-2026', de: 'schweizer-bundesagenda-herbst-2026', fr: 'agenda-federal-automne-2026' },
+ 'infomaniak-debutto-six': { it: 'infomaniak-debutto-six', en: 'infomaniak-swiss-stock-debut', de: 'infomaniak-boersenstart-six', fr: 'infomaniak-debut-bourse-suisse' },
+ 'killsec-server-dati-svizzeri': { it: 'killsec-server-dati-svizzeri', en: 'killsec-hacker-network-switzerland', de: 'killsec-hacker-netzwerk-schweiz', fr: 'killsec-reseau-hacker-suisse' },
+ 'fisioterapisti-petizioni-tariffe-cantoni': { it: 'fisioterapisti-petizioni-tariffe-cantoni', en: 'physiotherapists-petitions-tariffs-cantons', de: 'physiotherapeuten-petitionen-tarife-kantone', fr: 'physiotherapeutes-petitions-tarifs-cantons' },
+ 'operazione-ransomware-dati-sottratti': { it: 'operazione-ransomware-dati-sottratti', en: 'killsec-ransomware-data-recovered', de: 'killsec-ransomware-daten', fr: 'killsec-ransomware-donnees' },
+ 'budget-familiare-basilea-2026': { it: 'budget-familiare-basilea-2026', en: 'family-budget-basel-2026', de: 'familienbudget-basel-2026', fr: 'budget-menage-bale-2026' },
+ 'spese-quotidiane-vaud-2026': { it: 'spese-quotidiane-vaud-2026', en: 'swiss-living-cost-vaud-2026', de: 'lebenskosten-waadt-2026', fr: 'cout-vie-vaud-2026' },
+ 'bilancio-familiare-lucerna': { it: 'bilancio-familiare-lucerna', en: 'lucerne-household-budget', de: 'haushaltsbudget-luzern', fr: 'budget-menage-lucerne' },
+ 'argovia-spese-quotidiane-2026': { it: 'argovia-spese-quotidiane-2026', en: 'swiss-cost-of-living-2026-aargau', de: 'lebenshaltungskosten-schweiz-2026-aargau', fr: 'cout-vie-suisse-2026-argovie' },
+ 'franchigia-sussidi-ginevra': { it: 'franchigia-sussidi-ginevra', en: 'geneva-lamal-deductible-subsidies', de: 'genf-lamal-franchise-praemien', fr: 'geneve-lamal-franchise-subsides' },
+ 'franchigia-premi-vaud-2026': { it: 'franchigia-premi-vaud-2026', en: 'vaud-health-premium-deductible-2026', de: 'krankenkassenpraemie-waadt-franchise-2026', fr: 'franchise-primes-vaud-2026' },
+ 'c-basilea-campagna-criteri': { it: 'c-basilea-campagna-criteri', en: 'c-permit-basel-land-requirements', de: 'niederlassung-c-basel-landschaft', fr: 'permis-c-bale-campagne' },
+ 'cicli-basilea-campagna': { it: 'cicli-basilea-campagna', en: 'basel-campagna-school-cycles', de: 'schule-basel-landschaft-zyklen', fr: 'ecole-bale-campagne-cycles' },
+ 'guida-san-gallo-lamal-2026': { it: 'guida-san-gallo-lamal-2026', en: 'st-gallen-lamal-premiums-2026', de: 'lamal-praemien-st-gallen-2026', fr: 'primes-lamal-saint-gall-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

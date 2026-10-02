@@ -144,6 +144,126 @@ async function fillCombobox(page, field, locator, value) {
   await option.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
+/** "YYYY-MM-DD", "DD.MM.YYYY" and "DD/MM/YYYY" → a date picker target. */
+function parsePortalDate(value) {
+  const text = String(value || '').trim();
+  let match = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(text);
+  if (match) return { year: Number(match[1]), month: Number(match[2]), day: Number(match[3]) };
+  match = /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.exec(text);
+  return match ? { year: Number(match[3]), month: Number(match[2]), day: Number(match[1]) } : null;
+}
+
+const portalDateIso = ({ year, month, day }) => `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+async function comboContext(combo) {
+  return combo.evaluate((element) => {
+    const box = element.closest('[data-testid*="Select"], [data-testid="DatePickerInput"], [role="group"]')
+      || element.parentElement?.parentElement || element.parentElement;
+    return `${element.value || ''} ${box?.innerText || box?.textContent || ''}`.replace(/\s+/g, ' ').trim();
+  }).catch(() => '');
+}
+
+/** The popup owned by a combobox, never an unrelated visible list in the frame. */
+async function popupOwnedByCombo(frame, combo) {
+  const relations = await Promise.all(['aria-controls', 'aria-owns'].map((attribute) => combo.getAttribute(attribute)));
+  const ids = [...new Set(relations.flatMap((value) => String(value || '').split(/\s+/).filter(Boolean)))];
+  for (const id of ids) {
+    const escapedId = id.replace(/["\\]/g, '\\$&');
+    const popup = frame.locator(`[id="${escapedId}"]`).first();
+    if (await popup.count()) return popup;
+  }
+  return null;
+}
+
+async function chooseDatePickerYear(frame, combo, year) {
+  try {
+    await combo.click({ timeout: ACTION_TIMEOUT_MS });
+    await combo.press('Control+A').catch(() => {});
+    await combo.press('Backspace').catch(() => {});
+    await combo.pressSequentially(String(year), { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS });
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
+    const option = popup.getByRole('option', { name: String(year), exact: true }).first();
+    await option.waitFor({ state: 'visible', timeout: 4000 });
+    await option.click({ timeout: ACTION_TIMEOUT_MS });
+    return true;
+  } catch {
+    await combo.press('Escape').catch(() => {});
+    return false;
+  }
+}
+
+async function chooseDatePickerMonth(frame, combo, month) {
+  try {
+    await combo.click({ timeout: ACTION_TIMEOUT_MS });
+    await combo.press('ArrowDown').catch(() => {});
+    // JOIN portals the month menu outside the date-picker root. Follow the
+    // combobox's relation instead of indexing every visible option in the
+    // frame, where another open list can shift the month index.
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
+    const options = popup.locator('[role="option"]:visible');
+    await options.nth(month - 1).waitFor({ state: 'visible', timeout: 4000 });
+    await options.nth(month - 1).click({ timeout: ACTION_TIMEOUT_MS });
+    return true;
+  } catch {
+    await combo.press('Escape').catch(() => {});
+    return false;
+  }
+}
+
+/** Fill the JOIN/Zag date picker without exposing its internal controls as answers. */
+async function fillDatePicker(page, field, locator, value) {
+  const date = parsePortalDate(value);
+  if (!date || date.month < 1 || date.month > 12 || date.day < 1 || date.day > 31) throw new Error('invalid_date');
+  const wanted = portalDateIso(date);
+  const frame = page.frames()[field.frame || 0] || page.mainFrame();
+  const target = () => locator.locator(`[data-value="${wanted}"]:not([data-disabled]):not([data-outside-range])`).first();
+  const targetVisible = async () => await target().count() > 0 && await target().isVisible().catch(() => false);
+
+  if (!await targetVisible()) {
+    const combos = locator.locator('input[role="combobox"]');
+    const comboCount = await combos.count();
+    const values = await Promise.all(Array.from({ length: comboCount }, (_, index) => combos.nth(index).inputValue().catch(() => '')));
+    const contexts = await Promise.all(Array.from({ length: comboCount }, (_, index) => comboContext(combos.nth(index))));
+    const yearIndex = values.findIndex((value) => value.trim() === String(date.year)) >= 0
+      ? values.findIndex((value) => value.trim() === String(date.year))
+      : contexts.findIndex((context) => context.trim() === String(date.year));
+    const year = yearIndex >= 0 ? combos.nth(yearIndex) : comboCount >= 2 ? combos.nth(0) : null;
+    const month = comboCount >= 2 ? combos.nth(yearIndex >= 0 ? (yearIndex === 0 ? 1 : 0) : 1) : null;
+    if (year) await chooseDatePickerYear(frame, year, date.year);
+    if (month && !await targetVisible()) await chooseDatePickerMonth(frame, month, date.month);
+  }
+
+  // Comboboxes are the fast path; month arrows are a bounded fallback for
+  // portals that expose the grid but not usable option menus.
+  for (let attempt = 0; attempt < 600 && !await targetVisible(); attempt += 1) {
+    const shown = await locator.locator('[data-part="table-cell-trigger"]:visible:not([data-outside-range])').first().getAttribute('data-value').catch(() => '');
+    if (!shown) break;
+    const [year, month] = shown.split('-').map(Number);
+    const forward = year * 12 + month < date.year * 12 + date.month;
+    const arrow = locator.locator(`[data-part="${forward ? 'next' : 'prev'}-trigger"]`).first();
+    const namedArrow = locator.getByRole('button', { name: forward ? /next month/i : /previous month/i }).first();
+    const control = (await arrow.count()) ? arrow : namedArrow;
+    if (!await control.count()) break;
+    await control.click({ timeout: ACTION_TIMEOUT_MS });
+    await page.waitForTimeout(20);
+  }
+  if (!await targetVisible()) throw new Error('date_not_found');
+  await target().click({ timeout: ACTION_TIMEOUT_MS });
+}
+
+async function dateRegistered(locator, value) {
+  const date = parsePortalDate(value);
+  if (!date) return false;
+  const wanted = portalDateIso(date);
+  return locator.evaluate((element, expected) => {
+    const selected = element.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value');
+    const hidden = [...element.querySelectorAll('input')].some((input) => input.value === expected);
+    return selected === expected || hidden;
+  }, wanted, { timeout: 2000 }).catch(() => false);
+}
+
 /**
  * @param {import('playwright').Page} page
  * @param {Array<object>} fields snapshot fields
@@ -182,6 +302,9 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         }
         // A click that did not take leaves the field empty while the run goes on as if answered.
         if (!await choiceRegistered(locator, field.kind, action.value)) throw new Error('choice_not_registered');
+      } else if (field.kind === 'date') {
+        await fillDatePicker(page, field, locator, action.value);
+        if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
       } else {
         // A long text is shortened at a sentence end, never cut in the middle of one.
         await fillText(locator, fitToLength(action.value, field.maxLength));

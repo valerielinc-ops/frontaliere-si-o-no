@@ -18,6 +18,7 @@
  */
 import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import { listCorpusWideTests } from '../scripts/ci/corpus-wide-tests.mjs';
@@ -94,6 +95,30 @@ describe('il rilevatore', () => {
 
   it('non confonde un URL con un commento di riga', () => {
     expect(stripComments("const u = 'https://example.ch/x';")).toContain('https://example.ch/x');
+  });
+
+  it('classifica job-board-seo-titles come fixture temporanea, non come dato vivo', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'live-data-guard-job-board-'));
+    const testsDir = path.join(root, 'tests');
+    const testFile = path.join(testsDir, 'job-board-seo-titles.test.ts');
+    fs.mkdirSync(testsDir, { recursive: true });
+    try {
+      fs.writeFileSync(testFile, [
+        "const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'jbsEo-'))",
+        "fs.writeFileSync(path.join(tmp, 'data/jobs.json'), JSON.stringify(jobs))",
+        "const source = fs.readFileSync(path.resolve(__dirname, '../build-plugins/staticPagesPlugin.ts'), 'utf8')",
+      ].join('\n'));
+      expect(scanLiveDataTests(root)).toEqual([
+        { file: 'tests/job-board-seo-titles.test.ts', roots: ['data/jobs.json'] },
+      ]);
+      const { added, removed } = diffAgainstInventory(root);
+      expect(added).toEqual([]);
+      expect(removed).not.toContain('tests/job-board-seo-titles.test.ts');
+      expect(LIVE_DATA_SCAN_EXEMPTIONS.find((e) => e.file === 'tests/job-board-seo-titles.test.ts')?.reason)
+        .toContain('staticPagesPlugin.ts');
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
   });
 
   it('copre le radici che la pipeline riscrive, non le baseline pinnate', () => {
