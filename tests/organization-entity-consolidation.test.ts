@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
-import { resolve } from 'node:path';
+import { lstatSync, readdirSync, readFileSync } from 'node:fs';
+import { join, resolve } from 'node:path';
 
 import { jsToJson } from '../build-plugins/shared/jsToJson';
 import {
@@ -78,6 +78,79 @@ function extractBalanced(src: string, pos: number): string | null {
 }
 
 
+/**
+ * Emitters whose JSON-LD reaches the page as written. Excluded, each with its
+ * own guard: `services/seo/seo-pages.ts` (every consumer runs it through
+ * normalizeStructuredData — staticPagesPlugin and seoService — covered by the
+ * "normalizes legacy nested site organizations" case) and the corpus SEO
+ * chunks (symlinks into packages/articles/content, live-data case below).
+ */
+const PAGE_EMITTER_DIRS = ['build-plugins', 'packages/articles/engine', 'components', 'services'];
+const PAGE_EMITTER_FILES = ['index.html', 'scripts/create-article.mjs'];
+const NORMALIZED_SOURCES = new Set(['services/seo/seo-pages.ts']);
+
+function pageEmitterFiles(): string[] {
+  const root = resolve(__dirname, '..');
+  const files = [...PAGE_EMITTER_FILES];
+  for (const dir of PAGE_EMITTER_DIRS) {
+    for (const entry of readdirSync(join(root, dir), { recursive: true }) as string[]) {
+      const rel = `${dir}/${entry}`;
+      if (!/\.(ts|tsx|mjs)$/.test(rel) || /\.test\./.test(rel) || NORMALIZED_SOURCES.has(rel)) continue;
+      if (rel.startsWith('services/locales/')) continue;
+      if (!lstatSync(join(root, rel)).isFile()) continue; // symlink = corpus data
+      files.push(rel);
+    }
+  }
+  return files;
+}
+
+/** Top-level text of a `{…}` literal: nested objects dropped, `${…}` kept. */
+function topLevelText(obj: string): string {
+  let out = '';
+  const stack: boolean[] = []; // true = object brace, false = template expression
+  const objDepth = () => stack.filter(Boolean).length;
+  for (let i = 0; i < obj.length; i++) {
+    const c = obj[i];
+    if (c === '{') {
+      stack.push(obj[i - 1] !== '$');
+      if (objDepth() <= 1 || !stack[stack.length - 1]) out += c;
+    } else if (c === '}') {
+      if (objDepth() <= 1 || !stack[stack.length - 1]) out += c;
+      stack.pop();
+    } else if (objDepth() <= 1) {
+      out += c;
+    }
+  }
+  return out;
+}
+
+const SITE_NAME_RX = /(?:^|[{,\s])(['"]?)name\1\s*:\s*(['"])Frontaliere Ticino\2/;
+const SITE_ROOT_URL_RX =
+  /(?:^|[{,\s])(['"]?)url\1\s*:\s*(?:`\$\{BASE_URL\}\/?`|(?:BASE_URL|BASE)\s*[,}\n]|(['"])https:\/\/frontaliereticino\.ch\/?\2)/;
+
+/**
+ * `Organization` literals that name the site (by name or root URL) without the
+ * canonical `@id` — the anonymous second entity issue #5004 removed.
+ */
+function anonymousSiteOrganizations(src: string): string[] {
+  const hits: string[] = [];
+  for (const m of src.matchAll(/(['"])@type\1\s*:\s*(['"])Organization\2/g)) {
+    const start = src.lastIndexOf('{', m.index);
+    let depth = 0;
+    let end = -1;
+    for (let i = start; i < Math.min(src.length, start + 4000); i++) {
+      if (src[i] === '{') depth++;
+      else if (src[i] === '}' && --depth === 0) { end = i; break; }
+    }
+    if (start < 0 || end < 0) continue;
+    const top = topLevelText(src.slice(start, end + 1));
+    if (/(['"]?)@id\1\s*:/.test(top)) continue;
+    if (!SITE_NAME_RX.test(top) && !SITE_ROOT_URL_RX.test(top)) continue;
+    hits.push(`line ${src.slice(0, m.index).split('\n').length}: ${top.replace(/\s+/g, ' ').slice(0, 120)}`);
+  }
+  return hits;
+}
+
 /** The `#organization` JSON-LD block served on the homepage. */
 function homepageOrganization(): Record<string, unknown> {
   const blocks = [
@@ -145,6 +218,23 @@ describe('the canonical #organization entity', () => {
         name: ORGANIZATION_LD.name,
       },
     });
+  });
+
+  it('detects an anonymous site Organization literal and ignores identified or foreign ones', () => {
+    expect(anonymousSiteOrganizations(`creator: {\n '@type': 'Organization',\n name: 'Frontaliere Ticino',\n url: \`\${BASE_URL}/\`,\n},`)).toHaveLength(1);
+    expect(anonymousSiteOrganizations(`publisher: { '@type': 'Organization', name: copy.org, url: BASE_URL, logo: imageObjectLd({ url: x }) }`)).toHaveLength(1);
+    expect(anonymousSiteOrganizations('"creator":{"@type":"Organization","name":"Frontaliere Ticino"}')).toHaveLength(1);
+    expect(anonymousSiteOrganizations(`{ '@type': 'Organization', '@id': \`\${BASE_URL}/#organization\`, name: 'Frontaliere Ticino' }`)).toEqual([]);
+    expect(anonymousSiteOrganizations(`{ '@type': 'Organization', name: companyName, url: cWebsite !== BASE_URL ? cWebsite : undefined }`)).toEqual([]);
+    expect(anonymousSiteOrganizations(`{ '@type': 'Organization', name: c.employer, url: \`\${BASE_URL}\${href}\` }`)).toEqual([]);
+    expect(anonymousSiteOrganizations(`{ '@type': 'Organization', name: 'BFS', isPartOf: { '@id': 'x', name: 'Frontaliere Ticino' } }`)).toEqual([]);
+  });
+
+  it('no page emitter declares the site as an anonymous Organization', () => {
+    const offenders = pageEmitterFiles().flatMap((file) =>
+      anonymousSiteOrganizations(read(file)).map((hit) => `${file} ${hit}`),
+    );
+    expect(offenders).toEqual([]);
   });
 
   it.skipIf(SKIP_LIVE_DATA)('gives every static blog ImageObject creator the canonical identity', () => {
