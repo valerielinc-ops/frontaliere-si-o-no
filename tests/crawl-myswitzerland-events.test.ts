@@ -349,9 +349,15 @@ describe('applyKnownPriceBackfills', () => {
   });
 
   it('retains a price when the fresh source broadens a specific venue to its town', () => {
-    const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Baden', price: { url: 'https://eventfrog.ch/labrats2' } };
-    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'Kurtheater Baden', price: { amount: 20, currency: 'CHF', isFree: false, url: fresh.price.url } };
+    const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Baden', comune: 'Baden', price: { url: 'https://eventfrog.ch/labrats2' } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'Kurtheater Baden', comune: 'Baden', price: { amount: 20, currency: 'CHF', isFree: false, url: fresh.price.url } };
     expect(applyKnownPriceBackfills([fresh], [backfill])[0].price.amount).toBe(20);
+  });
+
+  it('rejects a broad venue match without locality evidence', () => {
+    const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Hall', price: { url: 'https://eventfrog.ch/labrats2' } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'New Hall', price: { amount: 20, currency: 'CHF', isFree: false } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
   });
 
   it('does not replace a newly known fresh price', () => {

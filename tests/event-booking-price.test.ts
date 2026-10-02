@@ -11,9 +11,11 @@ const node = {
 const ld = value => `<script type="application/ld+json">${JSON.stringify(value)}</script>`;
 
 describe('official event booking tariffs', () => {
-  it('matches a broad source place to its specific venue without merging sibling venues', () => {
-    expect(sameVenue('Baden', 'Kurtheater Baden')).toBe(true);
+  it('requires an exact or prefix venue match without merging sibling venues', () => {
+    expect(sameVenue('Baden', 'Kurtheater Baden')).toBe(false);
+    expect(sameVenue('Kurtheater Baden', 'Kurtheater Baden')).toBe(true);
     expect(sameVenue('New Hall', 'Old Hall')).toBe(false);
+    expect(sameVenue('Hall', 'New Hall')).toBe(false);
   });
 
   it('preserves an explicit free Offer, date and venue from Infomaniak', () => {
