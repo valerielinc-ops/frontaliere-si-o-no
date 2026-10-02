@@ -7493,6 +7493,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin démissionne : l\'UDC conserve deux sièges',
     'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Démission de Guy Parmelin à la fin de l\'année. Le Centre reconnaît les deux sièges de l\'UDC ; le PLR réclame des candidats issus de la Suisse latine.',
     'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'Le Palais fédéral à Berne, siège du Conseil fédéral, en attendant le successeur de Guy Parmelin.',
+    'blog.article.bancarotte-imprese-nove-mesi.title': 'Faillites d\'entreprises en Suisse : +37 % en neuf mois',
+    'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'Au cours des neuf premiers mois, 11 412 faillites ont été enregistrées en Suisse, soit une hausse de 37 % par rapport à 2025. Le Tessin et les Grisons affichent des chiffres supérieurs à la moyenne ; 40 487 nouvelles entreprises ont été créées.',
+    'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Bureaux et commerces suisses dans une scène éditoriale consacrée aux entreprises.',
 };
 
 export default blogMetaChFr;

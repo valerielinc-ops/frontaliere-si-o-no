@@ -7493,6 +7493,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin si dimette: UDC mantiene due seggi',
     'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Dimissioni di Guy Parmelin a fine anno. Il Centro riconosce i due seggi UDC; il PLR chiede candidati dalla Svizzera latina.',
     'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'Il Palazzo federale a Berna, sede del Consiglio federale, in attesa della successione di Guy Parmelin.',
+    'blog.article.bancarotte-imprese-nove-mesi.title': 'Fallimenti aziendali in Svizzera: +37% in nove mesi',
+    'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'Nei primi nove mesi 11\'412 bancarotte in Svizzera, +37% sul 2025. Ticino e Grigioni sopra la media; create 40\'487 nuove ditte.',
+    'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Uffici e negozi svizzeri in una scena editoriale sul mondo delle imprese.',
 };
 
 export default blogMetaChIt;

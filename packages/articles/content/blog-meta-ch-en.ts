@@ -7493,6 +7493,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin Resigns: SVP Retains Two Seats',
     'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Guy Parmelin to step down at the end of the year. The Center acknowledges the two SVP seats; the PLR calls for candidates from French-speaking Switzerland.',
     'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'The Federal Palace in Bern, seat of the Federal Council, awaiting Guy Parmelin\'s successor.',
+    'blog.article.bancarotte-imprese-nove-mesi.title': 'Corporate Bankruptcies in Switzerland: Up 37% in Nine Months',
+    'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'In the first nine months, there were 11,412 bankruptcies in Switzerland, up 37% from 2025. Ticino and Graubünden were above average; 40,487 new companies were established.',
+    'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Swiss offices and shops in an editorial scene about the business sector.',
 };
 
 export default blogMetaChEn;

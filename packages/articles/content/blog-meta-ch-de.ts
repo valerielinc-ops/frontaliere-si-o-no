@@ -7493,6 +7493,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin tritt zurück: Die SVP behält zwei Sitze',
     'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Guy Parmelin tritt zum Jahresende zurück. Die Zentrumspartei erkennt die beiden Sitze der SVP an; die FDP fordert Kandidaten aus der lateinischen Schweiz.',
     'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'Der Bundespalast in Bern, Sitz des Bundesrates, wartet auf Guy Parmelins Nachfolger.',
+    'blog.article.bancarotte-imprese-nove-mesi.title': 'Unternehmensinsolvenzen in der Schweiz: +37 % in neun Monaten',
+    'blog.article.bancarotte-imprese-nove-mesi.excerpt': 'In den ersten neun Monaten gab es in der Schweiz 11\'412 Insolvenzen, ein Anstieg von 37 % gegenüber 2025. Das Tessin und Graubünden lagen über dem Durchschnitt; 40\'487 neue Unternehmen wurden gegründet.',
+    'blog.article.bancarotte-imprese-nove-mesi.imageAlt': 'Schweizer Büros und Geschäfte in einer redaktionellen Szene zur Unternehmenswelt.',
 };
 
 export default blogMetaChDe;

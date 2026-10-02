@@ -22507,6 +22507,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bancarotte-imprese-nove-mesi',
+    category: 'fiscale',
+    date: '2026-10-02T11:28:26.706Z',
+    image: '/images/blog/bancarotte-imprese-nove-mesi.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
