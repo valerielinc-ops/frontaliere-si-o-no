@@ -12356,6 +12356,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cairate-fisco-confine.title': 'Vivre au Cairé et travailler au Tessin en tant que navetteur transfrontalier',
     'blog.article.cairate-fisco-confine.excerpt': 'Nouvel accord transfrontalier pour les navetteurs en vigueur à partir du 1er janvier 2024 : retenue à la source, déductibles, AHV, BVG et KVG pour les habitants du Cairate.',
     'blog.article.cairate-fisco-confine.imageAlt': 'Paysage tessinois lié au travail frontalier depuis Cairate',
+    'blog.article.fondo-avs-solidarieta-giovani.title': 'Le treizième AHV, le fonds de pacte générationnel, est né',
+    'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'Au Tessin, plus de 86 000 bénéficiaires recevront plus de 140 millions de francs : une partie de la treizième AVS pourra soutenir des projets pour les jeunes.',
+    'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Des aînés et des jeunes parlent de solidarité dans un paysage tessinois',
 };
 
 export default blogMetaFr;
