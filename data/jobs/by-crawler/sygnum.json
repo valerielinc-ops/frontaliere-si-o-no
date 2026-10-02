@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-10-01T21:25:36.308Z",
+  "assembledAt": "2026-10-02T09:24:21.326Z",
   "jobs": [
     {
       "id": "sygnum-1e743fa07863",
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN268",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:27.311Z",
+      "crawledAt": "2026-10-02T09:24:13.752Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -98,7 +98,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN217",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:26.527Z",
+      "crawledAt": "2026-10-02T09:24:13.091Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -119,17 +119,20 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "internship-product-management-digital-assets-custody-wallets-sygnum-bank-zurich",
-        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
+        "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+        "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich"
+          "internship-product-management-digital-assets-custody-wallets-sygnum-zurich",
+          "internship-product-management-digital-assets-custodia-e-portafogli-sygnum-bank-zurich"
         ],
         "fr": [
           "internship-product-management-digital-assets-custody-wallets-sygnum-bank-zurich"
         ]
       },
       "firstSeenAt": "2026-09-23T23:50:29.915Z",
+      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 198500,
       "salarySource": "estimated",
@@ -175,7 +178,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:25.757Z",
+      "crawledAt": "2026-10-02T09:24:12.540Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -199,7 +202,8 @@
         "gestione-delle-comunicazioni-sygnum-bank-zurich",
         "communications-manager-sygnum-zurich",
         "kommunikationsmanager-sygnum-bank-zurich",
-        "gestionnaire-des-communications-sygnum-bank-zurich"
+        "gestionnaire-des-communications-sygnum-bank-zurich",
+        "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -207,7 +211,8 @@
           "gestione-delle-comunicazioni-sygnum-bank-zurich",
           "communications-manager-sygnum-zurich",
           "kommunikationsmanager-sygnum-bank-zurich",
-          "gestionnaire-des-communications-sygnum-bank-zurich"
+          "gestionnaire-des-communications-sygnum-bank-zurich",
+          "gestione-del-rischio-di-sicurezza-delle-informazioni-sygnum-bank-zurich"
         ],
         "en": [
           "communications-manager-sygnum-zurich"
@@ -267,7 +272,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:25.020Z",
+      "crawledAt": "2026-10-02T09:24:11.873Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -289,15 +294,18 @@
       "previousSlugsByLocale": {
         "it": [
           "crescita-piombo-senior-vice-president-b2b-sygnum-bank-zurich",
-          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+          "growth-lead-senior-vice-president-b2b-sygnum-zurich"
         ],
         "en": [
-          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+          "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+          "growth-lead-senior-vice-president-b2b-sygnum-zurich"
         ]
       },
       "previousSlugs": [
         "crescita-piombo-senior-vice-president-b2b-sygnum-bank-zurich",
-        "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich"
+        "growth-lead-b2b-switzerland-liechtenstein-sygnum-zurich",
+        "growth-lead-senior-vice-president-b2b-sygnum-zurich"
       ],
       "firstSeenAt": "2026-07-16T11:50:21.833Z",
       "salaryMin": 114500,
@@ -345,7 +353,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:24.332Z",
+      "crawledAt": "2026-10-02T09:24:11.148Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -365,11 +373,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "credit-lending-intern-sygnum-zurich"
+        "credit-lending-intern-sygnum-zurich",
+        "credit-lending-tirocinante-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-lending-intern-sygnum-zurich"
+          "credit-lending-intern-sygnum-zurich",
+          "credit-lending-tirocinante-sygnum-bank-zurich"
         ],
         "de": [
           "credit-lending-intern-sygnum-zurich"
@@ -379,6 +389,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:20:07.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -397,8 +408,8 @@
       "id": "sygnum-8bd22c417d4f",
       "slug": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
       "slugByLocale": {
-        "en": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
         "it": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
+        "en": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
         "de": "assistant-relationship-manager-private-banking-80-100-sygnum-zurich",
         "fr": "gestionnaire-adjoint-des-relations-services-bancaires-prives-80-100-sygnum-bank-zurich"
       },
@@ -407,15 +418,15 @@
       "companyDomain": "sygnum.com",
       "title": "Assistant Relationship Manager, Private Banking (80-100%)",
       "titleByLocale": {
-        "en": "Assistant Relationship Manager, Private Banking (80-100%)",
         "it": "Assistant Relationship Manager, Private Banking (80-100%)",
+        "en": "Assistant Relationship Manager, Private Banking (80-100%)",
         "de": "Assistent Relationship Manager, Private Banking (80-100%)",
         "fr": "Gestionnaire adjoint des relations, Services bancaires privés (80-100%)"
       },
       "description": "Sygnum has one of the most diverse teams in the industry. Diversity plays a central role in keeping our work culture open, our teams productive and energised, and our solutions at the forefront of the industry. In the spirit of our SYGN value to “grow and win together”, we fully embrace an equal opportunity mindset in the way we onboard, develop and promote our team members. We’re looking for an Assistant Relationship Manager with interest about the digital assets space to join our Private Banking team to strengthen our relationships with private clients.\n• You will actively support the Relationship Management team in the day-to-day business and assist in the preparation of client visits as well as the management of client dossiers.\n• You will be in telephone, e-mail, and face-to-face contact with our valued clients.\n• You will be involved in the onboarding process, the initiation and monitoring of transactions, meetings with prospective and existing clients, as well as in various other processing and trouble-shooting cases.\n• You will also have the opportunity to work on projects and get to know various internal interfaces, maintaining cross-team/unit collaboration.\n• Support on the client onboarding process together with internal stakeholders (Legal & Compliance, Operations) and external service providers.\n• Processing fiat and digital asset orders, trades, transactions, payments, as well as post transaction AML monitoring.\n• Maintain and update the CRM for accurate recordkeeping of all client instructions, details, and preferences.\n• Full adherence at all times to compliance, legal guidelines, internal rules, regulations and policies.\n• A completed apprenticeship or bachelor’s degree in a position relevant field\n• You have at least 1-2 years of experience in client servicing/customer care of private or institutional clients within a (Swiss) financial institution\n• Experience in onboarding clients (private clients or legal entities) and familiarity with the Swiss banking regulations and onboarding documents, in particular CDB 20\n• Previous experience in working with core banking systems, in particular Finnova is a plus\n• Curiosity and enthusiasm to get to know the world of Digital Assets and gain expertise in our product and service offerings\n• A positive, forward-thinking personality having a proactive can-do attitude and a great team player\n• Goal and results oriented with an entrepreneurial mindset, excellent organisational skills, and able to work independently and accurately even when under pressure\n• Language skills: fluency in English is mandatory. Additional language skills are advantageous Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
       "descriptionByLocale": {
-        "en": "Sygnum has one of the most diverse teams in the industry. Diversity plays a central role in keeping our work culture open, our teams productive and energised, and our solutions at the forefront of the industry. In the spirit of our SYGN value to “grow and win together”, we fully embrace an equal opportunity mindset in the way we onboard, develop and promote our team members. We’re looking for an Assistant Relationship Manager with interest about the digital assets space to join our Private Banking team to strengthen our relationships with private clients.\n• You will actively support the Relationship Management team in the day-to-day business and assist in the preparation of client visits as well as the management of client dossiers.\n• You will be in telephone, e-mail, and face-to-face contact with our valued clients.\n• You will be involved in the onboarding process, the initiation and monitoring of transactions, meetings with prospective and existing clients, as well as in various other processing and trouble-shooting cases.\n• You will also have the opportunity to work on projects and get to know various internal interfaces, maintaining cross-team/unit collaboration.\n• Support on the client onboarding process together with internal stakeholders (Legal & Compliance, Operations) and external service providers.\n• Processing fiat and digital asset orders, trades, transactions, payments, as well as post transaction AML monitoring.\n• Maintain and update the CRM for accurate recordkeeping of all client instructions, details, and preferences.\n• Full adherence at all times to compliance, legal guidelines, internal rules, regulations and policies.\n• A completed apprenticeship or bachelor’s degree in a position relevant field\n• You have at least 1-2 years of experience in client servicing/customer care of private or institutional clients within a (Swiss) financial institution\n• Experience in onboarding clients (private clients or legal entities) and familiarity with the Swiss banking regulations and onboarding documents, in particular CDB 20\n• Previous experience in working with core banking systems, in particular Finnova is a plus\n• Curiosity and enthusiasm to get to know the world of Digital Assets and gain expertise in our product and service offerings\n• A positive, forward-thinking personality having a proactive can-do attitude and a great team player\n• Goal and results oriented with an entrepreneurial mindset, excellent organisational skills, and able to work independently and accurately even when under pressure\n• Language skills: fluency in English is mandatory. Additional language skills are advantageous Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
         "it": "Sygnum ha una delle squadre più diverse del settore. La diversità gioca un ruolo centrale nel mantenere aperta la nostra cultura del lavoro, i nostri team produttivi ed energici, e le nostre soluzioni all'avanguardia del settore. Nello spirito del nostro valore SYGN di “crescere e vincere insieme”, abbracciamo pienamente una mentalità pari opportunità nel modo in cui siamo a bordo, sviluppare e promuovere i nostri membri del team. Stiamo cercando un Assistant Relationship Manager con interesse per lo spazio delle risorse digitali per unire il nostro team Private Banking per rafforzare i nostri rapporti con i clienti privati.\n• Sosterrai attivamente il team di Relationship Management nel business quotidiano e assisterai alla preparazione delle visite dei clienti e alla gestione dei dossier dei clienti.\n• Sarai in contatto telefonico, e-mail e faccia a faccia con i nostri clienti apprezzati.\n• Sarete coinvolti nel processo di onboarding, l'avvio e il monitoraggio delle transazioni, incontri con potenziali e clienti esistenti, nonché in vari altri casi di elaborazione e risoluzione dei problemi.\n• Avrete anche la possibilità di lavorare su progetti e conoscere diverse interfacce interne, mantenendo la collaborazione tra team e unità.\n• Sostegno al processo di onboarding del cliente insieme agli stakeholder interni (Legal & Compliance, Operazioni) e ai fornitori di servizi esterni.\n• Elaborazione di fiat e ordini di asset digitali, scambi, transazioni, pagamenti, così come il monitoraggio post transazione AML.\n• Mantenere e aggiornare il CRM per la registrazione accurata di tutte le istruzioni, dettagli e preferenze del cliente.\n• Aderenza completa in ogni momento alla conformità, linee guida legali, regole interne, regolamenti e politiche.\n• Un apprendistato completato o laurea in una posizione rilevante\n• Hai almeno 1-2 anni di esperienza nel servizio clienti/customer cura di clienti privati o istituzionali all'interno di un (Swiss) istituto finanziario\n• Esperienza in clienti di bordo (clienti privati o enti legali) e familiarità con le normative bancarie svizzere e i documenti di bordo, in particolare CDB 20\n• Esperienza precedente nel lavoro con i sistemi di core banking, in particolare Finnova è un plus\n• Curiosità ed entusiasmo per conoscere il mondo dei beni digitali e acquisire competenze nelle nostre offerte di prodotti e servizi\n• Una personalità positiva e in avanti con un atteggiamento proattivo in grado di fare e un grande giocatore di squadra\n• Obiettivo e risultati orientati con una mentalità imprenditoriale, eccellenti capacità organizzative, e in grado di lavorare in modo indipendente e preciso anche sotto pressione\n• Competenze linguistiche: la fluenza in inglese è obbligatoria. Unisciti a Sygnum significa essere parte di un team dinamico e globale che sta costruendo un gateway affidabile tra le economie di asset tradizionali e digitali. Lavorando a Sygnum, sperimenterete il nostro ambiente di lavoro veloce ed emozionante che abbraccia la meritocrazia e la collaborazione e la comunicazione aperta. Accanto alla nostra ambiziosa missione a lungo termine, ci uniamo anche per raggiungere importanti pietre miliari e anniversari cripto-industriali annuali come Bitcoin Pizza Day, e regolarmente celebrare insieme a eventi aziendali tematici come parte del nostro viaggio per formare Future Finance. Sygnum offre un pacchetto completo di vantaggi per tutti i membri del team. Essi includono:\n• Combinazione attraente di salari di mercato e di incentivazione imprenditoriale\n• Flessibile / Lavoro nelle politiche domestiche\n• Sviluppo professionale tramite programmi Mentoring e Buddy\n• Un mese completamente pagato sabbatico dopo cinque anni di occupazione continua Se siete appassionati del potenziale di blockchain per modellare Future Finance e il vostro profilo è una buona misura per questa posizione, si prega di inviare il vostro CV oggi!",
+        "en": "Sygnum has one of the most diverse teams in the industry. Diversity plays a central role in keeping our work culture open, our teams productive and energised, and our solutions at the forefront of the industry. In the spirit of our SYGN value to “grow and win together”, we fully embrace an equal opportunity mindset in the way we onboard, develop and promote our team members. We’re looking for an Assistant Relationship Manager with interest about the digital assets space to join our Private Banking team to strengthen our relationships with private clients.\n• You will actively support the Relationship Management team in the day-to-day business and assist in the preparation of client visits as well as the management of client dossiers.\n• You will be in telephone, e-mail, and face-to-face contact with our valued clients.\n• You will be involved in the onboarding process, the initiation and monitoring of transactions, meetings with prospective and existing clients, as well as in various other processing and trouble-shooting cases.\n• You will also have the opportunity to work on projects and get to know various internal interfaces, maintaining cross-team/unit collaboration.\n• Support on the client onboarding process together with internal stakeholders (Legal & Compliance, Operations) and external service providers.\n• Processing fiat and digital asset orders, trades, transactions, payments, as well as post transaction AML monitoring.\n• Maintain and update the CRM for accurate recordkeeping of all client instructions, details, and preferences.\n• Full adherence at all times to compliance, legal guidelines, internal rules, regulations and policies.\n• A completed apprenticeship or bachelor’s degree in a position relevant field\n• You have at least 1-2 years of experience in client servicing/customer care of private or institutional clients within a (Swiss) financial institution\n• Experience in onboarding clients (private clients or legal entities) and familiarity with the Swiss banking regulations and onboarding documents, in particular CDB 20\n• Previous experience in working with core banking systems, in particular Finnova is a plus\n• Curiosity and enthusiasm to get to know the world of Digital Assets and gain expertise in our product and service offerings\n• A positive, forward-thinking personality having a proactive can-do attitude and a great team player\n• Goal and results oriented with an entrepreneurial mindset, excellent organisational skills, and able to work independently and accurately even when under pressure\n• Language skills: fluency in English is mandatory. Additional language skills are advantageous Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
         "de": "Sygnum hat eines der vielfältigsten Teams der Branche. Vielfalt spielt eine zentrale Rolle, um unsere Arbeitskultur offen zu halten, unsere Teams produktiv und energiegeladen zu machen und unsere Lösungen an der Spitze der Branche zu halten. Im Geiste unseres SYGN-Werts, „gemeinsam zu wachsen und zu gewinnen, gehen wir eine Chancengleichheit in der Art und Weise ein, wie wir unsere Teammitglieder einbinden, entwickeln und fördern. Wir suchen einen Assistant Relationship Manager mit Interesse am Bereich Digital Assets, der sich unserem Private Banking-Team anschließt, um unsere Beziehungen zu Privatkunden zu stärken.\n• Sie unterstützen das Relationship Management Team aktiv im Tagesgeschäft und unterstützen bei der Vorbereitung von Kundenbesuchen sowie bei der Verwaltung von Kundendossiers.\n• Sie werden telefonisch, per E-Mail und in persönlichem Kontakt mit unseren geschätzten Kunden stehen.\n• Sie werden in den Onboarding-Prozess, die Initiierung und Überwachung von Transaktionen, Treffen mit potenziellen und bestehenden Kunden sowie in verschiedene andere Verarbeitungs- und Fehlerbehebungsfälle einbezogen.\n• Sie haben auch die Möglichkeit, an Projekten zu arbeiten und verschiedene interne Schnittstellen kennenzulernen, um die Zusammenarbeit zwischen Teams und Einheiten zu gewährleisten.\n• Unterstützung des Kunden-Onboarding-Prozesses gemeinsam mit internen Stakeholdern (Legal & Compliance, Operations) und externen Dienstleistern.\n• Verarbeitung von Fiat- und Digital Asset Orders, Trades, Transaktionen, Zahlungen sowie AML-Überwachung nach der Transaktion.\n• Pflegen und aktualisieren Sie das CRM für eine genaue Aufzeichnung aller Kundenanweisungen, Details und Präferenzen.\n• Vollständige Einhaltung von Compliance, gesetzlichen Richtlinien, internen Regeln, Vorschriften und Richtlinien.\n• Eine abgeschlossene Lehre oder Bachelor-Abschluss in einer Position relevanten Bereich\n• Sie haben mindestens 1-2 Jahre Erfahrung in der Kundenbetreuung / Kundenbetreuung von privaten oder institutionellen Kunden innerhalb eines (schweizerischen) Finanzinstituts\n• Erfahrung im Onboarding von Kunden (Privatkunden oder juristische Personen) und Vertrautheit mit den Schweizer Bankvorschriften und Onboarding-Dokumenten, insbesondere CDB 20\n• Frühere Erfahrungen in der Arbeit mit Kernbankensystemen, insbesondere Finnova, sind ein Plus\n• Neugier und Begeisterung, die Welt der Digital Assets kennenzulernen und Expertise in unseren Produkt- und Serviceangeboten zu gewinnen\n• Eine positive, zukunftsorientierte Persönlichkeit mit einer proaktiven Can-Do-Einstellung und einem großartigen Teamplayer\n• Ziel- und Ergebnisorientierung mit unternehmerischem Mindset, exzellenten Organisationsfähigkeiten und der Fähigkeit, auch unter Druck selbstständig und präzise zu arbeiten\n• Sprachkenntnisse: fließend Englisch ist obligatorisch. Der Beitritt zu Sygnum bedeutet, Teil eines dynamischen, globalen Teams zu sein, das ein vertrauenswürdiges Tor zwischen den traditionellen und digitalen Asset-Ökonomen aufbaut. Bei Sygnum erleben Sie unser schnelles, aufregendes Arbeitsumfeld, das Meritokratie, Zusammenarbeit und offene Kommunikation umfasst. Neben unserer ehrgeizigen langfristigen Mission kommen wir auch zusammen, um wichtige Meilensteine und jährliche Jubiläen der Kryptoindustrie wie den Bitcoin Pizza Day zu erreichen, und feiern regelmäßig gemeinsam auf Themenveranstaltungen im Rahmen unserer Reise zur Gestaltung von Future Finance. Sygnum bietet ein umfassendes Leistungspaket für alle Teammitglieder. Dazu gehören:\n• Attraktive Kombination von Marktgehältern und unternehmerischem Anreizsystem\n• Flexible / Arbeit zu Hause Politik\n• Professionelle Entwicklung durch Mentoring und Buddy Programme\n• Einmonatiges voll bezahltes Sabbatical nach fünf Jahren Dauerbeschäftigung Wenn Sie sich für das Potenzial der Blockchain zur Gestaltung von Future Finance begeistern und Ihr Profil gut zu dieser Position passt, senden Sie uns bitte noch heute Ihren Lebenslauf!",
         "fr": "Sygnum possède l'une des équipes les plus diversifiées de l'industrie. La diversité joue un rôle central dans l'ouverture de notre culture de travail, la productivité et l'énergie de nos équipes, ainsi que nos solutions à l'avant-garde de l'industrie. Dans l'esprit de notre valeur de SYGN pour « Grow » et gagner ensemble, nous acceptons pleinement un état d'esprit d'égalité des chances dans la façon dont nous embarquons, développons et promouvons les membres de notre équipe. Nous sommes à la recherche d'un Assistant Relationship Manager avec intérêt sur l'espace d'actifs numériques pour rejoindre notre équipe Private Banking pour renforcer nos relations avec les clients privés.\n• Vous soutenirz activement l'équipe de gestion des relations dans les activités quotidiennes et vous aiderez à préparer les visites des clients ainsi que la gestion des dossiers des clients.\n• Vous serez en contact téléphonique, e-mail et face à face avec nos précieux clients.\n• Vous participerez au processus d'embarquement, au lancement et au suivi des transactions, aux réunions avec des clients potentiels et existants, ainsi qu'à divers autres cas de traitement et de dépannage.\n• Vous aurez également l'occasion de travailler sur des projets et d'apprendre à connaître diverses interfaces internes, en maintenant la collaboration entre équipes et unités.\n• Soutien au processus d'embarquement du client avec les intervenants internes (Légal & Conformité, Opérations) et les fournisseurs de services externes.\n• Traitement des commandes d'actifs fiat et numériques, des métiers, des transactions, des paiements, ainsi que de la surveillance AML après transaction.\n• Maintenez et mettez à jour le CRM pour la tenue exacte de tous les instructions, détails et préférences des clients.\n• Respect total en tout temps de la conformité, des lignes directrices juridiques, des règles internes, des règlements et des politiques.\n• Diplôme d'apprentissage ou de baccalauréat dans un domaine pertinent\n• Vous avez au moins 1 à 2 ans d'expérience dans le service à la clientèle / soins à la clientèle de clients privés ou institutionnels au sein d'une institution financière (suisse)\n• Expérience des clients embarqués (clients privés ou personnes morales) et connaissance de la réglementation bancaire suisse et des documents d'embarquement, en particulier CDB 20\n• Expérience antérieure dans le travail avec les systèmes bancaires de base, en particulier Finnova est un plus\n• Curiosité et enthousiasme pour découvrir le monde des actifs numériques et acquérir une expertise dans nos offres de produits et de services\n• Une personnalité positive et avant-gardiste ayant une attitude proactive de can-do et un grand joueur d'équipe\n• Objectif et résultats orientés vers l'esprit d'entreprise, d'excellentes compétences organisationnelles et capables de travailler de manière indépendante et précise même sous pression\n• Compétences linguistiques : la maîtrise de l'anglais est obligatoire. D'autres compétences linguistiques sont avantageuses Joining Sygnum signifie faire partie d'une équipe dynamique et mondiale qui construit une passerelle de confiance entre les économies d'actifs traditionnels et numériques. En travaillant chez Sygnum, vous vivrez notre environnement de travail rapide et passionnant qui embrasse la méritocratie et la collaboration et la communication ouverte. Parallèlement à notre mission ambitieuse à long terme, nous nous réunissons également pour atteindre des jalons importants et des anniversaires annuels de crypto-industrie comme la Journée de la pizza Bitcoin, et célébrons régulièrement ensemble lors des événements thématiques de l'entreprise dans le cadre de notre voyage pour façonner Future Finance. Sygnum offre un ensemble complet d'avantages pour tous les membres de l'équipe. Il s'agit notamment :\n• Combinaison attrayante des salaires du marché et du régime d'incitation à l'entreprise\n• Politiques flexibles/de travail à domicile\n• Développement professionnel via les programmes de mentorat et de Buddy\n• Un mois plein salaire sabbatique après cinq ans d'emploi continu Si vous êtes passionné par le potentiel de la blockchain pour façonner Future Finance et votre profil est un bon ajustement pour ce poste, veuillez nous envoyer votre CV aujourd'hui!"
       },
@@ -424,7 +435,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:22.819Z",
+      "crawledAt": "2026-10-02T09:24:09.711Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -442,10 +453,9 @@
       "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN288",
       "jobReqId": "VN288",
       "requirements": [],
-      "requirementsByLocale": {
-        "en": []
-      },
+      "requirementsByLocale": {},
       "needsRetranslation": true,
+      "firstSeenAt": "2026-10-01T21:25:22.819Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -458,8 +468,7 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-10-01T21:25:22.819Z"
+      }
     },
     {
       "id": "sygnum-553807b103eb",
@@ -492,7 +501,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:22.148Z",
+      "crawledAt": "2026-10-02T09:24:09.062Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -512,18 +521,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-relationship-manager-private-banking-sygnum-zurich"
+        "senior-relationship-manager-private-banking-sygnum-zurich",
+        "senior-responsabile-relazioni-private-banking-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-relationship-manager-private-banking-sygnum-zurich"
+          "senior-relationship-manager-private-banking-sygnum-zurich",
+          "senior-responsabile-relazioni-private-banking-sygnum-bank-zurich"
         ],
         "fr": [
           "senior-relationship-manager-private-banking-sygnum-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:30:03.444Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:30:03.444Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -569,7 +580,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:21.323Z",
+      "crawledAt": "2026-10-02T09:24:08.428Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -589,6 +600,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -634,7 +646,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:25:20.654Z",
+      "crawledAt": "2026-10-02T09:24:07.360Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -654,11 +666,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-application-security-engineer-sygnum-zurich"
+        "senior-application-security-engineer-sygnum-zurich",
+        "senior-application-security-ingegnere-sygnum-bank-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-application-security-engineer-sygnum-zurich"
+          "senior-application-security-engineer-sygnum-zurich",
+          "senior-application-security-ingegnere-sygnum-bank-zurich"
         ],
         "de": [
           "senior-application-security-engineer-sygnum-zurich"
@@ -681,80 +695,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sygnum-10f16600957d",
-      "slug": "responsabile-corporate-clients-sygnum-bank-zurich",
-      "slugByLocale": {
-        "it": "responsabile-corporate-clients-sygnum-bank-zurich",
-        "en": "head-of-corporate-clients-sygnum-zurich",
-        "de": "leiter-corporate-clients-sygnum-bank-zurich",
-        "fr": "responsable-corporate-clients-sygnum-bank-zurich"
-      },
-      "company": "Sygnum Bank",
-      "companyKey": "sygnum",
-      "companyDomain": "sygnum.com",
-      "title": "Head of Corporate Clients",
-      "titleByLocale": {
-        "it": "Responsabile Corporate Clients",
-        "en": "Head of Corporate Clients",
-        "de": "Leiter Corporate Clients",
-        "fr": "Responsable Corporate Clients"
-      },
-      "description": "We are looking for a commercially minded and relationship-driven leader to help lead the next phase of growth of our corporate client business. This is an opportunity to take on an important leadership role with meaningful impact, combining business development, client leadership and the opportunity to shape how a regulated digital asset banking platform serves a fast-evolving market. As Head of Corporate Clients, you will work with leading digital asset companies and help deepen Sygnum’s position as a trusted partner for corporate clients. You will lead a high-performing team, build trusted client relationships and contribute to the continued growth of a business at the intersection of banking and digital assets. Your main responsibilities: - Own and grow Sygnum’s corporate client business across key client segments, and help shape our market positioning across the digital asset ecosystem, including crypto foundations, DLT projects and other crypto-native institutions - Lead, mentor and scale a high-performing corporate client team across sales, client coverage and solutions - Develop and execute the corporate client strategy in close partnership with the Chief Clients Officer - Build trusted relationships with senior stakeholders across key clients and prospects in Switzerland and across Sygnum’s international footprint - Work closely with Asset Management, custody, lending and trading teams to deliver the best possible solutions for corporate clients - Ensure alignment with FINMA requirements and Sygnum’s risk and compliance framework, while championing a trusted and well-governed approach to digital asset banking - Represent Sygnum at relevant industry forums, conferences and regulatory engagements in the digital asset space - Lead and further strengthen the client onboarding process in close collaboration with internal stakeholders, including Compliance and Operations - Use AI-enabled insights, such as client intelligence and pipeline analytics, to prioritise outreach, improve coverage quality and scale personalised client engagement - Stay close to market, product and regulatory developments, and build a strong network across the digital asset ecosystem - 10+ years of experience in corporate banking, ideally gained within a Swiss-regulated bank or a major international financial institution - A strong track record of building and managing corporate client relationships with measurable commercial impact. Previous people leadership experience with Relationship Managers and Assistant Relationship Managers would be an advantage - Strong understanding of digital assets and blockchain, or the curiosity and drive to build this expertise quickly - An established network and strong relationships across the digital assets ecosystem would be a strong advantage - Solid familiarity with Swiss banking regulation, including FINMA requirements and AML/KYC standards relevant to corporate client relationships - Strong interpersonal credibility and the ability to engage effectively with senior stakeholders across crypto-native organisations - Comfortable using AI and data-driven insights to support client development, research and decision-making - An entrepreneurial mindset and the ability to operate effectively in a fast-growing, innovation-led environment - Fluency in English is essential; German and/or French would be an advantage. Sygnum offers a comprehensive package of benefits for all team members. They include: - Attractive combination of market salaries and entrepreneurial incentive scheme - Flexible/Work-At-Home policies - Professional development via Mentoring and Buddy programs - One-month fully paid sabbatical after five years of continuous employment This role offers the opportunity to contribute to one of the most established regulated platforms in digital assets, working with sophisticated clients at the intersection of traditional finance and the digital asset economy. Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day and regularly celebrate together at themed company events as part of our journey to shape Future Finance. If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-      "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un leader di mentalità commerciale e di rapporto-driven per aiutare a guidare la prossima fase di crescita del nostro business cliente aziendale. Questa è un'opportunità per assumere un ruolo di leadership importante con un impatto significativo, combinando lo sviluppo aziendale, la leadership dei clienti e l'opportunità di plasmare come una piattaforma di asset banking digitale regolamentata serve un mercato in rapida evoluzione. Come responsabile dei clienti aziendali, lavorerai con le principali società di asset digitali e aiuterai ad approfondire la posizione di Sygnum come partner affidabile per i clienti aziendali. Condurrai un team altamente performante, costruirai relazioni con i clienti affidabili e contribuirai alla continua crescita di un business all'incrocio tra attività bancarie e digitali. Responsabilità dei clienti principali: - Promuovere e crescere il business dei clienti aziendali di Sygnum attraverso i segmenti dei clienti chiave, e contribuire a plasmare il nostro posizionamento di mercato attraverso l’ecosistema delle risorse digitali, tra cui le fondazioni criptologiche, i progetti DLT e le altre istituzioni cripto-native - Leader, mentore e scalare un team di clienti aziendale di alto rendimento attraverso le vendite, la copertura clienti e le soluzioni Esperienza di leadership delle persone precedenti con Relationship Manager e Assistant Relationship Managers sarebbe un vantaggio - Una forte comprensione dei beni digitali e blockchain, o la curiosità e la spinta a costruire rapidamente questa esperienza - Una rete consolidata e forti relazioni tra l'ecosistema dei beni digitali sarebbero un forte vantaggio - Solida familiarità con la regolamentazione bancaria svizzera, compresi i requisiti FINMA e gli standard AML/KYC rilevanti per le relazioni con i clienti aziendali - Forte credibilità interpersonale e la capacità di impegnarsi efficacemente con gli stakeholder senior attraverso le organizzazioni cripto-native - Confortevole utilizzo di AI e informazioni basate sui dati per supportare lo sviluppo dei clienti, la ricerca e il processo decisionale - Una mentalità imprenditoriale e la capacità di operare efficacemente in un ambiente in rapida crescita, orientato all'innovazione - la fluidità in inglese è essenziale; tedesco e/o francese sarebbe un vantaggio. Sygnum offre un pacchetto completo di vantaggi per tutti i membri del team. Essi includono: - Combinazione attraente di stipendi di mercato e di incentivazione imprenditoriale - Politiche flessibili/lavoro-a casa - Sviluppo professionale tramite programmi Mentoring e Buddy - Un mese completamente pagato sabbatico dopo cinque anni di lavoro continuo Questo ruolo offre l'opportunità di contribuire a una delle piattaforme regolamentate più stabilite nei beni digitali, lavorando con clienti sofisticati all'intersezione della finanza tradizionale e dell'economia di asset digitale. Unirsi a Sygnum significa essere parte di un team dinamico e globale che sta costruendo un gateway affidabile tra le economie di asset tradizionali e digitali. Lavorando a Sygnum, sperimenterete il nostro ambiente di lavoro veloce ed emozionante che abbraccia la meritocrazia e la collaborazione e la comunicazione aperta. Accanto alla nostra ambiziosa missione a lungo termine, ci uniamo anche per raggiungere importanti pietre miliari e anniversari cripto-industriali annuali come Bitcoin Pizza Day e celebrare regolarmente insieme a eventi aziendali a tema come parte del nostro viaggio per formare Future Finance. Se siete appassionati del potenziale di blockchain per modellare Future Finance e il vostro profilo è una buona misura per questa posizione, si prega di inviare il vostro CV oggi!",
-        "en": "We are looking for a commercially minded and relationship-driven leader to help lead the next phase of growth of our corporate client business. This is an opportunity to take on an important leadership role with meaningful impact, combining business development, client leadership and the opportunity to shape how a regulated digital asset banking platform serves a fast-evolving market. As Head of Corporate Clients, you will work with leading digital asset companies and help deepen Sygnum’s position as a trusted partner for corporate clients. You will lead a high-performing team, build trusted client relationships and contribute to the continued growth of a business at the intersection of banking and digital assets. Your main responsibilities: - Own and grow Sygnum’s corporate client business across key client segments, and help shape our market positioning across the digital asset ecosystem, including crypto foundations, DLT projects and other crypto-native institutions - Lead, mentor and scale a high-performing corporate client team across sales, client coverage and solutions - Develop and execute the corporate client strategy in close partnership with the Chief Clients Officer - Build trusted relationships with senior stakeholders across key clients and prospects in Switzerland and across Sygnum’s international footprint - Work closely with Asset Management, custody, lending and trading teams to deliver the best possible solutions for corporate clients - Ensure alignment with FINMA requirements and Sygnum’s risk and compliance framework, while championing a trusted and well-governed approach to digital asset banking - Represent Sygnum at relevant industry forums, conferences and regulatory engagements in the digital asset space - Lead and further strengthen the client onboarding process in close collaboration with internal stakeholders, including Compliance and Operations - Use AI-enabled insights, such as client intelligence and pipeline analytics, to prioritise outreach, improve coverage quality and scale personalised client engagement - Stay close to market, product and regulatory developments, and build a strong network across the digital asset ecosystem - 10+ years of experience in corporate banking, ideally gained within a Swiss-regulated bank or a major international financial institution - A strong track record of building and managing corporate client relationships with measurable commercial impact. Previous people leadership experience with Relationship Managers and Assistant Relationship Managers would be an advantage - Strong understanding of digital assets and blockchain, or the curiosity and drive to build this expertise quickly - An established network and strong relationships across the digital assets ecosystem would be a strong advantage - Solid familiarity with Swiss banking regulation, including FINMA requirements and AML/KYC standards relevant to corporate client relationships - Strong interpersonal credibility and the ability to engage effectively with senior stakeholders across crypto-native organisations - Comfortable using AI and data-driven insights to support client development, research and decision-making - An entrepreneurial mindset and the ability to operate effectively in a fast-growing, innovation-led environment - Fluency in English is essential; German and/or French would be an advantage. Sygnum offers a comprehensive package of benefits for all team members. They include: - Attractive combination of market salaries and entrepreneurial incentive scheme - Flexible/Work-At-Home policies - Professional development via Mentoring and Buddy programs - One-month fully paid sabbatical after five years of continuous employment This role offers the opportunity to contribute to one of the most established regulated platforms in digital assets, working with sophisticated clients at the intersection of traditional finance and the digital asset economy. Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day and regularly celebrate together at themed company events as part of our journey to shape Future Finance. If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-        "de": "Wir suchen einen kaufmännischen und beziehungsorientierten Marktführer, der die nächste Wachstumsphase unseres Firmenkundengeschäfts leitet. Dies ist eine Gelegenheit, eine wichtige Führungsrolle mit sinnvoller Wirkung zu übernehmen, indem Geschäftsentwicklung, Kundenführung und die Möglichkeit kombiniert werden, zu gestalten, wie eine regulierte Digital Asset Banking-Plattform einem sich schnell entwickelnden Markt dient. Als Head of Corporate Clients arbeiten Sie mit führenden Digital-Asset-Unternehmen zusammen und tragen dazu bei, die Position von Sygnum als vertrauenswürdiger Partner für Firmenkunden zu vertiefen. Sie führen ein leistungsstarkes Team, bauen vertrauenswürdige Kundenbeziehungen auf und tragen zum weiteren Wachstum eines Unternehmens an der Schnittstelle von Bank- und digitalen Vermögenswerten bei.\n• Ihre Hauptaufgaben: - Eigenes und Ausbau des Unternehmenskundengeschäfts von Sygnum in wichtigen Kundensegmenten und mitgestalten unsere Marktpositionierung im gesamten digitalen Asset-Ökosystem, einschließlich Kryptostiftungen, DLT-Projekten und anderen kryptonativen Institutionen - Führen, Mentoren und skalieren Sie ein leistungsstarkes Unternehmenskundenteam in enger Partnerschaft mit dem Chief Clients Officer - Entwickeln und Ausführen der Unternehmenskundenstrategie in enger Partnerschaft mit dem Chief Clients Officer - Aufbau und Umsetzung vertrauenswürdiger Beziehungen mit leitenden Stakeholdern in der Schweiz und in der internationalen Präsenz von Sygnum - Arbeiten Sie eng mit Asset Management-, Depot-, Kredit- und Handelsteams zusammen, um die bestmöglichen Lösungen für Unternehmenskunden zu liefern - Stellen Sie sicher, dass die Abstimmung mit den\n• Anforderungen der FINMA und dem Risiko- und Compliance-Framework von Sygnum gewährleistet ist - Repräsentieren Sie Sygnum in enger Zusammenarbeit mit internen Stakeholdern, einschließlich Compliance und Operations - Verwenden Sie KI-fähige Erkenntnisse, wie Kundenintelligenz und Pipeline-Analyse, um Outreach zu priorisieren, verbessern Sie die Abdeckungsqualität und skalieren Sie Frühere Führungserfahrungen mit Relationship Managern und Assistant Relationship Managern wären von Vorteil - Ein starkes Verständnis von digitalen Assets und Blockchain oder die Neugier und der Antrieb, dieses Fachwissen schnell aufzubauen - Ein etabliertes Netzwerk und starke Beziehungen im gesamten Ökosystem für digitale Vermögenswerte wären ein großer Vorteil - Solide Vertrautheit mit der Schweizer Bankenregulierung, einschließlich FINMA-\n• Anforderungen und AML / KYC-Standards, die für die Kundenbeziehungen von Unternehmen relevant sind - Starke zwischenmenschliche Glaubwürdigkeit und die Fähigkeit, sich effektiv mit leitenden Stakeholdern in krypto-nativen Organisationen auseinanderzusetzen - Komfortabel mit KI und datengesteuerten Erkenntnissen zur Unterstützung der Kundenentwicklung, -forschung und -entscheidungsfindung - Eine unternehmerische Denkweise und die Fähigkeit, in einem schnell wachsenden, innovationsorientierten Umfeld effektiv zu arbeiten - fließende Englischkenntnisse sind unerlässlich; Deutsch und / oder Französisch wären von Vorteil. Sygnum bietet ein umfassendes Leistungspaket für alle Teammitglieder. Dazu gehören: - Attraktive Kombination von Marktgehältern und unternehmerischem Anreizsystem - Flexible / Work-At-Home-Politik - Professionelle Entwicklung durch Mentoring- und Buddy-Programme - Einmonatiges voll bezahltes Sabbatical nach fünf Jahren Dauerbeschäftigung Diese Rolle bietet die Möglichkeit, zu einer der etabliertesten regulierten Plattformen für digitale Vermögenswerte beizutragen und mit anspruchsvollen Kunden an der Schnittstelle zwischen traditionellem Finanzwesen und digitaler Vermögenswirtschaft zusammenzuarbeiten. Der Beitritt zu Sygnum bedeutet, Teil eines dynamischen, globalen Teams zu sein, das ein vertrauenswürdiges Tor zwischen den traditionellen und digitalen Asset-Ökonomen aufbaut. Bei Sygnum erleben Sie unser schnelles, aufregendes Arbeitsumfeld, das Meritokratie, Zusammenarbeit und offene Kommunikation umfasst. Neben unserer ambitionierten langfristigen Mission kommen wir auch zusammen, um wichtige Meilensteine und jährliche Krypto-Jubiläen wie den Bitcoin Pizza Day zu erreichen und regelmäßig gemeinsam auf themenbezogenen Firmenveranstaltungen im Rahmen unserer Reise zur Gestaltung von Future Finance zu feiern. Wenn Sie sich für das Potenzial der Blockchain zur Gestaltung von Future Finance begeistern und\n• Ihr Profil gut zu dieser Position passt, senden Sie uns bitte noch heute Ihren Lebenslauf!",
-        "fr": "Nous sommes à la recherche d'un chef de file axé sur les relations commerciales pour aider à diriger la prochaine phase de croissance de notre entreprise cliente. Il s'agit d'une occasion de jouer un rôle de leadership important avec un impact significatif, combinant le développement des entreprises, le leadership des clients et l'occasion de façonner la façon dont une plate-forme bancaire d'actifs numériques réglementée sert un marché en évolution rapide. En tant que responsable des clients d'entreprise, vous travaillerez avec des sociétés d'actifs numériques de premier plan et aiderez Sygnum à approfondir sa position de partenaire de confiance pour les clients d'entreprise. Vous dirigerez une équipe hautement performante, établirez des relations client fiables et contribuerez à la croissance continue d'une entreprise à l'intersection des actifs bancaires et numériques. Vos principales responsabilités : - Posséder et développer Sygnum - Diriger, encadrer et mettre à l'échelle une équipe cliente hautement performante à travers les ventes, la couverture cliente et les solutions - Élaborer et exécuter la stratégie client d'entreprise en partenariat étroit avec le chef de la direction client - Établir des relations de confiance avec les principaux intervenants à travers les principaux clients et les perspectives en Suisse et à travers Sygnum - Travailler en étroite collaboration avec les équipes de gestion d'actifs, de garde, de prêt et de négociation afin de fournir les meilleures solutions possibles aux clients d'entreprise - Assurer l'alignement avec les exigences de la FINMA et le cadre de gestion des risques et de la conformité de Sygnum, tout en défendant une approche fiable et bien gérée de la banque d'actifs numériques - Représenter Sygnum aux forums, conférences et engagements réglementaires pertinents de l'industrie dans l'espace d'actifs numériques - Diriger et renforcer le processus d'embarquement du client en étroite collaboration avec les intervenants internes, y compris la conformité et les opérations - Utiliser les connaissances pertinentes de l'IA, telles que l'analyse des clients, l'amélioration de la sensibilisation des clients - Mener et renforcer le Les personnes précédentes expérience de leadership avec les gestionnaires de relations et les gestionnaires de relations adjoints serait un avantage - Une bonne compréhension des actifs numériques et blockchain, ou la curiosité et la volonté de développer cette expertise rapidement - Un réseau établi et des relations solides dans l'ensemble de l'écosystème des actifs numériques constitueraient un avantage important - Une bonne connaissance de la réglementation bancaire suisse, y compris les exigences de la FINMA et les normes AML/KYC applicables aux relations client d'entreprise - Une solide crédibilité interpersonnelle et la capacité de dialoguer efficacement avec les acteurs de haut niveau des organisations crypto-natives - Une utilisation confortable de l'intelligence artificielle et des données pour soutenir le développement des clients, la recherche et la prise de décisions - Un esprit d'entreprise et la capacité de fonctionner efficacement dans un environnement à croissance rapide et axé sur l'innovation - La fluidité en anglais est essentielle; l'allemand et/ou le français seraient un avantage. Sygnum offre un ensemble complet d'avantages pour tous les membres de l'équipe. Il s'agit notamment : - d'une combinaison attrayante de salaires du marché et d'un régime d'incitation à l'esprit d'entreprise - de politiques flexibles/de travail à domicile - de développement professionnel par le biais de programmes de mentorat et de jumelage - d'un mois de congé sabbatique entièrement rémunéré après cinq ans d'emploi continu Ce rôle offre la possibilité de contribuer à l'une des plates-formes réglementées les plus établies dans le domaine des actifs numériques, en travaillant avec des clients sophistiqués au carrefour de la finance traditionnelle et de l'économie des actifs numériques. Rejoindre Sygnum signifie faire partie d'une équipe mondiale dynamique qui construit une passerelle de confiance entre les économies d'actifs traditionnelles et numériques. En travaillant chez Sygnum, vous vivrez notre environnement de travail rapide et passionnant qui embrasse la méritocratie et la collaboration et la communication ouverte. Parallèlement à notre mission ambitieuse à long terme, nous nous réunissons également pour atteindre des jalons importants et des anniversaires annuels de crypto-industrie comme la Journée de la pizza Bitcoin et célébrons régulièrement ensemble lors des événements thématiques de l'entreprise dans le cadre de notre voyage pour façonner Future Finance. Si vous êtes passionné par le potentiel de blockchain pour façonner Future Finance et votre profil est un bon ajustement pour ce poste, veuillez nous envoyer votre CV aujourd'hui!"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN252",
-      "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-30T21:26:11.973Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "streetAddress": "Uetlibergstrasse 134A",
-      "postalCode": "8045",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Finanza",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banche digitali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-05-27",
-      "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN252",
-      "jobReqId": "VN252",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "head-of-corporate-clients-sygnum-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "head-of-corporate-clients-sygnum-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-08-14T21:43:03.361Z",
-      "salaryMin": 189000,
-      "salaryMax": 331500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 189000,
-          "maxValue": 331500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
