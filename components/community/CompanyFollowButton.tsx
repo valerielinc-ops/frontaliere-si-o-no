@@ -1,18 +1,22 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
+import React, { Suspense, useCallback, useEffect, useRef, useState } from 'react';
 import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import {
   companyAlertKey,
   deleteAlert,
-  findCompanyAlert,
+  type findCompanyAlert,
   subscribeCompanyAlert,
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
-import SignupPromptModal from './SignupPromptModal';
+import { lazyRetry } from '@/services/lazyRetry';
+import { findCompanyAlertCached } from '@/services/userAlertsCache';
 import { buildPath } from '@/services/router';
+
+// Registration (including Firestore and newsletter code) is needed only on click.
+const SignupPromptModal = lazyRetry(() => import('./SignupPromptModal'));
 
 export type CompanyFollowButtonStatus =
   | 'idle'
@@ -90,8 +94,8 @@ export interface CompanyFollowButtonProps {
  * correct audit trail — the withdrawal stays on record with its `unsubscribed_at` — and it
  * costs one document, not one query.
  *
- * No new Firestore query: `findCompanyAlert` filters `getUserAlerts()` in
- * memory, reusing the already-deployed (userId, active, createdAt desc)
+ * No new Firestore query: the default cached lookup filters `getUserAlerts()`
+ * in memory, reusing the already-deployed (userId, active, createdAt desc)
  * collectionGroup index. `firestore.indexes.json` is NOT applied by CI, so a
  * surface that needed a new index would ship broken.
  */
@@ -108,13 +112,13 @@ export default function CompanyFollowButton({
   onUnsubscribed,
   onOptInRequested,
   onErrored,
-  lookup = findCompanyAlert,
+  lookup = findCompanyAlertCached,
   subscribe = subscribeCompanyAlert,
   unfollow = deleteAlert,
   captureEmail,
 }: CompanyFollowButtonProps) {
   const { t } = useTranslation();
-  const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
+  const [status, setStatus] = useState<CompanyFollowButtonStatus>(userId ? 'loading' : 'idle');
   const [alertId, setAlertId] = useState<string | null>(null);
   const [authPromptOpen, setAuthPromptOpen] = useState(false);
   const authFollowInFlightRef = useRef(false);
@@ -238,7 +242,7 @@ export default function CompanyFollowButton({
 
   // No employer key means no alert to write: nothing to reserve either.
   if (!slug) return null;
-  // `loading` is the `findCompanyAlert` round trip for a signed-in visitor. It
+  // `loading` waits for the shared alerts read for a signed-in visitor. It
   // used to render nothing, which was free while this CTA lived below the fold
   // and is a layout shift now that the job detail renders it in the header.
   if (status === 'loading') return <CompanyFollowPlaceholder />;
@@ -247,15 +251,17 @@ export default function CompanyFollowButton({
   const following = status === 'following';
 
   const signupPrompt = authPromptOpen ? (
-    <SignupPromptModal
-      locale={locale}
-      intent="follow"
-      company={company}
-      onDismiss={() => setAuthPromptOpen(false)}
-      submitEmail={captureEmail ? (requestedEmail) => captureEmail(requestedEmail, { company, companyKey }) : undefined}
-      onEmailRequested={handleEmailRequested}
-      onEmailError={onErrored}
-    />
+    <Suspense fallback={<span role="status">{t('common.loading')}</span>}>
+      <SignupPromptModal
+        locale={locale}
+        intent="follow"
+        company={company}
+        onDismiss={() => setAuthPromptOpen(false)}
+        submitEmail={captureEmail ? (requestedEmail) => captureEmail(requestedEmail, { company, companyKey }) : undefined}
+        onEmailRequested={handleEmailRequested}
+        onEmailError={onErrored}
+      />
+    </Suspense>
   ) : null;
 
   return (

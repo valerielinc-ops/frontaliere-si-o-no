@@ -284,7 +284,8 @@ vi.mock('@/services/authService', () => ({
 
 vi.mock('@/services/analytics', () => ({ Analytics: doubles.analytics }));
 
-vi.mock('@/services/userAlertsCache', () => ({
+vi.mock('@/services/userAlertsCache', async (importOriginal) => ({
+  ...await importOriginal<typeof import('@/services/userAlertsCache')>(),
   invalidateUserAlertsCache: vi.fn(),
 }));
 

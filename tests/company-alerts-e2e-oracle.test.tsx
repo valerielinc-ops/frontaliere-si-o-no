@@ -324,10 +324,13 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     check('E-POS-03-popup-keeps-inline-acceptance', Boolean(accept), true, errors);
     if (accept) {
       // The shared prompt owns the email path; its stable input id is the
-      // unambiguous public seam for this form.
+      // unambiguous public seam for this form. Registration loads on demand,
+      // after the reading-delay assertions no longer need a fake clock.
+      vi.useRealTimers();
       await act(async () => {
         fireEvent.click(accept);
       });
+      await waitFor(() => expect(document.querySelector('#signup-prompt-email-follow')).not.toBeNull());
       check('E-POS-03-popup-accept-does-not-write-alert', subscribe.mock.calls.length, 0, errors);
       check('E-POS-03-popup-accept-opens-capture',
         document.querySelector('#signup-prompt-email-follow') !== null,

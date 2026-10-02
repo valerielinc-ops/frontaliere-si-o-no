@@ -39,8 +39,9 @@ import { BellRing, Loader2, X } from 'lucide-react';
 import { useTranslation, type Locale } from '@/services/i18n';
 import { getAuthEmail, useAuth } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
-import { companyAlertKey, findCompanyAlert } from '@/services/jobAlertService';
+import { companyAlertKey, type findCompanyAlert } from '@/services/jobAlertService';
 import { invalidateUserAlertsCache } from '@/services/userAlertsCache';
+import { findCompanyAlertCached } from '@/services/userAlertsCache';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
 import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
@@ -87,13 +88,9 @@ export interface CompanyFollowCtaProps {
    * "Is this employer already followed?", answered by the CALLER.
    *
    * `CompanyFollowButton` resolves its initial follow/unfollow state by calling
-   * `findCompanyAlert`, which runs `getUserAlerts` — an uncached collectionGroup
-   * query, one per mounted button. That is right for the six surfaces that know
-   * nothing about the visitor's alerts, and redundant for a caller that just
-   * read the whole list and derived what to render FROM it: the suggestions on
-   * /aziende-seguite/ are, by construction, the employers that list says are
-   * not followed. Five buttons there would otherwise re-ask Firestore five
-   * times for a list already sitting in the page's state.
+   * `findCompanyAlertCached`, sharing the page's `getUserAlerts` read. Callers
+   * that already own the list can answer directly: /aziende-seguite/ derives
+   * its suggestions from employers that list says are not followed.
    *
    * Pass a STABLE function reference. It reaches the button's `lookup` prop,
    * which is in its effect's dependency array, so a fresh closure on every
@@ -130,9 +127,8 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
       // A reserving fallback, not `null`. Nothing under this boundary suspends
       // today — `CompanyFollowButton` is a plain import — so this is the
       // defensive half: the reservation that actually fires is the button's own
-      // `loading` return (the findCompanyAlert round trip) plus the Suspense
-      // JobBoard puts around the `lazyRetry` import of THIS component. Kept
-      // consistent so the three boundaries cannot disagree about what an
+      // `loading` return (the shared alerts round trip). Kept
+      // consistent so the boundaries cannot disagree about what an
       // unresolved follow CTA looks like — which matters now that it renders in
       // the job-detail header, above the fold, where an unreserved insertion
       // shoves the whole article down.
@@ -149,8 +145,7 @@ const CompanyFollowCta: React.FC<CompanyFollowCtaProps> = ({
           sourceJobUrl={sourceJobUrl}
           sourceJobTitle={sourceJobTitle}
           // `undefined` falls through to the button's own default
-          // (`findCompanyAlert`), so the six surfaces that pass nothing keep
-          // querying exactly as before.
+          // (`findCompanyAlertCached`), sharing the page/popup eligibility read.
           lookup={lookupAlert}
           onSubscribed={() => {
             Analytics.trackJobAlertCtaClick(surface, 'success', String(company));
@@ -259,7 +254,7 @@ export const CompanyFollowPopup: React.FC<CompanyFollowPopupProps> = ({
   userId,
   email,
   authLoading,
-  lookupAlert = findCompanyAlert,
+  lookupAlert = findCompanyAlertCached,
   onShown,
 }) => {
   const { user, loading: hookAuthLoading } = useAuth();

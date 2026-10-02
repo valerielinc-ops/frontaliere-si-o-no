@@ -105,9 +105,12 @@ describe('WhatsNewModal', () => {
 
   it('renders all release sections', { timeout: 30000 }, () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
-    for (const release of RELEASES) {
-      expect(screen.getByText(`v${release.version}`, { exact: true })).toBeTruthy();
-    }
+    const expectedVersions = RELEASES.map((release) => `v${release.version}`);
+    const versionLabels = new Set(expectedVersions);
+    // Scan the rendered tree once, retaining exact labels, uniqueness and order.
+    const renderedVersions = screen.getAllByText((text) => versionLabels.has(text))
+      .map((element) => element.textContent?.trim());
+    expect(renderedVersions).toEqual(expectedVersions);
   });
 
   it('renders statistics updates with a stats href instead of the job board', () => {
