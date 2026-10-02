@@ -1508,14 +1508,18 @@ const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^
 const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
 const PRICE_ADJACENT_AMOUNT_RE = /(?:(CHF|EUR|€|S?Fr\.?)((?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?)|((?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?)(CHF|EUR|€|S?Fr\.?))/giu;
 const PRICE_CURRENCY_BEFORE_RE = /(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\s*$/iu;
-const PRICE_CURRENCY_AFTER_RE = /^\s*(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\b/iu;
+const PRICE_CURRENCY_AFTER_RE = /^\s*(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)(?=$|\s|[.,;:)])/iu;
 const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
 const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
 const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
+const PRICE_DATE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b)/gu;
 const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
 const PRICE_TIME_RE = /\b\d{1,2}:\d{2}\b/gu;
+const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i)?|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\s*[.!]?$/iu;
+const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
+const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
 
 function priceResult(value, evidence) {
   Object.defineProperty(value, 'evidence', { value: evidence, enumerable: false, configurable: true });
@@ -1531,6 +1535,15 @@ function canonicalPriceCurrency(raw) {
   return /EUR|EUROS?|€/iu.test(raw) ? 'EUR' : 'CHF';
 }
 
+function overlapsDate(text, start, length) {
+  PRICE_DATE_RE.lastIndex = 0;
+  let match;
+  while ((match = PRICE_DATE_RE.exec(text))) {
+    if (start < match.index + match[0].length && start + length > match.index) return true;
+  }
+  return false;
+}
+
 function collectPriceCandidates(text) {
   const candidates = [];
   const defaultCurrency = canonicalPriceCurrency(text);
@@ -1543,6 +1556,7 @@ function collectPriceCandidates(text) {
     const currency = before.match(PRICE_CURRENCY_BEFORE_RE)?.[0] || after.match(PRICE_CURRENCY_AFTER_RE)?.[0];
     const hasPriceLabel = PRICE_LABEL_BEFORE_RE.test(before) || PRICE_LABEL_AFTER_RE.test(after) || PRICE_AUDIENCE_BEFORE_RE.test(before);
     if (!currency && !hasPriceLabel) continue;
+    if (overlapsDate(candidateText, match.index, match[0].length) || (PRICE_PHONE_RE.test(text) && !currency)) continue;
     const amount = normalizePriceAmount(match[0]);
     if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(currency || defaultCurrency) });
   }
@@ -1570,8 +1584,7 @@ export function parsePriceText(rawText) {
   if (!t) return undefined;
   const free = PRICE_FREE_RE.test(t);
   const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
-  if (free && conditionalFree && /\d/u.test(t)) {
-    if (PRICE_DATE_OR_PHONE_RE.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  if (free && conditionalFree) {
     // Remove the child-free clause first, then explicitly mask age ranges as
     // well. A source can spell the same condition in a way that does not fit
     // PRICE_CHILD_FREE_RE exactly; 0–5 is an eligibility range, never an
@@ -1586,22 +1599,22 @@ export function parsePriceText(rawText) {
     }
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
-  if (free && !PRICE_PHONE_RE.test(t)) {
-    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
-  }
   if (/^0(?:[.,]0{1,2}|[.][–—-]{1,2})?$/u.test(t)) return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'numeric');
   if (/^(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?$/u.test(t)) {
     const normalized = t.replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.');
     const amount = Number.parseFloat(normalized);
     if (Number.isFinite(amount)) return priceResult({ amount, currency: 'CHF', isFree: amount === 0 }, 'numeric');
   }
-  if (!PRICE_CONTEXT_RE.test(t) || PRICE_DATE_OR_PHONE_RE.test(t)) {
+  if (!PRICE_CONTEXT_RE.test(t)) {
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
   const candidates = collectPriceCandidates(t);
   if (candidates.length) {
     const cheapest = candidates.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
     return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: cheapest.amount === 0 }, 'numeric');
+  }
+  if (free && !PRICE_PHONE_RE.test(t) && !PRICE_NON_ACCESS_FREE_RE.test(t) && (PRICE_FREE_ONLY_RE.test(t) || PRICE_ACCESS_FREE_RE.test(t))) {
+    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
   }
   return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
 }
