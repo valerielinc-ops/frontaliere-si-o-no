@@ -2909,6 +2909,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  },
  };
 
+ const withTrailingSlash = (path: string): string => {
+ if (!path || path === '/') return '/';
+ const clean = path.replace(/\/+$/, '');
+ return clean ? `${clean}/` : '/';
+ };
+
  const deriveLocaleSeo = (locPath: string, locale: string, italianSeo: SeoEntry, italianPath?: string): SeoEntry => {
  const segs = locPath.split('/').filter(Boolean);
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
@@ -3176,12 +3182,6 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // English E-E-A-T alias pages at root level
  if (p === '/about' || p === '/about/' || p === '/contact' || p === '/contact/' || p === '/privacy-policy' || p === '/privacy-policy/') return 'en';
  return 'it';
- };
-
- const withTrailingSlash = (path: string): string => {
- if (!path || path === '/') return '/';
- const clean = path.replace(/\/+$/, '');
- return clean ? `${clean}/` : '/';
  };
 
  const buildPage = (
