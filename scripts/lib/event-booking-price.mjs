@@ -19,7 +19,8 @@ export function sameVenue(left, right) {
     ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim() : '';
   const a = normalize(left);
   const b = normalize(right);
-  return a.length >= 4 && b.length >= 4 && (a === b || a.startsWith(`${b} `) || b.startsWith(`${a} `));
+  return a.length >= 4 && b.length >= 4
+    && (a === b || a.startsWith(`${b} `) || b.startsWith(`${a} `));
 }
 
 function localDate(value) {
