@@ -14,7 +14,6 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
-  inferSwissTargetCanton,
   isWorkModeLocationLabel,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
@@ -26,7 +25,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -205,7 +204,7 @@ export async function fetchAllNovartisJobs() {
       ? listingLocation
       : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
     const canton = location && !isWorkModeLocationLabel(location)
-      ? inferSwissTargetCanton(location)
+      ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location)
       : '';
     if (!location || !canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);

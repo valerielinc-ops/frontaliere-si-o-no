@@ -27,7 +27,6 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -37,7 +36,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -197,7 +196,7 @@ export async function fetchAllKsbJobs() {
     // site (issue 9842: no HQ fallback on unknown geography).
     const location = normalizeSpace(listing.location || '')
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? inferSwissTargetCanton(location) : '';
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
       continue;

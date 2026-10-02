@@ -45,7 +45,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -290,7 +290,8 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
     const canton = location
       ? (RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'))
         || inferSwissTargetCanton(location)
-        || inferSwissTargetCanton(rawLocation))
+        || inferSwissTargetCanton(rawLocation)
+        || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location))
       : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);

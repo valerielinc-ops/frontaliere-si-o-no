@@ -210,7 +210,7 @@ export function resolveWorkdayPrimarySwissLocation(info = {}) {
   const raw = locationDescriptor(info?.location);
   if (!raw || isLocationExplicitlyForeign(raw)) return '';
   const cleaned = cleanWorkdayLocation(raw);
-  return cleaned && workdayPrimarySwissCanton(cleaned, info) ? cleaned : '';
+  return cleaned && swissCantonOf(cleaned, info).canton ? cleaned : '';
 }
 
 /**
@@ -229,6 +229,28 @@ export function workdayStructuredPrimaryCountryIsSwiss(info = {}) {
 }
 
 /**
+ * The official directory's canton for a place, keyed by locality name:
+ * `Bodio, Switzerland` → `Bodio`, and a trailing site qualifier goes too —
+ * Novartis names its sites `Rotkreuz (Office-Based)`, `Muttenz (with Canteen)`.
+ * An explicit canton qualifier (`(ZG)`) never reaches here: the gazetteer
+ * reads it first. Offline: no request.
+ */
+function directoryLocalityCanton(text) {
+  const bare = text.replace(/\s*\([^()]*\)\s*$/, '').trim() || text;
+  const locality = cleanWorkdayLocation(bare) || bare;
+  return { canton: resolveSwissLocalityCanton(locality), locality };
+}
+
+function swissCantonOf(location, info = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return { canton: '', locality: '' };
+  const canton = inferSwissTargetCanton(text);
+  if (canton) return { canton, locality: '' };
+  if (!workdayStructuredPrimaryCountryIsSwiss(info)) return { canton: '', locality: '' };
+  return directoryLocalityCanton(text);
+}
+
+/**
  * Canton of a req's primary Swiss locality, or `''`.
  *
  * The gazetteer behind `inferSwissTargetCanton` lists today's BFS communes, so
@@ -240,11 +262,42 @@ export function workdayStructuredPrimaryCountryIsSwiss(info = {}) {
  * the official locality directory (swisstopo / Swiss Post) may name the canton
  * — only when it places the name in exactly one canton, never a guess.
  */
-function workdayPrimarySwissCanton(location, info = {}) {
-  const canton = inferSwissTargetCanton(location);
-  if (canton) return canton;
-  if (!workdayStructuredPrimaryCountryIsSwiss(info)) return '';
-  return resolveSwissLocalityCanton(location);
+export function resolveWorkdaySwissCanton(location, info = {}, { log = true } = {}) {
+  const { canton, locality } = swissCantonOf(location, info);
+  if (log && canton && locality) console.log(`  📍 Canton from the Swiss locality directory: ${locality} → ${canton}`);
+  return canton;
+}
+
+/**
+ * `resolveWorkdaySwissCanton` for the dedicated Workday parsers that place a
+ * req from its listing row and only read the detail for the body (abbott,
+ * alcon, ardian, bossard, ksb, novartis, rituals-cosmetics, roche, stryker).
+ * The commune gazetteer answers first; only when it misses AND the directory
+ * knows the name is the req's detail read, for its structured country — so a
+ * board whose places are communes or foreign cities costs no extra request.
+ *
+ * @param {string} apiBase CXS base, see `buildWorkdayApiBase`
+ * @param {string} externalPath the listing's `/job/...` path
+ * @param {string} location the place the parser is about to publish
+ * @param {{ fetchDetail?: typeof fetchWorkdayJobDetail }} [options]
+ * @returns {Promise<string>} canton code, or `''`
+ */
+export async function fetchWorkdaySwissCanton(apiBase, externalPath, location, options = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return '';
+  const canton = inferSwissTargetCanton(text);
+  if (canton || !apiBase || !externalPath) return canton;
+  // No request unless the directory knows the name: on a global board (roche
+  // walks every country) a foreign city costs nothing.
+  if (!directoryLocalityCanton(text).canton) return '';
+  const { fetchDetail = fetchWorkdayJobDetail } = options;
+  let detail = null;
+  try {
+    detail = await fetchDetail(apiBase, externalPath);
+  } catch {
+    detail = null;
+  }
+  return resolveWorkdaySwissCanton(text, detail?.jobPostingInfo || {});
 }
 
 /**
@@ -575,7 +628,7 @@ export function createWorkdaySwissParser(config) {
       ].map(locationDescriptor).filter(Boolean);
       // The req's own structured country travels with its primary location, so
       // a locality outside the BFS commune list can still be placed (see
-      // `workdayPrimarySwissCanton`).
+      // `resolveWorkdaySwissCanton`).
       const primaryInfo = {
         location: primaryLocationField,
         jobRequisitionLocation: detailInfo.jobRequisitionLocation,
@@ -650,7 +703,7 @@ export function createWorkdaySwissParser(config) {
       // structured country it is gated on — never to a listing row or path
       // segment recovered above.
       const inferredCanton = location === detailLocation
-        ? workdayPrimarySwissCanton(location, primaryInfo)
+        ? resolveWorkdaySwissCanton(location, primaryInfo)
         : inferSwissTargetCanton(location);
       // Require a confident Swiss match on BOTH paths, not just the unfiltered
       // board: the facet only proves the tenant filtered the board, never that

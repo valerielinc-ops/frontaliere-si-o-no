@@ -38,7 +38,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -221,7 +221,7 @@ export async function fetchAllAlconJobs() {
     // Fribourg HQ (issue 9842).
     const location = cleanAlconLocation(rawLocation)
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? inferSwissTargetCanton(location) : '';
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;

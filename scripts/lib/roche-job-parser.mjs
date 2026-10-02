@@ -22,7 +22,7 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -219,7 +219,8 @@ export async function fetchAllRocheJobs() {
     // detail, may place it in Switzerland.
     const location = rawLocation
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = rocheSwissCanton(location);
+    const canton = rocheSwissCanton(location)
+      || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location);
     if (!canton) {
       console.log(`  ⏭️  Skipped non-Swiss location: ${rawLocation || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
