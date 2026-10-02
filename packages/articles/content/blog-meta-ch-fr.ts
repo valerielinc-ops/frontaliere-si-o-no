@@ -7427,6 +7427,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.argovia-spese-quotidiane-2026.title': 'Coût de la vie suisse 2026 : canton d’Argovie',
     'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Dans le canton d’Argovie, le coût de la vie en 2026 doit être évalué entre trois niveaux d’impôt, le KVG en 3 mois et une comparaison nationale des loyers, des dépenses et des transports.',
     'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Coût de la vie en Suisse: budget familial pour loyer, courses, transports et assurance maladie',
+    'blog.article.franchigia-sussidi-ginevra.title': 'Primes d’assurance santé KVG en 2026 : Canton de Genève',
+    'blog.article.franchigia-sussidi-ginevra.excerpt': 'Guide 2026 des primes KVG dans le canton de Genève : franchises pour adultes, comparaison entre cantons, échange de fonds et réduction cantonale des primes.',
+    'blog.article.franchigia-sussidi-ginevra.imageAlt': 'Documents LAMal et calculatrice pour comparer les primes d\'assurance à Genève',
 };
 
 export default blogMetaChFr;

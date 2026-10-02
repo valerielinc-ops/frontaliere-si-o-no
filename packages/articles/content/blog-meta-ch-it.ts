@@ -7427,6 +7427,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.argovia-spese-quotidiane-2026.title': 'Costo della vita svizzera 2026: canton Argovia',
     'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Nel canton Argovia il costo della vita 2026 va letto tra tre livelli fiscali, LAMal entro 3 mesi e confronto nazionale su affitti, spesa e trasporti.',
     'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Costo della vita in Svizzera: budget familiare con affitto, spesa, trasporti e LAMal',
+    'blog.article.franchigia-sussidi-ginevra.title': 'Premi cassa malati LAMal 2026: canton Ginevra',
+    'blog.article.franchigia-sussidi-ginevra.excerpt': 'Guida 2026 ai premi LAMal nel canton Ginevra: franchigie adulti, confronto tra cantoni, cambio cassa e riduzione premi cantonale.',
+    'blog.article.franchigia-sussidi-ginevra.imageAlt': 'Documenti LAMal e calcolatrice per confrontare i premi a Ginevra',
 };
 
 export default blogMetaChIt;
