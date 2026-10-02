@@ -163,6 +163,15 @@ export function extraDocumentsToSend(draft, flow, orderId) {
     .map(({ quote, required, ...document }) => document);
 }
 
+/**
+ * The documents the letter lists under Beilagen/Annexes/Allegati: every
+ * required one (the submission waits for it) and any other the candidate gave.
+ */
+export function enclosedDocumentLabels(draft, flow, orderId) {
+  const given = new Set(extraDocumentsToSend(draft, flow, orderId).map((document) => document.id));
+  return requiredDocumentsOf(draft).filter((document) => document.required || given.has(document.id)).map((document) => document.label);
+}
+
 /** "Bulletins_scolaires_2_Mario_Rossi.pdf": the document's label, its number when it has several files, the candidate. */
 export function extraDocumentFileName({ label, index = 0, count = 1, name = '', type = 'pdf' }) {
   const ext = DOCUMENT_TYPES.includes(type) ? type : 'pdf';
