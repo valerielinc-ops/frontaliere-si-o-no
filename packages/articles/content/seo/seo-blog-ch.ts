@@ -97832,6 +97832,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-confronto-salari-settori-berna': {
+    title: 'Salario medio professioni Svizzera 2026: canton Berna',
+    description: 'Confronto 2026 del salario medio per professione in Svizzera e nel canton Berna: Cantoni, salario minimo, AVS/AI/IPG, LPP, contributi e costo della vita.',
+    keywords: 'frontalieri, ticino, svizzera, italia, salario, medio, professioni, canton',
+    ogTitle: 'Salario medio Svizzera 2026: focus Berna',
+    ogDescription: 'Il confronto del salario medio 2026 tra professioni e Cantoni richiede più della cifra annuale: contano salario minimo cantonale, AVS/AI/IPG, LPP/BVG, fisco a tre livelli, premi LAMal e costo della vita, con un focus sul canton Berna.',
+    canonicalPath: '/articoli-svizzera/confronto-salari-settori-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Salario medio professioni Svizzera 2026: canton Berna",
+      "description": "Confronto 2026 del salario medio per professione in Svizzera e nel canton Berna: Cantoni, salario minimo, AVS/AI/IPG, LPP, contributi e costo della vita.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/confronto-salari-settori-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori svizzeri confrontano dati salariali e contributi in ufficio"
+      },
+      "datePublished": "2026-10-02T17:59:04+00:00",
+      "dateModified": "2026-10-02T17:59:04+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/confronto-salari-settori-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

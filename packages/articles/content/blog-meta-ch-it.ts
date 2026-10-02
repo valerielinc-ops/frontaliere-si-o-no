@@ -7544,6 +7544,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-imprenditoriale-grigioni.title': 'Aprire attività nel Canton Grigioni: registro e costi',
     'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Nel Canton Grigioni il percorso unisce forma giuridica, registro di commercio, capitale minimo, tasse d\'iscrizione e obblighi assicurativi.',
     'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Documenti per avviare un\'attività nel Cantone dei Grigioni',
+    'blog.article.confronto-salari-settori-berna.title': 'Salario medio professioni Svizzera 2026: canton Berna',
+    'blog.article.confronto-salari-settori-berna.excerpt': 'Confronto 2026 del salario medio per professione in Svizzera e nel canton Berna: Cantoni, salario minimo, AVS/AI/IPG, LPP, contributi e costo della vita.',
+    'blog.article.confronto-salari-settori-berna.imageAlt': 'Lavoratori svizzeri confrontano dati salariali e contributi in ufficio',
 };
 
 export default blogMetaChIt;

@@ -7544,6 +7544,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-imprenditoriale-grigioni.title': 'Ouverture d’une entreprise dans le canton des Grisons : registre et coûts',
     'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Dans le canton des Grisons, le cursus combine la forme juridique, le registre commercial, le capital minimum, les frais d’enregistrement et les obligations d’assurance.',
     'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Documents pour créer une activité dans le canton suisse des Grisons',
+    'blog.article.confronto-salari-settori-berna.title': 'Salaire moyen des professions en Suisse 2026 : canton de Berne',
+    'blog.article.confronto-salari-settori-berna.excerpt': 'Comparaison 2026 du salaire moyen par profession en Suisse et dans le canton de Berne : cantons, salaire minimum, AHV/IV/EO, BVG, cotisations et coût de la vie.',
+    'blog.article.confronto-salari-settori-berna.imageAlt': 'Des travailleurs suisses comparent des données salariales au bureau',
 };
 
 export default blogMetaChFr;
