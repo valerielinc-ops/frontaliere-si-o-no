@@ -276,8 +276,8 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     // never had a guard at all. Same class → fixed together (AGENTS.md §6).
     expect(src).toMatch(/const isBridgePage = !!bridgeTargetSlug/);
     expect(src).toMatch(/if \(isBridgePage\) return null;/);
-    expect(src).toMatch(/isBridgePage \? null : parseLocationSlugFilter\(initialJobSlug\)/);
-    expect(src).toMatch(/isBridgePage \? null : parseSearchSlugFilter\(initialJobSlug\)/);
+    expect(src).toMatch(/isBridgePage \|\| isSeededExpiredDetail \? null : parseLocationSlugFilter\(initialJobSlug\)/);
+    expect(src).toMatch(/isBridgePage \|\| isSeededExpiredDetail \? null : parseSearchSlugFilter\(initialJobSlug\)/);
   });
 
   it('guards EVERY parseSearchSlugFilter(initialJobSlug) call site', () => {
@@ -290,8 +290,8 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     const callSites = src.match(/parseSearchSlugFilter\(initialJobSlug\)/g) ?? [];
     expect(callSites.length).toBe(3);
     const guarded =
-      (src.match(/isBridgePage \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length +
-      (src.match(/readBridgeTargetSlug\(\) \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length;
+      (src.match(/isBridgePage \|\| isSeededExpiredDetail \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length +
+      (src.match(/readBridgeTargetSlug\(\) \|\| isSeededExpiredDetail \? null : parseSearchSlugFilter\(initialJobSlug\)/g) ?? []).length;
     expect(guarded).toBe(callSites.length);
   });
 
@@ -350,7 +350,7 @@ describe('a bridge page is never mis-parsed as a filter landing', () => {
     // there would be a TDZ error. The module-level reader has no such constraint.
     expect(src).toMatch(/function readBridgeTargetSlug\(\): string \| undefined/);
     expect(src).toMatch(
-      /useState\(\(\) => \(readBridgeTargetSlug\(\) \? null : parseSearchSlugFilter\(initialJobSlug\)\) \|\| readSearchQueryFromUrl\(\)\)/,
+      /useState\(\(\) => \(readBridgeTargetSlug\(\) \|\| isSeededExpiredDetail \? null : parseSearchSlugFilter\(initialJobSlug\)\) \|\| readSearchQueryFromUrl\(\)\)/,
     );
     // Single source of truth: the hook reads the same helper (dep list asserted
     // separately, in the per-route re-read test above).

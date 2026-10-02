@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
 /**
@@ -36,7 +37,7 @@ export function normalizeSpace(value = '') {
 
 export function stripHtml(html = '') {
   if (!html) return '';
-  return String(html)
+  return decodeHTML(String(html)
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -48,16 +49,8 @@ export function stripHtml(html = '') {
     // into "2026-09-16Country:" in every locale.
     .replace(/<(?:p|div|h[1-6])(?:\s[^>]*)?>/gi, '\n')
     .replace(/<\/(?:p|li|h[1-6]|div|ul|ol)>/gi, '\n')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
-    .replace(/\u00a0/g, ' ')
+    .replace(/<[^>]+>/g, ''), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
 }

@@ -7,6 +7,7 @@
  * markdown description.
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 
 function normalizeSpace(value = '') {
@@ -51,7 +52,7 @@ function stripTags(html = '') {
 function htmlToMarkdown(html = '') {
   if (!html) return '';
 
-  let md = stripLastminuteBoilerplate(html)
+  let md = decodeHTML(stripLastminuteBoilerplate(html)
     // Section headings
     .replace(/<(?:h[1-6])[^>]*>([\s\S]*?)<\/(?:h[1-6])>/gi, (_, inner) => {
       const text = stripTags(inner);
@@ -76,16 +77,8 @@ function htmlToMarkdown(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     // Strip remaining tags
-    .replace(/<[^>]+>/g, ' ')
-    // Decode entities
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&ndash;/gi, '\u2013')
-    .replace(/&mdash;/gi, '\u2014')
-    .replace(/&nbsp;|&#xa0;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     // Clean up whitespace
     .replace(/[ \t]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')

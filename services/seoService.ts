@@ -7,7 +7,9 @@ import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18
 import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
-import { JOB_CANTON_MANIFEST_PATH, type CantonShardManifest } from './jobCantonShards';
+import { JOB_CANTON_MANIFEST_PATH, resolveCantonShardKey, type CantonShardManifest } from './jobCantonShards';
+import { selectJobBoardInventory } from './jobBoardInventory';
+import { buildJobBoardListingMetadata, getRenderedJobBoardCount } from './seo/jobBoardListingMetadata';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resilientImport';
@@ -198,7 +200,7 @@ let serpExperimentLoadPromise: Promise<void> | null = null;
 let lastSerpExposureContext: { section: string; path: string; variant: SerpExperimentVariant } | null = null;
 const jobsBySlugCacheByLocale: Partial<Record<Locale, Map<string, any>>> = {};
 const jobsBySlugPromiseByLocale: Partial<Record<Locale, Promise<Map<string, any>>>> = {};
-let totalActiveJobCount: number | null = null;
+let jobInventoryManifest: CantonShardManifest | null = null;
 
 function normalizeSeoText(input: string): string {
  return String(input || '').replace(/\s+/g, ' ').trim();
@@ -321,7 +323,7 @@ async function loadJobsBySlug(locale: Locale): Promise<Map<string, any>> {
  // the slug→id mapping + listing fields; the SEO meta path (resolveJobSeoBySlug)
  // lazy-fetches `job-detail/{id}.json` for the description + structured-data
  // fields (postalCode/streetAddress/...) it needs per job. The count path
- // (getActiveJobCountLabel) only needs map.size, which the index provides.
+ // also serves the inventory fallback when the shard manifest is unavailable.
  const promise = (async () => {
  const out = new Map<string, any>();
  try {
@@ -365,48 +367,24 @@ async function loadJobDetail(jobId: string | undefined | null): Promise<any | nu
  }
 }
 
-/**
- * Get the total number of unique active jobs from the loaded dataset.
- * Returns a rounded-down label like "1500+" for SEO titles, or null if
- * data hasn't loaded yet (fallback to static title).
- */
-async function getActiveJobCountLabel(locale: Locale): Promise<string | null> {
- if (totalActiveJobCount !== null) {
- const rounded = Math.floor(totalActiveJobCount / 100) * 100;
- return `${rounded}+`;
- }
+/** Same scope as the board; the hydrated count wins over the manifest snapshot. */
+async function getActiveJobCount(locale: Locale, canton: string, pathname: string): Promise<number | null> {
+ const rendered = getRenderedJobBoardCount(pathname);
+ if (rendered !== undefined) return rendered;
  try {
- // Read the count from the 221 B (br) shard manifest instead of downloading a
- // 21k-record index just to call `.size` on it. This runs on EVERY job-board
- // listing page, so before the canton-shard pipeline it pulled the full
- // locale index into every canton SERP on its own — independently of
- // JobBoard's loader. Sharding the board without fixing this would have
- // moved the bytes between modules, not removed them.
- //
- // Count is locale-invariant (same job set, only its strings are localised),
- // so one manifest serves all four locales.
- const res = await fetch(cdnDataUrl(JOB_CANTON_MANIFEST_PATH));
- if (res.ok) {
- const manifest = (await res.json()) as Partial<CantonShardManifest> | null;
- const total = manifest?.total;
- if (typeof total === 'number' && Number.isFinite(total) && total > 0) {
- totalActiveJobCount = total;
- const rounded = Math.floor(total / 100) * 100;
- return rounded > 0 ? `${rounded}+` : null;
- }
- }
- // Manifest missing (pre-shard deploy, CDN propagation lag) → fall back to
- // the index. Costlier but correct: the label keeps working on any deploy
- // where the shard set has not published yet.
- const map = await loadJobsBySlug(locale);
- // Each slug maps to one job object now (per-locale shard has no
- // cross-locale slug aliases). Map.size == active job count.
- totalActiveJobCount = map.size;
- const rounded = Math.floor(totalActiveJobCount / 100) * 100;
- return rounded > 0 ? `${rounded}+` : null;
- } catch {
- return null;
- }
+  if (!jobInventoryManifest) {
+   const res = await fetch(cdnDataUrl(JOB_CANTON_MANIFEST_PATH));
+   if (res.ok) jobInventoryManifest = await res.json() as CantonShardManifest;
+  }
+  // The board may finish while this request is in flight.
+  const latest = getRenderedJobBoardCount(pathname);
+  if (latest !== undefined) return latest;
+  const count = canton === '_AGGREGATE_' ? jobInventoryManifest?.total
+   : jobInventoryManifest?.byCanton?.[resolveCantonShardKey(canton)];
+  if (typeof count === 'number' && Number.isFinite(count) && count >= 0) return count;
+  const jobs = [...(await loadJobsBySlug(locale)).values()];
+  return selectJobBoardInventory(jobs, canton).length;
+ } catch { return null; }
 }
 
 /**
@@ -1795,28 +1773,26 @@ export async function updateMetaTags(section: string): Promise<void> {
  fr: 'Découvrez 64 mots, expressions et proverbes du dialecte tessinois pour la vie quotidienne des frontaliers.',
  };
 
- // Dynamic job count for the main job board listing page title.
- // At runtime, replace the static "Offerte di Lavoro Ticino 2026" with
- // a count like "1500+ Offerte di Lavoro Ticino 2026" when data is available.
- const isJobboardListing = sectionKey === 'jobboard' && !isJobDetailPage;
- let jobCountLabel: string | null = null;
- if (isJobboardListing) {
- try { jobCountLabel = await getActiveJobCountLabel(locale); } catch { /* keep null */ }
- }
+ // Root hub metadata uses the same canton and exact inventory as the list.
+ const isJobboardListing = sectionKey === 'jobboard' && !route.jobSlug;
+ const listingCanton = route.jobBoardCanton || 'TI';
+ const jobCount = isJobboardListing ? await getActiveJobCount(locale, listingCanton, pathnameSnapshot) : null;
+ const listingMeta = jobCount === null ? null : buildJobBoardListingMetadata(locale, listingCanton, jobCount);
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
 
  const baseMetaTitle = jobSeo
  ? jobSeo.title
  : isDialectPage
  ? dialectTitleByLocale[locale]
- : isJobboardListing && jobCountLabel && locale === 'it'
- ? `${jobCountLabel} Offerte di Lavoro Ticino ${new Date().getFullYear()} | Aggiornate Ogni Giorno`
+ : listingMeta
+ ? listingMeta.title
  : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
  const baseMetaDescription = jobSeo
  ? jobSeo.description
  : isDialectPage
  ? dialectDescriptionByLocale[locale]
- : isJobboardListing && jobCountLabel && locale === 'it'
- ? `Offerte di lavoro Ticino: ${jobCountLabel} posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.`
+ : listingMeta
+ ? listingMeta.description
  : (hasLocalizedExcerpt ? localizedExcerpt : localizedSeoContent.description);
  // Never apply SERP experiment suffixes ("| simulazione | 2026") to individual
  // job detail pages — these have their own structured title pattern:

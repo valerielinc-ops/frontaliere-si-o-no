@@ -96,24 +96,30 @@ async function main() {
 
   for (const f of failures) console.error(`EVIDENCE_FETCHER_FAIL ${f}`);
 
-  // Compute cluster stats from GA4 pages (may be empty if GA4 failed).
-  const clusterStats = buildClusterStats(ga4Result.pages || {});
+  // A truncated population must not become the cluster percentile baseline.
+  const clusterStats = ga4Result.error ? {} : buildClusterStats(ga4Result.pages || {});
 
   const index = {
     version: 1,
     builtAt: new Date().toISOString(),
     windowDays,
-    // Multi-pass fetchers (gsc, posthog) isolate their sub-passes and return
+    // Paginated fetchers isolate failures and return
     // partial data alongside `error`, so write whatever they returned rather
     // than dropping every source on any error — dropping would over-thin pages
     // a surviving pass still confirmed. `failures` below still logs/gates the
-    // error. ga4 is single-pass (error ⇒ empty), so its guard stays as-is.
+    // error. Persist that status too: an absent URL in an incomplete source
+    // cannot prove zero traffic to the thinning filter.
     gsc: {
       queries: gscResult.queries || {},
       orphanQueries: gscResult.orphanQueries || [],
       pages: gscResult.pages || {},
+      ...(gscResult.error ? { error: gscResult.error } : {}),
     },
-    ga4: ga4Result.error ? {} : { pages: ga4Result.pages },
+    ga4: {
+      pages: ga4Result.pages || {},
+      ...(ga4Result.error ? { error: ga4Result.error } : {}),
+      ...(ga4Result.coverage ? { coverage: ga4Result.coverage } : {}),
+    },
     posthog: { pages: posthogResult.pages || {} },
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,

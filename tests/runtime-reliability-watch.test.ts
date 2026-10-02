@@ -2,10 +2,13 @@ import { readFileSync } from 'node:fs';
 import { describe, expect, it, vi } from 'vitest';
 import {
   CDN_ORIGIN,
+  PUBLIC_CONFIG_URL,
+  classifyPublicConfig,
   evaluateRepairPolicy,
   evaluateProbe,
   formatIssueDescription,
   probeRuntime,
+  probePublicConfig,
   rotationFromEnv,
   runtimeFailureFingerprint,
 } from '../scripts/runtime-reliability-watch.mjs';
@@ -18,6 +21,9 @@ function response(body: string, status = 200) {
     async text() { return body; },
   };
 }
+
+const PUBLIC_KEY_FIXTURE = `AIza${'x'.repeat(35)}`;
+const publicConfigBody = JSON.stringify({ FIREBASE_API_KEY: PUBLIC_KEY_FIXTURE });
 
 describe('runtime reliability watchdog', () => {
   it('allows a coherent marker pair when every critical asset is fresh', () => {
@@ -284,13 +290,56 @@ describe('runtime reliability watchdog', () => {
     const calls: string[] = [];
     const fetchImpl = vi.fn(async (url: string) => {
       calls.push(url);
+      if (url.startsWith(PUBLIC_CONFIG_URL)) return response(publicConfigBody);
       const isAsset = url.includes('/assets/');
       return response(isAsset ? 'asset' : '1789306155656');
     });
     const result = await probeRuntime({ fetchImpl: fetchImpl as any, now: new Date('2026-09-13T00:00:00Z'), assetPaths: ['/assets/App.js'], chunkGraph: false });
     expect(result.ok).toBe(true);
-    expect(calls).toHaveLength(5); // two markers + cached/fresh for one asset
+    expect(calls).toHaveLength(7); // three markers + cached/fresh asset and public config
     expect(calls.some((url) => url.includes('ft_reliability='))).toBe(true);
+  });
+
+  describe('public Firebase config', () => {
+    it.each([
+      ['{}', 'missing_api_key'],
+      ['{"FIREBASE_API_KEY":42}', 'missing_api_key'],
+      ['{"FIREBASE_API_KEY":"placeholder"}', 'invalid_api_key_format'],
+      ['<html>unavailable</html>', 'invalid_json'],
+      ['null', 'invalid_payload'],
+      ['[]', 'invalid_payload'],
+    ])('rejects a successful HTTP response with unusable config: %s', (body, state) => {
+      expect(classifyPublicConfig({ status: 200, ok: true, body })).toMatchObject({ state, apiKeyFormatValid: false });
+    });
+
+    it('never serializes config values or response error bodies into artifacts or issue text', async () => {
+      const fetchImpl = vi.fn(async (url: string) => url.includes('ft_reliability=')
+        ? response(JSON.stringify({ FIREBASE_API_KEY: PUBLIC_KEY_FIXTURE, UNRELATED: 'sensitive fixture' }))
+        : response('sensitive error response', 403));
+      const config = await probePublicConfig({ fetchImpl, nonce: 'probe' });
+      expect(config).toEqual({
+        ok: false,
+        cached: { status: 403, state: 'unavailable', apiKeyPresent: false, apiKeyFormatValid: false },
+        fresh: { status: 200, state: 'healthy', apiKeyPresent: true, apiKeyFormatValid: true },
+      });
+      const serialized = JSON.stringify(config) + formatIssueDescription({ publicConfig: config });
+      expect(serialized).not.toContain(PUBLIC_KEY_FIXTURE);
+      expect(serialized).not.toContain('sensitive');
+      expect(serialized).toContain('HTTP 403');
+    });
+
+    it('fails the runtime verdict for empty public config without purging any CDN URL', async () => {
+      const fetchImpl = vi.fn(async (url: string) => {
+        if (url.startsWith(PUBLIC_CONFIG_URL)) return response('{}');
+        return response(url.includes('/assets/') ? 'asset' : '1789306155656');
+      });
+      const result = await probeRuntime({ fetchImpl, assetPaths: ['/assets/App.js'], chunkGraph: false });
+      expect(result.ok).toBe(false);
+      expect(result.reasons).toContain('public config (cached): missing_api_key, HTTP 200');
+      expect(result.purgeUrls).toEqual([]);
+      expect(evaluateRepairPolicy({ probe: result }).action).toBe('none');
+      expect(runtimeFailureFingerprint({ ...result, publicConfig: null })).not.toBe(result.fingerprint);
+    });
   });
 
   it('dispatches the watchdog after every successful Pages deploy, whatever validate-live says', () => {

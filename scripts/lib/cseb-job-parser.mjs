@@ -20,6 +20,7 @@
  *   - isTrustedDomain()     — Validate URLs belong to this company
  *   - parseCsebPublication() — Parse a single API publication into a job (testable)
  */
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
@@ -84,28 +85,9 @@ function normalizeBlock(s = '') {
  *      were rendered as one long inline run.
  */
 function decodeAndStrip(html = '') {
-  if (!html) return '';
-  let decoded = html
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#171;/g, '\u00AB')
-    .replace(/&#187;/g, '\u00BB')
-    .replace(/&#8211;/g, '\u2013')
-    .replace(/&#8212;/g, '\u2014')
-    .replace(/&#8216;/g, '\u2018')
-    .replace(/&#8217;/g, '\u2019')
-    .replace(/&#8220;/g, '\u201C')
-    .replace(/&#8222;/g, '\u201E')
-    .replace(/&#43;/g, '+')
-    .replace(/&agrave;/g, '\u00E0')
-    .replace(/&auml;/g, '\u00E4')
-    .replace(/&ouml;/g, '\u00F6')
-    .replace(/&uuml;/g, '\u00FC')
-    .replace(/&eacute;/g, '\u00E9');
+  if (typeof html !== 'string' || !html) return '';
+  // Abacus can transport escaped HTML; raw HTML already has its markup layer.
+  let decoded = html.includes('<') ? html : decodeHTML(html, { scope: 'strict' });
 
   // Convert structural HTML to newline/bullet markers before stripping tags.
   // Order matters: <li> first so we don't drop list boundaries when <ul>/<ol>

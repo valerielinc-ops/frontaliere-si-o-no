@@ -34,7 +34,7 @@ const SAMPLE_COUNTS = [0, 1, 42, 148, 500, 2408, 12345] as const;
 const YEAR = 2026;
 
 const CTA_KEYWORDS: Record<JobPageLocale, RegExp> = {
-  it: /(candidati|candidature|postula)/i,
+  it: /(candidati|candidarti|candidature|postula)/i,
   en: /(apply|browse|discover|work with)/i,
   de: /(bewerb|entdeck|durchsuch|arbeite)/i,
   fr: /(postul|parcour|découvr|travaillez)/i,
@@ -315,5 +315,33 @@ describe('buildCityHubMeta — non-TI cantonDisplay (no Ticino/Tessin leak)', ()
     expect(en).toContain('Ticino');
     expect(de).toContain('Tessin');
     expect(fr).toContain('Tessin');
+  });
+});
+
+
+describe('job-hub application contract', () => {
+  it('preserves the full reading/sign-in CTA even with long names and counts', () => {
+    const cta = {
+      it: 'Leggi gli annunci; accesso gratuito per candidarti.',
+      en: 'Read listings freely; free sign-in to apply.',
+      de: 'Anzeigen frei lesen; kostenlose Anmeldung zur Bewerbung.',
+      fr: 'Annonces en accès libre ; connexion gratuite pour postuler.',
+    };
+    for (const locale of LOCALES) {
+      for (const count of SAMPLE_COUNTS) {
+        const metas = [
+          buildListingHubMeta({ locale, count }),
+          buildCityHubMeta({ locale, cityDisplay: 'Bellinzona', count }),
+          buildCantonHubMeta({ locale, cantonDisplay: 'Appenzell Rhodes-Extérieures', count }),
+          buildRoleHubMeta({ locale, roleDisplay: 'Amministrativo', count }),
+          buildEmployerHubMeta({ locale, companyDisplay: 'Casa Anziani Malcantonese', count }),
+          buildRecencyHubMeta({ locale, days: 7, count, year: YEAR }),
+        ];
+        for (const meta of metas) {
+          expect(meta.endsWith(cta[locale]), meta).toBe(true);
+          expect(isValidMetaLength(meta), meta).toBe(true);
+        }
+      }
+    }
   });
 });

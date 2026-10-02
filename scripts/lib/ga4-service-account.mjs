@@ -190,6 +190,7 @@ export async function fetchGa4WebVitals({
   startDate,
   endDate,
   limit = 100000,
+  paths,
   fetchImpl = fetch,
 } = {}) {
   const data = await runGa4Report({
@@ -206,7 +207,10 @@ export async function fetchGa4WebVitals({
         { name: 'deviceCategory' },
       ],
       metrics: [{ name: 'eventCount' }],
-      dimensionFilter: exactEventFilter('web_vitals'),
+      dimensionFilter: paths?.length ? { andGroup: { expressions: [
+        exactEventFilter('web_vitals'),
+        { filter: { fieldName: 'pagePath', inListFilter: { values: paths } } },
+      ] } } : exactEventFilter('web_vitals'),
       limit,
     },
   });
@@ -233,6 +237,17 @@ export async function fetchGa4WebVitals({
   Object.defineProperty(observations, 'coverage', {
     value: {
       totalCount,
+      returnedRows: reportRows.length,
+      timeZone: data.metadata?.timeZone || null,
+      dataLossFromOtherRow: Boolean(data.metadata?.dataLossFromOtherRow),
+      samplingMetadatas: data.metadata?.samplingMetadatas || [],
+      dataTruncationReasons: data.metadata?.dataTruncationReasons || [],
+      subjectToThresholding: Boolean(data.metadata?.subjectToThresholding),
+      distributionIncomplete: Boolean(data.metadata?.dataLossFromOtherRow
+        || data.metadata?.samplingMetadatas?.length || data.metadata?.dataTruncationReasons?.length
+        || data.metadata?.subjectToThresholding),
+      totalRows: data.rowCount ?? null,
+      truncated: data.rowCount != null ? data.rowCount > reportRows.length : reportRows.length >= limit,
       otherCount,
       otherFraction: totalCount ? otherCount / totalCount : 0,
     },

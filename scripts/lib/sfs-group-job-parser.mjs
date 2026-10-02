@@ -238,14 +238,14 @@ export function parseSfsGroupDetail(html = '') {
   const jobReqId = applyMatch ? applyMatch[2] : '';
 
   const introMatch = html.match(INTRO_RX);
-  const intro = introMatch ? stripHtml(decodeEntities(introMatch[1])) : '';
+  const intro = introMatch ? stripHtml(introMatch[1]) : '';
 
   const sections = [];
   HEADED_SECTION_RX.lastIndex = 0;
   let hm;
   while ((hm = HEADED_SECTION_RX.exec(html))) {
-    const heading = stripHtml(decodeEntities(hm[1]));
-    const body = stripHtml(decodeEntities(hm[2]));
+    const heading = stripHtml(hm[1]);
+    const body = stripHtml(hm[2]);
     if (heading && body) sections.push(`${heading}: ${body}`);
   }
 

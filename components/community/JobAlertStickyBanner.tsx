@@ -4,6 +4,8 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import BottomPromptShell from '@/components/shared/BottomPromptShell';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { useJobReadingIntent } from '@/hooks/useJobReadingIntent';
+import { canShowJobAlertPrompt, markJobAlertPromptShown, dismissJobAlertPrompt } from '@/services/jobAlertPromptPolicy';
 import { useJobAlertEligibility } from '@/hooks/useJobAlertEligibility';
 
 const DISMISS_KEY = 'jobAlertStickyBanner:dismissedUntil';
@@ -28,14 +30,16 @@ export default function JobAlertStickyBanner({
  keyword,
  surface: 'sticky_banner',
  });
+ const readingIntent = useJobReadingIntent(`sticky-banner:${keyword || ''}`);
  const [visible, setVisible] = useState(false);
  // Fire a single impression the first time the banner reveals, so the
  // sticky-banner funnel has a `shown` denominator. open/dismiss were tracked
  // but impressions weren't → surface read as "ineffective" because unmeasured.
  const shownTrackedRef = useRef(false);
+ const finishedRef = useRef(false);
 
  useEffect(() => {
- if (eligibility !== true) {
+ if (eligibility !== true || !readingIntent || !canShowJobAlertPrompt()) {
  setVisible(false);
  return;
  }
@@ -44,20 +48,29 @@ export default function JobAlertStickyBanner({
 
  let ticking = false;
  const onScroll = () => {
- if (ticking) return;
+ if (ticking || finishedRef.current) return;
  ticking = true;
  window.requestAnimationFrame(() => {
  const scrolled = window.scrollY + window.innerHeight;
  const total = document.documentElement.scrollHeight;
  const pct = total > 0 ? scrolled / total : 0;
- setVisible(pct >= 0.6 && pct < 0.98);
+ const inReadingRange = pct >= 0.6 && pct < 0.98;
+ if ((!canShowJobAlertPrompt() && !shownTrackedRef.current) || (!inReadingRange && shownTrackedRef.current)) finishedRef.current = true;
+ setVisible(inReadingRange && !finishedRef.current);
  ticking = false;
  });
  };
  window.addEventListener('scroll', onScroll, { passive: true });
  onScroll();
- return () => window.removeEventListener('scroll', onScroll);
- }, [eligibility]);
+ const onOtherPrompt = (event: Event) => {
+ if ((event as CustomEvent).detail !== 'job-alert-sticky-banner') { finishedRef.current = true; setVisible(false); }
+ };
+ window.addEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+ return () => {
+ window.removeEventListener('scroll', onScroll);
+ window.removeEventListener('ft-job-alert-prompt-shown', onOtherPrompt);
+ };
+ }, [eligibility, readingIntent]);
 
  // The impression is fired by the shell's `onShown`, not by `visible`:
  // scroll depth is only half the condition now — the banner also has to win a
@@ -67,17 +80,21 @@ export default function JobAlertStickyBanner({
  const trackShown = () => {
  if (shownTrackedRef.current) return;
  shownTrackedRef.current = true;
+ markJobAlertPromptShown('job-alert-sticky-banner');
  Analytics.trackJobAlertCtaShown('sticky_banner');
  };
 
  const handleOpen = () => {
+ finishedRef.current = true;
  Analytics.trackJobAlertCtaClick('sticky_banner', 'open');
  window.dispatchEvent(new CustomEvent('openJobAlert', { detail: { origin: 'sticky_banner' } }));
  setVisible(false);
  };
 
  const handleDismiss = () => {
+ finishedRef.current = true;
  Analytics.trackJobAlertCtaClick('sticky_banner', 'dismiss');
+ dismissJobAlertPrompt();
  localStorage.setItem(DISMISS_KEY, String(Date.now() + DISMISS_DAYS * 24 * 60 * 60 * 1000));
  setVisible(false);
  };

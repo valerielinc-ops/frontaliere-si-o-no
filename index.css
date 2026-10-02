@@ -599,28 +599,8 @@ aside.seo-footer-block .seo-fb-section-body a:hover {
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
-/* Hide AdSense auto-ads when a high-priority modal is open.
-   AdSense overlays use z-index up to 2147483647, which covers our popups.
-   Using display:none (not just visibility:hidden) to fully remove the ads'
-   stacking context — visibility:hidden keeps the element in the stacking
-   order and its z-index still competes with the modal.
-   Toggled by adding .modal-open to <body> when newsletter/critical modals show. */
-body.modal-open ins.adsbygoogle,
-body.modal-open [id^="google_ads"],
-body.modal-open [id^="aswift_"],
-body.modal-open [id^="aswift_"] ~ *,
-body.modal-open iframe[id^="aswift_"],
-body.modal-open div[data-ad-client],
-body.modal-open div[id^="google_ads_iframe"],
-body.modal-open .adsbygoogle[data-ad-status],
-body.modal-open iframe[src*="doubleclick"],
-body.modal-open iframe[src*="googlesyndication"],
-body.modal-open div[id^="div-gpt-ad"],
-body.modal-open .google-auto-placed {
-  display: none !important;
-  visibility: hidden !important;
-  pointer-events: none !important;
-}
+/* Site dialogs arbitrate through popupQueue. Google anchor, in-page and
+   vignette ads retain their layout and visibility while a dialog is open. */
 
 /* ===== Auto-Ad Containment + CLS Bounding (P0.1.C / P0.1.D / #2190) ════
    Google Auto Ads inject `.google-auto-placed` divs anywhere on the page,
@@ -688,12 +668,11 @@ body.modal-open .google-auto-placed {
 
 /* Static manual AdSense slots reserve their height in the emitted HTML before
    React exists. The static loader adds this marker only after an explicit
-   `unfilled` answer or the shared fill timeout, so a real creative keeps its
+   `unfilled` answer or a script failure, and only offscreen, so a real creative keeps its
    footprint. The parent rule also removes the wrapper's margin, otherwise a
    failed 1100px drive-by slot would leave a misleading band around the zeroed
    <ins>. */
-ins.adsbygoogle[data-ft-static-ad-collapsed],
-ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"] {
+ins.adsbygoogle[data-ft-static-ad-collapsed] {
   min-height: 0 !important;
   max-height: 0 !important;
   height: 0 !important;
@@ -702,8 +681,7 @@ ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"] {
   overflow: hidden !important;
   display: block !important;
 }
-:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]),
-:where(div, li, section):has(> ins.adsbygoogle[data-ad-slot="2093992129"][data-ad-status="unfilled"]) {
+:where(div, li, section):has(> ins.adsbygoogle[data-ft-static-ad-collapsed]:only-child) {
   height: 0 !important;
   min-height: 0 !important;
   margin-block: 0 !important;
@@ -1593,8 +1571,18 @@ input[type=number] { -moz-appearance: textfield; }
    measured height of a fixed Auto Ads anchor through this custom property; the
    ad itself remains untouched and continues to serve. */
 .above-mobile-nav {
-  bottom: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  --bottom-prompt-offset: calc(4.5rem + env(safe-area-inset-bottom, 0px) + var(--bottom-prompt-ad-clearance, 0px));
+  bottom: var(--bottom-prompt-offset);
   transition: bottom 180ms ease-out;
+}
+
+/* A tall anchor consumes real space. Keep the prompt's controls scrollable in
+   the remaining viewport instead of capping the ad measurement and overlapping
+   the creative, or moving the prompt's top beyond the viewport. */
+.above-mobile-nav[data-bottom-prompt] {
+  max-height: max(0px, calc(100dvh - var(--bottom-prompt-offset) - 1rem));
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 
 /* Google Auto Ads anchors are fixed to the bottom of the viewport. Keep the
@@ -1608,7 +1596,7 @@ input[type=number] { -moz-appearance: textfield; }
 }
 @media (min-width: 768px) {
   .above-mobile-nav {
-    bottom: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
+    --bottom-prompt-offset: calc(1rem + var(--bottom-prompt-ad-clearance, 0px));
   }
   .mobile-bottom-nav {
     bottom: 0;

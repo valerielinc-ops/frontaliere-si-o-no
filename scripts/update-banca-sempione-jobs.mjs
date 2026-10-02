@@ -19,6 +19,7 @@
  * Swiss offices: Lugano (HQ), Bellinzona, Locarno, Chiasso (all TI), Zurich (ZH).
  * Swiss jobs in any of the 26 target cantons are kept in the board dataset.
  */
+import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults, isTargetCanton } from './lib/crawler-location-config.mjs';
 import { isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import fs from 'node:fs';
@@ -76,34 +77,7 @@ const BANCA_SEMPIONE_LOCALES = ['it', 'en', 'de', 'fr'];
 
 /* ── HTML / text helpers ───────────────────────────────────── */
 function decodeHtmlEntities(value = '') {
-  return String(value || '')
-    .replace(/&#0*38;|&amp;/gi, '&')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#0*39;|&apos;/gi, "'")
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8212;/g, '—')
-    .replace(/&#8217;/g, "\u2019")
-    .replace(/&#8216;/g, "\u2018")
-    .replace(/&#8220;/g, "\u201C")
-    .replace(/&#8221;/g, "\u201D")
-    .replace(/&lsquo;/g, "\u2018")
-    .replace(/&rsquo;/g, "\u2019")
-    .replace(/&ldquo;/g, "\u201C")
-    .replace(/&rdquo;/g, "\u201D")
-    .replace(/&ndash;/g, '–')
-    .replace(/&mdash;/g, '—')
-    .replace(/&egrave;/g, 'è')
-    .replace(/&agrave;/g, 'à')
-    .replace(/&ugrave;/g, 'ù')
-    .replace(/&ograve;/g, 'ò')
-    .replace(/&igrave;/g, 'ì')
-    .replace(/&#\d+;/g, (m) => {
-      const code = parseInt(m.slice(2, -1), 10);
-      return isFinite(code) ? String.fromCharCode(code) : m;
-    })
-    .trim();
+  return decodeHTML(String(value || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ').trim();
 }
 
 function stripHtml(html = '') {

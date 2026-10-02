@@ -113,8 +113,14 @@ describe('parseJobDescription — noise removal', () => {
     expect(html(raw)).toBe('<p>Hello world!</p><p>third.</p>');
   });
 
-  it('decodes &nbsp; and named dashes but preserves &amp;/&lt; for escape pass', () => {
+  it('decodes &nbsp; and named dashes before the HTML escape pass', () => {
     expect(html('Hello&nbsp;world &mdash; foo & bar')).toBe('<p>Hello world — foo &amp; bar</p>');
+  });
+
+  it('preserves accented text and non-BMP characters in both the AST and rendered HTML', () => {
+    const raw = 'Qualit&agrave; &#128640; &#x1F9EA; &#128; &lt;SQL&gt; &amp;lt;literal&amp;gt;';
+    expect(blocksToPlainText(parseJobDescription(raw))).toBe('Qualità 🚀 🧪 € <SQL> &lt;literal&gt;');
+    expect(html(raw)).toBe('<p>Qualità 🚀 🧪 € &lt;SQL&gt; &amp;lt;literal&amp;gt;</p>');
   });
 });
 

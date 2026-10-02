@@ -24,6 +24,7 @@ interface QueueEntry {
  id: string;
  priority: number;
  requestedAt: number;
+ shown?: boolean;
 }
 
 let queue: QueueEntry[] = [];
@@ -31,6 +32,35 @@ let activeId: string | null = null;
 let activePriority: number | null = null;
 const listeners = new Set<Listener>();
 let promotionTimer: ReturnType<typeof setTimeout> | null = null;
+let cooldownTimer: ReturnType<typeof setTimeout> | null = null;
+
+// Explicit unsolicited surfaces only: consent, auth, user-opened dialogs and
+// action feedback must never inherit a promotional delay from their priority.
+const PROMOTIONAL_IDS = new Set([
+ 'newsletter-popup', 'feature-survey', 'guide-banner', 'job-detail-alert-prompt',
+ 'saved-jobs-alert-nudge', 'profile-enrichment-prompt', 'job-alert-sticky-banner',
+]);
+function isPromotional(id: string): boolean {
+ return PROMOTIONAL_IDS.has(id) || id.startsWith('company-follow-prompt:');
+}
+function eligible(entry: QueueEntry): boolean {
+ if (!isPromotional(entry.id) || entry.id === activeId) return true;
+ // Do not swap two offers during the frame before the visible owner reports
+ // onShown. Urgent/non-promotional surfaces can still preempt immediately.
+ if (activeId && isPromotional(activeId) && queue.some((e) => e.id === activeId)) return false;
+ return canShowPromotionalPrompt();
+}
+function scheduleCooldown() {
+ if (cooldownTimer !== null) clearTimeout(cooldownTimer);
+ cooldownTimer = null;
+ if (activeId !== null || !queue.length) return;
+ const remaining = promotionalDelay();
+ if (!remaining) return;
+ cooldownTimer = setTimeout(() => {
+  cooldownTimer = null;
+  if (activeId === null) promoteNext();
+ }, remaining);
+}
 
 function notify() {
  listeners.forEach((fn) => {
@@ -53,7 +83,7 @@ function setActive(id: string | null, priority: number | null) {
 
 function highestQueuedEntry(): QueueEntry | undefined {
  queue.sort((a, b) => b.priority - a.priority || a.requestedAt - b.requestedAt);
- return queue[0];
+ return queue.find(eligible);
 }
 
 function reconcileActiveRequest(id: string, priority: number): boolean {
@@ -80,7 +110,8 @@ function promoteNext() {
  return;
  }
  const next = highestQueuedEntry();
- setActive(next.id, next.priority);
+ setActive(next?.id ?? null, next?.priority ?? null);
+ scheduleCooldown();
  }, 500);
 }
 
@@ -100,7 +131,7 @@ export function requestSlot(id: string, priority: number): boolean {
  if (activeId) {
  const currentEntry = queue.find((e) => e.id === activeId);
  const currentPriority = currentEntry?.priority ?? activePriority;
- if (currentPriority !== null && priority > currentPriority) {
+ if (currentPriority !== null && priority > currentPriority && eligible(existing)) {
  cancelPromotionTimer();
  activeId = id;
  activePriority = priority;
@@ -111,24 +142,35 @@ export function requestSlot(id: string, priority: number): boolean {
  return false;
  }
 
- queue.push({ id, priority, requestedAt: Date.now() });
+ const entry = { id, priority, requestedAt: Date.now() };
+ queue.push(entry);
 
  // The released owner remains visible during the exit window. If it
  // re-requests with a new priority, include that candidate in the same
  // arbitration pass instead of leaving a stale activeId until the timer.
  if (promotionTimer !== null && activeId === id) {
+ // A new mount is a new offer, even while the old owner's exit animation
+ // retains its id. It must not bypass the cap by reusing that id.
+ if (isPromotional(id) && !canShowPromotionalPrompt()) {
+ setActive(null, null);
+ return false;
+ }
  return reconcileActiveRequest(id, priority);
  }
 
  if (activeId === null) {
+ if (eligible(entry)) {
  setActive(id, priority);
  return true;
+ }
+ scheduleCooldown();
+ return false;
  }
 
  // Preempt if higher priority than current
  const currentEntry = queue.find((e) => e.id === activeId);
  const currentPriority = currentEntry?.priority ?? activePriority;
- if (currentPriority !== null && priority > currentPriority) {
+ if (currentPriority !== null && priority > currentPriority && eligible(entry)) {
  cancelPromotionTimer();
  setActive(id, priority);
  return true;
@@ -143,6 +185,10 @@ export function requestSlot(id: string, priority: number): boolean {
  */
 export function releaseSlot(id: string) {
  queue = queue.filter((e) => e.id !== id);
+ if (!queue.length && cooldownTimer !== null) {
+ clearTimeout(cooldownTimer);
+ cooldownTimer = null;
+ }
  if (activeId === id) {
   promoteNext();
  } else if (queue.length === 0 && promotionTimer !== null) {
@@ -198,10 +244,8 @@ export function subscribe(listener: Listener): () => void {
  * banner or a sign-in gate is not an offer that can be postponed.
  *
  * `REWARDED_APPLICATION_OFFER` holds the queue while the rewarded application
- * dialog, and the Google video it opens, is on screen. The newsletter popup
- * toggles `body.modal-open`, whose CSS hides every `[id^="google_ads"]` and
- * doubleclick iframe: letting it in would hide the rewarded video mid-play,
- * losing both the reward and the impression. Only the chatbot panel, which
+ * dialog, and the Google video it opens, is on screen. Site prompts yield
+ * without changing Google ad visibility. Only the chatbot panel, which
  * the visitor opens deliberately, ranks above it.
  */
 export const POPUP_PRIORITY = {
@@ -220,3 +264,26 @@ export const POPUP_PRIORITY = {
  JOB_ALERT_STICKY: 40,
  NEWSLETTER: 20,
 } as const;
+
+/** Shared frequency cap for unsolicited promotions. Auth/consent never use it. */
+const PROMOTIONAL_PROMPT_KEY = 'ft_promotional_prompt_at';
+let lastPromotionalPromptAt = 0;
+function promotionalDelay(now = Date.now()): number {
+  let last = lastPromotionalPromptAt;
+  try { last = Math.max(last, Number(sessionStorage.getItem(PROMOTIONAL_PROMPT_KEY)) || 0); } catch { /* storage optional */ }
+  return last ? Math.max(0, 60_000 - (now - last)) : 0;
+}
+export function canShowPromotionalPrompt(now = Date.now()): boolean {
+  return promotionalDelay(now) === 0;
+}
+/** Visibility acknowledgement: queued/unmounted requests do not spend the cap. */
+export function markSlotShown(id: string): void {
+ const entry = queue.find((item) => item.id === id);
+ if (activeId !== id || !entry || entry.shown || !isPromotional(id)) return;
+ entry.shown = true;
+ markPromotionalPromptShown();
+}
+export function markPromotionalPromptShown(now = Date.now()): void {
+  lastPromotionalPromptAt = now;
+  try { sessionStorage.setItem(PROMOTIONAL_PROMPT_KEY, String(now)); } catch { /* storage optional */ }
+}

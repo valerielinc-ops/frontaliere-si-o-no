@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Läderach (Schweiz) AG job parser — Softgarden career platform (Next.js).
@@ -30,7 +31,7 @@ export function normalizeLaderachJobUrl(rawUrl = '') {
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  const out = String(html || '')
+  const out = decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -39,10 +40,8 @@ export function stripHtml(html = '') {
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)));
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ');
   // Preserve newlines introduced by <li>, <br>, <p>, <h*> markers — the audit
   // detects structured content via "^\\s*[-•*]\\s/m". Collapsing \s+ → ' ' would
   // flatten every bullet into one line and trip the no-structured-content gate.

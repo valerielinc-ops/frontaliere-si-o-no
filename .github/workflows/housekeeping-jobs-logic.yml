@@ -48,6 +48,7 @@ jobs:
             package.json
             package-lock.json
             scripts
+            packages/articles/engine/shared
           sparse-checkout-cone-mode: true
 
       - name: Setup Node.js

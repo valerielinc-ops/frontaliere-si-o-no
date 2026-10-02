@@ -44,6 +44,8 @@ import { PRICE_PER_UNIT_CHF } from '../functions/src/publisherPricingMirror.js';
 // Canonical canary-ad gate (scripts/lib/canaryAd.mjs — single source of truth,
 // same helper used by newsletter/blast/job-alert broadcast gates).
 import { isCanaryJob } from './lib/canaryAd.mjs';
+import { fetchManualSlotReport, renderManualSlotReport } from './lib/adsense-manual-slot-report.mjs';
+import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { settledWindow } from './lib/analytics-settled-window.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import {
@@ -243,6 +245,7 @@ async function fetchAdSenseReport(token) {
   let authGateImpressions = null;
   if (auRes.ok) {
     const au = await auRes.json();
+    requireCompleteAdsenseReport(au, 'AdSense ad-unit report');
     const gateRow = (au.rows || []).find((r) => {
       const name = r.cells?.[0]?.value?.toLowerCase() || '';
       return name.includes('authgate') || name.includes('auth_gate') || name.includes('jobdetail_auth');
@@ -250,8 +253,16 @@ async function fetchAdSenseReport(token) {
     if (gateRow) authGateImpressions = Number(gateRow.cells?.[3]?.value ?? 0);
   }
 
+  let manualSlotReport;
+  try {
+    manualSlotReport = await fetchManualSlotReport({ token, account, start, end, domain: new URL(SITE_URL).hostname, accountTimeZone: acctData.accounts?.[0]?.timeZone?.id || null });
+  } catch (error) {
+    manualSlotReport = { status: 'unmeasurable', reason: error.message };
+  }
+
   return {
     account,
+    manualSlotReport,
     window: { start, end },
     currencyCode,
     revenue7d: Number(revenue.toFixed(2)),
@@ -436,7 +447,7 @@ export async function fetchGa4ClsFallback({
   if (!token) return null;
   const { startDate, endDate } = ga4DateRange(Number(windowDays), 2, now);
   const rows = await fetchGa4WebVitals({ token, startDate, endDate, fetchImpl });
-  if (hasSignificantOtherBucket(rows)) return null;
+  if (hasSignificantOtherBucket(rows) || (rows.coverage?.truncated || rows.coverage?.distributionIncomplete)) return null;
   const byDevice = new Map([
     ['mobile', []],
     ['desktop', []],
@@ -683,6 +694,7 @@ export function renderMarkdown(rows, current, baseline = BASELINE) {
   } else {
     lines.push('## All metrics healthy — no regressions flagged.');
   }
+  if (current.adsense?.manualSlotReport) lines.push('', renderManualSlotReport(current.adsense.manualSlotReport));
   if (current.warnings?.length) {
     lines.push('');
     lines.push('## Warnings');
@@ -940,6 +952,7 @@ async function main() {
   } else {
     log('📊', `Revenue monitor — last 7 days vs baseline ${BASELINE.period}`);
     renderTable(rows);
+    if (current.adsense?.manualSlotReport) console.log(renderManualSlotReport(current.adsense.manualSlotReport));
     const regressions = rows.filter((r) => r.verdict.startsWith('🔴') || r.verdict.startsWith('⚠️'));
     if (regressions.length) log('⚠️', `${regressions.length} metric(s) regressed — see verdict column`);
     else log('✅', 'No regressions flagged');

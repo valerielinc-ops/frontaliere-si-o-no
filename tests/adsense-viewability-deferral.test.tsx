@@ -233,7 +233,7 @@ describe('static shell loader — source contract', () => {
     // Behavioural tests above cover the outcome; this pins the specific line
     // that regressed, so a refactor reintroducing "push once per <ins> on load"
     // fails here with an unambiguous message rather than through a count.
-    expect(ADSENSE_LOADER_CONTENT).toContain('s.onload=armSlots;');
+    expect(ADSENSE_LOADER_CONTENT).toContain("s.onload=function(){s.setAttribute('data-loaded','1');armSlots();}");
     expect(ADSENSE_LOADER_CONTENT).not.toContain(
       "querySelectorAll('ins.adsbygoogle:not([data-adsbygoogle-status])')",
     );

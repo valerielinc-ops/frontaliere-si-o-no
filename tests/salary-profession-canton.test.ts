@@ -134,10 +134,9 @@ describe('salaryProfessionCanton — render', () => {
       expect(html).toMatch(/9[0-9]['’, ]?[0-9]{3}/);
       expect(html).toMatch(/hreflang=["']?x-default["']?/);
       expect(html).not.toMatch(/\bdark:[a-z-]/);
-      // Unique value: complete JobPosting structured data for the active job.
-      expect(html).toContain('"@type":"JobPosting"');
-      expect(html).toContain('"baseSalary"');
-      expect(html).toContain('"postalCode"');
+      // The salary hub links to detail pages; JobPosting stays on those details.
+      expect(html).not.toContain('"@type":"JobPosting"');
+      expect(html).toContain('"@type":"ItemList"');
       // Cross-link to the localized job-intent page (jobs live there, plan §4.2).
       expect(html).toContain(buildProfessionCantonPath(locale, 'ZH', 'infermiere'));
     }

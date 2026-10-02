@@ -19,7 +19,7 @@ describe('border wait map landing', () => {
         },
       },
     };
-    const page = renderPage({ locale: 'it', dateStamp: '2026-09-27', current });
+    const page = renderPage({ locale: 'it', dateStamp: '2026-09-27', today: new Date('2026-09-27T06:15:00Z'), current });
     const dataIndex = page.html.indexOf('bw-data-area');
     const editorialIndex = page.html.indexOf('bw-editorial');
     const faqIndex = page.html.lastIndexOf('Perché alcuni valichi');

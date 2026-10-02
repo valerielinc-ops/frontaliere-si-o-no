@@ -3,7 +3,8 @@ import path from 'node:path';
 import ts from 'typescript';
 
 /**
- * Versioned inventory of every public JobPosting emitter.
+ * Versioned inventory of job structured-data surfaces: single-job details
+ * declare JobPosting; list/hub surfaces call the linked-page builder.
  *
  * The seven build/runtime modules named by issue #10501 are joined by the
  * hydrated JobBoard component: it is a public JSON-LD path too, and its
@@ -11,7 +12,7 @@ import ts from 'typescript';
  * runtime entry in this inventory makes that otherwise easy-to-miss path part
  * of the same source contract.
  */
-export const JOBPOSTING_EMITTER_MANIFEST_VERSION = 1;
+export const JOBPOSTING_EMITTER_MANIFEST_VERSION = 2;
 
 export const JOBPOSTING_LOCALE_PREFIXES = Object.freeze({
   it: '/',
@@ -45,28 +46,28 @@ export const JOBPOSTING_EMITTER_MANIFEST = Object.freeze({
     emitter(
       'jobs-seo-pages',
       'build-plugins/jobsSeoPagesPlugin.ts',
-      ['buildJobPostingSchema', 'buildListItemJobPosting'],
+      ['buildJobPostingSchema', 'buildJobListEntry'],
       ['active', 'expired', 'list', 'hub'],
       'static',
     ),
     emitter(
       'weekly-employers',
       'build-plugins/weeklyEmployersPlugin.ts',
-      ['buildListItemJobPosting'],
+      ['buildJobListEntry'],
       ['active', 'list', 'hub'],
       'static',
     ),
     emitter(
       'employer-profile-pages',
       'build-plugins/employerProfilePagesPlugin.ts',
-      ['buildListItemJobPosting'],
+      ['buildJobListEntry'],
       ['active', 'list', 'hub'],
       'static',
     ),
     emitter(
       'health-facilities',
       'build-plugins/healthFacilitiesPlugin.ts',
-      ['buildJobPostingSchema'],
+      ['buildJobListEntry'],
       ['active', 'list'],
       'static',
     ),
@@ -80,7 +81,7 @@ export const JOBPOSTING_EMITTER_MANIFEST = Object.freeze({
     emitter(
       'salary-profession-canton-pages',
       'build-plugins/salaryProfessionCantonPages.ts',
-      ['buildListItemJobPosting'],
+      ['buildJobListEntry'],
       ['active', 'list', 'hub'],
       'static',
     ),
@@ -107,7 +108,7 @@ export const JOBPOSTING_EMITTERS = JOBPOSTING_EMITTER_MANIFEST.emitters;
 const HELPER_SOURCES = new Set([
   'build-plugins/shared/jobPostingSchema.ts',
   'build-plugins/shared/jobPostingFaq.ts',
-  'build-plugins/shared/jobPostingListItem.ts',
+  'build-plugins/shared/jobListEntry.ts',
 ]);
 
 const SOURCE_ROOTS = Object.freeze([
@@ -118,7 +119,7 @@ const SOURCE_ROOTS = Object.freeze([
 ]);
 
 const SOURCE_EXTENSIONS = new Set(['.js', '.jsx', '.mjs', '.ts', '.tsx']);
-const BUILDER_MODULE_RE = /(?:^|\/)(?:jobPostingSchema|jobPostingListItem)(?:\.[cm]?[jt]sx?)?$/u;
+const BUILDER_MODULE_RE = /(?:^|\/)(?:jobPostingSchema|jobListEntry)(?:\.[cm]?[jt]sx?)?$/u;
 const DIRECT_JOBPOSTING_SOURCE_RE = /['"]@type['"]\s*:\s*['"]JobPosting['"]/u;
 
 function propertyNameText(name) {
@@ -228,7 +229,7 @@ function discoverPublicJobPostingSources(rootDir) {
       const absolutePath = path.join(rootDir, sourceFile);
       const source = fs.readFileSync(absolutePath, 'utf8');
       if (!DIRECT_JOBPOSTING_SOURCE_RE.test(source)
-        && !/(?:jobPostingSchema|jobPostingListItem)/u.test(source)) continue;
+        && !/(?:jobPostingSchema|jobListEntry)/u.test(source)) continue;
       const syntheticEntry = { sourceFile };
       const inspected = inspectJobPostingEmitter(rootDir, syntheticEntry);
       if (inspected.hasBuilderImport || inspected.directDeclarations.length > 0) sources.push(inspected);
