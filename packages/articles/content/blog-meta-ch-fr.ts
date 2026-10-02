@@ -7535,6 +7535,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin démissionne : le monde des affaires le remercie',
     'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Le conseiller fédéral de 66 ans Guy Parmelin a annoncé aujourd’hui sa démission ; Economiesuisse et la FSVO saluent ses accords avec l’Inde, le Vietnam et le renouvellement avec la Chine, ainsi que la loi sur l’allègement des entreprises en vigueur à partir de 2024.',
     'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Palais fédéral à Berne avec symboles commerciaux, représentant le leadership économique suisse.',
+    'blog.article.inventario-idroelettrico-storico.title': 'Inventaire des centrales hydroélectriques historiques',
+    'blog.article.inventario-idroelettrico-storico.excerpt': 'À Berne, le Conseil fédéral a pris note du rapport sur les centrales hydroélectriques en activité en 1914 et qui existent toujours. L’inventaire complète les statistiques suisses.',
+    'blog.article.inventario-idroelettrico-storico.imageAlt': 'Centrale hydroélectrique historique dans un paysage alpin suisse',
 };
 
 export default blogMetaChFr;

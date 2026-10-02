@@ -2534,6 +2534,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'studio-eth-carico-fiscale-svizzera': { it: 'studio-eth-carico-fiscale-svizzera', en: 'eth-study-swiss-tax-burden', de: 'eth-studie-steuerbelastung-schweiz', fr: 'etude-eth-charge-fiscale-suisse' },
  'cassa-malati-premi-ticino-aumento': { it: 'cassa-malati-premi-ticino-aumento', en: 'health-insurance-premiums-ticino-increase', de: 'krankenversicherungspramien-tiino-erhohung', fr: 'primes-assurance-maladie-tessin-augmentation' },
  'annuncio-parmelin-sgravio-2024': { it: 'annuncio-parmelin-sgravio-2024', en: 'parmelin-resignation-economic-praise', de: 'parmelin-ruecktritt-wirtschaft-dank', fr: 'parmelin-demission-merci-economique' },
+ 'inventario-idroelettrico-storico': { it: 'inventario-idroelettrico-storico', en: 'historic-hydropower-inventory', de: 'historisches-wasserkraft-inventar', fr: 'inventaire-hydroelectrique-historique' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

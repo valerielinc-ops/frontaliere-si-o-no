@@ -7535,6 +7535,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin si dimette: il mondo economico lo ringrazia',
     'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Il consigliere federale 66enne Guy Parmelin ha annunciato oggi le dimissioni; Economiesuisse e USAM elogiano i suoi accordi con India, Vietnam e il rinnovo con la Cina, e la legge sullo sgravio imprese in vigore dal 2024.',
     'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Palazzo federale di Berna con simboli commerciali, rappresenta la leadership economica svizzera.',
+    'blog.article.inventario-idroelettrico-storico.title': 'Inventario degli impianti idroelettrici storici',
+    'blog.article.inventario-idroelettrico-storico.excerpt': 'Il Consiglio federale ha preso atto a Berna del rapporto sugli impianti idroelettrici attivi nel 1914 e ancora esistenti. L\'inventario completa la statistica svizzera.',
+    'blog.article.inventario-idroelettrico-storico.imageAlt': 'Impianto idroelettrico storico in un paesaggio alpino svizzero',
 };
 
 export default blogMetaChIt;

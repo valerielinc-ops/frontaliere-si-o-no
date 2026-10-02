@@ -7535,6 +7535,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin tritt zurück: Die Geschäftswelt dankt ihm',
     'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'Der 66-jährige Bundesrat Guy Parmelin gab heute seinen Rücktritt bekannt; Economiesuisse und die FSVO loben ihre Abkommen mit Indien, Vietnam und die Verlängerung mit China sowie das ab 2024 geltende Corporate Relief Act.',
     'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Bundeshaus in Bern mit Handelssymbolen, Symbol für die wirtschaftliche Führungsrolle der Schweiz.',
+    'blog.article.inventario-idroelettrico-storico.title': 'Inventar historischer Wasserkraftwerke',
+    'blog.article.inventario-idroelettrico-storico.excerpt': 'In Bern nahm der Bundesrat den Bericht über Wasserkraftwerke zur Kenntnis, die 1914 in Betrieb waren und noch existieren. Das Inventar vervollständigt die Schweizer Statistiken.',
+    'blog.article.inventario-idroelettrico-storico.imageAlt': 'Historische Wasserkraftanlage in einer Schweizer Alpenlandschaft',
 };
 
 export default blogMetaChDe;

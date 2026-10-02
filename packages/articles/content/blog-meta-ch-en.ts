@@ -7535,6 +7535,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.annuncio-parmelin-sgravio-2024.title': 'Parmelin resigns: the business community thanks him',
     'blog.article.annuncio-parmelin-sgravio-2024.excerpt': 'The 66-year-old Federal Councillor Guy Parmelin announced his resignation today; Economiesuisse and the FSVO praise its agreements with India, Vietnam and renewal with China, as well as the Corporate Relief Act in force from 2024.',
     'blog.article.annuncio-parmelin-sgravio-2024.imageAlt': 'Federal Palace in Bern with trade symbols, symbolising Swiss economic leadership.',
+    'blog.article.inventario-idroelettrico-storico.title': 'Inventory of Historic Hydropower Plants',
+    'blog.article.inventario-idroelettrico-storico.excerpt': 'In Bern, the Federal Council took note of the report on hydroelectric power plants that were active in 1914 and still exist. The inventory completes the Swiss statistics.',
+    'blog.article.inventario-idroelettrico-storico.imageAlt': 'Historic hydropower plant in a Swiss Alpine landscape',
 };
 
 export default blogMetaChEn;
