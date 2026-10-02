@@ -271,6 +271,16 @@ export function applyCvLineChoices(cv, choices = {}, { profile } = {}) {
   };
 }
 
+/**
+ * The candidate's line-by-line choices for the draft on the page: only those
+ * made on its round. A new round writes a new tailored CV whose line ids
+ * (r0-l1…) name other lines, so older choices would land on the wrong ones.
+ */
+export function cvChoicesOf(draft, flow) {
+  const round = Number(draft?.round) || 1;
+  return flow?.cvChoices && Number(flow.cvChoicesRound) === round ? flow.cvChoices : {};
+}
+
 /** The candidate's own words among the choices: they vouch for themselves in the fact gate, as letter edits do. */
 export function ownChoiceTexts(choices = {}) {
   return Object.values(choices || {}).filter((choice) => choice?.use === 'own').map((choice) => clean(choice.text, MAX_OWN_LINE)).filter(Boolean);
@@ -308,8 +318,10 @@ export function tailoredCvBlocks(cv, { identity, profile }) {
  * writer as fallback (assistedApplicationPdfRenderer.js).
  * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
  */
-export async function buildTailoredCvPdf(cv, { identity, profile, mode, log }) {
-  return renderCvPdf(tailoredCvDocument(cv, { identity, profile }), { mode: mode || await pdfRendererMode(), log });
+/** @param {{identity:object, profile:object, mode?:string, log?:Function, photo?:Buffer, photoType?:string}} context photo: the candidate's (candidatePhoto) */
+export async function buildTailoredCvPdf(cv, { identity, profile, mode, log, photo, photoType }) {
+  const document = tailoredCvDocument(cv, { identity, profile });
+  return renderCvPdf(photo ? { ...document, photo, photoType } : document, { mode: mode || await pdfRendererMode(), log });
 }
 
 /** Plain text of the tailored CV (ATS keyword check and the review page). */

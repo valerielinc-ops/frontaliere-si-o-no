@@ -8,7 +8,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
-const { applyCvLineChoices, sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
+const { applyCvLineChoices, cvChoicesOf, sanitizeTailoredCv } = await import('../functions/src/assistedApplicationTailoredCv.js');
 
 const SECRET = 'l'.repeat(40);
 const T0 = Date.UTC(2026, 9, 2, 10, 0, 0);
@@ -115,6 +115,19 @@ describe('line-by-line review on the review page', () => {
     expect(bucket.files.get(draft.tailoredCv.pdfKey)!.subarray(0, 5).toString()).toBe('%PDF-');
     const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
     expect(body.tailoredCv.changes.roles[0].lines[1]).toMatchObject({ use: 'own', text: 'Tempi di build dimezzati con Docker' });
+  }, 60_000);
+
+  it('keeps the choices to their round: a new tailored CV starts from its own lines', async () => {
+    await post({ action: 'cv_lines', choices: { 'r0-l1': { use: 'own', text: 'Tempi di build dimezzati con Docker' } } });
+    expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ cvChoicesRound: 1 });
+    // The runner writes round 2: same line ids, other lines.
+    const draft = store.read(`${BASE}/ai_drafts/current`);
+    store.docs.set(`${BASE}/ai_drafts/current`, { ...draft, round: 2 });
+    store.docs.set(`${BASE}/automation/flow`, { ...store.read(`${BASE}/automation/flow`), round: 2 });
+    const token2 = mintReviewToken({ secret: SECRET, orderId: ORDER, round: 2, nowMs: T0 });
+    const { body } = await handleAssistedApplicationReview({ method: 'GET', query: { t: token2 } }, deps());
+    expect(body.tailoredCv.changes.roles[0].lines.map((line: any) => line.use)).toEqual(['adapted', 'adapted', 'adapted']);
+    expect(cvChoicesOf(store.read(`${BASE}/ai_drafts/current`), store.read(`${BASE}/automation/flow`))).toEqual({});
   }, 60_000);
 
   it('refuses an empty own line and the CV line of a line that rewrites none', async () => {

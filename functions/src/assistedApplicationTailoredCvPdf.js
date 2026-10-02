@@ -14,7 +14,7 @@
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { DOCX_CONTENT_TYPE, buildInPlaceDocx } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
-import { applyCvLineChoices, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
+import { applyCvLineChoices, cvChoicesOf, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
 
 export const PHOTO_TYPES = new Set(['jpg', 'png']);
 export const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
@@ -22,6 +22,17 @@ export const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
 /** Where the photo is customary: the advice the review page gives, by the posting's language. */
 export function photoAdvice(language) {
   return language === 'de' ? 'recommended' : 'optional';
+}
+
+/**
+ * The photo the candidate gave on the review page, ready for the renderer:
+ * `{ photo, photoType }`, or `{}` without one. The runner's next round reads
+ * it too, so a new tailored CV keeps the photo the page says it has.
+ */
+export async function candidatePhoto(flow, bucket) {
+  if (!bucket || !flow?.photo?.key || !PHOTO_TYPES.has(flow.photo.detectedType)) return {};
+  const [buffer] = await bucket.file(flow.photo.key).download();
+  return { photo: Buffer.from(buffer), photoType: flow.photo.detectedType };
 }
 
 /**
@@ -34,17 +45,9 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   const source = cv || tailored?.cv;
   if (tailored?.status !== 'ready' || !source || !bucket) return null;
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  // The candidate's line-by-line choices hold through every rebuild (photo, corrected header).
-  const document = tailoredCvDocument(applyCvLineChoices(source, flow?.cvChoices, { profile }), { identity, profile });
-  let photo = null;
-  if (flow?.photo?.key && PHOTO_TYPES.has(flow.photo.detectedType)) {
-    const [buffer] = await bucket.file(flow.photo.key).download();
-    photo = Buffer.from(buffer);
-  }
-  const { pdf, renderer } = await renderCvPdf(
-    photo ? { ...document, photo, photoType: flow.photo.detectedType } : document,
-    { mode: mode || await pdfRendererMode(), log },
-  );
+  // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
+  const document = tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
+  const { pdf, renderer } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   return { pdfKey, renderer };
@@ -61,7 +64,7 @@ export async function rebuildInPlaceDocx({ bucket, order, orderId, draft, flow =
   if (inplace?.status !== 'ready' || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
   const [base] = await bucket.file(inplace.baseKey).download();
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: flow?.cvChoices });
+  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: cvChoicesOf(draft, flow) });
   if (built.status !== 'ready') return { ...inplace, status: 'fallback', reason: built.reason };
   const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${draft.round || 1}-candidate-${nowMs}.docx`;
   await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });

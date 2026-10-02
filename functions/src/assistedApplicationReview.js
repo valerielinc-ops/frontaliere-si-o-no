@@ -17,7 +17,7 @@ import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraft
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { MAX_PHOTO_BYTES, PHOTO_TYPES, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf } from './assistedApplicationTailoredCvPdf.js';
 import { cvChoiceOf, inPlaceReady } from './assistedApplicationDocxInPlace.js';
-import { applyCvLineChoices, checkTailoredCvFacts, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
+import { applyCvLineChoices, checkTailoredCvFacts, cvChoicesOf, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
@@ -298,7 +298,7 @@ const MAX_OWN_CV_LINE = 300;
 export function cvChangesView(draft, flow) {
   const cv = draft?.tailoredCv?.cv;
   if (!cv) return null;
-  const choices = flow?.cvChoices || {};
+  const choices = cvChoicesOf(draft, flow);
   const view = (id, adapted, original) => ({ id, adapted, original, use: choices[id]?.use || 'adapted', text: choices[id]?.text || '' });
   return {
     summary: cv.summary ? view('summary', cv.summary, String(draft.profile?.summary || '')) : null,
@@ -341,12 +341,13 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
     answers: { ...(flow.answers || {}), own: ownChoiceTexts(choices).join('\n'), candidate: draft.factSources?.candidate || '' },
   });
   if (!facts.ok) throw new ReviewError('cv_fact_check_failed', 409, { unsupported: facts.unsupported.map((item) => item.token).slice(0, 5) });
-  const nextFlow = { ...flow, cvChoices: choices };
+  const cvChoicesRound = Number(draft.round) || 1;
+  const nextFlow = { ...flow, cvChoices: choices, cvChoicesRound };
   const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
   // The same choices in the candidate's own Word file, when there is one.
   const inplace = await rebuildInPlaceDocx({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
-  await flowRefFor(db, orderId).set({ cvChoices: choices, updatedAt: nowMs }, { merge: true });
+  await flowRefFor(db, orderId).set({ cvChoices: choices, cvChoicesRound, updatedAt: nowMs }, { merge: true });
   await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, ...(inplace ? { inplace } : {}) } }, { merge: true });
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {
     actor: 'candidate',
