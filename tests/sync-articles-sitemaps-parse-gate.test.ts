@@ -131,7 +131,7 @@ describe('article corpus sync parser gate', () => {
   it('defers main delivery but always checks the refresh snapshot on non-previews', () => {
     const mainDelivery = "github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'";
     expect(stepNamed('Assert the pulled corpus actually reached main').if).toBe(mainDelivery);
-    expect(stepNamed('Assert the refresh snapshot was committed').if).toBe("github.event.inputs.dry_run != 'true'");
+    expect(stepNamed('Assert the refresh snapshot was committed').if).toBe(mainDelivery);
   });
 
   it('replays every PR-skipped live surface from the merged main tree', () => {

@@ -142,7 +142,7 @@ trap 'cleanup_refresh_checkout || exit 1' EXIT
 # The stable branch may have been created by an older workflow revision. Keep
 # the reconciler from the current workflow checkout before creating its isolated
 # publisher checkout, otherwise stale code can reintroduce a fixed merge rule.
-if [ -n "$REMOTE_HEAD" ] && [ "$RECONCILE_COMPAT" = false ]; then
+if [ "$RECONCILE_COMPAT" = false ]; then
   MERGE_REFRESH_SCRIPT_DIR="$(mktemp -d)"
   mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"
   git show "${REFRESH_BASE}:scripts/ci/merge-open-data-refresh.mjs" \

@@ -948,11 +948,12 @@ jobs:
 
       # A refresh PR has a second delivery boundary: the publisher has already
       # committed the pulled snapshot to the stable branch, while the merged
-      # main tree is checked by replay-after-article-sync. Keep a final,
-      # non-optional residue check for every non-preview run so this job cannot
-      # become green merely because the main-delivery assertion was deferred.
+      # main tree is checked by replay-after-article-sync. Keep the final
+      # residue check for direct non-preview runs; the creation PR itself has
+      # already published through the stable branch and must leave this guard
+      # to the push-triggered replay.
       - name: Assert the refresh snapshot was committed
-        if: github.event.inputs.dry_run != 'true'
+        if: github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'
         env:
           SKIP_REASON: ${{ steps.gate.outputs.skip-reason }}
         run: node scripts/ci/assert-articles-sync-delivered.mjs

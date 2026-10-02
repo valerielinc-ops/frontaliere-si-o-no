@@ -82,6 +82,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs"');
+    expect(helper).toContain('if [ "$RECONCILE_COMPAT" = false ]; then\n  MERGE_REFRESH_SCRIPT_DIR=');
     expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
     expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
