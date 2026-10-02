@@ -7454,6 +7454,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lordo-netto-cantoni-2026.title': 'Average salary by profession in Switzerland 2026: gross and net',
     'blog.article.lordo-netto-cantoni-2026.excerpt': 'In the 2026 comparison, the canton, sector and deductions count: AHV/IV/EO, ALV, UVG and BVG change the distance between gross and net salary.',
     'blog.article.lordo-netto-cantoni-2026.imageAlt': 'Comparison of Swiss salaries and deductions on an office desk',
+    'blog.article.retribuzioni-svizzere-netto.title': 'Average wages by profession in Switzerland in 2026',
+    'blog.article.retribuzioni-svizzere-netto.excerpt': 'Average salary per occupation in Switzerland in 2026: comparison between cantons, taxes, contributions, BVG, KVG and net available with cantonal labour rules.',
+    'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Person reviews a Swiss payslip and a comparison of professional salaries.',
 };
 
 export default blogMetaChEn;
