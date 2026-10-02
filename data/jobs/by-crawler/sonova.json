@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sonova",
-  "assembledAt": "2026-10-02T09:11:34.052Z",
+  "assembledAt": "2026-10-02T21:13:34.758Z",
   "jobs": [
     {
       "id": "sonova-96c3301b33a7",
@@ -33,7 +33,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Product-Cybersecurity-Expert/1416109733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.245Z",
+      "crawledAt": "2026-10-02T21:13:23.032Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -111,7 +111,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Architect-Charging-Solutions/1436570633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.241Z",
+      "crawledAt": "2026-10-02T21:13:23.027Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -188,7 +188,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Werkzeugmacher-im-Bereich-Montage-WZB-%28mwd%29/1387283333/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:28.237Z",
+      "crawledAt": "2026-10-02T21:13:23.023Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -264,7 +264,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Software-Engineer-DSP-Tools-and-Infrastructure-%28mfd%29/1437852833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.232Z",
+      "crawledAt": "2026-10-02T21:13:23.019Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -296,7 +296,6 @@
         ]
       },
       "firstSeenAt": "2026-09-26T13:55:54.925Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -309,7 +308,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-015d3cf3327f",
@@ -342,7 +342,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Hearing-Performance/1413688533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.228Z",
+      "crawledAt": "2026-10-02T21:13:23.016Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -377,7 +377,6 @@
         "senior-manager-performance-uditiva-sonova-staefa"
       ],
       "firstSeenAt": "2026-09-26T13:55:54.917Z",
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -390,7 +389,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-374a65613887",
@@ -423,7 +423,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Technical-Specialist-Production-%28TSP%29-%28mfd%29/1407383533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:28.224Z",
+      "crawledAt": "2026-10-02T21:13:23.012Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -448,7 +448,6 @@
           "technical-specialista-production-tsp-m-f-d-sonova-staefa"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -461,7 +460,8 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-a77ade8c1fe1",
@@ -494,7 +494,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Power-Management-Engineer-%2880-100%29-%28mfd%29/1417571533/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.220Z",
+      "crawledAt": "2026-10-02T21:13:23.008Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -565,7 +565,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Practical-Trainee-Power-Management-%28mfd%29/1418818733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.215Z",
+      "crawledAt": "2026-10-02T21:13:23.004Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -650,7 +650,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Procurement-Manager-NPI/1439443733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.211Z",
+      "crawledAt": "2026-10-02T21:13:23.000Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -724,7 +724,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Interaction-Designer/1439444733/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.206Z",
+      "crawledAt": "2026-10-02T21:13:22.995Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -806,7 +806,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Product-Quality-%28mfd%29/1411716033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.202Z",
+      "crawledAt": "2026-10-02T21:13:22.992Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -831,7 +831,6 @@
           "qualita-del-prodotto-m-f-d-sonova-staefa-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -844,7 +843,8 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-c8fcf54ac57e",
@@ -877,7 +877,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Audiology-Innovation-Manager-%28mfd%29/1440786833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.197Z",
+      "crawledAt": "2026-10-02T21:13:22.987Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -947,7 +947,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Senior-Manager-Signal-Processing-RIC-and-BTE-%28mfd%29/1409309433/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.191Z",
+      "crawledAt": "2026-10-02T21:13:22.982Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1019,7 +1019,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Logistikerin-EFZ-%28mwd%29/1421325033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:28.187Z",
+      "crawledAt": "2026-10-02T21:13:22.978Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1053,7 +1053,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.194Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1066,7 +1065,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-088c8bab41fe",
@@ -1099,7 +1099,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Fachmann-frau-Betriebsunterhalt-EFZ-%28mfd%29/1421326833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:28.178Z",
+      "crawledAt": "2026-10-02T21:13:22.973Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1133,7 +1133,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.177Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1146,7 +1145,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-755bb818c5fe",
@@ -1179,7 +1179,7 @@
       "url": "https://jobs.sonova.com/job/Staefa-Lehrstelle-Kunststofftechnologe-login-EFZ-%28mwd%29/1421323633/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:11:28.170Z",
+      "crawledAt": "2026-10-02T21:13:22.968Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1211,7 +1211,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:06:52.246Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1224,7 +1223,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sonova-0e97616fe3f9",
@@ -1257,7 +1257,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Manufacturing-System-&-Software-Development-Engineer-%28mfd%29/1441934833/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.165Z",
+      "crawledAt": "2026-10-02T21:13:22.964Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1288,7 +1288,6 @@
         ]
       },
       "firstSeenAt": "2026-09-28T21:09:05.057Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1302,7 +1301,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "sonova-1f854815a19d",
@@ -1335,7 +1335,7 @@
       "url": "https://jobs.sonova.com/job/Murten-Quality-Assurance-Manager/1442652933/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.163Z",
+      "crawledAt": "2026-10-02T21:13:22.963Z",
       "addressLocality": "Murten",
       "addressCountry": "CH",
       "country": "CH",
@@ -1349,16 +1349,6 @@
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1442652933/?locale=en_US",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "quality-assurance-manager-sonova-ch",
-        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "quality-assurance-manager-sonova-ch",
-          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:10:37.776Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
@@ -1373,40 +1363,50 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "quality-assurance-manager-sonova-ch",
+          "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "quality-assurance-manager-sonova-ch",
+        "gestione-dell-assicurazione-di-qualita-sonova-murten-switzerland"
+      ]
     },
     {
       "id": "sonova-e7305ae7cb14",
-      "slug": "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
+      "slug": "product-manager-hearing-aids-sonova-ch",
       "slugByLocale": {
-        "it": "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
+        "it": "product-manager-hearing-aids-sonova-ch",
         "en": "product-manager-hearing-aids-sonova-ch",
-        "de": "produktmanager-horgerate-sonova-staefa-switzerland",
-        "fr": "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland"
+        "de": "product-manager-hearing-aids-sonova-ch",
+        "fr": "product-manager-hearing-aids-sonova-ch"
       },
       "company": "Sonova",
       "companyKey": "sonova",
       "companyDomain": "sonova.com",
       "title": "Product Manager - Hearing Aids",
       "titleByLocale": {
-        "it": "Product Manager - Apparecchi acustici",
+        "it": "Product Manager - Hearing Aids",
         "en": "Product Manager - Hearing Aids",
-        "de": "Produktmanager - Hörgeräte",
-        "fr": "Gestionnaire de produits - Aides auditives"
+        "de": "Product Manager - Hearing Aids",
+        "fr": "Product Manager - Hearing Aids"
       },
       "description": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
       "descriptionByLocale": {
-        "it": "Scopo del lavoro\n\nIl Product Manager assicura che Phonak abbia un'offerta di prodotti altamente accattivante, di successo commerciale ed eseguibile operativamente per l'ambito di applicazione del prodotto assegnato. Il ruolo gestisce il flusso di lavoro del prodotto attraverso il ciclo di vita completo, contribuisce al lancio del prodotto all'interno della categoria responsabile e garantisce una forte esecuzione trasversale dal concetto all'ottimizzazione post-lancio.\n\nCompiti e responsabilità\n\n• Sviluppare i 4P per i prodotti assegnati attraverso concetti, preparazione di lancio, gestione del mercato e supporto del ciclo di vita.\n\n• Definizione del prodotto di piombo, visione del prodotto, raffinatezza dell'uso-case, priorità delle caratteristiche e sviluppo della proposizione del valore in collaborazione con R&D, UX e leadership di categoria.\n\n• Contribuire all'interno dei lanci e garantire la consegna tempestiva di proposizioni di valore di successo in più domini di prodotto, accessori e supporti consegnabili.\n\n• Traduci le esigenze dei clienti, le esigenze non soddisfatte, le tendenze tecniche, i benchmark e le informazioni dei concorrenti sui requisiti dei prodotti e sui miglioramenti dei prodotti.\n\n• Trigger o sostenere studi di fattibilità, prove di mercato, test sul campo e progetti tecnologici per migliorare la vestibilità del mercato del prodotto e la qualità del lancio.\n\n• Assicurare la conformità normativa e la disponibilità di prodotti, imballaggi, documentazione e altri materiali di consegna richiesti.\n\n• Steer prodotto KPIs tra cui adozione, qualità, feedback di mercato, implicazioni di margine e prestazioni del prodotto, e raccomanda azioni correttive.\n\n• Sostenere le attività del ciclo di vita come i cambiamenti di ingegneria, la riduzione della complessità, il phase-in e le iniziative di miglioramento post-launch.\n\n• Lavorare a stretto contatto con il team Audiological and Clinical Excellence per fornire prove cliniche di significato\n\nCapacità di contabilità chiave\n\n• Il successo commerciale e del cliente dei prodotti assegnati.\n\n• Qualità della definizione del prodotto, proposizione, disponibilità di lancio e azioni di miglioramento post-lancio.\n\n• Esecuzione trasversale in R&D, regolazione, qualità, operazioni, MarCom e squadre regionali.\n\n• Prestazioni del ciclo di vita, tra cui la qualità del prodotto, il supporto di controllo del cambiamento e l'esecuzione phase-in o phase-out.\n\nRequisiti\n\n• Laurea in audiologia, ingegneria, business o una disciplina correlata.\n\n• Forte esperienza nella gestione dei prodotti, nella gestione del lancio o nella gestione del ciclo di vita in prodotti medici, sanitari o tecnici.\n\n• Prove capacità di condurre il lavoro interfunzionale, risolvere problemi ambigui, e consegnare in un'organizzazione di matrice.\n\n• 4 - 6 anni di esperienza nella gestione globale dei prodotti con focus sullo sviluppo dei prodotti\n\n• L'esperienza nel settore sanitario o medico è un bene\n\n• Progetti complessi in esecuzione su scala globale\n\n• Concentrandosi sull'esperienza del cliente per definire hardware e accessori preziosi\n\n• Combinazione di forte background tecnico e business acumen\n\n• In grado di gestire diverse aspettative degli stakeholder\n\n• Visione\n\n• Forte capacità di leadership e gestione trasversali\n\n• Altamente automotivato e disciplinato\n\n• Creativo e fantasioso, in grado di pensare al di fuori della scatola\n\n<div dir=\"auto\" style=\" larghezza:calc(100% - 16px)",
+        "it": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
         "en": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
-        "de": "Zweck des Auftrags\n\nDer Produktmanager stellt sicher, dass Phonak über ein äußerst attraktives, kommerziell erfolgreiches und operativ ausführbares Produktangebot für den zugewiesenen Produktumfang verfügt. Die Rolle verwaltet den Produkt-Workstream über den gesamten Lebenszyklus, trägt zu den Produkteinführungen innerhalb der verantwortlichen Kategorie bei und sorgt für eine starke funktionsübergreifende Ausführung vom Konzept bis zur Optimierung nach dem Start.\n\nAufgaben & Verantwortlichkeiten\n\n• Entwickeln Sie die 4Ps für zugewiesene Produkte über Konzepte, Startvorbereitung, In-Market-Management und Lifecycle-Support hinweg.\n\n• Lead Produktdefinition, Produktvision, Anwendungsfallverfeinerung, Feature Priorisierung und Value Proposition Entwicklung in Partnerschaft mit R & D, UX und Category Leadership.\n\n• Tragen Sie zu den Markteinführungen bei und sorgen Sie für die rechtzeitige Lieferung erfolgreicher Wertversprechen in mehreren Produktdomänen, Zubehör und unterstützenden Leistungen.\n\n• Übersetzen Sie Kundenbedürfnisse, unerfüllte Bedürfnisse, technische Trends, Benchmarks und Einblicke der Wettbewerber in Produktanforderungen und Produktverbesserungen.\n\n• Triggern oder unterstützen Sie Machbarkeitsstudien, Marktversuche, Feldtests und Technologieprojekte, um die Passform des Produktmarktes und die Startqualität zu verbessern.\n\n• Gewährleistung der Einhaltung der Vorschriften und der Startbereitschaft von Produkten, Verpackungen, Dokumentationen und anderen erforderlichen Leistungen.\n\n• Lenken Sie Produkt-KPIs, einschließlich Adoption, Qualität, Marktfeedback, Margin-Implikationen und Produktleistung, und empfehlen Sie Korrekturmaßnahmen.\n\n• Unterstützung von Lifecycle-Aktivitäten wie Engineering-Änderungen, Komplexitätsreduzierung, Phase-in- und Phase-out-Planung und Verbesserungsinitiativen nach dem Start.\n\n• Enge Zusammenarbeit mit dem Team von Audiological und Clinical Excellence, um sinnvolle klinische Beweise zu liefern\n\nHauptbuchhaltung\n\n• Kommerzieller und Kundenerfolg der zugewiesenen Produkte.\n\n• Qualität der Produktdefinition, Angebot, Startbereitschaft und Verbesserungsmaßnahmen nach dem Start.\n\n• Cross-funktionale Ausführung in R & D, Regulierung, Qualität, Betrieb, MarCom und regionalen Teams.\n\n• Lifecycle-Performance, einschließlich Produktqualität, Änderungskontrollunterstützung und Phase-in- oder Phase-out-Ausführung.\n\nAnforderungen\n\n• Universitätsabschluss in Audiologie, Ingenieurwesen, Wirtschaft oder einer verwandten Disziplin.\n\n• Starke Erfahrung im Produktmanagement, Launch Management oder Lifecycle Management in Medizin-, Gesundheits- oder technischen Produkten.\n\n• Bewährte Fähigkeit, funktionsübergreifende Arbeit zu führen, mehrdeutige Probleme zu lösen und in einer Matrixorganisation zu liefern.\n\n• 4 - 6 Jahre Erfahrung im globalen Produktmanagement mit Fokus auf Produktentwicklung\n\n• Erfahrung in der Gesundheits- oder Medizinbranche ist ein Asset\n\n• Durchführung komplexer Projekte auf globaler Ebene\n\n• Fokussierung auf Customer Experience, um wertvolle Hardware und Zubehör zu definieren\n\n• Kombination aus starkem technischem Hintergrund und Geschäftssinn\n\n• Kann verschiedene Stakeholder-Erwartungen verwalten\n\n• Visionär\n\n• Starke funktionsübergreifende Führungs- und Managementfähigkeiten\n\n• Hoch motiviert und diszipliniert\n\n• Kreativ und einfallsreich, fähig, über den Tellerrand hinaus zu denken\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !wichtig;\"",
-        "fr": "Objet du travail\n\nLe gestionnaire des produits s'assure que Phonak possède une offre de produits hautement attrayante, commercialement réussie et opérationnellement exécutable pour la gamme de produits attribuée. Ce rôle gère le flux de travail du produit tout au long du cycle de vie, contribue au lancement du produit dans la catégorie responsable et assure une forte exécution interfonctionnelle du concept à l'optimisation post-lancement.\n\nTâches et responsabilités\n\n• Élaborer les 4P pour les produits attribués à l'ensemble des concepts, lancer la préparation, la gestion du marché et le soutien du cycle de vie.\n\n• Définition du produit principal, vision du produit, raffinement des cas d'utilisation, hiérarchisation des caractéristiques et élaboration de propositions de valeur en partenariat avec la R-D, l'UX et le leadership de catégorie.\n\n• Contribuer aux lancements et assurer la livraison en temps opportun de propositions de valeur réussies dans plusieurs domaines de produits, accessoires et produits livrables.\n\n• Traduire les besoins des clients, les besoins non satisfaits, les tendances techniques, les repères et les connaissances des concurrents sur les exigences des produits et les améliorations des produits.\n\n• Déclencher ou soutenir des études de faisabilité, des essais sur le marché, des essais sur le terrain et des projets technologiques visant à améliorer la qualité des produits et à les lancer.\n\n• Veiller à ce que les produits, l'emballage, la documentation et les autres produits livrables requis soient conformes à la réglementation et à la préparation au lancement.\n\n• Les ICR du produit Steer comprennent l'adoption, la qualité, la rétroaction du marché, les implications sur la marge et la performance du produit, et recommandent des mesures correctives.\n\n• Appuyer les activités du cycle de vie comme les changements d'ingénierie, la réduction de la complexité, la planification de l'entrée en vigueur et de l'élimination progressive et les initiatives d'amélioration après le lancement.\n\n• Collaborer étroitement avec l'équipe de l'excellence audologique et clinique pour produire des preuves cliniques significatives\n\nPrincipales responsabilités\n\n• Succès commercial et client des produits assignés.\n\n• Qualité de la définition du produit, proposition, préparation au lancement et actions d'amélioration après le lancement.\n\n• Exécution interfonctionnelle dans les équipes de R-D, de réglementation, de qualité, d'exploitation, de MarCom et de région.\n\n• Performance du cycle de vie, y compris la qualité du produit, le soutien au contrôle des changements et l'exécution progressive ou progressive.\n\nExigences\n\n• Diplôme universitaire en audiologie, en génie, en affaires ou dans une discipline connexe.\n\n• Forte expérience en gestion de produits, en gestion de lancement ou en gestion du cycle de vie des produits médicaux, médicaux ou techniques.\n\n• Capacité éprouvée de diriger des travaux interfonctionnels, de résoudre des problèmes ambigus et d'offrir une organisation matricielle.\n\n• 4 - 6 ans d'expérience en gestion de produits globale avec l'accent sur le développement de produits\n\n• L'expérience dans le secteur des soins de santé ou de la médecine est un atout\n\n• Exécution de projets complexes à l ' échelle mondiale\n\n• Se concentrer sur l'expérience client pour définir le matériel et les accessoires précieux\n\n• Combinaison d'une solide expérience technique et d'un sens des affaires\n\n• Capacité à gérer différentes attentes des parties prenantes\n\n• Visionnaire\n\n• Fortes compétences en leadership et en gestion interfonctionnelles\n\n• Très motivé et discipliné\n\n• Créative et imaginative, capable de penser en dehors de la boîte\n\n<div dir=\"auto\" style=\" largeur:calc(100% - 16px) !important;\""
+        "de": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\"",
+        "fr": "Purpose of the Job\n\nThe Product Manager ensures Phonak has a highly appealing, commercially successful, and operationally executable product offering for the assigned product scope. The role manages the product workstream across the full lifecycle, contributes to the product launches within the responsible category, and ensures strong cross-functional execution from concept to post-launch optimization.\n\nTasks & Responsibilities\n\n• Develop the 4Ps for assigned products across concepts, launch preparation, in-market management, and lifecycle support.\n\n• Lead product definition, product vision, use-case refinement, feature prioritization, and value proposition development in partnership with R&D, UX, and category leadership.\n\n• Contribute within launches and ensure timely delivery of successful value propositions across multiple product domains, accessories, and supporting deliverables.\n\n• Translate customer needs, unmet needs, technical trends, benchmarks, and competitor insights into product requirements and product improvements.\n\n• Trigger or support feasibility studies, market trials, field tests, and technology projects to improve product-market fit and launch quality.\n\n• Ensure regulatory and launch-readiness compliance of products, packaging, documentation, and other required deliverables.\n\n• Steer product KPIs including adoption, quality, market feedback, margin implications, and product performance, and recommend corrective actions.\n\n• Support lifecycle activities such as engineering changes, complexity reduction, phase-in and phase-out planning, and post-launch improvement initiatives.\n\n• Work closely with Audiological and Clinical Excellence team to deliver meaning clinical evidence\n\nKey accountabilities\n\n• Commercial and customer success of assigned products.\n\n• Quality of product definition, proposition, launch readiness, and post-launch improvement actions.\n\n• Cross-functional execution across R&D, regulatory, quality, operations, MarCom, and regional teams.\n\n• Lifecycle performance, including product quality, change control support, and phase-in or phase-out execution.\n\nRequirements\n\n• University degree in audiology, engineering, business, or a related discipline.\n\n• Strong experience in product management, launch management, or lifecycle management in medical, healthcare, or technical products.\n\n• Proven ability to lead cross-functional work, solve ambiguous problems, and deliver in a matrix organization.\n\n• 4 - 6 years’ experience in global Product Management with focus on product development\n\n• Experience in healthcare or medical industry is an asset\n\n• Running complex projects on global scale\n\n• Focusing on customer experience to define valuable hardware and accessories\n\n• Combination of strong technical background and business acumen\n\n• Able to manage different stakeholder expectations\n\n• Visionary\n\n• Strong cross-functional leadership and management skills\n\n• Highly self-motivated and disciplined\n\n• Creative and imaginative, able to think outside the box\n\n<div dir=\"auto\" style=\" width:calc(100% - 16px) !important;\""
       },
       "location": "Staefa, Switzerland",
       "canton": "ZH",
       "url": "https://jobs.sonova.com/job/Staefa-Product-Manager-Hearing-Aids/1443245033/",
       "source": "Sonova Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T09:11:28.161Z",
+      "crawledAt": "2026-10-02T21:13:22.960Z",
       "addressLocality": "Staefa",
       "addressRegion": "Zürich",
       "addressCountry": "CH",
@@ -1420,10 +1420,14 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://jobs.sonova.com/talentcommunity/apply/1443245033/?locale=en_US",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": []
+      },
       "previousSlugs": [
         "product-manager-hearing-aids-sonova-ch",
-        "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
+        "product-manager-apparecchi-acustici-sonova-staefa-switzerland",
+        "produktmanager-horgerate-sonova-staefa-switzerland",
+        "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1431,13 +1435,15 @@
           "product-manager-apparecchi-acustici-sonova-staefa-switzerland"
         ],
         "de": [
-          "product-manager-hearing-aids-sonova-ch"
+          "product-manager-hearing-aids-sonova-ch",
+          "produktmanager-horgerate-sonova-staefa-switzerland"
         ],
         "fr": [
-          "product-manager-hearing-aids-sonova-ch"
+          "product-manager-hearing-aids-sonova-ch",
+          "gestionnaire-de-produits-aides-auditives-sonova-staefa-switzerland"
         ]
       },
-      "firstSeenAt": "2026-10-01T21:12:27.258Z",
+      "firstSeenAt": "2026-10-02T21:13:22.960Z",
       "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,

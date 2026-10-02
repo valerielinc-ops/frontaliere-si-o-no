@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kanton-gr",
-  "assembledAt": "2026-10-02T09:12:39.183Z",
+  "assembledAt": "2026-10-02T21:11:02.568Z",
   "jobs": [
     {
       "id": "kanton-gr-4b46bf75709a",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/514915/2841/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:33.247Z",
+      "crawledAt": "2026-10-02T21:10:56.406Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -70,7 +70,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:32.442Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -84,7 +83,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-b176b2910754",
@@ -117,7 +117,7 @@
       "url": "https://apply.refline.ch/514915/2817/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:32.622Z",
+      "crawledAt": "2026-10-02T21:10:55.759Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -152,7 +152,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T09:49:01.807Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -166,7 +165,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-60840280f0cd",
@@ -199,7 +199,7 @@
       "url": "https://apply.refline.ch/514915/2778/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:31.979Z",
+      "crawledAt": "2026-10-02T21:10:55.112Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -234,7 +234,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:41.382Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -248,7 +247,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-ea5060ea169e",
@@ -281,7 +281,7 @@
       "url": "https://apply.refline.ch/514915/2763/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:30.721Z",
+      "crawledAt": "2026-10-02T21:10:53.813Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -317,7 +317,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:40.037Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -331,7 +330,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-4c3f7c9bd09e",
@@ -364,7 +364,7 @@
       "url": "https://apply.refline.ch/514915/2775/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:30.097Z",
+      "crawledAt": "2026-10-02T21:10:53.164Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -393,7 +393,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:48:35.180Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -407,7 +406,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-16b4f59dc417",
@@ -440,7 +440,7 @@
       "url": "https://apply.refline.ch/514915/2774/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:29.472Z",
+      "crawledAt": "2026-10-02T21:10:52.517Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -522,7 +522,7 @@
       "url": "https://apply.refline.ch/514915/2643/pub/9/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:28.324Z",
+      "crawledAt": "2026-10-02T21:10:51.869Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -557,7 +557,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:12:35.767Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -571,7 +570,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-bd076621ff73",
@@ -604,7 +604,7 @@
       "url": "https://apply.refline.ch/514915/2773/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:27.698Z",
+      "crawledAt": "2026-10-02T21:10:51.222Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -685,7 +685,7 @@
       "url": "https://apply.refline.ch/514915/2772/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:27.072Z",
+      "crawledAt": "2026-10-02T21:10:50.573Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -766,7 +766,7 @@
       "url": "https://apply.refline.ch/514915/2768/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:26.437Z",
+      "crawledAt": "2026-10-02T21:10:49.921Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -848,7 +848,7 @@
       "url": "https://apply.refline.ch/514915/2770/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:25.811Z",
+      "crawledAt": "2026-10-02T21:10:48.567Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -932,7 +932,7 @@
       "url": "https://apply.refline.ch/514915/2769/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:25.184Z",
+      "crawledAt": "2026-10-02T21:10:47.918Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1031,7 +1031,7 @@
       "url": "https://apply.refline.ch/514915/2767/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:24.495Z",
+      "crawledAt": "2026-10-02T21:10:47.272Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1113,7 +1113,7 @@
       "url": "https://apply.refline.ch/514915/2765/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:23.245Z",
+      "crawledAt": "2026-10-02T21:10:45.974Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1148,7 +1148,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:34:52.021Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -1162,15 +1161,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-9bce45e4999d",
       "slug": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
       "slugByLocale": {
+        "de": "strassenwart-in-kanton-gr-ch",
         "it": "strassenwart-in-kantonale-verwaltung-graubunden-samedan",
         "en": "strassenwart-in-kanton-gr-ch",
-        "de": "strassenwart-in-kanton-gr-ch",
         "fr": "strassenwart-in-kanton-gr-ch"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1178,24 +1178,24 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
+        "de": "Strassenwart/-in",
         "it": "Strassenwart/-in",
         "en": "Strassenwart/-in",
-        "de": "Strassenwart/-in",
         "fr": "Strassenwart/-in"
       },
       "description": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Allgemeine Arbeitssprache ist Italienisch, Deutschkenntnisse sind von Vorteil",
       "descriptionByLocale": {
-        "it": "L'ufficio di ingegneria civile è responsabile della progettazione, costruzione, manutenzione e funzionamento delle strade cantonali, nonché dell'ingegneria idraulica e del trasporto lento a Grigioni. Ci occupiamo anche della manutenzione operativa delle strade nazionali sul territorio cantonale. L’infrastruttura stradale del cantone comprende oltre 1.450 edifici d’arte, tra cui ponti ad altezze ariose fino a 90 metri e gallerie fino a 3 chilometri di lunghezza. Le sfide che la natura del nostro cantone di montagna porta in estate e in inverno rendono il nostro lavoro impegnativo e versatile. Come ufficio certificato Friendly Work Space, la salute e la soddisfazione dei nostri circa 480 dipendenti sono particolarmente importanti per noi. Per questo motivo, siamo impegnati nella gestione sistematica della salute professionale (BGM).\n\nStiamo cercando il reparto manutenzione stradale nel distretto 3 Samedan per 1. Gennaio 2027 o su appuntamento\n\nCompiti\n• Esecuzione dei lavori di manutenzione stradale in un piccolo team di manutenzione\n\n• Servizio estivo e invernale\n\n• Lavori di pulizia e riparazione dopo eventi accidentali o naturali\n\n• Controllo delle condizioni stradali e degli impianti stradali\n\n• Pikettdienst (estate e inverno)\n\nRequisiti\n• Apprendistato completo in costruzione\n\n• Artigianato\n\n• Capacità di carico fisica\n\n• Gioia del lavoro di squadra\n\n• La lingua di lavoro generale è italiana, la conoscenza del tedesco è un vantaggio",
-        "en": "The civil engineering office is responsible for the design, construction, maintenance and operation of the cantonal roads as well as the hydraulic engineering and slow transport in Graubünden. We also take care of the operational maintenance of the national roads on the cantonal territory. The canton’s road infrastructure comprises over 1,450 art buildings, including bridges at airy heights of up to 90 meters and tunnels of up to 3 kilometers in length. The challenges that the nature of our mountain canton brings in summer and winter make our work challenging and versatile. As a Friendly Work Space certified office, the health and satisfaction of our approximately 480 employees are particularly important to us. For this reason, we are committed to systematic occupational health management (BGM).\n\nWe are looking for the road maintenance department in the district 3 Samedan per 1. January 2027 or by appointment a road attendant\n\nTasks\n• Execution of road maintenance work in a small maintenance team\n\n• Summer and winter service\n\n• Clean-up and repair work after accidental or natural events\n\n• Control of road conditions and road installations\n\n• Pikettdienst (summer and winter)\n\nRequirements\n• Completed apprenticeship in construction\n\n• Craftsmanship\n\n• Physical load capacity\n\n• Joy of teamwork\n\n• General working language is Italian, knowledge of German is an advantage",
+        "it": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Allgemeine Arbeitssprache ist Italienisch, Deutschkenntnisse sind von Vorteil",
+        "en": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Allgemeine Arbeitssprache ist Italienisch, Deutschkenntnisse sind von Vorteil",
         "de": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Allgemeine Arbeitssprache ist Italienisch, Deutschkenntnisse sind von Vorteil",
-        "fr": "Le bureau du génie civil est chargé de la conception, de la construction, de l'entretien et de l'exploitation des routes cantonales ainsi que de l'ingénierie hydraulique et du transport lent à Graubünden. Nous nous occupons également de l'entretien opérationnel des routes nationales sur le territoire cantonal. L'infrastructure routière cantonale comprend plus de 1.450 bâtiments d'art, y compris des ponts à des hauteurs aérées allant jusqu'à 90 mètres et des tunnels jusqu'à 3 kilomètres de long. Les défis que la nature de notre canton de montagne apporte en été et en hiver rendent notre travail stimulant et polyvalent. En tant que bureau certifié Friendly Work Space, la santé et la satisfaction de nos quelque 480 employés sont particulièrement importantes pour nous. Pour cette raison, nous sommes engagés dans la gestion systématique de la santé au travail (MGB).\n\nNous sommes à la recherche du service d'entretien de la route dans le district 3 Samedan par 1. Janvier 2027 ou sur rendez-vous un accompagnateur routier\n\nTâches\n• Exécution des travaux d ' entretien des routes dans une petite équipe d ' entretien\n\n• Service d'été et d'hiver\n\n• Travaux de nettoyage et de réparation après des événements accidentels ou naturels\n\n• Contrôle des conditions routières et des installations routières\n\n• Pikettdienst (été et hiver)\n\nExigences\n• Apprentissage dans la construction\n\n• Artisanat\n\n• Capacité de charge physique\n\n• La joie du travail d'équipe\n\n• La langue de travail générale est l'italien, la connaissance de l'allemand est un avantage"
+        "fr": "Das Tiefbauamt ist für die Projektierung, den Bau, die Erhaltung und den Betrieb der Kantonsstrassen sowie den Wasserbau und den Langsamverkehr in Graubünden zuständig. Ausserdem kümmern wir uns um den betrieblichen Unterhalt der Nationalstrassen auf dem Kantonsgebiet. Die Strasseninfrastruktur des Kantons umfasst über 1'450 Kunstbauten, darunter Brücken in luftigen Höhen bis 90 Meter und Tunnels mit bis zu 3 Kilometern Länge. Die Herausforderungen, die die Natur unseres Gebirgskantons im Sommer und Winter mit sich bringt, macht unsere Arbeit anspruchsvoll und vielseitig. Als Friendly Work Space zertifiziertes Amt liegen uns die Gesundheit und Zufriedenheit unserer rund 480 Mitarbeitenden besonders am Herzen. Aus diesem Grund engagieren wir uns für ein systematisches Betriebliches Gesundheitsmanagement (BGM).\n\nWir suchen für die Abteilung Strassenerhaltung im Bezirk 3 Samedan per 1. Januar 2027 oder nach Vereinbarung eine/-n Strassenwart/-in\n\nAufgaben\n• Ausführung von Strassenunterhaltsarbeiten in einem kleinen Unterhaltsteam\n\n• Sommer- und Winterdienst\n\n• Aufräum- und Instandstellungsarbeiten nach Unfall- oder Naturereignissen\n\n• Kontrolle des Strassenzustandes und der Strassenanlagen\n\n• Leisten von Pikettdienst (Sommer und Winter)\n\nAnforderungen\n• Abgeschlossene Berufslehre im Baugewerbe\n\n• Handwerkliches Geschick\n\n• Physische Belastbarkeit\n\n• Freude an Teamarbeit\n\n• Allgemeine Arbeitssprache ist Italienisch, Deutschkenntnisse sind von Vorteil"
       },
       "location": "Samedan",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2851/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:22.603Z",
+      "crawledAt": "2026-10-02T21:10:45.326Z",
       "addressLocality": "Samedan",
       "postalCode": "7503",
       "addressCountry": "CH",
@@ -1207,10 +1207,12 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/514915/2851/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Tiefbauamt Graubünden, Bezirk 3 Samedan",
       "applicationDeadline": "2026-10-25",
       "pensumMin": 80,
@@ -1247,9 +1249,9 @@
       "id": "kanton-gr-7587685d6985",
       "slug": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "sachbearbeiter-in-kanton-gr-ch",
         "it": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
         "en": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "de": "sachbearbeiter-in-kanton-gr-ch",
         "fr": "sachbearbeiter-in-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1257,24 +1259,24 @@
       "companyDomain": "gr.ch",
       "title": "Sachbearbeiter/-in",
       "titleByLocale": {
+        "de": "Sachbearbeiter/-in",
         "it": "Sachbearbeiter/-in",
         "en": "Sachbearbeiter/-in",
-        "de": "Sachbearbeiter/-in",
         "fr": "Sachbearbeiter/-in"
       },
       "description": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 oder nach Vereinbarung eine/n Sachbearbeiter/-in.\n\nAufgaben\n• Führen der Registratur der Geschäftsfälle und Bearbeiten der Personendaten mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Anlegen von Falldossiers und Führen der Pendenzenkontrolle\n\n• Mitbeteiligung beim Bearbeiten und Erledigen sämtlicher in der Kanzlei anfallender Aufgaben\n\n• Ausübung von Stellvertretungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung und Berufserfahrung\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
       "descriptionByLocale": {
-        "it": "L'ufficio del pubblico ministero con i suoi 71 dipendenti è funzionale e materialmente un organo indipendente del sistema giudiziario penale. Conduce indagini penali contro gli adulti e gli adolescenti in caso di reati, errati e violazioni e deve far rispettare il reclamo penale statale. La sede dell'ufficio del pubblico ministero si trova a Chur. Ha rami a Davos, Ilanz, Roveredo, Samedan e Sois.\n\nStiamo cercando il pubblico ministero a 1. Dicembre 2026 o per accordo un ufficiale del caso.\n\nCompiti\n• Gestione della registrazione dei casi aziendali e del trattamento dei dati personali con l'aiuto del nostro controllo elettronico aziendale\n\n• Creazione di file di caso e controllo di pendenze\n\n• Partecipazione al trattamento e al completamento di tutte le attività in ufficio\n\n• Esercizio dei deputati\n\nRequisiti\n• Formazione commerciale di base e esperienza professionale completata\n\n• Una reputazione perfetta\n\n• Indipendenza, affidabilità e inoltro, nonché lavoro di squadra, discrezione, flessibilità e elevata resilienza\n\n• Molto buona espressività (scritta e orale) nella lingua tedesca\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa\n\n• Gestione sicura dell'attrezzatura informatica abituale\n\n• Altre competenze linguistiche",
-        "en": "The public prosecutor's office with its 71 employees is functionally and materially an independent organ of the criminal justice system. It conducts criminal investigations against adults and adolescents in cases of crimes, misdemeanours and violations and has to enforce the state criminal claim. The headquarters of the public prosecutor's office is located in Chur. It has branches in Davos, Ilanz, Roveredo, Samedan and Thusis.\n\nWe are looking for the public prosecutor at 1. December 2026 or by arrangement a case officer.\n\nTasks\n• Managing the registration of business cases and processing personal data with the help of our electronic business control\n\n• Creation of case files and control of pendences\n\n• Participation in the processing and completion of all tasks in the office\n\n• Exercise of deputies\n\nRequirements\n• Basic commercial education and professional experience completed\n\n• A perfect reputation\n\n• Independence, reliability and forwarding as well as teamwork, discretion, flexibility and high resilience\n\n• Very good expressiveness (written and oral) in the German language\n\n• Good knowledge of several cantonal languages is advantageous\n\n• Safe handling of the usual computer equipment\n\n• Other language skills",
+        "it": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 oder nach Vereinbarung eine/n Sachbearbeiter/-in.\n\nAufgaben\n• Führen der Registratur der Geschäftsfälle und Bearbeiten der Personendaten mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Anlegen von Falldossiers und Führen der Pendenzenkontrolle\n\n• Mitbeteiligung beim Bearbeiten und Erledigen sämtlicher in der Kanzlei anfallender Aufgaben\n\n• Ausübung von Stellvertretungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung und Berufserfahrung\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
+        "en": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 oder nach Vereinbarung eine/n Sachbearbeiter/-in.\n\nAufgaben\n• Führen der Registratur der Geschäftsfälle und Bearbeiten der Personendaten mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Anlegen von Falldossiers und Führen der Pendenzenkontrolle\n\n• Mitbeteiligung beim Bearbeiten und Erledigen sämtlicher in der Kanzlei anfallender Aufgaben\n\n• Ausübung von Stellvertretungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung und Berufserfahrung\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
         "de": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 oder nach Vereinbarung eine/n Sachbearbeiter/-in.\n\nAufgaben\n• Führen der Registratur der Geschäftsfälle und Bearbeiten der Personendaten mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Anlegen von Falldossiers und Führen der Pendenzenkontrolle\n\n• Mitbeteiligung beim Bearbeiten und Erledigen sämtlicher in der Kanzlei anfallender Aufgaben\n\n• Ausübung von Stellvertretungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung und Berufserfahrung\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
-        "fr": "Le ministère public avec ses 71 employés est fonctionnellement et matériellement un organe indépendant du système de justice pénale. Il mène des enquêtes pénales contre les adultes et les adolescents dans les cas de crimes, de délits et de violations et doit faire exécuter la demande pénale de l ' État. Le siège du ministère public est situé à Chur. Il a des succursales à Davos, Ilanz, Roveredo, Samedan et This.\n\nNous cherchons le procureur à 1. Décembre 2026 ou par arrangement un agent de cas.\n\nTâches\n• Gérer l'enregistrement des affaires et le traitement des données personnelles avec l'aide de notre contrôle électronique des affaires\n\n• Création de dossiers et contrôle des pendences\n\n• Participation au traitement et à l ' exécution de toutes les tâches du bureau\n\n• Exercice des députés\n\nExigences\n• Enseignement professionnel de base\n\n• Une réputation parfaite\n\n• Indépendance, fiabilité et transmission ainsi que travail d'équipe, discrétion, flexibilité et grande résilience\n\n• Très bonne expressivité (écrite et orale) en langue allemande\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse\n\n• Gestion sécuritaire de l'équipement informatique habituel\n\n• Autres compétences linguistiques"
+        "fr": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 oder nach Vereinbarung eine/n Sachbearbeiter/-in.\n\nAufgaben\n• Führen der Registratur der Geschäftsfälle und Bearbeiten der Personendaten mit Hilfe unserer elektronischen Geschäftskontrolle\n\n• Anlegen von Falldossiers und Führen der Pendenzenkontrolle\n\n• Mitbeteiligung beim Bearbeiten und Erledigen sämtlicher in der Kanzlei anfallender Aufgaben\n\n• Ausübung von Stellvertretungen\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung und Berufserfahrung\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2867/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:21.980Z",
+      "crawledAt": "2026-10-02T21:10:44.672Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1286,10 +1288,12 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/514915/2867/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Staatsanwaltschaft",
       "applicationDeadline": "2026-10-15",
       "pensumMin": 80,
@@ -1306,7 +1310,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:10:10.937Z",
+      "firstSeenAt": "2026-10-02T21:10:44.672Z",
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1324,36 +1328,36 @@
     },
     {
       "id": "kanton-gr-6b8b3823e37f",
-      "slug": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
+      "slug": "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
-        "it": "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
-        "en": "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
+        "it": "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
+        "en": "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
         "de": "2-sachbearbeiterinnen-sachbearbeiter-kanton-gr-ch",
-        "fr": "2-commis-commis-kantonale-verwaltung-graubunden-chur"
+        "fr": "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
       "companyKey": "kanton-gr",
       "companyDomain": "gr.ch",
       "title": "2 Sachbearbeiterinnen / Sachbearbeiter",
       "titleByLocale": {
-        "it": "2 impiegati / impiegati",
-        "en": "2 clerks / clerks",
+        "it": "2 Sachbearbeiterinnen / Sachbearbeiter",
+        "en": "2 Sachbearbeiterinnen / Sachbearbeiter",
         "de": "2 Sachbearbeiterinnen / Sachbearbeiter",
-        "fr": "2 commis / commis"
+        "fr": "2 Sachbearbeiterinnen / Sachbearbeiter"
       },
-      "description": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen Ämtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
+      "description": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen &Auml;mtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
       "descriptionByLocale": {
-        "it": "L'ufficio del pubblico ministero con i suoi 71 dipendenti è funzionale e materialmente un organo indipendente del sistema giudiziario penale. Conduce indagini penali contro gli adulti e gli adolescenti in caso di reati, errati e violazioni e deve far rispettare il reclamo penale statale. La sede dell'ufficio del pubblico ministero si trova a Chur. Ha rami a Davos, Ilanz, Roveredo, Samedan e Sois.\n\nStiamo cercando l'ufficio del pubblico ministero il 1o dicembre 2026 o il 1o gennaio 2027 o con accordo due agenti di caso.\n\nCompiti\n• Cooperazione nelle indagini penali\n\n• Verbale di audizioni e copie di vari documenti e decisioni legali\n\n• Elaborazione di reati penali secondo le disposizioni del Codice penale federale svizzero, sotto la direzione di un procuratore\n\n• Completamento del lavoro di segreteria versatile e stretta collaborazione con vari dipartimenti, dipartimenti e tribunali\n\nRequisiti\n• Completato l'istruzione commerciale di base (scuola commerciale o KV) e alcuni anni di esperienza professionale\n\n• Molto buona espressività (scritta e orale) nella lingua tedesca\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa\n\n• Una reputazione perfetta\n\n• Indipendenza, affidabilità e inoltro, nonché lavoro di squadra, discrezione, flessibilità e elevata resilienza\n\n• Gestione sicura dell'attrezzatura informatica abituale\n\n• Altre competenze linguistiche",
-        "en": "The public prosecutor's office with its 71 employees is functionally and materially an independent organ of the criminal justice system. It conducts criminal investigations against adults and adolescents in cases of crimes, misdemeanours and violations and has to enforce the state criminal claim. The headquarters of the public prosecutor's office is located in Chur. It has branches in Davos, Ilanz, Roveredo, Samedan and Thusis.\n\nWe are looking for the public prosecutor’s office on 1 December 2026 or 1 January 2027 or by agreement two case officers.\n\nTasks\n• Cooperation in criminal investigations\n\n• Minutes of hearings and copies of various legal documents and decisions\n\n• Processing of criminal offences according to the provisions of the Swiss Federal Code of Criminal Procedure, under the direction of a prosecutor\n\n• Completion of versatile secretarial work and close cooperation with various departments, departments and courts\n\nRequirements\n• Completed basic commercial education (commercial school or KV) and some years of professional experience\n\n• Very good expressiveness (written and oral) in the German language\n\n• Good knowledge of several cantonal languages is advantageous\n\n• A perfect reputation\n\n• Independence, reliability and forwarding as well as teamwork, discretion, flexibility and high resilience\n\n• Safe handling of the usual computer equipment\n\n• Other language skills",
-        "de": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen Ämtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
-        "fr": "Le ministère public avec ses 71 employés est fonctionnellement et matériellement un organe indépendant du système de justice pénale. Il mène des enquêtes pénales contre les adultes et les adolescents dans les cas de crimes, de délits et de violations et doit faire exécuter la demande pénale de l ' État. Le siège du ministère public est situé à Chur. Il a des succursales à Davos, Ilanz, Roveredo, Samedan et This.\n\nNous sommes à la recherche du ministère public le 1er décembre 2026 ou le 1er janvier 2027 ou par accord deux agents de cas.\n\nTâches\n• Coopération dans les enquêtes pénales\n\n• Procès-verbaux des audiences et copies de divers documents juridiques et décisions\n\n• Traitement des infractions pénales conformément aux dispositions du Code fédéral de procédure pénale, sous la direction d'un procureur\n\n• Achèvement de travaux de secrétariat polyvalents et coopération étroite avec divers départements, départements et tribunaux\n\nExigences\n• Achevé l'enseignement commercial de base (école commerciale ou KV) et quelques années d'expérience professionnelle\n\n• Très bonne expressivité (écrite et orale) en langue allemande\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse\n\n• Une réputation parfaite\n\n• Indépendance, fiabilité et transmission ainsi que travail d'équipe, discrétion, flexibilité et grande résilience\n\n• Gestion sécuritaire de l'équipement informatique habituel\n\n• Autres compétences linguistiques"
+        "it": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen &Auml;mtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
+        "en": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen &Auml;mtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
+        "de": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen &Auml;mtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse",
+        "fr": "Die Staatsanwaltschaft mit ihren 71 Mitarbeitenden ist funktionell und materiell ein unabhängiges Organ der Strafrechtspflege. Sie führt gegen Erwachsene und Jugendliche in Fällen von Verbrechen, Vergehen und Übertretungen Strafuntersuchungen und hat den staatlichen Strafanspruch durchzusetzen. Der Hauptsitz der Staatsanwaltschaft befindet sich in Chur. Sie verfügt über Zweigstellen in Davos, Ilanz, Roveredo, Samedan und Thusis.\n\nWir suchen für die Staatsanwaltschaft per 1. Dezember 2026 bzw. 1. Januar 2027 oder nach Vereinbarung zwei Sachbearbeiterinnen oder zwei Sachbearbeiter.\n\nAufgaben\n• Mitwirkung bei Strafuntersuchungen\n\n• Protokollführung bei Einvernahmen und Ausfertigung verschiedener Rechtsschriften und Verfügungen\n\n• Bearbeitung von Übertretungsstrafsachen nach den Vorschriften der eidgenössischen Strafprozessordnung, unter der Leitung einer Staatsanwältin oder eines Staatsanwaltes\n\n• Erledigung vielseitiger Sekretariatsarbeiten und enge Zusammenarbeit mit verschiedenen &Auml;mtern, Dienststellen und Gerichten\n\nAnforderungen\n• Abgeschlossene kaufmännische Grundausbildung (Handelsschule oder KV) und einige Jahre Berufserfahrung\n\n• Ein sehr gutes Ausdrucksvermögen (schriftlich wie mündlich) in der deutschen Sprache\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil\n\n• Einen einwandfreien Leumund\n\n• Selbständigkeit, Zuverlässigkeit und Speditivität sowie Teamfähigkeit, Diskretion, Flexibilität und hohe Belastbarkeit\n\n• Sicherer Umgang mit den üblichen EDV-Mitteln\n\n• Weitere Sprachkenntnisse"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2868/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:21.355Z",
+      "crawledAt": "2026-10-02T21:10:44.025Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1365,10 +1369,12 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/514915/2868/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Staatsanwaltschaft",
       "applicationDeadline": "2026-10-15",
       "pensumMin": 80,
@@ -1377,7 +1383,9 @@
       "previousSlugs": [
         "2-sachbearbeiterinnen-sachbearbeiter-kanton-gr-ch",
         "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
-        "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur"
+        "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur",
+        "2-clerks-clerks-kantonale-verwaltung-graubunden-chur",
+        "2-commis-commis-kantonale-verwaltung-graubunden-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1386,13 +1394,15 @@
           "2-impiegati-impiegati-kantonale-verwaltung-graubunden-chur"
         ],
         "en": [
-          "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur"
+          "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
+          "2-clerks-clerks-kantonale-verwaltung-graubunden-chur"
         ],
         "fr": [
-          "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur"
+          "2-sachbearbeiterinnen-sachbearbeiter-kantonale-verwaltung-graubunden-chur",
+          "2-commis-commis-kantonale-verwaltung-graubunden-chur"
         ]
       },
-      "firstSeenAt": "2026-10-01T21:10:10.279Z",
+      "firstSeenAt": "2026-10-02T21:10:44.025Z",
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1406,15 +1416,16 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-d6c736d4c83b",
       "slug": "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "juristische-r-mitarbeiter-in-kanton-gr-ch",
         "it": "juristische-r-collaboratore-trice-in-kantonale-verwaltung-graubunden-chur",
         "en": "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur",
-        "de": "juristische-r-mitarbeiter-in-kanton-gr-ch",
         "fr": "juristische-r-mitarbeiter-in-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1422,16 +1433,16 @@
       "companyDomain": "gr.ch",
       "title": "Juristische/-r Mitarbeiter/-in",
       "titleByLocale": {
+        "de": "Juristische/-r Mitarbeiter/-in",
         "it": "Juristische/-r Collaboratore/trice/-in",
         "en": "Juristische/-r Mitarbeiter/-in",
-        "de": "Juristische/-r Mitarbeiter/-in",
         "fr": "Juristische/-r Mitarbeiter/-in"
       },
       "description": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit",
       "descriptionByLocale": {
+        "de": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit",
         "it": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit",
         "en": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit",
-        "de": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit",
         "fr": "Das Amt für Justizvollzug (AJV) Graubünden ist eine Dienststelle des Departements für Justiz, Sicherheit und Gesundheit des Kantons Graubünden. Das AJV ist für den Straf- und Massnahmenvollzug sowie die Durchführung der verschiedenen Haftarten verantwortlich. In Graubünden wird damit der Vollzug von Strafen und Massnahmen als einheitliches Themenfeld und ganzheitliche Aufgabe geregelt, in welchem verschiedene Berufsgattungen interdisziplinär mit straffällig gewordenen Menschen arbeiten, um weitere Delinquenz zu verhindern.\n\nZur Verstärkung unseres Rechtsdienstes suchen wir nach Vereinbarung eine juristische Fachperson.\n\nAufgaben\n• Rechtliche Unterstützung der Justizvollzugsanstalten und Fachbereiche bei der Erfüllung ihrer Aufgaben\n\n• Selbständige Abklärungen und Beurteilung juristischer Fragestellungen sowie Beratung der Fachbereiche\n\n• Erstellen und Prüfung von Verfügungen\n\n• Überprüfung und Unterstützung beim Erstellen und Überarbeiten von internen Weisungen, Disziplinarordnungen, Hausordnungen sowie Verträgen\n\n• Durchführung von Beschwerdeverfahren\n\n• Mitarbeit in Projekten (z.B. Gesetzes- und Verordnungsrevisionen, Vernehmlassungen und Entwerfen von Departementsverfügungen und Regierungsbeschlüssen)\n\nAnforderungen\n• Abgeschlossenes Studium der Rechtswissenschaften (Lizenziat oder MLaw)\n\n• Vorzugsweise Berufserfahrung in der Justiz oder öffentlichen Verwaltung\n\n• Selbständige, strukturierte und exakte Arbeitsweise sowie Freude an der Bearbeitung vielfältiger rechtlicher Fragestellungen\n\n• Sehr gute schriftliche und mündliche Ausdrucksfähigkeit in Deutsch, zusätzliche Kenntnisse der Kantons- und Fremdsprachenkenntnisse sind von Vorteil\n\n• Freude an Teamarbeit sowie interdisziplinärer Zusammenarbeit"
       },
       "location": "Chur",
@@ -1439,7 +1450,7 @@
       "url": "https://apply.refline.ch/514915/2866/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:20.730Z",
+      "crawledAt": "2026-10-02T21:10:43.375Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1451,10 +1462,12 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/514915/2866/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Amt für Justizvollzug Graubünden",
       "applicationDeadline": "2026-10-25",
       "pensumMin": 40,
@@ -1491,9 +1504,9 @@
       "id": "kanton-gr-3765033f3815",
       "slug": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
       "slugByLocale": {
+        "de": "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch",
         "it": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
         "en": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur",
-        "de": "verwaltungsassistent-in-fachbereich-einreise-kanton-gr-ch",
         "fr": "verwaltungsassistent-in-fachbereich-einreise-kantonale-verwaltung-graubunden-chur"
       },
       "company": "Kantonale Verwaltung Graubünden",
@@ -1501,24 +1514,24 @@
       "companyDomain": "gr.ch",
       "title": "Verwaltungsassistent/-in Fachbereich Einreise",
       "titleByLocale": {
+        "de": "Verwaltungsassistent/-in Fachbereich Einreise",
         "it": "Verwaltungsassistent/-in Fachbereich Einreise",
         "en": "Verwaltungsassistent/-in Fachbereich Einreise",
-        "de": "Verwaltungsassistent/-in Fachbereich Einreise",
         "fr": "Verwaltungsassistent/-in Fachbereich Einreise"
       },
       "description": "Das Amt für Migration und Zivilrecht verfügt derzeit über 230 Mitarbeitende an über 20 Standorten und ist für den gesamten Aufgabenbereich im Bereich der Migration zuständig, d.h. insbesondere Bewilligungserteilung und -entzug, Unterbringung und Betreuung, Vollzug von Wegweisungen sowie die Integration. Zusätzlich werden Ausweise für Schweizer Staatsangehörige ausgestellt, Einbürgerungen vorgenommen und die Aufsicht über die Zivilstandsbehörden wahrgenommen. Der Hauptsitz des Amtes für Migration und Zivilrecht ist in Chur.\n\nWir suchen für das Amt für Migration und Zivilrecht per 1. Dezember 2026 oder nach Vereinbarung eine/n Verwaltungsassistent/-in Fachbereich Einreise.\n\nAufgaben\n• Prüfen und bearbeiten der eingehenden Gesuche\n\n• Ausstellen von ausländerrechtlichen Dokumenten und Bewilligungen\n\n• Mündlicher und schriftlicher Verkehr mit Gesuchsstellenden, Arbeitgebern sowie Amtsstellen von Bund, Kanton und Gemeinden\n\n• Teilweise bedienen und beraten der Kunden und Besucher am Empfang\n\nAnforderungen\n• abgeschlossene kaufmännische oder gleichwertige Grundausbildung\n\n• Flexibilität in Jahresarbeitszeit zu arbeiten, bzw. Einsatzbereitschaft je nach Bedarf des Arbeitgebers\n\n• Angenehme Umgangsformen und Integrationsbereitschaft in ein bestehendes, aufgeschlossenes Team\n\n• Belastbarkeit und Flexibilität in arbeitsintensiven Situationen\n\n• Speditive und exakte Auftragserledigung sowie Kenntnisse der gängigen EDV-Programme\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
       "descriptionByLocale": {
-        "it": "L'Ufficio per la migrazione e la legge civile ha attualmente 230 dipendenti in più di 20 sedi ed è responsabile dell'intera area di responsabilità nel settore delle migrazioni, vale a dire in particolare la concessione e il ritiro di permessi, alloggi e supporto, l'esecuzione di espulsioni e integrazione. Inoltre, le carte d'identità sono emesse per i cittadini svizzeri, vengono effettuate naturalizzazioni e viene esercitata la supervisione delle autorità di stato civile. La sede dell'Ufficio della migrazione e della legge civile è a Chur.\n\nStiamo cercando l'Ufficio per la migrazione e la legge civile a partire da 1. Dicembre 2026 o su appuntamento un assistente amministrativo nel settore dell'ingresso.\n\nCompiti\n• Esame e gestione delle richieste in arrivo\n\n• Emissione di documenti e permessi ai sensi del diritto estero\n\n• Comunicazione orale e scritta con candidati, datori di lavoro e uffici della Confederazione, Cantone e comuni\n\n• Servire e consigliare parzialmente i clienti e i visitatori alla reception\n\nRequisiti\n• Formazione di base completa o equivalente\n\n• Flessibilità al lavoro nelle ore di lavoro annuali o disponibilità al lavoro come richiesto dal datore di lavoro\n\n• Buone maniere e disponibilità ad integrarsi in un team di mentalità aperta\n\n• Resilienza e flessibilità nelle situazioni di lavoro\n\n• Freight avanti e il completamento esatto dell'ordine così come la conoscenza dei programmi comuni del computer\n\n• La buona conoscenza di diverse lingue cantonali è vantaggiosa",
-        "en": "The Office for Migration and Civil Law currently has 230 employees at more than 20 locations and is responsible for the entire area of responsibility in the area of migration, i.e. in particular granting and withdrawing permits, accommodation and support, executing expulsions and integration. In addition, ID cards are issued for Swiss nationals, naturalisations are carried out and supervision of the civil status authorities is exercised. The headquarters of the Office of Migration and Civil Law is in Chur.\n\nWe are looking for the Office for Migration and Civil Law as of 1. December 2026 or by appointment an administrative assistant in the field of entry.\n\nTasks\n• Examination and handling of incoming requests\n\n• Issuing documents and permits under foreign law\n\n• Oral and written communication with applicants, employers and offices of the Confederation, Canton and municipalities\n\n• Partially serve and advise the customers and visitors at the reception\n\nRequirements\n• Completed commercial or equivalent basic training\n\n• Flexibility to work in annual working hours, or readiness to work as required by the employer\n\n• Pleasant manners and willingness to integrate into an existing, open-minded team\n\n• Resilience and flexibility in labour-intensive situations\n\n• Freight forward and exact order completion as well as knowledge of the common computer programs\n\n• Good knowledge of several cantonal languages is advantageous",
+        "it": "Das Amt für Migration und Zivilrecht verfügt derzeit über 230 Mitarbeitende an über 20 Standorten und ist für den gesamten Aufgabenbereich im Bereich der Migration zuständig, d.h. insbesondere Bewilligungserteilung und -entzug, Unterbringung und Betreuung, Vollzug von Wegweisungen sowie die Integration. Zusätzlich werden Ausweise für Schweizer Staatsangehörige ausgestellt, Einbürgerungen vorgenommen und die Aufsicht über die Zivilstandsbehörden wahrgenommen. Der Hauptsitz des Amtes für Migration und Zivilrecht ist in Chur.\n\nWir suchen für das Amt für Migration und Zivilrecht per 1. Dezember 2026 oder nach Vereinbarung eine/n Verwaltungsassistent/-in Fachbereich Einreise.\n\nAufgaben\n• Prüfen und bearbeiten der eingehenden Gesuche\n\n• Ausstellen von ausländerrechtlichen Dokumenten und Bewilligungen\n\n• Mündlicher und schriftlicher Verkehr mit Gesuchsstellenden, Arbeitgebern sowie Amtsstellen von Bund, Kanton und Gemeinden\n\n• Teilweise bedienen und beraten der Kunden und Besucher am Empfang\n\nAnforderungen\n• abgeschlossene kaufmännische oder gleichwertige Grundausbildung\n\n• Flexibilität in Jahresarbeitszeit zu arbeiten, bzw. Einsatzbereitschaft je nach Bedarf des Arbeitgebers\n\n• Angenehme Umgangsformen und Integrationsbereitschaft in ein bestehendes, aufgeschlossenes Team\n\n• Belastbarkeit und Flexibilität in arbeitsintensiven Situationen\n\n• Speditive und exakte Auftragserledigung sowie Kenntnisse der gängigen EDV-Programme\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
+        "en": "Das Amt für Migration und Zivilrecht verfügt derzeit über 230 Mitarbeitende an über 20 Standorten und ist für den gesamten Aufgabenbereich im Bereich der Migration zuständig, d.h. insbesondere Bewilligungserteilung und -entzug, Unterbringung und Betreuung, Vollzug von Wegweisungen sowie die Integration. Zusätzlich werden Ausweise für Schweizer Staatsangehörige ausgestellt, Einbürgerungen vorgenommen und die Aufsicht über die Zivilstandsbehörden wahrgenommen. Der Hauptsitz des Amtes für Migration und Zivilrecht ist in Chur.\n\nWir suchen für das Amt für Migration und Zivilrecht per 1. Dezember 2026 oder nach Vereinbarung eine/n Verwaltungsassistent/-in Fachbereich Einreise.\n\nAufgaben\n• Prüfen und bearbeiten der eingehenden Gesuche\n\n• Ausstellen von ausländerrechtlichen Dokumenten und Bewilligungen\n\n• Mündlicher und schriftlicher Verkehr mit Gesuchsstellenden, Arbeitgebern sowie Amtsstellen von Bund, Kanton und Gemeinden\n\n• Teilweise bedienen und beraten der Kunden und Besucher am Empfang\n\nAnforderungen\n• abgeschlossene kaufmännische oder gleichwertige Grundausbildung\n\n• Flexibilität in Jahresarbeitszeit zu arbeiten, bzw. Einsatzbereitschaft je nach Bedarf des Arbeitgebers\n\n• Angenehme Umgangsformen und Integrationsbereitschaft in ein bestehendes, aufgeschlossenes Team\n\n• Belastbarkeit und Flexibilität in arbeitsintensiven Situationen\n\n• Speditive und exakte Auftragserledigung sowie Kenntnisse der gängigen EDV-Programme\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
         "de": "Das Amt für Migration und Zivilrecht verfügt derzeit über 230 Mitarbeitende an über 20 Standorten und ist für den gesamten Aufgabenbereich im Bereich der Migration zuständig, d.h. insbesondere Bewilligungserteilung und -entzug, Unterbringung und Betreuung, Vollzug von Wegweisungen sowie die Integration. Zusätzlich werden Ausweise für Schweizer Staatsangehörige ausgestellt, Einbürgerungen vorgenommen und die Aufsicht über die Zivilstandsbehörden wahrgenommen. Der Hauptsitz des Amtes für Migration und Zivilrecht ist in Chur.\n\nWir suchen für das Amt für Migration und Zivilrecht per 1. Dezember 2026 oder nach Vereinbarung eine/n Verwaltungsassistent/-in Fachbereich Einreise.\n\nAufgaben\n• Prüfen und bearbeiten der eingehenden Gesuche\n\n• Ausstellen von ausländerrechtlichen Dokumenten und Bewilligungen\n\n• Mündlicher und schriftlicher Verkehr mit Gesuchsstellenden, Arbeitgebern sowie Amtsstellen von Bund, Kanton und Gemeinden\n\n• Teilweise bedienen und beraten der Kunden und Besucher am Empfang\n\nAnforderungen\n• abgeschlossene kaufmännische oder gleichwertige Grundausbildung\n\n• Flexibilität in Jahresarbeitszeit zu arbeiten, bzw. Einsatzbereitschaft je nach Bedarf des Arbeitgebers\n\n• Angenehme Umgangsformen und Integrationsbereitschaft in ein bestehendes, aufgeschlossenes Team\n\n• Belastbarkeit und Flexibilität in arbeitsintensiven Situationen\n\n• Speditive und exakte Auftragserledigung sowie Kenntnisse der gängigen EDV-Programme\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil",
-        "fr": "Le Bureau des migrations et du droit civil compte actuellement 230 employés dans plus de 20 localités et est responsable de l ' ensemble de la zone de responsabilité dans le domaine des migrations, c ' est-à-dire en particulier l ' octroi et le retrait de permis, le logement et l ' appui, l ' exécution des expulsions et l ' intégration. En outre, des cartes d'identité sont délivrées aux ressortissants suisses, des naturalisations sont effectuées et le contrôle des autorités de l'état civil est exercé. Le siège du Bureau des migrations et du droit civil est à Chur.\n\nNous recherchons le Bureau des migrations et du droit civil à partir de 1. Décembre 2026 ou par nomination d'un assistant administratif dans le domaine d'entrée.\n\nTâches\n• Examen et traitement des demandes reçues\n\n• Délivrance de documents et de permis en vertu du droit étranger\n\n• Communication orale et écrite avec les demandeurs, les employeurs et les bureaux de la Confédération, du canton et des municipalités\n\n• Servir et conseiller partiellement les clients et les visiteurs à la réception\n\nExigences\n• Formation de base commerciale ou équivalente\n\n• Flexibilité au travail en heures de travail annuelles ou disponibilité au travail, comme l'exige l'employeur\n\n• Les bonnes manières et la volonté de s'intégrer dans une équipe existante et ouverte d'esprit\n\n• Résilience et flexibilité dans les situations à forte intensité de main-d'œuvre\n\n• Fret à l'avance et fin de commande exacte ainsi que la connaissance des programmes informatiques communs\n\n• Une bonne connaissance de plusieurs langues cantonales est avantageuse"
+        "fr": "Das Amt für Migration und Zivilrecht verfügt derzeit über 230 Mitarbeitende an über 20 Standorten und ist für den gesamten Aufgabenbereich im Bereich der Migration zuständig, d.h. insbesondere Bewilligungserteilung und -entzug, Unterbringung und Betreuung, Vollzug von Wegweisungen sowie die Integration. Zusätzlich werden Ausweise für Schweizer Staatsangehörige ausgestellt, Einbürgerungen vorgenommen und die Aufsicht über die Zivilstandsbehörden wahrgenommen. Der Hauptsitz des Amtes für Migration und Zivilrecht ist in Chur.\n\nWir suchen für das Amt für Migration und Zivilrecht per 1. Dezember 2026 oder nach Vereinbarung eine/n Verwaltungsassistent/-in Fachbereich Einreise.\n\nAufgaben\n• Prüfen und bearbeiten der eingehenden Gesuche\n\n• Ausstellen von ausländerrechtlichen Dokumenten und Bewilligungen\n\n• Mündlicher und schriftlicher Verkehr mit Gesuchsstellenden, Arbeitgebern sowie Amtsstellen von Bund, Kanton und Gemeinden\n\n• Teilweise bedienen und beraten der Kunden und Besucher am Empfang\n\nAnforderungen\n• abgeschlossene kaufmännische oder gleichwertige Grundausbildung\n\n• Flexibilität in Jahresarbeitszeit zu arbeiten, bzw. Einsatzbereitschaft je nach Bedarf des Arbeitgebers\n\n• Angenehme Umgangsformen und Integrationsbereitschaft in ein bestehendes, aufgeschlossenes Team\n\n• Belastbarkeit und Flexibilität in arbeitsintensiven Situationen\n\n• Speditive und exakte Auftragserledigung sowie Kenntnisse der gängigen EDV-Programme\n\n• Gute Kenntnisse in mehreren Kantonssprachen von Vorteil"
       },
       "location": "Chur",
       "canton": "GR",
       "url": "https://apply.refline.ch/514915/2869/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:20.099Z",
+      "crawledAt": "2026-10-02T21:10:42.722Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1530,10 +1543,12 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "applyUrl": "https://apply.refline.ch/514915/2869/pub/1/index.html",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "department": "Amt für Migration und Zivilrecht",
       "applicationDeadline": "2026-10-16",
       "pensumMin": 80,
@@ -1550,7 +1565,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:10:08.478Z",
+      "firstSeenAt": "2026-10-02T21:10:42.722Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1597,7 +1612,7 @@
       "url": "https://apply.refline.ch/514915/2865/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:19.471Z",
+      "crawledAt": "2026-10-02T21:10:42.074Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1682,7 +1697,7 @@
       "url": "https://apply.refline.ch/514915/2862/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:18.094Z",
+      "crawledAt": "2026-10-02T21:10:41.423Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1761,7 +1776,7 @@
       "url": "https://apply.refline.ch/514915/2864/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:17.469Z",
+      "crawledAt": "2026-10-02T21:10:40.776Z",
       "addressLocality": "Landquart",
       "postalCode": "7302",
       "addressCountry": "CH",
@@ -1829,7 +1844,7 @@
       "url": "https://apply.refline.ch/514915/2859/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:16.217Z",
+      "crawledAt": "2026-10-02T21:10:39.480Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1908,7 +1923,7 @@
       "url": "https://apply.refline.ch/514915/2861/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:15.588Z",
+      "crawledAt": "2026-10-02T21:10:38.371Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -1987,7 +2002,7 @@
       "url": "https://apply.refline.ch/514915/2852/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:14.960Z",
+      "crawledAt": "2026-10-02T21:10:37.722Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2073,7 +2088,7 @@
       "url": "https://apply.refline.ch/514915/2854/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:14.331Z",
+      "crawledAt": "2026-10-02T21:10:37.075Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2158,7 +2173,7 @@
       "url": "https://apply.refline.ch/514915/2858/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:13.692Z",
+      "crawledAt": "2026-10-02T21:10:36.415Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2241,7 +2256,7 @@
       "url": "https://apply.refline.ch/514915/2849/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:13.066Z",
+      "crawledAt": "2026-10-02T21:10:35.767Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2328,7 +2343,7 @@
       "url": "https://apply.refline.ch/514915/2853/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:12.439Z",
+      "crawledAt": "2026-10-02T21:10:35.122Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2368,7 +2383,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:50.517Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -2382,7 +2396,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-1799dc167d9b",
@@ -2415,7 +2430,7 @@
       "url": "https://apply.refline.ch/514915/2850/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:11.809Z",
+      "crawledAt": "2026-10-02T21:10:34.481Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2453,7 +2468,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:49.904Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2467,7 +2481,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-9cf99b979eb6",
@@ -2500,7 +2515,7 @@
       "url": "https://apply.refline.ch/514915/2855/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:11.179Z",
+      "crawledAt": "2026-10-02T21:10:33.837Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2587,7 +2602,7 @@
       "url": "https://apply.refline.ch/514915/2856/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:10.542Z",
+      "crawledAt": "2026-10-02T21:10:33.192Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -2628,7 +2643,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:47.921Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -2642,7 +2656,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-05845b1f7e2e",
@@ -2675,7 +2690,7 @@
       "url": "https://apply.refline.ch/514915/2857/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:09.915Z",
+      "crawledAt": "2026-10-02T21:10:32.546Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2766,7 +2781,7 @@
       "url": "https://apply.refline.ch/514915/2837/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:08.545Z",
+      "crawledAt": "2026-10-02T21:10:31.908Z",
       "addressLocality": "Ilanz",
       "postalCode": "7130",
       "addressCountry": "CH",
@@ -2857,7 +2872,7 @@
       "url": "https://apply.refline.ch/514915/2831/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:07.905Z",
+      "crawledAt": "2026-10-02T21:10:31.240Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "addressCountry": "CH",
@@ -2943,7 +2958,7 @@
       "url": "https://apply.refline.ch/514915/2843/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:07.252Z",
+      "crawledAt": "2026-10-02T21:10:30.593Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -2981,7 +2996,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:05:20.117Z",
-      "needsRetranslation": true,
       "salaryMin": 65000,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2995,7 +3009,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-a8d65a3434c3",
@@ -3028,7 +3043,7 @@
       "url": "https://apply.refline.ch/514915/2842/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:06.627Z",
+      "crawledAt": "2026-10-02T21:10:29.941Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3133,7 +3148,7 @@
       "url": "https://apply.refline.ch/514915/2844/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:05.996Z",
+      "crawledAt": "2026-10-02T21:10:28.379Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3219,7 +3234,7 @@
       "url": "https://apply.refline.ch/514915/2848/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:05.368Z",
+      "crawledAt": "2026-10-02T21:10:27.734Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3305,7 +3320,7 @@
       "url": "https://apply.refline.ch/514915/2838/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:04.741Z",
+      "crawledAt": "2026-10-02T21:10:27.089Z",
       "addressLocality": "Cazis",
       "postalCode": "7408",
       "addressCountry": "CH",
@@ -3392,7 +3407,7 @@
       "url": "https://apply.refline.ch/514915/2845/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:04.115Z",
+      "crawledAt": "2026-10-02T21:10:26.442Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3481,7 +3496,7 @@
       "url": "https://apply.refline.ch/514915/2823/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:03.327Z",
+      "crawledAt": "2026-10-02T21:10:25.802Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3521,7 +3536,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:32:33.161Z",
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -3535,7 +3549,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "kanton-gr-da2461c18cd3",
@@ -3568,7 +3583,7 @@
       "url": "https://apply.refline.ch/514915/2834/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:02.698Z",
+      "crawledAt": "2026-10-02T21:10:25.154Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3656,7 +3671,7 @@
       "url": "https://apply.refline.ch/514915/2830/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:02.071Z",
+      "crawledAt": "2026-10-02T21:10:24.502Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3746,7 +3761,7 @@
       "url": "https://apply.refline.ch/514915/2832/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:01.444Z",
+      "crawledAt": "2026-10-02T21:10:23.856Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3843,7 +3858,7 @@
       "url": "https://apply.refline.ch/514915/2803/pub/1/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:00.816Z",
+      "crawledAt": "2026-10-02T21:10:23.210Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -3927,7 +3942,7 @@
       "url": "https://apply.refline.ch/514915/0912/pub/41/index.html",
       "source": "Kantonale Verwaltung Graubünden Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:12:00.181Z",
+      "crawledAt": "2026-10-02T21:10:22.558Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",

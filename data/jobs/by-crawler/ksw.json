@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksw",
-  "assembledAt": "2026-10-02T09:14:02.319Z",
+  "assembledAt": "2026-10-02T21:16:01.842Z",
   "jobs": [
     {
       "id": "ksw-b24044f1e140",
@@ -33,7 +33,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4068613",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.646Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -118,7 +118,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4039782",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.646Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -221,7 +221,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038614",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.646Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -302,7 +302,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032901",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.646Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -336,8 +336,8 @@
           "vitreoretinale-chirurgin-chirurge-ksw-ch"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:06:32.752Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:06:32.752Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -383,7 +383,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4078625",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -417,7 +417,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:13:56.645Z"
+      "firstSeenAt": "2026-10-02T21:15:42.835Z"
     },
     {
       "id": "ksw-ccf4840caee2",
@@ -450,7 +450,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4077997",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -468,24 +468,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Klinik für Nephrologie",
-      "previousSlugs": [
-        "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch",
-        "stv-capo-reparto-assistenza-capo-reparto-kantonsspital-winterthur-ksw-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch",
-          "stv-capo-reparto-assistenza-capo-reparto-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "en": [
-          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch"
-        ],
-        "fr": [
-          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:11:53.482Z",
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -498,7 +481,24 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:11:53.482Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch",
+          "stv-capo-reparto-assistenza-capo-reparto-kantonsspital-winterthur-ksw-winterthur"
+        ],
+        "en": [
+          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch"
+        ],
+        "fr": [
+          "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch"
+        ]
+      },
+      "previousSlugs": [
+        "stv-abteilungsleiterin-abteilungsleiter-pflege-ksw-ch",
+        "stv-capo-reparto-assistenza-capo-reparto-kantonsspital-winterthur-ksw-winterthur"
+      ]
     },
     {
       "id": "ksw-6b9b125c2961",
@@ -531,7 +531,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4074184",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -578,8 +578,8 @@
           "pflegepraktikantin-pflegepraktikant-kantonsspital-winterthur-ksw-winterthur"
         ]
       },
-      "firstSeenAt": "2026-07-30T22:08:07.552Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-30T22:08:07.552Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -625,7 +625,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4076985",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -704,7 +704,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4072892",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -755,89 +755,6 @@
       }
     },
     {
-      "id": "ksw-0b8f04331e1f",
-      "slug": "capo-reparto-reparto-testa-ostetrica-kantonsspital-winterthur-ksw-winterthur",
-      "slugByLocale": {
-        "it": "capo-reparto-reparto-testa-ostetrica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "head-of-division-head-of-department-of-obstetrics-kantonsspital-winterthur-ksw-winterthur",
-        "de": "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
-        "fr": "stv-chef-de-departement-chef-de-departement-obstetrique-kantonsspital-winterthur-ksw-winterthur"
-      },
-      "company": "Kantonsspital Winterthur (KSW)",
-      "companyKey": "ksw",
-      "companyDomain": "ksw.ch",
-      "title": "Stv. Abteilungsleiterin / Abteilungsleiter Geburtshilfliche Abteilung",
-      "titleByLocale": {
-        "it": "Capo reparto / reparto testa ostetrica",
-        "en": "Head of Division / Head of Department of Obstetrics",
-        "de": "Stv. Abteilungsleiterin / Abteilungsleiter Geburtshilfliche Abteilung",
-        "fr": "Chef de département / chef de département obstétrique"
-      },
-      "description": "Wir suchen eine Führungsperson, die gerne als stv. Abteilungsleitung die Mitverantwortung über unsere Abteilung für Wöchnerinnen und ophthalmologische Patientinnen und Patienten (17 Betten) übernimmt sowie gemeinsam mit unserem innovativen und motivierten Leitungsteam die Frauenklinik weiterbringt. Die Abteilung gliedert sich insgesamt in zwei Bereiche: 17 Betten für Wöchnerinnen und ophthalmologische Patientinnen und Patienten – dein künftiger Verantwortungsbereich – sowie 10 Betten für pränatale Patientinnen, Einleitungen und Sectiones.\n\nAufgaben:\n• In Zusammenarbeit mit der Abteilungsleiterin übernimmst du die personelle Führung, Planung und Weiterentwicklung deines Bereichs (17 Betten, rund 20 FTE)\n• Zusammen mit dem Shared Governance Team sorgst du für gut koordinierte Abläufe, eine hohe Pflegequalität, wertschätzende Teamkultur und Wirtschaftlichkeit\n• Neuerungen und Projekte bringst du eigenständig ein und setzt sie gemeinsam mit dem Leitungsteam der Frauenklinik nachhaltig um\n• Du unterstützt und befähigst dein Team im Pflegealltag und in komplexen Situationen\n• Die Zusammenarbeit mit Schnittstellen gestaltest du wertschätzend, transparent und lösungsorientiert\n\nProfil:\n• Pflegefachperson oder Hebamme mit abgeschlossener Führungsausbildung oder die Motivation eine solche zu absolvieren\n• Erste Leitungserfahrung im Akutspital, vorzugsweise Frauenklinik\n• Hohe kommunikative sowie soziale Kompetenz und Begeisterungsfähigkeit\n• Ausgeprägtes Gespür für Optimierungs- und Fördermöglichkeiten\n• Zuverlässigkeit und Eigeninitiative\n\nBenefits: Beruf und Privatleben sollen zusammenpassen. Deshalb bietet dir das KSW – wo es der Betrieb ermöglicht – flexible und gleitende Arbeitszeiten, Homeoffice, einen grosszügigen Mutterschaftsurlaub, Vaterschaftsurlaub sowie Beschäftigungsgrade, die sich an unterschiedliche Lebensphasen anpassen lassen.; Entwickle dich fachlich und persönlich weiter: Jährlich stehen dir am KSW rund 40 überfachliche und 50 fachliche Fortbildungen offen. Auch externe Weiterbildungen unterstützen wir – zeitlich und/oder finanziell.; Manchmal braucht es Unterstützung. Bei persönlichen Belastungen, längerer Krankheit oder schwierigen Erlebnissen im Berufs- oder Privatleben stehen dir am KSW verschiedene vertrauliche Gesprächsangebote zur Verfügung.; Am KSW arbeiten wir miteinander und füreinander. Wertschätzung, eine offene und respektvolle Kommunikation sowie die Zusammenarbeit über Berufsgruppen und Abteilungen hinweg prägen unseren Arbeitsalltag. Dabei sollst du dich mit deinen Ideen und Stärken einbringen und entfalten können.; Auch für deine Zukunft ist gesorgt: Du profitierst von sehr guten Sozialleistungen und einer Pensionskassenlösung mit der BVK, die deutlich über dem gesetzlichen Minimum liegt. Auch bei Krankheit oder Unfall bist du als KSW-Mitarbeitende sehr gut abgesichert.; Deine Gesundheit liegt uns am Herzen. Profitiere von Rabatten auf Fitness-Abonnements, internen Trainings und Kursen sowie Vergünstigungen in Apotheken und bei ausgewählten Krankenkassen.; Familie und Beruf lassen sich bei uns gut verbinden. Die Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten liegt direkt neben dem KSW. Zusätzlich unterstützt dich das KSW – abhängig vom Einkommen – finanziell bei den Krippenkosten.; Auch ausserhalb der Arbeit gibt es etwas zu entdecken: Dank unserer Zusammenarbeit mit Kulturpartnern in Winterthur und Umgebung profitierst du regelmässig von Vergünstigungen für Konzerte und Theatervorstellungen.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Frauenklinik\n• Pensum: 80-100%",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un leader che ama agire come un stv. Il capo del dipartimento si assume la responsabilità congiunta attraverso il nostro dipartimento per le donne che hanno recentemente dato alla luce e ai pazienti oftalmologici (17 letti) e, insieme al nostro team di gestione innovativo e motivato, continua a sviluppare la clinica femminile. Il dipartimento è diviso in due aree: 17 posti letto per i pazienti che hanno recentemente dato nascita e oftalmologia – la vostra futura area di responsabilità – e 10 posti letto per i pazienti prenatali, induzioni e sezioni.\n\nCompiti:\n• In collaborazione con il capo dipartimento, si prende il controllo della gestione del personale, la pianificazione e lo sviluppo ulteriore della vostra zona (17 posti letto, circa 20 FTE)\n• Insieme al Team di Governance condivisa, garantite processi ben coordinati, alta qualità della cura, apprezzata cultura del team e convenienza\n• Porti innovazioni e progetti in modo indipendente e li implementi in modo sostenibile insieme al team di gestione della Frauenklinik\n• Supporta e potenzia il tuo team nella cura quotidiana e in situazioni complesse\n• La collaborazione con le interfacce ti fa apprezzare, trasparente e orientata alla soluzione\n\nProfilo:\n• Infermiera o ostetrica con formazione di leadership completata o la motivazione per completare uno\n• Prima esperienza di gestione in ospedale acuto, preferibilmente clinica femminile\n• Alta competenza comunicativa e sociale ed entusiasmo\n• Forte senso per opportunità di ottimizzazione e finanziamento\n• Affidabilità e iniziativa\n\nVantaggi: Il lavoro e la vita privata dovrebbero adattarsi insieme. Pertanto, il KSW vi offre – dove l'azienda rende possibile – orari di lavoro flessibili e flessibili, ufficio di casa, congedo di maternità generoso, congedo di paternità e livelli di occupazione che possono essere adattati a diverse fasi di vita.; Sviluppati ulteriormente professionalmente e personalmente: ogni anno, circa 40 corsi di formazione interdisciplinare e 50 corsi di formazione professionale sono aperti a voi a KSW. Supportiamo anche formazione esterna – temporalmente e/o finanziariamente.; A volte ha bisogno di supporto. In caso di stress personale, malattie prolungate o esperienze difficili nella vostra vita professionale o privata, diverse discussioni riservate sono disponibili a KSW; A KSW lavoriamo insieme e l'uno per l'altro. L'apprezzamento, la comunicazione aperta e rispettosa e la cooperazione tra gruppi e dipartimenti professionali modellano il nostro lavoro quotidiano. Dovresti essere in grado di contribuire con le tue idee e i tuoi punti di forza e sviluppare. Il vostro futuro è anche assicurato: Si beneficiano di prestazioni sociali molto buone e una soluzione di fondo pensione con BVK, che è significativamente superiore al minimo legale. Anche in caso di malattia o incidente, si è molto ben coperti come un dipendente KSW.; La tua salute è importante per noi. Approfitta degli sconti sugli abbonamenti per il fitness, la formazione interna e corsi, nonché degli sconti nelle farmacie e nelle compagnie di assicurazione sanitaria selezionate.; Famiglia e lavoro possono essere ben collegati con noi. Il centro diurno La Luna con ampie ore di apertura è proprio accanto al KSW. Inoltre, il KSW – a seconda del reddito – vi sostiene finanziariamente con i costi della culla.; C'è anche qualcosa da scoprire al di fuori del lavoro: Grazie alla nostra collaborazione con partner culturali di Winterthur e dintorni, si beneficiano regolarmente di sconti per concerti e spettacoli teatrali.\n\n• Campo professionale: professioni di cura\n• Area: Clinica femminile\n• Pensum: 80-100 %",
-        "en": "We are looking for a leader who likes to act as a stv. Head of department assumes joint responsibility through our department for women who have recently given birth and ophthalmological patients (17 beds) and, together with our innovative and motivated management team, continues to develop the women’s clinic. The department is divided into two areas: 17 beds for patients who have recently given birth and ophthalmology – your future area of responsibility – and 10 beds for prenatal patients, inductions and sections.\n\nTasks:\n• In cooperation with the head of department, you take over the personnel management, planning and further development of your area (17 beds, around 20 FTE)\n• Together with the Shared Governance Team, you ensure well-coordinated processes, high quality of care, appreciative team culture and cost-effectiveness\n• You bring in innovations and projects independently and implement them sustainably together with the management team of the Frauenklinik\n• You support and empower your team in everyday care and in complex situations\n• Collaboration with interfaces makes you appreciate, transparent and solution-oriented\n\nProfile:\n• Nurse or midwife with completed leadership training or the motivation to complete one\n• First management experience in the acute hospital, preferably women's clinic\n• High communicative and social competence and enthusiasm\n• Strong sense for optimization and funding opportunities\n• Reliability and initiative\n\nBenefits: Work and private life should fit together. Therefore, the KSW offers you – where the company makes it possible – flexible and flexible working hours, home office, generous maternity leave, paternity leave and employment levels that can be adapted to different phases of life.; Develop yourself further professionally and personally: Every year, around 40 interdisciplinary and 50 professional training courses are open to you at KSW. We also support external training – temporally and/or financially.; Sometimes it needs support. In the event of personal stress, prolonged illness or difficult experiences in your professional or private life, various confidential discussions are available at KSW.; At KSW we work together and for each other. Appreciation, open and respectful communication and cooperation across professional groups and departments shape our everyday work. You should be able to contribute with your ideas and strengths and develop. Your future is also ensured: You benefit from very good social benefits and a pension fund solution with BVK, which is significantly above the legal minimum. Even in the event of illness or accident, you are very well covered as a KSW employee.; Your health is important to us. Benefit from discounts on fitness subscriptions, internal training and courses as well as discounts in pharmacies and selected health insurance companies.; Family and work can be well connected with us. The daycare center La Luna with spacious opening hours is right next to the KSW. In addition, the KSW – depending on income – financially supports you with the crib costs.; There is also something to discover outside of work: Thanks to our cooperation with cultural partners in Winterthur and the surrounding area, you regularly benefit from discounts for concerts and theatre performances.\n\n• Professional field: nursing professions\n• Area: Women's Clinic\n• Pensum: 80-100 %",
-        "de": "Wir suchen eine Führungsperson, die gerne als stv. Abteilungsleitung die Mitverantwortung über unsere Abteilung für Wöchnerinnen und ophthalmologische Patientinnen und Patienten (17 Betten) übernimmt sowie gemeinsam mit unserem innovativen und motivierten Leitungsteam die Frauenklinik weiterbringt. Die Abteilung gliedert sich insgesamt in zwei Bereiche: 17 Betten für Wöchnerinnen und ophthalmologische Patientinnen und Patienten – dein künftiger Verantwortungsbereich – sowie 10 Betten für pränatale Patientinnen, Einleitungen und Sectiones.\n\nAufgaben:\n• In Zusammenarbeit mit der Abteilungsleiterin übernimmst du die personelle Führung, Planung und Weiterentwicklung deines Bereichs (17 Betten, rund 20 FTE)\n• Zusammen mit dem Shared Governance Team sorgst du für gut koordinierte Abläufe, eine hohe Pflegequalität, wertschätzende Teamkultur und Wirtschaftlichkeit\n• Neuerungen und Projekte bringst du eigenständig ein und setzt sie gemeinsam mit dem Leitungsteam der Frauenklinik nachhaltig um\n• Du unterstützt und befähigst dein Team im Pflegealltag und in komplexen Situationen\n• Die Zusammenarbeit mit Schnittstellen gestaltest du wertschätzend, transparent und lösungsorientiert\n\nProfil:\n• Pflegefachperson oder Hebamme mit abgeschlossener Führungsausbildung oder die Motivation eine solche zu absolvieren\n• Erste Leitungserfahrung im Akutspital, vorzugsweise Frauenklinik\n• Hohe kommunikative sowie soziale Kompetenz und Begeisterungsfähigkeit\n• Ausgeprägtes Gespür für Optimierungs- und Fördermöglichkeiten\n• Zuverlässigkeit und Eigeninitiative\n\nBenefits: Beruf und Privatleben sollen zusammenpassen. Deshalb bietet dir das KSW – wo es der Betrieb ermöglicht – flexible und gleitende Arbeitszeiten, Homeoffice, einen grosszügigen Mutterschaftsurlaub, Vaterschaftsurlaub sowie Beschäftigungsgrade, die sich an unterschiedliche Lebensphasen anpassen lassen.; Entwickle dich fachlich und persönlich weiter: Jährlich stehen dir am KSW rund 40 überfachliche und 50 fachliche Fortbildungen offen. Auch externe Weiterbildungen unterstützen wir – zeitlich und/oder finanziell.; Manchmal braucht es Unterstützung. Bei persönlichen Belastungen, längerer Krankheit oder schwierigen Erlebnissen im Berufs- oder Privatleben stehen dir am KSW verschiedene vertrauliche Gesprächsangebote zur Verfügung.; Am KSW arbeiten wir miteinander und füreinander. Wertschätzung, eine offene und respektvolle Kommunikation sowie die Zusammenarbeit über Berufsgruppen und Abteilungen hinweg prägen unseren Arbeitsalltag. Dabei sollst du dich mit deinen Ideen und Stärken einbringen und entfalten können.; Auch für deine Zukunft ist gesorgt: Du profitierst von sehr guten Sozialleistungen und einer Pensionskassenlösung mit der BVK, die deutlich über dem gesetzlichen Minimum liegt. Auch bei Krankheit oder Unfall bist du als KSW-Mitarbeitende sehr gut abgesichert.; Deine Gesundheit liegt uns am Herzen. Profitiere von Rabatten auf Fitness-Abonnements, internen Trainings und Kursen sowie Vergünstigungen in Apotheken und bei ausgewählten Krankenkassen.; Familie und Beruf lassen sich bei uns gut verbinden. Die Kindertagesstätte La Luna mit grosszügigen Öffnungszeiten liegt direkt neben dem KSW. Zusätzlich unterstützt dich das KSW – abhängig vom Einkommen – finanziell bei den Krippenkosten.; Auch ausserhalb der Arbeit gibt es etwas zu entdecken: Dank unserer Zusammenarbeit mit Kulturpartnern in Winterthur und Umgebung profitierst du regelmässig von Vergünstigungen für Konzerte und Theatervorstellungen.\n\n• Berufsfeld: Pflegeberufe\n• Bereich: Frauenklinik\n• Pensum: 80-100%",
-        "fr": "Nous cherchons un leader qui aime jouer le rôle de stv. Le chef de département assume la responsabilité conjointe par l'intermédiaire de notre département pour les femmes qui ont récemment accouché et ophtalmologique (17 lits) et, avec notre équipe de gestion innovante et motivée, continue de développer la clinique pour femmes. Le département est divisé en deux domaines : 17 lits pour les patients qui ont récemment accouché et l'ophtalmologie – votre future zone de responsabilité – et 10 lits pour les patients prénatals, les inductions et les sections.\n\nTâches :\n• En collaboration avec le chef de département, vous prenez en charge la gestion du personnel, la planification et le développement de votre région (17 lits, environ 20 ETP)\n• En collaboration avec l'équipe de gouvernance partagée, vous veillez à ce que les processus soient bien coordonnés, à ce que les soins soient de haute qualité, à ce que l'équipe apprécie la culture et à ce qu'elle soit rentable.\n• Vous apportez des innovations et des projets indépendamment et les implémentez de manière durable avec l'équipe de gestion du Frauenklinik\n• Vous soutenez et autonomisez votre équipe dans les soins quotidiens et dans des situations complexes\n• La collaboration avec les interfaces vous fait apprécier, transparent et orienté vers la solution\n\nProfil :\n• Infirmière ou sage-femme ayant suivi une formation en leadership ou ayant la motivation d'en suivre une\n• Première expérience de gestion dans l'hôpital aigu, de préférence clinique pour femmes\n• Haute compétence et enthousiasme dans la communication et la société\n• Fort sens pour l'optimisation et les possibilités de financement\n• Fiabilité et initiative\n\nAvantages: Le travail et la vie privée doivent s'intégrer. Par conséquent, le KSW vous offre – où l'entreprise le permet – des horaires de travail flexibles et flexibles, un bureau à domicile, un congé de maternité généreux, un congé de paternité et des niveaux d'emploi qui peuvent être adaptés aux différentes phases de la vie. Développez-vous davantage professionnellement et personnellement : Chaque année, environ 40 cours interdisciplinaires et 50 cours de formation professionnelle sont ouverts à KSW. Nous soutenons également la formation externe – temporelle et/ou financière; Parfois, il a besoin de soutien. En cas de stress personnel, de maladie prolongée ou d'expériences difficiles dans votre vie professionnelle ou privée, diverses discussions confidentielles sont disponibles chez KSW. Chez KSW nous travaillons ensemble et l'un pour l'autre. L'appréciation, la communication ouverte et respectueuse et la coopération entre les groupes professionnels et les départements façonnent notre travail quotidien. Vous devriez être en mesure de contribuer avec vos idées et vos forces et de développer. Votre avenir est également assuré: Vous bénéficiez de très bonnes prestations sociales et d'une solution de fonds de pension avec BVK, ce qui est nettement supérieur au minimum légal. Même en cas de maladie ou d'accident, vous êtes très bien couvert en tant qu'employé de KSW. Votre santé est importante pour nous. Bénéficiez de rabais sur les abonnements de fitness, de formation et de cours internes ainsi que de rabais dans les pharmacies et certaines compagnies d'assurance maladie. La famille et le travail peuvent être bien connectés avec nous. La garderie La Luna avec des heures d'ouverture spacieuses est juste à côté de la KSW. En outre, le KSW – en fonction du revenu – vous soutient financièrement avec les coûts du berceau. Il y a aussi quelque chose à découvrir en dehors du travail: Grâce à notre collaboration avec des partenaires culturels à Winterthur et dans les environs, vous bénéficiez régulièrement de réductions pour des concerts et des spectacles de théâtre.\n\n• Domaine professionnel: professions infirmières\n• Zone : Clinique pour femmes\n• Récipient: 80-100 %"
-      },
-      "location": "Winterthur",
-      "canton": "ZH",
-      "url": "https://live.solique.ch/ksw/job/details/4069934",
-      "source": "KSW Dedicated Parser (Solique tenant ksw)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
-      "addressLocality": "Winterthur",
-      "addressRegion": "ZH",
-      "postalCode": "8400",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://live.solique.ch/ksw/job/details/4069934",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "department": "Frauenklinik",
-      "previousSlugs": [
-        "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
-        "stv-department-head-department-head-obstetric-department-kantonsspital-winterthur-ksw-winterthur",
-        "capo-reparto-reparto-testa-ostetrica-kantonsspital-winterthur-ksw-winterthur"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
-          "capo-reparto-reparto-testa-ostetrica-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "en": [
-          "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
-          "stv-department-head-department-head-obstetric-department-kantonsspital-winterthur-ksw-winterthur"
-        ],
-        "fr": [
-          "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:46:39.421Z",
-      "needsRetranslation": true,
-      "salaryMin": 124000,
-      "salaryMax": 173000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 124000,
-          "maxValue": 173000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "ksw-ab995e1a1426",
       "slug": "specialista-di-radiologia-specialista-di-radiologia-hf-kantonsspital-winterthur-ksw-winterthur",
       "slugByLocale": {
@@ -868,7 +785,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4066163",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -956,7 +873,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4065311",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1036,7 +953,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4044688",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1079,7 +996,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:07:05.114Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1092,7 +1008,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-dbfe0616409b",
@@ -1125,7 +1042,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038617",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1206,7 +1123,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038700",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1295,7 +1212,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4038611",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.836Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1338,7 +1255,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:01:30.194Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1351,7 +1267,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-75902fcce428",
@@ -1384,7 +1301,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032826",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.645Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1462,7 +1379,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4076796",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1542,7 +1459,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4074187",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1621,7 +1538,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4074347",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1701,7 +1618,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4069195",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1781,7 +1698,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4069181",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.835Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1883,7 +1800,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4051843",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -1928,7 +1845,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:15:24.716Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -1941,7 +1857,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-b2d121d0c956",
@@ -1974,7 +1891,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048230",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2072,7 +1989,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048799",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.644Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2152,7 +2069,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4066323",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2227,7 +2144,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4073025",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2263,8 +2180,8 @@
           "pflegefachfrau-pflegefachmann-ksw-ch"
         ]
       },
-      "firstSeenAt": "2026-09-07T15:01:29.118Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-07T15:01:29.118Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -2310,7 +2227,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4072988",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2345,7 +2262,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:37:07.443Z",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2358,7 +2274,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-a5db4673f4a3",
@@ -2391,7 +2308,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4072780",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.833Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2471,7 +2388,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4067463",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.833Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2553,7 +2470,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4067607",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.833Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2672,7 +2589,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4060249",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2723,7 +2640,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T16:59:15.697Z",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2736,7 +2652,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-f1e52d8e72a1",
@@ -2769,7 +2686,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4061178",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2855,7 +2772,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4055145",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -2890,7 +2807,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:51:56.192Z",
-      "needsRetranslation": true,
       "salaryMin": 124000,
       "salaryMax": 173000,
       "salarySource": "estimated",
@@ -2903,7 +2819,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-d9574a9e6fe4",
@@ -2936,7 +2853,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050301",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3046,7 +2963,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4040289",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.643Z",
+      "crawledAt": "2026-10-02T21:15:42.834Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3082,7 +2999,6 @@
         ]
       },
       "firstSeenAt": "2026-07-17T21:54:07.164Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3095,7 +3011,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-e6435a0430e8",
@@ -3128,7 +3045,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4076990",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.833Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3147,7 +3064,6 @@
       "requirementsByLocale": {},
       "department": "Klinik für Neurologie",
       "needsRetranslation": true,
-      "firstSeenAt": "2026-08-02T10:48:23.466Z",
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -3160,7 +3076,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-08-02T10:48:23.466Z"
     },
     {
       "id": "ksw-85b0e0dae3bd",
@@ -3193,7 +3110,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4076788",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3274,7 +3191,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4073067",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3356,7 +3273,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4067939",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3442,7 +3359,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4061336",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3524,7 +3441,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4052256",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3604,7 +3521,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4051840",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3696,7 +3613,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048757",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3780,7 +3697,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050232",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3858,7 +3775,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4050824",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.642Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -3938,7 +3855,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4076982",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.641Z",
+      "crawledAt": "2026-10-02T21:15:42.831Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4017,7 +3934,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4069192",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.641Z",
+      "crawledAt": "2026-10-02T21:15:42.832Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4099,7 +4016,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4032823",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.641Z",
+      "crawledAt": "2026-10-02T21:15:42.831Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4179,7 +4096,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4073028",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.640Z",
+      "crawledAt": "2026-10-02T21:15:42.830Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4269,7 +4186,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4054162",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.640Z",
+      "crawledAt": "2026-10-02T21:15:42.831Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4304,7 +4221,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:16:25.963Z",
-      "needsRetranslation": true,
       "salaryMin": 53500,
       "salaryMax": 98500,
       "salarySource": "estimated",
@@ -4317,7 +4233,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksw-ccc6e1d74dec",
@@ -4350,7 +4267,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4069184",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.639Z",
+      "crawledAt": "2026-10-02T21:15:42.830Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4442,7 +4359,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4066979",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.639Z",
+      "crawledAt": "2026-10-02T21:15:42.830Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4520,7 +4437,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048227",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.639Z",
+      "crawledAt": "2026-10-02T21:15:42.830Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4601,7 +4518,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4048573",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.639Z",
+      "crawledAt": "2026-10-02T21:15:42.830Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4680,7 +4597,7 @@
       "url": "https://live.solique.ch/ksw/job/details/4073944",
       "source": "KSW Dedicated Parser (Solique tenant ksw)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:13:56.638Z",
+      "crawledAt": "2026-10-02T21:15:42.829Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "postalCode": "8400",
@@ -4715,7 +4632,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:37:07.442Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -4728,7 +4644,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
