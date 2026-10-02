@@ -250,6 +250,31 @@ describe('submit mode', () => {
     expect(items[0].payload).toMatchObject({ tracking: false, openTracking: false });
   });
 
+  it('sends one dossier when the switch asks for it, never to an apprentice', async () => {
+    const sent = async (candidateType: unknown) => {
+      const bucket = fakeBucket();
+      await bucket.file(baseDraft.coverLetterPdfKey).save(cvPdf());
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+      await submitApplication({
+        order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: { ...baseDraft, candidateType }, cvBuffer: cvPdf(), cvType: 'pdf',
+        bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      });
+      return (sendCascade.mock.calls as any)[0][0][0].payload.attachments.map((item: any) => item.filename);
+    };
+    const previous = process.env.ASSISTED_APPLICATION_DOSSIER_MODE;
+    process.env.ASSISTED_APPLICATION_DOSSIER_MODE = 'single';
+    try {
+      expect(await sent({ type: 'qualified', sector: 'health' })).toEqual(['Dossier_di_candidatura_Maria_Rossi.pdf']);
+      const separate = ['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf'];
+      expect(await sent({ type: 'apprentice', sector: 'it' })).toEqual(separate);
+      expect(await sent('apprentice')).toEqual(separate);
+      expect(await sent(undefined)).toEqual(separate);
+    } finally {
+      if (previous === undefined) delete process.env.ASSISTED_APPLICATION_DOSSIER_MODE;
+      else process.env.ASSISTED_APPLICATION_DOSSIER_MODE = previous;
+    }
+  });
+
   it('a dry run prepares the e-mail, keeps it encrypted next to the order, and sends nothing', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
