@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const frCore: Record<string, string> = {
+ 'whatsNew.v3972.title': "Candidature assistée : les autres documents aussi",
+ 'whatsNew.v3972.assistedDocuments.title': "Documents demandés par l’annonce",
+ 'whatsNew.v3972.assistedDocuments.desc': "Si l’annonce demande plus que le CV et la lettre, par exemple des bulletins scolaires ou les résultats d’un test d’aptitudes, nous vous le disons et vous les téléversez depuis la page de votre candidature. Nous vérifions tout de suite que le fichier semble être le bon et le joignons à l’envoi.",
  'whatsNew.v3971.title': 'Des offres plus lisibles et des données plus claires',
  'whatsNew.v3971.tools.title': 'Des listes de communes plus fluides, des dates plus claires',
  'whatsNew.v3971.tools.desc': 'Explorez toutes les communes dans des listes paginées. Les prix, primes et temps d’attente aux frontières indiquent quand ils ont été observés ou collectés.',

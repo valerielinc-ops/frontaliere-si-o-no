@@ -1,6 +1,9 @@
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 
 const deCore: Record<string, string> = {
+ 'whatsNew.v3972.title': "Begleitete Bewerbung: auch die übrigen Unterlagen",
+ 'whatsNew.v3972.assistedDocuments.title': "Unterlagen, die das Inserat verlangt",
+ 'whatsNew.v3972.assistedDocuments.desc': "Verlangt das Inserat mehr als Lebenslauf und Motivationsschreiben, etwa Schulzeugnisse oder Ergebnisse eines Eignungstests, sagen wir es dir und du lädst sie auf der Seite deiner Bewerbung hoch. Wir prüfen sofort, ob die Datei passt, und hängen sie beim Versand an.",
  'whatsNew.v3971.title': 'Lesbarere Stellenangebote und klarere Daten',
  'whatsNew.v3971.tools.title': 'Flüssigere Gemeindelisten, klarere Datumsangaben',
  'whatsNew.v3971.tools.desc': 'Entdecke alle Gemeinden in Listen mit Seiten. Preise, Prämien und Wartezeiten an der Grenze zeigen, wann sie beobachtet oder erfasst wurden.',
