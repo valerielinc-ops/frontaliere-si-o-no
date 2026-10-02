@@ -11,6 +11,7 @@
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
  *   PARTNERIZE_TAG_CONTENT        → /assets/partnerize-tag.js (PARTNERIZE_TAG_SNIPPET)
+ *   OFFERWALL_FC_SCRIPT_CONTENT   → /assets/job-board-fc-loader.js
  *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
  *
  * critical.css used to be a per-page inline `<style>` block (~4.3 KB ×

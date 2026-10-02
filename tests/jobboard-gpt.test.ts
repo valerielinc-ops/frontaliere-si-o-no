@@ -12,7 +12,11 @@ import {
   jobBoardHeadTags,
   isJobBoardPageUrl,
 } from '@/build-plugins/jobBoardGpt';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS, OFFERWALL_FC_SNIPPET } from '@/build-plugins/constants';
+import {
+  FC_JOBBOARD_OFFERWALL_GATE_JS,
+  OFFERWALL_FC_SCRIPT_CONTENT,
+  OFFERWALL_FC_SNIPPET,
+} from '@/build-plugins/constants';
 import {
   ADS_CONSENT_CHANGE_EVENT,
   ADS_CONSENT_GRANTED,
@@ -77,7 +81,7 @@ describe('job-board GPT bootstrap', () => {
     expect(tags).toContain(JOB_BOARD_FC_LOADER_TAG);
     expect(JOB_BOARD_FC_LOADER_FILENAME).toBe('job-board-fc-loader.js');
     expect(tags).not.toContain(OFFERWALL_FC_SNIPPET);
-    expect(GPT_LOADER_CONTENT).toContain('data-fc-loader');
+    expect(OFFERWALL_FC_SCRIPT_CONTENT).toContain('data-fc-loader');
     expect(jobBoardHeadTags('/')).toBe('');
   });
 
