@@ -12347,6 +12347,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.rovello-porro-regole-frontaliere.title': 'Leben in Rovello Porro: Arbeit im Tessin als grenzüberschreitende Arbeiterin',
     'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024: Selbstbeteiligungen von 7.500 € bzw. 10.000 € und Einkommensteuer nur in der Schweiz einbehalten.',
     'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio im Tessin mit einem Grenzgänger',
+    'blog.article.brunello-fisco-frontaliere.title': 'Leben in Brunello und Arbeit im Tessin als grenzüberschreitender Pendler',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Leben bei Brunello und Arbeit in Tessin: Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024, absetzbar 10.000 € und Quellensteuer nur in der Schweiz.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Grenzgänger unterwegs mit der Tessiner Landschaft im Hintergrund',
 };
 
 export default blogMetaDe;

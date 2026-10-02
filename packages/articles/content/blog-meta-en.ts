@@ -12348,6 +12348,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rovello-porro-regole-frontaliere.title': 'Living in Rovello Porro: working in Ticino as a cross-border commuter',
     'blog.article.rovello-porro-regole-frontaliere.excerpt': 'New Cross-Border Commuter Agreement effective from 1 January 2024: deductibles of €7,500 or €10,000 and income tax withheld only in Switzerland.',
     'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio in Ticino with a cross-border commuter',
+    'blog.article.brunello-fisco-frontaliere.title': 'Living in Brunello and working in Ticino as a cross-border commuter',
+    'blog.article.brunello-fisco-frontaliere.excerpt': 'Living at Brunello and working in Ticino: New Cross-Border Commuter Agreement from 1 January 2024, deductible €10,000 and withholding tax only in Switzerland.',
+    'blog.article.brunello-fisco-frontaliere.imageAlt': 'Cross-border worker travelling with the Ticino landscape in the background',
 };
 
 export default blogMetaEn;
