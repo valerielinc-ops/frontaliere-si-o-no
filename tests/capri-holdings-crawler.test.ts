@@ -210,16 +210,59 @@ describe('Capri Workday location resolution', () => {
         })),
       },
     ];
-    let pageIndex = 0;
-    const fetchMock = vi.fn(async () => {
-      const page = pages[Math.min(pageIndex++, pages.length - 1)];
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset } = JSON.parse(options.body);
+      const page = pages[offset === 0 ? 0 : 1];
       return new Response(JSON.stringify(page), { status: 200 });
     });
     vi.stubGlobal('fetch', fetchMock);
 
     await expect(listSwissJobs('Michael_Kors', 'Michael Kors'))
       .rejects.toThrow(/changed its total/);
-    expect(fetchMock).toHaveBeenCalledTimes(4);
+    expect(fetchMock).toHaveBeenCalledTimes(12);
+  });
+
+  it('restarts the whole query when page retries cannot establish one snapshot', async () => {
+    const firstPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-first-${index + 1}`,
+        title: `Restart first role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    const secondPage = {
+      total: 40,
+      jobPostings: Array.from({ length: 20 }, (_, index) => ({
+        externalPath: `/job/Mendrisio/restart-second-${index + 1}`,
+        title: `Restart second role ${index + 1}`,
+        locationsText: 'Mendrisio, Switzerland',
+      })),
+    };
+    let queryFirstPages = 0;
+    let offset20Attempts = 0;
+    const fetchMock = vi.fn(async (_url, options) => {
+      const { offset, searchText } = JSON.parse(options.body);
+      if (searchText !== 'Switzerland') {
+        return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+      }
+      if (offset === 0) {
+        queryFirstPages += 1;
+        return new Response(JSON.stringify(firstPage), { status: 200 });
+      }
+      offset20Attempts += 1;
+      const page = offset20Attempts <= 3
+        ? { total: 41, jobPostings: secondPage.jobPostings }
+        : secondPage;
+      return new Response(JSON.stringify(page), { status: 200 });
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
+
+    expect(jobs).toHaveLength(40);
+    expect(queryFirstPages).toBe(2);
+    expect(offset20Attempts).toBe(4);
   });
 
   it('keeps a non-empty later page when Workday repeats its offset-zero bug', async () => {
