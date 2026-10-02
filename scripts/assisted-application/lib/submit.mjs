@@ -18,6 +18,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
 import { tmpdir } from 'node:os';
@@ -51,6 +52,24 @@ export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType }) {
   return { cvBuffer, cvType, cvSent: 'original' };
 }
 
+/**
+ * The documents the posting requires besides the CV and the letter, as the
+ * candidate gave them on the review page (flow.documents), downloaded and named.
+ * @returns {Promise<Array<{slot:string, label:string, kind:string, files:Array<{fileName:string, buffer:Buffer}>}>>}
+ */
+export async function downloadExtraDocuments({ bucket, draft, flow, orderId, name }) {
+  const out = [];
+  for (const document of extraDocumentsToSend(draft, flow, orderId)) {
+    const files = [];
+    for (const [index, file] of document.files.entries()) {
+      const [buffer] = await bucket.file(file.key).download();
+      files.push({ fileName: extraDocumentFileName({ label: document.label, index, count: document.files.length, name, type: file.detectedType }), buffer: Buffer.from(buffer) });
+    }
+    out.push({ slot: document.slot, label: document.label, kind: document.kind, files });
+  }
+  return out;
+}
+
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
   const { cvBuffer, cvType, cvSent } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType });
@@ -68,7 +87,10 @@ export async function submitApplication(ctx) {
   if (liveness.closed) return { type: 'posting_closed', reason: liveness.page?.code || 'dataset' };
 
   const open = openRequiredQuestions(draft, answers);
-  if (open.length) return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })) };
+  const missingDocuments = openRequiredDocuments(draft, flow?.documents || {});
+  if (open.length || missingDocuments.length) {
+    return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
+  }
 
   const facts = checkDraftFacts({
     coverLetter: draft.coverLetter?.text,
@@ -84,9 +106,11 @@ export async function submitApplication(ctx) {
     const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
     const stem = safeFileStem(identity.name);
     const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
+    const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
     const attachments = [
       { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
       { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
+      ...extras.flatMap((document) => document.files.map((file) => ({ filename: file.fileName, content: file.buffer.toString('base64') }))),
     ];
     if (ctx.dryRun) {
       // A dry run shows what would leave (encrypted, next to the order) and sends nothing.
@@ -191,6 +215,16 @@ export async function submitApplication(ctx) {
       };
       await writeFile(files.cv, cvBuffer);
       await writeFile(files.cover_letter, Buffer.from(letterPdf));
+      // The requested documents: one slot each (extra_1…), all its files.
+      const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
+      for (const document of extras) {
+        files[document.slot] = [];
+        for (const file of document.files) {
+          const target = path.join(dir, file.fileName);
+          await writeFile(target, file.buffer);
+          files[document.slot].push(target);
+        }
+      }
       const portalQuestions = (draft.questions || []).filter((question) => question.source === 'portal');
       const { event, evidence } = await (ctx.portalRunner || submitViaPortal)({
         applyUrl,
@@ -199,7 +233,7 @@ export async function submitApplication(ctx) {
         skipPostingCheck: flow?.dispatch?.reason === 'owner_retry',
         language: draft.language,
         candidateLocale: draft.candidateLocale || order.locale || 'it',
-        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions }),
+        candidate: candidateForForm({ identity, profile: edited.profile, answers: edited.answers, draft, portalQuestions, extraDocuments: extras }),
         files,
         codex: ctx.codex,
         accounts: ctx.accounts || null,

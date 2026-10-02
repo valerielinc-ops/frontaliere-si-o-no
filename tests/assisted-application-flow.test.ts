@@ -73,7 +73,7 @@ describe('draft failures', () => {
 
 describe('red flags', () => {
   it('separates what only Valerie can clear from what only the candidate can answer', () => {
-    expect(evaluateRedFlags(cleanDraft)).toEqual({ owner: [], candidate: [] });
+    expect(evaluateRedFlags(cleanDraft)).toEqual({ owner: [], candidate: [], documents: [] });
     const flags = evaluateRedFlags({
       ...cleanDraft,
       verdict: 'poor',
@@ -85,7 +85,7 @@ describe('red flags', () => {
         { id: 'hobby', required: false },
       ],
     }, { salary: 'CHF 80k' });
-    expect(flags).toEqual({ owner: ['fact_check', 'knock_out', 'channel_unknown'], candidate: ['permit'] });
+    expect(flags).toEqual({ owner: ['fact_check', 'knock_out', 'channel_unknown'], candidate: ['permit'], documents: [] });
   });
 
   it('an acknowledged warning no longer holds the flow', () => {
@@ -243,6 +243,35 @@ describe('approval flow', () => {
     const again = T0 + 3 * HELD_REMINDERS_AFTER_MS[0];
     step = transition(step.flow, { type: 'submit_needs_candidate', questions: [{ id: 'screening_2', required: true }] }, { draft, nowMs: again });
     expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
+  });
+
+  // Rolex 2026-10-02: school reports and the EVA test results go with the application.
+  it('holds the send until each required document is uploaded or the candidate chooses to send without it', () => {
+    const draft = { ...cleanDraft, requiredDocuments: [
+      { id: 'reports', label: 'Bulletins scolaires', kind: 'school_report', required: true },
+      { id: 'eva', label: 'Test EVA', kind: 'aptitude_test', required: true },
+      { id: 'photo_portfolio', label: 'Portfolio', kind: 'portfolio', required: false },
+    ] };
+    let step = transition({ state: 'owner_review', deadlineAt: T0 + OWNER_REVIEW_MS }, { type: 'owner_approve' }, { draft, nowMs: T0 });
+    // An optional document never holds.
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['document:reports', 'document:eva'], deadlineAt: null, heldSince: T0 });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
+    expect(transition(step.flow, { type: 'candidate_approve' }, { draft, nowMs: T0 + 1 }).ignored).toBe('questions_open');
+    // The same reminders as an open question.
+    const nudged = transition(step.flow, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(nudged.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+
+    // Reports uploaded, the EVA waived (their call, after the warning): the 12 h clock starts.
+    const documents = { reports: { files: [{ key: 'k', detectedType: 'pdf' }] }, eva: { files: [], waivedAt: T0 + 5 } };
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, documents, nowMs: T0 + 10 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: [], heldSince: null, deadlineAt: T0 + 10 + CANDIDATE_REVIEW_MS });
+    expect(transition(step.flow, { type: 'candidate_approve' }, { draft, documents, nowMs: T0 + 20 }).effects)
+      .toEqual([{ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' }]);
+  });
+
+  it('holds a portal send that reached a document only the candidate can give', () => {
+    const step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions: [{ id: 'q1' }], documents: ['reports'] }, { draft: cleanDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldBy: ['question:q1', 'document:reports'], heldSince: T0 });
   });
 
   it('regenerates on rejection and hands over to Valerie after the third one', () => {

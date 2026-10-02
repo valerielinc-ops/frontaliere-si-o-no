@@ -446,6 +446,36 @@ export async function recoverExistingBookingPrices(existingEvents, records, { de
   return updates;
 }
 
+function normalizeVenueToken(value) {
+  return typeof value === 'string'
+    ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+    : '';
+}
+
+/** Match a town-only venue to a specific venue only when the event locality proves the town. */
+function sameBackfillVenue(freshEvent, backfillEvent) {
+  const freshVenue = normalizeVenueToken(freshEvent?.venue);
+  const backfillVenue = normalizeVenueToken(backfillEvent?.venue);
+  const broadVenue = [freshVenue, backfillVenue].find(value => value && !value.includes(' '));
+  const specificVenue = broadVenue
+    && [freshVenue, backfillVenue].find(value => value !== broadVenue && value.includes(' '));
+  const broadVenueMatchesSpecific = Boolean(specificVenue?.split(' ').includes(broadVenue));
+  if (!freshVenue || !backfillVenue
+    || (!sameVenue(freshEvent?.venue, backfillEvent?.venue) && !broadVenueMatchesSpecific)) return false;
+  const freshLocalities = [freshEvent?.comune, freshEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const backfillLocalities = [backfillEvent?.comune, backfillEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const compatibleLocality = freshLocalities.some(freshLocality =>
+    backfillLocalities.some(backfillLocality => sameVenue(freshLocality, backfillLocality)));
+  const localityProof = [...freshLocalities, ...backfillLocalities]
+    .some(locality => broadVenue && sameVenue(locality, broadVenue));
+  if (freshLocalities.length && backfillLocalities.length && !compatibleLocality) return false;
+  if (freshVenue === backfillVenue) return true;
+  if (!broadVenue) return compatibleLocality;
+  return localityProof;
+}
+
 /** Keep a verified backfill when a fresh detail record has no confident price. */
 export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
   const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
@@ -453,7 +483,7 @@ export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
     const backfill = backfills.get(event?.id);
     if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)
       || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
-      || !sameVenue(event.venue, backfill.venue)) return event;
+      || !sameBackfillVenue(event, backfill)) return event;
     const freshMetadata = Object.fromEntries(
       Object.entries(event.price || {}).filter(([key, value]) => value != null && !Object.hasOwn(backfill.price, key)),
     );

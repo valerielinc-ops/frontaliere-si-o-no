@@ -7457,6 +7457,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.retribuzioni-svizzere-netto.title': 'Average wages by profession in Switzerland in 2026',
     'blog.article.retribuzioni-svizzere-netto.excerpt': 'Average salary per occupation in Switzerland in 2026: comparison between cantons, taxes, contributions, BVG, KVG and net available with cantonal labour rules.',
     'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Person reviews a Swiss payslip and a comparison of professional salaries.',
+    'blog.article.guida-retribuzioni-ginevra-2026.title': 'Average Salaries by Occupation in Switzerland in 2026: Canton of Geneva',
+    'blog.article.guida-retribuzioni-ginevra-2026.excerpt': '2026 Comparison of Professions and Cantons: In Geneva, gross income should be calculated after deducting 5.3% for AVS/AI/IPG, taxes, LAMal, and LPP.',
+    'blog.article.guida-retribuzioni-ginevra-2026.imageAlt': 'Calculator and payslip on a desk with Geneva skyline',
+    'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte forecasts up to 900,000 health insurance plan switches',
+    'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte forecasts between 600,000 and 900,000 health insurance plan switches. Nearly half would consider switching for an additional 20 francs per month.',
+    'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Swiss residents comparing health insurance premiums',
 };
 
 export default blogMetaChEn;
