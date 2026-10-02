@@ -1,6 +1,6 @@
 {
   "crawlerKey": "flury-stiftung",
-  "assembledAt": "2026-10-02T09:36:06.412Z",
+  "assembledAt": "2026-10-02T21:30:44.719Z",
   "jobs": [
     {
       "id": "flury-stiftung-e3c629d4f6e6",
@@ -33,7 +33,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/Lehrstelle%20Fachfperson%20Hotellerie-Hauswirtschaft%202027.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:57.197Z",
+      "crawledAt": "2026-10-02T21:30:38.515Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -72,7 +72,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.234Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -86,7 +85,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-ccf7fd962c44",
@@ -119,7 +119,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Praxisassistenz%20Hausarztmedizin%2050-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:56.839Z",
+      "crawledAt": "2026-10-02T21:30:38.130Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -214,7 +214,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/MPA_MZK.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:53.885Z",
+      "crawledAt": "2026-10-02T21:30:36.250Z",
       "addressLocality": "Klosters",
       "postalCode": "7250",
       "addressCountry": "CH",
@@ -251,7 +251,7 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-10-02T09:35:53.885Z"
+      "firstSeenAt": "2026-10-02T21:30:36.250Z"
     },
     {
       "id": "flury-stiftung-1e6940acb70a",
@@ -284,7 +284,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Inserat_Dipl_Pflegefachperson_Fachperson%20Gesundheit_80-100_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:51.469Z",
+      "crawledAt": "2026-10-02T21:30:34.672Z",
       "addressLocality": "Jenaz",
       "postalCode": "7233",
       "addressCountry": "CH",
@@ -415,7 +415,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FAGE%2080-100%25%20Altersheim%20Schiers.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:48.906Z",
+      "crawledAt": "2026-10-02T21:30:34.237Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -502,7 +502,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2022-07/20220719Unterassistenz%20Chirurgie_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:45.711Z",
+      "crawledAt": "2026-10-02T21:30:32.090Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -585,7 +585,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-06/20230426_unterassistenz_innere_medizin.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:42.054Z",
+      "crawledAt": "2026-10-02T21:30:29.805Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -669,7 +669,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-02/20220719%20Unterassistenz%20An%C3%A4sthesie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:39.467Z",
+      "crawledAt": "2026-10-02T21:30:27.670Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -712,7 +712,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -726,7 +725,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-53962d4794b1",
@@ -759,7 +759,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2023-08/assistenzarzt_innere_medizin_m_w_100.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:36.471Z",
+      "crawledAt": "2026-10-02T21:30:25.600Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -803,7 +803,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -817,7 +816,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-4309b061e85f",
@@ -850,7 +850,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-03/Assistenz%C3%A4rztin_Assistenzarzt%20Chirurgie%20%28w_m%29_Neu_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:33.495Z",
+      "crawledAt": "2026-10-02T21:30:23.624Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -902,7 +902,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:33:20.232Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -916,7 +915,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "flury-stiftung-2ca637e9196f",
@@ -949,7 +949,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/FaGe%20f%C3%BCr%20Tagesklinik%20Aufwachraum%20Notfall%20IMC%2080-100%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:30.307Z",
+      "crawledAt": "2026-10-02T21:30:21.321Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1033,7 +1033,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Dipl.%20Pflegefachperson%20IMC%20Notfall%2080-%20100%25_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:28.170Z",
+      "crawledAt": "2026-10-02T21:30:20.939Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1119,7 +1119,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-07/Radiologiefachperson_MTRA%2080%20-%20100%25%20Radiologie_Angiologie.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:25.982Z",
+      "crawledAt": "2026-10-02T21:30:19.369Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1203,7 +1203,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2025-09/Dipl.%20Pflegefachperson%20HF%20in%20Ausbildung_0.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:22.990Z",
+      "crawledAt": "2026-10-02T21:30:17.144Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1290,7 +1290,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-06/Fachperson%20Gesundheit%20im%20Personalpool%2040-80%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:20.531Z",
+      "crawledAt": "2026-10-02T21:30:16.772Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1374,7 +1374,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-08/Stelleninserat_Applikationsmanager.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:18.001Z",
+      "crawledAt": "2026-10-02T21:30:15.219Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1458,7 +1458,7 @@
       "url": "https://www.flurystiftung.ch/sites/default/files/2026-09/Mitarbeiter_in%20Patientenanmeldung%2080%25.pdf",
       "source": "Flury Stiftung Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:35:15.515Z",
+      "crawledAt": "2026-10-02T21:30:11.676Z",
       "addressLocality": "Schiers",
       "postalCode": "7220",
       "addressCountry": "CH",
@@ -1512,6 +1512,84 @@
         }
       },
       "addressRegion": "GR"
+    },
+    {
+      "id": "flury-stiftung-cea6ab6cf46e",
+      "slug": "collaboratore-trice-in-hauswirtschaft-60-flury-stiftung-schiers",
+      "slugByLocale": {
+        "de": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch",
+        "it": "collaboratore-trice-in-hauswirtschaft-60-flury-stiftung-schiers",
+        "en": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch",
+        "fr": "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+      },
+      "company": "Flury Stiftung",
+      "companyKey": "flury-stiftung",
+      "companyDomain": "flurystiftung.ch",
+      "title": "Mitarbeiter*in Hauswirtschaft 60%",
+      "titleByLocale": {
+        "de": "Mitarbeiter*in Hauswirtschaft 60%",
+        "it": "Collaboratore/trice*in Hauswirtschaft 60%",
+        "en": "Mitarbeiter*in Hauswirtschaft 60%",
+        "fr": "Mitarbeiter*in Hauswirtschaft 60%"
+      },
+      "description": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizi- nischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters, sicher. Wir suchen per sofort oder nach Vereinbarung für das Altersheim Jenaz Mitarbeiter*in Hauswirtschaft 60%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Professionelle Reinigung und Raumpflege auf verschiedenen Stationen\n\n- Interdisziplinäre Zusammenarbeit\n\n- Aufbereitung der hausinternen Betriebs- und Berufswäsche\n\n- Bereitstellen der Sitzungszimmer und Vorbereitungen für externe und interne Anlässe\n\n- Mitarbeit in der Gastronomie\n\nIhr Profil:\n\n- Erfahrung in Hauswirtschaft / Hotelfach\n\n- Erfahrung in ähnlichen Anstellungen von Vorteil\n\n- gute Deutschkenntnisse in Wort und Schrift\n\n- empathisch, liebevoller Umgang mit Menschen, teamfähig\n\nWir bieten Ihnen:\n\n- Zukunftsorientiertes und innovatives Unternehmen\n\n- Selbstständiges Arbeiten in einem kompetenten und motivierten Team\n\n- Abwechslungsreiches, interessantes und anspruchsvolle Aufgabengebiet\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen, eigene Kinderkrippe\n\nErstfragen beantwortet Ihnen gerne Frau Daniela Bärtsch oder Natascha Egli, Co-Leitung Hauswirtschaft Jenaz, Tel +41 81 308 01 11 Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Ihre Bewerbung senden Sie bitte per Mail an: hr@flurystiftung.ch",
+      "descriptionByLocale": {
+        "de": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizi- nischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters, sicher. Wir suchen per sofort oder nach Vereinbarung für das Altersheim Jenaz Mitarbeiter*in Hauswirtschaft 60%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Professionelle Reinigung und Raumpflege auf verschiedenen Stationen\n\n- Interdisziplinäre Zusammenarbeit\n\n- Aufbereitung der hausinternen Betriebs- und Berufswäsche\n\n- Bereitstellen der Sitzungszimmer und Vorbereitungen für externe und interne Anlässe\n\n- Mitarbeit in der Gastronomie\n\nIhr Profil:\n\n- Erfahrung in Hauswirtschaft / Hotelfach\n\n- Erfahrung in ähnlichen Anstellungen von Vorteil\n\n- gute Deutschkenntnisse in Wort und Schrift\n\n- empathisch, liebevoller Umgang mit Menschen, teamfähig\n\nWir bieten Ihnen:\n\n- Zukunftsorientiertes und innovatives Unternehmen\n\n- Selbstständiges Arbeiten in einem kompetenten und motivierten Team\n\n- Abwechslungsreiches, interessantes und anspruchsvolle Aufgabengebiet\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen, eigene Kinderkrippe\n\nErstfragen beantwortet Ihnen gerne Frau Daniela Bärtsch oder Natascha Egli, Co-Leitung Hauswirtschaft Jenaz, Tel +41 81 308 01 11 Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Ihre Bewerbung senden Sie bitte per Mail an: hr@flurystiftung.ch",
+        "it": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizi- nischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters, sicher. Wir suchen per sofort oder nach Vereinbarung für das Altersheim Jenaz Mitarbeiter*in Hauswirtschaft 60%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Professionelle Reinigung und Raumpflege auf verschiedenen Stationen\n\n- Interdisziplinäre Zusammenarbeit\n\n- Aufbereitung der hausinternen Betriebs- und Berufswäsche\n\n- Bereitstellen der Sitzungszimmer und Vorbereitungen für externe und interne Anlässe\n\n- Mitarbeit in der Gastronomie\n\nIhr Profil:\n\n- Erfahrung in Hauswirtschaft / Hotelfach\n\n- Erfahrung in ähnlichen Anstellungen von Vorteil\n\n- gute Deutschkenntnisse in Wort und Schrift\n\n- empathisch, liebevoller Umgang mit Menschen, teamfähig\n\nWir bieten Ihnen:\n\n- Zukunftsorientiertes und innovatives Unternehmen\n\n- Selbstständiges Arbeiten in einem kompetenten und motivierten Team\n\n- Abwechslungsreiches, interessantes und anspruchsvolle Aufgabengebiet\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen, eigene Kinderkrippe\n\nErstfragen beantwortet Ihnen gerne Frau Daniela Bärtsch oder Natascha Egli, Co-Leitung Hauswirtschaft Jenaz, Tel +41 81 308 01 11 Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Ihre Bewerbung senden Sie bitte per Mail an: hr@flurystiftung.ch",
+        "en": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizi- nischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters, sicher. Wir suchen per sofort oder nach Vereinbarung für das Altersheim Jenaz Mitarbeiter*in Hauswirtschaft 60%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Professionelle Reinigung und Raumpflege auf verschiedenen Stationen\n\n- Interdisziplinäre Zusammenarbeit\n\n- Aufbereitung der hausinternen Betriebs- und Berufswäsche\n\n- Bereitstellen der Sitzungszimmer und Vorbereitungen für externe und interne Anlässe\n\n- Mitarbeit in der Gastronomie\n\nIhr Profil:\n\n- Erfahrung in Hauswirtschaft / Hotelfach\n\n- Erfahrung in ähnlichen Anstellungen von Vorteil\n\n- gute Deutschkenntnisse in Wort und Schrift\n\n- empathisch, liebevoller Umgang mit Menschen, teamfähig\n\nWir bieten Ihnen:\n\n- Zukunftsorientiertes und innovatives Unternehmen\n\n- Selbstständiges Arbeiten in einem kompetenten und motivierten Team\n\n- Abwechslungsreiches, interessantes und anspruchsvolle Aufgabengebiet\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen, eigene Kinderkrippe\n\nErstfragen beantwortet Ihnen gerne Frau Daniela Bärtsch oder Natascha Egli, Co-Leitung Hauswirtschaft Jenaz, Tel +41 81 308 01 11 Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Ihre Bewerbung senden Sie bitte per Mail an: hr@flurystiftung.ch",
+        "fr": "KOMPETENT UND HERZLICH Die Flury Stiftung stellt mit mehr als 600 Mitarbeitenden im Spital Schiers, den drei Altersheimen Schiers, Jenaz und Klosters, der Spitex, Wohnen mit Service, der Kinderkrippe, der Elternberatung und dem Medizi- nischen Zentrum Klosters eine umfassende und integrierte Gesundheitsversorgung im Prättigau, zwischen Grüsch und Klosters, sicher. Wir suchen per sofort oder nach Vereinbarung für das Altersheim Jenaz Mitarbeiter*in Hauswirtschaft 60%\n\nZu Ihrem Aufgabenbereich gehören:\n\n- Professionelle Reinigung und Raumpflege auf verschiedenen Stationen\n\n- Interdisziplinäre Zusammenarbeit\n\n- Aufbereitung der hausinternen Betriebs- und Berufswäsche\n\n- Bereitstellen der Sitzungszimmer und Vorbereitungen für externe und interne Anlässe\n\n- Mitarbeit in der Gastronomie\n\nIhr Profil:\n\n- Erfahrung in Hauswirtschaft / Hotelfach\n\n- Erfahrung in ähnlichen Anstellungen von Vorteil\n\n- gute Deutschkenntnisse in Wort und Schrift\n\n- empathisch, liebevoller Umgang mit Menschen, teamfähig\n\nWir bieten Ihnen:\n\n- Zukunftsorientiertes und innovatives Unternehmen\n\n- Selbstständiges Arbeiten in einem kompetenten und motivierten Team\n\n- Abwechslungsreiches, interessantes und anspruchsvolle Aufgabengebiet\n\n- Attraktive, zeitgemässe Anstellungsbedingungen und grosszügige Sozialleistungen, eigene Kinderkrippe\n\nErstfragen beantwortet Ihnen gerne Frau Daniela Bärtsch oder Natascha Egli, Co-Leitung Hauswirtschaft Jenaz, Tel +41 81 308 01 11 Weitere Informationen zur Flury Stiftung finden Sie im Internet: flurystiftung.ch Ihre Bewerbung senden Sie bitte per Mail an: hr@flurystiftung.ch"
+      },
+      "location": "Schiers",
+      "canton": "GR",
+      "url": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiter_in%20Hauswirtschaft%2060%25%20Jenaz.pdf",
+      "source": "Flury Stiftung Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:30:13.457Z",
+      "addressLocality": "Schiers",
+      "postalCode": "7220",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ristorazione",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Assistenza",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://www.flurystiftung.ch/sites/default/files/2026-10/Mitarbeiter_in%20Hauswirtschaft%2060%25%20Jenaz.pdf",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "department": "Flury Stiftung",
+      "pensum": "60%",
+      "pensumMin": 60,
+      "pensumMax": 60,
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-hauswirtschaft-60-flury-stiftung-ch"
+      ],
+      "salaryMin": 37200,
+      "salaryMax": 46800,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 37200,
+          "maxValue": 46800,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-02T21:30:13.457Z"
     }
   ]
 }
