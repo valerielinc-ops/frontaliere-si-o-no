@@ -2540,6 +2540,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'confronto-salari-settori-berna': { it: 'confronto-salari-settori-berna', en: 'swiss-salary-sectors-bern', de: 'schweizer-loehne-berufe-bern', fr: 'salaires-suisses-secteurs-berne' },
  'netto-professioni-stgallen-2026': { it: 'netto-professioni-stgallen-2026', en: 'swiss-salary-st-gallen-2026', de: 'schweizer-gehalt-st-gallen-2026', fr: 'salaire-suisse-saint-gall-2026' },
  'novartis-abo2203-rna-licenza': { it: 'novartis-abo2203-rna-licenza', en: 'novartis-abo2203-rna-license', de: 'novartis-abo2203-rna-lizenz', fr: 'licence-rna-abo2203-novartis' },
+ 'sondaggio-conciliazione-lavoro-vita': { it: 'sondaggio-conciliazione-lavoro-vita', en: 'work-life-balance-survey-ticino', de: 'umfrage-work-life-balance-tessin', fr: 'sondage-equilibre-vie-travail-tessin' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7553,6 +7553,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.novartis-abo2203-rna-licenza.title': 'Novartis and Abogen: RNA license for up to 7.2 billion',
     'blog.article.novartis-abo2203-rna-licenza.excerpt': 'Novartis obtains the worldwide license on ABO2203 from Abogen: 575 million initial dollars and potential payments up to about 7.2 billion.',
     'blog.article.novartis-abo2203-rna-licenza.imageAlt': 'Swiss pharmaceutical laboratory with a graphic RNA visualization',
+    'blog.article.sondaggio-conciliazione-lavoro-vita.title': 'Work-life balance: the Ticino survey starts',
+    'blog.article.sondaggio-conciliazione-lavoro-vita.excerpt': 'Pro Familia Svizzera Italiana launches the first cantonal survey to map flexibility, working hours and leave in Ticino companies.',
+    'blog.article.sondaggio-conciliazione-lavoro-vita.imageAlt': 'Modern office with a view of Lugano',
 };
 
 export default blogMetaChEn;
