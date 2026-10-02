@@ -246,6 +246,50 @@ describe('L10 Engineering Learning / Fleet Control', () => {
     expect(verdict.issues.join(' ')).toContain('canonical health ledger omits operational fields');
   });
 
+  it('accepts declared historical canonical sources only before their registry cutoff', () => {
+    const loopRegistry: any = registry();
+    loopRegistry.sourceCatalog['legacy-source'] = 'Retired test source';
+    loopRegistry.sourceCatalog['second-test-source'] = 'Second current source';
+    const policy = loopRegistry.loops.find((loop: any) => loop.loopId === 'L0');
+    policy.sourceRefs = ['test-source', 'second-test-source'];
+    policy.outcome.sourceRefs = [...policy.sourceRefs];
+    policy.outcome.historicalSourceRefs = [['legacy-source']];
+    policy.outcome.historicalSourceRefsBefore = '2026-09-24T20:22:12.000Z';
+
+    const baseRow = canonicalHealthRow();
+    const base = {
+      ...baseRow,
+      sourceRefs: [...policy.sourceRefs],
+      outcome: { ...baseRow.outcome, sourceRefs: [...policy.outcome.sourceRefs] },
+    };
+    const rowAt = (recordedAt: string) => ({
+      ...base,
+      recordedAt,
+      sourceRefs: ['legacy-source'],
+      outcome: { ...base.outcome, sourceRefs: ['legacy-source'], recordedAt },
+    });
+    const validate = (row: ReturnType<typeof rowAt>) => validateFleetControl({
+      registry: loopRegistry,
+      quota: quotaHistory(quotaRow({ tunedAt: '2026-10-02T11:00:00.000Z' })),
+      health: healthHistory(row),
+    }, { now: new Date('2026-10-02T12:00:00.000Z') });
+
+    const historical = validate(rowAt('2026-09-14T03:29:43.387Z'));
+    expect(historical.issues.join(' ')).not.toContain('sourceRefs do not match the registry');
+    expect(historical.issues.join(' ')).not.toContain('outcome violates registry');
+
+    const reorderedCurrent = validate({
+      ...rowAt('2026-10-01T00:00:00.000Z'),
+      sourceRefs: [...policy.sourceRefs].reverse(),
+      outcome: { ...base.outcome, recordedAt: '2026-10-01T00:00:00.000Z' },
+    });
+    expect(reorderedCurrent.issues.join(' ')).toContain('sourceRefs do not match the registry');
+
+    const postCutoff = validate(rowAt('2026-09-25T00:00:00.000Z'));
+    expect(postCutoff.issues.join(' ')).toContain('sourceRefs do not match the registry');
+    expect(postCutoff.issues.join(' ')).toContain('canonicalHealth[0]: outcome violates registry');
+  });
+
   it('mantiene esplicita la copertura mista durante la transizione del ledger', () => {
     const complete = canonicalHealthRow({
       recordId: 'health-complete',
