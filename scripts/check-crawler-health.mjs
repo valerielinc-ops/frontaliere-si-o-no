@@ -385,8 +385,9 @@ const EMPTY_OK_CRAWLERS = new Set([
   'csc-costruzioni',
   // TUTTOJOB.ch "0 annunci"; official ATS also empty; last known ref inactive.
   'faulhaber',
-  // Workday API: 101 total postings, Switzerland absent from every facet.
-  'ferring',
+  // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
+  // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
+  // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
   // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
   // (same defunct AITI e-recruiting platform migration as imerys).
   'helsinn',

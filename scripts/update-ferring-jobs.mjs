@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllFerringJobs,
   isFerringJob,
@@ -25,6 +26,12 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllFerringJobs,
   isCompanyJob: isFerringJob,
+  // Publish a zero only when the live Workday board proves Switzerland is
+  // absent from its country facet. A bare `[]` (renamed site, anti-bot,
+  // facet drift, unproven drop) is refused and keeps the previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(FERRING_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {
