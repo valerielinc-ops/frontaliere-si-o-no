@@ -328,6 +328,7 @@ export const CV_ENCLOSURE = { it: 'Curriculum vitae', de: 'Lebenslauf', fr: 'CV'
 const HONORIFIC_FEMALE = /^(?:frau|madame|mme\.?|signora|sig\.ra|dott\.ssa|ms\.?|mrs\.?)\s+/i;
 const HONORIFIC_MALE = /^(?:herr|monsieur|m\.|signor|signore|sig\.|dott\.|mr\.?)\s+/i;
 const ACADEMIC = /^(?:dr\.?|prof\.?|dott\.?)\s+/i;
+const SURNAME_PARTICLES = new Set(['de', 'di', 'da', 'del', 'della', 'dal', 'dalla', 'von', 'van', 'der', 'den', 'du', 'des', 'le', 'la', 'lo', 'dos', 'das']);
 
 /**
  * The salutation for the contact person the posting names. The gender comes
@@ -340,7 +341,11 @@ export function letterSalutation(language, contactPerson = '') {
   if (HONORIFIC_FEMALE.test(rest)) { gender = 'f'; rest = rest.replace(HONORIFIC_FEMALE, ''); }
   else if (HONORIFIC_MALE.test(rest)) { gender = 'm'; rest = rest.replace(HONORIFIC_MALE, ''); }
   rest = rest.replace(ACADEMIC, '').trim();
-  const surname = rest.split(' ').filter(Boolean).pop() || '';
+  // The last name with its particles ("de Luca", "von Arx", "van der Berg").
+  const words = rest.split(' ').filter(Boolean);
+  let first = words.length - 1;
+  while (first > 1 && SURNAME_PARTICLES.has(words[first - 1].toLowerCase())) first -= 1;
+  const surname = words.slice(Math.max(first, 0)).join(' ');
   const named = Boolean(surname) && /\p{L}/u.test(surname);
   switch (language) {
     case 'de':
@@ -506,8 +511,11 @@ export function checkDraftFacts(texts, sources) {
   // `candidate`: what the candidate wrote on the review page vouches for itself.
   const candidate = [sources?.text, sources?.answers, sources?.candidate];
   const index = buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate], {
-    // `place`: the posting's structured location, so "Bellinzona" is never an echo of the posting.
-    claimSources: [...candidate, sources?.order, sources?.place, employerInitials(sources?.order)],
+    // Only the candidate's own texts back a tool. The order line (company, job title) and the
+    // posting's place are names: quoted whole they are not claims, and they never back one
+    // ("Kubernetes Engineer" in the title does not make "uso Kubernetes" the candidate's).
+    claimSources: [...candidate, employerInitials(sources?.order)],
+    nameSources: [sources?.order, sources?.place],
     // A figure in the candidate's own texts comes from the candidate or the order line (the job
     // title with its workload), never from the posting alone (study 2026-10-02: "un team di 5").
     numberSources: [...candidate, sources?.order],

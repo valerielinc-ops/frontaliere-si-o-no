@@ -1,6 +1,6 @@
 {
   "crawlerKey": "css-versicherung",
-  "assembledAt": "2026-10-01T21:19:06.665Z",
+  "assembledAt": "2026-10-02T09:24:58.185Z",
   "jobs": [
     {
       "id": "css-versicherung-b3eb37f0ac8f",
@@ -33,7 +33,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-zofingen-aarau-frick/36b01376-f5e2-4689-be50-0d98b88c4186",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:19:02.500Z",
+      "crawledAt": "2026-10-02T09:24:52.463Z",
       "addressLocality": "Zofingen",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -111,7 +111,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-en-prestations-au-sein-de-la-section-dispositions-des-prestations-expertise/c67ee64e-73f4-40c6-a0b3-a0f6b5b86d84",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:19:00.544Z",
+      "crawledAt": "2026-10-02T09:24:51.420Z",
       "addressLocality": "Lausanne et/ou Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -140,6 +140,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:45:41.538Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -185,7 +186,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-kundenberater-in-fuer-privatkunden-region-baden/121c903a-23a4-46ea-964d-65eb52d151f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:58.517Z",
+      "crawledAt": "2026-10-02T09:24:50.431Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -243,6 +244,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:22:54.283Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -288,7 +290,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-e-prevoyance/673035ed-9a32-41a5-ac43-1a504e852e7d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:56.487Z",
+      "crawledAt": "2026-10-02T09:24:49.384Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -362,7 +364,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-in-im-kundenservice-mit-mehrjaehriger-erfahrung/2ba5404b-0c75-4bea-bcf0-1c1a8968ef2a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:52.924Z",
+      "crawledAt": "2026-10-02T09:24:48.346Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -436,7 +438,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-digitaler-affinitaet/cb6d6cce-b8b1-4f71-940b-a7b6db2348d6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:49.010Z",
+      "crawledAt": "2026-10-02T09:24:47.370Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -556,7 +558,7 @@
       "url": "https://jobs.css.ch/offene-stellen/seniorjava-integration-engineer-w-m/679e9fe7-b3dd-43c2-a64c-b4b014c0c9dc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:46.949Z",
+      "crawledAt": "2026-10-02T09:24:46.595Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -602,86 +604,6 @@
       }
     },
     {
-      "id": "css-versicherung-a1f7cc983d6c",
-      "slug": "agenzia-manager-ride-100-css-versicherung-lachen",
-      "slugByLocale": {
-        "it": "agenzia-manager-ride-100-css-versicherung-lachen",
-        "en": "agency-manager-laughs-100-css-versicherung-lachen",
-        "de": "agenturleiter-in-lachen-100-css-versicherung-lachen",
-        "fr": "directeur-de-l-agence-rires-100-css-versicherung-lachen"
-      },
-      "company": "CSS Versicherung",
-      "companyKey": "css-versicherung",
-      "companyDomain": "css.ch",
-      "title": "Agenturleiter/in Lachen 100%",
-      "titleByLocale": {
-        "it": "Agenzia manager/ride 100%",
-        "en": "Agency manager/laughs 100%",
-        "de": "Agenturleiter/in Lachen 100%",
-        "fr": "Directeur de l'Agence/rires 100%"
-      },
-      "description": "Wir von der CSS helfen Menschen, ein gesundes Leben zu führen. Vielleicht ist unsere Mission ja bald auch deine? Uns würde es freuen. Wir sind eine bunte Gruppe ehrgeiziger Menschen, die etwas bewegen wollen. Einige von uns haben das KV gemacht, andere studiert, wieder andere kommen aus dem Detailhandel, dem Gastgewerbe oder aus einer anderen beruflichen Ecke. Alle bringen ihre Erfahrung ein. Wir helfen einander, halten zusammen und lachen viel. Und Erfolge feiern wir am liebsten\n\nSo sieht dein Alltag aus\n\n• Du führst dein Team mit rund 8 Personen, inspirierst die Menschen, die mit dir arbeiten und hilfst ihnen, ihre Ziele zu erreichen und sich zu entwickeln.\n\n• Dein Führungsstil vermag es, die Bedürfnisse deiner Mitarbeitenden und die Zielvorgaben deiner Agenturen zum Wohle aller zu vereinen.\n\n• Du bist ein Profi in der Netzwerkpflege - unsere Beziehungen zu Privat- wie auch Rahmenvertragskunden wachsen dank dir weiter.\n\n• Du bist auch selbst an der Front und betreust unsere Kunden.\n\n• Unseren professionellen Auftritt trägst du nach aussen gegenüber unseren Kundinnen und Kunden, aber auch gegenüber potenziellen künftigen Mitarbeitenden.\n\n• In deiner Rolle schaust du immer über den Tellerrand und machst dir Gedanken über künftige Perspektiven und Möglichkeiten für deine Agenturen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Man merkt es dir an, dass du gerne mit Menschen arbeitest – du gehst Themen offen an und deine positive Art ist ansteckend.\n\n• Du bist eine motivierte und gewinnbringende Persönlichkeit mit einer ausgeprägten Verkaufs- und Zielorientierung und verfügst im Idealfall über eine höhere Ausbildung in Betriebswirtschaft oder im Versicherungswesen.\n\n• Du bringst bereits Erfahrungen in der Mitarbeiterführung im Vertrieb mit. Du kannst gut auf dein Gegenüber eingehen, interessierst dich für die Bedürfnisse deines Teams und kannst gemeinsame Lösungen herbeiführen.\n\n• Du verfügst über eine lösungsorientierte Einstellung und kannst dank deiner hohen Belastbarkeit mit unerwarteten Situationen und Phasen grosser Belastung umgehen.\n\n• Dank deiner stilsicheren und adressatengerechten Kommunikation in Deutsch fällt dir der Austausch über unterschiedliche Stufen leicht.\n\n• Du hast ein grosses Beziehungsnetz und wohnst vorzugsweise in der Region.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Erhole dich in den Ferien: Du arbeitest 41 Stunden pro Woche und geniesst 6 Wochen Ferien.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nRenzo Richiusa ist für dich da.\n+41 58 277 35 35\n\nFragen zum Bewerbungsprozess?\nKevin Kisungu ist für dich da.\n058 277 46 59\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
-      "descriptionByLocale": {
-        "it": "Noi del CSS aiutiamo le persone a condurre una vita sana. Forse la nostra missione sarà presto anche tua? Saremmo lieti. Siamo un gruppo diverso di persone ambiziose che vogliono fare la differenza. Alcuni di noi hanno fatto il KV, altri hanno studiato, altri ancora provengono dal commercio al dettaglio, l'industria dell'ospitalità o da un altro angolo professionale. Tutti portano la loro esperienza. Ci aiutiamo a vicenda, rimaniamo insieme e ridiamo molto. E preferiamo festeggiare i successi.\n\nQuesta è la tua vita quotidiana\n\n• Guida il tuo team di circa 8 persone, ispirando le persone che lavorano con te e aiutandoli a raggiungere i loro obiettivi e sviluppare.\n\n• Il vostro stile di leadership può combinare le esigenze dei vostri dipendenti e gli obiettivi delle vostre agenzie a beneficio di tutti.\n\n• Sei un professionista nella manutenzione della rete - i nostri rapporti con i clienti contrattuali privati e framework continuano a crescere grazie a te.\n\n• Siete anche in prima linea e badate ai nostri clienti.\n\n• Il nostro aspetto professionale è esterno ai nostri clienti, ma anche ai potenziali dipendenti futuri.\n\n• Nel tuo ruolo, guardi sempre al di fuori della scatola e pensi a prospettive e opportunità future per le tue agenzie.\n\nLo porti con te.\n\n• Prima di tutto: ti rendi conto che ti piace lavorare con le persone – ti avvicini apertamente agli argomenti e la tua natura positiva è contagiosa.\n\n• Sei una personalità motivata e proficua con un pronunciato orientamento vendite e obiettivo e idealmente avere un'istruzione superiore in amministrazione aziendale o assicurazione.\n\n• Hai già portato esperienza nella gestione dei dipendenti nelle vendite. È possibile rispondere bene alla vostra controparte, sono interessati alle esigenze del vostro team e può portare a soluzioni congiunte.\n\n• Hai un atteggiamento orientato alla soluzione e, grazie alla tua elevata resilienza, puoi affrontare situazioni inaspettate e fasi di grande stress.\n\n• Grazie alla vostra comunicazione elegante e indirizzabile in tedesco, lo scambio su diversi livelli è facile.\n\n• Hai una grande rete di relazioni e preferibilmente vivere nella regione.\n\n• Lavoro flessibile: Adapt il vostro lavoro per il vostro stile di vita ogni anno con opzioni part-time e altri modelli flessibili come l'ufficio di casa e altro ancora.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Rilassati durante le vacanze: lavori 41 ore a settimana e goditi 6 settimane di vacanza.\n\n• Migliorati ulteriormente: Ci piace vederlo se ti istruisci internamente o esternamente e sosteniamo generosamente con il tempo e il denaro.\n\n• Festeggia con noi: Focused work e festeggia. Amiamo questa combinazione e la manteniamo regolarmente.\n\n• Soggiorno in forma: Posti di lavoro ergonomici, promozione del benessere mentale e molte altre offerte intorno alla vostra salute.\n\nInformazioni di contatto\n\nDomande sul tuo lavoro al tuo manager?\nRenzo Richiusa è qui per te.\n+41 58 277 35 35\n\nDomande sul processo di applicazione?\nKevin Kisungu e' qui per te.\n058 277 46 59\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo ancora un sacco di piani per il futuro - forse insieme a te?",
-        "en": "We at CSS help people to lead a healthy life. Maybe our mission will soon be yours too? We would be delighted. We are a diverse group of ambitious people who want to make a difference. Some of us did the KV, others studied, still others come from the retail trade, the hospitality industry or from another professional corner. Everyone brings their experience. We help each other, stick together and laugh a lot. And we prefer to celebrate successes.\n\nThis is what your everyday life looks like\n\n• You lead your team of around 8 people, inspiring the people who work with you and helping them achieve their goals and develop.\n\n• Your leadership style can combine the needs of your employees and the objectives of your agencies for the benefit of all.\n\n• You are a professional in network maintenance - our relationships with private and framework contract customers continue to grow thanks to you.\n\n• You are also on the front line and look after our customers.\n\n• Our professional appearance is external to our customers, but also to potential future employees.\n\n• In your role, you always look outside the box and think about future prospects and opportunities for your agencies.\n\nYou bring that with you\n\n• First things first: You realize that you like to work with people – you approach topics openly and your positive nature is contagious.\n\n• You are a motivated and profitable personality with a pronounced sales and goal orientation and ideally have a higher education in business administration or insurance.\n\n• You already bring experience in employee management in sales. You can respond well to your counterpart, are interested in the needs of your team and can bring about joint solutions.\n\n• You have a solution-oriented attitude and, thanks to your high resilience, you can deal with unexpected situations and phases of great stress.\n\n• Thanks to your stylish and addressable communication in German, the exchange over different levels is easy.\n\n• You have a large relationship network and preferably live in the region.\n\n• Work Flexible: Adapt your work to your lifestyle annually with part-time options and other flexible models like home office and more.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Relax during the holidays: You work 41 hours a week and enjoy 6 weeks of vacation.\n\n• Improve yourself further: We like to see it if you educate yourself internally or externally and support generously with time and money.\n\n• Celebrate with us: Focused work and celebrate. We love this combination and maintain it regularly.\n\n• Stay fit: Ergonomic workplaces, promotion of mental well-being and many other offers around your health.\n\nContact details\n\nQuestions about your job to your manager?\nRenzo Richiusa is here for you.\n+41 58 277 35 35\n\nQuestions about the application process?\nKevin Kisungu is here for you.\n058 277 46 59\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We still have a lot of plans for the future - maybe together with you?",
-        "de": "Wir von der CSS helfen Menschen, ein gesundes Leben zu führen. Vielleicht ist unsere Mission ja bald auch deine? Uns würde es freuen. Wir sind eine bunte Gruppe ehrgeiziger Menschen, die etwas bewegen wollen. Einige von uns haben das KV gemacht, andere studiert, wieder andere kommen aus dem Detailhandel, dem Gastgewerbe oder aus einer anderen beruflichen Ecke. Alle bringen ihre Erfahrung ein. Wir helfen einander, halten zusammen und lachen viel. Und Erfolge feiern wir am liebsten\n\nSo sieht dein Alltag aus\n\n• Du führst dein Team mit rund 8 Personen, inspirierst die Menschen, die mit dir arbeiten und hilfst ihnen, ihre Ziele zu erreichen und sich zu entwickeln.\n\n• Dein Führungsstil vermag es, die Bedürfnisse deiner Mitarbeitenden und die Zielvorgaben deiner Agenturen zum Wohle aller zu vereinen.\n\n• Du bist ein Profi in der Netzwerkpflege - unsere Beziehungen zu Privat- wie auch Rahmenvertragskunden wachsen dank dir weiter.\n\n• Du bist auch selbst an der Front und betreust unsere Kunden.\n\n• Unseren professionellen Auftritt trägst du nach aussen gegenüber unseren Kundinnen und Kunden, aber auch gegenüber potenziellen künftigen Mitarbeitenden.\n\n• In deiner Rolle schaust du immer über den Tellerrand und machst dir Gedanken über künftige Perspektiven und Möglichkeiten für deine Agenturen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Man merkt es dir an, dass du gerne mit Menschen arbeitest – du gehst Themen offen an und deine positive Art ist ansteckend.\n\n• Du bist eine motivierte und gewinnbringende Persönlichkeit mit einer ausgeprägten Verkaufs- und Zielorientierung und verfügst im Idealfall über eine höhere Ausbildung in Betriebswirtschaft oder im Versicherungswesen.\n\n• Du bringst bereits Erfahrungen in der Mitarbeiterführung im Vertrieb mit. Du kannst gut auf dein Gegenüber eingehen, interessierst dich für die Bedürfnisse deines Teams und kannst gemeinsame Lösungen herbeiführen.\n\n• Du verfügst über eine lösungsorientierte Einstellung und kannst dank deiner hohen Belastbarkeit mit unerwarteten Situationen und Phasen grosser Belastung umgehen.\n\n• Dank deiner stilsicheren und adressatengerechten Kommunikation in Deutsch fällt dir der Austausch über unterschiedliche Stufen leicht.\n\n• Du hast ein grosses Beziehungsnetz und wohnst vorzugsweise in der Region.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Erhole dich in den Ferien: Du arbeitest 41 Stunden pro Woche und geniesst 6 Wochen Ferien.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nRenzo Richiusa ist für dich da.\n+41 58 277 35 35\n\nFragen zum Bewerbungsprozess?\nKevin Kisungu ist für dich da.\n058 277 46 59\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
-        "fr": "Chez CSS, nous aidons les gens à mener une vie saine. Peut-être que notre mission sera bientôt la vôtre aussi ? Nous serions ravis. Nous sommes un groupe diversifié de personnes ambitieuses qui veulent faire une différence. Certains d'entre nous ont fait le KV, d'autres ont étudié, d'autres encore viennent du commerce de détail, de l'industrie hôtelière ou d'un autre secteur professionnel. Tout le monde apporte son expérience. On s'entraide, on reste ensemble et on rigole beaucoup. Et nous préférons célébrer les succès.\n\nC'est à ça que ressemble ta vie quotidienne\n\n• Vous dirigez votre équipe d'environ 8 personnes, inspirant les personnes qui travaillent avec vous et les aidant à atteindre leurs objectifs et à se développer.\n\n• Votre style de leadership peut combiner les besoins de vos employés et les objectifs de vos agences au profit de tous.\n\n• Vous êtes un professionnel dans la maintenance du réseau - nos relations avec les clients privés et framework contrat continuent de croître grâce à vous.\n\n• Vous êtes également en première ligne et vous occupez de nos clients.\n\n• Notre apparence professionnelle est externe à nos clients, mais aussi aux futurs employés potentiels.\n\n• Dans votre rôle, vous regardez toujours en dehors de la boîte et pensez aux perspectives et opportunités futures pour vos agences.\n\nApporte ça avec toi.\n\n• Première chose : Vous réalisez que vous aimez travailler avec les gens – vous abordez les sujets ouvertement et votre nature positive est contagieuse.\n\n• Vous êtes une personnalité motivée et rentable avec une forte orientation des ventes et des objectifs et idéalement avoir une formation supérieure en administration des affaires ou en assurance.\n\n• Vous apportez déjà de l'expérience dans la gestion des employés dans les ventes. Vous pouvez bien répondre à votre homologue, être intéressé par les besoins de votre équipe et peut apporter des solutions communes.\n\n• Vous avez une attitude orientée vers la solution et, grâce à votre haute résilience, vous pouvez faire face à des situations inattendues et des phases de grand stress.\n\n• Grâce à votre communication élégante et adressable en allemand, l'échange sur différents niveaux est facile.\n\n• Vous avez un vaste réseau de relations et vivez de préférence dans la région.\n\n• Travail flexible : Adaptez votre travail à votre style de vie chaque année avec des options à temps partiel et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n\n• Profitez de votre portefeuille : avantages tels que bonus, Reka, primes d'assurance-maladie à prix réduit et autres qui composent rapidement quelques milliers par an.\n\n• Détendez-vous pendant les vacances : vous travaillez 41 heures par semaine et profitez de 6 semaines de vacances.\n\n• Améliorez-vous davantage: Nous aimons voir si vous vous éduquez en interne ou en externe et soutenez généreusement avec le temps et l'argent.\n\n• Célébrez avec nous : Travail concentré et fêtez. Nous aimons cette combinaison et la maintenons régulièrement.\n\n• Restez en forme : milieux de travail ergonomiques, promotion du bien-être mental et de nombreuses autres offres autour de votre santé.\n\nCoordonnées\n\nDes questions sur votre travail à votre manager ?\nRenzo Richiusa est là pour vous.\n+41 58 277 35 35\n\nDes questions sur le processus de demande?\nKevin Kisungu est là pour vous.\n058 277 46 59\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 salariés et l'un des principaux assureurs suisses. Ouais, nous sommes assez grands. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire la différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons encore beaucoup de plans pour l'avenir - peut-être avec vous ?"
-      },
-      "location": "Lachen",
-      "canton": "SZ",
-      "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-lachen/53c6d796-7b42-4e87-9ef4-f0006776e151",
-      "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
-      "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:44.965Z",
-      "addressLocality": "Lachen",
-      "addressRegion": "SZ",
-      "streetAddress": "",
-      "postalCode": "8853",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Assicurazioni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://jobs.css.ch/offene-stellen/agenturleiter-in-lachen/53c6d796-7b42-4e87-9ef4-f0006776e151",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "agenturleiter-in-lachen-100-css-versicherung-lachen",
-        "agenzia-manager-ride-100-css-versicherung-lachen"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "agenturleiter-in-lachen-100-css-versicherung-lachen",
-          "agenzia-manager-ride-100-css-versicherung-lachen"
-        ],
-        "en": [
-          "agenturleiter-in-lachen-100-css-versicherung-lachen"
-        ],
-        "fr": [
-          "agenturleiter-in-lachen-100-css-versicherung-lachen"
-        ]
-      },
-      "firstSeenAt": "2026-07-30T11:34:15.944Z",
-      "salaryMin": 96000,
-      "salaryMax": 146000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 96000,
-          "maxValue": 146000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "css-versicherung-c8319ea15fbb",
       "slug": "consulenza-clienti-agenda-css-versicherung-neuchatel",
       "slugByLocale": {
@@ -712,7 +634,7 @@
       "url": "https://jobs.css.ch/offene-stellen/conseiller-ere-a-la-clientele/a0bc53ae-4e56-48ab-8a89-d28c039618c0",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:43.025Z",
+      "crawledAt": "2026-10-02T09:24:25.851Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "",
@@ -798,7 +720,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden/2851f164-4bd7-47ae-87c0-e1578f3e1b32",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:41.517Z",
+      "crawledAt": "2026-10-02T09:24:24.912Z",
       "addressLocality": "Biel",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -876,7 +798,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-rheintal-mit-vbv/458e150e-c6cf-453c-a75e-4ff956af5fd4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:39.483Z",
+      "crawledAt": "2026-10-02T09:24:23.891Z",
       "addressLocality": "Altstätten SG",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -954,7 +876,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spontanbewerbung-mitarbeiter-in-kundenservice-rheintal-appenzellerland/93efaee9-1ba8-4855-893e-355485b803a2",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:37.488Z",
+      "crawledAt": "2026-10-02T09:24:22.870Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1034,7 +956,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-solothurn/aaa76472-aabe-4f7d-9662-2974b739a320",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:35.480Z",
+      "crawledAt": "2026-10-02T09:24:21.885Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1114,7 +1036,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-oberwallis/166ce09d-9d82-499e-8d38-b7d65fa7c3fc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:33.459Z",
+      "crawledAt": "2026-10-02T09:24:20.856Z",
       "addressLocality": "Visp",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1162,6 +1084,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:37:42.720Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1207,7 +1130,7 @@
       "url": "https://jobs.css.ch/offene-stellen/spezialist-in-batchbetrieb-und-job-scheduling-control-m/d10a0c04-3282-45df-9eed-1153478b9884",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:31.436Z",
+      "crawledAt": "2026-10-02T09:24:20.050Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1285,7 +1208,7 @@
       "url": "https://jobs.css.ch/offene-stellen/expert-data-engineer-w-m/1a36e481-f317-47f8-ae2d-f51ce3b497f9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:30.243Z",
+      "crawledAt": "2026-10-02T09:24:19.026Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1304,6 +1227,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-25T22:07:35.537Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 127000,
       "salarySource": "estimated",
@@ -1349,7 +1273,7 @@
       "url": "https://jobs.css.ch/offene-stellen/medizinische-r-kodierer-in/5cf8fc5e-bfee-43df-a92a-3ff3770ffa7a",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:29.540Z",
+      "crawledAt": "2026-10-02T09:24:17.862Z",
       "addressLocality": "Luzern oder/und Lausanne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1384,6 +1308,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:18:31.225Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1429,7 +1354,7 @@
       "url": "https://jobs.css.ch/offene-stellen/codeurs-medicaux/324723a6-3096-4bb8-910e-fc9001d440cc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:29.040Z",
+      "crawledAt": "2026-10-02T09:24:16.851Z",
       "addressLocality": "Lausanne ou/et Lucerne",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -1509,7 +1434,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-aout-2027/da021750-bf53-4696-90af-1ade7bfdce22",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:28.554Z",
+      "crawledAt": "2026-10-02T09:24:15.882Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1538,6 +1463,7 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:18:02.327Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -1583,7 +1509,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sierre-aout-2027/d0d3a31e-7739-409c-8e43-ae2e431ea572",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:28.171Z",
+      "crawledAt": "2026-10-02T09:24:14.369Z",
       "addressLocality": "Sierre",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1622,6 +1548,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:59.822Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -1667,7 +1594,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-sion-aout-2027/486c19d0-44f5-4da7-8746-23bb110eb9ec",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:27.730Z",
+      "crawledAt": "2026-10-02T09:24:11.867Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1703,6 +1630,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:54.319Z",
+      "needsRetranslation": true,
       "salaryMin": 51000,
       "salaryMax": 94500,
       "salarySource": "estimated",
@@ -1748,7 +1676,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-employe-e-de-commerce-agence-de-bulle-aout-2027/0589f501-046d-431d-8873-1df9f75ae7a9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:27.325Z",
+      "crawledAt": "2026-10-02T09:24:09.630Z",
       "addressLocality": "Bulle",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -1784,6 +1712,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:43:48.841Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1829,7 +1758,7 @@
       "url": "https://jobs.css.ch/offene-stellen/apprentissage-d-agent-e-relation-client-aout-2027/0ce11c26-41f7-467a-8c60-78962d50b68d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:26.912Z",
+      "crawledAt": "2026-10-02T09:24:06.857Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -1911,7 +1840,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-mehrjaehriger-erfahrung-in-telefonischem-kundenservice/19a2e87f-94a8-470a-a939-f33365f8f0c4",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:26.523Z",
+      "crawledAt": "2026-10-02T09:24:04.370Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -1991,7 +1920,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-basel/7f55d1f7-00e0-44e9-8d69-c5271cf145a6",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:26.018Z",
+      "crawledAt": "2026-10-02T09:24:02.102Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "streetAddress": "",
@@ -2069,7 +1998,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-solothurn/bad3c41e-29ef-45e4-bb71-8cabfb7d8a4b",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:25.570Z",
+      "crawledAt": "2026-10-02T09:23:59.410Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -2147,7 +2076,7 @@
       "url": "https://jobs.css.ch/offene-stellen/gruppenleiter-in-leistungspruefung-apotheke/c6858c45-2a80-48e2-a6b1-9a16326db0be",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:25.106Z",
+      "crawledAt": "2026-10-02T09:23:56.870Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2227,7 +2156,7 @@
       "url": "https://jobs.css.ch/offene-stellen/chef-fe-de-team-verification-des-prestations-etranger/bee92436-64a3-4838-83a3-dcad6507a73d",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:18:24.616Z",
+      "crawledAt": "2026-10-02T09:23:54.440Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "streetAddress": "",
@@ -2307,7 +2236,7 @@
       "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-liestal/65734ccc-44c7-4cb9-bc6f-ac30370008d9",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:24.225Z",
+      "crawledAt": "2026-10-02T09:23:51.871Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "",
@@ -2372,7 +2301,7 @@
       "url": "https://jobs.css.ch/offene-stellen/datenbank-engineer-w-m/e59881ad-9b97-43bd-be38-8816f9cbbe83",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:23.723Z",
+      "crawledAt": "2026-10-02T09:23:49.430Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2391,6 +2320,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-19T10:02:56.631Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -2436,7 +2366,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-mit-erfahrung-im-kundenkontakt/62a58b34-677a-4eed-9d15-26a22a7001fc",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:23.230Z",
+      "crawledAt": "2026-10-02T09:23:46.894Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2501,7 +2431,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpertin-fachexperte-leistungsgrundlagen-qualitaetssicherung/c84a2cb4-6856-4f7e-bacf-46133710d72e",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:22.700Z",
+      "crawledAt": "2026-10-02T09:23:44.360Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2519,23 +2449,24 @@
       "applyUrl": "https://jobs.css.ch/offene-stellen/fachexpertin-fachexperte-leistungsgrundlagen-qualitaetssicherung/c84a2cb4-6856-4f7e-bacf-46133710d72e",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugsByLocale": {
-        "de": [
-          "fachexpertin-fachexperte-leistungsgrundlagen-qualitatssicherung-80-100-css-versicherung-luzern-hybrid",
-          "fachexpertin-fachexperte-leistungsgrundlagen-amp-qualitatssicherung-80-100-css"
-        ],
-        "it": [
-          "fachexpertin-fachexperte-leistungsgrundlagen-amp-qualitatssicherung-80-100-css",
-          "fachexpertin-fachexperte-leistungsgrundlagen-qualitatssicherung-80-100-css-versicherung-luzern-hybrid",
-          "expert-expert-performance-basics-quality-assurance-80-100-css-versicherung-luzern-hybrid"
-        ]
-      },
       "previousSlugs": [
         "fachexpertin-fachexperte-leistungsgrundlagen-amp-qualitatssicherung-80-100-css",
         "fachexpertin-fachexperte-leistungsgrundlagen-qualitatssicherung-80-100-css-versicherung-luzern-hybrid",
         "expert-expert-performance-basics-quality-assurance-80-100-css-versicherung-luzern-hybrid"
       ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachexpertin-fachexperte-leistungsgrundlagen-amp-qualitatssicherung-80-100-css",
+          "fachexpertin-fachexperte-leistungsgrundlagen-qualitatssicherung-80-100-css-versicherung-luzern-hybrid",
+          "expert-expert-performance-basics-quality-assurance-80-100-css-versicherung-luzern-hybrid"
+        ],
+        "de": [
+          "fachexpertin-fachexperte-leistungsgrundlagen-qualitatssicherung-80-100-css-versicherung-luzern-hybrid",
+          "fachexpertin-fachexperte-leistungsgrundlagen-amp-qualitatssicherung-80-100-css"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:28:41.578Z",
+      "needsRetranslation": true,
       "salaryMin": 74500,
       "salaryMax": 123500,
       "salarySource": "estimated",
@@ -2581,7 +2512,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenberater-in-fuer-privatkunden-uzwil/4cbe0ce1-81b9-4dd1-b8b5-fe44dd5363de",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:22.227Z",
+      "crawledAt": "2026-10-02T09:23:42.008Z",
       "addressLocality": "Uzwil",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -2654,7 +2585,7 @@
       "url": "https://jobs.css.ch/offene-stellen/fachexpertin-fachexperte-wirtschaftlichkeitspruefung-bvm/0a812650-f232-4fb8-a0e1-bdf78c38b941",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:21.674Z",
+      "crawledAt": "2026-10-02T09:23:39.354Z",
       "addressLocality": "Luzern / hybrid",
       "addressRegion": "LU",
       "streetAddress": "Tribschenstrasse 21",
@@ -2734,7 +2665,7 @@
       "url": "https://jobs.css.ch/offene-stellen/kundenbetreuer-in-kundenservice-center-mit-fokus-im-einzelleben/eaac4b0f-761b-492a-a362-3d26eb873f4f",
       "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:18:21.292Z",
+      "crawledAt": "2026-10-02T09:23:36.870Z",
       "addressLocality": "Root / hybrid",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -2767,6 +2698,163 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "css-versicherung-98816f18728d",
+      "slug": "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid",
+      "slugByLocale": {
+        "de": "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css",
+        "it": "pflegefachfrau-mann-come-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css-versicherung-luzern-hybrid",
+        "en": "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css",
+        "fr": "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
+      },
+      "company": "CSS Versicherung",
+      "companyKey": "css-versicherung",
+      "companyDomain": "css.ch",
+      "title": "Pflegefachfrau/ -mann als Medizinische/r Spezialist/in Leistungsprüfung VVG 80-100%",
+      "titleByLocale": {
+        "de": "Pflegefachfrau/ -mann als Medizinische/r Spezialist/in Leistungsprüfung VVG 80-100%",
+        "it": "Pflegefachfrau/ -mann come Medizinische/r Spezialist/in Leistungsprüfung VVG 80-100%",
+        "en": "Pflegefachfrau/ -mann als Medizinische/r Spezialist/in Leistungsprüfung VVG 80-100%",
+        "fr": "Pflegefachfrau/ -mann als Medizinische/r Spezialist/in Leistungsprüfung VVG 80-100%"
+      },
+      "description": "Wir von der CSS sind Gesundheitspartnerin für rund 1.7 Millionen Versicherte. Und vielleicht schon bald auch deine Partnerin für deine berufliche Zukunft? Uns würde es freuen. Denn hier kannst du etwas bewirken: Mit deinem medizinischen Fachwissen hilfst du uns, die Leistungskosten tief zu halten. Wir haben ein paar starke Angebote für dich: tolle Arbeitszeiten, Homeoffice und ausgezeichnete Entwicklungsmöglichkeiten. Und ein grosses Team aus medizinischen Fachpersonen - bei uns ist immer etwas los. Wann lernen wir uns kennen?\n\nSo sieht dein Alltag aus\n\n• Das Herzstück: Du bearbeitest selbständig komplexe Leistungsfälle aus den Bereichen unserer Spitalzusatzversicherungen (VVG) und führst medizinische Abklärungen durch.\n\n• Die Kostengutsprachen liegen in deiner Verantwortung. Du klärst, erteilst oder lehnst souverän ab.\n\n• Rechnungen nach VVG prüfst du mit scharfem Auge, stets basierend auf medizinischen Unterlagen, Tarifen, Verträgen und Wirtschaftlichkeit.\n\n• Für Leistungserbringer und Versicherte stehst du für schriftliche und mündliche Fragen zur Verfügung.\n\n• Dank deines Servicestandards und deinem Qualitätsanspruch können wir eine nachhaltige Kundenzufriedenheit sicherstellen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Du hast eine abgeschlossene Ausbildung als Pflegefachfrau/-mann HF und bringst mehrjährige Berufserfahrung im Akutspital mit.\n\n• Bringst du auch Erfahrungen in der Leistungsprüfung einer Krankenversicherung mit? Das wäre definitiv ein Plus!\n\n• Du drückst dich sehr gut in Deutsch aus (mündlich und schriftlich) und bist verhandlungssicher im Gespräch mit unseren Kundinnen und Kunden. Vielleicht beherrschst du sogar Französisch, Italienisch oder Englisch?\n\n• Es fällt dir leicht, genau und selbständig zu arbeiten.\n\n• Du gehst die Extra-Meile: Zeitweise gibt es viel zu tun und damit kannst du umgehen.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nMaja Epprecht ist für dich da.\n+41 58 277 46 09\n\nFragen zum Bewerbungsprozess?\nTina Grochla ist für dich da.\n058 277 22 52\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+      "descriptionByLocale": {
+        "de": "Wir von der CSS sind Gesundheitspartnerin für rund 1.7 Millionen Versicherte. Und vielleicht schon bald auch deine Partnerin für deine berufliche Zukunft? Uns würde es freuen. Denn hier kannst du etwas bewirken: Mit deinem medizinischen Fachwissen hilfst du uns, die Leistungskosten tief zu halten. Wir haben ein paar starke Angebote für dich: tolle Arbeitszeiten, Homeoffice und ausgezeichnete Entwicklungsmöglichkeiten. Und ein grosses Team aus medizinischen Fachpersonen - bei uns ist immer etwas los. Wann lernen wir uns kennen?\n\nSo sieht dein Alltag aus\n\n• Das Herzstück: Du bearbeitest selbständig komplexe Leistungsfälle aus den Bereichen unserer Spitalzusatzversicherungen (VVG) und führst medizinische Abklärungen durch.\n\n• Die Kostengutsprachen liegen in deiner Verantwortung. Du klärst, erteilst oder lehnst souverän ab.\n\n• Rechnungen nach VVG prüfst du mit scharfem Auge, stets basierend auf medizinischen Unterlagen, Tarifen, Verträgen und Wirtschaftlichkeit.\n\n• Für Leistungserbringer und Versicherte stehst du für schriftliche und mündliche Fragen zur Verfügung.\n\n• Dank deines Servicestandards und deinem Qualitätsanspruch können wir eine nachhaltige Kundenzufriedenheit sicherstellen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Du hast eine abgeschlossene Ausbildung als Pflegefachfrau/-mann HF und bringst mehrjährige Berufserfahrung im Akutspital mit.\n\n• Bringst du auch Erfahrungen in der Leistungsprüfung einer Krankenversicherung mit? Das wäre definitiv ein Plus!\n\n• Du drückst dich sehr gut in Deutsch aus (mündlich und schriftlich) und bist verhandlungssicher im Gespräch mit unseren Kundinnen und Kunden. Vielleicht beherrschst du sogar Französisch, Italienisch oder Englisch?\n\n• Es fällt dir leicht, genau und selbständig zu arbeiten.\n\n• Du gehst die Extra-Meile: Zeitweise gibt es viel zu tun und damit kannst du umgehen.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nMaja Epprecht ist für dich da.\n+41 58 277 46 09\n\nFragen zum Bewerbungsprozess?\nTina Grochla ist für dich da.\n058 277 22 52\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "it": "Wir von der CSS sind Gesundheitspartnerin für rund 1.7 Millionen Versicherte. Und vielleicht schon bald auch deine Partnerin für deine berufliche Zukunft? Uns würde es freuen. Denn hier kannst du etwas bewirken: Mit deinem medizinischen Fachwissen hilfst du uns, die Leistungskosten tief zu halten. Wir haben ein paar starke Angebote für dich: tolle Arbeitszeiten, Homeoffice und ausgezeichnete Entwicklungsmöglichkeiten. Und ein grosses Team aus medizinischen Fachpersonen - bei uns ist immer etwas los. Wann lernen wir uns kennen?\n\nSo sieht dein Alltag aus\n\n• Das Herzstück: Du bearbeitest selbständig komplexe Leistungsfälle aus den Bereichen unserer Spitalzusatzversicherungen (VVG) und führst medizinische Abklärungen durch.\n\n• Die Kostengutsprachen liegen in deiner Verantwortung. Du klärst, erteilst oder lehnst souverän ab.\n\n• Rechnungen nach VVG prüfst du mit scharfem Auge, stets basierend auf medizinischen Unterlagen, Tarifen, Verträgen und Wirtschaftlichkeit.\n\n• Für Leistungserbringer und Versicherte stehst du für schriftliche und mündliche Fragen zur Verfügung.\n\n• Dank deines Servicestandards und deinem Qualitätsanspruch können wir eine nachhaltige Kundenzufriedenheit sicherstellen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Du hast eine abgeschlossene Ausbildung als Pflegefachfrau/-mann HF und bringst mehrjährige Berufserfahrung im Akutspital mit.\n\n• Bringst du auch Erfahrungen in der Leistungsprüfung einer Krankenversicherung mit? Das wäre definitiv ein Plus!\n\n• Du drückst dich sehr gut in Deutsch aus (mündlich und schriftlich) und bist verhandlungssicher im Gespräch mit unseren Kundinnen und Kunden. Vielleicht beherrschst du sogar Französisch, Italienisch oder Englisch?\n\n• Es fällt dir leicht, genau und selbständig zu arbeiten.\n\n• Du gehst die Extra-Meile: Zeitweise gibt es viel zu tun und damit kannst du umgehen.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nMaja Epprecht ist für dich da.\n+41 58 277 46 09\n\nFragen zum Bewerbungsprozess?\nTina Grochla ist für dich da.\n058 277 22 52\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "en": "Wir von der CSS sind Gesundheitspartnerin für rund 1.7 Millionen Versicherte. Und vielleicht schon bald auch deine Partnerin für deine berufliche Zukunft? Uns würde es freuen. Denn hier kannst du etwas bewirken: Mit deinem medizinischen Fachwissen hilfst du uns, die Leistungskosten tief zu halten. Wir haben ein paar starke Angebote für dich: tolle Arbeitszeiten, Homeoffice und ausgezeichnete Entwicklungsmöglichkeiten. Und ein grosses Team aus medizinischen Fachpersonen - bei uns ist immer etwas los. Wann lernen wir uns kennen?\n\nSo sieht dein Alltag aus\n\n• Das Herzstück: Du bearbeitest selbständig komplexe Leistungsfälle aus den Bereichen unserer Spitalzusatzversicherungen (VVG) und führst medizinische Abklärungen durch.\n\n• Die Kostengutsprachen liegen in deiner Verantwortung. Du klärst, erteilst oder lehnst souverän ab.\n\n• Rechnungen nach VVG prüfst du mit scharfem Auge, stets basierend auf medizinischen Unterlagen, Tarifen, Verträgen und Wirtschaftlichkeit.\n\n• Für Leistungserbringer und Versicherte stehst du für schriftliche und mündliche Fragen zur Verfügung.\n\n• Dank deines Servicestandards und deinem Qualitätsanspruch können wir eine nachhaltige Kundenzufriedenheit sicherstellen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Du hast eine abgeschlossene Ausbildung als Pflegefachfrau/-mann HF und bringst mehrjährige Berufserfahrung im Akutspital mit.\n\n• Bringst du auch Erfahrungen in der Leistungsprüfung einer Krankenversicherung mit? Das wäre definitiv ein Plus!\n\n• Du drückst dich sehr gut in Deutsch aus (mündlich und schriftlich) und bist verhandlungssicher im Gespräch mit unseren Kundinnen und Kunden. Vielleicht beherrschst du sogar Französisch, Italienisch oder Englisch?\n\n• Es fällt dir leicht, genau und selbständig zu arbeiten.\n\n• Du gehst die Extra-Meile: Zeitweise gibt es viel zu tun und damit kannst du umgehen.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nMaja Epprecht ist für dich da.\n+41 58 277 46 09\n\nFragen zum Bewerbungsprozess?\nTina Grochla ist für dich da.\n058 277 22 52\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "fr": "Wir von der CSS sind Gesundheitspartnerin für rund 1.7 Millionen Versicherte. Und vielleicht schon bald auch deine Partnerin für deine berufliche Zukunft? Uns würde es freuen. Denn hier kannst du etwas bewirken: Mit deinem medizinischen Fachwissen hilfst du uns, die Leistungskosten tief zu halten. Wir haben ein paar starke Angebote für dich: tolle Arbeitszeiten, Homeoffice und ausgezeichnete Entwicklungsmöglichkeiten. Und ein grosses Team aus medizinischen Fachpersonen - bei uns ist immer etwas los. Wann lernen wir uns kennen?\n\nSo sieht dein Alltag aus\n\n• Das Herzstück: Du bearbeitest selbständig komplexe Leistungsfälle aus den Bereichen unserer Spitalzusatzversicherungen (VVG) und führst medizinische Abklärungen durch.\n\n• Die Kostengutsprachen liegen in deiner Verantwortung. Du klärst, erteilst oder lehnst souverän ab.\n\n• Rechnungen nach VVG prüfst du mit scharfem Auge, stets basierend auf medizinischen Unterlagen, Tarifen, Verträgen und Wirtschaftlichkeit.\n\n• Für Leistungserbringer und Versicherte stehst du für schriftliche und mündliche Fragen zur Verfügung.\n\n• Dank deines Servicestandards und deinem Qualitätsanspruch können wir eine nachhaltige Kundenzufriedenheit sicherstellen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Du hast eine abgeschlossene Ausbildung als Pflegefachfrau/-mann HF und bringst mehrjährige Berufserfahrung im Akutspital mit.\n\n• Bringst du auch Erfahrungen in der Leistungsprüfung einer Krankenversicherung mit? Das wäre definitiv ein Plus!\n\n• Du drückst dich sehr gut in Deutsch aus (mündlich und schriftlich) und bist verhandlungssicher im Gespräch mit unseren Kundinnen und Kunden. Vielleicht beherrschst du sogar Französisch, Italienisch oder Englisch?\n\n• Es fällt dir leicht, genau und selbständig zu arbeiten.\n\n• Du gehst die Extra-Meile: Zeitweise gibt es viel zu tun und damit kannst du umgehen.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Wähle dein Ferienmodell: 5 oder 6 Wochen Ferien? Deine Entscheidung. Entsprechend arbeitest du 41 oder 42 Stunden pro Woche.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\n• Engagiere dich sozial: Das Leben meint es gut mit dir? Dann lass andere an deinem Glück teilhaben und erweitere alleine oder im Team deinen Horizont.\n\n• Geniesse dein Familienleben: Nimm dir Zeit für deinen Nachwuchs: 3 Wochen für Väter, für Mütter bis zu 20 Wochen. Dazu gibt's grosszügige Kinder- und Ausbildungszulagen.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nMaja Epprecht ist für dich da.\n+41 58 277 46 09\n\nFragen zum Bewerbungsprozess?\nTina Grochla ist für dich da.\n058 277 22 52\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?"
+      },
+      "location": "Luzern / hybrid",
+      "canton": "LU",
+      "url": "https://jobs.css.ch/offene-stellen/pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungspruefung-vvg/fb8e478c-4a5f-44c2-aaf8-1c6562c301fb",
+      "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:23:34.372Z",
+      "addressLocality": "Luzern / hybrid",
+      "addressRegion": "LU",
+      "streetAddress": "Tribschenstrasse 21",
+      "postalCode": "6002",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Assicurazioni",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://jobs.css.ch/offene-stellen/pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungspruefung-vvg/fb8e478c-4a5f-44c2-aaf8-1c6562c301fb",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-mann-als-medizinische-r-spezialist-in-leistungsprufung-vvg-80-100-css"
+      ],
+      "salaryMin": 74500,
+      "salaryMax": 123500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 74500,
+          "maxValue": 123500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:23:34.372Z"
+    },
+    {
+      "id": "css-versicherung-a1f7cc983d6c",
+      "slug": "agenzia-manager-ride-100-css-versicherung-lachen",
+      "slugByLocale": {
+        "it": "agenzia-manager-ride-100-css-versicherung-lachen",
+        "en": "agency-manager-laughs-100-css-versicherung-lachen",
+        "de": "agenturleiter-in-lachen-100-css-versicherung-lachen",
+        "fr": "directeur-de-l-agence-rires-100-css-versicherung-lachen"
+      },
+      "company": "CSS Versicherung",
+      "companyKey": "css-versicherung",
+      "companyDomain": "css.ch",
+      "title": "Agenturleiter/in Lachen 100%",
+      "titleByLocale": {
+        "it": "Agenzia manager/ride 100%",
+        "en": "Agency manager/laughs 100%",
+        "de": "Agenturleiter/in Lachen 100%",
+        "fr": "Directeur de l'Agence/rires 100%"
+      },
+      "description": "Wir von der CSS helfen Menschen, ein gesundes Leben zu führen. Vielleicht ist unsere Mission ja bald auch deine? Uns würde es freuen. Wir sind eine bunte Gruppe ehrgeiziger Menschen, die etwas bewegen wollen. Einige von uns haben das KV gemacht, andere studiert, wieder andere kommen aus dem Detailhandel, dem Gastgewerbe oder aus einer anderen beruflichen Ecke. Alle bringen ihre Erfahrung ein. Wir helfen einander, halten zusammen und lachen viel. Und Erfolge feiern wir am liebsten\n\nSo sieht dein Alltag aus\n\n• Du führst dein Team mit rund 8 Personen, inspirierst die Menschen, die mit dir arbeiten und hilfst ihnen, ihre Ziele zu erreichen und sich zu entwickeln.\n\n• Dein Führungsstil vermag es, die Bedürfnisse deiner Mitarbeitenden und die Zielvorgaben deiner Agenturen zum Wohle aller zu vereinen.\n\n• Du bist ein Profi in der Netzwerkpflege - unsere Beziehungen zu Privat- wie auch Rahmenvertragskunden wachsen dank dir weiter.\n\n• Du bist auch selbst an der Front und betreust unsere Kunden.\n\n• Unseren professionellen Auftritt trägst du nach aussen gegenüber unseren Kundinnen und Kunden, aber auch gegenüber potenziellen künftigen Mitarbeitenden.\n\n• In deiner Rolle schaust du immer über den Tellerrand und machst dir Gedanken über künftige Perspektiven und Möglichkeiten für deine Agenturen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Man merkt es dir an, dass du gerne mit Menschen arbeitest – du gehst Themen offen an und deine positive Art ist ansteckend.\n\n• Du bist eine motivierte und gewinnbringende Persönlichkeit mit einer ausgeprägten Verkaufs- und Zielorientierung und verfügst im Idealfall über eine höhere Ausbildung in Betriebswirtschaft oder im Versicherungswesen.\n\n• Du bringst bereits Erfahrungen in der Mitarbeiterführung im Vertrieb mit. Du kannst gut auf dein Gegenüber eingehen, interessierst dich für die Bedürfnisse deines Teams und kannst gemeinsame Lösungen herbeiführen.\n\n• Du verfügst über eine lösungsorientierte Einstellung und kannst dank deiner hohen Belastbarkeit mit unerwarteten Situationen und Phasen grosser Belastung umgehen.\n\n• Dank deiner stilsicheren und adressatengerechten Kommunikation in Deutsch fällt dir der Austausch über unterschiedliche Stufen leicht.\n\n• Du hast ein grosses Beziehungsnetz und wohnst vorzugsweise in der Region.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Erhole dich in den Ferien: Du arbeitest 41 Stunden pro Woche und geniesst 6 Wochen Ferien.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nRenzo Richiusa ist für dich da.\n+41 58 277 35 35\n\nFragen zum Bewerbungsprozess?\nKevin Kisungu ist für dich da.\n058 277 46 59\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+      "descriptionByLocale": {
+        "it": "Noi del CSS aiutiamo le persone a condurre una vita sana. Forse la nostra missione sarà presto anche tua? Saremmo lieti. Siamo un gruppo diverso di persone ambiziose che vogliono fare la differenza. Alcuni di noi hanno fatto il KV, altri hanno studiato, altri ancora provengono dal commercio al dettaglio, l'industria dell'ospitalità o da un altro angolo professionale. Tutti portano la loro esperienza. Ci aiutiamo a vicenda, rimaniamo insieme e ridiamo molto. E preferiamo festeggiare i successi.\n\nQuesta è la tua vita quotidiana\n\n• Guida il tuo team di circa 8 persone, ispirando le persone che lavorano con te e aiutandoli a raggiungere i loro obiettivi e sviluppare.\n\n• Il vostro stile di leadership può combinare le esigenze dei vostri dipendenti e gli obiettivi delle vostre agenzie a beneficio di tutti.\n\n• Sei un professionista nella manutenzione della rete - i nostri rapporti con i clienti contrattuali privati e framework continuano a crescere grazie a te.\n\n• Siete anche in prima linea e badate ai nostri clienti.\n\n• Il nostro aspetto professionale è esterno ai nostri clienti, ma anche ai potenziali dipendenti futuri.\n\n• Nel tuo ruolo, guardi sempre al di fuori della scatola e pensi a prospettive e opportunità future per le tue agenzie.\n\nLo porti con te.\n\n• Prima di tutto: ti rendi conto che ti piace lavorare con le persone – ti avvicini apertamente agli argomenti e la tua natura positiva è contagiosa.\n\n• Sei una personalità motivata e proficua con un pronunciato orientamento vendite e obiettivo e idealmente avere un'istruzione superiore in amministrazione aziendale o assicurazione.\n\n• Hai già portato esperienza nella gestione dei dipendenti nelle vendite. È possibile rispondere bene alla vostra controparte, sono interessati alle esigenze del vostro team e può portare a soluzioni congiunte.\n\n• Hai un atteggiamento orientato alla soluzione e, grazie alla tua elevata resilienza, puoi affrontare situazioni inaspettate e fasi di grande stress.\n\n• Grazie alla vostra comunicazione elegante e indirizzabile in tedesco, lo scambio su diversi livelli è facile.\n\n• Hai una grande rete di relazioni e preferibilmente vivere nella regione.\n\n• Lavoro flessibile: Adapt il vostro lavoro per il vostro stile di vita ogni anno con opzioni part-time e altri modelli flessibili come l'ufficio di casa e altro ancora.\n\n• Godetevi il vostro portafoglio: vantaggi come bonus, Reka, premio di assicurazione sanitaria scontato e altri che rapidamente compongono alcune migliaia all'anno.\n\n• Rilassati durante le vacanze: lavori 41 ore a settimana e goditi 6 settimane di vacanza.\n\n• Migliorati ulteriormente: Ci piace vederlo se ti istruisci internamente o esternamente e sosteniamo generosamente con il tempo e il denaro.\n\n• Festeggia con noi: Focused work e festeggia. Amiamo questa combinazione e la manteniamo regolarmente.\n\n• Soggiorno in forma: Posti di lavoro ergonomici, promozione del benessere mentale e molte altre offerte intorno alla vostra salute.\n\nInformazioni di contatto\n\nDomande sul tuo lavoro al tuo manager?\nRenzo Richiusa è qui per te.\n+41 58 277 35 35\n\nDomande sul processo di applicazione?\nKevin Kisungu e' qui per te.\n058 277 46 59\n\nIl tuo futuro team\n\nCirca 1,7 milioni di clienti, circa 100 agenzie, circa 3000 dipendenti e uno dei principali assicuratori svizzeri di salute e proprietà. Si', siamo piuttosto grandi. Fortunatamente. Perché ci dà anche grandi opportunità di fare davvero la differenza. Le nostre radici risalgono al 1899. Da allora siamo cresciuti sani, ma non ci riposeremo su questo: Abbiamo ancora un sacco di piani per il futuro - forse insieme a te?",
+        "en": "We at CSS help people to lead a healthy life. Maybe our mission will soon be yours too? We would be delighted. We are a diverse group of ambitious people who want to make a difference. Some of us did the KV, others studied, still others come from the retail trade, the hospitality industry or from another professional corner. Everyone brings their experience. We help each other, stick together and laugh a lot. And we prefer to celebrate successes.\n\nThis is what your everyday life looks like\n\n• You lead your team of around 8 people, inspiring the people who work with you and helping them achieve their goals and develop.\n\n• Your leadership style can combine the needs of your employees and the objectives of your agencies for the benefit of all.\n\n• You are a professional in network maintenance - our relationships with private and framework contract customers continue to grow thanks to you.\n\n• You are also on the front line and look after our customers.\n\n• Our professional appearance is external to our customers, but also to potential future employees.\n\n• In your role, you always look outside the box and think about future prospects and opportunities for your agencies.\n\nYou bring that with you\n\n• First things first: You realize that you like to work with people – you approach topics openly and your positive nature is contagious.\n\n• You are a motivated and profitable personality with a pronounced sales and goal orientation and ideally have a higher education in business administration or insurance.\n\n• You already bring experience in employee management in sales. You can respond well to your counterpart, are interested in the needs of your team and can bring about joint solutions.\n\n• You have a solution-oriented attitude and, thanks to your high resilience, you can deal with unexpected situations and phases of great stress.\n\n• Thanks to your stylish and addressable communication in German, the exchange over different levels is easy.\n\n• You have a large relationship network and preferably live in the region.\n\n• Work Flexible: Adapt your work to your lifestyle annually with part-time options and other flexible models like home office and more.\n\n• Enjoy your wallet: Benefits such as bonus, Reka, discounted health insurance premium and others that quickly make up a few thousands a year.\n\n• Relax during the holidays: You work 41 hours a week and enjoy 6 weeks of vacation.\n\n• Improve yourself further: We like to see it if you educate yourself internally or externally and support generously with time and money.\n\n• Celebrate with us: Focused work and celebrate. We love this combination and maintain it regularly.\n\n• Stay fit: Ergonomic workplaces, promotion of mental well-being and many other offers around your health.\n\nContact details\n\nQuestions about your job to your manager?\nRenzo Richiusa is here for you.\n+41 58 277 35 35\n\nQuestions about the application process?\nKevin Kisungu is here for you.\n058 277 46 59\n\nYour future team\n\nAround 1.7 million customers, around 100 agencies, around 3000 employees and one of the leading Swiss health and property insurers. Yeah, we're pretty big. Fortunately. Because it also gives us great opportunities to really make a difference. Our roots date back to 1899. Since then we have grown healthy, but we do not rest on this: We still have a lot of plans for the future - maybe together with you?",
+        "de": "Wir von der CSS helfen Menschen, ein gesundes Leben zu führen. Vielleicht ist unsere Mission ja bald auch deine? Uns würde es freuen. Wir sind eine bunte Gruppe ehrgeiziger Menschen, die etwas bewegen wollen. Einige von uns haben das KV gemacht, andere studiert, wieder andere kommen aus dem Detailhandel, dem Gastgewerbe oder aus einer anderen beruflichen Ecke. Alle bringen ihre Erfahrung ein. Wir helfen einander, halten zusammen und lachen viel. Und Erfolge feiern wir am liebsten\n\nSo sieht dein Alltag aus\n\n• Du führst dein Team mit rund 8 Personen, inspirierst die Menschen, die mit dir arbeiten und hilfst ihnen, ihre Ziele zu erreichen und sich zu entwickeln.\n\n• Dein Führungsstil vermag es, die Bedürfnisse deiner Mitarbeitenden und die Zielvorgaben deiner Agenturen zum Wohle aller zu vereinen.\n\n• Du bist ein Profi in der Netzwerkpflege - unsere Beziehungen zu Privat- wie auch Rahmenvertragskunden wachsen dank dir weiter.\n\n• Du bist auch selbst an der Front und betreust unsere Kunden.\n\n• Unseren professionellen Auftritt trägst du nach aussen gegenüber unseren Kundinnen und Kunden, aber auch gegenüber potenziellen künftigen Mitarbeitenden.\n\n• In deiner Rolle schaust du immer über den Tellerrand und machst dir Gedanken über künftige Perspektiven und Möglichkeiten für deine Agenturen.\n\nDas bringst du mit\n\n• Das Wichtigste zuerst: Man merkt es dir an, dass du gerne mit Menschen arbeitest – du gehst Themen offen an und deine positive Art ist ansteckend.\n\n• Du bist eine motivierte und gewinnbringende Persönlichkeit mit einer ausgeprägten Verkaufs- und Zielorientierung und verfügst im Idealfall über eine höhere Ausbildung in Betriebswirtschaft oder im Versicherungswesen.\n\n• Du bringst bereits Erfahrungen in der Mitarbeiterführung im Vertrieb mit. Du kannst gut auf dein Gegenüber eingehen, interessierst dich für die Bedürfnisse deines Teams und kannst gemeinsame Lösungen herbeiführen.\n\n• Du verfügst über eine lösungsorientierte Einstellung und kannst dank deiner hohen Belastbarkeit mit unerwarteten Situationen und Phasen grosser Belastung umgehen.\n\n• Dank deiner stilsicheren und adressatengerechten Kommunikation in Deutsch fällt dir der Austausch über unterschiedliche Stufen leicht.\n\n• Du hast ein grosses Beziehungsnetz und wohnst vorzugsweise in der Region.\n\n• Arbeite flexibel: Passe deine Arbeit jährlich an deinen Lebensstil an - mit Teilzeitoptionen und anderen flexiblen Modellen wie Homeoffice und weiteren mehr.\n\n• Erfreue dein Portemonnaie: Benefits wie Bonus, Reka, vergünstigte Krankenkassenprämie und weitere, die schnell einmal ein paar Tausender im Jahr ausmachen.\n\n• Erhole dich in den Ferien: Du arbeitest 41 Stunden pro Woche und geniesst 6 Wochen Ferien.\n\n• Bilde dich weiter: Wir sehen es gerne, wenn du dich intern oder extern weiterbildest und unterstützen grosszügig mit Zeit und Geld.\n\n• Feiere mit uns: Fokussiert arbeiten und ausgelassen feiern. Wir lieben diese Kombination und pflegen sie regelmässig.\n\n• Bleibe fit: Ergonomische Arbeitplätze, Förderung des mentalen Wohlbefindens und viele weitere Angebote rund um deine Gesundheit.\n\nKontakt\n\nFragen zur Stelle an deine/n Führungsverantwortliche/n?\nRenzo Richiusa ist für dich da.\n+41 58 277 35 35\n\nFragen zum Bewerbungsprozess?\nKevin Kisungu ist für dich da.\n058 277 46 59\n\nDein zukünftiges Team\n\nRund 1,7 Millionen Kundinnen und Kunden, rund 100 Agenturen, rund 3000 Mitarbeitende und eine der führenden Schweizer Kranken- und Sachversicherer. Ja, wir sind ganz schön gross. Zum Glück. Denn gross sind dadurch auch unsere Möglichkeiten, wirklich etwas zu bewegen. Unsere Wurzeln gehen bis 1899 zurück. Seither sind wir gesund gewachsen, aber darauf ruhen wir uns nicht aus: Für die Zukunft haben wir noch viel vor - vielleicht zusammen mit dir?",
+        "fr": "Chez CSS, nous aidons les gens à mener une vie saine. Peut-être que notre mission sera bientôt la vôtre aussi ? Nous serions ravis. Nous sommes un groupe diversifié de personnes ambitieuses qui veulent faire une différence. Certains d'entre nous ont fait le KV, d'autres ont étudié, d'autres encore viennent du commerce de détail, de l'industrie hôtelière ou d'un autre secteur professionnel. Tout le monde apporte son expérience. On s'entraide, on reste ensemble et on rigole beaucoup. Et nous préférons célébrer les succès.\n\nC'est à ça que ressemble ta vie quotidienne\n\n• Vous dirigez votre équipe d'environ 8 personnes, inspirant les personnes qui travaillent avec vous et les aidant à atteindre leurs objectifs et à se développer.\n\n• Votre style de leadership peut combiner les besoins de vos employés et les objectifs de vos agences au profit de tous.\n\n• Vous êtes un professionnel dans la maintenance du réseau - nos relations avec les clients privés et framework contrat continuent de croître grâce à vous.\n\n• Vous êtes également en première ligne et vous occupez de nos clients.\n\n• Notre apparence professionnelle est externe à nos clients, mais aussi aux futurs employés potentiels.\n\n• Dans votre rôle, vous regardez toujours en dehors de la boîte et pensez aux perspectives et opportunités futures pour vos agences.\n\nApporte ça avec toi.\n\n• Première chose : Vous réalisez que vous aimez travailler avec les gens – vous abordez les sujets ouvertement et votre nature positive est contagieuse.\n\n• Vous êtes une personnalité motivée et rentable avec une forte orientation des ventes et des objectifs et idéalement avoir une formation supérieure en administration des affaires ou en assurance.\n\n• Vous apportez déjà de l'expérience dans la gestion des employés dans les ventes. Vous pouvez bien répondre à votre homologue, être intéressé par les besoins de votre équipe et peut apporter des solutions communes.\n\n• Vous avez une attitude orientée vers la solution et, grâce à votre haute résilience, vous pouvez faire face à des situations inattendues et des phases de grand stress.\n\n• Grâce à votre communication élégante et adressable en allemand, l'échange sur différents niveaux est facile.\n\n• Vous avez un vaste réseau de relations et vivez de préférence dans la région.\n\n• Travail flexible : Adaptez votre travail à votre style de vie chaque année avec des options à temps partiel et d'autres modèles flexibles comme le bureau à domicile et plus encore.\n\n• Profitez de votre portefeuille : avantages tels que bonus, Reka, primes d'assurance-maladie à prix réduit et autres qui composent rapidement quelques milliers par an.\n\n• Détendez-vous pendant les vacances : vous travaillez 41 heures par semaine et profitez de 6 semaines de vacances.\n\n• Améliorez-vous davantage: Nous aimons voir si vous vous éduquez en interne ou en externe et soutenez généreusement avec le temps et l'argent.\n\n• Célébrez avec nous : Travail concentré et fêtez. Nous aimons cette combinaison et la maintenons régulièrement.\n\n• Restez en forme : milieux de travail ergonomiques, promotion du bien-être mental et de nombreuses autres offres autour de votre santé.\n\nCoordonnées\n\nDes questions sur votre travail à votre manager ?\nRenzo Richiusa est là pour vous.\n+41 58 277 35 35\n\nDes questions sur le processus de demande?\nKevin Kisungu est là pour vous.\n058 277 46 59\n\nVotre future équipe\n\nEnviron 1,7 million de clients, une centaine d'agences, près de 3000 salariés et l'un des principaux assureurs suisses. Ouais, nous sommes assez grands. Heureusement. Parce qu'il nous donne aussi de grandes occasions de vraiment faire la différence. Nos racines remontent à 1899. Depuis, nous sommes en bonne santé, mais nous ne nous reposons pas là-dessus : Nous avons encore beaucoup de plans pour l'avenir - peut-être avec vous ?"
+      },
+      "location": "Lachen",
+      "canton": "SZ",
+      "url": "https://jobs.css.ch/offene-stellen/agenturleiter-in-lachen/53c6d796-7b42-4e87-9ef4-f0006776e151",
+      "source": "CSS Versicherung Dedicated Parser (Prospective careercenter + JobPosting JSON-LD)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-01T21:18:44.965Z",
+      "addressLocality": "Lachen",
+      "addressRegion": "SZ",
+      "streetAddress": "",
+      "postalCode": "8853",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Assicurazioni",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://jobs.css.ch/offene-stellen/agenturleiter-in-lachen/53c6d796-7b42-4e87-9ef4-f0006776e151",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "agenturleiter-in-lachen-100-css-versicherung-lachen",
+        "agenzia-manager-ride-100-css-versicherung-lachen"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "agenturleiter-in-lachen-100-css-versicherung-lachen",
+          "agenzia-manager-ride-100-css-versicherung-lachen"
+        ],
+        "en": [
+          "agenturleiter-in-lachen-100-css-versicherung-lachen"
+        ],
+        "fr": [
+          "agenturleiter-in-lachen-100-css-versicherung-lachen"
+        ]
+      },
+      "firstSeenAt": "2026-07-30T11:34:15.944Z",
+      "salaryMin": 96000,
+      "salaryMax": 146000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 96000,
+          "maxValue": 146000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

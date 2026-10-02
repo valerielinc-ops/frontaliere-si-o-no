@@ -597,6 +597,30 @@ describe('extractPrice', () => {
     expect(extractPrice({ isAccessibleForFree: true })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
+  it('gives isAccessibleForFree priority over positive offers', () => {
+    expect(extractPrice({
+      isAccessibleForFree: true,
+      offers: [{ price: '25', priceCurrency: 'CHF' }, { price: '0', priceCurrency: 'CHF' }],
+    })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('does not carry paid Offer metadata into a free event without a zero-priced Offer', () => {
+    expect(extractPrice({
+      isAccessibleForFree: true,
+      offers: [{
+        price: '20',
+        priceCurrency: 'CHF',
+        availability: 'InStock',
+        validFrom: '2026-06-01T09:00:00+02:00',
+        url: '/tickets/paid',
+      }],
+    }, undefined, 'https://www.myswitzerland.com/event')).toEqual({
+      amount: 0,
+      currency: 'CHF',
+      isFree: true,
+    });
+  });
+
   it('falls back to the localized detail table when JSON-LD omits offers', () => {
     const html = '<table><tr><th scope="row">Prezzo</th><td><div class="richtext">Gratuito</div></td></tr></table>';
     expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');

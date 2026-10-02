@@ -81,6 +81,28 @@ afterEach(() => {
   document.documentElement.innerHTML = '';
 });
 
+describe('border-wait mobile labels survive live updates', () => {
+  it.each(['it', 'en', 'de', 'fr'] as const)('%s preserves all column labels and a single row per crossing', async (locale) => {
+    await hydrate(pages[buildRegionalHubPath(locale, 'argovia-germania')], []);
+    const table = document.querySelector('table[aria-labelledby="crossingTable"]')!;
+    const headers = [...table.querySelectorAll('th[scope="col"]')].map((th) => th.textContent?.trim());
+    const rows = [...table.querySelectorAll('[data-bw-crossing]')];
+    expect(headers).toHaveLength(4);
+    expect(rows.length).toBeGreaterThan(0);
+    expect(new Set(rows.map((row) => row.getAttribute('data-bw-crossing'))).size).toBe(rows.length);
+    for (const row of rows) {
+      const cells = row.querySelectorAll('td');
+      expect(cells).toHaveLength(4);
+      for (let column = 1; column < 4; column++) {
+        const label = cells[column].querySelector('[aria-hidden="true"]');
+        expect(label?.textContent?.replace(/:$/, '').trim()).toBe(headers[column]);
+      }
+      // Clearing unavailable readings must not erase their mobile labels.
+      expect(cells[2].querySelector('[data-bw-field="lastUpdate"]')?.textContent).toBe('—');
+    }
+  });
+});
+
 describe('border-wait hydration — container classes stay untouched', () => {
   const cases: Array<[string, () => string]> = [
     ['root hub table rows', () => pages[buildRootHubPath('it')]],

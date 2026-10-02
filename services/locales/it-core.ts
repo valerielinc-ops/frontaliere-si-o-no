@@ -1,6 +1,9 @@
 // Italian translations — core page chunk
 import { PUBLIC_CONTACT_EMAIL } from '../publicContact';
 const translations: Record<string, string> = {
+ "whatsNew.v3973.title": "Anteprime delle offerte",
+ "whatsNew.v3973.jobPreview.title": "Descrizione completa dopo l’accesso",
+ "whatsNew.v3973.jobPreview.desc": "Le offerte mostrano un’anteprima breve. Accedi gratis per leggere descrizione e requisiti completi.",
  "whatsNew.v3971.readableJobs.title": "Offerte leggibili prima dell’accesso",
  "whatsNew.v3971.readableJobs.desc": "Puoi leggere la descrizione completa prima di accedere e aprire la candidatura. I suggerimenti per gli alert arrivano dopo la lettura e rispettano la tua scelta di chiuderli.",
  "jobBoard.gate.descriptionUnavailable": "La fonte non ha fornito una descrizione completa. Verifica i dettagli sul sito del datore prima di candidarti.",
@@ -1056,8 +1059,8 @@ const translations: Record<string, string> = {
  'jobBoard.authGateEmailCta': 'Continua con email',
  'jobBoard.authGateNewsletterNote': 'Inserendo la tua email riceverai anche la newsletter con aggiornamenti per frontalieri.',
  'jobBoard.gate.title': 'Scopri come candidarti a questo lavoro',
- "jobBoard.gate.applicationTitle": "Accedi gratis per proseguire con la candidatura",
- "jobBoard.gate.subtitle": "Puoi leggere qui la descrizione completa. Per aprire la candidatura accedi o continua con email; la candidatura si completa sul sito del datore. Le comunicazioni incluse sono indicate qui sotto.",
+ "jobBoard.gate.applicationTitle": "Accedi gratis per leggere l’offerta completa",
+ "jobBoard.gate.subtitle": "Accedi o continua con email per leggere descrizione e requisiti completi e aprire la candidatura sul sito del datore. Le comunicazioni incluse sono indicate qui sotto.",
  'jobBoard.gate.emailCta': 'Continua con email',
  'jobBoard.gate.benefit1': 'Descrizione completa e requisiti',
  'jobBoard.gate.benefit2': 'Come candidarsi e contatti',

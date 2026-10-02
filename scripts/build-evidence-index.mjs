@@ -8,14 +8,15 @@
 //   - 0 fetcher failures → exit 0
 //   - 1 fetcher failure  → exit 0 (degraded — log warning)
 //   - 2 fetcher failures → exit 0 (still degraded but not catastrophic)
-//   - 3 fetcher failures → exit 1 (full data outage)
+//   - 3 fetcher failures → exit 1 only when all three results are empty
+//     (a full data outage); preserved partial observations remain degraded
 //
 // Optional flag: `--embeddings` triggers `scripts/build-article-embeddings.mjs`
 // at the end (delegated to keep this script focused on the JSON ETL).
 
 import { writeFileSync, renameSync, mkdirSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { spawn } from 'node:child_process';
 
 import { fetchGscQueries } from './lib/evidence/gscFetcher.mjs';
@@ -48,6 +49,31 @@ function atomicWriteJson(path, obj) {
   mkdirSync(dirname(path), { recursive: true });
   writeFileSync(tmp, JSON.stringify(obj, null, 2));
   renameSync(tmp, path);
+}
+
+function hasEntries(value) {
+  return value != null && typeof value === 'object' && Object.keys(value).length > 0;
+}
+
+/**
+ * A fetcher can report incomplete coverage after preserving rows it observed.
+ * Those rows are still usable evidence; only an empty result is an outage.
+ */
+export function hasObservedEvidence(result) {
+  if (!result || typeof result !== 'object') return false;
+  return hasEntries(result.queries)
+    || hasEntries(result.pages)
+    || (Array.isArray(result.orphanQueries) && result.orphanQueries.length > 0);
+}
+
+/**
+ * Keep the build fail-closed for a genuine outage while allowing degraded,
+ * explicitly-marked partial snapshots to reach the quota tuner.
+ */
+export function isFullDataOutage(results) {
+  return Array.isArray(results)
+    && results.length > 0
+    && results.every((result) => !hasObservedEvidence(result));
 }
 
 async function runEmbeddingsBuild() {
@@ -93,6 +119,7 @@ async function main() {
   if (gscResult.error) failures.push(`gsc: ${gscResult.error}`);
   if (ga4Result.error) failures.push(`ga4: ${ga4Result.error}`);
   if (posthogResult.error) failures.push(`posthog: ${posthogResult.error}`);
+  const fetcherResults = [gscResult, ga4Result, posthogResult];
 
   for (const f of failures) console.error(`EVIDENCE_FETCHER_FAIL ${f}`);
 
@@ -120,7 +147,10 @@ async function main() {
       ...(ga4Result.error ? { error: ga4Result.error } : {}),
       ...(ga4Result.coverage ? { coverage: ga4Result.coverage } : {}),
     },
-    posthog: { pages: posthogResult.pages || {} },
+    posthog: {
+      pages: posthogResult.pages || {},
+      ...(posthogResult.error ? { error: posthogResult.error } : {}),
+    },
     clusterStats,
     publishedArticleEmbeddings: EMBEDDINGS_PATH,
   };
@@ -144,14 +174,32 @@ async function main() {
     console.error(`EVIDENCE_BUILD_EMBEDDINGS exit=${code}`);
   }
 
-  if (failures.length >= 3) {
+  if (failures.length === fetcherResults.length && isFullDataOutage(fetcherResults)) {
     console.error('EVIDENCE_BUILD_FATAL all 3 fetchers failed — exiting 1');
     process.exit(1);
+  }
+  if (failures.length === fetcherResults.length) {
+    const observed = fetcherResults.filter(hasObservedEvidence).length;
+    console.error(
+      `EVIDENCE_BUILD_DEGRADED all 3 fetchers reported incomplete results; `
+      + `observed evidence retained from ${observed} source(s) — continuing`,
+    );
   }
   process.exit(0);
 }
 
-main().catch((err) => {
-  console.error('EVIDENCE_BUILD_UNCAUGHT', err);
-  process.exit(1);
-});
+function isMain() {
+  try {
+    const entry = process.argv[1] ? pathToFileURL(resolve(process.argv[1])).href : '';
+    return import.meta.url === entry;
+  } catch {
+    return false;
+  }
+}
+
+if (isMain()) {
+  main().catch((err) => {
+    console.error('EVIDENCE_BUILD_UNCAUGHT', err);
+    process.exit(1);
+  });
+}
