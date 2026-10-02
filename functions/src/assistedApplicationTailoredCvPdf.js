@@ -12,7 +12,7 @@
  */
 
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
-import { DOCX_CONTENT_TYPE, buildInPlaceDocx } from './assistedApplicationDocxInPlace.js';
+import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
 import { applyCvLineChoices, cvChoicesOf, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
 
@@ -54,19 +54,24 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
 }
 
 /**
- * The candidate's own Word file again with their line-by-line choices (phase
- * 5): same base, same locks and budgets as the runner's first build. Without
- * LibreOffice here the length budget alone keeps the page count.
- * @returns {Promise<object|null>} the next `tailoredCv.inplace`, null when the draft has none ready
+ * The candidate's own Word file after their line-by-line choices (phase 5).
+ * The Cloud Functions have no LibreOffice to count pages, and a file whose
+ * pages were not counted is never offered nor sent: the file stays offered
+ * while the choices leave it as the runner verified it (the same
+ * document.xml), and falls back to the template CV otherwise
+ * (`needs_page_check`), until choices that match it again.
+ * @returns {Promise<object|null>} the next `tailoredCv.inplace`, null when the draft has none to reconsider
  */
-export async function rebuildInPlaceDocx({ bucket, order, orderId, draft, flow = {}, nowMs }) {
+export async function rebuildInPlaceDocx({ bucket, order, draft, flow = {} }) {
   const inplace = draft?.tailoredCv?.inplace;
-  if (inplace?.status !== 'ready' || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
-  const [base] = await bucket.file(inplace.baseKey).download();
+  const reconsider = inplace?.status === 'ready' || (inplace?.status === 'fallback' && inplace.reason === 'needs_page_check');
+  if (!reconsider || !inplace.verifiedKey || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
+  const [[base], [verified]] = await Promise.all([bucket.file(inplace.baseKey).download(), bucket.file(inplace.verifiedKey).download()]);
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
   const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: cvChoicesOf(draft, flow) });
-  if (built.status !== 'ready') return { ...inplace, status: 'fallback', reason: built.reason };
-  const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${draft.round || 1}-candidate-${nowMs}.docx`;
-  await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
-  return { ...inplace, docxKey, patched: built.patched, skipped: built.skipped, pageCheck: 'budget' };
+  const verifiedXml = documentXmlOf(Buffer.from(verified));
+  const same = built.status === 'ready' && Boolean(verifiedXml) && documentXmlOf(built.docx) === verifiedXml;
+  return same
+    ? { ...inplace, status: 'ready', reason: null, docxKey: inplace.verifiedKey }
+    : { ...inplace, status: 'fallback', reason: 'needs_page_check' };
 }

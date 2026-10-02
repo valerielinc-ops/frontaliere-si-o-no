@@ -7,16 +7,17 @@
  *
  * What the code allows, whatever the model wrote:
  *   - only paragraphs it fully understands are rewritten: plain runs of one
- *     formatting (a paragraph with inline bold, a field, a link or a tab in
- *     the text keeps the CV's line);
+ *     formatting (a paragraph with inline bold, a field, a link or any tab
+ *     keeps the CV's line: a tab aligns text the rewrite would move);
  *   - each adapted line goes to the paragraph of the highlight it rewrites
- *     (the anchor of phase 4, matched to the paragraph's text in code); a
- *     line that rewrites no single highlight has no place and is not added;
+ *     (the anchor of phase 4, matched to the paragraph's text in code), only
+ *     when one paragraph matches best: two paragraphs that match alike leave
+ *     the line out; a line that rewrites no single highlight is not added;
  *   - dates, employers, role titles, headings and contact lines are locked;
  *   - the summary is rewritten only where the CV has one; the skills line is
  *     only reordered (the posting's skills first), never added to;
- *   - a length budget per line and for the whole page keeps the page count
- *     (the runner also compares the pages with LibreOffice when it can);
+ *   - a length budget per line and for the whole page, then LibreOffice in
+ *     the runner: a file whose pages were not counted is never sent;
  *   - text boxes, more than one column, tracked changes and SmartArt send the
  *     candidate back to the template CV: the layout cannot be kept safely.
  * Every text written here already passed the fact gate as part of the
@@ -59,6 +60,16 @@ const BLOCKERS = [
   ['tracked_changes', /<w:(?:ins|del|moveFrom|moveTo|pPrChange|rPrChange|sectPrChange|tblPrChange)\b/],
   ['columns', /<w:cols\b[^>]*\bw:num="(?:[2-9]|\d{2,})"/],
 ];
+
+/** The text of a DOCX's word/document.xml ('' when it cannot be read). */
+export function documentXmlOf(docx) {
+  try {
+    const entry = readZip(docx).find((item) => item.name === DOCUMENT);
+    return entry ? entryData(entry, MAX_DOCUMENT_XML).toString('utf8') : '';
+  } catch {
+    return '';
+  }
+}
 
 /** Why the layout cannot be kept, or null. */
 export function docxBlocker(xml, names = []) {
@@ -124,7 +135,8 @@ function plainRuns(body) {
         if (!part || part.index !== start) return { reason: 'structure' };
         if (part[1]) run.rPr = part[1];
         else if (part[2] !== undefined) run.text += decode(part[2]);
-        else if (part[3]) run.text += '\t';
+        // A tab aligns the text after it (a date column, a hand-made bullet): never rewritten.
+        else if (part[3]) return { reason: 'tab' };
       }
       runs.push(run);
     }
@@ -196,21 +208,30 @@ function locksOf(profile = {}, identity = {}) {
   };
 }
 
-/** The paragraph that holds `original`: the best match above the threshold among the unused ones. */
+/**
+ * The paragraph that holds `original`: the one unused paragraph that matches
+ * best, above the threshold. Two that match alike are ambiguous: neither.
+ * @returns {{index:number, reason?:'no_paragraph'|'ambiguous'}}
+ */
 function anchorParagraph(paragraphs, used, original) {
   const target = words(String(original || '').replace(PREFIX, ''));
-  if (target.size < 3) return -1;
+  if (target.size < 3) return { index: -1, reason: 'no_paragraph' };
   let best = -1;
-  let bestScore = MATCH;
+  let bestScore = 0;
+  let tied = false;
   paragraphs.forEach((paragraph, index) => {
     if (used.has(index)) return;
     const score = similarity(target, paragraph.words);
-    if (score >= bestScore && (best < 0 || score > bestScore)) {
+    if (score > bestScore) {
       best = index;
       bestScore = score;
+      tied = false;
+    } else if (score === bestScore && best >= 0) {
+      tied = true;
     }
   });
-  return best;
+  if (best < 0 || bestScore < MATCH) return { index: -1, reason: 'no_paragraph' };
+  return tied ? { index: -1, reason: 'ambiguous' } : { index: best };
 }
 
 const fits = (before, after) => after.length <= Math.max(Math.round(before.length * LINE_GROWTH), before.length + LINE_SLACK);
@@ -283,8 +304,8 @@ export function buildInPlaceDocx(docx, cv, { profile = {}, identity = {}, choice
   const skipped = [];
   const place = (id, original, text) => {
     if (!text) return;
-    const index = anchorParagraph(paragraphs, used, original);
-    if (index < 0) return skipped.push({ id, reason: 'no_paragraph' });
+    const { index, reason: unplaced } = anchorParagraph(paragraphs, used, original);
+    if (index < 0) return skipped.push({ id, reason: unplaced });
     used.add(index);
     const paragraph = paragraphs[index];
     const reason = paragraph.reason || lockOf(paragraph, locks);

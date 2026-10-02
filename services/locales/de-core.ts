@@ -936,6 +936,7 @@ const deCore: Record<string, string> = {
  'jobBoard.assisted.review.cvChooseInplace': "Mein Lebenslauf, in meinem Layout mit den angepassten Zeilen (Word-Datei)",
  'jobBoard.assisted.review.cvInplaceNote': "In Ihrer Datei haben wir {patched} Zeilen umformuliert; {kept} bleiben wie in Ihrem Lebenslauf, weil ein Datum, eine gemischte Formatierung oder der Platz auf der Seite eine sichere Änderung nicht erlauben.",
  'jobBoard.assisted.review.cvInplaceDocx': "Ihren Lebenslauf mit den angepassten Zeilen herunterladen",
+ 'jobBoard.assisted.review.cvInplaceNeedsCheck': "Ihre Word-Datei steht nicht mehr zur Wahl: Die geänderten Zeilen könnten das Layout verschieben, und hier können wir die Seiten nicht neu zählen. Sie ist wieder verfügbar, wenn Sie die angepassten Zeilen zurücksetzen; bis dahin können Sie den angepassten oder Ihren eigenen Lebenslauf senden.",
  'jobBoard.assisted.review.cvChangesTitle': "Was wir in Ihrem Lebenslauf geändert haben",
  'jobBoard.assisted.review.cvChangesIntro': "Wählen Sie für jede Zeile, was gesendet wird: die angepasste Fassung, die Zeile aus Ihrem Lebenslauf oder einen eigenen Satz. Die angepassten Zeilen fügen keine Angaben hinzu: Sie formulieren um, was bereits in Ihrem Lebenslauf steht.",
  'jobBoard.assisted.review.cvLineOriginal': "In Ihrem Lebenslauf",

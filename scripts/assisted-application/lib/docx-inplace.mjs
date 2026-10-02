@@ -5,7 +5,8 @@
  * adapted lines are written into the candidate's own file
  * (functions/src/assistedApplicationDocxInPlace.js) and LibreOffice checks
  * that it takes no more pages than before (fewer is fine: a shorter line can
- * pull a last line back from page 2). Anything else sends the candidate back
+ * pull a last line back from page 2); without LibreOffice there is no file.
+ * Anything else sends the candidate back
  * to the template CV; the reason is kept on the draft, so the share of
  * fallbacks is measured.
  *
@@ -71,14 +72,11 @@ export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvTy
     const built = buildInPlaceDocx(base, cv, { profile, identity });
     if (built.status !== 'ready') return { status: 'fallback', reason: built.reason, baseType: cvType };
     if (!built.patched.length) return { status: 'fallback', reason: 'nothing_patched', baseType: cvType, skipped: built.skipped };
-    let pages = null;
-    let pagesBefore = null;
-    const checked = await haveOffice();
-    if (checked) {
-      pagesBefore = await pagesOf(base, run);
-      pages = await pagesOf(built.docx, run);
-      if (pages > pagesBefore) return { status: 'fallback', reason: 'more_pages', baseType: cvType, skipped: built.skipped, pages, pagesBefore };
-    }
+    // A file whose pages were not counted is never offered.
+    if (!(await haveOffice())) return { status: 'fallback', reason: 'no_page_check', baseType: cvType, skipped: built.skipped };
+    const pagesBefore = await pagesOf(base, run);
+    const pages = await pagesOf(built.docx, run);
+    if (pages > pagesBefore) return { status: 'fallback', reason: 'more_pages', baseType: cvType, skipped: built.skipped, pages, pagesBefore };
     // The converted DOC is kept only when it is used: the Cloud Functions rebuild from it.
     let baseKey = cvKey;
     if (cvType === 'doc') {
@@ -87,16 +85,17 @@ export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvTy
     }
     const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${round}-${nowMs}.docx`;
     await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
-    log('in-place docx', `${built.patched.length} lines`, `${built.skipped.length} kept`, checked ? `${pages} pages` : 'budget only');
+    log('in-place docx', `${built.patched.length} lines`, `${built.skipped.length} kept`, `${pages} pages`);
     return {
       status: 'ready',
       docxKey,
+      // The file LibreOffice checked: the Cloud Functions offer it again when the candidate's choices give it back.
+      verifiedKey: docxKey,
       baseKey,
       baseType: cvType,
       patched: built.patched,
       skipped: built.skipped,
-      // How the page count was kept: LibreOffice compared it, or the length budget alone.
-      pageCheck: checked ? 'libreoffice' : 'budget',
+      pageCheck: 'libreoffice',
       pages,
       pagesBefore,
     };

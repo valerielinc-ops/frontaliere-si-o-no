@@ -150,6 +150,8 @@ export interface ReviewPayload {
     changes?: ReviewCvChanges | null;
     /** Phase 5: the candidate's own Word file with the adapted lines (null when there is none). */
     inplace?: { url: string | null; patched: number; kept: number } | null;
+    /** The candidate's line choices changed the Word file: it comes back when they match the checked layout. */
+    inplaceNeedsPageCheck?: boolean;
   } | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
   can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };

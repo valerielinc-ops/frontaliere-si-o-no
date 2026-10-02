@@ -662,6 +662,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </label>
                   ))}
                 </fieldset>
+                {data.tailoredCv.inplaceNeedsPageCheck && (
+                  <p className="text-xs text-subtle">{t('jobBoard.assisted.review.cvInplaceNeedsCheck')}</p>
+                )}
                 {data.tailoredCv.inplace && (
                   <div className="space-y-1 text-xs text-subtle">
                     <p>{t('jobBoard.assisted.review.cvInplaceNote', { patched: data.tailoredCv.inplace.patched, kept: data.tailoredCv.inplace.kept })}</p>

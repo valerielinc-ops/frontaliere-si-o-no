@@ -905,6 +905,7 @@ const frCore: Record<string, string> = {
  'jobBoard.assisted.review.cvChooseInplace': "Mon CV, dans ma mise en page avec les lignes adaptées (fichier Word)",
  'jobBoard.assisted.review.cvInplaceNote': "Dans votre fichier, nous avons reformulé {patched} lignes ; {kept} restent comme dans votre CV, car une date, une mise en forme mixte ou la place sur la page ne permettent pas de les changer sans risque.",
  'jobBoard.assisted.review.cvInplaceDocx': "Télécharger votre CV avec les lignes adaptées",
+ 'jobBoard.assisted.review.cvInplaceNeedsCheck': "Votre fichier Word n'est plus proposé : les lignes modifiées pourraient décaler la mise en page et nous ne pouvons pas recompter les pages ici. Il redevient disponible si vous remettez les lignes adaptées ; en attendant, vous pouvez envoyer le CV adapté ou votre CV d'origine.",
  'jobBoard.assisted.review.cvChangesTitle': "Ce que nous avons changé dans votre CV",
  'jobBoard.assisted.review.cvChangesIntro': "Pour chaque ligne, choisissez ce qui sera envoyé : la version adaptée, la ligne de votre CV ou une phrase écrite par vous. Les lignes adaptées n’ajoutent aucune donnée : elles reformulent ce que votre CV contient déjà.",
  'jobBoard.assisted.review.cvLineOriginal': "Dans votre CV",

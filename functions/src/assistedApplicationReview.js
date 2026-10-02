@@ -168,6 +168,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
         patched: (draft.tailoredCv.inplace.patched || []).length,
         kept: (draft.tailoredCv.inplace.skipped || []).length,
       } : null,
+      // The file is back once the choices match the layout LibreOffice checked.
+      inplaceNeedsPageCheck: draft.tailoredCv.inplace?.status === 'fallback' && draft.tailoredCv.inplace.reason === 'needs_page_check',
       // The optional photo: customary in German-speaking Switzerland, optional elsewhere.
       photo: Boolean(flow?.photo?.key),
       photoAdvice: photoAdvice(draft.language),
@@ -346,7 +348,7 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
   const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
   // The same choices in the candidate's own Word file, when there is one.
-  const inplace = await rebuildInPlaceDocx({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
+  const inplace = await rebuildInPlaceDocx({ bucket, order, draft, flow: nextFlow });
   await flowRefFor(db, orderId).set({ cvChoices: choices, cvChoicesRound, updatedAt: nowMs }, { merge: true });
   await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, ...(inplace ? { inplace } : {}) } }, { merge: true });
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {

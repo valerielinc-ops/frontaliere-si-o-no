@@ -112,7 +112,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup) return null;
   const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
-  const [letterUrl, tailoredCvUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey)]);
+  const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
+  const [letterUrl, tailoredCvUrl, inPlaceUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey)]);
   return {
     inbox,
     accounts,
@@ -165,6 +166,7 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
           patched: (draft.tailoredCv.inplace.patched || []).length,
           kept: (draft.tailoredCv.inplace.skipped || []).map((item) => item.reason),
           pageCheck: draft.tailoredCv.inplace.pageCheck || null,
+          url: inPlaceUrl || null,
         } : null,
       } : null,
       cvChoice: flow?.cvChoice || 'tailored',

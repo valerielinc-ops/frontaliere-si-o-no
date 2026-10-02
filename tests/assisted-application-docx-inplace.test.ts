@@ -49,8 +49,8 @@ const BODY = [
   p('Esempio Software Srl, Milano, 03/2021 – oggi'),
   '</w:tc></w:tr></w:tbl>',
   '<w:p><w:pPr><w:numPr><w:ilvl w:val="0"/><w:numId w:val="1"/></w:numPr></w:pPr><w:bookmarkStart w:id="0" w:name="_GoBack"/><w:r><w:t>Sviluppo di un portale B2B in React e Node.js usato da 400 clienti</w:t></w:r><w:bookmarkEnd w:id="0"/></w:p>',
-  // A bullet written by hand, with a tab after it.
-  '<w:p><w:r><w:t>•</w:t></w:r><w:r><w:tab/><w:t>Riduzione del tempo di build del 40% con Docker multi-stage</w:t></w:r></w:p>',
+  // A bullet written by hand, a space after it.
+  '<w:p><w:r><w:t xml:space="preserve">• </w:t></w:r><w:r><w:t>Riduzione del tempo di build del 40% con Docker multi-stage</w:t></w:r></w:p>',
   // Inline bold: rewriting it would lose the bold.
   '<w:p><w:r><w:rPr><w:b/></w:rPr><w:t>Mentoring</w:t></w:r><w:r><w:t xml:space="preserve"> di 2 sviluppatori junior</w:t></w:r></w:p>',
   p('Competenze: Docker, Node.js, React, SQL'),
@@ -117,8 +117,8 @@ describe('in-place DOCX (phase 5)', () => {
       'Sviluppatore full-stack con esperienza in React e Node.js.',
       before[4], before[5], before[6],
       'Portale B2B in React e Node.js usato da 400 clienti',
-      // The hand-written bullet and its tab are kept.
-      '•\tBuild ridotta del 40% con Docker multi-stage',
+      // The hand-written bullet is kept.
+      '• Build ridotta del 40% con Docker multi-stage',
       before[9],
       // Skills only reordered: the posting's first, none added.
       'Competenze: React, SQL, Docker, Node.js',
@@ -143,6 +143,23 @@ describe('in-place DOCX (phase 5)', () => {
     expect(documentOf(result.docx)).toContain(`<w:p>${label}<w:r><w:t xml:space="preserve"> React, SQL, Docker, Node.js</w:t></w:r></w:p>`);
   });
 
+  it('never rewrites a paragraph with a tab: the tab aligns text the rewrite would move', () => {
+    const tabbed = '<w:p><w:r><w:t>•</w:t></w:r><w:r><w:tab/><w:t>Riduzione del tempo di build del 40% con Docker multi-stage</w:t></w:r></w:p>';
+    const body = BODY.replace('<w:p><w:r><w:t xml:space="preserve">• </w:t></w:r><w:r><w:t>Riduzione del tempo di build del 40% con Docker multi-stage</w:t></w:r></w:p>', tabbed);
+    const result = buildInPlaceDocx(makeDocx(documentXml(body)), tailored(), { profile });
+    expect(result.skipped).toContainEqual({ id: 'r0-l1', reason: 'tab' });
+    expect(documentOf(result.docx)).toContain(tabbed);
+  });
+
+  it('leaves out a line whose anchor matches two paragraphs alike', () => {
+    const twice = p('Sviluppo di un portale B2B in React e Node.js usato da 400 clienti');
+    const body = BODY.replace(p('Competenze: Docker, Node.js, React, SQL'), `${twice}${p('Competenze: Docker, Node.js, React, SQL')}`);
+    const result = buildInPlaceDocx(makeDocx(documentXml(body)), tailored(), { profile });
+    expect(result.skipped).toContainEqual({ id: 'r0-l0', reason: 'ambiguous' });
+    expect(result.patched).not.toContain('r0-l0');
+    expect(texts(result.docx).filter((text: string) => text === 'Sviluppo di un portale B2B in React e Node.js usato da 400 clienti')).toHaveLength(2);
+  });
+
   it('locks dates, employers, titles, headings and contacts, whatever the anchor says', () => {
     const cv = {
       summary: '', skills: [],
@@ -165,7 +182,7 @@ describe('in-place DOCX (phase 5)', () => {
     expect(result.patched).toEqual(['r0-l0', 'skills']);
     expect(after[3]).toBe('Sviluppatore con 6 anni di esperienza su applicazioni web.');
     expect(after[7]).toBe('Portale B2B per 400 clienti');
-    expect(after[8]).toBe('•\tRiduzione del tempo di build del 40% con Docker multi-stage');
+    expect(after[8]).toBe('• Riduzione del tempo di build del 40% con Docker multi-stage');
   });
 
   it('keeps the CV’s line when the new one is too long for its place, and the page within budget', () => {
@@ -239,11 +256,11 @@ describe('in-place DOCX in the runner', () => {
     expect(run).not.toHaveBeenCalled();
   });
 
-  it('keeps the page count with the length budget when LibreOffice is not there; a DOC needs it', async () => {
+  it('offers no file whose pages it could not count: without LibreOffice, the template CV', async () => {
     const bucket = fakeBucket();
-    const record = await inPlaceCvRecord({ ...common(bucket), mode: 'on', cvBuffer: makeDocx(), cvType: 'docx', cvKey: 'cv.docx' });
-    expect(record).toMatchObject({ status: 'ready', baseKey: 'cv.docx', baseType: 'docx', pageCheck: 'budget', patched: ['summary', 'r0-l0', 'r0-l1', 'skills'] });
-    expect(bucket.files.has(record.docxKey)).toBe(true);
+    expect(await inPlaceCvRecord({ ...common(bucket), mode: 'on', cvBuffer: makeDocx(), cvType: 'docx', cvKey: 'cv.docx' }))
+      .toMatchObject({ status: 'fallback', reason: 'no_page_check', baseType: 'docx' });
+    expect(bucket.files.size).toBe(0);
     expect(await inPlaceCvRecord({ ...common(bucket), mode: 'on', cvBuffer: Buffer.from('doc'), cvType: 'doc', cvKey: 'cv.doc' }))
       .toEqual({ status: 'fallback', reason: 'doc_needs_libreoffice', baseType: 'doc' });
   });
@@ -270,8 +287,11 @@ describe('in-place DOCX in the runner', () => {
     expect(grew.files.size).toBe(0);
     // A shorter line pulled the last line back from page 2.
     const shrank = fakeBucket();
-    expect(await inPlaceCvRecord({ ...common(shrank), run: office(2, 1), mode: 'on', cvBuffer: makeDocx(), cvType: 'docx', cvKey: 'cv.docx' }))
-      .toMatchObject({ status: 'ready', pageCheck: 'libreoffice', pages: 1, pagesBefore: 2 });
+    const record = await inPlaceCvRecord({ ...common(shrank), run: office(2, 1), mode: 'on', cvBuffer: makeDocx(), cvType: 'docx', cvKey: 'cv.docx' });
+    expect(record).toMatchObject({ status: 'ready', baseKey: 'cv.docx', pageCheck: 'libreoffice', pages: 1, pagesBefore: 2, patched: ['summary', 'r0-l0', 'r0-l1', 'skills'] });
+    // The checked file is the one the Cloud Functions may offer again.
+    expect(record.verifiedKey).toBe(record.docxKey);
+    expect(shrank.files.has(record.docxKey)).toBe(true);
   });
 });
 
@@ -303,7 +323,7 @@ describe('the third CV on the review page and at submission', () => {
         applicationEmail: { to: '', subject: 'x', body: 'y' }, formAnswers: [], questions: [],
         tailoredCv: {
           status: 'ready', pdfKey: `assisted-application-uploads/${ORDER}/ai-cv-r1-1.pdf`, language: 'it', cv: tailored(),
-          inplace: { status: 'ready', docxKey: `assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, baseKey: `assisted-application-uploads/${ORDER}/1-cv.docx`, baseType: 'docx', patched: first.patched, skipped: first.skipped, pageCheck: 'libreoffice', pages: 1 },
+          inplace: { status: 'ready', docxKey: `assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, verifiedKey: `assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`, baseKey: `assisted-application-uploads/${ORDER}/1-cv.docx`, baseType: 'docx', patched: first.patched, skipped: first.skipped, pageCheck: 'libreoffice', pages: 1 },
         },
       },
     });
@@ -328,14 +348,20 @@ describe('the third CV on the review page and at submission', () => {
     expect(cvChoiceOf(store.read(`${BASE}/ai_drafts/current`), { cvChoice: 'inplace' })).toBe('tailored');
   });
 
-  it('writes the line-by-line choices into the candidate’s own file too', async () => {
-    const saved = await post({ action: 'cv_lines', choices: { 'r0-l0': { use: 'original' }, 'r0-l1': { use: 'own', text: 'Tempi di build dimezzati con Docker' } } });
-    expect(saved.status).toBe(200);
-    const { inplace } = store.read(`${BASE}/ai_drafts/current`).tailoredCv;
-    expect(inplace).toMatchObject({ status: 'ready', baseKey: `assisted-application-uploads/${ORDER}/1-cv.docx`, pageCheck: 'budget' });
-    expect(inplace.docxKey).not.toBe(`assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`);
-    const after = texts(bucket.files.get(inplace.docxKey)!);
-    expect(after[7]).toBe('Sviluppo di un portale B2B in React e Node.js usato da 400 clienti');
-    expect(after[8]).toBe('•\tTempi di build dimezzati con Docker');
+  it('never offers a file whose pages were not counted: line choices that change it fall back, the checked lines bring it back', async () => {
+    const checked = `assisted-application-uploads/${ORDER}/ai-cv-inplace-r1-1.docx`;
+    const files = bucket.files.size;
+    // A line of the candidate's own fits the character budget, but no LibreOffice here can count the pages.
+    expect((await post({ action: 'cv_lines', choices: { 'r0-l1': { use: 'own', text: 'Tempi di build dimezzati con Docker' } } })).status).toBe(200);
+    expect(store.read(`${BASE}/ai_drafts/current`).tailoredCv.inplace).toMatchObject({ status: 'fallback', reason: 'needs_page_check' });
+    // No new Word file is written by the Cloud Functions (only the tailored PDF is rebuilt).
+    expect([...bucket.files.keys()].filter((key) => key.endsWith('.docx'))).toHaveLength(2);
+    expect(bucket.files.size).toBe(files + 1);
+    const { body } = await get();
+    expect(body.tailoredCv).toMatchObject({ inplace: null, inplaceNeedsPageCheck: true });
+    expect(await post({ action: 'cv_choice', cvChoice: 'inplace' })).toMatchObject({ status: 400, body: { error: 'invalid_cv_choice' } });
+    // The adapted lines again: the file LibreOffice checked is offered again.
+    expect((await post({ action: 'cv_lines', choices: {} })).status).toBe(200);
+    expect(store.read(`${BASE}/ai_drafts/current`).tailoredCv.inplace).toMatchObject({ status: 'ready', reason: null, docxKey: checked, pageCheck: 'libreoffice' });
   }, 60_000);
 });

@@ -110,7 +110,7 @@ export interface AssistedApplicationAutomationView {
     tailoredCv: {
       status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null;
       /** Phase 5: the candidate's own DOCX with the adapted lines (null when the switch was off or the CV is a PDF). */
-      inplace?: { status: 'ready' | 'fallback' | 'failed'; reason: string | null; patched: number; kept: string[]; pageCheck: 'libreoffice' | 'budget' | null } | null;
+      inplace?: { status: 'ready' | 'fallback' | 'failed'; reason: string | null; patched: number; kept: string[]; pageCheck: 'libreoffice' | null; url: string | null } | null;
     } | null;
     cvChoice: 'tailored' | 'original' | 'inplace';
     /** What the portal received, question by question (career-ops application-answers). */

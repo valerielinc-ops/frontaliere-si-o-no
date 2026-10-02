@@ -421,8 +421,9 @@ export default function AssistedApplicationAutomationPanel({
                   {draft.tailoredCv.inplace && (
                     <p className="text-muted">
                       DOCX in-place: {draft.tailoredCv.inplace.status === 'ready'
-                        ? `${draft.tailoredCv.inplace.patched} righe riscritte, ${draft.tailoredCv.inplace.kept.length} lasciate come nel CV${draft.tailoredCv.inplace.kept.length ? ` (${[...new Set(draft.tailoredCv.inplace.kept)].join(', ')})` : ''} · pagine: ${draft.tailoredCv.inplace.pageCheck === 'libreoffice' ? 'verificate con LibreOffice' : 'solo budget di lunghezza'}`
+                        ? `${draft.tailoredCv.inplace.patched} righe riscritte, ${draft.tailoredCv.inplace.kept.length} lasciate come nel CV${draft.tailoredCv.inplace.kept.length ? ` (${[...new Set(draft.tailoredCv.inplace.kept)].join(', ')})` : ''} · pagine verificate con LibreOffice`
                         : `ricaduta sul template (${draft.tailoredCv.inplace.reason || draft.tailoredCv.inplace.status})`}
+                      {draft.tailoredCv.inplace.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.inplace.url} target="_blank" rel="noreferrer">apri il DOCX</a></>}
                     </p>
                   )}
                 </div>
