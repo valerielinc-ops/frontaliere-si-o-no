@@ -44,10 +44,10 @@ permissions:
   actions: read
 
 concurrency:
-  # Both ledger writers share one FIFO group so source and lifecycle events
-  # cannot race pushes; queue all pending events instead of replacing them.
-  group: loop-fleet-durable-ledger
-  queue: max
+  # Preserve a pending slot for each immutable source run. Writers can still
+  # race on the shared branch, so the idempotent append below retries against
+  # the latest tip instead of coalescing distinct evidence runs.
+  group: loop-fleet-durable-ledger-${{ github.event.workflow_run.id || inputs.run_id || github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -245,7 +245,7 @@ jobs:
           git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
           ledger_dir="$ledger_worktree/data/loop-fleet/ledger"
 
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
             # Re-apply the validated batch against the current tip every
             # attempt. The merge helper is idempotent by recordId and fails
             # closed on conflicting duplicates.
@@ -284,9 +284,13 @@ jobs:
             git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/
             git -C "$ledger_worktree" read-tree --empty
             git -C "$ledger_worktree" add -- data/loop-fleet/ledger/
-            sleep $((attempt * 3))
+            if [ "$attempt" -lt 10 ]; then
+              retry_delay=$((attempt * 3 + GITHUB_RUN_ID % 11))
+              echo "::notice::ledger push raced; retrying in ${retry_delay}s (attempt $((attempt + 1))/10)"
+              sleep "$retry_delay"
+            fi
           done
-          echo "::error::could not append the validated batch to $ledger_branch after 5 attempts"
+          echo "::error::could not append the validated batch to $ledger_branch after 10 attempts"
           exit 1
 
       - name: Cleanup Firebase credentials
