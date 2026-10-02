@@ -12367,6 +12367,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'Les chiffres du jour pour les frontaliers – 2 octobre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Bulletin du frontalier du 2 octobre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'Les chiffres du 2 octobre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.adeguamento-pensioni-gennaio.title': 'Le taux de liquidation à la hausse par rapport à janvier',
+    'blog.article.adeguamento-pensioni-gennaio.excerpt': 'À partir de janvier, la pension minimale AHV/IV passera à 1 280 francs, la maxime à 2 560 francs. Les cotisations minimales et les prestations complémentaires augmenteront également.',
+    'blog.article.adeguamento-pensioni-gennaio.imageAlt': 'Rentes AVS et AI adaptées dès janvier',
 };
 
 export default blogMetaFr;
