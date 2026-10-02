@@ -202,6 +202,17 @@ describe('parsePriceText', () => {
     expect(parsePriceText('Parking: CHF 5, Admission free')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
     expect(parsePriceText('10.– CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
     expect(parsePriceText('Admission free, call +41 91 123 45 67')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuit pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratis per tutti')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Free for all')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Price: 10 CHF/person')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Freier Eintritt')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('entrées gratuites')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Access free')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Accesso gratuito')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('accès gratuit')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuits pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuites pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
