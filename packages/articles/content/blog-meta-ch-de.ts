@@ -7472,6 +7472,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Krankenkassen: Bis zu 900.000 Wechsel im nächsten Jahr',
     'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Zwischen 600\'000 und 900\'000 Versicherte könnten im nächsten Jahr die Krankenkasse wechseln. Das geht aus einer YouGov-Umfrage für Deloitte hervor, die unter 1\'236 Personen durchgeführt wurde.',
     'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Deloitte-Prognosen zum Krankenkassenwechsel in der Schweiz und im Tessin',
+    'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Ein Unternehmen in Graubünden gründen: Leitfaden zu Kosten und Steuern',
+    'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'Von der Rechtsform bis zu den Lohnbeiträgen: Ein praktischer Leitfaden zu den drei Steuerstufen und den Sozialversicherungspflichten für Existenzgründer in Graubünden.',
+    'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Dokumente und Schreibtisch mit Blick auf die Schweizer Berge',
 };
 
 export default blogMetaChDe;

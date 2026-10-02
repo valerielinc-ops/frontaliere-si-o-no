@@ -7472,6 +7472,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse-maladies : 900\'000 changements attendus',
     'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Entre 600 000 et 900 000 assurés pourraient changer de caisse d\'assurance maladie l\'année prochaine. C\'est ce que révèle un sondage YouGov réalisé pour Deloitte auprès de 1 236 personnes.',
     'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Prévisions de Deloitte sur le changement de caisse maladie en Suisse et au Tessin',
+    'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Créer une entreprise dans les Grisons : guide sur les coûts et la fiscalité',
+    'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'De la forme juridique aux cotisations salariales : guide pratique sur les trois niveaux d\'imposition et les obligations en matière de sécurité sociale pour ceux qui créent une entreprise dans les Grisons.',
+    'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documents et bureau avec vue sur les montagnes suisses',
 };
 
 export default blogMetaChFr;

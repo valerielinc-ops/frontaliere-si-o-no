@@ -7472,6 +7472,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Health Insurance Plans: Up to 900,000 Switchers Expected Next Year',
     'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Between 600,000 and 900,000 insured individuals could switch health insurance providers next year. This finding comes from a YouGov survey conducted for Deloitte among 1,236 people.',
     'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Deloitte health insurance switching forecasts in Switzerland and Ticino',
+    'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Starting a Business in Graubünden: A Guide to Costs and Taxes',
+    'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'From Legal Structure to Payroll Taxes: A Practical Guide to the Three Tax Levels and Social Security Obligations for Those Starting a Business in Graubünden.',
+    'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documents and desk with a view of the Swiss mountains',
 };
 
 export default blogMetaChEn;

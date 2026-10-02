@@ -7472,6 +7472,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse malati, fino a 900mila cambi per l\'anno prossimo',
     'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Tra 600\'000 e 900\'000 assicurati potrebbero cambiare cassa malati l\'anno prossimo. Lo rivela un sondaggio YouGov per Deloitte condotto su 1236 persone.',
     'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Previsioni Deloitte sui cambi di cassa malati in Svizzera e Ticino',
+    'blog.article.aprire-attivita-grigioni-guida-costi.title': 'Aprire un\'attività nei Grigioni: guida a costi e fisco',
+    'blog.article.aprire-attivita-grigioni-guida-costi.excerpt': 'Dalla forma giuridica ai contributi salariali: guida pratica sui tre livelli fiscali e gli obblighi previdenziali per chi avvia un\'impresa nei Grigioni.',
+    'blog.article.aprire-attivita-grigioni-guida-costi.imageAlt': 'Documenti e scrivania con vista sulle montagne svizzere',
 };
 
 export default blogMetaChIt;
