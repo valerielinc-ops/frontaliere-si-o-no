@@ -122,10 +122,11 @@ describe('classificazione dello sporco', () => {
 describe('body della PR lasciato nel worktree', () => {
   it('riconosce i nomi usati dagli agenti, solo alla radice', () => {
     for (const name of ['.pr-body-9108.md', '.pr-body.md', '.pr-body-backfill-recovery-rerun.md',
-      '.codex-pr-body.md', 'PR_BODY.md', '.issue-831-comment.md']) {
+      '.codex-pr-body.md', 'PR_BODY.md', '.issue-831-comment.md', '.observer-pr1661-body-20260920.md']) {
       expect(isPrScratchPath(name), name).toBe(true);
     }
-    for (const name of ['docs/.pr-body.md', 'README.md', 'pr-body.md', '.issue-comment.md', '.pr-body-9108.ts']) {
+    for (const name of ['docs/.pr-body.md', 'README.md', 'pr-body.md', '.issue-comment.md', '.pr-body-9108.ts',
+      '.observer-body.md', '.observer-pr1661-notes.md']) {
       expect(isPrScratchPath(name), name).toBe(false);
     }
   });
