@@ -96,7 +96,7 @@ function fakePortal() {
         <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
-        <button type="button" id="outsideAccept">Accept</button>
+        <div role="dialog" id="unrelatedDialog"><button type="button" id="outsideAccept">Accept</button></div>
         <button type="submit">Konto anlegen</button>`)}
         <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
