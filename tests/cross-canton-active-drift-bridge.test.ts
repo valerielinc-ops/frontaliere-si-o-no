@@ -89,7 +89,9 @@ describe('Historical tracking fallback preserves archived content', () => {
     const selfHeal = jobsSeoSrc.slice(selfHealStart, selfHealEnd);
 
     expect(selfHeal).toContain('const archive = historicalArchiveFallbacks.get(relPath);');
-    expect(selfHeal).toContain('buildHistoricalArchiveHtml(slug, relPath, locale, archive)');
+    expect(selfHeal).toContain(
+      'buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks)',
+    );
     expect(selfHeal).not.toContain('Offerta di lavoro aggiornata');
     expect(selfHeal).not.toContain('Diese Stelle wurde aktualisiert oder entfernt');
   });
