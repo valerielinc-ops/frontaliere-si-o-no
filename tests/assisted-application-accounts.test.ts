@@ -1,12 +1,14 @@
 import { randomBytes } from 'node:crypto';
 import { describe, expect, it, vi } from 'vitest';
 import {
+  CREATE_ACCOUNT_RE,
   authPageKind,
   codeField,
   hostKey,
   loginFields,
   newPortalPassword,
   portalAccountStore,
+  portalPasswordLength,
   registrationOutcome,
   sameSite,
   verificationOutcome,
@@ -35,15 +37,38 @@ describe('portal account pages', () => {
     expect(codeField({ fields: [field('f1', 'password', 'Code')] })).toBeNull();
   });
 
-  it('makes a password every usual policy accepts, from 16 random characters', () => {
-    const password = newPortalPassword();
+  it('makes a password every usual policy accepts: 20 characters, 16 on SuccessFactors', () => {
+    const password = newPortalPassword({ portal: 'workday' });
     expect(password).toHaveLength(20);
     expect(password).toMatch(/[A-Z]/);
     expect(password).toMatch(/[a-z]/);
     expect(password).toMatch(/[0-9]/);
     expect(password).toMatch(/[^A-Za-z0-9]/);
-    expect(newPortalPassword()).not.toBe(password);
-    expect(() => newPortalPassword(Buffer.alloc(24, 0xff))).toThrow('password_entropy');
+    expect(newPortalPassword({ portal: 'workday' })).not.toBe(password);
+    expect(newPortalPassword({ portal: HOST })).toHaveLength(20);
+    expect(newPortalPassword()).toHaveLength(20);
+    // Coop's SuccessFactors (2026-10-02): at least 8 and at most 18 characters.
+    const short = newPortalPassword({ portal: 'career2.successfactors.eu' });
+    expect(short).toHaveLength(16);
+    expect(short).toMatch(/[A-Z]/);
+    expect(short).toMatch(/[^A-Za-z0-9]/);
+    expect(portalPasswordLength('career5.sapsf.eu')).toBe(16);
+    expect(portalPasswordLength('successfactors')).toBe(16);
+    expect(portalPasswordLength('workday')).toBe(20);
+    expect(() => newPortalPassword({ bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
+    expect(() => newPortalPassword({ portal: 'career2.successfactors.eu', bytes: Buffer.alloc(24, 0xff) })).toThrow('password_entropy');
+  });
+
+  it('finds the create-account link and button of SuccessFactors in the four languages', () => {
+    // Coop's career site, 2026-10-02: the link is a question and its answer.
+    for (const label of [
+      'Konto erstellen', 'Jetzt registrieren', 'Konto anlegen', 'Noch kein Profil? Hier registrieren',
+      'Crea account', 'Non hai ancora un profilo? Registrati qui', 'Registrati',
+      'Créer un compte', "Vous n'avez pas encore de compte? Créez-en un", 'Create an account', 'Sign up',
+    ]) expect(CREATE_ACCOUNT_RE.test(label), label).toBe(true);
+    for (const label of ['Kennwort vergessen?', 'Mit bestehendem Profil anmelden und bewerben', 'Job-Abo hier anlegen', 'Melde dich hier an.', 'Anmelden']) {
+      expect(CREATE_ACCOUNT_RE.test(label), label).toBe(false);
+    }
   });
 
   it('opens a verification link only on the portal’s own site or its ATS family, over https', () => {

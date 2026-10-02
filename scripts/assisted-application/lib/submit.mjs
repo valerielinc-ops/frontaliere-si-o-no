@@ -19,7 +19,7 @@ import {
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { cvChoiceOf } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
-import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
+import { classifyApplicationChannel, isPlausibleEmail, resolveApplyUrl } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { EMPLOYER_MAIL_FROM, senderName, textToHtml } from '../../../functions/src/assistedApplicationEmployerMail.js';
 import { mkdtemp, rm, writeFile } from 'node:fs/promises';
@@ -100,7 +100,9 @@ export async function submitApplication(ctx) {
 
   const liveness = await checkPostingLiveness({
     order,
-    posting: { applyUrl: draft?.channel?.applyUrl || draft?.job?.applyUrl },
+    // The posting's own page when the channel is the ATS behind it (Coop:
+    // SuccessFactors' sign-in says nothing about the posting being open).
+    posting: { applyUrl: draft?.channel?.postingUrl || draft?.channel?.applyUrl || draft?.job?.applyUrl },
     fetchImpl: ctx.fetchImpl || fetch,
     resolve: ctx.resolve,
   });
@@ -216,14 +218,24 @@ export async function submitApplication(ctx) {
 
   // Portal, wave 1 (no account): the runner fills and submits; CAPTCHA, login
   // or anything it must not bypass ends in the career-ops handoff below.
-  const applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
-  if (WAVE1_CHANNELS.has(channel.type) && applyUrl && ctx.codex) {
+  let applyUrl = channel.applyUrl || draft.job?.applyUrl || '';
+  let channelType = channel.type;
+  // A draft from before the ATS redirect was resolved (Coop's first order,
+  // 2026-10-02): the runner starts on the ATS, not on the career page in front of it.
+  if (channel.type === 'employer_site' && !channel.via && applyUrl && ctx.codex) {
+    const target = await resolveApplyUrl(applyUrl, { fetchImpl: ctx.fetchImpl || fetch, resolve: ctx.resolve });
+    if (target.via) {
+      applyUrl = target.applyUrl;
+      channelType = classifyApplicationChannel({ applyUrl }).type;
+    }
+  }
+  if (WAVE1_CHANNELS.has(channelType) && applyUrl && ctx.codex) {
     // The same durable guard as the e-mail: a re-dispatched run never submits
     // twice. A run that died before the final click may start again.
     const guard = ctx.dryRun ? null : ctx.submissionGuard || null;
     if (guard) {
       const claim = await guard.claim('portal', nowMs, { resumable: true });
-      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channel.type, replayed: true };
+      if (claim.status === 'already_sent') return { type: 'submit_succeeded', channel: channelType, replayed: true };
       if (claim.status === 'in_flight') return { type: 'submit_failed', error: 'portal_ambiguous' };
     }
     // With the candidate's corrections from the review page.
@@ -279,7 +291,7 @@ export async function submitApplication(ctx) {
         // re-submitted. Before the click nothing was sent: released. So too when
         // the portal said, on the same page, that it did not send (portal_refused,
         // JOIN «Non siamo riusciti a inviare…»): Valerie's retry may claim it again.
-        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channel.type, finalUrl: evidence.finalUrl || null });
+        if (event.type === 'submit_succeeded') await guard.markSent({ channel: channelType, finalUrl: evidence.finalUrl || null });
         else if (event.type === 'submit_failed' && event.error === 'portal_refused') await guard.release('portal_refused');
         else if (!clicked && !(event.type === 'submit_failed' && /_ambiguous$/.test(event.error || ''))) await guard.release(event.error || event.reason || event.type);
       }
@@ -288,8 +300,8 @@ export async function submitApplication(ctx) {
       // stores it with the draft, it never reaches the automation event.
       const portalAnswers = { status: event.type, at: nowMs, answers: evidence.answers || [] };
       // Where the runner stopped, for the fix issue (agent.mjs strikes the candidate's values out first).
-      const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channel.type } } : {};
-      return event.type === 'submit_succeeded' ? { ...event, channel: channel.type, portalAnswers } : { ...event, portalAnswers, ...stopReport };
+      const stopReport = evidence.stopReport ? { stopReport: { ...evidence.stopReport, channel: channelType } } : {};
+      return event.type === 'submit_succeeded' ? { ...event, channel: channelType, portalAnswers } : { ...event, portalAnswers, ...stopReport };
     } catch (error) {
       // Failed before the final click (temp dir, files, browser, network): nothing
       // reached the employer, so the claim is released for the retry.
@@ -302,15 +314,16 @@ export async function submitApplication(ctx) {
     }
   }
 
-  // Account portals (Workday, SuccessFactors, LinkedIn) until wave 2, and any
+  // LinkedIn, a WhatsApp application (PastaHR: Coop's apprenticeships) and any
   // channel without a usable URL: career-ops browser handoff.
   await storeEvidence({
     bucket,
     orderId,
     name: 'submit-handoff',
-    payload: { channel, applyUrl: channel.applyUrl || draft.job?.applyUrl || '', formAnswers: formAnswersWithEdits({ order, draft, flow }), answers },
+    payload: { channel, applyUrl, formAnswers: formAnswersWithEdits({ order, draft, flow }), answers },
     key: runKey,
     nowMs,
   });
-  return { type: 'submit_handoff', reason: channel.requiresAccount ? 'account' : 'portal_needs_candidate' };
+  const reason = channelType === 'pastahr' ? 'whatsapp' : channel.requiresAccount ? 'account' : 'portal_needs_candidate';
+  return { type: 'submit_handoff', reason };
 }

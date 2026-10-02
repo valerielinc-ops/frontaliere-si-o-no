@@ -68,7 +68,15 @@ async function handle(message, sender) {
       // button that loads a new confirmation page).
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
       if (!entry) return { ok: false };
-      await chrome.storage.session.set({ [tabKey(sender.tab.id)]: { ...entry, sawForm: entry.sawForm || Boolean(message.sawForm), sawFinal: entry.sawFinal || Boolean(message.sawFinal) } });
+      await chrome.storage.session.set({ [tabKey(sender.tab.id)]: {
+        ...entry,
+        sawForm: entry.sawForm || Boolean(message.sawForm),
+        sawFinal: entry.sawFinal || Boolean(message.sawFinal),
+        // The engine pressed the posting's start: the tab it opens is the form's.
+        ...(Number.isFinite(Number(message.startedAt)) && Number(message.startedAt) > 0
+          ? { startedAt: Number(message.startedAt), startUrl: String(message.startUrl || '').slice(0, 8192) }
+          : {}),
+      } });
       return { ok: true };
     }
     case 'open-verification': {
@@ -80,8 +88,14 @@ async function handle(message, sender) {
       const portal = tabs[0]?.entry;
       if (!portal) return { ok: false, error: 'no_order_tab' };
       if (url.protocol !== 'https:' && !isLoopback(url)) return { ok: false, error: 'not_https' };
-      const portalSite = siteOf(new URL(portal.kit.applyUrl).hostname);
-      if (siteOf(url.hostname) !== portalSite) return { ok: false, error: 'other_site' };
+      // The kit's portal, or the one a tab of the order moved on to (Coop: the
+      // career page hands over to SuccessFactors in a new tab).
+      const sites = new Set([siteOf(new URL(portal.kit.applyUrl).hostname)]);
+      for (const { tabId } of tabs) {
+        const open = await chrome.tabs.get(tabId).catch(() => null);
+        if (/^https?:/.test(open?.url || '')) sites.add(siteOf(new URL(open.url).hostname));
+      }
+      if (!sites.has(siteOf(url.hostname))) return { ok: false, error: 'other_site' };
       const tab = await chrome.tabs.create({ url: 'about:blank', active: true });
       await chrome.storage.session.set({ [tabKey(tab.id)]: { ...portal, openedAt: Date.now(), verification: true } });
       await chrome.tabs.update(tab.id, { url: url.href });
@@ -114,13 +128,78 @@ chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
 
 // Every page load of an order's tab (the posting, then each portal page):
 // the runner's field reading, the engine, then the loop, in every frame (some portals embed the form).
-chrome.tabs.onUpdated.addListener(async (tabId, info) => {
+chrome.tabs.onUpdated.addListener(async (tabId, info, tab) => {
+  // A tab the posting opened, whose address Chrome tells only now: adopted
+  // when it is the link the start click pressed (adoptStartTab).
+  const address = info.url || tab?.pendingUrl || tab?.url || '';
+  if (/^https?:/.test(address)) {
+    const waiting = (await chrome.storage.session.get(awaitingKey(tabId)))[awaitingKey(tabId)];
+    if (waiting) {
+      await chrome.storage.session.remove(awaitingKey(tabId));
+      await queue(() => adoptStartTab(tabId, waiting.openerTabId, address));
+    }
+  }
   if (info.status !== 'complete' || !(await entryFor(tabId))) return;
   await chrome.scripting.executeScript({ target: { tabId, allFrames: true }, files: ['runner-fields.js', 'filler.js', 'content.js'] }).catch(() => {});
 });
 
+// A posting that opens its form in a new tab (Coop's «Jetzt bewerben» goes to
+// SuccessFactors with target=_blank, 2026-10-02): the new tab keeps the
+// order's kit, so the engine is injected there too. Only the tab the engine's
+// own start click opened: a social or privacy link of the posting, or a link a
+// form opens (a job alert), gets nothing.
+const START_TAB_WINDOW_MS = 30_000;
+
+/** Same page: origin and path (the query of a redirect may differ). */
+function sameTarget(a, b) {
+  try {
+    const x = new URL(a);
+    const y = new URL(b);
+    return x.origin === y.origin && x.pathname === y.pathname;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * One tab per start click (reviews of #10980): only the tab whose address is
+ * exactly the link the engine pressed. A tab whose address Chrome does not
+ * know yet waits for it (onUpdated) instead of taking the kit; the start is
+ * used up by the matching tab, so no other popup of the posting (privacy,
+ * job alert, social) ever gets it. No link pressed, no tab adopted.
+ * @returns {Promise<'adopted'|'wait'|'no'>}
+ */
+async function adoptStartTab(tabId, openerTabId, address) {
+  const entry = await entryFor(openerTabId);
+  if (!entry || entry.sawForm || entry.state === 'submitted' || await entryFor(tabId)) return 'no';
+  if (!entry.startedAt || Date.now() - entry.startedAt > START_TAB_WINDOW_MS || !entry.startUrl) return 'no';
+  if (!/^https?:/.test(address)) return 'wait';
+  if (!sameTarget(address, entry.startUrl)) return 'no';
+  const kit = { ...entry, startedAt: null, startUrl: '' };
+  await chrome.storage.session.set({
+    [tabKey(openerTabId)]: kit,
+    [tabKey(tabId)]: { ...kit, openedAt: Date.now(), openedFrom: openerTabId },
+  });
+  return 'adopted';
+}
+
+// Tabs a posting opened whose address is not known yet, with their opener: in
+// session storage, so a service worker suspended in between still knows them.
+const awaitingKey = (tabId) => `awaiting:${tabId}`;
+// Serialized: two popups at once never both read the same unused start.
+let adopting = Promise.resolve();
+function queue(task) {
+  adopting = adopting.then(task).catch((error) => console.warn('[compila-candidatura] tab adoption', error));
+  return adopting;
+}
+chrome.tabs.onCreated.addListener((tab) => queue(async () => {
+  if (tab.openerTabId == null) return;
+  const outcome = await adoptStartTab(tab.id, tab.openerTabId, tab.pendingUrl || tab.url || '');
+  if (outcome === 'wait') await chrome.storage.session.set({ [awaitingKey(tab.id)]: { openerTabId: tab.openerTabId, at: Date.now() } });
+}));
+
 chrome.tabs.onRemoved.addListener((tabId) => {
-  chrome.storage.session.remove(tabKey(tabId));
+  chrome.storage.session.remove([tabKey(tabId), awaitingKey(tabId)]);
 });
 
 // Updates: on the owner's Mac the folder Chrome loaded this extension from

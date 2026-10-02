@@ -23,7 +23,11 @@ import { decryptJson, encryptJson } from '../secure-run.mjs';
 export const VERIFICATION_TIMEOUT_MS = 10 * 60 * 1000;
 const VERIFICATION_POLL_MS = 10_000;
 
-export const CREATE_ACCOUNT_RE = /^(konto erstellen|neues konto( erstellen)?|registrieren|jetzt registrieren|create (an )?account|sign up|register|crea (un )?account|registrati|créer (un )?compte|s'inscrire)$/i;
+// SuccessFactors (Coop, 2026-10-02) words its link as a question and an
+// answer: «Noch kein Profil? Hier registrieren», «Non hai ancora un profilo?
+// Registrati qui», «Vous n'avez pas encore de compte? Créez-en un»; its
+// button is «Konto anlegen» / «Crea account» / «Créer un compte».
+export const CREATE_ACCOUNT_RE = /^([^?]{0,60}\?\s*)?(hier |jetzt )?(konto (erstellen|anlegen)|neues konto( erstellen| anlegen)?|registrieren|create (an )?account|sign up|register|crea (un )?account|registrati( qui)?|créer (un )?compte|créez-en un|s'inscrire)$/i;
 export const SIGN_IN_RE = /^(anmelden|einloggen|sign in|log ?in|accedi|connexion|se connecter)$/i;
 export const VERIFY_PAGE_RE = /(verify|verifizier|bestätig|verifica|confirm|vérifi)[^.]{0,80}(e-?mail|konto|account|adresse|indirizzo|compte)|check your (e-?mail|inbox)|e-?mail (wurde )?(gesendet|verschickt|sent|inviata|envoyé)/i;
 const CODE_FIELD_RE = /code|codice|pin|token|bestätigungs/i;
@@ -65,10 +69,24 @@ export function authPageKind(snapshot) {
   return 'none';
 }
 
-/** 16 random base64 characters plus one of each class the usual policies ask for. */
-export function newPortalPassword(bytes = randomBytes(24)) {
-  const core = bytes.toString('base64').replace(/[^A-Za-z0-9]/g, '').slice(0, 16);
-  if (core.length < 16) throw new Error('password_entropy');
+// SuccessFactors refuses more than 18 characters (Coop, 2026-10-02); every
+// other portal keeps the 20 it has always had.
+const SHORT_PASSWORD_PORTAL_RE = /(successfactors|sapsf|jobs\.sap\.com)/i;
+
+/**
+ * The password's length on this portal (its host, or its channel id): not one
+ * length for all (review of #10980). career2.successfactors.eu → 16,
+ * workday → 20 (tests/assisted-application-accounts.test.ts).
+ */
+export function portalPasswordLength(portal = '') {
+  return SHORT_PASSWORD_PORTAL_RE.test(String(portal)) ? 16 : 20;
+}
+
+/** Random base64 characters plus one of each class the usual policies ask for. */
+export function newPortalPassword({ portal = '', bytes = randomBytes(24) } = {}) {
+  const size = portalPasswordLength(portal) - 4;
+  const core = bytes.toString('base64').replace(/[^A-Za-z0-9]/g, '').slice(0, size);
+  if (core.length < size) throw new Error('password_entropy');
   return `${core}Aa7!`;
 }
 
