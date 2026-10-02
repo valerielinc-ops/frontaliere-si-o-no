@@ -2511,6 +2511,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-retribuzioni-ginevra-2026': { it: 'guida-retribuzioni-ginevra-2026', en: 'swiss-salaries-geneva-2026', de: 'schweizer-loehne-genf-2026', fr: 'salaires-suisses-geneve-2026' },
  'deloitte-cambi-assicuratori': { it: 'deloitte-cambi-assicuratori', en: 'deloitte-health-insurer-switches', de: 'deloitte-krankenkassen-wechsel', fr: 'deloitte-changements-caisse-maladie' },
  'camere-sessione-autunnale': { it: 'camere-sessione-autunnale', en: 'autumn-session-federal-chambers', de: 'herbstsession-bundesversammlung', fr: 'session-automnale-chambres-federales' },
+ 'cambio-cassa-sondaggio': { it: 'cambio-cassa-sondaggio', en: 'health-insurer-switch-survey', de: 'krankenkassenwechsel-umfrage', fr: 'changement-assureur-sondage' },
+ 'deloitte-previsione-cambi-cassa-malati': { it: 'deloitte-previsione-cambi-cassa-malati', en: 'deloitte-health-insurance-switching-forecast', de: 'deloitte-prognose-krankenkassenwechsel', fr: 'deloitte-prevision-changement-caisse-maladie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
