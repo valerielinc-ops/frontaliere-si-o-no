@@ -2536,6 +2536,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'annuncio-parmelin-sgravio-2024': { it: 'annuncio-parmelin-sgravio-2024', en: 'parmelin-resignation-economic-praise', de: 'parmelin-ruecktritt-wirtschaft-dank', fr: 'parmelin-demission-merci-economique' },
  'inventario-idroelettrico-storico': { it: 'inventario-idroelettrico-storico', en: 'historic-hydropower-inventory', de: 'historisches-wasserkraft-inventar', fr: 'inventaire-hydroelectrique-historique' },
  'dimissioni-guy-parmelin-2026': { it: 'dimissioni-guy-parmelin-2026', en: 'guy-parmelin-resignation-2026', de: 'ruecktritt-guy-parmelin-2026', fr: 'demission-guy-parmelin-2026' },
+ 'guida-imprenditoriale-grigioni': { it: 'guida-imprenditoriale-grigioni', en: 'grisons-business-registration-costs', de: 'geschaeft-gruenden-graubuenden-kosten', fr: 'creer-entreprise-grisons-couts' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
