@@ -1512,6 +1512,7 @@ const PRICE_CURRENCY_AFTER_RE = /^\s*(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franc
 const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
 const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
 const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
+const PRICE_AUDIENCE_AFTER_RE = /^\s*(?:adult(?:s|es)?|adulti|erwachsene)\b/iu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
 const PRICE_DATE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b)/gu;
@@ -1556,7 +1557,7 @@ function collectPriceCandidates(text) {
     const currency = before.match(PRICE_CURRENCY_BEFORE_RE)?.[0] || after.match(PRICE_CURRENCY_AFTER_RE)?.[0];
     const hasPriceLabel = PRICE_LABEL_BEFORE_RE.test(before) || PRICE_LABEL_AFTER_RE.test(after) || PRICE_AUDIENCE_BEFORE_RE.test(before);
     if (!currency && !hasPriceLabel) continue;
-    if (overlapsDate(candidateText, match.index, match[0].length) || (PRICE_PHONE_RE.test(text) && !currency)) continue;
+    if (overlapsDate(candidateText, match.index, match[0].length) || (PRICE_PHONE_RE.test(text) && !currency) || (!currency && PRICE_AUDIENCE_AFTER_RE.test(after))) continue;
     const amount = normalizePriceAmount(match[0]);
     if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(currency || defaultCurrency) });
   }
@@ -1604,6 +1605,9 @@ export function parsePriceText(rawText) {
     const normalized = t.replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.');
     const amount = Number.parseFloat(normalized);
     if (Number.isFinite(amount)) return priceResult({ amount, currency: 'CHF', isFree: amount === 0 }, 'numeric');
+  }
+  if (free && !PRICE_PHONE_RE.test(t) && !PRICE_NON_ACCESS_FREE_RE.test(t) && (PRICE_FREE_ONLY_RE.test(t) || PRICE_ACCESS_FREE_RE.test(t))) {
+    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
   }
   if (!PRICE_CONTEXT_RE.test(t)) {
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
