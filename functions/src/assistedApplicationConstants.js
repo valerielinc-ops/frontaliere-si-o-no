@@ -47,6 +47,8 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   'automation_transition',
   'automation_draft_edited',
   'automation_candidate_edited',
+  // The candidate's line-by-line choices on the tailored CV (review page).
+  'automation_candidate_cv_reviewed',
   'cv_uploaded_by_owner',
 ]);
 

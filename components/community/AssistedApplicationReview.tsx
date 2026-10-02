@@ -3,6 +3,7 @@ import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSqu
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
+import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
@@ -654,6 +655,13 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </label>
                   ))}
                 </fieldset>
+                {data.can.reviewCvLines && data.tailoredCv.changes && (
+                  <AssistedApplicationCvChanges
+                    changes={data.tailoredCv.changes}
+                    disabled={Boolean(busy) || data.tailoredCv.choice === 'original'}
+                    onSave={(choices) => run('cv_lines', { choices })}
+                  />
+                )}
                 {data.can.uploadPhoto && (
                   <div className="space-y-2 border-t border-edge pt-3">
                     <p className="font-medium text-heading">{t('jobBoard.assisted.review.photoTitle')}</p>
