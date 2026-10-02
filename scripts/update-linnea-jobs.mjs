@@ -469,7 +469,7 @@ async function main() {
       total: 0,
       discovered: 0,
       written: 0,
-      sourceProvenEmpty: true,
+      authoritativeEmptySnapshot: true,
       newCount: 0,
       updatedCount: 0,
       removedCount: retiredDiff.removedJobs.length,

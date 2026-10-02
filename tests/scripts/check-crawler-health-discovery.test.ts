@@ -139,6 +139,25 @@ describe('inspectCrawler', () => {
     expect(observation.authoritativeEmpty).toBe(true);
   });
 
+  it('keeps legacy custom-runner empty proof readable during field migration', async () => {
+    readFile.mockImplementation(async (file: string) => {
+      if (isSummaryDir(file)) {
+        return JSON.stringify({
+          generatedAt: '2026-09-05T12:58:06.161Z',
+          total: 0,
+          discovered: 0,
+          written: 0,
+          sourceProvenEmpty: true,
+        });
+      }
+      throw enoent();
+    });
+    stat.mockRejectedValue(enoent());
+
+    await expect(inspectCrawler('linnea')).resolves.toMatchObject({ authoritativeEmpty: true });
+    await expect(inspectCrawler('omega')).resolves.toMatchObject({ authoritativeEmpty: false });
+  });
+
   it('leaves the proof false for a summary slice that does not claim it', async () => {
     readFile.mockImplementation(async (file: string) => {
       if (isSummaryDir(file)) {
