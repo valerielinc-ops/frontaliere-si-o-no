@@ -7454,6 +7454,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lordo-netto-cantoni-2026.title': 'Durchschnittsgehalt für Berufe in der Schweiz 2026: Brutto- und Nettogehalt',
     'blog.article.lordo-netto-cantoni-2026.excerpt': 'Beim Vergleich 2026 sind Kanton, Branche und Abzüge entscheidend: AVS/AI/IPG, AD, LAINF und LPP verändern den Abstand zwischen Brutto- und Nettolohn.',
     'blog.article.lordo-netto-cantoni-2026.imageAlt': 'Vergleich von Schweizer Löhnen und Abzügen auf einem Schreibtisch',
+    'blog.article.retribuzioni-svizzere-netto.title': 'Durchschnittslöhne nach Berufen in der Schweiz im Jahr 2026',
+    'blog.article.retribuzioni-svizzere-netto.excerpt': 'Durchschnittsgehalt pro Beruf in der Schweiz im Jahr 2026: Vergleich zwischen Kantonen, Steuern, Beiträgen, BVG, KVG und Nettoverfügbarkeit nach den kantonalen Arbeitsregeln.',
+    'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Person prüft eine Schweizer Lohnabrechnung und einen Vergleich von Berufslöhnen.',
 };
 
 export default blogMetaChDe;

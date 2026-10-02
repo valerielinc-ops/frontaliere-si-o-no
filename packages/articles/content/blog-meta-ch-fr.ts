@@ -7454,6 +7454,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lordo-netto-cantoni-2026.title': 'Salaire moyen des professions en Suisse 2026 : brut et net',
     'blog.article.lordo-netto-cantoni-2026.excerpt': 'Dans la comparaison de 2026, le canton, le secteur et les déductions comptent : AHV/IV/EO, ALV, UVG et BVG modifient la distance entre le salaire brut et net.',
     'blog.article.lordo-netto-cantoni-2026.imageAlt': 'Comparaison des salaires et retenues suisses sur un bureau',
+    'blog.article.retribuzioni-svizzere-netto.title': 'Salaires moyens par profession en Suisse en 2026',
+    'blog.article.retribuzioni-svizzere-netto.excerpt': 'Salaire moyen par profession en Suisse en 2026 : comparaison entre cantons, impôts, contributions, BVG, KVG et le montant net disponible avec les règles cantonales du travail.',
+    'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Une personne examine une fiche de salaire suisse et compare des salaires par profession.',
 };
 
 export default blogMetaChFr;
