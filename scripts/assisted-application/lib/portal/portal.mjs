@@ -404,14 +404,19 @@ export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|a
 export function privacyConsentControls(snapshot = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
-  const review = fields.find((field) => field.kind === 'checkbox'
+  // The page can retain an unrelated enabled "Accept" control next to the
+  // consent link. The extractor marks controls under the opened dialog so the
+  // required DPCS controls cannot be mistaken for that page-level control.
+  const dialogFields = fields.filter((field) => field.dialog === true);
+  const dialogButtons = buttons.filter((button) => button.dialog === true);
+  const review = dialogFields.find((field) => field.kind === 'checkbox'
     && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
   return {
     trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
     review,
     // A disabled accept button is useful evidence while the required review
     // box is being checked; the caller still waits for it to become enabled.
-    accept: findButton(buttons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
+    accept: findButton(dialogButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true }),
   };
 }
 

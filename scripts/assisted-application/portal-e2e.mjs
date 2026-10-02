@@ -35,7 +35,7 @@ const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.a
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [] };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], outsideAccept: 0 };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -96,12 +96,14 @@ function fakePortal() {
         <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
+        <button type="button" id="outsideAccept">Accept</button>
         <button type="submit">Konto anlegen</button>`)}
         <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
           const dialog = document.getElementById('dpcsDialog');
           const review = document.getElementById('dpcsReview');
           const accept = document.getElementById('ok');
+          document.getElementById('outsideAccept').addEventListener('click', () => { document.cookie = 'outsideAccept=1; Path=/'; });
           review.addEventListener('change', () => { accept.disabled = !review.checked; });
           document.getElementById('dataPrivacyId').addEventListener('click', () => { if (document.getElementById('c').value) dialog.hidden = false; });
           accept.addEventListener('click', () => { if (!review.checked) return; document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
@@ -109,6 +111,7 @@ function fakePortal() {
         </script>`));
     }
     if (route === 'POST /sf/register') {
+      if (/outsideAccept=1/.test(req.headers.cookie || '')) coop.outsideAccept += 1;
       const body = new URLSearchParams(await readBody(req));
       const password = String(body.get('p1') || '');
       const problems = [
@@ -517,7 +520,7 @@ async function main() {
     const coopAuth = coopFirst.evidence.steps.filter((step) => step.auth).map((step) => step.auth);
     check('Coop: the account is created (16-character password, country, privacy statement accepted, no job alert) and the application sent with «Bewerben»',
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
-      && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
+      && coop.refused.length === 0 && coop.outsideAccept === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
     const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });

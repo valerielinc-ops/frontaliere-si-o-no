@@ -42,17 +42,19 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
     const controls = privacyConsentControls({
       buttons: [
-        { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false },
-        { id: 'accept', text: 'Akzeptieren', disabled: true },
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: false },
+        { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false, dialog: false },
+        { id: 'accept', text: 'Akzeptieren', disabled: true, dialog: true },
       ],
       fields: [
-        { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false },
+        { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false, dialog: false },
         {
           id: 'review',
           kind: 'checkbox',
           name: 'dpcsReview',
           label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
           checked: false,
+          dialog: true,
         },
       ],
     });
@@ -60,6 +62,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.review).toMatchObject({ id: 'review', checked: false });
     expect(controls.review?.id).not.toBe('abo');
     expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
+    expect(controls.accept?.id).not.toBe('outside-accept');
   });
 
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
