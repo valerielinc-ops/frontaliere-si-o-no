@@ -55,15 +55,24 @@ export function sanitizeProfile(raw) {
       location: clean(item?.location, 200),
       start: clean(item?.start, 40),
       end: clean(item?.end, 40),
+      kind: EXPERIENCE_KINDS.has(item?.kind) ? item.kind : 'job',
       highlights: list(item?.highlights, 6).map((line) => clean(line, 400)).filter(Boolean),
     })),
     education: list(raw?.education, 10).map((item) => ({
-      degree: clean(item?.degree, 200), institution: clean(item?.institution, 200), start: clean(item?.start, 40), end: clean(item?.end, 40),
+      degree: clean(item?.degree, 200), institution: clean(item?.institution, 200), start: clean(item?.start, 40), end: clean(item?.end, 40), grade: clean(item?.grade, 80),
     })),
     certifications: list(raw?.certifications, 20).map((item) => clean(item, 200)).filter(Boolean),
+    aptitudeTests: list(raw?.aptitudeTests, 6).map((item) => ({ name: clean(item?.name, 120), date: clean(item?.date, 40), results: clean(item?.results, 300) })).filter((item) => item.name),
+    recognitions: list(raw?.recognitions, 6).map((item) => ({ title: clean(item?.title, 200), issuer: clean(item?.issuer, 120), date: clean(item?.date, 40) })).filter((item) => item.title),
+    projects: list(raw?.projects, 8).map((item) => ({ name: clean(item?.name, 120), url: clean(item?.url, 300), description: clean(item?.description, 400) })).filter((item) => item.name || item.url),
+    interests: list(raw?.interests, 10).map((item) => clean(item, 160)).filter(Boolean),
+    references: list(raw?.references, 4).map((item) => ({ name: clean(item?.name, 120), role: clean(item?.role, 120), organisation: clean(item?.organisation, 160), contact: clean(item?.contact, 120) })).filter((item) => item.name),
+    drivingLicence: clean(raw?.drivingLicence, 80),
     cvLanguage: clean(raw?.cvLanguage, 5).toLowerCase(),
   };
 }
+
+const EXPERIENCE_KINDS = new Set(['job', 'apprenticeship', 'internship', 'trial_apprenticeship', 'side_job', 'volunteer']);
 
 export function sanitizeRequirements(raw) {
   const requirements = list(raw?.requirements, 12).map((item) => {
