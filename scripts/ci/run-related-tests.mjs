@@ -46,6 +46,7 @@ const globalVitestConfigPaths = new Set(['vitest.config.ts']);
 // `.github/` change into a full suite would undo the related-test bound.
 const runnerRegressionTests = new Set([
   'tests/run-related-tests-github-assets.test.ts',
+  'tests/run-related-tests-doc-contracts.test.ts',
   'tests/run-related-tests-sparse.test.ts',
   'tests/ci-vitest-check-name.test.ts',
   'tests/agents-related-tests-recipe.test.ts',
@@ -135,6 +136,28 @@ const ignoredRe = GRAPH_IGNORED_RE;
 const githubAssetRe = /^\.github\/.+\.(?:ya?ml|json)$/i;
 const testFixtureRe = /^tests\/.+\.json$/i;
 const assetLiteralRe = /(?:\.github|tests)\/[A-Za-z0-9._-][A-Za-z0-9._/-]*/g;
+// Contratti di processo in prosa alla radice del repo. Come gli asset sotto
+// `.github/` non si importano: i test che ne congelano le frasi li aprono per
+// path letterale (`readFileSync(join(ROOT, 'AGENTS.md'))`,
+// `new URL('../REVIEW.md', import.meta.url)`). Senza questo indice una PR che
+// tocca soltanto uno di questi file seleziona ZERO test, e un contratto rotto
+// arriva su `main` senza nessun gate: `tests.yml` su `main` esegue la stessa
+// selezione related, quindi il rosso resta latente finché una PR estranea non
+// lo eredita (la classe dei 25 rossi latenti riparati da #9329). L'elenco è
+// esplicito e non «ogni `*.md` di radice»: `README.md` è il nome di fixture più
+// comune nei test che costruiscono un repo temporaneo, e indicizzarlo
+// trascinerebbe test estranei a ogni modifica del README.
+const rootDocContracts = ['AGENTS.md', 'DECISIONS.md', 'FOLLOWUP.md', 'ISSUES.md', 'REVIEW.md', 'VISION.md'];
+const rootDocContractSet = new Set(rootDocContracts);
+// Il nome intero, anche dietro `../` o `/` (path costruiti dalla radice o da
+// `tests/`), mai come pezzo di un nome più lungo: `docs/AGENTS-HISTORY.md` non
+// è `AGENTS.md`.
+const rootDocLiteralRe = new RegExp(
+  `(?<![A-Za-z0-9_.-])(?:${rootDocContracts.map((file) => file.replaceAll('.', '\\.')).join('|')})(?![A-Za-z0-9_-])`,
+  'g',
+);
+const testTreeRe = /^(?:tests|packages\/[^/]+\/tests)\//;
+const isRelatedAsset = (file) => githubAssetRe.test(file) || testFixtureRe.test(file) || rootDocContractSet.has(file);
 const skipCorpusWide = process.env.VITEST_SKIP_CORPUS_WIDE === 'true';
 const corpusWideTests = skipCorpusWide ? new Set(listCorpusWideTests()) : new Set();
 // A related-test verdict is only meaningful when the generated runtime data
@@ -237,6 +260,10 @@ function trackedAssets() {
     .concat(
       execFileSync('git', ['ls-files', '-z', '--', 'tests'], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
         .split('\0').filter(Boolean).map(normalize).filter((file) => testFixtureRe.test(file)),
+    )
+    .concat(
+      execFileSync('git', ['ls-files', '-z', '--', ...rootDocContracts], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 })
+        .split('\0').filter(Boolean).map(normalize).filter((file) => rootDocContractSet.has(file)),
     );
 }
 
@@ -332,6 +359,18 @@ function importsOf(file, fileSet, assets) {
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
+  // I contratti di radice si nominano per esteso: niente directory da
+  // espandere, l'arco esiste solo se il nome è fra gli asset indicizzati.
+  // Solo dal codice dei TEST: decine di moduli sorgente citano `AGENTS.md` o
+  // `REVIEW.md` dentro un prompt o un messaggio d'errore, e un arco da loro
+  // trascinerebbe nel grafo inverso tutti i loro importatori — misurato su
+  // main al 2026-10-02: 344 file di test per una modifica a `AGENTS.md`
+  // contro i ~20 che lo leggono davvero.
+  if (testTreeRe.test(file)) {
+    for (const [literal] of code.matchAll(rootDocLiteralRe)) {
+      if (assets.includes(literal)) deps.add(literal);
+    }
+  }
   const scope = relatedAssetFileScopes.get(file);
   return [...deps]
     .filter((asset) => !scope || scope.some((pattern) => pattern.test(asset)))
@@ -353,7 +392,9 @@ function loadGraph(files, assets) {
   // workflow tornava a selezionare zero test: il blind spot di #7355/#7514
   // riaperto per ogni workflow nato dopo l'ultima invalidazione. Il bump di
   // `version` lo copriva una volta sola. Ora l'insieme degli asset entra nella
-  // chiave di validità: se cambia, il grafo si ricalcola.
+  // chiave di validità: se cambia, il grafo si ricalcola. La versione 7 segna
+  // gli archi verso i contratti di radice (`rootDocContracts`): una entry
+  // della versione 6 non li ha anche quando la firma del sorgente è invariata.
   const assetsDigest = createHash('sha1').update([...assets].sort().join('\n')).digest('hex');
   try {
     const cached = JSON.parse(readFileSync(graphFile, 'utf8'));
@@ -361,7 +402,7 @@ function loadGraph(files, assets) {
     previousVersion = cached.version || 0;
     previousAssets = cached.assets || null;
   } catch {}
-  const reusable = previousVersion === 6 && previousAssets === assetsDigest;
+  const reusable = previousVersion === 7 && previousAssets === assetsDigest;
   const fileSet = new Set(files);
   // Keep old entries for deleted files: a deleted module can still be a
   // changed root, and its cached reverse edges identify the tests that used
@@ -376,13 +417,13 @@ function loadGraph(files, assets) {
       : { signature: sig, deps: importsOf(file, fileSet, assets) };
   }
   mkdirSync(path.dirname(graphFile), { recursive: true });
-  writeFileSync(graphFile, JSON.stringify({ version: 6, assets: assetsDigest, files: graph }));
+  writeFileSync(graphFile, JSON.stringify({ version: 7, assets: assetsDigest, files: graph }));
   return graph;
 }
 
 const candidates = [...new Set(changed.filter((file) =>
   file !== 'scripts/ci/run-related-tests.mjs' && !ignoredRe.test(file)
-    && (sourceRe.test(file) || githubAssetRe.test(file) || testFixtureRe.test(file))
+    && (sourceRe.test(file) || isRelatedAsset(file))
     && !alwaysExcludedTests.has(file)))];
 const forceFull = changedStatus !== 'complete';
 const runnerChanged = changed.includes(runnerPath);
@@ -418,13 +459,13 @@ function changedAssetsFromDiff() {
         // This consumer needs only the set of asset paths. `R old new` and
         // `D old` + `A new` therefore produce the same entries; rename
         // detection would otherwise lazy-fetch base blobs under `blob:none`.
-        'diff', '--name-status', '--no-renames', '-z', base, '--', '.github', 'tests',
+        'diff', '--name-status', '--no-renames', '-z', base, '--', '.github', 'tests', ...rootDocContracts,
       ], { encoding: 'utf8', maxBuffer: 64 * 1024 * 1024 }).split('\0').filter(Boolean);
       const assets = [];
       for (const paths of parseNameStatusZ(fields)) {
         for (const filePath of paths) {
           const file = normalize(filePath);
-          if (githubAssetRe.test(file) || testFixtureRe.test(file)) assets.push(file);
+          if (isRelatedAsset(file)) assets.push(file);
         }
       }
       return assets;
@@ -442,7 +483,7 @@ function changedAssetsFromDiff() {
 const tracked = trackedFiles();
 const assets = [...new Set([
   ...trackedAssets(),
-  ...candidates.filter((file) => githubAssetRe.test(file) || testFixtureRe.test(file)),
+  ...candidates.filter(isRelatedAsset),
   ...changedAssetsFromDiff(),
 ])];
 const graph = loadGraph(tracked, assets);
@@ -496,7 +537,7 @@ if (!fullSuiteRequired) {
   }
 }
 let usedFullFallback = fullSuiteRequired;
-const assetCandidate = (file) => githubAssetRe.test(file) || testFixtureRe.test(file);
+const assetCandidate = isRelatedAsset;
 const assetScopeAllows = (test, asset) => {
   const scope = relatedAssetFileScopes.get(test);
   return !scope || scope.some((pattern) => pattern.test(asset));
@@ -553,10 +594,12 @@ if (!fullSuiteRequired && related.size === 0 && sourceCandidates.length > 0) {
 const tests = [...related].filter((file) => existsSync(file)).sort();
 const githubCandidateCount = candidates.filter((file) => githubAssetRe.test(file)).length;
 const fixtureCandidateCount = candidates.filter((file) => testFixtureRe.test(file)).length;
+const docContractCandidateCount = candidates.filter((file) => rootDocContractSet.has(file)).length;
 const changedSourceCount = sourceCandidates.length + (runnerChanged ? 1 : 0);
 console.log(`Running Vitest related to ${changedSourceCount} changed source/test file(s)`
   + (githubCandidateCount ? ` + ${githubCandidateCount} .github asset(s)` : '')
   + (fixtureCandidateCount ? ` + ${fixtureCandidateCount} tests fixture(s)` : '')
+  + (docContractCandidateCount ? ` + ${docContractCandidateCount} root doc contract(s)` : '')
   + `: ${tests.length} test file(s)`);
 console.log(tests.join('\n'));
 if (selectionOnly) {
