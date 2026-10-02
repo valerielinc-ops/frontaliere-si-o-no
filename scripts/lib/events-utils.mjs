@@ -1501,8 +1501,8 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit[oa]?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
-const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])\d{1,5}(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
+const PRICE_FREE_RE = /\b(gratis|gratuit(?:[oaie])?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
+const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,5})(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
 const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
@@ -1526,7 +1526,16 @@ export function parsePriceText(rawText) {
   if (!t) return undefined;
   const free = PRICE_FREE_RE.test(t);
   const conditionalFree = /(?:children|kids|bambini|enfants|kinder)\s+(?:free|gratis|gratuit|kostenlos|frei|liber[oa])|(?:free|gratis|gratuit|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
-  if (free && conditionalFree && /\d/u.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  if (free && conditionalFree && /\d/u.test(t)) {
+    if (PRICE_DATE_OR_PHONE_RE.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+    const conditionalAmounts = [...t.matchAll(PRICE_AMOUNT_RE)]
+      .map((match) => Number.parseFloat(match[0].replace(/['’\s]/g, '').replace(',', '.')))
+      .filter((amount) => Number.isFinite(amount) && amount >= 0);
+    if (conditionalAmounts.length) {
+      return priceResult({ amount: Math.min(...conditionalAmounts), currency: /EUR|€/iu.test(t) ? 'EUR' : 'CHF', isFree: false }, 'numeric');
+    }
+    return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  }
   if (free && !PRICE_PHONE_RE.test(t)) {
     return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
   }
@@ -1538,7 +1547,7 @@ export function parsePriceText(rawText) {
   PRICE_AMOUNT_RE.lastIndex = 0;
   let m;
   while ((m = PRICE_AMOUNT_RE.exec(t))) {
-    const n = Number.parseFloat(m[0].replace(',', '.'));
+    const n = Number.parseFloat(m[0].replace(/['’\s]/g, '').replace(',', '.'));
     if (Number.isFinite(n) && n >= 0) numbers.push(n);
   }
   if (numbers.length) {
