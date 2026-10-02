@@ -99,6 +99,17 @@ describe('plate-auction snapshot source order', () => {
     expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual(['/data/plate-auctions.json', FUNCTION_URL]);
   });
 
+  // A future generatedAt made now - generatedAt negative and passed the bound.
+  it('treats a static snapshot dated in the future as not fresh', async () => {
+    const futureAt = new Date(NOW + 90 * 24 * 60 * 60 * 1000).toISOString();
+    const freshAt = new Date(NOW - 60 * 1000).toISOString();
+    const fetchMock = vi.fn(async (url: unknown) => (isStatic(url) ? respond(200, snapshotAt(futureAt, 'zh-static')) : respond(200, snapshotAt(freshAt, 'zh-function'))));
+    vi.stubGlobal('fetch', fetchMock);
+    const result = await fetchPlateAuctionSnapshot(NOW);
+    expect(result.auctions[0].id).toBe('zh-function');
+    expect(fetchMock.mock.calls.map(([url]) => String(url))).toEqual(['/data/plate-auctions.json', FUNCTION_URL]);
+  });
+
   it('keeps the stale static snapshot when the function fails too', async () => {
     const staleAt = new Date(NOW - PLATE_AUCTION_STATIC_MAX_AGE_MS - 1).toISOString();
     const fetchMock = vi.fn(async (url: unknown) => (isStatic(url) ? respond(200, snapshotAt(staleAt)) : respond(503, {})));
