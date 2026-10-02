@@ -371,7 +371,8 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
     const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log });
     await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer }, text };
+    // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

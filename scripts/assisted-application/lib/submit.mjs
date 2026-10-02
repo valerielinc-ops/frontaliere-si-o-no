@@ -27,6 +27,7 @@ import path from 'node:path';
 import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
+import { dossierAttachment, dossierMode, wantsDossier } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
 const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
@@ -120,11 +121,18 @@ export async function submitApplication(ctx) {
     const stem = safeFileStem(identity.name);
     const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
     const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
-    const attachments = [
+    let attachments = [
       { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
       { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
       ...extras.flatMap((document) => document.files.map((file) => ({ filename: file.fileName, content: file.buffer.toString('base64') }))),
     ];
+    // One "Bewerbungsdossier" when the Remote Config switch asks for it (SECO: one document,
+    // 5 pages, 2 MB); the separate files whenever it cannot be built within those limits.
+    if (wantsDossier({ mode: dossierMode(), channelType: 'email', candidateType: draft.candidateType?.type })) {
+      const dossier = await dossierAttachment({ language: draft.language, stem, letter: Buffer.from(letterPdf), cv: { buffer: cvBuffer, type: cvType }, extras });
+      if (dossier) attachments = [{ filename: dossier.filename, content: dossier.content }];
+      log('dossier', dossier ? `${dossier.pages} pages` : 'separate files (limits or a part not mergeable)');
+    }
     if (ctx.dryRun) {
       // A dry run shows what would leave (encrypted, next to the order) and sends nothing.
       await storeEvidence({

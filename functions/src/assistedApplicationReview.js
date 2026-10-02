@@ -15,6 +15,7 @@ import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
+import { MAX_PHOTO_BYTES, PHOTO_TYPES, photoAdvice, rebuildTailoredCvPdf } from './assistedApplicationTailoredCvPdf.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
@@ -34,7 +35,8 @@ import {
   sanitizeClientCheck,
 } from './assistedApplicationExtraDocuments.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_waive']);
+const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit', 'document_upload', 'document_remove', 'document_waive', 'photo_upload', 'photo_remove']);
+const PHOTO_ACTIONS = new Set(['photo_upload', 'photo_remove']);
 const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove', 'document_waive']);
 // Where the candidate can still give a document: their review, or a portal waiting for them.
 const DOCUMENT_STATES = new Set(['candidate_review', 'needs_candidate_action']);
@@ -154,7 +156,14 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     documentLimits: { maxBytes: MAX_DOCUMENT_BYTES, maxFiles: MAX_FILES_PER_DOCUMENT },
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
     // The tailored ATS CV (sent unless the candidate chooses their original).
-    tailoredCv: draft?.tailoredCv?.status === 'ready' ? { url: tailoredCvUrl, choice: flow?.cvChoice === 'original' ? 'original' : 'tailored' } : null,
+    tailoredCv: draft?.tailoredCv?.status === 'ready' ? {
+      url: tailoredCvUrl,
+      choice: flow?.cvChoice === 'original' ? 'original' : 'tailored',
+      // The optional photo: customary in German-speaking Switzerland, optional elsewhere.
+      photo: Boolean(flow?.photo?.key),
+      photoAdvice: photoAdvice(draft.language),
+      photoMaxBytes: MAX_PHOTO_BYTES,
+    } : null,
     ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
       approve: !stale && state === 'candidate_review' && openRequired.length === 0 && openDocuments.length === 0,
@@ -163,6 +172,8 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       uploadDocuments: !stale && DOCUMENT_STATES.has(state) && documents.length > 0,
       confirmSubmitted: !stale && state === 'candidate_handoff',
       chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
+      // A tailored CV kept on the draft can be rebuilt with a photo (drafts from before it was kept cannot).
+      uploadPhoto: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready' && Boolean(draft.tailoredCv.cv),
       edit: !stale && state === 'candidate_review' && ready,
     },
   };
@@ -241,11 +252,16 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
     await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   }
+  // The tailored CV prints the same header: a corrected name, phone or place rebuilds it too.
+  const tailored = plan.identityChanged
+    ? await rebuildTailoredCvPdf({ bucket, order, orderId, draft: next, flow: nextFlow, nowMs })
+    : null;
   await draftRefFor(db, orderId).set({
     ...plan.draftPatch,
     factSources,
     factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
     coverLetterPdfKey,
+    ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer } } : {}),
     candidateEditedAt: nowMs,
   }, { merge: true });
   if (Object.keys(plan.overrides).length) {
@@ -257,6 +273,39 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     fields: Object.keys(plan.overrides),
   }));
   return plan.changed;
+}
+
+/**
+ * The candidate's photo for the tailored CV: given (a JPG or PNG by its bytes,
+ * at most 2 MB) or taken back. The tailored CV is rebuilt with or without it;
+ * the photo lives in the order's folder, so the retention deletes it with the
+ * order.
+ */
+async function savePhotoChange({ db, bucket, orderId, order, flow, draft, action, body, nowMs }) {
+  if (!bucket) throw new ReviewError('storage_unavailable', 503);
+  let photo = null;
+  if (action === 'photo_upload') {
+    const base64 = String(body.contentBase64 || '');
+    if (base64.length > Math.ceil(MAX_PHOTO_BYTES / 3) * 4 + 4) throw new ReviewError('photo_too_large', 413);
+    const buffer = Buffer.from(base64, 'base64');
+    if (!buffer.length) throw new ReviewError('invalid_file');
+    if (buffer.length > MAX_PHOTO_BYTES) throw new ReviewError('photo_too_large', 413);
+    const type = detectDocumentType(buffer.subarray(0, 16));
+    if (!PHOTO_TYPES.has(type)) throw new ReviewError('photo_type_not_allowed');
+    const key = `assisted-application-uploads/${orderId}/photo-${nowMs}-${randomUUID().slice(0, 8)}.${type}`;
+    await bucket.file(key).save(buffer, { contentType: DOCUMENT_CONTENT_TYPES[type], resumable: false });
+    photo = { key, detectedType: type, size: buffer.length, uploadedAt: nowMs };
+  }
+  const nextFlow = { ...flow, photo };
+  const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
+  if (!rebuilt) {
+    if (photo) await bucket.file(photo.key).delete().catch(() => {});
+    throw new ReviewError('not_allowed', 409);
+  }
+  await flowRefFor(db, orderId).set({ photo, updatedAt: nowMs }, { merge: true });
+  await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, photo: Boolean(photo) } }, { merge: true });
+  if (flow?.photo?.key && flow.photo.key !== photo?.key) await bucket.file(flow.photo.key).delete().catch(() => {});
+  return Boolean(photo);
 }
 
 /**
@@ -370,6 +419,11 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs });
       return { status: 200, body: { ok: true, state: flow.state, changed } };
+    }
+    if (PHOTO_ACTIONS.has(action)) {
+      if (flow.state !== 'candidate_review' || draft?.tailoredCv?.status !== 'ready' || !draft.tailoredCv.cv) throw new ReviewError('not_allowed', 409);
+      const photo = await savePhotoChange({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, action, body, nowMs });
+      return { status: 200, body: { ok: true, state: flow.state, photo } };
     }
     if (DOCUMENT_ACTIONS.has(action)) {
       if (!DOCUMENT_STATES.has(flow.state)) throw new ReviewError('not_allowed', 409);
