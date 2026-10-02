@@ -231,6 +231,14 @@ describe('in-place DOCX in the runner', () => {
     expect(await inPlaceCvRecord({ ...common(bucket), mode: 'on', cvBuffer: Buffer.from('%PDF'), cvType: 'pdf', cvKey: 'cv.pdf' })).toBeNull();
   });
 
+  it('installs LibreOffice only when the file can be patched: a layout it cannot keep costs nothing', async () => {
+    const run = vi.fn(async () => { throw new Error('not here'); });
+    const columns = BODY.replace('<w:pgSz', '<w:cols w:num="2" w:space="708"/><w:pgSz');
+    expect(await inPlaceCvRecord({ ...common(fakeBucket()), run, mode: 'on', cvBuffer: makeDocx(documentXml(columns)), cvType: 'docx', cvKey: 'cv.docx' }))
+      .toEqual({ status: 'fallback', reason: 'columns', baseType: 'docx' });
+    expect(run).not.toHaveBeenCalled();
+  });
+
   it('keeps the page count with the length budget when LibreOffice is not there; a DOC needs it', async () => {
     const bucket = fakeBucket();
     const record = await inPlaceCvRecord({ ...common(bucket), mode: 'on', cvBuffer: makeDocx(), cvType: 'docx', cvKey: 'cv.docx' });

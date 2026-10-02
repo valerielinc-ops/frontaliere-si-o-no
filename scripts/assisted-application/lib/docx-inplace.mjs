@@ -54,34 +54,40 @@ async function pagesOf(docx, run) {
  */
 export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvType, cvKey, cv, profile, identity, bucket, orderId, round, nowMs, log = () => {}, run = execFile }) {
   if (mode !== 'on' || (cvType !== 'docx' && cvType !== 'doc')) return null;
-  try {
-    let office = true;
-    try {
-      await ensurePackages(['soffice'], ['libreoffice-writer-nogui'], run);
-    } catch {
-      office = false;
+  // LibreOffice (about 300 MB) only when it is needed: a DOC to convert, or a page count to compare.
+  let office = null;
+  const haveOffice = async () => {
+    if (office === null) {
+      office = await ensurePackages(['soffice'], ['libreoffice-writer-nogui'], run).then(() => true, () => false);
     }
+    return office;
+  };
+  try {
     let base = cvBuffer;
-    let baseKey = cvKey;
     if (cvType === 'doc') {
-      if (!office) return { status: 'fallback', reason: 'doc_needs_libreoffice', baseType: cvType };
+      if (!(await haveOffice())) return { status: 'fallback', reason: 'doc_needs_libreoffice', baseType: cvType };
       base = await convertWithLibreOffice(cvBuffer, 'doc', 'docx', run);
-      baseKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-base-r${round}-${nowMs}.docx`;
-      await bucket.file(baseKey).save(base, { contentType: DOCX_CONTENT_TYPE, resumable: false });
     }
     const built = buildInPlaceDocx(base, cv, { profile, identity });
     if (built.status !== 'ready') return { status: 'fallback', reason: built.reason, baseType: cvType };
     if (!built.patched.length) return { status: 'fallback', reason: 'nothing_patched', baseType: cvType, skipped: built.skipped };
     let pages = null;
     let pagesBefore = null;
-    if (office) {
+    const checked = await haveOffice();
+    if (checked) {
       pagesBefore = await pagesOf(base, run);
       pages = await pagesOf(built.docx, run);
       if (pages > pagesBefore) return { status: 'fallback', reason: 'more_pages', baseType: cvType, skipped: built.skipped, pages, pagesBefore };
     }
+    // The converted DOC is kept only when it is used: the Cloud Functions rebuild from it.
+    let baseKey = cvKey;
+    if (cvType === 'doc') {
+      baseKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-base-r${round}-${nowMs}.docx`;
+      await bucket.file(baseKey).save(base, { contentType: DOCX_CONTENT_TYPE, resumable: false });
+    }
     const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${round}-${nowMs}.docx`;
     await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
-    log('in-place docx', `${built.patched.length} lines`, `${built.skipped.length} kept`, office ? `${pages} pages` : 'budget only');
+    log('in-place docx', `${built.patched.length} lines`, `${built.skipped.length} kept`, checked ? `${pages} pages` : 'budget only');
     return {
       status: 'ready',
       docxKey,
@@ -90,7 +96,7 @@ export async function inPlaceCvRecord({ mode = docxInPlaceMode(), cvBuffer, cvTy
       patched: built.patched,
       skipped: built.skipped,
       // How the page count was kept: LibreOffice compared it, or the length budget alone.
-      pageCheck: office ? 'libreoffice' : 'budget',
+      pageCheck: checked ? 'libreoffice' : 'budget',
       pages,
       pagesBefore,
     };
