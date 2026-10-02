@@ -3431,7 +3431,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Build an SEO-friendly meta description with source context and a
  // locale-aware completeness fallback. The helper keeps this active-job
  // emitter in sync with its 120–160 character contract.
- const description = decodeHtmlEntities(buildJobMetaDescription({
+ const description = buildJobMetaDescription({
   locale,
   title: localizedTitle,
   company: String(job.company || ''),
@@ -3440,7 +3440,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   salaryMin: job.salaryMin,
   salaryMax: job.salaryMax,
   currency: job.currency,
- }));
+ });
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it

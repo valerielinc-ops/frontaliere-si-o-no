@@ -33,4 +33,18 @@ describe('buildJobMetaDescription', () => {
    expect(description.length, locale).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
   }
  });
+
+ it('decodes HTML entities before clamping the SERP boundary', () => {
+  const description = buildJobMetaDescription({
+   locale: 'en',
+   title: 'Senior technician',
+   company: 'A &amp; B',
+   location: 'Lugano',
+   cleanDescription: `${'x'.repeat(110)}&amp;quality`,
+  });
+
+  expect(description).not.toContain('&amp');
+  expect(description).toContain('&quality…');
+  expect(description.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
+ });
 });

@@ -1,4 +1,5 @@
 import { clampMetaDescription } from './titleSuffix';
+import { decodeHtmlText } from '../../packages/articles/engine/shared/htmlEntities';
 
 /**
  * Compose the meta description for an active job page.
@@ -44,5 +45,8 @@ export function buildJobMetaDescription(input: {
   : ' Candidati ora su Frontaliere Ticino.';
  const body = String(cleanDescription || '').trim();
  const candidate = `${metaIntro}${salarySnippet}${body ? ` ${body}` : ''}${cta}`;
- return clampMetaDescription(candidate, undefined, locale);
+ // Decode before clamping: an HTML entity can expand or straddle the raw
+ // character budget, and cutting its source spelling would emit a broken
+ // reference or discard source context at the SERP boundary.
+ return clampMetaDescription(decodeHtmlText(candidate), undefined, locale);
 }
