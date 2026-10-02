@@ -1502,6 +1502,7 @@ export function eventStableId(sourceKey, rawId) {
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
 const PRICE_FREE_RE = /\b(gratis|gratuit(?:[oaie])?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
+const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+\d{1,2}\s*[–—-]\s*\d{1,2})?\s+(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit|kostenlos|frei|liber[oa])/iu;
 const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
@@ -1525,10 +1526,10 @@ export function parsePriceText(rawText) {
   const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
   if (!t) return undefined;
   const free = PRICE_FREE_RE.test(t);
-  const conditionalFree = /(?:children|kids|bambini|enfants|kinder)\s+(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit|kostenlos|frei|liber[oa])|(?:free|gratis|gratuit|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
+  const conditionalFree = PRICE_CHILD_FREE_RE.test(t) || /(?:free|gratis|gratuit|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
   if (free && conditionalFree && /\d/u.test(t)) {
     if (PRICE_DATE_OR_PHONE_RE.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
-    const conditionalAmounts = [...t.matchAll(PRICE_AMOUNT_RE)]
+    const conditionalAmounts = [...t.replace(PRICE_CHILD_FREE_RE, '').matchAll(PRICE_AMOUNT_RE)]
       .map((match) => Number.parseFloat(match[0].replace(/['’\s]/g, '').replace(/\.(?=\d{3}(?:\D|$))/g, '').replace(/,(?=\d{3}(?:\D|$))/g, '').replace(',', '.')))
       .filter((amount) => Number.isFinite(amount) && amount >= 0);
     if (conditionalAmounts.length) {
