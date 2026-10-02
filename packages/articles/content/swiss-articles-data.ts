@@ -22660,6 +22660,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'confronto-salari-settori-berna',
+    category: 'pratico',
+    date: '2026-10-02T17:59:04.595Z',
+    image: '/images/blog/confronto-salari-settori-berna.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

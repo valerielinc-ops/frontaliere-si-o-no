@@ -7544,6 +7544,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-imprenditoriale-grigioni.title': 'Opening a business in the Canton of Graubünden: register and costs',
     'blog.article.guida-imprenditoriale-grigioni.excerpt': 'In the canton of Graubünden, the course combines legal form, commercial register, minimum capital, registration fees and insurance obligations.',
     'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Business registration documents in the Swiss canton of Grisons',
+    'blog.article.confronto-salari-settori-berna.title': 'Average salary for professions in Switzerland 2026: canton of Bern',
+    'blog.article.confronto-salari-settori-berna.excerpt': '2026 comparison of the average salary by profession in Switzerland and the canton of Bern: cantons, minimum wage, AHV/IV/EO, BVG, contributions and cost of living.',
+    'blog.article.confronto-salari-settori-berna.imageAlt': 'Swiss workers comparing salary data and payroll contributions in an office',
 };
 
 export default blogMetaChEn;

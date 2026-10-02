@@ -7544,6 +7544,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-imprenditoriale-grigioni.title': 'Geschäftsgründung im Kanton Graubünden: Registrierung und Kosten',
     'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Im Kanton Graubünden kombiniert der Kurs Rechtsform, Handelsregister, Mindestkapital, Registrierungsgebühren und Versicherungspflichten.',
     'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Unterlagen zur Unternehmensgründung im Schweizer Kanton Graubünden',
+    'blog.article.confronto-salari-settori-berna.title': 'Durchschnittsgehalt für Berufe in der Schweiz 2026: Kanton Bern',
+    'blog.article.confronto-salari-settori-berna.excerpt': 'Vergleich 2026 des durchschnittlichen Gehalts nach Berufen in der Schweiz und im Kanton Bern: Kantone, Mindestlohn, AHV/IV/EO, BVG, Beiträge und Lebenshaltungskosten.',
+    'blog.article.confronto-salari-settori-berna.imageAlt': 'Schweizer Arbeitnehmer vergleichen Lohndaten und Lohnbeiträge im Büro',
 };
 
 export default blogMetaChDe;
