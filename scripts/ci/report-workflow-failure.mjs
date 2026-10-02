@@ -212,15 +212,42 @@ export function reproFromRun(runText, pkgScripts = {}) {
   const commands = [];
   const paths = new Set();
 
+  // Direct runners are common in workflow steps (`npx playwright test ...` in
+  // particular), but the reporter must only expose repository paths that a
+  // fixer can actually inspect. Keep the directory allow-list explicit: a
+  // URL, a CLI option, or an absolute runner path must not become a suggested
+  // action by accident.
+  const repoPath = String.raw`(?:scripts|data|tests|build-plugins|services|components|hooks|build|src|infra|server|functions|content)/[A-Za-z0-9._@*?/-]+`;
+  const directPath = new RegExp(String.raw`\b((?:node|bash|tsx)\s+(${repoPath})(?:\s+(--[^\n\\]*))?)`, 'g');
+  const npxTsxPath = new RegExp(String.raw`\b(npx\s+(?:-y\s+)?tsx(?:@\S+)?\s+(${repoPath})(?:\s+(--[^\n\\]*))?)`, 'g');
+  const commandPath = new RegExp(String.raw`(?:^|[\s"'(])(${repoPath})(?=$|[\s"'(),;&|])`, 'g');
+
   for (const m of text.matchAll(/\bnpm run ([A-Za-z0-9:._/-]+)/g)) {
     const name = m[1];
     const { command, paths: p } = gateToRepro(name, pkgScripts);
     commands.push(command ? `npm run ${name}  (→ ${command})` : `npm run ${name}`);
     for (const x of p) paths.add(x);
   }
-  for (const m of text.matchAll(/\b(?:node|bash|npx -y tsx@\d+|tsx)\s+((?:scripts|data)\/[A-Za-z0-9._/-]+)(?:\s+(--[^\n\\]*))?/g)) {
-    commands.push(`node ${m[1]}${m[2] ? ` ${m[2].trim()}` : ''}`.replace(/^node (?=scripts\/lib\/[^\s]+\.sh)/, 'bash '));
-    paths.add(m[1]);
+
+  for (const pattern of [directPath, npxTsxPath]) {
+    for (const m of text.matchAll(pattern)) {
+      commands.push(m[1].trim());
+      paths.add(m[2]);
+    }
+  }
+
+  // `npx playwright test`, `npx vitest run`, and other direct npx runners put
+  // the repository path after the runner name rather than immediately after
+  // the executable. Parse one shell line at a time so the body preserves the
+  // exact command that failed while only accepting the explicit path family
+  // above. tsx is handled separately to avoid duplicate commands.
+  for (const line of text.split(/\r?\n/)) {
+    const command = line.trim().replace(/\s+#.*$/, '').trim();
+    if (!/^npx\s+/.test(command) || /\bnpx\s+(?:-y\s+)?tsx(?:@\S+)?\s+/.test(command)) continue;
+    const linePaths = [...command.matchAll(commandPath)].map((m) => m[1]);
+    if (linePaths.length === 0) continue;
+    commands.push(command);
+    for (const p of linePaths) paths.add(p);
   }
   for (const m of text.matchAll(/(?:scripts|data)\/[A-Za-z0-9._/-]+/g)) paths.add(m[0]);
 

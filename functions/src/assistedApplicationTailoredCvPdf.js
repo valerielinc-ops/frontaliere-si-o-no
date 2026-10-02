@@ -13,7 +13,7 @@
 
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
-import { tailoredCvDocument } from './assistedApplicationTailoredCv.js';
+import { applyCvLineChoices, cvChoicesOf, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
 
 export const PHOTO_TYPES = new Set(['jpg', 'png']);
 export const MAX_PHOTO_BYTES = 2 * 1024 * 1024;
@@ -44,7 +44,8 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   const source = cv || tailored?.cv;
   if (tailored?.status !== 'ready' || !source || !bucket) return null;
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
-  const document = tailoredCvDocument(source, { identity, profile });
+  // The candidate's line-by-line choices of this round hold through every rebuild (photo, corrected header).
+  const document = tailoredCvDocument(applyCvLineChoices(source, cvChoicesOf(draft, flow), { profile }), { identity, profile });
   const { pdf, renderer } = await renderCvPdf({ ...document, ...await candidatePhoto(flow, bucket) }, { mode: mode || await pdfRendererMode(), log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
