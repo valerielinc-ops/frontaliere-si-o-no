@@ -1,6 +1,6 @@
 {
   "crawlerKey": "davos-klosters-bergbahnen",
-  "assembledAt": "2026-10-02T09:23:49.425Z",
+  "assembledAt": "2026-10-02T21:26:58.085Z",
   "jobs": [
     {
       "id": "davos-klosters-bergbahnen-6f08343cd9a8",
@@ -45,17 +45,14 @@
       "sourceLang": "de",
       "crawledAt": "2026-10-02T09:23:37.198Z",
       "previousSlugs": [
-        "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
-        "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
+        "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos",
-          "collaboratore-trice-booking-office-mountain-hotels-davos-klosters-bergbahnen-ag-davos"
+          "mitarbeiter-in-booking-office-mountain-hotels-davos-klosters-bergbahnen-davos"
         ]
       },
       "firstSeenAt": "2026-09-28T21:20:55.886Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -70,7 +67,9 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Mitarbeiter-in-Booking-Office-Mountain-Hotels_j_2449776",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true,
+      "crawlerMissStreak": 1
     },
     {
       "id": "davos-klosters-bergbahnen-16063da71b38",
@@ -175,7 +174,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Rang-Hotel-Waldhuus_j_3937517",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.618Z",
+      "crawledAt": "2026-10-02T21:26:43.957Z",
       "firstSeenAt": "2026-09-23T23:49:03.575Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -234,7 +233,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Chef-de-Partie-Mountain-Plaza-Hotel_j_3908252",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.424Z",
+      "crawledAt": "2026-10-02T21:26:43.786Z",
       "previousSlugs": [
         "chef-de-partie-mountain-plaza-hotel-davos-klosters-bergbahnen-davos",
         "capopartita-mountain-plaza-hotel-davos-klosters-bergbahnen-ag-davos"
@@ -304,7 +303,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.230Z",
+      "crawledAt": "2026-10-02T21:26:43.613Z",
       "previousSlugs": [
         "betriebselektriker-in-parsenn-davos-klosters-bergbahnen-davos",
         "elettricista-commerciale-a-parsenn-davos-klosters-bergbahnen-ag-davos"
@@ -322,7 +321,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T11:17:26.316Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -337,7 +335,8 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-in-Parsenn_j_2730837",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "davos-klosters-bergbahnen-b1e9004c53e4",
@@ -380,7 +379,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Betriebselektriker-In-Immobilienunterhalt_j_3890587",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:36.035Z",
+      "crawledAt": "2026-10-02T21:26:43.438Z",
       "previousSlugs": [
         "betriebselektriker-in-immobilienunterhalt-davos-klosters-bergbahnen-davos",
         "azienda-carpenter-in-manutenzione-immobiliare-davos-klosters-bergbahnen-ag-davos",
@@ -470,7 +469,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Allrounder-in-Bergrestaurant-Jatzmeder_j_3916691",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:35.831Z",
+      "crawledAt": "2026-10-02T21:26:43.268Z",
       "previousSlugs": [
         "allrounder-in-bergrestaurant-jatzmeder-davos-klosters-bergbahnen-davos",
         "allrounder-nel-ristorante-di-montagna-jatzmeder-davos-klosters-bergbahnen-ag-davos"
@@ -540,7 +539,7 @@
       "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
       "source": "Davos Klosters Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:23:35.635Z",
+      "crawledAt": "2026-10-02T21:26:43.091Z",
       "previousSlugs": [
         "abloser-schneeraumung-bahnanlagen-davos-klosters-bergbahnen-davos",
         "neve-e-impianti-ferroviari-davos-klosters-bergbahnen-ag-davos"
@@ -558,7 +557,6 @@
         ]
       },
       "firstSeenAt": "2026-09-27T05:53:17.644Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -573,7 +571,132 @@
         }
       },
       "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Abloeser-Schneeraeumung-Bahnanlagen_j_2475399",
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
+    },
+    {
+      "id": "davos-klosters-bergbahnen-ce7e03bfcefe",
+      "slug": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos",
+      "slugByLocale": {
+        "de": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos",
+        "it": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos",
+        "en": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos",
+        "fr": "masseur-in-kosmetiker-in-hotel-mountain-plaza-davos-klosters-bergbahnen-davos"
+      },
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza",
+      "titleByLocale": {
+        "de": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza",
+        "it": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza",
+        "en": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza",
+        "fr": "Masseur:in / Kosmetiker:in Hotel Mountain Plaza"
+      },
+      "description": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nZur Unterstützung des Teams im Mountain Plaza Hotel suchen wir für die Wintersaison 2026/27\neine Person als:\nMasseur:in / Kosmetiker:in 100%\nDas Hotel\nDas Mountain Plaza Hotel befindet sich mitten im Zentrum von Davos Platz und ist nur wenige\nFussminuten vom Jakobshorn oder dem Bolgenareal entfernt. Seit dem 24. November 2023 wird das\nResort von den Davos Klosters Bergbahnen AG betrieben. Das Hotel verfügt über 210 verschiedene\nZimmer, Restaurant und Stübli, eine Weinbar und einen grossen Wellnessbereich.\nDein Profil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und\nMassage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem\nCharme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive\nAusstrahlung\n• Sprache: : Du verfügst über gute deutsche und englische Sprachkenntnisse\nDeine Aufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten\nWellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Saisonkarte und einige Tageskarten der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern (wenn benötigt)\n• Zugang zum eigenen Fitnessraum zu Spezialkonditionen\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für\nSkivermietung und Ausrüstung bei Partnershops",
+      "descriptionByLocale": {
+        "de": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nZur Unterstützung des Teams im Mountain Plaza Hotel suchen wir für die Wintersaison 2026/27\neine Person als:\nMasseur:in / Kosmetiker:in 100%\nDas Hotel\nDas Mountain Plaza Hotel befindet sich mitten im Zentrum von Davos Platz und ist nur wenige\nFussminuten vom Jakobshorn oder dem Bolgenareal entfernt. Seit dem 24. November 2023 wird das\nResort von den Davos Klosters Bergbahnen AG betrieben. Das Hotel verfügt über 210 verschiedene\nZimmer, Restaurant und Stübli, eine Weinbar und einen grossen Wellnessbereich.\nDein Profil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und\nMassage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem\nCharme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive\nAusstrahlung\n• Sprache: : Du verfügst über gute deutsche und englische Sprachkenntnisse\nDeine Aufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten\nWellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Saisonkarte und einige Tageskarten der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern (wenn benötigt)\n• Zugang zum eigenen Fitnessraum zu Spezialkonditionen\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für\nSkivermietung und Ausrüstung bei Partnershops",
+        "it": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nZur Unterstützung des Teams im Mountain Plaza Hotel suchen wir für die Wintersaison 2026/27\neine Person als:\nMasseur:in / Kosmetiker:in 100%\nDas Hotel\nDas Mountain Plaza Hotel befindet sich mitten im Zentrum von Davos Platz und ist nur wenige\nFussminuten vom Jakobshorn oder dem Bolgenareal entfernt. Seit dem 24. November 2023 wird das\nResort von den Davos Klosters Bergbahnen AG betrieben. Das Hotel verfügt über 210 verschiedene\nZimmer, Restaurant und Stübli, eine Weinbar und einen grossen Wellnessbereich.\nDein Profil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und\nMassage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem\nCharme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive\nAusstrahlung\n• Sprache: : Du verfügst über gute deutsche und englische Sprachkenntnisse\nDeine Aufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten\nWellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Saisonkarte und einige Tageskarten der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern (wenn benötigt)\n• Zugang zum eigenen Fitnessraum zu Spezialkonditionen\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für\nSkivermietung und Ausrüstung bei Partnershops",
+        "en": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nZur Unterstützung des Teams im Mountain Plaza Hotel suchen wir für die Wintersaison 2026/27\neine Person als:\nMasseur:in / Kosmetiker:in 100%\nDas Hotel\nDas Mountain Plaza Hotel befindet sich mitten im Zentrum von Davos Platz und ist nur wenige\nFussminuten vom Jakobshorn oder dem Bolgenareal entfernt. Seit dem 24. November 2023 wird das\nResort von den Davos Klosters Bergbahnen AG betrieben. Das Hotel verfügt über 210 verschiedene\nZimmer, Restaurant und Stübli, eine Weinbar und einen grossen Wellnessbereich.\nDein Profil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und\nMassage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem\nCharme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive\nAusstrahlung\n• Sprache: : Du verfügst über gute deutsche und englische Sprachkenntnisse\nDeine Aufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten\nWellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Saisonkarte und einige Tageskarten der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern (wenn benötigt)\n• Zugang zum eigenen Fitnessraum zu Spezialkonditionen\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für\nSkivermietung und Ausrüstung bei Partnershops",
+        "fr": "Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den\nBergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und Resorts\nüber 20 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-Superior Hotel.\nZur Unterstützung des Teams im Mountain Plaza Hotel suchen wir für die Wintersaison 2026/27\neine Person als:\nMasseur:in / Kosmetiker:in 100%\nDas Hotel\nDas Mountain Plaza Hotel befindet sich mitten im Zentrum von Davos Platz und ist nur wenige\nFussminuten vom Jakobshorn oder dem Bolgenareal entfernt. Seit dem 24. November 2023 wird das\nResort von den Davos Klosters Bergbahnen AG betrieben. Das Hotel verfügt über 210 verschiedene\nZimmer, Restaurant und Stübli, eine Weinbar und einen grossen Wellnessbereich.\nDein Profil\n• Ausbildung: Du besitzt eine abgeschlossene Berufsausbildung im Bereich Kosmetik, Wellness und\nMassage sowie erste Berufserfahrungen\n• Arbeitsweise: Du hast ein verkäuferisches und organisatorisches Talent verbunden mit herzlichem\nCharme und einer flexiblen Arbeitseinstellung\n• Team: Du bist aufgeschlossen und arbeitest gerne im Team\n• Umgang: Du besitzt exzellente Umgangsformen und gepflegtes Äusseres, sowie eine positive\nAusstrahlung\n• Sprache: : Du verfügst über gute deutsche und englische Sprachkenntnisse\nDeine Aufgaben\n• Beratung der Gäste über das Spa- und Massagen-Angebot\n• Zusammenstellung der individuellen Wellnessprogramme für die Gäste\n• Durchführung diverser Spa Behandlungen wie Massagen und Kosmetikanwendungen\n• Gewährleistung der allgemeinen Ordnung, Sicherheit, Sauberkeit und Hygiene im gesamten\nWellnessbereich\n• Kleinere Reinigungsarbeiten im Fachbereich sowie Produktberatung und -verkauf\nWir bieten\n• Aufgestelltes Team mit flexiblem und positivem Arbeitsklima\n• Saisonkarte und einige Tageskarten der Davos Klosters Bergbahnen\n• Vermittlung von Personalwohnungen- oder zimmern (wenn benötigt)\n• Zugang zum eigenen Fitnessraum zu Spezialkonditionen\n• Spezialkonditionen für Übernachtungen in den Mountain Hotels und Resorts sowie Rabatte für\nSkivermietung und Ausrüstung bei Partnershops"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "TEMPORARY",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:26:44.478Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Masseur-in-Kosmetiker-in-Hotel-Mountain-Plaza_j_3887486",
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-02T21:26:44.478Z"
+    },
+    {
+      "id": "davos-klosters-bergbahnen-2429818f1d17",
+      "slug": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+      "slugByLocale": {
+        "de": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "it": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "en": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos",
+        "fr": "hausabwart-pp-parsenn-aush-td-parsenn-davos-klosters-bergbahnen-davos"
+      },
+      "company": "Davos Klosters Bergbahnen AG",
+      "companyKey": "davos-klosters-bergbahnen-ag",
+      "companyDomain": "davosklosters.ch",
+      "title": "Hausabwart PP Parsenn Aush. TD Parsenn",
+      "titleByLocale": {
+        "de": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "fr": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "it": "Hausabwart PP Parsenn Aush. TD Parsenn",
+        "en": "Hausabwart PP Parsenn Aush. TD Parsenn"
+      },
+      "description": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
+      "descriptionByLocale": {
+        "de": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
+        "it": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
+        "en": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen.",
+        "fr": "Firmenportrait\nDie Musterfirma AG ist ein innovatives Unternehmen mit Fokus auf Qualität, Zuverlässigkeit und kundenorientierte Lösungen. Unser engagiertes Team arbeitet täglich daran, Produkte und Dienstleistungen auf höchstem Niveau anzubieten. Dank moderner Arbeitsmethoden, einer offenen Unternehmenskultur und kontinuierlicher Weiterentwicklung schaffen wir ein attraktives Umfeld für Mitarbeitende und Kunden. Als verantwortungsbewusstes Unternehmen legen wir grossen Wert auf Nachhaltigkeit, Zusammenarbeit und langfristige Partnerschaften.\nEinleitung\nZur Verstärkung unseres Teams suchen wir eine motivierte und engagierte Persönlichkeit. Freuen Sie sich auf eine abwechslungsreiche Tätigkeit in einem dynamischen Arbeitsumfeld, attraktive Anstellungsbedingungen sowie die Möglichkeit, Ihre Fähigkeiten aktiv einzubringen und weiterzuentwickeln.\nAufgaben\n• Selbstständige Bearbeitung der täglichen Aufgaben im jeweiligen Verantwortungsbereich\n• Unterstützung des Teams bei organisatorischen und administrativen Tätigkeiten\n• Sicherstellung einer hohen Qualität und termingerechten Ausführung der Arbeiten\n• Kommunikation und Zusammenarbeit mit internen sowie externen Ansprechpartnern\n• Mitwirkung bei der Optimierung von Prozessen und Arbeitsabläufen\n• Übernahme weiterer abwechslungsreicher Aufgaben je nach Einsatzgebiet\nProfil\n• Abgeschlossene Ausbildung oder vergleichbare Qualifikation\n• Selbstständige, zuverlässige und strukturierte Arbeitsweise\n• Teamfähigkeit sowie ausgeprägte Kommunikationsfähigkeiten\n• Hohe Eigeninitiative und Verantwortungsbewusstsein\n• Sicherer Umgang mit den gängigen MS-Office-Anwendungen\n• Gute Deutschkenntnisse in Wort und Schrift; weitere Sprachkenntnisse sind von Vorteil\nWir bieten\n• Eine abwechslungsreiche und verantwortungsvolle Tätigkeit\n• Ein kollegiales und wertschätzendes Arbeitsumfeld\n• Eine sorgfältige Einarbeitung und Unterstützung durch ein erfahrenes Team\n• Attraktive Anstellungsbedingungen und zeitgemässe Arbeitsmittel\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Flexible Arbeitszeiten und eine ausgewogene Work-Life-Balance (je nach Funktion)\nAbschluss\nHaben wir Ihr Interesse geweckt? Dann freuen wir uns auf Ihre vollständigen Bewerbungsunterlagen. Für Fragen stehen wir Ihnen gerne zur Verfügung. Wir freuen uns darauf, Sie kennenzulernen."
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "location": "Davos",
+      "canton": "GR",
+      "addressLocality": "Davos",
+      "addressCountry": "CH",
+      "category": "tourism",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "url": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
+      "source": "Davos Klosters Bergbahnen Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:26:44.134Z",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://www.davosklostersmountains.ch/de/mountains/stellenangebote/Hausabwart-PP-Parsenn-Aush.TD-Parsenn_j_3942409",
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-02T21:26:44.134Z"
     }
   ]
 }
