@@ -7568,6 +7568,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.micasa-quattro-negozi-2027.title': 'Micasa ferme quatre magasins d\'ici janvier 2027',
     'blog.article.micasa-quattro-negozi-2027.excerpt': 'Micasa se séparera de quatre magasins d’ici janvier 2027 : Crissier fermera d’ici fin 2026. Langendorf, Brügg et Buchs sont concernés ; aucun commentaire sur les postes.',
     'blog.article.micasa-quattro-negozi-2027.imageAlt': 'Magasin suisse d\'ameublement avec vitrines avant sa fermeture',
+    'blog.article.assemblea-swissaccounting-melide.title': 'SwissAccounting, 60ª assemblée et nouvelles appellations professionnelles',
+    'blog.article.assemblea-swissaccounting-melide.excerpt': 'SwissAccounting Svizzera Italiana a célébré à Melide la 60ª assemblée. Introduction des appellations Professional Master et Bachelor pour les titres fédéraux.',
+    'blog.article.assemblea-swissaccounting-melide.imageAlt': 'Assemblée générale de SwissAccounting à Melide',
 };
 
 export default blogMetaChFr;

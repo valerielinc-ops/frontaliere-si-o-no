@@ -2545,6 +2545,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'guida-retribuzioni-argovia-2026': { it: 'guida-retribuzioni-argovia-2026', en: 'swiss-average-salary-aargau-2026', de: 'durchschnittslohn-berufe-aargau-2026', fr: 'salaire-moyen-metiers-argovie-2026' },
  'inflazione-eurozona-picco-triennale': { it: 'inflazione-eurozona-picco-triennale', en: 'eurozone-inflation-three-year-high', de: 'inflation-eurozone-drei-jahres-hoch', fr: 'inflation-zone-euro-pic-trois-ans' },
  'micasa-quattro-negozi-2027': { it: 'micasa-quattro-negozi-2027', en: 'micasa-four-stores-2027', de: 'micasa-vier-filialen-2027', fr: 'micasa-quatre-magasins-2027' },
+ 'assemblea-swissaccounting-melide': { it: 'assemblea-swissaccounting-melide', en: 'swissaccounting-assembly-melide', de: 'swissaccounting-versammlung-melide', fr: 'assemblee-swissaccounting-melide' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
