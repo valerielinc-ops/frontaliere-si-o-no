@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Fri, 02 Oct 2026 17:59:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 18:40:14 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,78 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Durchschnittliches Berufsgehalt Schweiz 2026: St. Gallen</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-gehalt-st-gallen-2026/</link>
+      <description><![CDATA[Vergleich 2026 zwischen Berufen, Kantonen und Sektoren: AHV- und BVG-Beiträge, Steuern auf drei Ebenen und KVG zur Einordnung des Kantons St. Gallen.]]></description>
+      <content:encoded><![CDATA[## Kurzfassung
+- Kein eidgenössischer Mindestlohn; einige Kantone haben einen
+- AHV/IV/EO: 5.3% zulasten des Arbeitnehmers
+- Obligatorische Krankenversicherung für Einwohner innerhalb von 3 Monaten nach der Ankunft
+- Das Steuerwesen ist eidgenössisch, kantonal und kommunal
+
+## Wichtige Fakten
+- Fokus → Kanton St. Gallen und nationaler Vergleich
+- Statistiken → BFS
+- AHV/IV/EO → 5.3% Arbeitnehmeranteil, 10.6% insgesamt mit Arbeitgeber
+- ALV → 1.1% bis zum jährlichen Höchstbetrag
+- UVG → 0.7–1.5% je nach Branche
+- Höchstarbeitszeit → 45 oder 50 Stunden pro Woche
+- Mindestferien → 4 Wochen, 5 unter 20 Jahren
+- Mutterschaft → 14 Wochen zu 80% über die EO
+
+5.3% der AHV/IV/EO-Beiträge gehen zulasten des Arbeitnehmers, während der Gesamtbeitrag zusammen mit dem Arbeitgeber 10.6% erreicht. Das ist der erste Schritt, um den Durchschnittslohn nach Beruf in der Schweiz im Jahr 2026 zu verstehen, ohne den Bruttolohn mit dem zu verwechseln, was im Kanton St. Gallen auf der Lohnabrechnung übrig bleibt.
+
+Für die Statistiken ist BFS die Referenz. Der Medianlohn gehört zu den jährlich indexierten Werten: Die genauen Beträge müssen für das richtige Jahr und anhand der offiziellen Quelle überprüft werden. Ein nicht überprüfter Wert kann nicht zu einer Zahl für 2026 werden, die einem Beruf oder dem Kanton St. Gallen zugeschrieben wird.
+
+### Der steuerliche Rahmen
+Das Steuerwesen folgt einer eigenen Logik. In der Schweiz gibt es drei Ebenen: direkte Bundessteuer, Kantonssteuer und Gemeindesteuer. Jeder Kanton hat ein eigenes Gesetz und einen eigenen Steuerfuss; die Gemeinde wendet einen Steuerfuss auf die Kantonssteuer an. Die ESTV verwaltet die direkte Bundessteuer und die Mehrwertsteuer, die kantonalen Verwaltungen das kantonale und kommunale Steuerwesen. Das BFS erstellt Statistiken und legt keine Steuersätze fest; das BSV befasst sich mit der Sozialvorsorge und legt keine Steuern fest.
+
+### Die Bestandteile der Lohnabrechnung
+Der Übergang vom Brutto- zum Nettolohn erfordert eine Aufschlüsselung der Beiträge. Die Beiträge für AHV/IV/EO betragen 5.3% für den Arbeitnehmer und insgesamt 10.6% zusammen mit dem Arbeitgeber. Die ALV beträgt 1.1% bis zum jährlichen Höchstbetrag. Die UVG-Beiträge liegen je nach Branche zwischen 0.7% und 1.5%. Die berufliche Vorsorge wird auf dem koordinierten Lohn berechnet: 7% zwischen 25 und 34 Jahren, 10% zwischen 35 und 44, 15% zwischen 45 und 54, 18% ab 55 Jahren bis zum Referenzalter.
+
+Der Mindestlohn rundet die Betrachtung des Arbeitsmarkts ab: Es gibt keine eidgenössische Mindestlohngrenze, während einige Kantone eigene Regeln haben. Auch die Arbeitsbedingungen spielen eine Rolle: Die Höchstarbeitszeit beträgt 45 Stunden pro Woche in der Industrie, in Büros und im Verkauf oder 50 in den übrigen Branchen; der Ferienanspruch beträgt mindestens vier Wochen, fünf unter 20 Jahren. Der Mutterschaftsurlaub dauert 14 Wochen zu 80% über die EO, der Vaterschaftsurlaub zwei Wochen.
+
+Für eine erste Simulation des Übergangs vom Brutto- zum Nettolohn kann calcolatore stipendio verwendet werden.
+### Drei Accounts, die nicht gemischt werden dürfen
+Ein nützlicher Vergleich für den Kanton St. Gallen sollte drei Ebenen auf einem Blatt aufführen: Gehaltsdaten, Abzüge und Abgänge, die nicht einbehalten werden. Das mittlere Gehalt gehört zu den jährlich indexierten Zahlen; für 2026 sollte nur der Wert des richtigen Jahres verwendet werden. Eine Gehaltsstatistik beschreibt weder das Netto noch die Lebenshaltungskosten für sich.
+
+| Stimme | Praktische Frage |
+|---|---|
+| Gehalt | Welcher Beruf, welche Branche und welches Jahr werden verglichen? |
+| BVG | Welche Altersgruppe und das abgestimmte Gehalt gelten? |
+| KVG | Welcher Kanton oder Region, Selbstbeteiligung und Prämienreduktion? |
+| Steuern | Welche drei Stufen und welcher kommunale Multiplikator ist es? |
+| Lebenshaltungskosten | Welche Ausgaben werden vom Gehalt ausgelassen? |
+
+Der einfachste Ort für Fehler ist der KVG. Für Einwohner ist er verpflichtend und muss innerhalb von 3 Monaten nach Ankunft abgebucht werden, funktioniert aber mit Pro-Kopf-Prämien: Es handelt sich nicht um eine Steuer und keinen Lohnbeitrag. Die Prämien hängen vom Kanton und der Region ab, während die Prämiensenkung kantonal ist. Für Erwachsene sind die angegebenen Selbstbeteiligungen 300, 500, 1000, 1500, 2000 und 2500 CHF.
+
+Für denselben Bruttowert kann sich das Ergebnis ändern, wenn sich die entsprechende Altersgruppe der BVG, der Kanton oder die Region der KVG und die Steuergemeinde ändern. Im Kanton St. Gallen muss der Gemeindemultiplikator daher vom kantonalen Gesetz getrennt bleiben: Die Gemeinde erhebt einen eigenen Multiplikator auf die kantonale Steuer. Ohne einen aktualisierten offiziellen Satz muss kein erfundener Prozentsatz eingegeben werden. Die Mehrwertsteuer bleibt auch im bundesstaatlichen Steuerrahmen der FTA/ESTV und gehört nicht zu den Abzügen, die mit AHV, ALV, UVG oder BVG verwechselt werden dürfen.
+
+Um das Bild der Ausgaben zu vervollständigen, legen Sie das costo della vita in Svizzera daneben und prüfen Sie das LAMal e cassa malati.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
+## Wie man ein Angebot für 2026 überprüft
+
+### Fünf-Schritte-Verfahren
+1. Definieren Sie den Anwendungsbereich. Schreiben Sie den Beruf, die Branche, den Kanton St. Gallen und das Jahr 2026 auf. Suchen Sie die statistischen Daten bei FSO/BFS nach und prüfen Sie, ob das mittlere Gehalt auf das richtige Jahr verweist. Ersetzen Sie eine fehlende Zahl nicht durch eine Schätzung.
+
+2. Beginnen Sie mit Brutto. GETRENNTE AHV/IV/EO, ALV/CA, UVG/LAA und BVG. Rekord von 5,3 % vom Arbeitnehmer für AHV/IV/EO, insgesamt 10,6 % beim Arbeitgeber, 1,1 % ALV/AC bis zur jährlichen Obergrenze und 0,7–1,5 % UVG/LAA je nach Sektor. Für BVG verwenden Sie das koordinierte Gehalt und die erwartete Altersgruppe.
+
+3. Fügen Sie die KVG hinzu. Wenn Sie in der Schweiz leben, müssen Sie innerhalb von 3 Monaten nach Ankunft eine Versicherung abschließen. Die Prämie ist pro Kopf, keine Steuer oder Lohnbeitrag; prüfen Sie Kanton oder Region, Erwachsenenselbstbehalt und mögliche kantonale Reduktion. Die angegebenen Selbstbeteiligungen sind CHF 300, 500, 1000, 1500, 2000 oder 2500.
+
+4. Das Steuersystem rekonstruieren. Die direkte Bundes-, Kantons- und Gemeindesteuern aufteilen. Für IFD und Mehrwertsteuer ist die Referenz FTA/ESTV; für kantonale und kommunale Steuern die kantonalen Verwaltungen. Betrachten Sie den Multiplikator der Gemeinde, ohne die Sätze an FSO/BFS oder FSIO/BSV zu vergeben.
+
+5. Prüfen Sie den Vertrag. Prüfen Sie den Mindestlohn: Es gibt keine bundesweite Schwelle, aber einige Kantone haben ihre eigenen. Vergleichen Sie dann die maximalen Stunden, Feiertage, Mutterschaft, Vaterschaft und Kündigung: 45 oder 50 Stunden je nach Sektor, mindestens 4 Wochen Urlaub, 14 Wochen Mutterschaftsurlaub bei 80 %, 2 Wochen Vaterschaftsurlaub; die Beendigung beträgt 1 Monat im ersten Jahr, 2 Wochen vom zweiten bis zum neunten und 3 Wochen im zehnten.
+
+Um die busta paga svizzera-Einträge zu sortieren und sie mit den Lebenshaltungskosten zu verknüpfen, verwenden Sie eine Simulation, die mit dem Jahr und dem Kanton übereinstimmt. Für die endgültige Nettoberechnung öffnen Sie die calcolatore stipendio.]]></content:encoded>
+      <pubDate>Fri, 02 Oct 2026 18:40:14 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/netto-professioni-stgallen-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/netto-professioni-stgallen-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Durchschnittsgehalt für Berufe in der Schweiz 2026: Kanton Bern</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-loehne-berufe-bern/</link>
@@ -3718,79 +3790,6 @@ Vergleichen Sie den CHF/EUR-Wechselkurs in Echtzeit: sparen Sie bis zu 1,5% bei 
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/agenda-federale-autunno-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/agenda-federale-autunno-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>SECO: Zölle der Vereinigten Staaten, Abstimmung und Rücktritt</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/schweizer-zoelle-abstimmung/</link>
-      <description><![CDATA[Am 24. Juli 2026 verhängten die Vereinigten Staaten zusätzliche Zölle auf die Schweiz von bis zu 12,5 %; am 29. November 2026 findet die Abstimmung über Kriegsmaterial statt.]]></description>
-      <content:encoded><![CDATA[## Kurz zusammengefasst
-- Zusätzliche Zölle der Vereinigten Staaten von bis zu 12,5%
-- Abstimmung über Kriegsmaterial am 29 novembre 2026
-- Rücktritt von Helene Budliger Artieda Ende marzo 2027
-- Die SECO zählt über 900 Mitarbeitende
-
-## Schlüsselfakten
-- Zölle → zusätzliche und variable, bis zu 12,5%
-- Datum der Zölle → 24 luglio 2026
-- Abstimmung → 29 novembre 2026
-- Rücktritt → Ankündigung vom 16 settembre 2026, wirksam ab Ende marzo 2027
-- SECO → über 900 Mitarbeitende, drei Standorte in der Schweiz und 50 Entsandte in 32 Ländern
-
-### Die von der SECO angegebenen Entscheidungen
-
-Am 24 luglio 2026 haben die Vereinigten Staaten einige Maßnahmen in Form neuer zusätzlicher Zölle eingeführt. Die Entscheidung geht auf die gemäß Abschnitt 301 des US-amerikanischen Handelsgesetzes von 1974, das auch als Trade Act of 1974 bezeichnet wird, durchgeführte Untersuchung des Handels mit Waren zurück, die unter Einsatz von Zwangsarbeit hergestellt wurden.
-
-Für Einfuhren aus der Schweiz gilt ein variabler zusätzlicher Zoll, der höchstens 12,5% betragen kann. Die NPF-Zölle, also Meistbegünstigungszölle, die bereits in Kraft sind, werden jedoch weiterhin berücksichtigt. Die von der SECO angegebene Formulierung enthält somit sowohl das neue Element als auch den Verweis auf die bereits geltenden Zölle.
-
-Der politische Kalender der Schweiz führt den 29 novembre 2026 als Datum der Abstimmung über die Änderung des Bundesgesetzes über das Kriegsmaterial an. An diesem Tag wird das Schweizer Volk darüber abstimmen. Die Meldung nennt den Gegenstand der Abstimmung, liefert jedoch keine weiteren Einzelheiten zum Inhalt der Änderung.
-
-Ein weiteres Datum ist der 16 settembre 2026. An diesem Tag informierte der Bundespräsident Guy Parmelin den Bundesrat darüber, dass die Staatssekretärin Helene Budliger Artieda beschlossen hatte, mit Wirkung ab Ende marzo 2027 zurückzutreten. Für ihre Nachfolge wird eine entsprechende Kommission eingesetzt. Der Text nennt keinen Namen eines Nachfolgers.
-
-### Die weiteren institutionellen Informationen
-
-Die Seite erinnert auch daran, dass der Bundesrat am 28 febbraio 2022 beschlossen hat, die Sanktionen der Europäischen Union gegen Russland zu unterstützen und dadurch deren Wirksamkeit zu stärken. Es handelt sich um einen Beschluss, der getrennt von den Handelsmaßnahmen von 2026 aufgeführt wird.
-
-Die SECO wird als Organisation beschrieben, die über 900 Mitarbeitende an drei Standorten in der Schweiz sowie 50 Entsandte in 32 Ländern verfügt. Sie bietet zahlreiche Lehrstellen und Hochschulpraktika an. Die Struktur umfasst vier Direktionen und den Leistungsbereich Ressourcen. Die strategische Leitung obliegt dem Direktorium, während die Leitung der SECO das zentrale Gremium ist, in dem strategische Fragen erörtert werden. Die Website weist schließlich darauf hin, dass die thematische Gliederung der meistbesuchten Seiten den Zugang zu den wesentlichen Informationen erleichtert.
-### Was du lesen kannst und was nicht
-
-Die Handelsmaßnahme sollte als Spanne gelesen werden, nicht als einzelner Prozentsatz. Die Formulierung bezieht sich auf eine variable Zusatzzölle und gibt 12,5 % als Maximum an; sie bezieht sich auch auf die bereits geltenden MFN-Zölle. Für diejenigen, die Importe aus der Schweiz betrachten, beschreibt die Zahl allein nicht jede mögliche Anwendung. Die Quelle listet keine Waren, keine spezifischen Tarife oder Berechnungsmethoden auf. Folglich erlaubt sie nicht, die Obergrenze in einen einheitlichen Betrag umzurechnen.
-
-Die gleiche Vorsicht ist für die Abstimmung am 29. November 2026 geboten. Die konkreten Daten sind die Konsultation des Schweizer Volkes zur Änderung des Bundesgesetzes über Kriegsmaterial. Die Quelle berichtet nicht über den Inhalt der geänderten Artikel oder sonstige Auswirkungen. Die Berücksichtigung detaillierter Konsequenzen für die Abstimmung würde über die verfügbaren Informationen hinausgehen.
-
-Der Übergang zum Staatssekretär erfordert ebenfalls eine Unterscheidung zwischen Bekanntgabe und Nachfolge. Am 16. September 2026 sind die Entscheidung zum Rücktritt mit Wirkung Ende März 2027 und die zukünftige Einrichtung einer Sonderkommission angegeben. Der Name des Nachfolgers oder ein Zeitplan für die Auswahl sind nicht angegeben.
-
-| Thema | Verfügbare Daten | Quelllimit |
-|---|---|---|
-| Handel | maximal 12,5 %, variable Maße, MFN-Zölle berücksichtigt | keine Berechnung für einzelne Importe |
-| Abstimmung | 29. November 2026 und Änderung des War Material Act | Keine Details zum Text der Änderung |
-| Nachfolge | Spezieller Auftrag | Kein Name oder Kalender angegeben |
-
-Organisatorisch beschäftigt SECO mehr als 900 Personen an drei Standorten in der Schweiz und 50 Mitarbeiter in 32 Ländern. Die Struktur besteht aus vier Direktionen und dem Servicebereich Ressourcen; das Managementkomitee ist der strategische Direktor. Die thematische Unterteilung der meistbesuchten Seiten dient dazu, den Zugang zu wichtigen Informationen zu erleichtern. Wer die von der Institution genannten Möglichkeiten sucht, also Ausbildungsplätze und Universitätspraktika, kann mit annunci di lavoro beginnen, ohne dieses Angebot mit einem Auswahlkalender zu verwechseln, den die Quelle nicht erwähnt.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-### Betriebscheckliste
-
-1. Trennen Sie die Handelsakte von der politischen Akte. Für die Handelsmaßnahme beachten Sie das Datum 24. Juli 2026, die variable Zusatzabgabenformel und die Grenze von 12,5 %. Neben diesen Elementen ist der Verweis auf die bereits geltenden MFN-Zölle aufgeführt. Ersetzen Sie die Variabilität nicht durch einen einzigen Satz.
-
-2. Die Stichtage für die Konsultation festzulegen. Am 29. November 2026 wird die Schweizer Wählerschaft über die Änderung des Bundesgesetzes über Kriegsmaterial abstimmen. Solange der verfügbare Text keine weiteren Elemente hinzufügt, beschränken Sie sich auf dieses Thema und Datum.
-
-3. Halten Sie die Nachfolgeakte getrennt. Die Bekanntgabe ist auf den 16. September 2026 datiert; die Wirkung des Rücktritts ist für Ende März 2027 angesetzt. Die Quelle sieht eine Sonderkommission vor: Dies ist der zu befolgende Schritt, ohne Namen oder nicht gemeldete Zeitpunkte zu nennen.
-
-4. Nutzen Sie die Struktur der Website, um nach Informationen zu suchen. SECO weist darauf hin, dass die thematische Unterteilung der meistbesuchten Seiten den Zugang zu wichtigen Informationen erleichtert. Für die Arbeit umfasst die verfügbare Referenz zahlreiche Ausbildungsstellen und universitäre Praktika. Für eine separate Lektüre persönlicher Ausgaben können Sie die costo della vita in Svizzera konsultieren, ohne Daten der Quelle zuzuordnen, die sie nicht enthält.
-
-5. Führen Sie eine separate Akte für den 28. Februar 2022. An diesem Tag beschloss der Bundesrat, die Sanktionen der Europäischen Union gegen Russland zu unterstützen und so deren Wirksamkeit zu stärken. Verwechseln Sie diese Entscheidung nicht mit der Zollmaßnahme 2026: Die Quelle präsentiert sie in separaten Passagen.
-
-Dieses Verfahren ermöglicht es Ihnen, die Daten, Themen und Grenzen des Berichts zu überprüfen, ohne Details zum Inhalt des Bundesgesetzes, zum zukünftigen Nachfolger oder zu den einzelnen Importen hinzuzufügen. Für eine persönliche Berechnung unabhängig von den kommerziellen Informationen verwenden Sie die calcolatore stipendio e imposte.
-
-Vergleichen Sie den CHF/EUR-Wechselkurs in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.
-
-*Quelle: [seco.admin.ch](https://www.seco.admin.ch/it)*]]></content:encoded>
-      <pubDate>Thu, 01 Oct 2026 20:06:53 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/dazi-svizzera-voto</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/dazi-svizzera-voto.webp" medium="image"/>
     </item>
   </channel>
 </rss>

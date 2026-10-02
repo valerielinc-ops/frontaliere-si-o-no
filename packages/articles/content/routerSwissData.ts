@@ -2538,6 +2538,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'dimissioni-guy-parmelin-2026': { it: 'dimissioni-guy-parmelin-2026', en: 'guy-parmelin-resignation-2026', de: 'ruecktritt-guy-parmelin-2026', fr: 'demission-guy-parmelin-2026' },
  'guida-imprenditoriale-grigioni': { it: 'guida-imprenditoriale-grigioni', en: 'grisons-business-registration-costs', de: 'geschaeft-gruenden-graubuenden-kosten', fr: 'creer-entreprise-grisons-couts' },
  'confronto-salari-settori-berna': { it: 'confronto-salari-settori-berna', en: 'swiss-salary-sectors-bern', de: 'schweizer-loehne-berufe-bern', fr: 'salaires-suisses-secteurs-berne' },
+ 'netto-professioni-stgallen-2026': { it: 'netto-professioni-stgallen-2026', en: 'swiss-salary-st-gallen-2026', de: 'schweizer-gehalt-st-gallen-2026', fr: 'salaire-suisse-saint-gall-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

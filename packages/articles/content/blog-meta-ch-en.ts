@@ -7547,6 +7547,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.confronto-salari-settori-berna.title': 'Average salary for professions in Switzerland 2026: canton of Bern',
     'blog.article.confronto-salari-settori-berna.excerpt': '2026 comparison of the average salary by profession in Switzerland and the canton of Bern: cantons, minimum wage, AHV/IV/EO, BVG, contributions and cost of living.',
     'blog.article.confronto-salari-settori-berna.imageAlt': 'Swiss workers comparing salary data and payroll contributions in an office',
+    'blog.article.netto-professioni-stgallen-2026.title': 'Average salary by profession Switzerland 2026: St. Gallen',
+    'blog.article.netto-professioni-stgallen-2026.excerpt': '2026 comparison between professions, cantons and sectors: AHV contributions, BVG, taxes on three levels and KVG to read the canton of St. Gallen.',
+    'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Swiss salary comparison by profession, focused on the canton of St. Gallen',
 };
 
 export default blogMetaChEn;

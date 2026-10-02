@@ -7547,6 +7547,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.confronto-salari-settori-berna.title': 'Salaire moyen des professions en Suisse 2026 : canton de Berne',
     'blog.article.confronto-salari-settori-berna.excerpt': 'Comparaison 2026 du salaire moyen par profession en Suisse et dans le canton de Berne : cantons, salaire minimum, AHV/IV/EO, BVG, cotisations et coût de la vie.',
     'blog.article.confronto-salari-settori-berna.imageAlt': 'Des travailleurs suisses comparent des données salariales au bureau',
+    'blog.article.netto-professioni-stgallen-2026.title': 'Salaire professionnel moyen en Suisse 2026 : Saint-Gall',
+    'blog.article.netto-professioni-stgallen-2026.excerpt': 'Comparaison 2026 entre professions, cantons et secteurs : cotisations AHV, BVG, impôts sur trois niveaux et KVG pour lire le canton de Saint-Gall.',
+    'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Comparaison des salaires suisses par profession, avec un focus sur Saint-Gall',
 };
 
 export default blogMetaChFr;

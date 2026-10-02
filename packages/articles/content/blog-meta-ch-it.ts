@@ -7547,6 +7547,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.confronto-salari-settori-berna.title': 'Salario medio professioni Svizzera 2026: canton Berna',
     'blog.article.confronto-salari-settori-berna.excerpt': 'Confronto 2026 del salario medio per professione in Svizzera e nel canton Berna: Cantoni, salario minimo, AVS/AI/IPG, LPP, contributi e costo della vita.',
     'blog.article.confronto-salari-settori-berna.imageAlt': 'Lavoratori svizzeri confrontano dati salariali e contributi in ufficio',
+    'blog.article.netto-professioni-stgallen-2026.title': 'Salario medio professioni Svizzera 2026: San Gallo',
+    'blog.article.netto-professioni-stgallen-2026.excerpt': 'Confronto 2026 tra professioni, cantoni e settori: contributi AVS, LPP, imposte su tre livelli e LAMal per leggere il canton San Gallo.',
+    'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Confronto dei salari svizzeri per professione, con focus sul canton San Gallo',
 };
 
 export default blogMetaChIt;

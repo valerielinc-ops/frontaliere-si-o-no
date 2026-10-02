@@ -7547,6 +7547,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.confronto-salari-settori-berna.title': 'Durchschnittsgehalt für Berufe in der Schweiz 2026: Kanton Bern',
     'blog.article.confronto-salari-settori-berna.excerpt': 'Vergleich 2026 des durchschnittlichen Gehalts nach Berufen in der Schweiz und im Kanton Bern: Kantone, Mindestlohn, AHV/IV/EO, BVG, Beiträge und Lebenshaltungskosten.',
     'blog.article.confronto-salari-settori-berna.imageAlt': 'Schweizer Arbeitnehmer vergleichen Lohndaten und Lohnbeiträge im Büro',
+    'blog.article.netto-professioni-stgallen-2026.title': 'Durchschnittliches Berufsgehalt Schweiz 2026: St. Gallen',
+    'blog.article.netto-professioni-stgallen-2026.excerpt': 'Vergleich 2026 zwischen Berufen, Kantonen und Sektoren: AHV- und BVG-Beiträge, Steuern auf drei Ebenen und KVG zur Einordnung des Kantons St. Gallen.',
+    'blog.article.netto-professioni-stgallen-2026.imageAlt': 'Schweizer Gehaltsvergleich nach Beruf mit Fokus auf den Kanton St. Gallen',
 };
 
 export default blogMetaChDe;
