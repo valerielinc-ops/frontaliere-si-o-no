@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Notizie e guide sulla Svizzera: economia, lavoro, fisco e vita quotidiana</description>
     <language>it</language>
-    <lastBuildDate>Fri, 02 Oct 2026 19:11:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 19:28:25 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Svizzera</title>
@@ -17,6 +17,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Gottardo: l&apos;analisi dei dati per evitare le code</title>
+      <link>https://frontaliereticino.ch/articoli-svizzera/analisi-traffico-gottardo-app/</link>
+      <description><![CDATA[Fabrizio Bacchini ha creato l'app Gottardo Live analizzando 19mila segnalazioni USTRA. Scopri come monitorare il traffico e pianificare meglio il viaggio.]]></description>
+      <content:encoded><![CDATA[## In breve
+- Bacchini analizza ogni giorno il traffico del Gottardo.
+- Dall'11 luglio, ingorghi in 82 giorni su 83.
+- Il 18 luglio la coda ha raggiunto 20 chilometri.
+- L'app Gottardo Live usa dati ufficiali.
+
+## Fatti chiave
+- Chi e frequenza → Fabrizio Bacchini, manager 57enne di Zugo; quattro-cinque attraversamenti mensili
+- Dati analizzati → circa 19mila segnalazioni da inizio luglio
+- Picco → 20 chilometri di coda e 200 minuti di attesa il 18 luglio
+- Fascia critica → dalle 11 alle 18
+- App e soglia → Gottardo Live, gratuita; 10-20 minuti di ingorgo accettabili
+
+### Un monitoraggio costruito sui dati
+
+Nel testo del 2 ottobre 2026, la storia di Fabrizio Bacchini racconta come un problema quotidiano di mobilità sia diventato un progetto digitale. Il manager 57enne di Zugo attraversa la galleria del San Gottardo dalle quattro alle cinque volte al mese per lavoro. Per decidere quando partire, controlla ogni giorno i dati sul traffico e cerca il momento in cui la coda comincia a ridursi.
+
+Da inizio luglio ha passato al setaccio circa 19mila segnalazioni ufficiali. Il suo sistema registra ogni cinque minuti i tempi di attesa, espressi in minuti, e la lunghezza delle code, indicata in chilometri, per entrambe le direzioni di marcia. La base è costituita dalle comunicazioni dell'Ufficio federale delle strade, l'USTRA. Nel monitoraggio entrano anche gli avvisi ufficiali su incidenti, chiusure stradali e regolazioni del flusso di traffico.
+
+Il risultato restituisce la frequenza del problema. Dall'11 luglio si sono registrati ingorghi davanti al tunnel in 82 giorni su 83. Il picco è arrivato sabato 18 luglio, con 20 chilometri di coda in direzione sud e tempi di attesa fino a 200 minuti. A settembre, al di fuori dei periodi di vacanza, gli ingorghi si sono formati ogni giorno feriale.
+
+La fascia tra le 11 e le 18 risulta praticamente sempre congestionata. Bacchini indica invece la mattina presto e il tardo pomeriggio come i momenti che, di solito, offrono le condizioni migliori. La scelta dipende però anche dal giorno della settimana: osservando la mappa, segue il momento in cui la coda inizia ad accorciarsi.
+
+La passione ha portato alla nascita di Gottardo Live, un'app gratuita che usa i dati ufficiali e segnala quando l'ingorgo si forma, si allunga o comincia a dissolversi. Bacchini racconta di averla programmata per recuperare le informazioni ogni cinque minuti, verificandole poi con le webcam e con la situazione reale. All'inizio dedicava al progetto fino a cinque ore al giorno. Oggi il sistema è più stabile, ma continua a controllare i dati quotidianamente.
+## Cosa cambia per chi deve attraversare il tunnel
+
+Per chi vive o lavora in Svizzera e deve percorrere l'asse sud, il materiale raccolto da Bacchini offre una lettura pratica: il traffico non va considerato soltanto come un evento legato ai giorni di vacanza. La serie osservata mostra invece una presenza ricorrente, con una fascia centrale della giornata quasi sempre difficile e con differenze legate al calendario settimanale.
+
+### Dalla fotografia alla decisione
+
+La distinzione utile è tra il dato storico e la situazione in tempo reale. I confronti tra singole giornate servono a riconoscere gli schemi: quando l'ingorgo tende a formarsi, quando raggiunge la fase più lunga e quando comincia a sciogliersi. La notifica dell'app segue proprio queste fasi. Per chi deve organizzare un attraversamento, il momento più informativo non è necessariamente quello in cui la coda è già al massimo, ma quello in cui la mappa mostra un cambiamento. Questa è la logica che Bacchini applica quando osserva l'inizio della riduzione della colonna.
+
+La fascia oraria indicata dalla sua analisi può essere letta come una griglia, non come una promessa. Tra le 11 e le 18 la congestione è descritta come praticamente costante; mattina presto e tardo pomeriggio sono invece le finestre che solitamente risultano migliori. Il giorno della settimana resta una variabile autonoma. Il fatto che a settembre gli ingorghi si siano presentati ogni giorno feriale impedisce di ridurre il problema ai soli grandi esodi.
+
+Anche il confronto con la situazione precedente è concreto. Bacchini spiega che esisteva già un'app, ma era piena di pubblicità e obbligava a cercare al suo interno le informazioni sul traffico. Gottardo Live nasce per usare direttamente i dati ufficiali e segnalare l'evoluzione della coda. Questo rende più immediata la lettura descritta nel racconto, senza trasformare l'app in una regola uguale per ogni automobilista.
+
+Il limite di dieci o venti minuti è quello personale di Bacchini: oltre quella soglia, preferisce prendere il passo. Non è una soglia attribuita alla rete stradale né una raccomandazione generale. È un esempio di come un dato misurato possa diventare una scelta individuale.
+
+Per chi vuole affiancare alla lettura del traffico un confronto con i mezzi pubblici, si tratta però di un altro piano di valutazione. Lo stesso vale per il costo della vita in Svizzera: la storia non offre cifre su questo aspetto, quindi non è possibile ricavare dai chilometri di coda un costo economico.
+
+## Tool utili per il tuo caso
+Per verificare in modo pratico il tuo scenario entro/oltre 20 km, usa il calcolatore stipendio netto e la guida dichiarazione redditi.
+## Come usare l'analisi prima di partire
+
+Il racconto consente di ricavare una sequenza operativa basata solo sulle informazioni disponibili. Non serve trasformare l'app in un calendario fisso: il metodo consiste nel verificare l'aggiornamento, leggere la fase della coda e confrontare il dato con gli schemi osservati.
+
+### Quattro passaggi essenziali
+
+1. Aprire Gottardo Live e partire dal dato ufficiale. L'app è gratuita e utilizza le segnalazioni dell'USTRA. Il riferimento deve essere la situazione del momento, perché il sistema raccoglie i dati ogni cinque minuti.
+
+2. Controllare entrambe le direzioni di marcia. Le informazioni considerate da Bacchini comprendono tempi di attesa in minuti e lunghezza della coda in chilometri. Prima di decidere, bisogna quindi distinguere la direzione sud da quella opposta, senza trasferire automaticamente un dato all'altro senso.
+
+3. Leggere il movimento della coda. La segnalazione non riguarda soltanto la presenza dell'ingorgo: indica se si sta formando, se si allunga o se comincia a dissolversi. Le notifiche push vanno interpretate con la stessa attenzione con cui Bacchini ne ha regolato la frequenza, evitando un arrivo troppo anticipato o troppo ravvicinato.
+
+4. Confrontare l'aggiornamento con il giorno e con l'orario. La sua analisi individua ricorrenze, ma lascia spazio alla verifica del momento. Mattina presto e tardo pomeriggio sono i riferimenti indicati come generalmente migliori; la fascia tra le 11 e le 18 è quella descritta come congestionata. Se l'attesa supera la soglia personale, il criterio di Bacchini è prendere il passo.
+
+Questa procedura serve a distinguere i dati ufficiali, la loro evoluzione e la decisione individuale. Per chi attraversa il tunnel per lavoro, riguarda prima di tutto il tempo del viaggio; gli altri aspetti economici restano separati dall'analisi del traffico.
+
+Il progetto mostra quanto lavoro ci sia dietro un avviso apparentemente semplice: programmazione del recupero dati, confronto con le webcam, controllo della situazione reale e regolazione delle notifiche. Chi usa l'app può limitarsi al risultato finale, mentre la verifica quotidiana resta il passaggio che rende leggibile l'aggiornamento. Per affiancare alla pianificazione del viaggio uno strumento sul proprio reddito, consulta il calcolatore stipendio.
+
+*Fonte: [tio.ch](https://www.tio.ch/svizzera/attualita/1954204/bacchin-coda-quando-gotthard-traffico-tunnel-amici-considerano)*]]></content:encoded>
+      <pubDate>Fri, 02 Oct 2026 19:28:25 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/analisi-traffico-gottardo-app</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/analisi-traffico-gottardo-app.webp" medium="image"/>
+    </item>
     <item>
       <title>Conciliazione lavoro-vita: parte il sondaggio ticinese</title>
       <link>https://frontaliereticino.ch/articoli-svizzera/sondaggio-conciliazione-lavoro-vita/</link>
@@ -3638,87 +3709,6 @@ Confronta i premi cassa malati | Calcola il costo della vita in Svizzera
       <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/fisioterapisti-petizioni-tariffe-cantoni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/fisioterapisti-petizioni-tariffe-cantoni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>KillSec: rete hacker smantellata, coinvolta la Svizzera</title>
-      <link>https://frontaliereticino.ch/articoli-svizzera/killsec-server-dati-svizzeri/</link>
-      <description><![CDATA[Operazione internazionale contro KillSec: tre arresti, cinque server sequestrati e 110 terabyte di dati rubati recuperati. Indagini svizzere in corso.]]></description>
-      <content:encoded><![CDATA[## In breve
-- Tre persone arrestate nell'operazione contro KillSec
-- Cinque server sequestrati e 110 terabyte recuperati
-- Otto perquisizioni in Spagna, Grecia, Regno Unito e Romania
-- Il procedimento svizzero è tuttora in corso
-
-## Fatti chiave
-- Gruppo → KillSec, o KillSecurity
-- Arresti → tre persone
-- Server sequestrati → cinque
-- Dati recuperati → 110 terabyte
-- Perquisizioni → otto in quattro Paesi
-- Attacchi contro aziende svizzere → ottobre 2023-giugno 2025
-- Procedimento svizzero → avviato nel luglio 2025 contro ignoti
-- Coordinamento → Europol ed Eurojust con altri sette Paesi
-
-Tre persone sono state arrestate e cinque server, utilizzati per archiviare i dati delle vittime, sono stati sequestrati nell'operazione internazionale che ha smantellato l'infrastruttura informatica di KillSec, gruppo responsabile di attacchi ransomware. Tra le autorità coinvolte figurano il Ministero pubblico della Confederazione (MPC) e l'Ufficio federale di polizia (fedpol).
-
-L'operazione si è svolta ieri, secondo una nota congiunta delle autorità svizzere. Le otto perquisizioni eseguite in Spagna, Grecia, Regno Unito e Romania hanno consentito di recuperare 110 terabyte di dati rubati. Il bilancio reso noto comprende quindi arresti, sequestri e il recupero di una grande quantità di informazioni sottratte.
-
-Il coinvolgimento elvetico nasce da un procedimento penale avviato dalla procura federale contro ignoti nel luglio 2025. L'inchiesta riguarda attacchi ransomware perpetrati dal gruppo KillSec, il cui nome esteso è KillSecurity, contro diverse aziende svizzere nel periodo compreso tra ottobre 2023 e giugno 2025. L'avvio della procedura è dunque successivo all'intervallo temporale degli attacchi indicato dalle autorità.
-
-### Il procedimento svizzero
-
-Secondo il comunicato, il gruppo utilizza la cosiddetta doppia estorsione. Prima entra indebitamente nel sistema della vittima, copia ed estrae i dati di interesse e crittografa i server; poi pretende un riscatto in cambio della chiave di decrittazione. Se l'azienda rifiuta di pagare, per esempio perché ha effettuato un backup prima della sottrazione dei dati, gli autori minacciano di pubblicare le informazioni sul darknet.
-
-MPC e fedpol hanno partecipato alle indagini internazionali coordinate da Europol ed Eurojust insieme ad altri sette Paesi. Il procedimento in Svizzera è tuttora in corso e i reati ipotizzati comprendono sottrazione di dati, accesso abusivo a un sistema informatico, danneggiamento di dati ed estorsione.
-
-La ricostruzione delle autorità descrive il ransomware come una sequenza di intrusione, copia ed estrazione dei dati, cifratura dei server e richiesta di pagamento. Il riscatto è spesso richiesto in criptovaluta. Questa è la dinamica descritta nel fascicolo svizzero relativo agli attacchi di KillSec.
-## Perché il caso riguarda le imprese svizzere
-
-La rilevanza nazionale della vicenda sta nel fatto che il procedimento svizzero riguarda diverse aziende svizzere colpite da attacchi tra ottobre 2023 e giugno 2025. Per chi lavora in una società, il rischio descritto non coincide con un solo momento: comprende l'accesso al sistema, la sottrazione dei dati, il blocco dei server e la pressione legata al riscatto.
-
-Separare questi passaggi aiuta a leggere correttamente la doppia estorsione. La fonte tratta infatti la cifratura e la minaccia di pubblicazione come due leve collegate. Il tema riguarda quindi anche il mercato delle aziende che assumono, pur senza collegare ogni impresa svizzera al gruppo investigato.
-
-### La doppia estorsione in pratica
-
-| Fase | Descrizione nella fonte | Conseguenza indicata |
-|---|---|---|
-| Accesso | Intrusione indebita nel sistema della vittima | Il gruppo entra nell'ambiente informatico |
-| Sottrazione | Copia ed estrazione dei dati di interesse | Le informazioni vengono rubate |
-| Cifratura | Blocco dei server prima della richiesta | Viene chiesta una chiave di decrittazione |
-| Rifiuto | Mancato pagamento, anche dopo un backup | Minaccia di pubblicazione sul darknet |
-
-Il backup assume un ruolo preciso nello scenario riportato: può essere il motivo per cui la vittima rifiuta il pagamento, ma secondo la fonte non elimina la minaccia di rendere pubblici i dati. Questo distingue la disponibilità di una copia dei dati dalla protezione delle informazioni già sottratte.
-
-Anche il sequestro dei cinque server e il recupero di 110 terabyte mostrano la doppia dimensione dell'operazione: da una parte l'infrastruttura usata per archiviare i dati delle vittime, dall'altra le informazioni recuperate durante le perquisizioni. La fonte non trasforma questi numeri in una stima dei danni economici o in un importo dei riscatti.
-
-Il procedimento svizzero resta aperto. Per questo il comunicato parla di reati ipotizzati e non presenta una conclusione definitiva sulla responsabilità penale. La presenza di Europol, Eurojust e di altri sette Paesi colloca inoltre il dossier elvetico dentro un'indagine internazionale, con perquisizioni svolte in quattro Paesi europei.
-
-## Tool utili per massimizzare il netto
-Per ridurre la perdita sul cambio, confronta il cambio CHF-EUR e le banche per frontalieri.
-## Dalla notizia a una verifica operativa
-
-Per trasformare i fatti in una lettura operativa, un'azienda svizzera può ricostruire l'episodio seguendo la sequenza descritta dalle autorità. Il percorso serve a distinguere il tipo di azione compiuta e la fase in cui compare la richiesta economica, senza aggiungere procedure o scadenze che la fonte non indica.
-
-### Cinque passaggi per ricostruire l'attacco
-
-1. Verificare il primo elemento della sequenza: l'accesso indebito al sistema informatico della vittima.
-2. Separare l'ingresso dalla copia e dall'estrazione dei dati di interesse, che nella descrizione del ransomware avvengono prima della cifratura.
-3. Accertare se i server sono stati crittografati, perché il blocco precede la richiesta della chiave di decrittazione.
-4. Identificare la richiesta di riscatto e considerare che, secondo la fonte, il pagamento è spesso domandato in criptovaluta.
-5. Valutare la seconda pressione: se la vittima rifiuta, anche perché dispone di un backup, la minaccia indicata è la pubblicazione dei dati sul darknet.
-
-Per collocare un episodio nel fascicolo svizzero, il riferimento temporale è quello riportato dalle autorità: gli attacchi attribuiti a KillSec contro diverse aziende svizzere sono compresi tra ottobre 2023 e giugno 2025, mentre il procedimento penale contro ignoti è stato avviato nel luglio 2025. La cronologia aiuta a confrontare i fatti, ma il procedimento è ancora in corso.
-
-La sequenza consente anche di non confondere il sequestro dei server con l'esito dell'inchiesta. L'operazione internazionale ha portato ad arresti, perquisizioni e recupero di dati; sul piano svizzero, invece, restano indicati reati ipotizzati come sottrazione di dati, accesso abusivo, danneggiamento di dati ed estorsione. Il riferimento alle criptovalute riguarda la richiesta di riscatto e non va confuso con gli strumenti dedicati ai conti bancari in Svizzera.
-
-Per completare la lettura con uno strumento del portale, usa il calcolatore stipendio.
-
-*Fonte: [swissinfo.ch](https://www.swissinfo.ch/ita/smantellata-rete-internazionale-di-hacker/92151953)*]]></content:encoded>
-      <pubDate>Thu, 01 Oct 2026 22:05:44 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/articoli-svizzera/killsec-server-dati-svizzeri</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/killsec-server-dati-svizzeri.webp" medium="image"/>
     </item>
   </channel>
 </rss>

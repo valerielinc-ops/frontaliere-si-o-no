@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfäden zur Schweiz: Wirtschaft, Arbeit, Steuern und Alltag</description>
     <language>de</language>
-    <lastBuildDate>Fri, 02 Oct 2026 19:11:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 19:28:25 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Schweiz</title>
@@ -17,6 +17,77 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Gotthard: Datenanalyse zur Vermeidung von Staus</title>
+      <link>https://frontaliereticino.ch/de/schweiz-artikel/gotthard-verkehrsanalyse-app/</link>
+      <description><![CDATA[Fabrizio Bacchini entwickelte die Gottardo Live-App, indem er 19.000 FEDRO-Berichte analysierte. Erfahren Sie, wie Sie den Verkehr überwachen und Ihre Reise besser planen können.]]></description>
+      <content:encoded><![CDATA[## Kurz zusammengefasst
+- Bacchini analysiert täglich den Verkehr am Gotthard.
+- Seit dem 11. Juli gab es an 82 von 83 Tagen Staus.
+- Am 18. Juli erreichte der Stau 20 Kilometer.
+- Die App Gottardo Live nutzt offizielle Daten.
+
+## Wichtige Fakten
+- Wer und wie oft → Fabrizio Bacchini, 57-jähriger Manager aus Zug; vier bis fünf Durchfahrten pro Monat
+- Analysierte Daten → etwa 19.000 Meldungen seit Anfang Juli
+- Höchststand → 20 Kilometer Stau und 200 Minuten Wartezeit am 18. Juli
+- Kritischer Zeitraum → von 11 bis 18 Uhr
+- App und Schwellenwert → Gottardo Live, kostenlos; 10-20 Minuten Stau akzeptabel
+
+### Ein auf Daten basierendes Monitoring
+
+Im Text vom 2. Oktober 2026 erzählt die Geschichte von Fabrizio Bacchini, wie ein alltägliches Mobilitätsproblem zu einem digitalen Projekt geworden ist. Der 57-jährige Manager aus Zug durchquert den Gotthardtunnel aus beruflichen Gründen vier- bis fünfmal im Monat. Um zu entscheiden, wann er losfahren soll, überprüft er täglich die Verkehrsdaten und sucht den Zeitpunkt, an dem der Stau kürzer zu werden beginnt.
+
+Seit Anfang Juli hat er etwa 19.000 offizielle Meldungen unter die Lupe genommen. Sein System erfasst alle fünf Minuten die in Minuten angegebenen Wartezeiten und die in Kilometern angegebene Länge der Staus für beide Fahrtrichtungen. Die Grundlage bilden die Mitteilungen des Bundesamts für Strassen, des ASTRA. In das Monitoring fließen auch die offiziellen Hinweise zu Unfällen, Strassensperrungen und Regelungen des Verkehrsflusses ein.
+
+Das Ergebnis zeigt, wie häufig das Problem auftritt. Seit dem 11. Juli wurden an 82 von 83 Tagen Staus vor dem Tunnel registriert. Den Höchststand gab es am Samstag, dem 18. Juli, mit 20 Kilometern Stau in Richtung Süden und Wartezeiten von bis zu 200 Minuten. Im September bildeten sich außerhalb der Ferienzeiten an jedem Werktag Staus.
+
+Der Zeitraum zwischen 11 und 18 Uhr ist praktisch immer überlastet. Bacchini nennt dagegen die frühen Morgenstunden und den späten Nachmittag als Zeiträume, die gewöhnlich die besten Bedingungen bieten. Die Entscheidung hängt jedoch auch vom Wochentag ab: Auf der Karte verfolgt er, wann der Stau kürzer zu werden beginnt.
+
+Aus dieser Leidenschaft entstand Gottardo Live, eine kostenlose App, die offizielle Daten nutzt und anzeigt, wann sich der Stau bildet, länger wird oder sich aufzulösen beginnt. Bacchini erzählt, er habe sie so programmiert, dass sie alle fünf Minuten Informationen abruft, die er anschließend anhand der Webcams und der tatsächlichen Verkehrslage überprüft. Anfangs widmete er dem Projekt bis zu fünf Stunden täglich. Heute ist das System stabiler, aber er überprüft die Daten weiterhin täglich.
+## Was sich für diejenigen ändert, die den Tunnel durchqueren müssen
+
+Für diejenigen, die in der Schweiz leben oder arbeiten und die Südachse befahren müssen, bietet das von Bacchini zusammengetragene Material eine praktische Perspektive: Der Verkehr darf nicht nur als ein Ereignis betrachtet werden, das mit Ferientagen zusammenhängt. Die beobachtete Reihe zeigt vielmehr ein wiederkehrendes Auftreten, mit einer tagsüber fast immer schwierigen Kernzeit und Unterschieden im Zusammenhang mit dem Wochenkalender.
+
+### Vom Bild zur Entscheidung
+
+Die nützliche Unterscheidung besteht zwischen historischen Daten und der Situation in Echtzeit. Vergleiche zwischen einzelnen Tagen dienen dazu, Muster zu erkennen: wann sich der Stau zu bilden beginnt, wann er seine längste Phase erreicht und wann er sich aufzulösen beginnt. Die Benachrichtigung der App folgt genau diesen Phasen. Für diejenigen, die eine Durchquerung organisieren müssen, ist der informativste Zeitpunkt nicht unbedingt derjenige, an dem die Schlange bereits am längsten ist, sondern derjenige, an dem die Karte eine Veränderung zeigt. Das ist die Logik, die Bacchini anwendet, wenn er den Beginn der Verkürzung der Kolonne beobachtet.
+
+Die von seiner Analyse angegebene Zeitspanne kann als Raster und nicht als Versprechen verstanden werden. Zwischen 11 und 18 Uhr wird die Verkehrsüberlastung als praktisch konstant beschrieben; der frühe Morgen und der späte Nachmittag sind dagegen die Zeitfenster, die sich gewöhnlich als besser erweisen. Der Wochentag bleibt eine eigenständige Variable. Die Tatsache, dass sich die Staus im September an jedem Werktag gezeigt haben, verhindert, das Problem auf die großen Ferienverkehrswellen zu reduzieren.
+
+Auch der Vergleich mit der vorherigen Situation ist konkret. Bacchini erklärt, dass es bereits eine App gab, die jedoch voller Werbung war und dazu zwang, die Verkehrsinformationen darin zu suchen. Gottardo Live entsteht, um die offiziellen Daten direkt zu nutzen und die Entwicklung der Schlange anzuzeigen. Dadurch wird die im Bericht beschriebene Betrachtung unmittelbarer, ohne die App in eine für jeden Autofahrer gleichermaßen geltende Regel zu verwandeln.
+
+Die Grenze von zehn oder zwanzig Minuten ist Bacchinis persönliche Grenze: Jenseits dieser Schwelle nimmt er lieber den Pass. Es handelt sich weder um eine der Straßenverkehrsinfrastruktur zugeschriebene Schwelle noch um eine allgemeine Empfehlung. Es ist ein Beispiel dafür, wie eine gemessene Zahl zu einer individuellen Entscheidung werden kann.
+
+Wer die Verkehrsanalyse durch einen Vergleich mit den mezzi pubblici ergänzen möchte, bewegt sich allerdings auf einer anderen Bewertungsebene. Dasselbe gilt für costo della vita in Svizzera: Die Geschichte liefert zu diesem Aspekt keine Zahlen, daher lassen sich aus den Staumarkometern keine wirtschaftlichen Kosten ableiten.
+
+## Nützliche Tools zum Schutz Ihres Nettolohns
+Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
+## Wie man die Analyse vor der Abfahrt nutzt
+
+Die Schilderung ermöglicht es, eine operative Abfolge abzuleiten, die ausschließlich auf den verfügbaren Informationen basiert. Es ist nicht nötig, die App in einen festen Kalender zu verwandeln: Die Methode besteht darin, die Aktualisierung zu überprüfen, die Phase des Staus zu lesen und die Daten mit den beobachteten Mustern zu vergleichen.
+
+### Vier wesentliche Schritte
+
+1. Gottardo Live öffnen und von den offiziellen Daten ausgehen. Die App ist kostenlos und nutzt die Meldungen der USTRA. Maßgeblich muss die Situation zum jeweiligen Zeitpunkt sein, da das System die Daten alle fünf Minuten erfasst.
+
+2. Beide Fahrtrichtungen überprüfen. Die von Bacchini berücksichtigten Informationen umfassen Wartezeiten in Minuten und die Staulänge in Kilometern. Vor der Entscheidung muss man daher die Fahrtrichtung nach Süden von der Gegenrichtung unterscheiden, ohne einen Wert automatisch auf die andere Richtung zu übertragen.
+
+3. Die Bewegung des Staus beobachten. Die Meldung betrifft nicht nur das Vorhandensein des Staus: Sie zeigt an, ob er sich bildet, länger wird oder sich aufzulösen beginnt. Push-Benachrichtigungen sind mit derselben Aufmerksamkeit zu interpretieren, mit der Bacchini deren Häufigkeit geregelt hat, wobei vermieden wird, dass sie zu früh oder in zu kurzen Abständen eintreffen.
+
+4. Die Aktualisierung mit dem Tag und der Uhrzeit vergleichen. Seine Analyse identifiziert wiederkehrende Muster, lässt aber Raum für die Überprüfung der aktuellen Situation. Früher Morgen und später Nachmittag werden als im Allgemeinen bessere Zeitpunkte genannt; der Zeitraum zwischen 11 und 18 Uhr wird als staureich beschrieben. Wenn die Wartezeit die persönliche Schwelle überschreitet, besteht Bacchinis Kriterium darin, den Pass zu nehmen.
+
+Diese Vorgehensweise dient dazu, die offiziellen Daten, ihre Entwicklung und die individuelle Entscheidung voneinander zu unterscheiden. Für diejenigen, die den Tunnel beruflich durchqueren, betrifft dies vor allem die Reisezeit; die anderen wirtschaftlichen Aspekte bleiben von der Verkehrsanalyse getrennt.
+
+Das Projekt zeigt, wie viel Arbeit hinter einer scheinbar einfachen Warnung steckt: Programmierung der Datenabfrage, Abgleich mit den Webcams, Kontrolle der tatsächlichen Situation und Anpassung der Benachrichtigungen. Wer die App nutzt, kann sich auf das Endergebnis beschränken, während die tägliche Überprüfung der Schritt bleibt, der die Aktualisierung verständlich macht. Um die Reiseplanung durch ein Instrument für das eigene Einkommen zu ergänzen, konsultieren Sie calcolatore stipendio.
+
+*Quelle: [tio.ch](https://www.tio.ch/svizzera/attualita/1954204/bacchin-coda-quando-gotthard-traffico-tunnel-amici-considerano)*]]></content:encoded>
+      <pubDate>Fri, 02 Oct 2026 19:28:25 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/analisi-traffico-gottardo-app</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/analisi-traffico-gottardo-app.webp" medium="image"/>
+    </item>
     <item>
       <title>Work-Life-Balance: Die Ticino-Umfrage beginnt</title>
       <link>https://frontaliereticino.ch/de/schweiz-artikel/umfrage-work-life-balance-tessin/</link>
@@ -3655,87 +3726,6 @@ Confronta i premi cassa malati | Calcola il costo della vita in Svizzera
       <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/fisioterapisti-petizioni-tariffe-cantoni</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/fisioterapisti-petizioni-tariffe-cantoni.webp" medium="image"/>
-    </item>
-    <item>
-      <title>KillSec: Hacker-Netzwerk aufgelöst, Schweiz beteiligt</title>
-      <link>https://frontaliereticino.ch/de/schweiz-artikel/killsec-hacker-netzwerk-schweiz/</link>
-      <description><![CDATA[Internationale Operation gegen KillSec: drei Festnahmen, fünf Server beschlagnahmt und 110 Terabyte gestohlener Daten geborgen. Schweizer Ermittlungen laufen.]]></description>
-      <content:encoded><![CDATA[## Kurz gesagt
-- Drei Personen im Rahmen der Operation gegen KillSec festgenommen
-- Fünf Server beschlagnahmt und 110 Terabyte wiederhergestellt
-- Acht Suchaktionen in Spanien, Griechenland, dem Vereinigten Königreich und Rumänien
-- Die Schweizer Verfahren laufen noch immer
-
-## Wichtige Fakten
-- Gruppe → KillSec oder KillSecurity
-- Festnahmen → drei Personen
-- Beschlagnahmte Server → fünf
-- Daten wiederhergestellt → 110 Terabyte
-- Suchanfragen → acht in vier Ländern
-- Angriffe auf Schweizer Unternehmen → Oktober 2023–Juni 2025
-- Schweizer Verfahren → im Juli 2025 gegen unbekannte Personen eingeleitet
-- Koordination → Europol und Eurojust mit sieben weiteren Ländern
-
-Drei Personen wurden festgenommen und fünf Server, die zur Speicherung der Daten der Opfer dienten, wurden bei der internationalen Operation beschlagnahmt, die die IT-Infrastruktur von KillSec, einer für Ransomware-Angriffe verantwortlichen Gruppe, zerstörte. Zu den beteiligten Behörden gehören das Büro des Generalstaatsanwalts der Schweiz (OAG) und das Bundesamt für Polizei (fedpol).
-
-Die Operation fand gestern statt, so eine gemeinsame Erklärung der Schweizer Behörden. Die acht Durchsuchungen, die in Spanien, Griechenland, Großbritannien und Rumänien durchgeführt wurden, ermöglichten es, 110 Terabyte gestohlener Daten wiederherzustellen. Die veröffentlichte Bilanz enthält daher Festnahmen, Beschlagnahmungen und die Bergung einer großen Menge gestohlener Informationen.
-
-Die Schweizer Beteiligung geht auf ein Strafverfahren zurück, das die Bundesstaatsanwaltschaft im Juli 2025 gegen unbekannte Personen eingeleitet hat. Die Untersuchung betrifft Ransomware-Angriffe, die von der KillSec-Gruppe, deren vollständiger Name KillSecurity ist, gegen mehrere Schweizer Unternehmen im Zeitraum zwischen Oktober 2023 und Juni 2025 verübt wurden. Der Beginn des Verfahrens erfolgt daher nach dem von den Behörden angegebenen Zeitintervall der Angriffe.
-
-### Das Schweizer Verfahren
-
-Laut der Aussage verwendet die Gruppe sogenannte doppelte Erpressung. Zuerst dringt sie unrechtmäßig in das System des Opfers ein, kopiert und extrahiert die relevanten Daten und verschlüsselt die Server; dann fordert sie ein Lösegeld im Austausch für den Entschlüsselungsschlüssel. Wenn das Unternehmen sich weigert zu zahlen, zum Beispiel weil es vor dem Diebstahl der Daten ein Backup gemacht hat, drohen die Täter, die Informationen im Darknet zu veröffentlichen.
-
-Das OAG und Fedpol beteiligten sich an den internationalen Ermittlungen, die von Europol und Eurojust zusammen mit sieben weiteren Ländern koordiniert wurden. Die Verfahren in der Schweiz laufen weiterhin und zu den mutmaßlichen Straftaten zählen Datendiebstahl, missbräuchlicher Zugang zu einem Computersystem, Datenschäden und Erpressung.
-
-Die Rekonstruktion der Behörden beschreibt Ransomware als eine Abfolge von Eindringen, Kopieren und Extrahieren von Daten, Verschlüsselung von Servern und Zahlungsforderung. Das Lösegeld wird häufig in Kryptowährungen gefordert. Dies ist die Dynamik, die in der Schweizer Akte zu den KillSec-Angriffen beschrieben wird.
-## Warum der Fall Schweizer Unternehmen betrifft
-
-Die nationale Bedeutung des Falls liegt darin, dass die Schweizer Verfahren mehrere Schweizer Unternehmen betreffen, die zwischen Oktober 2023 und Juni 2025 von Angriffen betroffen waren. Für diejenigen, die in einem Unternehmen arbeiten, entspricht das beschriebene Risiko nicht einem einzigen Moment: Es umfasst Zugang zum System, Datendiebstahl, Serversperre und Lösegelddruck.
-
-Die Trennung der Passagen hilft, doppelte Erpressung korrekt zu lesen. Die Quelle behandelt Verschlüsselung und die Androhung der Veröffentlichung als zwei verknüpfte Hebel. Das Thema betrifft daher auch den aziende che assumono-Markt, obwohl nicht jedes Schweizer Unternehmen mit der untersuchten Gruppe in Verbindung gebracht wird.
-
-### Doppelte Erpressung in der Praxis
-
-| Phase | Beschreibung in der Quelle | Angezeigte Konsequenz |
-|---|---|---|
-| Zugriff | Unsachgemäßes Eindringen in das System des Opfers | Die Gruppe betritt die Computerumgebung |
-| Subtraktion | Kopierung und Extraktion von interessanten Daten | Informationen werden gestohlen |
-| Verschlüsselung | Sperren von Servern vor der Anfrage | Ein Entschlüsselungsschlüssel wird angefordert |
-| Ablehnung | Nichtzahlung, selbst nach einem Backup | Androhung der Veröffentlichung im Darknet |
-
-Das Backup spielt eine Rolle im berichteten Szenario: Es kann der Grund sein, warum das Opfer die Zahlung verweigert, aber laut Quelle beseitigt es nicht die Gefahr, die Daten öffentlich zu machen. Dies unterscheidet die Verfügbarkeit einer Kopie der Daten vom Schutz bereits gestohlener Informationen.
-
-Die Beschlagnahmung der fünf Server und die Bergung von 110 Terabyte zeigen ebenfalls die doppelte Dimension der Operation: einerseits die Infrastruktur zur Speicherung der Opferdaten, andererseits die während der Durchsuchungen gewonnenen Informationen. Die Quelle wandelt diese Zahlen nicht in eine Schätzung des wirtschaftlichen Schadens oder der Höhe von Lösegeldern um.
-
-Die Schweizer Verfahren sind weiterhin offen. Aus diesem Grund spricht die Erklärung von hypothetischen Straftaten und liefert keine endgültige Schlussfolgerung zur strafrechtlichen Verantwortung. Die Präsenz von Europol, Eurojust und sieben weiteren Ländern stellt das Schweizer Dossier zudem in eine internationale Untersuchung ein, mit Durchsuchungen in vier europäischen Ländern.
-
-## Nützliche Tools zum Schutz Ihres Nettolohns
-Um Wechselkursverluste zu reduzieren, vergleichen Sie CHF-EUR-Wechseloptionen und Banken für Grenzgänger.
-## Von Nachrichten bis zur operativen Überprüfung
-
-Um die Fakten in eine operative Lesart zu verwandeln, kann ein Schweizer Unternehmen die Episode nach der von den Behörden beschriebenen Reihenfolge rekonstruieren. Der Weg dient dazu, die Art der ergriffenen Maßnahme und die Phase, in der die wirtschaftliche Anfrage erscheint, zu unterscheiden, ohne Verfahren oder Fristen hinzuzufügen, die die Quelle nicht angibt.
-
-### Fünf Schritte, um den Angriff wieder aufzubauen
-
-1. Überprüfen Sie das erste Element der Sequenz: unzulässiger Zugriff auf das Computersystem des Opfers.
-2. Trennen Sie die Eingabe von der Kopie und Extraktion der relevanten Daten, die in der Ransomware-Beschreibung vor der Verschlüsselung stattfinden.
-3. Feststellen, ob die Server verschlüsselt wurden, da die Sperre der Anfrage nach dem Entschlüsselungsschlüssel vorausgeht.
-4. Identifizieren Sie den Lösegeldbrief und bedenken, dass laut Quelle die Zahlung oft in Kryptowährungen verlangt wird.
-5. Bewerten Sie den zweiten Druck: Wenn das Opfer ablehnt, auch weil es ein Backup hat, ist die angezeigte Bedrohung die Veröffentlichung der Daten im Darknet.
-
-Um eine Episode in die Schweizer Akte einzuordnen, ist die Zeitreferenz die, die von den Behörden gemeldet wurde: Die Angriffe, die KillSec auf mehrere Schweizer Unternehmen zugeschrieben werden, liegen zwischen Oktober 2023 und Juni 2025, während die strafrechtlichen Verfahren gegen unbekannte Personen im Juli 2025 eingeleitet wurden. Die Chronologie hilft beim Vergleich der Fakten, aber das Verfahren ist noch im Gange.
-
-Die Abfolge ermöglicht es auch, die Beschlagnahmung der Server nicht mit dem Ergebnis der Untersuchung zu verwechseln. Die internationale Operation führte zu Festnahmen, Durchsuchungen und Datenbergung; auf Schweizer Ebene bleiben jedoch hypothetische Straftaten wie Datendiebstahl, missbräuchlicher Zugriff, Datenschäden und Erpressung angezeigt. Der Bezug auf Kryptowährungen betrifft die Lösegeldforderung und darf nicht mit den für conti bancari in Svizzera vorgesehenen Tools verwechselt werden.
-
-Um die Lesung mit einem Portal-Tool abzuschließen, verwenden Sie das calcolatore stipendio.
-
-*Quelle: [swissinfo.ch](https://www.swissinfo.ch/ita/smantellata-rete-internazionale-di-hacker/92151953)*]]></content:encoded>
-      <pubDate>Thu, 01 Oct 2026 22:05:44 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/schweiz-artikel/killsec-server-dati-svizzeri</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/killsec-server-dati-svizzeri.webp" medium="image"/>
     </item>
   </channel>
 </rss>

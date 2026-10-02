@@ -7556,6 +7556,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sondaggio-conciliazione-lavoro-vita.title': 'Work-Life-Balance: Die Ticino-Umfrage beginnt',
     'blog.article.sondaggio-conciliazione-lavoro-vita.excerpt': 'Pro Familia Svizzera Italiana startet die erste kantonale Vermessung, um Flexibilität, Arbeitszeiten und Urlaub in Unternehmen im Tessin zu kartieren.',
     'blog.article.sondaggio-conciliazione-lavoro-vita.imageAlt': 'Modernes Büro mit Blick auf Lugano',
+    'blog.article.analisi-traffico-gottardo-app.title': 'Gotthard: Datenanalyse zur Vermeidung von Staus',
+    'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini entwickelte die Gottardo Live-App, indem er 19.000 FEDRO-Berichte analysierte. Erfahren Sie, wie Sie den Verkehr überwachen und Ihre Reise besser planen können.',
+    'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Stau vor einem Autobahntunnel in der Schweiz.',
 };
 
 export default blogMetaChDe;

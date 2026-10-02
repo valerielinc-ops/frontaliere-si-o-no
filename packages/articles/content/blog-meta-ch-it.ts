@@ -7556,6 +7556,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.sondaggio-conciliazione-lavoro-vita.title': 'Conciliazione lavoro-vita: parte il sondaggio ticinese',
     'blog.article.sondaggio-conciliazione-lavoro-vita.excerpt': 'Pro Familia Svizzera Italiana lancia la prima indagine cantonale per mappare flessibilità, orari e congedi nelle aziende ticinesi.',
     'blog.article.sondaggio-conciliazione-lavoro-vita.imageAlt': 'Ufficio moderno con vista su Lugano',
+    'blog.article.analisi-traffico-gottardo-app.title': 'Gottardo: l\'analisi dei dati per evitare le code',
+    'blog.article.analisi-traffico-gottardo-app.excerpt': 'Fabrizio Bacchini ha creato l\'app Gottardo Live analizzando 19mila segnalazioni USTRA. Scopri come monitorare il traffico e pianificare meglio il viaggio.',
+    'blog.article.analisi-traffico-gottardo-app.imageAlt': 'Traffico in attesa davanti all\'ingresso di un tunnel autostradale in Svizzera.',
 };
 
 export default blogMetaChIt;
