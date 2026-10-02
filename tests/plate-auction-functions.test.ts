@@ -488,3 +488,31 @@ describe('plate-auction history: a copy only when the observation changed', () =
   });
 });
 
+describe('plate-auction refresh publishes the public snapshot', () => {
+  const page = `
+    <div id="tabContent1"><table><tbody></tbody></table></div>
+    <div id="tabContent3"><table><tbody>
+      <tr class="L"><td><a onclick="openDetails(101)"><div class="number">101</div></a></td><td class="amount">400</td></tr>
+    </tbody></table></div>`;
+  const run = (bucket: unknown) => refreshPlateAuctions({
+    db: statefulFirestore().db as never,
+    fetcher: async (url: string) => (url.includes('eauktion.so.ch') ? page : ''),
+    now: new Date(),
+    bucket: bucket as never,
+  });
+
+  it('saves the snapshot once, after the sources are written', async () => {
+    const saved: string[] = [];
+    const result = await run({ file: (name: string) => ({ save: async () => { saved.push(name); } }) });
+    expect(saved).toEqual(['plate-auctions/public-snapshot.json.gz']);
+    expect(result.publicSnapshot).toMatchObject({ bytes: expect.any(Number) });
+    expect(result.summaries.so).toMatchObject({ status: 'active' });
+  });
+
+  it('keeps the refresh result when publishing fails', async () => {
+    const result = await run({ file: () => ({ save: async () => { throw new Error('storage unavailable'); } }) });
+    expect(result.publicSnapshot).toEqual({ error: 'storage unavailable' });
+    expect(result.summaries.so).toMatchObject({ status: 'active' });
+  });
+});
+

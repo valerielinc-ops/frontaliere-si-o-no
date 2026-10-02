@@ -19,8 +19,10 @@ import {
   withEcariEmptyState,
 } from './plateAuctionsCore.js';
 import { isDeepStrictEqual, promisify } from 'node:util';
-import { gzip } from 'node:zlib';
+import { gunzip, gzip } from 'node:zlib';
 import { FieldValue } from 'firebase-admin/firestore';
+import { getStorage } from 'firebase-admin/storage';
+import { ASSISTED_APPLICATION_STORAGE_BUCKET } from './assistedApplicationCvCheck.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { PUBLIC_PLATE_AUCTION_SOURCE_REGISTRY } from './plateAuctionSourceRegistry.js';
 import { chunkPlateAuctionWrites } from './plateAuctionBatch.js';
@@ -582,32 +584,97 @@ export async function getPublicPlateAuctionSnapshot(db = getAdminDb()) {
 export const PLATE_AUCTION_SNAPSHOT_CACHE_MS = 5 * 60 * 1000;
 
 const gzipAsync = promisify(gzip);
+const gunzipAsync = promisify(gunzip);
 let cachedSnapshotBody = null;
 let pendingSnapshotBody = null;
 
 /**
- * The serialized public snapshot, built at most once per TTL per instance, as
- * `{ body, gzip }`. Concurrent callers share the build in flight
- * (single-flight), so a burst costs one pass over the collection instead of
- * one per request. A failed build is not cached: the next request retries.
+ * Where refreshPlateAuctions publishes the built public snapshot, gzip-
+ * compressed, in the project's default bucket (same region as the function).
+ *
+ * The per-instance cache above only helps warm instances. On 2026-10-02,
+ * with every page view already on the static CDN file, the calls left (~4 an
+ * hour from Googlebot rendering with a cached old bundle, ~3 from the corpus
+ * publisher) were minutes apart: most found a cold or expired instance and
+ * rebuilt the snapshot from Firestore, ~22'700 reads each, 140-180k reads an
+ * hour in total. Reading this object instead costs one storage operation.
+ */
+export const PLATE_AUCTION_SNAPSHOT_OBJECT = 'plate-auctions/public-snapshot.json.gz';
+/**
+ * Beyond this age the published object means a stopped refresh (four runs a
+ * day, 6 h apart): the function rebuilds from Firestore instead of serving it.
+ */
+export const PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS = 8 * 60 * 60 * 1000;
+
+function snapshotFile(bucket) {
+  return (bucket || getStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET)).file(PLATE_AUCTION_SNAPSHOT_OBJECT);
+}
+
+/**
+ * Build the public snapshot and publish it for getPlateAuctions. Called at the
+ * end of every refresh, when the collection has just changed.
+ */
+export async function publishPublicPlateAuctionSnapshot({ db, bucket } = {}) {
+  const snapshot = await getPublicPlateAuctionSnapshot(db);
+  const compressed = await gzipAsync(Buffer.from(JSON.stringify(snapshot)));
+  await snapshotFile(bucket).save(compressed, { resumable: false, contentType: 'application/gzip' });
+  return { generatedAt: snapshot.generatedAt, auctions: snapshot.auctions.length, bytes: compressed.length };
+}
+
+/**
+ * The published snapshot as `{ body, gzip }`, or null when it is missing,
+ * unreadable, older than PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS or dated
+ * in the future: the caller then rebuilds from Firestore, as before.
+ */
+export async function loadPublishedPlateAuctionSnapshot({ bucket, now = Date.now } = {}) {
+  let compressed;
+  try {
+    [compressed] = await snapshotFile(bucket).download();
+  } catch (error) {
+    if (error?.code !== 404) console.warn('[plateAuctions:snapshot]', error instanceof Error ? error.message : String(error));
+    return null;
+  }
+  let body;
+  try {
+    body = await gunzipAsync(compressed);
+  } catch {
+    return null;
+  }
+  // generatedAt is the third key JSON.stringify emits: no full parse needed.
+  const generatedMs = Date.parse(/"generatedAt":"([^"]+)"/.exec(body.subarray(0, 256).toString('utf8'))?.[1]);
+  const nowMs = now();
+  if (!Number.isFinite(generatedMs) || generatedMs > nowMs || nowMs - generatedMs > PLATE_AUCTION_PUBLISHED_SNAPSHOT_MAX_AGE_MS) return null;
+  return { body, gzip: compressed };
+}
+
+/**
+ * The serialized public snapshot, refreshed at most once per TTL per instance,
+ * as `{ body, gzip }`: from the object refreshPlateAuctions publishes, or, when
+ * that is unusable, built from Firestore. Concurrent callers share the load in
+ * flight (single-flight), so a burst costs one load instead of one per
+ * request. A failed load is not cached: the next request retries.
  *
  * The gzip copy is made once per build. Uncompressed, every answered call was
  * ~16.5 MB of Cloud Run internet egress (25.6 GB on 2026-09-30); JSON rows
  * with repeated keys compress by an order of magnitude.
+ *
+ * `bucket: null` skips the published object (tests that only exercise the
+ * Firestore build).
  */
-export function getCachedPublicPlateAuctionSnapshotBody({ db, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
+export function getCachedPublicPlateAuctionSnapshotBody({ db, bucket, now = Date.now, ttlMs = PLATE_AUCTION_SNAPSHOT_CACHE_MS } = {}) {
   if (cachedSnapshotBody && cachedSnapshotBody.expiresAt > now()) return Promise.resolve(cachedSnapshotBody.bodies);
   if (!pendingSnapshotBody) {
-    pendingSnapshotBody = getPublicPlateAuctionSnapshot(db)
-      .then(async (snapshot) => {
-        const body = Buffer.from(JSON.stringify(snapshot));
-        const bodies = { body, gzip: await gzipAsync(body) };
-        cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
-        return bodies;
-      })
-      .finally(() => {
-        pendingSnapshotBody = null;
-      });
+    pendingSnapshotBody = (async () => {
+      let bodies = bucket === null ? null : await loadPublishedPlateAuctionSnapshot({ bucket, now });
+      if (!bodies) {
+        const body = Buffer.from(JSON.stringify(await getPublicPlateAuctionSnapshot(db)));
+        bodies = { body, gzip: await gzipAsync(body) };
+      }
+      cachedSnapshotBody = { bodies, expiresAt: now() + ttlMs };
+      return bodies;
+    })().finally(() => {
+      pendingSnapshotBody = null;
+    });
   }
   return pendingSnapshotBody;
 }
@@ -698,7 +765,7 @@ export function plateAuctionObservationChanged(record, old) {
   return false;
 }
 
-export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
+export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date(), bucket } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};
   for (const key of plateAuctionRefreshOrder(Object.keys(CONNECTORS))) {
@@ -937,7 +1004,19 @@ export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = n
     }, { merge: true });
     summaries[key] = { status: patch.status, rowCount: 0, ...(patch.errorCode ? { errorCode: patch.errorCode } : {}) };
   }
-  return { fetchedAt, summaries };
+  // The collection only changes here: publish the snapshot getPlateAuctions
+  // serves. A failure never fails the refresh; the function then rebuilds from
+  // Firestore until the next run publishes.
+  let publicSnapshot = null;
+  if (bucket !== null) {
+    try {
+      publicSnapshot = await publishPublicPlateAuctionSnapshot({ db, bucket });
+    } catch (error) {
+      publicSnapshot = { error: error instanceof Error ? error.message.slice(0, 180) : 'unknown_error' };
+      console.warn('[refreshPlateAuctions] snapshot not published:', publicSnapshot.error);
+    }
+  }
+  return { fetchedAt, summaries, publicSnapshot };
 }
 
 export function isPlateAuctionPublicRecord(value) {
