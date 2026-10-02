@@ -1,53 +1,18 @@
 {
   "key": "sintetica",
   "label": "Sintetica SA",
-  "generatedAt": "2026-10-01T21:09:17.709Z",
+  "generatedAt": "2026-10-02T09:08:47.028Z",
   "total": 7,
-  "newCount": 5,
-  "updatedCount": 6,
+  "newCount": 4,
+  "updatedCount": 7,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10110,
-  "avgDurationMs": 10110,
+  "durationMs": 8066,
+  "avgDurationMs": 8066,
   "durationHistory": [
-    10110
+    8066
   ],
   "newJobs": [
-    {
-      "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
-      "title": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
-      "company": "Sintetica SA",
-      "companyKey": "sintetica",
-      "location": "Mendrisio",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate 5",
-      "slug": "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
-      "category": "pharma",
-      "datePosted": "2026-10-01",
-      "source": "sintetica-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Mendrisio"
-      },
-      "sourceLang": "en",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 4,
-        "completeness": 15
-      }
-    },
     {
       "url": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
       "applyUrl": "https://app.ncoreplat.com/jobposition/789017/local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-ch/sintetica",
@@ -64,7 +29,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "local-regulatory-affairs-manager-area-us-mendrisio-site-ticino-sintetica",
       "category": "pharma",
-      "datePosted": "2026-10-01",
+      "datePosted": "2026-10-02",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
@@ -99,7 +64,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "quality-control-microbiological-laboratory-technician-mendrisio-site-ticino-sintetica",
       "category": "science",
-      "datePosted": "2026-10-01",
+      "datePosted": "2026-10-02",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -134,7 +99,7 @@
       "streetAddress": "Via Penate 5",
       "slug": "spontaneous-application-mendrisio-site-ticino-sintetica",
       "category": "general",
-      "datePosted": "2026-10-01",
+      "datePosted": "2026-10-02",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -169,7 +134,7 @@
       "streetAddress": "Rue de l'Ecluse 28",
       "slug": "spontaneous-application-couvet-site-neuchatel-sintetica",
       "category": "general",
-      "datePosted": "2026-10-01",
+      "datePosted": "2026-10-02",
       "source": "sintetica-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -402,6 +367,42 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 15
+      }
+    },
+    {
+      "url": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/792460/regulatory-affairs-specialist-mendrisio-site-ticino-ch/sintetica",
+      "title": "Regulatory Affairs Specialist - Mendrisio site (Ticino)",
+      "company": "Sintetica SA",
+      "companyKey": "sintetica",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6850",
+      "streetAddress": "Via Penate 5",
+      "slug": "regulatory-affairs-specialist-mendrisio-site-ticino-sintetica",
+      "category": "pharma",
+      "datePosted": "2026-10-01",
+      "source": "sintetica-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "en",
+      "id": "sintetica-1dee0615eb96",
+      "firstSeenAt": "2026-10-01T21:09:11.135Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 0,
         "translation": 25,
         "completeness": 15
       }
