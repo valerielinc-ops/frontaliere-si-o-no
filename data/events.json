@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T05:07:51.043Z",
+  "generatedAt": "2026-10-02T06:04:19.025Z",
   "totalEvents": 10143,
   "events": [
     {
@@ -215673,7 +215673,7 @@
       "description": "Mischen is possible",
       "descriptionByLocale": {
         "it": "Mischen is possible",
-        "en": "Mischen is possible",
+        "en": "Mixing is possible",
         "de": "Mischen ist möglich",
         "fr": "Mischen est possible"
       },
@@ -215688,12 +215688,8 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/215073",
-        "validFrom": "2026-01-01T01:01",
-        "amount": 20,
-        "currency": "CHF",
-        "isFree": false
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/215073"
       },
       "geo": {
         "lat": 46.7967781,
@@ -216290,10 +216286,7 @@
       "sourceName": "MySwitzerland",
       "price": {
         "availability": "http://schema.org/InStock",
-        "url": "https://www.petzi.ch/en/events/64715-ajz-caj-20-years-fractal/",
-        "amount": 29.9,
-        "currency": "CHF",
-        "isFree": false
+        "url": "https://www.petzi.ch/events/64715/"
       },
       "geo": {
         "lat": 47.1359849,
@@ -222391,12 +222384,8 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217732",
-        "validFrom": "2026-01-01T20:00",
-        "amount": 10,
-        "currency": "CHF",
-        "isFree": false
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217732"
       },
       "geo": {
         "lat": 46.7967781,
@@ -252241,12 +252230,8 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217734",
-        "validFrom": "2026-01-01T20:00",
-        "amount": 10,
-        "currency": "CHF",
-        "isFree": false
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217734"
       },
       "geo": {
         "lat": 46.7967781,
@@ -277247,12 +277232,8 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "https://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/205364",
-        "validFrom": "2025-01-01T01:01",
-        "amount": 20,
-        "currency": "CHF",
-        "isFree": false
+        "availability": "http://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/205364"
       },
       "geo": {
         "lat": 46.7967781,
