@@ -1,3 +1,5 @@
+import { classifyProfessionLandingFeature } from './professionLandingsSections.mjs';
+
 /**
  * Shared canton-aware job-board section matcher.
  * ─────────────────────────────────────────────────────────────────────────
@@ -120,6 +122,25 @@ export const JOB_BOARD_PROFESSION_CITY_RX = new RegExp(
 );
 
 /**
+ * The profession × canton family has the same flat shape as profession × city
+ * (`{areaWord}-{cantonSlug}-{role}/`), but both the canton and the role may
+ * contain hyphens. A prefix regex would therefore classify editorial slugs
+ * such as `/en/jobs-st-gallen-guide/` as a job payload. The exact route-set
+ * classifier is generated from professionCantonData.ts and precompiled once
+ * in professionLandingsSections.mjs; this adapter only normalises the dist
+ * path form (`…/index.html`) used by the information-gain auditor.
+ */
+function normalizeProfessionLandingPath(path) {
+  const raw = String(path || '').replace(/\\/g, '/');
+  const withLeadingSlash = raw.startsWith('/') ? raw : `/${raw}`;
+  return withLeadingSlash.replace(/\\/index\\.html$/, '/');
+}
+
+export function isJobBoardProfessionCantonPath(normalisedPath) {
+  return classifyProfessionLandingFeature(normalizeProfessionLandingPath(normalisedPath)) === 'profession-canton';
+}
+
+/**
  * Matches the company-hub segment immediately below a job-board section,
  * including both the directory index and the flat `.html` emitter output.
  * Keeping the section prefix in this shared matcher prevents page-weight
@@ -171,13 +192,15 @@ export function isJobBoardSectionPath(normalisedPath) {
 }
 
 /**
- * True for either a canton-aware job-board section or a profession × city
- * landing with a live jobs payload. This is the scope used by content audits
- * that compare editorial prose; section-only consumers should keep using
- * isJobBoardSectionPath().
+ * True for either a canton-aware job-board section or a profession landing
+ * (city or canton) with a live jobs payload. This is the scope used by content
+ * audits that compare editorial prose; section-only consumers should keep
+ * using isJobBoardSectionPath().
  */
 export function isJobBoardContentPath(normalisedPath) {
-  return JOB_BOARD_SECTION_RX.test(normalisedPath) || JOB_BOARD_PROFESSION_CITY_RX.test(normalisedPath);
+  return JOB_BOARD_SECTION_RX.test(normalisedPath) ||
+    JOB_BOARD_PROFESSION_CITY_RX.test(normalisedPath) ||
+    isJobBoardProfessionCantonPath(normalisedPath);
 }
 
 /**
