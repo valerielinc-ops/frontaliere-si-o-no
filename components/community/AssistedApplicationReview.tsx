@@ -17,6 +17,13 @@ import {
   type ReviewQuestion,
 } from '@/services/assistedApplicationReviewService';
 
+// The three CVs the candidate can send (phase 5 adds their own Word file with the adapted lines).
+const CV_CHOICE_LABELS = {
+  tailored: 'jobBoard.assisted.review.cvChooseTailored',
+  inplace: 'jobBoard.assisted.review.cvChooseInplace',
+  original: 'jobBoard.assisted.review.cvChooseOriginal',
+} as const;
+
 /**
  * Candidate review page of the automated assisted application, opened from
  * the signed link of the review e-mails (`?assisted_application_review=`).
@@ -648,13 +655,23 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                   </p>
                 )}
                 <fieldset className="space-y-1" disabled={!data.can.chooseCv || Boolean(busy)}>
-                  {(['tailored', 'original'] as const).map((choice) => (
+                  {((data.tailoredCv.inplace ? ['tailored', 'inplace', 'original'] : ['tailored', 'original']) as Array<keyof typeof CV_CHOICE_LABELS>).map((choice) => (
                     <label key={choice} className="flex items-center gap-2">
                       <input type="radio" name="cv-choice" checked={data.tailoredCv?.choice === choice} onChange={() => { void run('cv_choice', { cvChoice: choice }); }} />
-                      {t(choice === 'tailored' ? 'jobBoard.assisted.review.cvChooseTailored' : 'jobBoard.assisted.review.cvChooseOriginal')}
+                      {t(CV_CHOICE_LABELS[choice])}
                     </label>
                   ))}
                 </fieldset>
+                {data.tailoredCv.inplace && (
+                  <div className="space-y-1 text-xs text-subtle">
+                    <p>{t('jobBoard.assisted.review.cvInplaceNote', { patched: data.tailoredCv.inplace.patched, kept: data.tailoredCv.inplace.kept })}</p>
+                    {data.tailoredCv.inplace.url && (
+                      <a href={data.tailoredCv.inplace.url} target="_blank" rel="noreferrer" className="inline-flex items-center gap-1 font-semibold text-link hover:underline">
+                        <FileText className="h-4 w-4" aria-hidden="true" /> {t('jobBoard.assisted.review.cvInplaceDocx')}
+                      </a>
+                    )}
+                  </div>
+                )}
                 {data.can.reviewCvLines && data.tailoredCv.changes && (
                   <AssistedApplicationCvChanges
                     changes={data.tailoredCv.changes}

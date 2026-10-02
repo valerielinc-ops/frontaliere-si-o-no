@@ -413,11 +413,18 @@ export default function AssistedApplicationAutomationPanel({
                 <div className="rounded-lg border border-edge bg-surface p-3 sm:col-span-2">
                   <p className="font-semibold uppercase tracking-wide text-muted">CV adattato ATS</p>
                   <p className="mt-1">
-                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : 'CV adattato'}
+                    {TAILORED_CV_LABELS[draft.tailoredCv.status] || draft.tailoredCv.status} · scelta del candidato: {draft.cvChoice === 'original' ? 'CV originale' : draft.cvChoice === 'inplace' ? 'CV originale con le righe adattate' : 'CV adattato'}
                     {draft.tailoredCv.url && <> · <a className="text-link hover:underline" href={draft.tailoredCv.url} target="_blank" rel="noreferrer">apri il PDF</a></>}
                   </p>
                   {draft.tailoredCv.unsupported.length > 0 && <p className="text-muted">Fatti non trovati: {draft.tailoredCv.unsupported.map((item) => item.token).join(', ')}</p>}
                   {draft.tailoredCv.dropped.length > 0 && <p className="text-muted">Competenze scartate (non nel CV): {draft.tailoredCv.dropped.join(', ')}</p>}
+                  {draft.tailoredCv.inplace && (
+                    <p className="text-muted">
+                      DOCX in-place: {draft.tailoredCv.inplace.status === 'ready'
+                        ? `${draft.tailoredCv.inplace.patched} righe riscritte, ${draft.tailoredCv.inplace.kept.length} lasciate come nel CV${draft.tailoredCv.inplace.kept.length ? ` (${[...new Set(draft.tailoredCv.inplace.kept)].join(', ')})` : ''} · pagine: ${draft.tailoredCv.inplace.pageCheck === 'libreoffice' ? 'verificate con LibreOffice' : 'solo budget di lunghezza'}`
+                        : `ricaduta sul template (${draft.tailoredCv.inplace.reason || draft.tailoredCv.inplace.status})`}
+                    </p>
+                  )}
                 </div>
               )}
             </div>

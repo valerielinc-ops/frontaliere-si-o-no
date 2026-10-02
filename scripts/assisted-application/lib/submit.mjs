@@ -17,6 +17,7 @@ import {
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
+import { cvChoiceOf } from '../../../functions/src/assistedApplicationDocxInPlace.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -43,11 +44,17 @@ export function openRequiredQuestions(draft, answers = {}) {
  */
 /**
  * The CV that leaves: the tailored ATS CV when it passed the fact gate and the
- * candidate did not choose their original on the review page.
+ * candidate did not choose their original on the review page; their own Word
+ * file with the adapted lines when they chose it (phase 5).
  */
 export async function chooseCv({ draft, flow, bucket, cvBuffer, cvType }) {
   const tailored = draft?.tailoredCv;
-  if (tailored?.status === 'ready' && tailored.pdfKey && flow?.cvChoice !== 'original') {
+  const choice = cvChoiceOf(draft, flow);
+  if (tailored?.status === 'ready' && choice === 'inplace') {
+    const [buffer] = await bucket.file(tailored.inplace.docxKey).download();
+    return { cvBuffer: Buffer.from(buffer), cvType: 'docx', cvSent: 'inplace' };
+  }
+  if (tailored?.status === 'ready' && tailored.pdfKey && choice !== 'original') {
     const [buffer] = await bucket.file(tailored.pdfKey).download();
     return { cvBuffer: Buffer.from(buffer), cvType: 'pdf', cvSent: 'tailored' };
   }

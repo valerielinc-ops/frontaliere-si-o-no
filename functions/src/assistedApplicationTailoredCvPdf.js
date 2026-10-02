@@ -12,6 +12,7 @@
  */
 
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { DOCX_CONTENT_TYPE, buildInPlaceDocx } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
 import { applyCvLineChoices, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
 
@@ -47,4 +48,22 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   return { pdfKey, renderer };
+}
+
+/**
+ * The candidate's own Word file again with their line-by-line choices (phase
+ * 5): same base, same locks and budgets as the runner's first build. Without
+ * LibreOffice here the length budget alone keeps the page count.
+ * @returns {Promise<object|null>} the next `tailoredCv.inplace`, null when the draft has none ready
+ */
+export async function rebuildInPlaceDocx({ bucket, order, orderId, draft, flow = {}, nowMs }) {
+  const inplace = draft?.tailoredCv?.inplace;
+  if (inplace?.status !== 'ready' || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
+  const [base] = await bucket.file(inplace.baseKey).download();
+  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: flow?.cvChoices });
+  if (built.status !== 'ready') return { ...inplace, status: 'fallback', reason: built.reason };
+  const docxKey = `assisted-application-uploads/${orderId}/ai-cv-inplace-r${draft.round || 1}-candidate-${nowMs}.docx`;
+  await bucket.file(docxKey).save(built.docx, { contentType: DOCX_CONTENT_TYPE, resumable: false });
+  return { ...inplace, docxKey, patched: built.patched, skipped: built.skipped, pageCheck: 'budget' };
 }

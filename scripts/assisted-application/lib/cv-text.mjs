@@ -29,7 +29,8 @@ async function haveCommand(name, run) {
   }
 }
 
-async function ensurePackages(commands, packages, run) {
+/** The apt packages of the commands missing on the runner, installed (passwordless sudo). */
+export async function ensurePackages(commands, packages, run) {
   const missing = [];
   for (const command of commands) if (!(await haveCommand(command, run))) missing.push(command);
   if (!missing.length) return;

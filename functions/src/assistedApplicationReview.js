@@ -15,7 +15,8 @@ import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
 import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
 import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
-import { MAX_PHOTO_BYTES, PHOTO_TYPES, photoAdvice, rebuildTailoredCvPdf } from './assistedApplicationTailoredCvPdf.js';
+import { MAX_PHOTO_BYTES, PHOTO_TYPES, photoAdvice, rebuildInPlaceDocx, rebuildTailoredCvPdf } from './assistedApplicationTailoredCvPdf.js';
+import { cvChoiceOf, inPlaceReady } from './assistedApplicationDocxInPlace.js';
 import { applyCvLineChoices, checkTailoredCvFacts, ownChoiceTexts } from './assistedApplicationTailoredCv.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
@@ -43,7 +44,8 @@ const DOCUMENT_ACTIONS = new Set(['document_upload', 'document_remove', 'documen
 const DOCUMENT_STATES = new Set(['candidate_review', 'needs_candidate_action']);
 // What the candidate wrote vouches for itself in the fact check (bounded).
 const MAX_CANDIDATE_SOURCE = 20000;
-const CV_CHOICES = new Set(['tailored', 'original']);
+// inplace: the candidate's own Word file with the adapted lines (phase 5), when the runner made one.
+const CV_CHOICES = new Set(['tailored', 'original', 'inplace']);
 const FOLLOWUP_ACTIONS = new Set(['followup_send', 'followup_skip']);
 const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
@@ -108,7 +110,7 @@ function atsView(report) {
   return report ? { grade: report.structural?.grade || null, keywordCoverage: report.keywords?.coverage ?? null, missing: (report.keywords?.missing || []).slice(0, 8) } : null;
 }
 
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, nowMs = Date.now() }) {
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answers = flow?.answers || {};
@@ -159,7 +161,13 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
     // The tailored ATS CV (sent unless the candidate chooses their original).
     tailoredCv: draft?.tailoredCv?.status === 'ready' ? {
       url: tailoredCvUrl,
-      choice: flow?.cvChoice === 'original' ? 'original' : 'tailored',
+      choice: cvChoiceOf(draft, flow),
+      // The candidate's own Word file with the adapted lines: how many went in, how many kept the CV's line.
+      inplace: inPlaceReady(draft) ? {
+        url: inPlaceCvUrl,
+        patched: (draft.tailoredCv.inplace.patched || []).length,
+        kept: (draft.tailoredCv.inplace.skipped || []).length,
+      } : null,
       // The optional photo: customary in German-speaking Switzerland, optional elsewhere.
       photo: Boolean(flow?.photo?.key),
       photoAdvice: photoAdvice(draft.language),
@@ -332,8 +340,10 @@ async function saveCvLineChoices({ db, bucket, orderId, order, flow, draft, body
   const nextFlow = { ...flow, cvChoices: choices };
   const rebuilt = await rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   if (!rebuilt) throw new ReviewError('not_allowed', 409);
+  // The same choices in the candidate's own Word file, when there is one.
+  const inplace = await rebuildInPlaceDocx({ bucket, order, orderId, draft, flow: nextFlow, nowMs });
   await flowRefFor(db, orderId).set({ cvChoices: choices, updatedAt: nowMs }, { merge: true });
-  await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer } }, { merge: true });
+  await draftRefFor(db, orderId).set({ tailoredCv: { pdfKey: rebuilt.pdfKey, renderer: rebuilt.renderer, ...(inplace ? { inplace } : {}) } }, { merge: true });
   await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_cv_reviewed', {
     actor: 'candidate',
     kept: Object.values(choices).filter((choice) => choice.use === 'adapted').length,
@@ -449,11 +459,12 @@ export async function handleAssistedApplicationReview(req, deps) {
       }
       const { order, flow, draft } = await loadAll(deps.db, orderId);
       const sign = (key) => (key && deps.signUrl ? deps.signUrl(key).catch(() => null) : null);
-      const [coverLetterUrl, tailoredCvUrl] = await Promise.all([
+      const [coverLetterUrl, tailoredCvUrl, inPlaceCvUrl] = await Promise.all([
         sign(draft?.coverLetterPdfKey),
         sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
+        sign(inPlaceReady(draft) ? draft.tailoredCv.inplace.docxKey : null),
       ]);
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, nowMs }) };
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, inPlaceCvUrl, nowMs }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
@@ -476,7 +487,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (action === 'cv_choice') {
       // Which CV leaves: no flow event, the next submission reads it.
       const choice = String(body.cvChoice || '');
-      if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready') throw new ReviewError('invalid_cv_choice');
+      if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready' || (choice === 'inplace' && !inPlaceReady(draft))) throw new ReviewError('invalid_cv_choice');
       if (flow.state !== 'candidate_review') throw new ReviewError('not_allowed', 409);
       await flowRefFor(deps.db, orderId).set({ cvChoice: choice, updatedAt: nowMs }, { merge: true });
       return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };

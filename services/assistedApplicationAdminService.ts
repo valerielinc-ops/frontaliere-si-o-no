@@ -107,8 +107,12 @@ export interface AssistedApplicationAutomationView {
       signals: Array<{ key: string; weight: 'positive' | 'neutral' | 'concerning'; reliability: string; detail: string }>;
       notes: Array<{ key: string; quote?: string; detail?: string }>;
     } | null;
-    tailoredCv: { status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null } | null;
-    cvChoice: 'tailored' | 'original';
+    tailoredCv: {
+      status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null;
+      /** Phase 5: the candidate's own DOCX with the adapted lines (null when the switch was off or the CV is a PDF). */
+      inplace?: { status: 'ready' | 'fallback' | 'failed'; reason: string | null; patched: number; kept: string[]; pageCheck: 'libreoffice' | 'budget' | null } | null;
+    } | null;
+    cvChoice: 'tailored' | 'original' | 'inplace';
     /** What the portal received, question by question (career-ops application-answers). */
     portalAnswers: { status: string; at: number; answers: Array<{ question: string; answer: string; source: string }> } | null;
   } | null;
