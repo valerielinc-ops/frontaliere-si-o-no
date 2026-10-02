@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-10-02T09:20:29.046Z",
+  "assembledAt": "2026-10-02T21:28:19.141Z",
   "jobs": [
     {
       "title": "Teamleader Elektroschrankmontage 100%",
@@ -60,7 +60,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:20:07.652Z"
+      "firstSeenAt": "2026-10-02T21:28:01.737Z"
     },
     {
       "title": "Controller (d/f/m)",
@@ -122,19 +122,18 @@
       "streetAddress": "Via Goldau 7",
       "postalCode": "6616",
       "firstSeenAt": "2026-09-30T21:16:37.880Z",
-      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-controller-dfm",
       "previousSlugsByLocale": {
         "it": [
           "controllore-d-f-m-agie-charmilles-sa-losone-xi5h86",
+          "controller-d-f-m-agie-charmilles-losone"
+        ],
+        "de": [
           "controller-d-f-m-agie-charmilles-losone"
         ],
         "fr": [
           "controleur-d-f-m-agie-charmilles-sa-losone",
           "controller-d-f-m-agie-charmilles-losone",
           "controller-d-f-m-agie-charmilles-sa-losone"
-        ],
-        "de": [
-          "controller-d-f-m-agie-charmilles-losone"
         ]
       },
       "previousSlugs": [
@@ -143,6 +142,7 @@
         "controleur-d-f-m-agie-charmilles-sa-losone",
         "controller-d-f-m-agie-charmilles-sa-losone"
       ],
+      "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-controller-dfm",
       "needsRetranslation": true
     },
     {
@@ -1403,6 +1403,7 @@
       "firstSeenAt": "2026-05-10T20:53:37.027Z",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://www.find-your-future.ch/it/arbeiten-mem-branche/branche-unternehmen/jobdetails/agie-charmilles-sa-field-service-expert-dwm",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
@@ -1410,8 +1411,7 @@
       },
       "previousSlugs": [
         "field-service-expert-d-w-m-agie-charmilles-biel-bienne"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Electronics Engineer",

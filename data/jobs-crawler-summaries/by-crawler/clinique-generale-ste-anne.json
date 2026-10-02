@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-ste-anne",
   "label": "Clinique Générale Ste-Anne",
-  "generatedAt": "2026-10-02T09:22:43.368Z",
+  "generatedAt": "2026-10-02T21:25:55.911Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,16 +10,55 @@
   "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6121,
-  "avgDurationMs": 6121,
+  "durationMs": 5906,
+  "avgDurationMs": 5906,
   "durationHistory": [
-    6121
+    6121,
+    5906
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "clinique-generale-ste-anne-c9d7b28df218",
+      "slug": "secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-clinique-generale-ste-anne",
+      "company": "Clinique Générale Ste-Anne",
+      "companyKey": "clinique-generale-ste-anne",
+      "companyDomain": "swissmedical.net",
+      "title": "Secrétaire médical.e/collaborateur.trice administratif.ve à 80%",
+      "needsRetranslation": true,
+      "location": "Fribourg",
+      "canton": "FR",
+      "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
+      "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152902420-secretaire-medical-e-collaborateur-trice-administratif-ve-a-80-",
+      "source": "Clinique Générale Ste-Anne Dedicated Parser (SMN clinic=CDF)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T21:25:45.540Z",
+      "addressLocality": "Fribourg",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1700",
+      "streetAddress": "Rue Hans-Geiler 6, 1700 Fribourg",
+      "category": "Amministrazione",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "datePosted": "2026-10-01",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "clinique-generale-ste-anne-c9d7b28df218",
