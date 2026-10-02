@@ -53,6 +53,78 @@ describe('resolveWorkdayPrimarySwissLocation — primary-only publish gate', () 
   });
 });
 
+describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  const makeParser = () => createWorkdaySwissParser({
+    companyKey: 'testco',
+    companyName: 'Test Co',
+    companyDomain: 'testco.com',
+    tenantHost: 'testco.wd3.myworkdayjobs.com',
+    sitePath: 'Test_Careers',
+    defaultCanton: 'ZH',
+    defaultCity: 'Zurich',
+  });
+
+  it('refetches the live board unfiltered when the Swiss facet is blocked', async () => {
+    const listingRequests: any[] = [];
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        const body = JSON.parse(init.body);
+        listingRequests.push(body);
+        if (Object.keys(body.appliedFacets || {}).length > 0) {
+          return new Response('', { status: 403 });
+        }
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Senior Underwriting Assistant',
+            externalPath: '/job/Zurich/Senior-Underwriting-Assistant_R7298',
+            locationsText: 'Zurich, Switzerland',
+            postedOn: 'Posted Today',
+            bulletFields: ['R7298'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'Zurich, Switzerland',
+          jobRequisitionLocation: { country: { alpha2Code: 'CH', descriptor: 'Switzerland' } },
+          jobDescription: ROLE_BODY,
+        },
+      }), { status: 200 });
+    }) as any;
+
+    const jobs = await makeParser().fetchAllJobs();
+
+    expect(jobs.map((job: any) => job.title)).toEqual(['Senior Underwriting Assistant']);
+    expect(listingRequests).toHaveLength(2);
+    expect(listingRequests[0].appliedFacets).toEqual({
+      locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'],
+    });
+    expect(listingRequests[1].appliedFacets).toEqual({});
+  });
+
+  it('keeps an explicit anti-bot outcome when both listing requests are blocked', async () => {
+    global.fetch = vi.fn(async (url: string) => (
+      String(url).endsWith('/jobs')
+        ? new Response('', { status: 403 })
+        : new Response('', { status: 404 })
+    )) as any;
+
+    const jobs = await makeParser().fetchAllJobs();
+
+    expect(jobs).toHaveLength(0);
+    expect((jobs as any).fetchOutcome).toBe('anti_bot_block');
+  });
+});
+
 /**
  * Regression tests for the `externalPath` primary-location fallback added
  * alongside the Eraneos and Medbase crawlers. Motivating bug: a tenant that

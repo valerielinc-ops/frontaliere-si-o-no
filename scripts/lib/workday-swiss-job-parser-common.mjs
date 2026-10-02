@@ -591,8 +591,17 @@ export function createWorkdaySwissParser(config) {
       }
     } catch (err) {
       if (err instanceof WorkdayAuthError) {
+        // A blocked Swiss-faceted request must reach fetchAllJobs(), which
+        // already has the safe unfiltered-board fallback for tenants that
+        // reject the facet. Returning [] here turns a live board into the
+        // runner's `no-jobs-parsed` abort (the Everest Re failure mode).
+        if (useCountryFacet) throw err;
         console.error(`❌ Workday anti-bot block (${companyName}): ${err.message}`);
-        return [];
+        // The unfiltered retry is the last transport attempt. Preserve the
+        // cause on the empty array so the standard pipeline records an
+        // anti-bot failure rather than treating it as a legitimate zero.
+        out.fetchOutcome = 'anti_bot_block';
+        return out;
       }
       throw err;
     }
@@ -669,7 +678,7 @@ export function createWorkdaySwissParser(config) {
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
       if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
-      return [];
+      return listings || [];
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
 
