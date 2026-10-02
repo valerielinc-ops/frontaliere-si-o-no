@@ -326,6 +326,16 @@ describe('fatti letti da git', () => {
     expect(prover.proveChain(tip, prHead)).toMatchObject({ proven: false, example: tip });
   });
 
+  it('una differenza solo di indentazione non è equivalenza (YAML)', () => {
+    g('checkout', '-q', '-b', 'pr-yaml', 'main');
+    write('conf.yml', 'a:\n  b: 1\n  c: 2\n');
+    const prHead = commit('feat: c sotto a');
+    g('checkout', '-q', '-b', 'local-yaml', 'main');
+    write('conf.yml', 'a:\n  b: 1\nc: 2\n');
+    const tip = commit('feat: c in radice');
+    expect(prover.proveChain(tip, prHead).proven).toBe(false);
+  });
+
   it('un commit in più senza equivalente: resta', () => {
     g('checkout', '-q', '-b', 'local-extra', 'local');
     write('extra.txt', 'solo qui\n');

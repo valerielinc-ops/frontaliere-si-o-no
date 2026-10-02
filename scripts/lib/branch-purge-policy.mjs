@@ -112,7 +112,8 @@ export function isRemovableOrphanDir({ files, idle }) {
 // Un commit locale è contenuto in una PR MERGED se:
 //   • è antenato dell'HEAD della PR, oppure non cambia niente;
 //   • riapplicarlo sull'HEAD della PR non cambia l'albero (merge-tree);
-//   • ogni suo file ha il patch-id di un file di un commit della PR, e il
+//   • ogni suo file ha il patch-id (verbatim: spazi compresi) di un file di
+//     un commit della PR, e il
 //     revert non c'è: nessun commit della PR è l'inverso di quel file e lo
 //     squash della PR tocca ancora quel file. Un commit cherry-pickato e poi
 //     revertito nella stessa PR ha il patch-id giusto ma non è nello squash.

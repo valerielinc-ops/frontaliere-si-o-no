@@ -114,6 +114,10 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
     return res === null ? null : (res.split('\n')[0] || '').trim() || null;
   }
 
+  // `--verbatim`, non `--stable`: lo stable toglie gli spazi, e due righe YAML
+  // che differiscono solo per l'indentazione (`  c: 2` contro `c: 2`, semantica
+  // diversa) avrebbero lo stesso id. Verbatim ignora solo posizione e numeri
+  // di riga, e la somma resta indipendente dall'ordine dei file.
   function patchIds(chunks) {
     const ids = new Array(chunks.length).fill(null);
     const parts = [];
@@ -121,7 +125,7 @@ export function makeContentProver({ git, mainRef, limits = {} }) {
       if (!chunk.binary) parts.push(`commit ${i.toString(16).padStart(40, '0')}\n${chunk.lines.join('\n')}\n`);
     });
     if (!parts.length) return ids;
-    for (const line of (out(['patch-id', '--stable'], { input: parts.join('') }) || '').split('\n')) {
+    for (const line of (out(['patch-id', '--verbatim'], { input: parts.join('') }) || '').split('\n')) {
       const [pid, id] = line.split(' ');
       if (pid && id) ids[Number.parseInt(id, 16)] = pid;
     }
