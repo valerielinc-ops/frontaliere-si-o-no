@@ -112,7 +112,8 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
     }));
   if (!flow && !draft && !inbox.length && !accounts.length && !followup) return null;
   const signed = (key) => (key && signUrl && isAssistedApplicationCvKey(orderId, key) ? signUrl(key).catch(() => null) : null);
-  const [letterUrl, tailoredCvUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey)]);
+  const inPlaceKey = draft?.tailoredCv?.inplace?.status === 'ready' ? draft.tailoredCv.inplace.docxKey : null;
+  const [letterUrl, tailoredCvUrl, inPlaceUrl] = await Promise.all([signed(draft?.coverLetterPdfKey), signed(draft?.tailoredCv?.pdfKey), signed(inPlaceKey)]);
   return {
     inbox,
     accounts,
@@ -156,7 +157,18 @@ export async function loadAutomationForAdmin(db, orderId, { signUrl } = {}) {
       coverLetterUrl: letterUrl,
       ats: draft.ats || null,
       legitimacy: draft.legitimacy || null,
-      tailoredCv: draft.tailoredCv ? { status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl } : null,
+      tailoredCv: draft.tailoredCv ? {
+        status: draft.tailoredCv.status, dropped: draft.tailoredCv.dropped || [], unsupported: draft.tailoredCv.unsupported || [], url: tailoredCvUrl,
+        // Phase 5: the candidate's own Word file with the adapted lines, or why it fell back to the template.
+        inplace: draft.tailoredCv.inplace ? {
+          status: draft.tailoredCv.inplace.status,
+          reason: draft.tailoredCv.inplace.reason || null,
+          patched: (draft.tailoredCv.inplace.patched || []).length,
+          kept: (draft.tailoredCv.inplace.skipped || []).map((item) => item.reason),
+          pageCheck: draft.tailoredCv.inplace.pageCheck || null,
+          url: inPlaceUrl || null,
+        } : null,
+      } : null,
       cvChoice: flow?.cvChoice || 'tailored',
       // What the portal already received, for Valerie when she finishes by hand.
       portalAnswers: draft.portalAnswers || null,

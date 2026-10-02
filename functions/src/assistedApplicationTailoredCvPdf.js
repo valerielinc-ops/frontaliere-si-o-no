@@ -12,6 +12,7 @@
  */
 
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
+import { buildInPlaceDocx, documentXmlOf } from './assistedApplicationDocxInPlace.js';
 import { pdfRendererMode, renderCvPdf } from './assistedApplicationPdfRenderer.js';
 import { applyCvLineChoices, cvChoicesOf, tailoredCvDocument } from './assistedApplicationTailoredCv.js';
 
@@ -50,4 +51,27 @@ export async function rebuildTailoredCvPdf({ bucket, order, orderId, draft, flow
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${draft.round || 1}-candidate-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   return { pdfKey, renderer };
+}
+
+/**
+ * The candidate's own Word file after their line-by-line choices (phase 5).
+ * The Cloud Functions have no LibreOffice to count pages, and a file whose
+ * pages were not counted is never offered nor sent: the file stays offered
+ * while the choices leave it as the runner verified it (the same
+ * document.xml), and falls back to the template CV otherwise
+ * (`needs_page_check`), until choices that match it again.
+ * @returns {Promise<object|null>} the next `tailoredCv.inplace`, null when the draft has none to reconsider
+ */
+export async function rebuildInPlaceDocx({ bucket, order, draft, flow = {} }) {
+  const inplace = draft?.tailoredCv?.inplace;
+  const reconsider = inplace?.status === 'ready' || (inplace?.status === 'fallback' && inplace.reason === 'needs_page_check');
+  if (!reconsider || !inplace.verifiedKey || !inplace.baseKey || !draft.tailoredCv.cv || !bucket) return null;
+  const [[base], [verified]] = await Promise.all([bucket.file(inplace.baseKey).download(), bucket.file(inplace.verifiedKey).download()]);
+  const { identity, profile } = candidateWithEdits({ order, draft, flow });
+  const built = buildInPlaceDocx(Buffer.from(base), draft.tailoredCv.cv, { profile, identity, choices: cvChoicesOf(draft, flow) });
+  const verifiedXml = documentXmlOf(Buffer.from(verified));
+  const same = built.status === 'ready' && Boolean(verifiedXml) && documentXmlOf(built.docx) === verifiedXml;
+  return same
+    ? { ...inplace, status: 'ready', reason: null, docxKey: inplace.verifiedKey }
+    : { ...inplace, status: 'fallback', reason: 'needs_page_check' };
 }
