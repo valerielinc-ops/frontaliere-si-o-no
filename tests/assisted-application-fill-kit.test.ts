@@ -77,6 +77,8 @@ describe('fill kit', () => {
       cv: { url: 'https://signed/cv', fileName: 'CV_Maria_Luisa_Rossi.pdf' },
       // The names the runner gives them (lib/submit.mjs): in German the letter is a «Motivationsschreiben».
       coverLetter: { url: 'https://signed/letter', fileName: 'Motivationsschreiben_Maria_Luisa_Rossi.pdf' },
+      // No document requested besides the CV and the letter.
+      extra: [],
     });
   });
 });
@@ -117,6 +119,30 @@ describe('owner queue: fill kit and «Segna come inviata»', () => {
     await seed({ ...takenOver, cvChoice: 'original' });
     const original = (await call('automationFillKit') as any).kit;
     expect(original.documents.cv).toEqual({ url: 'https://signed/original-cv', fileName: 'CV_Maria_Luisa_Rossi.docx' });
+  });
+
+  // Rolex 2026-10-02: school reports and aptitude test results go with the application too.
+  it('hands the requested documents the candidate gave as signed links, on the runner\'s slots', async () => {
+    await seed({
+      ...takenOver,
+      documents: {
+        reports: { files: [
+          { key: `assisted-application-uploads/${ORDER}/doc-reports-1.pdf`, detectedType: 'pdf' },
+          { key: 'assisted-application-uploads/someone_else/doc.pdf', detectedType: 'pdf' },
+        ] },
+        eva: { files: [], waivedAt: T0 },
+      },
+    }, { requiredDocuments: [
+      { id: 'reports', label: 'Bulletins scolaires', kind: 'school_report', keywords: ['bulletin'] },
+      { id: 'eva', label: 'Test EVA', kind: 'aptitude_test' },
+    ] });
+    const { kit } = await call('automationFillKit') as any;
+    expect(kit.documents.extra).toEqual([{
+      slot: 'extra_1', label: 'Bulletins scolaires', kind: 'school_report', keywords: ['bulletin'],
+      files: [{ url: 'https://signed/doc-reports-1.pdf', fileName: 'Bulletins_scolaires_Maria_Luisa_Rossi.pdf' }],
+    }]);
+    // Only the order's own folder is ever signed.
+    expect(signUrl.mock.calls.map(([key]) => key)).not.toContain('assisted-application-uploads/someone_else/doc.pdf');
   });
 
   it('gives no kit while the robot still owns the order, nor for a round already sent', async () => {

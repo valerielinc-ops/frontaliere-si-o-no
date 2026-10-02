@@ -52,7 +52,11 @@ async function handle(message, sender) {
       return { ok: true, entry: sender.tab ? await entryFor(sender.tab.id) : null };
     case 'fetch-document': {
       const entry = sender.tab ? await entryFor(sender.tab.id) : null;
-      const document = entry?.kit?.documents?.[message.which];
+      // "cv", "coverLetter", or one file of a requested document: "extra_2#0".
+      const [slot, index] = String(message.which || '').split('#');
+      const document = slot.startsWith('extra_')
+        ? entry?.kit?.documents?.extra?.find((item) => item.slot === slot)?.files?.[Number(index) || 0]
+        : entry?.kit?.documents?.[message.which];
       if (!document?.url) return { ok: false, error: 'no_document' };
       const response = await fetch(document.url);
       if (!response.ok) return { ok: false, error: `download_${response.status}` };

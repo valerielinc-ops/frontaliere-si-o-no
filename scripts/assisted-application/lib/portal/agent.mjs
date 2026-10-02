@@ -15,7 +15,8 @@
 
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
-import { NEXT_RE, SUBMIT_RE } from './fill.mjs';
+import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
+import { NEXT_RE, SUBMIT_RE, documentPaths } from './fill.mjs';
 import { KNOCK_OUT, PREFER_NOT, SENSITIVE, answeredByCandidate, candidateRules, evidenceInData, evidenceSupports, knownAnswer, knownValuesOf, questionFromLabel } from './plan.mjs';
 
 const LIST = (items) => ({ type: 'array', items });
@@ -29,7 +30,7 @@ export const AGENT_SCHEMA = OBJ({
     ref: S,
     action: { type: 'string', enum: ['click', 'fill', 'type', 'select', 'press', 'upload'] },
     value: S,
-    document: { type: 'string', enum: ['cv', 'cover_letter', 'none'] },
+    document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
     question: S,
     answer: S,
     source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule', 'widget'] },
@@ -80,7 +81,7 @@ Actions:
 - type: keystrokes into a ref, for a search box or a combobox that filters as you type.
 - select: a native select or a combobox; value = the option's label; the runner opens it, types and picks the option.
 - press: a key on a ref (Enter only inside a list or a combobox; Tab, Escape, arrows).
-- upload: a file input or an upload button; document = cv or cover_letter.
+- upload: a file input or an upload button; document = cv, cover_letter, or the slot of a document listed in documents.extra.
 For each action: question = the page's question it answers ("" for a move inside a widget, such as opening the year list); answer = the answer it gives, as written in the candidate data (dates as YYYY-MM-DD); source = where that answer comes from ("widget" for a move that answers nothing); evidence = for an eligibility question, a short exact quote of the candidate data that supports the answer, else "".
 Work history and education sections: add one entry per item of profile.experience and profile.education with the page's own "Add" button when there is one.
 
@@ -256,9 +257,10 @@ async function chooseOption(page, locator, info, value) {
   await exact.click({ timeout: ACTION_TIMEOUT_MS });
 }
 
-async function upload(page, locator, info, path) {
+async function upload(page, locator, info, paths) {
   if (info.tag === 'input' && info.inputType === 'file') {
-    await locator.setInputFiles(path, { timeout: ACTION_TIMEOUT_MS });
+    const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
+    await locator.setInputFiles(multiple ? paths : paths[0], { timeout: ACTION_TIMEOUT_MS });
     return;
   }
   // An upload button opens the browser's file chooser. The wait never
@@ -267,7 +269,7 @@ async function upload(page, locator, info, path) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   const opened = await chooser;
   if (!opened) throw new Error('no_file_chooser');
-  await opened.setFiles(path);
+  await opened.setFiles(opened.isMultiple() ? paths : paths[0]);
 }
 
 /** One action on its ref; never throws. */
@@ -284,9 +286,9 @@ export async function runAction(page, action, files = {}) {
     else if (action.action === 'select') await chooseOption(page, locator, info, value);
     else if (action.action === 'press') await locator.press(value, { timeout: ACTION_TIMEOUT_MS });
     else if (action.action === 'upload') {
-      const path = files[action.document];
-      if (!path) return { ok: false, error: 'document_unavailable' };
-      await upload(page, locator, info, path);
+      const paths = documentPaths(files, action.document);
+      if (!paths.length) return { ok: false, error: 'document_unavailable' };
+      await upload(page, locator, info, paths);
     }
     return { ok: true };
   } catch (error) {

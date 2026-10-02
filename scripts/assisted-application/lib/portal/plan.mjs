@@ -10,6 +10,7 @@
 
 import { codexPrompt } from '../../../../functions/src/assistedApplicationAiPrompts.js';
 import { ANSWER_VALIDATION_SCHEMA } from '../../../../functions/src/lib/answerRules.js';
+import { EXTRA_DOCUMENT_SLOTS } from '../../../../functions/src/assistedApplicationExtraDocuments.js';
 
 const LIST = (items) => ({ type: 'array', items });
 const OBJ = (properties) => ({ type: 'object', properties, required: Object.keys(properties), additionalProperties: false });
@@ -20,7 +21,7 @@ export const PLAN_SCHEMA = OBJ({
     fieldId: S,
     action: { type: 'string', enum: ['fill', 'select', 'check', 'uncheck', 'upload', 'skip'] },
     value: S,
-    document: { type: 'string', enum: ['cv', 'cover_letter', 'none'] },
+    document: { type: 'string', enum: ['cv', 'cover_letter', ...EXTRA_DOCUMENT_SLOTS, 'none'] },
     source: { type: 'string', enum: ['identity', 'profile', 'answers', 'documents', 'consent', 'rule'] },
     evidence: S,
   })),
@@ -50,7 +51,7 @@ export function candidateRules(candidateLocale) {
 - Eligibility questions (years of experience, degree or diploma, driving licence, language level, certificates, professional registration): answer only what the candidate data shows, and put in evidence a short exact quote of the candidate data (profile or answers) that supports the answer. Never answer "yes" or a level the data does not show to meet a requirement: when the data does not say, the question is missing (required) or skipped (optional). evidence is "" for every other field.
 - Work history and education sections (employer, role, dates, place; school, degree, year): fill them from profile.experience and profile.education, one entry per item, in the order given.
 - Checkboxes: check the ones that are REQUIRED to submit this application (privacy notice, data processing, terms for this application). Leave newsletters, marketing, job alerts, talent pools and sharing with other companies unchecked.
-- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (diplomas, references, certificates) are not available: skip them, or put them in missingRequired when required.
+- Files: the CV goes to the resume/CV/Lebenslauf/curriculum field (document "cv"); the cover letter to a cover-letter/Motivationsschreiben/lettre field (document "cover_letter"). Other documents (school reports, test results, diplomas, references, certificates): the ones the candidate gave are listed in documents.extra, each with its slot (extra_1, extra_2…) and its label; upload the one that is the same document as the field asks (document = its slot), and in a generic "other documents / attachments / weitere Unterlagen / altri documenti / autres documents" field the first one not uploaded yet. Any other document is not available: skip it, or put it in missingRequired when required.
 - select and radio: value must be exactly one of the field's option labels.
 - Date-picker fields (kind "date"): use a fill action with the candidate's date in YYYY-MM-DD; never invent a date.
 - Text: respect maxLength; for motivation, cover-letter or "why us" text areas use the texts provided (shorten at a sentence boundary if needed). Name, e-mail, phone and address fields come from identity.

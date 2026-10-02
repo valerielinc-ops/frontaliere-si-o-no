@@ -243,6 +243,69 @@ describe('submit mode', () => {
     expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
+  // Rolex 2026-10-02: «Vos bulletins des trois dernières années scolaires», EVA and GRI results.
+  const withDocuments = (draft: any) => ({
+    ...draft,
+    requiredDocuments: [
+      { id: 'school_reports', label: 'Bulletins des trois dernières années', kind: 'school_report', keywords: ['bulletin'], required: true, quote: '' },
+      { id: 'eva_test', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA'], required: true, quote: '' },
+    ],
+  });
+  const documentsFlow = {
+    answers: { salary_expectation: 'CHF 80k' },
+    documents: {
+      school_reports: { files: [
+        { key: `assisted-application-uploads/${ORDER_ID}/doc-1.pdf`, name: 'a.pdf', detectedType: 'pdf' },
+        { key: `assisted-application-uploads/${ORDER_ID}/doc-2.jpg`, name: 'b.jpg', detectedType: 'jpg' },
+        // Never a key outside the order's folder.
+        { key: 'assisted-application-uploads/other_order/doc.pdf', name: 'c.pdf', detectedType: 'pdf' },
+      ] },
+      eva_test: { files: [], waivedAt: 1 },
+    },
+  };
+  async function documentsBucket() {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/doc-1.pdf`).save(Buffer.from('%PDF-1.4 report 1'));
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/doc-2.jpg`).save(Buffer.from([0xff, 0xd8, 0xff, 0xe0]));
+    await bucket.file('assisted-application-uploads/other_order/doc.pdf').save(Buffer.from('%PDF-1.4 not ours'));
+    return bucket;
+  }
+
+  it('attaches the documents the posting requires, as the candidate gave them, to the e-mail', async () => {
+    const bucket = await documentsBucket();
+    const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+    await submitApplication({
+      order, orderId: ORDER_ID, flow: documentsFlow, draft: withDocuments(baseDraft), cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+    });
+    const [[items]] = sendCascade.mock.calls as any;
+    expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual([
+      'CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf',
+      'Bulletins_des_trois_dernieres_annees_1_Maria_Rossi.pdf', 'Bulletins_des_trois_dernieres_annees_2_Maria_Rossi.jpg',
+    ]);
+    expect(Buffer.from(items[0].payload.attachments[2].content, 'base64').toString()).toBe('%PDF-1.4 report 1');
+  });
+
+  it('gives the portal planner the requested documents by slot, with their files', async () => {
+    const bucket = await documentsBucket();
+    const portalDraft = withDocuments({ ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } });
+    let seen: any = null;
+    const runner = vi.fn(async (ctx: any) => {
+      const { readFile } = await import('node:fs/promises');
+      seen = { files: ctx.files, extra: ctx.candidate.documents.extra, first: (await readFile(ctx.files.extra_1[0])).toString() };
+      return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } };
+    });
+    await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf', flow: documentsFlow,
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    expect(seen.extra).toEqual([{ slot: 'extra_1', label: 'Bulletins des trois dernières années', kind: 'school_report' }]);
+    expect(seen.files.extra_1).toHaveLength(2);
+    expect(seen.files.extra_2).toBeUndefined();
+    expect(seen.first).toBe('%PDF-1.4 report 1');
+  });
+
   it('submits on a portal once, resumes a run that died before the click, never one that died after it', async () => {
     const bucket = fakeBucket();
     await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));

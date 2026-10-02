@@ -26,6 +26,21 @@
   let ticker = null;
   const report = (status, detail = '') => send({ type: 'status', status, detail: String(detail).slice(0, 300) });
 
+  /** The Files of a document: the CV or the letter, a requested document's files (extra_N), or all of them (extra_all). */
+  async function getFiles(which) {
+    const extras = state.kit?.documents?.extra || [];
+    const slots = which === 'extra_all' ? extras : extras.filter((item) => item.slot === which);
+    if (!String(which).startsWith('extra_')) return [await getFile(which)].filter(Boolean);
+    const out = [];
+    for (const item of slots) {
+      for (let index = 0; index < (item.files || []).length; index += 1) {
+        const file = await getFile(`${item.slot}#${index}`);
+        if (file) out.push(file);
+      }
+    }
+    return out;
+  }
+
   async function getFile(which) {
     if (files[which]) return files[which];
     const response = await send({ type: 'fetch-document', which });
@@ -146,7 +161,7 @@
         F.press(page.start);
         return;
       }
-      const result = await F.fillPage(document, state.kit, { getFile, attempts, uploaded });
+      const result = await F.fillPage(document, state.kit, { getFile, getFiles, attempts, uploaded });
       if (result.entries && !state.sawForm) {
         state.sawForm = true;
         await send({ type: 'mark', sawForm: true });
