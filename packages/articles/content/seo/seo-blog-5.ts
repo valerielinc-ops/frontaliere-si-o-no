@@ -97924,6 +97924,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-brunello-fisco-frontaliere': {
+    title: 'Vivere a Brunello e lavorare in Ticino da frontaliere',
+    description: 'Vivere a Brunello e lavorare in Ticino: imposta alla fonte, Nuovo Accordo Frontalieri, franchigie, AVS, LPP e LAMal spiegati in pratica, per il frontaliere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, brunello, lavorare, nuovo',
+    ogTitle: 'Brunello e Ticino: guida fiscale per frontalieri',
+    ogDescription: 'Chi vive a Brunello e lavora in Ticino deve distinguere i vecchi frontalieri, già tali prima del 17/7/2023, con esenzione di €7\'500 nel regime 2024–2033, dai nuovi, con franchigia di €10\'000. Il reddito da lavoro è trattenuto solo in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/brunello-fisco-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Brunello e lavorare in Ticino da frontaliere",
+      "description": "Vivere a Brunello e lavorare in Ticino: imposta alla fonte, Nuovo Accordo Frontalieri, franchigie, AVS, LPP e LAMal spiegati in pratica, per il frontaliere.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/brunello-fisco-frontaliere.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere in viaggio con il paesaggio del Ticino sullo sfondo"
+      },
+      "datePublished": "2026-10-02T01:13:50+00:00",
+      "dateModified": "2026-10-02T01:13:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/brunello-fisco-frontaliere/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

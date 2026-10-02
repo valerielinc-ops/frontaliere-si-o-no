@@ -37042,6 +37042,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'brunello-fisco-frontaliere',
+ category: 'fiscale',
+ date: '2026-10-02T01:13:50.259Z',
+ image: '/images/blog/brunello-fisco-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
