@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Fri, 02 Oct 2026 06:18:48 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 10:58:49 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 2. Oktober 2026: 36 Minuten Wartezeit in Chiasso-Strada</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-10-02/</link>
+      <description><![CDATA[Die Zahlen von heute, 2. Oktober 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Freitag, der 2. Oktober 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Die jüngste Messung (141 überwachte Übergänge) zeigt die längste Wartezeit in **Chiasso-Strada: 36 Minuten**. 109 Übergänge melden keine Warteschlange.
+
+| Übergang | Wartezeit | Status |
+|---|---|---|
+| Chiasso-Strada | 36 Min. | Stau |
+| Gaggiolo (Cantello-Stabio) | 33 Min. | Stau |
+| Haag-Bendern | 4 Min. | flüssig |
+| Porto Ceresio-Brusino | 3 Min. | flüssig |
+| Konstanz – Tägerwilen, Gottlieber Strasse | 2 Min. | flüssig |
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+In 518 überwachten Grenzgemeinden lohnt sich das Tanken heute in 92 Fällen in der Schweiz und in 45 in Italien.
+
+| Gemeinde (IT) | Bleifrei, Tiefstpreis |
+|---|---|
+| Livigno (SO) | 1.206 €/L |
+| Arcisate (VA) | 1.854 €/L |
+| Saint-Pierre (AO) | 1.900 €/L |
+| Aprica (SO) | 1.919 €/L |
+| Gera Lario (CO) | 1.969 €/L |
+
+📊 **Die richtige Seite für eine volle Tankfüllung.** In **Livigno** (SO) ist die Differenz heute **50.95 € pro 50-Liter-Tank** wert (1.206 €/L in Italien gegenüber 2.225 €/L an der nächsten Schweizer Tankstelle).
+
+Preise Gemeinde für Gemeinde, täglich aktualisiert: [Benzinpreise an der Grenze, heute](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0566 €** wert (Schluss 2026-10-01). Gegenüber dem Vortag verliert er 0.0002 €; über sieben Tage beträgt die Veränderung -0.0073 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **2'065 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 13'833. Insgesamt sind **30'289** Anzeigen aktiv, von 851 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Fri, 02 Oct 2026 10:58:49 GMT</pubDate>
+      <dc:creator><![CDATA[Laura Bianchi]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-10-02</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-10-02.webp" medium="image"/>
+    </item>
     <item>
       <title>Zweite Säule und Grenzgänger: Keine Rückerstattungen mehr im Tessin</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/tessin-lpp-erstattung-2024/</link>
@@ -3327,66 +3381,6 @@ Wer auch den wirtschaftlichen Aspekt seines Pendelverkehrs in Betracht ziehen m�
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/nuova-strada-carlazzo-frontalieri</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/nuova-strada-carlazzo-frontalieri.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Nachtarbeiten auf der Brücke über den Cassarate: mögliche Verzögerungen</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/nachtarbeiten-cassarate-bruecke/</link>
-      <description><![CDATA[Vom 5. bis 10. Oktober nächtliche Arbeiten in der Via alla Bozzoreda in Lugano: Lärm und mögliche Verzögerungen auf den verbundenen Straßen.]]></description>
-      <content:encoded><![CDATA[## Kurzfassung
-- Arbeiten vom 5. bis 10. Oktober
-- Nachtarbeiten ab 20 Uhr
-- Sanierung der Fahrbahndecke
-- Mögliche Verspätungen von einigen Minuten
-
-## Wichtige Fakten
-- Wo → Via alla Bozzoreda, Lugano
-- Werk → Sanierung der Fahrbahndecke der Brücke über den Cassarate
-- Wann → zwischen Montag, 5. Oktober und Samstag, 10. Oktober
-- Beginn der Arbeiten → 20 Uhr
-- Auswirkungen → Geräusche, Störung der Ruhe und Verspätungen
-
-### Hinweis des Departements
-
-LUGANO – In der Via alla Bozzoreda sind Nachtarbeiten im Zusammenhang mit der Sanierung der Fahrbahndecke der Brücke über den Cassarate geplant. Das Departement des Territoriums teilt dies mit und gibt an, dass der Zeitraum der Arbeiten von Montag, 5. Oktober bis Samstag, 10. Oktober reicht.
-
-Die Arbeiten beginnen um 20 Uhr und finden während der Nacht statt. Die Wahl dieser Uhrzeit dient der Begrenzung der Verkehrsbeeinträchtigungen, dennoch wird die Baustelle vorübergehende Unannehmlichkeiten für Personen in der Umgebung mit sich bringen. Denn der Einsatz erfordert Maschinen und Geräte, wodurch Lärm und Störung der öffentlichen Ruhe entstehen.
-
-Die Mitteilung betrifft insbesondere den Verkehr in der Via alla Bozzoreda und den angrenzenden Straßen. Für Autofahrer sind entlang der Hauptstraße und bei den Anschlüssen an die Via Sonvico, Via Ceresio, Via Ciani und Via Maraini mögliche Verzögerungen von einigen Minuten zu erwarten.
-
-Die Angabe des Departements des Territoriums beschreibt also ein Nachtarbeiten zur Sanierung der Fahrbahndecke, das vorübergehende Unannehmlichkeiten sowohl akustisch als auch im Verkehrsbereich mit sich bringt. Der Hinweis weist auf die Möglichkeit von Verzögerungen von einigen Minuten auf den betroffenen Straßen und den genannten Anschlüssen hin.
-## Die Beeinträchtigungen im Überblick
-
-Die Baustelle auf der Brücke über den Cassarate bringt zwei unterschiedliche Auswirkungen mit sich, die beide mit der Durchführung der Arbeiten während der Nacht zusammenhängen. Einerseits gibt es den von den für die Sanierung des Straßenbelags erforderlichen Maschinen und Geräten verursachten Lärm; andererseits besteht die Möglichkeit von Verzögerungen für Autofahrer, die die via alla Bozzoreda oder die damit verbundenen Straßen befahren.
-
-Das Dipartimento del territorio weist darauf hin, dass die Arbeiten bewusst für die Nachtstunden geplant wurden, um die Beeinträchtigungen des Verkehrs einzudämmen. Diese Entscheidung beseitigt jedoch nicht die Auswirkungen auf die öffentliche Ruhe. Die für die Arbeiten eingesetzten Geräte werden Lärm erzeugen und können daher vorübergehende Störungen im betroffenen Gebiet verursachen.
-
-Was den Verkehr betrifft, ist in der Mitteilung von Verzögerungen von einigen Minuten die Rede. Die Prognose betrifft die via alla Bozzoreda sowie die Verbindungen zur via Sonvico, via Ceresio, via Ciani und via Maraini. Dies sind die in der Mitteilung genannten Straßen und stellen die Verkehrsverbindungen dar, auf denen Autofahrer während der Arbeiten mit Verzögerungen rechnen können.
-
-### Die in der Mitteilung genannten Straßen
-
-Die hauptsächlich betroffene Straße ist die via alla Bozzoreda in Lugano, im Rahmen der Sanierung des Straßenbelags der Brücke über den Cassarate. In der Liste der verbundenen Straßen erscheinen die via Sonvico, die via Ceresio, die via Ciani und die via Maraini.
-
-Der allgemeine Zeitraum zwischen Montag, dem 5., und Samstag, dem 10. Oktober, sowie die auf 20 Uhr festgelegte Anfangszeit stehen weiterhin fest. Das mitgeteilte Bild umfasst Lärm, Störungen der öffentlichen Ruhe und mögliche, auf die genannten Straßen begrenzte Verzögerungen.
-## Was zwischen dem 5. und dem 10. Oktober geschieht
-
-Zwischen Montag, dem 5., und Samstag, dem 10. Oktober, werden auf der Brücke über den Cassarate nachts Arbeiten zur Sanierung des Strassenbelags durchgeführt. Die Arbeiten beginnen um 20 Uhr und finden nachts gemäss dem vom Dipartimento del territorio mitgeteilten Programm statt.
-
-Für den Verkehr sind Verzögerungen von einigen Minuten möglich. Die Mitteilung betrifft via alla Bozzoreda und die angeschlossenen Strassen: via Sonvico, via Ceresio, via Ciani und via Maraini. Die Durchfahrt für Autofahrer kann sich in den vom Bau betroffenen Strassen daher vorübergehend verlangsamen.
-
-Auch die öffentliche Ruhe wird während der Arbeitszeiten betroffen sein. Die Sanierung erfordert den Einsatz von Maschinen und Geräten, die Lärm verursachen werden. Es handelt sich um eine vorübergehende Beeinträchtigung im Zusammenhang mit der nächtlichen Phase der Arbeiten, während die Durchführung nach 20 Uhr gewählt wurde, um die Auswirkungen auf den Verkehr einzudämmen.
-
-### Der Zeitplan der Arbeiten
-
-Das bekannt gegebene Programm legt den Zeitraum der Arbeiten zwischen Montag, dem 5., und Samstag, dem 10. Oktober, fest und gibt 20 Uhr als Beginn der Arbeiten an. Der betroffene Ort ist via alla Bozzoreda in Lugano, im Rahmen der Sanierung des Strassenbelags der Brücke über den Cassarate.
-
-Während der angegebenen Nächte sind somit zwei Auswirkungen zu erwarten: Lärm und Beeinträchtigungen der öffentlichen Ruhe durch die Geräte sowie mögliche Verzögerungen von einigen Minuten entlang via alla Bozzoreda und auf den angeschlossenen Strassen.
-
-*Quelle: [tio.ch](https://www.tio.ch/ticino/attualita/1953104/via-lavori-ritardi-ponte-cassarate)*]]></content:encoded>
-      <pubDate>Mon, 28 Sep 2026 10:14:23 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/cantiere-cassarate-bozzoreda</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/cantiere-cassarate-bozzoreda.webp" medium="image"/>
     </item>
   </channel>
 </rss>

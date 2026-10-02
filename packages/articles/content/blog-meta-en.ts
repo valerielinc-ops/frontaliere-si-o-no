@@ -12360,6 +12360,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-rimborso-lpp-2024.title': 'Second Pillar and Cross-Border Workers: Reimbursements Suspended in Ticino',
     'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Starting in 2024, the Canton of Ticino will no longer refund withholding tax on LPP assets for cross-border workers residing in Italy. Here’s what’s changing.',
     'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Bellinzona castle in Ticino with panoramic view',
+    'blog.article.bollettino-frontaliere-2026-10-02.title': 'Cross-border daily brief – October 2, 2026: 36-minute queue at Chiasso-Strada',
+    'blog.article.bollettino-frontaliere-2026-10-02.excerpt': 'Today\'s numbers, October 2, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-10-02.imageAlt': 'The day\'s numbers for cross-border commuters – October 2, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-10-02.seoDescription': 'Cross-border brief, October 2, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-10-02.ogDescription': 'The numbers for October 2, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
