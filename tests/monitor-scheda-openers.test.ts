@@ -148,7 +148,7 @@ describe('opener dei monitor — il blocco `## Scheda`', () => {
         // Un segnaposto non e' un comando: la scheda `Funnel impact` e' fallita
         // esattamente cosi', tornando prosa dentro un campo strutturato.
         expect(cmd).not.toMatch(/^(TBD|N\/A|—|-)$/i);
-        expect(cmd).toMatch(/^(node|npm|git|jq|gh|bash|source)\b/);
+        expect(cmd).toMatch(/^(node|npm|npx|git|jq|gh|bash|source)\b/);
       });
 
       it('dice cosa si misura, prima e dopo', () => {
@@ -173,6 +173,16 @@ describe('opener senza corpo esportato — controllo statico', () => {
       deadDays: [{ date: '2026-09-05', count: 3 }],
     });
     expect(body).not.toMatch(/node scripts\/check-source-liveness\.mjs --json\n```/);
+  });
+
+  it('le schede CTR usano il runtime TypeScript del workflow del monitor', () => {
+    const monitor = readFileSync(path.join(__dirname, '..', 'scripts', 'monitor-seo-ctr-by-template.mjs'), 'utf8');
+    const workflow = readFileSync(path.join(__dirname, '..', '.github', 'workflows', 'monitor-seo-ctr-by-template.yml'), 'utf8');
+    expect(monitor).toContain(
+      "const DRY_RUN_COMMAND = 'npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs --dry-run';",
+    );
+    expect(monitor.match(/comando: DRY_RUN_COMMAND/g)).toHaveLength(2);
+    expect(workflow).toContain('run: npx --no-install tsx scripts/monitor-seo-ctr-by-template.mjs');
   });
 });
 

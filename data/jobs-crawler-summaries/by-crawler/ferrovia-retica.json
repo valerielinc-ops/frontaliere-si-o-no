@@ -1,18 +1,44 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-10-01T21:11:46.053Z",
+  "generatedAt": "2026-10-02T09:16:34.583Z",
   "total": 10,
-  "newCount": 1,
-  "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 8,
-  "durationMs": 22746,
-  "avgDurationMs": 22746,
+  "newCount": 2,
+  "updatedCount": 8,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 18656,
+  "avgDurationMs": 18656,
   "durationHistory": [
-    22746
+    18656
   ],
   "newJobs": [
+    {
+      "title": "Quereinstieg Zugverkehrsleitung (100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/quereinstieg-zugverkehrsleitung-100_2026-2263/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "FULL_TIME",
+      "category": "transport",
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "quereinstieg-zugverkehrsleitung-100-ferrovia-retica-rhb-chur",
+      "percentage": "",
+      "applyUrl": "https://www.rhb.ch/it/job/quereinstieg-zugverkehrsleitung-100_2026-2263/",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    },
     {
       "title": "Gleismonteur/in (80-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -25,7 +51,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "engineering",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
@@ -42,44 +68,6 @@
   ],
   "updatedJobs": [
     {
-      "title": "Rangiermitarbeiter/in (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "postedDate": "2026-10-01",
-      "source": "company-website",
-      "sourceLang": "de",
-      "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "addressLocality": "Chur",
-      "addressRegion": "GR",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-06-24T22:02:42.027Z",
-      "sourceIdentity": "url:https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052",
-      "applyUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 23,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
       "title": "Auftragsleiter/in Komponenten (50-100 %)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
@@ -91,7 +79,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "PART_TIME",
       "category": "engineering",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "auftragsleiter-in-komponenten-50-100-ferrovia-retica-rhb-chur",
@@ -103,7 +91,7 @@
       "salaryMin": 67000,
       "salaryMax": 102000,
       "currency": "CHF",
-      "salarySource": "estimated",
+      "salarySource": "reported",
       "firstSeenAt": "2026-09-30T21:12:32.217Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -125,7 +113,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "engineering",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "sachbearbeiter-in-geomatik-80-100-ferrovia-retica-rhb-chur",
@@ -149,6 +137,41 @@
       }
     },
     {
+      "title": "Rangiermitarbeiter/in (50-100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "engineering",
+      "postedDate": "2026-10-02",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "rangiermitarbeiter-in-50-100-ferrovia-retica-rhb-chur",
+      "percentage": "50-100%",
+      "crawledAt": "",
+      "addressLocality": "Chur",
+      "addressRegion": "GR",
+      "salaryMin": 67000,
+      "salaryMax": 102000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-06-24T22:02:42.027Z",
+      "sourceIdentity": "url:https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052",
+      "applyUrl": "https://www.rhb.ch/it/job/rangiermitarbeiter-in-50-100_2025-2052/",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 23,
+        "completeness": 22
+      }
+    },
+    {
       "title": "Quereinsteiger/in Zugbegleitung (100%) Samedan",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
@@ -160,7 +183,7 @@
       "streetAddress": "Bahnhof, 7503 Samedan",
       "employmentType": "FULL_TIME",
       "category": "transport",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "quereinsteiger-in-zugbegleitung-100-samedan-ferrovia-retica-rhb-samedan",
@@ -197,7 +220,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "engineering",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "gleismonteur-in-80-100-ferrovia-retica-rhb-chur",
@@ -232,7 +255,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "spezialist-in-casemanagement-60-ferrovia-retica-rhb-chur",
@@ -269,7 +292,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "leiter-in-hr-operations-systeme-60-ferrovia-retica-rhb-chur",
@@ -306,7 +329,7 @@
       "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
       "employmentType": "FULL_TIME",
       "category": "engineering",
-      "postedDate": "2026-10-01",
+      "postedDate": "2026-10-02",
       "source": "company-website",
       "sourceLang": "de",
       "slug": "ingenieur-in-fahrbahnstrategie-80-100-ferrovia-retica-rhb-chur",
@@ -330,7 +353,9 @@
         "translation": 23,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Projektleiter/in Tiefbau (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -366,5 +391,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

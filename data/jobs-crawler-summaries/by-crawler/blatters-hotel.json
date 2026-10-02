@@ -1,7 +1,7 @@
 {
   "key": "blatters-hotel",
   "label": "Blatter",
-  "generatedAt": "2026-10-01T21:26:07.362Z",
+  "generatedAt": "2026-10-02T09:14:25.683Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,16 +10,17 @@
   "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21591,
-  "avgDurationMs": 21591,
+  "durationMs": 29554,
+  "avgDurationMs": 29554,
   "durationHistory": [
-    21591
+    29554
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "blatters-hotel-58ae0d93afc8",
       "slug": "chef-de-rang-m-w-fur-verkurzte-wintersaison-anfang-dez-bis-ende-feb-arosa-blatters-hotel",
@@ -32,7 +33,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:26:00.850Z",
+      "crawledAt": "2026-10-02T09:14:18.312Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -47,16 +48,15 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-verk%C3%BCrzte-wintersaison-anfang-dez-bis-ende-feb-4038982?rltr=comp",
       "needsRetranslation": true,
-      "_qualityScore": 65,
+      "firstSeenAt": "2026-10-01T21:26:00.850Z",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "blatters-hotel-5d3058d2cec9",
       "slug": "chef-de-rang-m-w-fur-die-wintersaison-arosa-blatters-hotel-ch",
@@ -69,7 +69,7 @@
       "url": "https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/chef-de-rang-f%C3%BCr-die-wintersaison-3926747?rltr=comp",
       "source": "Blatter's Arosa Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:26:00.848Z",
+      "crawledAt": "2026-10-02T09:14:18.311Z",
       "addressLocality": "Arosa",
       "addressRegion": "GR",
       "addressCountry": "CH",

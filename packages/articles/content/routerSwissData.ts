@@ -2513,6 +2513,12 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'camere-sessione-autunnale': { it: 'camere-sessione-autunnale', en: 'autumn-session-federal-chambers', de: 'herbstsession-bundesversammlung', fr: 'session-automnale-chambres-federales' },
  'cambio-cassa-sondaggio': { it: 'cambio-cassa-sondaggio', en: 'health-insurer-switch-survey', de: 'krankenkassenwechsel-umfrage', fr: 'changement-assureur-sondage' },
  'deloitte-previsione-cambi-cassa-malati': { it: 'deloitte-previsione-cambi-cassa-malati', en: 'deloitte-health-insurance-switching-forecast', de: 'deloitte-prognose-krankenkassenwechsel', fr: 'deloitte-prevision-changement-caisse-maladie' },
+ 'aprire-attivita-grigioni-guida-costi': { it: 'aprire-attivita-grigioni-guida-costi', en: 'start-business-grisons-cost-guide', de: 'unternehmen-graubuenden-kosten-leitfaden', fr: 'ouvrir-entreprise-grisons-guide-couts' },
+ 'remunerazioni-ail-mps-lugano': { it: 'remunerazioni-ail-mps-lugano', en: 'ail-remunerations-mps-lugano', de: 'ail-verguetungen-mps-lugano', fr: 'remunerations-ail-mps-lugano' },
+ 'fallimenti-aziendali-ticino-media': { it: 'fallimenti-aziendali-ticino-media', en: 'corporate-bankruptcies-ticino-average', de: 'firmenkonkurse-tessin-durchschnitt', fr: 'faillites-entreprises-ticino-moyenne' },
+ 'rientro-maternita-filanda': { it: 'rientro-maternita-filanda', en: 'return-to-work-maternity-filanda', de: 'wiedereinstieg-mutterschaft-filanda', fr: 'retour-travail-maternite-filanda' },
+ 'sessione-autunnale-mercosur-ubs': { it: 'sessione-autunnale-mercosur-ubs', en: 'autumn-session-mercosur-ubs', de: 'herbstsession-mercosur-ubs', fr: 'session-automne-mercosur-ubs' },
+ 'vendite-auto-elettrico-svizzera': { it: 'vendite-auto-elettrico-svizzera', en: 'car-sales-electric-switzerland', de: 'autoverkaeufe-elektroauto-schweiz', fr: 'ventes-voitures-electriques-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
