@@ -43,6 +43,7 @@ describe('loop fleet workflow contract', () => {
   it('includes the transitive consent reader in L4 triggers and its sparse checkout', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-l4-alert-return.yml'), 'utf8');
     const core = fs.readFileSync(path.resolve('functions/src/jobAlertBackfillCore.js'), 'utf8');
+    const consentReader = fs.readFileSync(path.resolve('functions/src/lib/subscriberConsent.js'), 'utf8');
     const importedPath = core.match(/from ['"]([^'"]*subscriberConsent\.js)['"]/u)?.[1] ?? '';
     const dependency = path.posix.join('functions/src', importedPath);
     const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
@@ -51,6 +52,7 @@ describe('loop fleet workflow contract', () => {
 
     expect(importedPath).toBe('./lib/subscriberConsent.js');
     expect(dependency).toBe('functions/src/lib/subscriberConsent.js');
+    expect(consentReader).not.toMatch(/\b(?:from\s+|import\s*\()\s*['"]\./u);
     expect(pushPaths).toContain(`- '${dependency}'`);
     expect(pullRequestPaths).toContain(`- '${dependency}'`);
     expect(sparseCheckout).toContain(`/${dependency}`);
@@ -273,7 +275,7 @@ describe('loop fleet workflow contract', () => {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const mainCheckout = source.indexOf('git checkout --detach origin/main');
       const validatorCall = source.indexOf(`node scripts/ci/${validator}`);
-      const retryBlockStart = source.indexOf('for attempt in 1 2 3 4 5');
+      const retryBlockStart = source.indexOf('for attempt in 1 2 3 4 5 6 7 8 9 10');
       const retryBlockEnd = source.indexOf('\n          done', retryBlockStart);
       const retryBlock = source.slice(retryBlockStart, retryBlockEnd);
       const codeCalls = [...source.matchAll(/^\s+(?:run:\s*)?node(?:\s|$)[^\n]*/gmu)]
@@ -299,24 +301,27 @@ describe('loop fleet workflow contract', () => {
     expect(observer).toContain('git checkout origin/main -- data/loop-fleet/ledger/');
   });
 
-  it('queues all writers that append to the durable ledger branch', () => {
-    const writers = ['loop-fleet-ledger.yml', 'loop-fleet-lifecycle-observer.yml'];
-    const groups = writers.map((name) => {
-      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      const concurrency = source.match(/^concurrency:\n([\s\S]*?)(?=^jobs:)/mu)?.[1] ?? '';
-      expect(concurrency, name).toContain('queue: max');
-      expect(concurrency, name).toContain('cancel-in-progress: false');
-      expect(concurrency, name).not.toContain('workflow_run.id');
-      return concurrency.match(/^  group: (.+)$/mu)?.[1] ?? '';
-    });
-    expect(groups).toEqual(['loop-fleet-durable-ledger', 'loop-fleet-durable-ledger']);
+  it('preserves a separate bridge concurrency group for each immutable source run', () => {
+    const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-ledger.yml'), 'utf8');
+    const concurrency = source.match(/^concurrency:\n([\s\S]*?)(?=^jobs:)/mu)?.[1] ?? '';
+    const group = concurrency.match(/^  group: (.+)$/mu)?.[1] ?? '';
+    const sourceRunExpression = /\$\{\{\s*github\.event\.workflow_run\.id\s*\|\|\s*inputs\.run_id\s*\|\|\s*github\.run_id\s*\}\}/u;
+    expect(group.replace(sourceRunExpression, '<source-run-id>'))
+      .toBe('loop-fleet-durable-ledger-<source-run-id>');
+    expect(concurrency).not.toContain('queue:');
+    expect(concurrency).toContain('cancel-in-progress: false');
+
+    const sourceRuns = ['source-run-a', 'source-run-b'];
+    const groups = sourceRuns.map((runId) => group.replace(sourceRunExpression, runId));
+    expect(new Set(groups).size).toBe(sourceRuns.length);
   });
 
-  it('keeps lifecycle observer appends in the shared queue', () => {
+  it('keeps lifecycle observer invocations serialized independently of the bridge', () => {
     const source = fs.readFileSync(path.join(workflowDir, 'loop-fleet-lifecycle-observer.yml'), 'utf8');
-    expect(source).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
-    expect(source).toContain('queue: max');
-    expect(source).toContain('cancel-in-progress: false');
+    const concurrency = source.match(/^concurrency:\n([\s\S]*?)(?=^jobs:)/mu)?.[1] ?? '';
+    expect(concurrency).toMatch(/^  group: loop-fleet-durable-ledger$/mu);
+    expect(concurrency).not.toContain('queue:');
+    expect(concurrency).toContain('cancel-in-progress: false');
   });
 
   it('routes both writers to one append-only branch with bounded push retries', () => {
@@ -330,14 +335,15 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain('HEAD:refs/heads/$ledger_branch');
       expect(source, name).toContain(validator);
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
-      expect(source, name).toContain('for attempt in 1 2 3 4 5');
+      expect(source, name).toContain('for attempt in 1 2 3 4 5 6 7 8 9 10');
       expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/');
       expect(source, name).toContain('ledger_dir="$ledger_worktree/data/loop-fleet/ledger"');
       expect(source, name).not.toContain('git reset --hard');
-      expect(source, name).toContain('sleep $((attempt * 3))');
-      expect(source, name).toContain('after 5 attempts');
+      expect(source, name).toContain('retry_delay=$((attempt * 3 + GITHUB_RUN_ID % 11))');
+      expect(source, name).toContain('sleep "$retry_delay"');
+      expect(source, name).toContain('after 10 attempts');
       expect(source, name).not.toMatch(/git push[^\n]*--force(?:-with-lease)?/u);
       if (name === 'loop-fleet-lifecycle-observer.yml') {
         expect(source, name).not.toContain('observer is read-only');
