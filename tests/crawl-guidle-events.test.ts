@@ -199,7 +199,10 @@ describe('parsePriceText', () => {
     expect(parsePriceText('CHF 0')).toMatchObject({ amount: 0, isFree: true });
     expect(parsePriceText('0.–')).toMatchObject({ amount: 0, isFree: true });
     expect(parsePriceText("CHF 1'000")).toMatchObject({ amount: 1000, isFree: false });
+    expect(parsePriceText('CHF 1.234,50')).toMatchObject({ amount: 1234.5, isFree: false });
+    expect(parsePriceText('20')).toMatchObject({ amount: 20, isFree: false });
     expect(parsePriceText('Ingresso 20 franchi, Bambini gratis')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('children are free, adults 20')).toMatchObject({ amount: 20, isFree: false });
     expect(parsePriceText('2026-07-04')).toMatchObject({ amount: null, isFree: false });
     expect(parsePriceText('+41 91 555 12 34')).toMatchObject({ amount: null, isFree: false });
     expect(parsePriceText('ID 123456')).toMatchObject({ amount: null, isFree: false });
