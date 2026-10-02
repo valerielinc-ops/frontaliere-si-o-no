@@ -359,6 +359,17 @@ export function humanizeCategory(rawType) {
 
 /** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
 export function extractPrice(ld, detailHtml, detailUrl) {
+  if (ld?.isAccessibleForFree === true) {
+    const offersRaw = ld?.offers;
+    const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
+    const zeroOffer = offers.find((offer) => eventOfferPriceAmount(offer?.price) === 0);
+    return {
+      amount: 0,
+      currency: zeroOffer?.priceCurrency || offers.find((o) => typeof o?.priceCurrency === 'string')?.priceCurrency || 'CHF',
+      isFree: true,
+      ...(extractEventOfferMetadata(zeroOffer || offersRaw, detailUrl || SITE_ORIGIN) || {}),
+    };
+  }
   const offersRaw = ld?.offers;
   const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
   const priced = offers
@@ -377,7 +388,6 @@ export function extractPrice(ld, detailHtml, detailUrl) {
     };
   }
   const offerMetadata = extractEventOfferMetadata(offersRaw, detailUrl || SITE_ORIGIN) || {};
-  if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true, ...offerMetadata };
   const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
   if (tablePrice) {
     const price = parseEventPriceText(tablePrice);

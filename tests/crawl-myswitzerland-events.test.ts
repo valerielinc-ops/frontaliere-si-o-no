@@ -597,6 +597,13 @@ describe('extractPrice', () => {
     expect(extractPrice({ isAccessibleForFree: true })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
+  it('gives isAccessibleForFree priority over positive offers', () => {
+    expect(extractPrice({
+      isAccessibleForFree: true,
+      offers: [{ price: '25', priceCurrency: 'CHF' }, { price: '0', priceCurrency: 'CHF' }],
+    })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
   it('falls back to the localized detail table when JSON-LD omits offers', () => {
     const html = '<table><tr><th scope="row">Prezzo</th><td><div class="richtext">Gratuito</div></td></tr></table>';
     expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');

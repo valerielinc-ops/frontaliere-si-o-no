@@ -220,15 +220,18 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // The builder emits a fallback Offer without a fabricated amount when the
-  // source has no price. A source-backed Offer still has a price; validate it
-  // when the property is present and always validate the defaulted fields.
+  // Offers are optional when the source has no verifiable price. When present,
+  // they must be source-backed, numeric and complete.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
     } else {
-      if ('price' in schema.offers && (schema.offers.price === undefined || schema.offers.price === null)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+      if (typeof schema.offers.price !== 'number' || !Number.isFinite(schema.offers.price)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must be a finite number' });
+      } else if (schema.offers.price < 0) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price must not be negative' });
+      } else if (schema.offers.price === 0 && schema.isAccessibleForFree !== true) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers.price 0 requires isAccessibleForFree=true' });
       }
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
@@ -243,6 +246,9 @@ function validateEvent(schema, filePath) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
       }
     }
+  }
+  if (schema.isAccessibleForFree === true && schema.offers?.price !== 0) {
+    errors.push({ file: filePath, type: 'Event', field: 'isAccessibleForFree', message: 'isAccessibleForFree=true requires offers.price=0' });
   }
 
   return errors;
