@@ -63,6 +63,7 @@ import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
 import { isWeeklyJobMarketSnapshotPath } from './lib/weeklyJobMarketSections.mjs';
 import { isFuelSectionPath } from './lib/fuelSections.mjs';
 import { isEventsSectionPath } from './lib/eventsSections.mjs';
+import { isBorderWaitPath } from './lib/borderWaitSections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -330,6 +331,12 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // informationGain; scoring the surrounding template prose would turn
       // every locale × fuel section into an editorial false positive.
       if (isFuelSectionPath(relPath)) return;
+      // Border-wait pages are structured live/archived crossing records. The
+      // minutes are masked by informationGain, so the shared template prose
+      // must not create editorial near-duplicate cohorts. The matcher covers
+      // the current root/region/crossing/today/archive routes and the legacy
+      // localized guide aliases emitted in historical dist snapshots.
+      if (isBorderWaitPath(relPath)) return;
       // Events pages are structured records with event cards, Event JSON-LD,
       // dates and map/location payloads. Those fields are masked by
       // informationGain, so scoring the shared agenda prose would classify
