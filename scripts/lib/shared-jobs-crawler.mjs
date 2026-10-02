@@ -2957,7 +2957,22 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // the original method.
     if (canRetry && upperMethod === 'GET') {
       const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
-      if (jinaRes.ok) return jinaRes;
+      // On exhaustion fetchViaJinaWithRetry hands back the last response
+      // unchanged, which is an HTTP 200 when every Jina IP got the WAF
+      // challenge as a 200 (its documented contract: callers re-check the
+      // body). Trusting `ok` alone returned that challenge as the page and
+      // never reached the direct fetch below (cambiavalute.ch).
+      let jinaBodyError = null;
+      if (jinaRes.ok) {
+        const jinaBody = await jinaRes.text();
+        jinaBodyError = detectJinaErrorBody(jinaBody);
+        if (!jinaBodyError) {
+          return new Response(jinaBody, {
+            status: 200,
+            headers: { 'content-type': jinaRes.headers.get('content-type') || 'text/html' },
+          });
+        }
+      }
       // Every Jina egress IP tried was still blocked/erroring (#3797 recurrence,
       // 2026-07-07: all 4 cambiavalute.ch detail pages silently dropped this way
       // in one CI run — zero log trace, even though a plain direct fetch worked
@@ -2969,7 +2984,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
       // same exhausted proxy path). Logged so a future recurrence is diagnosable
       // from CI output alone (previously this path was completely silent — the
       // caller's `if (!res.ok) continue` masked it entirely).
-      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
+      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || jinaBodyError || `HTTP ${jinaRes.status}`;
       console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
       postJinaFallback = true;
     } else {
