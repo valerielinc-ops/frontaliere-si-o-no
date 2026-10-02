@@ -154,6 +154,7 @@ const GLOSSARY_SECTION_SLUGS = new Set([
   'glossaire-frontalier',
 ]);
 const GLOSSARY_SOURCE_HUB_PATH = '/glossario-frontaliere/';
+const JSON_LD_SCRIPT_SEPARATOR = '</script>\n <script type="application/ld+json">';
 export function capTitle70(s: string, routeKey = ''): string {
  if (!s) return s;
  const headline = s.replace(SUFFIX_STRIP_RE, '').trim();
@@ -2915,6 +2916,20 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  return clean ? `${clean}/` : '/';
  };
 
+ const localizeGlossaryStructuredData = (sd: string | undefined, title: string, description: string): string | undefined => {
+ if (!sd) return sd;
+ return sd.split(JSON_LD_SCRIPT_SEPARATOR).map((part) => {
+ try {
+ const schema = JSON.parse(part) as Record<string, unknown>;
+ if (typeof schema.name === 'string') schema.name = title;
+ if (typeof schema.description === 'string') schema.description = description;
+ return inlineScriptJson(schema);
+ } catch {
+ return part;
+ }
+ }).join(JSON_LD_SCRIPT_SEPARATOR);
+ };
+
  const deriveLocaleSeo = (locPath: string, locale: string, italianSeo: SeoEntry, italianPath?: string): SeoEntry => {
  const segs = locPath.split('/').filter(Boolean);
  const pathSegs = ['en', 'de', 'fr'].includes(segs[0]) ? segs.slice(1) : segs;
@@ -3008,7 +3023,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
    desc: localizedGlossaryHub.description,
    ogT: title,
    ogD: localizedGlossaryHub.description,
-   sd: italianSeo.sd,
+   sd: localizeGlossaryStructuredData(italianSeo.sd, title, localizedGlossaryHub.description),
   };
  }
 
@@ -3040,7 +3055,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  ? localizedGlossaryMetaDescription(glossaryTermId, locale)
  : null;
  const desc = localizedDesc || GLOSSARY_DESC[locale]?.(italianTerm) || italianSeo.desc;
- return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
+ return { title, desc, ogT: title, ogD: desc, sd: localizeGlossaryStructuredData(italianSeo.sd, title, desc) };
  }
 
  const sectionTitles = LOCALE_SECTION_TITLES[locale] ?? {};
@@ -5887,8 +5902,7 @@ ${hrefTags}
  // Dispatcher in services/seo/schema-translators.ts routes @type to translator.
  if (locSeo.sd && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
  const lang: SupportedLocale = hl.lang;
- const sdSeparator = '</script>\n <script type="application/ld+json">';
- const sdParts = locSeo.sd.split(sdSeparator);
+ const sdParts = locSeo.sd.split(JSON_LD_SCRIPT_SEPARATOR);
  const translated = sdParts.map(part => {
  try {
  const obj = normalizeStructuredData(JSON.parse(part));
@@ -5903,7 +5917,7 @@ ${hrefTags}
  } catch { /* not valid JSON, pass through (already escaped by the IT builder) */ }
  return part;
  });
- locSeo.sd = translated.join(sdSeparator);
+ locSeo.sd = translated.join(JSON_LD_SCRIPT_SEPARATOR);
  }
 
  const locDir = np.join(distDir, locPath);
