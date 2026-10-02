@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ghol",
-  "assembledAt": "2026-10-02T09:25:07.658Z",
+  "assembledAt": "2026-10-02T21:27:15.354Z",
   "jobs": [
     {
       "id": "ghol-0fd5acb09556",
@@ -47,8 +47,7 @@
       "applyUrl": "https://app.beehire.com/invite/R0-rziyv4",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.072Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-10-02T21:27:10.357Z",
       "previousSlugs": [
         "assistant-e-technique-specialise-e-en-salle-d-operation-groupement-hospitalier-de-l-ouest",
         "assistente-tecnico-in-sterilizzazione-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -89,7 +88,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ghol-52354c0ae92c",
@@ -136,7 +136,7 @@
       "applyUrl": "https://app.beehire.com/invite/Ya8SgPnfs",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.071Z",
+      "crawledAt": "2026-10-02T21:27:10.356Z",
       "needsRetranslation": true,
       "requirementsByLocale": {
         "it": [
@@ -246,7 +246,7 @@
       "applyUrl": "https://app.beehire.com/invite/Wn7TRyXkp",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.068Z",
+      "crawledAt": "2026-10-02T21:27:10.355Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "aide-en-soins-et-accompagnement-groupement-hospitalier-de-l-ouest-lemanique-rolle",
@@ -324,7 +324,7 @@
       "applyUrl": "https://app.beehire.com/invite/FbUuocJWF",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.066Z",
+      "crawledAt": "2026-10-02T21:27:10.354Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "assc-pour-le-service-de-medecine-et-unite-neurovasculaire-groupement-hospitalier-de-l",
@@ -402,7 +402,7 @@
       "applyUrl": "https://app.beehire.com/invite/Buq2JYoQ2",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.064Z",
+      "crawledAt": "2026-10-02T21:27:10.353Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "infirmier-ere-pooliste-groupement-hospitalier-de-l-ouest-lemanique-nyon",
@@ -495,7 +495,7 @@
       "applyUrl": "https://app.beehire.com/invite/tGAb_cui0",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.063Z",
+      "crawledAt": "2026-10-02T21:27:10.352Z",
       "needsRetranslation": false,
       "previousSlugs": [
         "infirmier-ere-chef-fe-des-urgences-adultes-groupement-hospitalier-de-l-ouest-lemanique",
@@ -573,7 +573,7 @@
       "applyUrl": "https://app.beehire.com/invite/I_TEMIvLa",
       "source": "GHOL Dedicated Parser (Beehire public API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:01.061Z",
+      "crawledAt": "2026-10-02T21:27:10.350Z",
       "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -588,7 +588,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:25:01.061Z"
+      "firstSeenAt": "2026-10-02T21:27:10.350Z"
     }
   ]
 }
