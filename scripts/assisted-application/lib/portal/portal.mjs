@@ -401,16 +401,36 @@ export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|
 export const PRIVACY_REVIEW_RE = /(dpcs|data[\s_-]*privacy.*(?:review|read|accept)|privacy.*(?:review|read|accept)|datenschutz.*(?:gelesen|akzept|zustimm)|(?:ich habe|i have|j['’]ai|ho)\s+.*(?:gelesen|reviewed|read|lu|letto)|(?:presa|preso|prise|pris)\s+visione|consent.*(?:review|read|accept|gelesen|lu|letto))/i;
 export const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|agree|zustimmen|accetta|accetto|accettare|accepter|j['’]accepte)(?:\s+(?:und|and|et|e)\s+.*)?\W*$/i;
 
+function dialogKey(control) {
+  if (control?.dialogId) return String(control.dialogId);
+  // Accept snapshots made before dialogId was added can still be inspected,
+  // but a boolean cannot identify one dialog among several.
+  return typeof control?.dialog === 'string' ? control.dialog : '';
+}
+
+function isDialogControl(control) {
+  return control?.dialog === true || Boolean(dialogKey(control));
+}
+
+function belongsToDialog(control, anchor) {
+  const key = dialogKey(control);
+  const anchorKey = dialogKey(anchor);
+  if (!key || !anchorKey || key !== anchorKey) return false;
+  return (control.frame || 0) === (anchor.frame || 0);
+}
+
 export function privacyConsentControls(snapshot = {}) {
   const fields = Array.isArray(snapshot.fields) ? snapshot.fields : [];
   const buttons = Array.isArray(snapshot.buttons) ? snapshot.buttons : [];
-  // The page can retain an unrelated enabled "Accept" control next to the
-  // consent link. The extractor marks controls under the opened dialog so the
-  // required DPCS controls cannot be mistaken for that page-level control.
-  const dialogFields = fields.filter((field) => field.dialog === true);
-  const dialogButtons = buttons.filter((button) => button.dialog === true);
+  // The page can retain another modal with an enabled "Accept" control next
+  // to the DPCS dialog. Use the review checkbox to identify the DPCS dialog,
+  // then keep both lookups in that same dialog and frame.
+  const dialogFields = fields.filter(isDialogControl);
   const review = dialogFields.find((field) => field.kind === 'checkbox'
     && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
+  const dialogButtons = review
+    ? buttons.filter((button) => isDialogControl(button) && belongsToDialog(button, review))
+    : [];
   return {
     trigger: findButton(buttons, PRIVACY_STATEMENT_RE),
     review,

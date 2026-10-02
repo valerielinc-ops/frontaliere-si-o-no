@@ -42,9 +42,9 @@ describe('portal runner hardening (career-ops apply.md)', () => {
   it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
     const controls = privacyConsentControls({
       buttons: [
-        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: false },
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
         { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false, dialog: false },
-        { id: 'accept', text: 'Akzeptieren', disabled: true, dialog: true },
+        { id: 'accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
       ],
       fields: [
         { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false, dialog: false },
@@ -55,6 +55,8 @@ describe('portal runner hardening (career-ops apply.md)', () => {
           label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
           checked: false,
           dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
         },
       ],
     });
