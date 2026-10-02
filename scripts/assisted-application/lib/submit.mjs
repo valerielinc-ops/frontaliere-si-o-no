@@ -86,7 +86,7 @@ export async function downloadExtraDocuments({ bucket, draft, flow, orderId, nam
  * stored PDF, so its address is not lost.
  */
 export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs }) {
-  if (draft?.letterAddress) return rebuildLetterPdf({ order, orderId, draft, flow, nowMs });  // async: the caller awaits
+  if (draft?.letterAddress) return (await rebuildLetterPdf({ order, orderId, draft, flow, nowMs })).pdf;
   const [stored] = await bucket.file(draft.coverLetterPdfKey).download();
   return Buffer.from(stored);
 }

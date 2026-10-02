@@ -4,10 +4,22 @@
  *
  * `@myriaddreamin/typst-ts-node-compiler` (Apache-2.0) is a prebuilt native
  * addon: no system binary, it runs in the GitHub Actions runner and in the
- * Cloud Functions (measured locally: compiler 120 ms, first document 120 ms,
- * next ones 1-6 ms, 63 MB). The fonts (Source Sans 3, SIL OFL 1.1) ship in
+ * Cloud Functions. The fonts (Source Sans 3, SIL OFL 1.1) ship in
  * functions/assets/fonts, so every Latin letter prints: "Kovačević", not
  * "Kova?evi?".
+ *
+ * Cost, measured on 2026-10-02 with
+ *   node scripts/assisted-application/bench-pdf-renderer.mjs 100
+ * (the synthetic developer CV of tests/assisted-application-pdf-ats.test.ts and
+ * a letter, one line changed at each run, median of 100 runs after a warm-up;
+ * Node 26.10 on a MacBook Pro 2017; baseline = the standard-font writer used
+ * before Typst):
+ *   CV      baseline 0.3 ms   typst 4.3 ms
+ *   letter  baseline 0.2 ms   typst 10.0 ms
+ *   first Typst CV of a process (compiler and fonts loaded): 117 ms
+ * Over three runs of the command the medians ranged 4.0-6.3 ms (CV) and
+ * 3.0-10.0 ms (letter), the first CV 96-317 ms: milliseconds per document,
+ * once per draft or per candidate edit.
  *
  * Never fails a document: a compile error, a missing addon or the Remote
  * Config switch ASSISTED_APPLICATION_PDF_RENDERER = "legacy" fall back to the
@@ -15,6 +27,7 @@
  * which renderer produced the PDF, so the draft can record it.
  */
 
+import { randomUUID } from 'node:crypto';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildCoverLetterPdf, renderPdf } from './assistedApplicationAiDocuments.js';
@@ -62,12 +75,18 @@ function cloudFunctionsConfig(env) {
  */
 export async function compileTemplate(template, data, files = {}) {
   const typst = await compiler();
-  const shadows = Object.entries(files).map(([name, content]) => [path.join(TEMPLATES_DIR, name), content]);
-  for (const [file, content] of shadows) typst.mapShadow(file, content);
+  // Mapped and unmapped around one synchronous compile, inside the try: a mapping
+  // that fails half way still unmaps what it mapped.
+  const mapped = [];
   try {
+    for (const [name, content] of Object.entries(files)) {
+      const file = path.join(TEMPLATES_DIR, name);
+      typst.mapShadow(file, content);
+      mapped.push(file);
+    }
     return Buffer.from(typst.pdf({ mainFilePath: path.join(TEMPLATES_DIR, template), inputs: { data: JSON.stringify(data) } }));
   } finally {
-    for (const [file] of shadows) typst.unmapShadow(file);
+    for (const file of mapped) typst.unmapShadow(file);
   }
 }
 
@@ -89,10 +108,12 @@ async function render({ template, data, files, legacy, mode, log }) {
  */
 export async function renderCvPdf(document, { mode = 'typst', log } = {}) {
   const { photo, photoType = 'jpg', ...rest } = document;
-  const files = photo ? { [`photo.${photoType}`]: photo } : {};
+  // A name of its own per compile: one candidate's photo can never be read for another's CV.
+  const photoFile = photo ? `photo-${randomUUID()}.${photoType}` : null;
+  const files = photo ? { [photoFile]: photo } : {};
   return render({
     template: 'assisted-cv.typ',
-    data: { ...rest, ...(photo ? { photo: `photo.${photoType}` } : {}) },
+    data: { ...rest, ...(photo ? { photo: photoFile } : {}) },
     files,
     legacy: () => renderPdf(cvDocumentBlocks(rest), { title: `CV ${document.name}` }),
     mode,
