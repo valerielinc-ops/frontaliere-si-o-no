@@ -158,3 +158,24 @@ export function truncateForMetaDescription(text: string, maxLength = 165): strin
   const trimmed = peelDanglingClauseTail(slice.slice(0, cutAt));
   return `${trimmed}…`;
 }
+
+/**
+ * Lede of a glossary term page in en/de/fr: «<term name> — <definition>.»,
+ * built from the SPA glossary strings `glossary.terms.<id>.title|desc` of the
+ * page's locale. ONE function for both heads — the static term pages
+ * (`build-plugins/shared/glossaryTermDetail.ts` → staticPagesPlugin) and the
+ * SPA head set at hydration (`services/seoService.ts`) — so the
+ * `<meta name="description">` a crawler reads in the HTML and the one the SPA
+ * writes over it can never drift apart again. It takes the two strings, not a
+ * locale: the caller owns how the locale chunk is loaded (statically at build,
+ * lazily in the browser).
+ */
+export function buildLocalizedGlossaryLede(title: string, desc: string): string {
+  const d = desc.trim();
+  return `${title.trim()} — ${/[.!?…)]$/.test(d) ? d : `${d}.`}`;
+}
+
+/** The same lede capped to the meta-description range (`truncateForMetaDescription`). */
+export function buildLocalizedGlossaryMetaDescription(title: string, desc: string): string {
+  return truncateForMetaDescription(buildLocalizedGlossaryLede(title, desc));
+}

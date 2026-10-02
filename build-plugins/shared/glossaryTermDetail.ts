@@ -37,7 +37,11 @@ import itStats from '../../services/locales/it-stats';
 import enStats from '../../services/locales/en-stats';
 import deStats from '../../services/locales/de-stats';
 import frStats from '../../services/locales/fr-stats';
-import { truncateForMetaDescription } from '../../services/seo/glossaryTermDefinitions';
+import {
+  buildLocalizedGlossaryLede,
+  buildLocalizedGlossaryMetaDescription,
+  truncateForMetaDescription,
+} from '../../services/seo/glossaryTermDefinitions';
 
 export type GlossaryDetailLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -102,7 +106,17 @@ const COPY = {
 export function localizedGlossaryLede(termId: string, locale: GlossaryDetailLocale): string | null {
   const facts = glossaryTermFacts(termId, locale);
   if (!facts) return null;
-  return `${facts.title} — ${sentence(facts.desc)}`;
+  return buildLocalizedGlossaryLede(facts.title, facts.desc);
+}
+
+/**
+ * Meta description of a localized term page — the same function the SPA head
+ * uses (`services/seoService.ts`), so the static head and the hydrated one agree.
+ */
+export function localizedGlossaryMetaDescription(termId: string, locale: GlossaryDetailLocale): string | null {
+  const facts = glossaryTermFacts(termId, locale);
+  if (!facts) return null;
+  return buildLocalizedGlossaryMetaDescription(facts.title, facts.desc);
 }
 
 /**

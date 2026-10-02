@@ -137,7 +137,7 @@ import {
 } from './shared/localeVariantSitemap';
 import { forceGc } from './shared/forceGc';
 import { SECTION_LEGACY_TI_PATH } from './shared/cantonSection';
-import { renderGlossaryTermDetail, localizedGlossaryLede, type GlossaryDetailLocale } from './shared/glossaryTermDetail';
+import { renderGlossaryTermDetail, localizedGlossaryMetaDescription, type GlossaryDetailLocale } from './shared/glossaryTermDetail';
 import { renderBorderCrossingGuideDetail, type CrossingGuideLocale } from './shared/borderCrossingGuideDetail';
 const SUFFIX_STRIP_RE = /\s*[|·]\s*Frontaliere Ticino\s*$/i;
 export function capTitle70(s: string, routeKey = ''): string {
@@ -2996,12 +2996,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // fallback for a term whose locale strings are missing.
  const glossarySlug = italianPath?.split('/').filter(Boolean).pop() ?? '';
  const glossaryTermId = glossaryTermIdBySlug.get(glossarySlug);
- const localizedLede = glossaryTermId && (locale === 'en' || locale === 'de' || locale === 'fr')
- ? localizedGlossaryLede(glossaryTermId, locale)
+ // Same function as the SPA head (services/seoService.ts).
+ const localizedDesc = glossaryTermId && (locale === 'en' || locale === 'de' || locale === 'fr')
+ ? localizedGlossaryMetaDescription(glossaryTermId, locale)
  : null;
- const desc = localizedLede
- ? truncateForMetaDescription(localizedLede)
- : GLOSSARY_DESC[locale]?.(italianTerm) || italianSeo.desc;
+ const desc = localizedDesc || GLOSSARY_DESC[locale]?.(italianTerm) || italianSeo.desc;
  return { title, desc, ogT: title, ogD: desc, sd: italianSeo.sd };
  }
 
