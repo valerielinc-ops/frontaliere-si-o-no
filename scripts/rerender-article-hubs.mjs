@@ -184,6 +184,11 @@ function missingPublishedIds(localRegistry, publishedIds) {
   return [...publishedIds].filter((id) => !localIds.has(id));
 }
 
+function unpublishedLocalIds(localRegistry, publishedIds) {
+  const publishedIdSet = new Set(publishedIds);
+  return Object.keys(localRegistry).filter((id) => !publishedIdSet.has(id));
+}
+
 function missingLiveHubSlugs(localRegistry, liveSlugs) {
   const localItalianSlugs = new Set(
     Object.values(localRegistry)
@@ -467,12 +472,19 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
     };
   }
   const missingIds = missingPublishedIds(localRegistry, publishedIds);
-  if (missingIds.length > 0) {
+  const unpublishedIds = unpublishedLocalIds(localRegistry, publishedIds);
+  if (missingIds.length > 0 || unpublishedIds.length > 0) {
+    const mismatchDetails = [
+      missingIds.length > 0 &&
+        `published ids absent locally (${missingIds.slice(0, 5).join(', ')})`,
+      unpublishedIds.length > 0 &&
+        `local ids absent from the published registry (${unpublishedIds.slice(0, 5).join(', ')})`,
+    ].filter(Boolean).join('; ');
     return {
       ok: false,
       note:
-        `${section}: the published registry contains ${missingIds.length} article id(s) absent from this checkout ` +
-        `(for example ${missingIds.slice(0, 5).join(', ')}); refusing to publish a stale client registry`,
+        `${section}: local and published article registry identities differ (${mismatchDetails}); ` +
+        'refusing to publish a non-converged client registry',
     };
   }
 

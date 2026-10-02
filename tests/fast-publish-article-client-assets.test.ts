@@ -112,6 +112,38 @@ describe('rerender article hubs workflow', () => {
     }
   });
 
+  it('rejects local article IDs absent from the published registry', async () => {
+    const fetchMock = vi.fn((url: string) => {
+      if (url.endsWith('/manifest.json')) {
+        return Promise.resolve({ ok: true, json: async () => ({ counts: { articles: 1 } }) });
+      }
+      if (url.endsWith('/slugs.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({ blog: { published: { it: 'published' } } }),
+        });
+      }
+      throw new Error(`unexpected fetch: ${url}`);
+    });
+    vi.stubGlobal('fetch', fetchMock);
+
+    try {
+      const verdict = await checkCorpusFreshness('frontaliere', 1, {
+        localRegistry: {
+          published: { it: 'published' },
+          staleLocalOnly: { it: 'stale-local-only' },
+        },
+      });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.note).toContain('staleLocalOnly');
+      expect(verdict.note).toContain('absent from the published registry');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      __resetCorpusFreshnessCache();
+      vi.unstubAllGlobals();
+    }
+  });
+
   it('rejects a live hub card absent from the local registry', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
