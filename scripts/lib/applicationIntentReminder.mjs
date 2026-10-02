@@ -19,6 +19,18 @@ import {
 
 export const APPLICATION_INTENT_RETENTION_MS = APPLICATION_INTENT_RETENTION_DAYS * 86400000;
 export const APPLICATION_INTENT_REMINDER_MIN_AGE_MS = 48 * 60 * 60 * 1000;
+/**
+ * The producer (functions/src/applicationIntentCore.js#buildApplicationIntentRecord)
+ * computes `reminder.dueAt` and `expiresAt` from the function clock while it
+ * builds the record, but `timestamp`/`createdAt` are FieldValue.serverTimestamp(),
+ * resolved when the transaction commits after its reads. A genuine record is
+ * therefore always written with dueAt = click + 48h - (write latency), never
+ * exactly click + 48h. recordApplicationIntent runs with timeoutSeconds: 15;
+ * 60 s bounds that latency plus clock skew with margin. It only relaxes the
+ * consistency checks between producer-clock and server-clock fields: the 48-hour
+ * quiet period is enforced on the click itself.
+ */
+export const APPLICATION_INTENT_WRITE_SKEW_MS = 60 * 1000;
 export { APPLICATION_INTENT_REMINDER_DELIVERIES_COLLECTION };
 export const MAX_APPLICATION_INTENT_RECOMMENDATIONS = 3;
 
@@ -144,11 +156,17 @@ export function isApplicationIntentReminderEligible(data, nowMs = Date.now()) {
   const occurredAt = applicationIntentTimestamp(data);
   const dueAt = applicationIntentDueAt(data);
   if (occurredAt === null || dueAt === null || occurredAt > nowMs || dueAt > nowMs) return false;
-  if (dueAt < occurredAt + APPLICATION_INTENT_REMINDER_MIN_AGE_MS) return false;
+  // Quiet period: never earlier than 48 hours after the click.
+  if (nowMs < occurredAt + APPLICATION_INTENT_REMINDER_MIN_AGE_MS) return false;
+  // Record consistency: the producer scheduled the reminder 48 hours after
+  // the click. Compared exactly, the later server commit time made every
+  // record the producer writes ineligible (reminder runs 2026-09-29..10-01
+  // all ended "sent 0").
+  if (dueAt < occurredAt + APPLICATION_INTENT_REMINDER_MIN_AGE_MS - APPLICATION_INTENT_WRITE_SKEW_MS) return false;
 
   const expiresAt = expiryMillis(data);
   if (expiresAt === null || expiresAt <= nowMs) return false;
-  if (expiresAt > occurredAt + APPLICATION_INTENT_RETENTION_MS) return false;
+  if (expiresAt > occurredAt + APPLICATION_INTENT_RETENTION_MS + APPLICATION_INTENT_WRITE_SKEW_MS) return false;
   return nowMs - occurredAt <= APPLICATION_INTENT_RETENTION_MS;
 }
 
