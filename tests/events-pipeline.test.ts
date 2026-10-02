@@ -438,13 +438,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       url: 'https://www.tio.ch/agenda',
     });
     expect(ld.performer).toMatchObject({ '@type': 'Organization', name: expect.any(String) });
-    expect(ld.offers).toMatchObject({
-      '@type': 'Offer',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: expect.any(String),
-      url: expect.stringMatching(/^https:\/\//),
-    });
+    expect(ld.offers).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
@@ -607,7 +601,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     ) as Record<string, any>;
     expect(ld.offers).toEqual({
       '@type': 'Offer',
-      price: '19',
+      price: 19,
       priceCurrency: 'CHF',
       availability: 'https://schema.org/InStock',
       validFrom: '2026-07-04',
@@ -629,7 +623,7 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     }, 'it') as Record<string, any>;
     expect(ld.offers).toEqual({
       '@type': 'Offer',
-      price: '19',
+      price: 19,
       priceCurrency: 'CHF',
       availability: 'https://schema.org/InStock',
       validFrom: '2026-06-01T09:00:00+02:00',
@@ -637,9 +631,10 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     });
   });
 
-  it('emits offers with price "0" when event.price is confidently free', () => {
+  it('emits numeric price 0 and isAccessibleForFree when event.price is confidently free', () => {
     const ld = eventLd({ ...baseEvent, price: { amount: 0, currency: 'CHF', isFree: true } }, 'it') as Record<string, any>;
-    expect(ld.offers?.price).toBe('0');
+    expect(ld.offers?.price).toBe(0);
+    expect(ld.isAccessibleForFree).toBe(true);
     expect(ld.offers?.availability).toBe('https://schema.org/InStock');
     expect(ld.offers?.validFrom).toBe(baseEvent.startDate);
     expect(ld.offers?.url).toBe(baseEvent.url);
@@ -652,19 +647,13 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.offers).toBeUndefined();
   });
 
-  it('uses a complete fallback Offer without a fabricated amount when the page opts in', () => {
+  it('omits offers when the page has no verifiable amount even when defaults are requested', () => {
     const ld = eventLd({
       ...baseEvent,
       structuredDataDefaultsApplied: true,
       price: { amount: null, currency: 'CHF', isFree: false },
     }, 'it') as Record<string, any>;
-    expect(ld.offers).toEqual({
-      '@type': 'Offer',
-      priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: baseEvent.startDate,
-      url: baseEvent.url,
-    });
+    expect(ld.offers).toBeUndefined();
   });
 });
 

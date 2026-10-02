@@ -420,7 +420,7 @@ jobs:
       # successfully so the required Vitest check runs before discovery data
       # reaches main.
       - name: Publish + commit the topic-hub sitemap
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
         env:
           GH_TOKEN: ${{ env.GITHUB_PAT }}
           INPUT_SECTION: ${{ matrix.section }}
@@ -482,7 +482,7 @@ jobs:
       # `cacheEverything`, so that entry is keyed on the ORIGIN url and an
       # apex-only purge reports success while changing nothing.
       - name: Purge the edge for the hub landings
-        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success'
+        if: steps.mode.outputs.dry != 'true' && steps.render.outcome == 'success' && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           INPUT_SECTION: ${{ matrix.section }}
@@ -552,6 +552,8 @@ jobs:
                 "- topic-hub pages: \(.topicHubWritten)",
                 "- paths pushed per locale: \(.pathsByLocale | to_entries | map("\(.key)=\(.value|length)") | join(" "))",
                 "- topic sitemap: \(.sitemapPath // "none") (\(.announcedUrlCount) URL)",
+                "- freshness deferred: \(.deferred // false)",
+                "- freshness note: \(.freshnessNote // "none")",
                 "- locales pushed: \((.pushedLocales // []) | join(", "))"' "$SUMMARY"
             else
               echo "- no summary produced (the render did not get that far)"
@@ -587,7 +589,7 @@ jobs:
       # e la forma deve restare identica a quella dello step di apertura —
       # la chiusura cerca per TITOLO, e un titolo diverso non chiude niente.
       - name: Resolve open issue on green
-        if: success()
+        if: success() && steps.render.outputs.deferred != 'true'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
