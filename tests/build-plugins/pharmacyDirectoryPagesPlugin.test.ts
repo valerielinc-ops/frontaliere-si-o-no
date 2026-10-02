@@ -10,6 +10,11 @@ import { buildDutyCoverageMatrix } from '../../services/pharmacies/dutyCoverageM
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { formatDutyDateTime } from '../../services/pharmacies/dutyWeek';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../../services/pharmacies/italyDuty';
+import {
+  DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+  DECISION_MOMENT_ID_ATTRIBUTE,
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+} from '../../services/decisionMomentTelemetry';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
@@ -176,6 +181,9 @@ describe('pharmacy directory page matrix', () => {
     );
     const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
+    expect(page.html).toContain(`${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true"`);
+    expect(page.html).toContain(`${DECISION_MOMENT_ID_ATTRIBUTE}="duty_lookup"`);
+    expect(page.html).toContain(`${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_pharmacy"`);
     // Quali province italiane escono pubblicate lo decide lo snapshot che il
     // cron farmacie riscrive (VB e' `best-effort` e puo' tornare disponibile,
     // CO/VA possono perdere copertura): l'attesa si legge dallo stesso modello

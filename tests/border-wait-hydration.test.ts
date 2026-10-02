@@ -27,6 +27,10 @@ import {
   buildRootHubPath,
   buildRegionalHubPath,
 } from '../build-plugins/borderWaitData';
+import {
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
 
 const FIXTURE_CURRENT: BorderWaitCurrent = {
   updatedAt: '2026-04-29T06:00:00.000Z',
@@ -84,6 +88,7 @@ describe('border-wait hydration IIFE — payload integrity', () => {
     expect(BORDER_WAIT_HYDRATION_JS).not.toContain('pageToken');
     expect(BORDER_WAIT_HYDRATION_JS).not.toContain('direction');
     expect(BORDER_WAIT_HYDRATION_JS).toContain('visibilitychange');
+    expect(BORDER_WAIT_HYDRATION_JS).toContain('decision-moment');
   });
 
   it('keeps the HTML script reference under the 3 KB hard ceiling', () => {
@@ -134,6 +139,8 @@ describe('border-wait pages — hydration injection', () => {
     // At least the two crossings in our fixture must appear.
     expect(html).toMatch(/\bdata-bw-crossing=["']?chiasso-brogeda["']?/);
     expect(html).toMatch(/\bdata-bw-picker(?:=|=")true/);
+    expect(html).toContain(`${DECISION_MOMENT_SURFACE_ATTRIBUTE}="border"`);
+    expect(html).toContain(`${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="choose_crossing"`);
     expect(html).toMatch(/\bdata-bw-crossing=["']?gaggiolo["']?/);
     // Every row must carry a total-crossing-minutes field marker (approach +
     // checkpoint queue, aligned with the SPA guide page).
@@ -170,5 +177,6 @@ describe('border-wait pages — hydration injection', () => {
     const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
     expect(html).toContain('21 min');
     expect(html).toMatch(/data-bw-comparison(?:=|=")true/);
+    expect(html).toContain(`${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="compare_crossing"`);
   });
 });

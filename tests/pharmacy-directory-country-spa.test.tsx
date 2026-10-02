@@ -6,6 +6,13 @@ import { ITALY_BORDER_PHARMACIES, ITALY_BORDER_PROVINCES, TICINO_CITIES } from '
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
+import {
+  DECISION_MOMENT_BRIDGE_EVENT,
+  DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+  DECISION_MOMENT_ID_ATTRIBUTE,
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
+import ticinoDutiesJson from '../data/pharmacy-duties-ticino.json';
 import italyDutiesJson from '../data/pharmacy-duties-italy.json';
 
 vi.mock('@/components/pharmacies/PharmacyMap', () => ({ default: () => null }));
@@ -53,6 +60,24 @@ describe('pharmacy country SPA route', () => {
     // cron-count-ok: i 26 cantoni meno il Ticino (SOURCE_ONLY_CANTONS), costante del codice.
     expect(matrix?.querySelectorAll('[data-coverage-kind="source-only-canton"]')).toHaveLength(25);
     expect(container.textContent).toContain('Verifica sempre telefonicamente con la farmacia prima di recarti sul posto: orari e turni possono cambiare.');
+  });
+
+  it('emits a measured completion and marks reviewed next actions on a fresh duty surface', () => {
+    const now = new Date(Date.parse(String(ticinoDutiesJson._fetchedAt)) + 60_000);
+    vi.useFakeTimers({ now });
+    const events: unknown[] = [];
+    const onBridge = (event: Event) => events.push((event as CustomEvent<unknown>).detail);
+    window.addEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+
+    const { container } = render(<PharmacyDirectory page={{ kind: 'duty-hub', locale: 'it' }} />);
+    const matrix = container.querySelector('[data-coverage-matrix="true"]');
+
+    expect(matrix).toHaveAttribute(DECISION_MOMENT_COMPLETED_ATTRIBUTE, 'true');
+    expect(matrix).toHaveAttribute(DECISION_MOMENT_ID_ATTRIBUTE, 'duty_lookup');
+    expect(matrix?.querySelector(`[${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_pharmacy"]`)).toBeInTheDocument();
+    expect(events).toContainEqual({ kind: 'completed', surface: 'pharmacy', id: 'duty_lookup' });
+
+    window.removeEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
   });
 
   it.each(locales)('keeps the canonical Italian duty hub on the coverage SPA route (%s)', (locale) => {

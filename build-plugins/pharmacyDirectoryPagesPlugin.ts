@@ -32,12 +32,22 @@ import dutiesJson from '../data/pharmacy-duties-ticino.json';
 import completeTicinoJson from '../data/pharmacies-ticino-complete.json';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { buildPharmacyTitle } from '../services/pharmacies/title';
+import {
+  DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+  DECISION_MOMENT_ID_ATTRIBUTE,
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+} from '../services/decisionMomentTelemetry';
 
 const LOCALES: readonly Locale[] = ['it', 'en', 'de', 'fr'];
 const dutiesDataset = dutiesJson as PharmacyDutiesDataset;
 const completeTicinoSnapshot = completeTicinoJson as unknown as PharmacyCatalogueDataset;
 const dutySource = 'https://www.ofct.ch/farmacieturno/';
 const osmLicense = 'OpenStreetMap contributors, ODbL 1.0';
+
+function decisionMomentActionAttributes(action: string): string {
+  return ` ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="pharmacy" ${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="${action}"`;
+}
 
 type DutyWeekCopy = {
   title: (weekStart: string) => string;
@@ -479,25 +489,28 @@ function renderDutyCoverageMatrix(
       ? region.duties.map((duty) => {
         const pharmacy = pharmacyById(duty.pharmacyId);
         const pharmacyLink = pharmacy
-          ? `<a href="${esc(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale))}">${esc(pharmacy.name)}</a>`
+          ? `<a href="${esc(buildPharmacyPath(pharmacyPath(pharmacy, locale), locale))}"${decisionMomentActionAttributes('open_pharmacy')}>${esc(pharmacy.name)}</a>`
           : `<span>${esc(copy.notResolved)}</span>`;
         return `<li style="${BODY_STYLE}" data-duty-id="${esc(duty.id)}"><strong>${esc(copy.pharmacy)}:</strong> ${pharmacyLink}<br><strong>${esc(copy.interval)}:</strong> <time datetime="${esc(duty.startsAt)}">${esc(formatDutyDateTime(duty.startsAt))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatDutyDateTime(duty.endsAt))}</time></li>`;
       }).join('')
       : '';
     const source = matrix.releaseReady && region.sourceUrl
-      ? ` <a href="${esc(region.sourceUrl)}" rel="nofollow noopener">${esc(copy.openSource)}</a>`
+      ? ` <a href="${esc(region.sourceUrl)}"${decisionMomentActionAttributes('open_source')} rel="nofollow noopener">${esc(copy.openSource)}</a>`
       : '';
     return `<section data-coverage-kind="ticino-region" data-region-key="${esc(region.key)}"><h3 style="${H2_STYLE}">${esc(region.name)}</h3>${source}${duties ? `<ul style="${BODY_STYLE}">${duties}</ul>` : `<p style="${BODY_STYLE}">${esc(matrix.releaseReady ? copy.noIntervals : copy.unavailableNotice(matrix.status))}</p>`}</section>`;
   }).join('');
   const operational = matrix.operationalCantons.map((canton) => {
     const duties = canton.duties.map((duty) => `<li style="${BODY_STYLE}" data-duty-id="${esc(duty.id)}" data-duty-canton="${esc(canton.code)}"><strong>${esc(copy.pharmacy)}:</strong> ${esc(duty.pharmacyName)}<br><strong>${esc(copy.interval)}:</strong> <time datetime="${esc(duty.startsAt)}">${esc(formatDutyDateTime(duty.startsAt))}</time> – <time datetime="${esc(duty.endsAt)}">${esc(formatDutyDateTime(duty.endsAt))}</time></li>`).join('');
-    return `<section data-coverage-kind="swiss-canton" data-canton-code="${esc(canton.code)}" data-canton-coverage-type="${esc(canton.coverageType)}" data-canton-release-id="${esc(canton.releaseId)}"><h3 style="${H2_STYLE}">${esc(canton.name)} · ${esc(canton.coverageName)}</h3><p style="${BODY_STYLE}"><strong>${esc(copy.coverageTypeLabel(canton.coverageType))}</strong> · <a href="${esc(canton.sourceUrl)}" rel="nofollow noopener">${esc(copy.openSource)}</a></p>${duties ? `<ul style="${BODY_STYLE}">${duties}</ul>` : `<p style="${BODY_STYLE}">${esc(copy.noIntervals)}</p>`}</section>`;
+    return `<section data-coverage-kind="swiss-canton" data-canton-code="${esc(canton.code)}" data-canton-coverage-type="${esc(canton.coverageType)}" data-canton-release-id="${esc(canton.releaseId)}"><h3 style="${H2_STYLE}">${esc(canton.name)} · ${esc(canton.coverageName)}</h3><p style="${BODY_STYLE}"><strong>${esc(copy.coverageTypeLabel(canton.coverageType))}</strong> · <a href="${esc(canton.sourceUrl)}"${decisionMomentActionAttributes('open_source')} rel="nofollow noopener">${esc(copy.openSource)}</a></p>${duties ? `<ul style="${BODY_STYLE}">${duties}</ul>` : `<p style="${BODY_STYLE}">${esc(copy.noIntervals)}</p>`}</section>`;
   }).join('');
   const sourceOnly = matrix.sourceOnlyCantons.map((canton) => `<li data-coverage-kind="source-only-canton" data-canton-code="${esc(canton.code)}" data-source-status="${esc(canton.status || 'unavailable')}" data-source-type="${esc(canton.sourceType || 'unavailable')}" style="${BODY_STYLE}"><h3 style="${H3_STYLE}">${esc(canton.name)}</h3><p><strong>${esc(copy.sourceOnlyLabel)}</strong></p><dl><dt><strong>${esc(copy.status)}</strong></dt><dd>${esc(copy.statusLabel(canton.status))}</dd><dt><strong>${esc(copy.sourceType)}</strong></dt><dd>${esc(copy.sourceTypeLabel(canton.sourceType))}</dd><dt><strong>${esc(copy.lastVerifiedAt)}</strong></dt><dd>${esc(canton.lastVerifiedAt ? formatDutyCoverageDate(canton.lastVerifiedAt, locale) : copy.notAvailable)}</dd><dt><strong>${esc(copy.officialSource)}</strong></dt><dd>${canton.officialSourceUrl ? `<a href="${esc(canton.officialSourceUrl)}" rel="nofollow noopener">${esc(copy.openOfficialSource)}</a>` : esc(copy.notAvailable)}</dd></dl></li>`).join('');
   const italy = renderItalyDutyCoverageSection(locale, matrix);
   const notice = matrix.releaseReady ? copy.readyNotice : copy.unavailableNotice(matrix.status);
   const operationalSection = operational.length > 0 ? `<section><h2 style="${H2_STYLE}">${esc(copy.operationalHeading)}</h2><p style="${LEDE_STYLE}">${esc(copy.operationalLede)}</p>${operational}</section>` : '';
-  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
+  const decisionMomentAttributes = matrix.releaseReady && matrix.regions.some((region) => region.duties.length > 0)
+    ? ` ${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true" ${DECISION_MOMENT_SURFACE_ATTRIBUTE}="pharmacy" ${DECISION_MOMENT_ID_ATTRIBUTE}="duty_lookup"`
+    : '';
+  return `<section data-coverage-matrix="true" data-release-ready="${String(matrix.releaseReady)}" data-italy-release-ready="${String(matrix.italy.publishable)}" data-italy-indexable="${String(matrix.italy.indexable)}" data-italy-release-state="${esc(matrix.italy.state)}"${decisionMomentAttributes}><h2 style="${H2_STYLE}">${esc(copy.heading)}</h2><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><section><h2 style="${H2_STYLE}">${esc(copy.ticinoHeading)}</h2><p style="${BODY_STYLE}" role="status">${esc(notice)}</p>${regions}</section>${operationalSection}${italy}<section><h2 style="${H2_STYLE}">${esc(copy.sourceOnlyHeading(matrix.sourceOnlyCantons.length))}</h2><p style="${LEDE_STYLE}">${esc(copy.sourceOnlyLede)}</p><ul>${sourceOnly}</ul></section></section>`;
 }
 
 function dutyWeekCollectionJsonLd(pathValue: PharmacyPath, title: string, model: DutyWeekModel): string {

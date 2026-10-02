@@ -18,6 +18,10 @@ import { generateBorderWaitPages, type BorderWaitCurrent } from '../build-plugin
 import { buildOggiPath, buildRegionalHubPath, buildRootHubPath } from '../build-plugins/borderWaitData';
 import { renderPage } from '../build-plugins/borderWaitMapPlugin';
 import { BORDER_READING_MAX_AGE_MS } from '../services/dataFreshness';
+import {
+  DECISION_MOMENT_BRIDGE_EVENT,
+  DECISION_MOMENT_QUEUE_KEY,
+} from '../services/decisionMomentTelemetry';
 
 const SNAPSHOT_AT = new Date(Date.now() - 60_000).toISOString();
 
@@ -75,10 +79,24 @@ const slotText = (kind: 'hub' | 'advice', slot: string) =>
 
 afterEach(() => {
   clearTimeout((window as unknown as { __bwTimer?: ReturnType<typeof setTimeout> }).__bwTimer);
+  delete (window as unknown as Record<string, unknown>)[DECISION_MOMENT_QUEUE_KEY];
   vi.unstubAllGlobals();
   vi.restoreAllMocks();
   vi.useRealTimers();
   document.documentElement.innerHTML = '';
+});
+
+describe('border-wait hydration — freshness outcome bridge', () => {
+  it('emits one categorical completion after a fresh reading is applied', async () => {
+    const events: unknown[] = [];
+    const onBridge = (event: Event) => events.push((event as CustomEvent<unknown>).detail);
+    window.addEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+
+    await hydrate(pages[buildRootHubPath('it')]);
+
+    window.removeEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+    expect(events).toEqual([{ kind: 'completed', surface: 'border', id: 'live_reading' }]);
+  });
 });
 
 describe('border-wait mobile labels survive live updates', () => {
