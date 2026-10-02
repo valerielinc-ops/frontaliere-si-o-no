@@ -9,7 +9,7 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({
 
 const { handleAssistedApplicationReview } = await import('../functions/src/assistedApplicationReview.js');
 const { mintReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
-const { dossierAttachment, dossierMode, mergeParts, wantsDossier } = await import('../scripts/assisted-application/lib/dossier.mjs');
+const { dossierAttachment, dossierMode, draftCandidateType, mergeParts, wantsDossier } = await import('../scripts/assisted-application/lib/dossier.mjs');
 
 const SECRET = 'p'.repeat(40);
 const T0 = Date.UTC(2026, 9, 2, 10, 0, 0);
@@ -107,7 +107,10 @@ describe('optional photo of the tailored CV', () => {
     expect(await post({ action: 'photo_upload', contentBase64: pdfOf('CV').toString('base64') })).toMatchObject({ status: 400, body: { error: 'photo_type_not_allowed' } });
     const big = Buffer.concat([PNG, Buffer.alloc(2 * 1024 * 1024)]);
     expect(await post({ action: 'photo_upload', contentBase64: big.toString('base64') })).toMatchObject({ status: 413, body: { error: 'photo_too_large' } });
-  });
+    // Exactly 2 MiB passes the base64 preflight and the decoded-size check.
+    const boundary = Buffer.concat([PNG, Buffer.alloc(2 * 1024 * 1024 - PNG.length)]);
+    expect(await post({ action: 'photo_upload', contentBase64: boundary.toString('base64') })).toMatchObject({ status: 200, body: { photo: true } });
+  }, 60_000);
 
   it('does not offer the photo on a draft from before the tailored CV was kept', async () => {
     seed({ tailoredCv: tailoredCv({ cv: undefined }) });
@@ -130,6 +133,12 @@ describe('one-PDF dossier (Remote Config ASSISTED_APPLICATION_DOSSIER_MODE)', ()
     expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: 'qualified' })).toBe(true);
     expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: 'apprentice' })).toBe(false);
     expect(wantsDossier({ mode: 'separate', channelType: 'email', candidateType: 'qualified' })).toBe(false);
+    // A draft older than the types of application: the separate files.
+    expect(wantsDossier({ mode: 'single', channelType: 'email', candidateType: '' })).toBe(false);
+    // The draft keeps { type, sector }; a plain string is read too.
+    expect(draftCandidateType({ candidateType: { type: 'apprentice', sector: 'it' } })).toBe('apprentice');
+    expect(draftCandidateType({ candidateType: 'apprentice' })).toBe('apprentice');
+    expect(draftCandidateType({})).toBe('');
   });
 
   it('merges letter, CV and documents (PDF, JPG, PNG) within SECO’s limits, else leaves the files apart', async () => {
