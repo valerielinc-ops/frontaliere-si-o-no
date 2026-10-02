@@ -7418,6 +7418,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.budget-familiare-basilea-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Basel im Vergleich',
     'blog.article.budget-familiare-basilea-2026.excerpt': 'Schweizer Lebenshaltungskosten 2026: In Basel gibt es drei Steuerstufen, KVG innerhalb von 3 Monaten nach Ankunft und eine maximale Mietkaution von drei Monaten.',
     'blog.article.budget-familiare-basilea-2026.imageAlt': 'Tisch mit Familienbudget für Lebenshaltungskosten in der Schweiz und Basel',
+    'blog.article.spese-quotidiane-vaud-2026.title': 'Lebenshaltungskosten Schweiz 2026: Kanton Waadt',
+    'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Mieten, Ausgaben, Transport, KVG und Steuern: Leitfaden zu den Lebenshaltungskosten 2026 im Kanton Vaud, mit nationalen Regeln zum Vergleich zwischen den Kantonen.',
+    'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Vergleich der Lebenshaltungskosten in der Schweiz mit Fokus auf Mieten, Alltag und Versicherung im Waadtland',
 };
 
 export default blogMetaChDe;

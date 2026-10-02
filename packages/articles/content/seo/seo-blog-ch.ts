@@ -96194,6 +96194,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-spese-quotidiane-vaud-2026': {
+    title: 'Costo della vita svizzera 2026: canton Vaud | Frontaliere Ticino',
+    description: 'Costo della vita svizzera 2026 nel canton Vaud: confronto pratico su affitti, spesa, trasporti, LAMal, imposte e contributi sul salario tra i cantoni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, canton, vaud',
+    ogTitle: 'Canton Vaud: costo della vita svizzera 2026',
+    ogDescription: 'Una guida nazionale per leggere il budget nel canton Vaud: affitto, spesa alimentare, trasporti e assicurazioni si affiancano a imposte su tre livelli, contributi sul salario e regole LAMal. Include franchigie, sussidi cantonali e passaggi pratici',
+    canonicalPath: '/articoli-svizzera/spese-quotidiane-vaud-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita svizzera 2026: canton Vaud",
+      "description": "Costo della vita svizzera 2026 nel canton Vaud: confronto pratico su affitti, spesa, trasporti, LAMal, imposte e contributi sul salario tra i cantoni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/spese-quotidiane-vaud-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confronto del costo della vita in Svizzera con focus sul canton Vaud"
+      },
+      "datePublished": "2026-10-02T00:07:57+00:00",
+      "dateModified": "2026-10-02T00:07:57+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/spese-quotidiane-vaud-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
