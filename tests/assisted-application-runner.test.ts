@@ -190,6 +190,23 @@ describe('draft mode', () => {
     expect(reread.calls).toBe(5);
   });
 
+  it('keeps on the next round’s tailored CV the photo the candidate gave on the review page', async () => {
+    const bucket = fakeBucket();
+    // A 1×1 PNG, as the review page stores it.
+    const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(png);
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
+      previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    expect(draft.tailoredCv).toMatchObject({ status: 'ready', photo: true, renderer: 'typst' });
+    const { getDocumentProxy, getResolvedPDFJS } = await import('unpdf');
+    const { OPS } = await getResolvedPDFJS();
+    const pdf = await getDocumentProxy(new Uint8Array(bucket.files.get(draft.tailoredCv.pdfKey)!));
+    const operators = await (await pdf.getPage(1)).getOperatorList();
+    expect(operators.fnArray).toContain(OPS.paintImageXObject);
+  }, 60_000);
+
   it('stops before any Codex call when the posting is closed', async () => {
     const codex = fakeCodex();
     await expect(buildDraft({

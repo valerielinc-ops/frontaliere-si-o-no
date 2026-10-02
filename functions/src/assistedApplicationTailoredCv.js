@@ -308,8 +308,10 @@ export function tailoredCvBlocks(cv, { identity, profile }) {
  * writer as fallback (assistedApplicationPdfRenderer.js).
  * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>}
  */
-export async function buildTailoredCvPdf(cv, { identity, profile, mode, log }) {
-  return renderCvPdf(tailoredCvDocument(cv, { identity, profile }), { mode: mode || await pdfRendererMode(), log });
+/** @param {{identity:object, profile:object, mode?:string, log?:Function, photo?:Buffer, photoType?:string}} context photo: the candidate's (candidatePhoto) */
+export async function buildTailoredCvPdf(cv, { identity, profile, mode, log, photo, photoType }) {
+  const document = tailoredCvDocument(cv, { identity, profile });
+  return renderCvPdf(photo ? { ...document, photo, photoType } : document, { mode: mode || await pdfRendererMode(), log });
 }
 
 /** Plain text of the tailored CV (ATS keyword check and the review page). */

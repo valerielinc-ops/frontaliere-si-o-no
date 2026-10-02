@@ -59,6 +59,7 @@ import {
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
+import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
 import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
@@ -172,7 +173,7 @@ export async function buildDraft(ctx) {
     kind,
     rendererMode: await pdfRendererMode(),
     codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
-    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
   });
   const matchRaw = await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
@@ -355,7 +356,7 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow }) {
   try {
     const raw = await codex({
       prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
@@ -372,10 +373,12 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
     }
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
-    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log });
+    // The photo the candidate gave on an earlier round stays on the new tailored CV.
+    const photo = await candidatePhoto(flow, bucket);
+    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
     await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
     // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv }, text };
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photo.photo ? { photo: true } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

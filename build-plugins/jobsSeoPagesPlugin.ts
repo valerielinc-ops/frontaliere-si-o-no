@@ -3258,8 +3258,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const recentArticlesHtml = recentArticlesHtmlFor(locale);
  // `relatedArticlesHtml` is the SAME string the template below interpolates:
  // the publish input digests exactly the bytes the page emits, so the two
- // cannot drift apart. The separate reuse input intentionally omits this
- // digest; the cached fragment is replaced before the page is reused.
+ // cannot drift apart. The reuse input keeps the hreflang/employer context,
+ // while omitting only fragments refreshed before a cached page is reused.
+ const employerHubSlug = companyHubSlugBuild(job.company, job.companyKey);
+ const employerHubPath = emittedEmployerHubs.get(`${locale}|${employerHubSlug}`) || '';
  const activeJobManifestInput = incrementalManifests
   ? buildActiveJobPageInput({
    job,
@@ -3271,6 +3273,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
    relatedArticlesHtml: recentArticlesHtml,
+   hreflangHtml,
+   employerHubPath,
    renderDateBucket: jobsSeoReuseBuildDay,
   })
  : null;
@@ -3837,7 +3841,7 @@ ${staticAnalyticsHtml}
  </article>
  ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords: [], esc })}
  ${(() => {
- const cSlugBanner = companyHubSlugBuild(job.company, job.companyKey);
+ const cSlugBanner = employerHubSlug;
  // Relative href — internal navigation resolves against canonical (absolute).
  const cHref = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'));
  const cLogo = companyLogo(job);
