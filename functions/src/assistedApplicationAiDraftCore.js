@@ -90,6 +90,13 @@ export function sanitizeRequirements(raw) {
     applicationEmail: clean(raw?.applicationEmail, 254),
     contactPerson: clean(raw?.contactPerson, 200),
     applicationInstructions: clean(raw?.applicationInstructions, 400),
+    requestedDocuments: list(raw?.requestedDocuments, 8).map((item) => ({
+      document: clean(item?.document, 160),
+      kind: clean(item?.kind, 30),
+      required: item?.required !== false,
+      quote: clean(item?.quote, 400),
+      keywords: list(item?.keywords, 10).map((word) => clean(word, 40)).filter(Boolean),
+    })).filter((item) => item.document && item.quote),
     legitimacy: {
       specificity: ['specific', 'mixed', 'vague'].includes(raw?.legitimacy?.specificity) ? raw.legitimacy.specificity : 'mixed',
       contradictions: list(raw?.legitimacy?.contradictions, 5).map((item) => clean(item, 300)).filter(Boolean),
@@ -115,6 +122,10 @@ export function verifyQuotes(requirements, postingText) {
     }
   }
   if (!holds(requirements.workPermitQuote)) requirements.workPermitQuote = '';
+  // A document is asked of the candidate only when the posting really asks for it.
+  if (Array.isArray(requirements.requestedDocuments)) {
+    requirements.requestedDocuments = requirements.requestedDocuments.filter((item) => item.quote && holds(item.quote));
+  }
   // Legitimacy signals are quotes too: one the posting does not contain is dropped.
   if (requirements.legitimacy) {
     requirements.legitimacy.contradictions = requirements.legitimacy.contradictions.filter((quote) => holds(quote));

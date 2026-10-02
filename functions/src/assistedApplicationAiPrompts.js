@@ -36,6 +36,7 @@ const LANGUAGE_NAMES = {
 };
 
 import { ANSWER_VALIDATION_SCHEMA } from './lib/answerRules.js';
+import { DOCUMENT_KINDS } from './assistedApplicationConstants.js';
 
 const S = (description = '') => ({ type: 'string', ...(description ? { description } : {}) });
 const E = (values, description = '') => ({ type: 'string', enum: values, ...(description ? { description } : {}) });
@@ -113,6 +114,14 @@ export const REQUIREMENTS_SCHEMA = OBJ({
   applicationEmail: S('Address the posting gives for applications, copied exactly, else ""'),
   contactPerson: S(),
   applicationInstructions: S('How to apply, verbatim, max 400 chars, else ""'),
+  // Rolex 2026-10-02: school reports and aptitude test results besides the CV and the letter.
+  requestedDocuments: LIST(OBJ({
+    document: S('The document as the posting names it, in the posting\'s language'),
+    kind: E([...DOCUMENT_KINDS]),
+    required: { type: 'boolean', description: 'true when the posting asks for it as part of the application, false when it is only welcome' },
+    quote: S('Verbatim excerpt of the posting that asks for it'),
+    keywords: LIST(S('A word or short phrase printed on such a document')),
+  })),
   // career-ops Block G signals that need reading the text (the tier is decided in code).
   legitimacy: OBJ({
     specificity: E(['specific', 'mixed', 'vague']),
@@ -139,6 +148,12 @@ Rules:
 - applicationEmail: an e-mail address the posting explicitly gives for sending applications, copied character by character. Never construct or guess an address; "" if there is none.
 - contactPerson: the person named as contact for applications, as written, else "".
 - applicationInstructions: the posting's own instructions on how to apply (documents requested, reference number, deadline), verbatim, max 400 characters, else "".
+- requestedDocuments: every document the posting asks applicants to send or upload BESIDES the CV/résumé and the cover/motivation letter (those always go): school reports or grades, aptitude or entrance test results (Multicheck, Basic-Check, EVA, GRI…), diplomas, certificates, work references (Arbeitszeugnisse, certificats de travail), a work-permit or identity copy, a portfolio. One item per document; a test the posting names is its own item (EVA and GRI are two items). Never a photo, a CV or a letter, never something only implied by the role.
+  - document: as the posting words it, in its language ("Bulletins des trois dernières années scolaires", "Résultats du test EVA").
+  - kind: the closest of the listed kinds, else other.
+  - required: true when the posting lists it among what the application must contain; false when it is only welcome ("von Vorteil", "le cas échéant").
+  - quote: the verbatim excerpt of the posting that asks for it.
+  - keywords: 3 to 8 words or short phrases printed on such a document, in the posting's language and in Italian, German, French and English when they differ (for a school report: bulletin, notes, Zeugnis, pagella, school report; for the EVA test: EVA, evatech, test d'aptitudes). They let the candidate's browser recognise the file.
 - legitimacy (facts about the text, never a judgement of the employer):
   - specificity: specific = names concrete tools, tasks, team or reporting line and a clear scope; vague = mostly boilerplate that could fit any job; mixed otherwise.
   - contradictions: verbatim excerpts that contradict each other (an entry-level title with senior requirements, part-time with full-time duties); [] when none. Vagueness alone is not a contradiction.

@@ -2,6 +2,8 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSquare, Pencil, Send, UserCheck } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
+import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
+import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
   fetchReview,
@@ -250,6 +252,20 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
     void run('answers', { answers });
   };
 
+  // The documents the posting requires besides the CV and the letter: the file
+  // travels as base64 with the browser's verdict on it (assistedApplicationDocumentCheck.ts).
+  const uploadDocument = async (document: { id: string }, file: File, check: DocumentCheck) => {
+    const contentBase64 = await new Promise<string>((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
+      reader.onerror = () => reject(reader.error);
+      reader.readAsDataURL(file);
+    });
+    return run('document_upload', { documentId: document.id, fileName: file.name, contentBase64, clientCheck: check });
+  };
+  const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
+  const waiveDocument = (document: { id: string }, waive: boolean) => run('document_waive', { documentId: document.id, waive });
+
   // Fields shown to the candidate: an e-mail application uses only the letter header.
   const shownFields = useMemo(
     () => (data?.formAnswers || []).filter((field) => (data?.job.channel === 'email' ? field.inLetter : true)),
@@ -328,6 +344,11 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
   const openRequired = useMemo(
     () => (data?.questions || []).filter((question) => question.required && !String(answers[question.id] || '').trim()),
     [data, answers],
+  );
+  // Required documents neither uploaded nor waived: they hold the send like an open question.
+  const openDocuments = useMemo(
+    () => (data?.documents || []).filter((document) => document.required && !document.files.length && !document.waived),
+    [data],
   );
   const pageLocale = data?.locale || locale || 'it';
 
@@ -433,7 +454,9 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
             <p className="text-sm leading-relaxed text-body">
               {openRequired.length
                 ? t('jobBoard.assisted.review.heldByQuestions')
-                : t('jobBoard.assisted.review.autoApproveAt', { deadline: formatDeadline(data.deadlineAt, pageLocale) })}
+                : openDocuments.length
+                  ? t('jobBoard.assisted.review.heldByDocuments')
+                  : t('jobBoard.assisted.review.autoApproveAt', { deadline: formatDeadline(data.deadlineAt, pageLocale) })}
             </p>
           </div>
         )}
@@ -466,6 +489,17 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
               ? <p className="text-xs text-warning" role="status">{t('jobBoard.assisted.review.answersStillOpen')}</p>
               : <p className="text-xs text-success" role="status">{t('jobBoard.assisted.review.answersSaved')}</p>)}
           </form>
+        )}
+
+        {data && data.can.uploadDocuments && (data.documents?.length ?? 0) > 0 && (
+          <AssistedApplicationDocuments
+            documents={data.documents || []}
+            limits={data.documentLimits || { maxBytes: 10 * 1024 * 1024, maxFiles: 5 }}
+            disabled={Boolean(busy)}
+            onUpload={uploadDocument}
+            onRemove={removeDocument}
+            onWaive={waiveDocument}
+          />
         )}
 
         {data && data.ready && (data.state === 'candidate_review' || data.state === 'candidate_handoff') && data.coverLetter && (

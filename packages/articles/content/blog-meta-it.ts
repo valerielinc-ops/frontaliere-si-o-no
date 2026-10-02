@@ -12358,6 +12358,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fondo-avs-solidarieta-giovani.title': 'Tredicesima AVS, nasce il fondo patto generazionale',
     'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'In Ticino oltre 86mila beneficiari riceveranno più di 140 milioni di franchi: una parte della tredicesima AVS potrà sostenere progetti per i giovani.',
     'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Anziani e giovani discutono di solidarietà in un paesaggio ticinese',
+    'blog.article.ticino-rimborso-lpp-2024.title': 'Secondo pilastro e frontalieri: stop rimborso in Ticino',
+    'blog.article.ticino-rimborso-lpp-2024.excerpt': 'Dal 2024 il Canton Ticino non rimborsa più l\'imposta alla fonte sul capitale LPP per i frontalieri residenti in Italia. Ecco cosa cambia.',
+    'blog.article.ticino-rimborso-lpp-2024.imageAlt': 'Castello di Bellinzona in Ticino con vista panoramica',
 };
 
 export default blogMetaIt;

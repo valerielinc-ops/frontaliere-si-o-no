@@ -35,16 +35,16 @@ describe('automation e-mails', () => {
 
   it('never promises an automatic send while questions are open', () => {
     const email = buildCandidateAutomationEmail('candidate_review', { ...base, locale: 'it', held: true, openQuestions: 2, deadlineAt: null });
-    expect(email.text).toContain('mi servono alcune informazioni che solo tu puoi darmi (2)');
+    expect(email.text).toContain('mi servono alcune informazioni o documenti che solo tu puoi darmi (2)');
     expect(email.text).not.toContain('partirà automaticamente');
   });
 
   it('reminds a candidate who has not answered, in every language, never promising an automatic send', () => {
     const expectations: Record<string, [RegExp, RegExp]> = {
-      it: [/^Promemoria: la tua candidatura per Infermiera aspetta le tue risposte$/, /non può partire finché non rispondi/],
-      de: [/^Erinnerung: deine Bewerbung für Infermiera wartet auf deine Antworten$/, /kann aber erst raus, wenn du/],
-      fr: [/^Rappel : votre candidature pour Infermiera attend vos réponses$/, /ne peut pas partir tant que vous n’avez pas répondu/],
-      en: [/^Reminder: your application for Infermiera is waiting for your answers$/, /cannot go out until you answer/],
+      it: [/^Promemoria: la tua candidatura per Infermiera aspetta le tue risposte$/, /non può partire finché non mi dai alcune informazioni o documenti/],
+      de: [/^Erinnerung: deine Bewerbung für Infermiera wartet auf deine Antworten$/, /kann aber erst raus, wenn du mir/],
+      fr: [/^Rappel : votre candidature pour Infermiera attend vos réponses$/, /ne peut pas partir tant que vous ne m’avez pas donné/],
+      en: [/^Reminder: your application for Infermiera is waiting for your answers$/, /cannot go out until you give me/],
     };
     for (const [locale, [subject, lead]] of Object.entries(expectations)) {
       const email = buildCandidateAutomationEmail('candidate_questions_reminder', { ...base, locale });

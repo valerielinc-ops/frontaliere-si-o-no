@@ -268,9 +268,15 @@ async function dateRegistered(locator, value) {
  * @param {import('playwright').Page} page
  * @param {Array<object>} fields snapshot fields
  * @param {Array<{fieldId:string, action:string, value:string, document:string}>} actions
- * @param {{cv:string, cover_letter:string}} files local paths
+ * @param {{cv:string, cover_letter:string}} files local paths (a requested document, extra_N: its paths)
  * @returns {Promise<Array<{fieldId:string, ok:boolean, error?:string}>>}
  */
+/** The local paths of one document: the CV, the letter, or the files of a requested document (extra_N). */
+export function documentPaths(files, document) {
+  const value = files?.[document];
+  return (Array.isArray(value) ? value : [value]).filter((path) => typeof path === 'string' && path);
+}
+
 export async function applyActions(page, fields, actions, files, { pause = () => page.waitForTimeout(150 + Math.floor(Math.random() * 250)) } = {}) {
   const byId = new Map(fields.map((field) => [field.id, field]));
   const results = [];
@@ -280,9 +286,11 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
     try {
       const locator = locatorFor(page, field);
       if (action.action === 'upload') {
-        const path = files[action.document];
-        if (!path) throw new Error('document_unavailable');
-        await locator.setInputFiles(path, { timeout: ACTION_TIMEOUT_MS });
+        const paths = documentPaths(files, action.document);
+        if (!paths.length) throw new Error('document_unavailable');
+        // Every file of a requested document when the input takes several, else the first.
+        const multiple = paths.length > 1 && await locator.evaluate((element) => Boolean(element.multiple)).catch(() => false);
+        await locator.setInputFiles(multiple ? paths : paths[0], { timeout: ACTION_TIMEOUT_MS });
       } else if (action.action === 'check' || action.action === 'uncheck') {
         await setChoice(locator, action.action === 'check');
       } else if (field.kind === 'radio') {
