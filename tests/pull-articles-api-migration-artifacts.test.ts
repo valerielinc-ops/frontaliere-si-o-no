@@ -361,6 +361,27 @@ describe('pull-articles-api: hero-image manifest', () => {
     expect(out).toContain('1 already local, 0 to fetch');
   });
 
+  it('repairs an existing image that fails validation', async () => {
+    routes = {
+      ...baseRoutes(),
+      'images-manifest.json': JSON.stringify({
+        images: [{ id: 'blog-x', path: 'images/blog/blog-x.webp', bytes: 64 }],
+      }),
+      'images/blog/blog-x.webp': webp(64),
+    };
+    const dir = makeCheckout();
+    const dest = path.join(dir, 'public', 'images', 'blog');
+    fs.mkdirSync(dest, { recursive: true });
+    fs.writeFileSync(path.join(dest, 'blog-x.webp'), Buffer.from('corrupt-webp'));
+
+    const { code, out } = await run(dir);
+
+    expect(code).toBe(0);
+    expect(out).toContain('local file failed validation; refreshing from publisher');
+    expect(out).toContain('0 already local, 1 to fetch');
+    expect(fs.readFileSync(path.join(dest, 'blog-x.webp'))).toEqual(webp(64));
+  });
+
   it('refuses a path that escapes public/images/blog', async () => {
     routes = {
       ...baseRoutes(),
