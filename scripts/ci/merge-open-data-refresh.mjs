@@ -58,7 +58,8 @@ function git(args) {
 
 function gitShow(ref, file) {
   try {
-    return readGitBlob(ref, file);
+    // Refresh paths include binary article images as well as text datasets.
+    return readGitBlob(ref, file, { encoding: null });
   } catch (error) {
     // A missing path is a normal three-way state (add/delete). Invalid refs
     // have already been ruled out by the caller's fetch/checkout, so surface
@@ -98,7 +99,7 @@ for (const file of files) {
     continue;
   }
   mkdirSync(path.dirname(absolute), { recursive: true });
-  writeFileSync(absolute, mergedRaw, 'utf8');
+  writeFileSync(absolute, mergedRaw);
 }
 
 process.stdout.write(`[merge-open-data-refresh] preserved stable tree and applied ${files.length} path(s)\n`);

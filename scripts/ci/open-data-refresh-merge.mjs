@@ -26,7 +26,7 @@ function mergeJsonLines(remoteRaw, refreshRaw) {
   const merged = [];
   const seen = new Set();
   for (const raw of [remoteRaw, refreshRaw]) {
-    for (const line of raw.split(/\r?\n/u)) {
+    for (const line of raw.toString('utf8').split(/\r?\n/u)) {
       if (!line || seen.has(line)) continue;
       seen.add(line);
       merged.push(line);
@@ -131,10 +131,14 @@ function mergeBothChanged(file, baseRaw, remoteRaw, refreshRaw) {
 /**
  * Merge one path from a stable branch and a current refresh commit.
  * `null` represents a missing blob in a git ref.
+ * Buffers preserve snapshot bytes; only semantic JSON/JSONL merges decode text.
  */
 export function mergeRefreshContent(file, baseRaw, remoteRaw, refreshRaw) {
-  const remoteChanged = remoteRaw !== baseRaw;
-  const refreshChanged = refreshRaw !== baseRaw;
+  const sameContent = (left, right) => Buffer.isBuffer(left) && Buffer.isBuffer(right)
+    ? left.equals(right)
+    : left === right;
+  const remoteChanged = !sameContent(remoteRaw, baseRaw);
+  const refreshChanged = !sameContent(refreshRaw, baseRaw);
 
   if (!refreshChanged) return remoteRaw;
   if (!remoteChanged) return refreshRaw;
