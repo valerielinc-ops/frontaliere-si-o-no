@@ -69,7 +69,7 @@ const BY_CRAWLER_DIR = path.join(ROOT, 'data/jobs/by-crawler');
 const GSC_PATH = path.join(ROOT, 'data/gsc-orphan-queries.json');
 const KEYWORD_CONFIG_PATH = path.join(ROOT, 'data/keyword-pages-config.json');
 const PROFESSION_LANDINGS_PATH = path.join(ROOT, 'build-plugins/professionLandingsData.ts');
-const NURSING_LANDINGS_PATH = path.join(ROOT, 'build-plugins/nursingLandingsData.ts');
+const NURSING_LANDING_IDS_PATH = path.join(ROOT, 'scripts/lib/nursing-landing-path.mjs');
 const OUTPUT_PATH = path.join(ROOT, 'data/profession-keyword-opportunities.json');
 
 // Ranking knobs — documented, deterministic. Double validation (demand AND
@@ -220,7 +220,7 @@ function loadGscByProfession() {
  * dedicated landing (profession/nursing) or an existing keyword page
  * already targets it.
  */
-function buildCoverage() {
+async function buildCoverage() {
   const covered = new Map(); // professionId -> reason
 
   for (const id of extractTsStringArray(PROFESSION_LANDINGS_PATH, 'PROFESSION_IDS')) {
@@ -239,7 +239,10 @@ function buildCoverage() {
   }
 
   const NURSING_TO_PROFESSION = { nurses: 'infermiere', oss: 'oss' }; // healthcare-ticino is a sector hub, not a profession
-  for (const id of extractTsStringArray(NURSING_LANDINGS_PATH, 'NURSING_LANDING_IDS')) {
+  // The typed build-plugin wrapper imports this array from the shared JS
+  // module; load the canonical export instead of parsing its TS alias wrapper.
+  const { NURSING_LANDING_IDS } = await import(NURSING_LANDING_IDS_PATH);
+  for (const id of NURSING_LANDING_IDS) {
     const mapped = NURSING_TO_PROFESSION[id];
     if (mapped && !covered.has(mapped)) covered.set(mapped, `nursing landing (${id})`);
   }
@@ -270,7 +273,7 @@ function buildCoverage() {
 const onsiteTerms = await fetchOnsiteSearchTerms();
 const jobs = loadJobs();
 const gscByProfession = loadGscByProfession();
-const covered = buildCoverage();
+const covered = await buildCoverage();
 
 // Aggregate signal A per profession + collect locality/unmapped buckets.
 const onsiteByProfession = new Map();
