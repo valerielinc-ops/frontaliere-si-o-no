@@ -268,6 +268,7 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
 import { getPathHistory } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
+import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -3427,42 +3428,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedDescriptionRaw = stripLeadingSectionLabel(String(job?.descriptionByLocale?.[locale] || job.description || ''));
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
- // Build an SEO-friendly meta description with salary and CTA
- const metaIntro = decodeHtmlEntities(locale === 'de'
- ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
- : locale === 'fr'
- ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
- : locale === 'en'
- ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
- : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
- // Inline salary snippet for meta description (before salaryText is computed)
- const metaSalaryMin = Number(job.salaryMin);
- const metaSalaryMax = Number(job.salaryMax);
- const metaCurrency = String(job.currency || 'CHF');
- const metaSalarySnippet = Number.isFinite(metaSalaryMin) && metaSalaryMin > 0
- ? (Number.isFinite(metaSalaryMax) && metaSalaryMax > metaSalaryMin
- ? ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}-${Math.round(metaSalaryMax).toLocaleString('de-CH')}.`
- : ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}.`)
- : '';
- const metaCta = locale === 'de' ? ' Jetzt auf Frontaliere Ticino bewerben.'
- : locale === 'fr' ? ' Postulez sur Frontaliere Ticino.'
- : locale === 'en' ? ' Apply now on Frontaliere Ticino.'
- : ' Candidati ora su Frontaliere Ticino.';
- const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
- // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
- const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
- // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions.
- // Delegates to the shared truncateHeadline → peelDanglingClauseTail: this used
- // to carry its OWN inline preposition list, a literal duplicate of
- // TRAILING_STOPWORDS in build-plugins/shared/titleSuffix.ts that had already
- // drifted (it was missing `tra`, `fra`, `sul`, `che`, `come`, `und`, `zu`, `et`,
- // `qui`, … so those still dangled here after being handled there).
- // AGENTS.md Non-Negotiable #6: one shared module, no copies.
- const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
- // Each source fragment was decoded once before concatenation and truncation.
- const description = descWithSalary.length <= 160
- ? descWithSalary
- : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`);
+ // Build an SEO-friendly meta description with source context and a
+ // locale-aware completeness fallback. The helper keeps this active-job
+ // emitter in sync with its 120–160 character contract.
+ const description = decodeHtmlEntities(buildJobMetaDescription({
+  locale,
+  title: localizedTitle,
+  company: String(job.company || ''),
+  location: String(job.location || getCantonDisplayLabel(perJob_cantonCode, locale)),
+  cleanDescription: cleanDesc,
+  salaryMin: job.salaryMin,
+  salaryMax: job.salaryMax,
+  currency: job.currency,
+ }));
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
