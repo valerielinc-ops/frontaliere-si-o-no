@@ -7487,6 +7487,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.sessione-autunnale-mercosur-ubs.title': 'Session d\'automne : Mercosur, Lex UBS et Bilatérales III',
     'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'Les Chambres fédérales clôturent la session d\'automne. Feu vert pour les accords bilatéraux III, l\'accord avec le Mercosur et la « Lex UBS ».',
     'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Palais fédéral à Berne pendant la session d\'automne des chambres',
+    'blog.article.vendite-auto-elettrico-svizzera.title': 'Ventes de voitures neuves en Suisse : l\'essor des véhicules électriques',
+    'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'En septembre, 202 900 voitures neuves ont été vendues en Suisse, soit une hausse de 9,6 % par rapport à l\'année précédente. La part des véhicules électriques atteint 36 %, tandis que les motorisations alternatives représentent 79 % du marché.',
+    'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'Nouvelles voitures et véhicules électriques immatriculés en Suisse',
 };
 
 export default blogMetaChFr;

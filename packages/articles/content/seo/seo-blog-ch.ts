@@ -97091,6 +97091,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vendite-auto-elettrico-svizzera': {
+    title: 'Vendite auto nuove in Svizzera: boom dell\'elettrico',
+    description: 'Vendite auto nuove in Svizzera in crescita a settembre 2026. Balzo dell\'elettrico al 36% e propulsioni alternative al 79%. Dati Auto-Svizzera. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vendite, auto, nuove, boom',
+    ogTitle: 'Vendite auto nuove in Svizzera: forte crescita dell\'elettrico',
+    ogDescription: 'A settembre immatricolate 21\'900 auto nuove in Svizzera, +9,6% sul 2025. Le propulsioni alternative raggiungono il 79% del mercato e l\'elettrico sale al 36% con 7800 vetture.',
+    canonicalPath: '/articoli-svizzera/vendite-auto-elettrico-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vendite auto nuove in Svizzera: boom dell'elettrico",
+      "description": "Vendite auto nuove in Svizzera in crescita a settembre 2026. Balzo dell'elettrico al 36% e propulsioni alternative al 79%. Dati Auto-Svizzera. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vendite-auto-elettrico-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto nuove e veicoli elettrici immatricolati in Svizzera"
+      },
+      "datePublished": "2026-10-02T08:22:28+00:00",
+      "dateModified": "2026-10-02T08:22:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/vendite-auto-elettrico-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

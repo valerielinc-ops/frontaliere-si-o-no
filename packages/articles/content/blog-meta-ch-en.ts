@@ -7487,6 +7487,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.sessione-autunnale-mercosur-ubs.title': 'Fall Session: Mercosur, UBS Act & Bilaterals III',
     'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'The Federal Chambers conclude their fall session. Green light for the Bilateral Agreements III, the Mercosur agreement, and the UBS Act.',
     'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Federal Palace in Bern during the autumn session of the chambers',
+    'blog.article.vendite-auto-elettrico-svizzera.title': 'New Car Sales in Switzerland: The Electric Vehicle Boom',
+    'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'In September, 202,900 new cars were sold in Switzerland, up 9.6% year-over-year. Electric vehicles accounted for 36% of the market, while alternative-fuel vehicles accounted for 79%.',
+    'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'New cars and electric vehicles registered in Switzerland',
 };
 
 export default blogMetaChEn;

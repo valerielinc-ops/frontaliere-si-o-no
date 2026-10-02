@@ -7487,6 +7487,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.sessione-autunnale-mercosur-ubs.title': 'Herbstsession: Startschuss für Mercosur, Lex UBS und die Bilateralen III',
     'blog.article.sessione-autunnale-mercosur-ubs.excerpt': 'Die eidgenössischen Räte schließen die Herbstsession ab. Grünes Licht für die Bilateralen III, das Mercosur-Abkommen und die Lex UBS.',
     'blog.article.sessione-autunnale-mercosur-ubs.imageAlt': 'Bundeshaus in Bern während der Herbstsession der Räte',
+    'blog.article.vendite-auto-elettrico-svizzera.title': 'Neuwagenverkäufe in der Schweiz: Boom bei Elektroautos',
+    'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'Im September wurden in der Schweiz 202\'900 Neuwagen verkauft, ein Plus von 9,6 % gegenüber dem Vorjahr. Der Anteil der Elektrofahrzeuge stieg auf 36 %, während alternative Antriebe insgesamt 79 % des Marktes ausmachten.',
+    'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'Neue Autos und Elektrofahrzeuge in der Schweiz immatrikuliert',
 };
 
 export default blogMetaChDe;
