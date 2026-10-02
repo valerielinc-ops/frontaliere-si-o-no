@@ -138,9 +138,13 @@ export function countTerm(normalizedCv, term) {
 }
 
 /**
- * @param {{requirements: Array<{requirement:string, importance:string}>, roleTitle?: string, cvText: string}} input
+ * @param {{requirements: Array<{requirement:string, importance:string}>, roleTitle?: string, cvText: string, baselineText?: string}} input
+ *   baselineText: the candidate's own CV, for a tailored text. Coverage alone rewards invention (study
+ *   2026-10-02: 78% → 100% with Kubernetes and AWS made up), so a tailored CV is measured against its
+ *   honest ceiling (idea of Resume-Matcher): `ceiling` is the coverage the original CV backs, `overCeiling`
+ *   the posting's terms found only in the tailored text. The aim is coverage near the ceiling, nothing over it.
  */
-export function keywordCoverage({ requirements = [], roleTitle = '', cvText = '' }) {
+export function keywordCoverage({ requirements = [], roleTitle = '', cvText = '', baselineText }) {
   const cv = ` ${normalizeText(cvText)} `;
   const keywords = postingKeywords(requirements);
   const present = [];
@@ -152,20 +156,28 @@ export function keywordCoverage({ requirements = [], roleTitle = '', cvText = ''
   }
   const phrases = titlePhrases(roleTitle);
   const titleFound = phrases.length ? phrases.some((phrase) => cv.includes(` ${phrase} `) || cv.includes(` ${phrase}`)) : null;
+  const percent = (count) => (keywords.length ? Math.round((100 * count) / keywords.length) : null);
+  const honest = {};
+  if (typeof baselineText === 'string') {
+    const baseline = ` ${normalizeText(baselineText)} `;
+    honest.ceiling = percent(keywords.filter((term) => countTerm(baseline, term) > 0).length);
+    honest.overCeiling = [...present, ...thin].filter((term) => countTerm(baseline, term) === 0);
+  }
   return {
-    coverage: keywords.length ? Math.round((100 * (present.length + thin.length)) / keywords.length) : null,
+    coverage: percent(present.length + thin.length),
     present,
     thin,
     missing,
     roleTitle: phrases.join(' / '),
     roleTitleFound: titleFound,
+    ...honest,
   };
 }
 
 /** Both measures for one CV text, as the draft and the owner queue store them. */
-export function atsReport({ requirements, roleTitle, cvText, cvMethod }) {
+export function atsReport({ requirements, roleTitle, cvText, cvMethod, baselineText }) {
   return {
     structural: structuralCheck({ cvText, cvMethod }),
-    keywords: keywordCoverage({ requirements, roleTitle, cvText }),
+    keywords: keywordCoverage({ requirements, roleTitle, cvText, baselineText }),
   };
 }

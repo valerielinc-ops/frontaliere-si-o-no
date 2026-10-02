@@ -193,7 +193,7 @@ async function editDraft(db, orderId, raw, adminEmail, { bucket, nowMs }) {
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   if (letterRaw && bucket) {
     // The header as the candidate corrected it (name, phone, place).
-    const pdf = rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
+    const pdf = await rebuildLetterPdf({ order, orderId, draft, flow: flowSnapshot.data() || {}, letter: coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-edit-${nowMs}.pdf`;
     await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   }

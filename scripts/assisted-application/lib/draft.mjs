@@ -9,7 +9,7 @@
  * same, so only the two calls that depend on the feedback run again.
  */
 
-import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
+import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
   applyLetterConventions,
   buildFormAnswers,
@@ -167,6 +167,7 @@ export async function buildDraft(ctx) {
   // while the match and the letter are written.
   const tailoredCvPromise = buildTailoredCv({
     kind,
+    rendererMode: await pdfRendererMode(),
     codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
     cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
   });
@@ -262,10 +263,12 @@ export async function buildDraft(ctx) {
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
 
-  const pdf = buildCoverLetterPdf(letterPdfBlocks({
+  // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
+  const rendererMode = await pdfRendererMode();
+  const { pdf, renderer: letterRenderer } = await renderLetterPdf(letterPdfBlocks({
     identity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)),
-  }));
+  }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
 
@@ -274,7 +277,8 @@ export async function buildDraft(ctx) {
   const tailored = await tailoredCvPromise;
   const ats = {
     original: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText, cvMethod }),
-    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf' }) } : {}),
+    // The tailored text against the honest ceiling of the candidate's own CV.
+    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf', baselineText: cvText }) } : {}),
   };
   const legitimacy = assessLegitimacy({
     posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
@@ -325,6 +329,8 @@ export async function buildDraft(ctx) {
     ats,
     legitimacy,
     candidateType: kind,
+    // Which writer produced the letter (typst, or legacy as fallback): measured per draft.
+    coverLetterRenderer: letterRenderer,
     tailoredCv: tailored.record,
   };
 
@@ -346,7 +352,7 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
   try {
     const raw = await codex({
       prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
@@ -363,8 +369,9 @@ async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, 
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
     }
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
-    await bucket.file(pdfKey).save(buildTailoredCvPdf(cv, { identity, profile }), { contentType: 'application/pdf', resumable: false });
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped }, text };
+    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log });
+    await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };

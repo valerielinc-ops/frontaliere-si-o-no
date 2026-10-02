@@ -6,19 +6,19 @@
  * printed only the contact person) and lists the enclosures that really leave.
  */
 
-import { buildCoverLetterPdf } from './assistedApplicationAiDocuments.js';
 import { letterEnclosures, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
 import { candidateWithEdits } from './assistedApplicationCandidateEdits.js';
 import { enclosedDocumentLabels } from './assistedApplicationExtraDocuments.js';
+import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRenderer.js';
 
 /**
- * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number}} input
- * @returns {Buffer}
+ * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, mode?:string}} input
+ * @returns {Promise<Buffer>}
  */
-export function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs }) {
+export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, mode }) {
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
   const language = draft?.language || 'it';
-  return buildCoverLetterPdf(letterPdfBlocks({
+  const blocks = letterPdfBlocks({
     identity,
     profile,
     posting: draft?.letterAddress || { contactPerson: draft?.contactPerson || '' },
@@ -28,5 +28,6 @@ export function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, now
     title: draft?.job?.title || order?.jobTitle || '',
     now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels(draft, flow, orderId)),
-  }));
+  });
+  return (await renderLetterPdf(blocks, { mode: mode || await pdfRendererMode() })).pdf;
 }

@@ -237,7 +237,7 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   if ((plan.draftPatch.coverLetter || plan.identityChanged) && bucket) {
-    const pdf = rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
+    const pdf = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
     await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   }
