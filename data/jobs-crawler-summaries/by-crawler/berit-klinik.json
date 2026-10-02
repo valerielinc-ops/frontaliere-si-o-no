@@ -1,16 +1,17 @@
 {
   "key": "berit-klinik",
   "label": "Berit Klinik",
-  "generatedAt": "2026-10-02T09:19:05.125Z",
+  "generatedAt": "2026-10-02T21:16:39.362Z",
   "total": 14,
   "newCount": 0,
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4242,
-  "avgDurationMs": 4242,
+  "durationMs": 94079,
+  "avgDurationMs": 94079,
   "durationHistory": [
-    4242
+    4242,
+    94079
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -501,7 +502,8 @@
         "richness": 18,
         "translation": 21,
         "completeness": 22
-      }
+      },
+      "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_ma_restaurant_wattwil__50__37d803f497.pdf"
     },
     {
       "title": "Op Dispo Wattwil 50–70%",
@@ -537,7 +539,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "sourceIdentity": "url:https://cms-berit-klinik.deployco.de/api/media/file/stelleninserat_op_dispo_wattwil_50_70__b498fe14b2.pdf",
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
