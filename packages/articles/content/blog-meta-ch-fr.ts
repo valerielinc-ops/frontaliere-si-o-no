@@ -7418,6 +7418,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.budget-familiare-basilea-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Bâle en comparaison',
     'blog.article.budget-familiare-basilea-2026.excerpt': 'Coût de la vie en Suisse 2026 : à Bâle, il y a trois niveaux d’imposition : le KVG dans les 3 mois suivant l’arrivée et un dépôt de loyer maximal de trois mois.',
     'blog.article.budget-familiare-basilea-2026.imageAlt': 'Table avec un budget familial des coûts de la vie suisse à Bâle',
+    'blog.article.spese-quotidiane-vaud-2026.title': 'Coût de la vie en Suisse 2026 : Canton de Vaud',
+    'blog.article.spese-quotidiane-vaud-2026.excerpt': 'Loyers, dépenses, transports, KVG et taxes : guide du coût de la vie 2026 dans le canton de Vaud, avec des règles nationales à comparer entre cantons.',
+    'blog.article.spese-quotidiane-vaud-2026.imageAlt': 'Comparaison du coût de la vie en Suisse, avec un focus sur le canton de Vaud',
 };
 
 export default blogMetaChFr;
