@@ -51,8 +51,13 @@ function cheapest(prices) {
   return known.reduce((best, price) => price.amount < best.amount ? price : best);
 }
 
+function matchesVenue(sourceVenue, event, venueMatcher) {
+  return sameVenue(sourceVenue, event.venue)
+    || (typeof venueMatcher === 'function' && venueMatcher(sourceVenue, event));
+}
+
 /** Follow an explicit source booking link only when its date and venue identify the same event. */
-export function extractEventBookingPrice(html, bookingUrl, event) {
+export function extractEventBookingPrice(html, bookingUrl, event, { venueMatcher } = {}) {
   const supported = supportedEventBookingUrl(bookingUrl);
   if (!supported || typeof html !== 'string' || !event?.startDate || !event.venue) return undefined;
   const dom = new JSDOM(html);
@@ -78,7 +83,7 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
       const sourceDate = month ? `${date[3]}-${String(month).padStart(2, '0')}-${String(date[1]).padStart(2, '0')}` : undefined;
       const sourceVenue = [...doc.querySelectorAll('h4')]
         .map(heading => heading.textContent.trim().split(/\s+[–—-]\s+/)[0].trim())
-        .find(value => sameVenue(value, event.venue)
+        .find(value => matchesVenue(value, event, venueMatcher)
           || sameVenue(value, event.venue.replace(/^AJZ\s+/i, ''))
           || sameVenue(value, event.venue.replace(/^AJZ\s+/i, '').replace(/\b(?:la|le|the)\b/gi, '')));
       const priceText = [...doc.querySelectorAll('h4')].map(heading => heading.textContent.trim())
@@ -88,7 +93,7 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
         ? { ...price, url: supported } : undefined;
     }
     const matching = eventNodes(doc).filter(node => localDate(node.startDate) === event.startDate
-      && sameVenue(node.location?.name, event.venue));
+      && matchesVenue(node.location?.name, event, venueMatcher));
     if (host === 'ticketing-nodabcvs.mapado.com') {
       // Mapado renders tariffs in HTML, but adds JSON-LD only after hydration.
       const spans = [...(doc.querySelector('main .mpd-card')?.children || [])].map(node => node.textContent.trim());
@@ -98,7 +103,7 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
       const date = monthIndex >= 0 && /^\d{1,2}$/.test(spans[1])
         ? `${month[2]}-${String(monthIndex + 1).padStart(2, '0')}-${spans[1].padStart(2, '0')}` : undefined;
       const venue = doc.querySelector('main h1 + p')?.textContent;
-      if (date !== event.startDate || !sameVenue(venue, event.venue)) return undefined;
+      if (date !== event.startDate || !matchesVenue(venue, event, venueMatcher)) return undefined;
       const prices = [...doc.querySelectorAll('main .mpd-card')]
         .filter(card => card.querySelector('button[aria-label="Ajouter"]'))
         .map(card => {
@@ -136,7 +141,7 @@ export function extractEventBookingPrice(html, bookingUrl, event) {
 }
 
 /** Bounded, public, allowlisted reads; failed or unrelated pages leave the price unknown. */
-export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fetch } = {}) {
+export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fetch, venueMatcher } = {}) {
   let url = supportedEventBookingUrl(bookingUrl);
   if (!url) return undefined;
   const origin = new URL(url).origin;
@@ -164,7 +169,7 @@ export async function fetchEventBookingPrice(event, bookingUrl, { fetchImpl = fe
         if (size > MAX_HTML_BYTES) { await reader.cancel(); return undefined; }
         chunks.push(Buffer.from(value));
       }
-      return extractEventBookingPrice(Buffer.concat(chunks).toString('utf8'), url, event);
+      return extractEventBookingPrice(Buffer.concat(chunks).toString('utf8'), url, event, { venueMatcher });
     }
   } catch { /* Best-effort enrichment; never fabricate a tariff on failure. */ }
   return undefined;
