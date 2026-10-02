@@ -37033,6 +37033,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'rovello-porro-regole-frontaliere',
+ category: 'fiscale',
+ date: '2026-10-02T00:41:55.626Z',
+ image: '/images/blog/rovello-porro-regole-frontaliere.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

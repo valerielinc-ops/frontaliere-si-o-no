@@ -12344,6 +12344,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Die Schweiz lehnt EU-Grenzregeln ab',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Schweizer Parlament: 109 Stimmen dafür zu 72, weil neue EU-Regeln nicht umgesetzt werden, die jährlich 600–900 Millionen kosten würden',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Schweizer Parlament in Bellinzona beschliesst Grenzgänger-Regeln',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Leben in Rovello Porro: Arbeit im Tessin als grenzüberschreitende Arbeiterin',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'Neues grenzüberschreitendes Pendlerabkommen ab dem 1. Januar 2024: Selbstbeteiligungen von 7.500 € bzw. 10.000 € und Einkommensteuer nur in der Schweiz einbehalten.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio im Tessin mit einem Grenzgänger',
 };
 
 export default blogMetaDe;

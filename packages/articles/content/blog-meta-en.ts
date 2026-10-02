@@ -12345,6 +12345,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.title': 'Switzerland rejects EU border rules',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.excerpt': 'Swiss Parliament: 109 votes in favour to 72 for not implementing new EU rules that would cost 600-900 million per year',
     'blog.article.svizzera-restituisce-regole-eu-frontalieri.imageAlt': 'Swiss Parliament in Bellinzona deciding on cross-border worker regulations',
+    'blog.article.rovello-porro-regole-frontaliere.title': 'Living in Rovello Porro: working in Ticino as a cross-border commuter',
+    'blog.article.rovello-porro-regole-frontaliere.excerpt': 'New Cross-Border Commuter Agreement effective from 1 January 2024: deductibles of €7,500 or €10,000 and income tax withheld only in Switzerland.',
+    'blog.article.rovello-porro-regole-frontaliere.imageAlt': 'Mendrisio in Ticino with a cross-border commuter',
 };
 
 export default blogMetaEn;
