@@ -298,6 +298,112 @@ describe('employer insights refresh rollback', () => {
       .toThrow(/missing the ga4 source result/);
   });
 
+  it('keeps the settled report window separate from forward live GA4 evidence', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const evidenceWindow = {
+      from: '2026-09-12T00:00:00+02:00',
+      to: '2026-09-14T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const catalog = employerInsightsBuilder.buildIdentityCatalog([{
+      id: 'job-1',
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: 'Role',
+      slug: 'role-it',
+      slugByLocale: { it: 'role-it' },
+      status: 'active',
+    }]);
+    const queryResult = (timestamp: string, emissionId: string, snapshotId: string) => ({
+      rows: [{
+        event: 'page_view',
+        timestamp,
+        employerKey: 'acme',
+        jobSlug: 'role-it',
+        pageTemplate: 'job_detail',
+        locale: 'it',
+        observed: 2,
+        emissionId,
+      }],
+      coverage: {
+        rowsReturned: 1,
+        totalRows: 1,
+        returnedRows: 1,
+        returned: 2,
+        sourceObserved: 2,
+        identityObserved: 2,
+        emissionIdDimensionRequested: true,
+        emissionIdObserved: 2,
+        emissionIdMissingObserved: 0,
+        firstCompleteIdentityAt: timestamp,
+        pages: 1,
+        truncated: false,
+        snapshotId,
+        queryHash: `${snapshotId}-query`,
+      },
+    });
+    const payload = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-14T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('2026-09-10T00:00:00.000Z', 'report-emission', 'report-snapshot'),
+      ga4EvidenceWindow: evidenceWindow,
+      ga4EvidenceResult: queryResult('2026-09-13T00:00:00.000Z', 'live-emission', 'live-snapshot'),
+      measurementWindow: window,
+      applicationRecords: [],
+      runMode: 'live',
+      primarySource: 'ga4',
+    });
+
+    expect(payload.evidence).toMatchObject({
+      status: 'live-first-run-ready',
+      measurementWindow: window,
+      evidenceWindow,
+    });
+    expect(payload.evidence.ga4.emissionId).toMatchObject({
+      status: 'complete',
+      withValue: 2,
+      withoutValue: 0,
+    });
+    expect(validateD18Artifact(payload, { requireLiveGa4: true }).ok).toBe(true);
+
+    const blocked = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-14T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('2026-09-10T00:00:00.000Z', 'report-emission', 'report-snapshot'),
+      ga4EvidenceWindow: evidenceWindow,
+      ga4EvidenceUnavailableReason: 'live probe unavailable',
+      measurementWindow: window,
+      applicationRecords: [],
+      runMode: 'live',
+      primarySource: 'ga4',
+    });
+    expect(blocked.evidence.status).toBe('blocked');
+    expect(blocked.evidence.blockers.join('\n')).toMatch(/emission_id/);
+    expect(validateD18Artifact(blocked, { requireLiveGa4: true }).ok).toBe(false);
+  });
+
+  it('starts the live evidence probe at the settled report cutoff', () => {
+    const reportWindow = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const live = employerInsightsBuilder.d18LiveEvidenceWindow(reportWindow, '2026-09-14T06:00:00.000Z');
+
+    expect(Date.parse(live.from)).toBe(Date.parse(reportWindow.to));
+    expect(live.to).toBe('2026-09-14T06:00:00.000Z');
+    expect(live.timezone).toBe('Europe/Zurich');
+  });
+
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/on:\s*[\s\S]*schedule:\s*[\s\S]*cron:\s*'15 5 \* \* \*'/);
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/ga4\) ;;/);

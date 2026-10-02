@@ -486,7 +486,7 @@ describe('employer insights event coverage', () => {
       eventName === '$pageview' ? 1 : 0,
       eventName === 'select_content' || eventName === 'job_apply' ? 1 : 0,
       'action-array-1',
-      '2026-09-01 12:00:00',
+      IN_WINDOW_TIMESTAMP,
     ];
     const [doc] = build([
       groupedRow('job_apply', 'job-array-event'),
