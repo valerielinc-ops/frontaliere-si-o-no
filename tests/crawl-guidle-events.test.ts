@@ -185,6 +185,23 @@ describe('parsePriceText', () => {
     expect(parsePriceText('')).toBeUndefined();
     expect(parsePriceText(undefined)).toBeUndefined();
   });
+
+  it.each([
+    'gratis', 'gratuito', 'gratuit', 'kostenlos', 'Eintritt frei', 'free entry',
+    'free admission', 'ingresso libero', 'ingresso gratuito', 'entrée libre', 'entrée gratuite',
+  ])('records localized free-access evidence: %s', (label) => {
+    const parsed = parsePriceText(label);
+    expect(parsed).toMatchObject({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsed.evidence).toBe('label-free');
+  });
+
+  it('accepts explicit zero tariffs and ignores dates, phones and identifiers', () => {
+    expect(parsePriceText('CHF 0')).toMatchObject({ amount: 0, isFree: true });
+    expect(parsePriceText('0.–')).toMatchObject({ amount: 0, isFree: true });
+    expect(parsePriceText('2026-07-04')).toMatchObject({ amount: null, isFree: false });
+    expect(parsePriceText('+41 91 555 12 34')).toMatchObject({ amount: null, isFree: false });
+    expect(parsePriceText('ID 123456')).toMatchObject({ amount: null, isFree: false });
+  });
 });
 
 function buildDetailHtml({

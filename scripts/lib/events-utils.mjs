@@ -1501,8 +1501,16 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero|entrata libera)\b/i;
-const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
+const PRICE_FREE_RE = /\b(gratis|gratuit[oa]?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuito|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
+const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])\d{1,5}(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
+const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
+const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
+const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
+
+function priceResult(value, evidence) {
+  Object.defineProperty(value, 'evidence', { value: evidence, enumerable: false, configurable: true });
+  return value;
+}
 
 /**
  * Parse a free-text price snippet (e.g. "CHF 10.00 pro Person", "Ingresso 20
@@ -1516,19 +1524,28 @@ const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
 export function parsePriceText(rawText) {
   const t = typeof rawText === 'string' ? rawText.replace(/\s+/g, ' ').trim() : '';
   if (!t) return undefined;
+  const free = PRICE_FREE_RE.test(t);
+  const conditionalFree = /(?:children|kids|bambini|enfants|kinder)\s+(?:free|gratis|gratuit|kostenlos|frei|liber[oa])|(?:free|gratis|gratuit|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)/iu.test(t);
+  if (free && conditionalFree && /\d/u.test(t)) return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  if (free && !PRICE_PHONE_RE.test(t)) {
+    return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
+  }
+  if (/^0(?:[.,]0{1,2}|[.][–—-]{1,2})?$/u.test(t)) return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'numeric');
+  if (!PRICE_CONTEXT_RE.test(t) || PRICE_DATE_OR_PHONE_RE.test(t)) {
+    return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
+  }
   const numbers = [];
   PRICE_AMOUNT_RE.lastIndex = 0;
   let m;
   while ((m = PRICE_AMOUNT_RE.exec(t))) {
-    const n = Number.parseFloat(m[1].replace(',', '.'));
-    if (Number.isFinite(n)) numbers.push(n);
+    const n = Number.parseFloat(m[0].replace(',', '.'));
+    if (Number.isFinite(n) && n >= 0) numbers.push(n);
   }
   if (numbers.length) {
     const amount = Math.min(...numbers);
-    return { amount, currency: 'CHF', isFree: amount === 0 };
+    return priceResult({ amount, currency: /EUR|€/iu.test(t) ? 'EUR' : 'CHF', isFree: amount === 0 }, 'numeric');
   }
-  if (PRICE_FREE_RE.test(t)) return { amount: 0, currency: 'CHF', isFree: true };
-  return { amount: null, currency: 'CHF', isFree: false };
+  return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
 }
 
 /**
