@@ -208,7 +208,7 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
-  it('publishes Tinext zero only when the validated Kenjo API reports no active positions', () => {
+  it('publishes Tinext zero only after a validated Kenjo empty-source proof', () => {
     const source = readRepoFile('scripts/update-tinext-jobs.mjs');
     const discovery = source.slice(
       source.indexOf('async function discoverListings()'),
@@ -236,7 +236,8 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
     expect(helper).toContain('authoritativeEmptySnapshot: true');
     expect(helper).toContain('await assembleJobsDataset()');
-    // A non-empty API list whose details all fail is not a proven zero.
+    // A non-empty API list whose details all fail is not a proven zero without
+    // the separate explicit empty-state proof from the public career page.
     expect(unbuiltListingsBranch).toContain('return;');
     expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
     expect(source).toContain("registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts)");
