@@ -592,6 +592,8 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     // `MOPUP_TRAFFIC_LANE` e `orderMopupJobsByTraffic` sono l'estrazione della
     // scelta di corsia da main() (issue #7361): sono valori e una funzione
     // pura, nessuno dei due tocca il filesystem all'import.
+    // `orderMopupRequestsTitleFirst` e' l'ordine titoli-prima del batch Argos,
+    // estratto da main() per lo stesso motivo: funzione pura, nessun I/O.
     // `createFreshCoverageMeter` (issue #7362) e' una factory di contatori: la
     // misura della copertura della coorte <24h vive fuori da main() per essere
     // osservabile, e all'import non legge nulla.
@@ -614,6 +616,7 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
       'negativeMopupCacheKey',
       'opusMtRescueEnabled',
       'orderMopupJobsByTraffic',
+      'orderMopupRequestsTitleFirst',
       'rescueMopupRejects',
       'shadowWithheldOverwrite',
       'shouldApplyMopupWrite',
