@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swisscom-sede-ticino",
-  "assembledAt": "2026-10-01T21:24:21.284Z",
+  "assembledAt": "2026-10-02T09:24:10.574Z",
   "jobs": [
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Full-Stack-Developer_R-0006394-1",
@@ -20,9 +20,7 @@
         "fr": "# Développeur de pile complète\n\n## Votre avenir commence ici\nAvertissement : Ce texte sert de modèle à votre annonce. Changez-le pour que les points texte/liste correspondent à votre position; gardez à l'esprit que vous avez 4 points de liste pour les faits saillants et 8 points de liste pour les compétences (techniques et transversales) et supprimez les points de liste non pertinents. Supprimer ce texte afin qu'il n'apparaisse pas dans la publicité publiée.\nRédigez une brève introduction à votre poste, équipe, organisation...\n- Chef de...\n- …\n\n## Vos compétences\n- Degré (Uni/SUP/SSS/AFC) en...\n- Plusieurs années d'expérience professionnelle dans ...\n- …\n- Objectifs et orientation des clients, des mentalités et du comportement des entreprises\n- En toute sécurité et plaisir de travailler en équipe\n- Mode de travail flexible, fiable et indépendant avec de solides capacités de communication\n- Grand allemand et anglais; d'autres langues nationales sont un avantage\n\nExclusion de responsabilité : réécrire ce texte s'il ne correspond pas à votre position. Supprimer également ce texte d'aide de sorte qu'il n'apparaît pas dans la description de travail.\nAvec nous vous pouvez travailler dans un de nos bureaux en Suisse ou dans votre bureau à domicile. Vous contacterez les méthodes de travail agiles et les dernières technologies. Nous offrons des horaires de travail flexibles pour répondre à vos besoins personnels. En tant qu'employé de Swisscom, vous pouvez compter sur un certain nombre d'avantages intéressants qui enrichiront votre expérience de travail, comme un environnement de travail agréable, des avantages économiques et des possibilités passionnantes de développement professionnel. Découvrez vos avantages.\n\n## C'est une correspondance ? Candidat maintenant.\n\n## Découvrez vos possibilités\n\n## Des questions ?\nVous trouverez ici des réponses aux questions les plus importantes et fréquentes.\nÀ toutes les agences de recrutement : Swisscom n'accepte pas les curriculum vitae envoyés par les agences. Veuillez ne pas soumettre de curriculum vitae à l'adresse électronique dédiée aux postes de travail de Swisscom, aux employés de Swisscom ou à tout autre bureau de l'organisation. Swisscom n'est pas responsable des frais liés aux CV non sollicités.\n\n## Personne à contacter\n\n## Votre base opérationnelle"
       },
       "requirements": [],
-      "requirementsByLocale": {
-        "it": []
-      },
+      "requirementsByLocale": {},
       "titleByLocale": {
         "it": "Full Stack Sviluppatore",
         "en": "Full Stack Developer",
@@ -48,8 +46,10 @@
       },
       "sourceLang": "it",
       "jobReqId": "R-0006394",
-      "crawledAt": "",
       "id": "swisscom-sede-ticino-55967c3c41bf",
+      "firstSeenAt": "2026-10-01T21:24:18.263Z",
+      "needsRetranslation": true,
+      "crawledAt": "",
       "salaryMin": 73000,
       "salaryMax": 124500,
       "currency": "CHF",
@@ -64,8 +64,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BE",
-      "firstSeenAt": "2026-10-01T21:24:18.263Z"
+      "addressRegion": "BE"
     },
     {
       "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Bern/Internship-NETAdvance---Mobile-Analytics_R-0006562",
@@ -313,11 +312,13 @@
       "jobReqId": "R-0006698",
       "id": "swisscom-sede-ticino-cda4a7278ed3",
       "previousSlugs": [
-        "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+        "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+        "datacenter-commercializzazione-swisscom-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "datacenter-specialized-sales-swisscom-zurich-drxcu0"
+          "datacenter-specialized-sales-swisscom-zurich-drxcu0",
+          "datacenter-commercializzazione-swisscom-zurich"
         ],
         "fr": [
           "datacenter-specialized-sales-swisscom-zurich-drxcu0"
@@ -388,11 +389,13 @@
       "jobReqId": "R-0006082",
       "id": "swisscom-sede-ticino-d8a1fc143720",
       "previousSlugs": [
-        "apprentissage-informaticien-ne-cfc-exploitation-et-infrastructure-swisscom-lausanne-drxhb7"
+        "apprentissage-informaticien-ne-cfc-exploitation-et-infrastructure-swisscom-lausanne-drxhb7",
+        "imparare-informatica-cfc-operazioni-e-infrastrutture-swisscom-sede-ticino-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-informaticien-ne-cfc-exploitation-et-infrastructure-swisscom-lausanne-drxhb7"
+          "apprentissage-informaticien-ne-cfc-exploitation-et-infrastructure-swisscom-lausanne-drxhb7",
+          "imparare-informatica-cfc-operazioni-e-infrastrutture-swisscom-sede-ticino-lausanne"
         ],
         "en": [
           "apprentissage-informaticien-ne-cfc-exploitation-et-infrastructure-swisscom-lausanne-drxhb7"
@@ -469,7 +472,8 @@
         "tirocinio-in-audit-it-swisscom-sede-ticino-bern",
         "internship-it-audit-swisscom-bern-u408v8",
         "stage-it-audit-swisscom-sede-ticino-bern",
-        "it-auditor-swisscom-bern-qsaigg"
+        "it-auditor-swisscom-bern-qsaigg",
+        "it-audit-swisscom-bern-qsaigg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -477,7 +481,8 @@
           "tirocinio-in-audit-it-swisscom-sede-ticino-bern",
           "internship-it-audit-swisscom-bern-u408v8",
           "stage-it-audit-swisscom-sede-ticino-bern",
-          "it-auditor-swisscom-bern-qsaigg"
+          "it-auditor-swisscom-bern-qsaigg",
+          "it-audit-swisscom-bern-qsaigg"
         ],
         "en": [
           "internship-it-audit-swisscom-sede-ticino-bern"
@@ -553,11 +558,13 @@
       "jobReqId": "R-0006415",
       "id": "swisscom-sede-ticino-4f7c749d1c3c",
       "previousSlugs": [
-        "business-engineer-swisscom-bern-qrq3m9"
+        "business-engineer-swisscom-bern-qrq3m9",
+        "business-ingegnere-swisscom-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "business-engineer-swisscom-bern-qrq3m9"
+          "business-engineer-swisscom-bern-qrq3m9",
+          "business-ingegnere-swisscom-bern"
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:41.391Z",
@@ -625,16 +632,19 @@
       "id": "swisscom-sede-ticino-c60ec9dc9849",
       "previousSlugs": [
         "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej",
-        "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j"
+        "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j",
+        "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "it-consultant-full-stack-software-engineer-swisscom-zurich-hmniej",
-          "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j"
+          "it-consultant-full-stack-software-engineer-swisscom-zurich-rp893j",
+          "it-consulente-full-stack-software-ingegnere-swisscom-sede-ticino-zurich"
         ]
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "currency": "CHF",
@@ -698,11 +708,13 @@
       "id": "swisscom-sede-ticino-b439c81a9580",
       "previousSlugs": [
         "projektleiter-sicherheitssysteme-swisscom-st-gallen-r6zwt2",
-        "projektleiter-sicherheitssysteme-swisscom-sede-ticino-st-gallen"
+        "projektleiter-sicherheitssysteme-swisscom-sede-ticino-st-gallen",
+        "sistemi-di-sicurezza-project-manager-swisscom-sede-ticino-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-sicherheitssysteme-swisscom-st-gallen-r6zwt2"
+          "projektleiter-sicherheitssysteme-swisscom-st-gallen-r6zwt2",
+          "sistemi-di-sicurezza-project-manager-swisscom-sede-ticino-st-gallen"
         ],
         "en": [
           "projektleiter-sicherheitssysteme-swisscom-st-gallen-r6zwt2"
@@ -713,6 +725,7 @@
       },
       "firstSeenAt": "2026-09-03T13:43:40.656Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
       "currency": "CHF",
@@ -776,12 +789,14 @@
       "id": "swisscom-sede-ticino-45a67cca0c02",
       "previousSlugs": [
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
-        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran"
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran",
+        "imparare-swc-retail-manager-swisscom-sede-ticino-avry-sur-matran"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj",
-          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran"
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-avry-sur-matran",
+          "imparare-swc-retail-manager-swisscom-sede-ticino-avry-sur-matran"
         ],
         "en": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-avry-sur-matran-drxxmj"
@@ -792,6 +807,7 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "currency": "CHF",
@@ -855,12 +871,14 @@
       "id": "swisscom-sede-ticino-05b9da3ce96f",
       "previousSlugs": [
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
-        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel"
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel",
+        "imparare-swc-retail-manager-swisscom-sede-ticino-neuchatel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh",
-          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel"
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-neuchatel",
+          "imparare-swc-retail-manager-swisscom-sede-ticino-neuchatel"
         ],
         "en": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-neuchatel-drxxmh"
@@ -871,6 +889,7 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "currency": "CHF",
@@ -934,12 +953,14 @@
       "id": "swisscom-sede-ticino-7cfc2ad88916",
       "previousSlugs": [
         "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
-        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre"
+        "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre",
+        "imparare-swc-retail-manager-swisscom-sede-ticino-sierre"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf",
-          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre"
+          "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sede-ticino-sierre",
+          "imparare-swc-retail-manager-swisscom-sede-ticino-sierre"
         ],
         "en": [
           "apprentissage-gestionnaire-du-commerce-de-detail-cfc-swisscom-sierre-drxxmf"
@@ -950,6 +971,7 @@
       },
       "firstSeenAt": "2026-09-01T00:43:04.097Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "currency": "CHF",
@@ -1012,11 +1034,13 @@
       "jobReqId": "R-0006312",
       "id": "swisscom-sede-ticino-d750126ae7c1",
       "previousSlugs": [
-        "modern-workplace-engineer-swisscom-zurich-qs9yfp"
+        "modern-workplace-engineer-swisscom-zurich-qs9yfp",
+        "modern-workplace-ingegnere-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "modern-workplace-engineer-swisscom-zurich-qs9yfp"
+          "modern-workplace-engineer-swisscom-zurich-qs9yfp",
+          "modern-workplace-ingegnere-swisscom-sede-ticino-zurich"
         ],
         "en": [
           "modern-workplace-engineer-swisscom-zurich-qs9yfp"
@@ -1092,11 +1116,13 @@
       "jobReqId": "R-0005800",
       "id": "swisscom-sede-ticino-5110a1e23db2",
       "previousSlugs": [
-        "devops-engineer-ddi-services-swisscom-bern-drxyk4"
+        "devops-engineer-ddi-services-swisscom-bern-drxyk4",
+        "devops-ingegnere-ddi-services-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "devops-engineer-ddi-services-swisscom-bern-drxyk4"
+          "devops-engineer-ddi-services-swisscom-bern-drxyk4",
+          "devops-ingegnere-ddi-services-swisscom-sede-ticino-bern"
         ],
         "en": [
           "devops-engineer-ddi-services-swisscom-bern-drxyk4"
@@ -1168,13 +1194,15 @@
       "previousSlugs": [
         "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-drxxn7",
         "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-        "learning-afc-digital-business-developer-swisscom-sede-ticino-bellinzona"
+        "learning-afc-digital-business-developer-swisscom-sede-ticino-bellinzona",
+        "apprendimento-digital-business-developer-cfc-swisscom-sede-ticino-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-drxxn7",
           "imparare-cfc-digital-business-developer-se-swisscom-sede-ticino-lausanne",
-          "learning-afc-digital-business-developer-swisscom-sede-ticino-bellinzona"
+          "learning-afc-digital-business-developer-swisscom-sede-ticino-bellinzona",
+          "apprendimento-digital-business-developer-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
           "apprentissage-developpeur-se-de-business-numerique-cfc-swisscom-lausanne-drxxn7"
@@ -1185,6 +1213,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1247,11 +1276,13 @@
       "jobReqId": "R-0005975",
       "id": "swisscom-sede-ticino-3f0edeb8cd01",
       "previousSlugs": [
-        "apprentissage-informaticien-ne-cfc-developpement-d-applications-swisscom-geneva-drxxn9"
+        "apprentissage-informaticien-ne-cfc-developpement-d-applications-swisscom-geneva-drxxn9",
+        "imparare-informaticien-ne-cfc-sviluppo-delle-applicazioni-swisscom-geneva-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprentissage-informaticien-ne-cfc-developpement-d-applications-swisscom-geneva-drxxn9"
+          "apprentissage-informaticien-ne-cfc-developpement-d-applications-swisscom-geneva-drxxn9",
+          "imparare-informaticien-ne-cfc-sviluppo-delle-applicazioni-swisscom-geneva-geneve"
         ],
         "en": [
           "apprentissage-informaticien-ne-cfc-developpement-d-applications-swisscom-geneva-drxxn9"
@@ -1326,13 +1357,15 @@
       "previousSlugs": [
         "apprentissage-operateur-trice-informatique-trice-cfc-swisscom-sede-ticino-bellinzona",
         "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-drxxnd",
-        "learning-computer-operator-afc-swisscom-sede-ticino-bellinzona"
+        "learning-computer-operator-afc-swisscom-sede-ticino-bellinzona",
+        "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprentissage-operateur-trice-informatique-trice-cfc-swisscom-sede-ticino-bellinzona",
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-drxxnd",
-          "learning-computer-operator-afc-swisscom-sede-ticino-bellinzona"
+          "learning-computer-operator-afc-swisscom-sede-ticino-bellinzona",
+          "imparare-computer-operator-cfc-swisscom-sede-ticino-lausanne"
         ],
         "en": [
           "apprentissage-operateur-trice-en-informatique-cfc-swisscom-lausanne-drxxnd"
@@ -1343,6 +1376,7 @@
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1406,12 +1440,14 @@
       "id": "swisscom-sede-ticino-db86b30e5157",
       "previousSlugs": [
         "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-kmh8z7",
-        "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-drxxn5"
+        "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-drxxn5",
+        "pib-bachelor-of-science-bsc-in-informatica-swisscom-sede-ticino-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-kmh8z7",
-          "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-drxxn5"
+          "pibs-bachelor-of-science-bsc-en-informatique-swisscom-lausanne-drxxn5",
+          "pib-bachelor-of-science-bsc-in-informatica-swisscom-sede-ticino-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-31T22:26:37.116Z",
@@ -1481,14 +1517,16 @@
         "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29",
         "consulente-senior-avaloq-credito-esperto-swisscom-sede-ticino-zurich",
         "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh",
-        "senior-avaloq-consultant-swisscom-zurich-drypuh"
+        "senior-avaloq-consultant-swisscom-zurich-drypuh",
+        "senior-avaloq-consulente-expert-credit-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29",
           "consulente-senior-avaloq-credito-esperto-swisscom-sede-ticino-zurich",
           "senior-avaloq-consultant-expert-credit-swisscom-zurich-drypuh",
-          "senior-avaloq-consultant-swisscom-zurich-drypuh"
+          "senior-avaloq-consultant-swisscom-zurich-drypuh",
+          "senior-avaloq-consulente-expert-credit-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-avaloq-consultant-expert-credit-swisscom-zurich-9x6b29"
@@ -1561,12 +1599,14 @@
         "senior-sap-technology-consultant-swisscom-zurich-6txn43",
         "senior-sap-solution-architetto-swisscom-sede-ticino-zurich",
         "senior-sap-solution-architect-swisscom-zurich-r8r4ib",
-        "senior-sap-technology-berater-swisscom-sede-ticino-zurich"
+        "senior-sap-technology-berater-swisscom-sede-ticino-zurich",
+        "senior-sap-technology-consulente-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-sap-technology-consultant-swisscom-zurich-6txn43",
-          "senior-sap-solution-architect-swisscom-zurich-r8r4ib"
+          "senior-sap-solution-architect-swisscom-zurich-r8r4ib",
+          "senior-sap-technology-consulente-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-sap-technology-consultant-swisscom-zurich-6txn43",
@@ -1644,7 +1684,8 @@
         "devops-engineer-swisscom-bern-manv40",
         "devops-engineer-swisscom-sede-ticino-bern",
         "devops-ingegnere-swisscom-sede-ticino-bern",
-        "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern"
+        "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern",
+        "devops-ingegnere-microsoft-swisscom-sede-ticino-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1654,7 +1695,8 @@
           "devops-engineer-swisscom-bern-manv40",
           "devops-engineer-swisscom-sede-ticino-bern",
           "devops-ingegnere-swisscom-sede-ticino-bern",
-          "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern"
+          "devops-ingegnere-nextcloud-swisscom-sede-ticino-bern",
+          "devops-ingegnere-microsoft-swisscom-sede-ticino-bern"
         ],
         "en": [
           "devops-engineer-swisscom-sede-ticino-bern"
@@ -1728,12 +1770,14 @@
       "id": "swisscom-sede-ticino-4088fe2174e3",
       "previousSlugs": [
         "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m",
-        "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz"
+        "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz",
+        "senior-consulente-sap-for-utilities-swisscom-sede-ticino-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m",
-          "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz"
+          "senior-consultant-sap-for-utilities-swisscom-zurich-ds19wz",
+          "senior-consulente-sap-for-utilities-swisscom-sede-ticino-zurich"
         ],
         "de": [
           "senior-consultant-sap-for-utilities-swisscom-zurich-aqdb1m"
@@ -1744,6 +1788,7 @@
       },
       "firstSeenAt": "2026-05-10T10:58:32.802Z",
       "crawledAt": "",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "currency": "CHF",
@@ -1759,84 +1804,6 @@
         }
       },
       "addressRegion": "ZH"
-    },
-    {
-      "url": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Microsoft-Licensing-Sales-Specialist_R-0006153",
-      "applyUrl": "https://swisscom.wd103.myworkdayjobs.com/it-IT/SwisscomExternalCareers/job/Zurich/Microsoft-Licensing-Sales-Specialist_R-0006153",
-      "title": "Microsoft Licensing Sales Specialist",
-      "company": "Swisscom",
-      "companyKey": "swisscom-sede-ticino",
-      "location": "Zurich",
-      "addressLocality": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "description": "# Microsoft Licensing Sales Specialist\n\n## Il tuo futuro inizia qui\nYou grow and manage a portfolio of B2B customers across Microsoft licensing models. Together with presales and technical teams, you shape proposals tied to Azure, Microsoft 365 and Dynamics 365 consumption. Based on each client's cloud maturity, usage and governance, you recommend the best‑fit model and turn it into a deal. This combined offer of licensing, professional services and managed services creates long‑term value.\n- Own and grow a B2B account portfolio across Microsoft licensing models (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Lead the full sales cycle from prospecting and qualification to proposal, negotiation and renewal\n- Promote our combined offer of licensing, professional services and managed services to maximize account value and retention\n- Co‑create proposals with presales and technical teams aligned to Azure, Microsoft 365 and Dynamics 365 consumption\n- Manage the Microsoft partner relationship and stay current on program changes to leverage incentives, co‑selling and market development funds\n\n## Your skills\n- Several years of B2B IT sales with deep knowledge of Microsoft licensing models (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Strong understanding of the Microsoft cloud ecosystem (Azure, Microsoft 365, Dynamics 365) and commercial mechanics such as incentives, rebates and partner programs\n- Ability to build business cases and compare licensing scenarios based on client return on investment (ROI)\n- Comfortable working cross‑functionally with presales, product, partner management and services\n- Excellent consultative selling and negotiation, credible with technical and executive stakeholders\n- Communicative and collaborative, able to build lasting relationships and drive results\n- Proactive, analytical and structured in your approach\n- Fluent German and English for the Swiss German market\n\nCon noi hai la possibilità di lavorare in uno dei nostri uffici in Svizzera o nel tuo home office. Entrerai in contatto con metodi di lavoro agili e le ultime tecnologie. Offriamo orari di lavoro flessibili per soddisfare le tue esigenze personali. In qualità di collaboratore Swisscom potrai contare su una serie di vantaggi interessanti che arricchiranno la tua esperienza lavorativa, quali un ambiente di lavoro piacevole, vantaggi economici ed entusiasmanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-      "descriptionByLocale": {
-        "it": "# Microsoft Licensing Sales Specialist\n\n## Il tuo futuro inizia qui\nCresci e gestisci un portafoglio di clienti B2B attraverso i modelli di licenza Microsoft. Insieme alle presele e ai team tecnici, fornisci proposte legate al consumo Azure, Microsoft 365 e Dynamics 365. Sulla base della maturità, dell'utilizzo e della governance di ogni cliente, si consiglia il modello più adatto e lo trasforma in un accordo. Questa offerta combinata di licenze, servizi professionali e servizi gestiti crea valore a lungo termine.\n- Possedere e crescere un portafoglio di account B2B in modelli di licenza Microsoft (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Condurre il ciclo di vendita completo dalla prospettiva e qualifica alla proposta, negoziazione e rinnovo\n- Promuovere la nostra offerta combinata di licenze, servizi professionali e servizi gestiti per massimizzare il valore e la ritenzione del conto\n- Co-creare proposte con presele e team tecnici allineati al consumo Azure, Microsoft 365 e Dynamics 365\n- Gestire il rapporto partner Microsoft e rimanere corrente sui cambiamenti del programma per sfruttare incentivi, fondi di co-vendita e sviluppo del mercato\n\n## Le tue competenze\n- Diversi anni di vendite di B2B IT con profonda conoscenza dei modelli di licenze Microsoft (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Forte comprensione dell'ecosistema cloud Microsoft (Azure, Microsoft 365, Dynamics 365) e della meccanica commerciale come incentivi, sconti e programmi partner\n- Capacità di costruire casi aziendali e confrontare scenari di licenza basati sul ritorno del cliente sugli investimenti (ROI)\n- Confortevole lavoro cross-funzionale con presele, prodotti, gestione dei partner e servizi\n- Eccellente vendita consultiva e negoziazione, credibile con gli stakeholder tecnici ed esecutivi\n- Comunicativo e collaborativo, in grado di costruire relazioni durature e risultati di unità\n- Proattivo, analitico e strutturato nel vostro approccio\n- Tedesco fluente e inglese per il mercato svizzero tedesco\n\nCon noi hai la possibilità di lavorare in uno dei nostri uffici in Svizzera o nel tuo ufficio. Entrerai in contatto con metodi di lavoro agili e le ultime tecnologie. Servizi di lavoro flessibili per soddisfare le tue esigenze personali. In qualità di collaboratore Swisscom contare su una serie di vantaggi interessanti che arricchiranno la tua esperienza lavorativa, quali un ambiente di lavoro piacevole, vantaggi economici ed entusiasmanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi.\n\n## E' compatibile? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum manda dalle agenzie. Vi chiediamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a un curriculum non richiesto.\n\n## Persona di contatto\n\n## La tua base operativa",
-        "en": "# Microsoft Licensing Sales Specialist\n\n## Il tuo futuro inizia qui\nYou grow and manage a portfolio of B2B customers across Microsoft licensing models. Together with presales and technical teams, you shape proposals tied to Azure, Microsoft 365 and Dynamics 365 consumption. Based on each client's cloud maturity, usage and governance, you recommend the best‑fit model and turn it into a deal. This combined offer of licensing, professional services and managed services creates long‑term value.\n- Own and grow a B2B account portfolio across Microsoft licensing models (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Lead the full sales cycle from prospecting and qualification to proposal, negotiation and renewal\n- Promote our combined offer of licensing, professional services and managed services to maximize account value and retention\n- Co‑create proposals with presales and technical teams aligned to Azure, Microsoft 365 and Dynamics 365 consumption\n- Manage the Microsoft partner relationship and stay current on program changes to leverage incentives, co‑selling and market development funds\n\n## Your skills\n- Several years of B2B IT sales with deep knowledge of Microsoft licensing models (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Strong understanding of the Microsoft cloud ecosystem (Azure, Microsoft 365, Dynamics 365) and commercial mechanics such as incentives, rebates and partner programs\n- Ability to build business cases and compare licensing scenarios based on client return on investment (ROI)\n- Comfortable working cross‑functionally with presales, product, partner management and services\n- Excellent consultative selling and negotiation, credible with technical and executive stakeholders\n- Communicative and collaborative, able to build lasting relationships and drive results\n- Proactive, analytical and structured in your approach\n- Fluent German and English for the Swiss German market\n\nCon noi hai la possibilità di lavorare in uno dei nostri uffici in Svizzera o nel tuo home office. Entrerai in contatto con metodi di lavoro agili e le ultime tecnologie. Offriamo orari di lavoro flessibili per soddisfare le tue esigenze personali. In qualità di collaboratore Swisscom potrai contare su una serie di vantaggi interessanti che arricchiranno la tua esperienza lavorativa, quali un ambiente di lavoro piacevole, vantaggi economici ed entusiasmanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi.\n\n## Is it a match? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-        "de": "# Microsoft Licensing Sales Spezialist\n\n## Il tuo futuro inizia qui\nSie wachsen und verwalten ein Portfolio von B2B-Kunden in Microsoft-Lizenzmodellen. Zusammen mit Presales und technischen Teams erstellen Sie Vorschläge für Azure, Microsoft 365 und Dynamics 365 Verbrauch. Basierend auf der Cloud-Reife, Nutzung und Governance jedes Kunden empfehlen Sie das beste Modell und machen es zu einem Deal. Dieses kombinierte Angebot aus Lizenzierung, Professional Services und Managed Services schafft langfristigen Wert.\n- Besitzen und erweitern Sie ein B2B-Kontoportfolio für Microsoft-Lizenzmodelle (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Führen Sie den gesamten Verkaufszyklus von der Prospektion und Qualifizierung bis hin zu Vorschlag, Verhandlung und Erneuerung\n- Bewerben Sie unser kombiniertes Angebot aus Lizenzierung, professionellen Dienstleistungen und Managed Services, um den Kontowert und die Kundenbindung zu maximieren\n- Erstellen von Vorschlägen mit Presales und technischen Teams, die auf Azure, Microsoft 365 und Dynamics 365 ausgerichtet sind\n- Verwalten Sie die Microsoft-Partnerbeziehung und bleiben Sie über Programmänderungen auf dem Laufenden, um Anreize, Co-Selling und Marktentwicklungsfonds zu nutzen\n\n## Ihre Fähigkeiten\n- Mehrjährige B2B-IT-Verkäufe mit fundierten Kenntnissen der Microsoft-Lizenzmodelle (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Starkes Verständnis des Microsoft Cloud-Ökosystems (Azure, Microsoft 365, Dynamics 365) und kommerzieller Mechanismen wie Incentives, Rabatte und Partnerprogramme\n- Fähigkeit, Business Cases zu erstellen und Lizenzszenarien basierend auf dem Client Return on Investment (ROI) zu vergleichen\n- Komfortables funktionsübergreifendes Arbeiten mit Presales, Produkt-, Partnermanagement und Services\n- Ausgezeichneter beratender Verkauf und Verhandlung, glaubwürdig mit technischen und leitenden Stakeholdern\n- Kommunikativ und kooperativ, in der Lage, dauerhafte Beziehungen aufzubauen und Ergebnisse zu erzielen\n- Proaktiv, analytisch und strukturiert in Ihrem Ansatz\n- fließend Deutsch und Englisch für den schweizerischen deutschen Markt\n\nCon noi hai la possibilità di lavorare in uno dei nostri uffici in Svizzera o nel tuo home office. Entrerai in contatto con metodi di lavoro agili e le ultime tecnologie. Offriamo orari di lavoro flessibili per soddisfare le tue esigenze personali. In qualità di collaborationore Swisscom potrai contare su una serie di vantaggi interessanti che arricchiranno la tua esperienza lavorativa, quali un ambiente di lavoro piacevole, vantaggi economici ed entusiasmanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi.\n\n## Ist es ein Match? Candidati ora.\n\n## Scopri le do possibilità\n\n## Hai delle domande?\nQui troverai risposte alle domande più importanti e frequenti.\nA tutte le agenzie di reclutamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si übernimmt responsabilità per eventuali spese legate a curriculum non richiesti.\n\n## Persona di contatto\n\n## La tua base operativa",
-        "fr": "# Microsoft Licence Spécialiste des ventes\n\n## Il tuo futuro inizia qui\nVous développez et gérez un portefeuille de clients B2B à travers les modèles de licence Microsoft. Avec les préventes et les équipes techniques, vous façonnez des propositions liées à la consommation Azure, Microsoft 365 et Dynamics 365. En fonction de la maturité, de l'utilisation et de la gouvernance du cloud de chaque client, vous recommandez le modèle le mieux adapté et le transformez en une affaire. Cette offre combinée de licences, de services professionnels et de services gérés crée une valeur à long terme.\n- Posséder et développer un portefeuille de comptes B2B dans tous les modèles de licences Microsoft (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Diriger le cycle complet des ventes de la prospection et de la qualification à la proposition, la négociation et le renouvellement\n- Promouvoir notre offre combinée de licences, de services professionnels et de services gérés afin de maximiser la valeur et la conservation des comptes\n- Co-créer des propositions avec des équipes préventes et techniques alignées sur la consommation Azure, Microsoft 365 et Dynamics 365\n- Gérer la relation de partenariat Microsoft et rester à jour sur les changements de programme pour mobiliser les incitatifs, les co-ventes et les fonds de développement du marché\n\n## Vos compétences\n- Plusieurs années de ventes IT B2B avec une connaissance approfondie des modèles de licence Microsoft (Cloud Solution Provider, Enterprise Agreement, Microsoft Products and Services Agreement)\n- Une bonne compréhension de l'écosystème cloud Microsoft (Azure, Microsoft 365, Dynamics 365) et de la mécanique commerciale comme les incitatifs, les rabais et les programmes partenaires\n- Capacité d'élaborer des analyses de rentabilisation et de comparer les scénarios d'octroi de licences en fonction du rendement des investissements des clients (RCI)\n- Travail confortable entre les fonctions avec préventes, produits, gestion de partenaires et services\n- Excellente vente consultative et négociation, crédible avec les acteurs techniques et exécutifs\n- Communication et collaboration, capables d'établir des relations durables et d'obtenir des résultats\n- Proactive, analytique et structurée dans votre approche\n- Anglais et allemand pour le marché suisse allemand\n\nCon noi hai la possibilità di lavorare in uno dei nostri uffici in Svizzera o nel tuo home office. Entrerai in contatto con metodi di lavoro agili e le ultime tecnologie. Offriamo orari di lavoro flessibi per soddisfare le tue esigenze personali. En qualité di collaboratrice Swisscom potrai contare su una serie di vantaggi interessanti che arricchiranno la tua esperienza lavorativa, quali un ambiente di lavoro piacevole, vantaggi economici ed entusiasmanti opportunità di sviluppo professionale. Scopri i tuoi vantaggi.\n\n## C'est une correspondance ? Candidati ora.\n\n## Scopri le tue possibilità\n\n## Hai delle domande ?\nQui troverai risposte alle domande più importanti e frendi.\nA tutte le agenzie di reclutamamento: Swisscom non accetta curriculum inviati dalle agenzie. Vi preghiamo di non inoltrare curriculum all'indirizzo email dedicato alle posizioni di lavoro di Swisscom, né ai dipendenti di Swisscom o a qualsiasi altra sede dell'organizzazione. Swisscom non si assume responsabilità per eventi spese legate a curriculum non richiesti.\n\n## Personne\n\n## La tua base opérativa"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "titleByLocale": {
-        "it": "Microsoft Licensing Sales Specialista",
-        "en": "Microsoft Licensing Sales Specialist",
-        "de": "Microsoft Licensing Sales Spezialist",
-        "fr": "Microsoft Licensing Sales Spécialiste"
-      },
-      "slug": "microsoft-licensing-sales-specialista-swisscom-sede-ticino-zurich",
-      "slugByLocale": {
-        "it": "microsoft-licensing-sales-specialista-swisscom-sede-ticino-zurich",
-        "en": "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2",
-        "de": "microsoft-licensing-sales-spezialist-swisscom-sede-ticino-zurich",
-        "fr": "microsoft-licensing-sales-specialiste-swisscom-sede-ticino-zurich"
-      },
-      "category": "sales",
-      "datePosted": "2026-08-06",
-      "source": "swisscom-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Tecnologia & IT",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "sourceLang": "en",
-      "jobReqId": "R-0006153",
-      "id": "swisscom-sede-ticino-d08a5ad2eae8",
-      "previousSlugs": [
-        "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2"
-        ],
-        "de": [
-          "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2"
-        ],
-        "fr": [
-          "microsoft-licensing-sales-specialist-swisscom-zurich-drxgn2"
-        ]
-      },
-      "firstSeenAt": "2026-08-07T01:27:52.672Z",
-      "crawledAt": "",
-      "salaryMin": 83000,
-      "salaryMax": 127500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83000,
-          "maxValue": 127500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "ZH",
-      "crawlerMissStreak": 2
     }
   ]
 }
