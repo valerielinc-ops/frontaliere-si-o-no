@@ -354,6 +354,45 @@ describe('fill extension: other portals', () => {
     expect((document.getElementById('news') as HTMLInputElement).checked).toBe(false);
   });
 
+  // Rolex 2026-10-02: the posting asks for school reports and aptitude test results besides the CV.
+  it('attaches the requested documents to their own fields, and all of them to a generic attachments field', async () => {
+    const { F, document, window } = page(`<form>
+      <label for="cv">Curriculum vitae *</label><input type="file" id="cv" required>
+      <label for="reports">Bulletins scolaires des 3 dernières années *</label><input type="file" id="reports" multiple required>
+      <label for="eva">Résultats du test EVA</label><input type="file" id="eva">
+      <label for="other">Autres documents</label><input type="file" id="other" multiple>
+      <label for="photo">Photo</label><input type="file" id="photo">
+      <button type="button">Suivant</button></form>`, 'https://jobs.example.ch/apply');
+    const docsKit = {
+      ...kit,
+      documents: {
+        cv: { url: 'https://signed/cv', fileName: 'CV.pdf' },
+        extra: [
+          { slot: 'extra_1', label: 'Bulletins des trois dernières années scolaires', kind: 'school_report', keywords: ['bulletin', 'bulletins'], files: [{ url: 'u1', fileName: 'B1.pdf' }, { url: 'u2', fileName: 'B2.pdf' }] },
+          { slot: 'extra_2', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA', 'evatech'], files: [{ url: 'u3', fileName: 'EVA.pdf' }] },
+        ],
+      },
+    };
+    const [cv, reports, eva, other, photo] = ['cv', 'reports', 'eva', 'other', 'photo'].map((id) => F.collect(document).find((entry: any) => entry.element.id === id));
+    expect(F.answerFor(cv, docsKit)).toEqual({ document: 'cv' });
+    expect(F.answerFor(reports, docsKit)).toEqual({ document: 'extra_1' });
+    expect(F.answerFor(eva, docsKit)).toEqual({ document: 'extra_2' });
+    expect(F.answerFor(other, docsKit)).toEqual({ document: 'extra_all' });
+    expect(F.answerFor(photo, docsKit)).toBeNull();
+    // Without requested documents nothing changes.
+    expect(F.answerFor(reports, kit)).toBeNull();
+    // Every file of the document in an input that takes several; the first one otherwise.
+    // jsdom has no DataTransfer, and its inputs take only a real FileList: a minimal stand-in for Chrome's.
+    (window as any).DataTransfer = class { files: File[] = []; items = { add: (file: File) => { this.files.push(file); } }; };
+    for (const id of ['reports', 'eva']) Object.defineProperty(document.getElementById(id), 'files', { value: null, writable: true });
+    const files = (names: string[]) => names.map((name) => new window.File(['%PDF-1.4'], name, { type: 'application/pdf' }));
+    const getFiles = async (which: string) => (which === 'extra_1' ? files(['B1.pdf', 'B2.pdf']) : which === 'extra_2' ? files(['EVA.pdf']) : []);
+    expect(await F.fillEntry(reports, { document: 'extra_1' }, { getFiles })).toBe(true);
+    expect([...(document.getElementById('reports') as HTMLInputElement).files!].map((file) => file.name)).toEqual(['B1.pdf', 'B2.pdf']);
+    expect(await F.fillEntry(eva, { document: 'extra_1' }, { getFiles })).toBe(true);
+    expect([...(document.getElementById('eva') as HTMLInputElement).files!].map((file) => file.name)).toEqual(['B1.pdf']);
+  });
+
   it('types identity fields by their meaning, the number without a prefix the field shows apart', async () => {
     const { F, document } = page(`<form>
       <label for="fn">Vorname</label><input id="fn" required>

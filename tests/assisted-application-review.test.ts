@@ -99,6 +99,100 @@ describe('candidate review API', () => {
     expect(effects.at(-1)).toEqual({ type: 'dispatch', mode: 'submit', reason: 'candidate_approved' });
   });
 
+  // Rolex 2026-10-02: the posting asks for school reports and the EVA test results besides the CV.
+  describe('requested documents', () => {
+    const PDF = Buffer.from('%PDF-1.4\nreport\n%%EOF');
+    const PNG = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a, 1, 2, 3]);
+    const docsDraft = () => draft({
+      questions: [],
+      requiredDocuments: [
+        { id: 'reports', label: 'Bulletins scolaires', kind: 'school_report', keywords: ['bulletin'], required: true, quote: 'Vos bulletins' },
+        { id: 'eva', label: 'Résultats du test EVA', kind: 'aptitude_test', keywords: ['EVA'], required: true, quote: 'test EVA' },
+      ],
+    });
+    let saved: Map<string, { content: Buffer, options: any }>;
+    let deleted: string[];
+    const bucket = () => ({
+      file: (key: string) => ({
+        save: async (content: Buffer, options: any) => { saved.set(key, { content, options }); },
+        delete: async () => { deleted.push(key); saved.delete(key); },
+      }),
+    });
+    const post = (body: Record<string, unknown>) => handleAssistedApplicationReview({ method: 'POST', body: { t: token(), ...body } }, { ...deps(), bucket: bucket() });
+    const upload = (documentId: string, content: Buffer, extra: Record<string, unknown> = {}) => post({
+      action: 'document_upload', documentId, fileName: 'scan.pdf', contentBase64: content.toString('base64'), clientCheck: { verdict: 'match', matched: 'bulletin' }, ...extra,
+    });
+
+    beforeEach(async () => {
+      saved = new Map();
+      deleted = [];
+      await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(docsDraft());
+      // As the flow holds it after Valerie's approval.
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow')
+        .set({ heldBy: ['document:reports', 'document:eva'], heldSince: T0 }, { merge: true });
+    });
+
+    it('shows what the posting asks and keeps the application until each document is given or waived', async () => {
+      const page = await handleAssistedApplicationReview({ method: 'GET', query: { t: token() } }, deps());
+      expect(page.body).toMatchObject({
+        documents: [{ id: 'reports', label: 'Bulletins scolaires', required: true, quote: 'Vos bulletins', files: [], waived: false }, { id: 'eva', files: [] }],
+        documentLimits: { maxBytes: 10 * 1024 * 1024, maxFiles: 5 },
+        can: { approve: false, uploadDocuments: true },
+      });
+      expect((await post({ action: 'approve' })).body).toMatchObject({ error: 'questions_open' });
+
+      expect(await upload('reports', PDF)).toMatchObject({ status: 200, body: { state: 'candidate_review' } });
+      const [key] = [...saved.keys()];
+      expect(key).toMatch(new RegExp(`^assisted-application-uploads/${ORDER}/doc-reports-${T0}-[0-9a-f]{8}\\.pdf$`));
+      expect(saved.get(key)!.options).toMatchObject({ contentType: 'application/pdf' });
+      expect(store.read(`${BASE}/automation/flow`).documents.reports.files[0]).toMatchObject({
+        key, name: 'scan.pdf', size: PDF.length, detectedType: 'pdf', uploadedAt: T0, clientCheck: { verdict: 'match', matched: 'bulletin' },
+      });
+      // Still held by the EVA results: no clock yet.
+      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: ['document:eva'], deadlineAt: null });
+
+      // The candidate has no EVA results and chooses to send without them (after the page's warning).
+      expect(await post({ action: 'document_waive', documentId: 'eva', waive: true })).toMatchObject({ status: 200 });
+      expect(store.read(`${BASE}/automation/flow`)).toMatchObject({ heldBy: [], deadlineAt: T0 + CANDIDATE_REVIEW_MS, documents: { eva: { waivedAt: T0 } } });
+      expect((await post({ action: 'approve' })).body).toMatchObject({ state: 'submitting' });
+    });
+
+    it('accepts a photo or a scan, refuses another type, a file too large and a sixth file', async () => {
+      expect(await upload('reports', PNG)).toMatchObject({ status: 200 });
+      expect([...saved.keys()][0]).toMatch(/\.png$/);
+      expect(await upload('reports', Buffer.from('MZ not a document'))).toMatchObject({ status: 400, body: { error: 'file_type_not_allowed' } });
+      expect(await upload('reports', Buffer.alloc(10 * 1024 * 1024 + 1, 0x25))).toMatchObject({ status: 413, body: { error: 'file_too_large' } });
+      expect(await upload('nope', PDF)).toMatchObject({ status: 400, body: { error: 'invalid_document' } });
+      for (let i = 0; i < 4; i += 1) await upload('reports', PDF);
+      expect(await upload('reports', PDF)).toMatchObject({ status: 409, body: { error: 'too_many_files' } });
+      expect(store.read(`${BASE}/automation/flow`).documents.reports.files).toHaveLength(5);
+      // An unknown browser verdict is recorded as "could not check", never trusted.
+      await post({ action: 'document_remove', documentId: 'reports', fileId: store.read(`${BASE}/automation/flow`).documents.reports.files[4].key.split('/').pop() });
+      await upload('reports', PDF, { clientCheck: { verdict: 'trust_me' } });
+      expect(store.read(`${BASE}/automation/flow`).documents.reports.files.at(-1).clientCheck).toEqual({ verdict: 'unreadable', matched: '' });
+    });
+
+    it('removes a file, and a document waived is taken back by a file given', async () => {
+      await upload('reports', PDF);
+      const fileId = store.read(`${BASE}/automation/flow`).documents.reports.files[0].key.split('/').pop();
+      expect(await post({ action: 'document_remove', documentId: 'reports', fileId })).toMatchObject({ status: 200 });
+      expect(store.read(`${BASE}/automation/flow`).documents.reports.files).toEqual([]);
+      expect(deleted).toHaveLength(1);
+      expect(store.read(`${BASE}/automation/flow`).heldBy).toContain('document:reports');
+      expect(await post({ action: 'document_remove', documentId: 'reports', fileId })).toMatchObject({ status: 400, body: { error: 'invalid_file' } });
+
+      await post({ action: 'document_waive', documentId: 'eva', waive: true });
+      await upload('eva', PDF);
+      expect(store.read(`${BASE}/automation/flow`).documents.eva).toMatchObject({ waivedAt: null, files: [{ detectedType: 'pdf' }] });
+    });
+
+    it('accepts documents only while the candidate can still give them', async () => {
+      await store.db.collection('assisted_applications').doc(ORDER).collection('automation').doc('flow').set({ state: 'submitting' }, { merge: true });
+      expect(await upload('reports', PDF)).toMatchObject({ status: 409, body: { error: 'not_allowed' } });
+      expect(saved.size).toBe(0);
+    });
+  });
+
   it('refuses a start date in the past or an impossible date, and tells the page the earliest one', async () => {
     const availability = { id: 'availability', question: 'Da quale data saresti disponibile a iniziare?', why: '', type: 'date', options: [], required: true };
     const birth = { id: 'birth_date', question: 'Data di nascita', why: '', type: 'date', options: [], required: false };

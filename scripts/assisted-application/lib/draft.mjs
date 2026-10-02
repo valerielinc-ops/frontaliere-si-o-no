@@ -54,6 +54,7 @@ import {
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
+import { requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -111,7 +112,9 @@ export async function buildDraft(ctx) {
   const reuse = previousDraft?.status === 'ready'
     && previousDraft.cvKey === order.cvStorageKey
     && previousDraft.postingHash === hashText(postingText)
-    && previousDraft.profile && previousDraft.requirementsRaw;
+    && previousDraft.profile && previousDraft.requirementsRaw
+    // Requirements read before the requested documents existed are read again.
+    && Array.isArray(previousDraft.requirementsRaw.requestedDocuments);
 
   let cvText = previousDraft?.factSources?.text && reuse ? previousDraft.factSources.text : '';
   let cvMethod = reuse ? previousDraft.cvTextMethod : 'none';
@@ -279,6 +282,8 @@ export async function buildDraft(ctx) {
     languageRequirements: requirements.languageRequirements,
     workPermitQuote: requirements.workPermitQuote,
     applicationInstructions: requirements.applicationInstructions,
+    // School reports, test results… besides the CV and the letter: the candidate uploads them on the review page.
+    requiredDocuments: requiredDocumentsFromRequirements(requirements),
     contactPerson: requirements.contactPerson || posting.contactPerson,
     matches: match.matches,
     verdict: match.verdict,

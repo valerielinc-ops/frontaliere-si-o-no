@@ -123,7 +123,7 @@ export function slugId(text) {
 }
 
 /** What the planner may use, with the alias as the e-mail (candidateIdentity). */
-export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [] }) {
+export function candidateForForm({ identity, profile = {}, answers = {}, draft = {}, portalQuestions = [], extraDocuments = [] }) {
   const parts = String(identity.name || '').trim().split(/\s+/);
   // The split the candidate chose on the review page, else the last word is the surname.
   const chosen = typeof identity.firstName === 'string';
@@ -165,8 +165,16 @@ export function candidateForForm({ identity, profile = {}, answers = {}, draft =
       whyCompany: motivation.whyCompany || '',
       coverLetter: draft.coverLetter?.text || '',
     },
-    documents: { cv: true, cover_letter: true },
+    // The requested documents the candidate gave (assistedApplicationExtraDocuments.js), by form slot.
+    documents: { cv: true, cover_letter: true, extra: extraDocuments.map(({ slot, label, kind }) => ({ slot, label, kind })) },
   };
+}
+
+/** How an upload reads in the evidence: [CV], [lettera di presentazione], [documento: Bulletins scolaires]. */
+function uploadLabel(document, candidate) {
+  if (document === 'cover_letter') return '[lettera di presentazione]';
+  const extra = (candidate?.documents?.extra || []).find((item) => item.slot === document);
+  return extra ? `[documento: ${extra.label}]` : '[CV]';
 }
 
 function hasApplicationForm(snapshot) {
@@ -741,7 +749,7 @@ export async function submitViaPortal(ctx) {
           const action = result.ok && actions.find((item) => item.fieldId === result.fieldId);
           const field = action && snapshot.fields.find((item) => item.id === result.fieldId);
           if (!field || field.inputType === 'password') continue;
-          const answer = { upload: action.document === 'cover_letter' ? '[lettera di presentazione]' : '[CV]', check: '✓', uncheck: '✗' }[action.action] ?? action.value;
+          const answer = { upload: uploadLabel(action.document, ctx.candidate), check: '✓', uncheck: '✗' }[action.action] ?? action.value;
           record(field.label || field.name || field.id, answer, action.source);
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
