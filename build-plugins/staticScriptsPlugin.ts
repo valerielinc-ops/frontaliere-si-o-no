@@ -11,6 +11,7 @@
  *   POSTHOG_SNIPPET               → /assets/posthog-init.js
  *   FUEL_CHART_SCRIPT             → /assets/fuel-chart.js
  *   PARTNERIZE_TAG_CONTENT        → /assets/partnerize-tag.js (PARTNERIZE_TAG_SNIPPET)
+ *   OFFERWALL_FC_SCRIPT_CONTENT   → /assets/job-board-fc-loader.js
  *   CRITICAL_CSS                  → /assets/critical.css (CRITICAL_CSS_LINK)
  *
  * critical.css used to be a per-page inline `<style>` block (~4.3 KB ×
@@ -67,9 +68,14 @@ import {
   FUEL_CHART_SCRIPT_FILENAME,
   PARTNERIZE_TAG_CONTENT,
   PARTNERIZE_TAG_FILENAME,
+  OFFERWALL_FC_SCRIPT_CONTENT,
 } from './constants';
 import { CRITICAL_CSS, CRITICAL_CSS_FILENAME } from './shared/criticalCss';
-import { GPT_LOADER_CONTENT, GPT_LOADER_FILENAME } from './jobBoardGpt';
+import {
+  GPT_LOADER_CONTENT,
+  GPT_LOADER_FILENAME,
+  JOB_BOARD_FC_LOADER_FILENAME,
+} from './jobBoardGpt';
 
 export function staticScriptsPlugin(rootDir: string): Plugin {
   return {
@@ -87,6 +93,7 @@ export function staticScriptsPlugin(rootDir: string): Plugin {
         [FUEL_CHART_SCRIPT_FILENAME, FUEL_CHART_SCRIPT_CONTENT],
         [PARTNERIZE_TAG_FILENAME, PARTNERIZE_TAG_CONTENT],
         [GPT_LOADER_FILENAME, GPT_LOADER_CONTENT],
+        [JOB_BOARD_FC_LOADER_FILENAME, OFFERWALL_FC_SCRIPT_CONTENT],
         [CRITICAL_CSS_FILENAME, CRITICAL_CSS],
       ];
 
