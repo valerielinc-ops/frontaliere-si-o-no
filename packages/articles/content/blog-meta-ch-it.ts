@@ -7463,6 +7463,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte prevede fino a 900\'000 cambi di cassa malati',
     'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte prevede tra 600\'000 e 900\'000 cambi di cassa malati. Quasi metà valuterebbe il cambio con 20 franchi in più al mese.',
     'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Assicurati svizzeri confrontano i premi della cassa malati',
+    'blog.article.camere-sessione-autunnale.title': 'Camere federali, la sessione autunnale si chiude oggi',
+    'blog.article.camere-sessione-autunnale.excerpt': 'A Berna si chiude oggi la sessione autunnale. Agli Stati sono in agenda votazioni finali su 17 oggetti; la sessione invernale sarà dal 30 novembre al 18 dicembre.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Camere federali a Berna durante la chiusura della sessione autunnale.',
 };
 
 export default blogMetaChIt;

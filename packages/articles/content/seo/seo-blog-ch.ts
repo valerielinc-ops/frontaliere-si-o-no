@@ -96779,6 +96779,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camere-sessione-autunnale': {
+    title: 'Camere federali, la sessione autunnale si chiude oggi',
+    description: 'Camere federali: oggi chiude la sessione autunnale. Agli Stati sono previste 17 votazioni finali; la sessione invernale si terrà dal 30 novembre al 18 dicembre.',
+    keywords: 'frontalieri, ticino, svizzera, italia, camere, federali, sessione, autunnale',
+    ogTitle: 'Camere federali, la sessione autunnale si chiude oggi',
+    ogDescription: 'Ultima giornata per la sessione autunnale: al Consiglio nazionale il plenum tratta mozioni e iniziative prima di petizioni e interventi non controversi. Agli Stati restano 17 votazioni finali. La sessione invernale inizierà il 30 novembre.',
+    canonicalPath: '/articoli-svizzera/camere-sessione-autunnale/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Camere federali, la sessione autunnale si chiude oggi",
+      "description": "Camere federali: oggi chiude la sessione autunnale. Agli Stati sono previste 17 votazioni finali; la sessione invernale si terrà dal 30 novembre al 18 dicembre.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/camere-sessione-autunnale.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camere federali a Berna durante la chiusura della sessione autunnale."
+      },
+      "datePublished": "2026-10-02T06:31:38+00:00",
+      "dateModified": "2026-10-02T06:31:38+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/camere-sessione-autunnale/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

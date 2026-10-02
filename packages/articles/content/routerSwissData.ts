@@ -2510,6 +2510,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'retribuzioni-svizzere-netto': { it: 'retribuzioni-svizzere-netto', en: 'swiss-profession-salaries-2026', de: 'schweizer-berufsloehne-2026', fr: 'salaires-professions-suisse-2026' },
  'guida-retribuzioni-ginevra-2026': { it: 'guida-retribuzioni-ginevra-2026', en: 'swiss-salaries-geneva-2026', de: 'schweizer-loehne-genf-2026', fr: 'salaires-suisses-geneve-2026' },
  'deloitte-cambi-assicuratori': { it: 'deloitte-cambi-assicuratori', en: 'deloitte-health-insurer-switches', de: 'deloitte-krankenkassen-wechsel', fr: 'deloitte-changements-caisse-maladie' },
+ 'camere-sessione-autunnale': { it: 'camere-sessione-autunnale', en: 'autumn-session-federal-chambers', de: 'herbstsession-bundesversammlung', fr: 'session-automnale-chambres-federales' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
