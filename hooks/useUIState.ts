@@ -20,6 +20,17 @@ import { initPostHog } from '@/services/posthog';
 import { invalidateHeaderBiddingOnNavigation } from '@/services/headerBidding';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { deriveAnalyticsPageContext } from '@/services/analyticsPageContext';
+import {
+ DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+ DECISION_MOMENT_ID_ATTRIBUTE,
+ DECISION_MOMENT_BRIDGE_EVENT,
+ DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+ DECISION_MOMENT_SURFACE_ATTRIBUTE,
+ drainDecisionMomentBridgeQueue,
+ emitDecisionMomentBridge,
+ isDecisionMomentBridgePayload,
+ removeDecisionMomentBridgePayload,
+} from '@/services/decisionMomentTelemetry';
 
 export interface UIState {
  isDarkMode: boolean;
@@ -198,6 +209,53 @@ export function useUIState(activeTab: ActiveTab): UIState {
  unsubscribeConsent();
  cleanupAnalyticsListeners();
  };
+ }, []);
+
+ // Decision-moment telemetry is shared by static SEO pages and the SPA. Static
+ // pages can emit before this hook mounts, so drain the bounded queue as well
+ // as listening for live events. Explicit data attributes keep click tracking
+ // scoped to reviewed decision bridges; no DOM route inference is involved.
+ useEffect(() => {
+  const seen = new Set<string>();
+  const consume = (value: unknown) => {
+   if (!isDecisionMomentBridgePayload(value)) return;
+   removeDecisionMomentBridgePayload(value);
+   const key = `${value.kind}:${value.surface}:${value.id}`;
+   if (seen.has(key)) return;
+   seen.add(key);
+   if (value.kind === 'completed') Analytics.trackDecisionMomentCompleted(value.surface, value.id);
+   else Analytics.trackDecisionMomentNextAction(value.surface, value.id);
+  };
+  const onBridge = (event: Event) => consume((event as CustomEvent<unknown>).detail);
+  window.addEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+
+  drainDecisionMomentBridgeQueue().forEach(consume);
+  document.querySelectorAll<HTMLElement>(`[${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true"]`).forEach((element) => {
+   consume({
+    kind: 'completed',
+    surface: element.getAttribute(DECISION_MOMENT_SURFACE_ATTRIBUTE),
+    id: element.getAttribute(DECISION_MOMENT_ID_ATTRIBUTE),
+   });
+  });
+
+  const onDecisionMomentClick = (event: MouseEvent) => {
+   const target = event.target;
+   if (!(target instanceof Element)) return;
+   const element = target.closest<HTMLElement>(`[${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}]`);
+   if (!element) return;
+   const payload: unknown = {
+    kind: 'next_action',
+    surface: element.getAttribute(DECISION_MOMENT_SURFACE_ATTRIBUTE),
+    id: element.getAttribute(DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE),
+   };
+   if (isDecisionMomentBridgePayload(payload)) emitDecisionMomentBridge(payload);
+  };
+  document.addEventListener('click', onDecisionMomentClick, true);
+
+  return () => {
+   window.removeEventListener(DECISION_MOMENT_BRIDGE_EVENT, onBridge);
+   document.removeEventListener('click', onDecisionMomentClick, true);
+  };
  }, []);
 
  // Centralized SPA pageview tracking for all route changes

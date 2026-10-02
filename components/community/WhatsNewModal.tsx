@@ -35,6 +35,23 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.98.0',
+    date: '2026-10-02',
+    titleKey: 'whatsNew.v3980.title',
+    items: [
+      { type: 'feature', titleKey: 'whatsNew.v3980.cvReview.title', descKey: 'whatsNew.v3980.cvReview.desc', link: { tab: 'job-board' } },
+      { type: 'improvement', titleKey: 'whatsNew.v3980.swissDocuments.title', descKey: 'whatsNew.v3980.swissDocuments.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
+    version: '3.97.3',
+    date: '2026-10-02',
+    titleKey: 'whatsNew.v3973.title',
+    items: [
+      { type: 'fix', titleKey: 'whatsNew.v3973.jobPreview.title', descKey: 'whatsNew.v3973.jobPreview.desc', link: { tab: 'job-board' } },
+    ],
+  },
+  {
     version: '3.97.2',
     date: '2026-10-02',
     titleKey: 'whatsNew.v3972.title',

@@ -172,6 +172,41 @@ describe('draft mode', () => {
     expect(draft.questions.map((question: any) => question.id)).not.toContain('salary_expectation');
   });
 
+  it('reuses a profile read by this version, normalized; a profile read before the kinds of experience is read again', async () => {
+    const run = (previousDraft: any) => {
+      const codex = fakeCodex();
+      return buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 2, answers: {} }, previousDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      }).then((draft) => ({ draft, calls: codex.mock.calls.length }));
+    };
+    const { draft: first } = await run(null);
+    const reused = await run({ ...first, profile: { ...first.profile, fullName: '  Maria   Rossi  ' } });
+    // Match, documents and tailored CV only: profile and requirements are reused.
+    expect(reused.calls).toBe(3);
+    expect(reused.draft.profile.fullName).toBe('Maria Rossi');
+    const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
+    const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
+    expect(reread.calls).toBe(5);
+  });
+
+  it('keeps on the next round’s tailored CV the photo the candidate gave on the review page', async () => {
+    const bucket = fakeBucket();
+    // A 1×1 PNG, as the review page stores it.
+    const png = Buffer.from('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNkYPhfDwAChwGA60e6kgAAAABJRU5ErkJggg==', 'base64');
+    await bucket.file(`assisted-application-uploads/${ORDER_ID}/photo-1.png`).save(png);
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow: { round: 2, answers: {}, photo: { key: `assisted-application-uploads/${ORDER_ID}/photo-1.png`, detectedType: 'png' } },
+      previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf', codex: fakeCodex(), bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    expect(draft.tailoredCv).toMatchObject({ status: 'ready', photo: true, renderer: 'typst' });
+    const { getDocumentProxy, getResolvedPDFJS } = await import('unpdf');
+    const { OPS } = await getResolvedPDFJS();
+    const pdf = await getDocumentProxy(new Uint8Array(bucket.files.get(draft.tailoredCv.pdfKey)!));
+    const operators = await (await pdf.getPage(1)).getOperatorList();
+    expect(operators.fnArray).toContain(OPS.paintImageXObject);
+  }, 60_000);
+
   it('stops before any Codex call when the posting is closed', async () => {
     const codex = fakeCodex();
     await expect(buildDraft({
@@ -213,6 +248,31 @@ describe('submit mode', () => {
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
     // Sent in the candidate's name: no rewritten links, no open pixel.
     expect(items[0].payload).toMatchObject({ tracking: false, openTracking: false });
+  });
+
+  it('sends one dossier when the switch asks for it, never to an apprentice', async () => {
+    const sent = async (candidateType: unknown) => {
+      const bucket = fakeBucket();
+      await bucket.file(baseDraft.coverLetterPdfKey).save(cvPdf());
+      const sendCascade = vi.fn(async () => ({ failed: [], sent: [{ provider: 'resend', messageId: 'm1' }] }));
+      await submitApplication({
+        order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: { ...baseDraft, candidateType }, cvBuffer: cvPdf(), cvType: 'pdf',
+        bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
+      });
+      return (sendCascade.mock.calls as any)[0][0][0].payload.attachments.map((item: any) => item.filename);
+    };
+    const previous = process.env.ASSISTED_APPLICATION_DOSSIER_MODE;
+    process.env.ASSISTED_APPLICATION_DOSSIER_MODE = 'single';
+    try {
+      expect(await sent({ type: 'qualified', sector: 'health' })).toEqual(['Dossier_di_candidatura_Maria_Rossi.pdf']);
+      const separate = ['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf'];
+      expect(await sent({ type: 'apprentice', sector: 'it' })).toEqual(separate);
+      expect(await sent('apprentice')).toEqual(separate);
+      expect(await sent(undefined)).toEqual(separate);
+    } finally {
+      if (previous === undefined) delete process.env.ASSISTED_APPLICATION_DOSSIER_MODE;
+      else process.env.ASSISTED_APPLICATION_DOSSIER_MODE = previous;
+    }
   });
 
   it('a dry run prepares the e-mail, keeps it encrypted next to the order, and sends nothing', async () => {

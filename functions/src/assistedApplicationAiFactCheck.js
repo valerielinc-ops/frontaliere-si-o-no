@@ -9,7 +9,21 @@
  * not prose. A failing gate does not block the draft: it lists each
  * unsupported token so the operator fixes or confirms it before anything
  * reaches an employer.
+ *
+ * Study 2026-10-02 (report-cv-lettera §5, §8): three holes of the port closed
+ * here, measured on 17 synthetic cases (8 right before, 13 with the first fix,
+ * all with this one):
+ *   - a tool written as a plain word ("Kubernetes") is a claim too: the closed
+ *     vocabulary of lib/toolVocabulary.js names them, with their aliases;
+ *   - in the candidate's own texts a number comes from the candidate, never
+ *     from the posting ("un team di 5" where only the posting says 5), unless
+ *     the sentence quotes the requirement ("pur non avendo i 5 anni richiesti");
+ *   - an employer or a job title the sources never name is blocked; a
+ *     capitalised word the text only echoes from the posting is reported to
+ *     the operator as an advisory, not blocked ("Semester", "Profil").
  */
+
+import { mentionsVocabularyTool, vocabularyTools } from './lib/toolVocabulary.js';
 
 const NUMBER_RE = /\d(?:[\d'’.,  ]*\d)?/g;
 const EMAIL_RE = /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/g;
@@ -106,6 +120,25 @@ export function toolTokens(text) {
 }
 
 /**
+ * Every claim of a tool in a text: the shape rule of toolTokens plus the closed
+ * vocabulary, which sees the tools a shape cannot ("Kubernetes", "Excel").
+ * Where both see the same span the vocabulary wins, so its aliases apply.
+ * @returns {Array<{token:string, index:number, length:number, name?:string}>}
+ */
+export function claimTokens(text) {
+  const vocabulary = vocabularyTools(text);
+  const overlaps = (index, length) => vocabulary.some((hit) => index < hit.index + hit.length && index + length > hit.index);
+  const shaped = toolTokens(text).filter(({ index, length }) => !overlaps(index, length));
+  return [...vocabulary, ...shaped].sort((left, right) => left.index - right.index);
+}
+
+/** Whether the candidate's texts back a claim token (by its vocabulary aliases when it has a name). */
+export function backsClaim({ folded, raw }, claim) {
+  if (claim.name && mentionsVocabularyTool(raw, claim.name)) return true;
+  return mentionsTool(folded, claim.token);
+}
+
+/**
  * Whether a folded text (foldText, or the ATS check's normalizeText) names a
  * tool: as a whole word, with or without the separators inside it ("S/4 HANA",
  * "ISO-9001", "Power Point"), singular or plural ("KPIs").
@@ -118,47 +151,138 @@ export function mentionsTool(foldedText, token) {
   return new RegExp(`(?<![a-z0-9])${runs.join('[\\s/._-]{0,2}')}s?(?![a-z0-9])`).test(foldedText);
 }
 
-/**
- * Index of what the sources say, normalized once.
- * @param {string[]} sources raw texts (CV text, profile JSON, posting, order data)
- * @param {{claimSources?: string[]}} [options] the texts that back a tool (the
- *   candidate's own); without them tools are not checked
- */
-export function buildFactIndex(sources, { claimSources } = {}) {
-  const text = sources.filter(Boolean).map(String).join('\n');
+/** Every number a text gives, whole and by its parts ("2'500" gives 2500, 2 and 500). */
+export function numbersOf(text) {
   const numbers = new Set();
-  for (const match of text.matchAll(NUMBER_RE)) {
+  for (const match of String(text || '').matchAll(NUMBER_RE)) {
     const digits = digitsOnly(match[0]);
     if (digits) numbers.add(digits);
     // "2'500" and "2.500,50" also contribute their parts ("2", "500").
     for (const part of match[0].split(/[^\d]+/)) if (part) numbers.add(part);
   }
+  return numbers;
+}
+
+const join = (texts) => (texts || []).filter(Boolean).map(String).join('\n');
+const wordsOf = (text) => new Set(foldText(text).split(/[^\p{L}\p{N}]+/u).filter(Boolean));
+
+/**
+ * Index of what the sources say, normalized once.
+ * @param {string[]} sources raw texts (CV text, profile JSON, posting, order data)
+ * @param {{claimSources?: string[], numberSources?: string[], echoSources?: string[], entitySources?: string[]}} [options]
+ *   claimSources: the texts that back a tool (the candidate's own); without them tools are not checked.
+ *   numberSources: the texts a number of a claim field may come from (the candidate's own and the
+ *     order line); without them any source backs a number, as before.
+ *   echoSources: the posting, for the advisory on capitalised words echoed from it.
+ *   entitySources: the texts that may name an employer (candidate, order, posting); default: all sources.
+ *   nameSources: names the text may quote whole, one per line (the company, the job title, the place):
+ *     inside such a name a tool is not a claim ("Kubernetes Engineer" in "come Kubernetes Engineer"),
+ *     but a name never backs a claim made outside it ("uso Kubernetes" stays the candidate's claim).
+ */
+export function buildFactIndex(sources, { claimSources, numberSources, echoSources, entitySources, nameSources } = {}) {
+  const text = join(sources);
   const emails = new Set([...text.matchAll(EMAIL_RE)].map((match) => match[0].toLowerCase()));
   const urls = new Set([...text.matchAll(URL_RE)].map((match) => normalizeUrl(match[0])));
   const phones = new Set([...text.matchAll(PHONE_RE)].map((match) => digitsOnly(match[0]).slice(-9)));
-  const claimText = claimSources ? foldText(claimSources.filter(Boolean).map(String).join('\n')) : null;
-  return { numbers, emails, urls, phones, lowerText: text.toLowerCase(), claimText };
+  const claimRaw = claimSources ? join(claimSources) : null;
+  return {
+    numbers: numbersOf(text),
+    emails,
+    urls,
+    phones,
+    lowerText: text.toLowerCase(),
+    claimText: claimRaw === null ? null : foldText(claimRaw),
+    claimRaw,
+    claimWords: claimRaw === null ? null : wordsOf(`${claimRaw}\n${join(nameSources)}`),
+    names: join(nameSources).split('\n').map((line) => line.trim()).filter((line) => line.length >= 3),
+    namesText: foldText(join(nameSources)),
+    claimNumbers: numberSources ? numbersOf(join(numberSources)) : null,
+    echoWords: echoSources ? wordsOf(join(echoSources)) : null,
+    entityText: ` ${foldText(join(entitySources || sources)).replace(/[^\p{L}\p{N}]+/gu, ' ')} `,
+  };
+}
+
+// A number the posting gives may appear in the candidate's text only to quote
+// the requirement the candidate does not meet ("pur non avendo i 5 anni
+// richiesti"), never as the candidate's own figure. Both cues, a word of not
+// having it and a word of the requirement, must be in the number's own clause:
+// "Ho 5 anni di esperienza; sono gli anni richiesti" is a claim.
+const NEGATION_CUE = /(pur non avend|non ho\b|non possied|non ancora|ancora non|non ho ancora|senza (?:i|gli|le)\b|ohne\b|noch nicht|noch keine|habe keine|fehlen|n'ai pas|n’ai pas|n'aie pas|n’aie pas|pas encore|sans les\b|do not have|don't have|don’t have|not yet|lack)/i;
+const REQUIREMENT_CUE = /(richiest|requisit|richied|verlangt|gefordert|vorausgesetzt|gewünscht|requis|exigé|demandé|required|requires|requested|asked)/i;
+
+/** The clause of a text around a position: between the nearest . ! ? ; : , or line break. */
+function clauseAround(text, index) {
+  const marks = /[.!?;:,\n]/g;
+  let start = 0;
+  let end = text.length;
+  for (const match of text.matchAll(marks)) {
+    if (match.index < index) start = match.index + 1;
+    else { end = match.index; break; }
+  }
+  return text.slice(start, end);
+}
+
+const quotesRequirement = (text, index) => {
+  const clause = clauseAround(text, index);
+  return NEGATION_CUE.test(clause) && REQUIREMENT_CUE.test(clause);
+};
+
+// Legal forms that close an employer's name ("Esempio Software Srl", "Alpina Systems AG").
+const LEGAL_FORM = String.raw`(?:AG|SA|GmbH|Sagl|SAGL|Srl|SRL|S\.r\.l\.|SpA|S\.p\.A\.|Sàrl|SARL|SNC|Snc|KG|Ltd|Inc|LLC)`;
+const CAPITALISED = String.raw`\p{Lu}[\p{L}\p{N}&'’.-]*`;
+const EMPLOYER_RE = new RegExp(String.raw`(?:${CAPITALISED}\s+){1,5}${LEGAL_FORM}(?![\p{L}\p{N}])`, 'gu');
+// The words that introduce an employer (it/fr/en) or a job title (it/fr/en, and "als" in German).
+const AT_EMPLOYER_RE = new RegExp(String.raw`(?<![\p{L}])(?:presso|chez|auprès de|at)\s+(${CAPITALISED}(?:\s+(?:${CAPITALISED}|di|de|du|des|of|&))*)`, 'gu');
+const AS_TITLE_RE = new RegExp(String.raw`(?<![\p{L}])(come|in qualità di|en tant que|comme|as|als)\s+(${CAPITALISED}(?:\s+(?:${CAPITALISED}|of|di|de|du|des|der|für))*)`, 'gu');
+// Capitalised words that are grammar or courtesy, never a claim (formal pronouns, articles, salutations).
+const NOT_AN_ENTITY = new Set(`
+lei la le loro sie ihnen ihr ihre ihrem ihren ihrer vous votre vos madame monsieur signora signor signore signori frau herr
+you your the der die das den dem des ein eine einem einen einer il lo gli un una uno du de des les une
+erstes erster letztes letzter
+`.split(/\s+/).filter(Boolean));
+
+const fold = (text) => ` ${foldText(text).replace(/[^\p{L}\p{N}]+/gu, ' ').trim()} `;
+// "Head of Engineering." → "Head of Engineering": the sentence's punctuation is not part of the name.
+const tidy = (span) => span.trim().replace(/[.,;:!?’'-]+$/u, '');
+// "In Initech Systems SA" → "Initech Systems SA": a capitalised preposition or article opening the sentence.
+const LEADING = /^(?:(?:In|Bei|Bij|Chez|At|Da|Presso|Nella|Nel|Alla|Al|Der|Die|Das|Den|La|Le|Il|Lo|The)\s+)+/u;
+const employerName = (span) => tidy(span).replace(LEADING, '');
+const significant = (span) => foldText(span).split(/[^\p{L}\p{N}]+/u).filter((word) => word.length >= 3 && !NOT_AN_ENTITY.has(word));
+
+/** An employer's name is backed when its last words before the legal form appear in a source. */
+function employerBacked(span, entityText) {
+  const words = span.trim().split(/\s+/);
+  for (let start = 0; start < words.length - 1; start += 1) {
+    if (entityText.includes(fold(words.slice(start).join(' ')))) return true;
+  }
+  return false;
 }
 
 /**
  * @param {Record<string,string>} texts generated texts by field name
  * @param {ReturnType<typeof buildFactIndex>} index
- * @param {{toolFields?: string[]}} [options] the fields where a tool is a claim (default: all)
- * @returns {{ok:boolean, unsupported:Array<{field:string, kind:string, token:string, context:string}>}}
+ * @param {{toolFields?: string[]}} [options] the fields where a tool, a figure of the candidate, an
+ *   employer or a job title is a claim (default: all)
+ * @returns {{ok:boolean, unsupported:Array<{field:string, kind:string, token:string, context:string}>, advisories:Array<{field:string, kind:string, token:string, context:string}>}}
  */
 export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
   const unsupported = [];
+  const advisories = [];
   const seen = new Set();
-  const flag = (field, kind, token, context) => {
+  const report = (list) => (field, kind, token, context) => {
     const key = `${field}|${kind}|${token}`;
     if (seen.has(key)) return;
     seen.add(key);
-    unsupported.push({ field, kind, token, context });
+    list.push({ field, kind, token, context });
   };
+  const flag = report(unsupported);
+  const advise = report(advisories);
+  const inSet = (set, digits, parts) => set.has(digits) || (parts.length > 1 && parts.every((part) => set.has(part)));
 
   for (const [field, raw] of Object.entries(texts || {})) {
     const text = String(raw || '');
     if (!text) continue;
+    const claimField = !toolFields || toolFields.includes(field);
     const masked = [];
     for (const match of text.matchAll(EMAIL_RE)) {
       masked.push([match.index, match[0].length]);
@@ -180,23 +304,59 @@ export function checkGeneratedFacts(texts, index, { toolFields } = {}) {
         flag(field, 'phone', match[0].trim(), contextAround(text, match.index, match[0].length));
       }
     }
+    // The posting's reference ("réf. INF-2026-17") is quoted, never a claim: neither its digits nor its letters.
+    const references = [...text.matchAll(REFERENCE_RE)].map((match) => [match.index, match[0].length]);
     const within = (spans, position) => spans.some(([start, length]) => position >= start && position < start + length);
-    const isMasked = (position) => within(masked, position);
+    const isMasked = (position) => within(masked, position) || within(references, position);
+    const checksClaims = typeof index.claimText === 'string' && claimField;
+    // The company, the job title and the place quoted whole are names, not claims.
+    const nameSpans = (index.names || []).flatMap((name) => [...text.matchAll(new RegExp(escapeRegExp(name).replace(/\s+/g, '\\s+'), 'giu'))]
+      .map((match) => [match.index, match[0].length]));
+    const claims = checksClaims ? claimTokens(text).filter((claim) => !within(nameSpans, claim.index)) : [];
+    // The digits of a tool's name ("ISO 13485", "Office 365") are judged with the tool, not as a figure.
+    const toolSpans = claims.map((claim) => [claim.index, claim.length]);
     for (const match of text.matchAll(NUMBER_RE)) {
-      if (isMasked(match.index)) continue;
+      if (isMasked(match.index) || within(toolSpans, match.index)) continue;
       const token = match[0].trim().replace(/[.,]$/, '');
       const digits = digitsOnly(token);
       if (!digits) continue;
       const parts = token.split(/[^\d]+/).filter(Boolean);
-      const supported = index.numbers.has(digits) || (parts.length > 1 && parts.every((part) => index.numbers.has(part)));
+      const supported = index.claimNumbers && claimField
+        ? inSet(index.claimNumbers, digits, parts) || (inSet(index.numbers, digits, parts) && quotesRequirement(text, match.index))
+        : inSet(index.numbers, digits, parts);
       if (!supported) flag(field, 'number', token, contextAround(text, match.index, match[0].length));
     }
-    if (typeof index.claimText !== 'string' || (toolFields && !toolFields.includes(field))) continue;
-    const references = [...text.matchAll(REFERENCE_RE)].map((match) => [match.index, match[0].length]);
-    for (const { token, index: at, length } of toolTokens(text)) {
-      if (isMasked(at) || within(references, at) || mentionsTool(index.claimText, token)) continue;
-      flag(field, 'tool', token, contextAround(text, at, length));
+    if (!checksClaims) continue;
+    const claimSide = { folded: index.claimText, raw: index.claimRaw };
+    for (const claim of claims) {
+      if (isMasked(claim.index) || backsClaim(claimSide, claim)) continue;
+      flag(field, 'tool', claim.token, contextAround(text, claim.index, claim.length));
+    }
+    // Employers: a name closed by a legal form, or introduced by presso/chez/at.
+    for (const match of text.matchAll(EMPLOYER_RE)) {
+      if (!employerBacked(match[0], index.entityText)) flag(field, 'employer', employerName(match[0]), contextAround(text, match.index, match[0].length));
+    }
+    for (const match of text.matchAll(AT_EMPLOYER_RE)) {
+      if (significant(match[1]).some((word) => !index.entityText.includes(` ${word} `))) {
+        flag(field, 'employer', tidy(match[1]), contextAround(text, match.index, match[0].length));
+      }
+    }
+    // Job titles: every significant word of "come/en tant que/as <Title>" in the candidate's texts or the
+    // order line, by a five-letter stem. German capitalises every noun, so after "als" it is an advisory.
+    for (const match of text.matchAll(AS_TITLE_RE)) {
+      // The posting's own title is a name the candidate applies as ("mi candido come Product Manager").
+      const missing = significant(match[2]).filter((word) => word.length >= 4 && !index.claimText.includes(word.slice(0, 5)) && !(index.namesText || '').includes(word.slice(0, 5)));
+      if (!missing.length) continue;
+      (match[1].toLowerCase() === 'als' ? advise : flag)(field, 'title', tidy(match[2]), contextAround(text, match.index, match[0].length));
+    }
+    // Advisory: a capitalised word the text echoes from the posting and no source of the candidate names.
+    if (index.echoWords) {
+      for (const match of text.matchAll(/(?<![\p{L}\p{N}])\p{Lu}[\p{L}'’-]{2,}/gu)) {
+        const word = foldText(match[0]).replace(/['’-].*$/, '');
+        if (word.length < 3 || NOT_AN_ENTITY.has(word) || !index.echoWords.has(word) || index.claimWords.has(word) || isMasked(match.index)) continue;
+        advise(field, 'posting_echo', match[0], contextAround(text, match.index, match[0].length));
+      }
     }
   }
-  return { ok: unsupported.length === 0, unsupported };
+  return { ok: unsupported.length === 0, unsupported, advisories };
 }

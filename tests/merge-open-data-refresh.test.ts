@@ -10,6 +10,20 @@ const ROOT = path.resolve(__dirname, '..');
 const MERGE_SCRIPT = path.join(ROOT, 'scripts/ci/merge-open-data-refresh.mjs');
 
 describe('merge-open-data-refresh', () => {
+  it('compares buffer contents and preserves binary snapshot changes and deletions', () => {
+    const base = Buffer.from([0, 255, 254, 128]);
+    const remote = Buffer.from([1, 255, 254, 128]);
+    const refresh = Buffer.from([2, 255, 254, 128]);
+    const file = 'public/images/blog/hero.webp';
+    expect(mergeRefreshContent(file, base, remote, Buffer.from(base))).toEqual(remote);
+    expect(mergeRefreshContent(file, base, Buffer.from(base), null)).toBeNull();
+    expect(mergeRefreshContent(file, base, remote, refresh)).toEqual(refresh);
+    expect(mergeRefreshContent(file, null, null, refresh)).toEqual(refresh);
+    expect(mergeRefreshContent('data/history.jsonl', Buffer.from('base\n'),
+      Buffer.from('base\nremote\n'), Buffer.from('base\nrefresh\n')))
+      .toBe('base\nremote\nrefresh\n');
+  });
+
   it('preserves both runs in append-only history and posted ledgers', () => {
     const baseHistory = '{"run":"base"}\n';
     const remoteHistory = `${baseHistory}{"run":"first"}\n`;
@@ -64,10 +78,41 @@ describe('merge-open-data-refresh on symlinked refresh paths', () => {
     }).trim();
   }
 
-  function write(repo: string, file: string, content: string) {
+  function write(repo: string, file: string, content: string | Buffer) {
     fs.mkdirSync(path.dirname(path.join(repo, file)), { recursive: true });
     fs.writeFileSync(path.join(repo, file), content);
   }
+
+  it('keeps every byte of added and updated binary assets on the stable branch', () => {
+    const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'merge-refresh-binary-'));
+    tmpDirs.push(repo);
+    git(repo, ['init', '-q', '-b', 'main']);
+    const file = 'public/images/blog/hero.webp';
+    const added = 'public/images/blog/new-hero.webp';
+    const original = Buffer.from([0, 128, 192, 255]);
+    const newest = Buffer.from(Array.from({ length: 256 }, (_, index) => index));
+    write(repo, file, original);
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'base']);
+    const base = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', '-b', 'chore/refresh']);
+    write(repo, file, Buffer.from([255, 254, 253]));
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'remote']);
+    const remote = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'main']);
+    write(repo, file, newest);
+    write(repo, added, newest);
+    git(repo, ['add', '-A']);
+    git(repo, ['commit', '-q', '-m', 'refresh']);
+    const refresh = git(repo, ['rev-parse', 'HEAD']);
+    git(repo, ['checkout', '-q', 'chore/refresh']);
+    execFileSync(process.execPath, [MERGE_SCRIPT,
+      '--base', base, '--remote', remote, '--refresh', refresh,
+      '--path', 'public/images/blog'], { cwd: repo });
+    expect(fs.readFileSync(path.join(repo, file))).toEqual(newest);
+    expect(fs.readFileSync(path.join(repo, added))).toEqual(newest);
+  });
 
   it('applies the current run through symlinked directory and file paths', () => {
     const repo = fs.mkdtempSync(path.join(os.tmpdir(), 'merge-refresh-symlinks-'));

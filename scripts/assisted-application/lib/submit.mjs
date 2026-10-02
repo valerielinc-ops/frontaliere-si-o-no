@@ -13,9 +13,10 @@
 
 import {
   LETTER_FILE_LABEL,
-  checkDraftFacts,
+  checkDraftTexts,
   safeFileStem,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
+import { rebuildLetterPdf } from '../../../functions/src/assistedApplicationLetterPdf.js';
 import { candidateWithEdits, formAnswersWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import { isPlausibleEmail } from '../../../functions/src/assistedApplicationAiJob.js';
 import { extraDocumentFileName, extraDocumentsToSend, openRequiredDocuments } from '../../../functions/src/assistedApplicationExtraDocuments.js';
@@ -26,6 +27,7 @@ import path from 'node:path';
 import { candidateForForm, submitViaPortal, WAVE1_CHANNELS } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { storeEvidence } from './secure-run.mjs';
+import { dossierAttachment, dossierMode, draftCandidateType, wantsDossier } from './dossier.mjs';
 
 const OWNER_MAILBOX = EMPLOYER_MAIL_FROM;
 const EXTENSION = { pdf: 'pdf', docx: 'docx', doc: 'doc' };
@@ -70,6 +72,18 @@ export async function downloadExtraDocuments({ bucket, draft, flow, orderId, nam
   return out;
 }
 
+/**
+ * The letter that leaves: rebuilt today with the enclosures that really leave
+ * with it (the required documents and those the candidate gave). A draft from
+ * before the recipient's address was kept on it (no `letterAddress`) sends its
+ * stored PDF, so its address is not lost.
+ */
+export async function letterForSubmission({ bucket, order, orderId, draft, flow, nowMs }) {
+  if (draft?.letterAddress) return (await rebuildLetterPdf({ order, orderId, draft, flow, nowMs })).pdf;
+  const [stored] = await bucket.file(draft.coverLetterPdfKey).download();
+  return Buffer.from(stored);
+}
+
 export async function submitApplication(ctx) {
   const { order, orderId, flow, draft, bucket, runKey, sendCascade } = ctx;
   const { cvBuffer, cvType, cvSent } = await chooseCv({ draft, flow, bucket, cvBuffer: ctx.cvBuffer, cvType: ctx.cvType });
@@ -92,26 +106,33 @@ export async function submitApplication(ctx) {
     return { type: 'submit_needs_candidate', questions: open.map((question) => ({ id: question.id })), documents: missingDocuments };
   }
 
-  const facts = checkDraftFacts({
+  const facts = checkDraftTexts({
     coverLetter: draft.coverLetter?.text,
     emailSubject: draft.applicationEmail?.subject,
     emailBody: draft.applicationEmail?.body,
-  }, draft.factSources || {});
+  }, draft.factSources || {}, { language: draft.language });
   if (!facts.ok && !draft.factCheckAcknowledgedAt) return { type: 'submit_failed', error: 'fact_check_not_acknowledged' };
 
   const channel = draft.channel || {};
   const to = String(draft.applicationEmail?.to || channel.email || '').trim().toLowerCase();
   if (channel.type === 'email' && isPlausibleEmail(to) && to !== OWNER_MAILBOX) {
     const { identity } = candidateWithEdits({ order, draft, flow });
-    const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
+    const letterPdf = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
     const stem = safeFileStem(identity.name);
     const letterLabel = safeFileStem(LETTER_FILE_LABEL[draft.language] || LETTER_FILE_LABEL.it);
     const extras = await downloadExtraDocuments({ bucket, draft, flow, orderId, name: identity.name });
-    const attachments = [
+    let attachments = [
       { filename: `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`, content: cvBuffer.toString('base64') },
       { filename: `${letterLabel}_${stem}.pdf`, content: Buffer.from(letterPdf).toString('base64') },
       ...extras.flatMap((document) => document.files.map((file) => ({ filename: file.fileName, content: file.buffer.toString('base64') }))),
     ];
+    // One "Bewerbungsdossier" when the Remote Config switch asks for it (SECO: one document,
+    // 5 pages, 2 MB); the separate files whenever it cannot be built within those limits.
+    if (wantsDossier({ mode: dossierMode(), channelType: 'email', candidateType: draftCandidateType(draft) })) {
+      const dossier = await dossierAttachment({ language: draft.language, stem, letter: Buffer.from(letterPdf), cv: { buffer: cvBuffer, type: cvType }, extras });
+      if (dossier) attachments = [{ filename: dossier.filename, content: dossier.content }];
+      log('dossier', dossier ? `${dossier.pages} pages` : 'separate files (limits or a part not mergeable)');
+    }
     if (ctx.dryRun) {
       // A dry run shows what would leave (encrypted, next to the order) and sends nothing.
       await storeEvidence({
@@ -207,7 +228,7 @@ export async function submitApplication(ctx) {
     let succeeded = false;
     try {
       dir = await mkdtemp(path.join(tmpdir(), 'aa-portal-'));
-      const [letterPdf] = await bucket.file(draft.coverLetterPdfKey).download();
+      const letterPdf = await letterForSubmission({ bucket, order, orderId, draft, flow, nowMs });
       const stem = safeFileStem(identity.name);
       const files = {
         cv: path.join(dir, `CV_${stem}.${EXTENSION[cvType] || 'pdf'}`),

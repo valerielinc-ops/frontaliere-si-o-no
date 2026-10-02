@@ -3,6 +3,7 @@ import { CheckCircle2, Clock3, Copy, ExternalLink, FileText, Loader2, MessageSqu
 import { useTranslation } from '@/services/i18n';
 import { AssistedApplicationLegalLinks } from '@/components/community/AssistedApplicationLegalLinks';
 import { AssistedApplicationDocuments } from '@/components/community/AssistedApplicationDocuments';
+import { AssistedApplicationCvChanges } from '@/components/community/AssistedApplicationCvChanges';
 import type { DocumentCheck } from '@/services/assistedApplicationDocumentCheck';
 import { answerMessage, validateAnswer } from '@/functions/src/lib/answerRules.js';
 import {
@@ -254,14 +255,23 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
 
   // The documents the posting requires besides the CV and the letter: the file
   // travels as base64 with the browser's verdict on it (assistedApplicationDocumentCheck.ts).
+  const fileToBase64 = (file: File) => new Promise<string>((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
+    reader.onerror = () => reject(reader.error);
+    reader.readAsDataURL(file);
+  });
   const uploadDocument = async (document: { id: string }, file: File, check: DocumentCheck) => {
-    const contentBase64 = await new Promise<string>((resolve, reject) => {
-      const reader = new FileReader();
-      reader.onload = () => resolve(String(reader.result || '').split(',')[1] || '');
-      reader.onerror = () => reject(reader.error);
-      reader.readAsDataURL(file);
-    });
+    const contentBase64 = await fileToBase64(file);
     return run('document_upload', { documentId: document.id, fileName: file.name, contentBase64, clientCheck: check });
+  };
+  // The optional photo of the tailored CV (JPG or PNG): the server rebuilds the PDF with it.
+  const uploadPhoto = async (file: File) => {
+    if (data?.tailoredCv?.photoMaxBytes && file.size > data.tailoredCv.photoMaxBytes) {
+      setError('photo_too_large');
+      return false;
+    }
+    return run('photo_upload', { contentBase64: await fileToBase64(file) });
   };
   const removeDocument = (document: { id: string }, fileId: string) => run('document_remove', { documentId: document.id, fileId });
   const waiveDocument = (document: { id: string }, waive: boolean) => run('document_waive', { documentId: document.id, waive });
@@ -645,6 +655,49 @@ export default function AssistedApplicationReview({ token }: { token: string }) 
                     </label>
                   ))}
                 </fieldset>
+                {data.can.reviewCvLines && data.tailoredCv.changes && (
+                  <AssistedApplicationCvChanges
+                    changes={data.tailoredCv.changes}
+                    disabled={Boolean(busy) || data.tailoredCv.choice === 'original'}
+                    onSave={(choices) => run('cv_lines', { choices })}
+                  />
+                )}
+                {data.can.uploadPhoto && (
+                  <div className="space-y-2 border-t border-edge pt-3">
+                    <p className="font-medium text-heading">{t('jobBoard.assisted.review.photoTitle')}</p>
+                    <p className="text-xs text-subtle">
+                      {t(data.tailoredCv.photoAdvice === 'recommended' ? 'jobBoard.assisted.review.photoAdviceRecommended' : 'jobBoard.assisted.review.photoAdviceOptional')}
+                    </p>
+                    {data.tailoredCv.photo ? (
+                      <div className="flex flex-wrap items-center gap-3">
+                        <span className="text-body">{t('jobBoard.assisted.review.photoIncluded')}</span>
+                        <button
+                          type="button"
+                          disabled={Boolean(busy)}
+                          onClick={() => { void run('photo_remove'); }}
+                          className="inline-flex min-h-[44px] items-center gap-2 rounded-lg border border-edge px-4 text-sm font-semibold text-subtle hover:border-accent hover:text-link disabled:opacity-60"
+                        >
+                          {t('jobBoard.assisted.review.photoRemove')}
+                        </button>
+                      </div>
+                    ) : (
+                      <label className="inline-flex min-h-[44px] cursor-pointer items-center gap-2 rounded-lg border border-edge px-4 text-sm font-semibold text-subtle hover:border-accent hover:text-link">
+                        <input
+                          type="file"
+                          accept="image/jpeg,image/png"
+                          className="sr-only"
+                          disabled={Boolean(busy)}
+                          onChange={(event) => {
+                            const file = event.target.files?.[0];
+                            event.target.value = '';
+                            if (file) void uploadPhoto(file);
+                          }}
+                        />
+                        {t('jobBoard.assisted.review.photoAdd')}
+                      </label>
+                    )}
+                  </div>
+                )}
               </div>
             )}
           </div>

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useEffect, useMemo, useRef } from 'react';
 import {
   buildDutyCoverageMatrix,
   formatDutyCoverageDate,
@@ -16,6 +16,13 @@ import type {
   PharmacyDutiesDataset,
   PharmacySourcesRegistry,
 } from '@/services/pharmacies/types';
+import {
+  DECISION_MOMENT_COMPLETED_ATTRIBUTE,
+  DECISION_MOMENT_ID_ATTRIBUTE,
+  DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE,
+  DECISION_MOMENT_SURFACE_ATTRIBUTE,
+  emitDecisionMomentBridge,
+} from '@/services/decisionMomentTelemetry';
 
 export interface PharmacyDutyCoverageMatrixProps {
   locale: Locale;
@@ -69,8 +76,26 @@ export default function PharmacyDutyCoverageMatrix({
 }: PharmacyDutyCoverageMatrixProps) {
   const matrix = useMemo(() => buildDutyCoverageMatrix({ locale, now, weekStart, duties, catalogue, registry, italyDuties, italyStatus, italySources }), [catalogue, duties, italyDuties, italySources, italyStatus, locale, now, registry, weekStart]);
   const copy = getDutyCoverageMatrixCopy(locale);
+  const hasMeasuredDecisionSurface = matrix.releaseReady && matrix.regions.some((region) => region.duties.length > 0);
+  const completionEmitted = useRef(false);
+  useEffect(() => {
+    if (!hasMeasuredDecisionSurface || completionEmitted.current) return;
+    completionEmitted.current = true;
+    emitDecisionMomentBridge({ kind: 'completed', surface: 'pharmacy', id: 'duty_lookup' });
+  }, [hasMeasuredDecisionSurface]);
+  const decisionMomentAttributes = hasMeasuredDecisionSurface
+    ? {
+      [DECISION_MOMENT_COMPLETED_ATTRIBUTE]: 'true',
+      [DECISION_MOMENT_SURFACE_ATTRIBUTE]: 'pharmacy',
+      [DECISION_MOMENT_ID_ATTRIBUTE]: 'duty_lookup',
+    }
+    : {};
+  const nextActionAttributes = (id: string) => ({
+    [DECISION_MOMENT_SURFACE_ATTRIBUTE]: 'pharmacy',
+    [DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE]: id,
+  });
 
-  return <section className="space-y-6" aria-labelledby="pharmacy-duty-coverage-matrix-heading" data-coverage-matrix="true" data-release-ready={String(matrix.releaseReady)} data-italy-release-ready={String(matrix.italy.publishable)} data-italy-indexable={String(matrix.italy.indexable)} data-italy-release-state={matrix.italy.state}>
+  return <section {...decisionMomentAttributes} className="space-y-6" aria-labelledby="pharmacy-duty-coverage-matrix-heading" data-coverage-matrix="true" data-release-ready={String(matrix.releaseReady)} data-italy-release-ready={String(matrix.italy.publishable)} data-italy-indexable={String(matrix.italy.indexable)} data-italy-release-state={matrix.italy.state}>
     <header className="space-y-3">
       <h2 id="pharmacy-duty-coverage-matrix-heading" className="font-display text-2xl font-bold tracking-tight text-heading">{copy.heading}</h2>
       <p className="max-w-3xl text-base leading-7 text-muted">{copy.lede}</p>
@@ -86,7 +111,7 @@ export default function PharmacyDutyCoverageMatrix({
           <header className="border-b border-edge bg-surface-alt px-5 py-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <h4 className="font-display text-lg font-bold text-heading">{region.name}</h4>
-              {matrix.releaseReady && region.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={region.sourceUrl} rel="nofollow noopener">{copy.openSource}<span aria-hidden="true"> ↗</span></a>}
+              {matrix.releaseReady && region.sourceUrl && <a {...nextActionAttributes('open_source')} className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={region.sourceUrl} rel="nofollow noopener">{copy.openSource}<span aria-hidden="true"> ↗</span></a>}
             </div>
           </header>
           {matrix.releaseReady && region.duties.length > 0
@@ -95,7 +120,7 @@ export default function PharmacyDutyCoverageMatrix({
                 const pharmacy = pharmacyById(duty.pharmacyId);
                 const href = pharmacyHref(duty.pharmacyId, locale);
                 return <li key={duty.id} className="space-y-2 px-5 py-4" data-duty-id={duty.id}>
-                  <p className="text-sm font-semibold text-heading">{copy.pharmacy}: {pharmacy && href ? <a className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={href}>{pharmacy.name}</a> : <span>{copy.notResolved}</span>}</p>
+                  <p className="text-sm font-semibold text-heading">{copy.pharmacy}: {pharmacy && href ? <a {...nextActionAttributes('open_pharmacy')} className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={href}>{pharmacy.name}</a> : <span>{copy.notResolved}</span>}</p>
                   <p className="text-sm text-body"><span className="font-semibold">{copy.interval}:</span> <time dateTime={duty.startsAt}>{formatDutyDateTime(duty.startsAt)}</time> – <time dateTime={duty.endsAt}>{formatDutyDateTime(duty.endsAt)}</time></p>
                 </li>;
               })}
@@ -118,7 +143,7 @@ export default function PharmacyDutyCoverageMatrix({
                 <h4 className="font-display text-lg font-bold text-heading">{canton.name} · {canton.coverageName}</h4>
                 <p className="text-xs font-semibold uppercase tracking-wide text-success">{copy.coverageTypeLabel(canton.coverageType)}</p>
               </div>
-              <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={canton.sourceUrl} rel="nofollow noopener">{copy.openSource}<span aria-hidden="true"> ↗</span></a>
+              <a {...nextActionAttributes('open_source')} className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={canton.sourceUrl} rel="nofollow noopener">{copy.openSource}<span aria-hidden="true"> ↗</span></a>
             </div>
           </header>
           {canton.duties.length > 0
@@ -146,7 +171,7 @@ export default function PharmacyDutyCoverageMatrix({
                 <h4 className="font-display text-lg font-bold text-heading">{province.name}</h4>
                 <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-success' : 'text-warning'}`}>{province.publishable ? copy.italyPublishedLabel : copy.italyNotPublishedLabel}</p>
               </div>
-              {province.sourceUrl && <a className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
+              {province.sourceUrl && <a {...nextActionAttributes('open_source')} className="text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a>}
             </div>
           </header>
           {province.publishable && province.duties.length > 0
@@ -155,7 +180,7 @@ export default function PharmacyDutyCoverageMatrix({
                 const pharmacy = pharmacyById(duty.pharmacyId);
                 const href = italyPharmacyHref(duty.pharmacyId, locale);
                 return <li key={duty.id} className="space-y-2 px-5 py-4" data-duty-id={duty.id} data-duty-country="IT">
-                  <p className="text-sm font-semibold text-heading">{copy.pharmacy}: {pharmacy && href ? <a className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={href}>{pharmacy.name}</a> : <span>{copy.notResolved}</span>}</p>
+                  <p className="text-sm font-semibold text-heading">{copy.pharmacy}: {pharmacy && href ? <a {...nextActionAttributes('open_pharmacy')} className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={href}>{pharmacy.name}</a> : <span>{copy.notResolved}</span>}</p>
                   <p className="text-sm text-body"><span className="font-semibold">{copy.interval}:</span> <time dateTime={duty.startsAt}>{formatItalyDutyDateTime(duty.startsAt)}</time> – <time dateTime={duty.endsAt}>{formatItalyDutyDateTime(duty.endsAt)}</time></p>
                 </li>;
               })}
@@ -180,7 +205,7 @@ export default function PharmacyDutyCoverageMatrix({
             <div><dt className="font-semibold text-body">{copy.status}</dt><dd className="text-muted">{copy.statusLabel(canton.status)}</dd></div>
             <div><dt className="font-semibold text-body">{copy.sourceType}</dt><dd className="text-muted">{copy.sourceTypeLabel(canton.sourceType)}</dd></div>
             <div><dt className="font-semibold text-body">{copy.lastVerifiedAt}</dt><dd className="text-muted">{canton.lastVerifiedAt ? <time dateTime={canton.lastVerifiedAt}>{formatDutyCoverageDate(canton.lastVerifiedAt, locale)}</time> : copy.notAvailable}</dd></div>
-            <div><dt className="font-semibold text-body">{copy.officialSource}</dt><dd>{canton.officialSourceUrl ? <a className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={canton.officialSourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a> : <span className="text-muted">{copy.notAvailable}</span>}</dd></div>
+            <div><dt className="font-semibold text-body">{copy.officialSource}</dt><dd>{canton.officialSourceUrl ? <a {...nextActionAttributes('open_source')} className="text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={canton.officialSourceUrl} rel="nofollow noopener">{copy.openOfficialSource}<span aria-hidden="true"> ↗</span></a> : <span className="text-muted">{copy.notAvailable}</span>}</dd></div>
           </dl>
         </li>)}
       </ul>

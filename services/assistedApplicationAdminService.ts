@@ -43,7 +43,7 @@ export interface AutomationQuestionView {
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
 export interface AtsReportView {
   structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
-  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null };
+  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null; ceiling?: number | null; overCeiling?: string[] };
 }
 
 export interface AssistedApplicationAutomationView {
@@ -90,7 +90,7 @@ export interface AssistedApplicationAutomationView {
     coverLetter: { text: string; subject: string } | null;
     applicationEmail: { to: string; subject: string; body: string } | null;
     formAnswers: Array<{ key: string; label: string; value: string; needsConfirmation: boolean; note: string }>;
-    factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
+    factCheck: { ok: boolean; unsupported: Array<{ field: string; kind: string; token: string; context: string }>; advisories?: Array<{ field: string; kind: string; token: string; context: string }>; basis: string | null } | null;
     factCheckAcknowledgedAt: number | null;
     knockOutAcknowledgedAt: number | null;
     editedAt: number | null;

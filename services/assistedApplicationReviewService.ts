@@ -7,7 +7,28 @@
 import { ASSISTED_APPLICATION_REVIEW_URL } from './functionsBase';
 
 export type ReviewAction = 'approve' | 'reject' | 'answers' | 'confirm_submitted' | 'cv_choice' | 'edit' | 'followup_send' | 'followup_skip'
-  | 'document_upload' | 'document_remove' | 'document_waive';
+  | 'document_upload' | 'document_remove' | 'document_waive' | 'photo_upload' | 'photo_remove' | 'cv_lines';
+
+/** The candidate's choice for one line of the tailored CV (functions/src/assistedApplicationReview.js cvChangesView). */
+export interface ReviewCvLineChoice {
+  use: 'adapted' | 'original' | 'own';
+  text?: string;
+}
+
+/** What the tailored CV changed: the summary and each rewritten line beside the CV's own line. */
+export interface ReviewCvChanges {
+  summary: ReviewCvLine | null;
+  roles: Array<{ title: string; employer: string; lines: ReviewCvLine[] }>;
+}
+
+export interface ReviewCvLine {
+  id: string;
+  adapted: string;
+  /** The CV's own line it rewrites ('' when it rewrites none). */
+  original: string;
+  use: ReviewCvLineChoice['use'];
+  text: string;
+}
 
 /** A document the posting asks for besides the CV and the letter (functions/src/assistedApplicationExtraDocuments.js). */
 export interface ReviewDocument {
@@ -118,9 +139,18 @@ export interface ReviewPayload {
   documentLimits?: { maxBytes: number; maxFiles: number };
   feedback: Array<{ round: number; text: string }>;
   /** The tailored ATS CV, sent unless the candidate chooses their original. */
-  tailoredCv: { url: string | null; choice: 'tailored' | 'original' } | null;
+  tailoredCv: {
+    url: string | null;
+    choice: 'tailored' | 'original';
+    /** The candidate's optional photo is on the tailored CV. */
+    photo?: boolean;
+    /** Customary in German-speaking Switzerland ("recommended"), optional elsewhere. */
+    photoAdvice?: 'recommended' | 'optional';
+    photoMaxBytes?: number;
+    changes?: ReviewCvChanges | null;
+  } | null;
   ats: { original: ReviewAtsView | null; tailored: ReviewAtsView | null } | null;
-  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean };
+  can: { approve: boolean; reject: boolean; answer: boolean; confirmSubmitted: boolean; chooseCv?: boolean; edit?: boolean; uploadDocuments?: boolean; uploadPhoto?: boolean; reviewCvLines?: boolean };
 }
 
 export interface ReviewAtsView {

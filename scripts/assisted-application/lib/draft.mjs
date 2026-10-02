@@ -9,14 +9,18 @@
  * same, so only the two calls that depend on the feedback run again.
  */
 
-import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
+import { pdfRendererMode, renderLetterPdf } from '../../../functions/src/assistedApplicationPdfRenderer.js';
 import {
+  applyLetterConventions,
   buildFormAnswers,
-  checkDraftFacts,
+  checkDraftTexts,
   ensureRequiredQuestions,
+  letterAddressOf,
+  letterEnclosures,
   letterPdfBlocks,
   letterText,
   sanitizeDocuments,
+  swissTypography,
   sanitizeMatch,
   sanitizeProfile,
   sanitizeRequirements,
@@ -44,6 +48,7 @@ import {
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
 import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
 import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
+import { candidateType } from '../../../functions/src/assistedApplicationCandidateType.js';
 import {
   TAILORED_CV_SCHEMA,
   buildTailoredCvPdf,
@@ -54,7 +59,8 @@ import {
   tailoredCvUserText,
 } from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
-import { requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
+import { candidatePhoto } from '../../../functions/src/assistedApplicationTailoredCvPdf.js';
+import { enclosedDocumentLabels, requiredDocumentsFromRequirements } from '../../../functions/src/assistedApplicationExtraDocuments.js';
 import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
@@ -114,14 +120,17 @@ export async function buildDraft(ctx) {
     && previousDraft.postingHash === hashText(postingText)
     && previousDraft.profile && previousDraft.requirementsRaw
     // Requirements read before the requested documents existed are read again.
-    && Array.isArray(previousDraft.requirementsRaw.requestedDocuments);
+    && Array.isArray(previousDraft.requirementsRaw.requestedDocuments)
+    // So is a profile read before the kinds of experience: an internship would count as a job.
+    && profileOfThisVersion(previousDraft.profile);
 
   let cvText = previousDraft?.factSources?.text && reuse ? previousDraft.factSources.text : '';
   let cvMethod = reuse ? previousDraft.cvTextMethod : 'none';
   let profile;
   let requirements;
   if (reuse) {
-    profile = previousDraft.profile;
+    // Capped and defaulted as a fresh read.
+    profile = sanitizeProfile(previousDraft.profile);
     requirements = previousDraft.requirementsRaw;
     log('reusing profile and requirements of the previous round');
   } else {
@@ -156,11 +165,15 @@ export async function buildDraft(ctx) {
   const profileJson = JSON.stringify(profile);
   const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
   const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
+  // Apprentice, first job or qualified, and the sector: the CV's sections and the letter's plan follow it.
+  const kind = candidateType({ profile, postingTitle: title || order.jobTitle, postingText });
   // The tailored ATS CV needs only the profile and the requirements: it runs
   // while the match and the letter are written.
   const tailoredCvPromise = buildTailoredCv({
+    kind,
+    rendererMode: await pdfRendererMode(),
     codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
-    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT), flow,
   });
   const matchRaw = await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
@@ -175,6 +188,7 @@ export async function buildDraft(ctx) {
   const documentsRaw = await codex({
     prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
       candidateName: identity.name,
+      candidateType: kind.type,
       profile,
       requirements,
       matches: match.matches,
@@ -195,6 +209,13 @@ export async function buildDraft(ctx) {
   });
   const documents = sanitizeDocuments(documentsRaw);
   if (!documents.coverLetter.paragraphs.length || !documents.emailBody) throw new DraftAbort('draft_failed', 'documents_empty');
+  // Swiss conventions in code (study 2026-10-02): salutation and closing per
+  // language, no "ß", no line break inside "81 %".
+  const contactPerson = requirements.contactPerson || posting.contactPerson;
+  documents.coverLetter = applyLetterConventions(documents.coverLetter, { language, contactPerson });
+  for (const key of ['emailBody', 'motivationShort', 'whyCompany']) documents[key] = swissTypography(documents[key], language);
+  const requiredDocuments = requiredDocumentsFromRequirements(requirements);
+  const letterAddress = letterAddressOf(posting, contactPerson);
 
   // The CV text is the strict source of facts; the answers the candidate gave
   // are facts too. A CV with no readable text never gets here.
@@ -202,6 +223,8 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
+    // The work place backs a place name in the letter, never a figure.
+    place: String(posting.location || '').slice(0, 200),
     // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
     answers: [
       ...Object.values(answers),
@@ -211,14 +234,14 @@ export async function buildDraft(ctx) {
     ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
-  const emailSubject = applicationEmailSubject(language, title, identity.name, documents.emailSubject);
-  const factCheck = checkDraftFacts({
+  const emailSubject = swissTypography(applicationEmailSubject(language, title, identity.name, documents.emailSubject), language);
+  const factCheck = checkDraftTexts({
     coverLetter: letterBody,
     emailSubject,
     emailBody: documents.emailBody,
     motivationShort: documents.motivationShort,
     whyCompany: documents.whyCompany,
-  }, factSources);
+  }, factSources, { language });
 
   const channel = classifyApplicationChannel({
     applyUrl: posting.applyUrl || order.jobUrl,
@@ -244,9 +267,12 @@ export async function buildDraft(ctx) {
     log('portal pre-read', channel.type, `${portal.length} questions`);
   }
 
-  const pdf = buildCoverLetterPdf(letterPdfBlocks({
-    identity, profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
-  }));
+  // Typst with the embedded font; the standard-font writer when it fails or the switch says "legacy".
+  const rendererMode = await pdfRendererMode();
+  const { pdf, renderer: letterRenderer } = await renderLetterPdf(letterPdfBlocks({
+    identity, profile, posting: letterAddress, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
+    enclosures: letterEnclosures(language, enclosedDocumentLabels({ requiredDocuments }, null, orderId)),
+  }), { mode: rendererMode, log });
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
 
@@ -255,7 +281,8 @@ export async function buildDraft(ctx) {
   const tailored = await tailoredCvPromise;
   const ats = {
     original: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText, cvMethod }),
-    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf' }) } : {}),
+    // The tailored text against the honest ceiling of the candidate's own CV.
+    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf', baselineText: cvText }) } : {}),
   };
   const legitimacy = assessLegitimacy({
     posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
@@ -283,8 +310,10 @@ export async function buildDraft(ctx) {
     workPermitQuote: requirements.workPermitQuote,
     applicationInstructions: requirements.applicationInstructions,
     // School reports, test results… besides the CV and the letter: the candidate uploads them on the review page.
-    requiredDocuments: requiredDocumentsFromRequirements(requirements),
-    contactPerson: requirements.contactPerson || posting.contactPerson,
+    requiredDocuments,
+    contactPerson,
+    // The letter's recipient: every rebuild of the letter (candidate edits, owner edits, submission) prints it.
+    letterAddress,
     matches: match.matches,
     verdict: match.verdict,
     summaryIt: match.summaryIt,
@@ -303,6 +332,9 @@ export async function buildDraft(ctx) {
     coverLetterPdfKey: pdfKey,
     ats,
     legitimacy,
+    candidateType: kind,
+    // Which writer produced the letter (typst, or legacy as fallback): measured per draft.
+    coverLetterRenderer: letterRenderer,
     tailoredCv: tailored.record,
   };
 
@@ -324,16 +356,16 @@ export async function buildDraft(ctx) {
  * fails the draft: without it the original CV is sent.
  * @returns {Promise<{record: object, text: string}>}
  */
-async function buildTailoredCv({ codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+async function buildTailoredCv({ kind = { type: 'qualified', sector: 'other' }, rendererMode, codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt, flow }) {
   try {
     const raw = await codex({
       prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
-        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers,
+        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers, candidateType: kind.type,
       })),
       schema: TAILORED_CV_SCHEMA,
       timeoutMs: CODEX_TIMEOUT_MS,
     });
-    const cv = sanitizeTailoredCv(raw, { profile, cvText, language });
+    const cv = sanitizeTailoredCv(raw, { profile, cvText, language, type: kind.type, sector: kind.sector, title });
     const text = tailoredCvPlainText(cv, { identity, profile });
     const facts = checkTailoredCvFacts(cv, { cvText, profile, answers: { ...answers, notes: candidateNotes } });
     if (!facts.ok) {
@@ -341,12 +373,23 @@ async function buildTailoredCv({ codex, bucket, orderId, round, nowMs, log, prof
       return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
     }
     const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
-    await bucket.file(pdfKey).save(buildTailoredCvPdf(cv, { identity, profile }), { contentType: 'application/pdf', resumable: false });
-    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped }, text };
+    // The photo the candidate gave on an earlier round stays on the new tailored CV.
+    const photo = await candidatePhoto(flow, bucket);
+    const { pdf, renderer } = await buildTailoredCvPdf(cv, { identity, profile, mode: rendererMode, log, ...photo });
+    await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    // `cv`: kept so the Cloud Functions rebuild the PDF with the candidate's photo and corrections.
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped, renderer, cv, ...(photo.photo ? { photo: true } : {}) }, text };
   } catch (error) {
     log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
     return { record: { status: 'failed', language }, text: '' };
   }
+}
+
+// Fields every profile read by this version has (sanitizeProfile writes them, even empty).
+const PROFILE_FIELDS = ['aptitudeTests', 'recognitions', 'projects', 'interests', 'references', 'drivingLicence'];
+
+function profileOfThisVersion(profile) {
+  return PROFILE_FIELDS.every((key) => key in profile) && (profile.experience || []).every((role) => typeof role?.kind === 'string');
 }
 
 function hashText(text) {

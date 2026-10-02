@@ -170,6 +170,50 @@ describe('extractAddress', () => {
 describe('parsePriceText', () => {
   it('takes the cheapest numeric amount found', () => {
     expect(parsePriceText('CHF 10.00 pro Person, Kinder CHF 5.00')).toEqual({ amount: 5, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF10')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('10CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF 20 (EUR 22)')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('20 euro')).toEqual({ amount: 20, currency: 'EUR', isFree: false });
+    expect(parsePriceText('CHF 20, 20:00')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Free for children under 12, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Bambini gratuiti, adulti CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission for 2 adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission: 2 adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Ingresso: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('children under 12 are free, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Parcheggio gratis, ingresso CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Bambini gratis, ingresso su richiesta')).toEqual({ amount: null, currency: 'CHF', isFree: false });
+    expect(parsePriceText('20 €')).toEqual({ amount: 20, currency: 'EUR', isFree: false });
+    expect(parsePriceText('20 Fr.')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF 1000.00')).toEqual({ amount: 1000, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF 100000')).toEqual({ amount: 100000, currency: 'CHF', isFree: false });
+    expect(parsePriceText('10–20 CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission free, parking CHF 5')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Parking free. Admission CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Price 20, call +41 91 123 45 67')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Prezzi: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Tariffe: 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Entry free, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Price: 41 91 123 45 67').amount).toBeNull();
+    expect(parsePriceText('ticketEUR20').amount).toBeNull();
+    expect(parsePriceText('2024CHF').amount).toBeNull();
+    expect(parsePriceText('Price: call +41 91 123 45 67 CHF')).toEqual({ amount: null, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Parking: CHF 5, Admission free')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('10.– CHF')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission free, call +41 91 123 45 67')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuit pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratis per tutti')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Free for all')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Price: 10 CHF/person')).toEqual({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Freier Eintritt')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('entrées gratuites')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Access free')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Accesso gratuito')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('accès gratuit')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuits pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Gratuites pour tous')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsePriceText('Accès gratuits')).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
@@ -184,6 +228,33 @@ describe('parsePriceText', () => {
   it('returns undefined for empty input', () => {
     expect(parsePriceText('')).toBeUndefined();
     expect(parsePriceText(undefined)).toBeUndefined();
+  });
+
+  it.each([
+    'gratis', 'gratuito', 'gratuit', 'gratuite', 'kostenlos', 'Eintritt frei', 'free entry',
+    'free admission', 'ingresso libero', 'ingresso gratuito', 'entrée libre', 'entrée gratuite',
+  ])('records localized free-access evidence: %s', (label) => {
+    const parsed = parsePriceText(label);
+    expect(parsed).toMatchObject({ amount: 0, currency: 'CHF', isFree: true });
+    expect(parsed.evidence).toBe('label-free');
+  });
+
+  it('accepts explicit zero tariffs and ignores dates, phones and identifiers', () => {
+    expect(parsePriceText('CHF 0')).toMatchObject({ amount: 0, isFree: true });
+    expect(parsePriceText('0.–')).toMatchObject({ amount: 0, isFree: true });
+    expect(parsePriceText("CHF 1'000")).toMatchObject({ amount: 1000, isFree: false });
+    expect(parsePriceText('CHF 1.234,50')).toMatchObject({ amount: 1234.5, isFree: false });
+    expect(parsePriceText('20')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('CHF10')).toMatchObject({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('10CHF')).toMatchObject({ amount: 10, currency: 'CHF', isFree: false });
+    expect(parsePriceText('CHF 20 (EUR 22)')).toMatchObject({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Ingresso 20 franchi, Bambini gratis')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('children are free, adults 20')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('Kids 0–5 free, adults CHF 20')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('Bambini gratuiti, adulti CHF 20')).toMatchObject({ amount: 20, isFree: false });
+    expect(parsePriceText('2026-07-04')).toMatchObject({ amount: null, isFree: false });
+    expect(parsePriceText('+41 91 555 12 34')).toMatchObject({ amount: null, isFree: false });
+    expect(parsePriceText('ID 123456')).toMatchObject({ amount: null, isFree: false });
   });
 });
 
