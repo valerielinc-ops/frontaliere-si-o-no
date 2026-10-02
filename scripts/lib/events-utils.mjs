@@ -1524,7 +1524,7 @@ const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i)?|eintr
 const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;.\n]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;.\n]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
 const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b/iu;
 const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
-const PRICE_PARKING_BEFORE_RE = /(?:parking|parcheggio|parkplatz|stationnement)\s*(?:CHF|EUR|€|S?Fr\.?)?\s*$/iu;
+const PRICE_PARKING_BEFORE_RE = /(?:parking|parcheggio|parkplatz|stationnement)\s*[:=,-]?\s*(?:CHF|EUR|€|S?Fr\.?)?\s*$/iu;
 
 function priceResult(value, evidence) {
   Object.defineProperty(value, 'evidence', { value: evidence, enumerable: false, configurable: true });
@@ -1577,6 +1577,8 @@ function collectPriceCandidates(text) {
     const rawCurrency = match[1] || match[4];
     const before = candidateText.slice(Math.max(0, match.index - 32), match.index);
     if (PRICE_PARKING_BEFORE_RE.test(before) || /^(?:19|20)\d{2}$/u.test(rawAmount)) continue;
+    const amountStart = match.index + match[0].indexOf(rawAmount);
+    if (overlapsDate(candidateText, amountStart, rawAmount.length) || overlapsPhone(candidateText, amountStart, rawAmount.length)) continue;
     const amount = normalizePriceAmount(rawAmount);
     if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(rawCurrency) });
   }
