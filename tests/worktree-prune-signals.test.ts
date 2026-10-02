@@ -138,6 +138,13 @@ describe('body della PR lasciato nel worktree', () => {
     ]);
   });
 
+  it('il body è rumore solo se la PR esiste: senza PR è il testo che stava per aprirla', () => {
+    const entries = [{ status: '??', path: '.pr-body-9108.md' }, { status: '??', path: '.codex-pr-body.md' }];
+    expect(classifyDirtyEntries(entries).significant).toEqual([]);
+    expect(classifyDirtyEntries(entries, { prExists: true }).ignored).toEqual(['.pr-body-9108.md', '.codex-pr-body.md']);
+    expect(classifyDirtyEntries(entries, { prExists: false }).significant).toEqual(['.pr-body-9108.md', '.codex-pr-body.md']);
+  });
+
   it('ignora il body non tracciato, ma non un file tracciato con lo stesso nome', () => {
     const { significant, ignored } = classifyDirtyEntries([
       { status: '??', path: '.pr-body-9108.md' },
@@ -153,7 +160,7 @@ describe('body della PR lasciato nel worktree', () => {
   it('uno stato git illeggibile non è "pulito"', () => {
     // Prima l'errore di `git status` diventava '' e quindi "nessuna modifica".
     const missing = path.join(os.tmpdir(), `worktree-che-non-esiste-${process.pid}`);
-    expect(classifyDirty(missing)).toEqual({ significant: [], ignored: [], error: true });
+    expect(classifyDirty(missing)).toEqual({ significant: [], significantEntries: [], ignored: [], error: true });
   });
 });
 

@@ -72,7 +72,7 @@ export function isMergedPullRequestToBase(pr, { baseBranch }) {
 }
 
 export function headQueryCommand(branch) {
-  return `gh pr list --head '${branch}' --state all --limit 10 --json state,baseRefName,headRefName,headRefOid`;
+  return `gh pr list --head '${branch}' --state all --limit 10 --json number,state,baseRefName,headRefName,headRefOid,closedAt`;
 }
 
 // Lo stato MERGED da solo non prova che il contenuto del checkout sia arrivato
