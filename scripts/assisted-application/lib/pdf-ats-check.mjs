@@ -33,6 +33,8 @@ export async function checkPdfForAts(pdfBytes, { name = '', facts = [], headings
   const lines = [];
   let text = '';
   let missingFont = false;
+  // A font pdf.js could not resolve cannot be shown embedded: it fails, as a missing one does.
+  let unresolvedFont = false;
   for (let number = 1; number <= pdf.numPages; number += 1) {
     const page = await pdf.getPage(number);
     const content = await page.getTextContent();
@@ -42,7 +44,9 @@ export async function checkPdfForAts(pdfBytes, { name = '', facts = [], headings
       try {
         const font = page.commonObjs.get(item.fontName);
         if (font?.missingFile) missingFont = true;
-      } catch { /* font not loaded: judged by the text checks */ }
+      } catch {
+        unresolvedFont = true;
+      }
     }
     // Lines by baseline, then left to right: the reading a layout-aware extractor makes.
     const rows = new Map();
@@ -65,6 +69,7 @@ export async function checkPdfForAts(pdfBytes, { name = '', facts = [], headings
   const flat = text.replace(/\s+/g, ' ');
   if (flat.trim().length < 200) failures.push('text');
   if (missingFont) failures.push('fonts');
+  if (unresolvedFont) failures.push('fonts:unresolved');
   if (PRIVATE_USE.test(text)) failures.push('icons');
   if (/\p{L}\?\p{L}/u.test(text) || text.includes('�')) failures.push('replacement');
   if (name && !(lines[0] || '').includes(name)) failures.push(`name:${lines[0] || ''}`);
