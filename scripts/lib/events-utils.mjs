@@ -1511,17 +1511,17 @@ const PRICE_ADJACENT_AMOUNT_RE = new RegExp(String.raw`(?:(CHF|EUR|€|S?Fr\.?)(
 const PRICE_RANGE_POSTFIX_RE = new RegExp(String.raw`(${PRICE_AMOUNT_TOKEN})\s*[–—-]\s*${PRICE_AMOUNT_TOKEN}\s*(CHF|EUR|€|S?Fr\.?|francs?|franchi|franken)`, 'iu');
 const PRICE_CURRENCY_BEFORE_RE = /(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\s*$/iu;
 const PRICE_CURRENCY_AFTER_RE = /^\s*(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)(?=$|\s|[.,;:)])/iu;
-const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
+const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
 const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
 const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
 const PRICE_AUDIENCE_AFTER_RE = /^\s*(?:adult(?:s|es)?|adulti|erwachsene)\b/iu;
-const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
+const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezz[oi]|preise?|prix|tariff[ae]|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
 const PRICE_DATE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b)/gu;
 const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
 const PRICE_TIME_RE = /\b\d{1,2}:\d{2}\b/gu;
 const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i)?|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\s*[.!]?$/iu;
-const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
+const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;.\n]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;.\n]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
 const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b/iu;
 const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
 
@@ -1560,7 +1560,7 @@ function collectPriceCandidates(text) {
     const currency = before.match(PRICE_CURRENCY_BEFORE_RE)?.[0] || after.match(PRICE_CURRENCY_AFTER_RE)?.[0];
     const hasPriceLabel = PRICE_LABEL_BEFORE_RE.test(before) || PRICE_LABEL_AFTER_RE.test(after) || PRICE_AUDIENCE_BEFORE_RE.test(before);
     if (!currency && !hasPriceLabel) continue;
-    if (overlapsDate(candidateText, match.index, match[0].length) || (PRICE_PHONE_RE.test(text) && !currency) || (!currency && PRICE_AUDIENCE_AFTER_RE.test(after))) continue;
+    if (overlapsDate(candidateText, match.index, match[0].length) || (PRICE_PHONE_RE.test(text) && !currency && !hasPriceLabel) || (!currency && PRICE_AUDIENCE_AFTER_RE.test(after))) continue;
     const amount = normalizePriceAmount(match[0]);
     if (Number.isFinite(amount) && amount >= 0) candidates.push({ amount, currency: canonicalPriceCurrency(currency || defaultCurrency) });
   }
