@@ -1,3 +1,6 @@
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
@@ -14,6 +17,7 @@ import {
 import {
   aggregateCrawlReports,
   buildIssueBody,
+  readPartitionReports,
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 
@@ -434,6 +438,18 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(summary.scopes.map((scope) => scope.name)).toEqual(['sitemap', 'frontiera interna']);
     expect(summary.actionableCount).toBe(2);
     expect(buildIssueBody(summary)).toContain('Frontiera interna crawlable: **1 URL**');
+  });
+
+  it('reads the frontier partition filename prefix used by the workflow artifacts', () => {
+    const reportsDir = mkdtempSync(join(tmpdir(), 'bing-site-frontier-reports-'));
+    try {
+      writeFileSync(join(reportsDir, 'frontier-partition-0.json'), JSON.stringify({ partition: 0 }));
+      writeFileSync(join(reportsDir, 'partition-0.json'), JSON.stringify({ partition: 99 }));
+
+      expect(readPartitionReports(reportsDir, 'frontier-partition-')).toEqual([{ partition: 0 }]);
+    } finally {
+      rmSync(reportsDir, { recursive: true, force: true });
+    }
   });
 
   it('treats a partially unread sitemap graph as incomplete coverage', () => {

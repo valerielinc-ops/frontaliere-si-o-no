@@ -69,9 +69,9 @@ function writeJson(filePath, value) {
   writeFileSync(resolve(filePath), `${JSON.stringify(value, null, 2)}\n`);
 }
 
-function readReports(reportsDir) {
+export function readPartitionReports(reportsDir, prefix = 'partition-') {
   return readdirSync(resolve(reportsDir))
-    .filter((name) => /^partition-\d+\.json$/.test(name))
+    .filter((name) => name.startsWith(prefix) && /^\d+\.json$/.test(name.slice(prefix.length)))
     .sort()
     .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
 }
@@ -398,9 +398,11 @@ async function main() {
   const manifestPath = arg(args, 'manifest', '');
   const supplementalReportsDir = arg(args, 'supplemental-reports-dir', '');
   const supplementalManifestPath = arg(args, 'supplemental-manifest', '');
-  const reports = readReports(reportsDir);
+  const reports = readPartitionReports(reportsDir);
   const manifest = manifestPath ? JSON.parse(readFileSync(resolve(manifestPath), 'utf8')) : null;
-  const supplementalReports = supplementalReportsDir ? readReports(supplementalReportsDir) : [];
+  const supplementalReports = supplementalReportsDir
+    ? readPartitionReports(supplementalReportsDir, 'frontier-partition-')
+    : [];
   const supplementalManifest = supplementalManifestPath
     ? JSON.parse(readFileSync(resolve(supplementalManifestPath), 'utf8'))
     : null;

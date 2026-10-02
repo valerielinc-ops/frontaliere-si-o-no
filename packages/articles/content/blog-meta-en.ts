@@ -12354,6 +12354,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cairate-fisco-confine.title': 'Living in Cairate and working in Ticino as a cross-border commuter',
     'blog.article.cairate-fisco-confine.excerpt': 'New Cross-Border Commuter Agreement in force from 1 January 2024: withholding tax, deductibles, AHV, BVG and KVG for those living in Cairate.',
     'blog.article.cairate-fisco-confine.imageAlt': 'Ticino landscape linked to cross-border work from Cairate',
+    'blog.article.fondo-avs-solidarieta-giovani.title': '13th AVS payment, generational pact fund created',
+    'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'In Ticino, more than 86 thousand beneficiaries will receive more than 140 million francs: part of the thirteenth AHV will be able to support projects for young people.',
+    'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Older and younger people discuss solidarity in a Ticino landscape',
 };
 
 export default blogMetaEn;

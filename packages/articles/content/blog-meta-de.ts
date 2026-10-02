@@ -12353,6 +12353,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cairate-fisco-confine.title': 'Leben in Cairate und Arbeit als Grenzpendler im Tessin',
     'blog.article.cairate-fisco-confine.excerpt': 'Neues Grenzgängerabkommen ab 1° gennaio 2024 in Kraft: Quellensteuer, Freibeträge, AHV, BVG und KVG für Personen, die in Cairate leben.',
     'blog.article.cairate-fisco-confine.imageAlt': 'Tessiner Landschaft zum Grenzgänger-Arbeiten aus Cairate',
+    'blog.article.fondo-avs-solidarieta-giovani.title': 'Dreizehnte AHV, der Generationenpakt-Fonds wird geboren',
+    'blog.article.fondo-avs-solidarieta-giovani.excerpt': 'Im Tessin werden über 86.000 Begünstigte mehr als 140 Millionen Franken erhalten: Ein Teil der dreizehnten AHV-Rente könnte zur Unterstützung von Jugendprojekten eingesetzt werden.',
+    'blog.article.fondo-avs-solidarieta-giovani.imageAlt': 'Ältere und junge Menschen sprechen in der Tessiner Landschaft über Solidarität',
 };
 
 export default blogMetaDe;

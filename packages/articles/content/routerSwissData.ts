@@ -2503,6 +2503,11 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'c-basilea-campagna-criteri': { it: 'c-basilea-campagna-criteri', en: 'c-permit-basel-land-requirements', de: 'niederlassung-c-basel-landschaft', fr: 'permis-c-bale-campagne' },
  'cicli-basilea-campagna': { it: 'cicli-basilea-campagna', en: 'basel-campagna-school-cycles', de: 'schule-basel-landschaft-zyklen', fr: 'ecole-bale-campagne-cycles' },
  'guida-san-gallo-lamal-2026': { it: 'guida-san-gallo-lamal-2026', en: 'st-gallen-lamal-premiums-2026', de: 'lamal-praemien-st-gallen-2026', fr: 'primes-lamal-saint-gall-2026' },
+ 'franchigia-lamal-lucerna-guida': { it: 'franchigia-lamal-lucerna-guida', en: 'lucerne-lamal-deductible-guide', de: 'lamal-praemien-kanton-luzern-2026', fr: 'primes-lamal-canton-lucerne-2026' },
+ 'stipendi-professioni-cantoni-2026': { it: 'stipendi-professioni-cantoni-2026', en: 'average-salaries-switzerland-2026', de: 'durchschnittsloehne-schweiz-2026', fr: 'salaires-moyens-suisse-2026' },
+ 'sostegno-formazione-basilea': { it: 'sostegno-formazione-basilea', en: 'study-support-basilea-campagna', de: 'studienhilfe-basilea-campagna', fr: 'aides-etudes-basilea-campagna' },
+ 'lordo-netto-cantoni-2026': { it: 'lordo-netto-cantoni-2026', en: 'swiss-salary-gross-net-2026', de: 'schweizer-lohn-brutto-netto-2026', fr: 'salaire-suisse-brut-net-2026' },
+ 'retribuzioni-svizzere-netto': { it: 'retribuzioni-svizzere-netto', en: 'swiss-profession-salaries-2026', de: 'schweizer-berufsloehne-2026', fr: 'salaires-professions-suisse-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
