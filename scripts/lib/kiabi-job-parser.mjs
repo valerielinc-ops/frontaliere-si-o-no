@@ -226,12 +226,14 @@ async function fetchJobListings() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
 
   const listings = [];
+  let sourceReadProof = null;
   try {
     for await (const job of fetchSmartRecruitersJobs(SR_TENANT, {
       company: KIABI_COMPANY_NAME,
       locationCountryCodes: ['ch'],
       fetchDetail: true,
       timeoutMs,
+      onComplete: (proof) => { sourceReadProof = proof; },
     })) {
       const raw = job.rawPosting || {};
       listings.push({
@@ -250,7 +252,16 @@ async function fetchJobListings() {
     throw err;
   }
 
-  return listings;
+  const completeSourceRead = sourceReadProof?.terminationProven === true
+    && sourceReadProof.paginationIntegrityProven === true
+    && Number.isSafeInteger(sourceReadProof.totalFound)
+    && sourceReadProof.recordsSeen === sourceReadProof.totalFound
+    && sourceReadProof.rawRecordsSeen === sourceReadProof.recordsSeen;
+  if (!completeSourceRead) {
+    throw new Error('SmartRecruiters postings walk was incomplete; keeping the existing Kiabi slice.');
+  }
+
+  return { listings, sourceReadProof };
 }
 
 /**
@@ -267,15 +278,21 @@ export async function fetchAllKiabiJobs() {
   console.log(`🔍 Fetching ${KIABI_COMPANY_NAME} jobs`);
   console.log(`   Source: ${CAREER_URL} (SmartRecruiters tenant "${SR_TENANT}")\n`);
 
-  const listings = await fetchJobListings();
+  const { listings, sourceReadProof } = await fetchJobListings();
+  const jobs = [];
+  Object.defineProperty(jobs, 'authoritativeEmptySnapshot', {
+    value: listings.length === 0
+      && sourceReadProof.terminationProven === true
+      && sourceReadProof.paginationIntegrityProven === true
+      && sourceReadProof.recordsSeen === sourceReadProof.totalFound,
+  });
   if (!listings || listings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
-    return [];
+    console.warn('⚠️ SmartRecruiters source walk completed with no Swiss job listings.');
+    return jobs;
   }
 
   console.log(`  📋 Listings found: ${listings.length}`);
 
-  const jobs = [];
   const seen = new Set();
   for (const listing of listings) {
     const title = normalizeSpace(listing.title || '');
