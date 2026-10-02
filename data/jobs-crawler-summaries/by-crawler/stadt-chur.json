@@ -1,17 +1,13 @@
 {
   "key": "stadt-chur",
   "label": "stadt-chur",
-  "generatedAt": "2026-10-02T09:34:54.106Z",
+  "generatedAt": "2026-10-02T21:38:24.686Z",
   "total": 1,
+  "abortKind": null,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 895245,
-  "avgDurationMs": 895245,
-  "durationHistory": [
-    895245
-  ],
   "newJobs": [],
   "updatedJobs": [
     {
@@ -54,5 +50,10 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "durationMs": 895245,
+  "avgDurationMs": 895245,
+  "durationHistory": [
+    895245
+  ]
 }
