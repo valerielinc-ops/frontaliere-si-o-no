@@ -7457,6 +7457,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.retribuzioni-svizzere-netto.title': 'Durchschnittslöhne nach Berufen in der Schweiz im Jahr 2026',
     'blog.article.retribuzioni-svizzere-netto.excerpt': 'Durchschnittsgehalt pro Beruf in der Schweiz im Jahr 2026: Vergleich zwischen Kantonen, Steuern, Beiträgen, BVG, KVG und Nettoverfügbarkeit nach den kantonalen Arbeitsregeln.',
     'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Person prüft eine Schweizer Lohnabrechnung und einen Vergleich von Berufslöhnen.',
+    'blog.article.guida-retribuzioni-ginevra-2026.title': 'Durchschnittslohn nach Berufsgruppen in der Schweiz 2026: Kanton Genf',
+    'blog.article.guida-retribuzioni-ginevra-2026.excerpt': 'Vergleich 2026 zwischen Berufen und Kantonen: In Genf sind beim Bruttoeinkommen die Beiträge für AHV/IV/EO in Höhe von 5,3 % sowie Steuern, KVG und BVG zu berücksichtigen.',
+    'blog.article.guida-retribuzioni-ginevra-2026.imageAlt': 'Taschenrechner und Lohnabrechnung auf einem Schreibtisch mit Genfer Skyline',
+    'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte rechnet mit bis zu 900\'000 Krankenkassenwechseln',
+    'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte rechnet mit 600\'000 bis 900\'000 Krankenkassenwechseln. Fast die Hälfte würde einen Wechsel in Kauf nehmen, wenn sie dafür 20 Franken mehr pro Monat bekäme.',
+    'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Versicherte in der Schweiz vergleichen Krankenkassenprämien',
 };
 
 export default blogMetaChDe;
