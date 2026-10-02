@@ -79,7 +79,7 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain('refusing to move the client behind the hub');
   });
 
-  it('rejects a published-ID gap even when the manifest count still matches', async () => {
+  it('defers a published-ahead ID gap even when the manifest count still matches', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
         return Promise.resolve({ ok: true, json: async () => ({ counts: { swissArticles: 2 } }) });
@@ -104,6 +104,7 @@ describe('rerender article hubs workflow', () => {
         localRegistry: { kept: { it: 'kept' } },
       });
       expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).toBe(true);
       expect(verdict.note).toContain('publishedAfterSync');
       expect(fetchMock).toHaveBeenCalledTimes(2);
     } finally {
@@ -135,6 +136,7 @@ describe('rerender article hubs workflow', () => {
         },
       });
       expect(verdict.ok).toBe(false);
+      expect(verdict.deferred).not.toBe(true);
       expect(verdict.note).toContain('staleLocalOnly');
       expect(verdict.note).toContain('absent from the published registry');
       expect(fetchMock).toHaveBeenCalledTimes(2);
@@ -142,6 +144,17 @@ describe('rerender article hubs workflow', () => {
       __resetCorpusFreshnessCache();
       vi.unstubAllGlobals();
     }
+  });
+
+  it('keeps deferred freshness runs out of every publication and resolution step', () => {
+    const publishAt = hubDriver.indexOf('await publishClientChunks(sections, args.dryRun);');
+    const deferAt = hubDriver.indexOf('if (deferred) {');
+
+    expect(deferAt).toBeGreaterThan(-1);
+    expect(deferAt).toBeLessThan(publishAt);
+    expect(hubDriver).toContain("fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\\n')");
+    expect(hubWorkflow).toContain("steps.render.outputs.deferred != 'true'");
+    expect(hubWorkflow).toContain("if: success() && steps.render.outputs.deferred != 'true'");
   });
 
   it('rejects a live hub card absent from the local registry', async () => {
