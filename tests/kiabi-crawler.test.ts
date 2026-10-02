@@ -318,7 +318,7 @@ describe('Kiabi Suisse crawler parser', () => {
 
       const jobs = await fetchAllKiabiJobs();
       expect(jobs).toEqual([]);
-      expect(jobs.authoritativeEmptySnapshot).toBe(true);
+      expect(Reflect.get(jobs, 'authoritativeEmptySnapshot')).toBe(true);
     });
 
     it('refuses to certify a zero when the tenant declares no postings at all (unknown-tenant envelope)', async () => {
