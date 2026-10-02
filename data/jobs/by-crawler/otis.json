@@ -1,6 +1,6 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-10-02T09:28:08.300Z",
+  "assembledAt": "2026-10-02T21:41:23.262Z",
   "jobs": [
     {
       "id": "otis-286c56c06554",
@@ -45,7 +45,7 @@
       "postedDate": "2026-09-18",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Kontrolleur-Aufzug-Neuanlagen--m-w-d-_20169268-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:28:00.792Z",
+      "crawledAt": "2026-10-02T21:41:17.607Z",
       "previousSlugs": [
         "kontrolleur-aufzug-neuanlagen-m-w-d-otis-oberburen",
         "ispettore-ascensore-nuovo-attrezzatura-m-f-d-otis-sa-oberburen"
@@ -63,7 +63,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.649Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -78,7 +77,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Kontrolleur-Aufzug-Neuanlagen--m-w-d-_20169268-1",
-      "addressRegion": "SG"
+      "addressRegion": "SG",
+      "needsRetranslation": true
     },
     {
       "id": "otis-30d8a0bf72a6",
@@ -123,7 +123,7 @@
       "postedDate": "2026-09-18",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:28:00.473Z",
+      "crawledAt": "2026-10-02T21:41:17.318Z",
       "previousSlugs": [
         "servicetechniker-in-m-w-d-otis-reinach",
         "servicetechniker-in-m-w-d-otis-sa-reinach",
@@ -143,7 +143,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:11:06.356Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -158,7 +157,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169334",
-      "addressRegion": "BL"
+      "addressRegion": "BL",
+      "needsRetranslation": true
     },
     {
       "id": "otis-2fe25b9333f6",
@@ -203,7 +203,7 @@
       "postedDate": "2026-09-18",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker-in--m-w-d-_20169288",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:28:00.193Z",
+      "crawledAt": "2026-10-02T21:41:17.036Z",
       "previousSlugs": [
         "servicetechniker-in-m-w-d-otis-reinach",
         "tecnico-di-servizio-m-f-d-otis-sa-reinach-e0aa00"
@@ -278,7 +278,7 @@
       "postedDate": "2026-09-03",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Supervisor-NE_20168211",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:59.908Z",
+      "crawledAt": "2026-10-02T21:41:16.746Z",
       "previousSlugs": [
         "supervisor-ne-otis-fribourg",
         "supervisore-ne-otis-sa-fribourg"
@@ -355,9 +355,8 @@
       "postedDate": "2026-09-01",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur--m-w-d-_20167702",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:59.651Z",
+      "crawledAt": "2026-10-02T21:41:16.478Z",
       "firstSeenAt": "2026-09-01T10:16:05.174Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -372,7 +371,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur--m-w-d-_20167702",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "needsRetranslation": true
     },
     {
       "id": "otis-ad21b5e8509e",
@@ -417,7 +417,7 @@
       "postedDate": "2026-08-26",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in-Modernisierung-und-Ersatzanlagen--m-w-d-_20167792",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:59.370Z",
+      "crawledAt": "2026-10-02T21:41:15.975Z",
       "previousSlugs": [
         "aufzugsmonteur-in-modernisierung-und-ersatzanlagen-m-w-d-otis-kriens",
         "elevator-fitter-in-modernization-and-replacement-systems-m-f-d-otis-sa-kriens"
@@ -435,7 +435,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:19:02.274Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "salarySource": "estimated",
@@ -450,7 +449,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzugsmonteur-in-Modernisierung-und-Ersatzanlagen--m-w-d-_20167792",
-      "addressRegion": "LU"
+      "addressRegion": "LU",
+      "needsRetranslation": true
     },
     {
       "id": "otis-02054c9c6fce",
@@ -495,7 +495,7 @@
       "postedDate": "2026-07-16",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzugsreparateur-in-Service--m-w-d-_20165238",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:58.913Z",
+      "crawledAt": "2026-10-02T21:41:15.693Z",
       "previousSlugs": [
         "aufzugsreparateur-in-service-m-w-d-otis-belp",
         "aufzugsreparateur-in-service-m-w-d-otis-sa-belp",
@@ -582,7 +582,7 @@
       "postedDate": "2026-05-06",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20159274",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:58.631Z",
+      "crawledAt": "2026-10-02T21:41:15.420Z",
       "previousSlugs": [
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-reinach",
         "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-sa-reinach"
@@ -659,7 +659,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:58.362Z",
+      "crawledAt": "2026-10-02T21:41:15.161Z",
       "previousSlugs": [
         "pool-di-talenti-technician-otis-ticino-installazione-maintenance-modernizzazione-otis-sa-balerna"
       ],
@@ -669,7 +669,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:48:41.704Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -684,7 +683,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Via-Corti-5-6828-Balerna/Pool-di-Talenti-Tecnico-Otis-Ticino---Installazione--Manutenzione---Modernizzazione_20149777",
-      "addressRegion": "TI"
+      "addressRegion": "TI",
+      "needsRetranslation": true
     },
     {
       "id": "otis-69a648cffb6b",
@@ -729,7 +729,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-464-1701-Fribourg/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149772-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:58.071Z",
+      "crawledAt": "2026-10-02T21:41:14.890Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-fribourg",
         "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-fribourg"
@@ -801,7 +801,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Rue-des-Sablons-15-1920-Martigny/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149764-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:57.818Z",
+      "crawledAt": "2026-10-02T21:41:14.588Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-martigny",
         "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-martigny"
@@ -873,7 +873,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:57.554Z",
+      "crawledAt": "2026-10-02T21:41:14.328Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:48:41.013Z",
       "salaryMin": 68000,
@@ -935,7 +935,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-de-Mouille-Galand-1214-Vernier/Vivier-des-Talents---Service-Technicien-Monteur-Repairman_20149748",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:57.289Z",
+      "crawledAt": "2026-10-02T21:41:14.022Z",
       "previousSlugs": [
         "vivier-des-talents-service-technicien-monteur-repairman-otis-vernier",
         "vivier-des-tants-service-technicen-monteur-repairman-otis-sa-vernier"
@@ -1007,7 +1007,7 @@
       "postedDate": "2026-01-07",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Servicetechniker--m-w-d-_20135985-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:57.033Z",
+      "crawledAt": "2026-10-02T21:41:13.768Z",
       "previousSlugs": [
         "servicetechniker-m-w-d-otis-reinach",
         "servicetechniker-m-w-d-otis-sa-reinach",
@@ -1102,7 +1102,7 @@
       "postedDate": "2026-07-29",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Sandackerstrasse-26-9245-Oberburen/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122200",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:56.722Z",
+      "crawledAt": "2026-10-02T21:41:13.476Z",
       "previousSlugs": [
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-oberburen",
         "talent-community-st-gallen-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-oberburen",
@@ -1182,7 +1182,7 @@
       "postedDate": "2026-05-19",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Huhnerhubelstrasse-64-Postfach-123-3123-Belp/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122199",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:56.442Z",
+      "crawledAt": "2026-10-02T21:41:13.209Z",
       "previousSlugs": [
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-belp",
         "talent-community-bern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-belp",
@@ -1262,7 +1262,7 @@
       "postedDate": "2026-05-18",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Triststrasse-8-7000-Chur/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122197",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:56.171Z",
+      "crawledAt": "2026-10-02T21:41:12.937Z",
       "previousSlugs": [
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-chur",
         "talent-community-chur-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-chur",
@@ -1342,7 +1342,7 @@
       "postedDate": "2026-08-10",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Kreuzstrasse-34-6010-Kriens/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122196",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:55.893Z",
+      "crawledAt": "2026-10-02T21:41:12.667Z",
       "previousSlugs": [
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-kriens",
         "talent-community-luzern-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-kriens",
@@ -1435,7 +1435,7 @@
       "postedDate": "2026-06-09",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Nenzlingerweg-2-4153-Reinach/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122201",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:55.601Z",
+      "crawledAt": "2026-10-02T21:41:12.369Z",
       "previousSlugs": [
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-reinach",
         "talent-community-basel-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-sa-reinach",
@@ -1515,7 +1515,7 @@
       "postedDate": "2026-09-30",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Technische-r-Verkufer-in--m-w-d-_20169865",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:55.311Z",
+      "crawledAt": "2026-10-02T21:41:12.085Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-30T21:35:25.753Z",
       "salaryMin": 76000,
@@ -1575,7 +1575,7 @@
       "postedDate": "2026-09-23",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169211",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:55.031Z",
+      "crawledAt": "2026-10-02T21:41:11.819Z",
       "previousSlugsByLocale": {
         "de": [
           "account-manager-m-w-d-otis-wallisellen",
@@ -1656,7 +1656,7 @@
       "postedDate": "2026-09-24",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Manager-Aussendienst--m-w-d-_20169212-1",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:54.748Z",
+      "crawledAt": "2026-10-02T21:41:11.528Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:03.721Z",
       "salaryMin": 134000,
@@ -1724,7 +1724,7 @@
       "postedDate": "2026-09-23",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Sales-Recapture-Specialist--m-w-d-_20169213",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:54.436Z",
+      "crawledAt": "2026-10-02T21:41:11.251Z",
       "previousSlugsByLocale": {
         "de": [
           "sales-specialist-neukundengewinnung-im-aussendienst-m-w-d-otis-wallisellen",
@@ -1808,7 +1808,7 @@
       "postedDate": "2026-08-13",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20164337",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:54.163Z",
+      "crawledAt": "2026-10-02T21:41:10.964Z",
       "previousSlugsByLocale": {
         "de": [
           "aufzugsmonteur-modernisierung-und-ersatzanlagen-m-w-d-otis-wallisellen",
@@ -1834,7 +1834,6 @@
         "aufzugsmonteur-modernisierung-e-ersatzanlagen-m-w-d-otis-sa-dietlikon"
       ],
       "firstSeenAt": "2026-08-13T10:19:36.343Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -1849,7 +1848,8 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzugsmonteur-Modernisierung-und-Ersatzanlagen--m-w-d-_20164337",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "otis-01bdc2de815f",
@@ -1892,7 +1892,7 @@
       "postedDate": "2026-05-26",
       "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-10-02T09:27:53.887Z",
+      "crawledAt": "2026-10-02T21:41:10.683Z",
       "previousSlugsByLocale": {
         "de": [
           "talent-community-zurich-aufzug-monteur-reparateur-servicetechniker-m-w-d-otis-wallisellen",
@@ -1918,7 +1918,6 @@
         "talent-community-zurich-elevator-installer-repairer-service-tecnico-m-f-d-otis-sa-dietlikon"
       ],
       "firstSeenAt": "2026-08-11T21:48:39.808Z",
-      "needsRetranslation": true,
       "salaryMin": 76000,
       "salaryMax": 102500,
       "salarySource": "estimated",
@@ -1933,7 +1932,80 @@
         }
       },
       "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/OT-Zurich-Birgistrasse-7-8304-Wallisellen-Switzerland/Aufzug-Monteur-Reparateur-Servicetechniker--m-w-d-_20122198",
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
+    },
+    {
+      "id": "otis-61be9d2081f7",
+      "slug": "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg",
+      "slugByLocale": {
+        "en": "field-operations-assistant-fod-otis-fribourg",
+        "it": "assistente-di-operazioni-sul-campo-fod-otis-sa-fribourg",
+        "de": "field-operations-assistant-fod-otis-fribourg",
+        "fr": "assistant-aux-operations-hors-siege-otis-sa-fribourg"
+      },
+      "company": "Otis SA",
+      "companyKey": "otis-sa",
+      "companyDomain": "otis.com",
+      "title": "Field Operations Assistant (FOD)",
+      "titleByLocale": {
+        "en": "Field Operations Assistant (FOD)",
+        "it": "Field Operations Assistant (FOD)",
+        "de": "Field Operations Assistent (FOD)",
+        "fr": "Field Operations Assistant (FOD)"
+      },
+      "description": "Date Posted:\n2026-10-02\nCountry:\nSwitzerland\nLocation:\nRoute de Moncor 12, CP 1136, 1701 Fribourg\n\nRésumé du poste\n\nL’Assistant(e) FOD joue un rôle central dans le bon fonctionnement des Opérations Terrain en Suisse. Il/elle coordonne les activités administratives et opérationnelles, garantit la conformité réglementaire et assure la fiabilité des données et outils métier. En parallèle, il/elle accélère la transformation digitale des opérations en développant des solutions innovantes qui simplifient le quotidien des équipes terrain, optimisent les processus et renforcent la performance de l’organisation.\n\nPrincipales responsabilités\n\n•\nAdministrer les outils numériques et bases de données des Opérations Terrain et soutenir les initiatives de digitalisation.\n\n•\nAssurer le suivi administratif des obligations réglementaires auprès des autorités suisses (ASIT, ESTI).\n\n•\nCoordonner les formations, examens et certifications liés aux autorisations OIBT.\n\n•\nGérer les processus de primes et bonus des collaborateurs terrain en collaboration avec la paie.\n\n•\nMaintenir les dossiers de qualification, d’autorisation et de conformité des sous-traitants.\n\n•\nAssurer la traduction et le support multilingue des communications et documents opérationnels.\n\n•\nContribuer à l’amélioration continue des processus et à l’efficacité des Opérations Terrain.\n\nConnaissances et compétences requises\n\n•\nExcellentes compétences administratives, organisationnelles et de coordination.\n\n•\nGrande attention aux détails et capacité à gérer simultanément plusieurs priorités.\n\n•\nExcellentes aptitudes relationnelles et de communication.\n\n•\nCapacité à identifier des opportunités d’optimisation et à développer des solutions digitales innovantes pour améliorer l’efficacité opérationnelle.\n\n•\nMaîtrise avancée des outils Microsoft 365, Power BI & Power Automate.\n\n•\nCapacité à travailler de manière autonome tout en collaborant efficacement avec des interlocuteurs internes et externes.\n\n•\nMaîtrise du français et de l’allemand. La connaissance de l’anglais est un atout.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.\n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\n\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\n\nClick on this link to read the Policy and Terms",
+      "descriptionByLocale": {
+        "en": "Date Posted:\n2026-10-02\nCountry:\nSwitzerland\nLocation:\nRoute de Moncor 12, CP 1136, 1701 Fribourg\n\nRésumé du poste\n\nL’Assistant(e) FOD joue un rôle central dans le bon fonctionnement des Opérations Terrain en Suisse. Il/elle coordonne les activités administratives et opérationnelles, garantit la conformité réglementaire et assure la fiabilité des données et outils métier. En parallèle, il/elle accélère la transformation digitale des opérations en développant des solutions innovantes qui simplifient le quotidien des équipes terrain, optimisent les processus et renforcent la performance de l’organisation.\n\nPrincipales responsabilités\n\n•\nAdministrer les outils numériques et bases de données des Opérations Terrain et soutenir les initiatives de digitalisation.\n\n•\nAssurer le suivi administratif des obligations réglementaires auprès des autorités suisses (ASIT, ESTI).\n\n•\nCoordonner les formations, examens et certifications liés aux autorisations OIBT.\n\n•\nGérer les processus de primes et bonus des collaborateurs terrain en collaboration avec la paie.\n\n•\nMaintenir les dossiers de qualification, d’autorisation et de conformité des sous-traitants.\n\n•\nAssurer la traduction et le support multilingue des communications et documents opérationnels.\n\n•\nContribuer à l’amélioration continue des processus et à l’efficacité des Opérations Terrain.\n\nConnaissances et compétences requises\n\n•\nExcellentes compétences administratives, organisationnelles et de coordination.\n\n•\nGrande attention aux détails et capacité à gérer simultanément plusieurs priorités.\n\n•\nExcellentes aptitudes relationnelles et de communication.\n\n•\nCapacité à identifier des opportunités d’optimisation et à développer des solutions digitales innovantes pour améliorer l’efficacité opérationnelle.\n\n•\nMaîtrise avancée des outils Microsoft 365, Power BI & Power Automate.\n\n•\nCapacité à travailler de manière autonome tout en collaborant efficacement avec des interlocuteurs internes et externes.\n\n•\nMaîtrise du français et de l’allemand. La connaissance de l’anglais est un atout.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.\n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\n\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\n\nClick on this link to read the Policy and Terms",
+        "it": "Date Posted:\n2026-10-02\nCountry:\nSwitzerland\nLocation:\nRoute de Moncor 12, CP 1136, 1701 Fribourg\n\nRésumé du poste\n\nL’Assistant(e) FOD joue un rôle central dans le bon fonctionnement des Opérations Terrain en Suisse. Il/elle coordonne les activités administratives et opérationnelles, garantit la conformité réglementaire et assure la fiabilité des données et outils métier. En parallèle, il/elle accélère la transformation digitale des opérations en développant des solutions innovantes qui simplifient le quotidien des équipes terrain, optimisent les processus et renforcent la performance de l’organisation.\n\nPrincipales responsabilités\n\n•\nAdministrer les outils numériques et bases de données des Opérations Terrain et soutenir les initiatives de digitalisation.\n\n•\nAssurer le suivi administratif des obligations réglementaires auprès des autorités suisses (ASIT, ESTI).\n\n•\nCoordonner les formations, examens et certifications liés aux autorisations OIBT.\n\n•\nGérer les processus de primes et bonus des collaborateurs terrain en collaboration avec la paie.\n\n•\nMaintenir les dossiers de qualification, d’autorisation et de conformité des sous-traitants.\n\n•\nAssurer la traduction et le support multilingue des communications et documents opérationnels.\n\n•\nContribuer à l’amélioration continue des processus et à l’efficacité des Opérations Terrain.\n\nConnaissances et compétences requises\n\n•\nExcellentes compétences administratives, organisationnelles et de coordination.\n\n•\nGrande attention aux détails et capacité à gérer simultanément plusieurs priorités.\n\n•\nExcellentes aptitudes relationnelles et de communication.\n\n•\nCapacité à identifier des opportunités d’optimisation et à développer des solutions digitales innovantes pour améliorer l’efficacité opérationnelle.\n\n•\nMaîtrise avancée des outils Microsoft 365, Power BI & Power Automate.\n\n•\nCapacité à travailler de manière autonome tout en collaborant efficacement avec des interlocuteurs internes et externes.\n\n•\nMaîtrise du français et de l’allemand. La connaissance de l’anglais est un atout.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.\n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\n\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\n\nClick on this link to read the Policy and Terms",
+        "de": "Date Posted:\n2026-10-02\nCountry:\nSwitzerland\nLocation:\nRoute de Moncor 12, CP 1136, 1701 Fribourg\n\nRésumé du poste\n\nL’Assistant(e) FOD joue un rôle central dans le bon fonctionnement des Opérations Terrain en Suisse. Il/elle coordonne les activités administratives et opérationnelles, garantit la conformité réglementaire et assure la fiabilité des données et outils métier. En parallèle, il/elle accélère la transformation digitale des opérations en développant des solutions innovantes qui simplifient le quotidien des équipes terrain, optimisent les processus et renforcent la performance de l’organisation.\n\nPrincipales responsabilités\n\n•\nAdministrer les outils numériques et bases de données des Opérations Terrain et soutenir les initiatives de digitalisation.\n\n•\nAssurer le suivi administratif des obligations réglementaires auprès des autorités suisses (ASIT, ESTI).\n\n•\nCoordonner les formations, examens et certifications liés aux autorisations OIBT.\n\n•\nGérer les processus de primes et bonus des collaborateurs terrain en collaboration avec la paie.\n\n•\nMaintenir les dossiers de qualification, d’autorisation et de conformité des sous-traitants.\n\n•\nAssurer la traduction et le support multilingue des communications et documents opérationnels.\n\n•\nContribuer à l’amélioration continue des processus et à l’efficacité des Opérations Terrain.\n\nConnaissances et compétences requises\n\n•\nExcellentes compétences administratives, organisationnelles et de coordination.\n\n•\nGrande attention aux détails et capacité à gérer simultanément plusieurs priorités.\n\n•\nExcellentes aptitudes relationnelles et de communication.\n\n•\nCapacité à identifier des opportunités d’optimisation et à développer des solutions digitales innovantes pour améliorer l’efficacité opérationnelle.\n\n•\nMaîtrise avancée des outils Microsoft 365, Power BI & Power Automate.\n\n•\nCapacité à travailler de manière autonome tout en collaborant efficacement avec des interlocuteurs internes et externes.\n\n•\nMaîtrise du français et de l’allemand. La connaissance de l’anglais est un atout.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.\n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\n\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\n\nClick on this link to read the Policy and Terms",
+        "fr": "Date Posted:\n2026-10-02\nCountry:\nSwitzerland\nLocation:\nRoute de Moncor 12, CP 1136, 1701 Fribourg\n\nRésumé du poste\n\nL’Assistant(e) FOD joue un rôle central dans le bon fonctionnement des Opérations Terrain en Suisse. Il/elle coordonne les activités administratives et opérationnelles, garantit la conformité réglementaire et assure la fiabilité des données et outils métier. En parallèle, il/elle accélère la transformation digitale des opérations en développant des solutions innovantes qui simplifient le quotidien des équipes terrain, optimisent les processus et renforcent la performance de l’organisation.\n\nPrincipales responsabilités\n\n•\nAdministrer les outils numériques et bases de données des Opérations Terrain et soutenir les initiatives de digitalisation.\n\n•\nAssurer le suivi administratif des obligations réglementaires auprès des autorités suisses (ASIT, ESTI).\n\n•\nCoordonner les formations, examens et certifications liés aux autorisations OIBT.\n\n•\nGérer les processus de primes et bonus des collaborateurs terrain en collaboration avec la paie.\n\n•\nMaintenir les dossiers de qualification, d’autorisation et de conformité des sous-traitants.\n\n•\nAssurer la traduction et le support multilingue des communications et documents opérationnels.\n\n•\nContribuer à l’amélioration continue des processus et à l’efficacité des Opérations Terrain.\n\nConnaissances et compétences requises\n\n•\nExcellentes compétences administratives, organisationnelles et de coordination.\n\n•\nGrande attention aux détails et capacité à gérer simultanément plusieurs priorités.\n\n•\nExcellentes aptitudes relationnelles et de communication.\n\n•\nCapacité à identifier des opportunités d’optimisation et à développer des solutions digitales innovantes pour améliorer l’efficacité opérationnelle.\n\n•\nMaîtrise avancée des outils Microsoft 365, Power BI & Power Automate.\n\n•\nCapacité à travailler de manière autonome tout en collaborant efficacement avec des interlocuteurs internes et externes.\n\n•\nMaîtrise du français et de l’allemand. La connaissance de l’anglais est un atout.\n\nIf you live in a city, chances are we will give you a lift or play a role in keeping you moving every day.\n\nOtis is the world’s leading elevator and escalator manufacturing, installation, and service company. We move 2.4 billion people every day and maintain approximately 2.4 million customer units worldwide, the industry's largest Service portfolio.\n\nYou may recognize our products in some of the world’s most famous landmarks including the Eiffel Tower, Empire State Building, Burj Khalifa and the Petronas Twin Towers! We are 72,000 people strong, including engineers, digital technology experts, sales, and functional specialists, as well as factory and field technicians, all committed to meeting the diverse needs of our customers and passengers in more than 200 countries and territories worldwide. We are proud to be a diverse, global team with a proven legacy of innovation that continues to be the bedrock of a fast-moving, high-performance company.\n\nWhen you join Otis, you become part of an innovative global industry leader with a resilient business model. You’ll belong to a diverse, trusted, and caring community where your contributions, and the skills and capabilities you’ll gain working alongside the best and brightest, keep us connected and on the cutting edge.\n\nWe provide opportunities, training, and resources, that build leadership and capabilities in Sales, Field, Engineering and Major Projects and our Employee Scholar Program is a notable point of pride, through which Otis sponsors colleagues to pursue degrees or certification programs.\n\nToday, our focus more than ever is on people. As a global, people-powered company, we put people – passengers, customers, and colleagues – at the center of everything we do.  We are guided by our values that we call our Three Absolutes – prioritizing Safety, Ethics, Quality in all that we do. If you would like to learn more about environmental, social and governance (ESG) at Otis click here.\n\nBecome a part of the Otis team and help us #Buildwhatsnext!\n\nOtis is An Equal Opportunity Employer. All qualified applicants will receive consideration for employment without regard to race, color, religion, sex, sexual orientation, gender identity, national origin, disability or veteran status, age, or any other protected class according to applicable law. To request an accommodation in completing an employment application due to a special need or a disability, please contact us at careers@otis.com.\n\nPrivacy Policy and Terms:\n\nClick on this link to read the Policy and Terms"
+      },
+      "sourceLang": "en",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "location": "Fribourg",
+      "canton": "FR",
+      "addressLocality": "Fribourg",
+      "postalCode": "1701",
+      "streetAddress": "Route de Moncor 12",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "url": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Field-Operations-Assistant--FOD-_20165637",
+      "source": "Otis Dedicated Parser (Workday)",
+      "crawledAt": "2026-10-02T21:41:16.225Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "field-operations-assistant-fod-otis-fribourg"
+        ]
+      },
+      "previousSlugs": [
+        "field-operations-assistant-fod-otis-fribourg"
+      ],
+      "salaryMin": 71000,
+      "salaryMax": 95500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 71000,
+          "maxValue": 95500,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Route-de-Moncor-12-CP-1136-1701-Fribourg/Field-Operations-Assistant--FOD-_20165637",
+      "addressRegion": "FR",
+      "firstSeenAt": "2026-10-02T21:41:16.225Z"
     }
   ]
 }
