@@ -247,10 +247,12 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
   }, factSources, { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
+  let coverLetterRenderer = null;
   if ((plan.draftPatch.coverLetter || plan.identityChanged) && bucket) {
-    const pdf = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
+    const rebuilt = await rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
-    await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+    coverLetterRenderer = rebuilt.renderer;
+    await bucket.file(coverLetterPdfKey).save(rebuilt.pdf, { contentType: 'application/pdf', resumable: false });
   }
   // The tailored CV prints the same header: a corrected name, phone or place rebuilds it too.
   const tailored = plan.identityChanged
@@ -262,6 +264,8 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
     coverLetterPdfKey,
     ...(tailored ? { tailoredCv: { pdfKey: tailored.pdfKey, renderer: tailored.renderer } } : {}),
+    // Which writer produced the letter now on the draft.
+    ...(coverLetterRenderer ? { coverLetterRenderer } : {}),
     candidateEditedAt: nowMs,
   }, { merge: true });
   if (Object.keys(plan.overrides).length) {

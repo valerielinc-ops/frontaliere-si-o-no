@@ -13,7 +13,7 @@ import { pdfRendererMode, renderLetterPdf } from './assistedApplicationPdfRender
 
 /**
  * @param {{order:object, orderId:string, draft:object, flow?:object, letter?:object, nowMs:number, mode?:string}} input
- * @returns {Promise<Buffer>}
+ * @returns {Promise<{pdf: Buffer, renderer: 'typst'|'legacy'}>} renderer: kept on the draft (`coverLetterRenderer`)
  */
 export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, letter, nowMs, mode }) {
   const { identity, profile } = candidateWithEdits({ order, draft, flow });
@@ -29,5 +29,5 @@ export async function rebuildLetterPdf({ order, orderId, draft, flow = {}, lette
     now: new Date(nowMs),
     enclosures: letterEnclosures(language, enclosedDocumentLabels(draft, flow, orderId)),
   });
-  return (await renderLetterPdf(blocks, { mode: mode || await pdfRendererMode() })).pdf;
+  return renderLetterPdf(blocks, { mode: mode || await pdfRendererMode() });
 }
