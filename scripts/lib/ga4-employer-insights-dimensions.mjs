@@ -29,11 +29,31 @@ function responseError(response, action, parameterName = '') {
   return `${action}${label}: HTTP ${response.status} ${response.statusText || ''}`.trim();
 }
 
+function findCustomDimension(customDimensions, parameterName) {
+  if (!Array.isArray(customDimensions)) return null;
+  return customDimensions.find((dimension) => dimension?.parameterName === parameterName) || null;
+}
+
+function dimensionContractMismatch(expected, actual) {
+  if (!actual) {
+    return `GA4 custom dimension ${expected.parameterName} was not listed after a 409 conflict; its contract cannot be verified`;
+  }
+  const mismatches = [];
+  if (actual.scope !== 'EVENT') mismatches.push('scope (expected EVENT)');
+  if (actual.displayName !== expected.displayName) {
+    mismatches.push(`displayName (expected "${expected.displayName}")`);
+  }
+  return mismatches.length
+    ? `GA4 custom dimension ${expected.parameterName} has mismatched ${mismatches.join(' and ')}`
+    : null;
+}
+
 /**
  * Ensure EVENT-scoped GA4 custom dimensions exist before a Data API query uses
- * them. Creation is idempotent: existing dimensions and a concurrent 409 are
- * both treated as success. Non-409 failures are returned to strict callers so
- * the refresh can stop before producing an unqueryable D18 artifact.
+ * them. Existing dimensions and concurrent 409s count as success only when
+ * their scope and display name match the requested contract. Contract
+ * mismatches are returned to strict callers before any missing dimensions are
+ * created, so the refresh can stop before producing an unqueryable D18 artifact.
  */
 export async function ensureGa4CustomDimensions({
   propertyId,
@@ -51,21 +71,31 @@ export async function ensureGa4CustomDimensions({
   const listed = await fetchImpl(listUrl, { headers });
   if (!listed.ok) throw new Error(responseError(listed, 'list GA4 custom dimensions'));
   const listedBody = await listed.json();
-  const existing = new Set(
+  const existing = new Map(
     (Array.isArray(listedBody.customDimensions) ? listedBody.customDimensions : [])
-      .map((dimension) => dimension?.parameterName)
-      .filter(Boolean),
+      .filter((dimension) => dimension?.parameterName)
+      .map((dimension) => [dimension.parameterName, dimension]),
   );
   const registered = [];
   const alreadyPresent = [];
   const raced = [];
   const failures = [];
+  const missing = [];
 
   for (const dimension of dimensions) {
-    if (existing.has(dimension.parameterName)) {
-      alreadyPresent.push(dimension.parameterName);
+    const existingDimension = existing.get(dimension.parameterName);
+    if (existingDimension) {
+      const mismatch = dimensionContractMismatch(dimension, existingDimension);
+      if (mismatch) failures.push(mismatch);
+      else alreadyPresent.push(dimension.parameterName);
       continue;
     }
+    missing.push(dimension);
+  }
+
+  if (failures.length) return { registered, alreadyPresent, raced, failures };
+
+  for (const dimension of missing) {
     try {
       const created = await fetchImpl(
         `https://analyticsadmin.googleapis.com/v1beta/${property}/customDimensions`,
@@ -83,12 +113,21 @@ export async function ensureGa4CustomDimensions({
       if (created.ok) {
         registered.push(dimension.parameterName);
       } else if (created.status === 409) {
-        raced.push(dimension.parameterName);
+        const verified = await fetchImpl(listUrl, { headers });
+        if (!verified.ok) {
+          failures.push(responseError(verified, 'verify concurrent GA4 custom dimension', dimension.parameterName));
+          continue;
+        }
+        const verifiedBody = await verified.json();
+        const concurrentDimension = findCustomDimension(verifiedBody.customDimensions, dimension.parameterName);
+        const mismatch = dimensionContractMismatch(dimension, concurrentDimension);
+        if (mismatch) failures.push(mismatch);
+        else raced.push(dimension.parameterName);
       } else {
         failures.push(responseError(created, 'create GA4 custom dimension', dimension.parameterName));
       }
     } catch (error) {
-      failures.push(`create GA4 custom dimension ${dimension.parameterName}: ${error?.message || error}`);
+      failures.push(`ensure GA4 custom dimension ${dimension.parameterName}: ${error?.message || error}`);
     }
   }
 
