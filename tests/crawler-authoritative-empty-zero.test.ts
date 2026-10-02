@@ -26,6 +26,10 @@ import {
   VISIONAPARTMENTS_COMPANY_NAME,
 } from '../scripts/lib/visionapartments-job-parser.mjs';
 import {
+  isKenjoCareerSiteEmpty,
+  resolveKenjoPositionPath,
+} from '../scripts/lib/kenjo-career-site.mjs';
+import {
   fetchAllFondationDomusJobs,
   parseVacancyBoardEvidence,
   FONDATION_DOMUS_COMPANY_NAME,
@@ -235,6 +239,22 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     // A non-empty API list whose details all fail is not a proven zero.
     expect(unbuiltListingsBranch).toContain('return;');
     expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
+    expect(source).toContain("registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts)");
+    expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(source).toContain('confirmCareerSiteEmpty()');
+  });
+
+  it('recognizes Kenjo URL variants without accepting foreign or API URLs', () => {
+    expect(resolveKenjoPositionPath({ customUrl: 'secnetsys' })).toBe('secnetsys');
+    expect(resolveKenjoPositionPath({ customJobUrl: '/security-network-engineer/' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/security-network-engineer/?lang=en' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://evil.example/jobs/security-network-engineer/' })).toBe('');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/api/controller/career-site/public/tinext/positions/1' })).toBe('');
+  });
+
+  it('requires Kenjo’s explicit public empty-state text before publishing a zero', () => {
+    expect(isKenjoCareerSiteEmpty('Join Our Growing Family No job openings are available at this moment.')).toBe(true);
+    expect(isKenjoCareerSiteEmpty('Join Our Growing Family Security & Network Engineer')).toBe(false);
   });
 
   it('never masks these three with an EMPTY_OK_CRAWLERS entry', () => {
