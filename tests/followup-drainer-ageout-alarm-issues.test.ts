@@ -92,6 +92,8 @@ describe('quali allarmi hanno un chiuditore, e quali no', () => {
     'CI Failure (deploy): Publish to GitHub Pages (deploy + validate)',
     'Validation Failure (dist): post-deploy',
     'Validation Failure (live): post-deploy',
+    'SEO gates regression: max-bfs-depth above baseline',
+    'SEO gates regression: text-html-ratio above baseline',
   ])('%s → mai age-out', (title) => {
     expect(isOwnerClosedFailureAlarm({ title })).toBe(true);
     expect(candidate(title)).toBe(false);
@@ -128,6 +130,19 @@ describe('quali allarmi hanno un chiuditore, e quali no', () => {
     }
   });
 
+  it('le altre issue di cathedral restano age-out: nessuno le chiude per gate', () => {
+    // La issue di miglioramento non ha un chiuditore proprio; un titolo
+    // `SEO gates regression:` che non segue la forma del workflow neppure.
+    for (const title of [
+      'chore(seo-gates): possible rebaseline opportunity',
+      'SEO gates regression: max-bfs-depth',
+      'SEO gates regression: two words above baseline',
+    ]) {
+      expect(isOwnerClosedFailureAlarm({ title }), title).toBe(false);
+      expect(candidate(title), title).toBe(true);
+    }
+  });
+
   it('un follow-up normale non è toccato dalla fix', () => {
     expect(isOwnerClosedFailureAlarm({ title: 'follow-up(#1): qualcosa' })).toBe(false);
     expect(candidate('follow-up(#1): qualcosa')).toBe(true);
@@ -158,6 +173,32 @@ describe('ogni famiglia esclusa ha davvero un chiuditore nel repo', () => {
 
   it('`Validation Failure (live)` lo chiude lo step gemello del validatore live', () => {
     expect(closedIn('Validation Failure (live): post-deploy')).toEqual(['post-deploy-validate-live.yml']);
+  });
+
+  it('`SEO gates regression: <gate> above baseline` lo chiude cathedral, per gate', () => {
+    // Replay di #9195 (2026-10-02): riaperta da cathedral alle 06:39:44Z per
+    // `max-bfs-depth` regredito, chiusa dal drainer alle 06:44:06Z come
+    // «non funnel-blocking». Il chiuditore vero è lo step `Resolve regression
+    // issues for gates back under baseline` dello stesso workflow, con il
+    // titolo identico a quello dell'opener.
+    // eslint-disable-next-line no-template-curly-in-string
+    expect(closedIn('SEO gates regression: ${name} above baseline')).toEqual(['cathedral-seo-gates-check.yml']);
+    const reopened = {
+      title: 'SEO gates regression: max-bfs-depth above baseline',
+      labels: [{ name: 'bug' }, { name: 'agent:triaged' }],
+      createdAt: '2026-09-19T07:24:36Z',
+      updatedAt: '2026-10-02T06:39:45Z',
+    };
+    const now = Date.parse('2026-10-02T06:44:06Z');
+    // Ultimo evento significativo: la creazione (tutti i commenti dopo sono di bot).
+    const significantAt = Date.parse(reopened.createdAt);
+    expect(isAgeOutEligible(reopened, {
+      now, ageOutDays: AGEOUT_DAYS, inactiveDays: INACTIVE_DAYS, significantAt,
+    })).toBe(false);
+    // Controllo: lo stesso evento su un titolo senza chiuditore verrebbe chiuso.
+    expect(isAgeOutEligible({ ...reopened, title: 'follow-up(#1): x' }, {
+      now, ageOutDays: AGEOUT_DAYS, inactiveDays: INACTIVE_DAYS, significantAt,
+    })).toBe(true);
   });
 
   it('`Validation Failure (dist)` lo chiude il `--mode resolve` del suo reporter', () => {
