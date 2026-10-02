@@ -7517,6 +7517,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.moderniz-perseguimento-penale.title': 'Die Schweiz leitet eine Konsultation zum dritten ECAG-Protokoll ein',
     'blog.article.moderniz-perseguimento-penale.excerpt': 'Der Bundesrat hat am 2. Oktober 2026 die Vernehmlassung zum dritten CEAG-Protokoll eröffnet, die am 19. Januar 2027 abgeschlossen wird; die Schweiz hat den Text am 19. September 2025 in Malta unterzeichnet.',
     'blog.article.moderniz-perseguimento-penale.imageAlt': 'Bundeshaus der Schweiz mit Symbolen für digitalen Datenaustausch, die die grenzüberschreitende Justizzusammenarbeit darstellen',
+    'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine: acht Schweizer Projekte im Wert von 135 Millionen',
+    'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'Der Bundesrat stellt 135 Millionen Franken für acht Projekte Schweizer Unternehmen in der Ukraine bereit, in den Bereichen Energie, öffentlicher Verkehr und Wasserressourcen.',
+    'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Castelgrande, redaktionelles Bild zu Schweizer Projekten in der Ukraine',
 };
 
 export default blogMetaChDe;

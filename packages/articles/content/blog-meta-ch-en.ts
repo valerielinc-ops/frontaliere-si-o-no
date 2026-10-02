@@ -7517,6 +7517,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.moderniz-perseguimento-penale.title': 'Switzerland initiates consultation on the third ECAG Protocol',
     'blog.article.moderniz-perseguimento-penale.excerpt': 'The Federal Council opened the consultation on the third CEAG protocol on 2 October 2026, which will close on 19 January 2027; Switzerland signed the text in Malta on 19 September 2025.',
     'blog.article.moderniz-perseguimento-penale.imageAlt': 'Swiss Federal Palace with digital data exchange symbols representing transborder judicial cooperation',
+    'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine: eight Swiss projects worth 135 million',
+    'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'The Federal Council allocates 135 million francs to eight projects by Swiss companies in Ukraine, spanning energy, public transport and water resources.',
+    'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Castelgrande, editorial image for Swiss projects in Ukraine',
 };
 
 export default blogMetaChEn;

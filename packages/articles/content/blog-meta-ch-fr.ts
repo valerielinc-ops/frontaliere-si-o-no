@@ -7517,6 +7517,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.moderniz-perseguimento-penale.title': 'La Suisse engage une consultation sur le troisième protocole de la CEAGG',
     'blog.article.moderniz-perseguimento-penale.excerpt': 'Le Conseil fédéral a ouvert la consultation sur le troisième protocole CEAG le 2 octobre 2026, qui se clôturera le 19 janvier 2027 ; La Suisse a signé le texte à Malte le 19 septembre 2025.',
     'blog.article.moderniz-perseguimento-penale.imageAlt': 'Palais fédéral suisse avec des symboles d\'échange de données numériques représentant la coopération judiciaire transfrontalière',
+    'blog.article.otto-progetti-ricostruzione-ucraina.title': 'Ukraine : huit projets suisses pour 135 millions',
+    'blog.article.otto-progetti-ricostruzione-ucraina.excerpt': 'Le Conseil fédéral alloue 135 millions de CHF à huit projets d’entreprises suisses en Ukraine, notamment l’énergie, les transports publics et l’eau.',
+    'blog.article.otto-progetti-ricostruzione-ucraina.imageAlt': 'Le Castelgrande, image éditoriale sur des projets suisses en Ukraine',
 };
 
 export default blogMetaChFr;

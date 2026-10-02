@@ -22579,6 +22579,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'otto-progetti-ricostruzione-ucraina',
+    category: 'novita',
+    date: '2026-10-02T13:28:19.956Z',
+    image: '/images/blog/otto-progetti-ricostruzione-ucraina.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
