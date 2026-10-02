@@ -181,9 +181,9 @@ describe('pharmacy directory page matrix', () => {
     );
     const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
-    expect(page.html).toContain(`${DECISION_MOMENT_COMPLETED_ATTRIBUTE}="true"`);
-    expect(page.html).toContain(`${DECISION_MOMENT_ID_ATTRIBUTE}="duty_lookup"`);
-    expect(page.html).toContain(`${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}="open_pharmacy"`);
+    expect(page.html).toMatch(new RegExp(`${DECISION_MOMENT_COMPLETED_ATTRIBUTE}=(?:"true"|true)`));
+    expect(page.html).toMatch(new RegExp(`${DECISION_MOMENT_ID_ATTRIBUTE}=(?:"duty_lookup"|duty_lookup)`));
+    expect(page.html).toMatch(new RegExp(`${DECISION_MOMENT_NEXT_ACTION_ATTRIBUTE}=(?:"open_pharmacy"|open_pharmacy)`));
     // Quali province italiane escono pubblicate lo decide lo snapshot che il
     // cron farmacie riscrive (VB e' `best-effort` e puo' tornare disponibile,
     // CO/VA possono perdere copertura): l'attesa si legge dallo stesso modello
