@@ -7433,6 +7433,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.franchigia-premi-vaud-2026.title': 'Krankenkassenprämien LAMal 2026 im Kanton Waadt',
     'blog.article.franchigia-premi-vaud-2026.excerpt': 'Leitfaden zu den Krankenkassenprämien LAMal 2026 im Kanton Waadt: Erwachsenenfranchisen, Unterschiede zwischen Kantonen und Regionen, kantonale Prämienverbilligung und Krankenkassenwechsel.',
     'blog.article.franchigia-premi-vaud-2026.imageAlt': 'LAMal-Prämienunterlagen und Taschenrechner auf einem Tisch in einem Schweizer Haushalt',
+    'blog.article.c-basilea-campagna-criteri.title': 'C-Genehmigung in Basel-Landschaft: Anforderungen und Anwendung',
+    'blog.article.c-basilea-campagna-criteri.excerpt': 'Im Kanton Basel-Landschaft: 10 Jahre Aufenthalt, 5 Jahre für EU/EFTA, Integration, Sprache und Verfahren für die C-Genehmigung.',
+    'blog.article.c-basilea-campagna-criteri.imageAlt': 'Antrag für die Niederlassungsbewilligung C in Basel-Landschaft',
 };
 
 export default blogMetaChDe;

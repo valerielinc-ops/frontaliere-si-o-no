@@ -7433,6 +7433,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.franchigia-premi-vaud-2026.title': 'KVG health insurance premiums in 2026 in the canton of Vaud',
     'blog.article.franchigia-premi-vaud-2026.excerpt': 'Guide to KVG health insurance premiums in 2026 in the canton of Vaud: adult deductibles, differences between cantons and regions, cantonal subsidy and change of insurance policy.',
     'blog.article.franchigia-premi-vaud-2026.imageAlt': 'LAMal premium documents and a calculator on a table in a Swiss home',
+    'blog.article.c-basilea-campagna-criteri.title': 'C Permit in Basel-Landschaft: Requirements and Application',
+    'blog.article.c-basilea-campagna-criteri.excerpt': 'In the Canton of Basel-Landschaft: 10 years of residence, 5 for EU/EFTA, integration, language, and procedure for the C permit.',
+    'blog.article.c-basilea-campagna-criteri.imageAlt': 'Application for a C residence permit in Basel-Landschaft',
 };
 
 export default blogMetaChEn;
