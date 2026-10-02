@@ -1,3 +1,4 @@
+import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
 /**
  * Generate static redirect pages for high-traffic legacy paths.
  * This prevents avoidable 404s and consolidates crawl signals to canonicals.
@@ -96,6 +97,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
  // it at closeBundle time (issue #5352) — a `from` declared here wins, and
  // tests/article-rename-redirects.test.ts fails on any key declared twice.
  const redirects: Record<string, string> = {
+ ...LEGACY_LUGANO_COMPETITION_REDIRECTS,
  '/guida-frontalieri/': '/guida-frontaliere/',
  '/guida-frontalieri/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
  '/pianificatore-pensione/': '/tasse-e-pensione/calcola-previdenza/',
@@ -603,8 +605,9 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
 
  const outDir = path.join(distDir, from.slice(1));
  fs.mkdirSync(outDir, { recursive: true });
- // Skip if a higher-priority plugin already generated this page (e.g. active job or soft-landing)
- if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
+ // Normal redirects preserve already emitted pages. These four historical
+ // directory headings were never vacancies and must replace their stale detail HTML.
+ if (fs.existsSync(path.join(outDir, 'index.html')) && !LEGACY_LUGANO_COMPETITION_REDIRECTS[from]) continue;
  const fromUrl = `${BASE_URL}${from}`;
  const toUrl = `${BASE_URL}${to}`;
  const hreflangTags = getHreflangHtml(to);

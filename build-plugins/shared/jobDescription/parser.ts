@@ -9,6 +9,8 @@
  * the same structure.
  */
 
+import { decodeHtmlText } from '../../../packages/articles/engine/shared/htmlEntities';
+
 export type Inline =
   | { kind: 'text'; value: string }
   | { kind: 'strong'; value: string }
@@ -20,17 +22,7 @@ export type Block =
   | { kind: 'list'; ordered: boolean; items: Inline[][] };
 
 function decodeNoiseEntities(s: string): string {
-  return s
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#39;|&#x27;/g, "'")
-    .replace(/&quot;/g, '"')
-    .replace(/&hellip;/g, '…')
-    .replace(/&mdash;/g, '—')
-    .replace(/&ndash;/g, '–')
-    .replace(/&#(\d+);/g, (_m, c) => {
-      const n = Number(c);
-      return n >= 32 && n < 0x10ffff ? String.fromCharCode(n) : ' ';
-    });
+  return decodeHtmlText(s).replace(/\u00a0/g, ' ');
 }
 
 const SEPARATOR_LINE_RE = /^[\s_\-=*•·~]{3,}$/;

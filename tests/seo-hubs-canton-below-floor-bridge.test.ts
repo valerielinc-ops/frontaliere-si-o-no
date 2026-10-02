@@ -33,8 +33,8 @@ describe('seoHubsPlugin thin canton-hub below-floor bridges', () => {
 
   it('wires the bridge helper into every below-floor / noindex floor-check site', () => {
     const callSites = source.split('emitCantonHubBelowFloorBridge(canton);').length - 1;
-    // total<MIN, jobs.length<MIN, isCantonNoindex, dedupKeys.size<MIN
-    expect(callSites).toBe(4);
+    // The shared archive plan combines all four below-floor/noindex checks.
+    expect(callSites).toBe(1);
   });
 
   it('does not contain the bare-continue 404 bug pattern for any of the four thin canton-hub floor checks', () => {

@@ -26,6 +26,11 @@ afterEach(() => {
 });
 
 describe('recommendedBlock selection', () => {
+  it('labels existing referral links without claiming an active commercial partnership', () => {
+    const rec = pickNewsletterRecommendation({ locale: 'it', interest: 'general' });
+    expect(rec?.disclosure).toContain('nessun accordo di affiliazione attivo');
+    expect(rec?.disclosure).not.toContain('In collaborazione');
+  });
   it('picks an enabled affiliate partner and never an empty box', () => {
     for (const locale of ['it', 'en', 'de', 'fr'] as const) {
       for (const interest of ['general', 'jobs', 'utility', 'articles']) {
@@ -105,7 +110,9 @@ describe('recommendedBlock render', () => {
     const html = renderRecommendedBlock({ locale: 'it', interest: 'general', acquisitionSource: 'weather-hub' });
     expect(html).toContain('Consigliato per te');
     expect(html).toContain('/go/');
-    expect(html).toContain('link affiliato');
+    expect(html).toContain('Link con codice di invito o referral');
+    expect(html).toContain('nessun accordo di affiliazione attivo');
+    expect(html).not.toContain('In collaborazione con un partner');
     // Policy: never AdSense / Google Ads in email.
     expect(html).not.toMatch(/adsbygoogle|googlesyndication|adsense|data-ad-client/i);
   });

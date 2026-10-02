@@ -15,8 +15,8 @@ import { unlockAchievement } from '@/services/gamificationService';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
-import { suppressGoogleAdOverlays } from '@/services/modalAdOcclusion';
+import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY, canShowPromotionalPrompt, markSlotShown } from '@/services/popupQueue';
+import { observeGoogleAdOverlays } from '@/services/modalAdOcclusion';
 import { useAuth, promptOneTap, cancelOneTap, getAuthEmail, eagerAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { resilientImport } from '@/services/resilientImport';
@@ -38,6 +38,10 @@ const MIN_TIME_MS = 20_000; // 20 seconds minimum on site
 const SCROLL_THRESHOLD = 0.3; // 30% scroll depth — long blog articles were firing the popup near the end at 0.5
 const PAGE_VIEW_THRESHOLD = 3; // show after 3+ page views in session
 const PAGE_VIEW_KEY = 'newsletter_pageviews';
+const SESSION_SHOWN_KEY = 'newsletter_popup_shown';
+function hasSessionImpression(): boolean {
+ try { return sessionStorage.getItem(SESSION_SHOWN_KEY) === '1'; } catch { return false; }
+}
 const NEWSLETTER_ONETAP_KEY = 'onetap_prompted_newsletter_popup';
 
 // Timeout wrapper
@@ -69,6 +73,8 @@ const NewsletterPopup: React.FC = () => {
  const nav = useNavigationOptional();
  const [visible, setVisible] = useState(false);
  const [queueActive, setQueueActive] = useState(false);
+ const [googleOverlayActive, setGoogleOverlayActive] = useState(false);
+ const shownRef = useRef(false);
  const [email, setEmail] = useState('');
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
@@ -127,7 +133,7 @@ const NewsletterPopup: React.FC = () => {
 
  useEffect(() => {
  // Don't show for crawlers / bots (they must see full page content)
- if (isCrawlerVisitor) return;
+ if (isCrawlerVisitor || hasSessionImpression()) return;
 
  // FRO-407: Don't show on profile page — popup z-index blocks Google One Tap login
  if (/^\/(profilo|profile|profil|en\/profile|de\/profil|fr\/profil)\/?$/.test(window.location.pathname)) return;
@@ -135,7 +141,8 @@ const NewsletterPopup: React.FC = () => {
  // FRO-25: Check for pending confirmation (> 1 hour old)
  const pendingInfo = getNewsletterPendingEmail();
  const ONE_HOUR = 60 * 60 * 1000;
- if (pendingInfo && Date.now() - pendingInfo.since > ONE_HOUR) {
+ const isPendingReminder = !!pendingInfo && Date.now() - pendingInfo.since > ONE_HOUR;
+ if (isPendingReminder) {
  // Check dismiss cooldown even for reminders
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
@@ -144,10 +151,7 @@ const NewsletterPopup: React.FC = () => {
  }
  setEmail(pendingInfo.email);
  setStatus('pending');
- setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'legacy_registration_review');
- return;
+ // A reminder follows the same reading/scroll timing as the signup prompt.
  }
 
  // Don't show if already subscribed
@@ -160,16 +164,14 @@ const NewsletterPopup: React.FC = () => {
  const dismissed = localStorage.getItem(POPUP_DISMISSED_KEY);
  if (dismissed) {
  const daysSince = (Date.now() - parseInt(dismissed, 10)) / (1000 * 60 * 60 * 24);
- if (daysSince < DISMISS_DAYS) return;
+ if (daysSince < (isPendingReminder ? 1 : DISMISS_DAYS)) return;
  }
 
  const checkAndShow = () => {
  if (userRef.current) return;
- if (timeReady.current && scrollReady.current) {
+ if (timeReady.current && scrollReady.current && !shownRef.current && canShowPromotionalPrompt()) {
  if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
  setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'smart_trigger');
  }
  }
  };
@@ -180,7 +182,7 @@ const NewsletterPopup: React.FC = () => {
  }, MIN_TIME_MS);
 
  const onScroll = () => {
- if (scrollReady.current) return;
+ if (scrollReady.current) { checkAndShow(); return; }
  const scrollPercent = window.scrollY / (document.documentElement.scrollHeight - window.innerHeight);
  if (scrollPercent >= SCROLL_THRESHOLD) {
  scrollReady.current = true;
@@ -193,13 +195,11 @@ const NewsletterPopup: React.FC = () => {
  const onMouseLeave = (e: MouseEvent) => {
  if (exitIntentFired.current) return;
  if (userRef.current) return;
- if (e.clientY <= 0 && timeReady.current) {
+ if (e.clientY <= 0 && timeReady.current && !shownRef.current && canShowPromotionalPrompt()) {
  exitIntentFired.current = true;
  if (localStorage.getItem(SUBSCRIBED_KEY) !== 'true') {
  setTriggerSource('exit_intent');
  setVisible(true);
- requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
- Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', 'exit_intent');
  }
  }
  };
@@ -225,8 +225,6 @@ const NewsletterPopup: React.FC = () => {
  document.documentElement.addEventListener('mouseleave', onMouseLeave);
  }
 
- // Subscribe to popup queue
- const unsub = subscribe(() => setQueueActive(isActive('newsletter-popup')));
 
  return () => {
  clearTimeout(timer);
@@ -237,7 +235,6 @@ const NewsletterPopup: React.FC = () => {
  if ((window as any).__nlPageViewTimer) {
  clearTimeout((window as any).__nlPageViewTimer);
  }
- unsub();
  };
  }, []);
 
@@ -249,25 +246,28 @@ const NewsletterPopup: React.FC = () => {
  }
  }, [user, visible]);
 
- // Hide AdSense auto-ads while the popup is showing (they use z-index 2147483647).
- // CSS selectors in index.css handle most cases, but vignette/overlay ads inject
- // wrapper divs without predictable IDs: suppressGoogleAdOverlays hides them and,
- // on close, restores every element it hid (the anchor used to stay hidden).
+ // Promotions yield to Google anchors/vignettes; no ad or page scroll is hidden.
+ useEffect(() => observeGoogleAdOverlays(setGoogleOverlayActive), []);
  useEffect(() => {
- const isOpen = visible && queueActive;
- document.body.classList.toggle('modal-open', isOpen);
- if (!isOpen) return () => { document.body.classList.remove('modal-open'); };
-
- const restoreGoogleOverlays = suppressGoogleAdOverlays(document);
- return () => {
- restoreGoogleOverlays();
- document.body.classList.remove('modal-open');
- };
- }, [visible, queueActive]);
+   if (!visible || googleOverlayActive) { setQueueActive(false); return; }
+   const update = () => setQueueActive(isActive('newsletter-popup'));
+   const unsub = subscribe(update);
+   requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER);
+   update();
+   return () => { unsub(); releaseSlot('newsletter-popup'); };
+ }, [visible, googleOverlayActive]);
+ useEffect(() => {
+   if (!visible || !queueActive || googleOverlayActive || shownRef.current) return;
+   if (!canShowPromotionalPrompt()) { setVisible(false); return; }
+   shownRef.current = true;
+   try { sessionStorage.setItem(SESSION_SHOWN_KEY, '1'); } catch { /* in-memory cap still applies */ }
+   markSlotShown('newsletter-popup');
+   Analytics.trackUIInteraction('newsletter_popup', 'modal', 'show', triggerSource);
+ }, [visible, queueActive, googleOverlayActive, triggerSource]);
 
  // Google One Tap: prompt when the popup is actually visible (slot active).
  useEffect(() => {
- if (!visible || !queueActive) return;
+ if (!visible || !queueActive || googleOverlayActive) return;
  if (user) return;
  if (localStorage.getItem(SUBSCRIBED_KEY) === 'true') return;
  if (sessionStorage.getItem(NEWSLETTER_ONETAP_KEY)) return;
@@ -279,13 +279,13 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelOneTap();
  };
- }, [visible, queueActive, user]);
+ }, [visible, queueActive, googleOverlayActive, user]);
 
  useEffect(() => {
  let cancelled = false;
 
  const mountButton = async () => {
- if (!visible || !queueActive || user) {
+ if (!visible || !queueActive || googleOverlayActive || user) {
  if (googleButtonRef.current) googleButtonRef.current.innerHTML = '';
  setGoogleButtonReady(false);
  return;
@@ -313,7 +313,7 @@ const NewsletterPopup: React.FC = () => {
  return () => {
  cancelled = true;
  };
- }, [visible, queueActive, user, locale]);
+ }, [visible, queueActive, googleOverlayActive, user, locale]);
 
  const handleDismiss = () => {
  localStorage.setItem(POPUP_DISMISSED_KEY, String(Date.now()));
@@ -387,7 +387,7 @@ const NewsletterPopup: React.FC = () => {
  }
  };
 
- if (!visible || !queueActive) return null;
+ if (!visible || !queueActive || googleOverlayActive || (!shownRef.current && !canShowPromotionalPrompt())) return null;
 
  // Render via portal to escape React root's stacking context.
  // AdSense auto-ads are injected outside #root with z-index: 2147483647,

@@ -9,7 +9,7 @@
  * - Partner referrals (insurance brokers, tax consultants)
  * - Contextual recommendations based on active comparator
  * 
- * Active partner referral programs: canonical referral URLs live in
+ * Existing referral URLs (not proof of active commercial agreements) live in
  * services/exchangePartners.ts (ONE definition — AGENTS.md #6); Wise: Partnerize
  * affiliate deeplink, NO signup bonus for the user · Fineco: codice AA8381747, bonus 50€ ·
  * Crédit Agricole: buono Amazon 50€.
@@ -75,11 +75,13 @@ export interface AffiliatePartner {
   */
  enabled: boolean;
  /**
-  * True when the link is a paid/referral program → rendered with
+  * True when the destination is a referral URL → rendered with
   * rel="sponsored". False for non-paid institutional links (e.g. the
   * official FOPH premium comparator) which must NOT claim sponsorship.
   */
  sponsored: boolean;
+ /** Explicit owner-confirmed commercial agreement; false until activated. */
+ commercialActive: boolean;
 }
 
 export interface AffiliateLinkAttribution {
@@ -103,28 +105,12 @@ export interface AffiliateLinkAttribution {
 
 export type AffiliateExperimentVariant = 'control' | 'benefit';
 
-/**
- * Bounded G4 experiment: only hydrated exchange/banks recommendations may be
- * assigned a treatment. Session storage keeps the variant stable without
- * putting an account, email, or device identifier in the attribution URL.
- */
+/** No local random assignment: experiments require activated Firebase Remote Config. */
 export function resolveAffiliateExperimentVariant(
- context: ComparatorContext,
- surface: string,
+ _context: ComparatorContext,
+ _surface: string,
 ): AffiliateExperimentVariant {
- if (surface !== 'web' || (context !== 'exchange' && context !== 'banks')) return 'control';
- if (typeof window === 'undefined') return 'control';
-
- const storageKey = `g4-affiliate-variant-${context}`;
- try {
- const stored = window.sessionStorage.getItem(storageKey);
- if (stored === 'control' || stored === 'benefit') return stored;
- const assigned: AffiliateExperimentVariant = Math.random() < 0.5 ? 'control' : 'benefit';
- window.sessionStorage.setItem(storageKey, assigned);
- return assigned;
- } catch {
  return 'control';
- }
 }
 
 /**
@@ -195,6 +181,13 @@ export function isGoIdEnabled(goId: string | undefined): boolean {
  */
 export function partnerRelAttr(partner: Pick<AffiliatePartner, 'sponsored'>): string {
  return partner.sponsored ? 'noopener noreferrer sponsored' : 'noopener noreferrer';
+}
+
+/** Disclosure follows the actual published referral, never the presence of a goId alone. */
+export function partnerDisclosureKey(partnerId: string | undefined): string | null {
+ const partner = PARTNERS.find(p => p.id === partnerId && p.enabled);
+ if (!partner?.sponsored) return null;
+ return partner.commercialActive ? 'affiliate.disclosure' : 'affiliate.referralDisclosure';
 }
 
 /**

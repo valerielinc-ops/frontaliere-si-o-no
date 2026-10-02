@@ -13,6 +13,7 @@
 // riprenda. E' gia' costato due bug silenziosi (pdfWhitepapersPlugin,
 // staticPagesPlugin): le hero card venivano drenate prima di essere registrate.
 import fs from 'node:fs';
+import { decodeHtmlText } from '../packages/articles/engine/shared/htmlEntities';
 import np from 'node:path';
 import path from 'path';
 import os from 'node:os';
@@ -25,6 +26,7 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { JOB_BOARD_HEAD_TAGS } from './jobBoardGpt';
 import { firstParsableMs } from './shared/firstParsableDate';
 import { buildSlimSeed } from './shared/slimJobIndex';
+import { isListingInventoryJob, normalizeListingIdentity, selectJobBoardInventory } from '../services/jobBoardInventory';
 import { readCompatPaths } from '../scripts/lib/compat-paths-store.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 import { readOrphanEnriched } from '../scripts/lib/orphan-enriched-store.mjs';
@@ -74,11 +76,13 @@ import {
 import { registerKeywordLandingPaths } from './shared/keywordLandingPlan';
 import {
   buildLocaleAlternateBlock,
+  buildLocaleAlternateEntries,
   buildSitemapAlternateBlock,
   type AlternateLocale,
 } from './shared/localeAlternateBlock';
 import { jobDescriptionTextToHtml, inlineTextToHtml } from './shared/jobDescription/toHtml';
 import { markCantonNoindex } from './shared/cantonNoindexRegistry';
+import { readJobsData, cantonArchivePageCount } from './shared/cantonArchivePlan';
 import { markCantonSectorPage } from './shared/cantonSectorPageRegistry';
 // Reverse crosslink lavoro -> evento (#3646, epic #3125) — the item PR #3696
 // declared open. Isolated module reusing eventsSeoPagesPlugin's own data
@@ -204,7 +208,7 @@ import {
  assertSectorHubTablesComplete,
  type SectorHubKey,
 } from './jobSectorLanding';
-import { SEO_HUB_RESERVED_SLUGS, JOBS_PAGE_SIZE as HUB_JOBS_PAGE_SIZE, hubSlugFor } from './seoHubsData';
+import { SEO_HUB_RESERVED_SLUGS, hubSlugFor } from './seoHubsData';
 import { buildCantonHubEditorial, buildCantonRealDataBlock } from './shared/cantonHubEditorial';
 // Issue #4303 item 1 — real BFS/BAG-sourced axes for the cathedral canton
 // real-data block (wage-level factor + LAMal premium vs Ticino; no
@@ -245,7 +249,7 @@ import { normalizePostalCityKey } from './shared/postalCodes';
 import { buildJobPostingSchema, sanitizeLocalityForRegion, type JobInput } from './shared/jobPostingSchema';
 import { normalizeCantonCode, inferAnyCanton } from '../scripts/lib/target-swiss-locations.mjs';
 import { formatJobLocation, splitJobLocation } from '../scripts/lib/job-location-display.mjs';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { startTimer, recordEmit, phaseTimer, recordPhase, printSummary as printJobsSeoProfile } from './shared/jobsSeoProfiler.ts';
 import { employerProfilesFlushed, resolveJobsSeoPagesFlushed } from './shared/buildSignals';
 import { listJobsSeoAdapterFiles, listJobsSeoExpiredSliceFiles } from './shared/jobsSeoDeterministicInputs';
@@ -1973,11 +1977,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  let validJobs = jobs
  .filter((j: any) => !isFixtureJob(j))
- .filter((j: any) => j?.title && j?.company && j?.location && (j?.description || j?.descriptionByLocale))
- .map((j: any) => ({
- ...j,
- slug: j.slug || slugify(`${j.title}-${j.company}-${j.location}`) || j.id || '',
- }))
+ .filter((j: any): boolean => isListingInventoryJob(j))
+ .map((j: any) => normalizeListingIdentity(j))
  .filter((j: any) => !!j.slug)
  // DESC by recency, tiebreak by id for determinism. Most-recent first
  // means the registry's first-write-wins gives the canonical URL to the
@@ -1995,6 +1996,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   console.log(
    `[jobs-seo-sample] fraction=${jobsSeoSample} selected=${validJobs.length} of ${totalValidJobs}`,
   );
+ }
+ // The same validated pool drives cards, totals and detail emission. A missing
+ // description must not hide a usable listing or leave its card pointing at a
+ // missing page: the detail renderer provides a noindex page and safe defaults.
+ const listingJobCounts = new Map<string, number>();
+ for (const code of [...ALL_CANTON_CODES, AGGREGATE_KEY]) {
+  listingJobCounts.set(code, selectJobBoardInventory(validJobs, code).length);
  }
  // Keep the sample at this boundary: every active job detail, hub, bridge and
  // related/search derivation below reads this same `validJobs` array.
@@ -2079,15 +2087,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .replace(/>/g, '&gt;')
  .replace(/"/g, '&quot;');
  /** Decode common HTML entities so source text doesn't get double-escaped by esc(). */
- const decodeHtmlEntities = (s: string) => String(s || '')
- .replace(/&amp;/g, '&')
- .replace(/&lt;/g, '<')
- .replace(/&gt;/g, '>')
- .replace(/&quot;/g, '"')
- .replace(/&#39;/g, "'")
- .replace(/&#x27;/g, "'")
- .replace(/&#(\d+);/g, (_m, code) => String.fromCharCode(Number(code)))
- .replace(/&[A-Za-z]+;/g, ' ');
+ const decodeHtmlEntities = (s: string) => decodeHtmlText(String(s || ''));
  /** Convert plain-text crawler descriptions to HTML via the shared parser
  * (`build-plugins/shared/jobDescription/parser.ts`). Handles `**bold**` -->
  * `<strong>`, drops empty bolds, strips separator lines (`______`), dedups
@@ -2097,12 +2097,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const normalizeText = (s: string) => String(s || '')
  .replace(/\r/g, '\n')
  .replace(/\t/g, ' ')
- .replace(/&[A-Za-z]+;/g, ' ')
  .replace(/\s+/g, ' ')
  .trim();
  /** Strip markdown syntax, emojis & structured noise for clean meta descriptions. */
  const cleanMetaDescription = (raw: string): string => {
- let s = String(raw || '');
+ let s = decodeHtmlEntities(raw);
  // Strip markdown headings (at line start only — unanchored also mangled `C#`/`#3`)
  s = s.replace(/(^|\n)#{1,6}\s+/g, '$1');
  // Delimiters excluded from crossing a newline — a stray unpaired `*` (e.g. a
@@ -2118,8 +2117,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  s = s.replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}\u{FE00}-\u{FE0F}\u{200D}\u{20E3}\u{E0020}-\u{E007F}]/gu, '');
  // Strip bullet/list markers at line starts
  s = s.replace(/^\s*[-*•]\s+/gm, '');
- // Strip HTML entities like &NewLine; &colo;
- s = s.replace(/&[A-Za-z]+;/g, ' ');
  // Collapse whitespace
  s = s.replace(/\s+/g, ' ').trim();
  return s;
@@ -2508,12 +2505,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
  const withSlash = (s: string) => (s.endsWith('/') ? s : `${s}/`);
 
- // Build one ItemList `ListItem` for a per-canton hub (city/sector/company/
- // company-city): a full JobPosting embedded via the shared builder, falling
- // back to a name+url stub when the job is too sparse. Closes over the stable
- // `localePrefix`/`localizedSlug`/`withSlash`/`BASE_URL`; the caller passes the
- // per-emit `locale`/`sectionSlug`/`canton`. Single source of truth for the
- // four otherwise-identical hub ItemLists.
+ // Every hub links to its canonical job detail; it must not embed JobPosting.
  const mapCantonJobToListItem = (
   job: any,
   i: number,
@@ -2523,7 +2515,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  ): Record<string, unknown> => {
   const jobTitle = String(job?.titleByLocale?.[locale] || job.title || '');
   const abs = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}`;
-  const jobPosting = buildListItemJobPosting(
+  const jobPosting = buildJobListEntry(
    {
     title: jobTitle,
     titleByLocale: job?.titleByLocale,
@@ -3436,13 +3428,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
  // Build an SEO-friendly meta description with salary and CTA
- const metaIntro = locale === 'de'
+ const metaIntro = decodeHtmlEntities(locale === 'de'
  ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
  : locale === 'fr'
  ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
  : locale === 'en'
  ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
- : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`;
+ : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
  // Inline salary snippet for meta description (before salaryText is computed)
  const metaSalaryMin = Number(job.salaryMin);
  const metaSalaryMax = Number(job.salaryMax);
@@ -3467,10 +3459,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // `qui`, … so those still dangled here after being handled there).
  // AGENTS.md Non-Negotiable #6: one shared module, no copies.
  const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
- // Decode HTML entities from source data to prevent double-escaping in esc()
- const description = decodeHtmlEntities(descWithSalary.length <= 160
+ // Each source fragment was decoded once before concatenation and truncation.
+ const description = descWithSalary.length <= 160
  ? descWithSalary
- : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`));
+ : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`);
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
@@ -3822,7 +3814,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
  const jobBodyHtml = `${summaryHtml}${timelineHtml || (hasCanonical ? sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, []) : '')}${jobFaqHtml}`;
- const jobRobotsTag = robotsMetaEnhancedForContent(jobBodyHtml);
+ const jobRobotsTag = localizedDescription
+  ? robotsMetaEnhancedForContent(jobBodyHtml)
+  : ROBOTS_NOINDEX_FOLLOW;
  html = `<!doctype html>
 <html lang="${locale}">
  <head>
@@ -5554,7 +5548,7 @@ ${companyFollowHtml}
  isPartOf: string;
  breadcrumbs: Array<{ name: string; item: string }>;
  // Job-link items (LandingJobLink-shaped). The extra optional fields feed a
- // full JobPosting embedded inside each ItemList ListItem (see below).
+ // locale-aware detail URL and title for each ItemList entry.
  items: Array<{
  title: string;
  href: string;
@@ -5591,11 +5585,7 @@ ${companyFollowHtml}
  inLanguage: options.locale,
  isPartOf: options.isPartOf,
  });
- // Embed a full JobPosting inside each ListItem (richer than a name+url stub),
- // mirroring weeklyEmployersPlugin's company×city hubs. `buildListItemJobPosting`
- // never throws and caps the description, so a sparse job falls back to a plain
- // name+url stub and the page stays under the 195 KB weight budget. The
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List pages describe links; only individual details declare JobPosting.
  const itemListLd = options.items.length > 0
  ? inlineScriptJson({
  '@context': 'https://schema.org',
@@ -5604,7 +5594,7 @@ ${companyFollowHtml}
  itemListElement: options.items.slice(0, 10).map((item, index) => {
  const abs = item.url
  || (/^https?:\/\//.test(item.href) ? item.href : `${BASE_URL}${item.href}`);
- const jobPosting = buildListItemJobPosting(
+ const jobPosting = buildJobListEntry(
  {
  title: item.title,
  titleByLocale: item.titleByLocale,
@@ -7709,9 +7699,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -7874,7 +7862,8 @@ ${staticAnalyticsHtml}
  if (da !== db) return da - db;
  return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
  });
- const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(sortedForPagination.length / JOBS_PER_LISTING_PAGE));
+ const ticinoPaginationJobs = selectJobBoardInventory(sortedForPagination, DEFAULT_CANTON);
+ const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(ticinoPaginationJobs.length / JOBS_PER_LISTING_PAGE));
  let paginationPageCount = 0;
  const paginationSitemapEntries: string[] = [];
  const pagCopy: Record<'it' | 'en' | 'de' | 'fr', { title: (n: number) => string; desc: (n: number, from: number, to: number) => string; heading: (n: number) => string }> = {
@@ -7885,7 +7874,7 @@ ${staticAnalyticsHtml}
  };
  for (let pageNum = 2; pageNum <= totalListingPages; pageNum++) {
  const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
- const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
+ const pgJobs = ticinoPaginationJobs.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
  if (pgJobs.length === 0) break;
  for (const locale of localeList) {
  if (!shouldEmitLocale(locale)) continue; // locale-shard render-skip (BUILD_LOCALE) — Fase 1b
@@ -7895,7 +7884,7 @@ ${staticAnalyticsHtml}
  const pgCanonicalUrl = `${BASE_URL}${pgCanonicalPath}`;
  const pgCopy = pagCopy[locale];
  const pgFrom = startIdx + 1;
- const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, sortedForPagination.length);
+ const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, ticinoPaginationJobs.length);
  const pgTitle = pgCopy.title(pageNum);
  const pgDesc = pgCopy.desc(pageNum, pgFrom, pgTo);
  const pgAlternates = localeList.map((al) => {
@@ -7990,21 +7979,13 @@ ${staticAnalyticsHtml}
   * TI is NOT iterated here \u2014 the legacy TI emit above is byte-identical.
   */
  {
- // Group validJobs by resolved canton.
- const jobsByCanton: Map<string, typeof validJobs> = new Map();
- for (const job of validJobs) {
-  await collector.awaitDrainSlot(6); // bound flush backlog (#1290)
- const c = sharedResolveJobCanton(job as { canton?: string; location?: string });
- if (!jobsByCanton.has(c)) jobsByCanton.set(c, []);
- jobsByCanton.get(c)!.push(job);
- }
  // Display names for the canton in body copy (use canton URL slug as fallback).
  const cantonDisplayLocal = (canton: string, locale: typeof localeList[number]): string => {
  return getCantonDisplayLabel(canton, locale);
  };
  for (const canton of SHARED_ALL_CANTON_CODES) {
  if (canton === 'TI') continue; // TI handled by legacy block above
- const cJobs = jobsByCanton.get(canton) ?? [];
+ const cJobs = selectJobBoardInventory(validJobs, canton);
  if (cJobs.length < 2 * JOBS_PER_LISTING_PAGE) continue;
  const cSorted = [...cJobs].sort((a: any, b: any) => {
  const da = firstParsableMs(b.crawledAt, b.datePosted);
@@ -8591,9 +8572,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) => {
  const jobCanton = isAggregate
  ? sharedResolveJobCanton(job as { canton?: string; location?: string })
@@ -9106,9 +9085,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -9401,9 +9378,7 @@ ${staticAnalyticsHtml}
  '@type': 'ItemList',
  name: pageTitle,
  numberOfItems: cappedJobs.length,
- // Embed a full JobPosting per item (capped description, never throws → falls
- // back to a name+url stub). Mirrors the editorial-landing ItemList; the
- // authoritative per-job JobPosting still lives on each linked detail page.
+ // List items link to the individual job details.
  itemListElement: cappedJobs.map((job: any, i: number) =>
  mapCantonJobToListItem(job, i, locale, sectionSlug, canton)),
  });
@@ -10863,13 +10838,10 @@ ${staticAnalyticsHtml}
      }
    }
 
-   // T2.6 — Per-canton active-job counts for MIN_JOBS gate. One canonical
-   // entry per dedup group, so this is the deduped count Google would index
-   // per /cerca-lavoro-{canton}/ landing.
-   const cantonJobCounts = new Map<string, number>();
-   for (const entry of groups.values()) {
-     cantonJobCounts.set(entry.canton, (cantonJobCounts.get(entry.canton) ?? 0) + 1);
-   }
+   // Counts describe the listing inventory, not the smaller set of jobs whose
+   // translated details qualify for sitemap indexation.
+   const cantonJobCounts = listingJobCounts;
+   const archiveSnapshot = readJobsData(fs, path, rootDir);
    let cantonIndexIndexable = 0;
    let cantonIndexNoindex = 0;
 
@@ -10882,7 +10854,7 @@ ${staticAnalyticsHtml}
    // NOTE: this mirrors `jobEntries` above. We build a fresh list so the
    // legacy `<urlset>` and the new sharded index are byte-for-byte
    // independent — no shared mutation, no surprise across plugins.
-   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string };
+   type ShardUrl = { loc: string; lastmod: string; changefreq: string; priority: number; _canton: string; alternates?: Array<{ hreflang: string; href: string }> };
    const shardUrls: ShardUrl[] = [];
    for (const [, group] of groups) {
      const job = group.canonical;
@@ -10985,13 +10957,13 @@ ${staticAnalyticsHtml}
        case 'it':
          return {
           title,
-          lede: `Pagina indice del job board per il cantone ${display}.`,
+          lede: `Offerte di lavoro aggiornate ogni giorno: ${display}.`,
           ctaLabel: `Vedi tutte le offerte`,
         };
        case 'en':
          return {
           title,
-          lede: `Job board index page for canton ${display}.`,
+          lede: `Current job openings in ${display}, updated daily.`,
           ctaLabel: `View all listings`,
         };
        case 'de':
@@ -11018,7 +10990,7 @@ ${staticAnalyticsHtml}
        default:
          return {
           title,
-          lede: `Index du job board pour le canton ${display}.`,
+          lede: `Offres d’emploi actualisées chaque jour : ${display}.`,
           ctaLabel: `Voir toutes les offres`,
         };
      }
@@ -11144,7 +11116,9 @@ ${staticAnalyticsHtml}
      // despite being emitted index,follow with self-canonicals. Push indexable
      // roots only: a noindex URL in a sitemap trips audit:sitemap-canonicals.
      if (meetsThreshold) {
-       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key });
+       shardUrls.push({ loc: canonicalUrl, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: entry.key,
+         alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}` }),
+       });
      }
      const labels = buildCantonLocaleLabels(entry.locale, display, cantonCount, cantonTitleYear);
      // The visible `lede` stays short (header tagline); the SEO meta + JSON-LD
@@ -11197,46 +11171,18 @@ ${staticAnalyticsHtml}
      });
 
      // ── P4: rich canton-landing body ────────────────────────────────────
-     // Filter all canonical jobs that resolve to this canton via the shared
-     // resolver (job.canton + city → canton lookup with TI fallback). This
-     // matches the resolver used everywhere else in the plugin so the cards
-     // here link to URLs that actually exist.
-     const cantonJobsAll = validJobs.filter(
-       (j) => sharedResolveJobCanton(j as { canton?: string; location?: string }) === entry.key,
-     );
-     // Top 12 most recent, used in the listing grid.
+     // The list and its counters use the same canton membership as the SPA,
+     // including half-canton groups and the complete national inventory.
+     const cantonJobsAll = selectJobBoardInventory(validJobs, entry.key);
      const cantonJobs = [...cantonJobsAll]
-       .sort(
-         (a, b) =>
-           Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
-           Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
-       )
+       .sort((a, b) => _jobRecency(b) - _jobRecency(a))
        .slice(0, 12);
-
-     // Issue #4303 items 1+5 — sharedResolveJobCanton() (used by
-     // cantonJobsAll above) never returns AGGREGATE_KEY, it always falls
-     // back to 'TI' for unmatched jobs — so cantonJobsAll is structurally
-     // EMPTY for the Svizzera aggregate hub. That starved the ItemList
-     // schema below (cantonCollectionLd was gated on cantonJobs.length>0,
-     // silently empty for this one hub) and would equally starve the new
-     // real-data block's sector/employer aggregation. Scoped fallback only
-     // — cantonJobsAll/totalJobs/avgSalary/tileGrid/listingGrid stay exactly
-     // as before for every canton, including AGGREGATE_KEY (unrelated to
-     // this issue, not touched here).
-     const realDataJobPool = entry.key === AGGREGATE_KEY ? validJobs : cantonJobsAll;
-     const collectionListJobs = entry.key === AGGREGATE_KEY
-       ? [...validJobs]
-           .sort(
-             (a, b) =>
-               Number(new Date(((b as { datePosted?: string }).datePosted) || 0)) -
-               Number(new Date(((a as { datePosted?: string }).datePosted) || 0)),
-           )
-           .slice(0, 12)
-       : cantonJobs;
-     const collectionListTotal = entry.key === AGGREGATE_KEY ? validJobs.length : undefined;
+     const realDataJobPool = cantonJobsAll;
+     const collectionListJobs = cantonJobs;
+     const collectionListTotal = cantonCount;
 
      // Aggregate stats for the tile grid.
-     const totalJobs = cantonJobsAll.length;
+     const totalJobs = cantonCount;
      const sectorCounts = new Map<string, number>();
      const cityCounts = new Map<string, number>();
      for (const j of cantonJobsAll) {
@@ -11428,14 +11374,18 @@ ${staticAnalyticsHtml}
      const archiveBaseHref = entry.key === AGGREGATE_KEY
        ? hubSlugFor(AGGREGATE_KEY, entry.locale, 'tutti')
        : hubSlugFor(entry.key, entry.locale, 'tutti');
-     const cantonTotalPages = Math.max(1, Math.ceil(totalJobs / HUB_JOBS_PAGE_SIZE));
+     const cantonTotalPages = entry.key === AGGREGATE_KEY ? 1 : Math.max(1, cantonArchivePageCount(
+       archiveSnapshot.cantonJobCounts.get(entry.key) ?? 0,
+       archiveSnapshot.cantonJobs.get(entry.key) ?? [],
+       meetsThreshold,
+     ));
      const editorialEntries = buildCantonHubEditorial({
        canton: entry.key,
        locale: entry.locale,
        display,
       jobsCount: totalJobs,
       totalPages: cantonTotalPages,
-      archiveNavigablePages: entry.key === AGGREGATE_KEY ? 1 : cantonTotalPages,
+      archiveNavigablePages: cantonTotalPages,
       archiveBaseHref,
     });
      // Mirror the staticPagesPlugin auto-`<p>`-wrap regex so plain-text
@@ -11959,6 +11909,10 @@ ${staticAnalyticsHtml}
      const html = buildSeoPageHtml({
        canonicalUrl,
        title: labels.title,
+       hreflangHtml: buildLocaleAlternateBlock({
+         eligibleLocales: meetsThreshold ? localeList : [],
+         hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, entry.key)}`.replace(/\/+/g, '/'))}`,
+       }),
        description: cantonMetaDescription,
        locale: entry.locale,
        bodyHtml,
@@ -11989,13 +11943,14 @@ ${staticAnalyticsHtml}
    };
    // Sitemap coverage (#3518, TI half): the localized Ticino hub roots
    // (/en/find-jobs-ticino/, /de/jobs-im-tessin/, /fr/...) are emitted by
-   // staticPagesPlugin (TI is skipped in cantonsToEmit above) and were listed
-   // in no sitemap at all. The IT root /cerca-lavoro-ticino/ already lives in
-   // sitemap-pages.xml — push only the three locale variants, into the TI shard.
-   for (const tiLocale of ['en', 'de', 'fr'] as const) {
+   // staticPagesPlugin. Include the whole reciprocal group in the TI shard,
+   // even when the IT root also appears in sitemap-pages.xml.
+   for (const tiLocale of localeList) {
      const tiSection = buildCantonAwareSection(tiLocale, 'TI');
      const tiPath = withSlash(`${localePrefix[tiLocale]}/${tiSection}`.replace(/\/+/g, '/'));
-     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI' });
+     shardUrls.push({ loc: `${BASE_URL}${tiPath}`, lastmod: dateStamp, changefreq: 'daily', priority: 0.7, _canton: 'TI',
+       alternates: buildLocaleAlternateEntries({ eligibleLocales: localeList, hrefFor: (locale) => `${BASE_URL}${withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, 'TI')}`.replace(/\/+/g, '/'))}` }),
+     });
    }
    const shards = splitToShards(shardUrls, { shardKey: shardKeyForUrl });
    // writeShardsToDist writes each `sitemap-jobs-{italian-slug}.xml` to the
@@ -13856,7 +13811,7 @@ ${staticAnalyticsHtml}
  recordPhase('ejp:wc-robots', __tEjpWcRobots);
 
  const __tEjpJsonld = phaseTimer();
- // Build JSON-LD scripts (BreadcrumbList + optional JobPosting)
+ // Build JSON-LD scripts for the archived page and its breadcrumbs.
  const breadcrumbLd = `<script type="application/ld+json">${inlineScriptJson({
  '@context': 'https://schema.org',
  '@type': 'BreadcrumbList',
@@ -13867,37 +13822,44 @@ ${staticAnalyticsHtml}
  ],
  })}</script>`;
 
+ // Keep archive metadata alongside any verifiable, explicitly expired JobPosting.
+ const archivePageLd = `<script type="application/ld+json">${inlineScriptJson({
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: pageTitle,
+  description: pageDesc,
+  url: selfUrl,
+  inLanguage: locale,
+ })}</script>`;
  const jobPostingLd = (() => {
- // NON-NEGOTIABLE #3: "Source mancante → safe default, non rimozione check."
- // SearchAtlas "missing schema" audit (2026-06-15) flagged ~50-80 indexable
- // expired soft-landings emitting only BreadcrumbList. Emit JobPosting whenever
- // the page has a REAL job identity — a real title AND a real employer from
- // trustworthy crawl/search data (expired-jobs.json OR GSC). The optional
- // fields (salary, address) are filled by buildJobPostingSchema's safe
- // defaults; validThrough/datePosted are derived from the best real timestamp
- // and always land in the PAST (this is an expired soft-landing) — Google's
- // recommended handling for an expired posting, NOT a GSC error. Previously the
- // gate required ejData.expiredAt to be present, dropping JobPosting (violating
- // #3) for jobs whose expired entry carried only crawledAt/postedDate. Pure
- // slug-derived orphans with no real employer stay breadcrumb-only:
- // fabricating an employer identity would be spammy, low-quality markup.
- // Revert-trigger (not validable pre-merge, SSG OOM): if the next deploy surfaces
- // GSC "expired job posting" errors or a JobPosting-richness regression on these
- // soft-landings → revert this gate to the strict `realExpiredAt`-required form.
- const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title
- || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '';
- const realCompany = String(ejData?.company || gscInfo?.company || '');
- // Derive a past validThrough from the best real signal. No real date signal
- // at all → stay breadcrumb-only (don't fabricate a posting window from nothing).
- const realValidThrough = (() => {
- for (const c of [ejData?.expiredAt, ejData?.crawledAt, ejData?.postedDate]) {
- if (c) { const d = new Date(c); if (!isNaN(d.getTime())) return d.toISOString(); }
- }
- return '';
- })();
+ // Keep the complete historical identity, but never advertise an archive as
+ // open: only real past timestamps may supply its explicit validThrough.
+ const realTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title
+ || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || '').trim();
+ const realCompany = String(ejData?.company || gscInfo?.company || '').trim();
+ const archiveNowMs = Date.now();
+ const realValidThrough = [ejData?.expiredAt, ejData?.crawledAt, ejData?.datePosted, ejData?.postedDate]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) < archiveNowMs);
  if (!realTitle || !realValidThrough || !realCompany) return '';
- const finalDescription = jobDescription || (() => {
+ const validThroughMs = Date.parse(realValidThrough);
+ // Preserve source publication dates that form a positive historical window.
+ const sourceDatePosted = [ejData?.datePosted, ejData?.postedDate]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
+ const observedDatePosted = [ejData?.firstSeenAt, ejData?.crawledAt]
+ .map(safeIsoDate)
+ .find((date): date is string => date !== null && Date.parse(date) < validThroughMs);
+ // With no usable publication/earlier observation, retain the bounded historical
+ // estimate: 30 days before the real past deadline, never relative to the build.
+ const expiredDatePosted = sourceDatePosted || observedDatePosted
+ || new Date(validThroughMs - 30 * 86400000).toISOString();
+ // Match the builder's 50-character guarantee after visible-text normalization,
+ // so short historical copy never falls back to an active application prompt.
+ const archivedDescription = capJsonLdDescription(jobDescription);
+ const finalDescription = archivedDescription.length >= 50 ? archivedDescription : capJsonLdDescription((() => {
  const parts: string[] = [];
+ if (archivedDescription) parts.push(`<p>${esc(archivedDescription)}</p>`);
  parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
  if (locale === 'it') {
  parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
@@ -13911,25 +13873,21 @@ ${staticAnalyticsHtml}
  parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
  if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
  return parts.join('');
- })();
- if (finalDescription.length < 30) return '';
+ })());
  // Build the canonical JobPosting schema via the shared builder. The
- // expired soft-landing layers its expired-specific overrides (validThrough
- // = expiredAt, datePosted back-estimated from expiredAt when no crawl
- // data exists) on top of the canonical output.
+ // explicit past deadline bypasses the active-posting future-date fallback.
  const expiredInput: JobInput = {
  id: ejData?.id,
  slug,
  title: realTitle,
- description: capJsonLdDescription(finalDescription),
- company: jobCompany,
+ description: finalDescription,
+ company: realCompany,
  companyKey: ejData?.companyKey || slugInfo?.companyKey,
  addressLocality: jobLocation || undefined,
  addressRegion: jobCanton || undefined,
  postalCode: ejData?.postalCode || slugInfo?.postalCode,
  streetAddress: ejData?.streetAddress,
- postedDate: ejData?.postedDate,
- crawledAt: ejData?.crawledAt,
+ datePosted: expiredDatePosted,
  validThrough: realValidThrough,
  contract: ejData?.contract,
  salaryMin: typeof ejData?.salaryMin === 'number' ? ejData.salaryMin : null,
@@ -13944,33 +13902,11 @@ ${staticAnalyticsHtml}
  url: selfUrl,
  baseUrl: BASE_URL,
  });
- // Expired-specific datePosted: when no crawl data exists, estimate as
- // 30 days before expiredAt so the posting window looks natural.
- const expiredDatePosted = (() => {
- const raw = (() => {
- if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
- if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
- const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
- })();
- // PR #2229 adversarial-check #1: when the only timestamp is postedDate,
- // realValidThrough === postedDate === raw → a zero/negative posting window
- // that Google rejects (validThrough must be AFTER datePosted). Clamp
- // datePosted to 30 days before validThrough when it would not strictly
- // precede it.
- if (!(new Date(raw).getTime() < new Date(realValidThrough).getTime())) {
- const d = new Date(realValidThrough); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
- }
- return raw;
- })();
- const jp: Record<string, unknown> = {
- ...expiredSchema,
- datePosted: expiredDatePosted,
- validThrough: new Date(realValidThrough).toISOString(),
- };
- return `<script type="application/ld+json">${inlineScriptJson(jp)}</script>`;
+
+ return `<script type="application/ld+json">${inlineScriptJson(expiredSchema)}</script>`;
  })();
 
- const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
+ const jsonLdScripts = breadcrumbLd + '\n ' + archivePageLd + (jobPostingLd ? '\n ' + jobPostingLd : '');
  recordPhase('ejp:jsonld', __tEjpJsonld);
 
  // Tier decision FIRST. It reads only `__slCandidatePaths` (hoisted above the
@@ -15151,6 +15087,7 @@ ${staticAnalyticsHtml}
  // qui: sono block-scoped nella fase city-hubs (tsc li rifiuta a questo
  // punto), quindi escono di scope da soli.
  sortedForPagination.length = 0;
+ ticinoPaginationJobs.length = 0;
  implicitPreviousSlugs.length = 0;
  companyActiveJobsMap.clear();
  recentJobPool.length = 0;

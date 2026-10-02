@@ -13,14 +13,14 @@
  *
  * Source of truth: data/employer-profiles.json (scripts/build-employer-profiles.mjs)
  * — corpus-derived FACTS only, no editorial judgement, no PII (brand-safety).
- * The live active-job listings + JobPosting structured data come from the
+ * The live active-job listings + ItemList structured data come from the
  * assembled corpus data/jobs.json (via loadJobsJson), grouped by the SAME
  * canonicalCompanyProfileSlug the dataset uses (build-plugins/shared/
  * companyProfileSlug.mjs — one definition, no slug drift).
  *
  * Contract (repo SSG rules): apply:'build', enforce:'post', emit in
  * closeBundle(), pass distDir. Every page via buildSeoPageHtml (SPA shell +
- * lite-shell hydration). JSON-LD JobPosting via the shared buildJobPostingSchema
+ * lite-shell hydration). JSON-LD links via the shared buildJobListEntry
  * (guarantees AGENTS #3 mandatory fields). Sitemap written as
  * dist/sitemap-employer-profiles.xml (sitemapAliasPlugin auto-discovers it).
  *
@@ -47,7 +47,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { renderJobCardListHtml, localizedContract, type JobCardJob } from './shared/jobCardHtml';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { renderEmployerCtaBlock } from './shared/employerCtaBlock';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { inlineScriptJson } from './shared/inlineJsonScript';
@@ -77,7 +77,7 @@ const localePrefix = (locale: Locale): string => (locale === 'it' ? '' : `/${loc
 const profilePath = (locale: Locale, slug: string): string => buildEmployerProfilePath(locale, slug);
 
 /**
- * Max active jobs rendered as cards and JobPosting ItemList entries per
+ * Max active jobs rendered as cards and ItemList entries per
  * profile page. Derive the boundary from the shared in-feed cadence: the
  * trailing card keeps the slot after the last eligible position renderable,
  * while the full active count remains visible in the stat tile and heading.
@@ -767,7 +767,7 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
             firstDateMs(b.postedDate, b.datePosted, b.crawledAt, b.firstSeenAt) -
             firstDateMs(a.postedDate, a.datePosted, a.crawledAt, a.firstSeenAt),
           );
-        // Keep the repeated card + JobPosting payload bounded. The live total
+        // Keep the repeated card + ItemList payload bounded. The live total
         // remains explicit in the stat tile and jobs heading below, so this is
         // a preview cap rather than a claim that the company has fewer roles.
         const listed = group.slice(0, MAX_JOBS_LISTED);
@@ -839,30 +839,27 @@ export function employerProfilePagesPlugin(rootDir: string): Plugin {
           const urlPath = profilePath(locale, slug);
           const canonicalUrl = `${BASE_URL}${urlPath}`;
 
-          // JobPosting ItemList (supplementary list-page signal; the
-          // authoritative per-job JobPosting also lives on each linked detail
-          // page). Kept as full buildListItemJobPosting output — an earlier
-          // draft of this fix lightened it to plain name+url to help
-          // audit:text-html-ratio, but tests/employer-profile-pages.test.ts
-          // ("embeds COMPLETE JobPosting structured data (Non-Negotiable #3)")
-          // asserts every mandatory JobPosting field on THIS page's ItemList
-          // items too — that test is the project's actual encoded contract
-          // for this page. The ItemList stays aligned with the bounded visible
-          // card preview while the live total remains in the UI heading.
+          // Keep the ItemList aligned with the visible cards. JobPosting belongs
+          // exclusively to each linked single-position detail page.
           const itemListElements = listed
             .map((job) => {
               // Same guard as the job cards (renderProfileBody): a job whose
               // slug is missing has no detail page — without this skip, jobUrl
-              // would collapse to the bare BASE_URL and the JobPosting in the
+              // would collapse to the bare BASE_URL and the linked page in the
               // ItemList would point at the homepage (reviewer 🔴, PR #4511).
               const detail = jobDetailPath(job, locale);
               if (!detail) return null;
-              const posting = buildListItemJobPosting(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
+              const posting = buildJobListEntry(job, { locale, url: `${BASE_URL}${detail}`, baseUrl: BASE_URL });
               return posting ?? null;
             })
             .filter((p): p is Record<string, unknown> => p !== null)
             .map((posting, idx) => ({ '@type': 'ListItem', position: idx + 1, item: posting }));
-          const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name)];
+          const jsonLdScripts = [breadcrumbLd(locale, slug, profile.name), inlineScriptJson({
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: profile.name,
+            url: canonicalUrl,
+          })];
           if (itemListElements.length > 0) {
             jsonLdScripts.push(inlineScriptJson({
               '@context': 'https://schema.org',

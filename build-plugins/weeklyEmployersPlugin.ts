@@ -117,10 +117,9 @@ import { CRAWLED_COMPANY_LOGOS, resolveCompanyLogoUrl } from '../services/jobDat
 import { renderJobCardHtml, JOB_CARD_ICON_SYMBOLS, type JobCardJob } from './shared/jobCardHtml';
 import { LOGO_IMG_ONERROR } from './shared/companyLogoResolver';
 // Note: resolveFallbackAddress / deriveCantonFromCity are now used indirectly
-// via the canonical `buildJobPostingSchema` builder (wrapped by
-// `buildListItemJobPosting` for list-item embedding).
+// via canonical detail links; JobPosting belongs only on those details.
 import { type JobInput } from './shared/jobPostingSchema';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { cleanNamespaces, cleanSitemapFiles } from './shared/distNamespaceCleanup';
 import { NOINDEX_BRIDGE } from './flatHtmlRedirectPlugin';
 import { employerCanonicalHref, loadKnownCompanySlugs, slugifyEmployer } from './shared/employerLinks';
@@ -3406,16 +3405,7 @@ export interface CompanyCityPageInputs {
   rootDir?: string;
 }
 
-/**
- * JSON-LD `JobPosting` full shape — every mandatory field per CLAUDE.md rule #3
- * (title, description, datePosted, hiringOrganization.name, jobLocation,
- * employmentType, baseSalary, postalCode, streetAddress). Uses
- * `COMPANY_HQ_ADDRESSES` as fallback when source data is missing and a
- * reasonable editorial description when the job has no parsed body.
- *
- * The validator (scripts/validate-structured-data-completeness.mjs) rejects
- * empty strings as missing — therefore every field MUST be non-empty.
- */
+/** Localized fallback title for a linked job detail. */
 const OPEN_POSITION_LABEL: Record<WeeklyEmployersLocale, string> = {
   it: 'Posizione aperta',
   en: 'Open position',
@@ -3423,19 +3413,12 @@ const OPEN_POSITION_LABEL: Record<WeeklyEmployersLocale, string> = {
   fr: 'Poste ouvert',
 };
 
-// JOB_DESC_FALLBACK and computeValidThrough previously lived here. Both are
-// now encapsulated inside `buildJobPostingSchema` so every emitter shares
-// the same locale-aware descriptions and validThrough heuristics.
-
 function jobToJsonLd(
   job: CompanyCityActiveJob,
   employer: string,
   city: string,
   locale: WeeklyEmployersLocale = 'it',
 ): Record<string, unknown> | null {
-  // Map the weekly-employers `CompanyCityActiveJob` shape onto the canonical
-  // `JobInput` contract and delegate to the shared list-item builder. This
-  // keeps all mandatory-field enforcement (CLAUDE.md rule #3) in one place.
   const input: JobInput = {
     id: job.slug || job.detailPath,
     slug: job.slug,
@@ -3457,12 +3440,7 @@ function jobToJsonLd(
     salaryCurrency: job.salaryCurrency,
     url: job.detailPath ? `${BASE_URL}${job.detailPath}` : undefined,
   };
-  // Shared builder: strips `@context` (the parent ItemList declares it once),
-  // caps the description for page-weight, and NEVER throws — returns null on a
-  // too-sparse job so the caller falls back to a name+url stub (one bad job
-  // can't break the build). Replaces the previous inline buildJobPostingSchema
-  // + @context-strip, unifying the 4th copy of this pattern onto one helper.
-  return buildListItemJobPosting(input, {
+  return buildJobListEntry(input, {
     locale,
     url: `${BASE_URL}${job.detailPath}`,
     baseUrl: BASE_URL,

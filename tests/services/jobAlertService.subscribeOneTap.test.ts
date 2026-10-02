@@ -124,6 +124,15 @@ describe('findMatchingAlertForCategory', () => {
     expect(findMatchingAlertForCategory([a], 'Sanità')).toBeNull();
   });
 
+  it('keeps alerts relevant to the requested canton and respects a paused existing alert', () => {
+    const ticino = { ...alert('ti', ['Sanità']), cantonFilter: ['TI'] };
+    const zurich = { ...alert('zh', ['Sanità']), cantonFilter: ['ZH'] };
+    expect(findMatchingAlertForCategory([ticino, zurich], 'Sanità', 'ZH')).toBe(zurich);
+    expect(findMatchingAlertForCategory([ticino], 'Sanità', 'ZH')).toBeNull();
+    expect(findMatchingAlertForCategory([{ ...zurich, paused: true }], 'Sanità', 'ZH')?.id).toBe('zh');
+    expect(findMatchingAlertForCategory([alert('national', ['Sanità'])], 'Sanità', 'ZH')?.id).toBe('national');
+  });
+
   it('returns null when no keyword matches', () => {
     const a = alert('a', ['Finanza', 'IT']);
     expect(findMatchingAlertForCategory([a], 'Sanità')).toBeNull();

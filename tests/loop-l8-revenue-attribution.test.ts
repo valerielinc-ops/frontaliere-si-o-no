@@ -1,6 +1,7 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { PARTNERS_REGISTRY, getAffiliateCommercialConfiguration } from '../functions/src/lib/affiliatePartnersRegistry.js';
 import { describe, expect, it } from 'vitest';
 import {
   runL8,
@@ -97,6 +98,49 @@ function writeHistory(dir: string, rows = [historyRow()]) {
 }
 
 describe('L8 Revenue & Attribution', () => {
+  it('exempts explicitly inactive affiliate programs while retaining every history guardrail and unknown money', () => {
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const verdict = validateRevenueAttribution({ history: history(), affiliate: inactive }, { now: NOW });
+    expect(verdict).toMatchObject({ ok: true, quality: 'observed', candidates: [] });
+    expect(verdict.snapshot.commercial).toMatchObject({ applicable: false, applicability: 'not_applicable', approvedNetChf: null, pendingChf: null });
+    const brokenHistory = history(historyRow({ adsense: { revenuePerDayCHF: -1 } }));
+    expect(validateRevenueAttribution({ history: brokenHistory, affiliate: inactive }, { now: NOW }).ok).toBe(false);
+  });
+
+  it('does not discard an authorised historical ledger when programs are inactive', () => {
+    const verdict = validateRevenueAttribution({ history: history(), affiliate: affiliate({ commercialConfiguration: getAffiliateCommercialConfiguration() }) }, { now: NOW });
+    expect(verdict.snapshot.commercial.approvedNetChf).toBe(250);
+    expect(verdict.snapshot.commercial.applicable).not.toBe(false);
+  });
+
+  it('keeps inactive-program observation amounts unavailable without creating an incident', async () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-inactive-'));
+    try {
+      const result = await runL8({ now: NOW, historyPath: writeHistory(dir),
+        affiliatePath: writeJson(dir, 'inactive.json', { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() }),
+        reportDir: path.join(dir, 'report'), issue: true,
+        createIssueImpl: async () => { throw new Error('inactive affiliate program must not create an incident'); },
+        logger: { log() {} },
+      });
+      expect(result.verdict.ok).toBe(true);
+      expect(result.issued).toBe(false);
+      expect(result.observation).toMatchObject({ numerator: null, denominator: null, commercialApplicability: 'not_applicable' });
+      expect(result.outcome).toMatchObject({ status: 'unmeasurable', approvedNetChf: null, independent: false });
+    } finally { fs.rmSync(dir, { recursive: true, force: true }); }
+  });
+
+  it('requires the commercial export again when a program activates, even with a stale inactive marker', () => {
+    const inactive = { transactions: null, commercialConfiguration: getAffiliateCommercialConfiguration() };
+    const partner = PARTNERS_REGISTRY[0];
+    const previous = partner.commercialActive;
+    try {
+      partner.commercialActive = true;
+      const verdict = validateRevenueAttribution({ history: history(), affiliate: inactive }, { now: NOW });
+      expect(verdict.ok).toBe(false);
+      expect(verdict.issues.join(' ')).toContain('transactions/rows');
+    } finally { partner.commercialActive = previous; }
+  });
+
   it('keeps approved, pending and reversed CHF separate even when approved money exceeds exposures', () => {
     const verdict = validateRevenueAttribution({ history: history(), affiliate: affiliate() }, { now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });

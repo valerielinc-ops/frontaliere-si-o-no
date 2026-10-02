@@ -14,6 +14,40 @@ function jsonRes(body: unknown, { ok = true, status = 200 }: { ok?: boolean; sta
 }
 
 describe('fetchGscQueries', () => {
+  it.each([
+    ['query', 'pass1'],
+    ['query,page', 'pass2'],
+    ['page', 'pass3'],
+  ])('reports an unexhausted %s cap while preserving every observed pass', async (cappedDimensions, pass) => {
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const request = JSON.parse(init.body);
+      const dimensions = request.dimensions.join(',');
+      const count = dimensions === cappedDimensions ? request.rowLimit : 1;
+      const rows = Array.from({ length: count }, (_, offset) => {
+        const index = request.startRow + offset;
+        const keys = dimensions === 'query'
+          ? [`query ${index}`]
+          : dimensions === 'query,page' ? ['query 0', `/landing-${index}/`] : [`/page-${index}/`];
+        return { keys, impressions: 100 + index, clicks: 1, position: 15, ctr: 0.01 };
+      });
+      return jsonRes({ rows });
+    });
+    const result = await fetchGscQueries({
+      startDate: '2026-09-01', endDate: '2026-09-28', rowLimit: 2,
+      fetchImpl, getTokenImpl: async () => 'fake-token',
+    });
+
+    expect(result.error).toContain(`${pass} (`);
+    expect(result.error).toContain('pagination incomplete: reached 20 row safety cap');
+    expect(Object.keys(result.queries)).toHaveLength(cappedDimensions === 'query' ? 20 : 1);
+    expect(Object.keys(result.pages)).toHaveLength(cappedDimensions === 'page' ? 20 : 1);
+    expect(result.queries['query 0'].topLandingPage).not.toBe('');
+    expect(result.orphanQueries.length).toBeGreaterThan(0);
+    const requests = fetchImpl.mock.calls.map(([, init]) => JSON.parse(init.body));
+    expect(requests.filter((request) => request.dimensions.join(',') === cappedDimensions)).toHaveLength(10);
+    expect(requests.every((request) => request.startDate === '2026-09-01' && request.endDate === '2026-09-28')).toBe(true);
+  });
+
   it('aggregates queries, attaches topLandingPage, identifies orphans', async () => {
     // Pass 1 (dimensions=['query']) and Pass 2 (dimensions=['query','page']).
     const queryRows = {
@@ -172,6 +206,36 @@ describe('fetchGscQueries', () => {
 // single-pass fetcher (page dimension only) instead of paying for
 // fetchGscQueries' three passes every hour.
 describe('fetchGscPageImpressions', () => {
+  it('preserves observed pages but reports incomplete coverage when the final allowed batch is full', async () => {
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const { startRow } = JSON.parse(init.body);
+      return jsonRes({ rows: [0, 1].map((offset) => ({ keys: [`/page-${startRow + offset}/`], impressions: 5 })) });
+    });
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-09-01', endDate: '2026-09-28', rowLimit: 2,
+      fetchImpl, getTokenImpl: async () => 'fake-token',
+    });
+    expect(result.error).toContain('page: pagination incomplete: reached 20 row safety cap');
+    expect(Object.keys(result.pages)).toHaveLength(20);
+    expect(result.pages['/page-19/']).toBe(5);
+    expect(fetchImpl).toHaveBeenCalledTimes(10);
+  });
+
+  it('accepts exhaustion proved by a short final allowed batch', async () => {
+    const fetchImpl = vi.fn(async (_url: string, init: { body: string }) => {
+      const { startRow } = JSON.parse(init.body);
+      const offsets = startRow === 18 ? [0] : [0, 1];
+      return jsonRes({ rows: offsets.map((offset) => ({ keys: [`/page-${startRow + offset}/`], impressions: 5 })) });
+    });
+    const result = await fetchGscPageImpressions({
+      startDate: '2026-09-01', endDate: '2026-09-28', rowLimit: 2,
+      fetchImpl, getTokenImpl: async () => 'fake-token',
+    });
+    expect(result.error).toBeUndefined();
+    expect(Object.keys(result.pages)).toHaveLength(19);
+    expect(fetchImpl).toHaveBeenCalledTimes(10);
+  });
+
   it('aggregates page-level impressions, applying the minImpressions floor', async () => {
     const pageRows = {
       rows: [

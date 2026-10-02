@@ -12,6 +12,7 @@ import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, act, waitFor } from '@testing-library/react';
 import JobDetailAlertPrompt from '@/components/community/JobDetailAlertPrompt';
 import type { JobAlert } from '@/services/jobAlertService';
+import { markPromotionalPromptShown } from '@/services/popupQueue';
 
 const baseAlert = (): JobAlert => ({
   id: 'alert-id',
@@ -62,6 +63,10 @@ function renderPrompt(opts: RenderOpts = {}) {
 describe('JobDetailAlertPrompt', () => {
   beforeEach(() => {
     localStorage.clear();
+    sessionStorage.clear();
+    // Each case represents a fresh session; the queue also retains the last
+    // impression in memory, independently of sessionStorage.
+    markPromotionalPromptShown(0);
   });
 
   afterEach(() => {
@@ -90,6 +95,14 @@ describe('JobDetailAlertPrompt', () => {
     fireEvent.click(screen.getByLabelText(/Chiudi|Close/));
     expect(onDismissed).toHaveBeenCalledTimes(1);
     expect(onClose).toHaveBeenCalledTimes(1);
+  });
+
+  it('lets the reader manage scope and cadence before subscribing', () => {
+    const { onManage, onClose, subscribe } = renderPrompt();
+    fireEvent.click(screen.getByText(/Gestisci alert/));
+    expect(onManage).toHaveBeenCalledOnce();
+    expect(onClose).toHaveBeenCalledOnce();
+    expect(subscribe).not.toHaveBeenCalled();
   });
 
   it('transitions to submitting then success when subscribe resolves', async () => {

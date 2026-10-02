@@ -53,7 +53,7 @@ import {
   type Grossregion,
 } from './shared/cantonSalaryIndex';
 import { resolveCantonSection } from './shared/cantonSection';
-import { buildListItemJobPosting } from './shared/jobPostingListItem';
+import { buildJobListEntry } from './shared/jobListEntry';
 import { sanitizeJobTitleForDisplay } from './shared/stripLiteralMarkdown';
 import {
   aggregateProfessionJobsByCanton,
@@ -515,13 +515,13 @@ export function renderSalaryProfessionCantonPage(opts: {
 <div class="overflow-x-auto"><table class="${TABLE_CLASS}"><thead><tr><th class="${TABLE_HEAD_CLASS}">${esc(c.compareColRegion)}</th><th class="${TABLE_HEAD_CLASS}">${esc(c.compareColGross)}</th><th class="${TABLE_HEAD_CLASS}">${esc(c.compareColNet)}</th></tr></thead><tbody>${compareBody}</tbody></table></div>`;
 
   // Active jobs — up to 3 featured, cards linking to their detail pages + an
-  // ItemList of complete JobPosting structured data (Non-Negotiable #3).
+  // ItemList of canonical detail-page links.
   const jobItems = snapshot.featured.slice(0, 3);
   const jobLdItems: Record<string, unknown>[] = [];
   const jobCards: string[] = [];
   for (const job of jobItems) {
     const detailUrl = jobDetailUrl(job, locale, cantonKey);
-    const posting = buildListItemJobPosting(featuredToJobInput(job), { locale, url: detailUrl, baseUrl: BASE_URL });
+    const posting = buildJobListEntry(featuredToJobInput(job), { locale, url: detailUrl, baseUrl: BASE_URL });
     if (posting) jobLdItems.push(posting);
     const title = sanitizeJobTitleForDisplay(job.titleByLocale[locale] ?? job.title ?? '');
     const cityBit = job.city ? ` · ${esc(job.city)}` : '';

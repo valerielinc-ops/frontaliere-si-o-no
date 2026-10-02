@@ -57,6 +57,8 @@ interface JobRecord {
   employmentType?: string;
   url?: string;
   applyUrl?: string;
+  deadline?: string;
+  crawledAt?: string;
 }
 
 export interface CareerFeaturedJob {
@@ -99,6 +101,10 @@ export interface CareerJobsSnapshot {
   readonly topEmployers: readonly CareerEmployer[];
   /** Number of top cities (used by the contracts landing). */
   readonly topCities: readonly string[];
+  /** Original competition notices; never inferred from a generated validThrough. */
+  readonly competitionNotices?: readonly ConcorsiEntry[];
+  readonly competitionFetchedAt?: string | null;
+  readonly dataCollectedAt?: string | null;
 }
 
 // ── Constants ────────────────────────────────────────────────────────────────
@@ -192,7 +198,7 @@ function loadSecoRegistry(rootDir: string): SecoRegistry | null {
   }
 }
 
-interface ConcorsiEntry {
+export interface ConcorsiEntry {
   ref?: string;
   title?: string;
   organization?: string | null;
@@ -418,12 +424,16 @@ function buildPublicSectorSnapshot(
   now: number,
 ): CareerJobsSnapshot {
   const concorsi = loadConcorsi(rootDir);
-  const concorsiCount = concorsi?.concorsi.length ?? 0;
+  const competitionNotices = (concorsi?.concorsi ?? []).filter((entry) => {
+    const deadline = entry.deadline ? Date.parse(`${entry.deadline}T23:59:59Z`) : NaN;
+    return !Number.isFinite(deadline) || deadline >= now;
+  });
 
   const matches: JobRecord[] = [];
   for (const job of jobs) {
     const company = `${job.company ?? ''} ${job.companyKey ?? ''}`;
     if (!PUBLIC_SECTOR_COMPANY_REGEX.test(company)) continue;
+    if (job.deadline && Date.parse(`${job.deadline.slice(0, 10)}T23:59:59Z`) < now) continue;
     const city = jobCityString(job);
     if (city && !LUGANO_AREA_REGEX.test(city)) {
       // Also accept jobs that don't have city info but DO match canton TI —
@@ -434,10 +444,17 @@ function buildPublicSectorSnapshot(
     matches.push(job);
   }
 
-  const liveCount = Math.max(concorsiCount, matches.length);
+  // The old max(snapshot notices, jobs) mixed two populations and implied a
+  // count that matched neither list. Count only the displayed job population.
+  const liveCount = matches.length;
+  const crawledDates = matches.map((job) => job.crawledAt).filter((value): value is string => typeof value === 'string' && Number.isFinite(Date.parse(value)));
+  const dataCollectedAt = crawledDates.length ? new Date(Math.max(...crawledDates.map(Date.parse))).toISOString() : null;
 
   return {
     liveCount,
+    competitionNotices,
+    competitionFetchedAt: concorsi?.fetchedAt ?? null,
+    dataCollectedAt,
     fresh30Count: fresh30Count(matches, now),
     medianSalaryChf: realSalaryMedianChf(matches),
     featured: pickFeatured(matches, now, 3),

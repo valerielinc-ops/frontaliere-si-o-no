@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Alpiq — career page parser
@@ -29,7 +30,6 @@ import {
   normalizeDescriptionSpace,
   stripScriptsAndStyles,
 } from './crawler-template.mjs';
-import { decodeHtmlEntities } from './dedicated-crawler-common.mjs';
 import { fetchHtmlViaJinaWithRetry, looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 import { readClosedElement } from './html-balanced-element.mjs';
 import { dropFabricatedDescription } from './drop-fabricated-description.mjs';
@@ -54,7 +54,7 @@ function alpiqListingPageUrl(page) {
 
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -62,15 +62,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -262,14 +255,14 @@ export function parseAlpiqDetailHtml(html) {
   const h1Match = cleanedHtml.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const h2Match = cleanedHtml.match(/<h2[^>]*>([\s\S]*?)<\/h2>/i);
   const titleHtml = h1Match?.[1] || h2Match?.[1] || '';
-  const title = normalizeSpace(decodeHtmlEntities(stripHtml(titleHtml)));
+  const title = normalizeSpace(stripHtml(titleHtml));
 
   // Extract description from main content sections
   const sections = [];
   const strongRe = /<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi;
   let m;
   while ((m = strongRe.exec(roleHtml)) !== null) {
-    const heading = normalizeSpace(decodeHtmlEntities(stripHtml(m[1])));
+    const heading = normalizeSpace(stripHtml(m[1]));
     if (heading.length > 3 && heading.length < 100) {
       sections.push(heading);
     }
@@ -279,12 +272,12 @@ export function parseAlpiqDetailHtml(html) {
   const bullets = [];
   const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
   while ((m = liRe.exec(roleHtml)) !== null) {
-    const text = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(m[1])));
+    const text = normalizeDescriptionSpace(stripHtml(m[1]));
     if (text.length > 5) bullets.push(text);
   }
 
   // Build full description
-  const bodyText = normalizeDescriptionSpace(decodeHtmlEntities(stripHtml(roleHtml)));
+  const bodyText = normalizeDescriptionSpace(stripHtml(roleHtml));
   return {
     title,
     description: bodyText,

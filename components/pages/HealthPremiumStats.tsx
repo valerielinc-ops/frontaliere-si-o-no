@@ -249,7 +249,7 @@ const HealthPremiumStats: React.FC = () => {
  Classifica completa dei premi LAMal medi per {allCommunes.length} comuni di Ticino e Grigioni. Dati ufficiali UFSP {data.year}.
  </p>
  <div className="mt-3">
- <DataFreshness lastUpdated={data.fetchedAt.slice(0, 7)} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" />
+ <DataFreshness lastUpdated={data.fetchedAt} dateKind="fetched" referenceYear={data.year} source="UFSP / Priminfo" sourceUrl="https://www.priminfo.admin.ch/" variant="badge" />
  </div>
  </div>
 

@@ -12,8 +12,6 @@ const AUTO_AD_CANDIDATE_SELECTOR = [
   '[id^="google_ads_iframe_"]',
 ].join(',');
 
-export const MAX_AUTO_AD_OVERLAY_CLEARANCE_PX = 160;
-
 type Listener = (clearance: number) => void;
 
 let currentClearance = 0;
@@ -41,15 +39,25 @@ function fixedBottomOverlayElements(): HTMLElement[] {
 
  const overlays = new Set<HTMLElement>();
  document.querySelectorAll<HTMLElement>(AUTO_AD_CANDIDATE_SELECTOR).forEach((candidate) => {
+ // An iframe can retain its old rectangle while a wrapper is hidden. Check
+ // the entire chain before reserving space for that rectangle.
+ for (let ancestor: HTMLElement | null = candidate; ancestor; ancestor = ancestor.parentElement) {
+ const style = window.getComputedStyle(ancestor);
+ if (style.display === 'none' || style.visibility === 'hidden'
+ || style.visibility === 'collapse' || style.opacity === '0') return;
+ }
  let element: HTMLElement | null = candidate;
  // Google nests the creative in a few wrappers. Stop at body so an in-flow
  // manual slot can never be mistaken for a fixed anchor.
  for (let depth = 0; element && element !== document.body && depth < 8; depth += 1) {
  const rect = element.getBoundingClientRect();
  const style = window.getComputedStyle(element);
+ const visibleWidth = Math.min(rect.right, viewportWidth) - Math.max(rect.left, 0);
  const isBottomFixed = style.position === 'fixed'
- && rect.width >= Math.min(viewportWidth * 0.7, 320)
+ && visibleWidth >= Math.min(viewportWidth * 0.7, 320)
  && rect.height > 0
+ // Fullscreen vignettes own the viewport, not an anchor band beneath the UI.
+ && rect.top > 0
  && rect.top < viewportHeight
  && rect.bottom >= viewportHeight - 4;
  if (isBottomFixed) {
@@ -72,7 +80,9 @@ export function measureAutoAdOverlayClearance(): number {
  const rect = element.getBoundingClientRect();
  clearance = Math.max(clearance, viewportHeight - rect.top);
  }
- return Math.min(MAX_AUTO_AD_OVERLAY_CLEARANCE_PX, Math.max(0, Math.ceil(clearance)));
+ // The measured band is authoritative: a 250px anchor needs 250px even when
+ // a shorter anchor is more usual. The prompt constrains its own scroll area.
+ return Math.max(0, Math.ceil(clearance));
 }
 
 function refreshObservedElements(): void {
@@ -124,7 +134,7 @@ function startObserving(): void {
  childList: true,
  subtree: true,
  attributes: true,
- attributeFilter: ['class', 'id', 'name', 'style'],
+ attributeFilter: ['class', 'id', 'name', 'style', 'hidden'],
  });
  if (typeof ResizeObserver !== 'undefined') {
  resizeObserver = new ResizeObserver(scheduleRefresh);

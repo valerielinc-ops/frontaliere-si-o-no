@@ -547,7 +547,7 @@ async function main() {
 // Run only when invoked directly (not when imported by the test suite), so
 // importing analyze()/isKnown()/nextEnforcementStep() never triggers a live
 // Cloudflare call.
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   main().catch((err) => {
     // Last-resort guard: still exit 0 (reporter contract).
     console.error(`DMARC monitor unexpected error (non-fatal): ${err.stack || err.message}`);

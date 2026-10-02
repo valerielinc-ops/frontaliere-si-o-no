@@ -115,6 +115,32 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     ]);
   });
 
+  it('rifiuta un p75 troncato in entrambi i consumer e limita CWV alle URL monitorate', async () => {
+    const fetchImpl = vi.fn(async () => response({
+      rowCount: 2,
+      rows: [{ dimensionValues: [{ value: '/' }, { value: 'CLS' }, { value: '100' }, { value: 'mobile' }], metricValues: [{ value: '40' }] }],
+    }));
+    expect(await fetchGa4CwvFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+    const request = JSON.parse(fetchImpl.mock.calls[0][1].body);
+    expect(request.dimensionFilter.andGroup.expressions[1].filter).toMatchObject({
+      fieldName: 'pagePath', inListFilter: { values: expect.arrayContaining(['/', '/cerca-lavoro-svizzera/']) },
+    });
+    expect(await fetchGa4ClsFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+  });
+
+  it.each([
+    { dataLossFromOtherRow: true },
+    { samplingMetadatas: [{ samplesReadCount: '10', samplingSpaceSize: '100' }] },
+    { dataTruncationReasons: [{ dataTruncationType: 'DATA_TRUNCATION_TYPE_DATE_RANGE' }] },
+    { subjectToThresholding: true },
+  ])('si astiene sui segnali metadata di distribuzione incompleta: %j', async (metadata) => {
+    const fetchImpl = vi.fn(async () => response({ metadata, rowCount: 1,
+      rows: [{ dimensionValues: [{ value: '/' }, { value: 'INP' }, { value: '100' }, { value: 'mobile' }], metricValues: [{ value: '40' }] }],
+    }));
+    expect(await fetchGa4CwvFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+    expect(await fetchGa4ClsFallback({ windowDays: 7, getTokenImpl: async () => 'test', fetchImpl })).toBeNull();
+  });
+
   it('mantiene separati mobile e desktop nel fallback revenue', async () => {
     const fetchImpl = vi.fn(async () => response({
       rows: [

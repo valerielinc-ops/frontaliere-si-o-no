@@ -435,7 +435,7 @@ function gscWindow(days, lagDays = 3) {
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - lagDays);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - days);
+  start.setUTCDate(start.getUTCDate() - (days - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   return { startDate: fmt(start), endDate: fmt(end) };
 }
@@ -581,7 +581,7 @@ async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - GA4_LAG_DAYS);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - windowDays);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
@@ -610,7 +610,7 @@ async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, 
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - lagDays);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - windowDays);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',

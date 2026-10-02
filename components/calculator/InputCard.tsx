@@ -7,11 +7,10 @@ import { DEFAULT_INPUTS, DEFAULT_TECH_PARAMS, PRESET_EXPENSES_CH, PRESET_EXPENSE
 import { Analytics } from '../../services/analytics';
 import { useTranslation } from '../../services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
-import { resilientImport, isVersionSkewError, recoverFromStaleChunk } from '@/services/resilientImport';
+import type { useCalculatorExchangeRate } from '@/hooks/useCalculatorExchangeRate';
 import { SegmentControl as SharedSegmentControl } from '@/components/shared/SegmentControl';
 import CalculatorFormBoxAd from '@/components/shared/CalculatorFormBoxAd';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
-import { reportCaughtError } from '@/services/errorReporter';
 import ProfessionPresetChips from '@/components/calculator/ProfessionPresetChips';
 // exchangeRateService is lazy-loaded to reduce main bundle size
 
@@ -19,6 +18,7 @@ interface Props {
  inputs: SimulationInputs;
  setInputs: React.Dispatch<React.SetStateAction<SimulationInputs>>;
  onCalculate: () => void;
+ exchangeRate: ReturnType<typeof useCalculatorExchangeRate>;
  focusField?: 'age' | 'maritalStatus' | 'children' | null;
  focusRequestId?: number;
  /** Optional result for desktop compact mode teaser preview */
@@ -194,13 +194,12 @@ const SALARY_MAX = 1_000_000;
 
 const DESKTOP_EXPANDED_KEY = 'calc_desktop_expanded';
 
-const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0, result = null }) => {
+const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, exchangeRate, focusField = null, focusRequestId = 0, result = null }) => {
  const { t, locale } = useTranslation();
  const nav = useNavigationOptional();
  const isFocusMode = nav?.isFocusMode;
  const isDesktop = useMediaQuery('(min-width: 1024px)');
- const [loadingRate, setLoadingRate] = useState(false);
- const [lastRateUpdate, setLastRateUpdate] = useState<Date | null>(null);
+ const { fetchRate, loadingRate, lastRateUpdate } = exchangeRate;
  const [showPresets, setShowPresets] = useState<'CH' | 'IT' | null>(null);
  const [salaryError, setSalaryError] = useState<string | null>(null);
  const [easterEgg, setEasterEgg] = useState<string | null>(null);
@@ -293,38 +292,6 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
  const handleResetTech = () => {
  setInputs(prev => ({...prev, ...DEFAULT_TECH_PARAMS}));
  };
-
- const fetchRate = async () => {
- setLoadingRate(true);
- try {
- const { fetchExchangeRate } = await resilientImport(
- () => import('../../services/exchangeRateService'),
- (m) => typeof m.fetchExchangeRate === 'function',
- );
- const rate = await fetchExchangeRate();
- handleChange('customExchangeRate', rate);
- setLastRateUpdate(new Date());
- } catch (e) {
- console.error('Failed rate fetch', e);
- reportCaughtError(e, 'inputCard.fetchExchangeRate');
- // Cross-chunk version skew (stable filenames + re-lettered minified exports
- // after a deploy) throws a TypeError like "s is not a function" at call
- // time. This try/catch swallows it locally, so it never reaches
- // ErrorBoundary's own isVersionSkewError → recoverFromStaleChunk self-heal
- // (mirrors that same recovery here — see ErrorBoundary.tsx).
- if (isVersionSkewError(e)) {
- void recoverFromStaleChunk(`inputCard_exchange_rate:${(e as Error)?.message?.slice(0, 80) || ''}`);
- }
- } finally {
- setLoadingRate(false);
- }
- };
-
- useEffect(() => {
- fetchRate();
- const interval = setInterval(fetchRate, 300000);
- return () => clearInterval(interval);
- }, []);
 
  useEffect(() => {
  if (!focusField || focusRequestId === 0) return;

@@ -701,9 +701,9 @@ describe('fetchGa4ByPage — verdetto engagement per-giorno, non sulla finestra 
     // Stesso filtro newsletter-excluded e stessa finestra della prima.
     expect(calls[1].dimensionFilter).toEqual(calls[0].dimensionFilter);
     expect(calls[1].dateRanges).toEqual(calls[0].dateRanges);
-    // `windowDates(30)` is an inclusive 31-day absolute range; the helper
-    // derives 31 + 5 instead of trusting a duplicated windowDays constant.
-    expect(calls[1].limit).toBe(36);
+    // `windowDates(30)` is an inclusive 30-day absolute range; the helper
+    // derives 30 + 5 instead of trusting a duplicated windowDays constant.
+    expect(calls[1].limit).toBe(35);
     // Nessun prodotto `pagePath × date`: è il blocco che questa forma evita.
     expect(calls[1].dimensions).not.toContainEqual({ name: 'pagePath' });
   });

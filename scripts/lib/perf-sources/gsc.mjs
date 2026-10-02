@@ -116,6 +116,7 @@ export async function fetchGscByPage({
     // cases; a short page (< ROW_LIMIT rows) is the reliable end-of-data
     // signal, mirroring scripts/refresh-indexed-cluster-urls.mjs:fetchGsc.
     let startRow = 0;
+    let exhausted = false;
     for (let page = 0; page < MAX_PAGES; page++) {
       const data = await gscQuery(
         token,
@@ -152,9 +153,10 @@ export async function fetchGscByPage({
           position: r.position ?? null,
         });
       }
-      if (pageRows.length < ROW_LIMIT) break;
+      if (pageRows.length < ROW_LIMIT) { exhausted = true; break; }
       startRow += pageRows.length;
     }
+    if (!exhausted) throw new Error(`gsc response incomplete: cap of ${MAX_PAGES * ROW_LIMIT} rows reached for ${expression ?? 'all pages'}`);
   }
-  return { rows: totalRows, perPath };
+  return { rows: totalRows, perPath, coverage: { complete: true, returnedRows: totalRows } };
 }

@@ -286,7 +286,7 @@ async function main(opts) {
   }
 }
 
-if (import.meta.url === pathToFileURL(process.argv[1]).href) {
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const opts = parseArgs(process.argv);
   main(opts).catch(err => {
     console.error('check-email-quotas failed:', err?.message || err);

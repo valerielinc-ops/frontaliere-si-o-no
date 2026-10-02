@@ -1,3 +1,4 @@
+import { LEGACY_LUGANO_COMPETITION_REDIRECTS } from './shared/legacyLuganoCompetitionRedirects';
 import { resolveCantonSection, AGGREGATE_KEY, type CantonLocale } from './shared/cantonSection';
 import { SECTOR_HUB_KEYS, SECTOR_HUB_SLUG } from './jobSectorLanding';
 import { BASE_URL } from './constants';
@@ -201,6 +202,7 @@ const SEARCH_CLUSTER_301_MAP: Record<string, string> = (
 ).map ?? {};
 
 const COMPAT_REDIRECTS: Record<string, string> = {
+ ...LEGACY_LUGANO_COMPETITION_REDIRECTS,
  '/compara-servizi/undefined': '/compara-servizi/',
  '/fisco-frontaliere/dichiarazione-redditi': '/tasse-e-pensione/',
  '/en/cross-border-articles/communal-elections-ticino-2026/': '/en/cross-border-articles/municipal-elections-ticino/',

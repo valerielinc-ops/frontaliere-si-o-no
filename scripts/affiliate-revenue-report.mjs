@@ -44,11 +44,11 @@ function renderMarkdown(report) {
     `Web exposures: ${report.exposures.web ?? 'unmeasurable'}`,
     `Email delivered: ${report.exposures.email ?? 'unmeasurable'}`,
     '',
-    '| Currency | Pending | Approved | Reversed | Approved / 1,000 web | Approved / 1,000 email |',
-    '|---|---:|---:|---:|---:|---:|',
+    '| Currency | Estimated | Pending | Approved | Reversed | Approved / 1,000 web | Approved / 1,000 email |',
+    '|---|---:|---:|---:|---:|---:|---:|',
   ];
   for (const [currency, values] of Object.entries(report.byCurrency)) {
-    lines.push(`| ${currency} | ${values.pending.toFixed(2)} | ${values.approved.toFixed(2)} | ${values.reversed.toFixed(2)} | ${values.approvedPer1000Exposures.web ?? '—'} | ${values.approvedPer1000Exposures.email ?? '—'} |`);
+    lines.push(`| ${currency} | ${values.estimated.toFixed(2)} | ${values.pending.toFixed(2)} | ${values.approved.toFixed(2)} | ${values.reversed.toFixed(2)} | ${values.approvedPer1000Exposures.web ?? '—'} | ${values.approvedPer1000Exposures.email ?? '—'} |`);
   }
   if (report.reason) lines.push('', `Reason: ${report.reason}`);
   if (report.invalidReasons?.length) lines.push('', `Invalid rows: ${report.invalidReasons.join('; ')}`);

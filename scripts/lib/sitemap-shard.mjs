@@ -34,6 +34,7 @@ import { SITEMAP_SHARD_CAP, padShardIndex } from './sitemap-limits.mjs';
  * @property {string} [lastmod]
  * @property {string} [changefreq]
  * @property {number} [priority]
+ * @property {Array<{hreflang: string, href: string}>} [alternates]
  */
 
 /**
@@ -181,7 +182,7 @@ export function emitSitemapXml(urls) {
   const list = Array.isArray(urls) ? urls : [];
   const lines = [];
   lines.push('<?xml version="1.0" encoding="UTF-8"?>');
-  lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">');
+  lines.push('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">');
   // Per-file <loc> dedup, keep-first (#3516): N distinct dedup-groups can
   // collide onto the same (canton, locale, slug) URL upstream — only one HTML
   // page wins, so a repeated <loc> WITHIN one shard file is always noise.
@@ -194,6 +195,9 @@ export function emitSitemapXml(urls) {
     seenLocs.add(entry.loc);
     lines.push('  <url>');
     lines.push(`    <loc>${escapeXml(entry.loc)}</loc>`);
+    for (const alternate of entry.alternates ?? []) {
+      lines.push(`    <xhtml:link rel="alternate" hreflang="${escapeXml(alternate.hreflang)}" href="${escapeXml(alternate.href)}" />`);
+    }
     if (entry.lastmod) {
       lines.push(`    <lastmod>${escapeXml(entry.lastmod)}</lastmod>`);
     }

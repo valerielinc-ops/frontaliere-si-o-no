@@ -55,6 +55,31 @@ function normalizeText(raw) {
   return s.replace(/\s+/g, ' ').trim();
 }
 
+/** Matching article headline/title is intentional editorial markup, not a duplicate page. */
+export function hasMatchingArticleHeadline(html, headline) {
+  if ([...html.matchAll(/<h1\b[^>]*>/gi)].length !== 1) return false;
+  const canonicalTag = [...html.matchAll(/<link\b[^>]*>/gi)]
+    .map((match) => match[0]).find((tag) => /\brel=["']?canonical(?:["'\s>])/i.test(tag));
+  const canonical = canonicalTag?.match(/\bhref=["']([^"']+)["']|\bhref=([^\s>]+)/i);
+  const pageUrl = canonical?.[1] || canonical?.[2];
+  if (!pageUrl) return false;
+  for (const match of html.matchAll(/<script\b[^>]*type=["']?application\/ld\+json["']?[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const parsed = JSON.parse(match[1]);
+      const nodes = Array.isArray(parsed) ? parsed : [parsed, ...(Array.isArray(parsed?.['@graph']) ? parsed['@graph'] : [])];
+      if (nodes.some((node) => {
+        if (!node || typeof node !== 'object') return false;
+        const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        const ownUrl = node.url || (typeof node.mainEntityOfPage === 'string' ? node.mainEntityOfPage : node.mainEntityOfPage?.['@id']);
+        return types.some((type) => type === 'Article' || type === 'NewsArticle')
+          && ownUrl === pageUrl && typeof node.headline === 'string'
+          && normalizeText(node.headline) === headline;
+      })) return true;
+    } catch { /* Invalid structured data is never evidence for an exemption. */ }
+  }
+  return false;
+}
+
 export function createAuditor(opts = {}) {
   const limit = opts.limit ?? 30;
   const featureFilter = opts.featureFilter ?? null;
@@ -89,6 +114,7 @@ export function createAuditor(opts = {}) {
       if (!title) { missingTitle++; return; }
       if (!h1) { missingH1++; return; }
       if (title.toLowerCase() !== h1.toLowerCase()) return;
+      if (hasMatchingArticleHeadline(html, h1)) return;
       if (featureFilter && feature !== featureFilter) return;
       const locale = inferLocale(rel);
       // flatString: `title`/`h1` originate as captures into the whole page.

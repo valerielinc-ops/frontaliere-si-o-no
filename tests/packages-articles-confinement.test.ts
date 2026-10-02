@@ -33,11 +33,9 @@ const NODE_BUILTINS = new Set(['fs', 'path', 'node:fs', 'node:path']);
 
 // Bare (non-relative) package deps the engine is allowed to import — must
 // also be declared in packages/articles/package.json so a standalone
-// consumer's `npm install` resolves them. Currently only `vite`, and only
-// for its `Plugin` TYPE (erased at build time, zero runtime footprint) —
-// see the `import type { Plugin } from 'vite'` in ogPagesPlugin.ts,
-// blogContextualLinksPlugin.ts, newsTickerDataPlugin.ts.
-const ALLOWED_EXTERNAL_DEPS = new Set(['vite']);
+// consumer's `npm install` resolves them. Vite supplies the Plugin type;
+// html-entities decodes source text for article excerpts and shared renderers.
+const ALLOWED_EXTERNAL_DEPS = new Set(['vite', 'html-entities']);
 
 function walk(dir: string, out: string[] = []): string[] {
   for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
@@ -88,6 +86,12 @@ function extractImports(filePath: string, source: string): ImportHit[] {
 
 describe('packages/articles confinement (issue #4881 Fase 6, Step 3)', () => {
   const files = walk(PACKAGE_ROOT);
+
+  it('declares every allowed external dependency in the standalone package', () => {
+    const pkg = JSON.parse(fs.readFileSync(path.join(PACKAGE_ROOT, 'package.json'), 'utf8'));
+    const declared = { ...pkg.dependencies, ...pkg.peerDependencies };
+    for (const dependency of ALLOWED_EXTERNAL_DEPS) expect(declared[dependency]).toBeTruthy();
+  });
 
   it('walks a non-trivial number of package files (sanity-check the walker)', () => {
     // Guards against a silently-empty walk (e.g. PACKAGE_ROOT typo) making

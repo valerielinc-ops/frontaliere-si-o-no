@@ -2,7 +2,6 @@
 
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import {
- MAX_AUTO_AD_OVERLAY_CLEARANCE_PX,
  measureAutoAdOverlayClearance,
  subscribeToAutoAdOverlay,
 } from '@/services/autoAdOverlay';
@@ -46,11 +45,59 @@ describe('autoAdOverlay', () => {
  expect(measureAutoAdOverlayClearance()).toBe(60);
  });
 
- it('caps unusually tall overlays so a prompt stays usable', () => {
+ it.each([250, 300])('reserves the full visible %ipx anchor without overlapping its creative', (height) => {
  setViewport(390, 800);
- addAutoAd('fixed', { top: 500, bottom: 800, width: 390, height: 300 });
+ addAutoAd('fixed', { top: 800 - height, bottom: 800, width: 390, height });
 
- expect(measureAutoAdOverlayClearance()).toBe(MAX_AUTO_AD_OVERLAY_CLEARANCE_PX);
+ expect(measureAutoAdOverlayClearance()).toBe(height);
+ });
+
+ it('reserves only the visible part of an anchor extending below the viewport', () => {
+ setViewport(390, 800);
+ addAutoAd('fixed', { top: 740, bottom: 990, width: 390, height: 250 });
+
+ expect(measureAutoAdOverlayClearance()).toBe(60);
+ });
+
+ it.each(['display: none', 'visibility: hidden', 'visibility: collapse', 'opacity: 0'])('ignores hidden anchor styles: %s', (hiddenStyle) => {
+ setViewport(390, 800);
+ const element = addAutoAd('fixed', { top: 550, bottom: 800, width: 390, height: 250 });
+ element.style.cssText = `position: fixed; ${hiddenStyle}`;
+
+ expect(measureAutoAdOverlayClearance()).toBe(0);
+ });
+
+ it('ignores an anchor inside a transparent ancestor', () => {
+ setViewport(390, 800);
+ const element = addAutoAd('fixed', { top: 550, bottom: 800, width: 390, height: 250 });
+ const wrapper = document.createElement('div');
+ wrapper.style.opacity = '0';
+ document.body.appendChild(wrapper);
+ wrapper.appendChild(element);
+
+ expect(measureAutoAdOverlayClearance()).toBe(0);
+ });
+
+ it.each([
+ { top: 0, bottom: 250, width: 390, height: 250 },
+ { top: 0, bottom: 800, width: 390, height: 800 },
+ { top: -40, bottom: 800, width: 390, height: 840 },
+ ])('ignores top anchors and fullscreen vignettes: %o', (rect) => {
+ setViewport(390, 800);
+ addAutoAd('fixed', rect);
+
+ expect(measureAutoAdOverlayClearance()).toBe(0);
+ });
+
+ it('ignores a fixed anchor translated outside the viewport horizontally', () => {
+ setViewport(390, 800);
+ const element = addAutoAd('fixed', { top: 550, bottom: 800, width: 390, height: 250 });
+ vi.spyOn(element, 'getBoundingClientRect').mockReturnValue({
+ top: 550, bottom: 800, width: 390, height: 250, left: 390, right: 780,
+ x: 390, y: 550, toJSON: () => ({}),
+ });
+
+ expect(measureAutoAdOverlayClearance()).toBe(0);
  });
 
  it('ignores fixed elements that are too narrow to be an anchor', () => {

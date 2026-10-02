@@ -24,6 +24,7 @@ import { isAdSenseProductionHost } from '@/components/shared/AdSenseBanner';
 import { isLikelyBot } from '@/services/adAnalytics';
 import { prebidActiveFor, requestHeaderBids } from '@/services/headerBidding';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { observeManualAd } from '@/services/manualAdLifecycle';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/adsenseSlots';
 
 // Master flag for the GPT stack (PoC activated in #2289). Flip to `false`
@@ -75,6 +76,7 @@ function ensureGptScript(): void {
   s.src = GPT_SCRIPT_SRC;
   s.async = true;
   s.crossOrigin = 'anonymous';
+  s.addEventListener('error', () => { s.dataset.gptLoadFailed = 'true'; });
   document.head.appendChild(s);
 }
 
@@ -121,15 +123,14 @@ export interface GptAdSlotProps {
   /** Inline wrapper style merged after the CLS-reserve defaults. */
   style?: CSSProperties;
   /**
-   * Called with GPT's fill verdict for this slot (`true` = empty / no fill, no
-   * AdSense backfill). Lets a caller react to a no-fill — e.g. the side-rail
-   * collapses its reserved gutter track to zero so an unfilled rail leaves no
-   * blank column. Fires once per `slotRenderEnded`; default-noop when omitted.
+   * Called when the reserve can safely collapse after terminal no-fill/error
+   * offscreen (`true`), or the slot needs its reserve (`false`). Parent gutters
+   * must follow the same lifecycle to avoid shifting visible page content.
    */
   onEmptyChange?: (empty: boolean) => void;
   /**
    * Whether to collapse the wrapper to `display:none` when GPT reports the slot
-   * empty. Default `true` (rails / below-content slots: an unfilled slot should
+   * empty and the wrapper leaves the viewport. Default `true` (rails / below-content slots: an unfilled slot should
    * vanish so it leaves no blank box). Set `false` for an ABOVE-THE-FOLD slot
    * (e.g. the desktop top banner) where collapsing would yank the content below
    * upward and register a Cumulative Layout Shift: there we keep the reserved
@@ -157,23 +158,11 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   const slotRef = useRef<any>(null);
   const slotHandlerRef = useRef<((event: any) => void) | null>(null);
   const viewableHandlerRef = useRef<((event: any) => void) | null>(null);
-  // `slotRenderEnded` is the ONLY thing that collapses this wrapper, so a slot
-  // that never gets an answer keeps its reserve forever — and on the side rails
-  // that reserve is 600px per panel. GPT blocked by an ad blocker / Privacy
-  // Sandbox does not fire the event at all: it is not "empty", it is silent.
-  // Same failure mode AdSenseBanner has a fill timeout for, and the same one
-  // services/autoAdCollapse.ts handles for the containers Auto Ads inject.
-  const fillTimeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
   // Stable, unique DOM id for this slot instance (GPT needs a real element id).
   const divIdRef = useRef<string>(`gpt-slot-${++slotSeq}`);
   const [rendered, setRendered] = useState(false);
-  // GPT reported this slot as unfilled (no creative / no backfill). We then
-  // collapse the wrapper to zero so the reserved `minHeight` placeholder never
-  // leaves a blank box — the cause of the empty gaps down the side-rail stack
-  // (collapseEmptyDivs only collapses GPT's inner div, not this CLS-reserve
-  // wrapper). Stacked rail slots that don't fill simply vanish, so the filled
-  // ones butt together with no whitespace.
-  const [empty, setEmpty] = useState(false);
+  const [adState, setAdState] = useState('loading');
+  const [collapsed, setCollapsed] = useState(false);
   // Kept in a ref so the once-bound slotRenderEnded handler always calls the
   // latest callback without re-running the define/display effect.
   const onEmptyChangeRef = useRef(onEmptyChange);
@@ -185,7 +174,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((t) => t + 1)), []);
 
   useEffect(() => {
-    if (!active) return;
+    if (!active || !isAdsConsentGranted()) return;
     const divId = divIdRef.current;
 
     const idleWindow = window as Window & {
@@ -197,31 +186,42 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     ric(initGptFramework);
 
     const wrapper = wrapperRef.current;
-    if (!wrapper || typeof IntersectionObserver === 'undefined') return;
+    const adElement = document.getElementById(divId);
+    if (!wrapper || !adElement || typeof IntersectionObserver === 'undefined') return;
+    let disposed = false;
+    adElement.removeAttribute('data-ad-status');
+    setCollapsed(false);
+    onEmptyChangeRef.current?.(false);
+    const lifecycle = observeManualAd(adElement, wrapper, AD_FILL_TIMEOUT_MS, (state) => {
+      setAdState(state);
+      if (state === 'filled') {
+        setCollapsed(false);
+        onEmptyChangeRef.current?.(false);
+      } else if (state === 'collapsed' && collapseOnEmpty) {
+        setCollapsed(true);
+        // The rail gutter owns a second reserve. Only release it at the same
+        // offscreen point, never on a timeout or a visible no-fill response.
+        onEmptyChangeRef.current?.(true);
+      }
+    }, (event, metrics) => {
+      // GPT's own Active View event remains authoritative for GAM viewability.
+      if (event === 'ad_viewable' || (event === 'ad_collapsed' && !collapseOnEmpty)) return;
+      trackAdEvent(event, { slot: adUnitPath, format: 'gpt', network: 'gpt', ...metrics });
+    });
+    const onScriptError = (event: Event) => {
+      if (event.target instanceof HTMLScriptElement && event.target.src === GPT_SCRIPT_SRC) lifecycle.fail('gpt_script_error');
+    };
+    window.addEventListener('error', onScriptError, true);
     let defined = false;
     const defineAndDisplay = () => {
       if (defined) return;
       defined = true;
-      // Arm the fill budget HERE, outside `gt.cmd`, and this is the whole
-      // point: when GPT is blocked its script never loads, so nothing ever
-      // drains `gt.cmd` — the callback below simply does not run. Arming
-      // inside it would leave the reserve held forever in exactly the case
-      // this timeout exists for. Out here it fires regardless, and the
-      // `slotRenderEnded` handler disarms it the moment GPT answers.
-      // Not a suppression: the slot stays defined and displayed, a late render
-      // that fills restores the space, and `collapseOnEmpty={false}` (the top
-      // banner) keeps its footprint either way, by design.
-      fillTimeoutRef.current = setTimeout(() => {
-        fillTimeoutRef.current = null;
-        setEmpty(true);
-        onEmptyChangeRef.current?.(true);
-        trackAdEvent('ad_collapsed', {
-          slot: adUnitPath,
-          format: 'gpt',
-          network: 'gpt',
-          reason: 'gpt_fill_timeout',
-        });
-      }, AD_FILL_TIMEOUT_MS);
+      // Start outside gt.cmd: a blocked/slow script may never drain its queue.
+      // The shared deadline means waiting_response; it is not a no-fill.
+      lifecycle.request();
+      if (document.querySelector<HTMLScriptElement>(`script[src="${GPT_SCRIPT_SRC}"]`)?.dataset.gptLoadFailed === 'true') {
+        lifecycle.fail('gpt_script_error');
+      }
       // Queue the GPT framework (enableServices) BEFORE this slot's display().
       // An above-the-fold slot (e.g. the article side-rails on ≥1400px) has its
       // IntersectionObserver fire on mount — before the idle-deferred
@@ -234,36 +234,16 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
       initGptFramework();
       const gt = gtag();
       gt.cmd.push(() => {
+        if (disposed) return;
         try {
           const slot = gt.defineSlot(adUnitPath, sizes, divId)?.addService(gt.pubads());
           if (!slot) return;
           slotRef.current = slot;
-          // Collapse this wrapper to zero when GPT renders the slot empty (no
-          // creative AND no AdSense backfill) so the reserved placeholder never
-          // shows as a blank box. Scoped to this slot via identity match.
-          // Held in a ref so unmount can remove it — otherwise every slot leaks
-          // a global pubads listener that re-fires for every other slot.
+          // Keep the listener after a no-fill: late creatives restore both
+          // reserves. The shared controller waits until offscreen to collapse.
           const handler = (event: any) => {
-            if (event?.slot !== slot) return;
-            // GPT answered — the budget below no longer applies, in either
-            // direction: a late render that fills also restores the space.
-            if (fillTimeoutRef.current) {
-              clearTimeout(fillTimeoutRef.current);
-              fillTimeoutRef.current = null;
-            }
-            const isEmpty = !!event.isEmpty;
-            setEmpty(isEmpty);
-            onEmptyChangeRef.current?.(isEmpty);
-            // Telemetry so the blended PostHog fill-rate is interpretable: GAM
-            // side-rail no-fills were previously invisible (CSS-hidden, no event),
-            // which dragged the blended ad_filled/ad_collapsed ratio down and made
-            // a stable real fill-rate look like a crash. Tagged network:'gpt'.
-            trackAdEvent(isEmpty ? 'ad_collapsed' : 'ad_filled', {
-              slot: adUnitPath,
-              format: 'gpt',
-              network: 'gpt',
-              ...(isEmpty ? { reason: 'gpt_no_fill' } : {}),
-            });
+            if (disposed || event?.slot !== slot) return;
+            adElement.setAttribute('data-ad-status', event.isEmpty ? 'unfilled' : 'filled');
           };
           slotHandlerRef.current = handler;
           gt.pubads().addEventListener('slotRenderEnded', handler);
@@ -285,6 +265,7 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
           if (!headerBiddingKilled && prebidActiveFor(adUnitPath)) {
             void requestHeaderBids({ code: divId, adUnitPath, sizes }).finally(() => {
               gt.cmd.push(() => {
+                if (disposed) return;
                 try {
                   gt.display(divId);
                 } catch {
@@ -324,11 +305,10 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
     );
     io.observe(wrapper);
     return () => {
+      disposed = true;
       io.disconnect();
-      if (fillTimeoutRef.current) {
-        clearTimeout(fillTimeoutRef.current);
-        fillTimeoutRef.current = null;
-      }
+      lifecycle.stop();
+      window.removeEventListener('error', onScriptError, true);
       // Tear down the slot + its listener so SPA navigations don't accumulate
       // global pubads listeners (each would re-fire for every other slot).
       try {
@@ -349,24 +329,17 @@ const GptAdSlot: React.FC<GptAdSlotProps> = ({
         /* fail-soft */
       }
     };
-  }, [active, adUnitPath, sizes, adsConsentTick]);
+  }, [active, adUnitPath, sizes, adsConsentTick, collapseOnEmpty]);
 
   if (!active) return null;
 
   return (
     <div
       ref={wrapperRef}
-      aria-hidden={!rendered || empty}
-      // Reserve space to avoid CLS when the creative fills (mirrors
-      // placeholderMinHeight in services/adsenseSlots.ts). When GPT reports the
-      // slot empty we normally drop it from layout entirely (`display:none`) so
-      // it adds neither reserved height nor a flex-gap slot — keeping the
-      // side-rail stack gapless. EXCEPTION: `collapseOnEmpty={false}` (the
-      // above-the-fold top banner) keeps the reserved `minHeight` even when
-      // empty, because collapsing it would pull the content below upward and
-      // register a CLS; a stable footprint is worth more than recovering a thin
-      // band there.
-      style={empty && collapseOnEmpty ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
+      aria-hidden={!rendered || adState !== 'filled'}
+      data-ad-state={adState}
+      // Only an explicit terminal response may release the reserve offscreen.
+      style={collapsed ? { display: 'none' } : { minHeight, contain: 'layout', ...style }}
       className={className}
     >
       <div id={divIdRef.current} />

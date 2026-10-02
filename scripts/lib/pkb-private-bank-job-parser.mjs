@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * PKB Private Bank — Arca24 ATS parser
@@ -67,7 +68,7 @@ export const HQ = {
 /* ── Text helpers ─────────────────────────────────────────────── */
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
@@ -75,15 +76,8 @@ export function stripHtml(html = '') {
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;|&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();

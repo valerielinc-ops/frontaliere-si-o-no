@@ -1,4 +1,6 @@
 import React, { Suspense } from 'react';
+import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useCalculatorExchangeRate } from '@/hooks/useCalculatorExchangeRate';
 import { lazyRetry } from '@/services/lazyRetry';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
@@ -57,6 +59,11 @@ export default function CalcolatoreTabContent() {
  setActiveTab, setBlogArticle, navigateTo,
  } = useTabContent();
  const { t } = useTranslation();
+ // Hidden desktop results still ran charts/effects on every mobile salary edit.
+ // Mount only the calculator for the active breakpoint; state lives in the parent.
+ const isDesktopViewport = useMediaQuery('(min-width: 768px)');
+ const exchangeRate = useCalculatorExchangeRate(setInputs,
+  calcolatoreSubTab === 'calculator' && seoLanding !== 'new-frontier-over20km' && seoLanding !== 'seasonal-vs-annual-naspi');
 
  if (calcolatoreSubTab === 'calculator') {
  return (
@@ -176,6 +183,7 @@ export default function CalcolatoreTabContent() {
    home@mobile CLS=1.05 regression (CrUX, 28-day rolling). The compact
    SkeletonMobileCalc mirrors the real component (~260px). */}
  <div className={`md:hidden transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
+ {isDesktopViewport === false && (
  <Suspense fallback={<SkeletonMobileCalc />}>
  <MobileCalcLayout
  inputs={inputs}
@@ -192,6 +200,7 @@ export default function CalcolatoreTabContent() {
  renderInputCard={(focusField, focusRequestId) => (
  <Suspense fallback={<SkeletonInputCard />}>
  <InputCard
+ exchangeRate={exchangeRate}
  inputs={inputs}
  setInputs={setInputs}
  onCalculate={handleCalculate}
@@ -202,6 +211,7 @@ export default function CalcolatoreTabContent() {
  )}
  />
  </Suspense>
+ )}
  </div>
 
  {/* Desktop: side-by-side layout. Form holds 4/12 (33%) across all desktop
@@ -211,9 +221,11 @@ export default function CalcolatoreTabContent() {
      them on narrower desktops. 4/12 keeps the form usable; results take 8/12,
      still ample for the dual Svizzera|Italia comparison. */}
  <div className="hidden md:grid grid-cols-12 gap-6 h-full">
+ {isDesktopViewport === true && (
+ <>
  <div className="md:col-span-4 lg:col-span-4 xl:col-span-4 h-full">
  <Suspense fallback={<SkeletonInputCard />}>
- <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
+ <InputCard exchangeRate={exchangeRate} inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} result={result} />
  </Suspense>
  </div>
  <div className={`md:col-span-8 lg:col-span-8 xl:col-span-8 h-full transition-opacity duration-200${isResultStale ? ' opacity-50' : ''}`}>
@@ -223,6 +235,8 @@ export default function CalcolatoreTabContent() {
  </Suspense>
  )}
  </div>
+ </>
+ )}
  </div>
 
  {/* Mobile: widgets below results — stable outer div prevents CLS during skeleton→real swap.

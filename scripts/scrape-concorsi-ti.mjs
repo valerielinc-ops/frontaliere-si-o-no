@@ -34,6 +34,7 @@
  * to that snapshot so builds are never blocked by scrape outages).
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -53,21 +54,8 @@ function parseItalianDate(raw) {
   return `${m[3]}-${m[2]}-${m[1]}`;
 }
 
-function decodeHtmlEntities(s) {
-  return String(s ?? '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&eacute;/g, 'é')
-    .replace(/&egrave;/g, 'è')
-    .replace(/&agrave;/g, 'à')
-    .replace(/&igrave;/g, 'ì')
-    .replace(/&ograve;/g, 'ò')
-    .replace(/&ugrave;/g, 'ù');
+function decodeHtmlEntities(s = '') {
+  return decodeHTML(String(s || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function stripTags(s) {

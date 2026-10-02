@@ -151,7 +151,8 @@ export function aggregate({
     const adsenseRevenue = viewShareMap?.has(p)
       ? Number((viewShareMap.get(p) * adsenseTotal).toFixed(4))
       : null;
-    // Use real adsense revenue if available, else pageviews-as-proxy.
+    // Editorial proxy: channel revenue allocated by view share is an estimate,
+    // never observed per-page earnings (including the all-channel fallback).
     const adsenseRevenueOrProxy = adsenseRevenue !== null ? adsenseRevenue : pageviews;
     const scrollP50 = ph?.scrollP50 ?? null;
 
@@ -180,6 +181,8 @@ export function aggregate({
       ctr,
       pageviews,
       adsenseRevenue,
+      adsenseRevenueAttribution: adsenseRevenue === null ? null : 'estimated_view_share',
+      adsenseCurrencyCode: sources.adsense?.currencyCode || null,
       adsenseRevenueOrProxy,
       scrollP50,
       wordCount: a.wordCount || null, // populated where available
@@ -228,6 +231,11 @@ export function aggregate({
       newsletter: { applied: true, method: 'utm_medium=newsletter (GA4 + PostHog); GSC is organic-only' },
     },
     sources: serializeSources(sources),
+    revenueAttribution: {
+      method: 'editorial_proxy_view_share',
+      measuredPerPage: false,
+      note: 'Channel totals are allocated by GA4/PostHog views or GSC clicks; all-channel fallback may include non-article revenue and overlapping URL channels. Partial source coverage remains a partial estimate.',
+    },
     scoreFormula: '0.4*z(clicks) + 0.2*z(impressions) + 0.2*z(adsense_revenue||proxy) + 0.1*z(scroll_depth_p50) + 0.1*z(ctr)',
     winners: winners.map(toOutputRow),
     losers: losersPool.map(toOutputRow),
@@ -298,6 +306,8 @@ function toOutputRow(r) {
       ctr: r.ctr !== null && r.ctr !== undefined ? Number(r.ctr.toFixed?.(4) ?? r.ctr) : null,
       pageviews: r.pageviews,
       adsenseRevenue: r.adsenseRevenue,
+      adsenseRevenueAttribution: r.adsenseRevenueAttribution,
+      adsenseCurrencyCode: r.adsenseCurrencyCode,
       scrollP50: r.scrollP50,
     },
   };
@@ -310,6 +320,10 @@ function serializeSources(sources) {
       out[name] = { ok: false, reason: 'not run' };
     } else if (s.ok) {
       const entry = { ok: true };
+      if ('currencyCode' in s) entry.currencyCode = s.currencyCode;
+      if (s.revenueScope) entry.revenueScope = s.revenueScope;
+      if (s.coverage) entry.coverage = s.coverage;
+      if (Array.isArray(s.warnings)) entry.warnings = s.warnings;
       if (typeof s.rows === 'number') entry.rows = s.rows;
       if (typeof s.totalRevenue === 'number') entry.totalRevenue = s.totalRevenue;
       // AdSense visibility: surface per-channel revenue + which hint matched

@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import {
+  assertCompleteReport,
   buildChannelRows,
   buildConversionSummary,
   buildLandingMatrix,
@@ -120,5 +121,23 @@ describe('conversion funnel report helpers', () => {
       { calculate: { rows: [{ dimensionValues: [{ value: '/jobs' }], metricValues: [{ value: '8' }, { value: '5' }, { value: '5' }] }] } },
     );
     expect(summary.calculate).toMatchObject({ events: 8, conversionSessions: 5, rate: 0.1 });
+  });
+});
+
+
+describe('conversion summary population semantics', () => {
+  it('labels repeated landing user memberships instead of claiming distinct users', () => {
+    const row = (path) => ({ dimensionValues: [{ value: path }], metricValues: [{ value: '2' }, { value: '2' }, { value: '1' }] });
+    const summary = buildConversionSummary({ rows: [row('/a'), row('/b')] }, { calculate: { rows: [row('/a'), row('/b')] } });
+    expect(summary.calculate.userLandingMemberships).toBe(2);
+    expect(summary.calculate).not.toHaveProperty('users');
+    expect(summary.calculate.usersNote).toContain('Not a distinct total');
+  });
+
+  it('rejects independently truncated reports before they can produce aggregate rates', () => {
+    expect(() => assertCompleteReport({ rows: [{}], rowCount: 2 }, 10000, 'calculate')).toThrow('no aggregate rates');
+    expect(() => assertCompleteReport({ rows: [{}] }, 1)).toThrow('incomplete');
+    expect(() => assertCompleteReport({ rows: [{}], rowCount: 1 }, 1)).not.toThrow();
+    expect(() => assertCompleteReport({ rows: [], rowCount: 0, metadata: { subjectToThresholding: true } })).toThrow('restricted');
   });
 });

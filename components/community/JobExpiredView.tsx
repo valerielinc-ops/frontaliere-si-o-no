@@ -618,14 +618,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  const adCfg = isDesktopLg ? AD_SLOTS.JOBLIST_INFEED_DESKTOP : AD_SLOTS.JOBLIST_INFEED_MOBILE;
  return [
  card,
- // Reserve from the registry, never a literal: a hard-coded 280 here silently
- // outlived the #4302 raise to 336 and under-reserved every in-feed unit (#4677).
+ // The banner owns the reserve so terminal no-fill leaves no orphan wrapper.
  <div
  key={`rel-infeed-${rjSlug}`}
- style={{ ['--ad-mh' as string]: `${adCfg.placeholderMinHeight}px` }}
- className="my-3 min-h-[var(--ad-mh)]"
+
  >
- <AdSenseBanner adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
+ <AdSenseBanner className="my-3" placement={`expired-related-${rjIdx}`} adSlot={adCfg.slot} adFormat={adCfg.format} fullWidthResponsive={adCfg.fullWidthResponsive} />
  </div>,
  ];
  }

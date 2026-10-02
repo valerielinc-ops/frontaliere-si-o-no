@@ -3,7 +3,8 @@
 // pass. Resilient: never throws, and each pass is isolated so a failure in
 // one preserves the others' partial results. Returns
 // `{ queries, orphanQueries, pages, error? }` (`error` is set when any pass
-// or the token fetch failed; partial data is still returned).
+// or the token fetch failed, including an unexhausted pagination cap;
+// partial data is still returned).
 //
 // Auth: Firebase service-account JSON (FIREBASE_SERVICE_ACCOUNT_JSON or
 // GOOGLE_APPLICATION_CREDENTIALS). The Firebase SA doubles as a GSC
@@ -18,6 +19,7 @@ import {
 } from './constants.mjs';
 
 const SCOPES = ['https://www.googleapis.com/auth/webmasters.readonly'];
+const MAX_PAGES = 10;
 
 async function getServiceAccountToken() {
   if (!process.env.GOOGLE_APPLICATION_CREDENTIALS && !process.env.FIREBASE_SERVICE_ACCOUNT_JSON) {
@@ -140,8 +142,9 @@ export async function fetchGscQueries({
       }
       if (rows.length < rowLimit) break;
       startRow += rowLimit;
-      // Hard ceiling to keep memory bounded — 250k rows is far past anything realistic.
-      if (startRow >= rowLimit * 10) break;
+      // A full final batch cannot prove exhaustion. Preserve observed rows,
+      // but report incomplete coverage instead of treating missing rows as zero.
+      if (startRow >= rowLimit * MAX_PAGES) throw new Error(`pagination incomplete: reached ${startRow} row safety cap`);
     }
   } catch (err) {
     errors.push(`pass1 (query): ${err && err.message ? err.message : String(err)}`);
@@ -175,7 +178,7 @@ export async function fetchGscQueries({
       }
       if (rows.length < rowLimit) break;
       startRow += rowLimit;
-      if (startRow >= rowLimit * 10) break;
+      if (startRow >= rowLimit * MAX_PAGES) throw new Error(`pagination incomplete: reached ${startRow} row safety cap`);
     }
   } catch (err) {
     errors.push(`pass2 (query+page): ${err && err.message ? err.message : String(err)}`);
@@ -218,7 +221,7 @@ export async function fetchGscQueries({
       }
       if (rows.length < rowLimit) break;
       startRow += rowLimit;
-      if (startRow >= rowLimit * 10) break;
+      if (startRow >= rowLimit * MAX_PAGES) throw new Error(`pagination incomplete: reached ${startRow} row safety cap`);
     }
   } catch (err) {
     errors.push(`pass3 (page): ${err && err.message ? err.message : String(err)}`);
@@ -324,8 +327,8 @@ export async function fetchGscPageImpressions({
       }
       if (rows.length < rowLimit) break;
       startRow += rowLimit;
-      // Hard ceiling to keep memory bounded — mirrors fetchGscQueries.
-      if (startRow >= rowLimit * 10) break;
+      // Same bounded sweep and incomplete-coverage contract as fetchGscQueries.
+      if (startRow >= rowLimit * MAX_PAGES) throw new Error(`pagination incomplete: reached ${startRow} row safety cap`);
     }
   } catch (err) {
     return { pages, error: `page: ${err && err.message ? err.message : String(err)}` };

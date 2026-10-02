@@ -88,3 +88,18 @@ describe('fetchGa4Pages', () => {
     }
   });
 });
+
+
+it('preserves observed pages and marks the missing GA4 tail as incomplete', async () => {
+  const result = await fetchGa4Pages({
+    propertyId: '123', startDate: '2026-09-01', endDate: '2026-09-30',
+    getTokenImpl: async () => 'test-token',
+    fetchImpl: async () => jsonRes({ rowCount: 100001, rows: [{
+      dimensionValues: [{ value: '/observed/' }],
+      metricValues: [{ value: '12' }, { value: '60' }, { value: '20' }],
+    }] }),
+  });
+  expect(result.pages['/observed/'].sessions).toBe(12);
+  expect(result.coverage.complete).toBe(false);
+  expect(result.error).toContain('absence is not zero traffic');
+});

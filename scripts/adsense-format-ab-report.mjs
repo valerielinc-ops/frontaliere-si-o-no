@@ -78,6 +78,7 @@
  * engagement/CWV fields are best-effort and recorded as `null` when missing.
  */
 
+import { requireCompleteAdsenseReport } from './lib/adsense-report-coverage.mjs';
 import { writeFileSync, mkdirSync, existsSync, appendFileSync, readFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -249,6 +250,7 @@ export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT)
   const res = await fetch(url, { headers: { Authorization: `Bearer ${token}` } });
   if (!res.ok) throw new Error(`adsense reports:generate ${res.status}: ${await res.text()}`);
   const data = await res.json();
+  requireCompleteAdsenseReport(data, 'AdSense comparison report');
   const rows = data.rows || [];
 
   const norm = (s) => String(s || '').trim().toLowerCase().replace(/\/$/, '');

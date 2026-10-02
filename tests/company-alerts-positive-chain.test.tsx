@@ -13,8 +13,8 @@
  */
 
 import React from 'react';
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
-import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react';
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // La catena esercita otto anelli per quattro run consecutive; sotto la
 // concorrenza della suite completa il default globale di 15s non misura più
@@ -460,6 +460,7 @@ async function runChain(locale: 'it' | 'en', round: number) {
 
   cleanup();
   localStorage.clear();
+  sessionStorage.clear();
   doubles.reset();
   const {
     CompanyFollowMount,
@@ -490,16 +491,30 @@ async function runChain(locale: 'it' | 'en', round: number) {
     locale,
     surface: 'employer_profile',
   })}</main>`;
-  render(<CompanyFollowMount />);
-  expect(window.location.pathname, 'ring 1: public company profile path').toBe(expectedPath);
-  expect(document.querySelectorAll('[data-company-follow-mount]'), 'ring 1: one SSG follow mount').toHaveLength(1);
-  expect(document.querySelector('[data-company-follow-mount]')?.getAttribute('data-company-key'), 'ring 1: mount carries company key').toBe(COMPANY_KEY);
-  expect(doubles.state.alerts, 'ring 1: visit creates no CompanyAlert').toHaveLength(0);
+  vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible');
+  Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 0 });
+  vi.useFakeTimers();
+  try {
+    await act(async () => { render(<CompanyFollowMount />); });
 
-  await waitFor(() => {
+    expect(window.location.pathname, 'ring 1: public company profile path').toBe(expectedPath);
+    expect(document.querySelectorAll('[data-company-follow-mount]'), 'ring 1: one SSG follow mount').toHaveLength(1);
+    expect(document.querySelector('[data-company-follow-mount]')?.getAttribute('data-company-key'), 'ring 1: mount carries company key').toBe(COMPANY_KEY);
+    expect(doubles.state.alerts, 'ring 1: visit creates no CompanyAlert').toHaveLength(0);
+
     expect(document.querySelector('[data-company-follow-inline="acme"] button[aria-pressed]'), 'ring 1: hydrated inline CTA is present').not.toBeNull();
-  }, { timeout: 2500 });
 
+    expect(screen.queryByRole('dialog'), 'ring 2: reading starts without a popup').toBeNull();
+    await act(async () => { vi.advanceTimersByTime(19_999); });
+    Object.defineProperty(window, 'scrollY', { configurable: true, writable: true, value: 200 });
+    fireEvent.scroll(window);
+    expect(screen.queryByRole('dialog'), 'ring 2: scroll cannot bypass the 20-second reading period').toBeNull();
+    expect(doubles.state.impressions, 'ring 2: no impression before reading eligibility').toHaveLength(0);
+    await act(async () => { vi.advanceTimersByTime(1); });
+  } finally {
+    // Keep the remaining Firestore/confirmation/provider chain on real timers.
+    vi.useRealTimers();
+  }
   // Ring 2 — actual shell visibility and onShown, not merely queue enqueue.
   await waitFor(() => {
     const dialog = screen.queryByRole('dialog');
@@ -689,6 +704,12 @@ async function runChain(locale: 'it' | 'en', round: number) {
 }
 
 describe('Company Alerts — complete positive chain in isolation', () => {
+  afterEach(() => {
+    cleanup();
+    vi.useRealTimers();
+    vi.restoreAllMocks();
+  });
+
   beforeEach(() => {
     cleanup();
     document.body.innerHTML = '';

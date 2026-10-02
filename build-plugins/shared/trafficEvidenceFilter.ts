@@ -139,6 +139,7 @@ interface ApprovedConfig {
 
 interface EvidenceIndex {
   gsc?: {
+    error?: string;
     queries?: Record<string, { topLandingPage?: string }>;
     /**
      * Full page-level impression set: every URL Google showed ≥1 time in
@@ -151,6 +152,7 @@ interface EvidenceIndex {
     pages?: Record<string, number>;
   };
   ga4?: {
+    error?: string;
     pages?: Record<string, { sessions?: number }>;
   };
   posthog?: {
@@ -336,7 +338,10 @@ export class TrafficEvidenceFilter {
         this.patternsByClass.set(p.urlClass, arr);
       }
     }
-    this.active = trafficSet.size > 0 && this.patternsByClass.size > 0;
+    // Partial traffic remains positive evidence, but missing rows cannot
+    // justify thinning/noindex until the source completes its next sweep.
+    const incompleteTraffic = Boolean(ev?.gsc?.error || ev?.ga4?.error);
+    this.active = !incompleteTraffic && trafficSet.size > 0 && this.patternsByClass.size > 0;
 
     if (this.active) {
       const patternCount = approved?.patterns?.length ?? 0;
@@ -351,7 +356,7 @@ export class TrafficEvidenceFilter {
     } else {
       console.log(
         `[traffic-evidence-filter] dormant (traffic-set=${trafficSet.size}, ` +
-        `patterns=${approved?.patterns?.length ?? 0}) — all emits proceed as 'full'`
+        `patterns=${approved?.patterns?.length ?? 0}, incomplete-traffic=${incompleteTraffic}) — all emits proceed as 'full'`
       );
     }
   }

@@ -229,7 +229,7 @@ export function parseHoneggerListingPage(html = '') {
     seen.add(postId);
 
     const titleMatch = block.match(/<h2 class="wp-block-post-title[^"]*">([\s\S]*?)<\/h2>/);
-    const title = titleMatch ? normalizeSpace(stripHtml(decodeWpEntities(titleMatch[1]))) : '';
+    const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
     if (!title) continue;
 
     const linkTag = (block.match(/<a\b[^>]*>/gi) ?? []).find((tag) =>
@@ -238,7 +238,7 @@ export function parseHoneggerListingPage(html = '') {
     if (!detailUrl) continue;
 
     const excerptMatch = block.match(/<p class="wp-block-post-excerpt__excerpt">([\s\S]*?)<\/p>/);
-    const excerpt = excerptMatch ? normalizeSpace(stripHtml(decodeWpEntities(excerptMatch[1]))) : '';
+    const excerpt = excerptMatch ? normalizeSpace(stripHtml(excerptMatch[1])) : '';
 
     results.push({ postId, title, detailUrl, excerpt });
   }
@@ -276,7 +276,7 @@ function extractHeadingSection(html = '', headingText) {
   const liRegex = /<li[^>]*>([\s\S]*?)<\/li>/g;
   let liMatch;
   while ((liMatch = liRegex.exec(listHtml)) !== null) {
-    const text = normalizeSpace(stripHtml(decodeWpEntities(liMatch[1])));
+    const text = normalizeSpace(stripHtml(liMatch[1]));
     if (text.length > 1) items.push(text);
   }
   return items;
@@ -292,7 +292,7 @@ export function parseHoneggerDetailPage(html = '', fallbackTitle = '') {
   const titleMatch = html.match(
     /<h2 class="wp-block-heading has-deepwhite-color has-text-color has-xx-large-font-size">([\s\S]*?)<\/h2>/,
   );
-  const title = titleMatch ? normalizeSpace(stripHtml(decodeWpEntities(titleMatch[1]))) : fallbackTitle;
+  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : fallbackTitle;
 
   const categoryTerms = extractTaxonomyTerms(html, 'job-kategorie', 'job-kategorie');
   const categorySlug = categoryTerms[0]?.slug || '';

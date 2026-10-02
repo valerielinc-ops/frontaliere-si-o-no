@@ -246,18 +246,17 @@ async function revalidateWithEtag(
 // --------------------------------------------------------------------------
 
 /**
- * Fetch the per-canton job shard, transparently using IDB cache + ETag
- * revalidation when the browser supports IDB.
+ * Fetch a canton shard using IDB cache + ETag revalidation, or the complete
+ * locale slim index for the national aggregate.
  *
  * @param cantonCode  Two-letter Swiss canton code (e.g. `'TI'`, `'ZH'`) or the
  *                    sentinel {@link AGGREGATE_CANTON_CODE} (`'_AGGREGATE_'`)
- *                    for the multi-canton aggregate shard used when canton
- *                    intent is uncertain.
+ *                    for the complete national inventory.
  * @returns           Job[] for the requested canton. Returns `[]` (not a
  *                    rejection) when the shard is missing (404), so callers
  *                    can render an empty state without try/catch noise.
  *
- * Behavior:
+ * Canton-shard behavior (the national index uses an ordinary GET):
  *   - First call:   IDB miss → GET → store `{etag, fetchedAt, jobs}`
  *   - Later calls:  IDB hit  → conditional GET (If-None-Match) →
  *                   304 ⇒ return cached jobs;
@@ -274,6 +273,11 @@ export async function fetchJobsForCanton(cantonCode: string, locale: Locale): Pr
  if (typeof locale !== 'string' || locale.length === 0) {
   throw new Error('[jobsService] fetchJobsForCanton: locale must be a non-empty string');
  }
+
+ // The national hub represents the whole inventory, including jobs outside
+ // the popular canton subset and records without an assigned canton. One
+ // locale index preserves the exact build snapshot used by its SEO metadata.
+ if (cantonCode === AGGREGATE_CANTON_CODE) return fetchAllJobs(locale);
 
  // Kill switch. Shards ARE deployed (the flag is on); this is the one-character
  // revert if they ever stop serving — returning [] sends every caller straight
@@ -434,13 +438,10 @@ export function getDefaultCantonForVisit(): string {
 // --------------------------------------------------------------------------
 
 /**
- * @deprecated  D9: per-canton shards are the new source of truth. Migrate to
- *              {@link fetchJobsForCanton} or {@link fetchAggregatedJobs}.
- *
  * Fetches `/data/jobs-{locale}-index.json` (slim listing index, ~1MB gz, all
  * cantons mixed, locale-flattened — listing fields only, no descriptions).
- * Used by JobBoard as a final fallback when both the first-page slim asset and
- * the canton shards are unavailable. Detail (descriptions) is never needed here
+ * Authoritative inventory for the national board, and a final fallback when
+ * a canton shard is unavailable. Detail (descriptions) is never needed here
  * — the detail view lazy-fetches `job-detail/{id}.json`. The full
  * `jobs-{locale}.json` monolith is no longer emitted (its prose duplicated
  * job-detail); the master `/data/jobs.json` (88 MB with all *ByLocale fields)

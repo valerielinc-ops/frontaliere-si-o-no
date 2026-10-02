@@ -7,6 +7,9 @@
   "main": "index.ts",
   "types": "index.ts",
   "sideEffects": false,
+  "dependencies": {
+    "html-entities": "^2.6.0"
+  },
   "peerDependencies": {
     "vite": "^6.4.1"
   }

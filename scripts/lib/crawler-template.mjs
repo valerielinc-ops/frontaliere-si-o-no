@@ -132,6 +132,7 @@
  *     needsRetranslation
  *     qualityScore
  */
+import { decode as decodeHTML } from 'html-entities';
 import fs from 'node:fs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import path from 'node:path';
@@ -474,24 +475,18 @@ export function cleanCrawlerArtifacts(text) {
 export { stripScriptsAndStyles } from './strip-scripts-styles.mjs';
 
 /**
- * Strip HTML tags and decode common entities. Use for description fields.
+ * Strip HTML tags and decode HTML entities once. Use for description fields.
  */
 export function stripHtml(html = '') {
-  const stripped = String(html || '')
+  const stripped = decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li\b[^>]*>/gi, '\n• ')
     .replace(/<\/(?:p|div|li|tr|h[1-6])>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/\u00a0/g, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\n{3,}/g, '\n\n')
     .replace(/ {2,}/g, ' ')
     .trim();

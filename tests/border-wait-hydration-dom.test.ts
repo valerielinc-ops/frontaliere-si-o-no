@@ -17,8 +17,9 @@ import { BORDER_WAIT_HYDRATION_JS } from '../build-plugins/borderWaitHydrationSc
 import { generateBorderWaitPages, type BorderWaitCurrent } from '../build-plugins/borderWaitPagesPlugin';
 import { buildOggiPath, buildRegionalHubPath, buildRootHubPath } from '../build-plugins/borderWaitData';
 import { renderPage } from '../build-plugins/borderWaitMapPlugin';
+import { BORDER_READING_MAX_AGE_MS } from '../services/dataFreshness';
 
-const SNAPSHOT_AT = '2026-04-29T06:00:00.000Z';
+const SNAPSHOT_AT = new Date(Date.now() - 60_000).toISOString();
 
 const FIXTURE_CURRENT: BorderWaitCurrent = {
   updatedAt: SNAPSHOT_AT,
@@ -45,6 +46,17 @@ function liveDoc(slug: string, minutes: number) {
 
 async function hydrate(html: string, documents = [liveDoc('chiasso-brogeda', 3), liveDoc('gaggiolo', 4)]) {
   document.documentElement.innerHTML = new DOMParser().parseFromString(html, 'text/html').documentElement.innerHTML;
+  // jsdom can discard the entire CSS declaration list for a border shorthand
+  // containing var(). Its per-property parser accepts the same declarations.
+  // Restore that fixture parsing before testing that hydration preserves layout.
+  for (const element of document.querySelectorAll<HTMLElement>('[style]')) {
+    const rawStyle = element.getAttribute('style') ?? '';
+    if (!rawStyle || element.style.cssText) continue;
+    for (const declaration of rawStyle.split(';')) {
+      const colon = declaration.indexOf(':');
+      if (colon > 0) element.style.setProperty(declaration.slice(0, colon).trim(), declaration.slice(colon + 1).trim());
+    }
+  }
   const containers = [...document.querySelectorAll<HTMLElement>('[data-bw-crossing]')];
   const classesBefore = containers.map((el) => el.className);
   vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, json: async () => ({ documents }) }));
@@ -64,6 +76,8 @@ const slotText = (kind: 'hub' | 'advice', slot: string) =>
 afterEach(() => {
   clearTimeout((window as unknown as { __bwTimer?: ReturnType<typeof setTimeout> }).__bwTimer);
   vi.unstubAllGlobals();
+  vi.restoreAllMocks();
+  vi.useRealTimers();
   document.documentElement.innerHTML = '';
 });
 
@@ -72,7 +86,7 @@ describe('border-wait hydration — container classes stay untouched', () => {
     ['root hub table rows', () => pages[buildRootHubPath('it')]],
     ['regional hub table rows', () => pages[buildRegionalHubPath('en', 'ticino-como')]],
     ['leaf status card and comparison rows', () => pages[buildOggiPath('it', 'chiasso-brogeda')]],
-    ['live map crossing cards', () => renderPage({ locale: 'it', dateStamp: '2026-04-29', current: FIXTURE_CURRENT }).html],
+    ['live map crossing cards', () => renderPage({ locale: 'it', dateStamp: SNAPSHOT_AT.slice(0, 10), current: FIXTURE_CURRENT }).html],
   ];
 
   it.each(cases)('%s keep their markup classes after a live hydration', async (_label, html) => {
@@ -97,6 +111,38 @@ describe('border-wait hydration — container classes stay untouched', () => {
  * readings, and a live 20 min stayed in the green pill painted for 0 min.
  */
 describe('border-wait hydration — present-tense blocks follow the live readings', () => {
+  it('keeps an expired observation visible without using it as the fastest current crossing', async () => {
+    const stale = liveDoc('chiasso-brogeda', 1);
+    stale.fields.lastUpdate.timestampValue = new Date(Date.now() - BORDER_READING_MAX_AGE_MS - 60_000).toISOString();
+    await hydrate(pages[buildRootHubPath('it')], [stale, liveDoc('gaggiolo', 4)]);
+
+    const row = document.querySelector('[data-bw-crossing="chiasso-brogeda"]');
+    expect(row?.getAttribute('data-bw-data-state')).toBe('stale');
+    expect(row?.querySelector('[data-bw-field="totalCrossingMinutes"]')?.textContent).toBe('1 min');
+    expect(row?.querySelector('[data-bw-field="lastUpdate"]')?.textContent).toContain('Dato scaduto');
+    expect(row?.querySelector('[data-bw-tone-bg]')?.getAttribute('style')).toContain('var(--color-surface-alt)');
+    expect(slotText('hub', 'minutes')).toBe('4 min');
+    expect(slotText('hub', 'link')).toContain('Gaggiolo');
+  });
+
+  it.each(['hub', 'advice'] as const)('%s stops giving current advice when cached readings expire during a failed refresh', async (kind) => {
+    vi.useFakeTimers();
+    const html = pages[kind === 'hub' ? buildRootHubPath('it') : buildOggiPath('it', 'chiasso-brogeda')];
+    await hydrate(html, [liveDoc('chiasso-brogeda', 3)]);
+    expect(swapHost(kind)?.getAttribute('data-bw-swap-state')).toBe(kind === 'hub' ? 'fastest' : 'ok');
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    vi.stubGlobal('fetch', vi.fn().mockRejectedValue(new Error('offline')));
+    vi.setSystemTime(Date.now() + BORDER_READING_MAX_AGE_MS + 60_000);
+    await vi.advanceTimersByTimeAsync(15 * 60_000);
+
+    expect(document.querySelector('[data-bw-live-badge]')?.getAttribute('data-bw-fetch-state')).toBe('offline');
+    expect(swapHost(kind)?.getAttribute('data-bw-swap-state')).toBe('unavailable');
+    const row = document.querySelector('[data-bw-crossing="chiasso-brogeda"]');
+    expect(row?.getAttribute('data-bw-data-state')).toBe('stale');
+    expect(row?.querySelector('[data-bw-field="totalCrossingMinutes"]')?.textContent).toBe('3 min');
+    expect(row?.querySelector('[data-bw-tone-bg]')?.getAttribute('style')).toContain('var(--color-surface-alt)');
+  });
+
   it('hub: the fastest-crossing card moves to the live minimum', async () => {
     const html = pages[buildRootHubPath('it')];
     // Snapshot: brogeda 21, gaggiolo 7 → build-time card names Gaggiolo.

@@ -26,6 +26,7 @@
 //     welches-spital.ch.
 // =============================================================================
 
+import { decode as decodeHTML } from 'html-entities';
 import { writeFile, mkdir, readFile } from 'node:fs/promises';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -113,18 +114,10 @@ async function fetchHtml(url, { timeoutMs = 15_000 } = {}) {
 }
 
 /**
- * Decode common HTML entities. Tiny helper — no full parser needed.
+ * Decode HTML entities without discarding accented hospital names.
  */
 function decodeEntities(str = '') {
-  return str
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#039;/g, "'")
-    .replace(/&apos;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&([a-z]+);/gi, ' ');
+  return decodeHTML(String(str || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /**

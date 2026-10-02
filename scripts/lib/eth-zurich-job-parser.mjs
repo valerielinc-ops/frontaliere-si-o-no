@@ -21,8 +21,9 @@
  *   - isTrustedDomain()        — Validate URLs belong to this company
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
-import { detectLang, decodeHtmlEntities as decodeNamedEntities } from './dedicated-crawler-common.mjs';
+import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets, fetchHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { meetsSourceBodyFloor, sourceBodyWordCount } from './source-body-floor.mjs';
@@ -51,15 +52,7 @@ function normalizeSpace(s = '') {
 }
 
 function decodeHtmlEntities(s = '') {
-  return String(s)
-    .replace(/&amp;/g, '&')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, n) => String.fromCharCode(parseInt(n, 16)));
+  return decodeHTML(String(s || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 async function fetchText(url) {
@@ -268,11 +261,8 @@ export function extractEthZurichDetailDescription(html = '') {
     .replace(/<a\b[^>]*class="[^"]*\bsubscription__link__wrapper\b[^"]*"[^>]*>[\s\S]*?<\/a\s*>/gi, ' ')
     .replace(/<div\b[^>]*class="[^"]*\bapplication__button\b[^"]*"[^>]*>[\s\S]*?<\/div>/gi, ' ')
     .replace(/<iframe\b[\s\S]*?<\/iframe\s*>/gi, ' ');
-  // Named entities (`&uuml;`, `&rsquo;`) are decoded after the tags are gone,
-  // so a decoded `<` can never become markup.
-  const text = decodeNamedEntities(stripHtml(decodeHtmlEntities(body)))
-    // Entities the shared table does not carry, seen on live ETH postings.
-    .replace(/&(Auml|Ouml|bdquo|rarr);/g, (_, name) => ({ Auml: 'Ä', Ouml: 'Ö', bdquo: '„', rarr: '→' })[name]);
+  // Strip actual markup before decoding the source text once.
+  const text = stripHtml(body);
   // crawler-template.stripHtml converts <li> → "\n• " so list structure
   // survives; preserve newlines (only collapse intra-line whitespace), then
   // restore bullet markers for any inline `•` that slipped through.

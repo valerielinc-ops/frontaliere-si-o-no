@@ -16,6 +16,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  * Exports: parseListingPage, parseDetailPage, buildJob, stripHtml, normalizeSpace
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 
@@ -54,14 +55,7 @@ export function stripHtml(html = '') {
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();
@@ -86,6 +80,12 @@ export function parseSwissDate(dateStr) {
   if (!m) return '';
   const [, day, month, year] = m;
   return `${year}-${month.padStart(2, '0')}-${day.padStart(2, '0')}`;
+}
+
+// The municipality's directory heading is navigation, not an individual vacancy.
+export function isGenericCompetitionTitle(title = '') {
+  const text = normalizeSpace(stripHtml(title));
+  return /^(?:concorsi(?: pubblici)?(?: e posti di lavoro)?|concorsi per (?:posti di lavoro|l.assunzione di personale)(?:[ .,:—–-].*)?)$/i.test(text);
 }
 
 /* ── Listing page parser ───────────────────────────────────── */
@@ -117,7 +117,7 @@ export function parseListingPage(html) {
     const strongMatch = liHtml.match(/<strong[^>]*>([\s\S]*?)<\/strong>/i);
     if (!strongMatch) continue;
     const title = normalizeSpace(stripHtml(strongMatch[1]));
-    if (!title || title.length < 5) continue;
+    if (!title || title.length < 5 || isGenericCompetitionTitle(title)) continue;
 
     // Extract deadline
     const deadlineMatch = liHtml.match(/[Ss]cadenza[:\s]*(\d{1,2}\.\d{1,2}\.\d{4})/);
@@ -177,7 +177,7 @@ export function parseDetailPage(html) {
   const h1Match = stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
 
-  if (!title || title.length < 3) return null;
+  if (!title || title.length < 3 || isGenericCompetitionTitle(title)) return null;
 
   const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
     || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
@@ -236,8 +236,8 @@ export function parseDetailPage(html) {
 export function buildJob(raw, { description, sourceLang = 'it' } = {}) {
   if (!raw || !raw.title) return null;
 
-  const title = normalizeSpace(raw.title);
-  if (!title || title.length < 3) return null;
+  const title = normalizeSpace(stripHtml(raw.title));
+  if (!title || title.length < 3 || isGenericCompetitionTitle(title)) return null;
 
   // The source's own text only. The builder used to substitute a paragraph of
   // its own on the Città di Lugano below 220 characters / 50 words; a job

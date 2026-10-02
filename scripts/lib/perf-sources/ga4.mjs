@@ -75,10 +75,36 @@ export async function fetchGa4ByPage({
     limit: 10000,
   };
 
-  const res = await runReport(requestBody);
-  if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const rows = data.rows || [];
+  const rows = [];
+  let exhausted = false;
+  let reportedRows = null;
+  for (let page = 0; page < 25; page += 1) {
+    const res = await runReport({ ...requestBody, offset: rows.length,
+      orderBys: [{ dimension: { dimensionName: 'pagePath' } }] });
+    if (!res.ok) throw new Error(`ga4 ${res.status}: ${await res.text()}`);
+    const data = await res.json();
+    const metadata = data.metadata || {};
+    if (metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+      || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
+      || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize))) {
+      throw new Error('ga4 response incomplete or restricted by source metadata');
+    }
+    const batch = data.rows || [];
+    if (data.rowCount != null) {
+      const count = Number(data.rowCount);
+      if (!Number.isSafeInteger(count) || count < 0 || (reportedRows !== null && count !== reportedRows)) {
+        throw new Error('ga4 page coverage changed or invalid during pagination');
+      }
+      reportedRows = count;
+    }
+    rows.push(...batch);
+    if (reportedRows !== null ? rows.length === reportedRows : batch.length < requestBody.limit) {
+      exhausted = true;
+      break;
+    }
+    if (!batch.length) break;
+  }
+  if (!exhausted) throw new Error(`ga4 response incomplete: ${rows.length} of ${reportedRows ?? 'unknown'} rows`);
 
   const dailyEngagement = await fetchDailyEngagementVerdict({
     runReport,
@@ -113,5 +139,5 @@ export async function fetchGa4ByPage({
       engagementUnreliableReason: effective.reason,
     });
   }
-  return { rows: rows.length, perPath, engagement: dailyEngagement };
+  return { rows: rows.length, perPath, engagement: dailyEngagement, coverage: { complete: true, returnedRows: rows.length, reportedRows } };
 }

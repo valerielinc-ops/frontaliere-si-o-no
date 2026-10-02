@@ -18,6 +18,7 @@
  * filename when present.
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { buildPdfBackedDescription } from './pdf-job-content.mjs';
 
 export const CLINIQUE_LE_NOIRMONT_KEY = 'clinique-le-noirmont';
@@ -31,15 +32,7 @@ export const MIN_CLINIQUE_LE_NOIRMONT_DESC_LENGTH = 400;
 const BASE_URL = 'https://www.cliniquelenoirmont.ch';
 
 function decodeHtmlEntities(html = '') {
-  return String(html)
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#039;/gi, "'")
-    .replace(/&#39;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)));
+  return decodeHTML(String(html || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 function titleCaseToken(token) {

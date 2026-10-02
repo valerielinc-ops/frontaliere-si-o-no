@@ -124,6 +124,25 @@ describe('inert band — the threshold is the only thing that turns it on', () =
 });
 
 describe('inert band — evidence always wins', () => {
+  it.each(['gsc', 'ga4'])('does not infer zero traffic from an incomplete %s result', (source) => {
+    writeData({
+      noindexMinAgeDays: 90,
+      evidence: {
+        gsc: { pages: { '/observed-page/': 42 } },
+        [source]: { pages: { '/observed-page/': source === 'gsc' ? 42 : { sessions: 42 } }, error: 'pagination incomplete' },
+      },
+    });
+    const decision = new TrafficEvidenceFilter(tmpRoot).decideMulti([URL_PATH], CLUSTER);
+    expect(decision.action).toBe('full');
+    expect(decision.noindex).toBeUndefined();
+
+    // A subsequent complete sweep restores the configured policy unchanged.
+    writeData({ noindexMinAgeDays: 90 });
+    const recovered = new TrafficEvidenceFilter(tmpRoot).decideMulti([URL_PATH], CLUSTER);
+    expect(recovered.action).toBe('thin');
+    expect(recovered.noindex).toBe(true);
+  });
+
   it('does not noindex a URL with GSC page impressions', () => {
     writeData({
       noindexMinAgeDays: 90,

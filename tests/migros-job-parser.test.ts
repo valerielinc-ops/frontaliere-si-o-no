@@ -9,6 +9,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   extractMigrosStructuredData,
+  cleanDescription,
   extractMigrosSectionItems,
   extractMigrosWorkplaces,
   migrosRecruitmentToMarkdown,
@@ -340,6 +341,27 @@ describe('migros-job-parser / live overview blocks (audit-parser-quality issue 5
       '- Fachgespräch: Kenntnisse werden durch die Führungsperson abgefragt.',
     ].join('\n'));
     expect(wurzenbach.description).not.toMatch(/## Bewerbung/);
+  });
+
+  it('decodes recruitment headings and summaries only after stripping the source markup', () => {
+    const recruitmentText = '<h3><span>Kenntnisse <code>&lt;SQL&gt;</code> und List&lt;T&gt; &amp;amp;</span></h3>'
+      + '<details><summary><div>Auswahl für <strong>&lt;Linux&gt;</strong> und &lt;Python&gt;</div></summary>'
+      + '<p>Wir prüfen praktische Erfahrung und besprechen die nächsten Schritte.</p></details>';
+    const expected = [
+      '**Kenntnisse <SQL> und List<T> &amp;**',
+      '',
+      '- Auswahl für <Linux> und <Python>: Wir prüfen praktische Erfahrung und besprechen die nächsten Schritte.',
+    ].join('\n');
+    expect(migrosRecruitmentToMarkdown(recruitmentText)).toBe(expected);
+    const extracted = extractMigrosStructuredData(migrosPageHtml({ recruitmentText }))!;
+    expect(extracted.recruitmentText).toBe(expected);
+    expect(extracted.description).toContain(`## Contatto\n${expected}`);
+    expect(extracted.description).not.toMatch(/<\/?(?:strong|code|summary|h3)(?=[\s/>])/);
+    // Migrolino cleans the composed plain description again before publishing it.
+    const published = cleanDescription(extracted.description);
+    for (const token of ['<SQL>', 'List<T>', '<Linux>', '<Python>']) {
+      expect(published).toContain(token);
+    }
   });
 
   it('extracts nothing when the overview has no workplace card', () => {

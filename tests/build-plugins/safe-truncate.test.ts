@@ -1,6 +1,6 @@
 /**
  * Unit tests for the surrogate-safe truncation helpers shared by every JSON-LD
- * / meta-text emitter (jobPostingSchema, jobPostingListItem, jobsSeoPagesPlugin,
+ * / meta-text emitter (jobPostingSchema, jobsSeoPagesPlugin,
  * titleSuffix, publisherAdPagesPlugin, seoService).
  */
 import { describe, it, expect } from 'vitest';

@@ -23,7 +23,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { captureEvent } from '@/services/posthog';
 import { isLikelyBot } from '@/services/botPatterns';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, isActive, subscribe, markSlotShown, POPUP_PRIORITY } from '@/services/popupQueue';
 
 const SLOT_ID = 'feature-survey';
 const DISMISSED_KEY = 'feature_survey_dismissed'; // timestamp once dismissed/answered
@@ -93,6 +93,7 @@ const FeatureSurvey: React.FC = () => {
     return () => {
       clearTimeout(timer);
       unsub();
+      releaseSlot(SLOT_ID);
     };
   }, [isBot]);
 
@@ -103,6 +104,7 @@ const FeatureSurvey: React.FC = () => {
   useEffect(() => {
     if (isBot || !visible || !queueActive || impressionFired.current) return;
     impressionFired.current = true;
+    markSlotShown(SLOT_ID);
     const payload = { page: window.location.pathname };
     captureEvent('feature_survey_impression', payload);
     Analytics.trackEvent('feature_survey_impression', payload);

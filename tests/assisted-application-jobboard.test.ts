@@ -19,7 +19,7 @@ describe('assisted application JobBoard handoff', () => {
     const paidArm = handleApply.slice(paidStart);
 
     expect(paidArm).toMatch(
-      /setAssistedApplicationJob\(job\);[\s\S]*if \(!isJobDetailView\) openDetail\(job\);/,
+      /setAssistedApplicationJob\(job\);[\s\S]*if \(!isJobDetailView\) openDetail\(job, true\);/,
     );
     expect(rewardedArm).toContain("'rewarded_application_offer_requested'");
     expect(rewardedArm).toContain("provider: 'google_gpt_rewarded_web'");
@@ -29,7 +29,8 @@ describe('assisted application JobBoard handoff', () => {
     expect(rewardedArm).not.toContain('showRewardedWebAd(');
     expect(rewardedArm).not.toContain("'not_ready_on_candidate_click'");
     expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
-    expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
+    expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job, true)');
+    expect(jobBoardSource).toContain('openDetail(rewardedApplicationJob, true)');
     expect(jobBoardSource).toContain('RewardedApplicationOffer');
     expect(jobBoardSource).toContain('preloadRewardedWebAd');
     expect(jobBoardSource).toContain("import { preloadRewardedWebAd } from '@/services/rewardedWebAd';");
@@ -38,7 +39,7 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).not.toContain('RewardedApplicationPage');
     expect(jobBoardSource).not.toContain('rewardedApplicationHandoff');
     expect(jobBoardSource).toMatch(
-      /if \(!assistedApplicationJob \|\| isJobDetailView \|\| !authResolved\) return;[\s\S]*openDetail\(assistedApplicationJob\);/,
+      /if \(!assistedApplicationJob \|\| isJobDetailView \|\| !authResolved\) return;[\s\S]*openDetail\(assistedApplicationJob, true\);/,
     );
   });
 

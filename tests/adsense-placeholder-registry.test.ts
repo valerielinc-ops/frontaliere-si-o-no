@@ -100,13 +100,14 @@ describe('#4677 — job-list in-feed units reserve the registry height, not the 
     });
   }
 
-  it('the in-feed wrappers derive their reserve from the registry, not a literal', () => {
+  it('the in-feed wrappers delegate the registry reserve and collapse to AdSenseBanner', () => {
     for (const rel of ['components/community/JobBoard.tsx', 'components/community/JobExpiredView.tsx']) {
       const src = fs.readFileSync(path.join(ROOT, rel), 'utf-8');
       expect(src, `${rel} must not hard-code an in-feed ad reserve`).not.toMatch(
         /className="(?:my-3 )?min-h-\[280px\]"/,
       );
-      expect(src).toContain('placeholderMinHeight');
+      expect(src).toContain('<AdSenseBanner');
+      expect(src).not.toContain('min-h-[var(--ad-mh)]');
     }
   });
 

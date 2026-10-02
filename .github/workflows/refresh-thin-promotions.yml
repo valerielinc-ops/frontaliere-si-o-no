@@ -147,9 +147,9 @@ jobs:
         run: |
           set -uo pipefail
           # The script's own exit-code contract (see its header comment):
-          # 0 ok, 3 partial (one/two of the three feeds — posthog/ga4/gsc —
-          # errored transiently, promotions still written to disk), 2 fatal
-          # (all three errored). Capture rc without `set -e` aborting the
+          # 0 ok, 3 partial (one or more feeds — posthog/ga4/gsc —
+          # incomplete, observed promotions still written to disk), 2 fatal
+          # (all three errored, even if partial observations were saved). Capture rc without `set -e` aborting the
           # step (same pattern as cf-otto-route-monitor.yml), because a
           # single feed's transient network blip (issue #5568: "gsc error:
           # page: fetch failed") is expected hourly noise, not a workflow
@@ -161,7 +161,7 @@ jobs:
             --window-hours="$INPUT_WINDOW_HOURS" \
             --active-window-days="$INPUT_ACTIVE_WINDOW_DAYS" && rc=0 || rc=$?
           if [ "$rc" -eq 3 ]; then
-            echo "::warning title=thin-promotions partial feed failure::one or two of posthog/ga4/gsc errored this run (see data/thin-page-promotions.jsonl 'errors' field) — promotions from the remaining feed(s) were still written."
+            echo "::warning title=thin-promotions partial feed failure::one or more of posthog/ga4/gsc are incomplete this run (see data/thin-page-promotions.jsonl 'errors' field) — observed promotions were retained and previous promotions were not expired."
             exit 0
           fi
           exit "$rc"

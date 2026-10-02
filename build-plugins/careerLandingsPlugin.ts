@@ -390,6 +390,32 @@ function renderSources(sources: CareerLandingCopy['sources'], label: string): st
   return `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(label)}</h2><ul class="s-T1AdGR">${items}</ul></section>`;
 }
 
+/** Copy and original notices are tied to the same snapshot as the live cards. */
+export function buildCompetitionSummary(locale: CareerLocale, snapshot: CareerJobsSnapshot) {
+  const labels = {
+    it: { title: `Concorsi Lugano e Ticino: ${snapshot.liveCount} annunci pubblici`, lede: `${snapshot.liveCount} annunci di enti pubblici a Lugano e in Ticino; requisiti e scadenze nelle fonti ufficiali.`, entities: 'Enti nel campione', dates: 'Scadenze nei bandi ufficiali', fetched: 'Dati acquisiti', unknown: 'data non disponibile', notice: 'Bandi cantonali nello snapshot della fonte', role: 'Posizione', employer: 'Ente', deadline: 'Scadenza riportata', verify: 'Verifica il bando: lo snapshot non conferma che la posizione sia ancora aperta.', source: 'Fonte ufficiale' },
+    en: { title: `Lugano and Ticino: ${snapshot.liveCount} public-sector jobs`, lede: `${snapshot.liveCount} public-sector listings in Lugano and Ticino; requirements and deadlines in official notices.`, entities: 'Sampled employers', dates: 'Deadlines in official notices', fetched: 'Data collected', unknown: 'date unavailable', notice: 'Cantonal notices in the source snapshot', role: 'Position', employer: 'Employer', deadline: 'Reported deadline', verify: 'Check the notice: the snapshot does not confirm the position is still open.', source: 'Official source' },
+    de: { title: `Lugano und Tessin: ${snapshot.liveCount} öffentliche Stellen`, lede: `${snapshot.liveCount} öffentliche Stellen in Lugano und im Tessin; Anforderungen und Fristen in den offiziellen Ausschreibungen.`, entities: 'Erfasste Arbeitgeber', dates: 'Fristen in offiziellen Ausschreibungen', fetched: 'Daten abgerufen', unknown: 'Datum unbekannt', notice: 'Kantonale Ausschreibungen im Quellen-Snapshot', role: 'Stelle', employer: 'Arbeitgeber', deadline: 'Gemeldete Frist', verify: 'Ausschreibung prüfen: Der Snapshot bestätigt keine weiterhin offene Stelle.', source: 'Offizielle Quelle' },
+    fr: { title: `Lugano et Tessin : ${snapshot.liveCount} emplois publics`, lede: `${snapshot.liveCount} annonces publiques à Lugano et au Tessin ; conditions et échéances dans les avis officiels.`, entities: 'Employeurs observés', dates: 'Échéances dans les avis officiels', fetched: 'Données acquises', unknown: 'date indisponible', notice: 'Avis cantonaux dans l’instantané source', role: 'Poste', employer: 'Employeur', deadline: 'Échéance indiquée', verify: 'Vérifiez l’avis : l’instantané ne confirme pas que le poste soit encore ouvert.', source: 'Source officielle' },
+  }[locale];
+  const entities = snapshot.topEmployers.slice(0, 2).map((employer) => employer.name).join(', ');
+  const stamp = snapshot.dataCollectedAt || labels.unknown;
+  const nextDeadline = (snapshot.competitionNotices ?? []).map((notice) => notice.deadline)
+    .filter((date): date is string => typeof date === 'string' && /^\d{4}-\d{2}-\d{2}$/.test(date)).sort()[0];
+  const shortEmployer = snapshot.topEmployers.find((employer) => employer.name.length <= 35)?.name;
+  const employerSnippet = shortEmployer ? `${shortEmployer}. ` : '';
+  const description = ({
+    it: `${snapshot.liveCount} annunci pubblici a Lugano e in Ticino. ${employerSnippet}${nextDeadline ? `Scadenza riportata: ${nextDeadline}; verifica il bando ufficiale.` : 'Scadenze e requisiti nei bandi ufficiali.'}`,
+    en: `${snapshot.liveCount} public-sector jobs in Lugano and Ticino. ${employerSnippet}${nextDeadline ? `Reported deadline: ${nextDeadline}; check the official notice.` : 'Deadlines and requirements in official notices.'}`,
+    de: `${snapshot.liveCount} öffentliche Stellen in Lugano und im Tessin. ${employerSnippet}${nextDeadline ? `Gemeldete Frist: ${nextDeadline}; offizielle Ausschreibung prüfen.` : 'Fristen und Anforderungen in offiziellen Ausschreibungen.'}`,
+    fr: `${snapshot.liveCount} emplois publics à Lugano et au Tessin. ${employerSnippet}${nextDeadline ? `Échéance indiquée : ${nextDeadline} ; vérifiez l’avis officiel.` : 'Échéances et conditions dans les avis officiels.'}`,
+  })[locale];
+  const rows = (snapshot.competitionNotices ?? []).map((notice) => `<tr><td>${esc(notice.title || '—')}</td><td>${esc(notice.organization || '—')}</td><td>${esc(notice.deadline || '—')}</td><td>${notice.url && /^https:\/\//.test(notice.url) ? `<a href="${esc(notice.url)}" target="_blank" rel="noopener noreferrer">${esc(labels.source)}</a>` : '—'}</td></tr>`).join('');
+  const html = `<p class="text-sm text-muted">${esc(labels.fetched)}: ${esc(stamp)}${entities ? ` · ${esc(labels.entities)}: ${esc(entities)}` : ''}</p>
+    ${rows ? `<section class="s-KZc0LQ"><h2 style="${H2_STYLE}">${esc(labels.notice)}</h2><p>${esc(labels.fetched)}: ${esc(snapshot.competitionFetchedAt || labels.unknown)}. ${esc(labels.verify)}</p><div class="overflow-x-auto"><table class="w-full text-sm"><thead><tr><th>${esc(labels.role)}</th><th>${esc(labels.employer)}</th><th>${esc(labels.deadline)}</th><th>${esc(labels.source)}</th></tr></thead><tbody>${rows}</tbody></table></div></section>` : ''}`;
+  return { title: labels.title, description, lede: labels.lede, html };
+}
+
 // ── Page assembly ────────────────────────────────────────────────────────────
 
 function renderPage(opts: {
@@ -413,7 +439,7 @@ function renderPage(opts: {
 }): RenderResult {
   const { locale, id, dateStamp, distDir, snapshot, agencyCount, concorsiCount } = opts;
   const eligibleLocales = opts.eligibleLocales ?? new Set<string>();
-  const copy = CAREER_LANDING_COPY[locale][id];
+  const copy = { ...CAREER_LANDING_COPY[locale][id] };
   const shell = getCareerTemplateBShell(locale);
   const templateB = buildCareerTemplateBCopy(locale, id, {
     liveCount: snapshot.liveCount,
@@ -422,6 +448,14 @@ function renderPage(opts: {
     agencyCount,
     concorsiCount,
   });
+  const competitionSummary = id === 'concorsi-pubblici-lugano' ? buildCompetitionSummary(locale, snapshot) : null;
+  if (competitionSummary) {
+    copy.title = competitionSummary.title;
+    copy.h1 = ({ it: 'Concorsi pubblici a Lugano e in Ticino', en: 'Public-sector jobs in Lugano and Ticino', de: 'Öffentliche Stellen in Lugano und im Tessin', fr: 'Emplois publics à Lugano et au Tessin' })[locale];
+    copy.description = competitionSummary.description;
+    copy.lede = competitionSummary.lede;
+    templateB.denseLede = competitionSummary.lede;
+  }
   const urlPath = buildCareerLandingPath(locale, id);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
 
@@ -471,8 +505,9 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
+    ...(id === 'concorsi-pubblici-lugano'
+      ? (snapshot.dataCollectedAt ? { dateModified: snapshot.dataCollectedAt } : {})
+      : { datePublished: dateStamp, dateModified: dateStamp }),
     author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'NewsMediaOrganization',
@@ -531,7 +566,8 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(templateB.denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(competitionSummary ? ({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' })[locale] : shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
     ${primaryCtaHtml}
     ${featuredHtml}

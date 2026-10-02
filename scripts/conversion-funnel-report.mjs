@@ -20,6 +20,7 @@ import {
   utcDaysBefore,
 } from './lib/analytics-settled-window.mjs';
 import {
+  assertCompleteReport,
   buildChannelRows,
   buildConversionSummary,
   buildDataQuality,
@@ -70,6 +71,11 @@ async function runPeriod({ token, propertyId, range, limit }) {
       propertyId,
       body: bodies.conversions[definition.key],
     });
+  }
+  assertCompleteReport(reports.landingPages, limit, 'landingPages');
+  assertCompleteReport(reports.channels, limit, 'channels');
+  for (const definition of CONVERSION_DEFINITIONS) {
+    assertCompleteReport(reports.conversions[definition.key], limit, definition.key);
   }
   return reports;
 }

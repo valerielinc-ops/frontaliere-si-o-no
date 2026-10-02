@@ -35,6 +35,20 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
 });
 
 describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
+  it('handles an online event without depending on the separate AdSense loader scope', () => {
+    const listeners = new Map<string, Array<() => void>>();
+    const fakeWindow = {
+      history: {},
+      requestIdleCallback: () => {},
+      addEventListener(type: string, listener: () => void) {
+        listeners.set(type, [...(listeners.get(type) || []), listener]);
+      },
+    };
+    const script = OFFERWALL_FC_SNIPPET.replace(/^<script>/, '').replace(/<\/script>$/, '');
+    new Function('window', 'document', script)(fakeWindow, { readyState: 'complete' });
+    expect(() => { for (const listener of listeners.get('online') || []) listener(); }).not.toThrow();
+  });
+
   it('holds the native Offerwall on the job board until "Candidati" and suppresses it elsewhere', () => {
     // Behaviour is executed in tests/offerwall-click-gate-parity.test.ts.
     expect(OFFERWALL_FC_SNIPPET).toContain(FC_JOBBOARD_OFFERWALL_GATE_JS);

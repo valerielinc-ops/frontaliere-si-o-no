@@ -613,3 +613,22 @@ const bodyFoo: Record<string, string> = {
     expect((wc as any).countWordsInBodySource('no entries here')).toBe(0);
   });
 });
+
+
+describe('article revenue attribution', () => {
+  it('keeps the editorial estimate and exposes currency, fallback scope and partial coverage', () => {
+    const articlePath = '/articoli-frontaliere/example/';
+    const result = aggregate({
+      articles: [{ slug: 'example', locale: 'it', url: `https://example.test${articlePath}`, title: 'Example', wordCount: 1000 }],
+      seoMeta: new Map(),
+      sources: {
+        ga4: { ok: true, rows: 1, perPath: new Map([[articlePath, { pageviews: 10 }]]) },
+        adsense: { ok: true, rows: 2, totalRevenue: 5, currencyCode: 'EUR', matchedHints: false,
+          revenueScope: 'all_url_channels_fallback', coverage: { complete: false, returnedRows: 2 }, truncated: true, warnings: ['Partial report'] },
+      },
+    });
+    expect(result.winners[0].metrics).toMatchObject({ adsenseRevenue: 5, adsenseRevenueAttribution: 'estimated_view_share', adsenseCurrencyCode: 'EUR' });
+    expect(result.revenueAttribution.measuredPerPage).toBe(false);
+    expect(result.sources.adsense).toMatchObject({ currencyCode: 'EUR', revenueScope: 'all_url_channels_fallback', coverage: { complete: false }, warnings: ['Partial report'] });
+  });
+});

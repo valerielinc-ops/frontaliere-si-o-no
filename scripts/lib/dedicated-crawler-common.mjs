@@ -1,5 +1,7 @@
+import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
+import { stripHtmlTags, hasHtmlTags, countHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import path from 'node:path';
 
 import { detectLanguage, detectLanguageWithConfidence } from './detect-language.mjs';
@@ -1519,7 +1521,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // when base contains indentation/blank lines that normalizeSpace stripped.
       // Guard: if the base is raw HTML (>10 tags), it's unparsed page chrome — the
       // locale copy is the actual clean content, so never overwrite with HTML garbage.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSource = normalizeForLengthComparison(currentSourceDesc);
       const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
@@ -2110,10 +2112,9 @@ const MAX_DESC_CHARS = 12000;
  */
 export function stripHtmlBasic(s) {
   return normalize(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(String(s || '')
+      .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' '))
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -2232,16 +2233,15 @@ export function extractRequirementsFromText(description) {
 export function htmlToStructuredTextDCC(html, cleanFn) {
   if (!html) return '';
   const clean = cleanFn || cleanDescriptionDCC;
-  let text = String(html)
-    .replace(/<p[^>]*>\s*<strong[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
-    .replace(/<h[1-6][^>]*>/gi, '\n## ')
+  let text = stripHtmlTags(String(html)
+    .replace(/<p(?=[\s/>])[^>]*>\s*<strong(?=[\s/>])[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
+    .replace(/<h[1-6](?=[\s/>])[^>]*>/gi, '\n## ')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
+    .replace(/<\/p>/gi, '\n'));
   return clean(text);
 }
 
@@ -3112,7 +3112,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const rawDesc = out.description || '';
   const hasMarkdownStructure = /^## /m.test(rawDesc) && ((rawDesc.match(/\n/g) || []).length >= 3);
   if (shouldRunDescriptionLocalization && rawDesc.length >= 100 && !hasMarkdownStructure) {
-    const hasHtml = /<[^>]+>/.test(rawDesc);
+    const hasHtml = hasHtmlTags(rawDesc);
     if (hasHtml) {
       const structuredFromHtml = h2stFn(rawDesc);
       if (structuredFromHtml && structuredFromHtml.length >= 120) {
@@ -3521,7 +3521,7 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       // or has lost significant content vs the authoritative base (threshold: 85%).
       // Compare NORMALIZED lengths to avoid false positives from whitespace differences.
       // Guard: never overwrite clean locale content with raw HTML garbage base.
-      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const baseHasHtmlGarbage = countHtmlTags(baseDesc) > 10;
       const normBaseDesc = normalizeForLengthComparison(baseDesc);
       const normCurrentSource = normalizeForLengthComparison(currentSourceDesc);
       const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
@@ -5280,7 +5280,7 @@ export function evaluateJobQuality(job, { minQualityScore, minDescriptionChars }
 
 const HTML_RESIDUE_RE = /<\/?[a-z][\s\S]*?>/i;
 const ENCODED_ENTITY_RE = /&(?:amp|lt|gt|quot|#\d{2,5}|#x[0-9a-f]{2,4});/i;
-const SCRIPT_TAG_RE = /<script[\s\S]*?<\/script>/i;
+const SCRIPT_TAG_RE = /<script(?=[\s/>])[\s\S]*?<\/script>/i;
 
 /**
  * Compute a detailed quality score for a single job.
@@ -5506,35 +5506,23 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
-const HTML_NAMED_ENTITIES = {
-  amp: '&', quot: '"', apos: "'", lt: '<', gt: '>',
-  nbsp: '\u00A0', shy: '\u00AD',
-  ndash: '–', mdash: '—', hellip: '…', bull: '•', middot: '·',
-  lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201C', rdquo: '\u201D',
-  laquo: '«', raquo: '»', times: '×', divide: '÷', minus: '−',
-  agrave: 'à', aacute: 'á', acirc: 'â', atilde: 'ã', auml: 'ä',
-  egrave: 'è', eacute: 'é', ecirc: 'ê', euml: 'ë',
-  igrave: 'ì', iacute: 'í', icirc: 'î', iuml: 'ï',
-  ograve: 'ò', oacute: 'ó', ocirc: 'ô', otilde: 'õ', ouml: 'ö',
-  ugrave: 'ù', uacute: 'ú', ucirc: 'û', uuml: 'ü',
-  Agrave: 'À', Aacute: 'Á', Eacute: 'É', Egrave: 'È',
-  Igrave: 'Ì', Ograve: 'Ò', Uacute: 'Ú', Uuml: 'Ü',
-  ntilde: 'ñ', ccedil: 'ç', szlig: 'ß',
-  euro: '€', pound: '£', yen: '¥', cent: '¢',
-  copy: '©', reg: '®', trade: '™', deg: '°',
-  frac12: '½', frac14: '¼', frac34: '¾',
-};
-
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
-    .replace(/&([a-zA-Z]+);/g, (match, name) => HTML_NAMED_ENTITIES[name] ?? match)
-    .replace(/&nbsp;/gi, ' '); // normalize NBSP to regular space for job text
+    .replace(/&[a-z][a-z0-9]+;/gi, (entity) => decodeHTML(entity, { scope: 'strict' }))
+    .replaceAll('\u00a0', ' ');
 }
 
 export function decodeNumericEntities(value = '') {
-  return String(value || '')
-    .replace(/&#(\d+);/g, (_, code) => String.fromCharCode(Number(code)))
-    .replace(/&#x([0-9a-f]+);/gi, (_, code) => String.fromCharCode(parseInt(code, 16)));
+  return String(value || '').replace(/&#(x[0-9a-f]+|[0-9]+);/gi, (entity, reference) => {
+    const code = /^x/i.test(reference) ? parseInt(reference.slice(1), 16) : Number(reference);
+    // Numeric references are Unicode scalar values, not UTF-16 code units.
+    if (!Number.isInteger(code) || code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) {
+      return '\ufffd';
+    }
+    // html-entities supplies the HTML5 C1 mappings (e.g. &#128; → €).
+    // Its current release rejects the maximum valid scalar, handled here.
+    return code === 0x10ffff ? String.fromCodePoint(code) : decodeHTML(entity, { scope: 'strict' });
+  });
 }
 
 // Literal JavaScript escape sequences ("für") leak into job TITLES when

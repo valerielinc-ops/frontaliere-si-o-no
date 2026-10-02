@@ -29,10 +29,10 @@ export default function FiscoTabContent() {
 
  return (
  <div className="max-w-7xl mx-auto space-y-8">
- <div data-speakable>
+ {fiscoSubTab !== 'new-frontier-tax-sim' && <div data-speakable>
  <h1 className="text-base sm:text-2xl font-bold font-display text-heading mb-2 sm:mb-4">{t('seoContent.fisco.title')}</h1>
- </div>
- <DataFreshness lastUpdated="2026-04" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc" variant="badge" />
+ </div>}
+ <DataFreshness dateKind="reviewed" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc/" variant="badge" />
  <Suspense fallback={<div className="min-h-[44px]" />}>
  <SeoContentBlock context="fisco" />
  </Suspense>

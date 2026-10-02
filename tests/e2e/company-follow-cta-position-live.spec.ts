@@ -2,43 +2,11 @@ import { test, expect, type Page } from 'playwright/test';
 import { listActiveJobDetailPaths } from './lib/live-jobs';
 
 /**
- * Live guard for the #6102 follow-CTA reposition (verification tracked in
- * #6146: the merge never had a green deploy to check against until the
- * #5864 OOM was fixed on 2026-08-20).
- *
- * #6102 moved «Segui questa azienda» from far below the fold to directly
- * under the employer-hub link (`/aziende/<slug>/`), ABOVE the inline auth
- * gate (`#job-auth-gate`), on every surface that draws that gate: the
- * unlocked-but-gated job detail (JobBoard) and the expired-ad view
- * (JobExpiredView). Both render the same three siblings in the same order —
- * hub link, follow CTA, gate — which is exactly what regresses if a future
- * change reorders them or the CTA's `Suspense` fallback stops reserving its
- * slot (a reflow that could push the gate on top of, or shrink the follow
- * CTA under, some other fixed element).
- *
- * What this checks, mirroring the manual checklist in #6146 point 1:
- *   1. The hub link precedes the follow CTA in DOM order, and the CTA's top
- *      sits above the auth gate's top (never re-shuffled below it).
- *   2. No two independent `position: fixed` widgets touching the lower half
- *      of the viewport overlap by more than 8px on both axes (catches the
- *      chatbot FAB / bottom-anchored prompts colliding with each other).
- *   3. No uncaught JS error fires while the surface renders.
- * Checked at both a narrow (390px) and a wide (1440px) viewport.
- *
- * Two traps already paid for once (per #6146), not to be repaid:
- *   - `waitUntil: 'networkidle'` times out on this site (ads + long-polling
- *     never let the network go idle) — `domcontentloaded` + an explicit
- *     settle wait instead.
- *   - Pinning one job slug time-bombs the moment that listing expires
- *     (incident 2026-06-03) — the gated surface is discovered at runtime
- *     from the live sitemap, like the sibling `job-company-link-visual-live`
- *     spec.
- *
- * The JobOrphanView surface (legacy/GSC slug with no job record) is NOT
- * covered here: a synthesized unknown slug 301-redirects to the cluster
- * root before the SPA ever mounts it (verified live 2026-08-27), so
- * exercising it needs a real orphan-slug source this run did not have
- * budget to wire up — left for a follow-up.
+ * Full public descriptions precede the free-access gate and follow CTA on
+ * active job details. Expired listings retain hub → follow CTA → gate order.
+ * Also guard fixed-widget overlap and uncaught errors on mobile and desktop.
+ * Discover live jobs at runtime so expiring fixtures do not break the guard.
+ * Use domcontentloaded: ads and polling prevent a reliable networkidle.
  */
 
 const LIVE_BASE_URL = (process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch').replace(/\/+$/, '');
@@ -59,6 +27,7 @@ interface FollowCtaLayout {
   followTop: number | null;
   hasGate: boolean;
   gateTop: number | null;
+  publicDescriptionTop: number | null;
 }
 
 interface FixedOverlap {
@@ -100,6 +69,7 @@ async function readFollowCtaLayout(page: Page): Promise<FollowCtaLayout> {
       followTop: follow ? follow.getBoundingClientRect().top : null,
       hasGate: !!gate,
       gateTop: gate ? gate.getBoundingClientRect().top : null,
+      publicDescriptionTop: document.querySelector('[data-testid="job-public-description"]')?.getBoundingClientRect().top ?? null,
     };
   });
 }
@@ -197,10 +167,12 @@ async function assertSurfaceLayout(page: Page, label: string, pageErrors: string
     if (layout.hasHub && layout.hasFollow) {
       expect(layout.hubPrecedesFollow, `${label} @ ${viewport.label}: hub link must precede the follow CTA`).toBe(true);
       if (layout.hasGate) {
-        expect(
-          layout.followTop!,
-          `${label} @ ${viewport.label}: follow CTA must sit above the auth gate`,
-        ).toBeLessThan(layout.gateTop!);
+        if (layout.publicDescriptionTop !== null) {
+          expect(layout.publicDescriptionTop).toBeLessThan(layout.gateTop!);
+          expect(layout.gateTop!).toBeLessThan(layout.followTop!);
+        } else {
+          expect(layout.followTop!, `${label}: expired surface keeps the follow CTA before its gate`).toBeLessThan(layout.gateTop!);
+        }
       }
     }
 
@@ -218,7 +190,7 @@ async function assertSurface(page: Page, path: string, label: string): Promise<v
   await assertSurfaceLayout(page, label, pageErrors);
 }
 
-test('gated job detail: follow CTA sits above the auth gate, no fixed-widget collisions', async ({ page }) => {
+test('gated job detail: full description precedes access and follow, no fixed-widget collisions', async ({ page }) => {
   // Bounded discovery across up to 20 live candidates (see probeSettle above)
   // plus the full settle+assertion on the match — above the default 60s.
   test.setTimeout(120_000);

@@ -117,6 +117,13 @@ describe('parseListingPage', () => {
     expect(titles[1]).toBe('Quality Control Analyst');
   });
 
+  it('decodes accented listing titles before generating the published title and slug', () => {
+    const [listing] = parseListingPage('<div class="views-row"><h2><a href="/node/1234">Tecnico controllo qualit&agrave; &amp; ricerca</a></h2></div>');
+    const job = buildJob(listing);
+    expect(job!.title).toBe('Tecnico controllo qualità & ricerca');
+    expect(job!.slug).toBe('tecnico-controllo-qualita-ricerca-cerbios-pharma-barbengo');
+  });
+
   it('generates valid e-lavoro.ch URLs', () => {
     const jobs = parseListingPage(LISTING_WITH_JOBS);
     expect((jobs[0] as { url: string }).url).toContain('e-lavoro.ch');
@@ -149,6 +156,11 @@ describe('parseDetailPage', () => {
     const result = parseDetailPage(DETAIL_HTML);
     expect(result).not.toBeNull();
     expect(result!.title).toBe('Operatore di produzione farmaceutica');
+  });
+
+  it('decodes named and numeric entities in the detail title without removing encoded text', () => {
+    const result = parseDetailPage('<main><h1>Tecnico: caff&egrave; &lt;ricerca&gt; &#x1F52C;</h1></main>');
+    expect(result!.title).toBe('Tecnico: caffè <ricerca> 🔬');
   });
 
   it('extracts description with pharma content', () => {

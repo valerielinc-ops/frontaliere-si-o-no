@@ -187,6 +187,7 @@ export default function JobDetailAlertPrompt({
               {title}
             </h3>
             <p className="mt-0.5 text-xs text-subtle">{body}</p>
+            {status === 'idle' && <button type="button" className="mt-1 min-h-[44px] text-xs text-accent underline" onClick={() => { onManage(); onClose(); }}>{t('jobAlert.jobDetailPrompt.manageLink', 'Gestisci alert')}</button>}
             <div className="mt-2 flex items-center gap-2">
               {status === 'idle' && (
                 <>

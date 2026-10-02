@@ -320,7 +320,8 @@ describe('JobBoard wiring (#9583)', () => {
   const SRC = readFileSync(resolve(__dirname, '../components/community/JobBoard.tsx'), 'utf8');
 
   it('scores the list once and shares the scores between the pill count and the sort', () => {
-    expect(SRC).toMatch(/personalScoreByJob = useMemo\([\s\S]{0,200}scorePersonalJobs\(jobs, createPersonalScorer\(/);
+    expect(SRC).toContain('return schedulePersonalJobScores(jobs, createPersonalScorer(');
+    expect(SRC).toContain('scores => startTransition(() => setScheduledPersonalScores({');
     expect(SRC).toContain('personal: personalScoreByJob?.get(keys.job) ?? NO_PERSONAL_SCORE');
     // No per-job computePersonalScore over a list: the only call left is the
     // single job opened by openDetail (one click, one job).

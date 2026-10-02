@@ -8,6 +8,7 @@
  */
 
 import path from 'path';
+import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
@@ -213,8 +214,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
- differentiateH1FromTitle,
  inlineScriptJson,
+ differentiateH1FromTitle,
  criticalCssLink: CRITICAL_CSS_LINK,
  imageObjectLd,
  resolveSpaBundle,
@@ -1068,9 +1069,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  /** Extract plain-text excerpt from HTML body for structured data articleBody */
  const extractExcerpt = (htmlBody: string | undefined, maxChars = 500): string => {
  if (!htmlBody) return '';
- return htmlBody
- .replace(/<[^>]+>/g, ' ') // strip HTML tags
- .replace(/&[a-z]+;/gi, ' ') // strip HTML entities
+ return decodeHtmlText(htmlBody.replace(/<[^>]+>/g, ' '))
  .replace(/\s+/g, ' ') // normalize whitespace
  .trim()
  .slice(0, maxChars)

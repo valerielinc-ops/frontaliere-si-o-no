@@ -4,7 +4,7 @@ import IrpefAddizionaleValue from '@/components/shared/IrpefAddizionaleValue';
 import { useTranslation } from '../../services/i18n';
 import { PROVINCE_NAMES } from '../../services/provinceList';
 import { lazyRetry } from '@/services/lazyRetry';
-import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+import { requestSlot, releaseSlot, isActive, subscribe, markSlotShown, POPUP_PRIORITY } from '@/services/popupQueue';
 // NaspiCalculator pulls Recharts (~vendor-charts ~150KB gzip). Lazy-load it so the
 // FrontierGuide chunk stays chart-free until the unemployment section is rendered.
 const NaspiCalculator = lazyRetry(() => import('@/components/calculator/NaspiCalculator'));
@@ -864,8 +864,12 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
  requestSlot('guide-banner', POPUP_PRIORITY.GUIDE_BANNER);
  const unsub = subscribe(() => setBannerQueueActive(isActive('guide-banner')));
  setBannerQueueActive(isActive('guide-banner'));
- return () => { unsub(); };
+ return () => { unsub(); releaseSlot('guide-banner'); };
  }, [showBanner]);
+
+ useEffect(() => {
+ if (showBanner && bannerQueueActive && bannerVisible) markSlotShown('guide-banner');
+ }, [showBanner, bannerQueueActive, bannerVisible]);
 
  // Only start slide-in + auto-dismiss when queue gives us the slot
  useEffect(() => {

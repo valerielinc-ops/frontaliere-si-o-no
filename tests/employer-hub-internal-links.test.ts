@@ -278,15 +278,15 @@ describe('every runtime job surface hands the reader to the hub (mossa 1)', () =
     expect(src).not.toContain('href={companyHref}');
   });
 
-  it('the ACTIVE ad carries the CTA in BOTH of its layouts, gated and not', () => {
-    // JobBoard returns early for `!hasAccess`, so the auth-gate layout is a
-    // different subtree from the unlocked detail. The hub is the only useful
-    // destination a logged-out reader can reach from the gate WITHOUT signing
-    // in, so a single render site would have hidden it from exactly the visitor
-    // who arrived from the SERP query the hub is trying to win.
+  it('links both active-ad layouts and the company listing to the canonical hub', () => {
+    // Public and authenticated details retain their selected-job hub link.
+    // The company-filter listing also exposes its employer profile (C3).
     const src = readRepoFile('components/community/JobBoard.tsx');
-    const renders = src.split('<EmployerHubCta').length - 1;
-    expect(renders, 'JobBoard must render the hub CTA in the gate AND the detail').toBe(2);
+    expect(src.match(/<EmployerHubCta company=\{selectedJob\.company\} companyKey=\{selectedJob\.companyKey\}/g),
+      'both detail layouts link the viewed employer').toHaveLength(2);
+    expect(src.match(/<EmployerHubCta company=\{companyDisplayName\} companyKey=\{companyFollowJob\?\.companyKey \?\? null\}/g),
+      'the company-filter listing links its canonical employer profile').toHaveLength(1);
+    expect(src.split('<EmployerHubCta').length - 1, 'exactly these three runtime surfaces').toBe(3);
   });
 
   it('the active detail company link stays scoped to the viewed canton', () => {

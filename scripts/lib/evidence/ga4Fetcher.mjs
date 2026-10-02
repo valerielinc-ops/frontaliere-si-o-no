@@ -90,7 +90,7 @@ async function loadPublishedDates() {
 
 /**
  * Fetch per-page sessions + engagement, last `startDate..endDate` window.
- * Newsletter-sourced sessions are excluded so we measure SEO traffic only.
+ * Excludes newsletter-sourced sessions; direct, paid and referral traffic remain included.
  * @param {object} options
  * @param {string} options.propertyId - GA4 property id (with or without `properties/` prefix)
  * @param {string} options.startDate - YYYY-MM-DD
@@ -170,7 +170,18 @@ export async function fetchGa4Pages({
         cluster,
       };
     }
-    return { pages };
+    const reportedRows = data.rowCount == null ? null : Number(data.rowCount);
+    const metadata = data.metadata || {};
+    const incomplete = reportedRows === null ? rows.length >= requestBody.limit
+      : !Number.isSafeInteger(reportedRows) || reportedRows !== rows.length;
+    const limited = incomplete || metadata.dataLossFromOtherRow || metadata.subjectToThresholding
+      || metadata.dataTruncationReasons?.length || metadata.schemaRestrictionResponse?.activeMetricRestrictions?.length
+      || metadata.samplingMetadatas?.some((sample) => Number(sample.samplesReadCount) < Number(sample.samplingSpaceSize));
+    return {
+      pages,
+      coverage: { complete: !limited, returnedRows: rows.length, reportedRows },
+      ...(limited ? { error: `GA4 incomplete or restricted response (${rows.length}/${reportedRows ?? 'unknown'} rows); observed pages retained, absence is not zero traffic` } : {}),
+    };
   } catch (err) {
     const reason = err && err.message ? err.message : String(err);
     return { pages: {}, error: reason };

@@ -286,6 +286,7 @@ describe('adsense-format-ab-report / fetchChannelReport()', () => {
       status: 200,
       async json() {
         return {
+          totalMatchedRows: '3',
           rows: [
             { cells: [{ value: CONTROL_CHANNEL }, { value: '420' }, { value: '0.48' }, { value: '0.20' }, { value: '15.00%' }, { value: '72' }] },
             { cells: [{ value: TREATMENT_CHANNEL }, { value: '255' }, { value: '1.01' }, { value: '0.26' }, { value: '18.00%' }, { value: '54' }] },
@@ -318,6 +319,7 @@ describe('adsense-format-ab-report / fetchChannelReport()', () => {
       status: 200,
       async json() {
         return {
+          totalMatchedRows: '3',
           headers: [{ name: 'ESTIMATED_EARNINGS', currencyCode: 'EUR' }],
           rows: [
             { cells: [{ value: experiment.control.adsenseValue }, { value: '1900' }, { value: '10.43' }, { value: '12.25' }, { value: '61%' }, { value: '1175' }] },
@@ -340,10 +342,15 @@ describe('adsense-format-ab-report / fetchChannelReport()', () => {
   });
 
   it('returns null (not throw) for a channel absent from the report (e.g. zero impressions this week)', async () => {
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, async json() { return { rows: [] }; } }));
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, async json() { return { totalMatchedRows: '0', rows: [] }; } }));
     const report = await fetchChannelReport('test-token');
     expect(report.control).toBeNull();
     expect(report.treatment).toBeNull();
+  });
+
+  it('rejects a truncated comparison instead of treating the omitted channel as zero impressions', async () => {
+    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({ ok: true, status: 200, async json() { return { totalMatchedRows: '2', rows: [{ cells: [{ value: CONTROL_CHANNEL }] }] }; } }));
+    await expect(fetchChannelReport('test-token')).rejects.toThrow(/truncated or completeness unknown/);
   });
 
   it('throws on a non-ok AdSense response (caught by main() and surfaced as a warning)', async () => {

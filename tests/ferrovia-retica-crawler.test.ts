@@ -96,6 +96,13 @@ describe('parseListingPage', () => {
     expect(titles[1]).toContain('Gleisbauarbeiter');
   });
 
+  it('decodes umlauts before generating the published title and slug', () => {
+    const [listing] = parseListingPage('<div class="job-card vacancy"><a href="/de/arbeitgeber/stellen/lokfuehrer-poschiavo">Lokf&uuml;hrer/in &mdash; Poschiavo</a></div>');
+    const job = buildJob(listing);
+    expect(job!.title).toBe('Lokführer/in — Poschiavo');
+    expect(job!.slug).toBe('lokfuhrer-in-poschiavo-ferrovia-retica-rhb-poschiavo');
+  });
+
   it('generates valid URLs', () => {
     const jobs = parseListingPage(LISTING_HTML);
     for (const job of jobs) {
@@ -122,6 +129,11 @@ describe('parseDetailPage', () => {
     const result = parseDetailPage(DETAIL_HTML);
     expect(result).not.toBeNull();
     expect(result!.title).toContain('Lokführer');
+  });
+
+  it('decodes named and numeric entities in the detail title without interpreting encoded markup', () => {
+    const result = parseDetailPage('<main><h1>Lokf&uuml;hrer/in &lt;Personenverkehr&gt; &#128646;</h1></main>');
+    expect(result!.title).toBe('Lokführer/in <Personenverkehr> 🚆');
   });
 
   it('extracts requirements', () => {

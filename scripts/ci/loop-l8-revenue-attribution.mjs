@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
+import { getAffiliateCommercialConfiguration } from '../../functions/src/lib/affiliatePartnersRegistry.js';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
@@ -271,6 +272,20 @@ function statusCountsFromCurrency(byCurrency) {
 }
 
 function validateAffiliateExport(raw, { now, maxAgeHours, sourcePath, minimumSample }) {
+  const configuration = getAffiliateCommercialConfiguration();
+  const declared = raw?.commercialConfiguration;
+  if (configuration.status === 'inactive' && declared?.source === configuration.source
+    && declared.status === 'inactive' && Array.isArray(declared.activePartnerIds) && declared.activePartnerIds.length === 0
+    && raw.independent !== true && !Array.isArray(raw.transactions) && !Array.isArray(raw.rows)) {
+    return {
+      quality: 'unmeasurable', applicable: false, issues: [], warnings: [],
+      snapshot: { ...emptyAffiliateSnapshot(sourcePath), missing: false,
+        applicable: false, applicability: 'not_applicable', quality: 'unmeasurable',
+        commercialConfiguration: configuration,
+        evidence: { source: configuration.source, sourceRefs: ['explicit-inactive-commercial-configuration'], status: 'not_applicable' },
+      },
+    };
+  }
   if (raw === null || raw === undefined) {
     return {
       quality: 'unmeasurable',
@@ -408,7 +423,7 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
   const issues = [...historyVerdict.issues, ...affiliateVerdict.issues];
   const warnings = [...historyVerdict.warnings, ...affiliateVerdict.warnings];
   const candidates = [];
-  if (affiliateVerdict.quality === 'unmeasurable') {
+  if (affiliateVerdict.applicable !== false && affiliateVerdict.quality === 'unmeasurable') {
     candidates.push({
       ...(candidateActionClasses?.recommend ? { actionClass: candidateActionClasses.recommend } : {}),
       action: 'request or attach a fresh authorised affiliate/commercial export with exposure denominators',
@@ -440,11 +455,12 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
     history: historyVerdict.snapshot,
     commercial: affiliateVerdict.snapshot,
   };
+  const affiliateQuality = affiliateVerdict.applicable === false ? 'observed' : affiliateVerdict.quality;
   let quality = 'observed';
-  if (historyVerdict.quality === 'unmeasurable' || affiliateVerdict.quality === 'unmeasurable') quality = 'unmeasurable';
-  else if (historyVerdict.quality === 'stale' || affiliateVerdict.quality === 'stale') quality = 'stale';
-  else if (historyVerdict.quality === 'zero' || affiliateVerdict.quality === 'zero') quality = 'zero';
-  else if (issues.length || historyVerdict.quality !== 'observed' || affiliateVerdict.quality !== 'observed') quality = 'partial';
+  if (historyVerdict.quality === 'unmeasurable' || affiliateQuality === 'unmeasurable') quality = 'unmeasurable';
+  else if (historyVerdict.quality === 'stale' || affiliateQuality === 'stale') quality = 'stale';
+  else if (historyVerdict.quality === 'zero' || affiliateQuality === 'zero') quality = 'zero';
+  else if (issues.length || historyVerdict.quality !== 'observed' || affiliateQuality !== 'observed') quality = 'partial';
   const ok = quality === 'observed' && issues.length === 0;
   return baseVerdict({
     sourcePath: historyPath,
@@ -452,7 +468,9 @@ export function validateRevenueAttribution({ history, affiliate = null }, {
     quality,
     ok,
     reason: ok
-      ? 'revenue snapshot, approved-money export and exposure attribution are fresh and coherent'
+      ? affiliateVerdict.applicable === false
+        ? 'revenue history is coherent; affiliate revenue is not applicable because commercial programs are explicitly inactive'
+        : 'revenue snapshot, approved-money export and exposure attribution are fresh and coherent'
       : summarizeIssues(issues, quality),
     issues,
     warnings,
@@ -475,6 +493,7 @@ function reportMarkdown(verdict, observation, decision) {
     '',
     `- Quality: **${verdict.quality}**`,
     `- History: ${history.path || '—'} (${history.rowCount ?? 'unmeasurable'} rows, latest ${history.generatedAt || 'unmeasurable'})`,
+    `- Commercial applicability: ${commercial.applicability || 'applicable'}`,
     `- Commercial export: ${commercial.path || '—'} (${commercial.generatedAt || 'unmeasurable'})`,
     `- Approved CHF: ${commercial.approvedNetChf ?? 'unmeasurable'}`,
     `- Pending CHF: ${commercial.pendingChf ?? 'unmeasurable'}`,
@@ -530,13 +549,17 @@ function buildRevenueOutcome({ source, verdict, policy, registry, now }) {
     observedAt: generatedAt?.toISOString() || null,
     reason: measurable
       ? 'explicit independent authorized export with pending, approved and reversed states reconciled separately; monitor click telemetry remains separate'
-      : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
+      : commercial.applicable === false
+        ? 'affiliate revenue is not applicable: no active commercial programs are configured; monetary outcomes remain unavailable'
+        : `revenue attribution outcome is ${status}; no commercial amount is inferred from monitor clicks or missing exports`,
     now,
   });
   return {
     ...outcome,
     loopId: LOOP_ID,
     generatedAt: generatedAt?.toISOString() || null,
+    commercialApplicability: commercial.applicability || 'applicable',
+    commercialConfiguration: commercial.commercialConfiguration || null,
     clicks: commercial.clicks || { web: null, email: null, relevant: null, total: null },
     monitorClicksPerDay,
     pendingChf: commercial.pendingChf,
@@ -641,6 +664,7 @@ function issueBody(verdict, decision) {
     'L8 non può dichiarare contributo economico netto senza una snapshot fresca e un export commerciale autorizzato riconciliato.',
     '',
     `- Source history: ${verdict.sourcePath}`,
+    `- Commercial applicability: ${commercial.applicability || 'applicable'}`,
     `- Commercial export: ${commercial.path || 'missing'}`,
     `- Quality: ${verdict.quality}`,
     `- Reason: ${verdict.reason}`,
@@ -737,7 +761,7 @@ export async function runL8({
   };
   const outcome = buildRevenueOutcome({ source: sourceAffiliate, verdict, policy: loopPolicy, registry: loopRegistry, now });
   const commercial = verdict.snapshot?.commercial;
-  const measurable = verdict.quality === 'observed' && verdict.ok;
+  const measurable = verdict.quality === 'observed' && verdict.ok && commercial?.applicable !== false;
   const candidateStarts = [
     finiteDate(verdict.snapshot?.history?.generatedAt),
     finiteDate(commercial?.generatedAt),
@@ -764,10 +788,11 @@ export async function runL8({
     guardrails: loopPolicy.guardrails,
     minimumSample: policyMinimumSample,
     actionClass: effectiveActionClass,
-    quality: verdict.quality,
+    quality: commercial?.applicable === false ? 'unmeasurable' : verdict.quality,
     allowNumeratorExceedDenominator: true,
     recordedAt: now.toISOString(),
   });
+  observation.commercialApplicability = commercial?.applicability || 'applicable';
   observation.outcome = outcome;
   const decision = buildDecision({
     loopId: LOOP_ID,

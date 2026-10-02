@@ -18,6 +18,7 @@ import {
   resolveGoHref,
   resolveAffiliateExperimentVariant,
   partnerRelAttr,
+  partnerDisclosureKey,
   buildAffiliateUrl,
   sanitizePubref,
   PUBREF_MAX_LEN,
@@ -25,6 +26,13 @@ import {
 import { WISE_REFERRAL_URL, EXCHANGE_REFERRAL_PARTNERS } from '../services/exchangePartners';
 
 describe('affiliateService config gates', () => {
+  it('publishes existing referral links without claiming active commercial agreements', () => {
+    expect(PARTNERS.every(partner => partner.commercialActive === false)).toBe(true);
+    expect(partnerDisclosureKey('wise')).toBe('affiliate.referralDisclosure');
+    expect(partnerDisclosureKey('priminfo')).toBeNull();
+    expect(partnerDisclosureKey('comparis')).toBeNull();
+  });
+
   it('never surfaces disabled partners in any context', () => {
     const disabledIds = PARTNERS.filter(p => !p.enabled).map(p => p.id);
     const contexts = new Set(PARTNERS.flatMap(p => p.contexts));

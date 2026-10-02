@@ -22,6 +22,8 @@
  * description is shorter than the full HTML content.
  */
 
+import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
+
 // ─── Minimal inline utilities ─────────────────────────────────────────────────
 
 function normalizeSpace(s) {
@@ -36,10 +38,7 @@ function normalizeSpace(s) {
  */
 export function stripHtml(s) {
   return normalizeSpace(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(s)
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -274,8 +273,9 @@ export function migrosRecruitmentToMarkdown(sectionHtml) {
     .replace(/<figure[\s\S]*?<\/figure>/gi, ' ')
     // The recruiter's social-profile icons ("LinkedIn", "xing") are links, not text.
     .replace(/<a\b[^>]*href="https?:\/\/(?:[a-z]+\.)?(?:linkedin|xing|facebook|instagram)\.com[^"]*"[^>]*>[\s\S]*?<\/a>/gi, ' ')
-    .replace(/<summary\b[^>]*>([\s\S]*?)<\/summary>/gi, (_, inner) => `${NL}- ${stripHtml(inner)}: `)
-    .replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, inner) => `${NL}${NL}**${stripHtml(inner)}**${NL}`)
+    // Strip inner markup without decoding; text entities are decoded once below.
+    .replace(/<summary\b[^>]*>([\s\S]*?)<\/summary>/gi, (_, inner) => `${NL}- ${normalizeSpace(stripHtmlTags(inner))}: `)
+    .replace(/<h[1-6]\b[^>]*>([\s\S]*?)<\/h[1-6]>/gi, (_, inner) => `${NL}${NL}**${normalizeSpace(stripHtmlTags(inner))}**${NL}`)
     .replace(/<\/p>/gi, `${NL}`);
   return stripHtml(text)
     .split(NL)

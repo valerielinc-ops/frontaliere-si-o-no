@@ -267,7 +267,7 @@ const HealthInsurance: React.FC = () => {
  <p className="text-on-accent text-base sm:text-lg">
  {'Confronta i premi di ' + (data?.insurers.length || '...') + ' assicurazioni LAMal svizzere in ' + (data ? Object.keys(data.premiums).length : '...') + ' località. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
  </p>
- <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt?.slice(0, 7) || '2026-01'} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
+ <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt} dateKind="fetched" referenceYear={data?.year} source="UFSP / Priminfo" sourceUrl="https://www.priminfo.admin.ch/" variant="badge" /></div>
  </div>
 
  <Callout status="warning">
@@ -503,6 +503,7 @@ const HealthInsurance: React.FC = () => {
  </div>
  </div>
  <div className="flex flex-col gap-2 pt-3 border-t border-edge">
+ <p className="text-sm text-muted">{t('affiliate.conditions.health')}</p>
  <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
  onClick={() => Analytics.trackExternalLink(result.insurer.website, `quote_request_${result.insurer.id}`)}
  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-danger-strong hover:bg-danger-strong-hover text-on-accent text-sm font-bold rounded-lg transition-colors w-full">

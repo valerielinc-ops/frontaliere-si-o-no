@@ -2781,7 +2781,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // Reads data/jobs.json once and computes per-locale active-job counts.
  // Used below to override the static title/description on job-board landing
  // pages so Googlebot sees a fresh "N 🔥" signal on each build.
- const jobBoardCounts = getActiveJobCountsByLocale(rootDir);
+ const jobBoardCounts = getActiveJobCountsByLocale(rootDir, 'TI');
  const jobBoardYear = new Date().getFullYear();
  console.log(`\x1b[36m[static-pages]\x1b[0m Job board counts: it=${jobBoardCounts.it} en=${jobBoardCounts.en} de=${jobBoardCounts.de} fr=${jobBoardCounts.fr} (year=${jobBoardYear})`);
 

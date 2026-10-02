@@ -26,6 +26,7 @@
  *   5. Merges into data/jobs.json.
  *   6. Translates missing locales.
  */
+import { decode as decodeHTML } from 'html-entities';
 import fs from 'node:fs';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
@@ -297,22 +298,8 @@ export async function fetchAllJobs() {
 /**
  * Decode common HTML entities in text.
  */
-function decodeEntities(text) {
-  return text
-    .replace(/&bull;/g, '•')
-    .replace(/&amp;/g, '&')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&auml;/g, 'ä')
-    .replace(/&ouml;/g, 'ö')
-    .replace(/&uuml;/g, 'ü')
-    .replace(/&Auml;/g, 'Ä')
-    .replace(/&Ouml;/g, 'Ö')
-    .replace(/&Uuml;/g, 'Ü')
-    .replace(/&#\d+;/g, (m) => String.fromCharCode(parseInt(m.slice(2, -1), 10)));
+function decodeEntities(text = '') {
+  return decodeHTML(String(text || ''), { scope: 'strict' }).replaceAll('\u00a0', ' ');
 }
 
 /**
