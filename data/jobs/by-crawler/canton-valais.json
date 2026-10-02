@@ -1,6 +1,6 @@
 {
   "crawlerKey": "canton-valais",
-  "assembledAt": "2026-10-01T21:25:29.248Z",
+  "assembledAt": "2026-10-02T09:27:45.687Z",
   "jobs": [
     {
       "id": "canton-valais-763f239c9f38",
@@ -33,7 +33,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112987&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:25:22.783Z",
+      "crawledAt": "2026-10-02T09:27:40.470Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -112,7 +112,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101098&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:22.089Z",
+      "crawledAt": "2026-10-02T09:27:39.777Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -191,7 +191,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108447&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:21.399Z",
+      "crawledAt": "2026-10-02T09:27:38.806Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -270,7 +270,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113758&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:20.694Z",
+      "crawledAt": "2026-10-02T09:27:38.084Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -349,7 +349,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114612&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:20.003Z",
+      "crawledAt": "2026-10-02T09:27:37.390Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -428,7 +428,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114611&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:19.263Z",
+      "crawledAt": "2026-10-02T09:27:36.705Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -507,7 +507,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114614&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:18.522Z",
+      "crawledAt": "2026-10-02T09:27:35.959Z",
       "addressLocality": "St-Gingolph",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -541,6 +541,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.916Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -586,7 +587,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114613&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:17.786Z",
+      "crawledAt": "2026-10-02T09:27:35.227Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -620,6 +621,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:06:25.295Z",
+      "needsRetranslation": true,
       "salaryMin": 48400,
       "salaryMax": 73200,
       "salarySource": "estimated",
@@ -665,7 +667,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108924&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:17.070Z",
+      "crawledAt": "2026-10-02T09:27:34.551Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -744,7 +746,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=104231&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:16.403Z",
+      "crawledAt": "2026-10-02T09:27:33.899Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -837,7 +839,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108633&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:10.959Z",
+      "crawledAt": "2026-10-02T09:27:28.423Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -916,7 +918,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101386&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:10.278Z",
+      "crawledAt": "2026-10-02T09:27:27.781Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -995,7 +997,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=110102&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:09.621Z",
+      "crawledAt": "2026-10-02T09:27:27.109Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1074,7 +1076,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=108627&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:08.286Z",
+      "crawledAt": "2026-10-02T09:27:25.800Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1153,7 +1155,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113332&publication=2638",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:07.628Z",
+      "crawledAt": "2026-10-02T09:27:25.011Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1232,7 +1234,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101166&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:06.965Z",
+      "crawledAt": "2026-10-02T09:27:24.220Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1266,6 +1268,7 @@
         ]
       },
       "firstSeenAt": "2026-09-26T14:10:45.433Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1311,7 +1314,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114416&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-01T21:25:06.238Z",
+      "crawledAt": "2026-10-02T09:27:23.530Z",
       "addressLocality": "Brig",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1385,7 +1388,7 @@
       "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=102224&publication=2639",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:05.506Z",
+      "crawledAt": "2026-10-02T09:27:22.840Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1464,7 +1467,7 @@
       "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20655?language=fr",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-01T21:25:04.767Z",
+      "crawledAt": "2026-10-02T09:27:22.143Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1513,37 +1516,37 @@
       }
     },
     {
-      "id": "canton-valais-8a2f8b1405e5",
-      "slug": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
+      "id": "canton-valais-5198c56d0818",
+      "slug": "deux-cantonniers-ou-deux-cantonnieres-ii-canton-valais-ch",
       "slugByLocale": {
-        "it": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
-        "en": "executives-in-our-rehabilitation-service-and-regional-medical-service-mrs-psychologists-canton-du-valais-sion",
-        "de": "fuhrungskrafte-in-unserem-rehabilitation-service-und-regional-medical-service-mrs-psychologen-canton-du-valais-sion",
-        "fr": "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
+        "fr": "deux-cantonniers-ou-deux-cantonnieres-ii-canton-valais-ch",
+        "it": "deux-cantonniers-ou-deux-cantonnieres-ii-canton-valais-ch",
+        "en": "deux-cantonniers-ou-deux-cantonnieres-ii-canton-valais-ch",
+        "de": "deux-cantonniers-ou-deux-cantonnieres-ii-canton-valais-ch"
       },
       "company": "Canton du Valais",
       "companyKey": "canton-valais",
       "companyDomain": "vs.ch",
-      "title": "Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR) - Des psychologues",
+      "title": "Deux cantonniers ou deux cantonnières II",
       "titleByLocale": {
-        "it": "Esecutivi nel nostro Servizio di Riabilitazione e Servizio Medico Regionale (MRS) Psicologi",
-        "en": "Executives in our Rehabilitation Service and Regional Medical Service (MRS) Psychologists",
-        "de": "Führungskräfte in unserem Rehabilitation Service und Regional Medical Service (MRS) Psychologen",
-        "fr": "Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR) - Des psychologues"
+        "fr": "Deux cantonniers ou deux cantonnières II",
+        "it": "Deux cantonniers ou deux cantonnières II",
+        "en": "Deux cantonniers ou deux cantonnières II",
+        "de": "Deux cantonniers ou deux cantonnières II"
       },
-      "description": "L’Office cantonal AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Nous recherchons pour une entrée en fonction à convenir :\n\n• - Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR)\n• - Des psychologues Le détail des offres d’emploi ci-dessus se trouve sur notre site Internet : www.aivs.ch – Rubrique « Jobs ».\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Une formation approfondie ainsi que des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au mercredi 30 septembre 2026.",
+      "description": "Deux cantonniers ou deux cantonnières II auprès du Service de la mobilité, arrondissement 3 Bas-Valais, secteur 33\n\nVos tâches:\n• Vous exécutez, selon instructions, les travaux d'entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d'un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l'exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans un domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante Permis de conduire catégorie B et BE exigés Engagement à plein temps (horaire irrégulier)\n• Langue maternelle française Domicile Sur le territoire des communes de Monthey, Massongex, Vérossaz, Troistorrents, Vald’Illiez, Champéry, Collombey-Muraz et environs Lieu de rassemblement : Troistorrents\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion. Délai de postulation : 16 octobre2026 / Numéro de référence : 101764",
       "descriptionByLocale": {
-        "it": "L'ufficio cantonale dell'AI in Vallese è il centro cantonale di competenza dell'Assicurazione Svizzera con oltre 190 collaboratori e collaboratori in vari campi. Egli è responsabile in Vallese per le prestazioni individuali di assicurazione per le persone colpite dalla loro salute. Stiamo cercando un ingresso in ufficio per concordare:\n\n• - Manager del nostro servizio di riabilitazione e del nostro servizio medico regionale (SMR)\n• Dettagli delle offerte di lavoro di cui sopra possono essere trovate sul nostro sito web: www.aivs.ch – Jobs.\n\nLa nostra offerta:\n• Lavoro interessante e impegnativo\n• Opportunità di formazione e di formazione continua\n• Condizioni di lavoro moderne e attraenti Non vediamo l'ora di ricevere la tua applicazione completa in formato PDF via e-mail: candidatures@vs.oai.ch fino a mercoledì 30 settembre 2026.",
-        "en": "The cantonal AI office in Valais is the cantonal centre of competence of the Swiss Invalidity Insurance with more than 190 collaborators and collaborators in various fields. He is responsible in Valais for individual insurance benefits for people affected by their health. We are looking for an entry into office to agree:\n\n• - Managers in our rehabilitation service and our regional medical service (SMR)\n• Psychologists Details of the above job offers can be found on our website: www.aivs.ch – Jobs.\n\nOur offer:\n• Interesting and demanding work\n• In-depth training and continuing training opportunities\n• Modern and attractive working conditions We look forward to receiving your complete application in PDF format by e-mail: candidatures@vs.oai.ch until Wednesday 30 September 2026.",
-        "de": "Das kantonale KI-Büro im Wallis ist das kantonale Kompetenzzentrum der Schweizer Invaliditätsversicherung mit mehr als 190 Mitarbeitern und Mitarbeitern in verschiedenen Bereichen. Er ist im Wallis für individuelle Versicherungsleistungen für Menschen verantwortlich, die von ihrer Gesundheit betroffen sind. Wir suchen einen Amtsantritt, um zu vereinbaren:\n\n• - Manager in unserem Rehabilitationsdienst und unserem regionalen medizinischen Dienst (SMR)\n• Psychologen Details zu den oben genannten Stellenangeboten finden Sie auf unserer Website: www.aivs.ch – Jobs.\n\nUnser Angebot:\n• Interessante und anspruchsvolle Arbeit\n• vertiefte Aus- und Weiterbildungsmöglichkeiten\n• Moderne und attraktive Arbeitsbedingungen Wir freuen uns auf Ihre vollständige Bewerbung im PDF-Format per E-Mail: candidatures@vs.oai.ch bis Mittwoch, den 30. September 2026.",
-        "fr": "L’Office cantonal AI du Valais est le centre de compétence cantonal de l’Assurance Invalidité Suisse avec plus de 190 collaboratrices et collaborateurs de différents domaines. Il est responsable en Valais pour les prestations d’assurance individuelles pour les personnes atteintes dans leur santé. Nous recherchons pour une entrée en fonction à convenir :\n\n• - Des cadres au sein de notre service de réadaptation et de notre service médical régional (SMR)\n• - Des psychologues Le détail des offres d’emploi ci-dessus se trouve sur notre site Internet : www.aivs.ch – Rubrique « Jobs ».\n\nNotre offre:\n•  Un travail intéressant et exigeant\n•  Une formation approfondie ainsi que des possibilités de formation continue\n•  Des conditions de travail modernes et attrayantes Nous nous réjouissons de recevoir votre dossier de candidature complet sous format PDF par e-mail: candidatures@vs.oai.ch jusqu’au mercredi 30 septembre 2026."
+        "fr": "Deux cantonniers ou deux cantonnières II auprès du Service de la mobilité, arrondissement 3 Bas-Valais, secteur 33\n\nVos tâches:\n• Vous exécutez, selon instructions, les travaux d'entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d'un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l'exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans un domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante Permis de conduire catégorie B et BE exigés Engagement à plein temps (horaire irrégulier)\n• Langue maternelle française Domicile Sur le territoire des communes de Monthey, Massongex, Vérossaz, Troistorrents, Vald’Illiez, Champéry, Collombey-Muraz et environs Lieu de rassemblement : Troistorrents\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion. Délai de postulation : 16 octobre2026 / Numéro de référence : 101764",
+        "it": "Deux cantonniers ou deux cantonnières II auprès du Service de la mobilité, arrondissement 3 Bas-Valais, secteur 33\n\nVos tâches:\n• Vous exécutez, selon instructions, les travaux d'entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d'un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l'exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans un domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante Permis de conduire catégorie B et BE exigés Engagement à plein temps (horaire irrégulier)\n• Langue maternelle française Domicile Sur le territoire des communes de Monthey, Massongex, Vérossaz, Troistorrents, Vald’Illiez, Champéry, Collombey-Muraz et environs Lieu de rassemblement : Troistorrents\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion. Délai de postulation : 16 octobre2026 / Numéro de référence : 101764",
+        "en": "Deux cantonniers ou deux cantonnières II auprès du Service de la mobilité, arrondissement 3 Bas-Valais, secteur 33\n\nVos tâches:\n• Vous exécutez, selon instructions, les travaux d'entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d'un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l'exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans un domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante Permis de conduire catégorie B et BE exigés Engagement à plein temps (horaire irrégulier)\n• Langue maternelle française Domicile Sur le territoire des communes de Monthey, Massongex, Vérossaz, Troistorrents, Vald’Illiez, Champéry, Collombey-Muraz et environs Lieu de rassemblement : Troistorrents\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion. Délai de postulation : 16 octobre2026 / Numéro de référence : 101764",
+        "de": "Deux cantonniers ou deux cantonnières II auprès du Service de la mobilité, arrondissement 3 Bas-Valais, secteur 33\n\nVos tâches:\n• Vous exécutez, selon instructions, les travaux d'entretien des routes cantonales et de voirie, seul ou en groupe Vous assurez les services de piquet dans le cadre d'un tournus établi Vous accomplissez les tâches précitées également la nuit, les jours fériés, le samedi et le dimanche, lorsque la situation l'exige\n\nVotre profil:\n• Etre en possession d'un CFC dans le domaine du génie civil, dans un domaine technique ou formation jugée équivalente Etre en bonne santé Jouir d'une excellente constitution Etre capable d'exécuter les travaux de manière indépendante Permis de conduire catégorie B et BE exigés Engagement à plein temps (horaire irrégulier)\n• Langue maternelle française Domicile Sur le territoire des communes de Monthey, Massongex, Vérossaz, Troistorrents, Vald’Illiez, Champéry, Collombey-Muraz et environs Lieu de rassemblement : Troistorrents\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Service de la mobilité (027 607 11 05) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place de la Planta 3, 1951 Sion. Délai de postulation : 16 octobre2026 / Numéro de référence : 101764"
       },
       "location": "Sion",
       "canton": "VS",
-      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101764&publication=2640",
       "source": "Canton du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-30T21:29:18.275Z",
+      "crawledAt": "2026-10-02T09:27:20.057Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1556,27 +1559,13 @@
       "sector": "Administration publique / Service public",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr",
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=101764&publication=2640",
       "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical",
-        "des-cadres-au-sein-de-notre-service-de-readaptation-et-de-notre-service-medical-regional"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical",
-          "des-cadres-au-sein-de-notre-service-de-readaptation-et-de-notre-service-medical-regional"
-        ],
-        "en": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-        ],
-        "de": [
-          "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
-        ]
+      "requirementsByLocale": {
+        "fr": []
       },
-      "firstSeenAt": "2026-09-11T13:52:56.842Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1590,7 +1579,749 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "firstSeenAt": "2026-10-02T09:27:20.057Z"
+    },
+    {
+      "id": "canton-valais-fc88d3c3fa86",
+      "slug": "personalberater-in-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "de": "personalberater-in-80-100-canton-valais-ch",
+        "it": "personalberater-in-80-100-canton-valais-ch",
+        "en": "personalberater-in-80-100-canton-valais-ch",
+        "fr": "personalberater-in-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Personalberater/in (80-100%)",
+      "titleByLocale": {
+        "de": "Personalberater/in (80-100%)",
+        "it": "Personalberater/in (80-100%)",
+        "en": "Personalberater/in (80-100%)",
+        "fr": "Personalberater/in (80-100%)"
+      },
+      "description": "Personalberater/in (80-100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Beratung, Betreuung und Vermittlung von Stellensuchenden Sie erstellen Standortbestimmungen und setzen mit Hilfe der bereitgestellten Massnahmen die Wiedereingliederungsstrategie um Sie pflegen den Kontakt mit den Arbeitgebern für die Vermittlung der Stellensuchenden Sie arbeiten eng mit den verschiedenen Partnern der Arbeitslosenversicherung zusammen\n\nIhr Profil:\n• HR- / Sozialversicherungsfachfrau/-fachmann mit eidgenössischem Fachausweis oder gleichwertige Ausbildung mit der Verpflichtung, die Ausbildung zum eidgenössischen Fachausweis zu absolvieren Gute Kenntnisse in Sozialversicherungen von Vorteil\n• Mehrere Jahre Erfahrung in einem Berufsfeld mit einer Beratungs- oder Vermittlungstätigkeit Sehr gute Kenntnisse der regionalen Wirtschaft Dynamische, selbstständige und flexible Person, die gut zuhören und Kontakte knüpfen kann Gute Stressbewältigung Solide Kenntnisse der Standard-IT-Tools Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Besondere Bedingungen Stellenantritt: nach Vereinbarung Die Dauer der Anstellung hängt von der Entwicklung der Anzahl Stellensuchenden ab\n\nInformationen:\nAuskünfte über die Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 94 60 / paolo.togni@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 16. Oktober 2026 / Referenznummer: 112188 Sitten, 2. Oktober 2026 Département des finances et de l'énergie",
+      "descriptionByLocale": {
+        "de": "Personalberater/in (80-100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Beratung, Betreuung und Vermittlung von Stellensuchenden Sie erstellen Standortbestimmungen und setzen mit Hilfe der bereitgestellten Massnahmen die Wiedereingliederungsstrategie um Sie pflegen den Kontakt mit den Arbeitgebern für die Vermittlung der Stellensuchenden Sie arbeiten eng mit den verschiedenen Partnern der Arbeitslosenversicherung zusammen\n\nIhr Profil:\n• HR- / Sozialversicherungsfachfrau/-fachmann mit eidgenössischem Fachausweis oder gleichwertige Ausbildung mit der Verpflichtung, die Ausbildung zum eidgenössischen Fachausweis zu absolvieren Gute Kenntnisse in Sozialversicherungen von Vorteil\n• Mehrere Jahre Erfahrung in einem Berufsfeld mit einer Beratungs- oder Vermittlungstätigkeit Sehr gute Kenntnisse der regionalen Wirtschaft Dynamische, selbstständige und flexible Person, die gut zuhören und Kontakte knüpfen kann Gute Stressbewältigung Solide Kenntnisse der Standard-IT-Tools Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Besondere Bedingungen Stellenantritt: nach Vereinbarung Die Dauer der Anstellung hängt von der Entwicklung der Anzahl Stellensuchenden ab\n\nInformationen:\nAuskünfte über die Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 94 60 / paolo.togni@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 16. Oktober 2026 / Referenznummer: 112188 Sitten, 2. Oktober 2026 Département des finances et de l'énergie",
+        "it": "Personalberater/in (80-100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Beratung, Betreuung und Vermittlung von Stellensuchenden Sie erstellen Standortbestimmungen und setzen mit Hilfe der bereitgestellten Massnahmen die Wiedereingliederungsstrategie um Sie pflegen den Kontakt mit den Arbeitgebern für die Vermittlung der Stellensuchenden Sie arbeiten eng mit den verschiedenen Partnern der Arbeitslosenversicherung zusammen\n\nIhr Profil:\n• HR- / Sozialversicherungsfachfrau/-fachmann mit eidgenössischem Fachausweis oder gleichwertige Ausbildung mit der Verpflichtung, die Ausbildung zum eidgenössischen Fachausweis zu absolvieren Gute Kenntnisse in Sozialversicherungen von Vorteil\n• Mehrere Jahre Erfahrung in einem Berufsfeld mit einer Beratungs- oder Vermittlungstätigkeit Sehr gute Kenntnisse der regionalen Wirtschaft Dynamische, selbstständige und flexible Person, die gut zuhören und Kontakte knüpfen kann Gute Stressbewältigung Solide Kenntnisse der Standard-IT-Tools Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Besondere Bedingungen Stellenantritt: nach Vereinbarung Die Dauer der Anstellung hängt von der Entwicklung der Anzahl Stellensuchenden ab\n\nInformationen:\nAuskünfte über die Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 94 60 / paolo.togni@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 16. Oktober 2026 / Referenznummer: 112188 Sitten, 2. Oktober 2026 Département des finances et de l'énergie",
+        "en": "Personalberater/in (80-100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Beratung, Betreuung und Vermittlung von Stellensuchenden Sie erstellen Standortbestimmungen und setzen mit Hilfe der bereitgestellten Massnahmen die Wiedereingliederungsstrategie um Sie pflegen den Kontakt mit den Arbeitgebern für die Vermittlung der Stellensuchenden Sie arbeiten eng mit den verschiedenen Partnern der Arbeitslosenversicherung zusammen\n\nIhr Profil:\n• HR- / Sozialversicherungsfachfrau/-fachmann mit eidgenössischem Fachausweis oder gleichwertige Ausbildung mit der Verpflichtung, die Ausbildung zum eidgenössischen Fachausweis zu absolvieren Gute Kenntnisse in Sozialversicherungen von Vorteil\n• Mehrere Jahre Erfahrung in einem Berufsfeld mit einer Beratungs- oder Vermittlungstätigkeit Sehr gute Kenntnisse der regionalen Wirtschaft Dynamische, selbstständige und flexible Person, die gut zuhören und Kontakte knüpfen kann Gute Stressbewältigung Solide Kenntnisse der Standard-IT-Tools Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Besondere Bedingungen Stellenantritt: nach Vereinbarung Die Dauer der Anstellung hängt von der Entwicklung der Anzahl Stellensuchenden ab\n\nInformationen:\nAuskünfte über die Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 94 60 / paolo.togni@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 16. Oktober 2026 / Referenznummer: 112188 Sitten, 2. Oktober 2026 Département des finances et de l'énergie",
+        "fr": "Personalberater/in (80-100%) bei der Dienststelle für Industrie, Handel und Arbeit für das Regionale Arbeitsvermittlungszentrum Oberwallis in Brig\n\nIhre Aufgaben:\n• Sie sind verantwortlich für die Beratung, Betreuung und Vermittlung von Stellensuchenden Sie erstellen Standortbestimmungen und setzen mit Hilfe der bereitgestellten Massnahmen die Wiedereingliederungsstrategie um Sie pflegen den Kontakt mit den Arbeitgebern für die Vermittlung der Stellensuchenden Sie arbeiten eng mit den verschiedenen Partnern der Arbeitslosenversicherung zusammen\n\nIhr Profil:\n• HR- / Sozialversicherungsfachfrau/-fachmann mit eidgenössischem Fachausweis oder gleichwertige Ausbildung mit der Verpflichtung, die Ausbildung zum eidgenössischen Fachausweis zu absolvieren Gute Kenntnisse in Sozialversicherungen von Vorteil\n• Mehrere Jahre Erfahrung in einem Berufsfeld mit einer Beratungs- oder Vermittlungstätigkeit Sehr gute Kenntnisse der regionalen Wirtschaft Dynamische, selbstständige und flexible Person, die gut zuhören und Kontakte knüpfen kann Gute Stressbewältigung Solide Kenntnisse der Standard-IT-Tools Muttersprache Deutsch mit Kenntnissen in der zweiten Amtssprache, Italienischkenntnisse von Vorteil Stellenantritt – Besondere Bedingungen Stellenantritt: nach Vereinbarung Die Dauer der Anstellung hängt von der Entwicklung der Anzahl Stellensuchenden ab\n\nInformationen:\nAuskünfte über die Stelle: Dienststelle für Industrie, Handel und Arbeit (027 606 94 60 / paolo.togni@admin.vs.ch) Online-Bewerbung erwünscht: www.vs.ch/jobs oder senden Sie Ihre Bewerbung bitte an: Dienststelle für Personalmanagement, Place St-Théodule 15, 1951 Sitten Eingabefrist: 16. Oktober 2026 / Referenznummer: 112188 Sitten, 2. Oktober 2026 Département des finances et de l'énergie"
+      },
+      "location": "Brig",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112188&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T09:27:19.355Z",
+      "addressLocality": "Brig",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112188&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:19.355Z"
+    },
+    {
+      "id": "canton-valais-eabf9398d948",
+      "slug": "un-greffier-juriste-ou-une-greffiere-juriste-de-l-autorite-de-protection-de-l-enfant-et-de",
+      "slugByLocale": {
+        "fr": "un-greffier-juriste-ou-une-greffiere-juriste-de-l-autorite-de-protection-de-l-enfant-et-de",
+        "it": "un-greffier-juriste-ou-une-greffiere-juriste-de-l-autorite-de-protection-de-l-enfant-et-de",
+        "en": "un-greffier-juriste-ou-une-greffiere-juriste-de-l-autorite-de-protection-de-l-enfant-et-de",
+        "de": "un-greffier-juriste-ou-une-greffiere-juriste-de-l-autorite-de-protection-de-l-enfant-et-de"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%)",
+      "titleByLocale": {
+        "fr": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%)",
+        "it": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%)",
+        "en": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%)",
+        "de": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%)"
+      },
+      "description": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%) auprès du Service juridique de la sécurité et de la justice, à Martigny\n\nVos tâches:\nSous la supervision des Présidentes de l’APEA :\n\n• Vous participez aux séances de l'autorité et rédigez les procès-verbaux\n• Vous collaborez avec les Présidentes et les membres de l'autorité à l'instruction des causes et procédez aux différentes recherches juridiques Vous rédigez les décisions prises par l'autorité ou par les présidentes dans les cas qui relèvent de leur seule compétence Vous veillez à la bonne tenue des dossiers de l'autorité et respectez leurs échéances\n\nVotre profil:\n• Titre universitaire en droit (master) Expérience en droit de protection de l'enfant et de l'adulte, un atout Très bonne capacité rédactionnelle Organisation, rigueur, flexibilité, résistance au stress Capacité à travailler en équipe et de manière autonome Sens de la confidentialité et de la discrétion Maîtrise de l'outil informatique (en particulier Word, Excel, Outlook) Langue maternelle française, avec de bonnes connaissances de la 2\n• ème\n• langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service juridique de la sécurité et de la justice (027 607 51 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extrait du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St- Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 113327",
+      "descriptionByLocale": {
+        "fr": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%) auprès du Service juridique de la sécurité et de la justice, à Martigny\n\nVos tâches:\nSous la supervision des Présidentes de l’APEA :\n\n• Vous participez aux séances de l'autorité et rédigez les procès-verbaux\n• Vous collaborez avec les Présidentes et les membres de l'autorité à l'instruction des causes et procédez aux différentes recherches juridiques Vous rédigez les décisions prises par l'autorité ou par les présidentes dans les cas qui relèvent de leur seule compétence Vous veillez à la bonne tenue des dossiers de l'autorité et respectez leurs échéances\n\nVotre profil:\n• Titre universitaire en droit (master) Expérience en droit de protection de l'enfant et de l'adulte, un atout Très bonne capacité rédactionnelle Organisation, rigueur, flexibilité, résistance au stress Capacité à travailler en équipe et de manière autonome Sens de la confidentialité et de la discrétion Maîtrise de l'outil informatique (en particulier Word, Excel, Outlook) Langue maternelle française, avec de bonnes connaissances de la 2\n• ème\n• langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service juridique de la sécurité et de la justice (027 607 51 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extrait du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St- Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 113327",
+        "it": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%) auprès du Service juridique de la sécurité et de la justice, à Martigny\n\nVos tâches:\nSous la supervision des Présidentes de l’APEA :\n\n• Vous participez aux séances de l'autorité et rédigez les procès-verbaux\n• Vous collaborez avec les Présidentes et les membres de l'autorité à l'instruction des causes et procédez aux différentes recherches juridiques Vous rédigez les décisions prises par l'autorité ou par les présidentes dans les cas qui relèvent de leur seule compétence Vous veillez à la bonne tenue des dossiers de l'autorité et respectez leurs échéances\n\nVotre profil:\n• Titre universitaire en droit (master) Expérience en droit de protection de l'enfant et de l'adulte, un atout Très bonne capacité rédactionnelle Organisation, rigueur, flexibilité, résistance au stress Capacité à travailler en équipe et de manière autonome Sens de la confidentialité et de la discrétion Maîtrise de l'outil informatique (en particulier Word, Excel, Outlook) Langue maternelle française, avec de bonnes connaissances de la 2\n• ème\n• langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service juridique de la sécurité et de la justice (027 607 51 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extrait du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St- Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 113327",
+        "en": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%) auprès du Service juridique de la sécurité et de la justice, à Martigny\n\nVos tâches:\nSous la supervision des Présidentes de l’APEA :\n\n• Vous participez aux séances de l'autorité et rédigez les procès-verbaux\n• Vous collaborez avec les Présidentes et les membres de l'autorité à l'instruction des causes et procédez aux différentes recherches juridiques Vous rédigez les décisions prises par l'autorité ou par les présidentes dans les cas qui relèvent de leur seule compétence Vous veillez à la bonne tenue des dossiers de l'autorité et respectez leurs échéances\n\nVotre profil:\n• Titre universitaire en droit (master) Expérience en droit de protection de l'enfant et de l'adulte, un atout Très bonne capacité rédactionnelle Organisation, rigueur, flexibilité, résistance au stress Capacité à travailler en équipe et de manière autonome Sens de la confidentialité et de la discrétion Maîtrise de l'outil informatique (en particulier Word, Excel, Outlook) Langue maternelle française, avec de bonnes connaissances de la 2\n• ème\n• langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service juridique de la sécurité et de la justice (027 607 51 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extrait du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St- Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 113327",
+        "de": "Un greffier-juriste ou une greffière-juriste de l'autorité de protection de l'enfant et de l'adulte de Martigny et St-Maurice (80-100%) auprès du Service juridique de la sécurité et de la justice, à Martigny\n\nVos tâches:\nSous la supervision des Présidentes de l’APEA :\n\n• Vous participez aux séances de l'autorité et rédigez les procès-verbaux\n• Vous collaborez avec les Présidentes et les membres de l'autorité à l'instruction des causes et procédez aux différentes recherches juridiques Vous rédigez les décisions prises par l'autorité ou par les présidentes dans les cas qui relèvent de leur seule compétence Vous veillez à la bonne tenue des dossiers de l'autorité et respectez leurs échéances\n\nVotre profil:\n• Titre universitaire en droit (master) Expérience en droit de protection de l'enfant et de l'adulte, un atout Très bonne capacité rédactionnelle Organisation, rigueur, flexibilité, résistance au stress Capacité à travailler en équipe et de manière autonome Sens de la confidentialité et de la discrétion Maîtrise de l'outil informatique (en particulier Word, Excel, Outlook) Langue maternelle française, avec de bonnes connaissances de la 2\n• ème\n• langue officielle\n\nEntrée en fonction:\n1\n\n• er\n• janvier 2027 ou à convenir\n\nInformations:\nRenseignements sur le poste : Service juridique de la sécurité et de la justice (027 607 51 00) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres avec extrait du casier judiciaire et du registre des poursuites : Service des ressources humaines, Place St- Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 113327"
+      },
+      "location": "Martigny",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113327&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:18.486Z",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=113327&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:18.486Z"
+    },
+    {
+      "id": "canton-valais-59f85be0a7fb",
+      "slug": "des-conseillers-ou-des-conseilleres-en-personnel-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "des-conseillers-ou-des-conseilleres-en-personnel-80-100-canton-valais-ch",
+        "it": "des-conseillers-ou-des-conseilleres-en-personnel-80-100-canton-valais-ch",
+        "en": "des-conseillers-ou-des-conseilleres-en-personnel-80-100-canton-valais-ch",
+        "de": "des-conseillers-ou-des-conseilleres-en-personnel-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Des conseillers ou des conseillères en personnel (80-100%)",
+      "titleByLocale": {
+        "fr": "Des conseillers ou des conseillères en personnel (80-100%)",
+        "it": "Des conseillers ou des conseillères en personnel (80-100%)",
+        "en": "Des conseillers ou des conseillères en personnel (80-100%)",
+        "de": "Des conseillers ou des conseillères en personnel (80-100%)"
+      },
+      "description": "Des conseillers ou des conseillères en personnel (80-100%) auprès du Service de l’industrie du commerce et du travail pour les Offices Régionaux de Placement, à Monthey, à Martigny, à Sion ou à Sierre Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous êtes responsable du conseil, du suivi et du placement des demandeurs d’emploi\n• Vous établissez un bilan professionnel et mettez en œuvre une stratégie de réinsertion avec les mesures à disposition Vous entretenez des contacts privilégiés avec les entreprises pour le placement des demandeurs d’emploi Vous collaborez étroitement avec les différents partenaires de l’assurance-chômage\n\nVotre profil:\n• Brevet fédéral de spécialiste en ressources humaines / en assurances sociales ou formation supérieure jugée équivalente avec l’obligation de suivre la formation pour l’obtention du brevet fédéral Bonnes connaissances en assurances sociales un atout\n• Plusieurs années d’expérience dans un environnement professionnel en lien avec une activité de conseil ou de placement Très bonne connaissance du tissu économique de la région Personnalité dynamique, autonome, flexible, avec le sens de l’écoute et de l‘entregent Bonne gestion du stress Bonne maîtrise des outils informatiques standards Langue maternelle française avec des connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Entrée en fonction : à convenir La durée de l’engagement est liée aux variations du nombre de demandeurs d’emploi\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 112177",
+      "descriptionByLocale": {
+        "fr": "Des conseillers ou des conseillères en personnel (80-100%) auprès du Service de l’industrie du commerce et du travail pour les Offices Régionaux de Placement, à Monthey, à Martigny, à Sion ou à Sierre Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous êtes responsable du conseil, du suivi et du placement des demandeurs d’emploi\n• Vous établissez un bilan professionnel et mettez en œuvre une stratégie de réinsertion avec les mesures à disposition Vous entretenez des contacts privilégiés avec les entreprises pour le placement des demandeurs d’emploi Vous collaborez étroitement avec les différents partenaires de l’assurance-chômage\n\nVotre profil:\n• Brevet fédéral de spécialiste en ressources humaines / en assurances sociales ou formation supérieure jugée équivalente avec l’obligation de suivre la formation pour l’obtention du brevet fédéral Bonnes connaissances en assurances sociales un atout\n• Plusieurs années d’expérience dans un environnement professionnel en lien avec une activité de conseil ou de placement Très bonne connaissance du tissu économique de la région Personnalité dynamique, autonome, flexible, avec le sens de l’écoute et de l‘entregent Bonne gestion du stress Bonne maîtrise des outils informatiques standards Langue maternelle française avec des connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Entrée en fonction : à convenir La durée de l’engagement est liée aux variations du nombre de demandeurs d’emploi\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 112177",
+        "it": "Des conseillers ou des conseillères en personnel (80-100%) auprès du Service de l’industrie du commerce et du travail pour les Offices Régionaux de Placement, à Monthey, à Martigny, à Sion ou à Sierre Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous êtes responsable du conseil, du suivi et du placement des demandeurs d’emploi\n• Vous établissez un bilan professionnel et mettez en œuvre une stratégie de réinsertion avec les mesures à disposition Vous entretenez des contacts privilégiés avec les entreprises pour le placement des demandeurs d’emploi Vous collaborez étroitement avec les différents partenaires de l’assurance-chômage\n\nVotre profil:\n• Brevet fédéral de spécialiste en ressources humaines / en assurances sociales ou formation supérieure jugée équivalente avec l’obligation de suivre la formation pour l’obtention du brevet fédéral Bonnes connaissances en assurances sociales un atout\n• Plusieurs années d’expérience dans un environnement professionnel en lien avec une activité de conseil ou de placement Très bonne connaissance du tissu économique de la région Personnalité dynamique, autonome, flexible, avec le sens de l’écoute et de l‘entregent Bonne gestion du stress Bonne maîtrise des outils informatiques standards Langue maternelle française avec des connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Entrée en fonction : à convenir La durée de l’engagement est liée aux variations du nombre de demandeurs d’emploi\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 112177",
+        "en": "Des conseillers ou des conseillères en personnel (80-100%) auprès du Service de l’industrie du commerce et du travail pour les Offices Régionaux de Placement, à Monthey, à Martigny, à Sion ou à Sierre Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous êtes responsable du conseil, du suivi et du placement des demandeurs d’emploi\n• Vous établissez un bilan professionnel et mettez en œuvre une stratégie de réinsertion avec les mesures à disposition Vous entretenez des contacts privilégiés avec les entreprises pour le placement des demandeurs d’emploi Vous collaborez étroitement avec les différents partenaires de l’assurance-chômage\n\nVotre profil:\n• Brevet fédéral de spécialiste en ressources humaines / en assurances sociales ou formation supérieure jugée équivalente avec l’obligation de suivre la formation pour l’obtention du brevet fédéral Bonnes connaissances en assurances sociales un atout\n• Plusieurs années d’expérience dans un environnement professionnel en lien avec une activité de conseil ou de placement Très bonne connaissance du tissu économique de la région Personnalité dynamique, autonome, flexible, avec le sens de l’écoute et de l‘entregent Bonne gestion du stress Bonne maîtrise des outils informatiques standards Langue maternelle française avec des connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Entrée en fonction : à convenir La durée de l’engagement est liée aux variations du nombre de demandeurs d’emploi\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 112177",
+        "de": "Des conseillers ou des conseillères en personnel (80-100%) auprès du Service de l’industrie du commerce et du travail pour les Offices Régionaux de Placement, à Monthey, à Martigny, à Sion ou à Sierre Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous êtes responsable du conseil, du suivi et du placement des demandeurs d’emploi\n• Vous établissez un bilan professionnel et mettez en œuvre une stratégie de réinsertion avec les mesures à disposition Vous entretenez des contacts privilégiés avec les entreprises pour le placement des demandeurs d’emploi Vous collaborez étroitement avec les différents partenaires de l’assurance-chômage\n\nVotre profil:\n• Brevet fédéral de spécialiste en ressources humaines / en assurances sociales ou formation supérieure jugée équivalente avec l’obligation de suivre la formation pour l’obtention du brevet fédéral Bonnes connaissances en assurances sociales un atout\n• Plusieurs années d’expérience dans un environnement professionnel en lien avec une activité de conseil ou de placement Très bonne connaissance du tissu économique de la région Personnalité dynamique, autonome, flexible, avec le sens de l’écoute et de l‘entregent Bonne gestion du stress Bonne maîtrise des outils informatiques standards Langue maternelle française avec des connaissances de la deuxième langue officielle Entrée en fonction – Conditions particulières Entrée en fonction : à convenir La durée de l’engagement est liée aux variations du nombre de demandeurs d’emploi\n\nInformations:\nRenseignements sur le poste : Service de l’industrie, du commerce et du travail (027 606 73 11 / laura.lejeune-pannatier@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 112177"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112177&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:17.788Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=112177&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:17.788Z"
+    },
+    {
+      "id": "canton-valais-b328d08e3df5",
+      "slug": "un-chef-ou-une-cheffe-de-la-section-comptable-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-chef-ou-une-cheffe-de-la-section-comptable-100-canton-valais-ch",
+        "it": "un-chef-ou-une-cheffe-de-la-section-comptable-100-canton-valais-ch",
+        "en": "un-chef-ou-une-cheffe-de-la-section-comptable-100-canton-valais-ch",
+        "de": "un-chef-ou-une-cheffe-de-la-section-comptable-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un chef ou une cheffe de la section comptable (100%)",
+      "titleByLocale": {
+        "fr": "Un chef ou une cheffe de la section comptable (100%)",
+        "it": "Un chef ou une cheffe de la section comptable (100%)",
+        "en": "Un chef ou une cheffe de la section comptable (100%)",
+        "de": "Un chef ou une cheffe de la section comptable (100%)"
+      },
+      "description": "Un chef ou une cheffe de la section comptable (100%) auprès de l’Administration cantonale des finances, Comptabilité générale de l’Etat, à Sion\n\nVos tâches:\n• Vous dirigez la section comptable de la Comptabilité générale de l’Etat Vous pilotez les activités de la section et veillez au développement des compétences des collaborateurs Vous assurez la planification, le suivi et l’exécution des tâches de clôture et du budget de l’Etat du Valais Vous veillez à la tenue régulière de la comptabilité en conformité avec la norme comptables (MCH2) et aux bases légales en vigueur\n• Vous conseillez les services de l’Etat en matière de gestion et de comptabilité\n• Vous contribuez au développement et au suivi du système de contrôle interne ainsi qu’à l’amélioration des processus Vous assurez le suivi des recommandations émises par les organes de surveillance notamment l’Inspection cantonale des finances\n• Vous exécutez d’autres tâches et participez à des projets sur demande de vos supérieurs\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme fédéral d’expert en finance et controlling ou d’expertcomptable, d’un brevet de spécialiste en finance et comptabilité ou avez suivi une formation universitaire équivalente Vous avez une solide expérience dans la gestion financière du secteur public et dans la gestion administrative (organisation, planification, développement de standards) Vous disposez de connaissances approfondies en comptabilité et d’une expérience confirmée au niveau des normes comptables\n• Vous appréciez le travail en équipe interdisciplinaire et avez de l’expérience dans la conduite du personnel Vous maîtrisez les outils informatiques et particulièrement celui du système SAP Vous avez un sens développé de la communication Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 23 70 / david.albasini@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 100204",
+      "descriptionByLocale": {
+        "fr": "Un chef ou une cheffe de la section comptable (100%) auprès de l’Administration cantonale des finances, Comptabilité générale de l’Etat, à Sion\n\nVos tâches:\n• Vous dirigez la section comptable de la Comptabilité générale de l’Etat Vous pilotez les activités de la section et veillez au développement des compétences des collaborateurs Vous assurez la planification, le suivi et l’exécution des tâches de clôture et du budget de l’Etat du Valais Vous veillez à la tenue régulière de la comptabilité en conformité avec la norme comptables (MCH2) et aux bases légales en vigueur\n• Vous conseillez les services de l’Etat en matière de gestion et de comptabilité\n• Vous contribuez au développement et au suivi du système de contrôle interne ainsi qu’à l’amélioration des processus Vous assurez le suivi des recommandations émises par les organes de surveillance notamment l’Inspection cantonale des finances\n• Vous exécutez d’autres tâches et participez à des projets sur demande de vos supérieurs\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme fédéral d’expert en finance et controlling ou d’expertcomptable, d’un brevet de spécialiste en finance et comptabilité ou avez suivi une formation universitaire équivalente Vous avez une solide expérience dans la gestion financière du secteur public et dans la gestion administrative (organisation, planification, développement de standards) Vous disposez de connaissances approfondies en comptabilité et d’une expérience confirmée au niveau des normes comptables\n• Vous appréciez le travail en équipe interdisciplinaire et avez de l’expérience dans la conduite du personnel Vous maîtrisez les outils informatiques et particulièrement celui du système SAP Vous avez un sens développé de la communication Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 23 70 / david.albasini@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 100204",
+        "it": "Un chef ou une cheffe de la section comptable (100%) auprès de l’Administration cantonale des finances, Comptabilité générale de l’Etat, à Sion\n\nVos tâches:\n• Vous dirigez la section comptable de la Comptabilité générale de l’Etat Vous pilotez les activités de la section et veillez au développement des compétences des collaborateurs Vous assurez la planification, le suivi et l’exécution des tâches de clôture et du budget de l’Etat du Valais Vous veillez à la tenue régulière de la comptabilité en conformité avec la norme comptables (MCH2) et aux bases légales en vigueur\n• Vous conseillez les services de l’Etat en matière de gestion et de comptabilité\n• Vous contribuez au développement et au suivi du système de contrôle interne ainsi qu’à l’amélioration des processus Vous assurez le suivi des recommandations émises par les organes de surveillance notamment l’Inspection cantonale des finances\n• Vous exécutez d’autres tâches et participez à des projets sur demande de vos supérieurs\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme fédéral d’expert en finance et controlling ou d’expertcomptable, d’un brevet de spécialiste en finance et comptabilité ou avez suivi une formation universitaire équivalente Vous avez une solide expérience dans la gestion financière du secteur public et dans la gestion administrative (organisation, planification, développement de standards) Vous disposez de connaissances approfondies en comptabilité et d’une expérience confirmée au niveau des normes comptables\n• Vous appréciez le travail en équipe interdisciplinaire et avez de l’expérience dans la conduite du personnel Vous maîtrisez les outils informatiques et particulièrement celui du système SAP Vous avez un sens développé de la communication Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 23 70 / david.albasini@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 100204",
+        "en": "Un chef ou une cheffe de la section comptable (100%) auprès de l’Administration cantonale des finances, Comptabilité générale de l’Etat, à Sion\n\nVos tâches:\n• Vous dirigez la section comptable de la Comptabilité générale de l’Etat Vous pilotez les activités de la section et veillez au développement des compétences des collaborateurs Vous assurez la planification, le suivi et l’exécution des tâches de clôture et du budget de l’Etat du Valais Vous veillez à la tenue régulière de la comptabilité en conformité avec la norme comptables (MCH2) et aux bases légales en vigueur\n• Vous conseillez les services de l’Etat en matière de gestion et de comptabilité\n• Vous contribuez au développement et au suivi du système de contrôle interne ainsi qu’à l’amélioration des processus Vous assurez le suivi des recommandations émises par les organes de surveillance notamment l’Inspection cantonale des finances\n• Vous exécutez d’autres tâches et participez à des projets sur demande de vos supérieurs\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme fédéral d’expert en finance et controlling ou d’expertcomptable, d’un brevet de spécialiste en finance et comptabilité ou avez suivi une formation universitaire équivalente Vous avez une solide expérience dans la gestion financière du secteur public et dans la gestion administrative (organisation, planification, développement de standards) Vous disposez de connaissances approfondies en comptabilité et d’une expérience confirmée au niveau des normes comptables\n• Vous appréciez le travail en équipe interdisciplinaire et avez de l’expérience dans la conduite du personnel Vous maîtrisez les outils informatiques et particulièrement celui du système SAP Vous avez un sens développé de la communication Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 23 70 / david.albasini@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 100204",
+        "de": "Un chef ou une cheffe de la section comptable (100%) auprès de l’Administration cantonale des finances, Comptabilité générale de l’Etat, à Sion\n\nVos tâches:\n• Vous dirigez la section comptable de la Comptabilité générale de l’Etat Vous pilotez les activités de la section et veillez au développement des compétences des collaborateurs Vous assurez la planification, le suivi et l’exécution des tâches de clôture et du budget de l’Etat du Valais Vous veillez à la tenue régulière de la comptabilité en conformité avec la norme comptables (MCH2) et aux bases légales en vigueur\n• Vous conseillez les services de l’Etat en matière de gestion et de comptabilité\n• Vous contribuez au développement et au suivi du système de contrôle interne ainsi qu’à l’amélioration des processus Vous assurez le suivi des recommandations émises par les organes de surveillance notamment l’Inspection cantonale des finances\n• Vous exécutez d’autres tâches et participez à des projets sur demande de vos supérieurs\n\nVotre profil:\n• Vous êtes titulaire d’un diplôme fédéral d’expert en finance et controlling ou d’expertcomptable, d’un brevet de spécialiste en finance et comptabilité ou avez suivi une formation universitaire équivalente Vous avez une solide expérience dans la gestion financière du secteur public et dans la gestion administrative (organisation, planification, développement de standards) Vous disposez de connaissances approfondies en comptabilité et d’une expérience confirmée au niveau des normes comptables\n• Vous appréciez le travail en équipe interdisciplinaire et avez de l’expérience dans la conduite du personnel Vous maîtrisez les outils informatiques et particulièrement celui du système SAP Vous avez un sens développé de la communication Langue maternelle française ou allemande avec de très bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Administration cantonale des finances (027 606 23 70 / david.albasini@admin.vs.ch) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 100204"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100204&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:16.910Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=100204&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:16.910Z"
+    },
+    {
+      "id": "canton-valais-33277e4deb02",
+      "slug": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
+      "slugByLocale": {
+        "fr": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "it": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "en": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton",
+        "de": "un-collaborateur-administratif-ou-une-collaboratrice-administrative-rh-80-100-canton"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%)",
+      "titleByLocale": {
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%)",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%)",
+        "en": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%)",
+        "de": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%)"
+      },
+      "description": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, Office de l’asile, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle allemande avec de très bonnes connaissances de la seconde langue officielle ou bilingue allemandfrançais Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114610",
+      "descriptionByLocale": {
+        "fr": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, Office de l’asile, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle allemande avec de très bonnes connaissances de la seconde langue officielle ou bilingue allemandfrançais Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114610",
+        "it": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, Office de l’asile, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle allemande avec de très bonnes connaissances de la seconde langue officielle ou bilingue allemandfrançais Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114610",
+        "en": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, Office de l’asile, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle allemande avec de très bonnes connaissances de la seconde langue officielle ou bilingue allemandfrançais Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114610",
+        "de": "Un collaborateur administratif ou une collaboratrice administrative RH (80-100%) auprès du Service de l’action sociale, Office de l’asile, à Sion Postulation online : www.vs.ch/jobs Le Service de l’action sociale regroupe l’Office de coordination des prestations sociales, l’Office de coordination pour les questions dans le domaine du handicap et l’Office de l’asile.\n\nVos tâches:\n• Vous participez à la gestion des ressources humaines du Service de l’action sociale qui compte plus de 580 collaborateurs et collaboratrices Vous effectuez l’ensemble des tâches administratives des dossiers du personnel, de l’engagement à la fin de contrat (préparation des documents, préavis, décisions, départs, etc.) Vous assurez le suivi et l’archivage des dossiers du personnel Vous participez à la rédaction des certificats de travail Vous répondez aux différentes demandes des cadres et des collaborateurs et collaboratrices Vous prenez en charge diverses tâches déléguées par le responsable des ressources humaines du service Vous gérez les tâches administratives en lien avec votre activité Vous collaborez de manière active avec vos collègues\n\nVotre profil:\n• CFC employé de commerce, diplôme de commerce ou maturité professionnelle économie Certificat de gestionnaire RH ou d’assistant RH 5 ans d’expérience dans un poste similaire Sens des responsabilités, de la communication et de l’organisation\n• Excellentes capacités à travailler en équipe Excellente maîtrise des outils informatiques usuels Connaissances SAP un atout Excellentes aptitudes rédactionnelles Bonne capacité à gérer le stress De langue maternelle allemande avec de très bonnes connaissances de la seconde langue officielle ou bilingue allemandfrançais Entrée en fonction - Conditions particulières Entrée en fonction : 1 er décembre 2026 ou à convenir Engagement de durée déterminée : la durée est liée aux variations du nombre de personnes que le canton a l’obligation d’accueillir en vertu de la Loi fédérale sur l’asile\n\nInformations:\nRenseignements sur le poste : Service de l’action sociale, M. Baptiste Andrié (027 607 21 72) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114610"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114610&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:16.224Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114610&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:16.224Z"
+    },
+    {
+      "id": "canton-valais-82463ffbb6dd",
+      "slug": "un-agent-de-detention-cuisinier-ou-une-agente-de-detention-cuisiniere-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-agent-de-detention-cuisinier-ou-une-agente-de-detention-cuisiniere-100-canton-valais-ch",
+        "it": "un-agent-de-detention-cuisinier-ou-une-agente-de-detention-cuisiniere-100-canton-valais-ch",
+        "en": "un-agent-de-detention-cuisinier-ou-une-agente-de-detention-cuisiniere-100-canton-valais-ch",
+        "de": "un-agent-de-detention-cuisinier-ou-une-agente-de-detention-cuisiniere-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%)",
+      "titleByLocale": {
+        "fr": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%)",
+        "it": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%)",
+        "en": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%)",
+        "de": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%)"
+      },
+      "description": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%) auprès du Service de l’application des peines et mesures (SAPEM), Etablissements de détention avant jugement à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous collaborez à la bonne marche de l’atelier cuisine Vous exercez une activité éducative et formatrice auprès des personnes détenues Vous veillez au respect des régimes alimentaires et des normes d’hygiène Vous collaborez avec l’équipe pluridisciplinaire et les intervenants externes Vous rédigez des rapports écrits sur des événements particuliers Vous intervenez sur le site et suivez les protocoles en vigueur en cas d’alarme Vous veillez au maintien de l’ordre et de la discipline dans l’atelier\n• Vous effectuez des tâches sécuritaires et de prise en charge relatives à l’activité d’agent de détention\n\nVotre profil:\n• CFC de cuisinier Titulaire du brevet fédéral d’agent de détention ou s’engager à suivre la formation pour l’obtention de ce brevet Capacité à travailler en équipe, aisance dans les rapports humains et la communication écrite et orale Aptitude à prendre en charge des personnes provenant de milieux multiculturels Bonne résistance psychologique face aux situations difficiles et bonne résistance au stress Bonne aptitude physique Sens de la discrétion Disposition à travailler selon des horaires irréguliers et le week-end Bonnes connaissances des outils informatiques (MS-Office)\n• Langue maternelle française, d’autres langues sont un atout Casier judiciaire vierge\n\nEntrée en fonction:\nA convenir\n\nInformations:\nRenseignements sur le poste : la direction des Etablissements de détention avant jugement, M. Alain Broccard (027 606 51 58) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114069",
+      "descriptionByLocale": {
+        "fr": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%) auprès du Service de l’application des peines et mesures (SAPEM), Etablissements de détention avant jugement à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous collaborez à la bonne marche de l’atelier cuisine Vous exercez une activité éducative et formatrice auprès des personnes détenues Vous veillez au respect des régimes alimentaires et des normes d’hygiène Vous collaborez avec l’équipe pluridisciplinaire et les intervenants externes Vous rédigez des rapports écrits sur des événements particuliers Vous intervenez sur le site et suivez les protocoles en vigueur en cas d’alarme Vous veillez au maintien de l’ordre et de la discipline dans l’atelier\n• Vous effectuez des tâches sécuritaires et de prise en charge relatives à l’activité d’agent de détention\n\nVotre profil:\n• CFC de cuisinier Titulaire du brevet fédéral d’agent de détention ou s’engager à suivre la formation pour l’obtention de ce brevet Capacité à travailler en équipe, aisance dans les rapports humains et la communication écrite et orale Aptitude à prendre en charge des personnes provenant de milieux multiculturels Bonne résistance psychologique face aux situations difficiles et bonne résistance au stress Bonne aptitude physique Sens de la discrétion Disposition à travailler selon des horaires irréguliers et le week-end Bonnes connaissances des outils informatiques (MS-Office)\n• Langue maternelle française, d’autres langues sont un atout Casier judiciaire vierge\n\nEntrée en fonction:\nA convenir\n\nInformations:\nRenseignements sur le poste : la direction des Etablissements de détention avant jugement, M. Alain Broccard (027 606 51 58) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114069",
+        "it": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%) auprès du Service de l’application des peines et mesures (SAPEM), Etablissements de détention avant jugement à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous collaborez à la bonne marche de l’atelier cuisine Vous exercez une activité éducative et formatrice auprès des personnes détenues Vous veillez au respect des régimes alimentaires et des normes d’hygiène Vous collaborez avec l’équipe pluridisciplinaire et les intervenants externes Vous rédigez des rapports écrits sur des événements particuliers Vous intervenez sur le site et suivez les protocoles en vigueur en cas d’alarme Vous veillez au maintien de l’ordre et de la discipline dans l’atelier\n• Vous effectuez des tâches sécuritaires et de prise en charge relatives à l’activité d’agent de détention\n\nVotre profil:\n• CFC de cuisinier Titulaire du brevet fédéral d’agent de détention ou s’engager à suivre la formation pour l’obtention de ce brevet Capacité à travailler en équipe, aisance dans les rapports humains et la communication écrite et orale Aptitude à prendre en charge des personnes provenant de milieux multiculturels Bonne résistance psychologique face aux situations difficiles et bonne résistance au stress Bonne aptitude physique Sens de la discrétion Disposition à travailler selon des horaires irréguliers et le week-end Bonnes connaissances des outils informatiques (MS-Office)\n• Langue maternelle française, d’autres langues sont un atout Casier judiciaire vierge\n\nEntrée en fonction:\nA convenir\n\nInformations:\nRenseignements sur le poste : la direction des Etablissements de détention avant jugement, M. Alain Broccard (027 606 51 58) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114069",
+        "en": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%) auprès du Service de l’application des peines et mesures (SAPEM), Etablissements de détention avant jugement à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous collaborez à la bonne marche de l’atelier cuisine Vous exercez une activité éducative et formatrice auprès des personnes détenues Vous veillez au respect des régimes alimentaires et des normes d’hygiène Vous collaborez avec l’équipe pluridisciplinaire et les intervenants externes Vous rédigez des rapports écrits sur des événements particuliers Vous intervenez sur le site et suivez les protocoles en vigueur en cas d’alarme Vous veillez au maintien de l’ordre et de la discipline dans l’atelier\n• Vous effectuez des tâches sécuritaires et de prise en charge relatives à l’activité d’agent de détention\n\nVotre profil:\n• CFC de cuisinier Titulaire du brevet fédéral d’agent de détention ou s’engager à suivre la formation pour l’obtention de ce brevet Capacité à travailler en équipe, aisance dans les rapports humains et la communication écrite et orale Aptitude à prendre en charge des personnes provenant de milieux multiculturels Bonne résistance psychologique face aux situations difficiles et bonne résistance au stress Bonne aptitude physique Sens de la discrétion Disposition à travailler selon des horaires irréguliers et le week-end Bonnes connaissances des outils informatiques (MS-Office)\n• Langue maternelle française, d’autres langues sont un atout Casier judiciaire vierge\n\nEntrée en fonction:\nA convenir\n\nInformations:\nRenseignements sur le poste : la direction des Etablissements de détention avant jugement, M. Alain Broccard (027 606 51 58) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114069",
+        "de": "Un agent de détention – cuisinier ou une agente de détention – cuisinière (100%) auprès du Service de l’application des peines et mesures (SAPEM), Etablissements de détention avant jugement à Sion Postulation en ligne : www.vs.ch/fr/jobs\n\nVos tâches:\n• Vous collaborez à la bonne marche de l’atelier cuisine Vous exercez une activité éducative et formatrice auprès des personnes détenues Vous veillez au respect des régimes alimentaires et des normes d’hygiène Vous collaborez avec l’équipe pluridisciplinaire et les intervenants externes Vous rédigez des rapports écrits sur des événements particuliers Vous intervenez sur le site et suivez les protocoles en vigueur en cas d’alarme Vous veillez au maintien de l’ordre et de la discipline dans l’atelier\n• Vous effectuez des tâches sécuritaires et de prise en charge relatives à l’activité d’agent de détention\n\nVotre profil:\n• CFC de cuisinier Titulaire du brevet fédéral d’agent de détention ou s’engager à suivre la formation pour l’obtention de ce brevet Capacité à travailler en équipe, aisance dans les rapports humains et la communication écrite et orale Aptitude à prendre en charge des personnes provenant de milieux multiculturels Bonne résistance psychologique face aux situations difficiles et bonne résistance au stress Bonne aptitude physique Sens de la discrétion Disposition à travailler selon des horaires irréguliers et le week-end Bonnes connaissances des outils informatiques (MS-Office)\n• Langue maternelle française, d’autres langues sont un atout Casier judiciaire vierge\n\nEntrée en fonction:\nA convenir\n\nInformations:\nRenseignements sur le poste : la direction des Etablissements de détention avant jugement, M. Alain Broccard (027 606 51 58) Postulation en ligne souhaitée : www.vs.ch/fr/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 114069"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114069&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:15.518Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=114069&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:15.518Z"
+    },
+    {
+      "id": "canton-valais-415dcf02e709",
+      "slug": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "it": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "en": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch",
+        "de": "un-ou-une-responsable-des-ressources-humaines-80-100-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "Un ou une responsable des ressources humaines (80-100%)",
+      "titleByLocale": {
+        "fr": "Un ou une responsable des ressources humaines (80-100%)",
+        "it": "Un ou une responsable des ressources humaines (80-100%)",
+        "en": "Un ou une responsable des ressources humaines (80-100%)",
+        "de": "Un ou une responsable des ressources humaines (80-100%)"
+      },
+      "description": "Un ou une responsable des ressources humaines (80-100%) auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Vous contribuez au développement de la stratégie RH de la Police cantonale conformément à la politique des ressources humaines définie au sein de l'Administration cantonale valaisanne et aux besoins spécifiques de la Police cantonale Vous conduisez les projets stratégiques et complexes en lien avec le développement de la stratégie RH de la Police cantonale Vous soutenez les membres de l’Etat Major et apportez vos compétences en leadership et coaching dans la gestion des ressources humaines Vous collaborez dans la conception et la mise en œuvre de différents projets et mesures de politique du personnel Vous définissez l’organisation du bureau des ressources humaines et en assurez la conduite Vous assurez et coordonnez les relations avec les partenaires et les autres services de l’Administration du canton pour ce qui touche les affaires de personnel Sous la supervision du Chef d’Unité, vous assumez la direction et la coordination générale du recrutement et du développement du personnel de la Police cantonale Vous mettez en œuvre et assurez la gestion du système de relève et de promotions de la Police cantonale Vous favorisez les relations avec les partenaires et autres service de l’Administration cantonale Vous représentez la Police cantonale lors de séances dans le domaine RH\n\nVotre profil:\n• Formation HES, diplôme/brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente avec compétences clés dans les domaines concernés Expérience confirmée dans la gestion et la conduite du personnel Bonnes connaissances du fonctionnement d'une administration publique Maîtrise des outils de gestion RH et de bureautique MS-office\n• Compétences confirmées en coaching et en médiation Aptitude à assumer une fonction dirigeante Sens de l'organisation, des responsabilités et de la communication Esprit d'analyse et de synthèse Aptitude à travailler de manière indépendante Bonnes capacités rédactionnelles Rapidité d'exécution Capacité d’adaptation, disponibilité, discrétion et flexibilité Langue maternelle française ou allemande avec des bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Chef unité Administration et Affaires juridiques, Lt col Julien Reynard (027 606 56 07) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 109209",
+      "descriptionByLocale": {
+        "fr": "Un ou une responsable des ressources humaines (80-100%) auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Vous contribuez au développement de la stratégie RH de la Police cantonale conformément à la politique des ressources humaines définie au sein de l'Administration cantonale valaisanne et aux besoins spécifiques de la Police cantonale Vous conduisez les projets stratégiques et complexes en lien avec le développement de la stratégie RH de la Police cantonale Vous soutenez les membres de l’Etat Major et apportez vos compétences en leadership et coaching dans la gestion des ressources humaines Vous collaborez dans la conception et la mise en œuvre de différents projets et mesures de politique du personnel Vous définissez l’organisation du bureau des ressources humaines et en assurez la conduite Vous assurez et coordonnez les relations avec les partenaires et les autres services de l’Administration du canton pour ce qui touche les affaires de personnel Sous la supervision du Chef d’Unité, vous assumez la direction et la coordination générale du recrutement et du développement du personnel de la Police cantonale Vous mettez en œuvre et assurez la gestion du système de relève et de promotions de la Police cantonale Vous favorisez les relations avec les partenaires et autres service de l’Administration cantonale Vous représentez la Police cantonale lors de séances dans le domaine RH\n\nVotre profil:\n• Formation HES, diplôme/brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente avec compétences clés dans les domaines concernés Expérience confirmée dans la gestion et la conduite du personnel Bonnes connaissances du fonctionnement d'une administration publique Maîtrise des outils de gestion RH et de bureautique MS-office\n• Compétences confirmées en coaching et en médiation Aptitude à assumer une fonction dirigeante Sens de l'organisation, des responsabilités et de la communication Esprit d'analyse et de synthèse Aptitude à travailler de manière indépendante Bonnes capacités rédactionnelles Rapidité d'exécution Capacité d’adaptation, disponibilité, discrétion et flexibilité Langue maternelle française ou allemande avec des bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Chef unité Administration et Affaires juridiques, Lt col Julien Reynard (027 606 56 07) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 109209",
+        "it": "Un ou une responsable des ressources humaines (80-100%) auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Vous contribuez au développement de la stratégie RH de la Police cantonale conformément à la politique des ressources humaines définie au sein de l'Administration cantonale valaisanne et aux besoins spécifiques de la Police cantonale Vous conduisez les projets stratégiques et complexes en lien avec le développement de la stratégie RH de la Police cantonale Vous soutenez les membres de l’Etat Major et apportez vos compétences en leadership et coaching dans la gestion des ressources humaines Vous collaborez dans la conception et la mise en œuvre de différents projets et mesures de politique du personnel Vous définissez l’organisation du bureau des ressources humaines et en assurez la conduite Vous assurez et coordonnez les relations avec les partenaires et les autres services de l’Administration du canton pour ce qui touche les affaires de personnel Sous la supervision du Chef d’Unité, vous assumez la direction et la coordination générale du recrutement et du développement du personnel de la Police cantonale Vous mettez en œuvre et assurez la gestion du système de relève et de promotions de la Police cantonale Vous favorisez les relations avec les partenaires et autres service de l’Administration cantonale Vous représentez la Police cantonale lors de séances dans le domaine RH\n\nVotre profil:\n• Formation HES, diplôme/brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente avec compétences clés dans les domaines concernés Expérience confirmée dans la gestion et la conduite du personnel Bonnes connaissances du fonctionnement d'une administration publique Maîtrise des outils de gestion RH et de bureautique MS-office\n• Compétences confirmées en coaching et en médiation Aptitude à assumer une fonction dirigeante Sens de l'organisation, des responsabilités et de la communication Esprit d'analyse et de synthèse Aptitude à travailler de manière indépendante Bonnes capacités rédactionnelles Rapidité d'exécution Capacité d’adaptation, disponibilité, discrétion et flexibilité Langue maternelle française ou allemande avec des bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Chef unité Administration et Affaires juridiques, Lt col Julien Reynard (027 606 56 07) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 109209",
+        "en": "Un ou une responsable des ressources humaines (80-100%) auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Vous contribuez au développement de la stratégie RH de la Police cantonale conformément à la politique des ressources humaines définie au sein de l'Administration cantonale valaisanne et aux besoins spécifiques de la Police cantonale Vous conduisez les projets stratégiques et complexes en lien avec le développement de la stratégie RH de la Police cantonale Vous soutenez les membres de l’Etat Major et apportez vos compétences en leadership et coaching dans la gestion des ressources humaines Vous collaborez dans la conception et la mise en œuvre de différents projets et mesures de politique du personnel Vous définissez l’organisation du bureau des ressources humaines et en assurez la conduite Vous assurez et coordonnez les relations avec les partenaires et les autres services de l’Administration du canton pour ce qui touche les affaires de personnel Sous la supervision du Chef d’Unité, vous assumez la direction et la coordination générale du recrutement et du développement du personnel de la Police cantonale Vous mettez en œuvre et assurez la gestion du système de relève et de promotions de la Police cantonale Vous favorisez les relations avec les partenaires et autres service de l’Administration cantonale Vous représentez la Police cantonale lors de séances dans le domaine RH\n\nVotre profil:\n• Formation HES, diplôme/brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente avec compétences clés dans les domaines concernés Expérience confirmée dans la gestion et la conduite du personnel Bonnes connaissances du fonctionnement d'une administration publique Maîtrise des outils de gestion RH et de bureautique MS-office\n• Compétences confirmées en coaching et en médiation Aptitude à assumer une fonction dirigeante Sens de l'organisation, des responsabilités et de la communication Esprit d'analyse et de synthèse Aptitude à travailler de manière indépendante Bonnes capacités rédactionnelles Rapidité d'exécution Capacité d’adaptation, disponibilité, discrétion et flexibilité Langue maternelle française ou allemande avec des bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Chef unité Administration et Affaires juridiques, Lt col Julien Reynard (027 606 56 07) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 109209",
+        "de": "Un ou une responsable des ressources humaines (80-100%) auprès de la Police cantonale, à Sion\n\nVos tâches:\n• Vous contribuez au développement de la stratégie RH de la Police cantonale conformément à la politique des ressources humaines définie au sein de l'Administration cantonale valaisanne et aux besoins spécifiques de la Police cantonale Vous conduisez les projets stratégiques et complexes en lien avec le développement de la stratégie RH de la Police cantonale Vous soutenez les membres de l’Etat Major et apportez vos compétences en leadership et coaching dans la gestion des ressources humaines Vous collaborez dans la conception et la mise en œuvre de différents projets et mesures de politique du personnel Vous définissez l’organisation du bureau des ressources humaines et en assurez la conduite Vous assurez et coordonnez les relations avec les partenaires et les autres services de l’Administration du canton pour ce qui touche les affaires de personnel Sous la supervision du Chef d’Unité, vous assumez la direction et la coordination générale du recrutement et du développement du personnel de la Police cantonale Vous mettez en œuvre et assurez la gestion du système de relève et de promotions de la Police cantonale Vous favorisez les relations avec les partenaires et autres service de l’Administration cantonale Vous représentez la Police cantonale lors de séances dans le domaine RH\n\nVotre profil:\n• Formation HES, diplôme/brevet fédéral de spécialiste en ressources humaines ou formation jugée équivalente avec compétences clés dans les domaines concernés Expérience confirmée dans la gestion et la conduite du personnel Bonnes connaissances du fonctionnement d'une administration publique Maîtrise des outils de gestion RH et de bureautique MS-office\n• Compétences confirmées en coaching et en médiation Aptitude à assumer une fonction dirigeante Sens de l'organisation, des responsabilités et de la communication Esprit d'analyse et de synthèse Aptitude à travailler de manière indépendante Bonnes capacités rédactionnelles Rapidité d'exécution Capacité d’adaptation, disponibilité, discrétion et flexibilité Langue maternelle française ou allemande avec des bonnes connaissances de la deuxième langue officielle\n\nEntrée en fonction:\nDe suite ou à convenir\n\nInformations:\nRenseignements sur le poste : Chef unité Administration et Affaires juridiques, Lt col Julien Reynard (027 606 56 07) Postulation en ligne souhaitée : www.vs.ch/jobs ou envoi des offres : Service des ressources humaines, Place St-Théodule 15, 1951 Sion Délai de postulation : 16 octobre 2026 / Numéro de référence : 109209"
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109209&publication=2640",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:14.825Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/iapply?source=EXTERNAL&job=109209&publication=2640",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:14.825Z"
+    },
+    {
+      "id": "canton-valais-b78bbac0afc8",
+      "slug": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+      "slugByLocale": {
+        "fr": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+        "it": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+        "en": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+        "de": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+      "titleByLocale": {
+        "fr": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "it": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "en": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "de": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028"
+      },
+      "description": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal des mineurs à Sion\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal des mineurs à Sion\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "it": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal des mineurs à Sion\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "en": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal des mineurs à Sion\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "de": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal des mineurs à Sion\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026."
+      },
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20658?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:14.118Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20658?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:14.118Z"
+    },
+    {
+      "id": "canton-valais-6c36ff532fa6",
+      "slug": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-2",
+      "slugByLocale": {
+        "fr": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+        "it": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-2",
+        "en": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-2",
+        "de": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-2"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+      "titleByLocale": {
+        "fr": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "it": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "en": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "de": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028"
+      },
+      "description": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Sierre à Sierre\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Sierre à Sierre\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "it": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Sierre à Sierre\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "en": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Sierre à Sierre\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "de": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Sierre à Sierre\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026."
+      },
+      "location": "Sierre",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20675?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:13.616Z",
+      "addressLocality": "Sierre",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20675?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:13.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais"
+        ]
+      },
+      "previousSlugs": [
+        "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais"
+      ]
+    },
+    {
+      "id": "canton-valais-5c40951d3ed7",
+      "slug": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-3",
+      "slugByLocale": {
+        "fr": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais",
+        "it": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-3",
+        "en": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-3",
+        "de": "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais-3"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+      "titleByLocale": {
+        "fr": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "it": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "en": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028",
+        "de": "1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028"
+      },
+      "description": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Monthey à Monthey\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Monthey à Monthey\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "it": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Monthey à Monthey\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "en": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Monthey à Monthey\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "de": "Le Tribunal cantonal met au concours le poste suivant : 1 stagiaire maturité professionnelle économie (MP-E), année scolaire 2027-2028 auprès du tribunal de district de Monthey à Monthey\n\n• Les tribunaux valaisans offrent une structure de qualité et un encadrement par des\n• professionnels expérimentés. La formation se déroule sur 1 an, répartie entre formation\n• pratique en entreprise et cours interentreprises dispensés par des spécialistes de la\n• Justice et de l’Administration publique. Venez nous rejoindre !\n\nVotre profil:\n✓ Etudiant-e de dernière année d’école de commerce ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• juillet 2027. Renseignements www.vs.ch/web/tribunaux Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 40. Intéressé-e ? La lettre de motivation avec CV, photo et copies des notes des trois dernières années scolaires devront être adressés au Tribunal cantonal, Secrétariat général, Rue Mathieu- Schiner 1, Case postale, 1951 Sion, jusqu’au 23 octobre 2026."
+      },
+      "location": "Monthey",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20676?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:13.116Z",
+      "addressLocality": "Monthey",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20676?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 51000,
+      "salaryMax": 77500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 51000,
+          "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:13.116Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais"
+        ]
+      },
+      "previousSlugs": [
+        "1-stagiaire-maturite-professionnelle-economie-mp-e-annee-scolaire-2027-2028-canton-valais"
+      ]
+    },
+    {
+      "id": "canton-valais-0375b9aeac47",
+      "slug": "1-apprenti-e-employe-e-de-commerce-annees-scolaires-2027-2030-canton-valais-ch",
+      "slugByLocale": {
+        "fr": "1-apprenti-e-employe-e-de-commerce-annees-scolaires-2027-2030-canton-valais-ch",
+        "it": "1-apprenti-e-employe-e-de-commerce-annees-scolaires-2027-2030-canton-valais-ch",
+        "en": "1-apprenti-e-employe-e-de-commerce-annees-scolaires-2027-2030-canton-valais-ch",
+        "de": "1-apprenti-e-employe-e-de-commerce-annees-scolaires-2027-2030-canton-valais-ch"
+      },
+      "company": "Canton du Valais",
+      "companyKey": "canton-valais",
+      "companyDomain": "vs.ch",
+      "title": "1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030",
+      "titleByLocale": {
+        "fr": "1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030",
+        "it": "1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030",
+        "en": "1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030",
+        "de": "1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030"
+      },
+      "description": "Le Tribunal cantonal met au concours le poste suivant : 1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030 : auprès du tribunal des districts de Martigny et St-Maurice à Martigny\n\n• Vous souhaitez débuter votre parcours professionnel par une formation commerciale\n• initiale? Venez nous rejoindre ! Les tribunaux valaisans offrent une structure de qualité\n• et un encadrement par des professionnels expérimentés. La formation se déroule sur\n• 3 ans, répartie entre formation pratique en entreprise, cours professionnels et cours\n• interentreprises dispensés par des spécialistes de l’Administration publique et de la\n• Justice.\n\nVotre profil:\n✓ Scolarité obligatoire achevée ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. www.vs.ch/web/tribunaux Intéressé-e ? La lettre de motivation avec CV, photo, copies des notes des trois dernières années scolaires, éventuel résultat d’un test d’aptitudes et rapports de stages, devront être adressés au Tribunal cantonal, Secrétariat général, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+      "descriptionByLocale": {
+        "fr": "Le Tribunal cantonal met au concours le poste suivant : 1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030 : auprès du tribunal des districts de Martigny et St-Maurice à Martigny\n\n• Vous souhaitez débuter votre parcours professionnel par une formation commerciale\n• initiale? Venez nous rejoindre ! Les tribunaux valaisans offrent une structure de qualité\n• et un encadrement par des professionnels expérimentés. La formation se déroule sur\n• 3 ans, répartie entre formation pratique en entreprise, cours professionnels et cours\n• interentreprises dispensés par des spécialistes de l’Administration publique et de la\n• Justice.\n\nVotre profil:\n✓ Scolarité obligatoire achevée ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. www.vs.ch/web/tribunaux Intéressé-e ? La lettre de motivation avec CV, photo, copies des notes des trois dernières années scolaires, éventuel résultat d’un test d’aptitudes et rapports de stages, devront être adressés au Tribunal cantonal, Secrétariat général, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "it": "Le Tribunal cantonal met au concours le poste suivant : 1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030 : auprès du tribunal des districts de Martigny et St-Maurice à Martigny\n\n• Vous souhaitez débuter votre parcours professionnel par une formation commerciale\n• initiale? Venez nous rejoindre ! Les tribunaux valaisans offrent une structure de qualité\n• et un encadrement par des professionnels expérimentés. La formation se déroule sur\n• 3 ans, répartie entre formation pratique en entreprise, cours professionnels et cours\n• interentreprises dispensés par des spécialistes de l’Administration publique et de la\n• Justice.\n\nVotre profil:\n✓ Scolarité obligatoire achevée ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. www.vs.ch/web/tribunaux Intéressé-e ? La lettre de motivation avec CV, photo, copies des notes des trois dernières années scolaires, éventuel résultat d’un test d’aptitudes et rapports de stages, devront être adressés au Tribunal cantonal, Secrétariat général, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "en": "Le Tribunal cantonal met au concours le poste suivant : 1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030 : auprès du tribunal des districts de Martigny et St-Maurice à Martigny\n\n• Vous souhaitez débuter votre parcours professionnel par une formation commerciale\n• initiale? Venez nous rejoindre ! Les tribunaux valaisans offrent une structure de qualité\n• et un encadrement par des professionnels expérimentés. La formation se déroule sur\n• 3 ans, répartie entre formation pratique en entreprise, cours professionnels et cours\n• interentreprises dispensés par des spécialistes de l’Administration publique et de la\n• Justice.\n\nVotre profil:\n✓ Scolarité obligatoire achevée ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. www.vs.ch/web/tribunaux Intéressé-e ? La lettre de motivation avec CV, photo, copies des notes des trois dernières années scolaires, éventuel résultat d’un test d’aptitudes et rapports de stages, devront être adressés au Tribunal cantonal, Secrétariat général, Case postale, 1951 Sion, jusqu’au 23 octobre 2026.",
+        "de": "Le Tribunal cantonal met au concours le poste suivant : 1 APPRENTI-E EMPLOYE-E DE COMMERCE années scolaires 2027-2030 : auprès du tribunal des districts de Martigny et St-Maurice à Martigny\n\n• Vous souhaitez débuter votre parcours professionnel par une formation commerciale\n• initiale? Venez nous rejoindre ! Les tribunaux valaisans offrent une structure de qualité\n• et un encadrement par des professionnels expérimentés. La formation se déroule sur\n• 3 ans, répartie entre formation pratique en entreprise, cours professionnels et cours\n• interentreprises dispensés par des spécialistes de l’Administration publique et de la\n• Justice.\n\nVotre profil:\n✓ Scolarité obligatoire achevée ✓ Très bonnes connaissances du français et aisance rédactionnelle ✓ Facilité en informatique et technologies numériques ✓ Bonnes compétences relationnelles et de nature dynamique ✓ Aptitude à travailler de manière autonome et en équipe ✓ Sens des responsabilités ✓ Discrétion et fiabilité Nous offrons ✓ Une formation moderne, diversifiée et enrichissante ✓ Un accès à des cours de formation internes, linguistiques et informatiques ✓ Un tremplin solide pour votre évolution professionnelle\n\nEntrée en fonction:\nLe 1\n\n• er\n• août 2027. Renseignements Le Secrétariat général des tribunaux répondra volontiers à vos questions au 027 606 53 00. www.vs.ch/web/tribunaux Intéressé-e ? La lettre de motivation avec CV, photo, copies des notes des trois dernières années scolaires, éventuel résultat d’un test d’aptitudes et rapports de stages, devront être adressés au Tribunal cantonal, Secrétariat général, Case postale, 1951 Sion, jusqu’au 23 octobre 2026."
+      },
+      "location": "Martigny",
+      "canton": "VS",
+      "url": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20615?language=fr",
+      "source": "Canton du Valais Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-10-02T09:27:12.596Z",
+      "addressLocality": "Martigny",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "intern",
+      "sector": "Administration publique / Service public",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://otb.apps.vs.ch/svc/api/joboffersdocument/20615?language=fr",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 111000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72000,
+          "maxValue": 111000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T09:27:12.596Z"
     }
   ]
 }
