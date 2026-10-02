@@ -177,6 +177,7 @@ describe('parsePriceText', () => {
     expect(parsePriceText('CHF 20, 20:00')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
     expect(parsePriceText('Free for children under 12, adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
     expect(parsePriceText('Bambini gratuiti, adulti CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
+    expect(parsePriceText('Admission for 2 adults CHF 20')).toEqual({ amount: 20, currency: 'CHF', isFree: false });
   });
 
   it('recognizes free-language keywords when there is no number', () => {
