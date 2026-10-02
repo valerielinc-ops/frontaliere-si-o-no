@@ -7571,6 +7571,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.assemblea-swissaccounting-melide.title': 'SwissAccounting, 60. Generalversammlung und neue Berufsbezeichnungen',
     'blog.article.assemblea-swissaccounting-melide.excerpt': 'SwissAccounting Svizzera Italiana hat in Melide die 60ª Generalversammlung abgehalten. Die Bezeichnungen Professional Master und Bachelor für die eidgenössischen Titel wurden eingeführt.',
     'blog.article.assemblea-swissaccounting-melide.imageAlt': 'Generalversammlung von SwissAccounting in Melide',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Zweite Säule BVG Schweiz: Leitfaden 2026 für Genf',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Praktischer Leitfaden zur zweiten Säule BVG 2026: Beiträge, Einkauf zur Schließung von Vorsorgelücken und Vorsorgeplanung im Kanton Genf und auf nationaler Ebene.',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'LPP-Pensionsplanungsunterlagen in einem Schweizer Büro',
 };
 
 export default blogMetaChDe;

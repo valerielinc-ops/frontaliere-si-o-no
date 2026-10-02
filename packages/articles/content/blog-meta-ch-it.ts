@@ -7571,6 +7571,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.assemblea-swissaccounting-melide.title': 'SwissAccounting, 60ª assemblea e nuove diciture professionali',
     'blog.article.assemblea-swissaccounting-melide.excerpt': 'SwissAccounting Svizzera Italiana ha celebrato a Melide la 60ª assemblea. Introdotte le diciture Professional Master e Bachelor per i titoli federali.',
     'blog.article.assemblea-swissaccounting-melide.imageAlt': 'Assemblea generale di SwissAccounting a Melide',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Secondo pilastro LPP Svizzera: guida 2026 per Ginevra',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Guida pratica al secondo pilastro LPP 2026: contributi, riscatto lacune e pianificazione previdenziale nel canton Ginevra e a livello nazionale.',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'Documenti di pianificazione pensionistica LPP in un ufficio svizzero',
 };
 
 export default blogMetaChIt;

@@ -2546,6 +2546,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'inflazione-eurozona-picco-triennale': { it: 'inflazione-eurozona-picco-triennale', en: 'eurozone-inflation-three-year-high', de: 'inflation-eurozone-drei-jahres-hoch', fr: 'inflation-zone-euro-pic-trois-ans' },
  'micasa-quattro-negozi-2027': { it: 'micasa-quattro-negozi-2027', en: 'micasa-four-stores-2027', de: 'micasa-vier-filialen-2027', fr: 'micasa-quatre-magasins-2027' },
  'assemblea-swissaccounting-melide': { it: 'assemblea-swissaccounting-melide', en: 'swissaccounting-assembly-melide', de: 'swissaccounting-versammlung-melide', fr: 'assemblee-swissaccounting-melide' },
+ 'secondo-pilastro-lpp-ginevra-2026': { it: 'secondo-pilastro-lpp-ginevra-2026', en: 'second-pillar-lpp-geneva-2026', de: 'zweite-saeule-lpp-genf-2026', fr: 'deuxieme-pilier-lpp-geneve-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

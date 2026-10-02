@@ -7571,6 +7571,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.assemblea-swissaccounting-melide.title': 'SwissAccounting, 60th Assembly and New Professional Designations',
     'blog.article.assemblea-swissaccounting-melide.excerpt': 'SwissAccounting Svizzera Italiana celebrated its 60ª assembly in Melide. The Professional Master and Bachelor designations were introduced for the federal qualifications.',
     'blog.article.assemblea-swissaccounting-melide.imageAlt': 'SwissAccounting general assembly in Melide',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.title': 'Swiss LPP second pillar: 2026 guide for Geneva',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.excerpt': 'Practical guide to the 2026 LPP second pillar: contributions, buy-ins to cover gaps and pension planning in the canton of Geneva and at the national level.',
+    'blog.article.secondo-pilastro-lpp-ginevra-2026.imageAlt': 'LPP pension planning documents in a Swiss office',
 };
 
 export default blogMetaChEn;
