@@ -58,6 +58,53 @@ export function buildThinSourceHousekeepingProof(
 }
 
 /**
+ * The stored record without the markers of a failed fresh read.
+ *
+ * @param {object} job
+ * @returns {object}
+ */
+function withoutSourceBodyFailure(job) {
+  const kept = { ...job };
+  delete kept.sourceBodyFailureReason;
+  delete kept.sourceBodyFailureMessage;
+  delete kept.sourceBodyFailureKeepsStoredRecord;
+  return kept;
+}
+
+/**
+ * Whether a stored record still carries a publishable source body.
+ *
+ * @param {object} job
+ * @returns {boolean}
+ */
+function hasPublishableStoredBody(job) {
+  return Boolean(String(job?.sourceLang || '').trim()) && meetsSourceBodyFloor(sourceBodyForJob(job));
+}
+
+/**
+ * The stored record to republish for a vacancy whose source read failed in
+ * this run, or null when no stored record with a publishable body exists.
+ *
+ * keepStoredSourceBodiesByKey() keeps the stored BODY under the fresh row's
+ * other fields, which is right when those fields do not come from the body.
+ * A source whose title, slug or locality are read from the PDF text itself
+ * (LWPHR, Berit Klinik, ECAM) would rebuild a failed row from an empty body:
+ * another title, another slug, no locality, so the vacancy that was online
+ * would change identity or be dropped by the assembler. The whole stored
+ * record keeps every derived field together with the body it came from.
+ *
+ * @param {string} key identity of the failed vacancy
+ * @param {object[]} storedJobs
+ * @param {(job: object) => string} keyOfJob
+ * @returns {object|null}
+ */
+export function storedJobForFailedSource(key, storedJobs = [], keyOfJob = (job) => job?.url) {
+  if (!key) return null;
+  const previous = (Array.isArray(storedJobs) ? storedJobs : []).find((job) => keyOfJob(job) === key);
+  return previous && hasPublishableStoredBody(previous) ? withoutSourceBodyFailure(previous) : null;
+}
+
+/**
  * Shared implementation for callers whose merge identity is job-shaped.
  *
  * @param {object[]} discoveredJobs
@@ -83,6 +130,11 @@ export function keepStoredSourceBodiesByKey(
     const previousLang = String(previous?.sourceLang || '').trim();
     const previousBody = sourceBodyForJob(previous);
     if (!previousLang || !meetsSourceBodyFloor(previousBody)) return [];
+    // A failed row whose identity fields derive from the source body asks for
+    // the stored record whole (see storedJobForFailedSource).
+    if (sourceBodyFailed && job?.sourceBodyFailureKeepsStoredRecord === true) {
+      return [withoutSourceBodyFailure(previous)];
+    }
     const kept = {
       ...job,
       description: previousBody,

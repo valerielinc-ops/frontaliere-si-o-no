@@ -10,6 +10,7 @@ import {
   dropFailedSourceJobsWithoutValidBody,
   keepStoredSourceBodies,
   keepStoredSourceBodiesByKey,
+  storedJobForFailedSource,
 } from '@/scripts/lib/stored-source-body.mjs';
 import { extractStableJobId } from '@/scripts/lib/job-match-key.mjs';
 
@@ -243,5 +244,63 @@ describe('keepStoredSourceBodies', () => {
     };
 
     expect(dropFailedSourceJobsWithoutValidBody([stored], [failed], jobKey)).toEqual([stored]);
+  });
+});
+
+describe('storedJobForFailedSource', () => {
+  // A source whose title, slug and locality come from the PDF text (LWPHR,
+  // Berit Klinik, ECAM): a failed read republishes the stored record whole.
+  const stored = {
+    url: 'https://jobs.example.ch/a.pdf',
+    title: 'Pflegefachfrau HF 80%',
+    slug: 'pflegefachfrau-hf-80-klinik',
+    location: 'Bern',
+    sourceLang: 'de',
+    description: BODY,
+    descriptionByLocale: { de: BODY, it: 'traduzione' },
+    sourceBodyFailureReason: 'pdf-extraction-failed',
+    sourceBodyFailureMessage: 'stale marker',
+  };
+
+  it('returns the stored record without failure markers when its body clears the floor', () => {
+    const kept = storedJobForFailedSource(stored.url, [stored], jobKey);
+    expect(kept).toEqual({
+      url: stored.url,
+      title: stored.title,
+      slug: stored.slug,
+      location: 'Bern',
+      sourceLang: 'de',
+      description: BODY,
+      descriptionByLocale: { de: BODY, it: 'traduzione' },
+    });
+    expect(stored.sourceBodyFailureReason).toBe('pdf-extraction-failed');
+  });
+
+  it('returns null without a stored record, a source language or a body over the floor', () => {
+    expect(storedJobForFailedSource('https://jobs.example.ch/other.pdf', [stored], jobKey)).toBeNull();
+    expect(storedJobForFailedSource(stored.url, [{ ...stored, sourceLang: '' }], jobKey)).toBeNull();
+    expect(storedJobForFailedSource(stored.url, [{ ...stored, description: BODY_35, descriptionByLocale: { de: BODY_35 } }], jobKey)).toBeNull();
+    expect(storedJobForFailedSource('', [stored], jobKey)).toBeNull();
+  });
+
+  it('is what keepStoredSourceBodiesByKey republishes for a failed row that asks for the stored record', () => {
+    const failed = {
+      url: stored.url,
+      title: 'Opportunità generica',
+      slug: 'opportunita-generica',
+      sourceLang: 'it',
+      description: '',
+      descriptionByLocale: {},
+      sourceBodyFailureReason: 'pdf-extraction-failed',
+      sourceBodyFailureMessage: 'HTTP 503 while fetching PDF',
+      sourceBodyFailureKeepsStoredRecord: true,
+    };
+    expect(keepStoredSourceBodiesByKey([failed], [stored], jobKey))
+      .toEqual([storedJobForFailedSource(stored.url, [stored], jobKey)]);
+    // Without the flag only the body is restored under the fresh fields.
+    const { sourceBodyFailureKeepsStoredRecord: _flag, ...plain } = failed;
+    const [bodyOnly] = keepStoredSourceBodiesByKey([plain], [stored], jobKey);
+    expect(bodyOnly.title).toBe('Opportunità generica');
+    expect(bodyOnly.description).toBe(BODY);
   });
 });
