@@ -7502,6 +7502,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parmelin-successore-defr.title': 'Parmelin quitte le gouvernement : la course à sa succession au sein de l\'UDC',
     'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin a annoncé sa démission du gouvernement le 2 octobre 2026 ; la course à la succession au sein de l\'UDC s\'achève le 23 octobre, l\'élection étant prévue pour le 9 décembre 2026.',
     'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin quitte le Conseil fédéral suisse',
+    'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Marchés de l\'énergie : adoption d\'une nouvelle ordonnance',
+    'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'À compter du 1er janvier 2027, la loi et l\'ordonnance sur la surveillance et la transparence des marchés de gros de l\'énergie (OVTE) entreront en vigueur. L\'ElCom recevra des données relatives aux transactions et aux ordres.',
+    'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Image symbolisant la surveillance des marchés énergétiques suisses.',
 };
 
 export default blogMetaChFr;

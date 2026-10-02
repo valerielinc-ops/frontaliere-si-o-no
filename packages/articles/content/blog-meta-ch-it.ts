@@ -7502,6 +7502,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parmelin-successore-defr.title': 'Parmelin lascia il Governo: corsa alla successione UDC',
     'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin ha annunciato le dimissioni dal Governo il 2 ottobre 2026; la corsa alla successione UDC si chiude il 23 ottobre, con l\'elezione fissata per il 9 dicembre 2026.',
     'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin lascia il Governo svizzero',
+    'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Mercati energetici: approvata nuova ordinanza',
+    'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'Dal 1° gennaio 2027 entrano in vigore la legge e l\'ordinanza sulla vigilanza e trasparenza dei mercati energetici all\'ingrosso (OVTE). ElCom riceverà dati su transazioni e ordini.',
+    'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Immagine che simboleggia la vigilanza sui mercati energetici svizzeri.',
 };
 
 export default blogMetaChIt;

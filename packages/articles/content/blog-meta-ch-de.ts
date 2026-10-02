@@ -7502,6 +7502,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parmelin-successore-defr.title': 'Parmelin verlässt die Regierung: Wettlauf um die Nachfolge in der SVP',
     'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin hat am 2. Oktober 2026 seinen Rücktritt aus der Regierung angekündigt; das Nachfolgeverfahren der SVP endet am 23. Oktober, die Wahl ist für den 9. Dezember 2026 angesetzt.',
     'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin verlässt die Schweizer Bundesregierung',
+    'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Energiemärkte: Neue Verordnung verabschiedet',
+    'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'Ab dem 1. Januar 2027 treten das Gesetz und die Verordnung über die Aufsicht und Transparenz der Energiegroßhandelsmärkte (OVTE) in Kraft. Die ElCom erhält Daten zu Transaktionen und Aufträgen.',
+    'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Bild symbolisiert die Überwachung der Schweizer Energiemärkte.',
 };
 
 export default blogMetaChDe;

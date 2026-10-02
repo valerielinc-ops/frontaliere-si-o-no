@@ -7502,6 +7502,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parmelin-successore-defr.title': 'Parmelin Leaves the Government: Race to Succeed Him in the SVP',
     'blog.article.parmelin-successore-defr.excerpt': 'Guy Parmelin announced his resignation from the government on October 2, 2026; the SVP succession race closes on October 23, with the election scheduled for December 9, 2026.',
     'blog.article.parmelin-successore-defr.imageAlt': 'Guy Parmelin leaves the Swiss Federal Council',
+    'blog.article.ordinanza-vigilanza-mercati-energia.title': 'Energy Markets: New Ordinance Approved',
+    'blog.article.ordinanza-vigilanza-mercati-energia.excerpt': 'Effective January 1, 2027, the law and the ordinance on the supervision and transparency of wholesale energy markets (OVTE) will take effect. ElCom will receive data on transactions and orders.',
+    'blog.article.ordinanza-vigilanza-mercati-energia.imageAlt': 'Image symbolizing supervision of Swiss energy markets.',
 };
 
 export default blogMetaChEn;
