@@ -360,10 +360,69 @@ async function fetchPostingDetail(tenant, listingPosting, { timeoutMs, userAgent
     });
     if (!res.ok) return listingPosting;
     const full = await res.json();
-    return (full && typeof full === 'object') ? full : listingPosting;
+    if (!full || typeof full !== 'object' || Array.isArray(full)) return listingPosting;
+
+    // SmartRecruiters documents the detail response as a full PostingDetails
+    // object, but a partial/empty JSON object can still be returned while the
+    // listing endpoint remains usable (for example during a detail read race).
+    // Do not let that response erase the list row's identity: consumers use
+    // `name` to build the parsed job and otherwise turn a live posting into a
+    // false no-jobs-parsed result. Merge nested location fields as well, so a
+    // detail payload that only carries a city does not discard the list
+    // endpoint's country signal used by source-specific filters.
+    const merged = { ...listingPosting, ...full };
+    for (const field of ['location', 'typeOfEmployment']) {
+      merged[field] = mergePartialRecord(listingPosting[field], full[field]);
+    }
+    for (const field of ['id', 'name', 'applyUrl', 'releasedDate', 'createdOn']) {
+      const value = full[field];
+      if (value === undefined || value === null || (typeof value === 'string' && value.trim() === '')) {
+        merged[field] = listingPosting[field];
+      }
+    }
+    return merged;
   } catch {
     return listingPosting;
   }
+}
+
+/**
+ * Merge a JSON object from the detail endpoint without allowing partial or
+ * malformed fields to erase evidence from the listing endpoint. Nested
+ * records are merged recursively so e.g. `country: null` cannot discard a
+ * listing country code.
+ *
+ * @param {unknown} listingValue
+ * @param {unknown} detailValue
+ * @returns {unknown}
+ */
+function mergePartialRecord(listingValue, detailValue) {
+  const isRecord = (value) => value !== null
+    && typeof value === 'object'
+    && !Array.isArray(value);
+  const isUsableValue = (value) => value !== undefined
+    && value !== null
+    && !(typeof value === 'string' && value.trim() === '')
+    && !Array.isArray(value);
+
+  if (!isRecord(detailValue)) return listingValue;
+  if (!isRecord(listingValue)) return detailValue;
+
+  const merged = { ...listingValue };
+  for (const [key, value] of Object.entries(detailValue)) {
+    if (!isUsableValue(value)) continue;
+    const listingField = listingValue[key];
+    if (isRecord(listingField) && isRecord(value)) {
+      merged[key] = mergePartialRecord(listingField, value);
+    } else if (isUsableValue(listingField) && typeof listingField !== typeof value) {
+      // Keep a known listing shape when a detail response changes the field's
+      // JSON type instead of returning the same field partially populated.
+      continue;
+    } else {
+      merged[key] = value;
+    }
+  }
+  return merged;
 }
 
 /**
