@@ -26,6 +26,10 @@ import {
   VISIONAPARTMENTS_COMPANY_NAME,
 } from '../scripts/lib/visionapartments-job-parser.mjs';
 import {
+  isKenjoCareerSiteEmpty,
+  resolveKenjoPositionPath,
+} from '../scripts/lib/kenjo-career-site.mjs';
+import {
   fetchAllFondationDomusJobs,
   parseVacancyBoardEvidence,
   FONDATION_DOMUS_COMPANY_NAME,
@@ -192,6 +196,15 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(source).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
+  it.each([
+    ['scripts/update-linnea-jobs.mjs'],
+    ['scripts/update-tpl-lugano-jobs.mjs'],
+  ])('%s emits the canonical health proof for its explicit empty branch', (runner) => {
+    const source = readRepoFile(runner);
+    expect(source).toContain('authoritativeEmptySnapshot: true');
+    expect(source).not.toContain('sourceProvenEmpty: true');
+  });
+
   it('Kiabi opts into empty-only snapshots after a strict SmartRecruiters source walk', () => {
     const parser = readRepoFile('scripts/lib/kiabi-job-parser.mjs');
     const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
@@ -204,7 +217,7 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
   });
 
-  it('publishes Tinext zero only when the validated Kenjo API reports no active positions', () => {
+  it('publishes Tinext zero only after a validated Kenjo empty-source proof', () => {
     const source = readRepoFile('scripts/update-tinext-jobs.mjs');
     const discovery = source.slice(
       source.indexOf('async function discoverListings()'),
@@ -226,15 +239,44 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(discovery).toContain("keys: ['activePositions', 'positions']");
     expect(discovery).toContain('if (envelopeDrifted)');
     expect(discovery).toContain('throw new Error(`Unexpected Kenjo API response shape');
+    expect(provenEmptyBranch).toContain('if (await confirmCareerSiteEmpty()) {');
     expect(provenEmptyBranch).toContain('await publishAuthoritativeEmptySnapshot()');
+    expect(provenEmptyBranch).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(provenEmptyBranch).toContain('preserving existing data');
     expect(helper).toContain('updateAdapterConfig([])');
     expect(helper).toContain('archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)');
     expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
     expect(helper).toContain('authoritativeEmptySnapshot: true');
     expect(helper).toContain('await assembleJobsDataset()');
-    // A non-empty API list whose details all fail is not a proven zero.
+    // A non-empty API list whose details all fail is not a proven zero without
+    // the separate explicit empty-state proof from the public career page.
     expect(unbuiltListingsBranch).toContain('return;');
     expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
+    expect(source).toContain("registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext', summaryCounts)");
+    expect(source).toContain("summaryCounts.abortKind = 'no-jobs-parsed'");
+    expect(source).toContain('confirmCareerSiteEmpty()');
+  });
+
+  it('recognizes Kenjo URL variants without accepting foreign or API URLs', () => {
+    expect(resolveKenjoPositionPath({ customUrl: 'secnetsys' })).toBe('secnetsys');
+    expect(resolveKenjoPositionPath({ customJobUrl: '/security-network-engineer/' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/security-network-engineer/?lang=en' })).toBe('security-network-engineer');
+    expect(resolveKenjoPositionPath({ url: 'https://evil.example/jobs/security-network-engineer/' })).toBe('');
+    expect(resolveKenjoPositionPath({ url: 'https://tinext.kenjo.io/api/controller/career-site/public/tinext/positions/1' })).toBe('');
+  });
+
+  it('requires Kenjo’s explicit public empty-state text before publishing a zero', () => {
+    expect(isKenjoCareerSiteEmpty('<div class="empty-state">No job openings are available at this moment.</div>')).toBe(true);
+    expect(isKenjoCareerSiteEmpty('<div class="jobs">Security & Network Engineer</div>')).toBe(false);
+  });
+
+  it('ignores hidden/template Kenjo copy when active job markup is present', () => {
+    expect(isKenjoCareerSiteEmpty(
+      '<div hidden>No job openings are available at this moment</div><article>Active job</article>',
+    )).toBe(false);
+    expect(isKenjoCareerSiteEmpty(
+      '<template><div>No job openings are available at this moment</div></template><article>Active job</article>',
+    )).toBe(false);
   });
 
   it('never masks these three with an EMPTY_OK_CRAWLERS entry', () => {

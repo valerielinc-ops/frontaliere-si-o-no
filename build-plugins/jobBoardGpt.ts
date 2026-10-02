@@ -3,7 +3,7 @@ import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_STORAGE_KEY,
 } from '../services/adsConsent';
-import { FC_JOBBOARD_OFFERWALL_GATE_JS, OFFERWALL_FC_SNIPPET } from './constants';
+import { FC_JOBBOARD_OFFERWALL_GATE_JS } from './constants';
 import { isJobBoardSectionPathname } from '../scripts/lib/jobBoardSections.mjs';
 
 /** The GPT library required by Google Ad Manager Offerwall. */
@@ -11,6 +11,10 @@ export const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt
 
 /** Stable, cacheable bootstrap emitted only on job-board pages. */
 export const GPT_LOADER_FILENAME = 'gpt-loader.js';
+
+/** Stable, cacheable Funding Choices carrier for job-board pages. */
+export const JOB_BOARD_FC_LOADER_FILENAME = 'job-board-fc-loader.js';
+export const JOB_BOARD_FC_LOADER_TAG = `<script src="/assets/${JOB_BOARD_FC_LOADER_FILENAME}"></script>`;
 
 /** Synchronous bootstrap: it queues GPT before Funding Choices evaluates Offerwall. */
 export const GPT_BOOTSTRAP_TAG = `<script src="/assets/${GPT_LOADER_FILENAME}"></script>`;
@@ -32,7 +36,7 @@ export function isJobBoardPageUrl(value: string): boolean {
 }
 
 /** The two parse-time tags required by every statically emitted job-board page. */
-export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${OFFERWALL_FC_SNIPPET}`;
+export const JOB_BOARD_HEAD_TAGS = `\n ${GPT_BOOTSTRAP_TAG}\n ${JOB_BOARD_FC_LOADER_TAG}`;
 
 /**
  * Parse-time head contract for every statically emitted job-board page.

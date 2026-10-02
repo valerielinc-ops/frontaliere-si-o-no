@@ -7457,6 +7457,21 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.retribuzioni-svizzere-netto.title': 'Durchschnittslöhne nach Berufen in der Schweiz im Jahr 2026',
     'blog.article.retribuzioni-svizzere-netto.excerpt': 'Durchschnittsgehalt pro Beruf in der Schweiz im Jahr 2026: Vergleich zwischen Kantonen, Steuern, Beiträgen, BVG, KVG und Nettoverfügbarkeit nach den kantonalen Arbeitsregeln.',
     'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Person prüft eine Schweizer Lohnabrechnung und einen Vergleich von Berufslöhnen.',
+    'blog.article.guida-retribuzioni-ginevra-2026.title': 'Durchschnittslohn nach Berufsgruppen in der Schweiz 2026: Kanton Genf',
+    'blog.article.guida-retribuzioni-ginevra-2026.excerpt': 'Vergleich 2026 zwischen Berufen und Kantonen: In Genf sind beim Bruttoeinkommen die Beiträge für AHV/IV/EO in Höhe von 5,3 % sowie Steuern, KVG und BVG zu berücksichtigen.',
+    'blog.article.guida-retribuzioni-ginevra-2026.imageAlt': 'Taschenrechner und Lohnabrechnung auf einem Schreibtisch mit Genfer Skyline',
+    'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte rechnet mit bis zu 900\'000 Krankenkassenwechseln',
+    'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte rechnet mit 600\'000 bis 900\'000 Krankenkassenwechseln. Fast die Hälfte würde einen Wechsel in Kauf nehmen, wenn sie dafür 20 Franken mehr pro Monat bekäme.',
+    'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Versicherte in der Schweiz vergleichen Krankenkassenprämien',
+    'blog.article.camere-sessione-autunnale.title': 'Eidgenössische Räte: Die Herbstsession endet heute',
+    'blog.article.camere-sessione-autunnale.excerpt': 'In Bern endet heute die Herbstsession. Auf der Tagesordnung der eidgenössischen Räte stehen Schlussabstimmungen über 17 Vorlagen; die Wintersession findet vom 30. November bis zum 18. Dezember statt.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Schweizer Bundesversammlung in Bern zum Abschluss der Herbstsession.',
+    'blog.article.cambio-cassa-sondaggio.title': 'Krankenkassenprämien 2027: Immer mehr Wechseln die Krankenkasse',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte schätzt, dass es zu 600\'000 bis 900\'000 Krankenkassenwechseln kommen wird; im Jahr 2027 wird der durchschnittliche Beitrag um 5 % auf 412 Franken pro Monat steigen.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Unterlagen und Rechner zur Prüfung der Schweizer Krankenkassenprämien',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Krankenkassen: Bis zu 900.000 Wechsel im nächsten Jahr',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Zwischen 600\'000 und 900\'000 Versicherte könnten im nächsten Jahr die Krankenkasse wechseln. Das geht aus einer YouGov-Umfrage für Deloitte hervor, die unter 1\'236 Personen durchgeführt wurde.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Deloitte-Prognosen zum Krankenkassenwechsel in der Schweiz und im Tessin',
 };
 
 export default blogMetaChDe;

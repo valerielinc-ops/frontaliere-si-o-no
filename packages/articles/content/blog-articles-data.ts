@@ -37069,6 +37069,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'ticino-rimborso-lpp-2024',
+ category: 'pensione',
+ date: '2026-10-02T06:18:48.609Z',
+ image: '/images/blog/ticino-rimborso-lpp-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

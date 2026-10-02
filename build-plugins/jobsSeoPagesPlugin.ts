@@ -268,6 +268,7 @@ import { getCantonCities, normalizeCitySlug } from './shared/cantonCities';
 import { logBuildMem, type BuildMemDetails } from './shared/buildMemLog';
 import { getPathHistory } from './sharedWriteRegistry';
 import { canonicalCleanedKey } from './shared/canonicalCleanedKey';
+import { buildJobMetaDescription } from './shared/jobMetaDescription';
 import { intFromEnv } from '../scripts/lib/int-from-env.mjs';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
@@ -3427,42 +3428,19 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const localizedDescriptionRaw = stripLeadingSectionLabel(String(job?.descriptionByLocale?.[locale] || job.description || ''));
  const localizedDescription = normalizeText(localizedDescriptionRaw);
  const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
- // Build an SEO-friendly meta description with salary and CTA
- const metaIntro = decodeHtmlEntities(locale === 'de'
- ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
- : locale === 'fr'
- ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
- : locale === 'en'
- ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
- : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
- // Inline salary snippet for meta description (before salaryText is computed)
- const metaSalaryMin = Number(job.salaryMin);
- const metaSalaryMax = Number(job.salaryMax);
- const metaCurrency = String(job.currency || 'CHF');
- const metaSalarySnippet = Number.isFinite(metaSalaryMin) && metaSalaryMin > 0
- ? (Number.isFinite(metaSalaryMax) && metaSalaryMax > metaSalaryMin
- ? ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}-${Math.round(metaSalaryMax).toLocaleString('de-CH')}.`
- : ` ${locale === 'de' ? 'Gehalt' : locale === 'fr' ? 'Salaire' : locale === 'en' ? 'Salary' : 'Salario'}: ${metaCurrency} ${Math.round(metaSalaryMin).toLocaleString('de-CH')}.`)
- : '';
- const metaCta = locale === 'de' ? ' Jetzt auf Frontaliere Ticino bewerben.'
- : locale === 'fr' ? ' Postulez sur Frontaliere Ticino.'
- : locale === 'en' ? ' Apply now on Frontaliere Ticino.'
- : ' Candidati ora su Frontaliere Ticino.';
- const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
- // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
- const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
- // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions.
- // Delegates to the shared truncateHeadline → peelDanglingClauseTail: this used
- // to carry its OWN inline preposition list, a literal duplicate of
- // TRAILING_STOPWORDS in build-plugins/shared/titleSuffix.ts that had already
- // drifted (it was missing `tra`, `fra`, `sul`, `che`, `come`, `und`, `zu`, `et`,
- // `qui`, … so those still dangled here after being handled there).
- // AGENTS.md Non-Negotiable #6: one shared module, no copies.
- const truncMetaDesc = (s: string, max = 160): string => truncateHeadline(s, max);
- // Each source fragment was decoded once before concatenation and truncation.
- const description = descWithSalary.length <= 160
- ? descWithSalary
- : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`);
+ // Build an SEO-friendly meta description with source context and a
+ // locale-aware completeness fallback. The helper keeps this active-job
+ // emitter in sync with its 120–160 character contract.
+ const description = buildJobMetaDescription({
+  locale,
+  title: localizedTitle,
+  company: String(job.company || ''),
+  location: String(job.location || getCantonDisplayLabel(perJob_cantonCode, locale)),
+  cleanDescription: cleanDesc,
+  salaryMin: job.salaryMin,
+  salaryMax: job.salaryMax,
+  currency: job.currency,
+ });
  const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
  const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
  // 100% of crawled jobs ship without `_canonical` (no AI pipeline produces it
@@ -3670,6 +3648,16 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // Surrogate-safe 5000-cap: this string is the JSON-LD JobPosting.description;
  // a raw slice can split an emoji pair and leave a lone surrogate that breaks parsing.
  const jobPostingDescriptionHtml = truncateCodeUnits(descriptionHtmlParts.join(''), 5000);
+ // Keep the structured-data fallback self-contained: the meta-description
+ // composer owns the SERP candidate, while JobPosting still needs the same
+ // localized intro when the assembled HTML body is genuinely empty.
+ const metaIntro = decodeHtmlEntities(locale === 'de'
+  ? `${localizedTitle} bei ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'de')}.`
+  : locale === 'fr'
+  ? `${localizedTitle} chez ${job.company} à ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'fr')}.`
+  : locale === 'en'
+  ? `${localizedTitle} at ${job.company} in ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'en')}.`
+  : `${localizedTitle} presso ${job.company} a ${job.location || getCantonDisplayLabel(perJob_cantonCode, 'it')}.`);
  // Fallback: use plain text description or metaIntro if HTML assembly is empty
  const jobPostingDescription = jobPostingDescriptionHtml.length >= 50
  ? jobPostingDescriptionHtml
@@ -15186,11 +15174,32 @@ ${staticAnalyticsHtml}
    cta: 'Voir les offres à jour',
   },
  };
+  // Historical fallback pages are still indexable, so preserve the complete
+  // tracked locale cluster when one exists. These pages are emitted by the
+  // self-healing pass after the normal active/expired/bridge emitters have
+  // skipped a path; dropping the alternates here turns an otherwise complete
+  // four-locale cluster into a one-sided ZH page (P3-B).
+  const buildTrackedHreflangLinks = (
+   slugKey: string,
+   paths: Record<string, string>,
+  ): string => {
+   if (cantonDriftCompatSlugs.has(slugKey)) return '';
+   const entries = localeList
+    .map((l) => (paths[l] ? { lang: l as CantonLocale, href: `${BASE_URL}${withSlash(paths[l])}` } : null))
+    .filter((entry): entry is { lang: CantonLocale; href: string } => entry !== null);
+   if (entries.length !== localeList.length || !paths.it) return '';
+   return [
+    ...entries.map((entry) => ` <link rel="alternate" hreflang="${entry.lang}" href="${entry.href}">`),
+    ` <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`,
+   ].join('\n');
+  };
+
   const buildHistoricalArchiveHtml = (
   slugKey: string,
   relPath: string,
   locale: CantonLocale,
   archive?: HistoricalArchiveFallback,
+  hreflangLinks = '',
  ): string => {
   const copy = historicalArchiveCopy[locale] || historicalArchiveCopy.it;
   const slugInfo = extractInfoFromSlug(slugKey);
@@ -15250,7 +15259,7 @@ ${staticAnalyticsHtml}
    pageDescription,
    ROBOTS_INDEX_ENHANCED,
    historicalUrl,
-   '',
+   hreflangLinks,
    `<script type="application/ld+json">${breadcrumb}</script>`,
    expiredPayload,
    staticBody,
@@ -15329,7 +15338,8 @@ ${staticAnalyticsHtml}
  }
 
  const archive = historicalArchiveFallbacks.get(relPath);
- const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive);
+ const hreflangLinks = buildTrackedHreflangLinks(slug, paths);
+ const html = buildHistoricalArchiveHtml(slug, relPath, locale, archive, hreflangLinks);
  writeSoftLandingPage(relPath.replace(/^\//, ''), html);
  if (archive) historicalArchiveCount++;
  historicalFallbackCount++;

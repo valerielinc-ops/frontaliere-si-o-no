@@ -7457,6 +7457,21 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.retribuzioni-svizzere-netto.title': 'Salaires moyens par profession en Suisse en 2026',
     'blog.article.retribuzioni-svizzere-netto.excerpt': 'Salaire moyen par profession en Suisse en 2026 : comparaison entre cantons, impôts, contributions, BVG, KVG et le montant net disponible avec les règles cantonales du travail.',
     'blog.article.retribuzioni-svizzere-netto.imageAlt': 'Une personne examine une fiche de salaire suisse et compare des salaires par profession.',
+    'blog.article.guida-retribuzioni-ginevra-2026.title': 'Salaire moyen par profession en Suisse en 2026 : canton de Genève',
+    'blog.article.guida-retribuzioni-ginevra-2026.excerpt': 'Comparaison 2026 entre les professions et les cantons : à Genève, le salaire brut doit être considéré en tenant compte de l\'AVS/AI/APG à 5,3 %, des impôts, de la LAMal et de la LPP.',
+    'blog.article.guida-retribuzioni-ginevra-2026.imageAlt': 'Calculatrice et fiche de paie sur un bureau avec vue sur Genève',
+    'blog.article.deloitte-cambi-assicuratori.title': 'Deloitte prévoit jusqu\'à 900 000 changements de caisse d\'assurance maladie',
+    'blog.article.deloitte-cambi-assicuratori.excerpt': 'Deloitte prévoit entre 600\'000 et 900\'000 changements de caisse maladie. Près de la moitié des personnes concernées envisageraient de changer de caisse pour 20 francs supplémentaires par mois.',
+    'blog.article.deloitte-cambi-assicuratori.imageAlt': 'Des assurés suisses comparent les primes d\'assurance maladie',
+    'blog.article.camere-sessione-autunnale.title': 'Chambres fédérales : la session d\'automne s\'achève aujourd\'hui',
+    'blog.article.camere-sessione-autunnale.excerpt': 'La session d\'automne s\'achève aujourd\'hui à Berne. Les Chambres fédérales doivent se prononcer en vote final sur 17 objets ; la session d\'hiver se tiendra du 30 novembre au 18 décembre.',
+    'blog.article.camere-sessione-autunnale.imageAlt': 'Chambres fédérales à Berne à la clôture de la session d\'automne.',
+    'blog.article.cambio-cassa-sondaggio.title': 'Cassa malati 2027: boom dei cambi in Svizzera',
+    'blog.article.cambio-cassa-sondaggio.excerpt': 'Deloitte estime que 600\'000 à 900\'000 personnes changeront de caisse-maladie ; en 2027, la prime moyenne augmentera de 5 % pour atteindre 412 francs par mois.',
+    'blog.article.cambio-cassa-sondaggio.imageAlt': 'Documents et calcul pour examiner les primes d\'assurance maladie en Suisse',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.title': 'Casse-maladies : 900\'000 changements attendus',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.excerpt': 'Entre 600 000 et 900 000 assurés pourraient changer de caisse d\'assurance maladie l\'année prochaine. C\'est ce que révèle un sondage YouGov réalisé pour Deloitte auprès de 1 236 personnes.',
+    'blog.article.deloitte-previsione-cambi-cassa-malati.imageAlt': 'Prévisions de Deloitte sur le changement de caisse maladie en Suisse et au Tessin',
 };
 
 export default blogMetaChFr;

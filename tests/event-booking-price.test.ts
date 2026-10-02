@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-import { extractEventBookingPrice, fetchEventBookingPrice, supportedEventBookingUrl } from '../scripts/lib/event-booking-price.mjs';
+import { extractEventBookingPrice, fetchEventBookingPrice, sameVenue, supportedEventBookingUrl } from '../scripts/lib/event-booking-price.mjs';
 
 const bookingUrl = 'https://infomaniak.events/fr-ch/concerts/example/events/123';
 const event = { startDate: '2026-10-04', venue: 'Fondation Opale' };
@@ -11,6 +11,13 @@ const node = {
 const ld = value => `<script type="application/ld+json">${JSON.stringify(value)}</script>`;
 
 describe('official event booking tariffs', () => {
+  it('requires an exact or prefix venue match without merging sibling venues', () => {
+    expect(sameVenue('Baden', 'Kurtheater Baden')).toBe(false);
+    expect(sameVenue('Kurtheater Baden', 'Kurtheater Baden')).toBe(true);
+    expect(sameVenue('New Hall', 'Old Hall')).toBe(false);
+    expect(sameVenue('Hall', 'New Hall')).toBe(false);
+  });
+
   it('preserves an explicit free Offer, date and venue from Infomaniak', () => {
     expect(extractEventBookingPrice(ld([node]), bookingUrl, event)).toEqual({
       amount: 0, currency: 'CHF', isFree: true, url: bookingUrl,
@@ -25,6 +32,19 @@ describe('official event booking tariffs', () => {
   it('rejects a related event on a different date or at a different venue', () => {
     expect(extractEventBookingPrice(ld({ ...node, startDate: '2026-10-05' }), bookingUrl, event)).toBeUndefined();
     expect(extractEventBookingPrice(ld({ ...node, location: { name: 'Another venue' } }), bookingUrl, event)).toBeUndefined();
+  });
+
+  it('allows an explicit caller-verified locality matcher for broad source venues', () => {
+    const broadEvent = { ...event, venue: 'Baden' };
+    const source = { ...node, location: { name: 'Kurtheater Baden' } };
+    expect(extractEventBookingPrice(ld(source), bookingUrl, broadEvent)).toBeUndefined();
+    expect(extractEventBookingPrice(ld(source), bookingUrl, broadEvent, {
+      venueMatcher: (sourceVenue, candidateEvent) => sourceVenue === 'Kurtheater Baden'
+        && candidateEvent.venue === 'Baden',
+    })).toEqual({
+      amount: 0, currency: 'CHF', isFree: true, url: bookingUrl,
+      availability: 'https://schema.org/InStock', validFrom: node.offers.validFrom,
+    });
   });
 
   it('converts UTC to the local event date before matching', () => {
