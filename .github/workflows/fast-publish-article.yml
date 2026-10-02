@@ -115,6 +115,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install article renderer runtime dependencies
+        run: bash scripts/lib/install-article-renderer-runtime-deps.sh
+
       # An explicit dry-run dispatch remains render-only. Scheduled and push
       # callers do not provide that input and therefore proceed normally.
       - name: Prepare Firebase credentials
@@ -133,10 +136,9 @@ jobs:
       # are Remote-Config-sourced, same as every other workflow in this repo
       # (scripts/load-rc-env.mjs RC_TO_ENV: R2_ACCOUNT_ID, R2_BUCKET,
       # R2_S3_ENDPOINT, R2_ACCESS_KEY_ID, R2_SECRET_ACCESS_KEY). Deliberately
-      # NO `npm ci` anywhere in this job — full dependency install is exactly
-      # the cost this workflow exists to avoid. publish-article-fast.mjs runs
-      # via `npx -y tsx` (on-demand, no repo install) and the shard-push /
-      # CDN-upload scripts are plain bash + Node built-ins.
+      # NO full `npm ci` anywhere in this job — the renderer's one runtime
+      # dependency is installed from the root lockfile above. `tsx` stays
+      # on-demand and the shard-push / CDN-upload scripts use Node built-ins.
       - name: Load secrets from Remote Config (R2 + indexing)
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs

@@ -1223,6 +1223,10 @@ jobs:
             /packages/*/engine/
             /packages/*/src/
             /packages/*/tests/
+            # Related tests read package manifests to verify the renderer's
+            # runtime dependency contract; keep manifests without materializing
+            # the article corpus itself.
+            /packages/*/package.json
             # These are the two symlink targets needed by tsc and the related
             # import graph. Keep them file-scoped: including the parent
             # `packages/articles/content/` would materialize the full article

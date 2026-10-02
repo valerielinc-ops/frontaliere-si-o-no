@@ -157,6 +157,9 @@ jobs:
         with:
           node-version: 22
 
+      - name: Install article renderer runtime dependencies
+        run: bash scripts/lib/install-article-renderer-runtime-deps.sh
+
       # Tolerant, exactly like rerender-article-corpus.yml and
       # fast-publish-article.yml: absent credentials degrade to a warning.
       - name: Prepare Firebase credentials
@@ -178,8 +181,8 @@ jobs:
       # an environment gap, not a template one — see the header for the
       # categories run 31369064388 actually found once this precondition held.
       # It grants no write path: the upload steps live in that workflow, not
-      # this one. Deliberately NO `npm ci` — everything runs under `npx tsx`,
-      # same posture as rerender-article-corpus.yml.
+      # this one. Deliberately NO full `npm ci` — the byte-identity renderer's
+      # one runtime dependency is installed from the root lockfile above.
       - name: Load secrets from Remote Config
         run: node scripts/load-rc-env.mjs
 
