@@ -76,7 +76,7 @@ on:
   workflow_call:
     inputs:
       max_jobs:
-        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.'
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — its 30min cascade window stops it first.'
         type: string
         default: '900'
       mopup_max_jobs:
@@ -305,7 +305,23 @@ jobs:
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
         env:
-          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          LOCAL_MT_TIME_BUDGET_MS: '4500000'  # 75 * 60 * 1000
+          # Phase budget inside the 210min envelope (minutes from the run clock;
+          # the clock starts ~7min after the job, the queue after 210 keeps its
+          # 140min). Measured on corpus run 36779310211 (2026-10-01): with 150min
+          # here Argos was killed at 150min with 4,749 of 16,990 requests done,
+          # the cascade started at 159min against its 90min run-wide deadline
+          # and translated 0 jobs, and the Phase 2d/2e gate saw 212min and
+          # skipped. Now:
+          #   0-3    assemble + stats
+          #   3-78   2a Argos, titles first (this step, 75min)
+          #   78-103 2a.2 title residue to the free cascade (25min window,
+          #          110min ceiling)
+          #   ~110   re-assemble + Argos commit + flags + baseline (~7min)
+          #   110-140 2b cascade (30min window, 150min ceiling)
+          #   140-170 2c Argos mop-up (170min ceiling)
+          #   ~175   commit; gate needs >= 15min: 35min left for 2d/2e
+          #   175-210 2d titles (07:00 run) / 2e descriptions
           # Budget arithmetic, measured from the shared run-start marker:
           # 350min hard job cap − 210min run-wide deadline = 140min queue, of
           # which ~6min are spent BEFORE the marker (checkout, npm ci, Argos
@@ -322,8 +338,8 @@ jobs:
           # still in the slug commit). Every one lost the slug regeneration, the
           # translation-cache save and the deploy trigger, and a job timeout
           # skips `always()` steps too, so the failure reporter never ran.
-          # The two 150min per-step caps below, and the Phase 2d/2e lanes, are
-          # all bounded by this one 210min run-wide deadline; not additive.
+          # The per-step caps and windows of 2a, 2a.2, 2b and 2c, and the Phase
+          # 2d/2e lanes, are all bounded by this one 210min run-wide deadline.
           LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # 210 * 60 * 1000; reserve 140min.
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
           # Default '1' enables the bounded semantic-gated repair. Set the repo
@@ -346,6 +362,22 @@ jobs:
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
 
+      # ── Phase 2a.2: title residue to the free cascade, before descriptions ──
+      # Titles Argos left as source copies go to the free cascade (DeepL →
+      # Azure → …) BEFORE the job cascade (2b) and the description lanes spend
+      # time and premium quota on descriptions. No Codex here: no broker socket,
+      # so Codex stays where the owner placed it (2d/2e, after Argos). Writes
+      # slices only; the re-assemble and the Argos commit below pick it up, and
+      # it is gated like them so 2b never scatters a stale dataset over it.
+      - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
+        id: title_cascade_before_descriptions
+        if: inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        continue-on-error: true
+        env:
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '6600000' # 110 * 60 * 1000 run-wide ceiling
+          UNTRANSLATED_TITLE_FIX_WINDOW_MS: '1500000'   # 25 * 60 * 1000 from this step's start
+        run: node scripts/fix-untranslated-titles.mjs
+
       # Keep this re-assemble on the default full form. The baseline and Phase
       # 2b cascade consume the dataset produced here, so skipping summaries
       # would compare different populations at the start and true-final ends
@@ -366,7 +398,7 @@ jobs:
           SKIP_AI_TRANSLATION: '1'
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
 
@@ -407,7 +439,19 @@ jobs:
           # Translation and metadata calls deliberately keep the normal
           # cascade; Codex preference is scoped to body generation inside
           # create-article.
-          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          # Argos-first: a 30min window from this step's start under a 150min
+          # run-wide ceiling, so 2b no longer depends on what 2a consumed (see
+          # the budget table at Phase 2a). Argos disabled: the cascade is the
+          # primary translator, 250min run-wide and no window, as before.
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '9000000' }}
+          JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
+          # Azure (F0, 2M chars/month) is kept for titles: Phase 2a.2 and 2d
+          # spend it on ~46-char titles, while one 2b window of job
+          # localization (titles + ~2,500-char descriptions per locale) can
+          # use a month of it. Without the keys this cascade skips the tier,
+          # as it did while Azure answered 401.
+          AZURE_TRANSLATOR_KEY: ''
+          AZURE_TRANSLATOR_KEY_2: ''
           MT_LOCAL_OPUSMT: '1'
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -467,7 +511,9 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
-          LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # same 210min run-wide ceiling; 140min queue margin.
+          # 170min, not the 210min envelope: the last 40min belong to the
+          # commit and the Phase 2d/2e lanes (budget table at Phase 2a).
+          LOCAL_MT_MOPUP_DEADLINE_MS: '10200000' # 170 * 60 * 1000
           # Rollout switch for the language-aware overwrite arm (workspace issue 16).
           # Default '1' enables the bounded semantic-gated repair. Set the repo
           # variable to '0' to keep the arm in shadow as an immediate rollback.
@@ -585,6 +631,9 @@ jobs:
           # the 350min hard cap for commits, final assemble, and publication.
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '12600000' # shared with title fixes; not additive.
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+          # Azure is kept for titles, as in Phase 2b (see there).
+          AZURE_TRANSLATOR_KEY: ''
+          AZURE_TRANSLATOR_KEY_2: ''
           # Codex last resort, same per-run budget as Phase 2d (the two
           # phases never run in the same run).
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
