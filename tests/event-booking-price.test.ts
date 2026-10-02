@@ -34,6 +34,19 @@ describe('official event booking tariffs', () => {
     expect(extractEventBookingPrice(ld({ ...node, location: { name: 'Another venue' } }), bookingUrl, event)).toBeUndefined();
   });
 
+  it('allows an explicit caller-verified locality matcher for broad source venues', () => {
+    const broadEvent = { ...event, venue: 'Baden' };
+    const source = { ...node, location: { name: 'Kurtheater Baden' } };
+    expect(extractEventBookingPrice(ld(source), bookingUrl, broadEvent)).toBeUndefined();
+    expect(extractEventBookingPrice(ld(source), bookingUrl, broadEvent, {
+      venueMatcher: (sourceVenue, candidateEvent) => sourceVenue === 'Kurtheater Baden'
+        && candidateEvent.venue === 'Baden',
+    })).toEqual({
+      amount: 0, currency: 'CHF', isFree: true, url: bookingUrl,
+      availability: 'https://schema.org/InStock', validFrom: node.offers.validFrom,
+    });
+  });
+
   it('converts UTC to the local event date before matching', () => {
     expect(extractEventBookingPrice(ld({ ...node, startDate: '2026-10-03T23:30:00Z' }), bookingUrl, event)?.amount).toBe(0);
   });

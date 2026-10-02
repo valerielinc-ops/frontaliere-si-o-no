@@ -427,8 +427,22 @@ export function recoverExistingIndexedPrices(existingEvents, records) {
   });
 }
 
+/** Retain verified price metadata while a targeted/detail refresh rebuilds selected events. */
+export function recoverExistingKnownPrices(existingEvents, records) {
+  const selectedIds = new Set(records.map(({ objectID }) => eventStableId(SOURCE.key, objectID)));
+  return existingEvents.flatMap((event) => {
+    if (!selectedIds.has(event.id) || !event?.price || typeof event.price !== 'object'
+      || !Object.keys(event.price).length) return [];
+    return [{ ...event, price: { ...event.price } }];
+  });
+}
+
 /** Recover missing prices from retained source booking links, independently of the detail cursor. */
-export async function recoverExistingBookingPrices(existingEvents, records, { deadline = Infinity, fetchFn = fetchEventBookingPrice } = {}) {
+export async function recoverExistingBookingPrices(existingEvents, records, {
+  deadline = Infinity,
+  fetchFn = fetchEventBookingPrice,
+  venueMatcher,
+} = {}) {
   const datesById = new Map(records.map(({ objectID, perLocaleHits }) => {
     const primary = LOCALES.map(locale => perLocaleHits[locale]).find(Boolean);
     return [eventStableId(SOURCE.key, objectID), extractDateInfo(primary)?.startDate];
@@ -439,7 +453,9 @@ export async function recoverExistingBookingPrices(existingEvents, records, { de
       || !event.startDate || !supportedEventBookingUrl(event.price?.url)) continue;
     if (Date.now() >= deadline) break;
     try {
-      const price = await fetchFn(event, event.price.url);
+      const price = typeof venueMatcher === 'function'
+        ? await fetchFn(event, event.price.url, { venueMatcher })
+        : await fetchFn(event, event.price.url);
       if (hasConfidentPrice(price)) updates.push({ ...event, price: { ...event.price, ...price } });
     } catch { /* Optional enrichment must not abort the primary crawl. */ }
   }
@@ -476,12 +492,13 @@ function sameBackfillVenue(freshEvent, backfillEvent) {
   return localityProof;
 }
 
-/** Keep a verified backfill when a fresh detail record has no confident price. */
+/** Keep verified price metadata when a fresh detail record drops optional fields. */
 export function applyKnownPriceBackfills(freshEvents, ...backfillGroups) {
   const backfills = new Map(backfillGroups.flat().filter(event => event?.id).map(event => [event.id, event]));
   return freshEvents.map(event => {
     const backfill = backfills.get(event?.id);
-    if (!backfill || hasConfidentPrice(event?.price) || !hasConfidentPrice(backfill.price)
+    if (!backfill || hasConfidentPrice(event?.price) || !backfill?.price || typeof backfill.price !== 'object'
+      || !Object.keys(backfill.price).length
       || !event?.startDate || !backfill.startDate || event.startDate !== backfill.startDate
       || !sameBackfillVenue(event, backfill)) return event;
     const freshMetadata = Object.fromEntries(
@@ -908,11 +925,16 @@ async function main() {
     if (!records.length) throw new Error('None of the requested MySwitzerland IDs is available in the catalog');
   }
   if (limit) records = records.slice(0, limit);
+  const knownPriceBackfills = recoverExistingKnownPrices(existingSlice.events, records);
+  console.log(`[myswitzerland] ${knownPriceBackfills.length} existing price metadata record(s) retained for backfill`);
   const indexedPriceBackfills = recoverExistingIndexedPrices(existingSlice.events, records);
   console.log(`[myswitzerland] ${indexedPriceBackfills.length} existing unknown price(s) recovered from the public index`);
   const indexedIds = new Set(indexedPriceBackfills.map(event => event.id));
   const bookingPriceBackfills = await recoverExistingBookingPrices(
-    existingSlice.events.filter(event => !indexedIds.has(event.id)), records, { deadline },
+    existingSlice.events.filter(event => !indexedIds.has(event.id)), records, {
+      deadline,
+      venueMatcher: (sourceVenue, event) => sameBackfillVenue(event, { ...event, venue: sourceVenue }),
+    },
   );
   console.log(`[myswitzerland] ${bookingPriceBackfills.length} existing unknown price(s) recovered from official booking pages`);
 
@@ -999,7 +1021,12 @@ async function main() {
   });
   const titleFilled = translatedEvents.filter((e) => e.titleByLocale && LOCALES.every((l) => e.titleByLocale[l])).length;
   console.log(`[myswitzerland] locale-fallback translation: ${titleFilled}/${translatedEvents.length} event(s) now have title in all ${LOCALES.length} locales`);
-  const freshEvents = mergePriceBackfillRecords(translatedEvents, indexedPriceBackfills, bookingPriceBackfills);
+  const freshEvents = mergePriceBackfillRecords(
+    translatedEvents,
+    knownPriceBackfills,
+    indexedPriceBackfills,
+    bookingPriceBackfills,
+  );
 
   if (dryRun) {
     console.log('🏃 dry-run — slice/checkpoint not written');
