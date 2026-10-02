@@ -56,7 +56,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
-      "needsRetranslation": true,
       "salaryMin": 44400,
       "salaryMax": 60000,
       "salarySource": "estimated",
@@ -116,7 +115,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-10-01T21:25:24.460Z",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
-      "needsRetranslation": true,
       "salaryMin": 55500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -235,7 +233,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-10-01T21:25:23.820Z",
       "firstSeenAt": "2026-09-28T21:24:44.993Z",
-      "needsRetranslation": true,
       "salaryMin": 98000,
       "salaryMax": 132000,
       "salarySource": "estimated",
@@ -317,8 +314,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "rapelli-bdc3322ac1f6",
@@ -451,8 +447,7 @@
         }
       },
       "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "rapelli-9f442deed99b",

@@ -750,19 +750,55 @@
       "previousSlugs": [
         "gerant-e-d-immeubles-livit-geneve",
         "gerant-e-d-immeubles-livit-ag-geneve",
-        "direttore-della-costruzione-livit-ag-geneve-81fa7c"
+        "direttore-della-costruzione-livit-ag-geneve-81fa7c",
+        "direttore-della-costruzione-livit-ag-geneve",
+        "building-manager-livit-ag-geneve",
+        "gebaudeverwalter-livit-ag-geneve",
+        "direttore-della-costruzione-livit-ag-geneve-28c4cc",
+        "junior-building-manager-cdd-fino-al-31-12-2026-livit-ag-geneve",
+        "junior-building-manager-cdd-until-31-12-2026-livit-ag-geneve",
+        "junior-building-manager-cdd-bis-31-12-2026-livit-ag-geneve",
+        "gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026-livit-geneve",
+        "gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026-livit-ag-geneve",
+        "junior-building-manager-cdd-fino-al-30-11-2026-livit-ag-geneve",
+        "junior-building-manager-cdd-until-30-11-2026-livit-ag-geneve",
+        "junior-building-manager-cdd-bis-30-11-2026-livit-ag-geneve",
+        "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-geneve",
+        "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
+        "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
+        "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
+        "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gerant-e-d-immeubles-livit-geneve",
           "gerant-e-d-immeubles-livit-ag-geneve",
-          "direttore-della-costruzione-livit-ag-geneve-81fa7c"
+          "direttore-della-costruzione-livit-ag-geneve-81fa7c",
+          "direttore-della-costruzione-livit-ag-geneve",
+          "building-manager-livit-ag-geneve",
+          "gebaudeverwalter-livit-ag-geneve",
+          "direttore-della-costruzione-livit-ag-geneve-28c4cc",
+          "junior-building-manager-cdd-fino-al-31-12-2026-livit-ag-geneve",
+          "junior-building-manager-cdd-until-31-12-2026-livit-ag-geneve",
+          "junior-building-manager-cdd-bis-31-12-2026-livit-ag-geneve",
+          "gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026-livit-geneve",
+          "gerant-e-d-immeubles-junior-cdd-jusqu-au-31-12-2026-livit-ag-geneve",
+          "junior-building-manager-cdd-fino-al-30-11-2026-livit-ag-geneve",
+          "junior-building-manager-cdd-until-30-11-2026-livit-ag-geneve",
+          "junior-building-manager-cdd-bis-30-11-2026-livit-ag-geneve",
+          "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-geneve",
+          "gerant-e-junior-d-immeubles-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
+          "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-ag-geneve",
+          "gerant-e-junior-cdd-jusqu-au-30-11-2026-livit-geneve",
+          "gerant-e-d-immeubles-junior-cdd-jusqu-au-30-11-2026-livit-geneve"
         ],
         "en": [
-          "gerant-e-d-immeubles-livit-geneve"
+          "gerant-e-d-immeubles-livit-geneve",
+          "building-manager-livit-ag-geneve"
         ],
         "de": [
-          "gerant-e-d-immeubles-livit-geneve"
+          "gerant-e-d-immeubles-livit-geneve",
+          "gebaudeverwalter-livit-ag-geneve"
         ]
       },
       "firstSeenAt": "2026-09-07T15:19:05.814Z",
@@ -1728,7 +1764,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-08-31T17:40:06.739Z"
+      "firstSeenAt": "2026-08-31T17:40:06.739Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rivenditore-senior-in-livit-ag-luzern",
+          "senior-marketer-in-livit-ag-luzern",
+          "marche-senior-en-livit-ag-luzern"
+        ],
+        "en": [
+          "senior-marketer-in-livit-ag-luzern"
+        ],
+        "fr": [
+          "marche-senior-en-livit-ag-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "rivenditore-senior-in-livit-ag-luzern",
+        "senior-marketer-in-livit-ag-luzern",
+        "marche-senior-en-livit-ag-luzern"
+      ]
     },
     {
       "id": "livit-867f0d6d10c2",
@@ -1803,7 +1857,7 @@
       "slugByLocale": {
         "it": "uffici-di-gestione-junior-livit-ag-zurich",
         "en": "junior-managing-offices-livit-ag-zurich",
-        "de": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich",
+        "de": "junior-bewirtschafter-in-geschaftsflachen-livit-zurich-py7kp5",
         "fr": "bureaux-de-gestion-auxiliaires-livit-ag-zurich"
       },
       "company": "Livit AG",
@@ -1859,6 +1913,9 @@
         ],
         "fr": [
           "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
+        ],
+        "de": [
+          "junior-bewirtschafter-in-geschaftsflachen-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:18.416Z",
@@ -1883,7 +1940,7 @@
       "slugByLocale": {
         "it": "gestione-delle-proprieta-livit-ag-basel",
         "en": "property-managers-livit-ag-basel",
-        "de": "immobilienbewirtschafter-in-livit-basel",
+        "de": "immobilienbewirtschafter-in-livit-basel-v0eup1",
         "fr": "gestionnaires-de-biens-livit-ag-basel-0f28e5"
       },
       "company": "Livit AG",
@@ -1939,6 +1996,9 @@
         ],
         "fr": [
           "immobilienbewirtschafter-in-livit-basel"
+        ],
+        "de": [
+          "immobilienbewirtschafter-in-livit-basel"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:18.461Z",
@@ -1963,7 +2023,7 @@
       "slugByLocale": {
         "it": "property-manager-real-estate-management-germania-svizzera-livit-ag-zurich",
         "en": "property-manager-real-estate-management-german-switzerland-livit-ag-zurich",
-        "de": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich",
+        "de": "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich-cmegdr",
         "fr": "gestionnaire-immobilier-gestion-immobiliere-allemand-suisse-livit-ag-zurich"
       },
       "company": "Livit AG",
@@ -2019,6 +2079,9 @@
         ],
         "fr": [
           "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich"
+        ],
+        "de": [
+          "sachbearbeiter-in-immobilienbewirtschaftung-deutschschweiz-livit-zurich"
         ]
       },
       "firstSeenAt": "2026-09-19T23:20:18.459Z",
@@ -2043,7 +2106,7 @@
       "slugByLocale": {
         "it": "gestione-delle-proprieta-livit-ag-st-gallen",
         "en": "property-managers-livit-ag-st-gallen",
-        "de": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen",
+        "de": "sachbearbeiter-in-immobilienbewirtschaftung-livit-st-gallen-htypel",
         "fr": "gestionnaires-de-biens-livit-ag-st-gallen"
       },
       "company": "Livit AG",
@@ -2128,7 +2191,7 @@
       "slugByLocale": {
         "it": "gestione-immobiliare-livit-ag-zurich",
         "en": "real-estate-managers-livit-ag-zurich-6e97be",
-        "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich",
+        "de": "immobilienbewirtschafter-in-geschaftsflachen-livit-zurich-v836kj",
         "fr": "directeurs-immobiliers-livit-ag-zurich-6e97be"
       },
       "company": "Livit AG",
@@ -2245,7 +2308,7 @@
       "slugByLocale": {
         "it": "gestore-immobiliare-livit-ag-st-gallen",
         "en": "property-manager-livit-ag-st-gallen",
-        "de": "immobilienbewirtschafter-in-livit-st-gallen",
+        "de": "immobilienbewirtschafter-in-livit-st-gallen-vi5zzh",
         "fr": "gestionnaire-immobilier-livit-ag-st-gallen"
       },
       "company": "Livit AG",
@@ -2330,7 +2393,7 @@
       "slugByLocale": {
         "it": "amministratori-di-proprieta-senior-livit-ag-zurich",
         "en": "senior-property-managers-livit-ag-zurich",
-        "de": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich",
+        "de": "senior-immobilienbewirtschafter-in-geschaftsliegenschaften-livit-zurich-5bn8ql",
         "fr": "directeurs-principaux-des-biens-immobiliers-livit-ag-zurich"
       },
       "company": "Livit AG",
@@ -2415,7 +2478,7 @@
       "slugByLocale": {
         "it": "responsabile-della-proprieta-in-livit-ag-zurich",
         "en": "property-manager-in-livit-ag-zurich",
-        "de": "immobilienbewirtschafter-in-livit-zurich",
+        "de": "immobilienbewirtschafter-in-livit-zurich-1ylber",
         "fr": "gestionnaires-de-biens-livit-ag-zurich"
       },
       "company": "Livit AG",
@@ -2509,7 +2572,7 @@
       "slugByLocale": {
         "it": "responsabile-della-proprieta-senior-livit-ag-zurich",
         "en": "senior-property-manager-in-livit-ag-zurich",
-        "de": "senior-immobilienbewirtschafter-in-livit-zurich",
+        "de": "senior-immobilienbewirtschafter-in-livit-zurich-rw9n48",
         "fr": "directeur-immobilier-principal-en-livit-ag-zurich"
       },
       "company": "Livit AG",
