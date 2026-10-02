@@ -87,7 +87,7 @@ import {
   swissCityFromLocationField,
 } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
-import { buildStableJobIdentity } from './lib/job-identity.mjs';
+import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
 import { splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
@@ -153,7 +153,11 @@ function norm(v = '') {
 /* ── Crawler-recorded location index ──────────────────────────
  * `data/jobs/by-crawler/<key>.json` is what each crawler actually wrote for a
  * posting, before any assemble-time inference or pin-ledger reconciliation.
- * Keyed by the same stable identity the pin ledger uses.
+ * Match by the record's stable `id` first. Some providers publish many jobs
+ * under one detail-page URL with a per-job hash fragment; the stats identity
+ * intentionally strips that fragment, so using it as a primary key associates
+ * every job with whichever crawler row happened to be read last. The URL-based
+ * identity remains a fallback only when it identifies one consistent record.
  *
  * Indexes the crawler's LOCALITY as well as its canton, because the two carry
  * very different amounts of signal:
@@ -172,7 +176,7 @@ function norm(v = '') {
  * rather than failing the audit. */
 function loadCrawlerRecords() {
   const dir = join(ROOT, 'data', 'jobs', 'by-crawler');
-  const index = new Map();
+  const index = createCrawlerLocationRecordIndex();
   if (!existsSync(dir)) return index;
   for (const file of listSliceFileNames(dir)) {
     let doc;
@@ -180,12 +184,7 @@ function loadCrawlerRecords() {
     const slice = Array.isArray(doc) ? doc : (doc.jobs || []);
     for (const job of slice) {
       if (!job || typeof job !== 'object') continue;
-      const canton = norm(job.canton).toUpperCase();
-      const city = norm(job.addressLocality || job.location);
-      const location = norm(job.location);
-      if (!canton && !city) continue;
-      const id = buildStableJobIdentity(job);
-      if (id) index.set(id, { canton, city, location });
+      index.add(job);
     }
   }
   return index;
@@ -328,7 +327,7 @@ for (const job of jobsToAudit) {
   // changed LOCALITY means the pipeline invented a location, so that is what
   // lands in the alarming bucket; a bare canton-stamp difference is recorded
   // separately as context and never trips the "must never produce" verdict.
-  const crawlerRecord = crawlerRecordById.get(buildStableJobIdentity(job) || '');
+  const crawlerRecord = crawlerRecordById.get(job);
   if (crawlerRecord && cantonUpper) {
     const crawlerCity = crawlerRecord.city;
     const entry = {
