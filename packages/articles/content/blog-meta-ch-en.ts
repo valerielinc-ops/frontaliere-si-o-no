@@ -7490,6 +7490,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.vendite-auto-elettrico-svizzera.title': 'New Car Sales in Switzerland: The Electric Vehicle Boom',
     'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'In September, 202,900 new cars were sold in Switzerland, up 9.6% year-over-year. Electric vehicles accounted for 36% of the market, while alternative-fuel vehicles accounted for 79%.',
     'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'New cars and electric vehicles registered in Switzerland',
+    'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin Resigns: SVP Retains Two Seats',
+    'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Guy Parmelin to step down at the end of the year. The Center acknowledges the two SVP seats; the PLR calls for candidates from French-speaking Switzerland.',
+    'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'The Federal Palace in Bern, seat of the Federal Council, awaiting Guy Parmelin\'s successor.',
 };
 
 export default blogMetaChEn;

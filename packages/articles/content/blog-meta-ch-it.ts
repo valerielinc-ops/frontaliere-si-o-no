@@ -7490,6 +7490,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.vendite-auto-elettrico-svizzera.title': 'Vendite auto nuove in Svizzera: boom dell\'elettrico',
     'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'A settembre 202,900 auto nuove in Svizzera, +9,6% annuo. L\'elettrico sale al 36% mentre le propulsioni alternative raggiungono il 79% del mercato.',
     'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'Auto nuove e veicoli elettrici immatricolati in Svizzera',
+    'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin si dimette: UDC mantiene due seggi',
+    'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Dimissioni di Guy Parmelin a fine anno. Il Centro riconosce i due seggi UDC; il PLR chiede candidati dalla Svizzera latina.',
+    'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'Il Palazzo federale a Berna, sede del Consiglio federale, in attesa della successione di Guy Parmelin.',
 };
 
 export default blogMetaChIt;

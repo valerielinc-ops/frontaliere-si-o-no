@@ -7490,6 +7490,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.vendite-auto-elettrico-svizzera.title': 'Neuwagenverkäufe in der Schweiz: Boom bei Elektroautos',
     'blog.article.vendite-auto-elettrico-svizzera.excerpt': 'Im September wurden in der Schweiz 202\'900 Neuwagen verkauft, ein Plus von 9,6 % gegenüber dem Vorjahr. Der Anteil der Elektrofahrzeuge stieg auf 36 %, während alternative Antriebe insgesamt 79 % des Marktes ausmachten.',
     'blog.article.vendite-auto-elettrico-svizzera.imageAlt': 'Neue Autos und Elektrofahrzeuge in der Schweiz immatrikuliert',
+    'blog.article.parmelin-dimissioni-consiglio-federale.title': 'Parmelin tritt zurück: Die SVP behält zwei Sitze',
+    'blog.article.parmelin-dimissioni-consiglio-federale.excerpt': 'Guy Parmelin tritt zum Jahresende zurück. Die Zentrumspartei erkennt die beiden Sitze der SVP an; die FDP fordert Kandidaten aus der lateinischen Schweiz.',
+    'blog.article.parmelin-dimissioni-consiglio-federale.imageAlt': 'Der Bundespalast in Bern, Sitz des Bundesrates, wartet auf Guy Parmelins Nachfolger.',
 };
 
 export default blogMetaChDe;

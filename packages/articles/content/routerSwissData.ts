@@ -2519,6 +2519,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rientro-maternita-filanda': { it: 'rientro-maternita-filanda', en: 'return-to-work-maternity-filanda', de: 'wiedereinstieg-mutterschaft-filanda', fr: 'retour-travail-maternite-filanda' },
  'sessione-autunnale-mercosur-ubs': { it: 'sessione-autunnale-mercosur-ubs', en: 'autumn-session-mercosur-ubs', de: 'herbstsession-mercosur-ubs', fr: 'session-automne-mercosur-ubs' },
  'vendite-auto-elettrico-svizzera': { it: 'vendite-auto-elettrico-svizzera', en: 'car-sales-electric-switzerland', de: 'autoverkaeufe-elektroauto-schweiz', fr: 'ventes-voitures-electriques-suisse' },
+ 'parmelin-dimissioni-consiglio-federale': { it: 'parmelin-dimissioni-consiglio-federale', en: 'parmelin-resigns-federal-council', de: 'parmelin-tritt-bundesrat-zurueck', fr: 'parmelin-quitte-conseil-federal' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
