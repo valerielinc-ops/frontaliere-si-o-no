@@ -1,16 +1,16 @@
 {
   "key": "rapelli",
   "label": "Rapelli",
-  "generatedAt": "2026-10-01T21:25:32.281Z",
-  "total": 10,
+  "generatedAt": "2026-10-02T09:26:14.489Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 5116,
-  "avgDurationMs": 5116,
+  "removedCount": 6,
+  "unchangedCount": 0,
+  "durationMs": 4216,
+  "avgDurationMs": 4216,
   "durationHistory": [
-    5116
+    4216
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Head-of-Logistics-&-Shipping-%28100%29-TI/1441755033/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-01T21:25:23.820Z",
+      "crawledAt": "2026-10-02T09:26:05.880Z",
       "firstSeenAt": "2026-09-28T21:24:44.993Z",
       "needsRetranslation": true,
       "_qualityScore": 82,
@@ -67,7 +67,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Collaboratore-Confezionamento-Crudi-%28100%29-TI/1408373633/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-01T21:25:24.460Z",
+      "crawledAt": "2026-10-02T09:26:06.369Z",
       "firstSeenAt": "2026-09-19T23:17:53.063Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -98,7 +98,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Digital-Order-&-EDI-Specialist-%2850-80%29-TI/1389772533/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-01T21:25:24.820Z",
+      "crawledAt": "2026-10-02T09:26:06.777Z",
       "firstSeenAt": "2026-09-08T23:33:45.493Z",
       "needsRetranslation": true,
       "_qualityScore": 84,
@@ -130,7 +130,7 @@
       "applyUrl": "https://careers.orior.ch/job/Stabio-Responsabile-Intermedio-Produzione%2C-100-%28mwd%29-TI/1431352833/",
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-01T21:25:24.143Z",
+      "crawledAt": "2026-10-02T09:26:06.120Z",
       "firstSeenAt": "2026-08-31T17:32:26.004Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -141,8 +141,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "rapelli-1c1bde834f0d",
       "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
@@ -360,5 +359,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

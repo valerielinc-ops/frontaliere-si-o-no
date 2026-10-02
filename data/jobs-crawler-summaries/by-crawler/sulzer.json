@@ -1,7 +1,7 @@
 {
   "key": "sulzer",
   "label": "Sulzer",
-  "generatedAt": "2026-10-01T21:25:02.479Z",
+  "generatedAt": "2026-10-02T09:23:16.795Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,10 +14,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5676,
-  "avgDurationMs": 5676,
+  "durationMs": 5050,
+  "avgDurationMs": 5050,
   "durationHistory": [
-    5676
+    5050
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:24:50.961Z",
+      "crawledAt": "2026-10-02T09:23:05.351Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -50,9 +50,9 @@
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/HR-Administration---Payroll-Manager_JR102620",
       "jobReqId": "JR102620",
       "firstSeenAt": "2026-08-12T10:39:20.318Z",
-      "_qualityScore": 79,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 14
@@ -71,7 +71,7 @@
       "url": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "source": "Sulzer Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-01T21:24:51.813Z",
+      "crawledAt": "2026-10-02T09:23:06.140Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -87,9 +87,9 @@
       "applyUrl": "https://sulzer.wd502.myworkdayjobs.com/en-US/SulzerJobs/job/Winterthur/Head-of-Product--Solution---Segment-Marketing_JR103919",
       "jobReqId": "JR103919",
       "firstSeenAt": "2026-07-15T22:43:23.589Z",
-      "_qualityScore": 77,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
-        "cleanliness": 20,
+        "cleanliness": 25,
         "richness": 18,
         "translation": 25,
         "completeness": 14
