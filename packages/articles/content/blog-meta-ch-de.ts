@@ -7424,6 +7424,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bilancio-familiare-lucerna.title': 'Lebenshaltungskosten in der Schweiz 2026: Kanton Luzern',
     'blog.article.bilancio-familiare-lucerna.excerpt': 'Lebenshaltungskosten 2026 in Luzern: dreistufige Besteuerung, KVG innerhalb von drei Monaten und Lohnbeiträge, ohne bundesstaatlichen Mindestlohn.',
     'blog.article.bilancio-familiare-lucerna.imageAlt': 'Lebenskosten 2026: Haushaltsbudget und Wohnen im Kanton Luzern',
+    'blog.article.argovia-spese-quotidiane-2026.title': 'Schweizer Lebenshaltungskosten 2026: Kanton Aargau',
+    'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Im Kanton Aargau müssen die Lebenshaltungskosten im Jahr 2026 zwischen drei Steuerstufen gemessen werden: KVG innerhalb von 3 Monaten und einem nationalen Vergleich zu Mieten, Ausgaben und Verkehr.',
+    'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Lebenshaltungskosten in der Schweiz: Haushaltsbudget für Miete, Einkauf, Verkehr und Krankenversicherung',
 };
 
 export default blogMetaChDe;

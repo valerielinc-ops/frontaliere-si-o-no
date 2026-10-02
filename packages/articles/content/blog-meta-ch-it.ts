@@ -7424,6 +7424,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bilancio-familiare-lucerna.title': 'Costo della vita svizzera 2026: canton Lucerna',
     'blog.article.bilancio-familiare-lucerna.excerpt': 'Costo della vita 2026 a Lucerna: fisco a tre livelli, LAMal entro tre mesi e contributi sul salario, senza salario minimo federale.',
     'blog.article.bilancio-familiare-lucerna.imageAlt': 'Costo della vita 2026: budget familiare e abitazioni nel canton Lucerna',
+    'blog.article.argovia-spese-quotidiane-2026.title': 'Costo della vita svizzera 2026: canton Argovia',
+    'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Nel canton Argovia il costo della vita 2026 va letto tra tre livelli fiscali, LAMal entro 3 mesi e confronto nazionale su affitti, spesa e trasporti.',
+    'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Costo della vita in Svizzera: budget familiare con affitto, spesa, trasporti e LAMal',
 };
 
 export default blogMetaChIt;

@@ -7424,6 +7424,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bilancio-familiare-lucerna.title': 'Coût de la vie en Suisse 2026 : canton de Lucerne',
     'blog.article.bilancio-familiare-lucerna.excerpt': 'Coût de la vie 2026 à Lucerne : imposition à trois niveaux, KVG en trois mois et cotisations salariales, sans salaire minimum fédéral.',
     'blog.article.bilancio-familiare-lucerna.imageAlt': 'Coût de la vie 2026 : budget du ménage et logement dans le canton de Lucerne',
+    'blog.article.argovia-spese-quotidiane-2026.title': 'Coût de la vie suisse 2026 : canton d’Argovie',
+    'blog.article.argovia-spese-quotidiane-2026.excerpt': 'Dans le canton d’Argovie, le coût de la vie en 2026 doit être évalué entre trois niveaux d’impôt, le KVG en 3 mois et une comparaison nationale des loyers, des dépenses et des transports.',
+    'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Coût de la vie en Suisse: budget familial pour loyer, courses, transports et assurance maladie',
 };
 
 export default blogMetaChFr;
