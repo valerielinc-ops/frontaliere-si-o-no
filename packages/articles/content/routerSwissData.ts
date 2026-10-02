@@ -2497,6 +2497,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'budget-familiare-basilea-2026': { it: 'budget-familiare-basilea-2026', en: 'family-budget-basel-2026', de: 'familienbudget-basel-2026', fr: 'budget-menage-bale-2026' },
  'spese-quotidiane-vaud-2026': { it: 'spese-quotidiane-vaud-2026', en: 'swiss-living-cost-vaud-2026', de: 'lebenskosten-waadt-2026', fr: 'cout-vie-vaud-2026' },
  'bilancio-familiare-lucerna': { it: 'bilancio-familiare-lucerna', en: 'lucerne-household-budget', de: 'haushaltsbudget-luzern', fr: 'budget-menage-lucerne' },
+ 'argovia-spese-quotidiane-2026': { it: 'argovia-spese-quotidiane-2026', en: 'swiss-cost-of-living-2026-aargau', de: 'lebenshaltungskosten-schweiz-2026-aargau', fr: 'cout-vie-suisse-2026-argovie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

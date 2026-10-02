@@ -7424,6 +7424,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bilancio-familiare-lucerna.title': 'Cost of living in Switzerland 2026: canton of Lucerne',
     'blog.article.bilancio-familiare-lucerna.excerpt': 'Cost of living 2026 in Lucerne: three-tier taxation, KVG within three months and wage contributions, without federal minimum wage.',
     'blog.article.bilancio-familiare-lucerna.imageAlt': '2026 cost of living: household budget and housing in the canton of Lucerne',
+    'blog.article.argovia-spese-quotidiane-2026.title': 'Swiss cost of living 2026: canton of Aargau',
+    'blog.article.argovia-spese-quotidiane-2026.excerpt': 'In the canton of Aargau, the 2026 cost of living should be viewed across three tax levels, LAMal within 3 months, and a national comparison of rents, groceries and transport.',
+    'blog.article.argovia-spese-quotidiane-2026.imageAlt': 'Swiss cost of living: household budget for rent, groceries, transport and health insurance',
 };
 
 export default blogMetaChEn;

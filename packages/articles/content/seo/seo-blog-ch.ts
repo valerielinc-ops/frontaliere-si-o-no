@@ -96272,6 +96272,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-argovia-spese-quotidiane-2026': {
+    title: 'Costo della vita svizzera 2026: canton Argovia',
+    description: 'Affitti, spesa, trasporti, fisco e LAMal: guida 2026 al costo della vita in canton Argovia, con regole, scadenze e confronto tra Cantoni a livello nazionale.',
+    keywords: 'frontalieri, ticino, svizzera, italia, costo, vita, canton, argovia',
+    ogTitle: 'Costo della vita 2026: canton Argovia',
+    ogDescription: 'Il budget non dipende da una sola cifra: tre livelli fiscali, premi LAMal per cantone e regione, deposito d\'affitto fino a tre mesi di pigione e regole salariali da leggere nel 2026, dal lavoro alla previdenza.',
+    canonicalPath: '/articoli-svizzera/argovia-spese-quotidiane-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Costo della vita svizzera 2026: canton Argovia",
+      "description": "Affitti, spesa, trasporti, fisco e LAMal: guida 2026 al costo della vita in canton Argovia, con regole, scadenze e confronto tra Cantoni a livello nazionale.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/argovia-spese-quotidiane-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Costo della vita in Svizzera: budget familiare con affitto, spesa, trasporti e LAMal"
+      },
+      "datePublished": "2026-10-02T01:27:00+00:00",
+      "dateModified": "2026-10-02T01:27:00+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/argovia-spese-quotidiane-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
