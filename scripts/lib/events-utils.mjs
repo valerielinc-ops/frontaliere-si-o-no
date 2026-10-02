@@ -1502,7 +1502,7 @@ export function eventStableId(sourceKey, rawId) {
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
 const PRICE_FREE_RE = /\b(gratis|gratuit(?:[aioe]|i)?|free(?:\s+(?:entry|admission|entrance))?|kostenlos|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\b/iu;
-const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+\d{1,2}\s*[–—-]\s*\d{1,2})?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])/iu;
+const PRICE_CHILD_FREE_RE = /(?:children|kids|bambini|enfants|kinder)(?:\s+(?:(?:under|below|moins\s+de|unter)\s+\d{1,2}|\d{1,2}\s*[–—-]\s*\d{1,2}))?\s*(?:[:,;-]\s*)?(?:are|is|sono|sont|sind)?\s*(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])/iu;
 const PRICE_CHILD_FREE_FOR_RE = /(?:free|gratis|gratuit(?:[aioe]|i)?|kostenlos|frei|liber[oa])\s+(?:for|pour|per|für)\s+(?:children|kids|bambini|enfants|kinder)(?:\s+(?:under|below|moins\s+de|unter)\s+\d{1,2})?/iu;
 const PRICE_CHILD_AGE_RANGE_RE = /\b(?:children|kids|bambini|enfants|kinder)\b[^,.;\n]*?\b\d{1,2}\s*[–—-]\s*\d{1,2}\b/giu;
 const PRICE_AMOUNT_RE = /(?<![\p{L}\p{N}])(?:\d{1,3}(?:['’\s]\d{3})+|\d{1,3}(?:\.\d{3})+(?:,\d{1,2})?|\d{1,3}(?:,\d{3})+(?:\.\d{1,2})?|\d{1,5})(?:[.,]\d{1,2})?(?![\p{L}\p{N}])/gu;
@@ -1510,7 +1510,7 @@ const PRICE_ADJACENT_AMOUNT_RE = /(?:(CHF|EUR|€|S?Fr\.?)((?:\d{1,3}(?:['’\s]
 const PRICE_CURRENCY_BEFORE_RE = /(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\s*$/iu;
 const PRICE_CURRENCY_AFTER_RE = /^\s*(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)\b/iu;
 const PRICE_LABEL_BEFORE_RE = /(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\s*[:=]?\s*$/iu;
-const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif)\b/iu;
+const PRICE_LABEL_AFTER_RE = /^\s*(?:price|prices|prezzo|preise?|prix|tariffa|tarif|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b/iu;
 const PRICE_AUDIENCE_BEFORE_RE = /(?:adult(?:s|es)?|adulti|erwachsene)\s*$/iu;
 const PRICE_CONTEXT_RE = /(?:\b(?:price|prices|prezzo|preise?|prix|tariffa|tarif|admission|entry|entrance|ingresso|entrata|eintritt|pro\s+person|per\s+person|par\s+personne|per\s+persona)\b|(?:CHF|EUR|EUROS?|€|S?Fr\.?|francs?|franchi|franken)|\d[.,]?\s*[–—-]{1,2})/iu;
 const PRICE_DATE_OR_PHONE_RE = /(?:\b\d{1,2}[./-]\d{1,2}[./-]\d{2,4}\b|\b(?:19|20)\d{2}[./-]\d{1,2}[./-]\d{1,2}\b|\+?\d[\d\s()./-]{6,}\d\b)/u;
@@ -1538,8 +1538,8 @@ function collectPriceCandidates(text) {
   PRICE_AMOUNT_RE.lastIndex = 0;
   let match;
   while ((match = PRICE_AMOUNT_RE.exec(candidateText))) {
-    const before = candidateText.slice(Math.max(0, match.index - 8), match.index);
-    const after = candidateText.slice(match.index + match[0].length, match.index + match[0].length + 8);
+    const before = candidateText.slice(Math.max(0, match.index - 32), match.index);
+    const after = candidateText.slice(match.index + match[0].length, match.index + match[0].length + 32);
     const currency = before.match(PRICE_CURRENCY_BEFORE_RE)?.[0] || after.match(PRICE_CURRENCY_AFTER_RE)?.[0];
     const hasPriceLabel = PRICE_LABEL_BEFORE_RE.test(before) || PRICE_LABEL_AFTER_RE.test(after) || PRICE_AUDIENCE_BEFORE_RE.test(before);
     if (!currency && !hasPriceLabel) continue;
