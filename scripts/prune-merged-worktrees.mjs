@@ -19,12 +19,24 @@
 //   • PR CLOSED con commit unici, PR MERGED verso altro base o HEAD divergente
 //                                      → REPORT-ONLY
 //   • worktree detached / branch fantasma già su main → remove worktree
+//   • worktree detached il cui HEAD è antenato dell'HEAD di una PR MERGED su main
+//                                      → remove (snapshot del commit prima)
 //   • branch `worktree-agent-*` 0-ahead   → delete (orfano EnterWorktree)
 //   • branch locale (no worktree) con PR MERGED su main e HEAD esatto → delete
+//   • worktree clean, 0-ahead, NESSUNA PR, fermo da IDLE_WORKTREE_MS e senza
+//      processi con la cwd dentro      → remove (niente da perdere: è tutto su main)
 //   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo;
 //      upstream-GONE segnalato nel report → tipico worktree Codex fuori dagli hook)
-//   • worktree LOCKED, checkout corrente o hooks-main → KEEP, mai toccato
+//   • worktree LOCKED, in uso (cwd di un processo), checkout corrente o hooks-main
+//                                      → KEEP, mai toccato
 //   • branch con PR OPEN o worktree del repo principale (main) → KEEP, mai toccato
+//   • directory sotto le cartelle dei worktree che git non conosce più → remove
+//      solo se contiene esclusivamente residui (`.DS_Store`, `node_modules`, il body
+//      della PR alla radice) ed è ferma da IDLE_WORKTREE_MS, altrimenti REPORT
+//
+// Lo sporco che NON è lavoro (output dei cron, il body della PR scritto per
+// `--body-file`) non trattiene il worktree: scripts/lib/worktree-dirty.mjs.
+// Uno stato git illeggibile invece sì: non si rimuove ciò che non si è letto.
 //
 // Uso:
 //   node scripts/prune-merged-worktrees.mjs           # dry-run, stampa il piano
@@ -34,19 +46,29 @@
 // solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
 
 import { execFileSync, execSync } from 'node:child_process';
-import { realpathSync } from 'node:fs';
-import { basename, join, resolve } from 'node:path';
+import {
+  existsSync, lstatSync, readdirSync, readFileSync, readlinkSync, realpathSync, rmSync, statSync,
+} from 'node:fs';
+import { basename, join, relative, resolve } from 'node:path';
 
 import {
   isMergedIntoBaseAtHead,
   makePrStateResolver,
   pickBestAssociatedPr,
   rankPrState,
+  SAFE_BRANCH_RE,
 } from './lib/pr-state-window.mjs';
 import { classifyDirty } from './lib/worktree-dirty.mjs';
 import {
   canDeleteClosedCandidate,
+  canRemoveIdleOnMain,
   hasAncestryProof,
+  IDLE_WORKTREE_MS,
+  isAbortedCheckout,
+  isIdleSince,
+  isOrphanResidueFile,
+  isPathBusy,
+  isRemovableOrphanDir,
   needsSnapshot,
 } from './lib/branch-purge-policy.mjs';
 
@@ -309,9 +331,20 @@ function associatedPrForCommit(sha) {
 
 function commitIsAncestorOfPrHead(localTip, pr) {
   const prHead = pr?.head?.sha || pr?.headRefOid;
-  if (!localTip || !prHead || !repoSlug) return false;
+  if (!localTip || !prHead) return false;
   const key = `${localTip}...${prHead}`;
   if (ancestryProofCache.has(key)) return ancestryProofCache.get(key);
+  // Prima la prova locale: se l'HEAD della PR è nel clone, il DAG di git dà la
+  // stessa risposta di GitHub. L'endpoint compare risponde 422 «this diff is
+  // taking too long to generate» appena i due commit sono lontani (misurato il
+  // 2026-10-02 su #8862, #8849, #10025, #10051, #10417): la prova remota da
+  // sola lasciava report-only proprio i branch di risoluzione più vecchi.
+  if (gitOk(['cat-file', '-e', `${prHead}^{commit}`])) {
+    const provenLocally = gitOk(['merge-base', '--is-ancestor', localTip, prHead]);
+    ancestryProofCache.set(key, provenLocally);
+    return provenLocally;
+  }
+  if (!repoSlug) return false;
   const raw = ghOut([
     'api',
     `repos/${repoSlug}/compare/${localTip}...${prHead}`,
@@ -452,8 +485,87 @@ function isAncestorOfMain(ref) {
   }
 }
 
+// Directory amministrativa del worktree (`.git/worktrees/<id>`): ci sono HEAD,
+// index e reflog, cioè i file che un agente vivo tocca.
+function adminDirOf(wtPath) {
+  return gitOut(['-C', wtPath, 'rev-parse', '--absolute-git-dir'], { allowFail: true });
+}
+
+// Ultima attività git del worktree. La radice del working tree conta perché
+// creare/cancellare un file in cima ne cambia la data; le modifiche più in
+// profondità rendono il worktree sporco, e quello basta già a tenerlo.
+function lastActivityMs(wtPath, adminDir) {
+  let newest = 0;
+  for (const p of [join(adminDir, 'HEAD'), join(adminDir, 'index'), join(adminDir, 'logs', 'HEAD'), wtPath]) {
+    try { newest = Math.max(newest, statSync(p).mtimeMs); } catch { /* assente: non è attività */ }
+  }
+  return newest;
+}
+
+// true se ogni file (o symlink) presente nel working tree è identico al suo
+// blob in HEAD: un checkout interrotto ha scritto solo contenuto già in git.
+// Oltre `limit` file non è un checkout interrotto e non si controlla oltre.
+function workingFilesMatchHead(wtPath, head, limit = 2000) {
+  if (!head) return false;
+  const files = [];
+  const walk = (dir) => {
+    let entries;
+    try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return false; }
+    for (const entry of entries) {
+      const full = join(dir, entry.name);
+      if (dir === wtPath && entry.name === '.git') continue;
+      if (entry.isDirectory()) {
+        if (!walk(full)) return false;
+      } else {
+        files.push(relative(wtPath, full));
+        if (files.length > limit) return false;
+      }
+    }
+    return true;
+  };
+  if (!walk(wtPath)) return false;
+  for (const rel of files) {
+    let blob;
+    try {
+      blob = execFileSync('git', ['cat-file', 'blob', `${head}:${rel}`], { stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 256 * 1024 * 1024 });
+    } catch { return false; } // non tracciato in HEAD → potrebbe essere lavoro
+    let local;
+    try {
+      const full = join(wtPath, rel);
+      local = lstatSync(full).isSymbolicLink() ? Buffer.from(readlinkSync(full)) : readFileSync(full);
+    } catch { return false; }
+    if (!blob.equals(local)) return false;
+  }
+  return true;
+}
+
+// cwd di tutti i processi visibili. `known: false` se lsof non risponde: le
+// regole che dipendono dall'inattività allora non si applicano.
+function processCwds() {
+  try {
+    const out = execFileSync('lsof', ['-a', '-d', 'cwd', '-F', 'n'], {
+      encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'], maxBuffer: 64 * 1024 * 1024, timeout: 30000,
+    });
+    return { known: true, cwds: out.split('\n').filter((l) => l.startsWith('n')).map((l) => l.slice(1)) };
+  } catch (e) {
+    // lsof esce 1 anche quando alcuni processi non sono leggibili: l'output
+    // parziale resta valido se c'è.
+    const out = typeof e?.stdout === 'string' ? e.stdout : '';
+    const cwds = out.split('\n').filter((l) => l.startsWith('n')).map((l) => l.slice(1));
+    return { known: cwds.length > 0, cwds };
+  }
+}
+const busySnapshot = processCwds();
+function isBusy(wtPath) {
+  return isPathBusy(wtPath, busySnapshot.cwds) || isPathBusy(canonicalPath(wtPath), busySnapshot.cwds);
+}
+
 function hasSnapshotTag(branch) {
-  return gitOut(['tag', '--points-at', `refs/heads/${branch}`], { allowFail: true })
+  return hasSnapshotAt(`refs/heads/${branch}`);
+}
+
+function hasSnapshotAt(rev) {
+  return gitOut(['tag', '--points-at', rev], { allowFail: true })
     .split('\n')
     .some((tag) => tag.startsWith('snapshot/'));
 }
@@ -479,6 +591,17 @@ function snapshotBeforeDelete(branch, required) {
   const sha = headOfLocalBranch(branch);
   if (!sha) return false;
   const tag = snapshotTagName(branch);
+  if (!gitOk(['tag', tag, sha])) return false;
+  console.log(`snapshot ${tag} -> ${sha.slice(0, 12)}`);
+  return true;
+}
+
+// Worktree detached: nessun branch tiene in vita il commit dopo la rimozione,
+// quindi lo snapshot va sul commit stesso.
+function snapshotDetachedBeforeRemove(sha, required) {
+  if (!required) return true;
+  if (!sha) return false;
+  const tag = snapshotTagName(`detached-${sha.slice(0, 12)}`);
   if (!gitOk(['tag', tag, sha])) return false;
   console.log(`snapshot ${tag} -> ${sha.slice(0, 12)}`);
   return true;
@@ -534,9 +657,30 @@ for (const wt of worktrees) {
     });
     continue;
   }
+  if (wt.prunable) {
+    reportWt.push({ ...wt, reason: 'directory assente (prunable) — ne pota i metadati `git worktree prune` in --apply' });
+    continue;
+  }
   if (wt.branch === mainBranch) continue;    // doppia guardia: mai il branch default
-  const { significant, ignored } = classifyDirty(wt.path);
-  const dirty = significant.length > 0;
+  if (isBusy(wt.path)) {
+    reportWt.push({ ...wt, reason: 'in uso: un processo ha la cwd dentro il worktree — KEEP' });
+    continue;
+  }
+  const adminDir = adminDirOf(wt.path);
+  const hasIndex = adminDir ? existsSync(join(adminDir, 'index')) : true;
+  const aborted = Boolean(adminDir) && isAbortedCheckout({
+    hasIndex,
+    onlyHeadContent: !hasIndex && workingFilesMatchHead(wt.path, wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '')),
+  });
+  // Checkout mai completato: `git status` vede tutto "cancellato", ma non c'è
+  // un solo file da perdere.
+  const { significant, ignored, error: statusError } = aborted
+    ? { significant: [], ignored: [], error: false }
+    : classifyDirty(wt.path);
+  const dirty = statusError || significant.length > 0;
+  const dirtyNote = statusError
+    ? 'stato git illeggibile'
+    : `DIRTY su ${significant.length} file`;
   const head = wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '');
   const state = wt.branch ? resolveBranchPrState(wt.branch) : undefined;
   const resolution = wt.branch ? branchPrResolution.get(wt.branch) : undefined;
@@ -554,11 +698,11 @@ for (const wt of worktrees) {
     if (dirty) {
       reportWt.push({
         ...wt,
-        reason: `PR ${state} ma worktree DIRTY su ${significant.length} file — ispeziona a mano: ${significant.slice(0, 5).join(', ')}`,
+        reason: `PR ${state} ma worktree ${dirtyNote} — ispeziona a mano: ${significant.slice(0, 5).join(', ')}`,
       });
       continue;
     }
-    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / blocco gitnexus), PR ${state}.`);
+    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / body della PR), PR ${state}.`);
     const ahead = wt.branch ? aheadOfMain(wt.branch) : null;
     removeWt.push({
       ...wt,
@@ -572,20 +716,129 @@ for (const wt of worktrees) {
     if (!dirty && canDeleteClosedCandidate({ ahead })) {
       removeWt.push({ ...wt, reason: 'PR CLOSED ma 0-ahead: nessun commit locale unico' });
     } else {
-      reportWt.push({ ...wt, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'} — REPORT-ONLY` });
+      reportWt.push({ ...wt, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'}${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY` });
     }
   } else if (wt.detached) {
-    if (!dirty && isAncestorOfMain(head)) removeWt.push(wt);
-    else reportWt.push({ ...wt, reason: `detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, DIRTY su ${significant.length} file` : ''} — REPORT-ONLY` });
+    if (!dirty && isAncestorOfMain(head)) {
+      removeWt.push({ ...wt, reason: 'detached, HEAD già su main' });
+      continue;
+    }
+    // Worktree di risoluzione (`resolve-pr-N`, merge di main in una PR): il
+    // commit non è su main per lo squash, ma è dentro l'HEAD di una PR MERGED.
+    // Stessa prova dei branch: PR associata al commit + antenato del suo HEAD.
+    const associated = !dirty ? associatedPrForCommit(head) : undefined;
+    if (associated?.state === 'MERGED' && commitIsAncestorOfPrHead(head, associated)) {
+      removeWt.push({
+        ...wt,
+        snapshotDetached: needsSnapshot({ prState: 'MERGED', ahead: aheadOfMain(head), hasSnapshot: hasSnapshotAt(head) }),
+        reason: `detached, PR #${associated.number ?? '?'} MERGED: commit ${head.slice(0, 12)} antenato dell'HEAD PR ${(associated.head?.sha || associated.headRefOid || '?').slice(0, 12)}`,
+      });
+      continue;
+    }
+    reportWt.push({ ...wt, reason: `detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, ${dirtyNote}` : ''} — REPORT-ONLY` });
   } else {
-    // Worktree senza PR: NON auto-rimuovere mai. Un worktree clean+0-ahead è
-    // indistinguibile da un agent che ha appena fatto EnterWorktree e non ha
-    // ancora committato → rimuoverlo distruggerebbe lavoro vivo. Report-only.
+    // Worktree senza PR. Con commit propri resta sempre report-only: può essere
+    // lavoro pre-PR. Con 0 commit propri e niente sporco non c'è niente da
+    // perdere; lo si tiene solo finché potrebbe essere un agente appena partito
+    // (EnterWorktree / fast-worktree.sh e nessun commit ancora): oltre
+    // IDLE_WORKTREE_MS di inattività, e senza processi dentro, si rimuove.
     const ahead = wt.branch ? aheadOfMain(wt.branch) : 0;
+    const activity = adminDir ? lastActivityMs(wt.path, adminDir) : 0;
+    const idle = isIdleSince(activity);
+    // Un nome di branch che non si sa citare non è stato interrogato su GitHub:
+    // per lui "nessuna PR" non è una risposta.
+    const prStateKnown = ghOk && SAFE_BRANCH_RE.test(wt.branch || '');
+    if (canRemoveIdleOnMain({
+      dirty, ahead, idle, busy: false, busyKnown: busySnapshot.known, ghOk: prStateKnown,
+    })) {
+      const days = Math.floor((Date.now() - activity) / 86400000);
+      removeWt.push({
+        ...wt,
+        reason: `nessuna PR, 0-ahead${aborted ? ' (checkout mai completato)' : ''}, fermo da ${days} giorni: tutto già su main`,
+      });
+      continue;
+    }
     const gone = wt.branch && upstreamGone(wt.branch) ? ' upstream-GONE (remoto cancellato — probabile merged/closed altrove, es. worktree Codex)' : '';
-    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron)` : '';
-    reportWt.push({ ...wt, reason: `clean=${!dirty}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone} — agent forse attivo (anche se 0-ahead = pre-primo-commit), REPORT-ONLY` });
+    const noise = ignored.length ? ` (+${ignored.length} sporchi ignorati: cron/body PR)` : '';
+    const why = ahead === 0 && !dirty
+      ? ` — attività ${idle ? 'vecchia' : 'recente'} (< ${IDLE_WORKTREE_MS / 3600000} h = agente forse attivo)${busySnapshot.known ? '' : ', lsof non disponibile'}${ghOk ? '' : ', gh non disponibile'}`
+      : ' — agent forse attivo';
+    reportWt.push({ ...wt, reason: `clean=${!dirty}${statusError ? ' (stato git illeggibile)' : ''}${noise} ahead=${ahead ?? 'unknown'} no-PR${gone}${why}, REPORT-ONLY` });
   }
+}
+
+// --- 1b. DIRECTORY ORFANE sotto le cartelle dei worktree ----------------------
+// `git worktree list` non le vede: metadati già potati, directory rimasta. La
+// radice è quella del checkout PRINCIPALE (primo record del porcelain), non la
+// cwd: lanciato da hooks-main via bin/site-hook, `--show-toplevel` darebbe il
+// worktree degli hook.
+const registered = new Set(worktrees.map((w) => canonicalPath(w.path)));
+const mainWorktreeRoot = worktrees[0]?.path || repoRoot;
+const orphanRemove = []; // {path, files}
+const orphanReport = []; // {path, reason}
+
+function scanOrphan(dir) {
+  // Si ferma al primo file che non è rumore: quel file basta per non toccare.
+  const files = [];
+  let newest = 0;
+  let work = null;
+  const walk = (current) => {
+    let entries;
+    try { entries = readdirSync(current, { withFileTypes: true }); } catch { work = work || relative(dir, current) || '.'; return; }
+    try { newest = Math.max(newest, lstatSync(current).mtimeMs); } catch { /* sparito */ }
+    for (const entry of entries) {
+      if (work) return;
+      const full = join(current, entry.name);
+      const rel = relative(dir, full);
+      if (entry.isDirectory()) {
+        walk(full);
+      } else if (isOrphanResidueFile(rel)) {
+        files.push(rel);
+        try { newest = Math.max(newest, lstatSync(full).mtimeMs); } catch { /* sparito */ }
+      } else {
+        work = rel;
+      }
+    }
+  };
+  walk(dir);
+  return { files, newest, work };
+}
+
+function sweepOrphans(dir) {
+  let entries;
+  try { entries = readdirSync(dir, { withFileTypes: true }); } catch { return; }
+  for (const entry of entries) {
+    if (!entry.isDirectory()) continue;
+    const full = join(dir, entry.name);
+    const canonical = canonicalPath(full);
+    if (registered.has(canonical)) continue;
+    // Cartella di raggruppamento (`fix/`, `codex/`) con worktree registrati
+    // dentro: si scende a guardare i fratelli, mai si cancella in blocco.
+    const prefix = `${canonical}/`;
+    if ([...registered].some((p) => p.startsWith(prefix))) {
+      sweepOrphans(full);
+      continue;
+    }
+    if (isBusy(full)) {
+      orphanReport.push({ path: full, reason: 'in uso: un processo ha la cwd dentro — KEEP' });
+      continue;
+    }
+    const { files, newest, work } = scanOrphan(full);
+    if (!work && isRemovableOrphanDir({ files, idle: isIdleSince(newest) })) {
+      orphanRemove.push({ path: full, files: files.length });
+    } else {
+      orphanReport.push({
+        path: full,
+        reason: work
+          ? `nessun worktree git registrato ma contiene file (es. ${work}) — senza metadati git non si può dire se è lavoro, verifica a mano`
+          : `solo residui (${files.length} file), modificata da meno di ${IDLE_WORKTREE_MS / 3600000} h`,
+      });
+    }
+  }
+}
+for (const root of ['.claude/worktrees', '.worktrees', '.wt']) {
+  const dir = join(mainWorktreeRoot, root);
+  if (existsSync(dir)) sweepOrphans(dir);
 }
 
 // --- 2. BRANCH LOCALI senza worktree ----------------------------------------
@@ -644,18 +897,21 @@ console.log('');
 
 console.log(`worktree da rimuovere (${removeWt.length}):`);
 removeWt.forEach((w) => console.log(
-  `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${w.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
+  `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${w.snapshot || w.snapshotDetached ? ' — crea snapshot prima della rimozione' : ''}`,
 ));
+console.log(`directory orfane da rimuovere (${orphanRemove.length}):`);
+orphanRemove.forEach((o) => console.log(`  - ${o.path} — nessun worktree registrato, solo residui (${o.files} file: .DS_Store / node_modules / body PR)`));
 console.log(`branch locali da cancellare (${delBranch.length}):`);
 delBranch.forEach((b) => console.log(
   `  - ${b.name}${b.reason ? ` — ${b.reason}` : ''}${b.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
 ));
 
-if (reportWt.length || reportBranch.length) {
+if (reportWt.length || reportBranch.length || orphanReport.length) {
   console.log('');
   console.log('⚠️  REPORT-ONLY (non toccati — decidi a mano):');
   reportWt.forEach((w) => console.log(`  • worktree ${w.path}${w.branch ? ` [${w.branch}]` : ''} → ${w.reason}`));
   reportBranch.forEach((b) => console.log(`  • branch ${b.name} → ${b.reason}`));
+  orphanReport.forEach((o) => console.log(`  • directory ${o.path} → ${o.reason}`));
 }
 
 if (!APPLY) {
@@ -670,6 +926,11 @@ for (const w of removeWt) {
   if (w.branch && !snapshotBeforeDelete(w.branch, w.snapshot)) {
     failed++;
     console.log(`⚠️  FALLITO snapshot ${w.branch} — worktree lasciato intatto`);
+    continue;
+  }
+  if (!w.branch && !snapshotDetachedBeforeRemove(w.head, w.snapshotDetached)) {
+    failed++;
+    console.log(`⚠️  FALLITO snapshot ${w.head} — worktree lasciato intatto`);
     continue;
   }
   // Conta/logga solo a esito 0: una rimozione fallita (worktree lockato, branch
@@ -697,6 +958,23 @@ for (const b of delBranch) {
     console.log(`⚠️  FALLITO branch -D ${b.name} (in checkout? non-merged senza -D?) — saltato`);
   }
 }
+for (const o of orphanRemove) {
+  // Ricontrollo subito prima: nel frattempo qualcuno può averci scritto.
+  const again = scanOrphan(o.path);
+  if (again.work || !isRemovableOrphanDir({ files: again.files, idle: isIdleSince(again.newest) })) {
+    failed++;
+    console.log(`⚠️  SALTATA directory ${o.path}: è cambiata durante lo sweep`);
+    continue;
+  }
+  try {
+    rmSync(o.path, { recursive: true, force: false });
+    done++;
+    console.log(`removed directory ${o.path}`);
+  } catch {
+    failed++;
+    console.log(`⚠️  FALLITA rimozione directory ${o.path} — saltata`);
+  }
+}
 sh('git worktree prune', { allowFail: true });
 console.log('');
-console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length} voci report-only lasciate intatte.`);
+console.log(`✓ applicate ${done} rimozioni${failed ? `, ${failed} FALLITE (vedi sopra)` : ''}. ${reportWt.length + reportBranch.length + orphanReport.length} voci report-only lasciate intatte.`);
