@@ -172,6 +172,24 @@ describe('draft mode', () => {
     expect(draft.questions.map((question: any) => question.id)).not.toContain('salary_expectation');
   });
 
+  it('reuses a profile read by this version, normalized; a profile read before the kinds of experience is read again', async () => {
+    const run = (previousDraft: any) => {
+      const codex = fakeCodex();
+      return buildDraft({
+        order, orderId: ORDER_ID, flow: { round: 2, answers: {} }, previousDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+        codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+      }).then((draft) => ({ draft, calls: codex.mock.calls.length }));
+    };
+    const { draft: first } = await run(null);
+    const reused = await run({ ...first, profile: { ...first.profile, fullName: '  Maria   Rossi  ' } });
+    // Match, documents and tailored CV only: profile and requirements are reused.
+    expect(reused.calls).toBe(3);
+    expect(reused.draft.profile.fullName).toBe('Maria Rossi');
+    const { aptitudeTests, recognitions, projects, interests, references, drivingLicence, ...older } = first.profile;
+    const reread = await run({ ...first, profile: { ...older, experience: older.experience.map(({ kind, ...role }: any) => role) } });
+    expect(reread.calls).toBe(5);
+  });
+
   it('stops before any Codex call when the posting is closed', async () => {
     const codex = fakeCodex();
     await expect(buildDraft({
