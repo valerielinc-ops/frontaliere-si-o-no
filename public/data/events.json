@@ -307152,7 +307152,15 @@
         "@type": "Organization",
         "name": "Baden"
       },
-      "imageUrl": "/images/events/myswitzerland-1e416c4502704f9fbd51ac39df9a9535.webp"
+      "imageUrl": "/images/events/myswitzerland-1e416c4502704f9fbd51ac39df9a9535.webp",
+      "price": {
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2027-01-13T19:30:00+0100",
+        "url": "https://eventfrog.ch/de/p/theater-buehne/theater/lab-rats-7480191323867196268.html",
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      }
     },
     {
       "id": "myswitzerland:3fdfa24e46404f61b7484cfc5cfd0eee",
