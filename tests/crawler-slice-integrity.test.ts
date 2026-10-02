@@ -754,6 +754,67 @@ describe('crawler slice integrity guard', () => {
     )).toThrow(/catastrophic truncation avoided/);
   });
 
+  describe('source-verified shrink that also publishes new jobs (convit-holding, 2026-09-27)', () => {
+    // Shape of the run that failed: the source dropped most postings (each one
+    // 404 at its own URL) and listed a few new ones in the same crawl. The
+    // proof names the removed jobs only; the new ones remove nothing.
+    const filePath = 'data/jobs/by-crawler/convit-holding.json';
+    const removedA = dedupJob('https://convit.example/job/gone-a', 'Closed A', 'x'.repeat(700_000));
+    const removedB = dedupJob('https://convit.example/job/gone-b', 'Closed B', 'y'.repeat(700_000));
+    const retained = dedupJob('https://convit.example/job/kept', 'Open position', 'z'.repeat(100_000));
+    const fresh = dedupJob('https://convit.example/job/new', 'New position', 'n'.repeat(100_000));
+    const previous = json({ crawlerKey: 'convit-holding', jobs: [removedA, removedB, retained] });
+    const next = json({ crawlerKey: 'convit-holding', jobs: [retained, fresh] });
+    const proof = [
+      { job: removedA, definitive: true, reason: 'http-404' },
+      { job: removedB, definitive: true, reason: 'http-404' },
+    ];
+
+    it('accepts the write when every removed job has definitive evidence', () => {
+      expect(isProvenHousekeepingPrune(filePath, previous, next, proof)).toBe(true);
+      expect(assertCrawlerSliceWriteSafe(filePath, previous, next, { housekeepingProof: proof }).reason)
+        .toBe('proven-housekeeping-prune');
+
+      const root = mkdtempSync(join(tmpdir(), 'crawler-slice-additions-'));
+      const target = join(root, filePath);
+      try {
+        writeJsonAtomic(target, JSON.parse(previous));
+        expect(() => writeJsonAtomic(target, JSON.parse(next), { housekeepingProof: proof })).not.toThrow();
+        expect(JSON.parse(readFileSync(target, 'utf8')).jobs.map((job: { url: string }) => job.url))
+          .toEqual([retained.url, fresh.url]);
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    });
+
+    it('keeps the byte guard closed without proof, as before', () => {
+      expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next)).toThrow(/catastrophic truncation avoided/);
+    });
+
+    it('stays closed when one removed job is not covered', () => {
+      expect(isProvenHousekeepingPrune(filePath, previous, next, [proof[0]])).toBe(false);
+      expect(() => assertCrawlerSliceWriteSafe(filePath, previous, next, { housekeepingProof: [proof[0]] }))
+        .toThrow(/catastrophic truncation avoided/);
+    });
+
+    it('stays closed when the proof names a job the write keeps', () => {
+      expect(isProvenHousekeepingPrune(filePath, previous, next, [
+        ...proof,
+        { job: retained, definitive: true, reason: 'http-404' },
+      ])).toBe(false);
+    });
+
+    it('stays closed when the next slice repeats an identity', () => {
+      const duplicated = json({ crawlerKey: 'convit-holding', jobs: [retained, fresh, { ...fresh, title: 'Copy' }] });
+      expect(isProvenHousekeepingPrune(filePath, previous, duplicated, proof)).toBe(false);
+    });
+
+    it('does not treat a write that removes nothing as a proven prune', () => {
+      const grown = json({ crawlerKey: 'convit-holding', jobs: [removedA, removedB, retained, fresh] });
+      expect(isProvenHousekeepingPrune(filePath, previous, grown, proof)).toBe(false);
+    });
+  });
+
   it('allows only the digest-bound Coop scratch archive retirement proof', () => {
     const filePath = 'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json';
     const previous = json([

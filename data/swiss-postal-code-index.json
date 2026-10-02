@@ -1,0 +1,10004 @@
+{
+  "generatedAt": "2026-10-02",
+  "source": "swisstopo with Swiss Post — Amtliches Ortschaftenverzeichnis mit Postleitzahl und Perimeter (official directory of localities with postcodes, open data)",
+  "sourceUrl": "https://data.geo.admin.ch/ch.swisstopo-vd.ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz/ortschaftenverzeichnis_plz_2056.csv.zip",
+  "sourceVersion": "2026-09-30",
+  "sourceRows": 5716,
+  "sourceSha256": "ae33ad60171374afcb39ddd9cc5268a1fe5b71f40bf21961373f4e6fb65abe02",
+  "selection": "A postal code is listed only when every directory row for it names the same canton and the same locality (Swiss Post canton suffix stripped). Left out: 169 codes spanning several cantons, 510 codes shared by several localities, 13 codes without a canton (Liechtenstein).",
+  "totalPostalCodes": 2498,
+  "postalCodes": {
+    "1003": [
+      "VD",
+      "Lausanne"
+    ],
+    "1004": [
+      "VD",
+      "Lausanne"
+    ],
+    "1005": [
+      "VD",
+      "Lausanne"
+    ],
+    "1006": [
+      "VD",
+      "Lausanne"
+    ],
+    "1007": [
+      "VD",
+      "Lausanne"
+    ],
+    "1009": [
+      "VD",
+      "Pully"
+    ],
+    "1010": [
+      "VD",
+      "Lausanne"
+    ],
+    "1011": [
+      "VD",
+      "Lausanne"
+    ],
+    "1012": [
+      "VD",
+      "Lausanne"
+    ],
+    "1015": [
+      "VD",
+      "Lausanne"
+    ],
+    "1018": [
+      "VD",
+      "Lausanne"
+    ],
+    "1020": [
+      "VD",
+      "Renens"
+    ],
+    "1022": [
+      "VD",
+      "Chavannes-près-Renens"
+    ],
+    "1023": [
+      "VD",
+      "Crissier"
+    ],
+    "1024": [
+      "VD",
+      "Ecublens"
+    ],
+    "1025": [
+      "VD",
+      "St-Sulpice"
+    ],
+    "1027": [
+      "VD",
+      "Lonay"
+    ],
+    "1028": [
+      "VD",
+      "Préverenges"
+    ],
+    "1029": [
+      "VD",
+      "Villars-Ste-Croix"
+    ],
+    "1030": [
+      "VD",
+      "Bussigny"
+    ],
+    "1031": [
+      "VD",
+      "Mex"
+    ],
+    "1032": [
+      "VD",
+      "Romanel-sur-Lausanne"
+    ],
+    "1033": [
+      "VD",
+      "Cheseaux-sur-Lausanne"
+    ],
+    "1034": [
+      "VD",
+      "Boussens"
+    ],
+    "1035": [
+      "VD",
+      "Bournens"
+    ],
+    "1036": [
+      "VD",
+      "Sullens"
+    ],
+    "1037": [
+      "VD",
+      "Etagnières"
+    ],
+    "1038": [
+      "VD",
+      "Bercher"
+    ],
+    "1043": [
+      "VD",
+      "Sugnens"
+    ],
+    "1044": [
+      "VD",
+      "Fey"
+    ],
+    "1045": [
+      "VD",
+      "Ogens"
+    ],
+    "1046": [
+      "VD",
+      "Rueyres"
+    ],
+    "1047": [
+      "VD",
+      "Oppens"
+    ],
+    "1052": [
+      "VD",
+      "Le Mont-sur-Lausanne"
+    ],
+    "1054": [
+      "VD",
+      "Morrens"
+    ],
+    "1055": [
+      "VD",
+      "Froideville"
+    ],
+    "1058": [
+      "VD",
+      "Villars-Tiercelin"
+    ],
+    "1059": [
+      "VD",
+      "Peney-le-Jorat"
+    ],
+    "1061": [
+      "VD",
+      "Villars-Mendraz"
+    ],
+    "1062": [
+      "VD",
+      "Sottens"
+    ],
+    "1066": [
+      "VD",
+      "Epalinges"
+    ],
+    "1068": [
+      "VD",
+      "Les Monts-de-Pully"
+    ],
+    "1070": [
+      "VD",
+      "Puidoux"
+    ],
+    "1072": [
+      "VD",
+      "Forel (Lavaux)"
+    ],
+    "1076": [
+      "VD",
+      "Ferlens"
+    ],
+    "1077": [
+      "VD",
+      "Servion"
+    ],
+    "1078": [
+      "VD",
+      "Essertes"
+    ],
+    "1080": [
+      "VD",
+      "Les Cullayes"
+    ],
+    "1081": [
+      "VD",
+      "Montpreveyres"
+    ],
+    "1082": [
+      "VD",
+      "Corcelles-le-Jorat"
+    ],
+    "1083": [
+      "VD",
+      "Mézières"
+    ],
+    "1084": [
+      "VD",
+      "Carrouge"
+    ],
+    "1088": [
+      "VD",
+      "Ropraz"
+    ],
+    "1090": [
+      "VD",
+      "La Croix (Lutry)"
+    ],
+    "1092": [
+      "VD",
+      "Belmont-sur-Lausanne"
+    ],
+    "1093": [
+      "VD",
+      "La Conversion"
+    ],
+    "1094": [
+      "VD",
+      "Paudex"
+    ],
+    "1095": [
+      "VD",
+      "Lutry"
+    ],
+    "1097": [
+      "VD",
+      "Riex"
+    ],
+    "1098": [
+      "VD",
+      "Epesses"
+    ],
+    "1110": [
+      "VD",
+      "Morges"
+    ],
+    "1112": [
+      "VD",
+      "Echichens"
+    ],
+    "1113": [
+      "VD",
+      "St-Saphorin-sur-Morges"
+    ],
+    "1114": [
+      "VD",
+      "Colombier"
+    ],
+    "1115": [
+      "VD",
+      "Vullierens"
+    ],
+    "1116": [
+      "VD",
+      "Cottens"
+    ],
+    "1117": [
+      "VD",
+      "Grancy"
+    ],
+    "1121": [
+      "VD",
+      "Bremblens"
+    ],
+    "1122": [
+      "VD",
+      "Romanel-sur-Morges"
+    ],
+    "1123": [
+      "VD",
+      "Aclens"
+    ],
+    "1124": [
+      "VD",
+      "Gollion"
+    ],
+    "1125": [
+      "VD",
+      "Monnaz"
+    ],
+    "1126": [
+      "VD",
+      "Vaux-sur-Morges"
+    ],
+    "1127": [
+      "VD",
+      "Clarmont"
+    ],
+    "1128": [
+      "VD",
+      "Reverolle"
+    ],
+    "1131": [
+      "VD",
+      "Tolochenaz"
+    ],
+    "1132": [
+      "VD",
+      "Lully"
+    ],
+    "1135": [
+      "VD",
+      "Denens"
+    ],
+    "1136": [
+      "VD",
+      "Bussy-Chardonney"
+    ],
+    "1141": [
+      "VD",
+      "Sévery"
+    ],
+    "1142": [
+      "VD",
+      "Pampigny"
+    ],
+    "1143": [
+      "VD",
+      "Apples"
+    ],
+    "1144": [
+      "VD",
+      "Ballens"
+    ],
+    "1145": [
+      "VD",
+      "Bière"
+    ],
+    "1146": [
+      "VD",
+      "Mollens"
+    ],
+    "1147": [
+      "VD",
+      "Montricher"
+    ],
+    "1149": [
+      "VD",
+      "Berolle"
+    ],
+    "1162": [
+      "VD",
+      "St-Prex"
+    ],
+    "1163": [
+      "VD",
+      "Etoy"
+    ],
+    "1164": [
+      "VD",
+      "Buchillon"
+    ],
+    "1165": [
+      "VD",
+      "Allaman"
+    ],
+    "1166": [
+      "VD",
+      "Perroy"
+    ],
+    "1167": [
+      "VD",
+      "Lussy-sur-Morges"
+    ],
+    "1168": [
+      "VD",
+      "Villars-sous-Yens"
+    ],
+    "1169": [
+      "VD",
+      "Yens"
+    ],
+    "1170": [
+      "VD",
+      "Aubonne"
+    ],
+    "1172": [
+      "VD",
+      "Bougy-Villars"
+    ],
+    "1173": [
+      "VD",
+      "Féchy"
+    ],
+    "1175": [
+      "VD",
+      "Lavigny"
+    ],
+    "1176": [
+      "VD",
+      "St-Livres"
+    ],
+    "1182": [
+      "VD",
+      "Gilly"
+    ],
+    "1183": [
+      "VD",
+      "Bursins"
+    ],
+    "1185": [
+      "VD",
+      "Mont-sur-Rolle"
+    ],
+    "1186": [
+      "VD",
+      "Essertines-sur-Rolle"
+    ],
+    "1187": [
+      "VD",
+      "St-Oyens"
+    ],
+    "1189": [
+      "VD",
+      "Saubraz"
+    ],
+    "1196": [
+      "VD",
+      "Gland"
+    ],
+    "1197": [
+      "VD",
+      "Prangins"
+    ],
+    "1201": [
+      "GE",
+      "Genève"
+    ],
+    "1202": [
+      "GE",
+      "Genève"
+    ],
+    "1203": [
+      "GE",
+      "Genève"
+    ],
+    "1204": [
+      "GE",
+      "Genève"
+    ],
+    "1205": [
+      "GE",
+      "Genève"
+    ],
+    "1206": [
+      "GE",
+      "Genève"
+    ],
+    "1207": [
+      "GE",
+      "Genève"
+    ],
+    "1208": [
+      "GE",
+      "Genève"
+    ],
+    "1209": [
+      "GE",
+      "Genève"
+    ],
+    "1212": [
+      "GE",
+      "Grand-Lancy"
+    ],
+    "1214": [
+      "GE",
+      "Vernier"
+    ],
+    "1215": [
+      "GE",
+      "Genève"
+    ],
+    "1216": [
+      "GE",
+      "Cointrin"
+    ],
+    "1217": [
+      "GE",
+      "Meyrin"
+    ],
+    "1218": [
+      "GE",
+      "Le Grand-Saconnex"
+    ],
+    "1220": [
+      "GE",
+      "Les Avanchets"
+    ],
+    "1222": [
+      "GE",
+      "Vésenaz"
+    ],
+    "1223": [
+      "GE",
+      "Cologny"
+    ],
+    "1224": [
+      "GE",
+      "Chêne-Bougeries"
+    ],
+    "1225": [
+      "GE",
+      "Chêne-Bourg"
+    ],
+    "1226": [
+      "GE",
+      "Thônex"
+    ],
+    "1228": [
+      "GE",
+      "Plan-les-Ouates"
+    ],
+    "1231": [
+      "GE",
+      "Conches"
+    ],
+    "1232": [
+      "GE",
+      "Confignon"
+    ],
+    "1233": [
+      "GE",
+      "Bernex"
+    ],
+    "1234": [
+      "GE",
+      "Vessy"
+    ],
+    "1236": [
+      "GE",
+      "Cartigny"
+    ],
+    "1237": [
+      "GE",
+      "Avully"
+    ],
+    "1239": [
+      "GE",
+      "Collex"
+    ],
+    "1241": [
+      "GE",
+      "Puplinge"
+    ],
+    "1242": [
+      "GE",
+      "Satigny"
+    ],
+    "1243": [
+      "GE",
+      "Presinge"
+    ],
+    "1244": [
+      "GE",
+      "Choulex"
+    ],
+    "1245": [
+      "GE",
+      "Collonge-Bellerive"
+    ],
+    "1246": [
+      "GE",
+      "Corsier"
+    ],
+    "1247": [
+      "GE",
+      "Anières"
+    ],
+    "1248": [
+      "GE",
+      "Hermance"
+    ],
+    "1251": [
+      "GE",
+      "Gy"
+    ],
+    "1252": [
+      "GE",
+      "Meinier"
+    ],
+    "1253": [
+      "GE",
+      "Vandoeuvres"
+    ],
+    "1254": [
+      "GE",
+      "Jussy"
+    ],
+    "1255": [
+      "GE",
+      "Veyrier"
+    ],
+    "1256": [
+      "GE",
+      "Troinex"
+    ],
+    "1257": [
+      "GE",
+      "La Croix-de-Rozon"
+    ],
+    "1258": [
+      "GE",
+      "Perly"
+    ],
+    "1260": [
+      "VD",
+      "Nyon"
+    ],
+    "1262": [
+      "VD",
+      "Eysins"
+    ],
+    "1263": [
+      "VD",
+      "Crassier"
+    ],
+    "1264": [
+      "VD",
+      "St-Cergue"
+    ],
+    "1265": [
+      "VD",
+      "La Cure"
+    ],
+    "1266": [
+      "VD",
+      "Duillier"
+    ],
+    "1269": [
+      "VD",
+      "Bassins"
+    ],
+    "1270": [
+      "VD",
+      "Trélex"
+    ],
+    "1271": [
+      "VD",
+      "Givrins"
+    ],
+    "1272": [
+      "VD",
+      "Genolier"
+    ],
+    "1273": [
+      "VD",
+      "Arzier-Le Muids"
+    ],
+    "1275": [
+      "VD",
+      "Chéserex"
+    ],
+    "1276": [
+      "VD",
+      "Gingins"
+    ],
+    "1278": [
+      "VD",
+      "La Rippe"
+    ],
+    "1281": [
+      "GE",
+      "Russin"
+    ],
+    "1284": [
+      "GE",
+      "Chancy"
+    ],
+    "1285": [
+      "GE",
+      "Athenaz (Avusy)"
+    ],
+    "1286": [
+      "GE",
+      "Soral"
+    ],
+    "1287": [
+      "GE",
+      "Laconnex"
+    ],
+    "1288": [
+      "GE",
+      "Aire-la-Ville"
+    ],
+    "1291": [
+      "VD",
+      "Commugny"
+    ],
+    "1292": [
+      "GE",
+      "Chambésy"
+    ],
+    "1293": [
+      "GE",
+      "Bellevue"
+    ],
+    "1294": [
+      "GE",
+      "Genthod"
+    ],
+    "1296": [
+      "VD",
+      "Coppet"
+    ],
+    "1297": [
+      "VD",
+      "Founex"
+    ],
+    "1298": [
+      "GE",
+      "Céligny"
+    ],
+    "1299": [
+      "VD",
+      "Crans"
+    ],
+    "1302": [
+      "VD",
+      "Vufflens-la-Ville"
+    ],
+    "1303": [
+      "VD",
+      "Penthaz"
+    ],
+    "1305": [
+      "VD",
+      "Penthalaz"
+    ],
+    "1306": [
+      "VD",
+      "Daillens"
+    ],
+    "1307": [
+      "VD",
+      "Lussery-Villars"
+    ],
+    "1308": [
+      "VD",
+      "La Chaux (Cossonay)"
+    ],
+    "1312": [
+      "VD",
+      "Eclépens"
+    ],
+    "1313": [
+      "VD",
+      "Ferreyres"
+    ],
+    "1315": [
+      "VD",
+      "La Sarraz"
+    ],
+    "1316": [
+      "VD",
+      "Chevilly"
+    ],
+    "1317": [
+      "VD",
+      "Orny"
+    ],
+    "1318": [
+      "VD",
+      "Pompaples"
+    ],
+    "1321": [
+      "VD",
+      "Arnex-sur-Orbe"
+    ],
+    "1322": [
+      "VD",
+      "Croy"
+    ],
+    "1323": [
+      "VD",
+      "Romainmôtier"
+    ],
+    "1324": [
+      "VD",
+      "Premier"
+    ],
+    "1325": [
+      "VD",
+      "Vaulion"
+    ],
+    "1326": [
+      "VD",
+      "Juriens"
+    ],
+    "1329": [
+      "VD",
+      "Bretonnières"
+    ],
+    "1337": [
+      "VD",
+      "Vallorbe"
+    ],
+    "1338": [
+      "VD",
+      "Ballaigues"
+    ],
+    "1341": [
+      "VD",
+      "L'Orient"
+    ],
+    "1342": [
+      "VD",
+      "Le Pont"
+    ],
+    "1343": [
+      "VD",
+      "Les Charbonnières"
+    ],
+    "1344": [
+      "VD",
+      "L'Abbaye"
+    ],
+    "1346": [
+      "VD",
+      "Les Bioux"
+    ],
+    "1348": [
+      "VD",
+      "Le Brassus"
+    ],
+    "1350": [
+      "VD",
+      "Orbe"
+    ],
+    "1352": [
+      "VD",
+      "Agiez"
+    ],
+    "1353": [
+      "VD",
+      "Bofflens"
+    ],
+    "1354": [
+      "VD",
+      "Montcherand"
+    ],
+    "1357": [
+      "VD",
+      "Lignerolle"
+    ],
+    "1358": [
+      "VD",
+      "Valeyres-sous-Rances"
+    ],
+    "1372": [
+      "VD",
+      "Bavois"
+    ],
+    "1373": [
+      "VD",
+      "Chavornay"
+    ],
+    "1374": [
+      "VD",
+      "Corcelles-sur-Chavornay"
+    ],
+    "1375": [
+      "VD",
+      "Penthéréaz"
+    ],
+    "1377": [
+      "VD",
+      "Oulens-sous-Echallens"
+    ],
+    "1405": [
+      "VD",
+      "Pomy"
+    ],
+    "1406": [
+      "VD",
+      "Cronay"
+    ],
+    "1408": [
+      "VD",
+      "Prahins"
+    ],
+    "1409": [
+      "VD",
+      "Chanéaz"
+    ],
+    "1413": [
+      "VD",
+      "Orzens"
+    ],
+    "1416": [
+      "VD",
+      "Pailly"
+    ],
+    "1418": [
+      "VD",
+      "Vuarrens"
+    ],
+    "1420": [
+      "VD",
+      "Fiez"
+    ],
+    "1422": [
+      "VD",
+      "Grandson"
+    ],
+    "1424": [
+      "VD",
+      "Champagne"
+    ],
+    "1425": [
+      "VD",
+      "Onnens"
+    ],
+    "1427": [
+      "VD",
+      "Bonvillars"
+    ],
+    "1429": [
+      "VD",
+      "Giez"
+    ],
+    "1430": [
+      "VD",
+      "Orges"
+    ],
+    "1433": [
+      "VD",
+      "Suchy"
+    ],
+    "1434": [
+      "VD",
+      "Ependes"
+    ],
+    "1435": [
+      "VD",
+      "Essert-Pittet"
+    ],
+    "1437": [
+      "VD",
+      "Suscévaz"
+    ],
+    "1438": [
+      "VD",
+      "Mathod"
+    ],
+    "1439": [
+      "VD",
+      "Rances"
+    ],
+    "1441": [
+      "VD",
+      "Valeyres-sous-Montagny"
+    ],
+    "1442": [
+      "VD",
+      "Montagny-près-Yverdon"
+    ],
+    "1445": [
+      "VD",
+      "Vuiteboeuf"
+    ],
+    "1446": [
+      "VD",
+      "Baulmes"
+    ],
+    "1452": [
+      "VD",
+      "Les Rasses"
+    ],
+    "1462": [
+      "VD",
+      "Yvonand"
+    ],
+    "1463": [
+      "VD",
+      "Rovray"
+    ],
+    "1468": [
+      "FR",
+      "Cheyres"
+    ],
+    "1474": [
+      "FR",
+      "Châbles"
+    ],
+    "1482": [
+      "FR",
+      "Cugy"
+    ],
+    "1486": [
+      "FR",
+      "Vuissens"
+    ],
+    "1489": [
+      "FR",
+      "Murist"
+    ],
+    "1509": [
+      "VD",
+      "Vucherens"
+    ],
+    "1512": [
+      "VD",
+      "Chavannes-sur-Moudon"
+    ],
+    "1514": [
+      "VD",
+      "Bussy-sur-Moudon"
+    ],
+    "1521": [
+      "VD",
+      "Curtilles"
+    ],
+    "1523": [
+      "VD",
+      "Granges-près-Marnand"
+    ],
+    "1524": [
+      "VD",
+      "Marnand"
+    ],
+    "1527": [
+      "FR",
+      "Villeneuve"
+    ],
+    "1529": [
+      "FR",
+      "Cheiry"
+    ],
+    "1530": [
+      "VD",
+      "Payerne"
+    ],
+    "1532": [
+      "FR",
+      "Fétigny"
+    ],
+    "1533": [
+      "FR",
+      "Ménières"
+    ],
+    "1535": [
+      "VD",
+      "Combremont-le-Grand"
+    ],
+    "1536": [
+      "VD",
+      "Combremont-le-Petit"
+    ],
+    "1537": [
+      "VD",
+      "Champtauroz"
+    ],
+    "1538": [
+      "VD",
+      "Treytorrens (Payerne)"
+    ],
+    "1542": [
+      "FR",
+      "Rueyres-les-Prés"
+    ],
+    "1543": [
+      "VD",
+      "Grandcour"
+    ],
+    "1544": [
+      "FR",
+      "Gletterens"
+    ],
+    "1545": [
+      "VD",
+      "Chevroux"
+    ],
+    "1551": [
+      "VD",
+      "Vers-chez-Perrin"
+    ],
+    "1552": [
+      "VD",
+      "Trey"
+    ],
+    "1553": [
+      "FR",
+      "Châtonnaye"
+    ],
+    "1555": [
+      "VD",
+      "Villarzel"
+    ],
+    "1563": [
+      "FR",
+      "Dompierre"
+    ],
+    "1567": [
+      "FR",
+      "Delley"
+    ],
+    "1568": [
+      "FR",
+      "Portalban"
+    ],
+    "1583": [
+      "FR",
+      "Villarepos"
+    ],
+    "1584": [
+      "VD",
+      "Villars-le-Grand"
+    ],
+    "1586": [
+      "VD",
+      "Vallamand"
+    ],
+    "1588": [
+      "VD",
+      "Cudrefin"
+    ],
+    "1589": [
+      "VD",
+      "Chabrey"
+    ],
+    "1611": [
+      "FR",
+      "Le Crêt-près-Semsales"
+    ],
+    "1612": [
+      "VD",
+      "Ecoteaux"
+    ],
+    "1613": [
+      "VD",
+      "Maracon"
+    ],
+    "1614": [
+      "FR",
+      "Granges (Veveyse)"
+    ],
+    "1615": [
+      "FR",
+      "Bossonnens"
+    ],
+    "1616": [
+      "FR",
+      "Attalens"
+    ],
+    "1618": [
+      "FR",
+      "Châtel-St-Denis"
+    ],
+    "1619": [
+      "FR",
+      "Les Paccots"
+    ],
+    "1623": [
+      "FR",
+      "Semsales"
+    ],
+    "1627": [
+      "FR",
+      "Vaulruz"
+    ],
+    "1628": [
+      "FR",
+      "Vuadens"
+    ],
+    "1630": [
+      "FR",
+      "Bulle"
+    ],
+    "1632": [
+      "FR",
+      "Riaz"
+    ],
+    "1634": [
+      "FR",
+      "La Roche"
+    ],
+    "1635": [
+      "FR",
+      "La Tour-de-Trême"
+    ],
+    "1636": [
+      "FR",
+      "Broc"
+    ],
+    "1637": [
+      "FR",
+      "Charmey (Gruyère)"
+    ],
+    "1638": [
+      "FR",
+      "Morlon"
+    ],
+    "1642": [
+      "FR",
+      "Sorens"
+    ],
+    "1643": [
+      "FR",
+      "Gumefens"
+    ],
+    "1644": [
+      "FR",
+      "Avry-devant-Pont"
+    ],
+    "1645": [
+      "FR",
+      "Le Bry"
+    ],
+    "1646": [
+      "FR",
+      "Echarlens"
+    ],
+    "1647": [
+      "FR",
+      "Corbières"
+    ],
+    "1648": [
+      "FR",
+      "Hauteville"
+    ],
+    "1649": [
+      "FR",
+      "Pont-la-Ville"
+    ],
+    "1651": [
+      "FR",
+      "Villarvolard"
+    ],
+    "1654": [
+      "FR",
+      "Cerniat"
+    ],
+    "1661": [
+      "FR",
+      "Le Pâquier-Montbarry"
+    ],
+    "1665": [
+      "FR",
+      "Estavannens"
+    ],
+    "1667": [
+      "FR",
+      "Enney"
+    ],
+    "1676": [
+      "FR",
+      "Chavannes-les-Forts"
+    ],
+    "1677": [
+      "FR",
+      "Prez-vers-Siviriez"
+    ],
+    "1678": [
+      "FR",
+      "Siviriez"
+    ],
+    "1679": [
+      "FR",
+      "Villaraboud"
+    ],
+    "1684": [
+      "FR",
+      "Mézières"
+    ],
+    "1685": [
+      "FR",
+      "Villariaz"
+    ],
+    "1689": [
+      "FR",
+      "Le Châtelard-près-Romont"
+    ],
+    "1691": [
+      "FR",
+      "Villarimboud"
+    ],
+    "1692": [
+      "FR",
+      "Massonnens"
+    ],
+    "1696": [
+      "FR",
+      "Vuisternens-en-Ogoz"
+    ],
+    "1700": [
+      "FR",
+      "Fribourg"
+    ],
+    "1712": [
+      "FR",
+      "Tafers"
+    ],
+    "1713": [
+      "FR",
+      "St. Antoni"
+    ],
+    "1714": [
+      "FR",
+      "Heitenried"
+    ],
+    "1715": [
+      "FR",
+      "Alterswil"
+    ],
+    "1717": [
+      "FR",
+      "St. Ursen"
+    ],
+    "1718": [
+      "FR",
+      "Rechthalten"
+    ],
+    "1722": [
+      "FR",
+      "Bourguillon"
+    ],
+    "1725": [
+      "FR",
+      "Posieux"
+    ],
+    "1728": [
+      "FR",
+      "Rossens"
+    ],
+    "1730": [
+      "FR",
+      "Ecuvillens"
+    ],
+    "1731": [
+      "FR",
+      "Ependes"
+    ],
+    "1732": [
+      "FR",
+      "Arconciel"
+    ],
+    "1733": [
+      "FR",
+      "Treyvaux"
+    ],
+    "1734": [
+      "FR",
+      "Tentlingen"
+    ],
+    "1735": [
+      "FR",
+      "Giffers"
+    ],
+    "1736": [
+      "FR",
+      "St. Silvester"
+    ],
+    "1737": [
+      "FR",
+      "Plasselb"
+    ],
+    "1740": [
+      "FR",
+      "Neyruz"
+    ],
+    "1741": [
+      "FR",
+      "Cottens"
+    ],
+    "1742": [
+      "FR",
+      "Autigny"
+    ],
+    "1744": [
+      "FR",
+      "Chénens"
+    ],
+    "1745": [
+      "FR",
+      "Lentigny"
+    ],
+    "1746": [
+      "FR",
+      "Prez-vers-Noréaz"
+    ],
+    "1747": [
+      "FR",
+      "Corserey"
+    ],
+    "1748": [
+      "FR",
+      "Torny-le-Grand"
+    ],
+    "1749": [
+      "FR",
+      "Middes"
+    ],
+    "1752": [
+      "FR",
+      "Villars-sur-Glâne"
+    ],
+    "1753": [
+      "FR",
+      "Matran"
+    ],
+    "1757": [
+      "FR",
+      "Noréaz"
+    ],
+    "1762": [
+      "FR",
+      "Givisiez"
+    ],
+    "1763": [
+      "FR",
+      "Granges-Paccot"
+    ],
+    "1776": [
+      "FR",
+      "Montagny-la-Ville"
+    ],
+    "1785": [
+      "FR",
+      "Cressier"
+    ],
+    "1786": [
+      "FR",
+      "Sugiez"
+    ],
+    "1788": [
+      "FR",
+      "Praz (Vully)"
+    ],
+    "1789": [
+      "FR",
+      "Lugnorre"
+    ],
+    "1791": [
+      "FR",
+      "Courtaman"
+    ],
+    "1793": [
+      "FR",
+      "Jeuss"
+    ],
+    "1794": [
+      "FR",
+      "Salvenach"
+    ],
+    "1795": [
+      "FR",
+      "Courlevon"
+    ],
+    "1796": [
+      "FR",
+      "Courgevaux"
+    ],
+    "1797": [
+      "BE",
+      "Münchenwiler"
+    ],
+    "1800": [
+      "VD",
+      "Vevey"
+    ],
+    "1801": [
+      "VD",
+      "Le Mont-Pèlerin"
+    ],
+    "1802": [
+      "VD",
+      "Corseaux"
+    ],
+    "1803": [
+      "VD",
+      "Chardonne"
+    ],
+    "1804": [
+      "VD",
+      "Corsier-sur-Vevey"
+    ],
+    "1805": [
+      "VD",
+      "Jongny"
+    ],
+    "1806": [
+      "VD",
+      "St-Légier-La Chiésaz"
+    ],
+    "1807": [
+      "VD",
+      "Blonay"
+    ],
+    "1809": [
+      "VD",
+      "Fenil-sur-Corsier"
+    ],
+    "1814": [
+      "VD",
+      "La Tour-de-Peilz"
+    ],
+    "1815": [
+      "VD",
+      "Clarens"
+    ],
+    "1816": [
+      "VD",
+      "Chailly-Montreux"
+    ],
+    "1817": [
+      "VD",
+      "Brent"
+    ],
+    "1822": [
+      "VD",
+      "Chernex"
+    ],
+    "1823": [
+      "VD",
+      "Glion"
+    ],
+    "1824": [
+      "VD",
+      "Caux"
+    ],
+    "1833": [
+      "VD",
+      "Les Avants"
+    ],
+    "1844": [
+      "VD",
+      "Villeneuve"
+    ],
+    "1845": [
+      "VD",
+      "Noville"
+    ],
+    "1846": [
+      "VD",
+      "Chessel"
+    ],
+    "1847": [
+      "VD",
+      "Rennaz"
+    ],
+    "1852": [
+      "VD",
+      "Roche"
+    ],
+    "1853": [
+      "VD",
+      "Yvorne"
+    ],
+    "1854": [
+      "VD",
+      "Leysin"
+    ],
+    "1856": [
+      "VD",
+      "Corbeyrier"
+    ],
+    "1860": [
+      "VD",
+      "Aigle"
+    ],
+    "1863": [
+      "VD",
+      "Le Sépey"
+    ],
+    "1864": [
+      "VD",
+      "Vers-l'Eglise"
+    ],
+    "1865": [
+      "VD",
+      "Les Diablerets"
+    ],
+    "1866": [
+      "VD",
+      "La Forclaz"
+    ],
+    "1868": [
+      "VS",
+      "Collombey"
+    ],
+    "1869": [
+      "VS",
+      "Massongex"
+    ],
+    "1870": [
+      "VS",
+      "Monthey"
+    ],
+    "1872": [
+      "VS",
+      "Troistorrents"
+    ],
+    "1874": [
+      "VS",
+      "Champéry"
+    ],
+    "1875": [
+      "VS",
+      "Morgins"
+    ],
+    "1882": [
+      "VD",
+      "Gryon"
+    ],
+    "1885": [
+      "VD",
+      "Chesières"
+    ],
+    "1891": [
+      "VS",
+      "Vérossaz"
+    ],
+    "1893": [
+      "VS",
+      "Muraz (Collombey)"
+    ],
+    "1895": [
+      "VS",
+      "Vionnaz"
+    ],
+    "1898": [
+      "VS",
+      "St-Gingolph"
+    ],
+    "1899": [
+      "VS",
+      "Torgon"
+    ],
+    "1902": [
+      "VS",
+      "Evionnaz"
+    ],
+    "1903": [
+      "VS",
+      "Collonges"
+    ],
+    "1904": [
+      "VS",
+      "Vernayaz"
+    ],
+    "1905": [
+      "VS",
+      "Dorénaz"
+    ],
+    "1906": [
+      "VS",
+      "Charrat"
+    ],
+    "1907": [
+      "VS",
+      "Saxon"
+    ],
+    "1908": [
+      "VS",
+      "Riddes"
+    ],
+    "1911": [
+      "VS",
+      "Ovronnaz"
+    ],
+    "1913": [
+      "VS",
+      "Saillon"
+    ],
+    "1918": [
+      "VS",
+      "La Tzoumaz"
+    ],
+    "1920": [
+      "VS",
+      "Martigny"
+    ],
+    "1921": [
+      "VS",
+      "Martigny-Croix"
+    ],
+    "1926": [
+      "VS",
+      "Fully"
+    ],
+    "1927": [
+      "VS",
+      "Chemin"
+    ],
+    "1928": [
+      "VS",
+      "Ravoire"
+    ],
+    "1929": [
+      "VS",
+      "Trient"
+    ],
+    "1936": [
+      "VS",
+      "Verbier"
+    ],
+    "1937": [
+      "VS",
+      "Orsières"
+    ],
+    "1938": [
+      "VS",
+      "Champex-Lac"
+    ],
+    "1942": [
+      "VS",
+      "Levron"
+    ],
+    "1943": [
+      "VS",
+      "Praz-de-Fort"
+    ],
+    "1944": [
+      "VS",
+      "La Fouly"
+    ],
+    "1946": [
+      "VS",
+      "Bourg-St-Pierre"
+    ],
+    "1950": [
+      "VS",
+      "Sion"
+    ],
+    "1957": [
+      "VS",
+      "Ardon"
+    ],
+    "1961": [
+      "VS",
+      "Vernamiège"
+    ],
+    "1962": [
+      "VS",
+      "Pont-de-la-Morge (Sion)"
+    ],
+    "1963": [
+      "VS",
+      "Vétroz"
+    ],
+    "1964": [
+      "VS",
+      "Conthey"
+    ],
+    "1965": [
+      "VS",
+      "Savièse"
+    ],
+    "1967": [
+      "VS",
+      "Bramois"
+    ],
+    "1968": [
+      "VS",
+      "Mase"
+    ],
+    "1972": [
+      "VS",
+      "Anzère"
+    ],
+    "1973": [
+      "VS",
+      "Nax"
+    ],
+    "1974": [
+      "VS",
+      "Arbaz"
+    ],
+    "1975": [
+      "VS",
+      "St-Séverin"
+    ],
+    "1977": [
+      "VS",
+      "Icogne"
+    ],
+    "1978": [
+      "VS",
+      "Lens"
+    ],
+    "1981": [
+      "VS",
+      "Vex"
+    ],
+    "1982": [
+      "VS",
+      "Euseigne"
+    ],
+    "1986": [
+      "VS",
+      "Arolla"
+    ],
+    "1987": [
+      "VS",
+      "Hérémence"
+    ],
+    "1994": [
+      "VS",
+      "Aproz (Nendaz)"
+    ],
+    "2000": [
+      "NE",
+      "Neuchâtel"
+    ],
+    "2012": [
+      "NE",
+      "Auvernier"
+    ],
+    "2013": [
+      "NE",
+      "Colombier"
+    ],
+    "2014": [
+      "NE",
+      "Bôle"
+    ],
+    "2015": [
+      "NE",
+      "Areuse"
+    ],
+    "2016": [
+      "NE",
+      "Cortaillod"
+    ],
+    "2017": [
+      "NE",
+      "Boudry"
+    ],
+    "2022": [
+      "NE",
+      "Bevaix"
+    ],
+    "2023": [
+      "NE",
+      "Gorgier"
+    ],
+    "2024": [
+      "NE",
+      "St-Aubin-Sauges"
+    ],
+    "2025": [
+      "NE",
+      "Chez-le-Bart"
+    ],
+    "2034": [
+      "NE",
+      "Peseux"
+    ],
+    "2035": [
+      "NE",
+      "Corcelles"
+    ],
+    "2036": [
+      "NE",
+      "Cormondrèche"
+    ],
+    "2042": [
+      "NE",
+      "Valangin"
+    ],
+    "2043": [
+      "NE",
+      "Boudevilliers"
+    ],
+    "2046": [
+      "NE",
+      "Fontaines"
+    ],
+    "2053": [
+      "NE",
+      "Cernier"
+    ],
+    "2056": [
+      "NE",
+      "Dombresson"
+    ],
+    "2057": [
+      "NE",
+      "Villiers"
+    ],
+    "2058": [
+      "NE",
+      "Le Pâquier"
+    ],
+    "2065": [
+      "NE",
+      "Savagnier"
+    ],
+    "2067": [
+      "NE",
+      "Chaumont"
+    ],
+    "2068": [
+      "NE",
+      "Hauterive"
+    ],
+    "2072": [
+      "NE",
+      "St-Blaise"
+    ],
+    "2073": [
+      "NE",
+      "Enges"
+    ],
+    "2074": [
+      "NE",
+      "Marin-Epagnier"
+    ],
+    "2087": [
+      "NE",
+      "Cornaux"
+    ],
+    "2088": [
+      "NE",
+      "Cressier"
+    ],
+    "2103": [
+      "NE",
+      "Noiraigue"
+    ],
+    "2105": [
+      "NE",
+      "Travers"
+    ],
+    "2112": [
+      "NE",
+      "Môtiers"
+    ],
+    "2113": [
+      "NE",
+      "Boveresse"
+    ],
+    "2114": [
+      "NE",
+      "Fleurier"
+    ],
+    "2115": [
+      "NE",
+      "Buttes"
+    ],
+    "2116": [
+      "NE",
+      "Mont-de-Buttes"
+    ],
+    "2117": [
+      "NE",
+      "La Côte-aux-Fées"
+    ],
+    "2123": [
+      "NE",
+      "St-Sulpice"
+    ],
+    "2124": [
+      "NE",
+      "Les Sagnettes"
+    ],
+    "2126": [
+      "NE",
+      "Les Verrières"
+    ],
+    "2127": [
+      "NE",
+      "Les Bayards"
+    ],
+    "2206": [
+      "NE",
+      "Les Geneveys-sur-Coffrane"
+    ],
+    "2207": [
+      "NE",
+      "Coffrane"
+    ],
+    "2208": [
+      "NE",
+      "Les Hauts-Geneveys"
+    ],
+    "2314": [
+      "NE",
+      "La Sagne"
+    ],
+    "2318": [
+      "NE",
+      "Brot-Plamboz"
+    ],
+    "2322": [
+      "NE",
+      "Le Crêt-du-Locle"
+    ],
+    "2325": [
+      "NE",
+      "Les Planchettes"
+    ],
+    "2336": [
+      "JU",
+      "Les Bois"
+    ],
+    "2340": [
+      "JU",
+      "Le Noirmont"
+    ],
+    "2350": [
+      "JU",
+      "Saignelégier"
+    ],
+    "2353": [
+      "JU",
+      "Les Pommerats"
+    ],
+    "2354": [
+      "JU",
+      "Goumois"
+    ],
+    "2360": [
+      "JU",
+      "Le Bémont"
+    ],
+    "2363": [
+      "JU",
+      "Les Enfers"
+    ],
+    "2364": [
+      "JU",
+      "St-Brais"
+    ],
+    "2405": [
+      "NE",
+      "La Chaux-du-Milieu"
+    ],
+    "2414": [
+      "NE",
+      "Le Cerneux-Péquignot"
+    ],
+    "2416": [
+      "NE",
+      "Les Brenets"
+    ],
+    "2502": [
+      "BE",
+      "Biel/Bienne"
+    ],
+    "2503": [
+      "BE",
+      "Biel/Bienne"
+    ],
+    "2504": [
+      "BE",
+      "Biel/Bienne"
+    ],
+    "2505": [
+      "BE",
+      "Biel/Bienne"
+    ],
+    "2512": [
+      "BE",
+      "Tüscherz-Alfermée"
+    ],
+    "2513": [
+      "BE",
+      "Twann"
+    ],
+    "2514": [
+      "BE",
+      "Ligerz"
+    ],
+    "2515": [
+      "BE",
+      "Prêles"
+    ],
+    "2516": [
+      "BE",
+      "Lamboing"
+    ],
+    "2517": [
+      "BE",
+      "Diesse"
+    ],
+    "2532": [
+      "BE",
+      "Magglingen/Macolin"
+    ],
+    "2533": [
+      "BE",
+      "Evilard"
+    ],
+    "2535": [
+      "BE",
+      "Frinvillier"
+    ],
+    "2536": [
+      "BE",
+      "Plagne"
+    ],
+    "2537": [
+      "BE",
+      "Vauffelin"
+    ],
+    "2538": [
+      "BE",
+      "Romont"
+    ],
+    "2540": [
+      "SO",
+      "Grenchen"
+    ],
+    "2542": [
+      "BE",
+      "Pieterlen"
+    ],
+    "2543": [
+      "BE",
+      "Lengnau"
+    ],
+    "2544": [
+      "SO",
+      "Bettlach"
+    ],
+    "2545": [
+      "SO",
+      "Selzach"
+    ],
+    "2552": [
+      "BE",
+      "Orpund"
+    ],
+    "2553": [
+      "BE",
+      "Safnern"
+    ],
+    "2554": [
+      "BE",
+      "Meinisberg"
+    ],
+    "2555": [
+      "BE",
+      "Brügg"
+    ],
+    "2557": [
+      "BE",
+      "Studen"
+    ],
+    "2558": [
+      "BE",
+      "Aegerten"
+    ],
+    "2560": [
+      "BE",
+      "Nidau"
+    ],
+    "2562": [
+      "BE",
+      "Port"
+    ],
+    "2563": [
+      "BE",
+      "Ipsach"
+    ],
+    "2564": [
+      "BE",
+      "Bellmund"
+    ],
+    "2565": [
+      "BE",
+      "Jens"
+    ],
+    "2576": [
+      "BE",
+      "Lüscherz"
+    ],
+    "2603": [
+      "BE",
+      "Péry"
+    ],
+    "2604": [
+      "BE",
+      "La Heutte"
+    ],
+    "2605": [
+      "BE",
+      "Sonceboz-Sombeval"
+    ],
+    "2606": [
+      "BE",
+      "Corgémont"
+    ],
+    "2607": [
+      "BE",
+      "Cortébert"
+    ],
+    "2612": [
+      "BE",
+      "Cormoret"
+    ],
+    "2613": [
+      "BE",
+      "Villeret"
+    ],
+    "2710": [
+      "BE",
+      "Tavannes"
+    ],
+    "2712": [
+      "BE",
+      "Le Fuet"
+    ],
+    "2713": [
+      "BE",
+      "Bellelay"
+    ],
+    "2716": [
+      "BE",
+      "Sornetan"
+    ],
+    "2722": [
+      "BE",
+      "Les Reussilles"
+    ],
+    "2723": [
+      "BE",
+      "Mont-Tramelan"
+    ],
+    "2733": [
+      "BE",
+      "Pontenet"
+    ],
+    "2736": [
+      "BE",
+      "Sorvilier"
+    ],
+    "2738": [
+      "BE",
+      "Court"
+    ],
+    "2742": [
+      "BE",
+      "Perrefitte"
+    ],
+    "2743": [
+      "BE",
+      "Eschert"
+    ],
+    "2744": [
+      "BE",
+      "Belprahon"
+    ],
+    "2745": [
+      "BE",
+      "Grandval"
+    ],
+    "2746": [
+      "BE",
+      "Crémines"
+    ],
+    "2762": [
+      "BE",
+      "Roches"
+    ],
+    "2800": [
+      "JU",
+      "Delémont"
+    ],
+    "2802": [
+      "JU",
+      "Develier"
+    ],
+    "2803": [
+      "JU",
+      "Bourrignon"
+    ],
+    "2805": [
+      "JU",
+      "Soyhières"
+    ],
+    "2806": [
+      "JU",
+      "Mettembert"
+    ],
+    "2812": [
+      "JU",
+      "Movelier"
+    ],
+    "2813": [
+      "JU",
+      "Ederswiler"
+    ],
+    "2822": [
+      "JU",
+      "Courroux"
+    ],
+    "2823": [
+      "JU",
+      "Courcelon"
+    ],
+    "2824": [
+      "JU",
+      "Vicques"
+    ],
+    "2825": [
+      "JU",
+      "Courchapoix"
+    ],
+    "2826": [
+      "JU",
+      "Corban"
+    ],
+    "2828": [
+      "JU",
+      "Montsevelier"
+    ],
+    "2829": [
+      "JU",
+      "Vermes"
+    ],
+    "2832": [
+      "JU",
+      "Rebeuvelier"
+    ],
+    "2842": [
+      "JU",
+      "Rossemaison"
+    ],
+    "2843": [
+      "JU",
+      "Châtillon"
+    ],
+    "2852": [
+      "JU",
+      "Courtételle"
+    ],
+    "2853": [
+      "JU",
+      "Courfaivre"
+    ],
+    "2854": [
+      "JU",
+      "Bassecourt"
+    ],
+    "2855": [
+      "JU",
+      "Glovelier"
+    ],
+    "2856": [
+      "JU",
+      "Boécourt"
+    ],
+    "2857": [
+      "JU",
+      "Montavon"
+    ],
+    "2863": [
+      "JU",
+      "Undervelier"
+    ],
+    "2864": [
+      "JU",
+      "Soulce"
+    ],
+    "2873": [
+      "JU",
+      "Saulcy"
+    ],
+    "2882": [
+      "JU",
+      "St-Ursanne"
+    ],
+    "2883": [
+      "JU",
+      "Montmelon"
+    ],
+    "2884": [
+      "JU",
+      "Montenol"
+    ],
+    "2885": [
+      "JU",
+      "Epauvillers"
+    ],
+    "2886": [
+      "JU",
+      "Epiquerez"
+    ],
+    "2887": [
+      "JU",
+      "Soubey"
+    ],
+    "2888": [
+      "JU",
+      "Seleute"
+    ],
+    "2889": [
+      "JU",
+      "Ocourt"
+    ],
+    "2900": [
+      "JU",
+      "Porrentruy"
+    ],
+    "2902": [
+      "JU",
+      "Fontenais"
+    ],
+    "2903": [
+      "JU",
+      "Villars-sur-Fontenais"
+    ],
+    "2904": [
+      "JU",
+      "Bressaucourt"
+    ],
+    "2905": [
+      "JU",
+      "Courtedoux"
+    ],
+    "2906": [
+      "JU",
+      "Chevenez"
+    ],
+    "2907": [
+      "JU",
+      "Rocourt"
+    ],
+    "2908": [
+      "JU",
+      "Grandfontaine"
+    ],
+    "2914": [
+      "JU",
+      "Damvant"
+    ],
+    "2915": [
+      "JU",
+      "Bure"
+    ],
+    "2916": [
+      "JU",
+      "Fahy"
+    ],
+    "2922": [
+      "JU",
+      "Courchavon"
+    ],
+    "2923": [
+      "JU",
+      "Courtemaîche"
+    ],
+    "2924": [
+      "JU",
+      "Montignez"
+    ],
+    "2925": [
+      "JU",
+      "Buix"
+    ],
+    "2926": [
+      "JU",
+      "Boncourt"
+    ],
+    "2932": [
+      "JU",
+      "Coeuve"
+    ],
+    "2935": [
+      "JU",
+      "Beurnevésin"
+    ],
+    "2942": [
+      "JU",
+      "Alle"
+    ],
+    "2943": [
+      "JU",
+      "Vendlincourt"
+    ],
+    "2944": [
+      "JU",
+      "Bonfol"
+    ],
+    "2946": [
+      "JU",
+      "Miécourt"
+    ],
+    "2947": [
+      "JU",
+      "Charmoille"
+    ],
+    "2952": [
+      "JU",
+      "Cornol"
+    ],
+    "2954": [
+      "JU",
+      "Asuel"
+    ],
+    "3004": [
+      "BE",
+      "Bern"
+    ],
+    "3005": [
+      "BE",
+      "Bern"
+    ],
+    "3006": [
+      "BE",
+      "Bern"
+    ],
+    "3007": [
+      "BE",
+      "Bern"
+    ],
+    "3008": [
+      "BE",
+      "Bern"
+    ],
+    "3010": [
+      "BE",
+      "Bern"
+    ],
+    "3011": [
+      "BE",
+      "Bern"
+    ],
+    "3012": [
+      "BE",
+      "Bern"
+    ],
+    "3013": [
+      "BE",
+      "Bern"
+    ],
+    "3014": [
+      "BE",
+      "Bern"
+    ],
+    "3015": [
+      "BE",
+      "Bern"
+    ],
+    "3018": [
+      "BE",
+      "Bern"
+    ],
+    "3019": [
+      "BE",
+      "Bern"
+    ],
+    "3020": [
+      "BE",
+      "Bern"
+    ],
+    "3027": [
+      "BE",
+      "Bern"
+    ],
+    "3032": [
+      "BE",
+      "Hinterkappelen"
+    ],
+    "3033": [
+      "BE",
+      "Wohlen b. Bern"
+    ],
+    "3034": [
+      "BE",
+      "Murzelen"
+    ],
+    "3035": [
+      "BE",
+      "Frieswil"
+    ],
+    "3036": [
+      "BE",
+      "Detligen"
+    ],
+    "3037": [
+      "BE",
+      "Herrenschwanden"
+    ],
+    "3038": [
+      "BE",
+      "Kirchlindach"
+    ],
+    "3042": [
+      "BE",
+      "Ortschwaben"
+    ],
+    "3043": [
+      "BE",
+      "Uettligen"
+    ],
+    "3044": [
+      "BE",
+      "Innerberg"
+    ],
+    "3045": [
+      "BE",
+      "Meikirch"
+    ],
+    "3046": [
+      "BE",
+      "Wahlendorf"
+    ],
+    "3047": [
+      "BE",
+      "Bremgarten b. Bern"
+    ],
+    "3048": [
+      "BE",
+      "Worblaufen"
+    ],
+    "3049": [
+      "BE",
+      "Säriswil"
+    ],
+    "3052": [
+      "BE",
+      "Zollikofen"
+    ],
+    "3054": [
+      "BE",
+      "Schüpfen"
+    ],
+    "3063": [
+      "BE",
+      "Ittigen"
+    ],
+    "3065": [
+      "BE",
+      "Bolligen"
+    ],
+    "3066": [
+      "BE",
+      "Stettlen"
+    ],
+    "3067": [
+      "BE",
+      "Boll"
+    ],
+    "3068": [
+      "BE",
+      "Utzigen"
+    ],
+    "3072": [
+      "BE",
+      "Ostermundigen"
+    ],
+    "3073": [
+      "BE",
+      "Gümligen"
+    ],
+    "3074": [
+      "BE",
+      "Muri b. Bern"
+    ],
+    "3076": [
+      "BE",
+      "Worb"
+    ],
+    "3077": [
+      "BE",
+      "Enggistein"
+    ],
+    "3078": [
+      "BE",
+      "Richigen"
+    ],
+    "3082": [
+      "BE",
+      "Schlosswil"
+    ],
+    "3083": [
+      "BE",
+      "Trimstein"
+    ],
+    "3084": [
+      "BE",
+      "Wabern"
+    ],
+    "3087": [
+      "BE",
+      "Niedermuhlern"
+    ],
+    "3089": [
+      "BE",
+      "Hinterfultigen"
+    ],
+    "3095": [
+      "BE",
+      "Spiegel b. Bern"
+    ],
+    "3096": [
+      "BE",
+      "Oberbalm"
+    ],
+    "3097": [
+      "BE",
+      "Liebefeld"
+    ],
+    "3099": [
+      "BE",
+      "Rüti b. Riggisberg"
+    ],
+    "3110": [
+      "BE",
+      "Münsingen"
+    ],
+    "3111": [
+      "BE",
+      "Tägertschi"
+    ],
+    "3112": [
+      "BE",
+      "Allmendingen b. Bern"
+    ],
+    "3113": [
+      "BE",
+      "Rubigen"
+    ],
+    "3114": [
+      "BE",
+      "Wichtrach"
+    ],
+    "3115": [
+      "BE",
+      "Gerzensee"
+    ],
+    "3122": [
+      "BE",
+      "Kehrsatz"
+    ],
+    "3123": [
+      "BE",
+      "Belp"
+    ],
+    "3124": [
+      "BE",
+      "Belpberg"
+    ],
+    "3125": [
+      "BE",
+      "Toffen"
+    ],
+    "3132": [
+      "BE",
+      "Riggisberg"
+    ],
+    "3144": [
+      "BE",
+      "Gasel"
+    ],
+    "3145": [
+      "BE",
+      "Niederscherli"
+    ],
+    "3147": [
+      "BE",
+      "Mittelhäusern"
+    ],
+    "3148": [
+      "BE",
+      "Lanzenhäusern"
+    ],
+    "3150": [
+      "BE",
+      "Schwarzenburg"
+    ],
+    "3152": [
+      "BE",
+      "Mamishaus"
+    ],
+    "3153": [
+      "BE",
+      "Rüschegg Gambach"
+    ],
+    "3154": [
+      "BE",
+      "Rüschegg Heubach"
+    ],
+    "3155": [
+      "BE",
+      "Helgisried-Rohrbach"
+    ],
+    "3156": [
+      "BE",
+      "Riffenmatt"
+    ],
+    "3157": [
+      "BE",
+      "Milken"
+    ],
+    "3158": [
+      "BE",
+      "Guggisberg"
+    ],
+    "3159": [
+      "BE",
+      "Riedstätt"
+    ],
+    "3172": [
+      "BE",
+      "Niederwangen b. Bern"
+    ],
+    "3173": [
+      "BE",
+      "Oberwangen b. Bern"
+    ],
+    "3174": [
+      "BE",
+      "Thörishaus"
+    ],
+    "3175": [
+      "FR",
+      "Flamatt"
+    ],
+    "3176": [
+      "BE",
+      "Neuenegg"
+    ],
+    "3177": [
+      "BE",
+      "Laupen"
+    ],
+    "3178": [
+      "FR",
+      "Bösingen"
+    ],
+    "3182": [
+      "FR",
+      "Ueberstorf"
+    ],
+    "3183": [
+      "BE",
+      "Albligen"
+    ],
+    "3184": [
+      "FR",
+      "Wünnewil"
+    ],
+    "3185": [
+      "FR",
+      "Schmitten"
+    ],
+    "3186": [
+      "FR",
+      "Düdingen"
+    ],
+    "3202": [
+      "BE",
+      "Frauenkappelen"
+    ],
+    "3203": [
+      "BE",
+      "Mühleberg"
+    ],
+    "3204": [
+      "BE",
+      "Rosshäusern"
+    ],
+    "3208": [
+      "BE",
+      "Gurbrü"
+    ],
+    "3214": [
+      "FR",
+      "Ulmiz"
+    ],
+    "3225": [
+      "BE",
+      "Müntschemier"
+    ],
+    "3226": [
+      "BE",
+      "Treiten"
+    ],
+    "3232": [
+      "BE",
+      "Ins"
+    ],
+    "3233": [
+      "BE",
+      "Tschugg"
+    ],
+    "3234": [
+      "BE",
+      "Vinelz"
+    ],
+    "3235": [
+      "BE",
+      "Erlach"
+    ],
+    "3237": [
+      "BE",
+      "Brüttelen"
+    ],
+    "3238": [
+      "BE",
+      "Gals"
+    ],
+    "3250": [
+      "BE",
+      "Lyss"
+    ],
+    "3252": [
+      "BE",
+      "Worben"
+    ],
+    "3253": [
+      "SO",
+      "Schnottwil"
+    ],
+    "3255": [
+      "BE",
+      "Rapperswil"
+    ],
+    "3262": [
+      "BE",
+      "Suberg"
+    ],
+    "3263": [
+      "BE",
+      "Büetigen"
+    ],
+    "3264": [
+      "BE",
+      "Diessbach b. Büren"
+    ],
+    "3266": [
+      "BE",
+      "Wiler b. Seedorf"
+    ],
+    "3267": [
+      "BE",
+      "Seedorf"
+    ],
+    "3268": [
+      "BE",
+      "Lobsigen"
+    ],
+    "3270": [
+      "BE",
+      "Aarberg"
+    ],
+    "3271": [
+      "BE",
+      "Radelfingen b. Aarberg"
+    ],
+    "3273": [
+      "BE",
+      "Kappelen"
+    ],
+    "3282": [
+      "BE",
+      "Bargen"
+    ],
+    "3284": [
+      "FR",
+      "Fräschels"
+    ],
+    "3285": [
+      "FR",
+      "Galmiz"
+    ],
+    "3286": [
+      "FR",
+      "Muntelier"
+    ],
+    "3292": [
+      "BE",
+      "Busswil"
+    ],
+    "3293": [
+      "BE",
+      "Dotzigen"
+    ],
+    "3295": [
+      "BE",
+      "Rüti b. Büren"
+    ],
+    "3296": [
+      "BE",
+      "Arch"
+    ],
+    "3297": [
+      "BE",
+      "Leuzigen"
+    ],
+    "3298": [
+      "BE",
+      "Oberwil b. Büren"
+    ],
+    "3302": [
+      "BE",
+      "Moosseedorf"
+    ],
+    "3306": [
+      "BE",
+      "Etzelkofen"
+    ],
+    "3307": [
+      "SO",
+      "Brunnenthal"
+    ],
+    "3308": [
+      "BE",
+      "Grafenried"
+    ],
+    "3312": [
+      "BE",
+      "Fraubrunnen"
+    ],
+    "3313": [
+      "BE",
+      "Büren zum Hof"
+    ],
+    "3314": [
+      "BE",
+      "Schalunen"
+    ],
+    "3323": [
+      "BE",
+      "Bäriswil"
+    ],
+    "3325": [
+      "BE",
+      "Hettiswil b. Hindelbank"
+    ],
+    "3326": [
+      "BE",
+      "Krauchthal"
+    ],
+    "3360": [
+      "BE",
+      "Herzogenbuchsee"
+    ],
+    "3362": [
+      "BE",
+      "Niederönz"
+    ],
+    "3363": [
+      "BE",
+      "Oberönz"
+    ],
+    "3368": [
+      "BE",
+      "Bleienbach"
+    ],
+    "3372": [
+      "BE",
+      "Wanzwil"
+    ],
+    "3374": [
+      "BE",
+      "Wangenried"
+    ],
+    "3375": [
+      "BE",
+      "Inkwil"
+    ],
+    "3377": [
+      "BE",
+      "Walliswil b. Wangen"
+    ],
+    "3400": [
+      "BE",
+      "Burgdorf"
+    ],
+    "3412": [
+      "BE",
+      "Heimiswil"
+    ],
+    "3413": [
+      "BE",
+      "Kaltacker"
+    ],
+    "3414": [
+      "BE",
+      "Oberburg"
+    ],
+    "3416": [
+      "BE",
+      "Affoltern im Emmental"
+    ],
+    "3417": [
+      "BE",
+      "Rüegsau"
+    ],
+    "3418": [
+      "BE",
+      "Rüegsbach"
+    ],
+    "3419": [
+      "BE",
+      "Biembach im Emmental"
+    ],
+    "3423": [
+      "BE",
+      "Ersigen"
+    ],
+    "3426": [
+      "BE",
+      "Aefligen"
+    ],
+    "3427": [
+      "BE",
+      "Utzenstorf"
+    ],
+    "3428": [
+      "BE",
+      "Wiler b. Utzenstorf"
+    ],
+    "3432": [
+      "BE",
+      "Lützelflüh-Goldbach"
+    ],
+    "3433": [
+      "BE",
+      "Schwanden im Emmental"
+    ],
+    "3435": [
+      "BE",
+      "Ramsei"
+    ],
+    "3436": [
+      "BE",
+      "Zollbrück"
+    ],
+    "3437": [
+      "BE",
+      "Rüderswil"
+    ],
+    "3438": [
+      "BE",
+      "Lauperswil"
+    ],
+    "3439": [
+      "BE",
+      "Ranflüh"
+    ],
+    "3452": [
+      "BE",
+      "Grünenmatt"
+    ],
+    "3453": [
+      "BE",
+      "Heimisbach"
+    ],
+    "3454": [
+      "BE",
+      "Sumiswald"
+    ],
+    "3455": [
+      "BE",
+      "Grünen"
+    ],
+    "3456": [
+      "BE",
+      "Trachselwald"
+    ],
+    "3457": [
+      "BE",
+      "Wasen im Emmental"
+    ],
+    "3462": [
+      "BE",
+      "Weier im Emmental"
+    ],
+    "3463": [
+      "BE",
+      "Häusernmoos im Emmental"
+    ],
+    "3464": [
+      "BE",
+      "Schmidigen-Mühleweg"
+    ],
+    "3465": [
+      "BE",
+      "Dürrenroth"
+    ],
+    "3473": [
+      "BE",
+      "Alchenstorf"
+    ],
+    "3474": [
+      "BE",
+      "Rüedisbach"
+    ],
+    "3476": [
+      "BE",
+      "Oschwand"
+    ],
+    "3503": [
+      "BE",
+      "Gysenstein"
+    ],
+    "3506": [
+      "BE",
+      "Grosshöchstetten"
+    ],
+    "3507": [
+      "BE",
+      "Biglen"
+    ],
+    "3508": [
+      "BE",
+      "Arni"
+    ],
+    "3512": [
+      "BE",
+      "Walkringen"
+    ],
+    "3513": [
+      "BE",
+      "Bigenthal"
+    ],
+    "3531": [
+      "BE",
+      "Oberthal"
+    ],
+    "3533": [
+      "BE",
+      "Bowil"
+    ],
+    "3534": [
+      "BE",
+      "Signau"
+    ],
+    "3535": [
+      "BE",
+      "Schüpbach"
+    ],
+    "3536": [
+      "BE",
+      "Aeschau"
+    ],
+    "3537": [
+      "BE",
+      "Eggiwil"
+    ],
+    "3538": [
+      "BE",
+      "Röthenbach im Emmental"
+    ],
+    "3543": [
+      "BE",
+      "Emmenmatt"
+    ],
+    "3550": [
+      "BE",
+      "Langnau im Emmental"
+    ],
+    "3551": [
+      "BE",
+      "Oberfrittenbach"
+    ],
+    "3552": [
+      "BE",
+      "Bärau"
+    ],
+    "3553": [
+      "BE",
+      "Gohl"
+    ],
+    "3556": [
+      "BE",
+      "Trub"
+    ],
+    "3557": [
+      "BE",
+      "Fankhaus (Trub)"
+    ],
+    "3600": [
+      "BE",
+      "Thun"
+    ],
+    "3603": [
+      "BE",
+      "Thun"
+    ],
+    "3604": [
+      "BE",
+      "Thun"
+    ],
+    "3608": [
+      "BE",
+      "Thun"
+    ],
+    "3612": [
+      "BE",
+      "Steffisburg"
+    ],
+    "3613": [
+      "BE",
+      "Steffisburg"
+    ],
+    "3614": [
+      "BE",
+      "Unterlangenegg"
+    ],
+    "3615": [
+      "BE",
+      "Heimenschwand"
+    ],
+    "3616": [
+      "BE",
+      "Schwarzenegg"
+    ],
+    "3617": [
+      "BE",
+      "Fahrni b. Thun"
+    ],
+    "3618": [
+      "BE",
+      "Süderen"
+    ],
+    "3619": [
+      "BE",
+      "Eriz"
+    ],
+    "3622": [
+      "BE",
+      "Homberg b. Thun"
+    ],
+    "3625": [
+      "BE",
+      "Heiligenschwendi"
+    ],
+    "3626": [
+      "BE",
+      "Hünibach"
+    ],
+    "3627": [
+      "BE",
+      "Heimberg"
+    ],
+    "3628": [
+      "BE",
+      "Uttigen"
+    ],
+    "3631": [
+      "BE",
+      "Höfen b. Thun"
+    ],
+    "3633": [
+      "BE",
+      "Amsoldingen"
+    ],
+    "3634": [
+      "BE",
+      "Thierachern"
+    ],
+    "3635": [
+      "BE",
+      "Uebeschi"
+    ],
+    "3646": [
+      "BE",
+      "Einigen"
+    ],
+    "3647": [
+      "BE",
+      "Reutigen"
+    ],
+    "3652": [
+      "BE",
+      "Hilterfingen"
+    ],
+    "3653": [
+      "BE",
+      "Oberhofen am Thunersee"
+    ],
+    "3654": [
+      "BE",
+      "Gunten"
+    ],
+    "3655": [
+      "BE",
+      "Sigriswil"
+    ],
+    "3657": [
+      "BE",
+      "Schwanden (Sigriswil)"
+    ],
+    "3658": [
+      "BE",
+      "Merligen"
+    ],
+    "3661": [
+      "BE",
+      "Uetendorf"
+    ],
+    "3662": [
+      "BE",
+      "Seftigen"
+    ],
+    "3663": [
+      "BE",
+      "Gurzelen"
+    ],
+    "3664": [
+      "BE",
+      "Burgistein"
+    ],
+    "3665": [
+      "BE",
+      "Wattenwil"
+    ],
+    "3673": [
+      "BE",
+      "Linden"
+    ],
+    "3674": [
+      "BE",
+      "Bleiken b. Oberdiessbach"
+    ],
+    "3700": [
+      "BE",
+      "Spiez"
+    ],
+    "3702": [
+      "BE",
+      "Hondrich"
+    ],
+    "3704": [
+      "BE",
+      "Krattigen"
+    ],
+    "3705": [
+      "BE",
+      "Faulensee"
+    ],
+    "3706": [
+      "BE",
+      "Leissigen"
+    ],
+    "3707": [
+      "BE",
+      "Därligen"
+    ],
+    "3713": [
+      "BE",
+      "Reichenbach im Kandertal"
+    ],
+    "3715": [
+      "BE",
+      "Adelboden"
+    ],
+    "3716": [
+      "BE",
+      "Kandergrund"
+    ],
+    "3717": [
+      "BE",
+      "Blausee-Mitholz"
+    ],
+    "3718": [
+      "BE",
+      "Kandersteg"
+    ],
+    "3722": [
+      "BE",
+      "Scharnachtal"
+    ],
+    "3723": [
+      "BE",
+      "Kiental"
+    ],
+    "3724": [
+      "BE",
+      "Ried (Frutigen)"
+    ],
+    "3725": [
+      "BE",
+      "Achseten"
+    ],
+    "3752": [
+      "BE",
+      "Wimmis"
+    ],
+    "3753": [
+      "BE",
+      "Oey"
+    ],
+    "3754": [
+      "BE",
+      "Diemtigen"
+    ],
+    "3755": [
+      "BE",
+      "Horboden"
+    ],
+    "3756": [
+      "BE",
+      "Zwischenflüh"
+    ],
+    "3757": [
+      "BE",
+      "Schwenden im Diemtigtal"
+    ],
+    "3758": [
+      "BE",
+      "Latterbach"
+    ],
+    "3762": [
+      "BE",
+      "Erlenbach im Simmental"
+    ],
+    "3763": [
+      "BE",
+      "Därstetten"
+    ],
+    "3764": [
+      "BE",
+      "Weissenburg"
+    ],
+    "3765": [
+      "BE",
+      "Oberwil im Simmental"
+    ],
+    "3766": [
+      "BE",
+      "Boltigen"
+    ],
+    "3770": [
+      "BE",
+      "Zweisimmen"
+    ],
+    "3771": [
+      "BE",
+      "Blankenburg"
+    ],
+    "3772": [
+      "BE",
+      "St. Stephan"
+    ],
+    "3773": [
+      "BE",
+      "Matten (St. Stephan)"
+    ],
+    "3775": [
+      "BE",
+      "Lenk im Simmental"
+    ],
+    "3776": [
+      "BE",
+      "Oeschseite"
+    ],
+    "3777": [
+      "BE",
+      "Saanenmöser"
+    ],
+    "3778": [
+      "BE",
+      "Schönried"
+    ],
+    "3780": [
+      "BE",
+      "Gstaad"
+    ],
+    "3781": [
+      "BE",
+      "Turbach"
+    ],
+    "3782": [
+      "BE",
+      "Lauenen b. Gstaad"
+    ],
+    "3783": [
+      "BE",
+      "Grund b. Gstaad"
+    ],
+    "3784": [
+      "BE",
+      "Feutersoey"
+    ],
+    "3785": [
+      "BE",
+      "Gsteig b. Gstaad"
+    ],
+    "3792": [
+      "BE",
+      "Saanen"
+    ],
+    "3803": [
+      "BE",
+      "Beatenberg"
+    ],
+    "3804": [
+      "BE",
+      "Habkern"
+    ],
+    "3805": [
+      "BE",
+      "Goldswil b. Interlaken"
+    ],
+    "3806": [
+      "BE",
+      "Bönigen b. Interlaken"
+    ],
+    "3807": [
+      "BE",
+      "Iseltwald"
+    ],
+    "3812": [
+      "BE",
+      "Wilderswil"
+    ],
+    "3813": [
+      "BE",
+      "Saxeten"
+    ],
+    "3814": [
+      "BE",
+      "Gsteigwiler"
+    ],
+    "3818": [
+      "BE",
+      "Grindelwald"
+    ],
+    "3824": [
+      "BE",
+      "Stechelberg"
+    ],
+    "3825": [
+      "BE",
+      "Mürren"
+    ],
+    "3826": [
+      "BE",
+      "Gimmelwald"
+    ],
+    "3852": [
+      "BE",
+      "Ringgenberg"
+    ],
+    "3853": [
+      "BE",
+      "Niederried b. Interlaken"
+    ],
+    "3854": [
+      "BE",
+      "Oberried am Brienzersee"
+    ],
+    "3856": [
+      "BE",
+      "Brienzwiler"
+    ],
+    "3857": [
+      "BE",
+      "Unterbach"
+    ],
+    "3858": [
+      "BE",
+      "Hofstetten b. Brienz"
+    ],
+    "3862": [
+      "BE",
+      "Innertkirchen"
+    ],
+    "3863": [
+      "BE",
+      "Gadmen"
+    ],
+    "3864": [
+      "BE",
+      "Guttannen"
+    ],
+    "3901": [
+      "VS",
+      "Rothwald"
+    ],
+    "3902": [
+      "VS",
+      "Glis"
+    ],
+    "3904": [
+      "VS",
+      "Naters"
+    ],
+    "3905": [
+      "VS",
+      "Saas-Almagell"
+    ],
+    "3906": [
+      "VS",
+      "Saas-Fee"
+    ],
+    "3908": [
+      "VS",
+      "Saas-Balen"
+    ],
+    "3910": [
+      "VS",
+      "Saas-Grund"
+    ],
+    "3911": [
+      "VS",
+      "Ried-Brig"
+    ],
+    "3912": [
+      "VS",
+      "Termen"
+    ],
+    "3913": [
+      "VS",
+      "Rosswald"
+    ],
+    "3916": [
+      "VS",
+      "Ferden"
+    ],
+    "3918": [
+      "VS",
+      "Wiler (Lötschen)"
+    ],
+    "3919": [
+      "VS",
+      "Blatten (Lötschen)"
+    ],
+    "3920": [
+      "VS",
+      "Zermatt"
+    ],
+    "3923": [
+      "VS",
+      "Törbel"
+    ],
+    "3924": [
+      "VS",
+      "St. Niklaus"
+    ],
+    "3925": [
+      "VS",
+      "Grächen"
+    ],
+    "3926": [
+      "VS",
+      "Embd"
+    ],
+    "3927": [
+      "VS",
+      "Herbriggen"
+    ],
+    "3928": [
+      "VS",
+      "Randa"
+    ],
+    "3929": [
+      "VS",
+      "Täsch"
+    ],
+    "3931": [
+      "VS",
+      "Lalden"
+    ],
+    "3932": [
+      "VS",
+      "Visperterminen"
+    ],
+    "3933": [
+      "VS",
+      "Staldenried"
+    ],
+    "3934": [
+      "VS",
+      "Zeneggen"
+    ],
+    "3935": [
+      "VS",
+      "Bürchen"
+    ],
+    "3937": [
+      "VS",
+      "Baltschieder"
+    ],
+    "3938": [
+      "VS",
+      "Ausserberg"
+    ],
+    "3939": [
+      "VS",
+      "Eggerberg"
+    ],
+    "3940": [
+      "VS",
+      "Steg"
+    ],
+    "3943": [
+      "VS",
+      "Eischoll"
+    ],
+    "3944": [
+      "VS",
+      "Unterbäch"
+    ],
+    "3947": [
+      "VS",
+      "Ergisch"
+    ],
+    "3949": [
+      "VS",
+      "Hohtenn"
+    ],
+    "3951": [
+      "VS",
+      "Agarn"
+    ],
+    "3952": [
+      "VS",
+      "Susten"
+    ],
+    "3954": [
+      "VS",
+      "Leukerbad"
+    ],
+    "3955": [
+      "VS",
+      "Albinen"
+    ],
+    "3956": [
+      "VS",
+      "Guttet-Feschel"
+    ],
+    "3965": [
+      "VS",
+      "Chippis"
+    ],
+    "3967": [
+      "VS",
+      "Vercorin"
+    ],
+    "3968": [
+      "VS",
+      "Veyras"
+    ],
+    "3970": [
+      "VS",
+      "Salgesch"
+    ],
+    "3972": [
+      "VS",
+      "Miège"
+    ],
+    "3973": [
+      "VS",
+      "Venthône"
+    ],
+    "3974": [
+      "VS",
+      "Mollens"
+    ],
+    "3975": [
+      "VS",
+      "Randogne"
+    ],
+    "3977": [
+      "VS",
+      "Granges"
+    ],
+    "3978": [
+      "VS",
+      "Flanthey"
+    ],
+    "3979": [
+      "VS",
+      "Grône"
+    ],
+    "3982": [
+      "VS",
+      "Bitsch"
+    ],
+    "3986": [
+      "VS",
+      "Ried-Mörel"
+    ],
+    "3987": [
+      "VS",
+      "Riederalp"
+    ],
+    "3991": [
+      "VS",
+      "Betten"
+    ],
+    "3992": [
+      "VS",
+      "Bettmeralp"
+    ],
+    "3993": [
+      "VS",
+      "Grengiols"
+    ],
+    "3996": [
+      "VS",
+      "Binn"
+    ],
+    "3997": [
+      "VS",
+      "Bellwald"
+    ],
+    "3999": [
+      "VS",
+      "Oberwald"
+    ],
+    "4001": [
+      "BS",
+      "Basel"
+    ],
+    "4031": [
+      "BS",
+      "Basel"
+    ],
+    "4051": [
+      "BS",
+      "Basel"
+    ],
+    "4054": [
+      "BS",
+      "Basel"
+    ],
+    "4055": [
+      "BS",
+      "Basel"
+    ],
+    "4056": [
+      "BS",
+      "Basel"
+    ],
+    "4057": [
+      "BS",
+      "Basel"
+    ],
+    "4058": [
+      "BS",
+      "Basel"
+    ],
+    "4059": [
+      "BS",
+      "Basel"
+    ],
+    "4101": [
+      "BL",
+      "Bruderholz"
+    ],
+    "4102": [
+      "BL",
+      "Binningen"
+    ],
+    "4103": [
+      "BL",
+      "Bottmingen"
+    ],
+    "4104": [
+      "BL",
+      "Oberwil"
+    ],
+    "4106": [
+      "BL",
+      "Therwil"
+    ],
+    "4107": [
+      "BL",
+      "Ettingen"
+    ],
+    "4108": [
+      "SO",
+      "Witterswil"
+    ],
+    "4114": [
+      "SO",
+      "Hofstetten"
+    ],
+    "4115": [
+      "SO",
+      "Mariastein"
+    ],
+    "4116": [
+      "SO",
+      "Metzerlen"
+    ],
+    "4117": [
+      "BL",
+      "Burg im Leimental"
+    ],
+    "4118": [
+      "SO",
+      "Rodersdorf"
+    ],
+    "4123": [
+      "BL",
+      "Allschwil"
+    ],
+    "4124": [
+      "BL",
+      "Schönenbuch"
+    ],
+    "4125": [
+      "BS",
+      "Riehen"
+    ],
+    "4126": [
+      "BS",
+      "Bettingen"
+    ],
+    "4127": [
+      "BL",
+      "Birsfelden"
+    ],
+    "4132": [
+      "BL",
+      "Muttenz"
+    ],
+    "4133": [
+      "BL",
+      "Pratteln"
+    ],
+    "4142": [
+      "BL",
+      "Münchenstein"
+    ],
+    "4143": [
+      "SO",
+      "Dornach"
+    ],
+    "4144": [
+      "BL",
+      "Arlesheim"
+    ],
+    "4145": [
+      "SO",
+      "Gempen"
+    ],
+    "4146": [
+      "SO",
+      "Hochwald"
+    ],
+    "4147": [
+      "BL",
+      "Aesch"
+    ],
+    "4148": [
+      "BL",
+      "Pfeffingen"
+    ],
+    "4153": [
+      "BL",
+      "Reinach"
+    ],
+    "4202": [
+      "BL",
+      "Duggingen"
+    ],
+    "4203": [
+      "BL",
+      "Grellingen"
+    ],
+    "4204": [
+      "SO",
+      "Himmelried"
+    ],
+    "4206": [
+      "SO",
+      "Seewen"
+    ],
+    "4207": [
+      "BL",
+      "Bretzwil"
+    ],
+    "4208": [
+      "SO",
+      "Nunningen"
+    ],
+    "4222": [
+      "BL",
+      "Zwingen"
+    ],
+    "4223": [
+      "BL",
+      "Blauen"
+    ],
+    "4224": [
+      "BL",
+      "Nenzlingen"
+    ],
+    "4225": [
+      "BL",
+      "Brislach"
+    ],
+    "4226": [
+      "SO",
+      "Breitenbach"
+    ],
+    "4227": [
+      "SO",
+      "Büsserach"
+    ],
+    "4228": [
+      "SO",
+      "Erschwil"
+    ],
+    "4232": [
+      "SO",
+      "Fehren"
+    ],
+    "4233": [
+      "SO",
+      "Meltingen"
+    ],
+    "4234": [
+      "SO",
+      "Zullwil"
+    ],
+    "4242": [
+      "BL",
+      "Laufen"
+    ],
+    "4243": [
+      "BL",
+      "Dittingen"
+    ],
+    "4244": [
+      "BL",
+      "Röschenz"
+    ],
+    "4246": [
+      "BL",
+      "Wahlen b. Laufen"
+    ],
+    "4247": [
+      "SO",
+      "Grindel"
+    ],
+    "4254": [
+      "BL",
+      "Liesberg Dorf"
+    ],
+    "4302": [
+      "BL",
+      "Augst"
+    ],
+    "4310": [
+      "AG",
+      "Rheinfelden"
+    ],
+    "4312": [
+      "AG",
+      "Magden"
+    ],
+    "4313": [
+      "AG",
+      "Möhlin"
+    ],
+    "4314": [
+      "AG",
+      "Zeiningen"
+    ],
+    "4315": [
+      "AG",
+      "Zuzgen"
+    ],
+    "4317": [
+      "AG",
+      "Wegenstetten"
+    ],
+    "4322": [
+      "AG",
+      "Mumpf"
+    ],
+    "4323": [
+      "AG",
+      "Wallbach"
+    ],
+    "4324": [
+      "AG",
+      "Obermumpf"
+    ],
+    "4325": [
+      "AG",
+      "Schupfart"
+    ],
+    "4332": [
+      "AG",
+      "Stein"
+    ],
+    "4333": [
+      "AG",
+      "Münchwilen"
+    ],
+    "4334": [
+      "AG",
+      "Sisseln"
+    ],
+    "4402": [
+      "BL",
+      "Frenkendorf"
+    ],
+    "4410": [
+      "BL",
+      "Liestal"
+    ],
+    "4411": [
+      "BL",
+      "Seltisberg"
+    ],
+    "4413": [
+      "SO",
+      "Büren"
+    ],
+    "4414": [
+      "BL",
+      "Füllinsdorf"
+    ],
+    "4415": [
+      "BL",
+      "Lausen"
+    ],
+    "4416": [
+      "BL",
+      "Bubendorf"
+    ],
+    "4417": [
+      "BL",
+      "Ziefen"
+    ],
+    "4419": [
+      "BL",
+      "Lupsingen"
+    ],
+    "4421": [
+      "SO",
+      "St. Pantaleon"
+    ],
+    "4422": [
+      "BL",
+      "Arisdorf"
+    ],
+    "4423": [
+      "BL",
+      "Hersberg"
+    ],
+    "4424": [
+      "BL",
+      "Arboldswil"
+    ],
+    "4425": [
+      "BL",
+      "Titterten"
+    ],
+    "4426": [
+      "BL",
+      "Lauwil"
+    ],
+    "4431": [
+      "BL",
+      "Bennwil"
+    ],
+    "4432": [
+      "BL",
+      "Lampenberg"
+    ],
+    "4433": [
+      "BL",
+      "Ramlinsburg"
+    ],
+    "4434": [
+      "BL",
+      "Hölstein"
+    ],
+    "4435": [
+      "BL",
+      "Niederdorf"
+    ],
+    "4437": [
+      "BL",
+      "Waldenburg"
+    ],
+    "4441": [
+      "BL",
+      "Thürnen"
+    ],
+    "4442": [
+      "BL",
+      "Diepflingen"
+    ],
+    "4443": [
+      "BL",
+      "Wittinsburg"
+    ],
+    "4444": [
+      "BL",
+      "Rümlingen"
+    ],
+    "4445": [
+      "BL",
+      "Häfelfingen"
+    ],
+    "4446": [
+      "BL",
+      "Buckten"
+    ],
+    "4447": [
+      "BL",
+      "Känerkinden"
+    ],
+    "4448": [
+      "BL",
+      "Läufelfingen"
+    ],
+    "4450": [
+      "BL",
+      "Sissach"
+    ],
+    "4451": [
+      "BL",
+      "Wintersingen"
+    ],
+    "4452": [
+      "BL",
+      "Itingen"
+    ],
+    "4453": [
+      "BL",
+      "Nusshof"
+    ],
+    "4455": [
+      "BL",
+      "Zunzgen"
+    ],
+    "4456": [
+      "BL",
+      "Tenniken"
+    ],
+    "4457": [
+      "BL",
+      "Diegten"
+    ],
+    "4458": [
+      "BL",
+      "Eptingen"
+    ],
+    "4460": [
+      "BL",
+      "Gelterkinden"
+    ],
+    "4461": [
+      "BL",
+      "Böckten"
+    ],
+    "4462": [
+      "BL",
+      "Rickenbach"
+    ],
+    "4463": [
+      "BL",
+      "Buus"
+    ],
+    "4464": [
+      "BL",
+      "Maisprach"
+    ],
+    "4466": [
+      "BL",
+      "Ormalingen"
+    ],
+    "4467": [
+      "BL",
+      "Rothenfluh"
+    ],
+    "4468": [
+      "SO",
+      "Kienberg"
+    ],
+    "4469": [
+      "BL",
+      "Anwil"
+    ],
+    "4492": [
+      "BL",
+      "Tecknau"
+    ],
+    "4493": [
+      "BL",
+      "Wenslingen"
+    ],
+    "4494": [
+      "BL",
+      "Oltingen"
+    ],
+    "4495": [
+      "BL",
+      "Zeglingen"
+    ],
+    "4496": [
+      "BL",
+      "Kilchberg"
+    ],
+    "4497": [
+      "BL",
+      "Rünenberg"
+    ],
+    "4500": [
+      "SO",
+      "Solothurn"
+    ],
+    "4512": [
+      "SO",
+      "Bellach"
+    ],
+    "4513": [
+      "SO",
+      "Langendorf"
+    ],
+    "4514": [
+      "SO",
+      "Lommiswil"
+    ],
+    "4522": [
+      "SO",
+      "Rüttenen"
+    ],
+    "4523": [
+      "SO",
+      "Niederwil"
+    ],
+    "4525": [
+      "SO",
+      "Balm b. Günsberg"
+    ],
+    "4528": [
+      "SO",
+      "Zuchwil"
+    ],
+    "4532": [
+      "SO",
+      "Feldbrunnen"
+    ],
+    "4533": [
+      "SO",
+      "Riedholz"
+    ],
+    "4534": [
+      "SO",
+      "Flumenthal"
+    ],
+    "4536": [
+      "BE",
+      "Attiswil"
+    ],
+    "4537": [
+      "BE",
+      "Wiedlisbach"
+    ],
+    "4538": [
+      "BE",
+      "Oberbipp"
+    ],
+    "4542": [
+      "SO",
+      "Luterbach"
+    ],
+    "4543": [
+      "SO",
+      "Deitingen"
+    ],
+    "4552": [
+      "SO",
+      "Derendingen"
+    ],
+    "4553": [
+      "SO",
+      "Subingen"
+    ],
+    "4557": [
+      "SO",
+      "Horriwil"
+    ],
+    "4562": [
+      "SO",
+      "Biberist"
+    ],
+    "4563": [
+      "SO",
+      "Gerlafingen"
+    ],
+    "4565": [
+      "SO",
+      "Recherswil"
+    ],
+    "4576": [
+      "SO",
+      "Tscheppach"
+    ],
+    "4577": [
+      "SO",
+      "Hessigkofen"
+    ],
+    "4578": [
+      "SO",
+      "Bibern"
+    ],
+    "4579": [
+      "SO",
+      "Gossliwil"
+    ],
+    "4581": [
+      "SO",
+      "Küttigkofen"
+    ],
+    "4582": [
+      "SO",
+      "Brügglen"
+    ],
+    "4585": [
+      "SO",
+      "Biezwil"
+    ],
+    "4586": [
+      "SO",
+      "Kyburg-Buchegg"
+    ],
+    "4587": [
+      "SO",
+      "Aetingen"
+    ],
+    "4612": [
+      "SO",
+      "Wangen b. Olten"
+    ],
+    "4613": [
+      "SO",
+      "Rickenbach"
+    ],
+    "4614": [
+      "SO",
+      "Hägendorf"
+    ],
+    "4615": [
+      "SO",
+      "Allerheiligenberg"
+    ],
+    "4616": [
+      "SO",
+      "Kappel"
+    ],
+    "4617": [
+      "SO",
+      "Gunzgen"
+    ],
+    "4618": [
+      "SO",
+      "Boningen"
+    ],
+    "4622": [
+      "SO",
+      "Egerkingen"
+    ],
+    "4623": [
+      "SO",
+      "Neuendorf"
+    ],
+    "4624": [
+      "SO",
+      "Härkingen"
+    ],
+    "4625": [
+      "SO",
+      "Oberbuchsiten"
+    ],
+    "4626": [
+      "SO",
+      "Niederbuchsiten"
+    ],
+    "4628": [
+      "SO",
+      "Wolfwil"
+    ],
+    "4629": [
+      "SO",
+      "Fulenbach"
+    ],
+    "4632": [
+      "SO",
+      "Trimbach"
+    ],
+    "4633": [
+      "SO",
+      "Hauenstein"
+    ],
+    "4652": [
+      "SO",
+      "Winznau"
+    ],
+    "4653": [
+      "SO",
+      "Obergösgen"
+    ],
+    "4654": [
+      "SO",
+      "Lostorf"
+    ],
+    "4657": [
+      "SO",
+      "Dulliken"
+    ],
+    "4658": [
+      "SO",
+      "Däniken"
+    ],
+    "4665": [
+      "AG",
+      "Oftringen"
+    ],
+    "4702": [
+      "SO",
+      "Oensingen"
+    ],
+    "4703": [
+      "SO",
+      "Kestenholz"
+    ],
+    "4710": [
+      "SO",
+      "Balsthal"
+    ],
+    "4712": [
+      "SO",
+      "Laupersdorf"
+    ],
+    "4713": [
+      "SO",
+      "Matzendorf"
+    ],
+    "4714": [
+      "SO",
+      "Aedermannsdorf"
+    ],
+    "4715": [
+      "SO",
+      "Herbetswil"
+    ],
+    "4717": [
+      "SO",
+      "Mümliswil"
+    ],
+    "4718": [
+      "SO",
+      "Holderbank"
+    ],
+    "4800": [
+      "AG",
+      "Zofingen"
+    ],
+    "4802": [
+      "AG",
+      "Strengelbach"
+    ],
+    "4803": [
+      "AG",
+      "Vordemwald"
+    ],
+    "4805": [
+      "AG",
+      "Brittnau"
+    ],
+    "4806": [
+      "LU",
+      "Wikon"
+    ],
+    "4812": [
+      "AG",
+      "Mühlethal"
+    ],
+    "4813": [
+      "AG",
+      "Uerkheim"
+    ],
+    "4814": [
+      "AG",
+      "Bottenwil"
+    ],
+    "4852": [
+      "AG",
+      "Rothrist"
+    ],
+    "4856": [
+      "AG",
+      "Glashütten"
+    ],
+    "4900": [
+      "BE",
+      "Langenthal"
+    ],
+    "4911": [
+      "BE",
+      "Schwarzhäusern"
+    ],
+    "4912": [
+      "BE",
+      "Aarwangen"
+    ],
+    "4913": [
+      "BE",
+      "Bannwil"
+    ],
+    "4916": [
+      "BE",
+      "Untersteckholz"
+    ],
+    "4919": [
+      "BE",
+      "Reisiswil"
+    ],
+    "4923": [
+      "BE",
+      "Wynau"
+    ],
+    "4924": [
+      "BE",
+      "Obersteckholz"
+    ],
+    "4933": [
+      "BE",
+      "Rütschelen"
+    ],
+    "4934": [
+      "BE",
+      "Madiswil"
+    ],
+    "4935": [
+      "BE",
+      "Leimiswil"
+    ],
+    "4936": [
+      "BE",
+      "Kleindietwil"
+    ],
+    "4937": [
+      "BE",
+      "Ursenbach"
+    ],
+    "4942": [
+      "BE",
+      "Walterswil"
+    ],
+    "4943": [
+      "BE",
+      "Oeschenbach"
+    ],
+    "4944": [
+      "BE",
+      "Auswil"
+    ],
+    "4950": [
+      "BE",
+      "Huttwil"
+    ],
+    "4953": [
+      "BE",
+      "Schwarzenbach (Huttwil)"
+    ],
+    "4954": [
+      "BE",
+      "Wyssachen"
+    ],
+    "5000": [
+      "AG",
+      "Aarau"
+    ],
+    "5004": [
+      "AG",
+      "Aarau"
+    ],
+    "5013": [
+      "SO",
+      "Niedergösgen"
+    ],
+    "5014": [
+      "SO",
+      "Gretzenbach"
+    ],
+    "5015": [
+      "SO",
+      "Erlinsbach"
+    ],
+    "5018": [
+      "AG",
+      "Erlinsbach"
+    ],
+    "5022": [
+      "AG",
+      "Rombach"
+    ],
+    "5023": [
+      "AG",
+      "Biberstein"
+    ],
+    "5024": [
+      "AG",
+      "Küttigen"
+    ],
+    "5025": [
+      "AG",
+      "Asp"
+    ],
+    "5026": [
+      "AG",
+      "Densbüren"
+    ],
+    "5027": [
+      "AG",
+      "Herznach"
+    ],
+    "5028": [
+      "AG",
+      "Ueken"
+    ],
+    "5032": [
+      "AG",
+      "Aarau Rohr"
+    ],
+    "5033": [
+      "AG",
+      "Buchs"
+    ],
+    "5034": [
+      "AG",
+      "Suhr"
+    ],
+    "5035": [
+      "AG",
+      "Unterentfelden"
+    ],
+    "5036": [
+      "AG",
+      "Oberentfelden"
+    ],
+    "5037": [
+      "AG",
+      "Muhen"
+    ],
+    "5040": [
+      "AG",
+      "Schöftland"
+    ],
+    "5042": [
+      "AG",
+      "Hirschthal"
+    ],
+    "5043": [
+      "AG",
+      "Holziken"
+    ],
+    "5044": [
+      "AG",
+      "Schlossrued"
+    ],
+    "5056": [
+      "AG",
+      "Attelwil"
+    ],
+    "5057": [
+      "AG",
+      "Reitnau"
+    ],
+    "5058": [
+      "AG",
+      "Wiliberg"
+    ],
+    "5062": [
+      "AG",
+      "Oberhof"
+    ],
+    "5063": [
+      "AG",
+      "Wölflinswil"
+    ],
+    "5064": [
+      "AG",
+      "Wittnau"
+    ],
+    "5070": [
+      "AG",
+      "Frick"
+    ],
+    "5072": [
+      "AG",
+      "Oeschgen"
+    ],
+    "5073": [
+      "AG",
+      "Gipf-Oberfrick"
+    ],
+    "5074": [
+      "AG",
+      "Eiken"
+    ],
+    "5075": [
+      "AG",
+      "Hornussen"
+    ],
+    "5076": [
+      "AG",
+      "Bözen"
+    ],
+    "5077": [
+      "AG",
+      "Elfingen"
+    ],
+    "5078": [
+      "AG",
+      "Effingen"
+    ],
+    "5079": [
+      "AG",
+      "Zeihen"
+    ],
+    "5080": [
+      "AG",
+      "Laufenburg"
+    ],
+    "5082": [
+      "AG",
+      "Kaisten"
+    ],
+    "5083": [
+      "AG",
+      "Ittenthal"
+    ],
+    "5084": [
+      "AG",
+      "Rheinsulz"
+    ],
+    "5085": [
+      "AG",
+      "Sulz"
+    ],
+    "5102": [
+      "AG",
+      "Rupperswil"
+    ],
+    "5105": [
+      "AG",
+      "Auenstein"
+    ],
+    "5106": [
+      "AG",
+      "Veltheim"
+    ],
+    "5107": [
+      "AG",
+      "Schinznach Dorf"
+    ],
+    "5108": [
+      "AG",
+      "Oberflachs"
+    ],
+    "5112": [
+      "AG",
+      "Thalheim"
+    ],
+    "5113": [
+      "AG",
+      "Holderbank"
+    ],
+    "5116": [
+      "AG",
+      "Schinznach Bad"
+    ],
+    "5200": [
+      "AG",
+      "Brugg"
+    ],
+    "5210": [
+      "AG",
+      "Windisch"
+    ],
+    "5212": [
+      "AG",
+      "Hausen"
+    ],
+    "5213": [
+      "AG",
+      "Villnachern"
+    ],
+    "5222": [
+      "AG",
+      "Umiken"
+    ],
+    "5223": [
+      "AG",
+      "Riniken"
+    ],
+    "5225": [
+      "AG",
+      "Bözberg"
+    ],
+    "5233": [
+      "AG",
+      "Stilli"
+    ],
+    "5234": [
+      "AG",
+      "Villigen"
+    ],
+    "5235": [
+      "AG",
+      "Rüfenach"
+    ],
+    "5236": [
+      "AG",
+      "Remigen"
+    ],
+    "5237": [
+      "AG",
+      "Mönthal"
+    ],
+    "5243": [
+      "AG",
+      "Mülligen"
+    ],
+    "5244": [
+      "AG",
+      "Birrhard"
+    ],
+    "5245": [
+      "AG",
+      "Habsburg"
+    ],
+    "5246": [
+      "AG",
+      "Scherz"
+    ],
+    "5272": [
+      "AG",
+      "Gansingen"
+    ],
+    "5273": [
+      "AG",
+      "Oberhofen"
+    ],
+    "5274": [
+      "AG",
+      "Mettau"
+    ],
+    "5275": [
+      "AG",
+      "Etzgen"
+    ],
+    "5276": [
+      "AG",
+      "Wil"
+    ],
+    "5277": [
+      "AG",
+      "Hottwil"
+    ],
+    "5300": [
+      "AG",
+      "Turgi"
+    ],
+    "5301": [
+      "AG",
+      "Siggenthal Station"
+    ],
+    "5303": [
+      "AG",
+      "Würenlingen"
+    ],
+    "5304": [
+      "AG",
+      "Endingen"
+    ],
+    "5305": [
+      "AG",
+      "Unterendingen"
+    ],
+    "5306": [
+      "AG",
+      "Tegerfelden"
+    ],
+    "5312": [
+      "AG",
+      "Döttingen"
+    ],
+    "5313": [
+      "AG",
+      "Klingnau"
+    ],
+    "5314": [
+      "AG",
+      "Kleindöttingen"
+    ],
+    "5315": [
+      "AG",
+      "Böttstein"
+    ],
+    "5316": [
+      "AG",
+      "Leuggern"
+    ],
+    "5317": [
+      "AG",
+      "Hettenschwil"
+    ],
+    "5318": [
+      "AG",
+      "Mandach"
+    ],
+    "5322": [
+      "AG",
+      "Koblenz"
+    ],
+    "5323": [
+      "AG",
+      "Rietheim"
+    ],
+    "5324": [
+      "AG",
+      "Full-Reuenthal"
+    ],
+    "5325": [
+      "AG",
+      "Leibstadt"
+    ],
+    "5326": [
+      "AG",
+      "Schwaderloch"
+    ],
+    "5330": [
+      "AG",
+      "Bad Zurzach"
+    ],
+    "5332": [
+      "AG",
+      "Rekingen"
+    ],
+    "5333": [
+      "AG",
+      "Baldingen"
+    ],
+    "5334": [
+      "AG",
+      "Böbikon"
+    ],
+    "5400": [
+      "AG",
+      "Baden"
+    ],
+    "5404": [
+      "AG",
+      "Baden"
+    ],
+    "5405": [
+      "AG",
+      "Dättwil"
+    ],
+    "5406": [
+      "AG",
+      "Rütihof"
+    ],
+    "5408": [
+      "AG",
+      "Ennetbaden"
+    ],
+    "5413": [
+      "AG",
+      "Birmenstorf"
+    ],
+    "5416": [
+      "AG",
+      "Kirchdorf"
+    ],
+    "5417": [
+      "AG",
+      "Untersiggenthal"
+    ],
+    "5420": [
+      "AG",
+      "Ehrendingen"
+    ],
+    "5423": [
+      "AG",
+      "Freienwil"
+    ],
+    "5425": [
+      "AG",
+      "Schneisingen"
+    ],
+    "5426": [
+      "AG",
+      "Lengnau"
+    ],
+    "5430": [
+      "AG",
+      "Wettingen"
+    ],
+    "5432": [
+      "AG",
+      "Neuenhof"
+    ],
+    "5436": [
+      "AG",
+      "Würenlos"
+    ],
+    "5442": [
+      "AG",
+      "Fislisbach"
+    ],
+    "5443": [
+      "AG",
+      "Niederrohrdorf"
+    ],
+    "5444": [
+      "AG",
+      "Künten"
+    ],
+    "5445": [
+      "AG",
+      "Eggenwil"
+    ],
+    "5452": [
+      "AG",
+      "Oberrohrdorf"
+    ],
+    "5453": [
+      "AG",
+      "Remetschwil"
+    ],
+    "5454": [
+      "AG",
+      "Bellikon"
+    ],
+    "5463": [
+      "AG",
+      "Wislikofen"
+    ],
+    "5464": [
+      "AG",
+      "Rümikon"
+    ],
+    "5465": [
+      "AG",
+      "Mellikon"
+    ],
+    "5466": [
+      "AG",
+      "Kaiserstuhl"
+    ],
+    "5467": [
+      "AG",
+      "Fisibach"
+    ],
+    "5502": [
+      "AG",
+      "Hunzenschwil"
+    ],
+    "5503": [
+      "AG",
+      "Schafisheim"
+    ],
+    "5504": [
+      "AG",
+      "Othmarsingen"
+    ],
+    "5505": [
+      "AG",
+      "Brunegg"
+    ],
+    "5506": [
+      "AG",
+      "Mägenwil"
+    ],
+    "5507": [
+      "AG",
+      "Mellingen"
+    ],
+    "5512": [
+      "AG",
+      "Wohlenschwil"
+    ],
+    "5522": [
+      "AG",
+      "Tägerig"
+    ],
+    "5525": [
+      "AG",
+      "Fischbach-Göslikon"
+    ],
+    "5603": [
+      "AG",
+      "Staufen"
+    ],
+    "5604": [
+      "AG",
+      "Hendschiken"
+    ],
+    "5605": [
+      "AG",
+      "Dottikon"
+    ],
+    "5606": [
+      "AG",
+      "Dintikon"
+    ],
+    "5607": [
+      "AG",
+      "Hägglingen"
+    ],
+    "5608": [
+      "AG",
+      "Stetten"
+    ],
+    "5610": [
+      "AG",
+      "Wohlen"
+    ],
+    "5611": [
+      "AG",
+      "Anglikon"
+    ],
+    "5612": [
+      "AG",
+      "Villmergen"
+    ],
+    "5613": [
+      "AG",
+      "Hilfikon"
+    ],
+    "5614": [
+      "AG",
+      "Sarmenstorf"
+    ],
+    "5615": [
+      "AG",
+      "Fahrwangen"
+    ],
+    "5616": [
+      "AG",
+      "Meisterschwanden"
+    ],
+    "5617": [
+      "AG",
+      "Tennwil"
+    ],
+    "5618": [
+      "AG",
+      "Bettwil"
+    ],
+    "5620": [
+      "AG",
+      "Bremgarten"
+    ],
+    "5621": [
+      "AG",
+      "Zufikon"
+    ],
+    "5622": [
+      "AG",
+      "Waltenschwil"
+    ],
+    "5623": [
+      "AG",
+      "Boswil"
+    ],
+    "5625": [
+      "AG",
+      "Kallern"
+    ],
+    "5626": [
+      "AG",
+      "Hermetschwil-Staffeln"
+    ],
+    "5627": [
+      "AG",
+      "Besenbüren"
+    ],
+    "5628": [
+      "AG",
+      "Aristau"
+    ],
+    "5630": [
+      "AG",
+      "Muri"
+    ],
+    "5632": [
+      "AG",
+      "Buttwil"
+    ],
+    "5634": [
+      "AG",
+      "Merenschwand"
+    ],
+    "5636": [
+      "AG",
+      "Benzenschwil"
+    ],
+    "5644": [
+      "AG",
+      "Auw"
+    ],
+    "5646": [
+      "AG",
+      "Abtwil"
+    ],
+    "5647": [
+      "AG",
+      "Oberrüti"
+    ],
+    "5702": [
+      "AG",
+      "Niederlenz"
+    ],
+    "5703": [
+      "AG",
+      "Seon"
+    ],
+    "5704": [
+      "AG",
+      "Egliswil"
+    ],
+    "5705": [
+      "AG",
+      "Hallwil"
+    ],
+    "5706": [
+      "AG",
+      "Boniswil"
+    ],
+    "5707": [
+      "AG",
+      "Seengen"
+    ],
+    "5708": [
+      "AG",
+      "Birrwil"
+    ],
+    "5712": [
+      "AG",
+      "Beinwil am See"
+    ],
+    "5722": [
+      "AG",
+      "Gränichen"
+    ],
+    "5723": [
+      "AG",
+      "Teufenthal"
+    ],
+    "5724": [
+      "AG",
+      "Dürrenäsch"
+    ],
+    "5725": [
+      "AG",
+      "Leutwil"
+    ],
+    "5726": [
+      "AG",
+      "Unterkulm"
+    ],
+    "5727": [
+      "AG",
+      "Oberkulm"
+    ],
+    "5728": [
+      "AG",
+      "Gontenschwil"
+    ],
+    "5732": [
+      "AG",
+      "Zetzwil"
+    ],
+    "5733": [
+      "AG",
+      "Leimbach"
+    ],
+    "5734": [
+      "AG",
+      "Reinach"
+    ],
+    "5735": [
+      "LU",
+      "Pfeffikon"
+    ],
+    "5736": [
+      "AG",
+      "Burg"
+    ],
+    "5737": [
+      "AG",
+      "Menziken"
+    ],
+    "5742": [
+      "AG",
+      "Kölliken"
+    ],
+    "5745": [
+      "AG",
+      "Safenwil"
+    ],
+    "5746": [
+      "SO",
+      "Walterswil"
+    ],
+    "6003": [
+      "LU",
+      "Luzern"
+    ],
+    "6004": [
+      "LU",
+      "Luzern"
+    ],
+    "6006": [
+      "LU",
+      "Luzern"
+    ],
+    "6012": [
+      "LU",
+      "Obernau"
+    ],
+    "6014": [
+      "LU",
+      "Luzern"
+    ],
+    "6015": [
+      "LU",
+      "Luzern"
+    ],
+    "6016": [
+      "LU",
+      "Hellbühl"
+    ],
+    "6017": [
+      "LU",
+      "Ruswil"
+    ],
+    "6018": [
+      "LU",
+      "Buttisholz"
+    ],
+    "6019": [
+      "LU",
+      "Sigigen"
+    ],
+    "6020": [
+      "LU",
+      "Emmenbrücke"
+    ],
+    "6022": [
+      "LU",
+      "Grosswangen"
+    ],
+    "6023": [
+      "LU",
+      "Rothenburg"
+    ],
+    "6024": [
+      "LU",
+      "Hildisrieden"
+    ],
+    "6025": [
+      "LU",
+      "Neudorf"
+    ],
+    "6026": [
+      "LU",
+      "Rain"
+    ],
+    "6027": [
+      "LU",
+      "Römerswil"
+    ],
+    "6028": [
+      "LU",
+      "Herlisberg"
+    ],
+    "6030": [
+      "LU",
+      "Ebikon"
+    ],
+    "6032": [
+      "LU",
+      "Emmen"
+    ],
+    "6033": [
+      "LU",
+      "Buchrain"
+    ],
+    "6035": [
+      "LU",
+      "Perlen"
+    ],
+    "6036": [
+      "LU",
+      "Dierikon"
+    ],
+    "6037": [
+      "LU",
+      "Root"
+    ],
+    "6039": [
+      "LU",
+      "Root D4"
+    ],
+    "6042": [
+      "AG",
+      "Dietwil"
+    ],
+    "6043": [
+      "LU",
+      "Adligenswil"
+    ],
+    "6044": [
+      "LU",
+      "Udligenswil"
+    ],
+    "6045": [
+      "LU",
+      "Meggen"
+    ],
+    "6047": [
+      "LU",
+      "Kastanienbaum"
+    ],
+    "6048": [
+      "LU",
+      "Horw"
+    ],
+    "6053": [
+      "OW",
+      "Alpnachstad"
+    ],
+    "6055": [
+      "OW",
+      "Alpnach Dorf"
+    ],
+    "6056": [
+      "OW",
+      "Kägiswil"
+    ],
+    "6062": [
+      "OW",
+      "Wilen (Sarnen)"
+    ],
+    "6063": [
+      "OW",
+      "Stalden (Sarnen)"
+    ],
+    "6064": [
+      "OW",
+      "Kerns"
+    ],
+    "6066": [
+      "OW",
+      "St. Niklausen"
+    ],
+    "6067": [
+      "OW",
+      "Melchtal"
+    ],
+    "6068": [
+      "OW",
+      "Melchsee-Frutt"
+    ],
+    "6072": [
+      "OW",
+      "Sachseln"
+    ],
+    "6073": [
+      "OW",
+      "Flüeli-Ranft"
+    ],
+    "6074": [
+      "OW",
+      "Giswil"
+    ],
+    "6083": [
+      "BE",
+      "Hasliberg Hohfluh"
+    ],
+    "6084": [
+      "BE",
+      "Hasliberg Wasserwendi"
+    ],
+    "6085": [
+      "BE",
+      "Hasliberg Goldern"
+    ],
+    "6086": [
+      "BE",
+      "Hasliberg Reuti"
+    ],
+    "6102": [
+      "LU",
+      "Malters"
+    ],
+    "6103": [
+      "LU",
+      "Schwarzenberg"
+    ],
+    "6105": [
+      "LU",
+      "Schachen"
+    ],
+    "6106": [
+      "LU",
+      "Werthenstein"
+    ],
+    "6112": [
+      "LU",
+      "Doppleschwand"
+    ],
+    "6113": [
+      "LU",
+      "Romoos"
+    ],
+    "6114": [
+      "LU",
+      "Steinhuserberg"
+    ],
+    "6122": [
+      "LU",
+      "Menznau"
+    ],
+    "6123": [
+      "LU",
+      "Geiss"
+    ],
+    "6125": [
+      "LU",
+      "Menzberg"
+    ],
+    "6126": [
+      "LU",
+      "Daiwil"
+    ],
+    "6130": [
+      "LU",
+      "Willisau"
+    ],
+    "6132": [
+      "LU",
+      "Rohrmatt"
+    ],
+    "6133": [
+      "LU",
+      "Hergiswil b. Willisau"
+    ],
+    "6142": [
+      "LU",
+      "Gettnau"
+    ],
+    "6143": [
+      "LU",
+      "Ohmstal"
+    ],
+    "6144": [
+      "LU",
+      "Zell"
+    ],
+    "6145": [
+      "LU",
+      "Fischbach"
+    ],
+    "6152": [
+      "LU",
+      "Hüswil"
+    ],
+    "6153": [
+      "LU",
+      "Ufhusen"
+    ],
+    "6154": [
+      "LU",
+      "Hofstatt"
+    ],
+    "6163": [
+      "LU",
+      "Ebnet"
+    ],
+    "6166": [
+      "LU",
+      "Hasle"
+    ],
+    "6167": [
+      "LU",
+      "Bramboden"
+    ],
+    "6170": [
+      "LU",
+      "Schüpfheim"
+    ],
+    "6173": [
+      "LU",
+      "Flühli"
+    ],
+    "6182": [
+      "LU",
+      "Escholzmatt"
+    ],
+    "6192": [
+      "LU",
+      "Wiggen"
+    ],
+    "6196": [
+      "LU",
+      "Marbach"
+    ],
+    "6203": [
+      "LU",
+      "Sempach Station"
+    ],
+    "6204": [
+      "LU",
+      "Sempach"
+    ],
+    "6205": [
+      "LU",
+      "Eich"
+    ],
+    "6206": [
+      "LU",
+      "Neuenkirch"
+    ],
+    "6207": [
+      "LU",
+      "Nottwil"
+    ],
+    "6208": [
+      "LU",
+      "Oberkirch"
+    ],
+    "6210": [
+      "LU",
+      "Sursee"
+    ],
+    "6211": [
+      "LU",
+      "Buchs"
+    ],
+    "6213": [
+      "LU",
+      "Knutwil"
+    ],
+    "6214": [
+      "LU",
+      "Schenkon"
+    ],
+    "6216": [
+      "LU",
+      "Mauensee"
+    ],
+    "6217": [
+      "LU",
+      "Kottwil"
+    ],
+    "6218": [
+      "LU",
+      "Ettiswil"
+    ],
+    "6221": [
+      "LU",
+      "Rickenbach"
+    ],
+    "6222": [
+      "LU",
+      "Gunzwil"
+    ],
+    "6231": [
+      "LU",
+      "Schlierbach"
+    ],
+    "6232": [
+      "LU",
+      "Geuensee"
+    ],
+    "6233": [
+      "LU",
+      "Büron"
+    ],
+    "6235": [
+      "LU",
+      "Winikon"
+    ],
+    "6236": [
+      "LU",
+      "Wilihof"
+    ],
+    "6242": [
+      "LU",
+      "Wauwil"
+    ],
+    "6243": [
+      "LU",
+      "Egolzwil"
+    ],
+    "6244": [
+      "LU",
+      "Nebikon"
+    ],
+    "6245": [
+      "LU",
+      "Ebersecken"
+    ],
+    "6246": [
+      "LU",
+      "Altishofen"
+    ],
+    "6247": [
+      "LU",
+      "Schötz"
+    ],
+    "6248": [
+      "LU",
+      "Alberswil"
+    ],
+    "6252": [
+      "LU",
+      "Dagmersellen"
+    ],
+    "6253": [
+      "LU",
+      "Uffikon"
+    ],
+    "6262": [
+      "LU",
+      "Langnau b. Reiden"
+    ],
+    "6263": [
+      "LU",
+      "Richenthal"
+    ],
+    "6265": [
+      "LU",
+      "Roggliswil"
+    ],
+    "6274": [
+      "LU",
+      "Eschenbach"
+    ],
+    "6276": [
+      "LU",
+      "Hohenrain"
+    ],
+    "6283": [
+      "LU",
+      "Baldegg"
+    ],
+    "6286": [
+      "LU",
+      "Altwis"
+    ],
+    "6287": [
+      "LU",
+      "Aesch"
+    ],
+    "6288": [
+      "LU",
+      "Schongau"
+    ],
+    "6294": [
+      "LU",
+      "Ermensee"
+    ],
+    "6295": [
+      "LU",
+      "Mosen"
+    ],
+    "6312": [
+      "ZG",
+      "Steinhausen"
+    ],
+    "6317": [
+      "ZG",
+      "Oberwil b. Zug"
+    ],
+    "6319": [
+      "ZG",
+      "Allenwinden"
+    ],
+    "6330": [
+      "ZG",
+      "Cham"
+    ],
+    "6331": [
+      "ZG",
+      "Hünenberg"
+    ],
+    "6332": [
+      "ZG",
+      "Hagendorn"
+    ],
+    "6333": [
+      "ZG",
+      "Hünenberg See"
+    ],
+    "6344": [
+      "LU",
+      "Meierskappel"
+    ],
+    "6345": [
+      "ZG",
+      "Neuheim"
+    ],
+    "6353": [
+      "LU",
+      "Weggis"
+    ],
+    "6354": [
+      "LU",
+      "Vitznau"
+    ],
+    "6362": [
+      "NW",
+      "Stansstad"
+    ],
+    "6372": [
+      "NW",
+      "Ennetmoos"
+    ],
+    "6373": [
+      "NW",
+      "Ennetbürgen"
+    ],
+    "6374": [
+      "NW",
+      "Buochs"
+    ],
+    "6375": [
+      "NW",
+      "Beckenried"
+    ],
+    "6376": [
+      "NW",
+      "Emmetten"
+    ],
+    "6382": [
+      "NW",
+      "Büren"
+    ],
+    "6386": [
+      "NW",
+      "Wolfenschiessen"
+    ],
+    "6387": [
+      "NW",
+      "Oberrickenbach"
+    ],
+    "6402": [
+      "SZ",
+      "Merlischachen"
+    ],
+    "6403": [
+      "SZ",
+      "Küssnacht am Rigi"
+    ],
+    "6404": [
+      "LU",
+      "Greppen"
+    ],
+    "6405": [
+      "SZ",
+      "Immensee"
+    ],
+    "6414": [
+      "SZ",
+      "Oberarth"
+    ],
+    "6415": [
+      "SZ",
+      "Arth"
+    ],
+    "6416": [
+      "SZ",
+      "Steinerberg"
+    ],
+    "6422": [
+      "SZ",
+      "Steinen"
+    ],
+    "6423": [
+      "SZ",
+      "Seewen"
+    ],
+    "6424": [
+      "SZ",
+      "Lauerz"
+    ],
+    "6430": [
+      "SZ",
+      "Schwyz"
+    ],
+    "6432": [
+      "SZ",
+      "Rickenbach b. Schwyz"
+    ],
+    "6433": [
+      "SZ",
+      "Stoos"
+    ],
+    "6434": [
+      "SZ",
+      "Illgau"
+    ],
+    "6438": [
+      "SZ",
+      "Ibach"
+    ],
+    "6440": [
+      "SZ",
+      "Brunnen"
+    ],
+    "6441": [
+      "UR",
+      "Rütli"
+    ],
+    "6442": [
+      "SZ",
+      "Gersau"
+    ],
+    "6443": [
+      "SZ",
+      "Morschach"
+    ],
+    "6454": [
+      "UR",
+      "Flüelen"
+    ],
+    "6460": [
+      "UR",
+      "Altdorf"
+    ],
+    "6461": [
+      "UR",
+      "Isenthal"
+    ],
+    "6462": [
+      "UR",
+      "Seedorf"
+    ],
+    "6463": [
+      "UR",
+      "Bürglen"
+    ],
+    "6464": [
+      "UR",
+      "Spiringen"
+    ],
+    "6465": [
+      "UR",
+      "Unterschächen"
+    ],
+    "6466": [
+      "UR",
+      "Bauen"
+    ],
+    "6467": [
+      "UR",
+      "Schattdorf"
+    ],
+    "6468": [
+      "UR",
+      "Attinghausen"
+    ],
+    "6469": [
+      "UR",
+      "Haldi b. Schattdorf"
+    ],
+    "6472": [
+      "UR",
+      "Erstfeld"
+    ],
+    "6473": [
+      "UR",
+      "Silenen"
+    ],
+    "6474": [
+      "UR",
+      "Amsteg"
+    ],
+    "6475": [
+      "UR",
+      "Bristen"
+    ],
+    "6476": [
+      "UR",
+      "Intschi"
+    ],
+    "6482": [
+      "UR",
+      "Gurtnellen"
+    ],
+    "6484": [
+      "UR",
+      "Wassen"
+    ],
+    "6485": [
+      "UR",
+      "Meien"
+    ],
+    "6487": [
+      "UR",
+      "Göschenen"
+    ],
+    "6490": [
+      "UR",
+      "Andermatt"
+    ],
+    "6491": [
+      "UR",
+      "Realp"
+    ],
+    "6493": [
+      "UR",
+      "Hospental"
+    ],
+    "6500": [
+      "TI",
+      "Bellinzona"
+    ],
+    "6503": [
+      "TI",
+      "Bellinzona"
+    ],
+    "6512": [
+      "TI",
+      "Giubiasco"
+    ],
+    "6513": [
+      "TI",
+      "Monte Carasso"
+    ],
+    "6514": [
+      "TI",
+      "Sementina"
+    ],
+    "6515": [
+      "TI",
+      "Gudo"
+    ],
+    "6516": [
+      "TI",
+      "Cugnasco"
+    ],
+    "6517": [
+      "TI",
+      "Arbedo"
+    ],
+    "6518": [
+      "TI",
+      "Gorduno"
+    ],
+    "6523": [
+      "TI",
+      "Preonzo"
+    ],
+    "6524": [
+      "TI",
+      "Moleno"
+    ],
+    "6525": [
+      "TI",
+      "Gnosca"
+    ],
+    "6526": [
+      "TI",
+      "Prosito"
+    ],
+    "6527": [
+      "TI",
+      "Lodrino"
+    ],
+    "6528": [
+      "TI",
+      "Camorino"
+    ],
+    "6532": [
+      "TI",
+      "Castione"
+    ],
+    "6534": [
+      "GR",
+      "S. Vittore"
+    ],
+    "6535": [
+      "GR",
+      "Roveredo"
+    ],
+    "6537": [
+      "GR",
+      "Grono"
+    ],
+    "6538": [
+      "GR",
+      "Verdabbio"
+    ],
+    "6540": [
+      "GR",
+      "Castaneda"
+    ],
+    "6541": [
+      "GR",
+      "Sta. Maria in Calanca"
+    ],
+    "6542": [
+      "GR",
+      "Buseno"
+    ],
+    "6543": [
+      "GR",
+      "Arvigo"
+    ],
+    "6544": [
+      "GR",
+      "Braggio"
+    ],
+    "6545": [
+      "GR",
+      "Selma"
+    ],
+    "6546": [
+      "GR",
+      "Cauco"
+    ],
+    "6549": [
+      "GR",
+      "Laura"
+    ],
+    "6556": [
+      "GR",
+      "Leggia"
+    ],
+    "6557": [
+      "GR",
+      "Cama"
+    ],
+    "6558": [
+      "GR",
+      "Lostallo"
+    ],
+    "6562": [
+      "GR",
+      "Soazza"
+    ],
+    "6563": [
+      "GR",
+      "Mesocco"
+    ],
+    "6565": [
+      "GR",
+      "S. Bernardino"
+    ],
+    "6571": [
+      "TI",
+      "Indemini"
+    ],
+    "6572": [
+      "TI",
+      "Quartino"
+    ],
+    "6573": [
+      "TI",
+      "Magadino"
+    ],
+    "6574": [
+      "TI",
+      "Vira (Gambarogno)"
+    ],
+    "6576": [
+      "TI",
+      "Gerra (Gambarogno)"
+    ],
+    "6577": [
+      "TI",
+      "Ranzo"
+    ],
+    "6578": [
+      "TI",
+      "Caviano"
+    ],
+    "6579": [
+      "TI",
+      "Piazzogna"
+    ],
+    "6582": [
+      "TI",
+      "Pianezzo"
+    ],
+    "6583": [
+      "TI",
+      "S. Antonio (Val Morobbia)"
+    ],
+    "6584": [
+      "TI",
+      "Carena"
+    ],
+    "6592": [
+      "TI",
+      "S. Antonino"
+    ],
+    "6593": [
+      "TI",
+      "Cadenazzo"
+    ],
+    "6594": [
+      "TI",
+      "Contone"
+    ],
+    "6595": [
+      "TI",
+      "Riazzino"
+    ],
+    "6596": [
+      "TI",
+      "Gordola"
+    ],
+    "6597": [
+      "TI",
+      "Agarone"
+    ],
+    "6598": [
+      "TI",
+      "Tenero"
+    ],
+    "6599": [
+      "TI",
+      "Robasacco"
+    ],
+    "6605": [
+      "TI",
+      "Locarno"
+    ],
+    "6612": [
+      "TI",
+      "Ascona"
+    ],
+    "6613": [
+      "TI",
+      "Porto Ronco"
+    ],
+    "6616": [
+      "TI",
+      "Losone"
+    ],
+    "6618": [
+      "TI",
+      "Arcegno"
+    ],
+    "6622": [
+      "TI",
+      "Ronco sopra Ascona"
+    ],
+    "6631": [
+      "TI",
+      "Corippo"
+    ],
+    "6632": [
+      "TI",
+      "Vogorno"
+    ],
+    "6633": [
+      "TI",
+      "Lavertezzo"
+    ],
+    "6634": [
+      "TI",
+      "Brione (Verzasca)"
+    ],
+    "6635": [
+      "TI",
+      "Gerra (Verzasca)"
+    ],
+    "6636": [
+      "TI",
+      "Frasco"
+    ],
+    "6637": [
+      "TI",
+      "Sonogno"
+    ],
+    "6644": [
+      "TI",
+      "Orselina"
+    ],
+    "6645": [
+      "TI",
+      "Brione sopra Minusio"
+    ],
+    "6646": [
+      "TI",
+      "Contra"
+    ],
+    "6647": [
+      "TI",
+      "Mergoscia"
+    ],
+    "6648": [
+      "TI",
+      "Minusio"
+    ],
+    "6652": [
+      "TI",
+      "Tegna"
+    ],
+    "6653": [
+      "TI",
+      "Verscio"
+    ],
+    "6654": [
+      "TI",
+      "Cavigliano"
+    ],
+    "6656": [
+      "TI",
+      "Golino"
+    ],
+    "6657": [
+      "TI",
+      "Palagnedra"
+    ],
+    "6658": [
+      "TI",
+      "Borgnone"
+    ],
+    "6670": [
+      "TI",
+      "Avegno"
+    ],
+    "6672": [
+      "TI",
+      "Gordevio"
+    ],
+    "6673": [
+      "TI",
+      "Maggia"
+    ],
+    "6675": [
+      "TI",
+      "Cevio"
+    ],
+    "6676": [
+      "TI",
+      "Bignasco"
+    ],
+    "6682": [
+      "TI",
+      "Linescio"
+    ],
+    "6685": [
+      "TI",
+      "Bosco/Gurin"
+    ],
+    "6693": [
+      "TI",
+      "Broglio"
+    ],
+    "6694": [
+      "TI",
+      "Prato-Sornico"
+    ],
+    "6696": [
+      "TI",
+      "Fusio"
+    ],
+    "6702": [
+      "TI",
+      "Claro"
+    ],
+    "6703": [
+      "TI",
+      "Osogna"
+    ],
+    "6705": [
+      "TI",
+      "Cresciano"
+    ],
+    "6707": [
+      "TI",
+      "Iragna"
+    ],
+    "6710": [
+      "TI",
+      "Biasca"
+    ],
+    "6713": [
+      "TI",
+      "Malvaglia"
+    ],
+    "6714": [
+      "TI",
+      "Semione"
+    ],
+    "6715": [
+      "TI",
+      "Dongio"
+    ],
+    "6719": [
+      "TI",
+      "Aquila"
+    ],
+    "6722": [
+      "TI",
+      "Corzoneso"
+    ],
+    "6742": [
+      "TI",
+      "Pollegio"
+    ],
+    "6743": [
+      "TI",
+      "Bodio"
+    ],
+    "6744": [
+      "TI",
+      "Personico"
+    ],
+    "6745": [
+      "TI",
+      "Giornico"
+    ],
+    "6747": [
+      "TI",
+      "Chironico"
+    ],
+    "6748": [
+      "TI",
+      "Anzonico"
+    ],
+    "6764": [
+      "TI",
+      "Chiggiogna"
+    ],
+    "6772": [
+      "TI",
+      "Rodi-Fiesso"
+    ],
+    "6773": [
+      "TI",
+      "Prato (Leventina)"
+    ],
+    "6774": [
+      "TI",
+      "Dalpe"
+    ],
+    "6775": [
+      "TI",
+      "Ambrì"
+    ],
+    "6776": [
+      "TI",
+      "Piotta"
+    ],
+    "6777": [
+      "TI",
+      "Quinto"
+    ],
+    "6780": [
+      "TI",
+      "Airolo"
+    ],
+    "6802": [
+      "TI",
+      "Rivera"
+    ],
+    "6803": [
+      "TI",
+      "Camignolo"
+    ],
+    "6804": [
+      "TI",
+      "Bironico"
+    ],
+    "6805": [
+      "TI",
+      "Mezzovico"
+    ],
+    "6806": [
+      "TI",
+      "Sigirino"
+    ],
+    "6807": [
+      "TI",
+      "Taverne"
+    ],
+    "6808": [
+      "TI",
+      "Torricella"
+    ],
+    "6809": [
+      "TI",
+      "Medeglia"
+    ],
+    "6810": [
+      "TI",
+      "Isone"
+    ],
+    "6815": [
+      "TI",
+      "Melide"
+    ],
+    "6816": [
+      "TI",
+      "Bissone"
+    ],
+    "6817": [
+      "TI",
+      "Maroggia"
+    ],
+    "6818": [
+      "TI",
+      "Melano"
+    ],
+    "6821": [
+      "TI",
+      "Rovio"
+    ],
+    "6822": [
+      "TI",
+      "Arogno"
+    ],
+    "6823": [
+      "TI",
+      "Pugerna"
+    ],
+    "6825": [
+      "TI",
+      "Capolago"
+    ],
+    "6826": [
+      "TI",
+      "Riva San Vitale"
+    ],
+    "6827": [
+      "TI",
+      "Brusino Arsizio"
+    ],
+    "6828": [
+      "TI",
+      "Balerna"
+    ],
+    "6830": [
+      "TI",
+      "Chiasso"
+    ],
+    "6833": [
+      "TI",
+      "Vacallo"
+    ],
+    "6834": [
+      "TI",
+      "Morbio Inferiore"
+    ],
+    "6835": [
+      "TI",
+      "Morbio Superiore"
+    ],
+    "6839": [
+      "TI",
+      "Sagno"
+    ],
+    "6850": [
+      "TI",
+      "Mendrisio"
+    ],
+    "6852": [
+      "TI",
+      "Genestrerio"
+    ],
+    "6853": [
+      "TI",
+      "Ligornetto"
+    ],
+    "6854": [
+      "TI",
+      "S. Pietro"
+    ],
+    "6855": [
+      "TI",
+      "Stabio"
+    ],
+    "6862": [
+      "TI",
+      "Rancate"
+    ],
+    "6863": [
+      "TI",
+      "Besazio"
+    ],
+    "6864": [
+      "TI",
+      "Arzo"
+    ],
+    "6865": [
+      "TI",
+      "Tremona"
+    ],
+    "6866": [
+      "TI",
+      "Meride"
+    ],
+    "6867": [
+      "TI",
+      "Serpiano"
+    ],
+    "6872": [
+      "TI",
+      "Salorino"
+    ],
+    "6873": [
+      "TI",
+      "Corteglia"
+    ],
+    "6874": [
+      "TI",
+      "Castel San Pietro"
+    ],
+    "6877": [
+      "TI",
+      "Coldrerio"
+    ],
+    "6883": [
+      "TI",
+      "Novazzano"
+    ],
+    "6912": [
+      "TI",
+      "Pazzallo"
+    ],
+    "6913": [
+      "TI",
+      "Carabbia"
+    ],
+    "6914": [
+      "TI",
+      "Carona"
+    ],
+    "6915": [
+      "TI",
+      "Pambio-Noranco"
+    ],
+    "6916": [
+      "TI",
+      "Grancia"
+    ],
+    "6917": [
+      "TI",
+      "Barbengo"
+    ],
+    "6918": [
+      "TI",
+      "Figino"
+    ],
+    "6919": [
+      "TI",
+      "Carabietta"
+    ],
+    "6921": [
+      "TI",
+      "Vico Morcote"
+    ],
+    "6922": [
+      "TI",
+      "Morcote"
+    ],
+    "6924": [
+      "TI",
+      "Sorengo"
+    ],
+    "6925": [
+      "TI",
+      "Gentilino"
+    ],
+    "6926": [
+      "TI",
+      "Montagnola"
+    ],
+    "6927": [
+      "TI",
+      "Agra"
+    ],
+    "6928": [
+      "TI",
+      "Manno"
+    ],
+    "6929": [
+      "TI",
+      "Gravesano"
+    ],
+    "6930": [
+      "TI",
+      "Bedano"
+    ],
+    "6932": [
+      "TI",
+      "Breganzona"
+    ],
+    "6933": [
+      "TI",
+      "Muzzano"
+    ],
+    "6934": [
+      "TI",
+      "Bioggio"
+    ],
+    "6935": [
+      "TI",
+      "Bosco Luganese"
+    ],
+    "6936": [
+      "TI",
+      "Cademario"
+    ],
+    "6937": [
+      "TI",
+      "Breno"
+    ],
+    "6942": [
+      "TI",
+      "Savosa"
+    ],
+    "6943": [
+      "TI",
+      "Vezia"
+    ],
+    "6944": [
+      "TI",
+      "Cureglia"
+    ],
+    "6945": [
+      "TI",
+      "Origlio"
+    ],
+    "6946": [
+      "TI",
+      "Ponte Capriasca"
+    ],
+    "6947": [
+      "TI",
+      "Vaglio"
+    ],
+    "6948": [
+      "TI",
+      "Porza"
+    ],
+    "6949": [
+      "TI",
+      "Comano"
+    ],
+    "6950": [
+      "TI",
+      "Tesserete"
+    ],
+    "6952": [
+      "TI",
+      "Canobbio"
+    ],
+    "6953": [
+      "TI",
+      "Lugaggia"
+    ],
+    "6956": [
+      "TI",
+      "Lopagno"
+    ],
+    "6957": [
+      "TI",
+      "Roveredo"
+    ],
+    "6960": [
+      "TI",
+      "Odogno"
+    ],
+    "6962": [
+      "TI",
+      "Viganello"
+    ],
+    "6964": [
+      "TI",
+      "Davesco-Soragno"
+    ],
+    "6965": [
+      "TI",
+      "Cadro"
+    ],
+    "6966": [
+      "TI",
+      "Villa Luganese"
+    ],
+    "6967": [
+      "TI",
+      "Dino"
+    ],
+    "6968": [
+      "TI",
+      "Sonvico"
+    ],
+    "6974": [
+      "TI",
+      "Aldesago"
+    ],
+    "6976": [
+      "TI",
+      "Castagnola"
+    ],
+    "6977": [
+      "TI",
+      "Ruvigliana"
+    ],
+    "6978": [
+      "TI",
+      "Gandria"
+    ],
+    "6979": [
+      "TI",
+      "Brè sopra Lugano"
+    ],
+    "6980": [
+      "TI",
+      "Castelrotto"
+    ],
+    "6982": [
+      "TI",
+      "Agno"
+    ],
+    "6983": [
+      "TI",
+      "Magliaso"
+    ],
+    "6984": [
+      "TI",
+      "Pura"
+    ],
+    "6987": [
+      "TI",
+      "Caslano"
+    ],
+    "6988": [
+      "TI",
+      "Ponte Tresa"
+    ],
+    "6989": [
+      "TI",
+      "Purasca"
+    ],
+    "6990": [
+      "TI",
+      "Cassina d'Agno"
+    ],
+    "6991": [
+      "TI",
+      "Neggio"
+    ],
+    "6993": [
+      "TI",
+      "Iseo"
+    ],
+    "6994": [
+      "TI",
+      "Aranno"
+    ],
+    "6995": [
+      "TI",
+      "Madonna del Piano"
+    ],
+    "6997": [
+      "TI",
+      "Sessa"
+    ],
+    "6998": [
+      "TI",
+      "Monteggio"
+    ],
+    "6999": [
+      "TI",
+      "Astano"
+    ],
+    "7000": [
+      "GR",
+      "Chur"
+    ],
+    "7012": [
+      "GR",
+      "Felsberg"
+    ],
+    "7013": [
+      "GR",
+      "Domat/Ems"
+    ],
+    "7014": [
+      "GR",
+      "Trin"
+    ],
+    "7015": [
+      "GR",
+      "Tamins"
+    ],
+    "7016": [
+      "GR",
+      "Trin Mulin"
+    ],
+    "7017": [
+      "GR",
+      "Flims Dorf"
+    ],
+    "7018": [
+      "GR",
+      "Flims Waldhaus"
+    ],
+    "7019": [
+      "GR",
+      "Fidaz"
+    ],
+    "7023": [
+      "GR",
+      "Haldenstein"
+    ],
+    "7026": [
+      "GR",
+      "Maladers"
+    ],
+    "7029": [
+      "GR",
+      "Peist"
+    ],
+    "7031": [
+      "GR",
+      "Laax"
+    ],
+    "7032": [
+      "GR",
+      "Laax GR 2"
+    ],
+    "7050": [
+      "GR",
+      "Arosa"
+    ],
+    "7056": [
+      "GR",
+      "Molinis"
+    ],
+    "7057": [
+      "GR",
+      "Langwies"
+    ],
+    "7058": [
+      "GR",
+      "Litzirüti"
+    ],
+    "7062": [
+      "GR",
+      "Passugg"
+    ],
+    "7063": [
+      "GR",
+      "Praden"
+    ],
+    "7064": [
+      "GR",
+      "Tschiertschen"
+    ],
+    "7074": [
+      "GR",
+      "Malix"
+    ],
+    "7075": [
+      "GR",
+      "Churwalden"
+    ],
+    "7076": [
+      "GR",
+      "Parpan"
+    ],
+    "7077": [
+      "GR",
+      "Valbella"
+    ],
+    "7078": [
+      "GR",
+      "Lenzerheide/Lai"
+    ],
+    "7082": [
+      "GR",
+      "Vaz/Obervaz"
+    ],
+    "7083": [
+      "GR",
+      "Lantsch/Lenz"
+    ],
+    "7084": [
+      "GR",
+      "Brienz/Brinzauls"
+    ],
+    "7104": [
+      "GR",
+      "Versam"
+    ],
+    "7106": [
+      "GR",
+      "Tenna"
+    ],
+    "7107": [
+      "GR",
+      "Safien Platz"
+    ],
+    "7109": [
+      "GR",
+      "Thalkirch"
+    ],
+    "7110": [
+      "GR",
+      "Peiden"
+    ],
+    "7111": [
+      "GR",
+      "Pitasch"
+    ],
+    "7112": [
+      "GR",
+      "Duvin"
+    ],
+    "7113": [
+      "GR",
+      "Camuns"
+    ],
+    "7114": [
+      "GR",
+      "Uors (Lumnezia)"
+    ],
+    "7115": [
+      "GR",
+      "Surcasti"
+    ],
+    "7122": [
+      "GR",
+      "Valendas"
+    ],
+    "7126": [
+      "GR",
+      "Castrisch"
+    ],
+    "7127": [
+      "GR",
+      "Sevgein"
+    ],
+    "7128": [
+      "GR",
+      "Riein"
+    ],
+    "7132": [
+      "GR",
+      "Vals"
+    ],
+    "7134": [
+      "GR",
+      "Obersaxen"
+    ],
+    "7137": [
+      "GR",
+      "Flond"
+    ],
+    "7138": [
+      "GR",
+      "Surcuolm"
+    ],
+    "7141": [
+      "GR",
+      "Luven"
+    ],
+    "7142": [
+      "GR",
+      "Cumbel"
+    ],
+    "7143": [
+      "GR",
+      "Morissen"
+    ],
+    "7144": [
+      "GR",
+      "Vella"
+    ],
+    "7145": [
+      "GR",
+      "Degen"
+    ],
+    "7146": [
+      "GR",
+      "Vattiz"
+    ],
+    "7147": [
+      "GR",
+      "Vignogn"
+    ],
+    "7148": [
+      "GR",
+      "Lumbrein"
+    ],
+    "7149": [
+      "GR",
+      "Vrin"
+    ],
+    "7151": [
+      "GR",
+      "Schluein"
+    ],
+    "7152": [
+      "GR",
+      "Sagogn"
+    ],
+    "7153": [
+      "GR",
+      "Falera"
+    ],
+    "7154": [
+      "GR",
+      "Ruschein"
+    ],
+    "7155": [
+      "GR",
+      "Ladir"
+    ],
+    "7157": [
+      "GR",
+      "Siat"
+    ],
+    "7158": [
+      "GR",
+      "Waltensburg/Vuorz"
+    ],
+    "7159": [
+      "GR",
+      "Andiast"
+    ],
+    "7162": [
+      "GR",
+      "Tavanasa"
+    ],
+    "7163": [
+      "GR",
+      "Danis"
+    ],
+    "7164": [
+      "GR",
+      "Dardin"
+    ],
+    "7165": [
+      "GR",
+      "Breil/Brigels"
+    ],
+    "7166": [
+      "GR",
+      "Trun"
+    ],
+    "7167": [
+      "GR",
+      "Zignau"
+    ],
+    "7168": [
+      "GR",
+      "Schlans"
+    ],
+    "7172": [
+      "GR",
+      "Rabius"
+    ],
+    "7173": [
+      "GR",
+      "Surrein"
+    ],
+    "7174": [
+      "GR",
+      "S. Benedetg"
+    ],
+    "7175": [
+      "GR",
+      "Sumvitg"
+    ],
+    "7176": [
+      "GR",
+      "Cumpadials"
+    ],
+    "7180": [
+      "GR",
+      "Disentis/Mustér"
+    ],
+    "7182": [
+      "GR",
+      "Cavardiras"
+    ],
+    "7183": [
+      "GR",
+      "Mumpé Medel"
+    ],
+    "7184": [
+      "GR",
+      "Curaglia"
+    ],
+    "7185": [
+      "GR",
+      "Platta"
+    ],
+    "7186": [
+      "GR",
+      "Segnas"
+    ],
+    "7187": [
+      "GR",
+      "Camischolas"
+    ],
+    "7188": [
+      "GR",
+      "Sedrun"
+    ],
+    "7189": [
+      "GR",
+      "Rueras"
+    ],
+    "7202": [
+      "GR",
+      "Says"
+    ],
+    "7203": [
+      "GR",
+      "Trimmis"
+    ],
+    "7204": [
+      "GR",
+      "Untervaz"
+    ],
+    "7205": [
+      "GR",
+      "Zizers"
+    ],
+    "7206": [
+      "GR",
+      "Igis"
+    ],
+    "7208": [
+      "GR",
+      "Malans"
+    ],
+    "7213": [
+      "GR",
+      "Valzeina"
+    ],
+    "7214": [
+      "GR",
+      "Grüsch"
+    ],
+    "7215": [
+      "GR",
+      "Fanas"
+    ],
+    "7220": [
+      "GR",
+      "Schiers"
+    ],
+    "7222": [
+      "GR",
+      "Lunden"
+    ],
+    "7223": [
+      "GR",
+      "Buchen im Prättigau"
+    ],
+    "7224": [
+      "GR",
+      "Putz"
+    ],
+    "7231": [
+      "GR",
+      "Pragg-Jenaz"
+    ],
+    "7232": [
+      "GR",
+      "Furna"
+    ],
+    "7233": [
+      "GR",
+      "Jenaz"
+    ],
+    "7235": [
+      "GR",
+      "Fideris"
+    ],
+    "7240": [
+      "GR",
+      "Küblis"
+    ],
+    "7241": [
+      "GR",
+      "Conters im Prättigau"
+    ],
+    "7242": [
+      "GR",
+      "Luzein"
+    ],
+    "7243": [
+      "GR",
+      "Pany"
+    ],
+    "7244": [
+      "GR",
+      "Gadenstätt"
+    ],
+    "7245": [
+      "GR",
+      "Ascharina"
+    ],
+    "7246": [
+      "GR",
+      "St. Antönien"
+    ],
+    "7247": [
+      "GR",
+      "Saas im Prättigau"
+    ],
+    "7249": [
+      "GR",
+      "Serneus"
+    ],
+    "7250": [
+      "GR",
+      "Klosters"
+    ],
+    "7252": [
+      "GR",
+      "Klosters Dorf"
+    ],
+    "7260": [
+      "GR",
+      "Davos Dorf"
+    ],
+    "7265": [
+      "GR",
+      "Davos Wolfgang"
+    ],
+    "7270": [
+      "GR",
+      "Davos Platz"
+    ],
+    "7272": [
+      "GR",
+      "Davos Clavadel"
+    ],
+    "7276": [
+      "GR",
+      "Davos Frauenkirch"
+    ],
+    "7277": [
+      "GR",
+      "Davos Glaris"
+    ],
+    "7278": [
+      "GR",
+      "Davos Monstein"
+    ],
+    "7302": [
+      "GR",
+      "Landquart"
+    ],
+    "7303": [
+      "GR",
+      "Mastrils"
+    ],
+    "7304": [
+      "GR",
+      "Maienfeld"
+    ],
+    "7306": [
+      "GR",
+      "Fläsch"
+    ],
+    "7307": [
+      "GR",
+      "Jenins"
+    ],
+    "7310": [
+      "SG",
+      "Bad Ragaz"
+    ],
+    "7312": [
+      "SG",
+      "Pfäfers"
+    ],
+    "7314": [
+      "SG",
+      "Vadura"
+    ],
+    "7320": [
+      "SG",
+      "Sargans"
+    ],
+    "7323": [
+      "SG",
+      "Wangs"
+    ],
+    "7324": [
+      "SG",
+      "Vilters"
+    ],
+    "7325": [
+      "SG",
+      "Schwendi im Weisstannental"
+    ],
+    "7326": [
+      "SG",
+      "Weisstannen"
+    ],
+    "7402": [
+      "GR",
+      "Bonaduz"
+    ],
+    "7403": [
+      "GR",
+      "Rhäzüns"
+    ],
+    "7404": [
+      "GR",
+      "Feldis/Veulden"
+    ],
+    "7405": [
+      "GR",
+      "Rothenbrunnen"
+    ],
+    "7407": [
+      "GR",
+      "Trans"
+    ],
+    "7408": [
+      "GR",
+      "Cazis"
+    ],
+    "7411": [
+      "GR",
+      "Sils im Domleschg"
+    ],
+    "7412": [
+      "GR",
+      "Scharans"
+    ],
+    "7413": [
+      "GR",
+      "Fürstenaubruck"
+    ],
+    "7414": [
+      "GR",
+      "Fürstenau"
+    ],
+    "7416": [
+      "GR",
+      "Almens"
+    ],
+    "7417": [
+      "GR",
+      "Paspels"
+    ],
+    "7418": [
+      "GR",
+      "Tumegl/Tomils"
+    ],
+    "7419": [
+      "GR",
+      "Scheid"
+    ],
+    "7421": [
+      "GR",
+      "Summaprada"
+    ],
+    "7422": [
+      "GR",
+      "Tartar"
+    ],
+    "7425": [
+      "GR",
+      "Masein"
+    ],
+    "7426": [
+      "GR",
+      "Flerden"
+    ],
+    "7427": [
+      "GR",
+      "Urmein"
+    ],
+    "7428": [
+      "GR",
+      "Tschappina"
+    ],
+    "7432": [
+      "GR",
+      "Zillis"
+    ],
+    "7434": [
+      "GR",
+      "Sufers"
+    ],
+    "7435": [
+      "GR",
+      "Splügen"
+    ],
+    "7436": [
+      "GR",
+      "Medels im Rheinwald"
+    ],
+    "7437": [
+      "GR",
+      "Nufenen"
+    ],
+    "7438": [
+      "GR",
+      "Hinterrhein"
+    ],
+    "7440": [
+      "GR",
+      "Andeer"
+    ],
+    "7442": [
+      "GR",
+      "Clugin"
+    ],
+    "7443": [
+      "GR",
+      "Pignia"
+    ],
+    "7444": [
+      "GR",
+      "Ausserferrera"
+    ],
+    "7445": [
+      "GR",
+      "Innerferrera"
+    ],
+    "7447": [
+      "GR",
+      "Avers"
+    ],
+    "7448": [
+      "GR",
+      "Juf"
+    ],
+    "7450": [
+      "GR",
+      "Tiefencastel"
+    ],
+    "7451": [
+      "GR",
+      "Alvaschein"
+    ],
+    "7452": [
+      "GR",
+      "Cunter"
+    ],
+    "7453": [
+      "GR",
+      "Tinizong"
+    ],
+    "7454": [
+      "GR",
+      "Rona"
+    ],
+    "7455": [
+      "GR",
+      "Mulegns"
+    ],
+    "7457": [
+      "GR",
+      "Bivio"
+    ],
+    "7458": [
+      "GR",
+      "Mon"
+    ],
+    "7459": [
+      "GR",
+      "Stierva"
+    ],
+    "7460": [
+      "GR",
+      "Savognin"
+    ],
+    "7462": [
+      "GR",
+      "Salouf"
+    ],
+    "7463": [
+      "GR",
+      "Riom"
+    ],
+    "7464": [
+      "GR",
+      "Parsonz"
+    ],
+    "7472": [
+      "GR",
+      "Surava"
+    ],
+    "7473": [
+      "GR",
+      "Alvaneu Bad"
+    ],
+    "7477": [
+      "GR",
+      "Filisur"
+    ],
+    "7484": [
+      "GR",
+      "Latsch"
+    ],
+    "7492": [
+      "GR",
+      "Alvaneu Dorf"
+    ],
+    "7493": [
+      "GR",
+      "Schmitten (Albula)"
+    ],
+    "7494": [
+      "GR",
+      "Davos Wiesen"
+    ],
+    "7500": [
+      "GR",
+      "St. Moritz"
+    ],
+    "7502": [
+      "GR",
+      "Bever"
+    ],
+    "7503": [
+      "GR",
+      "Samedan"
+    ],
+    "7504": [
+      "GR",
+      "Pontresina"
+    ],
+    "7505": [
+      "GR",
+      "Celerina/Schlarigna"
+    ],
+    "7512": [
+      "GR",
+      "Champfèr"
+    ],
+    "7515": [
+      "GR",
+      "Sils/Segl Baselgia"
+    ],
+    "7516": [
+      "GR",
+      "Maloja"
+    ],
+    "7517": [
+      "GR",
+      "Plaun da Lej"
+    ],
+    "7522": [
+      "GR",
+      "La Punt Chamues-ch"
+    ],
+    "7523": [
+      "GR",
+      "Madulain"
+    ],
+    "7524": [
+      "GR",
+      "Zuoz"
+    ],
+    "7525": [
+      "GR",
+      "S-chanf"
+    ],
+    "7527": [
+      "GR",
+      "Brail"
+    ],
+    "7530": [
+      "GR",
+      "Zernez"
+    ],
+    "7532": [
+      "GR",
+      "Tschierv"
+    ],
+    "7533": [
+      "GR",
+      "Fuldera"
+    ],
+    "7534": [
+      "GR",
+      "Lü"
+    ],
+    "7535": [
+      "GR",
+      "Valchava"
+    ],
+    "7536": [
+      "GR",
+      "Sta. Maria Val Müstair"
+    ],
+    "7537": [
+      "GR",
+      "Müstair"
+    ],
+    "7542": [
+      "GR",
+      "Susch"
+    ],
+    "7543": [
+      "GR",
+      "Lavin"
+    ],
+    "7545": [
+      "GR",
+      "Guarda"
+    ],
+    "7546": [
+      "GR",
+      "Ardez"
+    ],
+    "7550": [
+      "GR",
+      "Scuol"
+    ],
+    "7551": [
+      "GR",
+      "Ftan"
+    ],
+    "7552": [
+      "GR",
+      "Vulpera"
+    ],
+    "7553": [
+      "GR",
+      "Tarasp"
+    ],
+    "7554": [
+      "GR",
+      "Sent"
+    ],
+    "7556": [
+      "GR",
+      "Ramosch"
+    ],
+    "7557": [
+      "GR",
+      "Vnà"
+    ],
+    "7558": [
+      "GR",
+      "Strada"
+    ],
+    "7559": [
+      "GR",
+      "Tschlin"
+    ],
+    "7560": [
+      "GR",
+      "Martina"
+    ],
+    "7562": [
+      "GR",
+      "Samnaun-Compatsch"
+    ],
+    "7563": [
+      "GR",
+      "Samnaun Dorf"
+    ],
+    "7602": [
+      "GR",
+      "Casaccia"
+    ],
+    "7603": [
+      "GR",
+      "Vicosoprano"
+    ],
+    "7604": [
+      "GR",
+      "Borgonovo"
+    ],
+    "7605": [
+      "GR",
+      "Stampa"
+    ],
+    "7608": [
+      "GR",
+      "Castasegna"
+    ],
+    "7610": [
+      "GR",
+      "Soglio"
+    ],
+    "7741": [
+      "GR",
+      "S. Carlo (Poschiavo)"
+    ],
+    "7744": [
+      "GR",
+      "Campocologno"
+    ],
+    "7745": [
+      "GR",
+      "Li Curt"
+    ],
+    "7746": [
+      "GR",
+      "Le Prese"
+    ],
+    "7747": [
+      "GR",
+      "Viano"
+    ],
+    "7748": [
+      "GR",
+      "Campascio"
+    ],
+    "8001": [
+      "ZH",
+      "Zürich"
+    ],
+    "8002": [
+      "ZH",
+      "Zürich"
+    ],
+    "8003": [
+      "ZH",
+      "Zürich"
+    ],
+    "8004": [
+      "ZH",
+      "Zürich"
+    ],
+    "8005": [
+      "ZH",
+      "Zürich"
+    ],
+    "8006": [
+      "ZH",
+      "Zürich"
+    ],
+    "8008": [
+      "ZH",
+      "Zürich"
+    ],
+    "8032": [
+      "ZH",
+      "Zürich"
+    ],
+    "8037": [
+      "ZH",
+      "Zürich"
+    ],
+    "8038": [
+      "ZH",
+      "Zürich"
+    ],
+    "8041": [
+      "ZH",
+      "Zürich"
+    ],
+    "8045": [
+      "ZH",
+      "Zürich"
+    ],
+    "8046": [
+      "ZH",
+      "Zürich"
+    ],
+    "8047": [
+      "ZH",
+      "Zürich"
+    ],
+    "8048": [
+      "ZH",
+      "Zürich"
+    ],
+    "8049": [
+      "ZH",
+      "Zürich"
+    ],
+    "8050": [
+      "ZH",
+      "Zürich"
+    ],
+    "8051": [
+      "ZH",
+      "Zürich"
+    ],
+    "8052": [
+      "ZH",
+      "Zürich"
+    ],
+    "8053": [
+      "ZH",
+      "Zürich"
+    ],
+    "8055": [
+      "ZH",
+      "Zürich"
+    ],
+    "8057": [
+      "ZH",
+      "Zürich"
+    ],
+    "8064": [
+      "ZH",
+      "Zürich"
+    ],
+    "8102": [
+      "ZH",
+      "Oberengstringen"
+    ],
+    "8103": [
+      "ZH",
+      "Unterengstringen"
+    ],
+    "8104": [
+      "ZH",
+      "Weiningen"
+    ],
+    "8106": [
+      "ZH",
+      "Adlikon b. Regensdorf"
+    ],
+    "8107": [
+      "ZH",
+      "Buchs"
+    ],
+    "8108": [
+      "ZH",
+      "Dällikon"
+    ],
+    "8109": [
+      "AG",
+      "Kloster Fahr"
+    ],
+    "8112": [
+      "ZH",
+      "Otelfingen"
+    ],
+    "8113": [
+      "ZH",
+      "Boppelsen"
+    ],
+    "8114": [
+      "ZH",
+      "Dänikon"
+    ],
+    "8115": [
+      "ZH",
+      "Hüttikon"
+    ],
+    "8117": [
+      "ZH",
+      "Fällanden"
+    ],
+    "8118": [
+      "ZH",
+      "Pfaffhausen"
+    ],
+    "8121": [
+      "ZH",
+      "Benglen"
+    ],
+    "8122": [
+      "ZH",
+      "Binz"
+    ],
+    "8123": [
+      "ZH",
+      "Ebmatingen"
+    ],
+    "8124": [
+      "ZH",
+      "Maur"
+    ],
+    "8125": [
+      "ZH",
+      "Zollikerberg"
+    ],
+    "8126": [
+      "ZH",
+      "Zumikon"
+    ],
+    "8127": [
+      "ZH",
+      "Forch"
+    ],
+    "8133": [
+      "ZH",
+      "Esslingen"
+    ],
+    "8134": [
+      "ZH",
+      "Adliswil"
+    ],
+    "8136": [
+      "ZH",
+      "Gattikon"
+    ],
+    "8142": [
+      "ZH",
+      "Uitikon Waldegg"
+    ],
+    "8153": [
+      "ZH",
+      "Rümlang"
+    ],
+    "8154": [
+      "ZH",
+      "Oberglatt"
+    ],
+    "8156": [
+      "ZH",
+      "Oberhasli"
+    ],
+    "8157": [
+      "ZH",
+      "Dielsdorf"
+    ],
+    "8158": [
+      "ZH",
+      "Regensberg"
+    ],
+    "8164": [
+      "ZH",
+      "Bachs"
+    ],
+    "8166": [
+      "ZH",
+      "Niederweningen"
+    ],
+    "8172": [
+      "ZH",
+      "Niederglatt"
+    ],
+    "8173": [
+      "ZH",
+      "Neerach"
+    ],
+    "8174": [
+      "ZH",
+      "Stadel b. Niederglatt"
+    ],
+    "8175": [
+      "ZH",
+      "Windlach"
+    ],
+    "8180": [
+      "ZH",
+      "Bülach"
+    ],
+    "8181": [
+      "ZH",
+      "Höri"
+    ],
+    "8182": [
+      "ZH",
+      "Hochfelden"
+    ],
+    "8184": [
+      "ZH",
+      "Bachenbülach"
+    ],
+    "8185": [
+      "ZH",
+      "Winkel"
+    ],
+    "8187": [
+      "ZH",
+      "Weiach"
+    ],
+    "8193": [
+      "ZH",
+      "Eglisau"
+    ],
+    "8194": [
+      "ZH",
+      "Hüntwangen"
+    ],
+    "8195": [
+      "ZH",
+      "Wasterkingen"
+    ],
+    "8196": [
+      "ZH",
+      "Wil"
+    ],
+    "8197": [
+      "ZH",
+      "Rafz"
+    ],
+    "8200": [
+      "SH",
+      "Schaffhausen"
+    ],
+    "8203": [
+      "SH",
+      "Schaffhausen"
+    ],
+    "8207": [
+      "SH",
+      "Schaffhausen"
+    ],
+    "8208": [
+      "SH",
+      "Schaffhausen"
+    ],
+    "8213": [
+      "SH",
+      "Neunkirch"
+    ],
+    "8214": [
+      "SH",
+      "Gächlingen"
+    ],
+    "8215": [
+      "SH",
+      "Hallau"
+    ],
+    "8216": [
+      "SH",
+      "Oberhallau"
+    ],
+    "8217": [
+      "SH",
+      "Wilchingen"
+    ],
+    "8218": [
+      "SH",
+      "Osterfingen"
+    ],
+    "8219": [
+      "SH",
+      "Trasadingen"
+    ],
+    "8222": [
+      "SH",
+      "Beringen"
+    ],
+    "8223": [
+      "SH",
+      "Guntmadingen"
+    ],
+    "8224": [
+      "SH",
+      "Löhningen"
+    ],
+    "8225": [
+      "SH",
+      "Siblingen"
+    ],
+    "8226": [
+      "SH",
+      "Schleitheim"
+    ],
+    "8228": [
+      "SH",
+      "Beggingen"
+    ],
+    "8231": [
+      "SH",
+      "Hemmental"
+    ],
+    "8232": [
+      "SH",
+      "Merishausen"
+    ],
+    "8233": [
+      "SH",
+      "Bargen"
+    ],
+    "8234": [
+      "SH",
+      "Stetten"
+    ],
+    "8235": [
+      "SH",
+      "Lohn"
+    ],
+    "8239": [
+      "SH",
+      "Dörflingen"
+    ],
+    "8240": [
+      "SH",
+      "Thayngen"
+    ],
+    "8241": [
+      "SH",
+      "Barzheim"
+    ],
+    "8243": [
+      "SH",
+      "Altdorf"
+    ],
+    "8245": [
+      "ZH",
+      "Feuerthalen"
+    ],
+    "8246": [
+      "ZH",
+      "Langwiesen"
+    ],
+    "8247": [
+      "ZH",
+      "Flurlingen"
+    ],
+    "8248": [
+      "ZH",
+      "Uhwiesen"
+    ],
+    "8252": [
+      "TG",
+      "Schlatt"
+    ],
+    "8254": [
+      "TG",
+      "Basadingen"
+    ],
+    "8255": [
+      "TG",
+      "Schlattingen"
+    ],
+    "8260": [
+      "SH",
+      "Stein am Rhein"
+    ],
+    "8261": [
+      "SH",
+      "Hemishofen"
+    ],
+    "8262": [
+      "SH",
+      "Ramsen"
+    ],
+    "8263": [
+      "SH",
+      "Buch"
+    ],
+    "8264": [
+      "TG",
+      "Eschenz"
+    ],
+    "8265": [
+      "TG",
+      "Mammern"
+    ],
+    "8266": [
+      "TG",
+      "Steckborn"
+    ],
+    "8267": [
+      "TG",
+      "Berlingen"
+    ],
+    "8269": [
+      "TG",
+      "Fruthwilen"
+    ],
+    "8272": [
+      "TG",
+      "Ermatingen"
+    ],
+    "8273": [
+      "TG",
+      "Triboltingen"
+    ],
+    "8280": [
+      "TG",
+      "Kreuzlingen"
+    ],
+    "8302": [
+      "ZH",
+      "Kloten"
+    ],
+    "8303": [
+      "ZH",
+      "Bassersdorf"
+    ],
+    "8304": [
+      "ZH",
+      "Wallisellen"
+    ],
+    "8305": [
+      "ZH",
+      "Dietlikon"
+    ],
+    "8306": [
+      "ZH",
+      "Brüttisellen"
+    ],
+    "8309": [
+      "ZH",
+      "Nürensdorf"
+    ],
+    "8311": [
+      "ZH",
+      "Brütten"
+    ],
+    "8312": [
+      "ZH",
+      "Winterberg"
+    ],
+    "8314": [
+      "ZH",
+      "Kyburg"
+    ],
+    "8315": [
+      "ZH",
+      "Lindau"
+    ],
+    "8317": [
+      "ZH",
+      "Tagelswangen"
+    ],
+    "8320": [
+      "ZH",
+      "Fehraltorf"
+    ],
+    "8330": [
+      "ZH",
+      "Pfäffikon"
+    ],
+    "8331": [
+      "ZH",
+      "Auslikon"
+    ],
+    "8335": [
+      "ZH",
+      "Hittnau"
+    ],
+    "8340": [
+      "ZH",
+      "Hinwil"
+    ],
+    "8342": [
+      "ZH",
+      "Wernetshausen"
+    ],
+    "8344": [
+      "ZH",
+      "Bäretswil"
+    ],
+    "8345": [
+      "ZH",
+      "Adetswil"
+    ],
+    "8353": [
+      "ZH",
+      "Elgg"
+    ],
+    "8356": [
+      "TG",
+      "Ettenhausen"
+    ],
+    "8357": [
+      "TG",
+      "Guntershausen b. Aadorf"
+    ],
+    "8362": [
+      "TG",
+      "Balterswil"
+    ],
+    "8370": [
+      "TG",
+      "Sirnach"
+    ],
+    "8371": [
+      "TG",
+      "Busswil"
+    ],
+    "8372": [
+      "TG",
+      "Wiezikon b. Sirnach"
+    ],
+    "8400": [
+      "ZH",
+      "Winterthur"
+    ],
+    "8405": [
+      "ZH",
+      "Winterthur"
+    ],
+    "8406": [
+      "ZH",
+      "Winterthur"
+    ],
+    "8408": [
+      "ZH",
+      "Winterthur"
+    ],
+    "8409": [
+      "ZH",
+      "Winterthur"
+    ],
+    "8413": [
+      "ZH",
+      "Neftenbach"
+    ],
+    "8414": [
+      "ZH",
+      "Buch am Irchel"
+    ],
+    "8416": [
+      "ZH",
+      "Flaach"
+    ],
+    "8418": [
+      "ZH",
+      "Schlatt"
+    ],
+    "8421": [
+      "ZH",
+      "Dättlikon"
+    ],
+    "8422": [
+      "ZH",
+      "Pfungen"
+    ],
+    "8424": [
+      "ZH",
+      "Embrach"
+    ],
+    "8425": [
+      "ZH",
+      "Oberembrach"
+    ],
+    "8426": [
+      "ZH",
+      "Lufingen"
+    ],
+    "8428": [
+      "ZH",
+      "Teufen"
+    ],
+    "8442": [
+      "ZH",
+      "Hettlingen"
+    ],
+    "8444": [
+      "ZH",
+      "Henggart"
+    ],
+    "8447": [
+      "ZH",
+      "Dachsen"
+    ],
+    "8450": [
+      "ZH",
+      "Andelfingen"
+    ],
+    "8451": [
+      "ZH",
+      "Kleinandelfingen"
+    ],
+    "8452": [
+      "ZH",
+      "Adlikon b. Andelfingen"
+    ],
+    "8453": [
+      "ZH",
+      "Alten"
+    ],
+    "8454": [
+      "SH",
+      "Buchberg"
+    ],
+    "8455": [
+      "SH",
+      "Rüdlingen"
+    ],
+    "8457": [
+      "ZH",
+      "Humlikon"
+    ],
+    "8458": [
+      "ZH",
+      "Dorf"
+    ],
+    "8459": [
+      "ZH",
+      "Volken"
+    ],
+    "8460": [
+      "ZH",
+      "Marthalen"
+    ],
+    "8461": [
+      "ZH",
+      "Oerlingen"
+    ],
+    "8462": [
+      "ZH",
+      "Rheinau"
+    ],
+    "8463": [
+      "ZH",
+      "Benken"
+    ],
+    "8464": [
+      "ZH",
+      "Ellikon am Rhein"
+    ],
+    "8466": [
+      "ZH",
+      "Trüllikon"
+    ],
+    "8467": [
+      "ZH",
+      "Truttikon"
+    ],
+    "8474": [
+      "ZH",
+      "Dinhard"
+    ],
+    "8475": [
+      "ZH",
+      "Ossingen"
+    ],
+    "8477": [
+      "ZH",
+      "Oberstammheim"
+    ],
+    "8478": [
+      "ZH",
+      "Thalheim an der Thur"
+    ],
+    "8479": [
+      "ZH",
+      "Altikon"
+    ],
+    "8482": [
+      "ZH",
+      "Sennhof (Winterthur)"
+    ],
+    "8483": [
+      "ZH",
+      "Kollbrunn"
+    ],
+    "8486": [
+      "ZH",
+      "Rikon im Tösstal"
+    ],
+    "8488": [
+      "ZH",
+      "Turbenthal"
+    ],
+    "8492": [
+      "ZH",
+      "Wila"
+    ],
+    "8493": [
+      "ZH",
+      "Saland"
+    ],
+    "8494": [
+      "ZH",
+      "Bauma"
+    ],
+    "8497": [
+      "ZH",
+      "Fischenthal"
+    ],
+    "8498": [
+      "ZH",
+      "Gibswil"
+    ],
+    "8506": [
+      "TG",
+      "Lanzenneunforn"
+    ],
+    "8507": [
+      "TG",
+      "Hörhausen"
+    ],
+    "8508": [
+      "TG",
+      "Homburg"
+    ],
+    "8514": [
+      "TG",
+      "Amlikon-Bissegg"
+    ],
+    "8523": [
+      "ZH",
+      "Hagenbuch"
+    ],
+    "8526": [
+      "TG",
+      "Oberneunforn"
+    ],
+    "8535": [
+      "TG",
+      "Herdern"
+    ],
+    "8536": [
+      "TG",
+      "Hüttwilen"
+    ],
+    "8542": [
+      "ZH",
+      "Wiesendangen"
+    ],
+    "8544": [
+      "ZH",
+      "Attikon"
+    ],
+    "8547": [
+      "TG",
+      "Gachnang"
+    ],
+    "8548": [
+      "ZH",
+      "Ellikon an der Thur"
+    ],
+    "8552": [
+      "TG",
+      "Felben-Wellhausen"
+    ],
+    "8555": [
+      "TG",
+      "Müllheim Dorf"
+    ],
+    "8558": [
+      "TG",
+      "Raperswilen"
+    ],
+    "8560": [
+      "TG",
+      "Märstetten"
+    ],
+    "8561": [
+      "TG",
+      "Ottoberg"
+    ],
+    "8565": [
+      "TG",
+      "Hugelshofen"
+    ],
+    "8570": [
+      "TG",
+      "Weinfelden"
+    ],
+    "8576": [
+      "TG",
+      "Mauren"
+    ],
+    "8577": [
+      "TG",
+      "Schönholzerswilen"
+    ],
+    "8581": [
+      "TG",
+      "Schocherswil"
+    ],
+    "8582": [
+      "TG",
+      "Dozwil"
+    ],
+    "8587": [
+      "TG",
+      "Oberaach"
+    ],
+    "8588": [
+      "TG",
+      "Zihlschlacht"
+    ],
+    "8589": [
+      "TG",
+      "Sitterdorf"
+    ],
+    "8590": [
+      "TG",
+      "Romanshorn"
+    ],
+    "8592": [
+      "TG",
+      "Uttwil"
+    ],
+    "8593": [
+      "TG",
+      "Kesswil"
+    ],
+    "8594": [
+      "TG",
+      "Güttingen"
+    ],
+    "8595": [
+      "TG",
+      "Altnau"
+    ],
+    "8597": [
+      "TG",
+      "Landschlacht"
+    ],
+    "8598": [
+      "TG",
+      "Bottighofen"
+    ],
+    "8599": [
+      "TG",
+      "Salmsach"
+    ],
+    "8600": [
+      "ZH",
+      "Dübendorf"
+    ],
+    "8602": [
+      "ZH",
+      "Wangen b. Dübendorf"
+    ],
+    "8603": [
+      "ZH",
+      "Schwerzenbach"
+    ],
+    "8604": [
+      "ZH",
+      "Volketswil"
+    ],
+    "8605": [
+      "ZH",
+      "Gutenswil"
+    ],
+    "8607": [
+      "ZH",
+      "Aathal-Seegräben"
+    ],
+    "8608": [
+      "ZH",
+      "Bubikon"
+    ],
+    "8610": [
+      "ZH",
+      "Uster"
+    ],
+    "8616": [
+      "ZH",
+      "Riedikon"
+    ],
+    "8617": [
+      "ZH",
+      "Mönchaltorf"
+    ],
+    "8618": [
+      "ZH",
+      "Oetwil am See"
+    ],
+    "8620": [
+      "ZH",
+      "Wetzikon"
+    ],
+    "8623": [
+      "ZH",
+      "Wetzikon"
+    ],
+    "8624": [
+      "ZH",
+      "Grüt (Gossau ZH)"
+    ],
+    "8625": [
+      "ZH",
+      "Gossau"
+    ],
+    "8626": [
+      "ZH",
+      "Ottikon (Gossau ZH)"
+    ],
+    "8627": [
+      "ZH",
+      "Grüningen"
+    ],
+    "8632": [
+      "ZH",
+      "Tann"
+    ],
+    "8634": [
+      "ZH",
+      "Hombrechtikon"
+    ],
+    "8635": [
+      "ZH",
+      "Dürnten"
+    ],
+    "8638": [
+      "SG",
+      "Goldingen"
+    ],
+    "8645": [
+      "SG",
+      "Jona"
+    ],
+    "8646": [
+      "SG",
+      "Wagen"
+    ],
+    "8700": [
+      "ZH",
+      "Küsnacht"
+    ],
+    "8702": [
+      "ZH",
+      "Zollikon"
+    ],
+    "8703": [
+      "ZH",
+      "Erlenbach"
+    ],
+    "8704": [
+      "ZH",
+      "Herrliberg"
+    ],
+    "8706": [
+      "ZH",
+      "Meilen"
+    ],
+    "8707": [
+      "ZH",
+      "Uetikon am See"
+    ],
+    "8708": [
+      "ZH",
+      "Männedorf"
+    ],
+    "8712": [
+      "ZH",
+      "Stäfa"
+    ],
+    "8713": [
+      "ZH",
+      "Uerikon"
+    ],
+    "8715": [
+      "SG",
+      "Bollingen"
+    ],
+    "8716": [
+      "SG",
+      "Schmerikon"
+    ],
+    "8717": [
+      "SG",
+      "Benken"
+    ],
+    "8718": [
+      "SG",
+      "Schänis"
+    ],
+    "8722": [
+      "SG",
+      "Kaltbrunn"
+    ],
+    "8726": [
+      "SG",
+      "Ricken"
+    ],
+    "8727": [
+      "SG",
+      "Walde"
+    ],
+    "8732": [
+      "SG",
+      "Neuhaus"
+    ],
+    "8733": [
+      "SG",
+      "Eschenbach"
+    ],
+    "8734": [
+      "SG",
+      "Ermenswil"
+    ],
+    "8737": [
+      "SG",
+      "Gommiswald"
+    ],
+    "8738": [
+      "SG",
+      "Uetliburg"
+    ],
+    "8739": [
+      "SG",
+      "Rieden"
+    ],
+    "8751": [
+      "UR",
+      "Urnerboden"
+    ],
+    "8752": [
+      "GL",
+      "Näfels"
+    ],
+    "8753": [
+      "GL",
+      "Mollis"
+    ],
+    "8754": [
+      "GL",
+      "Netstal"
+    ],
+    "8755": [
+      "GL",
+      "Ennenda"
+    ],
+    "8756": [
+      "GL",
+      "Mitlödi"
+    ],
+    "8757": [
+      "GL",
+      "Filzbach"
+    ],
+    "8758": [
+      "GL",
+      "Obstalden"
+    ],
+    "8765": [
+      "GL",
+      "Engi"
+    ],
+    "8766": [
+      "GL",
+      "Matt"
+    ],
+    "8767": [
+      "GL",
+      "Elm"
+    ],
+    "8772": [
+      "GL",
+      "Nidfurn"
+    ],
+    "8773": [
+      "GL",
+      "Haslen"
+    ],
+    "8774": [
+      "GL",
+      "Leuggelbach"
+    ],
+    "8782": [
+      "GL",
+      "Rüti"
+    ],
+    "8783": [
+      "GL",
+      "Linthal"
+    ],
+    "8784": [
+      "GL",
+      "Braunwald"
+    ],
+    "8800": [
+      "ZH",
+      "Thalwil"
+    ],
+    "8802": [
+      "ZH",
+      "Kilchberg"
+    ],
+    "8803": [
+      "ZH",
+      "Rüschlikon"
+    ],
+    "8804": [
+      "ZH",
+      "Au"
+    ],
+    "8805": [
+      "ZH",
+      "Richterswil"
+    ],
+    "8806": [
+      "SZ",
+      "Bäch"
+    ],
+    "8807": [
+      "SZ",
+      "Freienbach"
+    ],
+    "8808": [
+      "SZ",
+      "Pfäffikon"
+    ],
+    "8810": [
+      "ZH",
+      "Horgen"
+    ],
+    "8815": [
+      "ZH",
+      "Horgenberg"
+    ],
+    "8816": [
+      "ZH",
+      "Hirzel"
+    ],
+    "8820": [
+      "ZH",
+      "Wädenswil"
+    ],
+    "8824": [
+      "ZH",
+      "Schönenberg"
+    ],
+    "8825": [
+      "ZH",
+      "Hütten"
+    ],
+    "8834": [
+      "SZ",
+      "Schindellegi"
+    ],
+    "8835": [
+      "SZ",
+      "Feusisberg"
+    ],
+    "8841": [
+      "SZ",
+      "Gross"
+    ],
+    "8842": [
+      "SZ",
+      "Unteriberg"
+    ],
+    "8843": [
+      "SZ",
+      "Oberiberg"
+    ],
+    "8844": [
+      "SZ",
+      "Euthal"
+    ],
+    "8845": [
+      "SZ",
+      "Studen"
+    ],
+    "8846": [
+      "SZ",
+      "Willerzell"
+    ],
+    "8847": [
+      "SZ",
+      "Egg"
+    ],
+    "8849": [
+      "SZ",
+      "Alpthal"
+    ],
+    "8852": [
+      "SZ",
+      "Altendorf"
+    ],
+    "8853": [
+      "SZ",
+      "Lachen"
+    ],
+    "8855": [
+      "SZ",
+      "Wangen"
+    ],
+    "8856": [
+      "SZ",
+      "Tuggen"
+    ],
+    "8857": [
+      "SZ",
+      "Vorderthal"
+    ],
+    "8858": [
+      "SZ",
+      "Innerthal"
+    ],
+    "8862": [
+      "SZ",
+      "Schübelbach"
+    ],
+    "8864": [
+      "SZ",
+      "Reichenburg"
+    ],
+    "8865": [
+      "GL",
+      "Bilten"
+    ],
+    "8867": [
+      "GL",
+      "Niederurnen"
+    ],
+    "8868": [
+      "GL",
+      "Oberurnen"
+    ],
+    "8873": [
+      "SG",
+      "Amden"
+    ],
+    "8874": [
+      "GL",
+      "Mühlehorn"
+    ],
+    "8877": [
+      "SG",
+      "Murg"
+    ],
+    "8878": [
+      "SG",
+      "Quinten"
+    ],
+    "8880": [
+      "SG",
+      "Walenstadt"
+    ],
+    "8882": [
+      "SG",
+      "Unterterzen"
+    ],
+    "8883": [
+      "SG",
+      "Quarten"
+    ],
+    "8884": [
+      "SG",
+      "Oberterzen"
+    ],
+    "8885": [
+      "SG",
+      "Mols"
+    ],
+    "8886": [
+      "SG",
+      "Mädris-Vermol"
+    ],
+    "8887": [
+      "SG",
+      "Mels"
+    ],
+    "8888": [
+      "SG",
+      "Heiligkreuz (Mels)"
+    ],
+    "8889": [
+      "SG",
+      "Plons"
+    ],
+    "8890": [
+      "SG",
+      "Flums"
+    ],
+    "8892": [
+      "SG",
+      "Berschis"
+    ],
+    "8893": [
+      "SG",
+      "Flums Hochwiese"
+    ],
+    "8894": [
+      "SG",
+      "Flumserberg Saxli"
+    ],
+    "8895": [
+      "SG",
+      "Flumserberg Portels"
+    ],
+    "8896": [
+      "SG",
+      "Flumserberg Bergheim"
+    ],
+    "8897": [
+      "SG",
+      "Flumserberg Tannenheim"
+    ],
+    "8898": [
+      "SG",
+      "Flumserberg Tannenbodenalp"
+    ],
+    "8902": [
+      "ZH",
+      "Urdorf"
+    ],
+    "8903": [
+      "ZH",
+      "Birmensdorf"
+    ],
+    "8904": [
+      "ZH",
+      "Aesch"
+    ],
+    "8906": [
+      "ZH",
+      "Bonstetten"
+    ],
+    "8907": [
+      "ZH",
+      "Wettswil"
+    ],
+    "8908": [
+      "ZH",
+      "Hedingen"
+    ],
+    "8909": [
+      "ZH",
+      "Zwillikon"
+    ],
+    "8910": [
+      "ZH",
+      "Affoltern am Albis"
+    ],
+    "8911": [
+      "ZH",
+      "Rifferswil"
+    ],
+    "8912": [
+      "ZH",
+      "Obfelden"
+    ],
+    "8913": [
+      "ZH",
+      "Ottenbach"
+    ],
+    "8915": [
+      "ZH",
+      "Hausen am Albis"
+    ],
+    "8916": [
+      "AG",
+      "Jonen"
+    ],
+    "8917": [
+      "AG",
+      "Oberlunkhofen"
+    ],
+    "8918": [
+      "AG",
+      "Unterlunkhofen"
+    ],
+    "8919": [
+      "AG",
+      "Rottenschwil"
+    ],
+    "8925": [
+      "ZH",
+      "Ebertswil"
+    ],
+    "8932": [
+      "ZH",
+      "Mettmenstetten"
+    ],
+    "8933": [
+      "ZH",
+      "Maschwanden"
+    ],
+    "8934": [
+      "ZH",
+      "Knonau"
+    ],
+    "8942": [
+      "ZH",
+      "Oberrieden"
+    ],
+    "8951": [
+      "ZH",
+      "Fahrweid"
+    ],
+    "8952": [
+      "ZH",
+      "Schlieren"
+    ],
+    "8954": [
+      "ZH",
+      "Geroldswil"
+    ],
+    "8955": [
+      "ZH",
+      "Oetwil an der Limmat"
+    ],
+    "8956": [
+      "AG",
+      "Killwangen"
+    ],
+    "8957": [
+      "AG",
+      "Spreitenbach"
+    ],
+    "8962": [
+      "AG",
+      "Bergdietikon"
+    ],
+    "8964": [
+      "AG",
+      "Rudolfstetten"
+    ],
+    "8965": [
+      "AG",
+      "Berikon"
+    ],
+    "8966": [
+      "AG",
+      "Oberwil-Lieli"
+    ],
+    "8967": [
+      "AG",
+      "Widen"
+    ],
+    "9000": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9008": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9010": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9011": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9015": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9016": [
+      "SG",
+      "St. Gallen"
+    ],
+    "9032": [
+      "SG",
+      "Engelburg"
+    ],
+    "9033": [
+      "SG",
+      "Untereggen"
+    ],
+    "9038": [
+      "AR",
+      "Rehetobel"
+    ],
+    "9043": [
+      "AR",
+      "Trogen"
+    ],
+    "9044": [
+      "AR",
+      "Wald"
+    ],
+    "9054": [
+      "AI",
+      "Haslen"
+    ],
+    "9062": [
+      "AR",
+      "Lustmühle"
+    ],
+    "9063": [
+      "AR",
+      "Stein"
+    ],
+    "9064": [
+      "AR",
+      "Hundwil"
+    ],
+    "9104": [
+      "AR",
+      "Waldstatt"
+    ],
+    "9112": [
+      "AR",
+      "Schachen b. Herisau"
+    ],
+    "9114": [
+      "SG",
+      "Hoffeld"
+    ],
+    "9115": [
+      "SG",
+      "Dicken"
+    ],
+    "9116": [
+      "SG",
+      "Wolfertswil"
+    ],
+    "9123": [
+      "SG",
+      "Nassen"
+    ],
+    "9125": [
+      "SG",
+      "Brunnadern"
+    ],
+    "9126": [
+      "SG",
+      "Necker"
+    ],
+    "9127": [
+      "SG",
+      "St. Peterzell"
+    ],
+    "9203": [
+      "SG",
+      "Niederwil"
+    ],
+    "9204": [
+      "SG",
+      "Andwil"
+    ],
+    "9205": [
+      "SG",
+      "Waldkirch"
+    ],
+    "9212": [
+      "SG",
+      "Arnegg"
+    ],
+    "9214": [
+      "TG",
+      "Kradolf"
+    ],
+    "9217": [
+      "TG",
+      "Neukirch an der Thur"
+    ],
+    "9230": [
+      "SG",
+      "Flawil"
+    ],
+    "9231": [
+      "SG",
+      "Egg (Flawil)"
+    ],
+    "9242": [
+      "SG",
+      "Oberuzwil"
+    ],
+    "9243": [
+      "SG",
+      "Jonschwil"
+    ],
+    "9244": [
+      "SG",
+      "Niederuzwil"
+    ],
+    "9246": [
+      "SG",
+      "Niederbüren"
+    ],
+    "9247": [
+      "SG",
+      "Henau"
+    ],
+    "9248": [
+      "SG",
+      "Bichwil"
+    ],
+    "9300": [
+      "SG",
+      "Wittenbach"
+    ],
+    "9304": [
+      "SG",
+      "Bernhardzell"
+    ],
+    "9305": [
+      "SG",
+      "Berg"
+    ],
+    "9312": [
+      "SG",
+      "Häggenschwil"
+    ],
+    "9314": [
+      "TG",
+      "Steinebrunn"
+    ],
+    "9322": [
+      "TG",
+      "Egnach"
+    ],
+    "9323": [
+      "SG",
+      "Steinach"
+    ],
+    "9325": [
+      "TG",
+      "Roggwil"
+    ],
+    "9327": [
+      "SG",
+      "Tübach"
+    ],
+    "9400": [
+      "SG",
+      "Rorschach"
+    ],
+    "9402": [
+      "SG",
+      "Mörschwil"
+    ],
+    "9403": [
+      "SG",
+      "Goldach"
+    ],
+    "9404": [
+      "SG",
+      "Rorschacherberg"
+    ],
+    "9410": [
+      "AR",
+      "Heiden"
+    ],
+    "9422": [
+      "SG",
+      "Staad"
+    ],
+    "9423": [
+      "SG",
+      "Altenrhein"
+    ],
+    "9424": [
+      "SG",
+      "Rheineck"
+    ],
+    "9430": [
+      "SG",
+      "St. Margrethen"
+    ],
+    "9434": [
+      "SG",
+      "Au"
+    ],
+    "9435": [
+      "SG",
+      "Heerbrugg"
+    ],
+    "9436": [
+      "SG",
+      "Balgach"
+    ],
+    "9443": [
+      "SG",
+      "Widnau"
+    ],
+    "9444": [
+      "SG",
+      "Diepoldsau"
+    ],
+    "9445": [
+      "SG",
+      "Rebstein"
+    ],
+    "9451": [
+      "SG",
+      "Kriessern"
+    ],
+    "9452": [
+      "SG",
+      "Hinterforst"
+    ],
+    "9453": [
+      "SG",
+      "Eichberg"
+    ],
+    "9462": [
+      "SG",
+      "Montlingen"
+    ],
+    "9463": [
+      "SG",
+      "Oberriet"
+    ],
+    "9465": [
+      "SG",
+      "Salez"
+    ],
+    "9466": [
+      "SG",
+      "Sennwald"
+    ],
+    "9468": [
+      "SG",
+      "Sax"
+    ],
+    "9469": [
+      "SG",
+      "Haag (Rheintal)"
+    ],
+    "9473": [
+      "SG",
+      "Gams"
+    ],
+    "9475": [
+      "SG",
+      "Sevelen"
+    ],
+    "9477": [
+      "SG",
+      "Trübbach"
+    ],
+    "9478": [
+      "SG",
+      "Azmoos"
+    ],
+    "9502": [
+      "TG",
+      "Braunau"
+    ],
+    "9504": [
+      "TG",
+      "Friltschen"
+    ],
+    "9506": [
+      "TG",
+      "Lommis"
+    ],
+    "9507": [
+      "TG",
+      "Stettfurt"
+    ],
+    "9508": [
+      "TG",
+      "Weingarten-Kalthäusern"
+    ],
+    "9512": [
+      "SG",
+      "Rossrüti"
+    ],
+    "9517": [
+      "TG",
+      "Mettlen"
+    ],
+    "9523": [
+      "SG",
+      "Züberwangen"
+    ],
+    "9524": [
+      "SG",
+      "Zuzwil"
+    ],
+    "9525": [
+      "SG",
+      "Lenggenwil"
+    ],
+    "9526": [
+      "SG",
+      "Zuckenriet"
+    ],
+    "9527": [
+      "SG",
+      "Niederhelfenschwil"
+    ],
+    "9534": [
+      "SG",
+      "Gähwil"
+    ],
+    "9535": [
+      "TG",
+      "Wilen b. Wil"
+    ],
+    "9542": [
+      "TG",
+      "Münchwilen"
+    ],
+    "9545": [
+      "TG",
+      "Wängi"
+    ],
+    "9546": [
+      "TG",
+      "Tuttwil"
+    ],
+    "9547": [
+      "TG",
+      "Wittenwil"
+    ],
+    "9548": [
+      "TG",
+      "Matzingen"
+    ],
+    "9552": [
+      "SG",
+      "Bronschhofen"
+    ],
+    "9553": [
+      "TG",
+      "Bettwiesen"
+    ],
+    "9554": [
+      "TG",
+      "Tägerschen"
+    ],
+    "9555": [
+      "TG",
+      "Tobel"
+    ],
+    "9573": [
+      "TG",
+      "Littenheid"
+    ],
+    "9601": [
+      "SG",
+      "Lütisburg Station"
+    ],
+    "9606": [
+      "SG",
+      "Bütschwil"
+    ],
+    "9607": [
+      "SG",
+      "Mosnang"
+    ],
+    "9608": [
+      "SG",
+      "Ganterschwil"
+    ],
+    "9612": [
+      "SG",
+      "Dreien"
+    ],
+    "9613": [
+      "SG",
+      "Mühlrüti"
+    ],
+    "9614": [
+      "SG",
+      "Libingen"
+    ],
+    "9615": [
+      "SG",
+      "Dietfurt"
+    ],
+    "9620": [
+      "SG",
+      "Lichtensteig"
+    ],
+    "9621": [
+      "SG",
+      "Oberhelfenschwil"
+    ],
+    "9622": [
+      "SG",
+      "Krinau"
+    ],
+    "9630": [
+      "SG",
+      "Wattwil"
+    ],
+    "9631": [
+      "SG",
+      "Ulisbach"
+    ],
+    "9642": [
+      "SG",
+      "Ebnat-Kappel"
+    ],
+    "9643": [
+      "SG",
+      "Krummenau"
+    ],
+    "9650": [
+      "SG",
+      "Nesslau"
+    ],
+    "9651": [
+      "SG",
+      "Ennetbühl"
+    ],
+    "9652": [
+      "SG",
+      "Neu St. Johann"
+    ],
+    "9655": [
+      "SG",
+      "Stein"
+    ],
+    "9656": [
+      "SG",
+      "Alt St. Johann"
+    ],
+    "9657": [
+      "SG",
+      "Unterwasser"
+    ],
+    "9658": [
+      "SG",
+      "Wildhaus"
+    ]
+  }
+}

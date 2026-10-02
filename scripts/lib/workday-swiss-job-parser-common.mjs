@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
+import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
@@ -34,6 +35,8 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   workdayPrimaryLocationState,
+  fetchWorkdayBoardSummary,
+  workdayFacetLeafValues,
 } from './ats-clients/workday-client.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
@@ -71,6 +74,32 @@ export function isCompleteWorkdayBoard(stats, collected) {
   if (typeof total !== 'number' || !Number.isInteger(total) || total <= 0) return false;
   if (!['total-reached', 'short-page', 'empty-page'].includes(stats?.endReason)) return false;
   return stats.yielded === total && collected === total;
+}
+
+const SWISS_COUNTRY_LABEL_RE = /\b(?:switzerland|schweiz|suisse|svizzera)\b/i;
+
+/**
+ * Whether an UNFILTERED board summary (`fetchWorkdayBoardSummary`) proves that
+ * the career site is live and currently posts nowhere in Switzerland.
+ *
+ * "Board vuota" vs "board inesistente": a renamed or retired site answers 404
+ * (`S21 not found: Job_Posting_Site_ID`) and never reaches this check, but a
+ * site emptied by a migration to another ATS answers 200 with `total: 0` — the
+ * same zero the Swiss-faceted query gives. Only a board that states postings
+ * (`total > 0`) AND lists its country facet with Switzerland absent from every
+ * value is the employer's own statement that the Swiss zero is real. A missing
+ * facet, an empty one, or a Swiss value of any count is not a proof.
+ *
+ * @param {import('./ats-clients/workday-client.mjs').WorkdayBoardSummary|null|undefined} summary
+ * @param {{ facetParameter: string, swissIds?: string[] }} options
+ * @returns {boolean}
+ */
+export function provesWorkdaySwissAbsentFromBoard(summary, { facetParameter, swissIds = WORKDAY_SWISS_LOCATION_IDS } = {}) {
+  const total = summary?.total;
+  if (!Number.isSafeInteger(total) || total <= 0) return false;
+  const values = workdayFacetLeafValues(summary.facets, facetParameter);
+  if (!values || values.length === 0) return false;
+  return values.every((value) => !swissIds.includes(value.id) && !SWISS_COUNTRY_LABEL_RE.test(value.descriptor));
 }
 
 /**
@@ -181,7 +210,197 @@ export function resolveWorkdayPrimarySwissLocation(info = {}) {
   const raw = locationDescriptor(info?.location);
   if (!raw || isLocationExplicitlyForeign(raw)) return '';
   const cleaned = cleanWorkdayLocation(raw);
-  return cleaned && inferSwissTargetCanton(cleaned) ? cleaned : '';
+  return cleaned && swissCantonOf(cleaned, info).canton ? cleaned : '';
+}
+
+/**
+ * Whether the req's OWN structured country is Switzerland: the requisition's
+ * alpha-2 when Workday states one (it decides alone, so a foreign requisition
+ * is never overruled), otherwise the posting-level country by its canonical
+ * Workday id or name. Text alone never counts.
+ */
+export function workdayStructuredPrimaryCountryIsSwiss(info = {}) {
+  const alpha2 = String(info?.jobRequisitionLocation?.country?.alpha2Code || '').trim().toUpperCase();
+  if (alpha2) return alpha2 === 'CH';
+  const country = info?.country;
+  if (!country || typeof country !== 'object') return false;
+  if (WORKDAY_SWISS_LOCATION_IDS.includes(String(country.id || ''))) return true;
+  return /^(?:switzerland|schweiz|suisse|svizzera)$/i.test(normalizeSpace(country.descriptor || ''));
+}
+
+/**
+ * The official directory's canton for a place, keyed by locality name:
+ * `Bodio, Switzerland` → `Bodio`, and a trailing site qualifier goes too —
+ * Novartis names its sites `Rotkreuz (Office-Based)`, `Muttenz (with Canteen)`.
+ * An explicit canton qualifier (`(ZG)`) never reaches here: the gazetteer
+ * reads it first. Offline: no request.
+ */
+const NON_PLACE_SEGMENT_RE = /^(?:ch|che|switzerland|schweiz|suisse|svizzera|emea|europe|remote|hybrid|on-?site)$/i;
+
+function directoryLocalityCanton(text) {
+  const bare = text.replace(/\s*\([^()]*\)\s*$/, '').trim() || text;
+  // Tenant labels wrap the place: `CH - Rotkreuz`, `EMEA, CH, Rotkreuz, CSL
+  // Behring`, `Bodio, Switzerland`. The label and each of its segments are
+  // looked up; the answer stands only when exactly ONE place comes back.
+  const hits = new Map();
+  for (const segment of [bare, ...bare.split(/\s*[,|·;:]\s*|\s+-\s+/)]) {
+    const name = segment.replace(/\s*\([^()]*\)\s*$/, '').trim();
+    if (!name || NON_PLACE_SEGMENT_RE.test(name)) continue;
+    const canton = resolveSwissLocalityCanton(name);
+    if (canton) hits.set(`${name.toLowerCase()}|${canton}`, { canton, locality: name });
+  }
+  return hits.size === 1 ? [...hits.values()][0] : { canton: '', locality: '' };
+}
+
+function swissCantonOf(location, info = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return { canton: '', locality: '' };
+  const canton = inferSwissTargetCanton(text);
+  if (canton) return { canton, locality: '' };
+  if (!workdayStructuredPrimaryCountryIsSwiss(info)) return { canton: '', locality: '' };
+  return directoryLocalityCanton(text);
+}
+
+/**
+ * Canton of a req's primary Swiss locality, or `''`.
+ *
+ * The gazetteer behind `inferSwissTargetCanton` lists today's BFS communes, so
+ * a workplace named after a LOCALITY rather than a commune resolves to nothing
+ * and the req was dropped: measured live 2026-10-02, all 3 Swiss reqs of
+ * Imerys (`Bodio`, merged into Giornico on 2025-04-06; `Bironico`, part of
+ * Monteceneri since 2010) and 3 of KONE's 6 (`Brüttisellen`, in
+ * Wangen-Brüttisellen). When the req's own structured country is Switzerland,
+ * the official locality directory (swisstopo / Swiss Post) may name the canton
+ * — only when it places the name in exactly one canton, never a guess.
+ */
+export function resolveWorkdaySwissCanton(location, info = {}, { log = true } = {}) {
+  const { canton, locality } = swissCantonOf(location, info);
+  if (log && canton && locality) console.log(`  📍 Canton from the Swiss locality directory: ${locality} → ${canton}`);
+  return canton;
+}
+
+/**
+ * The Swiss place a req's ADDRESS names, from its postal code, or null.
+ *
+ * Some tenants state the requisition workplace as an address, not a place:
+ * Abbott's Zürich reqs read `Switzerland : Technoparkstrass 1 CH 8005` (live
+ * 2026-10-02, 4 reqs dropped). Same guarantees as the locality rule: the req's
+ * own structured country must be Switzerland, the text must carry exactly one
+ * four-digit code (a second one could be a street number), and the official
+ * directory must give that code one canton and one locality.
+ *
+ * @param {string} location
+ * @param {object} [info] the req's `jobPostingInfo` (or `{ jobRequisitionLocation }`)
+ * @returns {{ canton: string, locality: string } | null}
+ */
+export function resolveWorkdayPostalPlace(location, info = {}) {
+  const text = normalizeSpace(location);
+  if (!text || !workdayStructuredPrimaryCountryIsSwiss(info)) return null;
+  const codes = [...new Set(text.match(/\b\d{4}\b/g) || [])];
+  if (codes.length !== 1) return null;
+  return resolveSwissPostalCodePlace(codes[0]);
+}
+
+/**
+ * The Swiss place a req's location text names when the commune gazetteer could
+ * not — `{ location, canton }`, or null. The recovery the Workday parsers share
+ * (imerys, kone, the nine dedicated parsers, abbott's address reqs):
+ *   1. the official locality directory, by name, one canton only
+ *      (`Bodio`, `Rotkreuz (Office-Based)`, `CH - Brüttisellen`);
+ *   2. the postal code of an address, one canton and one locality only
+ *      (`Switzerland : Technoparkstrass 1 CH 8005` → Zürich).
+ * Both only on the req's own structured Swiss country. It never answers for a
+ * place the gazetteer resolves: a parser keeps its own verdict there.
+ *
+ * @param {string} location
+ * @param {object} [info] the req's `jobPostingInfo`
+ * @param {{ log?: boolean }} [options]
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function recoverWorkdaySwissPlace(location, info = {}, { log = true } = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text) || inferSwissTargetCanton(text)) return null;
+  if (!workdayStructuredPrimaryCountryIsSwiss(info)) return null;
+  const directory = directoryLocalityCanton(text);
+  if (directory.canton) {
+    if (log) console.log(`  📍 Canton from the Swiss locality directory: ${directory.locality} → ${directory.canton}`);
+    return { location: directory.locality, canton: directory.canton };
+  }
+  const postal = resolveWorkdayPostalPlace(text, info);
+  if (postal) {
+    if (log) console.log(`  📮 Place from the Swiss postal code: ${text} → ${postal.locality} (${postal.canton})`);
+    return { location: postal.locality, canton: postal.canton };
+  }
+  return null;
+}
+
+/**
+ * Whether a listing row's location text MAY be a Swiss place the recovery can
+ * confirm — the directory places exactly one of its names, or it carries one
+ * unique Swiss postal code. Offline, no request: for parsers that pre-filter
+ * listing rows before reading the detail, so a locality-named row is not
+ * dropped before its structured country is even read. Never a verdict on its
+ * own: `recoverWorkdaySwissPlace` still needs the req's structured Swiss
+ * country.
+ *
+ * @param {string} location
+ * @returns {boolean}
+ */
+export function isWorkdaySwissPlaceCandidate(location) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return false;
+  if (directoryLocalityCanton(text).canton) return true;
+  const codes = [...new Set(text.match(/\b\d{4}\b/g) || [])];
+  return codes.length === 1 && Boolean(resolveSwissPostalCodePlace(codes[0]));
+}
+
+/**
+ * `recoverWorkdaySwissPlace` over the req's OWN primary workplace: the
+ * requisition location first, then the posting location. For a parser whose
+ * own resolver dropped the req.
+ *
+ * @param {object} [info] the req's `jobPostingInfo`
+ * @param {{ log?: boolean }} [options]
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function recoverWorkdayPrimarySwissPlace(info = {}, options = {}) {
+  for (const field of [info?.jobRequisitionLocation, info?.location]) {
+    const place = recoverWorkdaySwissPlace(locationDescriptor(field), info, options);
+    if (place) return place;
+  }
+  return null;
+}
+
+/**
+ * `resolveWorkdaySwissCanton` for the dedicated Workday parsers that place a
+ * req from its listing row and only read the detail for the body (abbott,
+ * alcon, ardian, bossard, ksb, novartis, rituals-cosmetics, roche, stryker).
+ * The commune gazetteer answers first; only when it misses AND the directory
+ * knows the name is the req's detail read, for its structured country — so a
+ * board whose places are communes or foreign cities costs no extra request.
+ *
+ * @param {string} apiBase CXS base, see `buildWorkdayApiBase`
+ * @param {string} externalPath the listing's `/job/...` path
+ * @param {string} location the place the parser is about to publish
+ * @param {{ fetchDetail?: typeof fetchWorkdayJobDetail }} [options]
+ * @returns {Promise<string>} canton code, or `''`
+ */
+export async function fetchWorkdaySwissCanton(apiBase, externalPath, location, options = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return '';
+  const canton = inferSwissTargetCanton(text);
+  if (canton || !apiBase || !externalPath) return canton;
+  // No request unless the directory knows the name: on a global board (roche
+  // walks every country) a foreign city costs nothing.
+  if (!directoryLocalityCanton(text).canton) return '';
+  const { fetchDetail = fetchWorkdayJobDetail } = options;
+  let detail = null;
+  try {
+    detail = await fetchDetail(apiBase, externalPath);
+  } catch {
+    detail = null;
+  }
+  return resolveWorkdaySwissCanton(text, detail?.jobPostingInfo || {});
 }
 
 /**
@@ -255,6 +474,16 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string} [config.sector='Altro']
  * @param {string} [config.defaultSourceLang='en']
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
+ * @param {string} [config.countryFacetParameter='locationCountry'] Name of the
+ *   tenant's country facet. Most tenants call it `locationCountry`; some (Imerys,
+ *   KONE) call it `Country` and answer HTTP 400 to the default key, which would
+ *   otherwise drop the run onto the unfiltered global board.
+ * @param {boolean} [config.proveSwissAbsentFromLiveBoard=false] Stamp an empty
+ *   result as a source-proven zero when the Swiss-faceted query itself states
+ *   `total: 0` AND the unfiltered board is live (`total > 0`) with Switzerland
+ *   absent from its country facet (`provesWorkdaySwissAbsentFromBoard`). Pair
+ *   with the runner's `allowAuthoritativeEmptySnapshot` +
+ *   `authoritativeSnapshotScope: 'empty-only'`.
  * @param {boolean} [config.preferJobRequisitionLocation=false] Use the
  *   requisition's structured workplace when the tenant's public listing
  *   location is a search/region label.
@@ -289,6 +518,8 @@ export function createWorkdaySwissParser(config) {
     sector = 'Altro',
     defaultSourceLang = 'en',
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
+    countryFacetParameter = 'locationCountry',
+    proveSwissAbsentFromLiveBoard = false,
     preferJobRequisitionLocation = false,
     proveForeignOnlyBoardEmpty = false,
     includeCareerSiteSidebar = false,
@@ -339,7 +570,7 @@ export function createWorkdaySwissParser(config) {
     // `alocationCountry`, …) and reject `locationCountry` with HTTP 400 — for
     // those we refetch the unfiltered board and rely on strict canton inference.
     const fetchOpts = useCountryFacet
-      ? { locationFilters, maxPages: 100000, stats }
+      ? { appliedFacets: { [countryFacetParameter]: locationFilters }, maxPages: 100000, stats }
       : { appliedFacets: {}, maxPages: 100000, stats };
     try {
       for await (const posting of fetchWorkdayJobs(API_BASE, fetchOpts)) {
@@ -366,6 +597,41 @@ export function createWorkdaySwissParser(config) {
       throw err;
     }
     return out;
+  }
+
+  /**
+   * Zero-listing run: stamp it only when the Swiss-faceted query itself said
+   * `total: 0` on a page it completed, and the unfiltered board proves the
+   * site is live without Switzerland in its country facet. Anything else — a
+   * facet the tenant rejected, an anti-bot `[]`, a missing total, a board with
+   * no postings at all, a failed proof read — stays a bare `[]`, which the
+   * runner's validator refuses (previous slice kept, monitor keeps counting).
+   */
+  async function proveSwissAbsentEmpty(facetApplied, facetStats) {
+    const empty = [];
+    const facetSaidZero = facetApplied
+      && facetStats?.firstPageTotal === 0
+      && facetStats?.endReason === 'empty-page'
+      && facetStats?.yielded === 0;
+    if (!facetSaidZero) return empty;
+    let summary;
+    try {
+      summary = await fetchWorkdayBoardSummary(API_BASE);
+    } catch (err) {
+      console.warn(`⚠️ ${companyName}: could not read the unfiltered Workday board to prove the Swiss zero (${err?.message || err}).`);
+      return empty;
+    }
+    if (!provesWorkdaySwissAbsentFromBoard(summary, { facetParameter: countryFacetParameter, swissIds: locationFilters })) {
+      console.warn(`⚠️ ${companyName}: the unfiltered Workday board does not prove the Swiss zero `
+        + `(total=${summary?.total ?? 'n/a'}, ${countryFacetParameter} facet ${workdayFacetLeafValues(summary?.facets, countryFacetParameter) ? 'present' : 'missing'}).`);
+      return empty;
+    }
+    const countries = workdayFacetLeafValues(summary.facets, countryFacetParameter);
+    const evidence = `${companyName} Workday site ${sitePath}: Swiss-faceted query total 0; live board `
+      + `${summary.total} posting(s) in ${countries.length} countries (${countries.slice(0, 5).map((c) => c.descriptor).join(', ')}`
+      + `${countries.length > 5 ? ', …' : ''}), Switzerland not among them`;
+    console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
+    return markAuthoritativeEmptySnapshot(empty, evidence);
   }
 
   async function fetchAllJobs() {
@@ -402,6 +668,7 @@ export function createWorkdaySwissParser(config) {
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
+      if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
       return [];
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
@@ -462,7 +729,15 @@ export function createWorkdaySwissParser(config) {
         primaryLocationField,
         ...(Array.isArray(detailInfo.additionalLocations) ? detailInfo.additionalLocations : []),
       ].map(locationDescriptor).filter(Boolean);
-      const detailLocation = resolveWorkdayPrimarySwissLocation({ location: primaryLocationField });
+      // The req's own structured country travels with its primary location, so
+      // a locality outside the BFS commune list can still be placed (see
+      // `resolveWorkdaySwissCanton`).
+      const primaryInfo = {
+        location: primaryLocationField,
+        jobRequisitionLocation: detailInfo.jobRequisitionLocation,
+        country: detailInfo.country,
+      };
+      const detailLocation = resolveWorkdayPrimarySwissLocation(primaryInfo);
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
@@ -527,7 +802,12 @@ export function createWorkdaySwissParser(config) {
         continue;
       }
       const location = cleaned;
-      const inferredCanton = inferSwissTargetCanton(location);
+      // The directory fallback applies only to the detail's own primary, whose
+      // structured country it is gated on — never to a listing row or path
+      // segment recovered above.
+      const inferredCanton = location === detailLocation
+        ? resolveWorkdaySwissCanton(location, primaryInfo)
+        : inferSwissTargetCanton(location);
       // Require a confident Swiss match on BOTH paths, not just the unfiltered
       // board: the facet only proves the tenant filtered the board, never that
       // this req's own workplace is in Switzerland, so the HQ-canton fallback
@@ -541,7 +821,9 @@ export function createWorkdaySwissParser(config) {
       }
       const canton = inferredCanton;
       const publicUrl = detailUrl;
-      const employmentType = detectEmploymentType(listing.timeType || '', title);
+      // The CXS listing row carries no `timeType`; the detail does ("Part
+      // time" on KONE's 50 % HR role, live 2026-10-02, published full-time).
+      const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
 
       const detailDescription = detailInfo.jobDescription
         ? stripHtml(String(detailInfo.jobDescription))

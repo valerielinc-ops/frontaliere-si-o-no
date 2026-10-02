@@ -16,10 +16,13 @@ import {
 } from '../scripts/send-application-intent-reminders.mjs';
 import {
   APPLICATION_INTENT_CONSENT_VERSION,
+  buildApplicationIntentRecord,
+  normalizeApplicationIntentRequest,
 } from '../functions/src/applicationIntentCore.js';
 
 const NOW = Date.parse('2026-09-27T12:00:00.000Z');
 const DAY = 86400000;
+const HOUR = 60 * 60 * 1000;
 
 const sourceJob = {
   id: 'source',
@@ -73,6 +76,61 @@ describe('application-intent reminder eligibility and recommendations', () => {
     expect(isApplicationIntentReminderEligible(intentData({
       reminder: { enabled: true, dueAt: new Date(NOW), state: 'sent' },
     }), NOW)).toBe(false);
+  });
+
+  // The fixtures above stamp `timestamp` and `reminder.dueAt` from the same
+  // instant. The real producer cannot: dueAt comes from the function clock
+  // when the record is built, `timestamp` is serverTimestamp() resolved at the
+  // commit that follows the transaction's reads. Exact comparison rejected
+  // every production record (reminder runs 2026-09-29..10-01: "sent 0").
+  describe('records written by the real producer', () => {
+    function committedProducerRecord(builtAt: number, commitLatencyMs: number) {
+      const normalized = normalizeApplicationIntentRequest({
+        jobKey: 'source-company:software-engineer-lugano',
+        jobSlug: 'software-engineer-lugano',
+        companyKey: 'source-company',
+        jobTitle: 'Software Engineer',
+        origin: '/cerca-lavoro-ticino/',
+        surface: 'job_board_apply',
+        consentVersion: APPLICATION_INTENT_CONSENT_VERSION,
+        consentText: 'Ho cliccato su Candidati.',
+      });
+      if (!normalized.ok) throw new Error(normalized.error);
+      const record = buildApplicationIntentRecord({
+        req: { headers: {} },
+        token: { uid: 'uid-1' },
+        input: normalized.input,
+        now: builtAt,
+      });
+      if (!record) throw new Error('producer refused the fixture');
+      // What Firestore stores: the server-timestamp sentinels resolve to the
+      // commit time, the Dates the producer computed are kept as they are.
+      const committedAt = new Date(builtAt + commitLatencyMs);
+      return { ...record, timestamp: committedAt, createdAt: committedAt, updatedAt: committedAt };
+    }
+
+    it.each([1, 150, 15_000])('is due 48 hours after the click when the commit lands %i ms after the build', (latencyMs) => {
+      const builtAt = Date.now() - 3 * DAY;
+      const data = committedProducerRecord(builtAt, latencyMs);
+      const clickAt = builtAt + latencyMs;
+      expect(isApplicationIntentReminderEligible(data, clickAt + APPLICATION_INTENT_REMINDER_MIN_AGE_MS - 1)).toBe(false);
+      expect(isApplicationIntentReminderEligible(data, clickAt + APPLICATION_INTENT_REMINDER_MIN_AGE_MS)).toBe(true);
+      expect(isApplicationIntentReminderEligible(data, clickAt + 3 * DAY)).toBe(true);
+    });
+
+    it('still rejects a schedule shorter than 48 hours and never sends inside the quiet period', () => {
+      const clickAt = Date.now() - 3 * DAY;
+      const at = (dueOffsetMs: number) => intentData({
+        timestamp: new Date(clickAt),
+        createdAt: new Date(clickAt),
+        expiresAt: new Date(clickAt + 90 * DAY),
+        reminder: { enabled: true, dueAt: new Date(clickAt + dueOffsetMs), state: 'pending' },
+      });
+      expect(isApplicationIntentReminderEligible(at(47 * HOUR), clickAt + 3 * DAY)).toBe(false);
+      expect(isApplicationIntentReminderEligible(at(48 * HOUR - 2 * 60 * 1000), clickAt + 3 * DAY)).toBe(false);
+      // dueAt already passed, but the click is not 48 hours old yet.
+      expect(isApplicationIntentReminderEligible(at(48 * HOUR - 30 * 1000), clickAt + 48 * HOUR - 10 * 1000)).toBe(false);
+    });
   });
 
   it('blocks completion and the email-only opt-out without blocking the signal contract', () => {

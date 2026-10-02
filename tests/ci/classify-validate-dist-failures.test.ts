@@ -8,7 +8,7 @@ describe('validate-dist integrity annotation', () => {
   it('states that publish is blocked when an integrity gate fails', () => {
     const verdict = evaluateIntegrity([
       'validate:sitemap-pages',
-      'audit:all/page-weight',
+      'audit:all/text-html-ratio',
     ]);
     const annotation = formatIntegrityAnnotation(verdict);
 
@@ -20,11 +20,11 @@ describe('validate-dist integrity annotation', () => {
   });
 
   it('keeps the non-sequestering message for quality-only failures', () => {
-    const verdict = evaluateIntegrity(['audit:all/page-weight']);
+    const verdict = evaluateIntegrity(['audit:all/text-html-ratio']);
     const annotation = formatIntegrityAnnotation(verdict);
 
     expect(verdict.integrityOk).toBe(true);
     expect(annotation).toContain('Publish is not sequestered');
-    expect(annotation).toContain('audit:all/page-weight');
+    expect(annotation).toContain('audit:all/text-html-ratio');
   });
 });

@@ -50,7 +50,9 @@ describe('scaffold-crawler — generated contract follows employmentType', () =>
       );
 
       expect(parserSource, parser).toMatch(
-        /const employmentType = detectEmploymentType\(listing\.timeType \|\| (?:title|''\s*,\s*title)\);/,
+        // The detail's `timeType` may back the listing row's, which the CXS
+        // listing endpoint never fills.
+        /const employmentType = detectEmploymentType\(listing\.timeType \|\| (?:(?:detailInfo|info)\.timeType \|\| )?(?:title|''\s*,\s*title)\);/,
       );
       expect(parserSource, parser).toContain(
         "contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',",

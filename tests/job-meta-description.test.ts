@@ -47,4 +47,23 @@ describe('buildJobMetaDescription', () => {
   expect(description).toContain('&quality…');
   expect(description.length).toBeLessThanOrEqual(META_DESCRIPTION_MAX_CHARS);
  });
+
+ it('decodes every source fragment exactly once and never re-decodes a decoded description', () => {
+  // `&amp;eacute;` is the source spelling of the literal text "&eacute;":
+  // one decode yields "&eacute;", a second one would wrongly yield "é".
+  const description = buildJobMetaDescription({
+   locale: 'en',
+   title: 'Analyst &amp;eacute;',
+   company: 'H&ocirc;pital',
+   location: 'Citt&agrave;',
+   decodedDescription: 'Capacità für 𝐀 &eacute; and R&D',
+  });
+
+  expect(description).toContain('Analyst &eacute; at Hôpital in Città. Capacità für 𝐀 &eacute; and R&D');
+  expect(description).not.toContain('é');
+  expect(buildJobMetaDescription({
+   locale: 'en', title: 'Analyst', company: 'Acme', location: 'Lugano',
+   cleanDescription: 'Source &amp;eacute; text',
+  })).toContain('Source &eacute; text');
+ });
 });

@@ -21,6 +21,7 @@ import { slugify, stripHtml, normalizeSpace } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton, rescueSwissCityFromText  } from './target-swiss-locations.mjs';
 import { markLocationDerivedFromVacancyText } from './crawler-location-config.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -224,7 +225,10 @@ async function listSwissJobs() {
   }
 
   // Client-side filter: only Swiss locations
-  const swissPostings = allPostings.filter((p) => isSwissLocation(p.locationsText));
+  // A row named after a Swiss locality outside the commune gazetteer is kept
+  // for its detail, whose structured country decides (shared Workday recovery).
+  const swissPostings = allPostings.filter((p) => isSwissLocation(p.locationsText)
+    || isWorkdaySwissPlaceCandidate(p.locationsText));
   console.log(`  \ud83c\udfaf Filtered ${allPostings.length} total → ${swissPostings.length} Swiss jobs`);
   return swissPostings;
 }
@@ -301,9 +305,16 @@ export async function fetchAllArxadaJobs() {
     const cityFromSource = parseWorkdayLocation(locationRaw);
     const cityFromVacancyText = cityFromSource
       ? '' : rescueSwissCityFromText(stripHtml(info.jobDescription || ''));
-    const city = cityFromSource || cityFromVacancyText || 'Visp';
+    // Gate on the gazetteer, not on `inferCanton`, whose final `return 'VS'`
+    // never fails and would hide every place it cannot resolve.
+    const sourceCanton = cityFromSource ? inferAnyCanton(cityFromSource) : '';
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = sourceCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = recovered?.location || cityFromSource || cityFromVacancyText || 'Visp';
 
-    const canton = inferCanton(city);
+    const canton = recovered ? recovered.canton : inferCanton(city);
     const descriptionHtml = info.jobDescription || '';
     const descriptionText = stripHtml(descriptionHtml);
     const publicUrl = `${WORKDAY_PUBLIC_BASE}${externalPath}`;

@@ -25,6 +25,8 @@
  * include a stable per-vacancy disambiguator (stableSlugHash) so that even
  * two openings at the same city with the same title remain distinct.
  */
+import fs from 'node:fs';
+import path from 'node:path';
 import { describe, it, expect } from 'vitest';
 import {
   buildSwisscomRegeneratedSlug,
@@ -243,5 +245,41 @@ describe('buildSwisscomJob — description is the Workday text, in its own langu
     const job = buildSwisscomJob(listing, { jobPostingInfo: { title: listing.title, location: 'Bellinzona' } });
     expect(job.description).toBe('');
     expect(JSON.stringify(job.descriptionByLocale)).not.toContain('Posizione aperta');
+  });
+});
+
+/**
+ * Workday sibling (CI sibling-check on PR #10955): the canton came from the
+ * commune gazetteer alone and the listing pre-filter dropped a Swiss locality
+ * outside it before its detail was read. Both now share the Workday recovery:
+ * official directory or unique postal code, on the req's structured Swiss
+ * country only.
+ */
+describe('buildSwisscomJob — a Swiss locality outside the BFS commune list', () => {
+  const CH = { descriptor: 'Switzerland', id: '187134fccb084a0ea9b4b95f23890dbe', alpha2Code: 'CH' };
+  const listing = { title: 'Field Service Technician', externalPath: '/job/Bruttisellen/Field-Service-Technician_R1', locationsText: 'Brüttisellen' };
+  const detail = (country: object | null) => ({
+    jobPostingInfo: {
+      title: 'Field Service Technician',
+      location: 'Brüttisellen',
+      jobRequisitionLocation: country ? { descriptor: 'Brüttisellen', country } : { descriptor: 'Brüttisellen' },
+      jobDescription: '<p>Role description.</p>',
+      timeType: 'Full time',
+    },
+  });
+
+  it('places it in its canton on a structured Swiss country', () => {
+    const job = buildSwisscomJob(listing, detail(CH));
+    expect(job).toMatchObject({ location: 'Brüttisellen', addressLocality: 'Brüttisellen', canton: 'ZH' });
+  });
+
+  it('leaves it unplaced on text alone or against a foreign requisition', () => {
+    expect(buildSwisscomJob(listing, detail(null)).canton).toBe('');
+    expect(buildSwisscomJob(listing, detail({ descriptor: 'Italy', alpha2Code: 'IT' })).canton).toBe('');
+  });
+
+  it('keeps such a listing row for its detail', () => {
+    const source = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-swisscom-jobs.mjs'), 'utf8');
+    expect(source).toContain("isSwissLocation(p.locationsText || '') || isWorkdaySwissPlaceCandidate(p.locationsText || '')");
   });
 });

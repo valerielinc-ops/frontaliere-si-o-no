@@ -37,6 +37,10 @@ import { isStorageAvailable } from '@/services/storageAvailability';
 import { reportCaughtError } from '@/services/errorReporter';
 import { isIndexedDbError } from '@/services/benignErrorPatterns';
 import type { Firestore } from 'firebase/firestore';
+import {
+  SAVED_JOBS_DIGEST_SAVE_ACTIVATION,
+  shouldActivateSavedJobsDigestOnSave,
+} from './savedJobsDigestActivation.mjs';
 
 export const SAVED_JOBS_STORAGE_KEY = 'frontaliere_saved_jobs';
 export const SAVED_JOBS_CHANGED_EVENT = 'frontaliere:saved-jobs-changed';
@@ -170,6 +174,56 @@ async function deleteSavedJobDoc(uid: string, jobId: string): Promise<void> {
   }
 }
 
+// ── Saved-jobs digest activation (owner decision 2026-10-02) ───────────────
+
+/** uids whose digest choice this page load already settled (activated, already on, or turned off). */
+const digestActivationSettled = new Set<string>();
+/** One check per uid at a time: two quick saves share the same transaction. */
+const digestActivationInFlight = new Map<string, Promise<void>>();
+
+/**
+ * Saving a listing turns the weekly saved-jobs digest on, unless the person
+ * already turned it off (services/savedJobsDigestActivation.mjs has the three
+ * states). Read and write happen in one transaction, so a concurrent
+ * unsubscribe can never be overwritten by a save. Nothing touches
+ * `newsletter_subscribers`: the channel needs no newsletter subscription.
+ *
+ * Only a NEW save calls this (toggle, pending-save replay). The one-time
+ * migration of pre-account localStorage saves does not: no backfill.
+ */
+function activateSavedJobsDigestOnSave(uid: string): Promise<void> {
+  if (digestActivationSettled.has(uid)) return Promise.resolve();
+  const pending = digestActivationInFlight.get(uid);
+  if (pending) return pending;
+  const run = runSavedJobsDigestActivation(uid).finally(() => digestActivationInFlight.delete(uid));
+  digestActivationInFlight.set(uid, run);
+  return run;
+}
+
+async function runSavedJobsDigestActivation(uid: string): Promise<void> {
+  try {
+    const [firestore, f] = await Promise.all([getDb(), fs()]);
+    const ref = f.doc(firestore, 'users', uid);
+    await f.runTransaction(firestore, async (transaction) => {
+      const snapshot = await transaction.get(ref);
+      const digest = snapshot.exists() ? (snapshot.data() || {}).savedJobsDigest : null;
+      if (!shouldActivateSavedJobsDigestOnSave(digest)) return;
+      transaction.set(ref, {
+        savedJobsDigest: {
+          optedIn: true,
+          optedInAt: f.serverTimestamp(),
+          activationSource: SAVED_JOBS_DIGEST_SAVE_ACTIVATION,
+        },
+      }, { merge: true });
+    });
+    digestActivationSettled.add(uid);
+  } catch (error) {
+    // Not settled: the next save retries the same check.
+    if (isIndexedDbError(error)) resetFirestoreConnection();
+    reportCaughtError(error, 'savedJobsService.activateSavedJobsDigestOnSave');
+  }
+}
+
 export type ToggleSavedJobResult = 'saved' | 'unsaved' | 'auth_required';
 
 /** Shared "add" branch for toggleSavedJob and ensureSavedJob — applies the cap/eviction and writes through. */
@@ -186,6 +240,7 @@ function addSavedJobEntry(entry: Omit<SavedJobEntry, 'savedAt'>, uid: string): '
   setCache(next);
   void writeSavedJobDoc(uid, savedEntry);
   for (const d of dropped) void deleteSavedJobDoc(uid, d.id);
+  void activateSavedJobsDigestOnSave(uid);
   return 'saved';
 }
 
@@ -249,6 +304,8 @@ const initializedUids = new Set<string>();
 export function __resetSavedJobsCacheForTests(): void {
   cache = [];
   initializedUids.clear();
+  digestActivationSettled.clear();
+  digestActivationInFlight.clear();
 }
 
 function readLocalSavedJobs(): SavedJobEntry[] {
@@ -293,12 +350,13 @@ async function migrateLocalSavedJobs(uid: string): Promise<void> {
 }
 
 /**
- * Owner-only profile fields the digest + this migration need. Only written
- * on first-ever creation of `users/{uid}` (see below) or refreshed on later
- * logins for `email`/`locale` — `savedJobsDigest` is deliberately NEVER touched again after creation so a
- * digest preference (set server-side by
- * `savedJobsDigestUnsubscribe` or in the preference centre) can't be
- * clobbered by a subsequent client re-login re-defaulting it.
+ * Owner-only profile fields the digest + this migration need: `email` and
+ * `locale`, written on first creation of `users/{uid}` and refreshed on later
+ * logins. `savedJobsDigest` is never written here. Its owners are the save
+ * activation above, the preference centre and `savedJobsDigestUnsubscribe`;
+ * "never decided" is the absent field. The creation write merges for the same
+ * reason: a save replayed right after sign-in may activate the digest between
+ * the read and the write below, and a plain overwrite would erase it.
  */
 async function ensureUserProfileDoc(
   uid: string,
@@ -312,11 +370,7 @@ async function ensureUserProfileDoc(
       await f.setDoc(ref, {
         email: meta?.email ?? null,
         locale: meta?.locale ?? 'it',
-        // The central confirmed communications choice enables this channel
-        // when the user has saved jobs. `optedOut` is reserved for an explicit
-        // channel stop, so a new profile starts unset rather than denied.
-        savedJobsDigest: { optedIn: false, optedOut: false },
-      });
+      }, { merge: true });
     } else if (meta) {
       await f.setDoc(ref, { email: meta.email, locale: meta.locale }, { merge: true });
     }

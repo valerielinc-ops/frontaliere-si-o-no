@@ -14,19 +14,18 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import {
-  inferSwissTargetCanton,
   isWorkModeLocationLabel,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -205,7 +204,7 @@ export async function fetchAllNovartisJobs() {
       ? listingLocation
       : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
     const canton = location && !isWorkModeLocationLabel(location)
-      ? inferSwissTargetCanton(location)
+      ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location)
       : '';
     if (!location || !canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
@@ -214,11 +213,14 @@ export async function fetchAllNovartisJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
 
     // Only the posting's own text is published (issue 5253): a req whose
@@ -260,8 +262,8 @@ export async function fetchAllNovartisJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Farmaceutica / Biotecnologia',
       currency: 'CHF',

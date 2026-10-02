@@ -25,7 +25,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { sourceLocaleDescription } from './lib/source-locale-description.mjs';
 import { sourceSlotTitleAndSlug, dropStaleLocaleDescriptions } from './lib/source-locale-slots.mjs';
-import { parseWorkdayListings, parseWorkdayJobDetail, slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isSwissLocation, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, parseWorkdayCity, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
+import { slugify, normalizeSpace, stripHtml, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE, COMPANY_HOST, isJuliusBaerSwissListing, resolveJuliusBaerPlace, detectCategory, detectExperienceLevel, detectEmploymentType, buildPublicUrl, dropJuliusBaerFabricatedText } from './lib/julius-baer-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -127,7 +127,9 @@ async function fetchJuliusBaerJobs() {
   console.log(`  📋 Total listings: ${allListings.length}`);
 
   // Filter for any target Swiss canton
-  const swissListings = allListings.filter((p) => isSwissLocation(p.locationsText || ''));
+  // The parser's one listing pre-filter (also keeps a Swiss locality outside
+  // the commune gazetteer for its detail to confirm).
+  const swissListings = allListings.filter((p) => isJuliusBaerSwissListing(p.locationsText || ''));
   console.log(`  📋 Swiss target-canton listings: ${swissListings.length}`);
 
   if (swissListings.length === 0) return [];
@@ -143,8 +145,11 @@ async function fetchJuliusBaerJobs() {
     if (!title || title.length < 3) continue;
 
     const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayCity(locationRaw);
-    const inferredCanton = inferAnyCanton(`${city} ${locationRaw}`);
+    // The parser's one place rule: commune gazetteer, then the shared Workday
+    // recovery (directory or postal code, on the req's structured Swiss country).
+    const place = resolveJuliusBaerPlace(info, listing.locationsText || '');
+    const city = place?.city || '';
+    const inferredCanton = place?.canton || '';
     if (!city || !inferredCanton) {
       console.warn(`  ⚠️ Skipping Julius Baer listing with unresolved Swiss canton: ${title} (${locationRaw || '?'})`);
       continue;

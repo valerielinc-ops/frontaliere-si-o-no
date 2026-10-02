@@ -519,6 +519,40 @@ export function orderMopupJobsByTraffic(jobs, popularity, cap) {
 }
 
 /**
+ * L'ordine in cui il batch arriva al worker Argos: prima TUTTI i titoli, poi le
+ * descrizioni, ciascun gruppo nell'ordine di traffico deciso da
+ * `orderMopupJobsByTraffic`.
+ *
+ * PERCHE'. `scripts/local-mt-translate.py` traduce le unita' nell'ordine in cui
+ * le legge (dedup in un dict, poi una coda FIFO del thread pool) e quando il
+ * timeout del passo lo uccide restano scritte solo le richieste gia' complete.
+ * Costruito job per job, il batch alternava un titolo (una riga, un'unita') e
+ * la sua descrizione (in media ~9 unita'): misurato sul run translate-pending
+ * 36779310211 del corpus (2026-10-01), 16.990 richieste e 152.736 unita', il
+ * worker ucciso a 150 minuti con 4.749 richieste fatte. I titoli dei job oltre
+ * quel punto non partivano mai, mentre il ratchet del sito
+ * (tests/job-locale-consistency.test.ts, titoli non tradotti) e' salito dal
+ * 31,54% al 34,46% in un giorno con ~3.200 slot titolo nuovi in coda.
+ *
+ * Un titolo costa una sola unita': messi in testa, quelli dei job selezionati
+ * finiscono nei primi minuti e le descrizioni usano il tempo che resta. Nessun
+ * job entra o esce dalla selezione: cambia solo l'ordine dentro il batch.
+ *
+ * @param {Array<{ id: string }>} requests nell'ordine dei job selezionati
+ * @param {(request: { id: string }) => string | undefined} fieldOf il campo
+ *   ('title' | 'description') a cui la richiesta scrive
+ * @returns {Array<{ id: string }>} stessi oggetti, titoli prima
+ */
+export function orderMopupRequestsTitleFirst(requests, fieldOf) {
+  const titles = [];
+  const others = [];
+  for (const request of requests) {
+    (fieldOf(request) === 'title' ? titles : others).push(request);
+  }
+  return [...titles, ...others];
+}
+
+/**
  * Quanta della coorte fresca (<24h) la corsia freschezza vede davvero.
  *
  * PERCHE' ESISTE (issue #7362). La corsia mette in testa i job piu' giovani di
@@ -1245,9 +1279,15 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
     return;
   }
 
+  // Titles first, then descriptions (see orderMopupRequestsTitleFirst): the
+  // worker is FIFO and a timeout kill keeps only completed requests.
+  const orderedRequests = orderMopupRequestsTitleFirst(requests, (r) => targets.get(r.id)?.field);
+  const titleRequestCount = orderedRequests.filter((r) => targets.get(r.id)?.field === 'title').length;
+  console.log(`   Order: ${titleRequestCount} title request(s) first, then ${orderedRequests.length - titleRequestCount} description request(s).`);
+
   if (dryRun) {
     console.log('🏁 [local-mt] Dry run — not invoking Python, not writing slices.');
-    const sample = requests.slice(0, 5)
+    const sample = orderedRequests.slice(0, 5)
       .map((r) => `   ${r.from}->${r.to} [${(r.text || '').slice(0, 50)}…]`)
       .join('\n');
     console.log('   Sample requests:\n' + sample);
@@ -1255,7 +1295,7 @@ async function runMopup({ dryRun, maxJobs, rollout }) {
   }
 
   // Run the Python worker ONCE over the whole batch (models loaded once).
-  const jsonl = requests.map((r) => JSON.stringify(r)).join('\n') + '\n';
+  const jsonl = orderedRequests.map((r) => JSON.stringify(r)).join('\n') + '\n';
   console.log(`🐍 [local-mt] Invoking ${PYTHON} ${path.relative(ROOT, PY_SCRIPT)} on ${requests.length} requests...`);
   const started = Date.now();
   const proc = spawnSync(PYTHON, [PY_SCRIPT], {

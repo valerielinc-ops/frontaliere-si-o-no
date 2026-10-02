@@ -1,11 +1,12 @@
 import { readFileSync } from 'node:fs';
-import { describe, expect, it, vi } from 'vitest';
+import { beforeEach, describe, expect, it, vi } from 'vitest';
 
 import {
   buildPdfBackedDescription,
   extractPdfJobContentFromUrl,
   normalizePdfJobText,
 } from '../scripts/lib/pdf-job-content.mjs';
+import { __resetJinaBreaker } from '../scripts/lib/jina-proxy.mjs';
 
 describe('pdf-job-content', () => {
   it('normalizes noisy extracted PDF text into readable paragraphs', () => {
@@ -158,6 +159,82 @@ describe('pdf-job-content', () => {
     expect(result.extractionFailed).toBe(true);
     expect(result.failureReason).toBe('pdf-extraction-failed');
     expect(result.error).toContain('HTTP 404');
+  });
+
+  describe('clean-IP rescue of a WAF-class answer', () => {
+    // klinik-wyssholzli, run corpus 36989251899: five text PDFs answered
+    // HTTP 415 to the CI egress and 200 to a clean IP.
+    const PDF_URL = 'https://clinic.example.ch/uploads/Stelleninserate/Inserat-Pflege_60.pdf';
+    const PDF_TEXT = [
+      'Die Klinik ist eine psychiatrische Spezialklinik im Oberaargau, Kanton Bern.',
+      'Wir suchen nach Vereinbarung eine Pflegefachfrau HF 60-80%.',
+      'Ihre Aufgaben',
+      '- Betreuung der Patientinnen im Stationsalltag',
+      '- Mitarbeit im interprofessionellen Behandlungsteam',
+      'Ihr Profil',
+      '- Abgeschlossene Ausbildung als Pflegefachfrau HF',
+    ].join('\n');
+
+    beforeEach(() => __resetJinaBreaker());
+
+    it('reads the PDF text through Jina when the direct read answers 415', async () => {
+      const fetchImpl = vi.fn(async () => new Response('Unsupported Media Type', { status: 415 }));
+      const jinaFetchImpl = vi.fn(async () => new Response(PDF_TEXT, {
+        status: 200,
+        headers: { 'content-type': 'text/plain; charset=utf-8' },
+      }));
+      const extractTextImpl = vi.fn();
+
+      const result = await extractPdfJobContentFromUrl(PDF_URL, {
+        fetchImpl: fetchImpl as any,
+        jinaFetchImpl: jinaFetchImpl as any,
+        extractTextImpl,
+        jinaRetryDelayMs: 0,
+      });
+
+      expect(jinaFetchImpl).toHaveBeenCalledOnce();
+      const [jinaUrl, init] = jinaFetchImpl.mock.calls[0] as unknown as [string, RequestInit];
+      expect(jinaUrl).toBe(`https://r.jina.ai/${PDF_URL}`);
+      expect((init.headers as Record<string, string>)['X-Return-Format']).toBe('text');
+      expect(extractTextImpl).not.toHaveBeenCalled();
+      expect(result.error).toBeUndefined();
+      expect(result.extractionFailed).toBeUndefined();
+      expect(result.proxiedBy).toBe('jina');
+      expect(result.extractionMethod).toBe('jina-reader');
+      expect(result.text).toContain('Wir suchen nach Vereinbarung eine Pflegefachfrau HF 60-80%.');
+      expect(result.text).toBe(normalizePdfJobText(PDF_TEXT));
+    });
+
+    it('stays an extraction failure when the rescue only gets an error body', async () => {
+      const fetchImpl = vi.fn(async () => new Response('', { status: 415 }));
+      const jinaFetchImpl = vi.fn(async () => new Response(
+        `Warning: Target URL returned error 415: Unsupported Media Type ${'.'.repeat(240)}`,
+        { status: 200 },
+      ));
+
+      const result = await extractPdfJobContentFromUrl(PDF_URL, {
+        fetchImpl: fetchImpl as any,
+        jinaFetchImpl: jinaFetchImpl as any,
+        jinaRetryDelayMs: 0,
+      });
+
+      expect(jinaFetchImpl).toHaveBeenCalledTimes(4);
+      expect(result.text).toBe('');
+      expect(result.extractionFailed).toBe(true);
+      expect(result.failureReason).toBe('pdf-extraction-failed');
+      expect(result.error).toBe('HTTP 415 while fetching PDF (clean-IP Jina rescue exhausted)');
+    });
+
+    it('does not route a definitive 404 through Jina', async () => {
+      const jinaFetchImpl = vi.fn();
+      const result = await extractPdfJobContentFromUrl(PDF_URL, {
+        fetchImpl: vi.fn(async () => new Response('', { status: 404 })) as any,
+        jinaFetchImpl: jinaFetchImpl as any,
+      });
+
+      expect(jinaFetchImpl).not.toHaveBeenCalled();
+      expect(result.error).toBe('HTTP 404 while fetching PDF');
+    });
   });
 
   it('returns no warning when extraction yields sufficient content', async () => {

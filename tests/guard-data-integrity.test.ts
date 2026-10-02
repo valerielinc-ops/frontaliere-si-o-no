@@ -387,7 +387,7 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     const previous = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(2), job(3), job(4)] });
     const next = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1)] });
 
-    function runGuard(expiredAfter: string | null) {
+    function runGuard(expiredAfter: string | null, nextRaw: string = next) {
       execFileSync.mockImplementation((_cmd: string, args: string[]) => {
         if (args[0] === 'merge-base') return '';
         if (args[0] === 'diff') return `${ACTIVE}\n`;
@@ -401,7 +401,7 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
             if (ref !== AFTER || expiredAfter === null) throw new Error('missing blob');
             return expiredAfter;
           }
-          return ref === BEFORE ? previous : next;
+          return ref === BEFORE ? previous : nextRaw;
         }
         return '';
       });
@@ -438,6 +438,27 @@ describe('guard-data-integrity — main() detects a catastrophic shrink', () => 
     it('stays closed when the paired expired slice is absent or not an archive', async () => {
       expect((await runGuard(null)).map((v) => v.file)).toEqual([ACTIVE]);
       expect((await runGuard('{"jobs":[]}')).map((v) => v.file)).toEqual([ACTIVE]);
+    });
+
+    describe('when the same push also publishes new jobs (crawler run, convit-holding 2026-09-27)', () => {
+      // A crawler archives its dead postings and writes the new ones in the
+      // same commit: the next slice is no longer a subset of the previous one.
+      const withNewJobs = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(10), job(11)] });
+      const fullArchive = JSON.stringify([archived(2), archived(3), archived(4)]);
+
+      it('accepts the shrink when every removed job is archived', async () => {
+        expect(await runGuard(fullArchive, withNewJobs)).toEqual([]);
+      });
+
+      it('still flags it when one removed job is missing from the archive', async () => {
+        const violations = await runGuard(JSON.stringify([archived(2), archived(3)]), withNewJobs);
+        expect(violations.map((v) => v.file)).toEqual([ACTIVE]);
+      });
+
+      it('still flags it when the next slice repeats an identity', async () => {
+        const duplicated = JSON.stringify({ crawlerKey: 'convit-holding', jobs: [job(1), job(10), job(10)] });
+        expect((await runGuard(fullArchive, duplicated)).map((v) => v.file)).toEqual([ACTIVE]);
+      });
     });
   });
 });

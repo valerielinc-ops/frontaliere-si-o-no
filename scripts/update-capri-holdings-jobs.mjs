@@ -7,11 +7,11 @@
  *
  * Workday API endpoints (tenant changed from "capriholdings" to "capri", 2026-03-25):
  *   Michael Kors: POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Michael_Kors/jobs
- *   Versace:      POST https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/Versace/jobs
+ *   (Versace's site is decommissioned — WORKDAY_SITES in lib/capri-holdings-job-parser.mjs)
  *   Detail:       GET  https://capri.wd1.myworkdayjobs.com/wday/cxs/capri/{site}/job/{path}
  *
  * This script:
- *   1. Queries both Michael Kors and Versace Workday APIs for Swiss positions
+ *   1. Queries every brand site in WORKDAY_SITES for Swiss positions
  *   2. Fetches full job details for each match
  *   3. Builds job objects with canonical Workday URLs
  *   4. Merges into data/jobs.json
@@ -62,6 +62,9 @@ import { resolveSwissStructuredAddress } from './lib/swiss-structured-address.mj
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
+// Brand sites and endpoints live in one place: the parser module documents
+// why a site is (no longer) queried.
+import { WORKDAY_SITES, WORKDAY_API_BASE, WORKDAY_PUBLIC_BASE } from './lib/capri-holdings-job-parser.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -79,14 +82,6 @@ const CAPRI_COMPANY_NAME = 'Capri Holdings (Michael Kors / Versace)';
 const CAPRI_HOST = 'capri.wd1.myworkdayjobs.com';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
-/** Workday API sites to query — each brand has its own site within the "capri" tenant */
-const WORKDAY_SITES = [
-  { site: 'Michael_Kors', brand: 'Michael Kors' },
-  { site: 'Versace', brand: 'Versace' },
-];
-
-const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
-const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
 const WORKDAY_TOTAL_DRIFT_RETRIES = 2;
 const WORKDAY_TOTAL_DRIFT_RETRY_DELAY_MS = 500;
 const WORKDAY_QUERY_RESTARTS = 2;
@@ -761,7 +756,7 @@ function updateAdapterConfig() {
     priority: Math.max(adapter.priority || 0, 10),
     crawlerModes: ['api'],
     seedUrls: WORKDAY_SITES.map((s) => `${WORKDAY_PUBLIC_BASE}/${s.site}`),
-    notes: 'Workday API at capri.wd1.myworkdayjobs.com — Michael Kors + Versace. Swiss positions (Mendrisio TI logistics hub).',
+    notes: `Workday API at capri.wd1.myworkdayjobs.com — ${WORKDAY_SITES.map((s) => s.brand).join(' + ')}. Swiss positions (Mendrisio TI logistics hub).`,
     updatedAt: new Date().toISOString(),
   });
 
@@ -857,7 +852,7 @@ async function main() {
   registerCrawlerSummaryGuard(CAPRI_KEY, 'Capri Holdings');
   console.log('═══════════════════════════════════════════════');
   console.log('  Capri Holdings — Dedicated Crawler');
-  console.log('  Brands: Michael Kors, Versace, Jimmy Choo');
+  console.log(`  Brand sites: ${WORKDAY_SITES.map((s) => s.brand).join(', ')}`);
   console.log('  ATS: Workday (capri.wd1.myworkdayjobs.com)');
   console.log('═══════════════════════════════════════════════\n');
 

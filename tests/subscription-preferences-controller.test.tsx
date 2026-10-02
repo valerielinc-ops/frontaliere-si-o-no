@@ -565,6 +565,27 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(src).toMatch(/authToggleNewsletter\(email, next, userId\)/);
  });
 
+ // Saving a listing activates a never-decided saved-jobs digest (owner
+ // decision 2026-10-02), so every "off" here must be an explicit, durable stop.
+ it('records an explicit saved-jobs digest stop that a later save respects', () => {
+  const setStart = src.indexOf('async function authSetSavedJobsDigest');
+  const setEnd = src.indexOf('\n}\n', setStart);
+  const setter = src.slice(setStart, setEnd);
+  // Turning it off needs no subscriber record: the check lives in the "on" branch.
+  const enabledBranch = setter.indexOf('if (enabled) {');
+  expect(enabledBranch).toBeGreaterThan(-1);
+  expect(setter.indexOf("throw new Error('subscriber-not-created')")).toBeGreaterThan(enabledBranch);
+  // An existing stop keeps its provenance.
+  expect(setter).toMatch(/savedJobsDigest\?\.optedOut === true\) return;/);
+  expect(setter).toMatch(/optedOut:\s*!enabled/);
+
+  const stopStart = src.indexOf('const handleStopAll');
+  const stopAll = src.slice(stopStart, src.indexOf('authSetSavedJobsDigest(userId, email, false)', stopStart) + 60);
+  // Stop-all writes the off even when the digest was never on yet.
+  expect(stopAll).toMatch(/if \(digestAvailable && userId\) \{\s*try \{\s*await authSetSavedJobsDigest\(userId, email, false\);/);
+  expect(stopAll).not.toMatch(/digestAvailable && userId && digestEnabled/);
+ });
+
  it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {
  expect(src).toMatch(/handleTogglePause/);
  expect(src).toMatch(/onTogglePause/);

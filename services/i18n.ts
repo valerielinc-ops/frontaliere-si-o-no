@@ -602,6 +602,37 @@ export async function loadAllTranslations(): Promise<void> {
  }
 }
 
+/**
+ * Load ONE page chunk of an EN/DE/FR locale now, instead of waiting for the
+ * idle background loader, and return that chunk's own strings.
+ *
+ * The chunk is merged and announced exactly like the background loader does
+ * (so a component that rendered with the Italian fallback re-renders, and the
+ * background loader then skips it). The return value is the chunk itself, not
+ * `t()`: a caller that needs the LOCALE string — the SPA head of a glossary
+ * term, `services/seoService.ts` — must not get the Italian fallback `t()`
+ * hands out for a missing key. Never rejects: IT, an unknown chunk or a failed
+ * load return null and the caller keeps its own fallback.
+ */
+export async function loadLocalePageChunk(locale: Locale, page: string): Promise<Readonly<Translations> | null> {
+ if (locale === 'it') return null;
+ const loader = localeChunkLoaders[locale]?.[page];
+ if (!loader) return null;
+ try {
+ const m = await loader();
+ if (!loadedLocaleChunks[locale].has(page)) {
+ mergeLocaleTranslations(locale, m.default);
+ loadedLocaleChunks[locale].add(page);
+ localeTick++;
+ listeners.forEach(fn => fn(currentLocale));
+ }
+ return m.default;
+ } catch (err) {
+ swallowBackgroundLoadError(err);
+ return null;
+ }
+}
+
 /** Whether Italian core translations are loaded and t() returns real strings. */
 export function isTranslationsReady(): boolean {
  return _itReady;

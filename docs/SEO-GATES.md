@@ -6,6 +6,41 @@ Each gate is a **per-feature ratchet**: counts can only go DOWN. Improvements ne
 
 ---
 
+## Classi A/B/C — una sola tabella (2026-10-02)
+
+La fonte di verità per classe e modalità di ogni gate post-deploy è
+`scripts/ci/lib/seo-gate-classes.mjs`, letta sia da validate-dist
+(`classify-validate-dist-failures.mjs` → `QUALITY_GATES` = i gate B e C) sia da
+`cathedral-seo-gates-check` (classe/modalità nel verdetto, priorità e campione
+di offender nella issue di regressione). Ogni voce cita la fonte esterna che
+la motiva.
+
+Decisione del proprietario (2026-10-02): «Nessuno blocca la pubblicazione:
+apriamo solo issue per gli errori riscontrati e poi saranno gli autofixer a
+sistemarle». Bloccano `publish` solo i gate A che già bloccavano.
+
+| Classe | Significato | validate-dist | cathedral |
+|---|---|---|---|
+| A | richiesto da Google o danno certo | ogni fallimento sequestra `publish`, issue P1 | rosso, issue P1 |
+| B | impatto documentato, arretrato misurato da ratchet | regressione → rosso + issue P2, `publish` procede | rosso, issue P2 |
+| C | nessuna evidenza di impatto | rosso + issue P3, `publish` procede | rosso, issue P3 |
+
+B: `audit:max-bfs-depth`, `audit:orphan-sitemap-pages`, `audit:hreflang`,
+`audit:all/information-gain`, `audit:all/page-weight`.
+`audit:all/faqpage-validity` è passato da A a C (rich result FAQ solo per siti
+governativi/sanitari dal 2023-09-14).
+
+Ciclo di vita della issue di un gate non bloccante (verificato da
+`tests/seo-gate-issue-lifecycle.test.ts`): titolo stabile per gate, dedup in
+`github-issue-creator`, body con campione di offender e riproduzione,
+instradamento a `agent:fix-queued` da issue-triage, nessuna chiusura per
+inattività (followup-drainer) né dal recovered-closer: la chiude solo il
+workflow che l'ha aperta, quando il gate rientra. Un gate che cathedral misura
+sul corpus intero ha la sua issue lì, non anche in validate-dist.
+`tests/seo-gate-classes.test.ts` fissa la tabella. Il censimento qui sotto
+(#6462) resta come storia del bucket hard/nice-to-have; dove diverge, vale la
+tabella.
+
 ## Hard vs nice-to-have (issue #6462, VISION.md driver D9)
 
 Every content-quality gate below falls into one of two buckets. The bucket
@@ -68,7 +103,7 @@ default-deny to blocking:
 | duplicate-meta-description | nice-to-have | recycled `<meta description>`, Google just rewrites the snippet; already `QUALITY_GATES` |
 | discover-eligibility (§7) | n/a — never a gate | `report()` hardcodes `passed: true`; was already report-only before #6462, no change needed |
 
-**`cathedral-seo-gates-check.yml` — already fully advisory, no change needed.**
+**`cathedral-seo-gates-check.yml` — already fully advisory, no change needed** (superato il 2026-10-02: vedi «Classi A/B/C» sopra).
 Item 2 of #6462 asked to verify whether this workflow blocks anything
 downstream. It does not: it is a standalone weekly `schedule` job with no
 `needs:` edge from any other workflow, it replays a past deploy's already-

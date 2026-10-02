@@ -41,16 +41,15 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -284,7 +283,7 @@ export async function fetchAllBossardJobs() {
     const location = listingLocation && !/\d+\s+location/i.test(listingLocation)
       ? listingLocation
       : await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? inferSwissTargetCanton(location) : '';
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
     if (!canton) {
       console.log(`  ⏭️ Skipped location without a Swiss canton: ${listingLocation || '(none)'} — ${title}`);
       continue;
@@ -297,14 +296,18 @@ export async function fetchAllBossardJobs() {
 
     // Workday listing endpoint never returns the job body — fetch detail.
     let detailDescription = '';
+    let detailInfo = {};
     try {
-      detailDescription = await fetchWorkdayJobDescriptionText(
+      // One detail request: the body, and the `timeType` the CXS listing
+      // row never carries.
+      ({ text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
         WORKDAY_API_BASE,
         listing.externalPath,
         stripHtml,
-      );
+      ));
     } catch {
       detailDescription = '';
+      detailInfo = {};
     }
     // Be polite to the Workday tenant between per-job detail fetches.
     await new Promise((r) => setTimeout(r, 400));
@@ -323,7 +326,7 @@ export async function fetchAllBossardJobs() {
     const sourceLang = detectLang(descriptionText || title, 'de');
     const jobSlug = slugify(`${title} bossard ${location}`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     const postedDate = listing.postedAt || new Date().toISOString().split('T')[0];
 
     const job = {

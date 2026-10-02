@@ -34,6 +34,8 @@ import {
   LWPHR_FABRICATED_DESCRIPTION_RE,
 } from './lib/lwphr-job-parser.mjs';
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
+import { storedJobForFailedSource } from './lib/stored-source-body.mjs';
+import { SOURCE_BODY_FAILURE_REASON } from './lib/source-body-failure.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
@@ -83,8 +85,9 @@ function normalizeKey(value = '') {
 // `extractPdfJobContentFromUrl` reports a non-2xx answer as
 // `HTTP <status> while fetching PDF`. Only a definitive "not found"/"gone"
 // counts as a missing document: a timeout, a 5xx or a text layer that cannot
-// be extracted still says nothing about the posting, so it keeps aborting the
-// snapshot (tests/lwphr-crawler-merge-guard.test.ts). Measured 2026-09-28: the
+// be extracted still says nothing about the posting, so it is a degraded read
+// that republishes the stored record (tests/lwphr-crawler-merge-guard.test.ts),
+// never a reason to drop the vacancy. Measured 2026-09-28: the
 // official page linked `direttore_dell&rsquo;ufficio_tecnico_.pdf`, which
 // answers 404 under every encoding of the apostrophe.
 const MISSING_PDF_ERROR_RE = /^HTTP (?:404|410) while fetching PDF$/;
@@ -169,14 +172,23 @@ function hasPublishableLocation(job = {}) {
   return Boolean(String(job.location || '').trim());
 }
 
-async function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
-  const existingTarget = dropFabricatedDescriptions(
-    existing.filter(isTargetJob),
+function urlKey(job = {}) {
+  return String(job?.url || '').trim().replace(/\/+$/, '');
+}
+
+/** Stored postings of this crawler, without text the crawler once invented. */
+function readStoredTargetJobs() {
+  return dropFabricatedDescriptions(
+    readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob),
     LWPHR_FABRICATED_DESCRIPTION_RE,
     COMPANY_NAME,
   );
+}
+
+async function mergeJobs(discoveredJobs) {
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
+  const existingTarget = readStoredTargetJobs();
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
   // Preserve existing AI translations and slugs. Every successfully extracted
@@ -294,7 +306,8 @@ function clearUnresolvedLocationFields(discoveredJobs) {
 
 export async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'LWP Ledermann Wieting & Partners');
+  const summaryCounts = { sourceBodyFailures: [] };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'LWP Ledermann Wieting & Partners', summaryCounts);
   console.log('═══════════════════════════════════════════════');
   console.log('  LWP Ledermann Wieting & Partners — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -307,8 +320,17 @@ export async function main() {
     throw new Error('LWPHR discovery returned 0 open PDF jobs.');
   }
 
+  // A posting whose PDF cannot be read this run (timeout, 5xx, no text layer)
+  // is a degraded source, as in the other PDF crawlers: it republishes its
+  // stored record (title, slug and locality come from the PDF text, so the
+  // whole record, not only the body), is left out only when no stored body
+  // exists, and is listed in sourceBodyFailures either way. It used to abort
+  // the whole crawler. The stored slice is read only when a read fails.
   const discoveredJobs = [];
-  let skippedPdfCount = 0;
+  const sourceBodyFailures = [];
+  let storedTargetJobs = null;
+  let keptStoredCount = 0;
+  let leftOutCount = 0;
   let missingPdfCount = 0;
   for (const listing of listings) {
     console.log(`  📄 Extracting PDF: ${listing.title}`);
@@ -322,9 +344,24 @@ export async function main() {
       continue;
     }
     if (!isUsableLwphrPdf(pdf)) {
-      skippedPdfCount += 1;
       const reason = pdf?.error || pdf?.warning || 'empty extracted text';
-      console.warn(`  ⚠️ Skipping ${listing.title}: ${reason}`);
+      console.warn(`  ⚠️ Unusable PDF for ${listing.title}: ${reason}`);
+      // A failed read and a PDF without a text layer leave the same gap: both
+      // are listed as a degraded source, as ECAM does.
+      sourceBodyFailures.push({
+        title: listing.title,
+        url: listing.pdfUrl,
+        reason: SOURCE_BODY_FAILURE_REASON,
+        message: reason,
+      });
+      storedTargetJobs ??= readStoredTargetJobs();
+      const kept = storedJobForFailedSource(urlKey({ url: listing.pdfUrl }), storedTargetJobs, urlKey);
+      if (kept) {
+        keptStoredCount += 1;
+        discoveredJobs.push(kept);
+      } else {
+        leftOutCount += 1;
+      }
       continue;
     }
     discoveredJobs.push(buildJob({
@@ -334,13 +371,20 @@ export async function main() {
     }));
   }
 
+  summaryCounts.sourceBodyFailures = sourceBodyFailures;
   if (missingPdfCount > 0) {
     console.warn(`  ⚠️ LWP skipped ${missingPdfCount} posting(s) whose official PDF answers 404/410.`);
   }
-  if (skippedPdfCount > 0) {
-    console.warn(`  ⚠️ LWP skipped ${skippedPdfCount} posting(s) with unusable PDF content.`);
+  if (keptStoredCount > 0) {
+    console.warn(`  ⚠️ LWP: ${keptStoredCount} posting(s) with an unusable PDF keep their stored record.`);
+  }
+  if (leftOutCount > 0) {
+    console.warn(`  ⚠️ LWP: ${leftOutCount} posting(s) left out of this run: unusable PDF and no stored source body.`);
+  }
+  if (discoveredJobs.length === 0) {
     throw new Error(
-      `LWPHR discovery was incomplete: ${skippedPdfCount} open posting(s) had unusable PDF content; refusing to update adapter seeds or merge jobs.`,
+      `LWPHR has no publishable posting: ${listings.length} listed, ${missingPdfCount} gone (404/410), `
+      + `${leftOutCount} with an unusable PDF and no stored source body.`,
     );
   }
   const publishableJobs = discoveredJobs.filter(hasPublishableLocation);
@@ -377,6 +421,8 @@ export async function main() {
     label: 'LWP Ledermann Wieting & Partners',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    sourceBodyFailureCount: sourceBodyFailures.length,
+    sourceBodyFailures: sourceBodyFailures.slice(0, 100),
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

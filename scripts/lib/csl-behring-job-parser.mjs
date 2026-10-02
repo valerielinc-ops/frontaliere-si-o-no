@@ -42,6 +42,7 @@ import {
   WorkdayAuthError,
   workdayPrimaryLocationState,
 } from './ats-clients/workday-client.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -301,8 +302,13 @@ export async function fetchAllCslBehringJobs() {
     // Swiss workplace named only among the additional locations — is not
     // exhibited by a single record in the slice.
     const resolvedDetailLocation = resolveCslPublishLocation(info);
+    // A primary the commune gazetteer cannot place (a locality such as
+    // `EMEA, CH, Rotkreuz, CSL Behring`, an address) gets the shared Workday
+    // recovery — directory or postal code, on the req's structured Swiss
+    // country only — before any foreign or listing-row fallback is considered.
+    const recovered = resolvedDetailLocation ? null : recoverWorkdayPrimarySwissPlace(info);
     const detailLocationText = detailLocations.join(' | ');
-    if (!resolvedDetailLocation && isLocationExplicitlyForeign(detailLocationText)) {
+    if (!resolvedDetailLocation && !recovered && isLocationExplicitlyForeign(detailLocationText)) {
       console.log(`  ⏭️  Skipped foreign location: ${detailLocationText} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
@@ -322,14 +328,15 @@ export async function fetchAllCslBehringJobs() {
     // misreads its empty answer.
     const primaryState = workdayPrimaryLocationState(info);
     const rawLocation = resolvedDetailLocation
+      || recovered?.location
       || (primaryState.present ? '' : (listing.locationRaw || ''));
     if (!rawLocation || isLocationExplicitlyForeign(rawLocation)) {
       console.log(`  ⏭️  Skipped (no Swiss primary location): ${detailLocationText || rawLocation} — ${title}`);
       await new Promise((r) => setTimeout(r, 400));
       continue;
     }
-    const cleaned = cleanCslLocation(rawLocation);
-    const canton = cleaned ? inferSwissTargetCanton(cleaned) : '';
+    const cleaned = recovered ? recovered.location : cleanCslLocation(rawLocation);
+    const canton = recovered ? recovered.canton : (cleaned ? inferSwissTargetCanton(cleaned) : '');
     if (!cleaned || !canton) {
       console.log(`  ⏭️  Skipped (Swiss canton not resolvable from "${rawLocation}"): ${title}`);
       await new Promise((r) => setTimeout(r, 400));
@@ -337,7 +344,8 @@ export async function fetchAllCslBehringJobs() {
     }
     const location = cleaned;
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
+    // The CXS listing row carries no `timeType`; the detail does.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || '', title);
 
     // Workday listing endpoint never returns the body; reuse the detail
     // response already fetched for the authoritative location fields.

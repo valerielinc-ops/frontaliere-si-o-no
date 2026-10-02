@@ -3,7 +3,7 @@
  * Manages SEO metadata for different sections of the app
  */
 
-import { getLocale, setLocale, t, getCantonI18nParams, type Locale } from './i18n';
+import { getLocale, setLocale, t, getCantonI18nParams, loadLocalePageChunk, type Locale } from './i18n';
 import { parsePath, buildPath, buildAllLocalePaths, ensureJobSlugEntriesLoaded, getJobMetaForSlug, type AppRoute } from './router';
 import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { fetchJobsForCanton } from './jobsService';
@@ -16,7 +16,7 @@ import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resili
 import { cdnDataUrl } from './cdnDataBase';
 import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
-import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription } from './seo/glossaryTermDefinitions';
+import { GLOSSARY_TERM_DEFINITIONS, truncateForMetaDescription, buildLocalizedGlossaryMetaDescription } from './seo/glossaryTermDefinitions';
 import { cdnBlogImage } from './seo/blogImageCdn';
 import { resolveArticleAuthorUrl, loadArticleAuthorRegistry, type ArticleAuthorRegistry } from './seo/articleAuthorUrl';
 import { translateSchema } from './seo/schema-translators';
@@ -1378,6 +1378,48 @@ function resolveLocalizedSeoContent(section: string, metadata: SEOMetadata, loca
  };
 }
 
+const GLOSSARY_LOCALE_QUALIFIER: Record<Exclude<Locale, 'it'>, string> = { en: 'Glossary', de: 'Glossar', fr: 'Glossaire' };
+
+/**
+ * Head of a glossary term on en/de/fr — the same title and description the
+ * static term page ships (staticPagesPlugin `deriveLocaleSeo`).
+ *
+ * Without it a term section (`glossario-<id>`) has no entry in the localized
+ * key maps, so `resolveLocalizedSeoContent` fell to «Page Ainp» and «Page Ainp.
+ * Practical tools, updated data…»: at hydration the SPA overwrote the term's
+ * real head with a generic one. The description is the term's own definition
+ * in the page language, from the SAME strings (`glossary.terms.<id>.title|
+ * desc`, the `stats` locale chunk) through the SAME function
+ * (`buildLocalizedGlossaryMetaDescription`) as the static page; the title keeps
+ * the Italian term with the locale qualifier, as `deriveLocaleSeo` does.
+ *
+ * The chunk's own strings are read, never `t()`: for a key still missing in
+ * the locale `t()` returns the Italian text, and an Italian description on an
+ * English page is the wrong answer. Null → the caller keeps the generic path.
+ */
+export async function resolveLocalizedGlossarySeo(
+ section: string,
+ metadata: Pick<SEOMetadata, 'title' | 'keywords'>,
+ locale: Locale,
+): Promise<{ title: string; description: string; keywords: string } | null> {
+ if (locale === 'it' || !section.startsWith('glossario-')) return null;
+ const termId = section.slice('glossario-'.length);
+ if (!termId) return null;
+ const stats = (await loadLocalePageChunk(locale, 'stats')) as Readonly<Record<string, string>> | null;
+ const termTitle = stats?.[`glossary.terms.${termId}.title`];
+ const termDesc = stats?.[`glossary.terms.${termId}.desc`];
+ if (!termTitle || !termDesc) return null;
+ const italianTerm = metadata.title
+ .replace(/\s*\|\s*(Frontaliere Ticino|Glossario Frontalieri)$/i, '')
+ .replace(/\s*\(Glossario\)\s*$/i, '')
+ .trim();
+ return {
+ title: buildTitleWithBrand(`${italianTerm} (${GLOSSARY_LOCALE_QUALIFIER[locale]})`),
+ description: buildLocalizedGlossaryMetaDescription(termTitle, termDesc),
+ keywords: getLocalizedSeoKeywords(termTitle, locale, metadata.keywords),
+ };
+}
+
 function getLocalizedSectionLabel(section: string, fallback: string, cantonCode?: string): string {
  const key = SEO_SECTION_TITLE_KEY_MAP[section];
  const localized = translateIfExists(key, cantonCode);
@@ -1757,9 +1799,11 @@ export async function updateMetaTags(section: string): Promise<void> {
  const hasLocalizedImageAlt = isBlogArticle && localizedImageAlt !== `blog.article.${blogArticleId}.imageAlt`;
 
  const isDialectPage = section === 'dialetto';
+ const glossarySeo = pharmacyMetadata ? null : await resolveLocalizedGlossarySeo(sectionKey, metadata, locale);
+ if (updateEpoch !== seoUpdateEpoch || window.location.pathname !== pathnameSnapshot) return;
  const localizedSeoContent = pharmacyMetadata
  ? pharmacyMetadata
- : resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
+ : glossarySeo ?? resolveLocalizedSeoContent(sectionKey, metadata, locale, route.jobBoardCanton);
  const dialectTitleByLocale: Record<Locale, string> = {
  it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
  en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',

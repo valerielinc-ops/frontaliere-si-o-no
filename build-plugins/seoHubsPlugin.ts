@@ -73,8 +73,9 @@ import {
   STAT_TILE_SUCCESS,
   STAT_TILE_BASE,
 } from './shared/seoContentTokens';
-import { ALL_CANTON_CODES, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
+import { ALL_CANTON_CODES, COMPANY_ROUTE_PREFIX, resolveCantonSection, legacyTiSectionRoot } from './shared/cantonSection';
 import { readJobsData, cantonArchivePageCount, type CantonJobEntry } from './shared/cantonArchivePlan';
+import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
@@ -2310,7 +2311,21 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
       // ── aziende (companies) — list employers with ≥1 active opening in this canton ──
       {
         const basePath = hubSlugFor(canton, locale, 'aziende');
-        const items = empArraySorted.map(([empKey, n]) => {
+        // Link the per-canton company hubs jobsSeoPagesPlugin actually emitted
+        // (build-plugins/shared/cantonCompanyHubRegistry.ts), under their own
+        // slug and this locale's route prefix. The snapshot employerKey list
+        // below is only the fallback for a build that skipped that phase: on
+        // build f3659686 it pointed 28 of Zurich's 100 links at noindex
+        // bridges and 26 at pages that do not exist.
+        const emittedHubs = cantonCompanyHubs(canton).slice(0, 100);
+        const items = emittedHubs.length > 0 ? emittedHubs.map((hub) => ({
+          href: `${sectionRoot}/${COMPANY_ROUTE_PREFIX[locale]}-${hub.slug}/`,
+          label: hub.name,
+          sub: jobsActiveLabel(locale, hub.jobs),
+          logo: resolveBrandLogoUrl(rootDir, hub.logoKey) ?? crawledLogos[hub.logoKey] ?? null,
+          metric: hub.jobs.toString(),
+          metricTone: 'accent' as const,
+        })) : empArraySorted.map(([empKey, n]) => {
           // Resolve a logo: try the (manifest|crawled) keyed lookup. Keys are
           // short employer keys (e.g. "unispital-basel"); the same key is used
           // for the URL slug here, so no separate lookup is needed.

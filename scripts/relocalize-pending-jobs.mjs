@@ -67,7 +67,7 @@ import {
   TRAFFIC_SOURCE_PATH,
 } from './lib/job-traffic-priority.mjs';
 import { logCascadeSummary } from './lib/free-translate.mjs';
-import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate-run-clock.mjs';
+import { markRunStart, recordRunPhase, resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { hasStructuredContent, isStructureFlattenedCopy, MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
@@ -138,14 +138,12 @@ export const SMALL_COMPANY_JOB_LIMIT = 4;
  * so at the observed best throughput the cap, not the clock, was what stopped
  * the drain, and it stopped it at ~10% of the window.
  *
- * The constraint that stops it now is the 90-minute cascade deadline itself,
- * which is measured from RUN_START and therefore already self-throttling: on
- * the slow runs (31690534255: 87,3 min for the same 100 jobs, 1,15 jobs/min,
- * every free model exhausted) the clock binds long before 900 and the run stops
- * exactly where it stopped before. So this raise can only ever ADD drained
- * jobs; it cannot lengthen a run. Raising the deadline instead would take the
- * time from the Phase 2c Argos mop-up, which is the free unlimited pass — a
- * strictly worse trade.
+ * The constraint that stops it now is the cascade's clock — since 2026-10-02 a
+ * 30-minute window of its own under a run-wide ceiling (JOBS_CASCADE_WINDOW_MS,
+ * JOBS_CASCADE_DEADLINE_MS) instead of a 90-minute run-wide deadline: on the
+ * slow runs (31690534255: 87,3 min for the same 100 jobs, 1,15 jobs/min, every
+ * free model exhausted) the clock binds long before 900. So this cap can only
+ * ever ADD drained jobs; it cannot lengthen a run.
  *
  * Not a budget knob: the cascade's cost is wall-clock, and both tiers it
  * reaches (free HTTP cascade, Claude CLI Haiku on the existing Max
@@ -396,15 +394,18 @@ const TIME_BUDGET_MS = 320 * 60 * 1000;
 // the workflow fails closed when its marker is missing.
 const RUN_START_MS = resolveRunStartMs();
 // Run-wide deadline for the slow HTTP/ONNX cascade. Default 250min (cascade-first
-// era: the cascade IS the primary translator). Under Argos-first the fast
-// CTranslate2 bulk (Phase 2a) + the Argos mop-up (Phase 2c) already cover the
-// backlog, so the cascade only needs a SHORT premium-upgrade / contamination-fix
-// pass — translate-pending.yml caps it via JOBS_CASCADE_DEADLINE_MS so the cascade
-// stops expanding to fill 250min and the whole job's wall-clock drops. Measured
-// from RUN_START_MS, so a long Phase 2a self-throttles the cascade (it steps aside
-// when the bulk pass ran long, takes its window when the bulk was quick).
-const CASCADE_LOCALIZATION_DEADLINE_MS =
-  Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000;
+// era: the cascade IS the primary translator). Under Argos-first translate-pending
+// caps it via JOBS_CASCADE_DEADLINE_MS (a run-wide ceiling) and gives it its own
+// window, JOBS_CASCADE_WINDOW_MS, counted from THIS process's start: the deadline
+// is min(ceiling, elapsed at start + window). Without the window a long Phase 2a
+// took the cascade's whole slot — corpus run 36779310211 (2026-10-01): Argos ran
+// 150min, the cascade started at 159min against a 90min run-wide deadline and
+// translated 0 jobs, with Azure available.
+const CASCADE_LOCALIZATION_DEADLINE_MS = windowedDeadlineMs({
+  deadlineMs: Number(process.env.JOBS_CASCADE_DEADLINE_MS) || 250 * 60 * 1000,
+  windowMs: Number(process.env.JOBS_CASCADE_WINDOW_MS) || 0,
+  elapsedAtStartMs: Date.now() - RUN_START_MS,
+});
 const CASCADE_PER_COMPANY_BUDGET_MS =
   Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS) > 0
     ? Number(process.env.JOBS_CASCADE_PER_COMPANY_BUDGET_MS)

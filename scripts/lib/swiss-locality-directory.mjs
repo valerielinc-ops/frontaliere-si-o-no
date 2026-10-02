@@ -5,6 +5,7 @@
  * a locality the source names, never a guess among several.
  */
 import SWISS_LOCALITY_POSTAL_CODES from '../../data/swiss-locality-postal-codes.json' with { type: 'json' };
+import SWISS_POSTAL_CODE_INDEX from '../../data/swiss-postal-code-index.json' with { type: 'json' };
 
 function directoryKey(value = '') {
   return String(value || '')
@@ -106,4 +107,21 @@ export function officialLocalityPostalCode(locality = '', canton = '') {
     .filter((entry) => !wanted || entry.canton === wanted);
   const postalCodes = new Set(entries.map((entry) => entry.postalCode).filter(Boolean));
   return postalCodes.size === 1 ? [...postalCodes][0] : '';
+}
+
+/**
+ * The locality and canton the official directory gives a Swiss postal code,
+ * or null when the code is unknown or not unique (data/swiss-postal-code-index.json,
+ * scripts/generate-swiss-postal-code-index.mjs): a code shared by several
+ * cantons or several localities is never resolved, and Liechtenstein codes
+ * have no entry. For a source that states an address, not a place name.
+ *
+ * @param {string|number} postalCode
+ * @returns {{ canton: string, locality: string } | null}
+ */
+export function resolveSwissPostalCodePlace(postalCode = '') {
+  const code = String(postalCode ?? '').trim();
+  if (!/^\d{4}$/.test(code)) return null;
+  const entry = SWISS_POSTAL_CODE_INDEX?.postalCodes?.[code];
+  return Array.isArray(entry) && entry.length === 2 ? { canton: entry[0], locality: entry[1] } : null;
 }

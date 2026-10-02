@@ -7375,6 +7375,96 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}, sourceLocale = null) 
   return out;
 }
 
+function sourceTitleBridgeSignature(job) {
+  const title = normalizeSpace(String(job?.title || '')).toLowerCase();
+  if (title.length < 3) return '';
+  const company = String(job?.companyKey || job?.company || '').trim().toLowerCase();
+  const locality = normalizeSpace(String(job?.addressLocality || job?.location || '')).toLowerCase();
+  return `${company}|${locality}|${title}`;
+}
+
+/**
+ * Pairs a fresh job that matches no existing record by key with the existing
+ * record that no fresh job matched, when both carry the SAME source title for
+ * the same company and locality.
+ *
+ * Why. `mergePreserveLocaleData` keeps translations only through `matchKey`.
+ * When the key changes while the posting does not, the fresh job is treated
+ * as new, its non-source locales are source copies, and the translations of
+ * the old record are lost (it is retained under the miss grace, or dropped by
+ * an authoritative snapshot). Two causes measured on the crawl of 2026-10-01:
+ *   · repost under a new source id: abraxas "Abacus Berater:in BPE, REST &
+ *     AbaReport 80–100 %", URL suffix -2411 → -4304 (crawler group 13, run
+ *     36841309578): it/en/fr went from translations to the German title;
+ *   · key scheme change: liebherrMatchKey moved to
+ *     `liebherr:source-job:<id>` once the parser stored sourceLocale, so no
+ *     stored Liebherr record (URL key) matched its fresh twin.
+ * A translation depends only on its source text: with the title unchanged the
+ * old title translations are still right, and description translations go
+ * through the same source-drift guard as a key match (mergeLocaleTextMap).
+ *
+ * Only unambiguous pairs: exactly one unmatched existing and one unmatched
+ * fresh job per signature, never a job whose key is ambiguous (the collision
+ * policy above stays as it is), never across source languages. Identity (id,
+ * slugs, previous slugs, dates) is NOT carried: the posting may be new.
+ *
+ * @returns {Map<object, object>} fresh job → existing job
+ */
+export function buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambiguousKeys = new Set()) {
+  const existingKeys = new Set();
+  for (const job of existingJobs) {
+    const k = matchKey(job);
+    if (k && !ambiguousKeys.has(k)) existingKeys.add(k);
+  }
+  const keyMatchedByFresh = new Set();
+  for (const job of freshJobs) {
+    const k = matchKey(job);
+    if (k && !ambiguousKeys.has(k) && existingKeys.has(k)) keyMatchedByFresh.add(k);
+  }
+  const unambiguousUnmatched = (jobs, isMatched) => {
+    const bySignature = new Map();
+    for (const job of jobs) {
+      const k = matchKey(job);
+      if (k && ambiguousKeys.has(k)) continue;
+      if (isMatched(k)) continue;
+      const signature = sourceTitleBridgeSignature(job);
+      if (!signature) continue;
+      bySignature.set(signature, bySignature.has(signature) ? null : job);
+    }
+    return bySignature;
+  };
+  const existingBySignature = unambiguousUnmatched(existingJobs, (k) => Boolean(k && keyMatchedByFresh.has(k)));
+  const freshBySignature = unambiguousUnmatched(freshJobs, (k) => Boolean(k && existingKeys.has(k)));
+
+  const bridge = new Map();
+  for (const [signature, fresh] of freshBySignature) {
+    const previous = existingBySignature.get(signature);
+    if (!fresh || !previous) continue;
+    const freshLang = String(fresh.sourceLang || '').trim();
+    const previousLang = String(previous.sourceLang || '').trim();
+    if (freshLang && previousLang && freshLang !== previousLang) continue;
+    bridge.set(fresh, previous);
+  }
+  return bridge;
+}
+
+/**
+ * The locale-text half of a key match (same merge calls, same minimum
+ * lengths): non-source title/description/requirement slots come from the
+ * previous record, the source slot from the fresh crawl.
+ */
+function carryLocaleTextFromSameSourceTitle(fresh, previous) {
+  const srcLang = fresh.sourceLang || previous.sourceLang || null;
+  fresh.titleByLocale = mergeLocaleTextMap(previous.titleByLocale, fresh.titleByLocale || {}, 3, srcLang);
+  fresh.descriptionByLocale = mergeLocaleTextMap(previous.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang);
+  if (previous.requirementsByLocale && !fresh.requirementsByLocale) {
+    fresh.requirementsByLocale = previous.requirementsByLocale;
+  } else if (previous.requirementsByLocale && fresh.requirementsByLocale) {
+    fresh.requirementsByLocale = mergeLocaleRequirementsMap(previous.requirementsByLocale, fresh.requirementsByLocale, srcLang);
+  }
+  if (!fresh.sourceLang && previous.sourceLang) fresh.sourceLang = previous.sourceLang;
+}
+
 /**
  * Merge freshly-parsed jobs with existing jobs, preserving locale translations,
  * slugs, previousSlugs, and stable IDs. Used by dedicated crawlers that build
@@ -7469,6 +7559,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     const k = matchKey(job);
     if (k && !ambiguousKeys.has(k)) existingByKey.set(k, job);
   }
+  const sourceTitleBridge = buildSourceTitleBridge(existingJobs, freshJobs, matchKey, ambiguousKeys);
   const matchedExistingKeys = new Set();
   const markIncompleteLocaleText = (job, sourceLang) => {
     const hasText = [
@@ -7485,10 +7576,18 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     return job;
   };
 
+  let sourceTitleBridged = 0;
   const mergedFresh = freshJobs.map((fresh) => {
     const k = matchKey(fresh);
     const old = (k && !ambiguousKeys.has(k)) ? existingByKey.get(k) : null;
-    if (!old) return markIncompleteLocaleText(fresh, fresh.sourceLang || null);
+    if (!old) {
+      const previous = sourceTitleBridge.get(fresh);
+      if (previous) {
+        carryLocaleTextFromSameSourceTitle(fresh, previous);
+        sourceTitleBridged += 1;
+      }
+      return markIncompleteLocaleText(fresh, fresh.sourceLang || null);
+    }
     matchedExistingKeys.add(k);
 
     // Preserve stable ID from existing job
@@ -7732,6 +7831,9 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
 
     return markIncompleteLocaleText(fresh, fresh.sourceLang || srcLang || null);
   });
+  if (sourceTitleBridged > 0) {
+    console.log(`  🔁 mergePreserveLocaleData: kept the translations of ${sourceTitleBridged} job(s) whose match key changed but whose source title did not.`);
+  }
 
   // A crawler may bypass the miss grace only after its own source-specific
   // completeness validator has proved this run is an authoritative snapshot.

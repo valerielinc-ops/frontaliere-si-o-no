@@ -696,6 +696,42 @@ export async function* fetchSmartRecruitersJobs(tenant, options = {}) {
 }
 
 /**
+ * Whether the `onComplete` proof of a strict walk covers the WHOLE tenant:
+ * the walk ended on its own terms, every page carried distinct posting IDs,
+ * and the unique rows seen equal the total the API declared.
+ *
+ * @param {{ terminationProven?: boolean, paginationIntegrityProven?: boolean, totalFound?: number|null, recordsSeen?: number, rawRecordsSeen?: number }|null|undefined} proof
+ * @returns {boolean}
+ */
+export function isCompleteSmartRecruitersSourceRead(proof) {
+  return proof?.terminationProven === true
+    && proof.paginationIntegrityProven === true
+    && Number.isSafeInteger(proof.totalFound)
+    && proof.recordsSeen === proof.totalFound
+    && proof.rawRecordsSeen === proof.recordsSeen;
+}
+
+/**
+ * Whether a complete walk proves that a FILTERED result (e.g. the Swiss
+ * postings of a group-wide tenant) is legitimately empty.
+ *
+ * Completeness alone is not enough. The postings endpoint answers
+ * `200 {"totalFound":0,"content":[]}` for a company identifier it does not
+ * know — verified live 2026-10-02 against a made-up identifier, the same
+ * envelope a live tenant with no postings returns — and a renamed or retired
+ * tenant (the `Imerys` identifier, whose careers page now redirects to the
+ * SmartRecruiters home) reads exactly like that. Only a walk that observed the
+ * tenant's own live postings shows that the source is the employer's board and
+ * that the zero is the filter's verdict, not an unknown company's empty list.
+ *
+ * @param {Parameters<typeof isCompleteSmartRecruitersSourceRead>[0]} proof
+ * @returns {boolean}
+ */
+export function provesSmartRecruitersFilteredEmpty(proof) {
+  return isCompleteSmartRecruitersSourceRead(proof) && proof.totalFound > 0;
+}
+
+/**
  * Concatenate available jobAd sections into a single HTML blob.
  * Order: jobDescription → qualifications → additionalInformation.
  *

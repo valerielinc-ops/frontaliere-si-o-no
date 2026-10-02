@@ -56,7 +56,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
+import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { hasUsableTitle, isAcceptableTranslation } from './lib/translation-quality.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -909,7 +909,100 @@ function inferContract(apiMeta, employmentType = '', title = '') {
   return 'full-time';
 }
 
-async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle = new Map()) {
+const SBB_LOCALES = ['it', 'en', 'de', 'fr'];
+
+/**
+ * Index the stored SBB records by canonical detail URL, the identity the
+ * parser works with. A URL held by more than one stored record is left out:
+ * which record's translations belong to the fresh posting is ambiguous, so
+ * none is reused (same rule as mergePreserveLocaleData's collision guard).
+ */
+export function indexSbbPriorJobsByUrl(priorJobs = []) {
+  const byUrl = new Map();
+  const ambiguous = new Set();
+  for (const job of Array.isArray(priorJobs) ? priorJobs : []) {
+    const key = normalizeDetailUrl(job?.url || '');
+    if (!key) continue;
+    if (byUrl.has(key)) ambiguous.add(key);
+    else byUrl.set(key, job);
+  }
+  for (const key of ambiguous) byUrl.delete(key);
+  return byUrl;
+}
+
+/**
+ * Fill the non-source locale slots of one parsed SBB posting.
+ *
+ * The parser used to translate title and description of every posting into
+ * every missing locale on every run (6 cascade calls per AEM posting, ~900 per
+ * run), although mergePreserveLocaleData then keeps the stored translation of
+ * each non-source locale whose source has not drifted: nearly all of that work
+ * was discarded. With DeepL and Azure over quota the cascade fell through to
+ * the slow free tiers and the crawler hit the 91-minute worker watchdog
+ * (exit 124) in corpus runs 36778255557, 36841543177 and 36927458310, failing
+ * crawler group 15 in every generation.
+ *
+ * Two rules keep the inline work equal to what the merge will keep:
+ * - a slot the stored record of the same posting already holds is reused,
+ *   never re-translated. The decision is the same mergeLocaleTextMap call the
+ *   final merge makes (same floors, same source-drift test), so a drifted
+ *   source is never seeded with the old posting's translations;
+ * - with SKIP_AI_TRANSLATION=1 (the orchestrated crawl) no inline AI call is
+ *   made: the remaining gaps go through translateMissingJobLocales' cache and
+ *   are deferred to translate-pending, the contract every other crawler of
+ *   the group already follows.
+ */
+export async function fillSbbLocaleText({
+  localeTitles,
+  localeDescriptions,
+  sourceLocale,
+  prior = null,
+  skipAiTranslation = process.env.SKIP_AI_TRANSLATION === '1',
+  translate = freeTranslateWithRetry,
+}) {
+  if (prior) {
+    // Floors 3/30 are the ones mergePreserveLocaleData passes for titles/descriptions.
+    const storedTitles = mergeLocaleTextMap(prior.titleByLocale, localeTitles, 3, sourceLocale);
+    const storedDescriptions = mergeLocaleTextMap(prior.descriptionByLocale, localeDescriptions, 30, sourceLocale);
+    for (const locale of SBB_LOCALES) {
+      if (locale === sourceLocale) continue;
+      if (!localeTitles[locale] && hasUsableTitle(storedTitles[locale])) localeTitles[locale] = storedTitles[locale];
+      if (!localeDescriptions[locale] && storedDescriptions[locale]) localeDescriptions[locale] = storedDescriptions[locale];
+    }
+  }
+  let translationCalls = 0;
+  if (skipAiTranslation) return { translationCalls };
+  for (const locale of SBB_LOCALES) {
+    if (!localeTitles[locale] && localeTitles[sourceLocale]) {
+      translationCalls += 1;
+      const translatedTitle = await translate({
+        text: localeTitles[sourceLocale],
+        sourceLang: sourceLocale,
+        targetLang: locale,
+        maxRetries: 2,
+      });
+      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = String(translatedTitle).trim();
+    }
+    if (!localeDescriptions[locale] && localeDescriptions[sourceLocale]) {
+      translationCalls += 1;
+      const translatedDescription = await translate({
+        text: localeDescriptions[sourceLocale],
+        sourceLang: sourceLocale,
+        targetLang: locale,
+        fieldType: 'description',
+        maxRetries: 2,
+      });
+      // Keep the explicit >=120 floor alongside the ratio gate: isAcceptableTranslation's
+      // internal floor is 100, so for short sources it would accept 100-119 char clips and
+      // lower the effective floor 120->100 — but validate-translation-completeness.mjs
+      // requires descriptionByLocale >= 120 per job as a pre-deploy blocker (#1071).
+      if (translatedDescription && isAcceptableTranslation(localeDescriptions[sourceLocale], translatedDescription) && translatedDescription.length >= 120) localeDescriptions[locale] = translatedDescription;
+    }
+  }
+  return { translationCalls };
+}
+
+async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle = new Map(), priorByUrl = new Map()) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const html = await fetchPage(detailUrl, timeoutMs, 'text/html,application/xhtml+xml');
   if (!html) return null;
@@ -1023,31 +1116,12 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
     localeTitles[resolvedSourceLocale] = normalizedSourceTitle;
   }
   if (!localeDescriptions[resolvedSourceLocale]) localeDescriptions[resolvedSourceLocale] = description;
-  for (const locale of ['it', 'en', 'de', 'fr']) {
-    if (!localeTitles[locale] && localeTitles[resolvedSourceLocale]) {
-      const translatedTitle = await freeTranslateWithRetry({
-        text: localeTitles[resolvedSourceLocale],
-        sourceLang: resolvedSourceLocale,
-        targetLang: locale,
-        maxRetries: 2,
-      });
-      if (hasUsableTitle(translatedTitle)) localeTitles[locale] = String(translatedTitle).trim();
-    }
-    if (!localeDescriptions[locale] && localeDescriptions[resolvedSourceLocale]) {
-      const translatedDescription = await freeTranslateWithRetry({
-        text: localeDescriptions[resolvedSourceLocale],
-        sourceLang: resolvedSourceLocale,
-        targetLang: locale,
-        fieldType: 'description',
-        maxRetries: 2,
-      });
-      // Keep the explicit >=120 floor alongside the ratio gate: isAcceptableTranslation's
-      // internal floor is 100, so for short sources it would accept 100-119 char clips and
-      // lower the effective floor 120->100 — but validate-translation-completeness.mjs
-      // requires descriptionByLocale >= 120 per job as a pre-deploy blocker (#1071).
-      if (translatedDescription && isAcceptableTranslation(localeDescriptions[resolvedSourceLocale], translatedDescription) && translatedDescription.length >= 120) localeDescriptions[locale] = translatedDescription;
-    }
-  }
+  await fillSbbLocaleText({
+    localeTitles,
+    localeDescriptions,
+    sourceLocale: resolvedSourceLocale,
+    prior: priorByUrl.get(normalizeDetailUrl(detailUrl)) || null,
+  });
   const localeRequirements = { it: requirements, en: requirements, de: requirements, fr: requirements };
   const localeSlugs = Object.fromEntries(
     ['it', 'en', 'de', 'fr'].map((locale) => {
@@ -1087,7 +1161,7 @@ async function parseSbbJobFromDetailUrl(detailUrl, apiMetaByUrl, apiMetaByTitle 
   };
 }
 
-async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = new Map()) {
+async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = new Map(), priorByUrl = new Map()) {
   const uniqueUrls = [...new Set((detailUrls || []).map((u) => normalizeDetailUrl(u)).filter(Boolean))];
   const concurrency = Math.max(1, intFromEnv('JOBS_SBB_DETAIL_CONCURRENCY', 6));
   let cursor = 0;
@@ -1098,7 +1172,7 @@ async function parseAllSbbDetailJobs(detailUrls, apiMetaByUrl, apiMetaByTitle = 
       const idx = cursor;
       cursor += 1;
       const url = uniqueUrls[idx];
-      const job = await parseSbbJobFromDetailUrl(url, apiMetaByUrl, apiMetaByTitle);
+      const job = await parseSbbJobFromDetailUrl(url, apiMetaByUrl, apiMetaByTitle, priorByUrl);
       if (job) {
         parsed.push(job);
         console.log(`    ✅ Parsed: ${job.title} — ${job.location}`);
@@ -1308,12 +1382,19 @@ async function main() {
   // Update adapter seed URLs for audit/debug visibility
   ensureAdapterSeedUrls(mergedDetailUrls);
 
-  // Snapshot company jobs before crawl for diff summary
-    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SBB_KEY, DATA_JOBS).filter(isSbbJob))
+  // Snapshot company jobs before crawl for diff summary; the same stored
+  // records seed the parser's locale slots (fillSbbLocaleText).
+  const priorSbbJobs = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS).filter(isSbbJob);
+  const _beforeSnapshot = snapshotJobSlugs(priorSbbJobs);
 
   // Step 3: Parse detail pages directly (dedicated parser, no generic filter)
   console.log(`🧩 Parsing SBB detail pages directly (${mergedDetailUrls.length})...`);
-  const parsedSbbJobs = await parseAllSbbDetailJobs(mergedDetailUrls, apiMetaByUrl, apiMetaByTitle);
+  const parsedSbbJobs = await parseAllSbbDetailJobs(
+    mergedDetailUrls,
+    apiMetaByUrl,
+    apiMetaByTitle,
+    indexSbbPriorJobsByUrl(priorSbbJobs),
+  );
   console.log(`✅ Parsed SBB jobs (clean): ${parsedSbbJobs.length}`);
   if (parsedSbbJobs.length > 0) {
     const publishedJobs = mergeParsedSbbJobs(parsedSbbJobs, {

@@ -16,6 +16,8 @@
  *     from the translate-pending run marker (default 300*60*1000). Standalone
  *     runs without a marker use this process's start time; the workflow fails
  *     closed if its marker is missing.
+ *   UNTRANSLATED_TITLE_FIX_WINDOW_MS — optional window from this process's
+ *     start; the lane stops at min(deadline, elapsed at start + window).
  */
 
 import fs from 'node:fs';
@@ -24,7 +26,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { isTitleSourceCopy, titleContainsLlmReasoning, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
-import { resolveRunStartMs } from './lib/translate-run-clock.mjs';
+import { resolveRunStartMs, windowedDeadlineMs } from './lib/translate-run-clock.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -34,9 +36,14 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const DRY_RUN = process.argv.includes('--dry-run');
 // Run-wide deadline measured from the shared translate-pending start marker.
 // Standalone invocations keep a local fallback; the workflow requires the marker.
-const TITLE_FIX_DEADLINE_MS = Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)
-  || 300 * 60 * 1000;
 const RUN_START_MS = resolveRunStartMs();
+// UNTRANSLATED_TITLE_FIX_WINDOW_MS gives the lane its own window from this
+// process's start, still bounded by the run-wide deadline (windowedDeadlineMs).
+const TITLE_FIX_DEADLINE_MS = windowedDeadlineMs({
+  deadlineMs: Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS) || 300 * 60 * 1000,
+  windowMs: Number(process.env.UNTRANSLATED_TITLE_FIX_WINDOW_MS) || 0,
+  elapsedAtStartMs: Date.now() - RUN_START_MS,
+});
 
 function readJson(p) { return JSON.parse(fs.readFileSync(p, 'utf-8')); }
 

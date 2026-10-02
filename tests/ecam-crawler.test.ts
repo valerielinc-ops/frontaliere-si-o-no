@@ -1,4 +1,5 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, vi } from 'vitest';
+import { keepStoredSourceBodiesByKey } from '../scripts/lib/stored-source-body.mjs';
 import {
   ECAM_CAREER_URL,
   ECAM_CANTON,
@@ -146,6 +147,43 @@ describe('ECAM crawler parser', () => {
     expect(jobs).toHaveLength(2);
     expect(jobs.map((job) => job.url)).toEqual([HR_PDF_URL, GENERAL_PDF_URL]);
     expect(jobs.every((job) => job.companyKey === ECAM_KEY)).toBe(true);
+  });
+
+  it('turns an unreadable PDF into a degraded row instead of failing the crawler', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const jobs = await fetchAllEcamJobs({
+      fetchPage: async () => LISTING_HTML,
+      extractPdfText: async (url: string) => (
+        url === HR_PDF_URL ? { text: '', error: 'HTTP 503 while fetching PDF' } : { text: '   ' }
+      ),
+    });
+
+    expect(jobs.map((job) => job.url)).toEqual([HR_PDF_URL, GENERAL_PDF_URL]);
+    for (const job of jobs) {
+      expect(job.description).toBe('');
+      expect(job.sourceBodyFailureReason).toBe('pdf-extraction-failed');
+      expect(job.sourceBodyFailureKeepsStoredRecord).toBe(true);
+    }
+    expect((jobs as any).sourceBodyFailures).toEqual([
+      { title: expect.any(String), url: HR_PDF_URL, reason: 'pdf-extraction-failed', message: 'unable to extract: HTTP 503 while fetching PDF' },
+      { title: expect.any(String), url: GENERAL_PDF_URL, reason: 'pdf-extraction-failed', message: 'official PDF has no usable text layer' },
+    ]);
+  });
+
+  it('lets the standard pipeline republish the stored record of a degraded row, not a generic title', async () => {
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const [degraded] = await fetchAllEcamJobs({
+      fetchPage: async () => LISTING_HTML,
+      extractPdfText: async (url: string) => (
+        url === HR_PDF_URL ? { text: '', error: 'timeout' } : { text: GENERAL_PDF_TEXT }
+      ),
+    });
+    const stored = buildEcamJob({ pdfUrl: HR_PDF_URL, filename: 'hr.pdf', pdfText: HR_PDF_TEXT });
+
+    expect(degraded.title).not.toBe(stored.title);
+    const [kept] = keepStoredSourceBodiesByKey([degraded], [stored], (job: any) => job.url);
+    expect(kept).toMatchObject({ title: stored.title, slug: stored.slug, description: stored.description });
+    expect(kept.sourceBodyFailureReason).toBeUndefined();
   });
 
   it('matches ECAM jobs and trusts only ECAM hosts', () => {

@@ -11,6 +11,7 @@ import { parseSfsGroupDetail } from '../scripts/lib/sfs-group-job-parser.mjs';
 import { parseHoneggerDetailPage } from '../scripts/lib/honegger-job-parser.mjs';
 import { buildFallbackCanonicalContent } from '../services/jobs/canonicalFallback';
 import { buildJobMetaDescription } from '../build-plugins/shared/jobMetaDescription';
+import { clampMetaDescription } from '../build-plugins/shared/titleSuffix';
 
 const encoded = 'Kenntnisse f&uuml;r Qualit&agrave; &lpar;R&amp;D&rpar; &#128640; &#x1F9EA; &lt;SQL&gt; &amp;lt;literal&amp;gt;';
 const decoded = 'Kenntnisse für Qualità (R&D) 🚀 🧪 <SQL> &lt;literal&gt;';
@@ -98,15 +99,16 @@ describe('HTML entity publication boundaries', () => {
       job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' },
     });
     expect(metaIntro).toBe('Analyst &eacute; 𝐀 at Hôpital in Città.');
-    expect(clean('Capacit&agrave; f&uuml;r &#x1D400; &amp;eacute;')).toBe('Capacità für 𝐀 &eacute;');
-    // The active-job emitter now composes the final description through the
-    // shared helper, adding CTA/completeness text after the decoded intro.
+    const cleanDesc = clean('Capacit&agrave; f&uuml;r &#x1D400; &amp;eacute;');
+    expect(cleanDesc).toBe('Capacità für 𝐀 &eacute;');
+    // The SERP description is now assembled by buildJobMetaDescription (#10882):
+    // execute the emitter's real call with the same raw source fragments and
+    // the already-decoded body. The assembly must not decode anything twice.
     const description = boundary<string>(file, 'description', {
-      buildJobMetaDescription,
-      locale: 'en', localizedTitle: 'Analyst &amp;eacute; &#x1D400;',
-      job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' },
-      cleanDesc: '',
+      buildJobMetaDescription, locale: 'en', localizedTitle: 'Analyst &amp;eacute; &#x1D400;',
+      job: { company: 'H&ocirc;pital', location: 'Citt&agrave;' }, cleanDesc,
     }, 'buildJobMetaDescription');
-    expect(description.startsWith(metaIntro)).toBe(true);
+    expect(description).toContain(`${metaIntro} ${cleanDesc}`);
+    expect(description).toBe(clampMetaDescription(`${metaIntro} ${cleanDesc} Apply now on Frontaliere Ticino.`, undefined, 'en'));
   });
 });

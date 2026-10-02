@@ -1,5 +1,12 @@
+import fs from 'node:fs';
+import path from 'node:path';
 import { afterEach, describe, expect, it, vi } from 'vitest';
-import { fetchSmartRecruitersJobs, smartRecruitersPostingUrls } from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
+import {
+  fetchSmartRecruitersJobs,
+  isCompleteSmartRecruitersSourceRead,
+  provesSmartRecruitersFilteredEmpty,
+  smartRecruitersPostingUrls,
+} from '../scripts/lib/ats-clients/smartrecruiters-client.mjs';
 
 afterEach(() => {
   vi.unstubAllGlobals();
@@ -327,6 +334,58 @@ describe('SmartRecruiters strict source pagination', () => {
       paginationIntegrityProven: true,
       totalFound: null,
     });
+  });
+});
+
+// The postings endpoint answers `200 {"totalFound":0,"content":[]}` for a
+// company identifier it does not know (fixture = the live response for a
+// made-up identifier). A complete walk over that envelope is complete, but it
+// is not evidence that a live employer board filtered down to zero.
+describe('SmartRecruiters filtered-empty proof', () => {
+  async function walkProof(tenant: string, fixture: string, locationCountryCodes: string[]) {
+    const body = JSON.parse(fs.readFileSync(path.join(__dirname, 'fixtures', 'smartrecruiters', fixture), 'utf8'));
+    vi.stubGlobal('fetch', vi.fn(async () => new Response(JSON.stringify(body), { status: 200 })));
+    let proof: Record<string, unknown> | undefined;
+    const rows = [];
+    for await (const row of fetchSmartRecruitersJobs(tenant, {
+      locationCountryCodes,
+      minDelayMs: 0,
+      onComplete: (info) => { proof = info; },
+    })) {
+      rows.push(row);
+    }
+    return { rows, proof };
+  }
+
+  it('does not treat the unknown-tenant envelope as a proven filtered zero', async () => {
+    const { rows, proof } = await walkProof('KIABI', 'unknown-tenant-postings.json', ['ch']);
+    expect(rows).toEqual([]);
+    expect(isCompleteSmartRecruitersSourceRead(proof)).toBe(true);
+    expect(provesSmartRecruitersFilteredEmpty(proof)).toBe(false);
+  });
+
+  it('proves a filtered zero when the complete walk saw the tenant’s live postings elsewhere', async () => {
+    const { rows, proof } = await walkProof('KIABI', 'kiabi-group-tenant-no-swiss-postings.json', ['ch']);
+    expect(rows).toEqual([]);
+    expect(proof).toMatchObject({ totalFound: 4, recordsSeen: 4, terminationProven: true });
+    expect(provesSmartRecruitersFilteredEmpty(proof)).toBe(true);
+  });
+
+  it('rejects missing, partial or contradictory proofs', () => {
+    const complete = {
+      terminationProven: true,
+      paginationIntegrityProven: true,
+      totalFound: 4,
+      recordsSeen: 4,
+      rawRecordsSeen: 4,
+    };
+    expect(provesSmartRecruitersFilteredEmpty(complete)).toBe(true);
+    expect(provesSmartRecruitersFilteredEmpty(null)).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, terminationProven: false })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, paginationIntegrityProven: false })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, totalFound: null })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, recordsSeen: 3 })).toBe(false);
+    expect(provesSmartRecruitersFilteredEmpty({ ...complete, rawRecordsSeen: 5 })).toBe(false);
   });
 });
 

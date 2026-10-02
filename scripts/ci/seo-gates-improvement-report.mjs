@@ -28,12 +28,13 @@
  * the loop at the source: improvements on nice-to-have gates are reported in
  * the job summary and nothing else happens.
  *
- * It is NOT a blanket silencer. The bucket comes from `QUALITY_GATES` in
- * `classify-validate-dist-failures.mjs` — the same table that decides which
- * gate may not sequester `publish`, so the two answers to "is this gate a
- * Google requirement?" cannot drift apart. A gate outside that table (a
- * structured-data field, a markup error, a broken status code) still gets its
- * issue, because for a hard gate the ratchet is doing work Google rewards.
+ * It is NOT a blanket silencer. The bucket comes from the shared
+ * classification in `scripts/ci/lib/seo-gate-classes.mjs` — the same table
+ * that decides which gate may sequester `publish`, so the two answers to "is
+ * this gate a Google requirement?" cannot drift apart. A class A gate, or one
+ * outside that table (a structured-data field, a markup error, a broken status
+ * code), still gets its issue, because for a hard gate the ratchet is doing
+ * work Google rewards.
  * Regressions are untouched by this file: `current > baseline` remains
  * root-cause-first and still opens an issue per gate.
  *
@@ -50,29 +51,30 @@ import { promises as fs } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
-import { QUALITY_GATES } from './classify-validate-dist-failures.mjs';
+import { SEO_GATE_CLASSES, bareGateName } from './lib/seo-gate-classes.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const PROJECT_ROOT = path.resolve(path.dirname(__filename), '..', '..');
 
 /**
- * A cathedral gate is named `text-html-ratio`; the same gate appears in
- * `QUALITY_GATES` under the key the validate-dist pipeline uses for it, which
- * carries the runner as a prefix. That table uses FOUR key shapes today —
- * `audit:<name>`, `audit:all/<name>`, `validate:<name>`, `dist:<name>` — so
- * indexing by the two `audit` prefixes alone (issue #7413 item 2) left the
- * other two unreachable: a cathedral gate whose validate-dist key were
- * `validate:…` would fall through to "actionable" and restart the rebaseline
- * treadmill this script exists to stop.
- *
+ * A cathedral gate is named `text-html-ratio`; the same gate appears in the
+ * shared classification (`scripts/ci/lib/seo-gate-classes.mjs`) under the key
+ * the validate-dist pipeline uses for it, which carries the runner as a prefix
+ * (`audit:<name>`, `audit:all/<name>`, `validate:<name>`, `dist:<name>`).
  * Keying on the name AFTER the runner prefix covers every shape without either
- * table repeating the other's naming, and without this file having to be
- * edited again when a fifth runner appears.
+ * table repeating the other's naming (issue #7413 item 2).
+ *
+ * Which classes D9 covers: B and C. A class B gate (`max-bfs-depth`,
+ * `orphan-sitemap-pages`, …) opens a P2 issue on a REGRESSION, but an
+ * IMPROVEMENT on it is not a rebaseline request — the owner refused exactly
+ * that for `max-bfs-depth` (26398 stays, DECISIONS.md 2026-08-25). Only class
+ * A gates, whose ratchet tracks data Google requires, keep the rebaseline
+ * issue.
  */
 const NICE_TO_HAVE_GATE_NAMES = new Set(
-  Object.keys(QUALITY_GATES).map((key) =>
-    key.slice(Math.max(key.lastIndexOf(':'), key.lastIndexOf('/')) + 1),
-  ),
+  Object.entries(SEO_GATE_CLASSES)
+    .filter(([, entry]) => entry.class !== 'A')
+    .map(([key]) => bareGateName(key)),
 );
 
 /**

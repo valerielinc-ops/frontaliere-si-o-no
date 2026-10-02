@@ -1010,7 +1010,8 @@ function renderSectionPage(opts: {
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: localeCopy.editorialOrg,
       url: `${BASE_URL}/`,
       logo: imageObjectLd({

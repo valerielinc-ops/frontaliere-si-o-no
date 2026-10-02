@@ -479,6 +479,51 @@ diverse a due sorelle della stessa settimana, ed è deterministico (emette link
 interni: un ordinamento instabile rimescolerebbe il link graph a ogni build, e
 i pareggi fra città con lo stesso numero di annunci sono la norma).
 
+## Il residuo del 2026-10-02: cinque famiglie, venti coorti
+
+Run 36977215802 di `audit-dist-from-run.yml` (deploy 36949104680, dist
+completo, `sampleRate` 1): 328 coorti gated, **20 sotto il floor**, nessuna in
+inventario. Il report strutturato (`dist/audit-reports/information-gain.json`
+dell'artifact) le scompone in cinque famiglie di template; ognuna aveva già nel
+repo il dato che la distingue, e il renderer non lo leggeva.
+
+| famiglia | coorti | prima | dopo | cosa entra nella pagina |
+|---|---|---|---|---|
+| scheda valico `/guida-frontaliere/tempi-attesa-dogana/<id>/` (+ en/de/fr) | 7 | 0 % | 23,1-33,3 % | registro del valico (`data/borderCrossings.ts`), suggerimento tradotto (`border.tips.*`), i tre valichi più vicini dello stesso tratto — `shared/borderCrossingGuideDetail.ts` |
+| archivio mensile `/traffico-dogane/<id>/<YYYY-MM>/` (+ en/de/fr) | 4 | 4,2-4,6 % | 25,0-29,0 % | giorni della settimana ordinati, giorno peggiore e migliore, confronto col mese prima, gli altri valichi dello stesso mese — `borderWaitArchiveInsights.ts` |
+| hub cantonale `/premi-cassa-malati/<cantone>/` (+ en/de/fr) | 4 | 2,3-2,6 % | 12,2-13,1 % | la mediana adulti e l'aumento sull'anno prima fra i 26 cantoni, con i vicini nominati; le tre casse più economiche e più care — `renderCantonNationalComparison` |
+| glossario localizzato `/{en,de,fr}/…/<termine>/` | 3 | 0 % | 27-29 % | definizione, esempio e nomi del termine nelle altre lingue, dalle stringhe del glossario SPA (`glossary.terms.*`) — `shared/glossaryTermDetail.ts` |
+| professione × San Gallo `/de/arbeit-st-gallen-*`, `/en/jobs-st-gallen-*` | 2 | 4,3-4,8 % | +4,5 punti | lo stesso mestiere negli altri cantoni, i datori con più annunci in prosa — `professionCantonLandings.ts` |
+
+Come sono misurati i «dopo». Premi e archivio: rendendo la famiglia intera dal
+dataset reale del repo (`data/health-premiums/`, `data/border-wait-history/`)
+e passandola al motore — la stessa misura del gate, prima del deploy. Scheda
+valico e glossario escono da `buildPage()` di `staticPagesPlugin.ts`, che non è
+richiamabile da solo: sono misurati innestando il blocco nel corpo delle pagine
+LIVE del 2026-10-02 (una pagina per locale, rietichettata su ogni valico o
+termine), e la tecnica riproduce esattamente gli `skeletonHash` della run
+(`~4c9404`, `~dec86c`, `~5c23ce`, …) e il loro 0 % prima del blocco.
+Professione × San Gallo: corpus sintetico, perché `data/jobs.json` lo assembla
+la CI; vale il delta, non l'assoluto.
+
+L'osservatore pre-merge è `tests/information-gain-remainder-families.test.ts`:
+per ogni famiglia la mediana resta sopra la soglia pinnata (misurato meno un
+punto) E la stessa composizione senza il blocco resta sotto il floor, così
+svuotare il blocco fa diventare rosso il test.
+
+Due note per chi rifà la misura:
+
+- Le quattro coorti in inventario `it:~1fd95f`, `en:~bdfe66`, `de:~4c9404`,
+  `fr:~9706c6` («tempi di attesa alla dogana») sono lo stesso template delle
+  schede valico qui sopra, non `/traffico-dogane/`: dopo il deploy
+  `recoveredCohorts` le segnalerà, e le righe vanno tolte su un replay
+  full-dist che lo confermi.
+- San Gallo fa coorte a sé per due proprietà del motore, non del contenuto: il
+  token `st` sta sotto i 3 caratteri e non viene mascherato (l'`<h1>` cambia
+  scheletro), e lo split di frase a `(?<=[.!?])\s+` spezza «Kanton St. Gallen»
+  in due segmenti. Non è stato toccato niente del motore: la coorte è stata
+  alzata dando alle pagine un contenuto che le distingue.
+
 ## La catena automatica
 
 Il gate su `dist/` risponde a «l'emissione si è rotta?» e blocca. Non risponde

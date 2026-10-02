@@ -68,23 +68,21 @@ describe('crawler listing fetch failures stay distinct from valid empty response
     expect(fetchHtml).toHaveBeenCalledTimes(1);
   });
 
-  it('Imerys propagates failure when every independent source is unreachable', async () => {
-    fetchJson.mockRejectedValueOnce(new Error('API unavailable'));
-    fetchHtml.mockRejectedValue(new Error('HTML unavailable'));
-    await expect(fetchAllImerysJobs()).rejects.toThrow(/all job listing sources failed/i);
-  });
-
-  it('Imerys preserves one valid empty response despite failed fallback sources', async () => {
-    fetchJson.mockRejectedValueOnce(new Error('API unavailable'));
-    fetchHtml
-      .mockResolvedValueOnce(EMPTY_PAGE)
-      .mockRejectedValueOnce(new Error('corporate page unavailable'));
-    await expect(fetchAllImerysJobs()).resolves.toEqual([]);
-  });
-
-  it('Imerys propagates a malformed API envelope without trying fallback sources', async () => {
-    fetchJson.mockResolvedValueOnce({ unexpected: [] });
-    await expect(fetchAllImerysJobs()).rejects.toThrow(/JSON list shape mismatch/i);
-    expect(fetchHtml).not.toHaveBeenCalled();
+  // Imerys reads its Workday tenant (the old SmartRecruiters / HTML chain is
+  // gone): a site the tenant no longer serves must fail the run, never read
+  // as an empty Swiss board.
+  it('Imerys propagates a Workday site failure instead of reading it as empty', async () => {
+    const fetchMock = vi.fn(async () => new Response(
+      '{"errorCode":"S21","httpStatus":404,"message":"not found: Job_Posting_Site_ID=IMERYS-Careers"}',
+      { status: 404 },
+    ));
+    vi.stubGlobal('fetch', fetchMock);
+    try {
+      await expect(fetchAllImerysJobs()).rejects.toThrow(/Workday API error HTTP 404/);
+      expect(fetchJson).not.toHaveBeenCalled();
+      expect(fetchHtml).not.toHaveBeenCalled();
+    } finally {
+      vi.unstubAllGlobals();
+    }
   });
 });

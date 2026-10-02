@@ -24,6 +24,7 @@ import {
   firstLocationSegment,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -158,12 +159,14 @@ const DETAIL_RATE_LIMIT_MS = 400;
 const DETAIL_TIMEOUT_MS = 15_000;
 
 /**
- * Fetch a Workday job's detail JSON (jobPostingInfo.jobDescription is the
- * HTML body) and return the description as bullet-preserving plain text.
- * Returns '' on any failure so we can fall back to the structured stub.
+ * Fetch a Workday job's detail JSON once and return its body as
+ * bullet-preserving plain text (`description`, '' when absent) together with
+ * the `jobPostingInfo` (`info`, {} on failure) — the structured primary
+ * location, country and `timeType` the listing row never carries.
  */
-async function fetchWorkdayJobDetailDescription(apiBase, externalPath) {
-  if (!apiBase || !externalPath) return '';
+async function fetchWorkdayJobDetailPayload(apiBase, externalPath) {
+  const empty = { description: '', info: {} };
+  if (!apiBase || !externalPath) return empty;
   const ctrl = new AbortController();
   const timer = setTimeout(() => ctrl.abort(), DETAIL_TIMEOUT_MS);
   try {
@@ -176,18 +179,20 @@ async function fetchWorkdayJobDetailDescription(apiBase, externalPath) {
       signal: ctrl.signal,
       redirect: 'follow',
     });
-    if (!res.ok) return '';
+    if (!res.ok) return empty;
     const json = await res.json();
-    const html = String(json?.jobPostingInfo?.jobDescription || '').trim();
-    if (!html) return '';
-    const text = stripHtml(html);
-    return text
-      .replace(/[ \t]+/g, ' ')
-      .replace(/[ \t]*\n[ \t]*/g, '\n')
-      .replace(/\n{3,}/g, '\n\n')
-      .trim();
+    const info = json?.jobPostingInfo && typeof json.jobPostingInfo === 'object' ? json.jobPostingInfo : {};
+    const html = String(info.jobDescription || '').trim();
+    const description = html
+      ? stripHtml(html)
+        .replace(/[ \t]+/g, ' ')
+        .replace(/[ \t]*\n[ \t]*/g, '\n')
+        .replace(/\n{3,}/g, '\n\n')
+        .trim()
+      : '';
+    return { description, info };
   } catch {
-    return '';
+    return empty;
   } finally {
     clearTimeout(timer);
   }
@@ -204,7 +209,9 @@ async function fetchJobListings() {
       const id = extractWorkdayJobIdentity(posting, { apiBase, company: LOGITECH_COMPANY_NAME });
       const locationText = id.location || posting.locationsText || '';
       // Client-side Swiss filter: Workday tenant exposes global jobs; we only ship CH listings.
-      if (!isSwissLocation(locationText)) continue;
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (!isSwissLocation(locationText) && !isWorkdaySwissPlaceCandidate(locationText)) continue;
       out.push({
         title: id.title,
         location: locationText,
@@ -267,7 +274,7 @@ export async function fetchAllLogitechJobs() {
     // (jobPostingInfo.jobDescription). The listing API only carries title +
     // location + posted date, not the body.
     const apiBase = buildWorkdayApiBase(WORKDAY_TENANT_HOST, WORKDAY_SITE_PATH);
-    const detailDescription = await fetchWorkdayJobDetailDescription(apiBase, listing.externalPath);
+    const { description: detailDescription, info } = await fetchWorkdayJobDetailPayload(apiBase, listing.externalPath);
     if (listing.externalPath) {
       await new Promise((r) => setTimeout(r, DETAIL_RATE_LIMIT_MS));
     }
@@ -283,7 +290,16 @@ export async function fetchAllLogitechJobs() {
       locationFromVacancyText = rescueSwissCityFromText(detailDescription);
       location = locationFromVacancyText;
     }
-    const canton = location ? inferSwissTargetCanton(location) : '';
+    // A place the commune gazetteer cannot resolve (a locality, an address)
+    // gets the shared Workday recovery from the req's own primary: official
+    // directory or postal code, on its structured Swiss country only.
+    const gazetteerCanton = location ? inferSwissTargetCanton(location) : '';
+    const recovered = gazetteerCanton ? null : recoverWorkdayPrimarySwissPlace(info);
+    if (recovered) {
+      location = recovered.location;
+      locationFromVacancyText = '';
+    }
+    const canton = recovered ? recovered.canton : gazetteerCanton;
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;
@@ -311,6 +327,9 @@ export async function fetchAllLogitechJobs() {
     }
     const descriptionText = detailDescription;
 
+    // The CXS listing row carries no `timeType`; the detail does, and the
+    // contract follows the same verdict instead of a fixed full-time.
+    const employmentType = detectEmploymentType(listing.timeType || info.timeType || title);
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} logitech ch`);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
@@ -339,8 +358,8 @@ export async function fetchAllLogitechJobs() {
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Tecnologia / Hardware Consumer',
       currency: 'CHF',

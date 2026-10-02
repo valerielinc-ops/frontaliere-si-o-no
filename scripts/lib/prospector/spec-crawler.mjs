@@ -656,6 +656,16 @@ export function findNextListingPageUrl(html, pageUrl) {
   return null;
 }
 
+/**
+ * A fetch failure that proves the page does not exist: a definitive HTTP 404,
+ * not retried, and not an anti-bot fence answering 404.
+ */
+function isTerminalNotFound(error) {
+  return error?.status === 404
+    && error?.retryable === false
+    && !error?.antiBotExhausted;
+}
+
 function numericPathPage(url) {
   const match = String(url.pathname || '').match(/^(.*\/page\/)(\d+)(\/.*)?$/i);
   if (!match) return null;
@@ -684,32 +694,32 @@ function comparableSearchParams(url, excludedName) {
 }
 
 /**
- * Whether `nextUrl` is the last numbered page the current listing announces.
+ * The furthest numbered page the current listing announces on `nextUrl`'s
+ * route (same path prefix/suffix, or same query parameter and other params).
  *
- * A few sources expose a rel=next link to a one-past-the-end page. This helper
- * only recognizes that case when the page itself contains a numbered
- * pagination control whose largest same-route number is the rel=next target;
- * an arbitrary 404 is never treated as a normal end marker.
+ * Only numbered controls count — a link whose text, aria-label or title is a
+ * page number. The rel=next link itself is never evidence: it is the target
+ * being judged.
  *
  * @param {string} html
  * @param {string} pageUrl
  * @param {string} nextUrl
- * @returns {boolean}
+ * @returns {{ number: number, url: string }|null}
  */
-export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
+export function largestAnnouncedListingPage(html, pageUrl, nextUrl) {
   let current;
   let next;
   try {
     current = new URL(pageUrl);
     next = new URL(nextUrl, pageUrl);
   } catch {
-    return false;
+    return null;
   }
-  if (current.origin !== next.origin) return false;
+  if (current.origin !== next.origin) return null;
 
   const nextPathPage = numericPathPage(next);
   const nextQueryPage = nextPathPage ? null : numericQueryPage(next);
-  if (!nextPathPage && !nextQueryPage) return false;
+  if (!nextPathPage && !nextQueryPage) return null;
 
   const sourceHtml = String(html || '');
   const tagRx = /<(?:a|link)\b[^>]*>/gi;
@@ -756,7 +766,9 @@ export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
         || candidatePage.prefix !== nextPathPage.prefix
         || candidatePage.suffix !== nextPathPage.suffix
         || candidate.search !== next.search) continue;
-      largest = Math.max(largest ?? 0, candidatePage.number);
+      if (!largest || candidatePage.number > largest.number) {
+        largest = { number: candidatePage.number, url: candidate.href };
+      }
       continue;
     }
 
@@ -766,10 +778,57 @@ export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
       || candidatePage.name !== nextQueryPage.name
       || JSON.stringify(comparableSearchParams(candidate, candidatePage.name))
         !== JSON.stringify(comparableSearchParams(next, nextQueryPage.name))) continue;
-    largest = Math.max(largest ?? 0, candidatePage.number);
+    if (!largest || candidatePage.number > largest.number) {
+      largest = { number: candidatePage.number, url: candidate.href };
+    }
   }
 
-  return largest != null && largest === (nextPathPage?.number ?? nextQueryPage?.number);
+  return largest;
+}
+
+/**
+ * Whether `nextUrl` is the last numbered page the current listing announces.
+ *
+ * A few sources expose a rel=next link to a one-past-the-end page. This helper
+ * only recognizes that case when the page itself contains a numbered
+ * pagination control whose largest same-route number is the rel=next target.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
+  const largest = largestAnnouncedListingPage(html, pageUrl, nextUrl);
+  return largest != null && largest.number === listingPageNumber(nextUrl, pageUrl);
+}
+
+/**
+ * The page number a numbered listing URL carries (`/page/<n>/` or a
+ * `page`/`paged`/`p` query parameter), or null.
+ *
+ * @param {string} url
+ * @param {string} [base]
+ * @returns {number|null}
+ */
+function listingPageNumber(url, base) {
+  let parsed;
+  try { parsed = new URL(url, base); } catch { return null; }
+  return numericPathPage(parsed)?.number ?? numericQueryPage(parsed)?.number ?? null;
+}
+
+/**
+ * Whether `nextUrl` is the page right after `pageUrl` in a numbered listing.
+ * A seed without a page number is page 1.
+ *
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+function isNextSequentialListingPage(pageUrl, nextUrl) {
+  const nextNumber = listingPageNumber(nextUrl, pageUrl);
+  if (nextNumber == null) return false;
+  return nextNumber === (listingPageNumber(pageUrl) ?? 1) + 1;
 }
 
 /**
@@ -1006,15 +1065,56 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
             && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
           const announcedFinal = currentPageCandidateCount > 0
             && isLastAnnouncedListingPage(html, pageUrl, nextUrl);
-          const terminalNotFound = error?.status === 404
-            && error?.retryable === false
-            && !error?.antiBotExhausted;
+          const terminalNotFound = isTerminalNotFound(error);
           if (terminalNotFound && (coverageSatisfied || announcedFinal)) {
             console.warn(
               `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404; `
               + `fine della paginazione accettata (${coverageSatisfied ? 'copertura sufficiente' : 'ultima pagina annunciata'})`,
             );
             break;
+          }
+          // Announced page count overshooting the real listing: a source that
+          // declares no total can announce pages past its end (stellentreff:
+          // full page 57 links 58 and 59, both 404; page 1 announced 58; run
+          // corpus 36988228462). The first missing page ends the walk only
+          // when nothing contradicts that: the page just read had vacancies,
+          // the 404 is the very next numbered page, and the furthest page the
+          // listing announces is gone too (one probe request; a listing that
+          // announces no numbered page past the 404 has nothing to probe). If
+          // that page exists, the 404 is a hole in the middle and the walk
+          // still fails closed. A source that declares a total keeps the
+          // coverage rule above: its count is stronger evidence than a 404.
+          if (terminalNotFound
+            && declaredTotal == null
+            && currentPageCandidateCount > 0
+            && isNextSequentialListingPage(pageUrl, nextUrl)) {
+            const furthest = largestAnnouncedListingPage(html, pageUrl, nextUrl);
+            const probeUrl = furthest && furthest.number > (listingPageNumber(nextUrl, pageUrl) ?? 0)
+              ? furthest.url
+              : null;
+            let probeError = null;
+            if (probeUrl) {
+              try {
+                await fetchRuntimePage(probeUrl, validateUrl, runtime);
+              } catch (caught) {
+                probeError = caught;
+              }
+              if (!probeError) {
+                throw new Error(
+                  `[prospector:${spec.companyKey}] listing troncata: ${nextUrl} risponde HTTP 404 `
+                  + `ma la pagina annunciata ${probeUrl} esiste (pagina mancante a meta listing)`,
+                );
+              }
+            }
+            if (!probeUrl || isTerminalNotFound(probeError)) {
+              console.warn(
+                `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404 dopo ${pages} pagine; `
+                + `fine della paginazione accettata (${probeUrl
+                  ? `anche l'ultima pagina annunciata ${probeUrl} risponde 404`
+                  : 'nessuna pagina successiva annunciata'})`,
+              );
+              break;
+            }
           }
           throw error;
         }

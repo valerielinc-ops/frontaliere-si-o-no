@@ -18,6 +18,7 @@ import {
   createSpecUrlPolicy,
   findNextListingPageUrl,
   isLastAnnouncedListingPage,
+  largestAnnouncedListingPage,
   normalizeSpecPagination,
   readDeclaredListingTotal,
   stripListingPageState,
@@ -29,6 +30,10 @@ const STELLENTREFF_PAGE_58 = fs.readFileSync(
   path.resolve(import.meta.dirname, 'fixtures/stellentreff-page-58.html'),
   'utf8',
 );
+const STELLENTREFF_PAGE_57_OVERSHOOT = fs.readFileSync(
+  path.resolve(import.meta.dirname, 'fixtures/stellentreff-page-57-overshoot.html'),
+  'utf8',
+);
 
 function listingPage({ ids, page, total, next }: { ids: string[], page: number, total?: number, next?: string }) {
   const query = page > 1 ? `?sf_paged=${page}` : '';
@@ -38,7 +43,10 @@ function listingPage({ ids, page, total, next }: { ids: string[], page: number, 
   return `<html><head><title>Jobs</title></head><body>${counter}${cards}${nextLink}</body></html>`;
 }
 
-function siteFetch(pages: Record<string, string>, fetched: string[]) {
+// A page is its HTML body, or a bare HTTP status the source answers with.
+type SitePages = Record<string, string | number>;
+
+function siteFetch(pages: SitePages, fetched: string[]) {
   return async (url: string) => {
     fetched.push(url);
     if (url.endsWith('/robots.txt')) {
@@ -46,6 +54,7 @@ function siteFetch(pages: Record<string, string>, fetched: string[]) {
     }
     const body = pages[url];
     if (body == null) return new Response('not found', { status: 404, headers: { 'content-type': 'text/html' } });
+    if (typeof body === 'number') return new Response('unavailable', { status: body, headers: { 'content-type': 'text/html' } });
     return new Response(body, { status: 200, headers: { 'content-type': 'text/html' } });
   };
 }
@@ -67,7 +76,7 @@ function specWith(extra: Record<string, unknown> = {}) {
   } as any;
 }
 
-async function collect(spec: any, pages: Record<string, string>) {
+async function collect(spec: any, pages: SitePages) {
   const fetched: string[] = [];
   const policy = createSpecUrlPolicy(spec, { lookupImpl: publicLookup as any });
   try {
@@ -214,6 +223,84 @@ describe('spec.pagination', () => {
     expect(rows).toHaveLength(2);
     expect(fetched).toContain(pageUrl);
     expect(fetched).toContain(nextUrl);
+  });
+
+  describe('pagine annunciate oltre la fine reale (fonte senza totale dichiarato)', () => {
+    // Stellentreff, run corpus 36988228462: pagina 57 piena, annuncia 58 e 59,
+    // entrambe 404. Il 404 sulla 58 non era l'ultima pagina annunciata e il
+    // crawler falliva l'intero gruppo 10.
+    const PAGE_57 = 'https://www.stellentreff.ch/stellen/page/57/';
+    const PAGE_58 = 'https://www.stellentreff.ch/stellen/page/58/';
+    const PAGE_59 = 'https://www.stellentreff.ch/stellen/page/59/';
+    const stellentreffSpec = () => specWith({
+      companyKey: 'stellentreff',
+      companyName: 'Stellentreff AG',
+      companyHost: 'stellentreff.ch',
+      seedUrls: [PAGE_57],
+      detailTemplate: '/stellen/*/',
+      pagination: { maxPages: 120 },
+    });
+
+    it('chiude la listing al primo 404 quando anche l\'ultima pagina annunciata non esiste', async () => {
+      const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+      expect(isLastAnnouncedListingPage(STELLENTREFF_PAGE_57_OVERSHOOT, PAGE_57, PAGE_58)).toBe(false);
+      expect(largestAnnouncedListingPage(STELLENTREFF_PAGE_57_OVERSHOOT, PAGE_57, PAGE_58))
+        .toEqual({ number: 59, url: PAGE_59 });
+
+      const { rows, fetched } = await collect(stellentreffSpec(), { [PAGE_57]: STELLENTREFF_PAGE_57_OVERSHOOT });
+
+      expect(rows.map((row) => row.url)).toEqual([
+        'https://www.stellentreff.ch/stellen/zimmermann-zimmerin-beispielort-dauerstelle-100001/',
+        'https://www.stellentreff.ch/stellen/zimmermann-zimmerin-vorarbeiter-in-beispielort-dauerstelle-100002/',
+      ]);
+      expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([PAGE_57, PAGE_58, PAGE_59]);
+      expect(warn.mock.calls.map((c) => String(c[0])).join('\n'))
+        .toMatch(/page\/58\/ risponde HTTP 404 dopo 1 pagine; fine della paginazione accettata \(anche l'ultima pagina annunciata .*page\/59\/ risponde 404\)/);
+    });
+
+    it('fallisce chiuso quando la pagina annunciata dopo il 404 esiste (buco a meta listing)', async () => {
+      await expect(collect(stellentreffSpec(), {
+        [PAGE_57]: STELLENTREFF_PAGE_57_OVERSHOOT,
+        [PAGE_59]: listingPage({ ids: ['sa9'], page: 59 }),
+      })).rejects.toThrow(/page\/58\/ risponde HTTP 404 ma la pagina annunciata .*page\/59\/ esiste/);
+    });
+
+    it('fallisce chiuso quando la verifica dell\'ultima pagina annunciata non da una risposta definitiva', async () => {
+      await expect(collect(stellentreffSpec(), {
+        [PAGE_57]: STELLENTREFF_PAGE_57_OVERSHOOT,
+        [PAGE_59]: 503,
+      })).rejects.toThrow(/Prospector fetch failed for .*page\/58\/: HTTP 404/);
+    });
+
+    it('fallisce chiuso quando la pagina appena letta non aveva annunci', async () => {
+      const emptyPage = STELLENTREFF_PAGE_57_OVERSHOOT.replace(/<ul class="ff-job-list">[\s\S]*?<\/ul>/, '<ul class="ff-job-list"></ul>');
+      await expect(collect(stellentreffSpec(), { [PAGE_57]: emptyPage }))
+        .rejects.toThrow(/HTTP 404/);
+    });
+
+    it('fallisce chiuso quando il 404 non e la pagina numerata successiva', async () => {
+      const skipping = STELLENTREFF_PAGE_57_OVERSHOOT.replace(
+        'rel="next" href="https://www.stellentreff.ch/stellen/page/58/"',
+        'rel="next" href="https://www.stellentreff.ch/stellen/page/60/"',
+      );
+      await expect(collect(stellentreffSpec(), { [PAGE_57]: skipping }))
+        .rejects.toThrow(/page\/60\/: HTTP 404/);
+    });
+
+    it('chiude al primo 404 una listing con solo rel=next e nessuna pagina numerata', async () => {
+      vi.spyOn(console, 'warn').mockImplementation(() => {});
+      const pages = {
+        [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, next: `${ORIGIN}/?sf_paged=2` }),
+        [`${ORIGIN}/?sf_paged=2`]: listingPage({ ids: ['sa3'], page: 2, next: `${ORIGIN}/?sf_paged=3` }),
+      };
+      const { rows, fetched } = await collect(specWith({ pagination: { maxPages: 10, pageStateParams: ['sf_paged'] } }), pages);
+      expect(rows).toHaveLength(3);
+      expect(fetched.filter((url) => !url.endsWith('/robots.txt'))).toEqual([
+        `${ORIGIN}/`,
+        `${ORIGIN}/?sf_paged=2`,
+        `${ORIGIN}/?sf_paged=3`,
+      ]);
+    });
   });
 
   it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {

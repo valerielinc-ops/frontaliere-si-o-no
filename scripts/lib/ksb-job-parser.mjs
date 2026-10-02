@@ -27,17 +27,16 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   fetchWorkdaySidebarText,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -197,7 +196,7 @@ export async function fetchAllKsbJobs() {
     // site (issue 9842: no HQ fallback on unknown geography).
     const location = normalizeSpace(listing.location || '')
       || await fetchWorkdayPrimarySwissLocation(WORKDAY_API_BASE, listing.externalPath);
-    const canton = location ? inferSwissTargetCanton(location) : '';
+    const canton = location ? await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location) : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${listing.location || '(roll-up without Swiss primary)'} — ${title}`);
       continue;
@@ -205,11 +204,14 @@ export async function fetchAllKsbJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     // Workday listing endpoint NEVER returns the job body — see workday-client.mjs.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || title);
     await new Promise((r) => setTimeout(r, 400));
 
     // Only the posting's own text is published (issue 5253). A req whose
@@ -259,8 +261,8 @@ export async function fetchAllKsbJobs() {
       country: 'CH',
       postalCode: '5404',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: detectEmploymentType(listing.timeType || title),
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Sanità / Ospedali',
       currency: 'CHF',

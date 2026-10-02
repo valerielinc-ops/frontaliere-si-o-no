@@ -40,12 +40,12 @@ import { inferSwissTargetCanton, findSwissCityInText, canonicalSwissCityName } f
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetailParts,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
-import { fetchWorkdayPrimarySwissLocation } from './workday-swiss-job-parser-common.mjs';
+import { fetchWorkdayPrimarySwissLocation, fetchWorkdaySwissCanton } from './workday-swiss-job-parser-common.mjs';
 import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -290,21 +290,24 @@ export async function fetchAllRitualsCosmeticsJobs({ existingJobs = [] } = {}) {
     const canton = location
       ? (RITUALS_STORE_LOCALITY_CANTONS.get(normalize(location).normalize('NFC'))
         || inferSwissTargetCanton(location)
-        || inferSwissTargetCanton(rawLocation))
+        || inferSwissTargetCanton(rawLocation)
+        || await fetchWorkdaySwissCanton(WORKDAY_API_BASE, listing.externalPath, location))
       : '';
     if (!canton) {
       console.log(`  ⏭️  Skipped location without a Swiss canton: ${rawLocation || '(none)'} — ${title}`);
       continue;
     }
     const publicUrl = listing.url || CAREER_URL;
-    const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
+    // One detail request: the body, and the `timeType` the CXS listing row
+    // never carries.
+    const { text: detailDescription, info: detailInfo } = await fetchWorkdayJobDetailParts(
       WORKDAY_API_BASE,
       listing.externalPath,
       stripHtml,
     );
+    const employmentType = detectEmploymentType(listing.timeType || detailInfo.timeType || '', title);
     await new Promise((r) => setTimeout(r, 350));
 
     // Only the posting's own text is published (issue 5253): a req whose

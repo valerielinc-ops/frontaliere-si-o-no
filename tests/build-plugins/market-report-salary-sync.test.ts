@@ -56,8 +56,8 @@ describe('marketReportPlugin — salaryP tracks avgMid, no stale/fake hardcode',
       },
     });
 
-    expect(html).not.toMatch(/CHF 73[ .,']?000/);
-    expect(html).toMatch(/stipendio medio annuo si attesta intorno a CHF 91[.,']?500 lordi/);
+    expect(html).not.toMatch(/CHF 73[ .,'’]?000/);
+    expect(html).toMatch(/stipendio medio annuo si attesta intorno a CHF 91[.,'’]?500 lordi/);
   });
 
   it('degrades to N/D (not a fabricated 73000) when salary coverage is missing', async () => {
@@ -66,7 +66,7 @@ describe('marketReportPlugin — salaryP tracks avgMid, no stale/fake hardcode',
       leaders: { topCompaniesActive: [], topLocationsActive: [] },
     });
 
-    expect(html).not.toMatch(/CHF 73[ .,']?000/);
+    expect(html).not.toMatch(/CHF 73[ .,'’]?000/);
     expect(html).toMatch(/stipendio medio annuo si attesta intorno a N\/D lordi/);
   });
 });

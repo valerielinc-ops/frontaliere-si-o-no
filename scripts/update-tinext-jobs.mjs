@@ -12,8 +12,9 @@
  *   4. Merges results into data/jobs.json.
  *   5. Updates the adapter config with current seed URLs.
  *   6. Runs locale fill + validation.
- *   7. Publishes 0 jobs only when the public career page proves that no
- *      vacancies are active; otherwise preserves the existing slice.
+ *   7. Publishes 0 jobs only when the API lists no positions for an active
+ *      career site AND the public career page shows its explicit empty state;
+ *      otherwise preserves the existing slice.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -50,7 +51,7 @@ import { extractStableJobId } from './lib/job-match-key.mjs';
 import { assertJsonListShapeMultiKey } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
-import { isKenjoCareerSiteEmpty, resolveKenjoPositionPath } from './lib/kenjo-career-site.mjs';
+import { provesKenjoCareerSiteEmpty, resolveKenjoPositionPath } from './lib/kenjo-career-site.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -237,7 +238,9 @@ async function discoverListings() {
     console.log(`  📄 ${p.jobTitle || p.title || '?'} (${p.officeName || '?'}) — customUrl: ${resolveKenjoPositionPath(p) || '?'}`);
   }
 
-  return positions;
+  // The envelope travels with the positions: an empty list is only a proven
+  // zero together with the site's own `active` flag (see confirmCareerSiteEmpty).
+  return { positions, listing: data };
 }
 
 /* ── Build job objects ─────────────────────────────────────── */
@@ -438,10 +441,14 @@ async function publishAuthoritativeEmptySnapshot() {
   await assembleJobsDataset();
 }
 
-async function confirmCareerSiteEmpty() {
+async function confirmCareerSiteEmpty(listing) {
+  if (listing?.active !== true) {
+    console.warn('⚠️ Kenjo listing API does not declare an active career site; an empty list is not a proven zero.');
+    return false;
+  }
   try {
     const html = await fetchHtml(CAREERS_URL);
-    const empty = isKenjoCareerSiteEmpty(html);
+    const empty = provesKenjoCareerSiteEmpty({ listing, careerPageHtml: html });
     if (!empty) {
       console.warn('⚠️ Kenjo career page does not show its explicit no-openings state; preserving existing Tinext jobs.');
     }
@@ -463,11 +470,11 @@ async function main() {
   console.log(`  API: ${LISTING_API}\n`);
 
   // 1. Fetch listing API
-  const positions = await discoverListings();
+  const { positions, listing } = await discoverListings();
   summaryCounts.discovered = positions.length;
 
   if (positions.length === 0) {
-    if (await confirmCareerSiteEmpty()) {
+    if (await confirmCareerSiteEmpty(listing)) {
       console.log('ℹ️ Kenjo confirms no active positions; publishing an authoritative empty snapshot.');
       await publishAuthoritativeEmptySnapshot();
       return;
@@ -482,13 +489,10 @@ async function main() {
   summaryCounts.parsed = jobs.length;
 
   if (jobs.length === 0) {
-    if (await confirmCareerSiteEmpty()) {
-      console.log('ℹ️ Kenjo confirms no active positions; publishing an authoritative empty snapshot.');
-      await publishAuthoritativeEmptySnapshot();
-      return;
-    }
+    // The API itself listed positions, so no page state can make this a
+    // proven zero: the detail/build step lost them. Keep the existing slice.
     summaryCounts.abortKind = 'no-jobs-parsed';
-    console.log('⚠️ No Tinext jobs built after detail fetch (all skipped); preserving existing data.');
+    console.log(`⚠️ Kenjo listed ${positions.length} position(s) but no Tinext job could be built (all skipped); preserving existing data.`);
     return;
   }
 

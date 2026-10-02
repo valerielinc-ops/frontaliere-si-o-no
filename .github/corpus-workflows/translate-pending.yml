@@ -18,7 +18,7 @@ on:
   workflow_dispatch:
     inputs:
       max_jobs:
-        description: Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.
+        description: Max jobs for the cascade. Wall-clock-bound, not quota-bound — its 30min cascade window stops it first.
         type: string
         default: "900"
       mopup_max_jobs:
@@ -377,7 +377,7 @@ jobs:
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         continue-on-error: true
         env:
-          LOCAL_MT_TIME_BUDGET_MS: "9000000"
+          LOCAL_MT_TIME_BUDGET_MS: "4500000"
           LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
@@ -387,6 +387,14 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+      - name: "Phase 2a.2: Fix untranslated titles (free cascade, before descriptions)"
+        id: title_cascade_before_descriptions
+        if: inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        continue-on-error: true
+        env:
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "6600000"
+          UNTRANSLATED_TITLE_FIX_WINDOW_MS: "1500000"
+        run: node scripts/fix-untranslated-titles.mjs
       - name: Re-assemble dataset after Argos bulk
         if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
         env:
@@ -399,7 +407,7 @@ jobs:
           SKIP_AI_TRANSLATION: "1"
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/translation-title-fix-attempts.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
@@ -431,7 +439,10 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '9000000' }}
+          JOBS_CASCADE_WINDOW_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '0' || '1800000' }}
+          AZURE_TRANSLATOR_KEY: ""
+          AZURE_TRANSLATOR_KEY_2: ""
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
@@ -488,7 +499,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
-          LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
+          LOCAL_MT_MOPUP_DEADLINE_MS: "10200000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '1' }}
           LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
           LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
@@ -549,6 +560,8 @@ jobs:
         env:
           UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "12600000"
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+          AZURE_TRANSLATOR_KEY: ""
+          AZURE_TRANSLATOR_KEY_2: ""
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
           FREE_TRANSLATE_CODEX_TIER: last
           FREE_TRANSLATE_CODEX_MAX_CALLS: "30"

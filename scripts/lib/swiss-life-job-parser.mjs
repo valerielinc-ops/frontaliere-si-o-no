@@ -27,6 +27,7 @@ import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { firstLocationSegment } from './ats-clients/workday-client.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -272,7 +273,10 @@ export async function fetchSwissListings() {
       const locText = posting.locationsText || '';
       // Multi-location postings ("N Locations") hide individual sites — keep as
       // candidate and let fetchAllSwissLifeJobs() confirm via the detail page.
-      if (/^\s*\d+\s+location/i.test(locText) || isSwissLifeLocationText(locText)) {
+      // A row named after a Swiss locality outside the commune gazetteer is
+      // kept for its detail, whose structured country decides.
+      if (/^\s*\d+\s+location/i.test(locText) || isSwissLifeLocationText(locText)
+        || isWorkdaySwissPlaceCandidate(locText)) {
         const key = swissLifePostingKey(posting);
         if (!seen.has(key)) {
           seen.set(key, posting);
@@ -397,12 +401,17 @@ export async function fetchAllSwissLifeJobs() {
     // Confirm Swiss membership from the detail page. Multi-location postings
     // only reveal their sites here, so unknown locations are skipped without
     // inventing a historical headquarters city.
-    const city = resolveSwissLifeLocation(info, listing.locationsText);
+    const resolvedCity = resolveSwissLifeLocation(info, listing.locationsText);
+    // A primary the commune gazetteer cannot place (a locality, an address)
+    // gets the shared Workday recovery: official directory or postal code,
+    // only on the req's structured Swiss country (workday-swiss-job-parser-common).
+    const recovered = resolvedCity ? null : recoverWorkdayPrimarySwissPlace(info);
+    const city = resolvedCity || recovered?.location || '';
     if (!city) {
       console.log(`  ⏭️  Skipped — not a resolvable Swiss location (${parseWorkdayLocation(info.location || listing.locationsText || '') || 'unknown'})`);
       continue;
     }
-    const canton = inferAnyCanton(city);
+    const canton = recovered ? recovered.canton : inferAnyCanton(city);
     if (!canton) {
       console.log(`  ⏭️  Skipped — no Swiss canton could be inferred from ${city}`);
       continue;

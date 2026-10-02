@@ -147,6 +147,7 @@ import {
   swissMunicipalityCantons,
   TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
+import { recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 import {
   isFederalJobsPortalUrl,
   normalizeFederalDepartmentCompany,
@@ -2957,7 +2958,22 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
     // the original method.
     if (canRetry && upperMethod === 'GET') {
       const jinaRes = await fetchViaJinaWithRetry(url, { timeoutMs: REQUEST_TIMEOUT_MS });
-      if (jinaRes.ok) return jinaRes;
+      // On exhaustion fetchViaJinaWithRetry hands back the last response
+      // unchanged, which is an HTTP 200 when every Jina IP got the WAF
+      // challenge as a 200 (its documented contract: callers re-check the
+      // body). Trusting `ok` alone returned that challenge as the page and
+      // never reached the direct fetch below (cambiavalute.ch).
+      let jinaBodyError = null;
+      if (jinaRes.ok) {
+        const jinaBody = await jinaRes.text();
+        jinaBodyError = detectJinaErrorBody(jinaBody);
+        if (!jinaBodyError) {
+          return new Response(jinaBody, {
+            status: 200,
+            headers: { 'content-type': jinaRes.headers.get('content-type') || 'text/html' },
+          });
+        }
+      }
       // Every Jina egress IP tried was still blocked/erroring (#3797 recurrence,
       // 2026-07-07: all 4 cambiavalute.ch detail pages silently dropped this way
       // in one CI run — zero log trace, even though a plain direct fetch worked
@@ -2969,7 +2985,7 @@ async function fetchWithTimeout(url, { method = 'GET', headers = {}, body, userA
       // same exhausted proxy path). Logged so a future recurrence is diagnosable
       // from CI output alone (previously this path was completely silent — the
       // caller's `if (!res.ok) continue` masked it entirely).
-      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || `HTTP ${jinaRes.status}`;
+      const jinaFailReason = jinaRes.headers.get('x-jina-retry-reason') || jinaBodyError || `HTTP ${jinaRes.status}`;
       console.warn(`⚠️ Jina proxy exhausted for ${url} (${jinaFailReason}) — falling back to direct fetch.`);
       postJinaFallback = true;
     } else {
@@ -3950,6 +3966,9 @@ async function crawlWorkdayJobs(
       let companyName = company.name;
       let applyUrl = detailUrl;
       let contractRaw = '';
+      // The req's own `jobPostingInfo` (structured primary + country), kept for
+      // the shared Workday place recovery below.
+      let apiInfo = null;
 
       // 1) Preferred: Workday CXS detail API.
       try {
@@ -3962,6 +3981,7 @@ async function crawlWorkdayJobs(
             // eslint-disable-next-line no-await-in-loop
             const apiPayload = await detailApiRes.json();
             const info = apiPayload?.jobPostingInfo || {};
+            apiInfo = info;
             const apiDesc = htmlToStructuredText(info.jobDescription || '');
             if (apiDesc.length >= 120) {
               descriptionSeed = apiDesc;
@@ -4050,18 +4070,26 @@ async function crawlWorkdayJobs(
       } catch {
         // Keep fallback descriptionSeed
       }
+      // A place the commune gazetteer cannot resolve (a locality such as
+      // `Rotkreuz`, an address with a postal code) gets the shared Workday
+      // recovery from the req's own primary: official directory or postal
+      // code, on its structured Swiss country only (workday-swiss-job-parser-common).
+      const recoveredPlace = apiInfo && !inferAnyCanton(location) ? recoverWorkdayPrimarySwissPlace(apiInfo) : null;
+      if (recoveredPlace) location = recoveredPlace.location;
       const geoSignal = `${title} ${location} ${descriptionSeed}`;
       if (isLocationExplicitlyForeign(location)) continue;
       if (isExplicitlyOutsideTarget(geoSignal) || isExplicitlyOutsideTargetCantons(geoSignal)) continue;
       if (!location && !isTargetSwissLocation(`${title} ${descriptionSeed}`)) continue;
-      if (requireConcreteLocation && !isConcreteSwissWorkdayLocation(location)) {
+      if (requireConcreteLocation && !recoveredPlace && !isConcreteSwissWorkdayLocation(location)) {
         console.warn(`  ⚠️ Skipping Workday job without a concrete Swiss locality: "${title}" (${location || 'unknown'})`);
         continue;
       }
-      if (!isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
-      const inferredCanton = (requireConcreteLocation
-        ? inferAnyCanton(location)
-        : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
+      if (!recoveredPlace && !isTargetSwissLocation(`${title} ${location} ${descriptionSeed}`)) continue;
+      const inferredCanton = (recoveredPlace
+        ? recoveredPlace.canton
+        : requireConcreteLocation
+          ? inferAnyCanton(location)
+          : inferAnyCanton(location) || inferAnyCanton(`${title} ${descriptionSeed}`)) || '';
       if (!inferredCanton) { console.warn(`  ⚠️ Skipping job with unknown canton: "${title}" (location: ${location})`); continue; }
       collected.push({
         id: '',

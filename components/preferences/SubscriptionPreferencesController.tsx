@@ -236,7 +236,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  stopAllWorking: 'Disattivo tutto…',
  digestTitle: 'Promemoria dei lavori salvati',
  digestDesc:
- 'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
+ 'Ogni settimana ti ricordiamo via email gli annunci che hai salvato, con qualche proposta simile. Si attiva quando salvi un annuncio; se lo spegni qui, salvarne altri non lo riaccende. Vale solo per questo promemoria: newsletter, bollettino e avvisi lavoro restano come sono.',
  digestOn: 'Attivo',
  digestOff: 'Disattivato',
  applicationReminderTitle: 'Promemoria delle candidature',
@@ -330,7 +330,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  stopAllWorking: 'Turning everything off…',
  digestTitle: 'Saved-jobs reminder',
  digestDesc:
- 'Once a week we email you the jobs you saved, plus a few similar ones. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
+ 'Once a week we email you the jobs you saved, plus a few similar ones. It turns on when you save a job; if you switch it off here, saving more jobs will not turn it back on. This switch covers that reminder only: the newsletter, the daily brief and your job alerts stay as they are.',
  digestOn: 'On',
  digestOff: 'Off',
  applicationReminderTitle: 'Application reminders',
@@ -424,7 +424,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  stopAllWorking: 'Alles wird abgeschaltet…',
  digestTitle: 'Erinnerung an gespeicherte Stellen',
  digestDesc:
- 'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
+ 'Einmal pro Woche erinnern wir dich per E-Mail an deine gespeicherten Stellen, samt ähnlicher Vorschläge. Sie wird aktiv, sobald du eine Stelle speicherst; schaltest du sie hier ab, aktiviert weiteres Speichern sie nicht wieder. Dieser Schalter gilt nur dafür: Newsletter, Tagesbulletin und Job-Alerts bleiben unverändert.',
  digestOn: 'Aktiv',
  digestOff: 'Abgeschaltet',
  applicationReminderTitle: 'Bewerbungs-Erinnerungen',
@@ -518,7 +518,7 @@ const STRINGS: Record<Locale, SectionStrings> = {
  stopAllWorking: 'Tout est en cours de désactivation…',
  digestTitle: 'Rappel des offres enregistrées',
  digestDesc:
- 'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
+ 'Chaque semaine nous te rappelons par email les offres que tu as enregistrées, avec quelques suggestions similaires. Il s’active dès que tu enregistres une offre ; si tu le désactives ici, enregistrer d’autres offres ne le réactive pas. Cet interrupteur ne concerne que ce rappel : la newsletter, le bulletin et tes alertes emploi restent inchangés.',
  digestOn: 'Actif',
  digestOff: 'Désactivé',
  applicationReminderTitle: 'Rappels de candidature',
@@ -861,11 +861,12 @@ function briefTierToOption(days: number): DailyBriefFrequency {
 /**
  * Saved-jobs digest preference (#5684 point 1).
  *
- * The saved-jobs action is a separate channel activation; the explicit
- * preference remains the source of truth for legacy subscribers, and
- * `savedJobsDigest.optedOut` always wins. The link inside the digest remains an
- * independent one-click opt-out. This keeps the channel visible even when the
- * reader deleted the message that contained its unsubscribe link.
+ * Saving a listing activates the channel (services/savedJobsService.ts,
+ * owner decision 2026-10-02) unless the person already turned it off; this
+ * switch turns it on or off explicitly, and `savedJobsDigest.optedOut` always
+ * wins over a later save. The link inside the digest remains an independent
+ * one-click opt-out. This keeps the channel visible even when the reader
+ * deleted the message that contained its unsubscribe link.
  *
  * Auth mode only, and that is sufficient rather than a compromise: the sender
  * iterates `users/{uid}/savedJobs`, so every possible recipient of this channel
@@ -911,11 +912,19 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  );
  const app = await getApp();
  const db = getFirestore(app as any);
+ const userRef = doc(db, 'users', userId);
+ if (!enabled) {
+  // Turning the digest off needs no subscriber record, and is idempotent: an
+  // existing explicit stop (the digest's own link, an earlier switch) keeps
+  // its original provenance instead of being restamped.
+  const userSnap = await getDoc(userRef);
+  if (userSnap.exists() && (userSnap.data() || {}).savedJobsDigest?.optedOut === true) return;
+ }
  const subscriberRef = doc(db, 'newsletter_subscribers', email.trim().toLowerCase());
- const subscriberSnap = await getDoc(subscriberRef);
- const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- if (!subscriberData) throw new Error('subscriber-not-created');
  if (enabled) {
+  const subscriberSnap = await getDoc(subscriberRef);
+  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
+  if (!subscriberData) throw new Error('subscriber-not-created');
   // Enabling this digest is an explicit click by the authenticated owner. It
   // must use the same central writer as follow/job-alert actions so a prior
   // human stop is reactivated consistently; provider/address suppressions
@@ -943,16 +952,19 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
   }
  }
  // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
- // ensureUserProfileDoc deliberately never rewrites this key after creation so
- // a server-side unsubscribe cannot be clobbered by a re-login; a shallow
- // overwrite here would reintroduce exactly that.
+ // ensureUserProfileDoc deliberately never writes this key so a server-side
+ // unsubscribe cannot be clobbered by a re-login; a shallow overwrite here
+ // would reintroduce exactly that.
  await setDoc(
- doc(db, 'users', userId),
+ userRef,
  {
  savedJobsDigest: {
  optedIn: enabled,
  optedOut: !enabled,
  optedInAt: enabled ? serverTimestamp() : null,
+ // What turned it on last; the save path writes 'saved_job'
+ // (services/savedJobsDigestActivation.mjs). Left as is when turning off.
+ ...(enabled ? { activationSource: 'preference_center' } : {}),
  // Same provenance fields savedJobsDigestUnsubscribe.js records, so an
  // LPD art. 25 request gets one answer regardless of which surface the
  // reader used.
@@ -2316,7 +2328,11 @@ export function SubscriptionPreferencesController({
  }
  }
 
- if (digestAvailable && userId && digestEnabled) {
+ // Also when the digest is not on yet: saving a listing activates a digest
+ // nobody decided about, so "stop all" has to record the explicit off that a
+ // later save respects. authSetSavedJobsDigest(false) is a no-op on an
+ // existing stop.
+ if (digestAvailable && userId) {
  try {
  await authSetSavedJobsDigest(userId, email, false);
  setDigestEnabled(false);

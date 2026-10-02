@@ -25,7 +25,10 @@ vi.mock('../scripts/lib/ats-clients/workday-client.mjs', async (importOriginal) 
     fetchWorkdayJobDetail: async (_apiBase: string, externalPath: string) =>
       workdayReplay.details.get(externalPath) ?? null,
     // A real vacancy body: a req without one is not published (issue 5253).
-    fetchWorkdayJobDescriptionText: async () => 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.',
+    fetchWorkdayJobDetailParts: async () => ({
+      text: 'Responsibilities and requirements of the role, described at length by the employer, with the team context and the application steps. You bring relevant experience, good German or English skills and a structured way of working. We offer flexible working hours, further training and a modern workplace in a friendly team.',
+      info: {},
+    }),
   };
 });
 

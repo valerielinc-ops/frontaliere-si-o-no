@@ -1,5 +1,7 @@
 import { sourceBodyWordCount } from './source-body-floor.mjs';
 import { SOURCE_BODY_FAILURE_REASON } from './source-body-failure.mjs';
+import { WAF_IP_BLOCK_STATUS } from './transient-fetch.mjs';
+import { detectJinaErrorBody, fetchViaJinaWithRetry } from './jina-proxy.mjs';
 
 const PDF_PAGE_NOISE_PATTERNS = [
   /^\d+\s*\/\s*\d+$/,
@@ -236,6 +238,30 @@ async function defaultExtractTextFromPdfBytes(arrayBuffer) {
   );
 }
 
+/**
+ * Text of a PDF read through the Jina Reader clean-IP proxy, or '' when the
+ * rescue is exhausted. Jina parses the PDF on its side and returns its text
+ * layer; fetchViaJinaWithRetry rotates egress IPs. On exhaustion it hands back
+ * the last response unchanged, which can be a 200 carrying Jina's own error
+ * envelope, so the body is checked here again before it counts as the
+ * document's text.
+ */
+async function fetchPdfTextViaJina(pdfUrl, { timeoutMs, fetchImpl, retryDelayMs }) {
+  try {
+    const res = await fetchViaJinaWithRetry(pdfUrl, {
+      format: 'text',
+      timeoutMs,
+      fetchImpl,
+      ...(retryDelayMs != null ? { retryDelayMs } : {}),
+    });
+    if (!res?.ok) return '';
+    const text = String(await res.text() || '');
+    return detectJinaErrorBody(text) ? '' : text;
+  } catch {
+    return '';
+  }
+}
+
 export async function extractPdfJobContentFromUrl(
   pdfUrl,
   {
@@ -243,6 +269,10 @@ export async function extractPdfJobContentFromUrl(
     extractTextImpl = defaultExtractTextFromPdfBytes,
     timeoutMs = 30_000,
     headers = {},
+    // Clean-IP rescue for a WAF-class answer (403/406/415/451) keyed on the
+    // datacenter egress IP. Defaults to the same transport as the direct read.
+    jinaFetchImpl = fetchImpl,
+    jinaRetryDelayMs,
   } = {},
 ) {
   if (!pdfUrl) return { text: '', thin: false, totalPages: 0, rawText: '', sourceUrl: '' };
@@ -250,6 +280,7 @@ export async function extractPdfJobContentFromUrl(
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   let response;
+  let proxiedBy;
 
   try {
     response = await fetchImpl(pdfUrl, {
@@ -263,15 +294,35 @@ export async function extractPdfJobContentFromUrl(
       },
     });
 
+    let extracted;
     if (!response?.ok) {
-      throw new Error(`HTTP ${response?.status || 'unknown'} while fetching PDF`);
+      // The HTML fetch helpers already route the WAF/IP-block class through
+      // Jina (transient-fetch.mjs WAF_IP_BLOCK_STATUS); the PDF read did not,
+      // so a source that answers the GitHub egress with 415 only for its PDFs
+      // failed every posting (klinik-wyssholzli, run corpus 36989251899: five
+      // text PDFs, all HTTP 415 in CI, all 200 from a clean IP).
+      const wafBlocked = WAF_IP_BLOCK_STATUS.has(Number(response?.status));
+      if (wafBlocked) {
+        try { await response?.body?.cancel?.(); } catch { /* already closed */ }
+      }
+      const rescuedText = wafBlocked
+        ? await fetchPdfTextViaJina(pdfUrl, { timeoutMs, fetchImpl: jinaFetchImpl, retryDelayMs: jinaRetryDelayMs })
+        : '';
+      if (!rescuedText) {
+        throw new Error(
+          `HTTP ${response?.status || 'unknown'} while fetching PDF`
+          + (wafBlocked ? ' (clean-IP Jina rescue exhausted)' : ''),
+        );
+      }
+      proxiedBy = 'jina';
+      extracted = { text: rescuedText, totalPages: 0, extractionMethod: 'jina-reader' };
+    } else {
+      const arrayBuffer = await response.arrayBuffer();
+      if (!arrayBuffer || arrayBuffer.byteLength === 0) {
+        throw new Error('PDF response body is empty');
+      }
+      extracted = await extractTextImpl(arrayBuffer);
     }
-
-    const arrayBuffer = await response.arrayBuffer();
-    if (!arrayBuffer || arrayBuffer.byteLength === 0) {
-      throw new Error('PDF response body is empty');
-    }
-    const extracted = await extractTextImpl(arrayBuffer);
     const rawText = extractedText(extracted);
     const totalPages = Number(extracted?.totalPages || extracted?.total || 0);
     const normalizedText = normalizePdfJobText(rawText);
@@ -334,6 +385,7 @@ export async function extractPdfJobContentFromUrl(
       contentType: response?.headers?.get?.('content-type') || undefined,
       ...(extracted?.extractionMethod ? { extractionMethod: extracted.extractionMethod } : {}),
       ...(extracted?.fallbackUsed ? { fallbackUsed: true } : {}),
+      ...(proxiedBy ? { proxiedBy } : {}),
       ...(warning ? { warning } : {}),
     };
   } catch (error) {

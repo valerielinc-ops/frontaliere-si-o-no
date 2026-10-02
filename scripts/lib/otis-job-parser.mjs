@@ -24,6 +24,7 @@ import { firstLocationSegment } from './ats-clients/workday-client.mjs';
  */
 
 import { isTargetSwissLocation, inferAnyCanton } from './target-swiss-locations.mjs';
+import { isWorkdaySwissPlaceCandidate, recoverWorkdayPrimarySwissPlace } from './workday-swiss-job-parser-common.mjs';
 
 export const WORKDAY_API_BASE = 'https://otis.wd504.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway';
@@ -170,8 +171,10 @@ export function parseOtisWorkdayListings(apiResponse) {
     if (seen.has(externalPath)) continue;
     seen.add(externalPath);
 
-    // Filter for Swiss locations
-    if (!isSwissLocation(locationsText)) continue;
+    // Filter for Swiss locations. A row named after a Swiss locality outside
+    // the commune gazetteer is kept for its detail, whose structured country
+    // decides (shared Workday recovery).
+    if (!isSwissLocation(locationsText) && !isWorkdaySwissPlaceCandidate(locationsText)) continue;
 
     // Extract jobId from bulletFields (typically last element) or externalPath
     const bulletFields = posting.bulletFields || [];
@@ -250,7 +253,12 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
   if (!title || title.length < 3) return null;
 
   const locationRaw = info.location || '';
-  const city = parseWorkdayCity(locationRaw);
+  const parsedCity = parseWorkdayCity(locationRaw);
+  // A primary the commune gazetteer cannot place (a locality, an address) gets
+  // the shared Workday recovery: official directory or postal code, only on
+  // the req's structured Swiss country (workday-swiss-job-parser-common).
+  const recovered = inferAnyCanton(parsedCity) ? null : recoverWorkdayPrimarySwissPlace(info);
+  const city = recovered ? recovered.location : parsedCity;
   const descriptionHtml = info.jobDescription || '';
   const descriptionText = stripHtml(descriptionHtml);
   const publicUrl = buildPublicUrl(externalPath);
@@ -264,7 +272,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
     url: publicUrl,
     city,
     siteAddress: parseOtisSiteAddress(descriptionText),
-    canton: inferAnyCanton(city) || '',
+    canton: recovered ? recovered.canton : (inferAnyCanton(city) || ''),
     employmentType: inferEmploymentType(title, descriptionText, timeType),
     datePosted: startDate,
     jobReqId,
