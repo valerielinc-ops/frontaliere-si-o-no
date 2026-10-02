@@ -7541,6 +7541,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin kündigt seinen Rücktritt aus dem Bundesrat an',
     'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Der Vorsteher des Eidgenössischen Departements für Wirtschaft wird am 31. Dezember 2026 sein Amt niederlegen. Gesundheitliche Gründe ausgeschlossen: \'Ich verspüre eine gewisse Müdigkeit\'.',
     'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung.',
+    'blog.article.guida-imprenditoriale-grigioni.title': 'Geschäftsgründung im Kanton Graubünden: Registrierung und Kosten',
+    'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Im Kanton Graubünden kombiniert der Kurs Rechtsform, Handelsregister, Mindestkapital, Registrierungsgebühren und Versicherungspflichten.',
+    'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Unterlagen zur Unternehmensgründung im Schweizer Kanton Graubünden',
 };
 
 export default blogMetaChDe;

@@ -7541,6 +7541,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin annonce sa démission du Conseil fédéral',
     'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Le chef du Département fédéral des affaires économiques quittera ses fonctions le 31 décembre 2026. À l’exception des raisons de santé : « Je ressens une certaine fatigue ».',
     'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse.',
+    'blog.article.guida-imprenditoriale-grigioni.title': 'Ouverture d’une entreprise dans le canton des Grisons : registre et coûts',
+    'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Dans le canton des Grisons, le cursus combine la forme juridique, le registre commercial, le capital minimum, les frais d’enregistrement et les obligations d’assurance.',
+    'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Documents pour créer une activité dans le canton suisse des Grisons',
 };
 
 export default blogMetaChFr;

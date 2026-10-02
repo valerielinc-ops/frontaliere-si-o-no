@@ -7541,6 +7541,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin announces his resignation from the Federal Council',
     'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'The head of the Federal Department of Economic Affairs will leave office on 31 December 2026. Excluding health reasons: \'I feel a certain tiredness\'.',
     'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Federal Palace in Bern, seat of the Swiss government.',
+    'blog.article.guida-imprenditoriale-grigioni.title': 'Opening a business in the Canton of Graubünden: register and costs',
+    'blog.article.guida-imprenditoriale-grigioni.excerpt': 'In the canton of Graubünden, the course combines legal form, commercial register, minimum capital, registration fees and insurance obligations.',
+    'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Business registration documents in the Swiss canton of Grisons',
 };
 
 export default blogMetaChEn;
