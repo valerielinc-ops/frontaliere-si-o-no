@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import {
   buildActiveJobPageInput,
   buildActiveJobPageReuseInput,
+  activePageHreflangDigest,
   canonicalizeInput,
   computeInputHash,
   relatedArticlesFeedDigest,
@@ -28,6 +29,14 @@ const feedHtml = (firstSlug: string, firstTitle: string) => (
 
 const YESTERDAY_FEED = feedHtml('bollettino-frontaliere-2026-09-19', 'Bollettino Frontaliere 2026-09-19');
 const TODAY_FEED = feedHtml('bollettino-frontaliere-2026-09-20', 'Bollettino Frontaliere 2026-09-20');
+const HREFLANG_A = '<link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cerca-lavoro-argovia/social-worker/">';
+const HREFLANG_B = '<link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/cerca-lavoro-argovia/social-worker-v2/">';
+const EMPLOYER_HUB_A = '/aziende/psychiatrische-dienste-aargau/';
+const EMPLOYER_HUB_B = '/aziende/psychiatrische-dienste-aargau-v2/';
+type ActiveInputOptions = {
+  hreflangHtml?: string;
+  employerHubPath?: string;
+};
 
 const JOB = Object.freeze({
   id: 'job-42',
@@ -38,20 +47,25 @@ const JOB = Object.freeze({
   canton: 'AG',
 });
 
-const activeInput = (relatedArticlesHtml: string) => buildActiveJobPageInput({
-  job: JOB,
-  locale: 'it',
-  slug: JOB.slug,
-  relatedJobs: [{ id: 'related-1', slug: 'related-1', title: 'Related one' }],
-  canonicalJob: JOB,
-  canton: 'AG',
-  canonicalUrl: `https://frontaliereticino.ch/cerca-lavoro-argovia/${JOB.slug}/`,
-  relatedArticlesHtml,
-  renderDateBucket: '2026-09-20',
+const activeInput = (
+  relatedArticlesHtml: string,
+  { hreflangHtml = HREFLANG_A, employerHubPath = EMPLOYER_HUB_A }: ActiveInputOptions = {},
+) => buildActiveJobPageInput({
+ job: JOB,
+ locale: 'it',
+ slug: JOB.slug,
+ relatedJobs: [{ id: 'related-1', slug: 'related-1', title: 'Related one' }],
+ canonicalJob: JOB,
+ canton: 'AG',
+ canonicalUrl: `https://frontaliereticino.ch/cerca-lavoro-argovia/${JOB.slug}/`,
+ relatedArticlesHtml,
+ hreflangHtml,
+ employerHubPath,
+ renderDateBucket: '2026-09-20',
 });
 
-const activeHash = (relatedArticlesHtml: string) => computeInputHash(
-  activeInput(relatedArticlesHtml),
+const activeHash = (relatedArticlesHtml: string, options?: ActiveInputOptions) => computeInputHash(
+  activeInput(relatedArticlesHtml, options),
   'active-job',
 );
 
@@ -93,6 +107,23 @@ describe('active job page input carries the related-articles feed', () => {
     );
   });
 
+  it('keys active reuse on emitted hreflang and employer-profile links', () => {
+    expect(activeHash(YESTERDAY_FEED)).not.toBe(
+      activeHash(YESTERDAY_FEED, { hreflangHtml: HREFLANG_B }),
+    );
+    expect(activeHash(YESTERDAY_FEED)).not.toBe(
+      activeHash(YESTERDAY_FEED, { employerHubPath: EMPLOYER_HUB_B }),
+    );
+
+    const input = activeInput(YESTERDAY_FEED);
+    expect(input.hreflangDigest).toBe(activePageHreflangDigest(HREFLANG_A));
+    expect(input.employerHubPath).toBe(EMPLOYER_HUB_A);
+    expect(buildActiveJobPageReuseInput(input)).toMatchObject({
+      hreflangDigest: input.hreflangDigest,
+      employerHubPath: EMPLOYER_HUB_A,
+    });
+  });
+
   it('stores a short digest, never the feed itself', () => {
     const canonical = canonicalizeInput(activeInput(YESTERDAY_FEED));
     expect(canonical).toContain('"relatedArticlesDigest"');
@@ -122,6 +153,8 @@ describe('jobsSeoPagesPlugin wires the feed the renderer actually emits', () => 
   it('feeds the active page input with the memoized rendered block', () => {
     expect(source).toContain('const recentArticlesHtml = recentArticlesHtmlFor(locale);');
     expect(source).toContain('relatedArticlesHtml: recentArticlesHtml,');
+    expect(source).toContain('hreflangHtml,');
+    expect(source).toContain('employerHubPath,');
     expect(source).toContain('buildActiveJobPageReuseInput(activeJobManifestInput)');
     expect(source).toContain('buildActiveJobPageInput({');
   });

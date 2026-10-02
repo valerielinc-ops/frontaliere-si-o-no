@@ -36,7 +36,11 @@ export const SOURCE_VERSION = 'input@1';
 // article. Deploy 35507082715 reused 12'818 active pages and every one of the
 // 244 verified pages mismatched on that block alone. The rendered block now
 // enters the input as a digest (`relatedArticlesDigest`).
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
+// job-digest@8: active pages also render build-dependent hreflang eligibility
+// and an optional employer-profile link. Both are now represented in the
+// publish/reuse input so a changed cross-locale cluster or employer profile
+// cannot leave stale links behind in reused HTML.
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@8';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 // The full active-page input remains the publish key: every input field that
@@ -519,6 +523,11 @@ export function relatedArticlesFeedDigest(relatedArticlesHtml) {
   return sha256(String(relatedArticlesHtml ?? '')).slice(0, 16);
 }
 
+/** Digest the rendered hreflang block without copying the block into JSONL. */
+export function activePageHreflangDigest(hreflangHtml) {
+  return sha256(String(hreflangHtml ?? '')).slice(0, 16);
+}
+
 /**
  * The whole page input of an active job page, in one place.
  *
@@ -538,6 +547,8 @@ export function buildActiveJobPageInput({
   canton,
   canonicalUrl,
   relatedArticlesHtml,
+  hreflangHtml = '',
+  employerHubPath = '',
   renderDateBucket,
 }) {
   return {
@@ -545,6 +556,8 @@ export function buildActiveJobPageInput({
     canton,
     canonicalUrl,
     relatedArticlesDigest: relatedArticlesFeedDigest(relatedArticlesHtml),
+    hreflangDigest: activePageHreflangDigest(hreflangHtml),
+    employerHubPath: String(employerHubPath ?? ''),
     renderDateBucket,
   };
 }
