@@ -64,7 +64,9 @@ describe('Liechtenstein border municipality above-floor page render (#4884)', ()
     expect(html).toContain(String(LIECHTENSTEIN_COMMUTING_CONTEXT.year));
     expect(html).toContain(groupThousands(LIECHTENSTEIN_COMMUTING_CONTEXT.chToLi));
     expect(html).toContain(groupThousands(LIECHTENSTEIN_COMMUTING_CONTEXT.liToCh));
-    expect(html).toContain(LIECHTENSTEIN_COMMUTING_CONTEXT.ratio);
+    // The renderer escapes `>` in text nodes; assert the exact HTML form of
+    // the live ratio rather than accepting a weaker substring.
+    expect(html).toContain(LIECHTENSTEIN_COMMUTING_CONTEXT.ratio.replace(/>/g, '&gt;'));
     // The dominant-flow-is-inverted sentence itself, IT copy.
     expect(html).toMatch(/flusso dominante.*direzione opposta/i);
   });
