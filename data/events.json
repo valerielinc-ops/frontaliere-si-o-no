@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-10-02T06:04:19.025Z",
+  "generatedAt": "2026-10-02T06:44:50.758Z",
   "totalEvents": 10143,
   "events": [
     {
@@ -215688,8 +215688,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/215073"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/215073",
+        "validFrom": "2026-01-01T01:01",
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -216286,7 +216290,10 @@
       "sourceName": "MySwitzerland",
       "price": {
         "availability": "http://schema.org/InStock",
-        "url": "https://www.petzi.ch/events/64715/"
+        "url": "https://www.petzi.ch/en/events/64715-ajz-caj-20-years-fractal/",
+        "amount": 29.9,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 47.1359849,
@@ -222384,8 +222391,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217732"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217732",
+        "validFrom": "2026-01-01T20:00",
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -252230,8 +252241,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/217734"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/217734",
+        "validFrom": "2026-01-01T20:00",
+        "amount": 10,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -277232,8 +277247,12 @@
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
       "price": {
-        "availability": "http://schema.org/InStock",
-        "url": "https://www.ticketino.com/de/event/205364"
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.ticketino.com/de/event/205364",
+        "validFrom": "2025-01-01T01:01",
+        "amount": 20,
+        "currency": "CHF",
+        "isFree": false
       },
       "geo": {
         "lat": 46.7967781,
@@ -307138,6 +307157,14 @@
       "url": "https://www.myswitzerland.com/it-ch/experiences/events/lab-rats-2/",
       "sourceKey": "myswitzerland",
       "sourceName": "MySwitzerland",
+      "price": {
+        "availability": "https://schema.org/InStock",
+        "validFrom": "2027-01-13T19:30:00+0100",
+        "url": "https://eventfrog.ch/de/p/theater-buehne/theater/lab-rats-7480191323867196268.html",
+        "amount": 30,
+        "currency": "CHF",
+        "isFree": false
+      },
       "geo": {
         "lat": 47.4802454,
         "lng": 8.3102615
@@ -307152,15 +307179,7 @@
         "@type": "Organization",
         "name": "Baden"
       },
-      "imageUrl": "/images/events/myswitzerland-1e416c4502704f9fbd51ac39df9a9535.webp",
-      "price": {
-        "availability": "https://schema.org/InStock",
-        "validFrom": "2027-01-13T19:30:00+0100",
-        "url": "https://eventfrog.ch/de/p/theater-buehne/theater/lab-rats-7480191323867196268.html",
-        "amount": 30,
-        "currency": "CHF",
-        "isFree": false
-      }
+      "imageUrl": "/images/events/myswitzerland-1e416c4502704f9fbd51ac39df9a9535.webp"
     },
     {
       "id": "myswitzerland:3fdfa24e46404f61b7484cfc5cfd0eee",
