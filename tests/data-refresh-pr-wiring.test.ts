@@ -41,6 +41,30 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(workflow).not.toContain('scripts/lib/git-commit-data.sh');
   });
 
+  it('routes article corpus and hub sitemap writers through stable PRs', () => {
+    const sync = read('.github/workflows/sync-articles-sitemaps.yml');
+    const rerender = read('.github/workflows/rerender-article-hubs.yml');
+    const fastPublish = read('.github/workflows/fast-publish-article.yml');
+
+    for (const [workflowPath, workflow] of [
+      ['.github/workflows/sync-articles-sitemaps.yml', sync],
+      ['.github/workflows/rerender-article-hubs.yml', rerender],
+      ['.github/workflows/fast-publish-article.yml', fastPublish],
+    ] as const) {
+      expect(workflow, workflowPath).toContain('scripts/lib/open-data-refresh-pr.sh');
+      expect(workflow, workflowPath).toContain('pull-requests: write');
+      expect(workflow, workflowPath).not.toContain('scripts/lib/git-push-with-retry.sh');
+    }
+
+    expect(sync).toContain('--branch chore/sync-articles-sitemaps');
+    expect(rerender).toContain('--branch "chore/rerender-article-hub-sitemap-$INPUT_SECTION"');
+    expect(rerender).toContain('--path "public/$REL"');
+    expect(fastPublish).toContain('--branch "chore/fast-publish-article-sitemap-${{ inputs.section }}"');
+    expect(fastPublish).toContain('--path "public/$dist_path"');
+    expect(rerender).toContain("- 'packages/articles/content/**'");
+    expect(rerender).not.toContain('workflow_run:');
+  });
+
   it('keeps the shared publisher on the PR path, never main', () => {
     const helper = read('scripts/lib/open-data-refresh-pr.sh');
     expect(helper).toContain('gh pr create');
@@ -58,6 +82,7 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('mkdir -p "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci" "$MERGE_REFRESH_SCRIPT_DIR/scripts/lib"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/resolve-git-add-path.mjs"');
     expect(helper).toContain('git show "${REFRESH_BASE}:scripts/lib/read-git-blob.mjs"');
+    expect(helper).toContain('if [ "$RECONCILE_COMPAT" = false ]; then\n  MERGE_REFRESH_SCRIPT_DIR=');
     expect(helper).toContain('node "$MERGE_REFRESH_SCRIPT_DIR/scripts/ci/merge-open-data-refresh.mjs"');
     expect(helper).toContain("trap 'cleanup_refresh_checkout || exit 1' EXIT");
     expect(helper).toContain('git -C "$REFRESH_SOURCE_ROOT" checkout --detach --force "$restore_ref"');
@@ -67,6 +92,18 @@ describe('protected data refreshes publish through pull requests', () => {
     expect(helper).toContain('--resolve-symlinks');
     expect(helper).toContain('git-add-resolved.mjs');
     expect(helper).not.toMatch(/HEAD:main/);
+  });
+
+  it('reconciles the newest stable branch tip after a concurrent push loses its lease', () => {
+    const helper = read('scripts/lib/open-data-refresh-pr.sh');
+    expect(helper).toContain('MAX_PUSH_ATTEMPTS=3');
+    expect(helper).toContain('stable refresh branch moved during push attempt');
+    expect(helper).toContain('git ls-remote "$PUSH_URL" "refs/heads/$BRANCH"');
+    expect(helper).toContain('refs/remotes/refresh/${BRANCH}');
+    expect(helper).toContain('merge-open-data-refresh.mjs');
+    expect(helper.match(/node "\$MERGE_REFRESH_SCRIPT_DIR\/scripts\/ci\/merge-open-data-refresh\.mjs"/g)).toHaveLength(2);
+    expect(helper).not.toContain('node scripts/ci/merge-open-data-refresh.mjs');
+    expect(helper).toContain('push_attempt=$((push_attempt + 1))');
   });
 
   it('passes named three-way merge arguments without treating a value as a flag', () => {

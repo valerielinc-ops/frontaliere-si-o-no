@@ -12,15 +12,25 @@ type WorkflowStep = {
   'continue-on-error'?: unknown;
 };
 
+type WorkflowJob = {
+  if?: string;
+  steps: WorkflowStep[];
+};
+
 const WORKFLOW_PATH = path.resolve(
   __dirname,
   '..',
   '.github/workflows/sync-articles-sitemaps.yml',
 );
 const workflow = parse(fs.readFileSync(WORKFLOW_PATH, 'utf8')) as {
-  jobs: { sync: { steps: WorkflowStep[] } };
+  jobs: {
+    sync: WorkflowJob;
+    'replay-after-article-sync': WorkflowJob;
+  };
 };
 const steps = workflow.jobs.sync.steps;
+const replaySteps = workflow.jobs['replay-after-article-sync'].steps;
+const workflowSource = fs.readFileSync(WORKFLOW_PATH, 'utf8');
 
 function stepNamed(name: string): WorkflowStep {
   const step = steps.find((candidate) => candidate.name === name);
@@ -29,7 +39,7 @@ function stepNamed(name: string): WorkflowStep {
 }
 
 describe('article corpus sync parser gate', () => {
-  it('blocks the direct commit when changed article modules do not parse', () => {
+  it('blocks the refresh PR when changed article modules do not parse', () => {
     const validationIndex = steps.findIndex(
       (step) => step.name === 'Validate changed article modules before commit',
     );
@@ -45,20 +55,19 @@ describe('article corpus sync parser gate', () => {
     expect(spawnSync('bash', ['-n', '-c', validation.run], { encoding: 'utf8' }).status).toBe(0);
   });
 
-  it('revalidates corpus content regenerated during a push-conflict retry', () => {
-    const command = stepNamed('Commit if changed').run?.match(
-      /--regenerate-cmd "([^"]+)"/,
-    )?.[1];
+  it('delivers changed corpus artifacts through the stable PR publisher', () => {
+    const commitRun = stepNamed('Commit if changed').run ?? '';
 
-    expect(command).toBeDefined();
-    expect(command).toContain('node scripts/pull-articles-corpus.mjs');
-    expect(command).toContain('node scripts/pull-articles-api.mjs');
-    expect(command).toContain('npm test -- tests/generated-content-parses.test.ts');
-    expect(command).toContain('git add --');
-    expect(command!.indexOf('npm test -- tests/generated-content-parses.test.ts')).toBeLessThan(
-      command!.indexOf('git add --'),
-    );
-    expect(spawnSync('bash', ['-n', '-c', command], { encoding: 'utf8' }).status).toBe(0);
+    expect(commitRun).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(commitRun).toContain('--path packages/articles/content');
+    expect(commitRun).toContain('--branch chore/sync-articles-sitemaps');
+    expect(commitRun).toContain('published-via-pr=false');
+    expect(commitRun).toContain('published-via-pr=true');
+    expect(commitRun).toContain('## Implementato');
+    expect(commitRun).toContain('## Non implementato (ancora)');
+    expect(commitRun).not.toContain('--regenerate-cmd');
+    expect(commitRun).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(spawnSync('bash', ['-n', '-c', commitRun], { encoding: 'utf8' }).status).toBe(0);
   });
 
   it('publishes changed corpus registries through the shared strict CDN path', () => {
@@ -78,6 +87,7 @@ describe('article corpus sync parser gate', () => {
     expect(recheckIndex).toBeLessThan(publishIndex);
     expect(releaseIndex).toBeGreaterThan(publishIndex);
     expect(publish.if).toContain("steps.commit.outputs.article-content-changed == 'true'");
+    expect(publish.if).toContain("steps.commit.outputs.published-via-pr != 'true'");
     expect(publish.if).toContain("steps.check_synced_chunk_source.outputs.current == 'true'");
     expect(publish.if).toContain("steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'");
     expect(publish.run).toContain('scripts/publish-article-chunks.mjs --strict --no-ticker');
@@ -93,7 +103,9 @@ describe('article corpus sync parser gate', () => {
     const commitRun = stepNamed('Commit if changed').run ?? '';
     expect(commitRun).toContain('article-content-changed=true');
     expect(commitRun).toContain('article-content-changed=false');
-    expect(commitRun.indexOf('article-content-changed=false')).toBeLessThan(commitRun.indexOf('git commit'));
+    expect(commitRun.indexOf('article-content-changed=false')).toBeLessThan(
+      commitRun.indexOf('scripts/lib/open-data-refresh-pr.sh'),
+    );
   });
 
   it('shares the source freshness and lock checks with the existing chunk publishers', () => {
@@ -114,5 +126,50 @@ describe('article corpus sync parser gate', () => {
     expect(stepNamed('Publish client article chunks for synced corpus').if).toContain(
       "steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true'",
     );
+  });
+
+  it('defers main delivery but always checks the refresh snapshot on non-previews', () => {
+    const mainDelivery = "github.event.inputs.dry_run != 'true' && steps.commit.outputs.published-via-pr != 'true'";
+    expect(stepNamed('Assert the pulled corpus actually reached main').if).toBe(mainDelivery);
+    expect(stepNamed('Assert the refresh snapshot was committed').if).toBe(mainDelivery);
+  });
+
+  it('replays every PR-skipped live surface from the merged main tree', () => {
+    const replay = workflow.jobs['replay-after-article-sync'];
+    const replayStep = (name: string): WorkflowStep => {
+      const step = replaySteps.find((candidate) => candidate.name === name);
+      if (!step) throw new Error(`Missing replay workflow step: ${name}`);
+      return step;
+    };
+    const installIndex = replaySteps.findIndex((step) => step.name === 'Install replay dependencies');
+    const loadSecretsIndex = replaySteps.findIndex((step) => step.name === 'Load secrets from Remote Config');
+
+    expect(workflowSource).toContain('push:\n    branches: [main]');
+    expect(installIndex).toBeGreaterThanOrEqual(0);
+    expect(loadSecretsIndex).toBeGreaterThan(installIndex);
+    expect(replayStep('Install replay dependencies').run).toBe('npm ci --no-audit --no-fund');
+    const corpusPath = 'packages' + '/articles' + '/content/**';
+    const tickerPath = 'public' + '/news-ticker-live.json';
+    expect(workflowSource).toContain(`- '${corpusPath}'`);
+    expect(workflowSource).toContain("- 'public/sitemap-news.xml'");
+    expect(workflowSource).toContain("- 'public/rss*.xml'");
+    expect(workflowSource).toContain(`- '${tickerPath}'`);
+    expect(replay.if).toBe("github.event_name == 'push'");
+    expect(replayStep('Publish client article chunks after article sync merge').run).toContain(
+      'scripts/publish-article-chunks.mjs --strict --no-ticker',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'publish_edge_batch 1 news-sitemap --only=/sitemap-news.xml',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'publish_edge_batch 10 rss-feeds --only=/rss.xml,/rss-it.xml,/rss-en.xml,/rss-de.xml,/rss-fr.xml,/rss-svizzera.xml,/rss-svizzera-it.xml,/rss-svizzera-en.xml,/rss-svizzera-de.xml,/rss-svizzera-fr.xml',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'data/news-ticker-live.json "public, max-age=300, must-revalidate"',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces').run).toContain(
+      'cf-purge-cache.mjs --files=https://cdn.frontaliereticino.ch/data/news-ticker-live.json',
+    );
+    expect(replayStep('Replay article sitemap, RSS and ticker surfaces')['continue-on-error']).toBeUndefined();
   });
 });
