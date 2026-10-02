@@ -324,6 +324,16 @@ describe('savedJobsService — persistence', () => {
       unsubscribe();
     });
 
+    it('a later login does not re-default a digest the person turned off', async () => {
+      const stopped = { optedIn: false, optedOut: true, unsubscribe_method: 'preference_center' };
+      profileStore.set('test-uid', { email: 'old@b.ch', locale: 'it', savedJobsDigest: stopped });
+      getDocMock.mockResolvedValueOnce({ exists: () => true } as never);
+      const unsubscribe = subscribeSavedJobsFirestore('test-uid', { email: 'a@b.ch', locale: 'de' });
+      await vi.waitFor(() => expect(profileStore.get('test-uid')).toMatchObject({ email: 'a@b.ch', locale: 'de' }));
+      expect(profileStore.get('test-uid')?.savedJobsDigest).toEqual(stopped);
+      unsubscribe();
+    });
+
     it('a profile created right after a replayed save keeps the activation', async () => {
       // The race: the pending-save replay activates the digest while
       // ensureUserProfileDoc has already read "no profile yet".

@@ -357,12 +357,17 @@ describe('#5684 point 3 — a preference set in the centre survives what comes a
   });
 
   it('the digest opt-out is not re-defaulted by a later login', () => {
-    // ensureUserProfileDoc writes savedJobsDigest only on first creation. The
-    // centre now writes the same key, so the guarantee has a second reason to
-    // keep holding — and a second way to be broken.
-    expect(read('services/savedJobsService.ts')).toMatch(
-      /savedJobsDigest[\s\S]{0,400}?NEVER touched again after creation/,
-    );
+    // ensureUserProfileDoc never writes savedJobsDigest — since 2026-10-02 not
+    // even on first creation, which merges: the centre, the digest's own link
+    // and the save activation own the key. The centre writes it too, so the
+    // guarantee has a second reason to keep holding — and a second way to be
+    // broken. Behaviour: tests/services/savedJobsService.test.ts.
+    const src = read('services/savedJobsService.ts');
+    const start = src.indexOf('async function ensureUserProfileDoc');
+    expect(start).toBeGreaterThan(-1);
+    const body = src.slice(start, src.indexOf('\n}\n', start));
+    expect(body).not.toMatch(/savedJobsDigest\s*:/);
+    expect(body).toMatch(/\{\s*merge:\s*true\s*\}/);
   });
 });
 
