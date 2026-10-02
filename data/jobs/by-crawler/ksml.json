@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ksml",
-  "assembledAt": "2026-10-02T09:25:10.572Z",
+  "assembledAt": "2026-10-02T21:28:06.258Z",
   "jobs": [
     {
       "id": "ksml-010831de70a7",
@@ -34,7 +34,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40333",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.750Z",
+      "crawledAt": "2026-10-02T21:27:58.581Z",
       "addressLocality": "Biel-Bienne",
       "streetAddress": "Seilerweg 64",
       "postalCode": "2504",
@@ -115,7 +115,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40392",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Schulhäuser Säget und Gyrisberg I",
       "streetAddress": "Schulhäuser Säget und Gyrisberg I",
       "postalCode": "3122",
@@ -133,10 +133,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40392",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wir-suchen-per-sofort-eine-zwei-lehrperson-en-als-fels-in-der-brandung-schule-jegenstorf-40392",
-        "wir-suchen-per-sofort-eine-zwei-lehrperson-en-come-fels-in-der-brandung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-schulhauser-saget-und-gyrisberg-i"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "wir-suchen-per-sofort-eine-zwei-lehrperson-en-als-fels-in-der-brandung-schule-jegenstorf-40392",
@@ -149,8 +146,10 @@
           "wir-suchen-per-sofort-eine-zwei-lehrperson-en-als-fels-in-der-brandung-schule-jegenstorf-40392"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:27:21.273Z",
+      "previousSlugs": [
+        "wir-suchen-per-sofort-eine-zwei-lehrperson-en-als-fels-in-der-brandung-schule-jegenstorf-40392",
+        "wir-suchen-per-sofort-eine-zwei-lehrperson-en-come-fels-in-der-brandung-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-schulhauser-saget-und-gyrisberg-i"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -163,7 +162,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:27:21.273Z"
     },
     {
       "id": "ksml-a971077ae691",
@@ -197,7 +197,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40373",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.581Z",
       "addressLocality": "Biel-Bienne",
       "streetAddress": "Biel-Bienne",
       "postalCode": "2503",
@@ -278,7 +278,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39536",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Interlaken",
       "streetAddress": "Alpenstrasse 34",
       "postalCode": "3800",
@@ -361,7 +361,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40327",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Inkwil",
       "streetAddress": "Inkwil",
       "postalCode": "3375",
@@ -442,7 +442,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40163",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Biel-Bienne",
       "streetAddress": "Biel-Bienne",
       "postalCode": "2503",
@@ -524,7 +524,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40177",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Biglen",
       "streetAddress": "Biglen",
       "postalCode": "3507",
@@ -613,7 +613,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39995",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.749Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Muri",
       "streetAddress": "Muri",
       "postalCode": "3074",
@@ -704,7 +704,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40370",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.748Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "St. Stephan",
       "streetAddress": "Lenkstrasse 97",
       "postalCode": "3772",
@@ -787,7 +787,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40339",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.748Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "Worblaufen",
       "streetAddress": "Worblaufen",
       "postalCode": "3048",
@@ -862,7 +862,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37425",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.748Z",
+      "crawledAt": "2026-10-02T21:27:58.580Z",
       "addressLocality": "Belp",
       "streetAddress": "Belp",
       "postalCode": "3123",
@@ -945,7 +945,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40116",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.748Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "Leissigen",
       "streetAddress": "Leissigen",
       "postalCode": "3706",
@@ -994,7 +994,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:10:56.229Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1007,7 +1006,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-9535249c4152",
@@ -1041,7 +1041,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40388",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.747Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Richigen",
       "streetAddress": "Richigengrabenweg 202",
       "postalCode": "3078",
@@ -1122,7 +1122,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40258",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.747Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "Burgistein",
       "streetAddress": "Burgistein",
       "postalCode": "3664",
@@ -1203,7 +1203,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40226",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.747Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "Biel",
       "streetAddress": "Biel",
       "postalCode": "2504",
@@ -1290,7 +1290,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36452",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.747Z",
+      "crawledAt": "2026-10-02T21:27:58.579Z",
       "addressLocality": "Rüegsauschachen",
       "streetAddress": "Gempenstrasse 3",
       "postalCode": "3415",
@@ -1365,7 +1365,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40369",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.746Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Sägegasse 15",
       "postalCode": "3400",
@@ -1400,7 +1400,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:51:26.756Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1413,7 +1412,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-d414dcb046ca",
@@ -1447,7 +1447,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40232",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.746Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Bienne",
       "streetAddress": "Rue Baptiste-Savoye 33",
       "postalCode": "2503",
@@ -1528,7 +1528,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36735",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.746Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Kallnach",
       "streetAddress": "Oberfeld 18",
       "postalCode": "3283",
@@ -1659,7 +1659,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40105",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.746Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Bützberg",
       "streetAddress": "Bützberg",
       "postalCode": "4922",
@@ -1758,7 +1758,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40361",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
       "addressLocality": "Lenk",
       "streetAddress": "Schulhausstrasse 2",
       "postalCode": "3775",
@@ -1843,7 +1843,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39508",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.578Z",
       "addressLocality": "Thun",
       "streetAddress": "Schulstrasse 33",
       "postalCode": "3604",
@@ -1880,8 +1880,8 @@
           "teilpensenlehrperson-3-klasse-10l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-thun-39508"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-23T23:51:26.756Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -1928,7 +1928,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40325",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
       "addressLocality": "Heimenhausen",
       "streetAddress": "Heimenhausen",
       "postalCode": "3373",
@@ -2009,7 +2009,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40298",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
       "addressLocality": "Jegenstorf",
       "streetAddress": "Jegenstorf",
       "postalCode": "3303",
@@ -2038,7 +2038,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.272Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2051,7 +2050,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-98f76a3dab77",
@@ -2085,7 +2085,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39992",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
       "addressLocality": "Bern",
       "streetAddress": "Morgartenstrasse 2c",
       "postalCode": "3014",
@@ -2179,7 +2179,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40075",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.745Z",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
       "addressLocality": "Krauchthal",
       "streetAddress": "Krauchthal",
       "postalCode": "3326",
@@ -2259,7 +2259,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38600",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.744Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Thierachern",
       "streetAddress": "Thierachern",
       "postalCode": "3634",
@@ -2325,7 +2325,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:15:30.852Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2338,7 +2337,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-1fca9a503b99",
@@ -2372,7 +2372,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40289",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Hindelbank",
       "streetAddress": "Hindelbank",
       "postalCode": "3324",
@@ -2454,7 +2454,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40248",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3006",
@@ -2539,7 +2539,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40205",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Bern",
       "streetAddress": "Wangenstrasse 9",
       "postalCode": "3018",
@@ -2641,7 +2641,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40123",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Rüfenacht",
       "streetAddress": "Rosenweg 9",
       "postalCode": "3075",
@@ -2713,8 +2713,8 @@
           "stev-fur-klp-im-semesterurlaub-3-4-klasse-22l-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-40123"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:32:12.743Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2761,7 +2761,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40104",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Frutigen",
       "streetAddress": "Vordorfgasse 1",
       "postalCode": "3714",
@@ -2809,7 +2809,6 @@
         "livello-base-22-8l-klp-sostituzione-maternita-04-01-09-04-27-successivamente-possibilita-di-impiego-permanente-con-40104"
       ],
       "firstSeenAt": "2026-08-25T10:02:57.740Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -2822,7 +2821,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-d749c7525394",
@@ -2856,7 +2856,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40070",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.741Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Wimmis",
       "streetAddress": "Wimmis",
       "postalCode": "3752",
@@ -2976,7 +2976,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40393",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Lerchenfeld (Thun)",
       "streetAddress": "Lerchenfeld (Thun)",
       "postalCode": "3603",
@@ -2994,12 +2994,7 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40393",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-primarschule-40393",
-        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lerchenfeld-thun",
-        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-40393",
-        "livello-di-base-partecipativo-aggiunto-pensum-10-15-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40393"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-primarschule-40393",
@@ -3013,8 +3008,12 @@
           "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-40393"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:27:21.269Z",
+      "previousSlugs": [
+        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-primarschule-40393",
+        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-lerchenfeld-thun",
+        "stellvertretung-teilpensenlehrperson-basisstufe-pensum-10-15-lektionen-ksml-kantonaler-stellenmarkt-fur-40393",
+        "livello-di-base-partecipativo-aggiunto-pensum-10-15-lezioni-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40393"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3027,7 +3026,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:27:21.269Z"
     },
     {
       "id": "ksml-54ae7f7ae76c",
@@ -3061,7 +3061,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40390",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Lerchenfeld (Thun)",
       "streetAddress": "Lerchenfeld (Thun)",
       "postalCode": "3603",
@@ -3095,8 +3095,8 @@
           "stellvertretung-teilpensenlehrperson-primarschule-pensum-3-lektionen-primarschule-40390"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:29:33.462Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -3143,7 +3143,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40364",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3001",
@@ -3226,7 +3226,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39966",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Sägegasse 15",
       "postalCode": "3400",
@@ -3310,7 +3310,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40345",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Burgdorf (Grunerstrasse 7)",
       "streetAddress": "Burgdorf (Grunerstrasse 7)",
       "postalCode": "3400",
@@ -3395,7 +3395,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40343",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Rüeggisberg",
       "streetAddress": "Rüeggisberg",
       "postalCode": "3088",
@@ -3470,7 +3470,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40319",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.575Z",
       "addressLocality": "Langenthal",
       "streetAddress": "Bäreggstrasse 20",
       "postalCode": "4900",
@@ -3546,7 +3546,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40288",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.740Z",
+      "crawledAt": "2026-10-02T21:27:58.576Z",
       "addressLocality": "Oppligen",
       "streetAddress": "Oppligen",
       "postalCode": "3629",
@@ -3621,7 +3621,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39586",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.739Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Thun",
       "streetAddress": "Schulstrasse 33",
       "postalCode": "3604",
@@ -3705,7 +3705,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40356",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.739Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Burgdorf",
       "postalCode": "3400",
@@ -3789,7 +3789,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40279",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.739Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Langenthal",
       "streetAddress": "Bettenhölzliweg 10",
       "postalCode": "4900",
@@ -3864,7 +3864,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40287",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.739Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Ostermundigen",
       "streetAddress": "Bernstrasse 60",
       "postalCode": "3072",
@@ -3939,7 +3939,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39912",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.739Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Gümligen",
       "streetAddress": "Gümligen",
       "postalCode": "3073",
@@ -4071,7 +4071,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40347",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Ostermundigen",
       "streetAddress": "Rütiweg 15",
       "postalCode": "3072",
@@ -4100,7 +4100,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.270Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4113,7 +4112,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-31534ab05aa1",
@@ -4147,7 +4147,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40263",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Reichenbach",
       "streetAddress": "Mühle 1",
       "postalCode": "3713",
@@ -4231,7 +4231,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40259",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Riggisberg",
       "streetAddress": "Riggisberg",
       "postalCode": "3132",
@@ -4320,7 +4320,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40128",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Zäziwil",
       "streetAddress": "Zäziwil",
       "postalCode": "3532",
@@ -4385,8 +4385,8 @@
           "stellvertretung-klassenlehrperson-5-6-klasse-100-oder-aufteilung-pensum-auf-zwei-40128"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:37.694Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4433,7 +4433,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40096",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.574Z",
       "addressLocality": "Thun",
       "streetAddress": "Im Dorf 11",
       "postalCode": "3608",
@@ -4495,7 +4495,6 @@
         ]
       },
       "firstSeenAt": "2026-08-24T10:21:54.905Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4508,7 +4507,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-12972bb2c311",
@@ -4542,7 +4542,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40078",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.738Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Lerchenfeld (Thun)",
       "streetAddress": "Lerchenfeld (Thun)",
       "postalCode": "3603",
@@ -4664,7 +4664,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40351",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Bern",
       "streetAddress": "Morgartenstrasse 2c",
       "postalCode": "3014",
@@ -4741,7 +4741,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40385",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Bern",
       "streetAddress": "Schifflaube 1",
       "postalCode": "3011",
@@ -4779,7 +4779,6 @@
         ]
       },
       "firstSeenAt": "2026-09-27T15:08:47.218Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4792,7 +4791,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-27843a1a4bfc",
@@ -4826,7 +4826,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40365",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3001",
@@ -4909,7 +4909,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40140",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Niederstocken",
       "streetAddress": "Niederstocken",
       "postalCode": "3631",
@@ -4938,7 +4938,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.267Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -4951,7 +4950,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-5fa160a8f11e",
@@ -4985,7 +4985,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40315",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Kirchberg",
       "streetAddress": "Solothurnstrasse 5",
       "postalCode": "3422",
@@ -5060,7 +5060,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40277",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Steffisburg",
       "streetAddress": "Steffisburg",
       "postalCode": "3613",
@@ -5141,7 +5141,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40197",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Krauchthal",
       "streetAddress": "Krauchthal",
       "postalCode": "3326",
@@ -5222,7 +5222,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40107",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Röthenbach i",
       "streetAddress": "Dorf 2A",
       "postalCode": "3538",
@@ -5281,8 +5281,8 @@
           "stellvertretung-integrierte-forderung-kg-bis-6-klasse-19-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-rothenbach-i-e"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:57:03.692Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -5329,7 +5329,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40076",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.572Z",
       "addressLocality": "Krauchthal",
       "streetAddress": "Krauchthal",
       "postalCode": "3326",
@@ -5416,7 +5416,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40040",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.737Z",
+      "crawledAt": "2026-10-02T21:27:58.573Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3018",
@@ -5497,7 +5497,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40349",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.736Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Seftigen",
       "streetAddress": "Seftigen",
       "postalCode": "3662",
@@ -5589,7 +5589,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39731",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.736Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Biel/Bienne",
       "streetAddress": "Friedweg 24",
       "postalCode": "2503",
@@ -5664,7 +5664,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40187",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.736Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Stettlen",
       "streetAddress": "Stettlen",
       "postalCode": "3066",
@@ -5753,7 +5753,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39948",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.736Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Erlenbach i",
       "streetAddress": "Erlenbach i. S.",
       "postalCode": "3762",
@@ -5859,7 +5859,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40268",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.735Z",
+      "crawledAt": "2026-10-02T21:27:58.570Z",
       "addressLocality": "Wattenwil",
       "streetAddress": "Wattenwil",
       "postalCode": "3665",
@@ -5934,7 +5934,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40222",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.735Z",
+      "crawledAt": "2026-10-02T21:27:58.570Z",
       "addressLocality": "Sumiswald",
       "streetAddress": "Lütoldstrasse 3",
       "postalCode": "3454",
@@ -5985,7 +5985,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:54:40.745Z",
-      "needsRetranslation": true,
       "salaryMin": 44000,
       "salaryMax": 81300,
       "salarySource": "estimated",
@@ -5998,7 +5997,8 @@
           "maxValue": 81300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-f765cc9b77b1",
@@ -6032,7 +6032,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40048",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.735Z",
+      "crawledAt": "2026-10-02T21:27:58.571Z",
       "addressLocality": "Sutz-Lattrigen / Mörigen",
       "streetAddress": "Sutz-Lattrigen / Mörigen",
       "postalCode": "2572",
@@ -6121,7 +6121,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/31930",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.735Z",
+      "crawledAt": "2026-10-02T21:27:58.570Z",
       "addressLocality": "Muri bei Bern",
       "streetAddress": "Muri bei Bern",
       "postalCode": "3074",
@@ -6162,7 +6162,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:33:47.002Z",
-      "needsRetranslation": true,
       "salaryMin": 61600,
       "salaryMax": 113800,
       "salarySource": "estimated",
@@ -6175,7 +6174,8 @@
           "maxValue": 113800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-ff585fb55f88",
@@ -6209,7 +6209,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40154",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Tramelan",
       "streetAddress": "Grand-Rue 106",
       "postalCode": "2720",
@@ -6290,7 +6290,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40285",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Bienne",
       "streetAddress": "Bienne",
       "postalCode": "2504",
@@ -6371,7 +6371,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40065",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Zollbrück",
       "streetAddress": "Zollbrück",
       "postalCode": "3436",
@@ -6453,7 +6453,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37444",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.570Z",
       "addressLocality": "Heimberg",
       "streetAddress": "Heimberg",
       "postalCode": "3627",
@@ -6536,7 +6536,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39606",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Utzigen",
       "streetAddress": "Utzigen",
       "postalCode": "3068",
@@ -6618,7 +6618,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38009",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Bern",
       "streetAddress": "Morgartenstrasse 2c",
       "postalCode": "3014",
@@ -6776,7 +6776,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40114",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Wimmis",
       "streetAddress": "Wimmis",
       "postalCode": "3752",
@@ -6841,7 +6841,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T10:10:56.219Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -6854,7 +6853,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-d0aa04635132",
@@ -6888,7 +6888,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40069",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.734Z",
+      "crawledAt": "2026-10-02T21:27:58.569Z",
       "addressLocality": "Biel/Bienne",
       "streetAddress": "Biel/Bienne",
       "postalCode": "2502",
@@ -6947,7 +6947,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:41.100Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -6960,16 +6959,17 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-e03f7d285517",
       "slug": "mutterschaftsvertretung-an-einer-1-e-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-juli-2027-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiegel",
       "slugByLocale": {
         "it": "mutterschaftsvertretung-an-einer-1-e-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-juli-2027-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiegel",
-        "en": "maternity-representation-at-1st-and-2nd-grade-11-lessons-from-1st-february-previously-to-31st-july-2027-mo-do-ksml-40395",
+        "en": "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395",
         "de": "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395",
-        "fr": "representation-de-la-maternite-en-1ere-et-2eme-annee-11-lecons-du-1er-fevrier-precedemment-au-31-juillet-2027-mo-40395"
+        "fr": "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395"
       },
       "slugDisambiguator": "40395",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -6978,23 +6978,23 @@
       "title": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
       "titleByLocale": {
         "it": "Mutterschaftsvertretung an einer 1. e 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
-        "en": "Maternity representation at 1st and 2nd grade, 11 lessons from 1st February (previously) to 31st July 2027. Mo + Do",
+        "en": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
         "de": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do",
-        "fr": "Représentation de la maternité en 1ère et 2ème année, 11 leçons du 1er février (précédemment) au 31 juillet 2027. Mo + Do"
+        "fr": "Mutterschaftsvertretung an einer 1. und 2.Klasse, 11 Lektionen ab 1. Februar (ev. früher) bis 31.Juli 2027. Mo + Do"
       },
       "description": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum",
       "descriptionByLocale": {
-        "it": "Ritratto\nLa scuola Spiegel è una scuola di quarto dall'asilo / livello di base fino al 9 ° grado. In 29 gradi e classi pluriennali, 580 studenti sono insegnati. Una cogestione, 70 insegnanti, 3 governanti e un segretario scolastico sono responsabili delle buone operazioni scolastiche.\n\nCompiti\nAmate le sfide della vita quotidiana della scuola e siete impazienti di insegnare agli studenti interessati? I primi e i secondi sono alla ricerca di un insegnante dedicato. Insegnano 4L al secondo grado il lunedì mattina e 4L - TTG e TXT al primo grado (lezioni di mezza classe) il giovedì mattina e 2L TXT e 1L musica al secondo grado (anche lezioni di mezza classe) nel pomeriggio.\n\nRequisiti\nGioia e interesse a lavorare con tutti gli insegnanti della classe e la squadra passo. Competenza sicura, chiara e professionale nel trattare con tutte le parti interessate. Studi completi o in corso presso un Collegio Pedagogico o esperienza didattica sul Ciclo 1.\n\nOffriamo\nUn college aperto e disponibile\n- Sostegno in squadra da parte degli insegnanti, BesFö - insegnanti, lavoro sociale scolastico e gestione scolastica\n- Scuola contemporanea e strutture educative\n- Camera di classe con camera di gruppo",
-        "en": "Portrait\nThe school Spiegel is a quarter school from kindergarten / basic level up to 9th grade. In 29 grades and multi-year classes, 580 students are taught. A co-management, 70 teachers, 3 housekeepers and a school secretary are responsible for good school operations.\n\nTasks\nDo you love the challenges of the everyday school life and are looking forward to teaching interested students? The 1st and 2nd graders are looking for a dedicated teacher. They teach 4L at 2nd grade on Monday morning and 4L - TTG and TXT at 1st grade (half-class lessons) on Thursday morning and 2L TXT and 1L music at 2nd grade (also half-class lessons) in the afternoon.\n\nRequirements\nJoy and interest in working with all teachers of the class and the step team. Secure, clear and professional performance competence in dealing with all stakeholders. Completed or ongoing studies at a Pedagogical College or teaching experience on Cycle 1.\n\nWe offer\nAn open and helpful college\n- Support in the team by teachers, BesFö - teachers, school social work and school management\n- Contemporary school and educational structures\n- Classroom with group room",
+        "it": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum",
+        "en": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum",
         "de": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum",
-        "fr": "Portrait\nL'école Spiegel est un quart d'école de maternelle / niveau de base jusqu'à la 9ème année. Dans 29 classes et cours pluriannuels, 580 élèves sont enseignés. Une cogestion, 70 enseignants, 3 femmes de ménage et un secrétaire d'école sont responsables de bonnes opérations scolaires.\n\nTâches\nAimez-vous les défis de la vie scolaire quotidienne et êtes-vous impatient d'enseigner les étudiants intéressés? Les élèves de 1re et 2e année sont à la recherche d'un enseignant dévoué. Ils enseignent 4L en 2ème année le lundi matin et 4L - TTG et TXT en 1ère année (cours de demi-classe) le jeudi matin et 2L TXT et 1L musique en 2ème année (aussi cours de demi-classe) l'après-midi.\n\nExigences\nLa joie et l'intérêt de travailler avec tous les enseignants de la classe et l'équipe d'étape. Compétence en matière de performance sûre, claire et professionnelle pour traiter avec toutes les parties prenantes. Études terminées ou en cours dans un collège pédagogique ou expérience pédagogique sur le cycle 1.\n\nNous offrons\nUn collège ouvert et serviable\n- Soutien dans l'équipe par les enseignants, BesFö - enseignants, travail social scolaire et gestion scolaire\n- Structures scolaires et éducatives contemporaines\n- Salle de classe avec salle de groupe"
+        "fr": "Porträt\nDie Schule Spiegel ist eine Quartierschule vom Kindergarten / Basisstufe bis zur 9. Klasse. In 29 Jahrgangs- und Mehrjahrgangsklassen werden 580 Schülerinnen und Schüler unterrichtet. Eine Co-Schulleitung, 70 Lehrpersonen, 3 Hauswarte und eine Schulsekretärin sind für einen guten Schulbetrieb verantwortlich.\n\nAufgaben\nSie lieben die Herausforderungen des Unterstufenschulalltages und freuen sich auf das Unterrichten von interessierten Schülerinnen und Schülern? Die 1. und 2.Klasse sucht eine engagierte Lehrperson. Sie unterrichten jeweils am Montagvormittag 4L an der 2. Klasse und am Donnerstagmorgen 4L - TTG und TXT an der 1. Klasse (Halbklassenunterricht) und am Nachmittag 2L TXT und 1L Musik an der 2. Klasse (ebenfalls Halbklassenunterricht).\n\nAnforderungen\nFreude und Interesse an der Zusammenarbeit mit allen Lehrpersonen der Klasse und dem Stufenteam. Sichere, klare und professionelle Auftrittskompetenz im Umgang mit allen Anspruchsgruppen. Abgeschlossenes oder laufendes Studium an einer Pädagogischen Hochschule oder Unterrichtserfahrung auf dem Zyklus 1.\n\nWir bieten\nEin offenes und hilfsbereites Kollegium\n- Unterstützung im Team durch Lehrpersonen, BesFö - Lehrpersonen, Schulsozialarbeit und Schulleitung\n- Zeitgemässe Schul- und Bildungsstrukturen\n- Klassenzimmer mit Gruppenraum"
       },
       "location": "Spiegel b",
       "canton": "BE",
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40395",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Spiegel b",
       "streetAddress": "Spiegel b. Bern",
       "postalCode": "3095",
@@ -7011,10 +7011,14 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40395",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395",
-        "mutterschaftsvertretung-an-einer-1-e-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-juli-2027-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiegel"
+        "mutterschaftsvertretung-an-einer-1-e-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-juli-2027-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiegel",
+        "maternity-representation-at-1st-and-2nd-grade-11-lessons-from-1st-february-previously-to-31st-july-2027-mo-do-ksml-40395",
+        "representation-de-la-maternite-en-1ere-et-2eme-annee-11-lecons-du-1er-fevrier-precedemment-au-31-juillet-2027-mo-40395"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7022,14 +7026,16 @@
           "mutterschaftsvertretung-an-einer-1-e-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-juli-2027-mo-do-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-spiegel"
         ],
         "en": [
-          "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395"
+          "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395",
+          "maternity-representation-at-1st-and-2nd-grade-11-lessons-from-1st-february-previously-to-31st-july-2027-mo-do-ksml-40395"
         ],
         "fr": [
-          "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395"
+          "mutterschaftsvertretung-an-einer-1-und-2-klasse-11-lektionen-ab-1-februar-ev-fruher-bis-31-40395",
+          "representation-de-la-maternite-en-1ere-et-2eme-annee-11-lecons-du-1er-fevrier-precedemment-au-31-juillet-2027-mo-40395"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:23:44.442Z",
+      "firstSeenAt": "2026-10-02T21:27:58.568Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -7076,7 +7082,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40348",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Ostermundigen",
       "streetAddress": "Rütiweg 9",
       "postalCode": "3072",
@@ -7157,7 +7163,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40335",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Attiswil",
       "streetAddress": "Dorfstrasse 14",
       "postalCode": "4536",
@@ -7232,7 +7238,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40330",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Burgistein",
       "streetAddress": "Burgistein",
       "postalCode": "3664",
@@ -7313,7 +7319,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40331",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Burgistein",
       "streetAddress": "Burgistein",
       "postalCode": "3664",
@@ -7398,7 +7404,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40267",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Aegerten",
       "streetAddress": "Längackerweg 13",
       "postalCode": "2556",
@@ -7479,7 +7485,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40225",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Wangen an der Aare",
       "streetAddress": "Schulhausstrasse 7",
       "postalCode": "3380",
@@ -7567,7 +7573,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40196",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Lotzwil",
       "streetAddress": "Lotzwil",
       "postalCode": "4932",
@@ -7654,7 +7660,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40091",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.733Z",
+      "crawledAt": "2026-10-02T21:27:58.568Z",
       "addressLocality": "Oey",
       "streetAddress": "Oey",
       "postalCode": "3753",
@@ -7784,7 +7790,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-5cfefe96c998",
@@ -7818,7 +7825,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40317",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Ins",
       "streetAddress": "Ins",
       "postalCode": "3232",
@@ -7902,7 +7909,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40318",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Biel",
       "streetAddress": "Heidensteinweg 25",
       "postalCode": "2504",
@@ -7986,7 +7993,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37327",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Heimberg",
       "streetAddress": "Heimberg",
       "postalCode": "3627",
@@ -8021,7 +8028,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.262Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8034,7 +8040,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-034663dd7bde",
@@ -8068,7 +8075,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40202",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Ortschwaben",
       "streetAddress": "Kirchlindachstrasse 7",
       "postalCode": "3042",
@@ -8109,7 +8116,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:52:14.717Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8122,7 +8128,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-5e65e650a8d7",
@@ -8156,7 +8163,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40158",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.567Z",
       "addressLocality": "Schule Herzogenbuchsee",
       "streetAddress": "Schule Herzogenbuchsee",
       "postalCode": "3360",
@@ -8245,7 +8252,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40137",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.566Z",
       "addressLocality": "Standort Brunnmatt",
       "streetAddress": "Standort Brunnmatt",
       "postalCode": "3007",
@@ -8312,7 +8319,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:12.730Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8325,7 +8331,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-b02ef29ace0e",
@@ -8359,7 +8366,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36578",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.732Z",
+      "crawledAt": "2026-10-02T21:27:58.566Z",
       "addressLocality": "Wynigen",
       "streetAddress": "Wynigen",
       "postalCode": "3472",
@@ -8408,8 +8415,8 @@
           "logopadin-logopade-13-17-lektionen-mutterschaftsvertretung-januar-juli-2027-perspektive-36578"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T21:56:21.615Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8456,7 +8463,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40397",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Kehrsatz",
       "streetAddress": "Kehrsatz",
       "postalCode": "3122",
@@ -8498,7 +8505,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T09:25:02.731Z"
+      "firstSeenAt": "2026-10-02T21:27:58.565Z"
     },
     {
       "id": "ksml-acb04a2726d2",
@@ -8532,7 +8539,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40321",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.566Z",
       "addressLocality": "Liebefeld",
       "streetAddress": "Liebefeld",
       "postalCode": "3097",
@@ -8647,7 +8654,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37078",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Wiedlisbach",
       "streetAddress": "Dorfstrasse 10",
       "postalCode": "4537",
@@ -8736,7 +8743,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40199",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Rüfenacht",
       "streetAddress": "Rosenweg 9",
       "postalCode": "3075",
@@ -8779,7 +8786,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T23:39:14.405Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8792,7 +8798,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-962104c59281",
@@ -8826,7 +8833,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38518",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Oberburg",
       "streetAddress": "Oberburg",
       "postalCode": "3414",
@@ -8867,7 +8874,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:46:39.679Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8880,7 +8886,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-026ca7ba5b02",
@@ -8914,7 +8921,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36453",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Rüegsauschachen",
       "streetAddress": "Gempenstrasse 3",
       "postalCode": "3415",
@@ -8950,7 +8957,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:25:26.143Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -8963,7 +8969,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-da884d66ba54",
@@ -8997,7 +9004,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38896",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.566Z",
       "addressLocality": "Arch-Leuzigen",
       "streetAddress": "Schulstrasse 7",
       "postalCode": "3296",
@@ -9080,7 +9087,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:52:23.790Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -9093,7 +9099,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-2b4a0ff50a73",
@@ -9127,7 +9134,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38290",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.566Z",
       "addressLocality": "Frauenkappelen",
       "streetAddress": "Zälglistrasse 7",
       "postalCode": "3202",
@@ -9197,7 +9204,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T21:56:21.615Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -9210,7 +9216,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-631e872ff3de",
@@ -9244,7 +9251,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/30960",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.731Z",
+      "crawledAt": "2026-10-02T21:27:58.565Z",
       "addressLocality": "Sumiswald und Wasen",
       "streetAddress": "Lütoldstrasse 3",
       "postalCode": "3454",
@@ -9316,7 +9323,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:50:26.089Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -9329,7 +9335,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-d5bd802a6ff3",
@@ -9363,7 +9370,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40387",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.563Z",
       "addressLocality": "Pieterlen",
       "streetAddress": "Moosgasse 34",
       "postalCode": "2542",
@@ -9447,7 +9454,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40375",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.564Z",
       "addressLocality": "Bern",
       "streetAddress": "Papiermühlestrasse 65",
       "postalCode": "3014",
@@ -9529,7 +9536,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40359",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.563Z",
       "addressLocality": "Biel",
       "streetAddress": "Biel",
       "postalCode": "2503",
@@ -9610,7 +9617,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40265",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.563Z",
       "addressLocality": "Aarwangen",
       "streetAddress": "Turnhallestrasse 18",
       "postalCode": "4912",
@@ -9685,7 +9692,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40251",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.564Z",
       "addressLocality": "Laupen",
       "streetAddress": "Laupen",
       "postalCode": "3177",
@@ -9772,7 +9779,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40241",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.564Z",
       "addressLocality": "Kleindietwil",
       "streetAddress": "Kleindietwil",
       "postalCode": "4936",
@@ -9861,7 +9868,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39794",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.564Z",
       "addressLocality": "Biel",
       "streetAddress": "Biel",
       "postalCode": "2503",
@@ -9941,7 +9948,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40071",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.730Z",
+      "crawledAt": "2026-10-02T21:27:58.564Z",
       "addressLocality": "Ipsach",
       "streetAddress": "Ipsach",
       "postalCode": "2563",
@@ -10011,7 +10018,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:08:41.095Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -10024,7 +10030,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-8b38902ebbd1",
@@ -10058,7 +10065,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40376",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.563Z",
       "addressLocality": "Bern",
       "streetAddress": "Papiermühlestrasse 65",
       "postalCode": "3014",
@@ -10143,7 +10150,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40355",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.562Z",
       "addressLocality": "Bern 22",
       "streetAddress": "Bern 22",
       "postalCode": "3000",
@@ -10227,7 +10234,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40309",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.562Z",
       "addressLocality": "Schwarzenburg",
       "streetAddress": "Thunstrasse 27",
       "postalCode": "3150",
@@ -10308,7 +10315,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40311",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.562Z",
       "addressLocality": "Schwarzenburg",
       "streetAddress": "Thunstrasse 27",
       "postalCode": "3150",
@@ -10389,7 +10396,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/36334",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.561Z",
       "addressLocality": "Mühleberg",
       "streetAddress": "Buchstrasse 30",
       "postalCode": "3203",
@@ -10470,7 +10477,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40269",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.562Z",
       "addressLocality": "Bern",
       "streetAddress": "Papiermühlestrasse 65",
       "postalCode": "3014",
@@ -10545,7 +10552,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40242",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.729Z",
+      "crawledAt": "2026-10-02T21:27:58.562Z",
       "addressLocality": "Biel/Bienne",
       "streetAddress": "Biel/Bienne",
       "postalCode": "2503",
@@ -10634,7 +10641,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40217",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.728Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Jegenstorf",
       "streetAddress": "Jegenstorf",
       "postalCode": "3303",
@@ -10719,7 +10726,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40097",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.728Z",
+      "crawledAt": "2026-10-02T21:27:58.559Z",
       "addressLocality": "Boll",
       "streetAddress": "Stämpbachstrasse 22",
       "postalCode": "3067",
@@ -10781,8 +10788,8 @@
           "lehrperson-5-klasse-13-14-lektionen-mutterschaftsvertretung-primarschule-boll-boll-40264"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:29:37.660Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -10829,7 +10836,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40077",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.728Z",
+      "crawledAt": "2026-10-02T21:27:58.559Z",
       "addressLocality": "Meikirch",
       "streetAddress": "Grächwilstrasse 14",
       "postalCode": "3045",
@@ -10942,7 +10949,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40378",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.727Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3014",
@@ -11023,7 +11030,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39479",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.727Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Aefligen",
       "streetAddress": "Ischlagweg 5",
       "postalCode": "3426",
@@ -11105,7 +11112,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40336",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.727Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Attiswil",
       "streetAddress": "Dorfstrasse 14",
       "postalCode": "4536",
@@ -11186,7 +11193,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40302",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.727Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Lyss",
       "streetAddress": "Lyss",
       "postalCode": "3250",
@@ -11265,7 +11272,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40379",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.556Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3005",
@@ -11340,7 +11347,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38886",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.557Z",
       "addressLocality": "Hinterkappelen",
       "streetAddress": "Hinterkappelen",
       "postalCode": "3032",
@@ -11421,7 +11428,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40283",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.556Z",
       "addressLocality": "Rüschegg-Heubach",
       "streetAddress": "Bundsacker 513a",
       "postalCode": "3154",
@@ -11496,7 +11503,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40297",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.556Z",
       "addressLocality": "Jegenstorf",
       "streetAddress": "Jegenstorf",
       "postalCode": "3303",
@@ -11578,7 +11585,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39360",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.558Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Burgdorf",
       "postalCode": "3400",
@@ -11667,7 +11674,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40231",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.557Z",
       "addressLocality": "Zollikofen",
       "streetAddress": "Zollikofen",
       "postalCode": "3052",
@@ -11771,7 +11778,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40189",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.556Z",
       "addressLocality": "Richigen",
       "streetAddress": "Richigengrabenweg 202",
       "postalCode": "3078",
@@ -11884,7 +11891,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39711",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.726Z",
+      "crawledAt": "2026-10-02T21:27:58.557Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Burgdorf",
       "postalCode": "3400",
@@ -11943,11 +11950,11 @@
     },
     {
       "id": "ksml-e38f1aace6c6",
-      "slug": "insegnante-if-kiga-fino-a-3-4-class-20-lezioni-lezioni-flessibili-8-28-ksml-kantonaler-stellenmarkt-fur-40394",
+      "slug": "insegnante-if-kiga-fino-a-3-4-class-20-lezioni-flessibili-8-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen",
       "slugByLocale": {
-        "it": "insegnante-if-kiga-fino-a-3-4-class-20-lezioni-lezioni-flessibili-8-28-ksml-kantonaler-stellenmarkt-fur-40394",
-        "en": "if-teacher-kiga-up-to-3-4-class-20-lessons-flexible-8-28-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40394",
         "de": "if-lehrperson-kiga-bis-3-4-klasse-20-lektionen-pensum-flexibel-8-28-lektionen-schule-40394",
+        "it": "insegnante-if-kiga-fino-a-3-4-class-20-lezioni-flessibili-8-28-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-aarwangen",
+        "en": "if-teacher-kiga-up-to-3-4-class-20-lessons-flexible-8-28-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40394",
         "fr": "fi-professeur-kiga-jusqu-a-3-4-cours-20-lecons-8-28-lecons-flexibles-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-40394"
       },
       "slugDisambiguator": "40394",
@@ -11973,7 +11980,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40394",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Aarwangen",
       "streetAddress": "Turnhallestrasse 18",
       "postalCode": "4912",
@@ -11991,6 +11998,20 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40394",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:27:21.246Z",
       "previousSlugs": [
         "if-lehrperson-kiga-bis-3-4-klasse-20-lektionen-pensum-flexibel-8-28-lektionen-schule-40394",
         "if-lehrperson-kiga-bis-3-4-klasse-20-lektionen-pensum-flexibel-8-28-lektionen-ksml-kantonaler-stellenmarkt-fur-40394",
@@ -12008,21 +12029,7 @@
           "if-lehrperson-kiga-bis-3-4-klasse-20-lektionen-pensum-flexibel-8-28-lektionen-schule-40394"
         ]
       },
-      "firstSeenAt": "2026-10-01T09:27:21.246Z",
-      "needsRetranslation": true,
-      "salaryMin": 59000,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
-      }
+      "needsRetranslation": true
     },
     {
       "id": "ksml-4aaa674e15f3",
@@ -12056,7 +12063,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39392",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Sumiswald",
       "streetAddress": "Lütoldstrasse 3",
       "postalCode": "3454",
@@ -12131,7 +12138,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40280",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Ostermundigen",
       "streetAddress": "Ostermundigen",
       "postalCode": "3072",
@@ -12160,7 +12167,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.250Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -12173,7 +12179,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-896257324b20",
@@ -12207,7 +12214,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40254",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Steffisburg",
       "streetAddress": "Steffisburg",
       "postalCode": "3612",
@@ -12297,7 +12304,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40250",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Wangen an der Aare",
       "streetAddress": "Schulhausstrasse 7",
       "postalCode": "3380",
@@ -12378,7 +12385,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40213",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Radelfingen",
       "streetAddress": "Eggenweg 5",
       "postalCode": "3271",
@@ -12467,7 +12474,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37447",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.556Z",
       "addressLocality": "Ipsach",
       "streetAddress": "Ipsach",
       "postalCode": "2560",
@@ -12554,7 +12561,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40074",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Hasle b",
       "streetAddress": "Eichholzstrasse 39",
       "postalCode": "3415",
@@ -12675,7 +12682,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39857",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.725Z",
+      "crawledAt": "2026-10-02T21:27:58.555Z",
       "addressLocality": "Erlach Oberstufe",
       "streetAddress": "Erlach Oberstufe",
       "postalCode": "3235",
@@ -12732,8 +12739,8 @@
           "integrative-forderung-12-lektionen-eu-12-lektionen-und-bvsa-4-lektionen-39857"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T12:03:34.465Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -12753,9 +12760,9 @@
       "slug": "insegnante-di-guarigione-circa-il-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
       "slugByLocale": {
         "it": "insegnante-di-guarigione-circa-il-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
-        "en": "healing-teacher-healing-teacher-about-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39877",
+        "en": "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
         "de": "heilpadagogin-heilpadagoge-ca-10-3-4l-schule-laupen-laupen-39877",
-        "fr": "professeur-de-guerison-professeur-de-guerison-environ-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39877"
+        "fr": "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
       },
       "slugDisambiguator": "39877",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -12763,24 +12770,24 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
       "titleByLocale": {
-        "it": "Insegnante di guarigione / insegnante di guarigione circa il 10% (3L.)",
-        "en": "Healing teacher / Healing teacher about 10% (3L.)",
+        "it": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
+        "en": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
         "de": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)",
-        "fr": "Professeur de guérison / Professeur de guérison environ 10% (3L.)"
+        "fr": "Heilpädagogin / Heilpädagoge ca. 10% (3L.)"
       },
       "description": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
       "descriptionByLocale": {
-        "it": "Ritratto\n• Come risultato di un aumento penale a breve termine, stiamo cercando una formazione curativa nella nostra scuola\n• https://www.schulelaupen.com/\n\nCompiti\nPromozione inclusiva e supporto per gli studenti regolari con ASD, disturbi percettivi e disturbi del comportamento sociale. giorni lavorativi per accordo. Ciò riguarda principalmente il sostegno nell'ambito di un bVSAin. di uno studente 8. Sj.\n\nRequisiti\nDiploma / Master School formazione curativa desiderato o la volontà di compensare per questo o l'esperienza in un campo simile.\n\nOffriamo\nlavoro interessante con molto buon sostegno e cooperazione nella scuola aperta. Più tardi espansione e continuazione dell'occupazione possibile.",
-        "en": "Portrait\n• As a result of short-term penal increase, we are looking for curative education at our school\n• https://www.schulelaupen.com/\n\nTasks\nInclusive promotion and support for regular students with ASD, perceptual disorders and disorders of social behavior. working days by agreement. This is primarily about support within the framework of a bVSAin. of a student 8.Sj.\n\nRequirements\nDiploma / Master School curative education desired or willingness to make up for this or experience in a similar field.\n\nWe offer\ninteresting job with very good support and cooperation in open school. Later expansion and continuation of employment possible.",
+        "it": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
+        "en": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
         "de": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich.",
-        "fr": "Portrait\n• En raison de l'augmentation des peines à court terme, nous recherchons une éducation curative dans notre école.\n• https://www.schulelaupen.com/\n\nTâches\nPromotion inclusive et soutien pour les étudiants réguliers atteints de TSA, troubles perceptuels et troubles du comportement social. jours ouvrables par accord. Il s'agit principalement d'un soutien dans le cadre d'un bVSain. d'un étudiant 8. Sj.\n\nExigences\nDiplôme / Master School éducation curative souhaitée ou volonté de compenser pour cela ou expérience dans un domaine similaire.\n\nNous offrons\ntravail intéressant avec un très bon soutien et la coopération dans l'école ouverte. L'expansion ultérieure et la poursuite de l'emploi sont possibles."
+        "fr": "Porträt\n• In Folge kurzfristiger Pensenerhöhung suchen wir im Bereich Heilpädagogik an unserer Schule\n• https://www.schulelaupen.com/\n\nAufgaben\nIntegrative Förderung und Unterstützung für RegelschülerInnen mit ASS, Wahrnehmungsstörungen und Störungen des Sozialverhaltens. Arbeitstage nach Absprache. Es geht hier primär um die Unterstützung im Rahmen eines bVSAin. einer Schüler 8.Sj.\n\nAnforderungen\nDiplom / Master Schulische Heilpädagogik erwünscht oder Bereitschaft dies nachzuholen oder Erfahrung in ähnlichem Bereich.\n\nWir bieten\ninteressante Stelle mit sehr guter Unterstützung und Zusammenarbeit in offener Schule. Späterer Ausbau und Weiterführung der Anstellung möglich."
       },
       "location": "Laupen",
       "canton": "BE",
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39877",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Laupen",
       "streetAddress": "Laupen",
       "postalCode": "3177",
@@ -12797,11 +12804,15 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39877",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "heilpadagogin-heilpadagoge-ca-10-3l-schule-laupen-laupen-39877",
         "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
-        "insegnante-di-guarigione-circa-il-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+        "insegnante-di-guarigione-circa-il-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+        "healing-teacher-healing-teacher-about-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39877",
+        "professeur-de-guerison-professeur-de-guerison-environ-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39877"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -12809,16 +12820,18 @@
           "insegnante-di-guarigione-circa-il-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
         ],
         "en": [
-          "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+          "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+          "healing-teacher-healing-teacher-about-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-39877"
         ],
         "de": [
           "heilpadagogin-heilpadagoge-ca-10-3l-schule-laupen-laupen-39877"
         ],
         "fr": [
-          "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen"
+          "heilpadagogin-heilpadagoge-ca-10-3l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-laupen",
+          "professeur-de-guerison-professeur-de-guerison-environ-10-3-4l-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-39877"
         ]
       },
-      "firstSeenAt": "2026-10-01T21:23:44.430Z",
+      "firstSeenAt": "2026-10-02T21:27:58.554Z",
       "salaryMin": 5900,
       "salaryMax": 10900,
       "salarySource": "estimated",
@@ -12831,7 +12844,8 @@
           "maxValue": 10900,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-2c9beb5c9915",
@@ -12865,7 +12879,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40353",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Wiedlisbach",
       "streetAddress": "Wiedlisbach",
       "postalCode": "4537",
@@ -12946,7 +12960,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40352",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Eriz",
       "streetAddress": "Eriz",
       "postalCode": "3619",
@@ -13027,7 +13041,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40304",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Erlach",
       "streetAddress": "Erlach",
       "postalCode": "3235",
@@ -13108,7 +13122,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39990",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Bern Wankdorf",
       "streetAddress": "Morgartenstrasse 2c",
       "postalCode": "3014",
@@ -13192,7 +13206,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40211",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Steffisburg",
       "streetAddress": "Scheidgasse 19",
       "postalCode": "3612",
@@ -13226,8 +13240,8 @@
           "heilpadagog-in-in-der-hps-region-thun-ein-ort-an-dem-ihre-arbeit-sinn-macht-14-lektionen-40211"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:49:44.886Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -13274,7 +13288,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38002",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.554Z",
       "addressLocality": "Wiedlisbach",
       "streetAddress": "Dorfstrasse 10",
       "postalCode": "4537",
@@ -13372,7 +13386,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40180",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.724Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Münsingen",
       "streetAddress": "Münsingen",
       "postalCode": "3110",
@@ -13435,12 +13449,12 @@
     },
     {
       "id": "ksml-03ce2482ab2b",
-      "slug": "insegnante-specializzato-in-francese-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40396",
+      "slug": "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
       "slugByLocale": {
-        "it": "insegnante-specializzato-in-francese-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40396",
-        "en": "specialist-teacher-in-french-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396",
+        "it": "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
+        "en": "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
         "de": "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
-        "fr": "professeur-specialise-en-francais-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396"
+        "fr": "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396"
       },
       "slugDisambiguator": "40396",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13448,24 +13462,24 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Fachlehrperson Französisch",
       "titleByLocale": {
-        "it": "Insegnante specializzato in francese",
-        "en": "Specialist teacher in French",
+        "it": "Fachlehrperson Französisch",
+        "en": "Fachlehrperson Französisch",
         "de": "Fachlehrperson Französisch",
-        "fr": "Professeur spécialisé en français"
+        "fr": "Fachlehrperson Französisch"
       },
       "description": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)",
       "descriptionByLocale": {
-        "it": "Ritratto\nLivello secondario I Zollikofen\n\nCompiti\n• 8 lezioni in francese in classi secondarie, tra cui 2 lezioni di insegnamento di squadra\n• 1 lezione francese nel flexibilized 9 ° anno scolastico\n\nRequisiti\nbrevetto degli insegnanti per la scuola secondaria I o in formazione.\n\nOffriamo\n• Fondazione, iniziative, scuola sociale\n• Buona infrastruttura\n• Molto buone connessioni di trasporto pubblico\n• Numerose lezioni di insegnamento di squadra\n• Lezioni in 4 mattine (escluso mercoledì)",
-        "en": "Portrait\nSecondary level I Zollikofen\n\nTasks\n• 8 lessons in French in secondary classes, including 2 lessons in team teaching\n• 1 lesson French in the flexibilized 9th school year\n\nRequirements\nTeachers' patent for secondary school I or in training.\n\nWe offer\n• Established, initiatives, social college\n• Good infrastructure\n• Very good public transport connections\n• Numerous team teaching lessons\n• Lessons in 4 mornings (except Wednesday)",
+        "it": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)",
+        "en": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)",
         "de": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)",
-        "fr": "Portrait\nNiveau secondaire I Zollikofen\n\nTâches\n• 8 leçons de français dans les classes secondaires, dont 2 leçons d'enseignement en équipe\n• 1 leçon de français à la 9ème année scolaire flexible\n\nExigences\nBrevet des enseignants pour l'école secondaire I ou en formation.\n\nNous offrons\n• Création, initiatives, collège social\n• Bonne infrastructure\n• Très bonnes liaisons de transport public\n• De nombreuses leçons d'enseignement en équipe\n• Cours en 4 matinées (sauf mercredi)"
+        "fr": "Porträt\nSekundarstufe I Zollikofen\n\nAufgaben\n• 8 Lektionen Französischunterricht an Sekundarklassen, davon 2 Lektionen im Teamteaching\n• 1 Lektion Französisch im Flexibilisierten 9.Schuljahr\n\nAnforderungen\nLehrerInnenpatent für die Sekundarstufe I oder in Ausbildung.\n\nWir bieten\n• Aufgestelltes, initiatives, geselliges Kollegium\n• Gute Infrastruktur\n• Sehr gute ÖV - Verbindungen\n• Zahlreiche Teamteaching-Lektionen\n• Unterricht an 4 Vormittagen (ausser Mittwoch)"
       },
       "location": "Zollikofen",
       "canton": "BE",
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40396",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.552Z",
       "addressLocality": "Zollikofen",
       "streetAddress": "Schulhausstrasse 32",
       "postalCode": "3052",
@@ -13482,10 +13496,14 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40396",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
-        "insegnante-specializzato-in-francese-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40396"
+        "insegnante-specializzato-in-francese-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40396",
+        "specialist-teacher-in-french-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396",
+        "professeur-specialise-en-francais-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13493,13 +13511,15 @@
           "insegnante-specializzato-in-francese-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40396"
         ],
         "en": [
-          "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396"
+          "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
+          "specialist-teacher-in-french-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396"
         ],
         "fr": [
-          "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396"
+          "fachlehrperson-franzosisch-sekundarstufe-i-zollikofen-zollikofen-40396",
+          "professeur-specialise-en-francais-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-zollikofen-40396"
         ]
       },
-      "firstSeenAt": "2026-10-01T21:23:44.428Z",
+      "firstSeenAt": "2026-10-02T21:27:58.552Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -13512,16 +13532,17 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-db752a817495",
       "slug": "grosse-wirkung-per-kleine-personlichkeiten-con-herz-e-struktur-i-klassenhilfe-basisstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worblaufen",
       "slugByLocale": {
         "it": "grosse-wirkung-per-kleine-personlichkeiten-con-herz-e-struktur-i-klassenhilfe-basisstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worblaufen",
-        "en": "great-effect-for-small-personalities-with-heart-and-structure-i-class-help-basic-level-ksml-kantonaler-40341",
+        "en": "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341",
         "de": "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341",
-        "fr": "grand-effet-pour-les-petites-personnalites-avec-le-c-ur-et-la-structure-je-classe-aider-niveau-de-base-ksml-40341"
+        "fr": "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341"
       },
       "slugDisambiguator": "40341",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -13530,15 +13551,15 @@
       "title": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
       "titleByLocale": {
         "it": "Grosse Wirkung per kleine Persönlichkeiten - con Herz e Struktur I Klassenhilfe Basisstufe",
-        "en": "Great effect for small personalities - with heart and structure I class help basic level",
+        "en": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
         "de": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe",
-        "fr": "Grand effet pour les petites personnalités - avec le cœur et la structure Je classe aider niveau de base"
+        "fr": "Grosse Wirkung für kleine Persönlichkeiten - mit Herz und Struktur I Klassenhilfe Basisstufe"
       },
       "description": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
       "descriptionByLocale": {
+        "de": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
         "it": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
         "en": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
-        "de": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h",
         "fr": "Porträt\nDie Beziehung zum Kind steht an der Schule Altikofen im Zentrum der pädagogischen Arbeit.\nWir begegnen dem Kind mit Offenheit, Klarheit und Wertschätzung.\n\nWir arbeiten eng im Klassen- und Schulteam zusammen, teilen gemeinsame Werte und Haltungen. Wir verantworten den Unterrichtsalltag gemeinsam und stimmen ihn auf die Bedürfnisse und Fähigkeiten des Kindes ab.\n\nAufgaben\nDeine Rolle als Klassenhilfe\n\n- loyale Unterstützung des Klassenteams im Umfang von ca 3 Stunden/ Morgen (ohne Mittwochmorgen)\n- liebevolle und klare Begleitung der Kinder im Unterricht (Einzel- und Gruppenunterstützung)\n- Hilfestellungen mit Fingerspitzengefühl bei sozialen Konflikten\n- ein offenes Ohr und ein warmes Lächeln für die kleinen und grossen Sorgen der Kinder\n\nAnforderungen\nDas zeichnet dich aus\n\nEIN GROSSES HERZ FÜR JUNGE KINDER\n\nDu nimmst die Bedürfnisse des Kindes in seinem Verhalten wahr.\nEmpathie und Geduld sind für dich keine fremden Begriffe, sondern Merkmale deiner positiven Grundhaltung.\n\nLIEBEVOLLE KLARHEIT\n\nDu kanst klare Grenzen setzen und gleichzeitig mit dem Kind in Verbindung bleiben.\nDu schenkst dem Kind Struktur und Sicherheit durch deine konsequente und wertschätzende Begegnung.\n\nTEAMGEIST\n\nDu arbeitest Hand in Hand mit dem Klassenteam und unterstützt da, wo Hilfe gerade nötig ist.\n\nQUALIFIKATION\n\nDu bist im Besitz einer pädagogischen Ausbildung oder in Ausbildung zur Lehrperson mit Schwerpunkt Zyklus 1.\n\nWir bieten\nDarauf darfst du dich freuen\n\n- ein jungens, engagiertes Klassenteam, das deine Arbeit schätzt\n- ein lebendiger Arbeitsort, an dem kein Tag dem anderen gleicht\n- die Möglichkeit, die Entwicklung von jungen Kindern nachhaltig positiv zu unterstützen\n- eine sinnstiftende Arbeit im Stundenlohn (Fr 31.-/Stunde)\n- eine befristete Anstellung im Umfang von total 120 Stunden, 13. Oktober 26 bis 31. Januar 27\n- fixe Arbeitszeiten: Dienstag- und Donnerstagnachmittag, 13.45-15.20h sowie Freitagmorgen, 08.20-11.55h"
       },
       "location": "Worblaufen",
@@ -13546,7 +13567,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40341",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Worblaufen",
       "streetAddress": "Worblaufen",
       "postalCode": "3048",
@@ -13563,10 +13584,14 @@
       "postedDate": "2026-10-01",
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40341",
       "requirements": [],
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "de": []
+      },
       "previousSlugs": [
         "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341",
-        "grosse-wirkung-per-kleine-personlichkeiten-con-herz-e-struktur-i-klassenhilfe-basisstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worblaufen"
+        "grosse-wirkung-per-kleine-personlichkeiten-con-herz-e-struktur-i-klassenhilfe-basisstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worblaufen",
+        "great-effect-for-small-personalities-with-heart-and-structure-i-class-help-basic-level-ksml-kantonaler-40341",
+        "grand-effet-pour-les-petites-personnalites-avec-le-c-ur-et-la-structure-je-classe-aider-niveau-de-base-ksml-40341"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -13574,14 +13599,16 @@
           "grosse-wirkung-per-kleine-personlichkeiten-con-herz-e-struktur-i-klassenhilfe-basisstufe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worblaufen"
         ],
         "en": [
-          "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341"
+          "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341",
+          "great-effect-for-small-personalities-with-heart-and-structure-i-class-help-basic-level-ksml-kantonaler-40341"
         ],
         "fr": [
-          "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341"
+          "grosse-wirkung-fur-kleine-personlichkeiten-mit-herz-und-struktur-i-klassenhilfe-basisstufe-40341",
+          "grand-effet-pour-les-petites-personnalites-avec-le-c-ur-et-la-structure-je-classe-aider-niveau-de-base-ksml-40341"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T21:23:44.429Z",
+      "firstSeenAt": "2026-10-02T21:27:58.553Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -13628,7 +13655,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40310",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.552Z",
       "addressLocality": "Rüegsauschachen",
       "streetAddress": "Gempenstrasse 3",
       "postalCode": "3415",
@@ -13709,7 +13736,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38210",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.552Z",
       "addressLocality": "Hasle b",
       "streetAddress": "Hasle b.B.",
       "postalCode": "3415",
@@ -13791,7 +13818,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40150",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.552Z",
       "addressLocality": "Niederönz",
       "streetAddress": "Niederönz",
       "postalCode": "3362",
@@ -13880,7 +13907,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/38158",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.553Z",
       "addressLocality": "Rüegsauschachen",
       "streetAddress": "Gempenstrasse 3",
       "postalCode": "3415",
@@ -13991,7 +14018,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40110",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.723Z",
+      "crawledAt": "2026-10-02T21:27:58.552Z",
       "addressLocality": "Stettlen",
       "streetAddress": "Stettlen",
       "postalCode": "3066",
@@ -14051,7 +14078,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:57:03.674Z",
-      "needsRetranslation": true,
       "salaryMin": 61600,
       "salaryMax": 113800,
       "salarySource": "estimated",
@@ -14064,7 +14090,8 @@
           "maxValue": 113800,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-f04581e85188",
@@ -14098,7 +14125,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40386",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.722Z",
+      "crawledAt": "2026-10-02T21:27:58.551Z",
       "addressLocality": "Tavannes",
       "streetAddress": "Chemin de Sonrougeux 10",
       "postalCode": "2710",
@@ -14179,7 +14206,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40377",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.722Z",
+      "crawledAt": "2026-10-02T21:27:58.551Z",
       "addressLocality": "Saint-Imier",
       "streetAddress": "Saint-Imier",
       "postalCode": "2610",
@@ -14260,7 +14287,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40165",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.722Z",
+      "crawledAt": "2026-10-02T21:27:58.551Z",
       "addressLocality": "Tavannes",
       "streetAddress": "Chemin de Sonrougeux 10",
       "postalCode": "2710",
@@ -14347,7 +14374,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40101",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.722Z",
+      "crawledAt": "2026-10-02T21:27:58.551Z",
       "addressLocality": "Berne",
       "streetAddress": "Berne",
       "postalCode": "3015",
@@ -14428,7 +14455,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40290",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.721Z",
+      "crawledAt": "2026-10-02T21:27:58.550Z",
       "addressLocality": "Wichtrach",
       "streetAddress": "Stadelfedlstr. 14",
       "postalCode": "3114",
@@ -14447,7 +14474,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:27:21.241Z",
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -14460,7 +14486,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:27:21.241Z"
     },
     {
       "id": "ksml-9d69effe0f8f",
@@ -14494,7 +14521,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40204",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.721Z",
+      "crawledAt": "2026-10-02T21:27:58.550Z",
       "addressLocality": "Münchenbuchsee",
       "streetAddress": "Münchenbuchsee",
       "postalCode": "3053",
@@ -14529,7 +14556,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.246Z",
-      "needsRetranslation": true,
       "salaryMin": 52800,
       "salaryMax": 97500,
       "salarySource": "estimated",
@@ -14542,7 +14568,8 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-b3c97ee2cdbc",
@@ -14576,7 +14603,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40266",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.721Z",
+      "crawledAt": "2026-10-02T21:27:58.550Z",
       "addressLocality": "Bern: Scheibenstr",
       "streetAddress": "Bern: Scheibenstr. 44/Standstr. 61/Weingartstr. 18",
       "postalCode": "3014",
@@ -14661,7 +14688,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40149",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.721Z",
+      "crawledAt": "2026-10-02T21:27:58.550Z",
       "addressLocality": "Bienne",
       "streetAddress": "Bienne",
       "postalCode": "2502",
@@ -14748,7 +14775,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39906",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.721Z",
+      "crawledAt": "2026-10-02T21:27:58.550Z",
       "addressLocality": "Nathalie Stiftung, Gümligen",
       "streetAddress": "Nathalie Stiftung, Gümligen",
       "postalCode": "3073",
@@ -14822,11 +14849,11 @@
     },
     {
       "id": "ksml-0f3d0a7132b3",
-      "slug": "daz-insegnante-pensum-6-8-lezioni-ciclo-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391",
+      "slug": "daz-insegnante-pensum-6-8-lezioni-ciclo-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wilderswil",
       "slugByLocale": {
-        "it": "daz-insegnante-pensum-6-8-lezioni-ciclo-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391",
-        "en": "daz-teacher-pensum-6-8-lessons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391",
         "de": "daz-lehrperson-pensum-6-8-lektionen-zyklus-1-schule-wilderswil-wilderswil-40391",
+        "it": "daz-insegnante-pensum-6-8-lezioni-ciclo-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-wilderswil",
+        "en": "daz-teacher-pensum-6-8-lessons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391",
         "fr": "professeur-daz-pensum-6-8-lecons-cycle-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391"
       },
       "slugDisambiguator": "40391",
@@ -14852,7 +14879,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40391",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Wilderswil",
       "streetAddress": "Allmendstrasse 2",
       "postalCode": "3812",
@@ -14870,6 +14897,20 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40391",
       "requirements": [],
       "requirementsByLocale": {},
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-01T09:27:21.240Z",
       "previousSlugs": [
         "daz-lehrperson-pensum-6-8-lektionen-zyklus-1-schule-wilderswil-wilderswil-40391",
         "daz-insegnante-pensum-6-8-lezioni-ciclo-1-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40391"
@@ -14885,20 +14926,6 @@
         "fr": [
           "daz-lehrperson-pensum-6-8-lektionen-zyklus-1-schule-wilderswil-wilderswil-40391"
         ]
-      },
-      "firstSeenAt": "2026-10-01T09:27:21.240Z",
-      "salaryMin": 59000,
-      "salaryMax": 108500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 59000,
-          "maxValue": 108500,
-          "unitText": "YEAR"
-        }
       }
     },
     {
@@ -14933,7 +14960,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40367",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Tagesschule Lengnau, Küpfgasse 10A",
       "streetAddress": "Küpfgasse 10A",
       "postalCode": "2543",
@@ -15015,7 +15042,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40368",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Wattenwil",
       "streetAddress": "Wattenwil",
       "postalCode": "3665",
@@ -15096,7 +15123,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40303",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Wattenwil",
       "streetAddress": "Wattenwil",
       "postalCode": "3665",
@@ -15177,7 +15204,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39175",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Müntschemier",
       "streetAddress": "Müntschemier",
       "postalCode": "3225",
@@ -15260,7 +15287,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40143",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Wabern",
       "streetAddress": "Wabern",
       "postalCode": "3084",
@@ -15332,7 +15359,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:12.709Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -15345,7 +15371,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-bc51321c2fd5",
@@ -15379,7 +15406,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40142",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.720Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Niederönz",
       "streetAddress": "Niederönz",
       "postalCode": "3362",
@@ -15434,8 +15461,8 @@
           "co-klassenlehrperson-1-2-klasse-16-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-40142"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:32:12.710Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -15482,7 +15509,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40357",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.719Z",
+      "crawledAt": "2026-10-02T21:27:58.549Z",
       "addressLocality": "Wabern",
       "streetAddress": "Wabern",
       "postalCode": "3084",
@@ -15565,7 +15592,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39969",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.719Z",
+      "crawledAt": "2026-10-02T21:27:58.548Z",
       "addressLocality": "Bern",
       "streetAddress": "Kornweg 109",
       "postalCode": "3027",
@@ -15640,7 +15667,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40228",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.719Z",
+      "crawledAt": "2026-10-02T21:27:58.548Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3000",
@@ -15725,7 +15752,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40316",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.718Z",
+      "crawledAt": "2026-10-02T21:27:58.548Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3008",
@@ -15800,7 +15827,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40183",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.718Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Oey",
       "streetAddress": "Oey",
       "postalCode": "3753",
@@ -15887,7 +15914,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39755",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.718Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Worb",
       "streetAddress": "Worb",
       "postalCode": "3076",
@@ -15930,8 +15957,8 @@
         "8-10-lektionen-als-sonderpadagogin-primarstufenkreis-worb-worb-39755",
         "8-10-lektionen-come-sonderpadagogin-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-worb"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:47:55.974Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -15978,7 +16005,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39761",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.718Z",
+      "crawledAt": "2026-10-02T21:27:58.548Z",
       "addressLocality": "Thun",
       "streetAddress": "Schönaustrasse 33",
       "postalCode": "3600",
@@ -16082,7 +16109,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40389",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.717Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Burgdorf",
       "streetAddress": "Burgdorf",
       "postalCode": "3400",
@@ -16163,7 +16190,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40354",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.717Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Ursenbach",
       "streetAddress": "Ursenbach",
       "postalCode": "4937",
@@ -16198,7 +16225,6 @@
         ]
       },
       "firstSeenAt": "2026-09-23T23:51:26.722Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -16211,7 +16237,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-7ae7856905bd",
@@ -16245,7 +16272,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40252",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.717Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Laupen",
       "streetAddress": "Laupen",
       "postalCode": "3177",
@@ -16332,7 +16359,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39856",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.717Z",
+      "crawledAt": "2026-10-02T21:27:58.547Z",
       "addressLocality": "Ins",
       "streetAddress": "Ins",
       "postalCode": "3232",
@@ -16391,7 +16418,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:03:34.452Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -16404,7 +16430,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-5fe0643539bc",
@@ -16438,7 +16465,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40360",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.716Z",
+      "crawledAt": "2026-10-02T21:27:58.546Z",
       "addressLocality": "Bern",
       "streetAddress": "Wangenstrasse 9",
       "postalCode": "3018",
@@ -16532,7 +16559,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40301",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T09:25:02.716Z",
+      "crawledAt": "2026-10-02T21:27:58.546Z",
       "addressLocality": "Tavannes",
       "streetAddress": "Rue des collèges 5",
       "postalCode": "2710",
@@ -16613,7 +16640,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40291",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.716Z",
+      "crawledAt": "2026-10-02T21:27:58.546Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3018",
@@ -16648,7 +16675,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:10:29.241Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -16661,7 +16687,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-fdf523869a79",
@@ -16695,7 +16722,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/39654",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.716Z",
+      "crawledAt": "2026-10-02T21:27:58.546Z",
       "addressLocality": "Thun",
       "streetAddress": "Schönaustrasse 33",
       "postalCode": "3600",
@@ -16869,7 +16896,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:29:37.640Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -16882,7 +16908,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "ksml-2f5baec868e9",
@@ -16916,7 +16943,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40363",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.715Z",
+      "crawledAt": "2026-10-02T21:27:58.545Z",
       "addressLocality": "Bern",
       "streetAddress": "Bern",
       "postalCode": "3018",
@@ -17000,7 +17027,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40346",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.715Z",
+      "crawledAt": "2026-10-02T21:27:58.545Z",
       "addressLocality": "Bern",
       "streetAddress": "Statthalterstrasse 80",
       "postalCode": "3018",
@@ -17075,7 +17102,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37654",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.715Z",
+      "crawledAt": "2026-10-02T21:27:58.546Z",
       "addressLocality": "Frutigen",
       "streetAddress": "Schulhausstrasse 1",
       "postalCode": "3714",
@@ -17150,7 +17177,7 @@
       "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40230",
       "source": "KSML Dedicated Parser (ws/stellen JSON API)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:02.713Z",
+      "crawledAt": "2026-10-02T21:27:58.544Z",
       "addressLocality": "Steffisburg",
       "streetAddress": "Steffisburg",
       "postalCode": "3612",
@@ -17902,7 +17929,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-22b75f9fed71",
@@ -17977,7 +18004,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2
+      "crawlerMissStreak": 1
     },
     {
       "id": "ksml-14d8dd52186d",
@@ -18085,8 +18112,76 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
+      "crawlerMissStreak": 1,
       "needsRetranslation": true
+    },
+    {
+      "id": "ksml-adff2e2a0daf",
+      "slug": "stv-2-quartal-16l-basisstufe-kindergarten-kleine-klasse-teamteaching-primarschule-matzwil-40398",
+      "slugByLocale": {
+        "de": "stv-2-quartal-16l-basisstufe-kindergarten-kleine-klasse-teamteaching-primarschule-matzwil-40398",
+        "it": "stv-2-quartal-16l-basisstufe-kindergarten-kleine-klasse-teamteaching-primarschule-matzwil-40398",
+        "en": "stv-2-quartal-16l-basisstufe-kindergarten-kleine-klasse-teamteaching-primarschule-matzwil-40398",
+        "fr": "stv-2-quartal-16l-basisstufe-kindergarten-kleine-klasse-teamteaching-primarschule-matzwil-40398"
+      },
+      "slugDisambiguator": "40398",
+      "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+      "companyKey": "ksml",
+      "companyDomain": "ksml.apps.be.ch",
+      "title": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
+      "titleByLocale": {
+        "de": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
+        "it": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
+        "en": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching.",
+        "fr": "STV 2.Quartal,16L, Basisstufe/Kindergarten, kleine Klasse, Teamteaching."
+      },
+      "description": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen.",
+      "descriptionByLocale": {
+        "de": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen.",
+        "it": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen.",
+        "en": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen.",
+        "fr": "Porträt\nDie Schule Matzwil ist etwas Besonderes: Ein charmantes Schulhaus, umgeben von Natur, das trotz seiner hundertjährigen Geschichte innovativ und voller Ideen ist. Wir sind zwei Schulklassen – eine Basisstufe und eine 3. bis 6. Klasse – sowie ein tolles Team.\n\nWeitere Infos findest du unter https://www.schulematzwil.ch\n\nWir heissen dich herzlich willkommen!\n\nAufgaben\nAufgrund eines Unfalls in den Herbstferien suchen wir kurzfristig eine Lehrperson für den Kindergartenbereich unserer Basisstufe, voraussichtlich bis zu den Winterferien. Du unterrichtest 16 Lektionen, vor allem im Teamteaching, und bist hauptsächlich für die sieben jüngeren Kinder zuständig. Die Unterrichtszeiten sind wie folgt: Montagmorgen 4 Lektionen, Dienstag ab 9:15 Uhr inklusive Nachmittag, Mittwoch 2 Lektionen, Donnerstag bis 15:00 Uhr, Freitag unterrichtsfrei.\n\nAnforderungen\n• Du bist eine positive und aufgestellte Persönlichkeit, die mit Herz für die Kinder unterrichtet.\n• Du arbeitest gerne in einem kleinen, familiären Team und schätzt die Zusammenarbeit mit der Heilpädagogin.\n\nDu besitzt das Lehrdiplom oder befindest dich in der Ausbildung dazu.\nIdealerweise hast du bereits Unterrichtserfahrung im Zyklus 1.\n\nWir bieten\n• Du erhältst wertvolle Unterstützung durch die zweite, erfahrene Klassenlehrperson unserer Basisstufe. Ihr arbeitet hauptsächlich im Teamteaching.\n• Du unterrichtest und kümmerst dich vor allem um die jüngsten Kinder der Basisstufe. Dies sind sieben Kinder.\n\nDurch das kleine Team und unsere familiäre Schule wirst du gut unterstützt werden.\nGerne erzählen wir dir mehr über uns. Wir freuen uns, wenn du dich angesprochen fühlst, und würden dich gerne kennenlernen."
+      },
+      "location": "Matzwil",
+      "canton": "BE",
+      "url": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40398",
+      "source": "KSML Dedicated Parser (ws/stellen JSON API)",
+      "sourceLang": "de",
+      "crawledAt": "2026-10-02T21:27:58.577Z",
+      "addressLocality": "Matzwil",
+      "streetAddress": "Matzwil",
+      "postalCode": "3036",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Istruzione / Docenza",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Istruzione / Scuola pubblica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-02",
+      "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40398",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 59000,
+      "salaryMax": 108500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 59000,
+          "maxValue": 108500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-10-02T21:27:58.577Z"
     }
   ]
 }
