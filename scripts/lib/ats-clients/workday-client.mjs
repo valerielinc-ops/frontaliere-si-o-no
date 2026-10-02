@@ -597,11 +597,34 @@ export async function fetchWorkdayJobDescriptionText(
   if (typeof stripHtml !== 'function') {
     throw new TypeError('fetchWorkdayJobDescriptionText: stripHtml function is required');
   }
+  return (await fetchWorkdayJobDetailParts(apiBase, externalPath, stripHtml, options)).text;
+}
+
+/**
+ * One detail request, both halves a dedicated parser needs: the body as
+ * plain text (exactly what `fetchWorkdayJobDescriptionText` returns) and the
+ * `jobPostingInfo` itself — the structured primary location, country and
+ * `timeType`, none of which the CXS listing row carries (a listing-row
+ * `timeType` is always empty, so every part-time req was typed from its title
+ * alone).
+ *
+ * @param {string} apiBase
+ * @param {string} externalPath
+ * @param {(html: string) => string} stripHtml
+ * @param {Object} [options] same as `fetchWorkdayJobDescriptionText`
+ * @returns {Promise<{ text: string, info: Record<string, any> }>} `info` is
+ *   `{}` when the detail could not be read.
+ */
+export async function fetchWorkdayJobDetailParts(apiBase, externalPath, stripHtml, options = {}) {
+  if (typeof stripHtml !== 'function') {
+    throw new TypeError('fetchWorkdayJobDetailParts: stripHtml function is required');
+  }
   const { maxChars = Infinity, ...fetchOptions } = options;
 
   const detail = await fetchWorkdayJobDetail(apiBase, externalPath, fetchOptions);
-  const html = String(detail?.jobPostingInfo?.jobDescription || '').trim();
-  if (!html) return '';
+  const info = detail?.jobPostingInfo && typeof detail.jobPostingInfo === 'object' ? detail.jobPostingInfo : {};
+  const html = String(info.jobDescription || '').trim();
+  if (!html) return { text: '', info };
 
   const text = stripHtml(html);
   const normalized = normalizeDescriptionBullets(String(text || '')
@@ -609,7 +632,7 @@ export async function fetchWorkdayJobDescriptionText(
     .replace(/[ \t]*\n[ \t]*/g, '\n')
     .replace(/\n{3,}/g, '\n\n')
     .trim());
-  return Number.isFinite(maxChars) ? normalized.slice(0, maxChars) : normalized;
+  return { text: Number.isFinite(maxChars) ? normalized.slice(0, maxChars) : normalized, info };
 }
 
 const workdaySidebarCache = new Map();

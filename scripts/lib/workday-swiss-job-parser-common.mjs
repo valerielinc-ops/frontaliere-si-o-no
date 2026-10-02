@@ -235,10 +235,21 @@ export function workdayStructuredPrimaryCountryIsSwiss(info = {}) {
  * An explicit canton qualifier (`(ZG)`) never reaches here: the gazetteer
  * reads it first. Offline: no request.
  */
+const NON_PLACE_SEGMENT_RE = /^(?:ch|che|switzerland|schweiz|suisse|svizzera|emea|europe|remote|hybrid|on-?site)$/i;
+
 function directoryLocalityCanton(text) {
   const bare = text.replace(/\s*\([^()]*\)\s*$/, '').trim() || text;
-  const locality = cleanWorkdayLocation(bare) || bare;
-  return { canton: resolveSwissLocalityCanton(locality), locality };
+  // Tenant labels wrap the place: `CH - Rotkreuz`, `EMEA, CH, Rotkreuz, CSL
+  // Behring`, `Bodio, Switzerland`. The label and each of its segments are
+  // looked up; the answer stands only when exactly ONE place comes back.
+  const hits = new Map();
+  for (const segment of [bare, ...bare.split(/\s*[,|·;:]\s*|\s+-\s+/)]) {
+    const name = segment.replace(/\s*\([^()]*\)\s*$/, '').trim();
+    if (!name || NON_PLACE_SEGMENT_RE.test(name)) continue;
+    const canton = resolveSwissLocalityCanton(name);
+    if (canton) hits.set(`${name.toLowerCase()}|${canton}`, { canton, locality: name });
+  }
+  return hits.size === 1 ? [...hits.values()][0] : { canton: '', locality: '' };
 }
 
 function swissCantonOf(location, info = {}) {
@@ -288,6 +299,76 @@ export function resolveWorkdayPostalPlace(location, info = {}) {
   const codes = [...new Set(text.match(/\b\d{4}\b/g) || [])];
   if (codes.length !== 1) return null;
   return resolveSwissPostalCodePlace(codes[0]);
+}
+
+/**
+ * The Swiss place a req's location text names when the commune gazetteer could
+ * not — `{ location, canton }`, or null. The recovery the Workday parsers share
+ * (imerys, kone, the nine dedicated parsers, abbott's address reqs):
+ *   1. the official locality directory, by name, one canton only
+ *      (`Bodio`, `Rotkreuz (Office-Based)`, `CH - Brüttisellen`);
+ *   2. the postal code of an address, one canton and one locality only
+ *      (`Switzerland : Technoparkstrass 1 CH 8005` → Zürich).
+ * Both only on the req's own structured Swiss country. It never answers for a
+ * place the gazetteer resolves: a parser keeps its own verdict there.
+ *
+ * @param {string} location
+ * @param {object} [info] the req's `jobPostingInfo`
+ * @param {{ log?: boolean }} [options]
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function recoverWorkdaySwissPlace(location, info = {}, { log = true } = {}) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text) || inferSwissTargetCanton(text)) return null;
+  if (!workdayStructuredPrimaryCountryIsSwiss(info)) return null;
+  const directory = directoryLocalityCanton(text);
+  if (directory.canton) {
+    if (log) console.log(`  📍 Canton from the Swiss locality directory: ${directory.locality} → ${directory.canton}`);
+    return { location: directory.locality, canton: directory.canton };
+  }
+  const postal = resolveWorkdayPostalPlace(text, info);
+  if (postal) {
+    if (log) console.log(`  📮 Place from the Swiss postal code: ${text} → ${postal.locality} (${postal.canton})`);
+    return { location: postal.locality, canton: postal.canton };
+  }
+  return null;
+}
+
+/**
+ * Whether a listing row's location text MAY be a Swiss place the recovery can
+ * confirm — the directory places exactly one of its names, or it carries one
+ * unique Swiss postal code. Offline, no request: for parsers that pre-filter
+ * listing rows before reading the detail, so a locality-named row is not
+ * dropped before its structured country is even read. Never a verdict on its
+ * own: `recoverWorkdaySwissPlace` still needs the req's structured Swiss
+ * country.
+ *
+ * @param {string} location
+ * @returns {boolean}
+ */
+export function isWorkdaySwissPlaceCandidate(location) {
+  const text = normalizeSpace(location);
+  if (!text || isLocationExplicitlyForeign(text)) return false;
+  if (directoryLocalityCanton(text).canton) return true;
+  const codes = [...new Set(text.match(/\b\d{4}\b/g) || [])];
+  return codes.length === 1 && Boolean(resolveSwissPostalCodePlace(codes[0]));
+}
+
+/**
+ * `recoverWorkdaySwissPlace` over the req's OWN primary workplace: the
+ * requisition location first, then the posting location. For a parser whose
+ * own resolver dropped the req.
+ *
+ * @param {object} [info] the req's `jobPostingInfo`
+ * @param {{ log?: boolean }} [options]
+ * @returns {{ location: string, canton: string } | null}
+ */
+export function recoverWorkdayPrimarySwissPlace(info = {}, options = {}) {
+  for (const field of [info?.jobRequisitionLocation, info?.location]) {
+    const place = recoverWorkdaySwissPlace(locationDescriptor(field), info, options);
+    if (place) return place;
+  }
+  return null;
 }
 
 /**
