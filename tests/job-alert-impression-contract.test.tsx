@@ -274,11 +274,24 @@ describe('#7765 — CTA eligibility precedes rendering and impression', () => {
 describe('#5040 — the apply hand-off leaves a visible trace on the page', () => {
   const src = () => fs.readFileSync(path.join(ROOT, 'components/community/JobBoard.tsx'), 'utf-8');
 
-  it('handleApply records the applied job alongside the new-tab open', () => {
+  it('external apply records the applied job after the new-tab hand-off', () => {
     // PostHog calls a click dead when nothing mutates within 2.5s. A bare
     // window.open mutates nothing, so every apply — our highest-intent action —
     // was logged as a $dead_click AND left the returning user with no feedback.
-    expect(src()).toMatch(/window\.open\(applyDestination, '_blank', 'noopener,noreferrer'\);[\s\S]{0,400}setAppliedJobId\(job\.id\);/);
+    const source = src();
+    const handoffStart = source.indexOf('const redirectExternalApplication = async');
+    const handoffEnd = source.indexOf('const handleAssistedExternal', handoffStart);
+    const handoff = source.slice(handoffStart, handoffEnd);
+    const openNewTab = handoff.indexOf("window.open(applyDestination, '_blank', 'noopener,noreferrer');");
+    const recordAppliedJob = handoff.indexOf('setAppliedJobId(job.id);');
+    expect(handoffStart).toBeGreaterThanOrEqual(0);
+    expect(handoffEnd).toBeGreaterThan(handoffStart);
+    expect(openNewTab).toBeGreaterThanOrEqual(0);
+    expect(recordAppliedJob).toBeGreaterThan(openNewTab);
+
+    const applyStart = source.indexOf('const handleApply = (job: JobListing');
+    const applyEnd = source.indexOf('// Receipts of earlier rewarded grants', applyStart);
+    expect(source.slice(applyStart, applyEnd)).toContain('void redirectExternalApplication(job, surface, false);');
   });
 
   it('the receipt is rendered on both the mobile and the desktop apply blocks', () => {

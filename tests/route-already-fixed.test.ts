@@ -9,7 +9,9 @@ import {
   parseFixEvidence,
   routedCommentBody,
   routingEditArgs,
+  timeoutReportSourceRun,
   verifyEvidence,
+  workflowFileFromRunPath,
 } from '../scripts/ci/route-already-fixed.mjs';
 import { validateWorkflowText } from '../scripts/ci/validate-modified-workflows.mjs';
 
@@ -151,6 +153,48 @@ describe('verifyEvidence', () => {
     const deps = { ...okDeps(), compare: (_b: string, head: string) => (head === 'main' ? 'ahead' : 'behind') };
     expect(verifyEvidence(ev, deps)).toMatchObject({ ok: false });
   });
+
+  it('per un timeout richiede che il run verde sia dello stesso workflow originario', () => {
+    const timeoutWorkflow = '.github/workflows/assisted-application-portal-e2e.yml';
+    expect(verifyEvidence(ev, { ...okDeps(), expectedWorkflowPath: timeoutWorkflow })).toMatchObject({
+      ok: false,
+      reason: expect.stringContaining('workflow-diverso:.github/workflows/tests.yml'),
+    });
+    const matchingRun = {
+      ...okDeps(),
+      expectedWorkflowPath: timeoutWorkflow,
+      run: () => ({
+        status: 'completed', conclusion: 'success', head_branch: 'main', head_sha: RUN_HEAD,
+        path: `${timeoutWorkflow}@refs/heads/main`,
+      }),
+    };
+    expect(verifyEvidence(ev, matchingRun).ok).toBe(true);
+  });
+});
+
+describe('timeout issue workflow binding', () => {
+  const body = [
+    '**Workflow:** Assisted application portal e2e',
+    '',
+    '**Run:** https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/36893541451',
+    '',
+    'Rilevato da `scripts/ci/scan-job-timeouts.mjs`.',
+  ].join('\n');
+
+  it('estrae il run sorgente dai report del timeout e riconosce i report ordinari', () => {
+    expect(timeoutReportSourceRun(body, 'valerielinc-ops/frontaliere-si-o-no')).toEqual({
+      required: true, runId: 36893541451,
+    });
+    expect(timeoutReportSourceRun(body, 'another/repo')).toEqual({
+      required: true, runId: null, reason: 'run-originaria-repo-diverso',
+    });
+    expect(timeoutReportSourceRun('ordinary bug report', 'valerielinc-ops/frontaliere-si-o-no')).toEqual({
+      required: false, runId: null,
+    });
+    expect(workflowFileFromRunPath('.github/workflows/tests.yml@refs/heads/main'))
+      .toBe('.github/workflows/tests.yml');
+    expect(workflowFileFromRunPath('../tests.yml')).toBeNull();
+  });
 });
 
 describe('mutazione', () => {
@@ -181,12 +225,16 @@ describe('CLI end-to-end (gh finto)', () => {
     "const fx = JSON.parse(fs.readFileSync(process.env.FAKE_GH_FIXTURE, 'utf8'));",
     "if (args[0] === 'issue' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.issue));",
     "else if (args[0] === 'pr' && args[1] === 'view') process.stdout.write(JSON.stringify(fx.pr));",
-    "else if (args[0] === 'api' && args[1].includes('/actions/runs/')) process.stdout.write(JSON.stringify(fx.run));",
+    "else if (args[0] === 'api' && args[1].includes('/actions/runs/')) { const id = /\\/actions\\/runs\\/(\\d+)/.exec(args[1])?.[1]; process.stdout.write(JSON.stringify(fx.runs?.[id] || fx.run)); }",
     "else if (args[0] === 'api' && args[1].includes('/compare/')) process.stdout.write(fx.compare + '\\n');",
     '',
   ].join('\n');
 
-  function runCli(issueComments: unknown[], delivery: unknown = { status: 'verified-none', reason: null, prNumber: null }) {
+  function runCli(
+    issueComments: unknown[],
+    delivery: unknown = { status: 'verified-none', reason: null, prNumber: null },
+    issueBody = '',
+  ) {
     const dir = mkdtempSync(path.join(os.tmpdir(), 'route-already-fixed-'));
     try {
       const gh = path.join(dir, 'gh');
@@ -196,9 +244,15 @@ describe('CLI end-to-end (gh finto)', () => {
       writeFileSync(log, '');
       const fixture = path.join(dir, 'fixture.json');
       writeFileSync(fixture, JSON.stringify({
-        issue: { state: 'OPEN', labels: [{ name: 'follow-up' }, { name: 'agent:fix' }, { name: 'agent:triaged' }], comments: issueComments },
+        issue: { state: 'OPEN', body: issueBody, labels: [{ name: 'follow-up' }, { name: 'agent:fix' }, { name: 'agent:triaged' }], comments: issueComments },
         pr: { state: 'MERGED', baseRefName: 'main', mergeCommit: { oid: FIX_SHA } },
         run: { status: 'completed', conclusion: 'success', head_branch: 'main', head_sha: RUN_HEAD, path: '.github/workflows/tests.yml' },
+        runs: {
+          '36893541451': {
+            status: 'completed', conclusion: 'cancelled', head_branch: 'test-portal', head_sha: FIX_SHA,
+            path: '.github/workflows/assisted-application-portal-e2e.yml@refs/pull/1/merge',
+          },
+        },
         compare: 'ahead',
       }));
       const baselineFile = path.join(dir, 'baseline.json');
@@ -252,6 +306,22 @@ describe('CLI end-to-end (gh finto)', () => {
     expect(status).toBe(0);
     expect(stdout).toContain('routed=false');
     expect(calls.filter((a) => a[0] === 'issue' && (a[1] === 'edit' || a[1] === 'comment'))).toEqual([]);
+  });
+
+  it('un run tests verde non vale come prova per una issue di timeout E2E portal', () => {
+    const issueBody = [
+      '**Workflow:** Assisted application portal e2e',
+      '',
+      '**Run:** https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/36893541451',
+      '',
+      'Rilevato da `scripts/ci/scan-job-timeouts.mjs`.',
+    ].join('\n');
+    const { status, stdout, calls } = runCli([comment(alreadyFixedBody())], undefined, issueBody);
+    expect(status).toBe(0);
+    expect(stdout).toContain('workflow-diverso:.github/workflows/tests.yml');
+    expect(stdout).toContain('routed=false');
+    expect(calls.some((a) => a[0] === 'issue' && (a[1] === 'edit' || a[1] === 'comment'))).toBe(false);
+    expect(calls.some((a) => a[0] === 'api' && a[1].endsWith('/actions/runs/36893541451'))).toBe(true);
   });
 });
 
