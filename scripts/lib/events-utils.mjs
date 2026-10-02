@@ -1520,6 +1520,7 @@ const PRICE_PHONE_RE = /\+?\d[\d\s()./-]{6,}\d/u;
 const PRICE_TIME_RE = /\b\d{1,2}:\d{2}\b/gu;
 const PRICE_FREE_ONLY_RE = /^(?:gratis|free|kostenlos|gratuit(?:[aioe]|i)?|eintritt\s+frei|(?:ingresso|entrata)\s+(?:libero|gratuit(?:[aioe]|i)?|libera)|entr[ée]e\s+(?:libre|gratuite))\s*[.!]?$/iu;
 const PRICE_ACCESS_FREE_RE = /(?:\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b[^,;]*\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b|\b(?:gratis|free|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b[^,;]*\b(?:eintritt|ingresso|entrata|entr[ée]e|admission|entry|entrance|access|accesso)\b)/iu;
+const PRICE_ALL_AUDIENCES_FREE_RE = /\b(?:adult(?:s|es)?|adulti|erwachsene)\b[^,.;]*\b(?:free|gratis|kostenlos|frei|liber[oa]|gratuit(?:[aioe]|i)?)\b/iu;
 const PRICE_NON_ACCESS_FREE_RE = /\b(?:parking|parcheggio|parkplatz|stationnement)\b/iu;
 
 function priceResult(value, evidence) {
@@ -1597,6 +1598,9 @@ export function parsePriceText(rawText) {
     if (conditionalAmounts.length) {
       const cheapest = conditionalAmounts.reduce((min, candidate) => candidate.amount < min.amount ? candidate : min);
       return priceResult({ amount: cheapest.amount, currency: cheapest.currency, isFree: false }, 'numeric');
+    }
+    if (PRICE_ALL_AUDIENCES_FREE_RE.test(t)) {
+      return priceResult({ amount: 0, currency: 'CHF', isFree: true }, 'label-free');
     }
     return priceResult({ amount: null, currency: 'CHF', isFree: false }, 'unknown');
   }
