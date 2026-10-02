@@ -6,6 +6,7 @@ import {
 } from '../../build-plugins/constants.ts';
 import {
   POSTHOG_EVENT_SAMPLE_RATE,
+  POSTHOG_QUOTA_EXEMPT_EVENTS,
   POSTHOG_SESSION_REPLAY_SAMPLE_RATE,
   shouldCapturePostHogEvent,
 } from '../../services/posthogQuota.ts';
@@ -152,6 +153,14 @@ describe('POSTHOG_INIT_CONTENT before_send (issue #3406/#3407)', () => {
     expect(beforeSend(snapshot)).toBe(snapshot);
     expect(beforeSend(exception)).toBe(exception);
     expect(beforeSend(identify)).toBe(identify);
+  });
+
+  it('keeps the L5 decision events outside static-page analytics sampling', () => {
+    for (const eventName of ['decision_moment_completed', 'decision_moment_next_action'] as const) {
+      expect(POSTHOG_QUOTA_EXEMPT_EVENTS).toContain(eventName);
+      const event = { event: eventName, properties: { $session_id: 'sampled-out' } };
+      expect(beforeSend(event)).toBe(event);
+    }
   });
 
   it('matches the SPA sampler for deterministic session decisions', () => {
