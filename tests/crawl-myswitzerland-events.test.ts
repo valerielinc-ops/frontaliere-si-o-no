@@ -356,7 +356,13 @@ describe('applyKnownPriceBackfills', () => {
 
   it('rejects a broad venue match without locality evidence', () => {
     const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Hall', price: { url: 'https://eventfrog.ch/labrats2' } };
-    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'New Hall', price: { amount: 20, currency: 'CHF', isFree: false } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'Hall New', price: { amount: 20, currency: 'CHF', isFree: false } };
+    expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
+  });
+
+  it('rejects a broad venue match when the event localities conflict', () => {
+    const fresh = { id: 'myswitzerland:booking', startDate: '2027-01-13', venue: 'Baden', comune: 'Baden', price: { url: 'https://eventfrog.ch/labrats2' } };
+    const backfill = { id: fresh.id, startDate: fresh.startDate, venue: 'Kurtheater Baden', comune: 'Winterthur', price: { amount: 20, currency: 'CHF', isFree: false } };
     expect(applyKnownPriceBackfills([fresh], [backfill])).toEqual([fresh]);
   });
 

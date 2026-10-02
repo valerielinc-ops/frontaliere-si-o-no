@@ -448,24 +448,32 @@ export async function recoverExistingBookingPrices(existingEvents, records, { de
 
 function normalizeVenueToken(value) {
   return typeof value === 'string'
-    ? value.normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
+    ? value.split(/\s+[-–—]\s+/)[0].normalize('NFKD').replace(/\p{M}/gu, '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim()
     : '';
 }
 
 /** Match a town-only venue to a specific venue only when the event locality proves the town. */
 function sameBackfillVenue(freshEvent, backfillEvent) {
-  if (sameVenue(freshEvent?.venue, backfillEvent?.venue)) return true;
   const freshVenue = normalizeVenueToken(freshEvent?.venue);
   const backfillVenue = normalizeVenueToken(backfillEvent?.venue);
   const broadVenue = [freshVenue, backfillVenue].find(value => value && !value.includes(' '));
-  if (!broadVenue) return false;
-  const localities = [
-    freshEvent?.comune,
-    backfillEvent?.comune,
-    freshEvent?.address?.locality,
-    backfillEvent?.address?.locality,
-  ].map(normalizeVenueToken).filter(Boolean);
-  return localities.includes(broadVenue);
+  const broadVenueMatchesSpecific = broadVenue
+    && [freshVenue, backfillVenue]
+      .filter(value => value !== broadVenue)
+      .some(value => value.split(' ').includes(broadVenue));
+  if (!freshVenue || !backfillVenue
+    || (!sameVenue(freshEvent?.venue, backfillEvent?.venue) && !broadVenueMatchesSpecific)) return false;
+  const freshLocalities = [freshEvent?.comune, freshEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const backfillLocalities = [backfillEvent?.comune, backfillEvent?.address?.locality]
+    .map(normalizeVenueToken).filter(Boolean);
+  const compatibleLocality = freshLocalities.some(freshLocality =>
+    backfillLocalities.some(backfillLocality => sameVenue(freshLocality, backfillLocality)));
+  if (freshLocalities.length && backfillLocalities.length && !compatibleLocality) return false;
+  if (freshVenue === backfillVenue) return true;
+  if (!compatibleLocality) return false;
+  if (!broadVenue) return true;
+  return [...freshLocalities, ...backfillLocalities].some(locality => sameVenue(locality, broadVenue));
 }
 
 /** Keep a verified backfill when a fresh detail record has no confident price. */
