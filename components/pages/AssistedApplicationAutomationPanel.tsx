@@ -278,6 +278,8 @@ export default function AssistedApplicationAutomationPanel({
   const secondary = `${button} border border-edge text-subtle hover:border-accent hover:text-link`;
   const spinner = (name: string) => (busy === name ? <Loader2 size={14} className="animate-spin" aria-hidden="true" /> : null);
   const unsupported = draft?.factCheck?.unsupported || [];
+  // Not blocking: words echoed from the posting, filler phrases, a letter out of 150-380 words.
+  const advisories = draft?.factCheck?.advisories || [];
   const canUpload = order.paymentStatus === 'paid' && ['awaiting_upload', 'ready_for_manual_submission', 'in_progress', 'blocked'].includes(order.submissionStatus);
 
   return (
@@ -456,6 +458,12 @@ export default function AssistedApplicationAutomationPanel({
               <p className="flex items-center gap-1 font-semibold text-danger"><AlertTriangle size={14} aria-hidden="true" /> Fatti non trovati nel CV o nell’annuncio</p>
               <ul className="mt-1 list-disc pl-4">{unsupported.map((item) => <li key={`${item.field}-${item.token}`}><strong>{item.token}</strong> ({item.kind}) — «{item.context}»</li>)}</ul>
               <label className="mt-2 flex items-center gap-2"><input type="checkbox" checked={ackFacts} onChange={(event) => setAckFacts(event.target.checked)} /> Ho verificato: sono corretti</label>
+            </div>
+          )}
+          {advisories.length > 0 && (
+            <div className="rounded-lg border border-edge bg-surface-subtle p-3 text-xs text-body">
+              <p className="font-semibold text-heading">Da controllare (non blocca l’invio)</p>
+              <ul className="mt-1 list-disc pl-4">{advisories.map((item) => <li key={`${item.field}-${item.kind}-${item.token}`}><strong>{item.token}</strong> ({item.kind}){item.context ? <> — «{item.context}»</> : null}</li>)}</ul>
             </div>
           )}
           {draft.verdict === 'poor' && !draft.knockOutAcknowledgedAt && (

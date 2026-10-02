@@ -480,6 +480,24 @@ export async function checkCorpusFreshness(section, itemCount, { localRegistry =
       unpublishedIds.length > 0 &&
         `local ids absent from the published registry (${unpublishedIds.slice(0, 5).join(', ')})`,
     ].filter(Boolean).join('; ');
+    // A fast-published article can legitimately reach the live registry before
+    // the corpus sync PR lands on this repository. That is not permission to
+    // render or publish this checkout: doing so would remove the newer live
+    // article. It is a safe, observable defer. A mixed mismatch remains a
+    // hard failure because it cannot be classified as a one-way upstream lag.
+    if (
+      missingIds.length > 0
+      && missingIds.length <= MAX_ARTICLES_BEHIND
+      && unpublishedIds.length === 0
+    ) {
+      return {
+        ok: false,
+        deferred: true,
+        note:
+          `${section}: published article registry is ahead of this checkout (${mismatchDetails}); ` +
+          `deferring hub rerender until the corpus sync converges (bounded to ${MAX_ARTICLES_BEHIND} IDs)`,
+      };
+    }
     return {
       ok: false,
       note:
@@ -541,6 +559,7 @@ async function main() {
 
   const summary = { generatedAt: new Date().toISOString(), dryRun: args.dryRun, sections: {} };
   let fatal = false;
+  let deferred = false;
 
   // The hub HTML and the client registry are two representations of the same
   // article snapshot. Render and validate every target section before
@@ -598,7 +617,12 @@ async function main() {
 
     const freshness = await checkCorpusFreshness(section, itemCount);
     console.log(`${LOG} ${freshness.note}`);
-    if (!freshness.ok) errors.push(freshness.note);
+    if (freshness.deferred) {
+      console.warn(`::warning::${LOG} ${freshness.note} — no bytes will be published`);
+      deferred = true;
+    } else if (!freshness.ok) {
+      errors.push(freshness.note);
+    }
 
     if (errors.length > 0) {
       for (const e of errors) console.error(`::error::${LOG} ${e}`);
@@ -616,6 +640,8 @@ async function main() {
       pathsByLocale,
       sitemapPath: topicHubResult.sitemapPath ?? null,
       announcedUrlCount: topicHubResult.announcedUrlPaths?.length ?? 0,
+      deferred: Boolean(freshness.deferred),
+      freshnessNote: freshness.note,
       validationErrors: errors,
     };
   }
@@ -630,6 +656,16 @@ async function main() {
   if (fatal) {
     console.error(`${LOG} validation failed — nothing pushed`);
     process.exit(1);
+  }
+
+  // A one-way published-ahead mismatch is an expected handoff between the
+  // fast publisher and the corpus-sync PR. Preserve the strict no-publish
+  // decision above, but report it to the workflow as a successful defer so it
+  // does not open a duplicate failure issue while the sync is converging.
+  if (deferred) {
+    if (process.env.GITHUB_OUTPUT) fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\n');
+    console.log(`${LOG} freshness deferred — nothing pushed`);
+    return;
   }
 
   // No external client asset may move until every rendered section has passed

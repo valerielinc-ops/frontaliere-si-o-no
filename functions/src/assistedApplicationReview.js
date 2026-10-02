@@ -13,10 +13,10 @@
 
 import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
-import { buildCoverLetterPdf } from './assistedApplicationAiDocuments.js';
-import { checkDraftFacts, clean, cleanBlock, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
+import { checkDraftTexts, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
+import { rebuildLetterPdf } from './assistedApplicationLetterPdf.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
-import { candidateWithEdits, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
+import { fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
 import { followupRefFor } from './assistedApplicationFollowup.js';
 import { answerMessage, validateAnswer } from './lib/answerRules.js';
@@ -227,27 +227,17 @@ async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, bod
     candidate: [draft.factSources?.candidate || '', plan.candidateText].filter(Boolean).join('\n').slice(-MAX_CANDIDATE_SOURCE),
   };
   const motivation = Object.fromEntries((next.formAnswers || []).map((field) => [field.key, field.value]));
-  const factCheck = checkDraftFacts({
+  const factCheck = checkDraftTexts({
     coverLetter: next.coverLetter?.text,
     emailSubject: next.applicationEmail?.subject,
     emailBody: next.applicationEmail?.body,
     motivationShort: motivation.motivationShort,
     whyCompany: motivation.whyCompany,
-  }, factSources);
+  }, factSources, { language: draft.language });
 
   let coverLetterPdfKey = draft.coverLetterPdfKey;
   if ((plan.draftPatch.coverLetter || plan.identityChanged) && bucket) {
-    const { identity, profile } = candidateWithEdits({ order, draft: next, flow: nextFlow });
-    const pdf = buildCoverLetterPdf(letterPdfBlocks({
-      identity,
-      profile,
-      posting: { contactPerson: draft.contactPerson || '' },
-      companyName: order.companyName,
-      language: draft.language || 'it',
-      letter: next.coverLetter,
-      title: draft.job?.title || order.jobTitle || '',
-      now: new Date(nowMs),
-    }));
+    const pdf = rebuildLetterPdf({ order, orderId, draft: next, flow: nextFlow, letter: next.coverLetter, nowMs });
     coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
     await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
   }

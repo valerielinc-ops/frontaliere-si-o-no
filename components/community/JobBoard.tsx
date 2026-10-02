@@ -1,3 +1,4 @@
+import { jobDescriptionPreview } from '@/services/jobs/descriptionPreview';
 /**
  * JobBoard — Ticino job board for cross-border workers
  *
@@ -22,8 +23,8 @@ const JobAlertStickyBanner = lazyRetry(() => import('@/components/community/JobA
 const JobAlertEndCard = lazyRetry(() => import('@/components/community/JobAlertEndCard'));
 const JobDetailAlertPrompt = lazyRetry(() => import('@/components/community/JobDetailAlertPrompt'));
 const JobDetailJobAlertButton = lazyRetry(() => import('@/components/community/JobDetailJobAlertButton'));
-const CompanyFollowCta = lazyRetry(() => import('@/components/community/CompanyFollowCta'));
-const CompanyFollowPopup = lazyRetry(() => import('@/components/community/CompanyFollowCta').then((m) => ({ default: m.CompanyFollowPopup })));
+// The inline action arrives with the detail; its registration modal loads on click.
+import CompanyFollowCta, { CompanyFollowPopup } from '@/components/community/CompanyFollowCta';
 // Eager, and tiny: a placeholder that arrives with its own chunk reserves nothing.
 import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceholder';
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
@@ -9131,8 +9132,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    job: JobListing,
    surface: 'company_follow_button' | 'company_follow_gate',
  ) => (
-   // Reserving fallback: this CTA renders in the job-detail header now, so the
-   // lazy chunk landing must swap a same-sized block rather than insert one.
+   // Reserve space if a descendant suspends; the inline CTA itself is eager.
    <Suspense fallback={<CompanyFollowPlaceholder />}>
      <CompanyFollowCta
        company={String(job.company || '')}
@@ -9168,7 +9168,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateIsNew = isNewJob(selectedJob);
  const logoUrl = cdnImageUrl(resolveCompanyLogoUrl(selectedJob));
  const publicDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description ?? '';
- const publicRequirements = sanitizeRequirementTokens(selectedJob.requirementsByLocale?.[locale] ?? selectedJob.requirements ?? []);
+ const descriptionPreview = jobDescriptionPreview(publicDescription);
  const descriptionPending = !publicDescription
  && (enrichmentLoading || (!resolvedJobDetail.has(selectedJob.id) && !jobDetailCache.has(selectedJob.id)));
  // The inline email form, rendered below the provider buttons (control) or
@@ -9383,9 +9383,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
      the title block) as JobExpiredView and JobOrphanView; it renders null
      unless the build proved a hub exists for this employer. */}
  <EmployerHubCta company={selectedJob.company} companyKey={selectedJob.companyKey} locale={locale as Locale} />
- {/* Full source description is readable before any sign-in or follow action. */}
- <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description">
-  {publicDescription ? renderFormattedDescription(publicDescription) : (
+ {/* The anonymous preview has one text budget; requirements remain behind access. */}
+ <section className="mt-4 space-y-3" aria-label={t('jobBoard.descriptionHeading')} data-testid="job-public-description" data-job-description-preview>
+  {descriptionPreview ? <p className="text-sm leading-relaxed text-body">{descriptionPreview}</p> : (
    // Keep the empty-description slot stable when enrichment settles without a
    // public description. Otherwise the settled fallback collapses the space
    // reserved by the loading skeleton and shifts the auth gate upward.
@@ -9395,7 +9395,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
     ) : <p className="text-sm text-subtle">{t('jobBoard.gate.descriptionUnavailable')}</p>}
    </div>
   )}
-  {publicRequirements.length > 0 && <><h2 className="text-lg font-semibold text-heading">{t('jobBoard.requirementsHeading')}</h2><ul className="list-disc pl-5 space-y-1 text-sm text-body">{publicRequirements.map((requirement, index) => <li key={index}>{requirement}</li>)}</ul></>}
  </section>
 
  {/* Auth gate — embedded inline for all viewports (no extra click needed) */}
@@ -10334,7 +10333,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
          two controls answer one question — "this company" — and reading them
          together is what makes the second one obvious;
        · CompanyFollowButton holds its follow/unfollow state locally and
-         resolves it with its own `findCompanyAlert` call. A second instance
+         resolves it through the shared alerts cache. A second instance
          on the same page would not just re-query: after one click the two
          would disagree, and clicking the stale one writes a SECOND alert
          document for the same employer, burning one of the visitor's few

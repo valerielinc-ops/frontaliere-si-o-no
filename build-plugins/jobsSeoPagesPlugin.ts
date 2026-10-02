@@ -1,3 +1,4 @@
+import { renderJobDescriptionGate } from './shared/jobDescriptionGate';
 /**
  * Generate localized static landing pages for every job in data/jobs.json.
  *
@@ -124,7 +125,6 @@ import { resolveHubCompanyKey } from './shared/companyFollowIdentity';
 import {
  renderHeroBadges,
  renderMobileActionBlock,
- renderHighlightsChips,
  renderRightRail,
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
@@ -3270,8 +3270,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const recentArticlesHtml = recentArticlesHtmlFor(locale);
  // `relatedArticlesHtml` is the SAME string the template below interpolates:
  // the publish input digests exactly the bytes the page emits, so the two
- // cannot drift apart. The separate reuse input intentionally omits this
- // digest; the cached fragment is replaced before the page is reused.
+ // cannot drift apart. The reuse input keeps the hreflang/employer context,
+ // while omitting only fragments refreshed before a cached page is reused.
+ const employerHubSlug = companyHubSlugBuild(job.company, job.companyKey);
+ const employerHubPath = emittedEmployerHubs.get(`${locale}|${employerHubSlug}`) || '';
  const activeJobManifestInput = incrementalManifests
   ? buildActiveJobPageInput({
    job,
@@ -3283,6 +3285,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
    relatedArticlesHtml: recentArticlesHtml,
+   hreflangHtml,
+   employerHubPath,
    renderDateBucket: jobsSeoReuseBuildDay,
   })
  : null;
@@ -3327,7 +3331,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
      location: localeCopy[locale].location,
      contract: localeCopy[locale].contract,
     },
-    referralUrl,
+    referralUrl: () => '#job-auth-gate',
     esc,
     now: jobsSeoReuseBuildNow,
    }),
@@ -3575,25 +3579,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  .join('');
  recordPhase('related-pool', __tPh_related);
  const __tPh_summary = phaseTimer();
- // Body paragraphs go through `jobDescriptionTextToHtml` (full block-level
- // parser) so AI-untouched descriptions with `### Heading` / `**bold**` /
- // `• bullet` markdown render as proper <h3>/<strong>/<ul>. `inlineTextToHtml`
- // only handles inline markers so headings/lists would leak as literal text
- // and trip audit:no-literal-markdown (0-tolerance, CLAUDE.md rule #1).
- // The parser already emits its own block wrappers (<p>/<h3>/<ul>), so we
- // do NOT add an outer <p>; canonical summary items (clean one-sentence
- // strings) still render as a single <p> via the parser.
- const summaryHtml = summaryParagraphs
- .map((p) => jobDescriptionTextToHtml(p))
- .join('');
- const isSubheadItem = (value: string) => /^(requisiti necessari|requisiti auspicati|required|preferred)$/i.test(normalizeText(value));
- const sectionHtml = (heading: string, paragraphs: string[], bullets: string[]) => {
- const paragraphsHtml = paragraphs.map((p) => jobDescriptionTextToHtml(p)).join('');
- const bulletsHtml = bullets.length > 0
- ? `<ul>${bullets.map((item) => `<li${isSubheadItem(item) ? ' class="subhead"' : ''}>${inlineTextToHtml(item)}</li>`).join('')}</ul>`
- : '';
- return `<section class="section"><h4>${esc(heading)}</h4>${paragraphsHtml}${bulletsHtml}</section>`;
- };
+ // Full structured content remains available to JobPosting and signed-in readers.
  const timelineBlocks: Array<{ heading: string; paragraphs: string[]; bullets: string[] }> = [];
  if (canonicalResponsibilities.length > 0) {
  timelineBlocks.push({ heading: localeCopy[locale].responsibilitiesLabel, paragraphs: [], bullets: canonicalResponsibilities });
@@ -3618,9 +3604,6 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  if (canonicalKeywords.length > 0) {
  timelineBlocks.push({ heading: localeCopy[locale].keywordsLabel, paragraphs: [], bullets: canonicalKeywords });
  }
- const timelineHtml = timelineBlocks
- .map((section) => `<div class="timeline-step">${sectionHtml(section.heading, section.paragraphs, section.bullets)}</div>`)
- .join('');
  recordPhase('summary-html', __tPh_summary);
  const parserAssignedChunks = summaryParagraphs.length
  + timelineBlocks.reduce((sum, section) => sum + section.paragraphs.length + section.bullets.length, 0);
@@ -3815,7 +3798,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // that reuse ROBOTS_INDEX_ENHANCED unconditionally, this per-job page's
  // indexability must be gated on the actual rendered summary/description/
  // FAQ content, same pattern as jobRecencyPagesPlugin.ts's recencyRobotsTag.
- const jobBodyHtml = `${summaryHtml}${timelineHtml || (hasCanonical ? sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, []) : '')}${jobFaqHtml}`;
+ const jobBodyHtml = `${renderJobDescriptionGate(localizedDescriptionRaw, locale)}${jobFaqHtml}`;
  const jobRobotsTag = localizedDescription
   ? robotsMetaEnhancedForContent(jobBodyHtml)
   : ROBOTS_NOINDEX_FOLLOW;
@@ -3865,21 +3848,14 @@ ${staticAnalyticsHtml}
  <span>${esc(`Salario: ${salaryText}`)}</span>
  </div>
  </section>
- <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl, esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
- <section class="section">
- <h4>${esc(localeCopy[locale].summaryLabel)}</h4>
- ${summaryHtml}
- </section>
- ${renderHighlightsChips({ locale, canonicalLocale, canonicalKeywords, esc })}
- <div class="timeline">
- ${timelineHtml || (hasCanonical ? `<div class="timeline-step">${sectionHtml(localeCopy[locale].descriptionLabel, bodyParagraphs, [])}</div>` : '')}
- </div>
- <a href="${referralUrl(job.applyUrl || job.url || canonicalUrl, job)}" rel="noopener noreferrer" class="cta">${esc(localeCopy[locale].applyNow)}</a>
+ <!-- jobs-seo-reuse:mobile-action:start -->${renderMobileActionBlock({ job, locale, canonicalUrl, addressLocality, salaryMin, salaryText, localeLabels: { applyNow: localeCopy[locale].applyNow, quickDetails: localeCopy[locale].quickDetails, location: localeCopy[locale].location, contract: localeCopy[locale].contract }, referralUrl: () => '#job-auth-gate', esc, now: jobsSeoReuseBuildNow })}<!-- jobs-seo-reuse:mobile-action:end -->
+ ${renderJobDescriptionGate(localizedDescriptionRaw, locale)}
+ <a href="#job-auth-gate" class="cta">${esc(localeCopy[locale].applyNow)}</a>
  ${jobFaqHtml}
  </article>
- ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords, esc })}
+ ${renderRightRail({ job, locale, addressLocality, addressRegion, postalCode, salaryMin, salaryText, canonicalKeywords: [], esc })}
  ${(() => {
- const cSlugBanner = companyHubSlugBuild(job.company, job.companyKey);
+ const cSlugBanner = employerHubSlug;
  // Relative href — internal navigation resolves against canonical (absolute).
  const cHref = withSlash(`${localePrefix[locale]}/${buildCantonAwareSection(locale, jobCanton)}/${companyRoutePrefix[locale]}-${cSlugBanner}`.replace(/\/+/g, '/'));
  const cLogo = companyLogo(job);
@@ -13663,15 +13639,9 @@ ${staticAnalyticsHtml}
   staticBodyParts.push(`<section><h2>${esc(disambiguationHeading[locale] || disambiguationHeading.it)}</h2>${parts.join('')}</section>`);
  }
 
- // --- Description section -----------------------------------------------
- // The archive is the historical source of truth. Do not turn a complete
- // archived listing into a 2,000-character teaser: old job URLs are kept
- // precisely because their original content can still answer a search or a
- // bookmarked visit. Use the shared description serializer so markdown and
- // crawler-supplied HTML remain safe and readable in the static HTML.
+ // Archived pages use the same anonymous preview as active listings.
  if (jobDescription && jobDescription.length > 30) {
- const descriptionHtml = plainTextToHtml(jobDescription);
- staticBodyParts.push(`<section><h2>${locale === 'it' ? 'Descrizione originale' : locale === 'en' ? 'Original description' : locale === 'de' ? 'Originalbeschreibung' : 'Description originale'}</h2><div>${descriptionHtml}</div></section>`);
+ staticBodyParts.push(renderJobDescriptionGate(jobDescription, locale));
  }
 
  // --- Job details section ---
@@ -15251,7 +15221,7 @@ ${staticAnalyticsHtml}
   });
   const pageTitle = esc(pageTitleRaw);
   const description = stripLeadingSectionLabel(String(archive?.description || ''));
-  const descriptionHtml = description.length > 30 ? plainTextToHtml(description) : '';
+  const descriptionHtml = description.length > 30 ? renderJobDescriptionGate(description, locale) : '';
   const detailItems = [
    company ? `<li><strong>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Arbeitgeber' : 'Employeur'}:</strong> ${esc(company)}</li>` : '',
    `<li><strong>${locale === 'it' ? 'Posizione' : locale === 'en' ? 'Position' : locale === 'de' ? 'Position' : 'Poste'}:</strong> ${esc(titleRaw)}</li>`,
