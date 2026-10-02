@@ -9,16 +9,18 @@
  *   "Vivere a {Gemeinde} (Liechtenstein) e lavorare in Svizzera"
  *
  * Reuses data/liechtensteinCorridorContent.ts's `LIECHTENSTEIN_CONTENT` for
- * every substantive fact (hub title/lede, per-comune title, the 5-entry FAQ
- * — including its treaty-mechanism, 45-day threshold, customs-union, AVS/AI
- * and MANDATORY flow-inversion-disclosure answers) rather than rewriting
- * that copy here, per the issue brief. Only page chrome (meta description,
- * tile labels, hub grouping, breadcrumb, the H1 regime-suffix, the
- * title-cascade's mid/short rungs, and the per-comune lede's first sentence)
- * is authored in this file — and that lede's flow-inversion sentence still
- * reads the live `LIECHTENSTEIN_COMMUTING_CONTEXT` numbers rather than
- * duplicating any hand-authored string, so it cannot silently drift out of
- * sync with the content module's own hubLede.
+ * every substantive corridor fact (hub title/lede, per-comune title, the
+ * hub's 5-entry FAQ — including its treaty-mechanism, 45-day threshold,
+ * customs-union, AVS/AI and MANDATORY flow-inversion-disclosure answers)
+ * rather than rewriting that copy here, per the issue brief. Detail pages
+ * link to the hub FAQ instead of duplicating the same five answers eight
+ * times. Only page chrome (meta description, tile labels, hub grouping,
+ * breadcrumb, the H1 regime-suffix, the title-cascade's mid/short rungs,
+ * and the per-comune lede's first sentence) is authored in this file — and
+ * that lede's flow-inversion sentence still reads the live
+ * `LIECHTENSTEIN_COMMUTING_CONTEXT` numbers rather than duplicating any
+ * hand-authored string, so it cannot silently drift out of sync with the
+ * content module's own hubLede.
  *
  * Unlike France (per-canton REGIME_TAX amount) and Germany (uniform
  * Quellensteuer RATE), this corridor has no sourced numeric annual tax
@@ -42,6 +44,7 @@ import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
 import { CALC_HREF } from './shared/calcHref';
 import { renderNearestComparison } from './shared/nearestMunicipalityComparison';
+import { buildPeerProse, rankPeerRows } from './shared/peerCohortComparison';
 import { formatSourceAttribution } from './shared/authoritativeSources';
 import { CALCULATOR_REGIME_SCOPE_NOTICE, CALCULATOR_REGIME_SCOPE_TAG } from './shared/calculatorRegimeScope';
 import { BASE_URL, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
@@ -115,6 +118,19 @@ function intFmt(n: number, locale: LiechtensteinLocale): string {
   return new Intl.NumberFormat(intlLang(locale), { maximumFractionDigits: 0 }).format(n);
 }
 
+function areaFmt(n: number, locale: LiechtensteinLocale): string {
+  return `${new Intl.NumberFormat(intlLang(locale), {
+    minimumFractionDigits: 3,
+    maximumFractionDigits: 3,
+  }).format(n)} km²`;
+}
+
+function joinPlaceNames(names: string[], locale: LiechtensteinLocale): string {
+  if (names.length <= 1) return names[0] ?? '';
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
+}
+
 /** Swiss-apostrophe grouping for the corridor's commuting-flow numbers —
  *  same deterministic grouper the content module uses, so a 4-digit and a
  *  5-digit figure never appear inconsistently grouped in the same sentence
@@ -157,9 +173,23 @@ interface Copy {
   calcLink: string;
   /** Column headers and prose labels of the nearest-comune comparison block. */
   colPopulation: string;
+  colArea: string;
+  colElevation: string;
+  colDensity: string;
   spreadComparison: string;
+  comparisonPeerNoun: string;
+  populationMetric: string;
+  areaMetric: string;
+  elevationMetric: string;
+  densityMetric: string;
+  densityUnit: string;
   comparisonSource: string;
+  regionSummary: (name: string, region: string, peers: string) => string;
+  geographySummary: (name: string, nearest: string, farthest: string) => string;
+  nearestAreaComparison: (nearest: string, current: string, nearestIsSmaller: boolean) => string;
+  nearestDensityComparison: (nearest: string, current: string, nearestIsLower: boolean) => string;
   faqTitle: string;
+  faqLinkText: string;
   disclaimer: string;
   bridgeLede: (n: string) => string;
 }
@@ -185,9 +215,28 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     crossTitle: 'Approfondimenti utili',
     calcLink: 'Calcola il tuo stipendio netto',
     colPopulation: 'Abitanti',
+    colArea: 'Superficie',
+    colElevation: 'Quota',
+    colDensity: 'Densità 2020',
     spreadComparison: 'la popolazione',
-    comparisonSource: 'Popolazione dal dataset comunale del Liechtenstein (Amt für Statistik).',
+    comparisonPeerNoun: 'comuni',
+    populationMetric: 'popolazione',
+    areaMetric: 'superficie comunale',
+    elevationMetric: 'quota del centro comunale',
+    densityMetric: 'densità abitativa 2020',
+    densityUnit: 'ab./km²',
+    comparisonSource:
+      'Popolazione, superficie, quota e densità 2020 dai dati comunali ufficiali del Liechtenstein (Amt für Statistik / Amt für Bau und Infrastruktur).',
+    regionSummary: (name, region, peers) =>
+      `${name} fa parte dell'${region}: tra i comuni sopra soglia, nella stessa regione si trovano anche ${peers}.`,
+    geographySummary: (name, nearest, farthest) =>
+      `Il comune sopra soglia più vicino a ${name} è ${nearest}; tra quelli confrontati, il più lontano è ${farthest}.`,
+    nearestAreaComparison: (nearest, current, nearestIsSmaller) =>
+      `${nearest} ha una superficie ${nearestIsSmaller ? 'minore' : 'maggiore'} di quella di ${current}.`,
+    nearestDensityComparison: (nearest, current, nearestIsLower) =>
+      `${nearest} ha una densità abitativa ${nearestIsLower ? 'più bassa' : 'più alta'} di quella di ${current}.`,
     faqTitle: 'Domande frequenti',
+    faqLinkText: 'Le risposte comuni sul corridoio sono raccolte nella pagina generale:',
     disclaimer:
       'Stime a scopo orientativo. Verifica sempre con un consulente fiscale o le autorità competenti prima di decidere.',
     bridgeLede: (n) =>
@@ -213,9 +262,28 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     crossTitle: 'Useful reading',
     calcLink: 'Calculate your net salary',
     colPopulation: 'Population',
+    colArea: 'Area',
+    colElevation: 'Elevation',
+    colDensity: 'Density 2020',
     spreadComparison: 'the population',
-    comparisonSource: 'Population from the Liechtenstein municipal dataset (Amt für Statistik).',
+    comparisonPeerNoun: 'municipalities',
+    populationMetric: 'population',
+    areaMetric: 'municipal area',
+    elevationMetric: 'municipal-centre elevation',
+    densityMetric: '2020 population density',
+    densityUnit: 'people/km²',
+    comparisonSource:
+      'Population, area, elevation and 2020 density from official Liechtenstein municipal data (Amt für Statistik / Amt für Bau und Infrastruktur).',
+    regionSummary: (name, region, peers) =>
+      `${name} is in ${region}; the above-floor municipalities in the same region are also ${peers}.`,
+    geographySummary: (name, nearest, farthest) =>
+      `The closest above-floor municipality to ${name} is ${nearest}; among those compared, the farthest is ${farthest}.`,
+    nearestAreaComparison: (nearest, current, nearestIsSmaller) =>
+      `${nearest} has a ${nearestIsSmaller ? 'smaller' : 'larger'} area than ${current}.`,
+    nearestDensityComparison: (nearest, current, nearestIsLower) =>
+      `${nearest} has ${nearestIsLower ? 'lower' : 'higher'} population density than ${current}.`,
     faqTitle: 'FAQ',
+    faqLinkText: 'The corridor-wide answers are collected on the overview page:',
     disclaimer: 'Estimates for guidance only. Always check with a tax adviser or the competent authorities before deciding.',
     bridgeLede: (n) =>
       `${n} is a Liechtenstein municipality but below the population floor, so its dedicated guide is not published yet. Use the calculator or explore the Principality's main municipalities.`,
@@ -240,9 +308,28 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     crossTitle: 'Nützliche Lektüre',
     calcLink: 'Nettolohn berechnen',
     colPopulation: 'Einwohner',
+    colArea: 'Fläche',
+    colElevation: 'Höhenlage',
+    colDensity: 'Dichte 2020',
     spreadComparison: 'die Einwohnerzahl',
-    comparisonSource: 'Einwohnerzahl aus dem liechtensteinischen Gemeindedatensatz (Amt für Statistik).',
+    comparisonPeerNoun: 'Gemeinden',
+    populationMetric: 'Einwohnerzahl',
+    areaMetric: 'Gemeindefläche',
+    elevationMetric: 'Höhenlage des Gemeindezentrums',
+    densityMetric: 'Bevölkerungsdichte 2020',
+    densityUnit: 'Einw./km²',
+    comparisonSource:
+      'Einwohnerzahl, Fläche, Höhenlage und Dichte 2020 aus den offiziellen liechtensteinischen Gemeindedaten (Amt für Statistik / Amt für Bau und Infrastruktur).',
+    regionSummary: (name, region, peers) =>
+      `${name} gehört zum ${region}; zu den Gemeinden über der Schwelle in derselben Region gehören auch ${peers}.`,
+    geographySummary: (name, nearest, farthest) =>
+      `Die nächste Gemeinde über der Schwelle zu ${name} ist ${nearest}; unter den verglichenen Gemeinden ist ${farthest} am weitesten entfernt.`,
+    nearestAreaComparison: (nearest, current, nearestIsSmaller) =>
+      `${nearest} hat eine ${nearestIsSmaller ? 'kleinere' : 'grössere'} Fläche als ${current}.`,
+    nearestDensityComparison: (nearest, current, nearestIsLower) =>
+      `${nearest} hat eine ${nearestIsLower ? 'niedrigere' : 'höhere'} Bevölkerungsdichte als ${current}.`,
     faqTitle: 'Häufige Fragen',
+    faqLinkText: 'Die gemeinsamen Antworten zum Korridor stehen auf der Übersichtsseite:',
     disclaimer: 'Schätzungen nur zur Orientierung. Immer mit einer Steuerberatung oder den zuständigen Behörden prüfen.',
     bridgeLede: (n) =>
       `${n} ist eine Gemeinde Liechtensteins, liegt aber unter der Bevölkerungsschwelle, daher ist der eigene Ratgeber noch nicht veröffentlicht. Nutzen Sie den Rechner oder erkunden Sie die grösseren Gemeinden des Fürstentums.`,
@@ -267,9 +354,28 @@ const COPY: Record<LiechtensteinLocale, Copy> = {
     crossTitle: 'À lire aussi',
     calcLink: 'Calculez votre salaire net',
     colPopulation: 'Habitants',
+    colArea: 'Superficie',
+    colElevation: 'Altitude',
+    colDensity: 'Densité 2020',
     spreadComparison: 'la population',
-    comparisonSource: 'Population issue du jeu de données communal du Liechtenstein (Amt für Statistik).',
+    comparisonPeerNoun: 'communes',
+    populationMetric: 'population',
+    areaMetric: 'superficie communale',
+    elevationMetric: 'altitude du centre communal',
+    densityMetric: 'densité de population 2020',
+    densityUnit: 'hab./km²',
+    comparisonSource:
+      'Population, superficie, altitude et densité 2020 issues des données communales officielles du Liechtenstein (Amt für Statistik / Amt für Bau und Infrastruktur).',
+    regionSummary: (name, region, peers) =>
+      `${name} fait partie de l'${region} ; parmi les communes au-dessus du seuil, les communes voisines de la même région sont ${peers}.`,
+    geographySummary: (name, nearest, farthest) =>
+      `La commune au-dessus du seuil la plus proche de ${name} est ${nearest} ; parmi celles comparées, la plus éloignée est ${farthest}.`,
+    nearestAreaComparison: (nearest, current, nearestIsSmaller) =>
+      `${nearest} a une superficie ${nearestIsSmaller ? 'plus petite' : 'plus grande'} que celle de ${current}.`,
+    nearestDensityComparison: (nearest, current, nearestIsLower) =>
+      `${nearest} a une densité de population ${nearestIsLower ? 'plus faible' : 'plus élevée'} que celle de ${current}.`,
     faqTitle: 'Questions fréquentes',
+    faqLinkText: 'Les réponses communes sur ce corridor sont réunies sur la page générale :',
     disclaimer: "Estimations à titre indicatif. Vérifiez toujours avec un conseiller fiscal ou les autorités compétentes avant de décider.",
     bridgeLede: (n) =>
       `${n} est une commune du Liechtenstein mais en dessous du seuil de population : son guide dédié n'est pas encore publié. Utilisez le calculateur ou explorez les principales communes de la Principauté.`,
@@ -312,11 +418,12 @@ function breadcrumbLd(locale: LiechtensteinLocale, name: string, canonicalUrl: s
  * measured a median Information Gain of 0,0 % on 2026-08-24 (8 of 8 sampled
  * pages contributing nothing their siblings did not already carry).
  *
- * After: the nearest comuni with their population, plus prose placing THIS
- * comune inside the group. Liechtenstein has no per-comune commuting figure in
- * the dataset (no `distanceKm`: the whole principality is inside one commuting
- * basin), so population is the one real magnitude available — stated as such
- * rather than padded with a figure the dataset does not have.
+ * After: the nearest comuni carry population, area, elevation and 2020
+ * density, plus ranked prose placing THIS comune inside the full group. These
+ * are sourced municipal facts, not invented commuting figures: the whole
+ * principality is inside one commuting basin and the dataset has no per-comune
+ * commuting count. The detail page keeps the corridor FAQ on the hub and links
+ * to it, so identical treaty copy is not counted as page-specific payload.
  *
  * Renderer, determinism argument and shared copy: `nearestMunicipalityComparison`.
  */
@@ -336,8 +443,67 @@ function renderRelated(locale: LiechtensteinLocale, current: LiechtensteinBorder
         formatNumeric: (value) => intFmt(value, locale),
         spreadLabel: c.spreadComparison,
       },
+      {
+        header: c.colArea,
+        value: (m) => areaFmt(m.areaKm2, locale),
+      },
+      {
+        header: c.colElevation,
+        value: (m) => `${intFmt(m.elevationM, locale)} m`,
+      },
+      {
+        header: c.colDensity,
+        value: (m) => `${intFmt(m.populationDensity2020, locale)} ${c.densityUnit}`,
+      },
     ],
     sourceNote: c.comparisonSource,
+    extraProse: ({ current: self, neighbours }) => {
+      const proseFor = (
+        key: 'population' | 'areaKm2' | 'elevationM' | 'populationDensity2020',
+        metricLabel: string,
+        formatValue: (value: number, valueLocale: LiechtensteinLocale) => string,
+      ): string[] =>
+        buildPeerProse({
+          locale,
+          ranked: rankPeerRows(
+            LIECHTENSTEIN_ABOVE_FLOOR.map((place) => ({
+              key: place.slug,
+              name: place.name,
+              value: place[key],
+            })),
+            true,
+          ),
+          currentKey: self.slug,
+          labels: { heading: '', metricLabel, peerNoun: c.comparisonPeerNoun },
+          formatValue,
+          higherIsBetter: true,
+        });
+
+      const sameRegionPeers = LIECHTENSTEIN_ABOVE_FLOOR
+        .filter((place) => place.slug !== self.slug && place.region === self.region)
+        .map((place) => place.name);
+      const nearest = neighbours[0].place;
+      const farthestCompared = neighbours[neighbours.length - 1].place;
+
+      return [
+        ...proseFor('population', c.populationMetric, (value, valueLocale) => intFmt(value, valueLocale)),
+        ...proseFor('areaKm2', c.areaMetric, (value, valueLocale) => areaFmt(value, valueLocale)),
+        ...proseFor('elevationM', c.elevationMetric, (value, valueLocale) => `${intFmt(value, valueLocale)} m`),
+        ...proseFor(
+          'populationDensity2020',
+          c.densityMetric,
+          (value, valueLocale) => `${intFmt(value, valueLocale)} ${COPY[valueLocale].densityUnit}`,
+        ),
+        c.regionSummary(self.name, self.region, joinPlaceNames(sameRegionPeers, locale)),
+        c.geographySummary(self.name, nearest.name, farthestCompared.name),
+        c.nearestAreaComparison(nearest.name, self.name, nearest.areaKm2 < self.areaKm2),
+        c.nearestDensityComparison(
+          nearest.name,
+          self.name,
+          nearest.populationDensity2020 < self.populationDensity2020,
+        ),
+      ];
+    },
   });
 }
 
@@ -349,9 +515,16 @@ function renderFaqSection(locale: LiechtensteinLocale, faqTitle: string): string
         `<details class="py-3"${i === 0 ? ' open' : ''}><summary class="cursor-pointer font-semibold text-heading">${esc(entry.question)}</summary><p class="mt-2 text-sm leading-6 text-body">${esc(entry.answer)}</p></details>`,
     )
     .join('');
-  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
+  return `<section id="faq" class="mt-6 rounded-md border border-edge bg-surface p-5">
       <h2 class="text-xl font-bold text-heading">${esc(faqTitle)}</h2>
       <div class="mt-4 divide-y divide-edge">${items}</div>
+    </section>`;
+}
+
+function renderFaqHubLink(locale: LiechtensteinLocale, faqTitle: string, faqLinkText: string): string {
+  return `<section class="mt-6 rounded-md border border-edge bg-surface p-5">
+      <h2 class="text-xl font-bold text-heading">${esc(faqTitle)}</h2>
+      <p class="mt-2 text-sm leading-6 text-body">${esc(faqLinkText)} <a class="font-semibold text-link hover:text-link-hover" href="${LIECHTENSTEIN_HUB_PATH[locale]}#faq">${esc(COPY[locale].hubLabel)}</a></p>
     </section>`;
 }
 
@@ -428,7 +601,7 @@ export function renderAboveFloorPage(params: {
 
     ${renderRelated(locale, municipality)}
 
-    ${renderFaqSection(locale, c.faqTitle)}
+    ${renderFaqHubLink(locale, c.faqTitle, c.faqLinkText)}
 
     <p class="mt-6 text-xs leading-5 text-muted">${esc(c.disclaimer)}</p>
   </div>`;
@@ -451,7 +624,7 @@ export function renderAboveFloorPage(params: {
     robots: wordCount >= MIN_INDEXABLE_WORDS ? 'index,follow' : 'noindex,follow',
     ogLocale: OG_LOCALE[locale],
     hreflangHtml: hreflangFor(municipality.slug),
-    jsonLdScripts: [breadcrumbLd(locale, n, canonicalUrl), faqLdFor(locale)],
+    jsonLdScripts: [breadcrumbLd(locale, n, canonicalUrl)],
     bodyHtml: bodyWithAd,
     distDir,
     skipMainWrap: true,

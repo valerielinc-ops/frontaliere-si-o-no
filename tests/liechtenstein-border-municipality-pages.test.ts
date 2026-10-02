@@ -25,6 +25,7 @@ import {
   LIECHTENSTEIN_LOCALES,
   LIECHTENSTEIN_REGIME,
   LIECHTENSTEIN_COMMUTING_CONTEXT,
+  LIECHTENSTEIN_HUB_PATH,
   liechtensteinMunicipalityPathFor,
   isLiechtensteinBorderMunicipalityPath,
 } from '@/build-plugins/liechtensteinBorderMunicipalityData';
@@ -63,7 +64,9 @@ describe('Liechtenstein border municipality above-floor page render (#4884)', ()
     expect(html).toContain(String(LIECHTENSTEIN_COMMUTING_CONTEXT.year));
     expect(html).toContain(groupThousands(LIECHTENSTEIN_COMMUTING_CONTEXT.chToLi));
     expect(html).toContain(groupThousands(LIECHTENSTEIN_COMMUTING_CONTEXT.liToCh));
-    expect(html).toContain(LIECHTENSTEIN_COMMUTING_CONTEXT.ratio);
+    // The renderer escapes `>` in text nodes; assert the exact HTML form of
+    // the live ratio rather than accepting a weaker substring.
+    expect(html).toContain(LIECHTENSTEIN_COMMUTING_CONTEXT.ratio.replace(/>/g, '&gt;'));
     // The dominant-flow-is-inverted sentence itself, IT copy.
     expect(html).toMatch(/flusso dominante.*direzione opposta/i);
   });
@@ -76,6 +79,20 @@ describe('Liechtenstein border municipality above-floor page render (#4884)', ()
       distDir: DIST,
     });
     expect(html).not.toMatch(/optionsrecht/i);
+  });
+
+  it('renders sourced municipal comparison facts and keeps the shared FAQ on the hub', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: schaan,
+      locale: 'it',
+      dateStamp: '2026-07-29',
+      distDir: DIST,
+    });
+    expect(html).toContain('Superficie');
+    expect(html).toContain('Densità 2020');
+    expect(html).toContain('Amt für Statistik / Amt für Bau und Infrastruktur');
+    expect(html).toContain(`${LIECHTENSTEIN_HUB_PATH.it}#faq`);
+    expect(html).not.toContain('"@type":"FAQPage"');
   });
 });
 

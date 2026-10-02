@@ -211,7 +211,10 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-liechtenstein',
-    minMedian: 5, // misurato 6,1 % (era 0,0 %)
+    // The issue target is 40 %. The renderer now carries sourced municipal
+    // dimensions, removes the duplicated detail FAQ and adds numeric peer
+    // prose; this observer keeps that target fail-closed in the source tests.
+    minMedian: 40,
     render: () =>
       LIECHTENSTEIN_ABOVE_FLOOR.map((m) =>
         renderLiechtenstein({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
