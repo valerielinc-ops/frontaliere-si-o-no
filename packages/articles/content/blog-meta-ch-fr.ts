@@ -7538,6 +7538,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.inventario-idroelettrico-storico.title': 'Inventaire des centrales hydroélectriques historiques',
     'blog.article.inventario-idroelettrico-storico.excerpt': 'À Berne, le Conseil fédéral a pris note du rapport sur les centrales hydroélectriques en activité en 1914 et qui existent toujours. L’inventaire complète les statistiques suisses.',
     'blog.article.inventario-idroelettrico-storico.imageAlt': 'Centrale hydroélectrique historique dans un paysage alpin suisse',
+    'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin annonce sa démission du Conseil fédéral',
+    'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Le chef du Département fédéral des affaires économiques quittera ses fonctions le 31 décembre 2026. À l’exception des raisons de santé : « Je ressens une certaine fatigue ».',
+    'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Palais fédéral à Berne, siège du gouvernement suisse.',
 };
 
 export default blogMetaChFr;

@@ -7538,6 +7538,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.inventario-idroelettrico-storico.title': 'Inventario degli impianti idroelettrici storici',
     'blog.article.inventario-idroelettrico-storico.excerpt': 'Il Consiglio federale ha preso atto a Berna del rapporto sugli impianti idroelettrici attivi nel 1914 e ancora esistenti. L\'inventario completa la statistica svizzera.',
     'blog.article.inventario-idroelettrico-storico.imageAlt': 'Impianto idroelettrico storico in un paesaggio alpino svizzero',
+    'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin annuncia le dimissioni dal Consiglio federale',
+    'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Il capo del Dipartimento federale dell\'economia lascerà l\'incarico il 31 dicembre 2026. Esclusi motivi di salute: \'Avverto una certa stanchezza\'.',
+    'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero.',
 };
 
 export default blogMetaChIt;

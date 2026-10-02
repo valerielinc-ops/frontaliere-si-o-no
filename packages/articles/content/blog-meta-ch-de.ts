@@ -7538,6 +7538,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.inventario-idroelettrico-storico.title': 'Inventar historischer Wasserkraftwerke',
     'blog.article.inventario-idroelettrico-storico.excerpt': 'In Bern nahm der Bundesrat den Bericht über Wasserkraftwerke zur Kenntnis, die 1914 in Betrieb waren und noch existieren. Das Inventar vervollständigt die Schweizer Statistiken.',
     'blog.article.inventario-idroelettrico-storico.imageAlt': 'Historische Wasserkraftanlage in einer Schweizer Alpenlandschaft',
+    'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin kündigt seinen Rücktritt aus dem Bundesrat an',
+    'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Der Vorsteher des Eidgenössischen Departements für Wirtschaft wird am 31. Dezember 2026 sein Amt niederlegen. Gesundheitliche Gründe ausgeschlossen: \'Ich verspüre eine gewisse Müdigkeit\'.',
+    'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Bundeshaus in Bern, Sitz der Schweizer Regierung.',
 };
 
 export default blogMetaChDe;
