@@ -56,7 +56,7 @@ const EXPERIENCE_SECTION = {
 // Section order of the Swiss CV for each type (SDBB apprentice templates; SECO / BIZ Bern for adults).
 const ORDER = {
   apprentice: ['school', 'trial', 'experience', 'jobs', 'volunteer', 'tests', 'skills', 'languages', 'interests', 'references'],
-  first_job: ['summary', 'education', 'internships', 'experience', 'jobs', 'volunteer', 'projects', 'competencies', 'skills', 'certifications', 'languages', 'interests', 'references'],
+  first_job: ['summary', 'education', 'recognitions', 'internships', 'experience', 'jobs', 'volunteer', 'projects', 'competencies', 'skills', 'certifications', 'languages', 'interests', 'references'],
   qualified: ['summary', 'competencies', 'experience', 'internships', 'education', 'recognitions', 'certifications', 'projects', 'skills', 'languages', 'jobs', 'volunteer', 'interests', 'references'],
 };
 

@@ -49,6 +49,9 @@ describe('type of application', () => {
     expect(candidateType({ postingTitle: 'Lernende/r Informatiker/in EFZ Applikationsentwicklung', profile: APPRENTICE })).toEqual({ type: 'apprentice', sector: 'it' });
     expect(candidateType({ postingTitle: 'Infirmier/ère diplômé/e 80-100%', profile: { experience: [{ role: 'Infirmière', kind: 'job' }] } })).toEqual({ type: 'qualified', sector: 'health' });
     expect(candidateType({ postingTitle: 'Sviluppatore/trice Full-Stack', profile: { experience: [{ role: 'Stage', kind: 'internship' }] } })).toEqual({ type: 'first_job', sector: 'it' });
+    // "IT" alone counts only in capitals.
+    expect(candidateType({ postingTitle: 'IT Support Specialist 100%', profile: { experience: [{ role: 'Helpdesk', kind: 'job' }] } }).sector).toBe('it');
+    expect(candidateType({ postingTitle: 'Make it happen: Sachbearbeiter/in', profile: { experience: [{ role: 'Sachbearbeiter', kind: 'job' }] } }).sector).toBe('other');
     // An EFZ in the title is a qualification, not an apprenticeship.
     expect(candidateType({ postingTitle: 'Informatiker EFZ Systemtechnik 100%', profile: { experience: [{ role: 'Informatiker', kind: 'job' }] } }).type).toBe('qualified');
   });
