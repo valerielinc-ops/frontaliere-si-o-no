@@ -97793,6 +97793,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-imprenditoriale-grigioni': {
+    title: 'Aprire attività nel Canton Grigioni: registro e costi',
+    description: 'Aprire un\'attività nei Grigioni: forma giuridica, registro di commercio, capitale minimo, tasse, IVA, AVS/AI/IPG, LPP e LAMal in una guida pratica.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aprire, attività, canton, grigioni',
+    ogTitle: 'Attività nei Grigioni: registro e costi',
+    ogDescription: 'Il preventivo per un\'attività nel Canton Grigioni deve separare iscrizione, capitale minimo, imposte federali, cantonali e comunali, contributi sui salari e LAMal. Una guida pratica a competenze, percentuali e scadenze.',
+    canonicalPath: '/articoli-svizzera/guida-imprenditoriale-grigioni/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aprire attività nel Canton Grigioni: registro e costi",
+      "description": "Aprire un'attività nei Grigioni: forma giuridica, registro di commercio, capitale minimo, tasse, IVA, AVS/AI/IPG, LPP e LAMal in una guida pratica.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-imprenditoriale-grigioni.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti per avviare un'attività nel Cantone dei Grigioni"
+      },
+      "datePublished": "2026-10-02T17:40:42+00:00",
+      "dateModified": "2026-10-02T17:40:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-imprenditoriale-grigioni/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

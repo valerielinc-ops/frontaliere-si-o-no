@@ -7541,6 +7541,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.dimissioni-guy-parmelin-2026.title': 'Guy Parmelin annuncia le dimissioni dal Consiglio federale',
     'blog.article.dimissioni-guy-parmelin-2026.excerpt': 'Il capo del Dipartimento federale dell\'economia lascerà l\'incarico il 31 dicembre 2026. Esclusi motivi di salute: \'Avverto una certa stanchezza\'.',
     'blog.article.dimissioni-guy-parmelin-2026.imageAlt': 'Palazzo federale a Berna, sede del governo svizzero.',
+    'blog.article.guida-imprenditoriale-grigioni.title': 'Aprire attività nel Canton Grigioni: registro e costi',
+    'blog.article.guida-imprenditoriale-grigioni.excerpt': 'Nel Canton Grigioni il percorso unisce forma giuridica, registro di commercio, capitale minimo, tasse d\'iscrizione e obblighi assicurativi.',
+    'blog.article.guida-imprenditoriale-grigioni.imageAlt': 'Documenti per avviare un\'attività nel Cantone dei Grigioni',
 };
 
 export default blogMetaChIt;
