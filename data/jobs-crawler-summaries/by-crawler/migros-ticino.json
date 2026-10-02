@@ -1,16 +1,17 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-10-02T09:29:37.291Z",
-  "total": 878,
+  "generatedAt": "2026-10-02T21:34:42.545Z",
+  "total": 883,
   "newCount": 0,
-  "updatedCount": 139,
+  "updatedCount": 133,
   "removedCount": 0,
-  "unchangedCount": 739,
-  "durationMs": 387306,
-  "avgDurationMs": 387306,
+  "unchangedCount": 750,
+  "durationMs": 369723,
+  "avgDurationMs": 369723,
   "durationHistory": [
-    387306
+    387306,
+    369723
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -1755,7 +1756,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 73500,
       "salaryMax": 111500,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1815,7 +1815,6 @@
       "addressLocality": "Belgrad",
       "addressRegion": "VD",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1871,7 +1870,6 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1979,7 +1977,6 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2186,7 +2183,6 @@
       "addressLocality": "Collombey",
       "addressRegion": "VS",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2347,7 +2343,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2503,7 +2498,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2979,7 +2973,6 @@
       "employmentType": "FULL_TIME",
       "salaryMin": 60500,
       "salaryMax": 91500,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,

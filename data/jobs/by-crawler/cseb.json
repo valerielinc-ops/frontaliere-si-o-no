@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cseb",
-  "assembledAt": "2026-10-02T09:25:52.641Z",
+  "assembledAt": "2026-10-02T21:28:51.349Z",
   "jobs": [
     {
       "id": "cseb-4ad568609c49",
@@ -33,7 +33,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0328947c-745c-e81d-d9f3-bac14595f417",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.309Z",
+      "crawledAt": "2026-10-02T21:28:44.675Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -54,18 +54,17 @@
       "pensumMax": 80,
       "pensum": "80%",
       "contactPerson": "Corsina Feuerstein Betschart",
-      "previousSlugs": [
-        "mitarbeiter-in-reinigung-bogn-engiadina-scuol-80-cseb-ch",
-        "collaboratore-trice-in-reinigung-bogn-engiadina-scuol-80-center-da-sanadad-engiadina-bassa-scuol"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-reinigung-bogn-engiadina-scuol-80-cseb-ch",
           "collaboratore-trice-in-reinigung-bogn-engiadina-scuol-80-center-da-sanadad-engiadina-bassa-scuol"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-10-01T09:29:47.442Z",
+      "previousSlugs": [
+        "mitarbeiter-in-reinigung-bogn-engiadina-scuol-80-cseb-ch",
+        "collaboratore-trice-in-reinigung-bogn-engiadina-scuol-80-center-da-sanadad-engiadina-bassa-scuol"
+      ],
       "salaryMin": 46000,
       "salaryMax": 69600,
       "salarySource": "estimated",
@@ -79,7 +78,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-10-01T09:29:47.442Z"
     },
     {
       "id": "cseb-2fc6aed46f6d",
@@ -112,7 +112,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/483a1989-909c-f906-1dee-ab44b41e4e1a",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.307Z",
+      "crawledAt": "2026-10-02T21:28:44.673Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -181,7 +181,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0cff7fb9-949b-90f2-ec4e-0c777297d67b",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.303Z",
+      "crawledAt": "2026-10-02T21:28:44.671Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -260,7 +260,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e1cca88f-6983-6558-1f9e-165da51616ad",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.301Z",
+      "crawledAt": "2026-10-02T21:28:44.669Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -347,7 +347,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/f910b490-39a2-ff4d-6a4e-cd4be69a89dc",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.299Z",
+      "crawledAt": "2026-10-02T21:28:44.667Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -432,7 +432,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4e778dc6-464f-c653-3085-bb6b8ee9fda3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.297Z",
+      "crawledAt": "2026-10-02T21:28:44.664Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -520,7 +520,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/503105ab-ee65-b500-19e8-988c5592f6c5",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.294Z",
+      "crawledAt": "2026-10-02T21:28:44.661Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -606,7 +606,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/8547edd4-1bb9-2695-7194-8bf5fc43cd96",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.292Z",
+      "crawledAt": "2026-10-02T21:28:44.659Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -644,7 +644,6 @@
         ]
       },
       "firstSeenAt": "2026-07-27T12:44:06.185Z",
-      "needsRetranslation": true,
       "salaryMin": 65200,
       "salaryMax": 91200,
       "salarySource": "estimated",
@@ -658,7 +657,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-cd2dab6f01ac",
@@ -691,7 +691,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/439cb41c-0371-94c9-6c59-909203c12844",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.290Z",
+      "crawledAt": "2026-10-02T21:28:44.656Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -736,7 +736,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -750,7 +749,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-5fa447124a26",
@@ -783,7 +783,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/08090cea-a5af-e391-1b01-d1e40cf402a3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.287Z",
+      "crawledAt": "2026-10-02T21:28:44.653Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -830,7 +830,6 @@
         ]
       },
       "firstSeenAt": "2026-06-10T11:55:25.784Z",
-      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -844,7 +843,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-3e74b504b5fc",
@@ -877,7 +877,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/0aae7b8e-6401-ca9e-3f64-552a05cd547d",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.286Z",
+      "crawledAt": "2026-10-02T21:28:44.652Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -958,7 +958,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/de22c979-5108-b752-c983-e0d5bc4bf2bf",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.284Z",
+      "crawledAt": "2026-10-02T21:28:44.650Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1048,7 +1048,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/18e63da7-2e49-eb9c-601d-b22238e3ef49",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.282Z",
+      "crawledAt": "2026-10-02T21:28:44.648Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1091,7 +1091,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1105,7 +1104,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-af45cb1ba821",
@@ -1138,7 +1138,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/14b338b2-6622-bade-427a-7760f0bba7f7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.279Z",
+      "crawledAt": "2026-10-02T21:28:44.643Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1178,7 +1178,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 73400,
       "salaryMax": 102600,
       "salarySource": "estimated",
@@ -1192,7 +1191,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-85f3ce228e5b",
@@ -1225,7 +1225,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/a356d4be-f8e0-8a97-0c2c-121cd5f89c14",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.277Z",
+      "crawledAt": "2026-10-02T21:28:44.638Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1271,7 +1271,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1285,7 +1284,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-e8ed71fb8165",
@@ -1318,7 +1318,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9789088f-9f3e-b7a4-bf69-6d9c765dbea3",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.273Z",
+      "crawledAt": "2026-10-02T21:28:44.632Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1361,7 +1361,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1375,7 +1374,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-62814af0ac8f",
@@ -1408,7 +1408,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/4fd73428-f73e-6f49-2855-8204b00cbdc0",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.269Z",
+      "crawledAt": "2026-10-02T21:28:44.628Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1447,7 +1447,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -1461,7 +1460,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-52167726eb87",
@@ -1494,7 +1494,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/1ef3689c-79c6-eae7-139e-1ad10eb84ac7",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.265Z",
+      "crawledAt": "2026-10-02T21:28:44.623Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1537,7 +1537,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 62000,
       "salarySource": "estimated",
@@ -1551,7 +1550,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-c39c5502febb",
@@ -1584,7 +1584,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/e9f51ab1-b60e-a609-9b43-ea1cde468af8",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.261Z",
+      "crawledAt": "2026-10-02T21:28:44.619Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1624,7 +1624,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1638,7 +1637,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-be71dc9f1257",
@@ -1671,7 +1671,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/9b888521-c84d-59c9-4222-e9cc2d551af6",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.256Z",
+      "crawledAt": "2026-10-02T21:28:44.614Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1768,7 +1768,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/b572e71d-482e-bc3a-6aef-b24595f38cb4",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.252Z",
+      "crawledAt": "2026-10-02T21:28:44.612Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
@@ -1809,7 +1809,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T10:23:37.991Z",
-      "needsRetranslation": true,
       "salaryMin": 73000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1823,7 +1822,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "cseb-edfd069cce8c",
@@ -1856,7 +1856,7 @@
       "url": "https://jobs.cseb.ch/job-advertisement/d9c5a048-f665-4e64-a2c7-cdd8231bac77/d42b368b-500b-999e-0f77-ed4017b03b98",
       "source": "Center da Sanadad Engiadina Bassa Dedicated Parser (Abacus Job Portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T09:25:47.240Z",
+      "crawledAt": "2026-10-02T21:28:44.598Z",
       "addressLocality": "Scuol",
       "postalCode": "7550",
       "addressCountry": "CH",
