@@ -10,6 +10,7 @@ import {
   textWidth,
   wrapText,
 } from '../functions/src/assistedApplicationAiDocuments.js';
+import { checkDraftFacts } from '../functions/src/assistedApplicationAiDraftCore.js';
 import { buildFactIndex, checkGeneratedFacts } from '../functions/src/assistedApplicationAiFactCheck.js';
 import {
   classifyApplicationChannel,
@@ -150,6 +151,46 @@ describe('fact gate', () => {
       'number:30',
     ]);
   });
+
+  describe('tools in the letter and the e-mail', () => {
+    const sources = {
+      text: 'Maria Rossi\nInfermiera, Ospedale Civico 2018 – 2023. Rianimazione BLS, sistema qualità ISO 9001. Tedesco B2.',
+      posting: 'Ospedale ABC SA cerca un/a infermiere/a. Requisiti: esperienza con SAP e PowerPoint, ACLS, norma ISO 13485. Luogo di lavoro: Bellinzona. Rif. INF-45',
+      order: ['Infermiere/a', 'Ospedale ABC SA', 'Maria Rossi', 'maria.rossi@example.com', '', 'Infermiere/a'].join('\n'),
+      answers: '',
+    };
+    const warnings = (texts: Record<string, string>, extra: Record<string, string> = {}) =>
+      checkDraftFacts(texts, { ...sources, ...extra }).unsupported.map((item: any) => `${item.field}:${item.kind}:${item.token}`);
+
+    it('flags a tool, a certificate or a standard that only the posting names', () => {
+      expect(warnings({
+        coverLetter: 'Ho esperienza con SAP e PowerPoint, il corso ACLS e la norma ISO 13485.',
+        emailBody: 'Conosco bene SAP.',
+      })).toEqual(['coverLetter:tool:SAP', 'coverLetter:tool:PowerPoint', 'coverLetter:tool:ACLS', 'coverLetter:tool:ISO 13485', 'emailBody:tool:SAP']);
+    });
+
+    it('never flags the company, the job title, the place, the reference or the CV’s own tools', () => {
+      expect(checkDraftFacts({
+        coverLetter: 'Gentile team HR dell’Ospedale ABC SA,\n\ncon la presente mi candido come Infermiere/a a Bellinzona (TI). '
+          + 'Dal 2018 al 2023 ho lavorato all’Ospedale Civico, con BLS, ISO-9001 e tedesco B2. In allegato il mio CV.\n\nCordiali saluti',
+        emailSubject: 'Candidatura per la posizione di Infermiere/a – Maria Rossi (Rif. INF-45)',
+        emailBody: 'Gentili Signori,\n\nin allegato la mia candidatura.\n\nMaria Rossi\nmaria.rossi@example.com',
+      }, sources)).toEqual({ ok: true, unsupported: [] });
+    });
+
+    it('takes the candidate’s own word for a tool, and checks tools only where they are a claim', () => {
+      expect(warnings({ coverLetter: 'Uso SAP ogni giorno.' }, { answers: 'Uso SAP da due anni' })).toEqual([]);
+      expect(warnings({ coverLetter: 'Uso SAP ogni giorno.' }, { candidate: 'Uso SAP ogni giorno.' })).toEqual([]);
+      // "Why this company" talks about the employer; an interview question may name the posting's tools.
+      expect(warnings({ whyCompany: 'Il vostro reparto lavora con SAP.', question: 'Come userebbe SAP?' })).toEqual([]);
+    });
+
+    it('reads the employer’s initials as its name, not as a tool', () => {
+      const eoc = { order: ['Infermiere/a', 'Ente Ospedaliero Cantonale', 'Maria Rossi'].join('\n'), posting: 'L’EOC cerca un/a infermiere/a.' };
+      expect(warnings({ coverLetter: 'Vorrei lavorare all’EOC.' }, eoc)).toEqual([]);
+      expect(warnings({ coverLetter: 'Vorrei lavorare all’EOC con SAP.' }, eoc)).toEqual(['coverLetter:tool:SAP']);
+    });
+  });
 });
 
 describe('application channel', () => {
@@ -173,6 +214,18 @@ describe('application channel', () => {
       postingText: 'Candidati online.',
       applicationEmail: 'invented@example.ch',
     }).type).toBe('employer_site');
+  });
+
+  it('prefers the employer’s application portal, e-mail only when the posting offers no portal', () => {
+    const text = 'Bewerbung online oder an jobs@spital.ch.';
+    // An applicant-tracking portal wins over the address the posting also names.
+    expect(classifyApplicationChannel({ applyUrl: 'https://spital.wd3.myworkdayjobs.com/de-DE/Careers/job/x/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }))
+      .toMatchObject({ type: 'workday', email: '' });
+    expect(classifyApplicationChannel({ applyUrl: 'https://jobs.lever.co/spital/abc/apply', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('lever');
+    // Only the employer's own page, a job board or LinkedIn: the address is the way to apply.
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.spital.ch/jobs/pflege', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.jobs.ch/de/stellenangebote/detail/123/', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
+    expect(classifyApplicationChannel({ applyUrl: 'https://www.linkedin.com/jobs/view/1', postingText: text, applicationEmail: 'jobs@spital.ch' }).type).toBe('email');
   });
 });
 
@@ -228,5 +281,21 @@ describe('job posting fetch', () => {
 
   it('turns HTML into readable text', () => {
     expect(htmlToText('<ul><li>Uno</li><li>Due &amp; tre</li></ul><style>p{}</style>')).toBe('- Uno\n- Due & tre');
+  });
+});
+
+describe('application e-mail subject', () => {
+  // Giro di prova 2026-09-30: the model's subject was just "Infermiere/a 80-100%".
+  it('names the position and the candidate, and keeps a reference the posting asks for', async () => {
+    const { applicationEmailSubject } = await import('../functions/src/assistedApplicationAiPrompts.js');
+    expect(applicationEmailSubject('it', 'Infermiere/a diplomato/a 80-100%', 'Luigi Prova', 'Infermiere/a 80-100%'))
+      .toBe('Candidatura per la posizione di Infermiere/a diplomato/a 80-100% – Luigi Prova');
+    expect(applicationEmailSubject('de', 'Pflegefachperson HF', 'Maria Rossi', 'Bewerbung Kennziffer 4711'))
+      .toBe('Bewerbung als Pflegefachperson HF – Maria Rossi (Kennziffer 4711)');
+    expect(applicationEmailSubject('fr', 'Infirmier', 'Luca Bianchi', 'Candidature réf. INF-2026-17'))
+      .toBe('Candidature au poste de Infirmier – Luca Bianchi (réf. INF-2026-17)');
+    // "Referenzen" is not a reference number.
+    expect(applicationEmailSubject('de', 'Koch', 'Anna Keller', 'Bewerbung mit Referenzen')).toBe('Bewerbung als Koch – Anna Keller');
+    expect(applicationEmailSubject('en', 'Nurse', '', '')).toBe('Application for the position of Nurse');
   });
 });

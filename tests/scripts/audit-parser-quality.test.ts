@@ -65,6 +65,8 @@ import {
   pageListsSharedPostings,
   fetchVacancyPdfText,
   createPdfSafeFetch,
+  extractSourceId,
+  classifyDuplicateListingGroups,
 } from '../../scripts/audit-parser-quality.mjs';
 import { createHash } from 'node:crypto';
 import { extractDetailFields, extractJsonLd } from '../../scripts/lib/prospector/extract.mjs';
@@ -756,6 +758,32 @@ describe('source-detail fidelity checks', () => {
       location: 'Zürich',
       evidence: 'jsonld',
     });
+  });
+
+  it('recognises the Swiss site in Microsoft multi-location JSON-LD with a country-suffixed region', () => {
+    const description = 'A complete source vacancy description with responsibilities and qualifications. '.repeat(8);
+    const html = `<script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting',
+      title: 'Procurement Manager',
+      description,
+      jobLocation: [
+        { address: { addressLocality: 'Milan', addressRegion: 'Lombardy,IT', addressCountry: 'IT' } },
+        { address: { addressLocality: 'Madrid', addressRegion: 'MD,ES', addressCountry: 'ES' } },
+        { address: { addressLocality: 'Zürich', addressRegion: 'ZH,CH', addressCountry: 'CH' } },
+      ],
+    })}</script>`;
+
+    expect(extractSourceLocationObservation(html)).toEqual({
+      location: 'Zürich, ZH',
+      evidence: 'jsonld',
+    });
+    const result = compareSourceDetail(
+      { location: 'Zürich', description },
+      { location: 'Zürich, ZH', description },
+      { crawlerKey: 'microsoft', locationEvidence: 'jsonld' },
+    );
+    expect(result.locationMismatch).toBe(false);
+    expect(result.locationInconclusive).toBe(false);
   });
 
   it('does not mistake Swiss canton codes for foreign country evidence', () => {
@@ -2523,6 +2551,122 @@ describe('largestDuplicateBucket', () => {
     // 55 total; the largest single bucket (50) stays below it.
     expect(countDuplicates(fps)).toBe(53);
     expect(largestDuplicateBucket(fps)).toBe(50);
+  });
+});
+
+describe('source-distinct duplicate listings (owner decision 2026-09-30, issue 5253)', () => {
+  const body = 'Aufgaben: Beratung und Betreuung der Kundschaft, sorgfältige Dokumentation und Zusammenarbeit im Team. Anforderungen: passende Ausbildung und zuverlässige Arbeitsweise. '.repeat(2);
+  const posting = (overrides: Record<string, unknown> = {}) => ({
+    title: 'Elektroinstallateur EFZ 80-100%',
+    location: 'Visp',
+    description: body,
+    ...overrides,
+  });
+  const groupsFor = (jobs: Record<string, unknown>[]) => classifyDuplicateListingGroups(
+    jobs,
+    fingerprintsForCrawler(jobs, 'title-aware'),
+  );
+
+  it('extracts explicit and URL source ids, normalizing repost suffixes', () => {
+    expect(extractSourceId({ requisitionId: 'R76184-1' })).toBe('r76184');
+    expect(extractSourceId({ jobReqId: 'R76397' })).toBe('r76397');
+    expect(extractSourceId({ url: 'https://otis.wd504.myworkdayjobs.com/en/job/Role_20169212-1' })).toBe('20169212');
+    expect(extractSourceId({ url: 'https://careers.mediclinic.com/Hirslanden/job/Role/1235316601/' })).toBe('1235316601');
+    expect(extractSourceId({ url: 'https://jobs.fenaco.com/offene-stellen/role/92eaa547-a563-4f58-8a50-4eaf74529cae' }))
+      .toBe('92eaa547-a563-4f58-8a50-4eaf74529cae');
+    expect(extractSourceId({ id: 'company-cg4cm', url: 'https://example.test/jobs/plain' })).toBe('');
+  });
+
+  it('classifies Lonza R76184-1 and R76397 as informational', () => {
+    const jobs = [
+      posting({ url: 'https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Role_R76184-1' }),
+      posting({ url: 'https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Role_R76397' }),
+    ];
+    expect(groupsFor(jobs)).toMatchObject([{ sourceDistinct: true, sourceDistinctCount: 2, duplicateCount: 0 }]);
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+    expect(issueDrivenSeverity({ issues: [{ type: 'source-distinct-duplicates', informational: true }] })).toBe('OK');
+  });
+
+  it('keeps R78157-1 and R78157 as a true duplicate warning', () => {
+    const jobs = [
+      posting({ url: 'https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Role_R78157-1' }),
+      posting({ url: 'https://lonza.wd3.myworkdayjobs.com/en/Lonza_Careers/job/CH---Visp/Role_R78157' }),
+    ];
+    expect(groupsFor(jobs)).toMatchObject([{ sourceDistinct: false, duplicateCount: 2 }]);
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
+  });
+
+  it('classifies Otis numeric Workday ids as informational', () => {
+    const jobs = [
+      posting({ url: 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Wallisellen/Role_20169211' }),
+      posting({ url: 'https://otis.wd504.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Wallisellen/Role_20169212-1' }),
+    ];
+    expect(groupsFor(jobs)).toMatchObject([{ sourceDistinct: true, sourceDistinctCount: 2 }]);
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('classifies SuccessFactors ids and Volg UUIDs as informational', () => {
+    const hirslanden = [
+      posting({ url: 'https://careers.mediclinic.com/Hirslanden/job/Role/1145097801/' }),
+      posting({ url: 'https://careers.mediclinic.com/Hirslanden/job/Role/1235316601/' }),
+    ];
+    const volg = [
+      posting({ url: 'https://jobs.fenaco.com/offene-stellen/role/92eaa547-a563-4f58-8a50-4eaf74529cae' }),
+      posting({ url: 'https://jobs.fenaco.com/offene-stellen/role/1d9c36f8-1d3f-4e0c-b0c9-3e267e9d8b7f' }),
+    ];
+    expect(countDuplicateListings(hirslanden, fingerprintsForCrawler(hirslanden, 'title-aware'))).toBe(0);
+    expect(countDuplicateListings(volg, fingerprintsForCrawler(volg, 'title-aware'))).toBe(0);
+    expect(groupsFor(hirslanden)[0].sourceDistinct).toBe(true);
+    expect(groupsFor(volg)[0].sourceDistinct).toBe(true);
+  });
+
+  it('keeps a common source reference such as Coop sza_reference_code as a warning', () => {
+    const jobs = [
+      posting({ sza_reference_code: 'COOP-REF-42', url: 'https://jobs.example.test/coop/a' }),
+      posting({ sza_reference_code: 'COOP-REF-42', url: 'https://jobs.example.test/coop/b' }),
+    ];
+    expect(extractSourceId(jobs[0])).toBe('coop-ref-42');
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(2);
+  });
+
+  it('keeps identical canonical URLs and missing source ids as warnings', () => {
+    const sameUrl = [
+      posting({ url: 'https://jobs.example.test/role' }),
+      posting({ url: 'https://jobs.example.test/role/' }),
+    ];
+    const missingId = [
+      posting({ url: 'https://jobs.example.test/role/a' }),
+      posting({ url: 'https://jobs.example.test/role/b' }),
+    ];
+    expect(countDuplicateListings(sameUrl, fingerprintsForCrawler(sameUrl, 'title-aware'))).toBe(2);
+    expect(countDuplicateListings(missingId, fingerprintsForCrawler(missingId, 'title-aware'))).toBe(2);
+  });
+
+  it('declassifies a bitfinex-like bucket of nine distinct source ids', () => {
+    const jobs = Array.from({ length: 9 }, (_, index) => posting({
+      sourceId: `bitfinex-${index + 1}`,
+      url: `https://jobs.example.test/bitfinex/${index + 1}`,
+    }));
+    const groups = groupsFor(jobs);
+    expect(groups).toHaveLength(1);
+    expect(groups[0]).toMatchObject({ sourceDistinct: true, sourceDistinctCount: 9, duplicateCount: 0 });
+    expect(countDuplicateListings(jobs, fingerprintsForCrawler(jobs, 'title-aware'))).toBe(0);
+  });
+
+  it('does not change the desc-only chrome ratchet', () => {
+    const report = {
+      bitfinexLike: {
+        total: 9,
+        severity: 'OK',
+        issues: [
+          { type: 'source-distinct-duplicates', count: 9, total: 9, message: 'informational', informational: true },
+          { type: 'duplicate-descriptions-desc-only', count: 9, total: 9, message: '', hidden: true },
+        ],
+      },
+    };
+    const regressions = applyDuplicateDescriptionRatchet(report);
+    expect(report.bitfinexLike.severity).toBe('CRITICAL');
+    expect(regressions).toMatchObject([{ kind: 'chrome-scraping', count: 9, total: 9 }]);
   });
 });
 

@@ -16,6 +16,7 @@
  */
 
 import fs from 'node:fs';
+import { stripHtmlTags } from '../../packages/articles/engine/shared/htmlMarkup.mjs';
 import { listSliceFileNames } from './crawler-slice-files.mjs';
 import { CRAWLER_GRACE_PERIOD_MAX_MISSES } from './crawler-grace-policy.mjs';
 import path from 'node:path';
@@ -857,10 +858,9 @@ function stripCodeFenceJson(text = '') {
 
 function stripHtml(s) {
   return normalizeSpace(
-    String(s || '')
-      .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-      .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-      .replace(/<[^>]+>/g, ' ')
+    stripHtmlTags(String(s || '')
+      .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+      .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' '))
       .replace(/&nbsp;/g, ' ')
       .replace(/&amp;/g, '&')
       .replace(/&lt;/g, '<')
@@ -1313,15 +1313,14 @@ function cleanDescription(desc) {
   // paragraph and trip the audit's no-structured-content ratchet. Keep the
   // newlines so the rest of cleanDescription (already designed around \n) can
   // do its job.
-  let text = String(desc || '')
-    .replace(/<script[\s\S]*?<\/script>/gi, ' ')
-    .replace(/<style[\s\S]*?<\/style>/gi, ' ')
+  let text = stripHtmlTags(String(desc || '')
+    .replace(/<script(?=[\s/>])[\s\S]*?<\/script>/gi, ' ')
+    .replace(/<style(?=[\s/>])[\s\S]*?<\/style>/gi, ' ')
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
-    .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
+    .replace(/<\/li>/gi, '\n'))
     .replace(/&nbsp;/g, ' ')
     .replace(/&amp;/g, '&')
     .replace(/&lt;/g, '<')
@@ -1690,19 +1689,17 @@ ${contextParts.join('\n\n')}`;
 
 function htmlToStructuredText(html) {
   if (!html) return '';
-  let text = String(html)
+  let text = stripHtmlTags(String(html)
     // Common ATS pattern: <p><strong>Section title</strong></p>
-    .replace(/<p[^>]*>\s*<strong[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
+    .replace(/<p(?=[\s/>])[^>]*>\s*<strong(?=[\s/>])[^>]*>([\s\S]*?)<\/strong>\s*<\/p>/gi, '\n## $1\n')
     // Convert structural HTML to newlines/markdown markers
-    .replace(/<h[1-6][^>]*>/gi, '\n## ')
+    .replace(/<h[1-6](?=[\s/>])[^>]*>/gi, '\n## ')
     .replace(/<\/h[1-6]>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
-    .replace(/<\/p>/gi, '\n')
-    // Strip remaining HTML tags AFTER preserving structure
-    .replace(/<[^>]+>/g, ' ');
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
+    .replace(/<\/p>/gi, '\n'));
   return cleanDescription(text);
 }
 
@@ -1780,11 +1777,11 @@ function formatRexxDescription(html) {
   ];
 
   // Find all h2 positions and their text content
-  const h2Re = /<h2[^>]*>([\s\S]*?)<\/h2>/gi;
+  const h2Re = /<h2(?=[\s/>])[^>]*>([\s\S]*?)<\/h2>/gi;
   let h2Match;
   const h2Tags = [];
   while ((h2Match = h2Re.exec(content)) !== null) {
-    const rawText = h2Match[1].replace(/<[^>]+>/g, '').trim().replace(/:$/, '');
+    const rawText = stripHtmlTags(h2Match[1], '').trim().replace(/:$/, '');
     h2Tags.push({ fullMatch: h2Match[0], index: h2Match.index, endIndex: h2Match.index + h2Match[0].length, text: rawText });
   }
 
@@ -1809,9 +1806,9 @@ function formatRexxDescription(html) {
   // Convert h2 headings to ## markdown.
   // These contain <span> wrappers, so we strip inner tags to get clean text.
   content = content.replace(
-    /<h2[^>]*>([\s\S]*?)<\/h2>/gi,
+    /<h2(?=[\s/>])[^>]*>([\s\S]*?)<\/h2>/gi,
     (_, inner) => {
-      const text = inner.replace(/<[^>]+>/g, '').trim().replace(/:$/, '');
+      const text = stripHtmlTags(inner, '').trim().replace(/:$/, '');
       return text ? `\n## ${text}\n` : '\n';
     }
   );
@@ -1829,16 +1826,16 @@ function formatRexxDescription(html) {
 
   // Convert lists
   content = content
-    .replace(/<ul[^>]*>/gi, '\n')
+    .replace(/<ul(?=[\s/>])[^>]*>/gi, '\n')
     .replace(/<\/ul>/gi, '\n')
-    .replace(/<li[^>]*>/gi, '\n- ')
+    .replace(/<li(?=[\s/>])[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<p[^>]*>/gi, '\n')
+    .replace(/<p(?=[\s/>])[^>]*>/gi, '\n')
     .replace(/<\/p>/gi, '\n');
 
   // Strip all remaining HTML tags
-  content = content.replace(/<[^>]+>/g, ' ');
+  content = stripHtmlTags(content);
 
   // Strip Rexx-specific noise that may survive after HTML stripping:
   // - Duplicate header text: "Descrizione posizione Descrizione"
@@ -1946,7 +1943,7 @@ function extractRexxSalary(html) {
 }
 
 function extractPageLang(html = '') {
-  const m = String(html).match(/<html[^>]*\slang=["']([a-z]{2})(?:-[A-Z]{2})?["']/i);
+  const m = String(html).match(/<html(?=[\s/>])[^>]*\slang=["']([a-z]{2})(?:-[A-Z]{2})?["']/i);
   return normalizeSpace(m?.[1] || '').toLowerCase() || 'en';
 }
 
@@ -1979,7 +1976,7 @@ function bestJobPostingNodeFromHtml(html) {
  */
 function workplaceBlockLocality(block = '') {
   const lines = String(block)
-    .replace(/<p[^>]*>[\s\S]*?<\/p>/i, ' ')
+    .replace(/<p(?=[\s/>])[^>]*>[\s\S]*?<\/p>/i, ' ')
     .split(/<br\s*\/?>|\n/i)
     .map((line) => normalizeSpace(decodeNumericEntities(decodeHtmlEntities(stripHtml(line)))))
     .filter(Boolean);
@@ -2028,7 +2025,7 @@ function postalLineLocality(line = '') {
 
 function extractWorkdayLocation(html) {
   const candidates = [];
-  const block = String(html).match(/<div[^>]*id=["']jl["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+  const block = String(html).match(/<div(?=[\s/>])[^>]*id=["']jl["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
   // Il blocco `#jl` è il luogo di lavoro dichiarato dalla vacancy: quando dà
   // una località vince su ogni scansione del testo della pagina.
   const blockLocality = workplaceBlockLocality(block);
@@ -2095,14 +2092,14 @@ function extractRichJobDescription(html) {
     const sectionId = mm[1].toLowerCase();
     let sectionHtml = mm[2];
     // Strip SVG noise (skill-level dots and decorative icons)
-    sectionHtml = sectionHtml.replace(/<svg[\s\S]*?<\/svg>/gi, '');
+    sectionHtml = sectionHtml.replace(/<svg(?=[\s/>])[\s\S]*?<\/svg>/gi, '');
     // Strip share buttons and apply buttons containers
-    sectionHtml = sectionHtml.replace(/<div[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
+    sectionHtml = sectionHtml.replace(/<div(?=[\s/>])[^>]*class="[^"]*ad-share-list[^"]*"[^>]*>[\s\S]*?<\/div>/gi, '');
     // Strip image carousels
-    sectionHtml = sectionHtml.replace(/<div[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
+    sectionHtml = sectionHtml.replace(/<div(?=[\s/>])[^>]*class="[^"]*flicking[^"]*"[^>]*>[\s\S]*?(?:<\/div>\s*){1,5}/gi, '');
     // Skip overview share/apply UI (keep only typo-body1 intro text)
     if (sectionId === 'overview') {
-      const introMatch = sectionHtml.match(/<div[^>]*class="[^"]*typo-body1[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+      const introMatch = sectionHtml.match(/<div(?=[\s/>])[^>]*class="[^"]*typo-body1[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
       if (introMatch) {
         sectionHtml = introMatch[1];
       }
@@ -2130,7 +2127,7 @@ function extractRichJobDescription(html) {
   // The boundary keywords (apply, job-actions, etc.) may appear as substrings
   // (e.g., "applylink pull-right"), so we don't require them at a class boundary.
   const sfMatch = String(html).match(
-    /class=["']jobdescription["'][^>]*>([\s\S]*?)(?:<div[^>]*class=["'][^"']*(?:job-actions|apply|back-button|applyContainer)[^"']*["']|<footer\b)/i
+    /class=["']jobdescription["'][^>]*>([\s\S]*?)(?:<div(?=[\s/>])[^>]*class=["'][^"']*(?:job-actions|apply|back-button|applyContainer)[^"']*["']|<footer\b)/i
   );
   if (sfMatch) {
     const sfText = htmlToStructuredText(sfMatch[1]);
@@ -2139,13 +2136,13 @@ function extractRichJobDescription(html) {
 
   const mainChunk =
     String(html).match(/<div class="row wysiwyg">([\s\S]*?)<div class="col-lg-4/i)?.[1] ||
-    String(html).match(/<main[^>]*>([\s\S]*?)<\/main>/i)?.[1] ||
+    String(html).match(/<main(?=[\s/>])[^>]*>([\s\S]*?)<\/main>/i)?.[1] ||
     '';
   const richText = htmlToStructuredText(mainChunk);
   if (richText.length >= 180) return richText;
 
   const richBlocks = [];
-  const richBlockRe = /<div[^>]*class=["'][^"']*m-richtext__content[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+  const richBlockRe = /<div(?=[\s/>])[^>]*class=["'][^"']*m-richtext__content[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
   let rb;
   while ((rb = richBlockRe.exec(String(html))) !== null) {
     const t = htmlToStructuredText(rb[1]);
@@ -2156,7 +2153,7 @@ function extractRichJobDescription(html) {
 
   // Fallback to high-signal field blocks common in career pages.
   const blocks = [];
-  const re = /<div[^>]*class=["'][^"']*field[^"']*f-n-(?:body|field-job-[^"']+)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
+  const re = /<div(?=[\s/>])[^>]*class=["'][^"']*field[^"']*f-n-(?:body|field-job-[^"']+)[^"']*["'][^>]*>([\s\S]*?)<\/div>/gi;
   let m;
   while ((m = re.exec(String(html))) !== null) {
     const t = htmlToStructuredText(m[1]);
@@ -2275,6 +2272,7 @@ export function ensureLocaleFields(job) {
   const sourceLang = pinnedLang || holdSourceLang(out, `${bestTitle} ${bestDescription}`, 'en');
   const titleSourceLang = pinnedLang || detectJobTitleLang(baseTitle || bestTitle, sourceLang);
   const sourceTitle = baseTitle || normalizeSpace(titleByLocale[titleSourceLang] || bestTitle);
+  const sourceLocaleIsPublished = LOCALES.includes(sourceLang);
 
   // Detect the language of the raw base description separately — it may differ
   // from sourceLang when titleByLocale has wrong-language entries.
@@ -2330,7 +2328,7 @@ export function ensureLocaleFields(job) {
       // already holds a partial translation — that repair belongs to the
       // translate pipeline (dedicated-crawler-common enrichJobLocalesDCC), which
       // now accepts flagged slots instead of skipping them.
-      if (verdict.reason === 'source-copy') {
+      if (verdict.reason === 'source-copy' && sourceLocaleIsPublished) {
         const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
         if (hasUsableTitle(heuristicReplacement) &&
             heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
@@ -2338,7 +2336,7 @@ export function ensureLocaleFields(job) {
           titleByLocale[locale] = heuristicReplacement;
         }
       }
-    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
+    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle && sourceLocaleIsPublished) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
@@ -2354,6 +2352,7 @@ export function ensureLocaleFields(job) {
     // UI/runtime SEO can fallback to out.description when needed.
     // However, NEVER delete existing description data for any locale.
     if (
+      sourceLocaleIsPublished &&
       !normalizeSpace(descriptionByLocale[locale] || '') &&
       bestDescription &&
       (locale === sourceLang || locale === baseDescLang)
@@ -2728,7 +2727,7 @@ export function extractLocationFromText(html = '', fallback = '') {
   const clerDetailLoc = normalizeSpace(
     stripHtml(
       String(html).match(
-        /JobDetail__item-slot[^>]*>\s*(?:Luogo di lavoro|Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
+        /JobDetail__item-slot[^>]*>\s*(?:Luogo di lavoro|Sede di lavoro|Workplace|Lieu de travail|Arbeitsort)\s*<\/span>\s*<span(?=[\s/>])[^>]*JobDetail__item-slot[^>]*>([\s\S]*?)<\/span>/i
       )?.[1] || ''
     )
   );
@@ -3335,7 +3334,7 @@ let crawlerConfigGlobal = null;
 
 function extractJsonLdBlocks(html) {
   const blocks = [];
-  const regex = /<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  const regex = /<script(?=[\s/>])[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
   let m;
   while ((m = regex.exec(html)) !== null) {
     const raw = m[1].trim();
@@ -4724,11 +4723,11 @@ function extractHtmlMicrodataAddress(html = '') {
 }
 
 function extractTitleFromHtml(html) {
-  return normalizeSpace(stripScriptsAndStyles(html).match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
+  return normalizeSpace(stripScriptsAndStyles(html).match(/<title(?=[\s/>])[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
 function extractH1FromHtml(html = '') {
-  return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
+  return normalizeSpace(stripHtml(stripScriptsAndStyles(html).match(/<h1(?=[\s/>])[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''));
 }
 
 /**
@@ -4752,7 +4751,7 @@ function extractMetaContent(html, attr, value) {
  */
 function extractRexxJobTitle(html) {
   if (!/<div class=["']emp_nr_innerframe["']>/i.test(html)) return '';
-  const re = /<h2[^>]*class=["'][^"']*emp_nr_subtitle[^"']*["'][^>]*>([\s\S]*?)<\/h2>/gi;
+  const re = /<h2(?=[\s/>])[^>]*class=["'][^"']*emp_nr_subtitle[^"']*["'][^>]*>([\s\S]*?)<\/h2>/gi;
   const h2s = [];
   let m;
   while ((m = re.exec(String(html))) !== null) {
@@ -6796,6 +6795,9 @@ export { main as runSharedCrawlerPipeline };
 // normally only set by main(), and aiResponseCache is a module-singleton
 // in-memory Map that must be reset between test cases (#3080).
 export const __testables = {
+  stripHtml,
+  cleanDescription,
+  htmlToStructuredText,
   aiValidateJobDetailPage,
   // AI formatter/composer and the cache they read back from (fidelity guard).
   structureJobDescription,

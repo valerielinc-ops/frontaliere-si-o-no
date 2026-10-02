@@ -1,21 +1,23 @@
 {
   "key": "mistral-ai",
   "label": "Mistral AI",
-  "generatedAt": "2026-09-29T21:36:46.835Z",
+  "generatedAt": "2026-10-01T21:37:37.348Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2202,
-  "avgDurationMs": 2202,
+  "durationMs": 2075,
+  "avgDurationMs": 2075,
   "durationHistory": [
-    2202
+    2075
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:36:41.954Z",
+      "crawledAt": "2026-10-01T21:37:28.626Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",

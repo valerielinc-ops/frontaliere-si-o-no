@@ -58,9 +58,13 @@ if [ -z "$target_repo" ]; then
   exit 1
 fi
 
-# actions/checkout persists AUTHORIZATION: basic <GITHUB_TOKEN> on
-# http.https://github.com/.extraheader. That header wins over credentials
-# embedded in the remote URL, so a rewrite without this unset silently
-# pushes back as github-actions[bot].
-git config --local --unset-all http.https://github.com/.extraheader 2>/dev/null || true
+# actions/checkout persists AUTHORIZATION: basic <GITHUB_TOKEN> as an
+# extraheader. That header wins over credentials embedded in the remote URL,
+# so a rewrite that leaves it in place silently pushes back as
+# github-actions[bot]. A plain `--unset-all http.https://github.com/.extraheader`
+# only covered checkout <= v5: v6+ keeps the header in an includeIf'd
+# git-credentials-*.config, which is how every PAT push to main hit GH013
+# after the move to checkout@v7. The helper removes both shapes and fails
+# closed if any AUTHORIZATION header for github.com is still effective.
+bash "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/clear-checkout-git-credentials.sh"
 git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${target_repo}.git"

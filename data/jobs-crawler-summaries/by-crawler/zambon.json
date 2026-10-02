@@ -1,54 +1,19 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-09-29T21:26:22.075Z",
+  "generatedAt": "2026-10-01T21:38:04.778Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7509,
-  "avgDurationMs": 7509,
+  "durationMs": 11818,
+  "avgDurationMs": 11818,
   "durationHistory": [
-    7509
+    11818
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "zambon-811390",
-      "url": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
-      "applyUrl": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
-      "title": "Buyer Procurement Indirect",
-      "company": "Zambon Svizzera SA",
-      "companyKey": "zambon",
-      "location": "Cadempino",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6814",
-      "streetAddress": "Via Industria 13",
-      "slug": "buyer-procurement-indirect-zambon",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "source": "zambon-ncoreplat-api",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Farmaceutica",
-      "department": "Accounting, Finance & Control",
-      "seniority": "from 5 years to 10 years",
-      "sourceLang": "en",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-10T23:18:15.295Z",
-      "_qualityScore": 75,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 15,
-        "completeness": 15
-      }
-    },
     {
       "id": "zambon-811389",
       "url": "https://app.ncoreplat.com/jobposition/811389/global-treasury-sr-specialist-ch/hr-switzerland",
@@ -85,6 +50,41 @@
       }
     },
     {
+      "id": "zambon-811390",
+      "url": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/811390/buyer-procurement-indirect-ch/hr-switzerland",
+      "title": "Buyer Procurement Indirect",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "slug": "buyer-procurement-indirect-zambon",
+      "category": "general",
+      "datePosted": "2026-09-10",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "department": "Accounting, Finance & Control",
+      "seniority": "from 5 years to 10 years",
+      "sourceLang": "en",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:18:15.295Z",
+      "_qualityScore": 85,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 15
+      }
+    },
+    {
       "id": "zambon-810317",
       "url": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
       "applyUrl": "https://app.ncoreplat.com/jobposition/810317/stagista-in-chimica-e-tecnologia-farmaceutica-ch/hr-switzerland",
@@ -109,13 +109,12 @@
       "department": "Open R&D",
       "seniority": "< 1 year",
       "sourceLang": "it",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:49:02.200Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 15
       }
     }

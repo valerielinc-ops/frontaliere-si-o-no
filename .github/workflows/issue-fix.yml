@@ -1303,11 +1303,16 @@ jobs:
           # il `git push` che fa il fixer userebbe comunque la credenziale piazzata da
           # actions/checkout, cioè GITHUB_TOKEN, che lo scope `workflows` non ce l'ha.
           #
-          # L'unset dell'extraheader NON è ridondante e non va tolto: actions/checkout
-          # scrive `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
-          # che ha la precedenza sullo `x-access-token:` nell'URL del remote — il push
-          # tornerebbe silenziosamente al token sbagliato. È la trappola già documentata
-          # in pr-redflag-fixer.yml, stessa causa, stesso rimedio.
+          # Lo strip della credenziale di checkout NON è ridondante e non va tolto:
+          # actions/checkout persiste `AUTHORIZATION: basic <GITHUB_TOKEN>` come
+          # extraheader, che ha la precedenza sullo `x-access-token:` nell'URL del
+          # remote — il push tornerebbe silenziosamente al token sbagliato. È la
+          # trappola già documentata in pr-redflag-fixer.yml, stessa causa, stesso
+          # rimedio. Con checkout v6+ (qui v7) l'header sta in un file incluso via
+          # `includeIf.gitdir:…`, che un `git config --unset-all …extraheader` non
+          # vede: lo helper toglie entrambe le forme e fallisce se ne resta una.
+          # Qui l'albero è ancora il checkout di main (prima del lane Codex), quindi
+          # lo helper versionato è codice fidato.
           #
           # L'identità di push resta la App ogni volta che il token esiste: serve a far
           # ri-triggerare i workflow a valle (`<app>[bot]` ≠ `github-actions[bot]`), ed è
@@ -1322,7 +1327,7 @@ jobs:
           # `github_token` alimenta gli helper provider-neutral dell'action: non è una
           # prova che il bridge abbia pushato, né una sostituzione del token App/PAT.
           if [ -n "${APP_TOKEN:-}" ]; then
-            git config --unset-all "http.https://github.com/.extraheader" || true
+            bash scripts/lib/clear-checkout-git-credentials.sh
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
             if [ "${APP_TOKEN_WORKFLOWS:-}" = "true" ]; then
               echo "push identity: GitHub App (scope workflows CONFERMATO dalla risposta API)"
@@ -1445,7 +1450,7 @@ jobs:
 
             **Pre-condizioni (abort se falliscono):**
             - Se esiste già una PR aperta che cita "#$ISSUE_NUMBER" (`gh pr list --state open --search "$ISSUE_NUMBER in:body" --json number`) → posta commento "PR già in volo: #<n>, skip." e TERMINA. No doppioni.
-            - **Overlap-file** (no race su lavoro in corso): estrai i path target dal body della issue (file citati in `## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title`) confronta i suoi file (`gh pr diff <n> --name-only`) coi target: se una PR aperta **modifica già** uno dei file target → posta commento "File `<path>` già in volo nella PR #<n> (<title>) — skip per evitare conflitto/duplicazione; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Razionale: un'altra PR può rendere il fix moot o conflittuale. Nel dubbio (issue non file-specifica) → procedi. Eccezione: in una issue «riapplicare la PR #N su main» la PR #N non è overlap (la sostituisci).
+            - **Overlap-file**: estrai i path target dal body (`## Suggested action` / `## Item` / blocchi codice). Per ogni PR aperta (`gh pr list --state open --json number,title,labels`) confronta i file (`gh pr diff <n> --name-only`): se una **modifica già** un target → commenta "File `<path>` già in volo nella PR #<n> (<title>) — skip; riaprire l'auto-fix dopo il merge se ancora pertinente." e TERMINA. Issue non file-specifica → procedi. Non sono overlap: in una issue «riapplicare la PR #N su main» la PR #N non è overlap (la sostituisci); le PR ferme `has-conflicts`/`stale-review`/`needs-human` (`STALLED_PR_LABELS` del drainer), che non mergeranno da sole: aspettarle chiude un cerchio (#10586 su #10555).
             - **Capability guard (valuta SUBITO, prima di implementare — risparmio token):** ${{ steps.tier.outputs.capability_guard }} ${{ steps.tier.outputs.secrets_note }}
 
             - **Stati già dichiarati nei residui (leggi PRIMA di implementare):** se la issue nasce da una PR (follow-up, `Addresses`/`da PR #N` nel body, o qualunque PR citata come origine in altra forma), leggi il body di quella PR e classificane i residui. In quest'ordine:
@@ -1491,7 +1496,7 @@ jobs:
             - Mai committare path home assoluti o email personali (Privacy).
             - Se la root cause non è determinabile con confidenza → NON forzare un fix; posta su issue "Root cause non determinata: <cosa hai trovato>." con `<!-- FIX_OUTCOME: no-root-cause -->` e `<!-- AUTOMATION_DEFERRED: technical -->`, applica `automation-deferred`, rimuovi il routing `agent:fix*` se ancora presente e TERMINA senza PR. Non chiedere una risposta al proprietario: lo sweep automatico deve prima cambiare input, scheda o osservabilità.
             - Se il fix richiede una credenziale, USALA: Remote Config è caricato in questo run (decisione del 2026-08-24). Termina con `blocked-secrets` solo se la variabile che ti serve è davvero vuota in `process.env`, e nominala.
-            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Con `already-fixed` provato, nello stesso commento aggiungi `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (pr mergiata e/o commit su main; run verde su main che li contiene). Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker per rilevare classi di blocco ricorrenti e proporre migliorie ai doc/prompt (vedi ISSUES.md → "Auto-improvement loop").
+            - **Telemetria outcome (OBBLIGATORIO):** ogni volta che termini, l'ULTIMO commento che posti sulla issue DEVE iniziare con un marker HTML su riga propria: `<!-- FIX_OUTCOME: <code> -->`. `<code>` ∈ `pr-created` (PR aperta) · `blocked-workflows-scope` · `blocked-secrets` · `blocked-admin-settings` · `no-root-cause` · `overlap-skip` · `pr-already-open` · `already-fixed` · `revenue-tracker-manual`. Con `already-fixed` provato, nello stesso commento aggiungi `<!-- FIX_EVIDENCE: pr=<N> commit=<sha> run=<id> -->` (pr mergiata e/o commit su main; run verde su main che li contiene). Se apri una PR (passo 9) e non posti altri commenti, aggiungi comunque un commento col solo marker `<!-- FIX_OUTCOME: pr-created -->`. Il lessons-harvester aggrega questi marker (ISSUES.md → "Auto-improvement loop"). Commenti sempre con `--body-file` da heredoc `<<'EOF'`: in `--body "..."` la shell esegue i backtick.
 
       - name: Enforce F1/F7 output diff gate (before checkpoint/push)
         id: diff_gate
@@ -1620,9 +1625,22 @@ jobs:
           # Ri-applica l'identità di push: dopo il lane Codex il remote può
           # portare la sua credenziale, e l'extraheader di actions/checkout ha
           # comunque la precedenza sull'URL (stessa trappola documentata in
-          # 'Configure git identity').
+          # 'Configure git identity'). Con checkout v6+ (qui v7) l'header sta in
+          # $RUNNER_TEMP/git-credentials-<uuid>.config, incluso via
+          # `includeIf.gitdir:…`: si staccano anche quelle include, come fa il
+          # post-step di checkout. Stessa logica di
+          # scripts/lib/clear-checkout-git-credentials.sh, qui inline perché
+          # l'albero contiene già le modifiche dell'agente: niente script del
+          # working tree eseguiti col token App.
           if [ -n "${APP_TOKEN:-}" ]; then
             git config --unset-all http."https://github.com/".extraheader 2>/dev/null || true
+            while IFS= read -r inc_key; do
+              while IFS= read -r inc_path; do
+                if [[ "$inc_path" =~ (^|/)git-credentials-[0-9A-Fa-f-]+\.config$ ]]; then
+                  git config --local --fixed-value --unset-all "$inc_key" "$inc_path"
+                fi
+              done < <(git config --local --get-all "$inc_key")
+            done < <({ git config --local --name-only --get-regexp '^includeif\.gitdir:' || true; } | sort -u)
             git remote set-url origin "https://x-access-token:${APP_TOKEN}@github.com/${REPO}.git"
           fi
 

@@ -1,21 +1,23 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-09-29T21:28:59.433Z",
+  "generatedAt": "2026-10-01T21:21:50.729Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 6691,
-  "avgDurationMs": 6691,
+  "durationMs": 6534,
+  "avgDurationMs": 6534,
   "durationHistory": [
-    6691
+    6534
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/814/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:28:50.500Z",
+      "crawledAt": "2026-10-01T21:21:40.568Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -47,6 +49,7 @@
       "applyUrl": "https://jobs.fhgr.ch/Vacancies/814/Application/CheckLogin/1",
       "department": "Administration",
       "contractDuration": "permanent",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T09:26:08.665Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -68,7 +71,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:28:51.680Z",
+      "crawledAt": "2026-10-01T21:21:41.399Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",

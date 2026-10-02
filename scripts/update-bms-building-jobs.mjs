@@ -12,6 +12,7 @@ import {
   fetchAllBmsBuildingJobs,
   isBmsBuildingJob,
   isTrustedDomain,
+  prepareBmsBuildingExistingJobs,
   BMS_BUILDING_KEY,
   BMS_BUILDING_COMPANY_NAME,
 } from './lib/bms-building-job-parser.mjs';
@@ -27,6 +28,7 @@ runStandardCrawlerPipeline({
   isCompanyJob: isBmsBuildingJob,
   isTrustedDomain,
   defaultSourceLang: 'de',
+  prepareExistingJobs: prepareBmsBuildingExistingJobs,
 }).catch((err) => {
   console.error(`❌ BMS Building Materials crawler failed: ${err?.message || err}`);
   process.exit(1);

@@ -1,21 +1,23 @@
 {
   "key": "elprom",
   "label": "elprom",
-  "generatedAt": "2026-09-29T21:26:48.609Z",
+  "generatedAt": "2026-10-01T21:18:29.296Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2972,
-  "avgDurationMs": 2972,
+  "durationMs": 3957,
+  "avgDurationMs": 3957,
   "durationHistory": [
-    2972
+    3957
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://elprom.ch/job/elektroplaner-3d-bim-m-w-d-80-100-wallisellen/",
       "source": "elprom Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:26:42.100Z",
+      "crawledAt": "2026-10-01T21:18:22.593Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "Zürich",
       "addressCountry": "Schweiz",
@@ -51,9 +53,9 @@
       "salaryMax": 126000,
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-19T23:04:28.241Z",
-      "_qualityScore": 89,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
-        "cleanliness": 17,
+        "cleanliness": 25,
         "richness": 22,
         "translation": 25,
         "completeness": 25

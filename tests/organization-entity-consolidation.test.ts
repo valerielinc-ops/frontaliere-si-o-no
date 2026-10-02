@@ -11,6 +11,9 @@ import {
   ORGANIZATION_SAME_AS,
   ORGANIZATION_FOUNDING_DATE,
 } from '../services/seo/organizationLd';
+import { imageObjectLd } from '../services/seo/imageObjectLd';
+import { normalizeStructuredData } from '../services/seo/schema-normalizers';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 /**
  * One `@id`, one entity (issue #5004 — Preferred Sources / AI Overviews).
@@ -36,6 +39,20 @@ const read = (rel: string) => readFileSync(resolve(__dirname, '..', rel), 'utf-8
 
 const INDEX_HTML = read('index.html');
 const SEO_PAGES = read('services/seo/seo-pages.ts');
+const STATIC_PAGES_PLUGIN = read('build-plugins/staticPagesPlugin.ts');
+// Corpus pubblicato (`packages/articles/content/`, riscritto dal sync del
+// corpus): letto solo dentro il caso che lo verifica, che nel gate PR salta con
+// SKIP_LIVE_DATA e gira nel monitor dei dati vivi (live-data-test-guard).
+const STATIC_BLOG_SEO_FILES = [
+  'packages/articles/content/seo/seo-blog-2.ts',
+  'packages/articles/content/seo/seo-blog-3.ts',
+  'packages/articles/content/seo/seo-blog-4.ts',
+  'packages/articles/content/seo/seo-blog-5.ts',
+  'packages/articles/content/seo/seo-blog-6.ts',
+  'packages/articles/content/seo/seo-blog-7.ts',
+  'packages/articles/content/seo/seo-blog-ch.ts',
+  'packages/articles/content/seo/seo-blog.ts',
+];
 
 const BASE_URL = 'https://frontaliereticino.ch';
 
@@ -105,6 +122,50 @@ describe('the canonical #organization entity', () => {
     // referencing node needs identity, not the transparency block.
     expect(ORGANIZATION_LD).not.toHaveProperty('correctionsPolicy');
     expect(ORGANIZATION_LD).not.toHaveProperty('masthead');
+  });
+
+  it('reuses the canonical identity for the default ImageObject creator', () => {
+    expect(imageObjectLd({ contentUrl: `${BASE_URL}/image.webp` }).creator).toEqual({
+      '@type': 'NewsMediaOrganization',
+      '@id': ORGANIZATION_ID,
+      name: ORGANIZATION_LD.name,
+      url: ORGANIZATION_LD.url,
+    });
+  });
+
+  it('normalizes legacy nested site organizations to the canonical identity', () => {
+    const normalized = normalizeStructuredData({
+      '@type': 'ImageObject',
+      creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    });
+    expect(normalized).toMatchObject({
+      creator: {
+        '@type': 'NewsMediaOrganization',
+        '@id': ORGANIZATION_ID,
+        name: ORGANIZATION_LD.name,
+      },
+    });
+  });
+
+  it.skipIf(SKIP_LIVE_DATA)('gives every static blog ImageObject creator the canonical identity', () => {
+    for (const file of STATIC_BLOG_SEO_FILES) {
+      const source = read(file);
+      expect(source, `${file} still emits an anonymous site ImageObject creator`).not.toContain(
+        '"creator": { "@type": "Organization", "name": "Frontaliere Ticino"',
+      );
+      expect(source, `${file} has no canonical image creator`).toContain(
+        '"creator": { "@type": "NewsMediaOrganization", "@id": "https://frontaliereticino.ch/#organization"',
+      );
+    }
+  });
+
+  it('gives every static editorial byline the canonical microdata itemid', () => {
+    const bylines = [
+      ...STATIC_PAGES_PLUGIN.matchAll(
+        /itemprop="author"[^>]*itemid="https:\/\/frontaliereticino\.ch\/#organization"/g,
+      ),
+    ];
+    expect(bylines).toHaveLength(4);
   });
 });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import { Shield, Lock, Database, Eye, CheckCircle2, ArrowLeft, BarChart3, ExternalLink, Key, Globe, Scale, Clock, UserCheck, Mail } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTranslation } from '@/services/i18n';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 import {
   ADS_CONSENT_GRANTED,
   ADS_CONSENT_DENIED,
@@ -13,14 +14,11 @@ import {
   type AdsConsentValue,
 } from '@/services/adsConsent';
 
-// Titolare del trattamento (#5675) — dati forniti dal proprietario: nome +
-// contatto per l'esercizio dei diritti, deliberatamente NON `alerts@` (la
-// casella degli invii automatici, dove finivano le richieste LPD prima di
-// questa fix). Nessun indirizzo postale: scelta esplicita del proprietario,
-// non un dato mancante da dedurre — vedi issue #5675 per la valutazione
-// sulla copertura parziale dell'art. 19 nLPD che questo comporta.
+// Titolare del trattamento (#5675) — il nome resta nella disclosure legale,
+// mentre il contatto mostrato sulle pagine pubbliche è una casella editoriale
+// condivisa, non l'indirizzo personale usato dai footer email.
 const DATA_CONTROLLER_NAME = 'Valerie Linc';
-const PRIVACY_EMAIL = 'valerie@frontaliereticino.ch';
+const PRIVACY_EMAIL = PUBLIC_CONTACT_EMAIL;
 
 // ─── Gestione del consenso pubblicitario (#5893, rework CMP) ────────────
 //
@@ -688,10 +686,24 @@ export const PrivacyPolicy: React.FC = () => {
                 inviato sono conservate cifrate e cancellate con il CV (90 giorni). Prima dell'invio la bozza è
                 controllata da un'operatrice e sottoposta alla tua approvazione: se non rispondi entro 12 ore
                 parte così com'è, come indicato nelle email. All'azienda comunichiamo un indirizzo email
-                dedicato alla tua candidatura (c-…@candidature.frontaliereticino.ch): i messaggi che vi
+                dedicato alla tua candidatura (nome.cognome.xxxx@candidature.frontaliereticino.ch): i messaggi che vi
                 arrivano sono classificati automaticamente, conservati cifrati per 90 giorni e inoltrati
-                subito a te con i loro allegati, con risposta diretta al selezionatore. OpenAI e GitHub
-                possono trattare i dati anche fuori dall'UE/Svizzera.
+                subito a te con i loro allegati, con risposta diretta al selezionatore. Se il portale
+                dell'azienda richiede un account, lo creiamo a tuo nome con quell'indirizzo dedicato e una
+                password casuale conservata cifrata e cancellata con il resto dell'ordine; l'email di
+                conferma dell'account è letta dal processo automatico e non ti viene inoltrata. Con gli
+                stessi dati prepariamo una versione del tuo CV adattata all'annuncio (solo informazioni già
+                presenti nel tuo CV; puoi scegliere di inviare l'originale); se l'azienda non risponde a una
+                candidatura inviata per email, dopo 7 e 14 giorni le scriviamo un breve sollecito a tuo nome,
+                che ti mostriamo prima e puoi fermare; se ti invita a un colloquio, ti inviamo una
+                preparazione basata sul tuo CV e sull'annuncio. Per le email che ti inviamo su questa
+                candidatura il fornitore d'invio ci comunica consegna, aperture e clic sui link (senza i
+                codici personali contenuti nei link): li usiamo solo per sapere se hai visto la bozza da
+                approvare, sono visibili solo nella scheda del tuo ordine e vengono cancellati con il CV.
+                Se il portale dell'azienda lo richiede per ricevere la candidatura, accettiamo per tuo conto
+                le sue condizioni e la sua informativa privacy, mai consensi facoltativi (vedi i Termini, sezione 6):
+                dopo l'invio l'azienda e il portale che usa trattano i tuoi dati come titolari autonomi, secondo la
+                loro informativa. OpenAI e GitHub possono trattare i dati anche fuori dall'UE/Svizzera.
               </li>
             </ul>
             <p className="text-sm italic">

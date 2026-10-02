@@ -7,23 +7,19 @@ service cloud.firestore {
     // only legitimate lister of a subscriber collection, and closing `list`
     // without it would have left the owner's own dashboard reading zero.
     //
-    // Same identity the SPA already gates that panel with — App.tsx and
-    // hooks/useUserState.ts both carry `ADMIN_EMAIL_WHITELIST =
-    // ['valerielinc@gmail.com']`, a plain constant that is compiled into every
-    // client bundle we publish, so repeating it here exposes nothing that is not
-    // already public. What it does add is enforcement: until now that allowlist
-    // decided which React tree rendered, never what Firestore would answer.
+    // Same stable Firebase UID the SPA uses for its admin gate. The UID is not
+    // a contact address and is safe to use as an authenticated identity key;
+    // this keeps the browser bundle and rules aligned without publishing a
+    // personal mailbox. What this rule adds is enforcement: the allowlist is
+    // not merely a React rendering decision.
     //
-    // `email_verified` is required on top of the address because this grant is
-    // whole-collection enumeration, not one document. Firebase's default
-    // one-account-per-email already blocks registering an address that has an
-    // account, so the claim is defence in depth rather than the load-bearing
-    // half — but it is one clause against a grant worth 8.605 people.
+    // `email_verified` is required alongside the UID because this grant is
+    // whole-collection enumeration, not one document. It is defence in depth
+    // for a grant that can enumerate the subscriber collection.
     function isSiteAdmin() {
       return request.auth != null
         && request.auth.token.email_verified == true
-        && request.auth.token.email != null
-        && request.auth.token.email.lower() == 'valerielinc@gmail.com';
+        && request.auth.uid == 'aAqGpXr2mUQNQlio3gCxut4bBzH3';
     }
 
     // Doc-id identity, and why both sides carry `.lower()` (#6681, follow-up of
@@ -1024,7 +1020,8 @@ service cloud.firestore {
           'cvUploadedAt',
           'consentVersion', 'consentedAt', 'submissionStatus', 'submittedAt', 'updatedAt',
         ])
-        && request.resource.data.consentVersion == 'assisted-application-v1'
+        // v2 names the employer's terms accepted on the candidate's behalf; v1 stays valid for pages opened before.
+        && request.resource.data.consentVersion in ['assisted-application-v1', 'assisted-application-v2']
         && request.resource.data.consentedAt is timestamp
         && (resource.data.consentVersion == null
           || (request.resource.data.consentVersion == resource.data.consentVersion

@@ -9,12 +9,11 @@ name: Crawl Ticino + nationwide + Genève pilot events (tio.ch, guidle, myswitze
 # Each writes its own per-source slice
 # (data/events/by-source/<key>.json); scripts/assemble-events-dataset.mjs
 # merges them (by-id, then a cross-source fuzzy dedup pass) into
-# data/events.json. Commits data/events.json + every per-source slice + the
+# data/events.json. Publishes data/events.json + every per-source slice + the
 # mirrored-image INDEX (data/events-image-manifest.json — the images
 # themselves are pushed to the CDN by this job and are NOT tracked since
-# #6163) straight to main; the events test runs BEFORE commit
-# as a gate so a malformed dataset can never turn main red (AGENTS.md:
-# "data-refresh che committa su main = stesso gate test di una PR").
+# #6163) through a stable PR; the events test runs BEFORE publication
+# as a gate so a malformed dataset can never turn main red.
 #
 # NOTE: named crawl-events.yml (NOT update-jobs-*.yml) on purpose, so the jobs
 # orchestrator/health-monitor never sweeps it into the jobs pipeline.
@@ -35,12 +34,23 @@ on:
         required: false
         default: true
         type: boolean
+      myswitzerland_ids:
+        description: 'Comma-separated MySwitzerland IDs to revisit; empty runs all sources normally.'
+        required: false
+        default: ''
+        type: string
+      guidle_ids:
+        description: 'Comma-separated Guidle codes to revisit; mutually exclusive with myswitzerland_ids.'
+        required: false
+        default: ''
+        type: string
 concurrency:
   group: crawl-events
   cancel-in-progress: true
 
 permissions:
   contents: write
+  pull-requests: write
   issues: write
 
 jobs:
@@ -68,7 +78,7 @@ jobs:
         uses: actions/checkout@v7
         with:
           fetch-depth: 1
-          persist-credentials: true
+          persist-credentials: false
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -85,7 +95,7 @@ jobs:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
           if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load refresh-PR credentials"
             exit 1
           fi
           printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
@@ -97,8 +107,76 @@ jobs:
           test -f scripts/load-rc-env.mjs
           node scripts/load-rc-env.mjs
 
+      # The App identity re-triggers pull-request checks. If the installation
+      # is unavailable, the long-lived PAT loaded above remains the fallback.
+      - name: Mint App token (primary PR identity, PAT fallback)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # A stable PR branch can still be in flight when the next daily run
+      # starts. Carry its append-only data forward before crawling, otherwise
+      # a new branch from main would silently discard the pending refresh.
+      - name: Carry forward pending events refresh PR
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          # actions/checkout uses persist-credentials=false in this workflow;
+          # probe and fetch the stable branch through the same authenticated
+          # refresh identity used by the publisher below.
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
+        run: |
+          set -euo pipefail
+          branch='chore/crawl-events-refresh'
+          [ -n "$GH_TOKEN" ] || {
+            echo "::error::No authenticated refresh token is available to probe the stable events refresh branch"
+            exit 1
+          }
+          remote_url="https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"
+          probe="$RUNNER_TEMP/crawl-events-refresh-remote-head"
+          if ! git ls-remote "$remote_url" "refs/heads/${branch}" >"$probe" 2>/dev/null; then
+            echo "::error::Unable to authenticate or probe the stable events refresh branch"
+            exit 1
+          fi
+          if [ ! -s "$probe" ]; then
+            echo "No in-flight events refresh PR branch found."
+            exit 0
+          fi
+          if ! git fetch --no-tags --depth=1 "$remote_url" \
+            "refs/heads/${branch}:refs/remotes/origin/${branch}" \
+            >/dev/null 2>&1; then
+            echo "::error::Unable to fetch the stable events refresh branch"
+            exit 1
+          fi
+          for path in \
+            data/events.json \
+            public/data/events.json \
+            data/events-geocode-cache.json \
+            data/events-translation-cache.json \
+            data/events-image-manifest.json \
+            data/events/by-source/ \
+            data/events/checkpoints/; do
+            if git cat-file -e "refs/remotes/origin/${branch}:${path}" 2>/dev/null; then
+              git restore --source="refs/remotes/origin/${branch}" -- "$path"
+            fi
+          done
+
+      - name: Validate targeted source inputs
+        env:
+          INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          if [ -n "$INPUT_MYSWITZERLAND_IDS" ] && [ -n "$INPUT_GUIDLE_IDS" ]; then
+            echo '::error::Select only one targeted source per run.'
+            exit 1
+          fi
+
       - name: Crawl tio.ch agenda
         id: crawl-tio
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         env:
           # Dispatch inputs reach the shell as DATA, never as script text.
           INPUT_DAYS: ${{ github.event.inputs.days || '21' }}
@@ -114,49 +192,61 @@ jobs:
         # 2026-07-03) throws away the whole enrichment backlog and every
         # future run redoes it from scratch. if: always() so it still fires
         # even if a later step gets cancelled by timeout-minutes.
-        if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
-        # continue-on-error: this is a best-effort optimization, not the main
-        # deliverable (that's the "Commit dataset" step below) — a push
-        # failure here (e.g. 5 retries genuinely exhausted under heavy
-        # concurrent-push contention on main) must never abort the job and
-        # skip-cascade guidle/myswitzerland/assemble/gate/commit, which is
-        # exactly the bug this step exists to prevent (run 28687792336,
-        # 2026-07-04 — the step's own rebase failure, not a real exhaustion,
-        # cascaded into zero net progress; see scripts/lib/git-push-with-retry.sh
-        # for the root cause and --stash-dirty fix).
+        if: always() && !inputs.myswitzerland_ids && !inputs.guidle_ids && inputs.dry_run != true && inputs.dry_run != 'true'
+        # Best effort: a temporary PR-publisher failure must not skip the
+        # remaining crawlers and the final dataset publication.
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-
           [ -f data/events-geocode-cache.json ] || exit 0
           [ -f data/events-translation-cache.json ] || exit 0
-          git add data/events-geocode-cache.json data/events-translation-cache.json
-          if git diff --cached --quiet; then
-            echo "No cache diff, skipping commit"
-            exit 0
-          fi
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          git commit -m "🗺️ Persist tio-agenda geo/translation cache"
-          # --stash-dirty: crawl-tio-agenda.mjs also writes
-          # data/events/by-source/tio-agenda.json (staged later, by "Commit
-          # dataset"), which the default `git reset --hard HEAD` recovery
-          # would discard on a rebase retry — losing today's crawl output.
-          bash scripts/lib/git-push-with-retry.sh --stash-dirty
+          ## Implementato
+          - Il crawler aggiorna le cache geo/traduzioni tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events-geocode-cache.json \
+            --path data/events-translation-cache.json \
+            --branch chore/crawl-events-refresh \
+            --commit-message "chore(events): persist crawl caches" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Crawl guidle.com (nationwide)
         id: crawl-guidle
-        run: node scripts/crawl-guidle-events.mjs
+        if: ${{ !inputs.myswitzerland_ids }}
+        env:
+          INPUT_GUIDLE_IDS: ${{ inputs.guidle_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_GUIDLE_IDS" ]; then
+            args+=(--ids "$INPUT_GUIDLE_IDS")
+          fi
+          node scripts/crawl-guidle-events.mjs "${args[@]}"
 
       - name: Crawl myswitzerland.com (nationwide)
         id: crawl-myswitzerland
-        run: node scripts/crawl-myswitzerland-events.mjs
+        if: ${{ !inputs.guidle_ids }}
+        env:
+          INPUT_MYSWITZERLAND_IDS: ${{ inputs.myswitzerland_ids || '' }}
+        run: |
+          args=()
+          if [ -n "$INPUT_MYSWITZERLAND_IDS" ]; then
+            args+=(--ids "$INPUT_MYSWITZERLAND_IDS")
+          fi
+          node scripts/crawl-myswitzerland-events.mjs "${args[@]}"
 
       - name: Crawl geneve.ch agenda (GE, pilot)
         id: crawl-ge
+        if: ${{ !inputs.myswitzerland_ids && !inputs.guidle_ids }}
         # continue-on-error: geneve.ch is the newest, least battle-tested of
         # the four sources (own DOM-drift guard exists specifically because
         # selector drift is plausible on a brand-new source) and sits
@@ -191,30 +281,29 @@ jobs:
         if: always() && inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          # All guarded: a crawler cancelled before its first write leaves these
-          # missing, and `git add` on a missing path errors under `set -e`.
-          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
-          [ -f data/events/by-source/guidle.json ] && git add data/events/by-source/guidle.json || true
-          [ -f data/events/by-source/myswitzerland.json ] && git add data/events/by-source/myswitzerland.json || true
-          [ -f data/events-translation-cache.json ] && git add data/events-translation-cache.json || true
-          [ -f data/events-geocode-cache.json ] && git add data/events-geocode-cache.json || true
-          if git diff --cached --quiet; then
-            echo "No nationwide progress diff, skipping commit"
-            exit 0
-          fi
+          ## Implementato
+          - Il crawler aggiorna checkpoint e slice nationwide tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
 
-          git commit -m "🧭 Persist guidle/myswitzerland crawl checkpoints and slices"
-          # --stash-dirty for the same reason as the caches step: the events
-          # dataset and article-surface files this run also wrote are staged
-          # later, by "Commit dataset", and a plain `git reset --hard HEAD`
-          # recovery on a rebase retry would throw them away.
-          bash scripts/lib/git-push-with-retry.sh --stash-dirty
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --path data/events/checkpoints/ \
+            --path data/events/by-source/guidle.json \
+            --path data/events/by-source/myswitzerland.json \
+            --path data/events-translation-cache.json \
+            --path data/events-geocode-cache.json \
+            --branch chore/crawl-events-refresh \
+            --commit-message "chore(events): persist nationwide crawl progress" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Assemble events dataset
         id: assemble
@@ -285,74 +374,53 @@ jobs:
         if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/push-mirrored-event-images-cdn.mjs
 
-      - name: Commit dataset (rebase-retry pattern)
+      - name: Publish dataset refresh through PR
         id: commit
         if: inputs.dry_run != true && inputs.dry_run != 'true'
-        # Best-effort: a permanently-exhausted push (heavy concurrent-push
-        # contention on main) must not hard-fail the job — next scheduled run
-        # retries with fresh data. Matches the original inline retry loop's
-        # `exit 0` on exhaustion.
-        continue-on-error: true
+        # The required Vitest check runs on the PR head before generated data
+        # can enter main. The shared publisher also resolves article symlinks.
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_DATA_REFRESH == 'true' && env.APP_TOKEN || env.GITHUB_PAT }}
         run: |
-          set -e
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          set -euo pipefail
+          body="$RUNNER_TEMP/crawl-events-refresh-pr-body.md"
+          cat > "$body" <<EOF
+          Auto-generated by [workflow run ${GITHUB_RUN_ID}](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}).
 
-          # git-add-resolved, not plain `git add`: the article-corpus paths below
-          # are symlinks into packages/articles/content/. A path through the
-          # symlinked blog-body DIRECTORY aborts with "pathspec is beyond a
-          # symbolic link" (taking the events data down with it under `set -e`),
-          # and a path that IS a file symlink (seo-blog-5.ts, blog-articles-data.ts)
-          # stages nothing at all while still exiting 0 — which would silently
-          # drop the dateModified/updatedAt bumps this job just wrote.
-          # public/data/events.json is the SAME dataset, written in the same call
-          # by assemble-events-dataset.mjs. It is staged because `data/` is not
-          # deployed, so without the published copy the events digest — which now
-          # runs in the articles repo — has no way to read this at all (#4974
-          # item 3). Same both-places pattern as border-wait-averages.json.
-          node scripts/lib/git-add-resolved.mjs data/events.json \
-            public/data/events.json \
-            data/events/by-source/tio-agenda.json \
-            data/events/by-source/guidle.json \
-            data/events/by-source/myswitzerland.json \
-            services/locales/blog-body/it/eventi-weekend-ticino.ts \
-            services/locales/blog-body/en/eventi-weekend-ticino.ts \
-            services/locales/blog-body/de/eventi-weekend-ticino.ts \
-            services/locales/blog-body/fr/eventi-weekend-ticino.ts \
-            data/blog-articles-data.ts services/seo/seo-blog-5.ts public/sitemap-blog.xml
-          # data/events/by-source/ge-agenda.json (geneve.ch pilot, #3644): guarded
-          # like the paths below, NOT added to the fixed list above — unlike the
-          # three long-committed slices above, this file won't exist on disk
-          # until the crawler's first-ever successful run, and `git add` on a
-          # missing path errors under `set -e`, which would otherwise abort the
-          # commit of tio/guidle/myswitzerland's data too on a day geneve.ch's
-          # crawl transiently fails before ever having produced a slice.
-          [ -f data/events/by-source/ge-agenda.json ] && git add data/events/by-source/ge-agenda.json || true
-          # The no-hotlink mirrored images themselves are NOT committed any
-          # more (#6163): public/images/events is gitignored and the bytes are
-          # served from cdn.frontaliereticino.ch, pushed by the step above.
-          # What IS committed is the index of them — without it
-          # mirrorEventImage has nothing to dedup against (the on-disk probe it
-          # used to run only ever sees this run's own downloads now), so every
-          # scheduled run would re-download the entire back catalogue and
-          # re-create the directory this issue deleted.
-          # Unguarded, like the fixed list above: the manifest is tracked, so
-          # it is always present in the checkout.
-          git add data/events-image-manifest.json
-          # Cross-run cursors for the checkpointed nationwide crawlers
-          # (scripts/lib/crawl-checkpoint.mjs) — must persist between
-          # scheduled runs so guidle/myswitzerland resume instead of
-          # restarting the catalog walk from 0 every day.
-          [ -d data/events/checkpoints ] && git add data/events/checkpoints/ || true
-          if git diff --cached --quiet; then
-            echo "No events diff, skipping commit"
-            exit 0
+          ## Implementato
+          - Il crawler pubblica dataset, slice, checkpoint, manifest e superfici articolo tramite il branch stabile \`chore/crawl-events-refresh\`, così il required check \`vitest (unit + integration)\` gira prima dell'ingresso su \`main\`.
+
+          ## Non implementato (ancora)
+          - Nessun altro cambiamento applicativo in questa PR; il publisher limita il commit ai dati generati dal crawler.
+          EOF
+
+          paths=(
+            --path data/events.json
+            --path public/data/events.json
+            --path data/events/by-source/tio-agenda.json
+            --path data/events/by-source/guidle.json
+            --path data/events/by-source/myswitzerland.json
+            --path services/locales/blog-body/it/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/en/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/de/eventi-weekend-ticino.ts
+            --path services/locales/blog-body/fr/eventi-weekend-ticino.ts
+            --path data/blog-articles-data.ts
+            --path services/seo/seo-blog-5.ts
+            --path public/sitemap-blog.xml
+            --path data/events-image-manifest.json
+            --path data/events/checkpoints/
+          )
+          if [ -f data/events/by-source/ge-agenda.json ]; then
+            paths+=(--path data/events/by-source/ge-agenda.json)
           fi
-
-          git commit -m "📅 Refresh Ticino + nationwide events agenda + weekend-digest article (tio.ch, guidle, myswitzerland)"
-          bash scripts/lib/git-push-with-retry.sh
+          bash scripts/lib/open-data-refresh-pr.sh \
+            --reconcile-main \
+            --resolve-symlinks \
+            "${paths[@]}" \
+            --branch chore/crawl-events-refresh \
+            --commit-message "📅 Refresh Ticino + nationwide events agenda" \
+            --title "chore(data): refresh crawl events" \
+            --body-file "$body"
 
       - name: Surface GE pilot crawl failures (review nit — continue-on-error swallows the signal)
         # `continue-on-error: true` on "Crawl geneve.ch agenda" (added so a

@@ -12,7 +12,10 @@ const {
   applyAutomationEvent,
   computeDueAt,
   handleRunnerEvent,
+  isAutomationEnabled,
+  isAutomationEnabledFor,
   maybeStartAutomation,
+  parseAutomationFlag,
   runAutomationSweep,
   startAutomation,
 } = await import('../functions/src/assistedApplicationAutomation.js');
@@ -81,6 +84,27 @@ describe('starting the flow', () => {
     expect(await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 + 1 })).toMatchObject({ skipped: 'already_started_or_ineligible' });
   });
 
+  it('automates only the orders the flag names during the trial run', async () => {
+    expect(parseAutomationFlag(' TRUE ')).toMatchObject({ all: true });
+    expect(parseAutomationFlag('false').orders.size + parseAutomationFlag('').orders.size).toBe(0);
+    expect([...parseAutomationFlag('order_A, order_B  order_C').orders]).toEqual(['order_A', 'order_B', 'order_C']);
+
+    const before = paidOrder({ cvFileCheck: null });
+    const after = paidOrder();
+    rc.values.ASSISTED_APPLICATION_AUTOMATION = 'order_OTHER';
+    expect(await isAutomationEnabled()).toBe(true);
+    expect(await isAutomationEnabledFor(ORDER)).toBe(false);
+    expect(await maybeStartAutomation(before, after, ORDER, { db: store.db, runEffect, nowMs: T0 })).toMatchObject({ skipped: 'automation_disabled' });
+
+    rc.values.ASSISTED_APPLICATION_AUTOMATION = `order_OTHER,${ORDER}`;
+    expect(await isAutomationEnabledFor(ORDER)).toBe(true);
+    expect(await maybeStartAutomation(before, after, ORDER, { db: store.db, runEffect, nowMs: T0 })).toMatchObject({ started: true });
+
+    // A Remote Config error is "off" for everyone.
+    expect(await isAutomationEnabled(async () => { throw new Error('rc_down'); })).toBe(false);
+    expect(await isAutomationEnabledFor(ORDER, async () => { throw new Error('rc_down'); })).toBe(false);
+  });
+
   it('refuses unpaid, closed or unverified orders', async () => {
     store = createMemoryFirestore({ [ORDER_PATH]: paidOrder({ submissionStatus: 'submitted' }) });
     rc.values.ASSISTED_APPLICATION_AUTOMATION = 'true';
@@ -94,6 +118,13 @@ describe('applying events', () => {
     await startAutomation({ db: store.db, orderId: ORDER, runEffect, nowMs: T0 });
     effects = [];
     await store.db.collection('assisted_applications').doc(ORDER).collection('ai_drafts').doc('current').set(readyDraft());
+  });
+
+  it('runs the draft again after a transient Codex failure, counting the attempt', async () => {
+    const result = await applyAutomationEvent({ db: store.db, orderId: ORDER, event: { type: 'draft_failed', round: 1, error: 'codex auth broker rejected the request' }, actor: 'runner', runEffect, nowMs: T0 + 1000 });
+    expect(result.ok).toBe(true);
+    expect(store.read(`${ORDER_PATH}/automation/flow`)).toMatchObject({ state: 'drafting', dispatch: { mode: 'draft', attempts: 2, reason: 'transient_retry' } });
+    expect(effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
   });
 
   it('moves the flow, mirrors the clock on the order and runs the effects', async () => {
@@ -179,6 +210,22 @@ describe('closed ad refund', () => {
 });
 
 describe('owner queue', () => {
+  // 2026-10-01: three orders paid before the automation was on are started from the queue.
+  it('gives an order the owner starts the same alias the trigger gives', async () => {
+    const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
+    await store.db.collection('assisted_applications').doc(ORDER).set(paidOrder());
+    const steps: string[] = [];
+    const ensureAlias = vi.fn(async () => { steps.push('alias'); return { address: 'c-abcdefghjk@candidature.frontaliereticino.ch', active: true }; });
+    const dispatched: any[] = [];
+    await expect(handleAutomationAdminAction(store.db, { action: 'automationStart', orderId: ORDER }, 'owner@example.com', {
+      runEffect: async ({ effect }: any) => { steps.push('dispatch'); dispatched.push(effect); return { ok: true }; }, isEnabled: async () => true, ensureAlias, nowMs: T0,
+    })).resolves.toEqual({ ok: true, state: 'drafting' });
+    expect(ensureAlias).toHaveBeenCalledWith({ db: store.db, orderId: ORDER, nowMs: T0 });
+    // The alias exists before the draft is dispatched: the runner writes it into the letter and the portal.
+    expect(steps).toEqual(['alias', 'dispatch']);
+    expect(dispatched).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_request' }]);
+  });
+
   it('cannot start the flow while the Remote Config flag is off', async () => {
     const { handleAutomationAdminAction } = await import('../functions/src/assistedApplicationAutomationAdmin.js');
     const dispatch = vi.fn();
@@ -230,7 +277,15 @@ describe('effects', () => {
     expect(automationEmailKey({ kind: 'owner_review', held: true }, { round: 2 })).toBe('auto_owner_review_r2_held');
     expect(automationEmailKey({ kind: 'candidate_review' }, { round: 1 })).toBe('auto_candidate_review_r1');
     expect(automationEmailKey({ kind: 'owner_takeover', reason: 'max_rounds' }, { round: 3 })).toBe('auto_owner_takeover_max_rounds_r3');
+    // A raw runner error names only its step.
+    expect(automationEmailKey({ kind: 'owner_takeover', reason: 'Codex auth broker rejected the request: Codex CLI timed out after 600000ms', stage: 'draft' }, { round: 2 }))
+      .toBe('auto_owner_takeover_draft_error_r2');
     expect(automationEmailKey({ kind: 'candidate_handoff' }, { round: 2 })).toBe('auto_candidate_handoff');
+    // Each reminder of each wait for the candidate's answers is its own e-mail (never deduplicated away).
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n1');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 2, since: 1000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_1000_n2');
+    expect(automationEmailKey({ kind: 'candidate_questions_reminder', nudge: 1, since: 9000 }, { round: 1 })).toBe('auto_candidate_questions_reminder_9000_n1');
+    expect(automationEmailKey({ kind: 'owner_candidate_silent', since: 1000 }, { round: 1 })).toBe('auto_owner_candidate_silent_1000');
   });
 
   it('dispatches the current round, marks the order submitted and refunds a closed ad', async () => {

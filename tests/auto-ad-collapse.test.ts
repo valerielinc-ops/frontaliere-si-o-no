@@ -155,29 +155,12 @@ describe('the CSS half and the JS half cannot drift', () => {
     }
   });
 
-  it('GptAdSlot arms the budget and drops it the moment GPT answers', () => {
-    // GPT collapses the wrapper only on `slotRenderEnded`. Blocked, that event
-    // never fires — so the timeout is the only thing standing between a
-    // blocked rail and 600px of blank per panel. And it MUST be cleared when
-    // the event does arrive, or a late fill would be collapsed on top of.
+  it('GptAdSlot shares the manual waiting/offscreen controller before the GPT queue', () => {
     const gpt = readFileSync(resolve(ROOT, 'components', 'shared', 'GptAdSlot.tsx'), 'utf8');
-    expect(gpt).toMatch(/setTimeout\([\s\S]{0,400}?AD_FILL_TIMEOUT_MS\)/);
-    const handler = gpt.slice(gpt.indexOf('const handler = (event: any)'));
-    expect(handler.slice(0, handler.indexOf('setEmpty'))).toMatch(/clearTimeout\(fillTimeoutRef\.current\)/);
-  });
-
-  it('GptAdSlot arms the budget OUTSIDE the GPT command queue', () => {
-    // The case the timeout exists for is GPT blocked — and then its script
-    // never loads, so nothing ever drains `gt.cmd` and anything queued in it
-    // simply never runs. Arming the budget inside `gt.cmd.push` would hold the
-    // reserve forever in exactly that case: the guard would look like a guard
-    // without being one.
-    const gpt = readFileSync(resolve(ROOT, 'components', 'shared', 'GptAdSlot.tsx'), 'utf8');
+    expect(gpt).toContain('observeManualAd(adElement, wrapper, AD_FILL_TIMEOUT_MS');
     const body = gpt.slice(gpt.indexOf('const defineAndDisplay'));
-    const armedAt = body.indexOf('AD_FILL_TIMEOUT_MS');
-    const queuedAt = body.indexOf('gt.cmd.push(');
-    expect(armedAt).toBeGreaterThan(-1);
-    expect(queuedAt).toBeGreaterThan(-1);
-    expect(armedAt, 'the fill budget must be armed before anything is queued on gt.cmd').toBeLessThan(queuedAt);
+    expect(body.indexOf('lifecycle.request()')).toBeGreaterThan(-1);
+    expect(body.indexOf('lifecycle.request()')).toBeLessThan(body.indexOf('gt.cmd.push('));
+    expect(gpt).not.toContain('gpt_fill_timeout');
   });
 });

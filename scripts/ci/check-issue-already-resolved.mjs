@@ -37,6 +37,9 @@
  * `<!-- FIX_OUTCOME: already-fixed -->` telemetry marker (so the lessons-harvester sees
  * the deterministic resolution, NOT another Claude-run miss). It does NOT close the issue
  * — final close stays human (FOLLOWUP.md philosophy: never close on heuristic).
+ * One exception, because it is not a heuristic: a conflict hand-off whose origin PR is
+ * merged or mergeable again is closed (`closeResolvedHandoff`); the scheduled twin of
+ * that rule is scripts/ci/reconcile-conflict-handoffs.mjs.
  *
  * Output (GITHUB_OUTPUT): `already_resolved=true|false`. issue-fix.yml gates the Claude
  * job on `already_resolved != 'true'`.
@@ -340,17 +343,142 @@ export function handoffOriginVerdict(pr, { expectedHead = '' } = {}) {
     if (!expected || !observedHead || !observedHead.startsWith(expected)) {
       return { resolved: false, reason: 'origin-head-unverified' };
     }
-    const mergeable = String(pr?.mergeable || '').toUpperCase();
-    if (mergeable !== 'MERGEABLE') {
-      return { resolved: false, reason: mergeable === 'CONFLICTING' ? 'origin-open' : 'origin-mergeability-stale' };
-    }
-    const mergeableState = String(pr?.mergeStateStatus || '').toUpperCase();
-    if (!['CLEAN', 'UNSTABLE', 'BEHIND', 'BLOCKED', 'HAS_HOOKS'].includes(mergeableState)) {
-      return { resolved: false, reason: 'origin-mergeability-stale' };
-    }
+    const blocked = originMergeabilityBlock(pr);
+    if (blocked) return { resolved: false, reason: blocked };
     return { resolved: true, reason: 'conflict-resolved' };
   }
   return { resolved: false, reason: state ? `origin-${state.toLowerCase()}` : 'origin-unreadable' };
+}
+
+/** Why GitHub's mergeability snapshot does not show a clean PR, or `null`. Pure. */
+function originMergeabilityBlock(pr) {
+  const mergeable = String(pr?.mergeable || '').toUpperCase();
+  if (mergeable !== 'MERGEABLE') {
+    return mergeable === 'CONFLICTING' ? 'origin-open' : 'origin-mergeability-stale';
+  }
+  const mergeableState = String(pr?.mergeStateStatus || '').toUpperCase();
+  if (!['CLEAN', 'UNSTABLE', 'BEHIND', 'BLOCKED', 'HAS_HOOKS'].includes(mergeableState)) {
+    return 'origin-mergeability-stale';
+  }
+  return null;
+}
+
+// Label scritta e tolta da `pr-autorebase.mjs` (`MAIN_CONFLICT_LABEL`) sul
+// verdetto di `git merge-tree`, non sulla cache `mergeable` di GitHub.
+export const HANDOFF_CONFLICT_LABEL = 'has-conflicts';
+
+/**
+ * Positive proof that the conflict cleared after the hand-off was opened: the
+ * LATEST `has-conflicts` label event on the origin PR is an `unlabeled` newer
+ * than the hand-off. pr-autorebase is the only writer that removes the label,
+ * and only on a clean `git merge-tree` against `main` (`reportMainConflict`).
+ *
+ * The mere absence of the label proves nothing: pr-autorebase adds it
+ * best-effort (`allowFail`) and opens the hand-off even when that edit failed,
+ * so a missing label plus a stale GitHub `MERGEABLE` cache could close a
+ * hand-off that still conflicts. An older labeled/unlabeled pair from a
+ * previous conflict predates the hand-off and does not count either.
+ *
+ * @param {Array<{event?: string, label?: {name?: string}|string, created_at?: string, createdAt?: string}>|null} events
+ * @param {string} openedAt  the hand-off issue's `createdAt`
+ */
+export function conflictClearedAfter(events, openedAt) {
+  const opened = Date.parse(String(openedAt || ''));
+  if (!Number.isFinite(opened) || !Array.isArray(events)) return false;
+  let last = null;
+  for (const event of events) {
+    const name = typeof event?.label === 'string' ? event.label : event?.label?.name;
+    if (name !== HANDOFF_CONFLICT_LABEL) continue;
+    if (event.event !== 'labeled' && event.event !== 'unlabeled') continue;
+    const at = Date.parse(String(event.created_at ?? event.createdAt ?? ''));
+    if (!Number.isFinite(at)) continue;
+    if (!last || at >= last.at) last = { event: event.event, at };
+  }
+  return Boolean(last && last.event === 'unlabeled' && last.at > opened);
+}
+
+/** `gh api` args for the origin PR's `has-conflicts` label events (NDJSON via --jq). Pure. */
+export function conflictLabelEventsArgs(repo, prNumber) {
+  return ['api', '--paginate', `repos/${repo || '{owner}/{repo}'}/issues/${Number(prNumber)}/events?per_page=100`,
+    '--jq', `.[] | select((.event == "labeled" or .event == "unlabeled") and .label.name == "${HANDOFF_CONFLICT_LABEL}") | {event, created_at}`];
+}
+
+/** NDJSON from `conflictLabelEventsArgs` → events, or null when unreadable. Pure. */
+export function parseConflictLabelEvents(raw) {
+  if (typeof raw !== 'string') return null;
+  const events = [];
+  for (const line of raw.split('\n')) {
+    if (!line.trim()) continue;
+    try {
+      events.push({ ...JSON.parse(line), label: HANDOFF_CONFLICT_LABEL });
+    } catch {
+      return null;
+    }
+  }
+  return events;
+}
+
+/**
+ * Verdict on a conflict hand-off whose origin PR may have moved on.
+ *
+ * - `MERGED` → resolved: the content is on `main`.
+ * - `OPEN` → resolved only with the GitHub signals (mergeable; on a moved HEAD
+ *   also no `has-conflicts`) AND `conflictClearedAfterOpen`, the merge-tree
+ *   proof of `conflictClearedAfter`. A moved HEAD is the usual way out of a
+ *   hand-off (#10657: fixed on the branch at a new HEAD, merged 17 minutes
+ *   later, the hand-off left open), which the same-HEAD rule alone cannot see.
+ * - The GitHub signals without the proof → not resolved, reason
+ *   `conflict-clear-unproven`. On the same HEAD `sameHeadMergeable` is set: the
+ *   pre-flight keeps its pre-#10714 behaviour there (skip the fixer, leave the
+ *   issue open as `maybe-resolved`); on a moved HEAD the reapply proceeds, as
+ *   it did before.
+ */
+export function handoffResolution(pr, { expectedHead = '', conflictClearedAfterOpen = false } = {}) {
+  const verdict = handoffOriginVerdict(pr, { expectedHead });
+  if (verdict.resolved && verdict.reason === 'merged') return verdict;
+  if (verdict.resolved) {
+    return conflictClearedAfterOpen
+      ? verdict
+      : { resolved: false, reason: 'conflict-clear-unproven', sameHeadMergeable: true };
+  }
+  if (verdict.reason !== 'origin-head-unverified') return verdict;
+  if (!String(pr?.headRefOid || '').trim()) return verdict;
+  const labels = Array.isArray(pr?.labels)
+    ? pr.labels.map((label) => (typeof label === 'string' ? label : label?.name))
+    : null;
+  if (labels === null) return { resolved: false, reason: 'origin-labels-unreadable' };
+  if (labels.includes(HANDOFF_CONFLICT_LABEL)) return { resolved: false, reason: 'origin-has-conflicts' };
+  const blocked = originMergeabilityBlock(pr);
+  if (blocked) return { resolved: false, reason: blocked };
+  if (!conflictClearedAfterOpen) return { resolved: false, reason: 'conflict-clear-unproven' };
+  return { resolved: true, reason: 'conflict-resolved-new-head' };
+}
+
+/**
+ * A conflict hand-off resolved by `handoffResolution` is done by construction:
+ * the verdict reads GitHub's PR state and the merge-tree label events, not a
+ * content heuristic, and the hand-off body itself says to close it without a
+ * PR in that case. So this closes it, unlike `shortCircuit` below, which
+ * leaves the issue open for a human. Nobody else closed these (the fixer's
+ * bridge cannot, the drainer runs with `FOLLOWUP_NO_AUTOCLOSE=1`): 5 of the 8
+ * open hand-offs on 2026-10-01 had an origin PR already merged. A new conflict
+ * on a new HEAD opens a new hand-off, so closing here loses nothing.
+ */
+function closeResolvedHandoff(reason, evidenceMd) {
+  if (!DRY_RUN) {
+    const comment = `${MARKER}
+${reason}
+
+${evidenceMd}
+
+Chiusa come **completed**. Se la PR di origine torna in conflitto su una HEAD nuova, \`pr-autorebase\` apre un hand-off nuovo.
+
+${OUTCOME}`;
+    gh(['issue', 'comment', ISSUE, ...repoArgs, '--body', comment], { allowFail: true });
+    gh(['issue', 'edit', ISSUE, ...repoArgs, '--remove-label', 'agent:fix'], { allowFail: true });
+    gh(['issue', 'close', ISSUE, ...repoArgs, '--reason', 'completed'], { allowFail: true });
+  }
+  setOutput(true);
 }
 
 function main() {
@@ -392,20 +520,43 @@ function main() {
     let origin = null;
     try {
       origin = JSON.parse(
-        gh(['pr', 'view', String(handoffOrigin), ...repoArgs, '--json', 'state,mergeable,mergeStateStatus,headRefOid'], { allowFail: true }) || 'null',
+        gh(['pr', 'view', String(handoffOrigin), ...repoArgs, '--json', 'state,mergeable,mergeStateStatus,headRefOid,labels'], { allowFail: true }) || 'null',
       );
     } catch { origin = null; }
-    const verdict = handoffOriginVerdict(origin, { expectedHead: conflictHandoffExpectedHead(iss.body) });
+    // The merge-tree proof needs the hand-off's creation time, which the frozen
+    // snapshot does not carry; `createdAt` is immutable, so a live read cannot
+    // drift from the snapshot. Either read failing → no proof → no close.
+    let conflictClearedAfterOpen = false;
+    if (String(origin?.state || '').toUpperCase() === 'OPEN') {
+      let openedAt = '';
+      try {
+        openedAt = JSON.parse(gh(['issue', 'view', ISSUE, ...repoArgs, '--json', 'createdAt'], { allowFail: true }) || '{}')?.createdAt || '';
+      } catch { openedAt = ''; }
+      const events = parseConflictLabelEvents(gh(conflictLabelEventsArgs(process.env.GH_REPO, handoffOrigin), { allowFail: true }) || null);
+      conflictClearedAfterOpen = conflictClearedAfter(events, openedAt);
+    }
+    const verdict = handoffResolution(origin, {
+      expectedHead: conflictHandoffExpectedHead(iss.body),
+      conflictClearedAfterOpen,
+    });
+    if (verdict.sameHeadMergeable) {
+      console.log(`Conflict hand-off of PR #${handoffOrigin}: mergeable on the same HEAD, no merge-tree proof → short-circuit, no reapply PR.`);
+      shortCircuit(
+        `⏭️ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è aperta e di nuovo **MERGEABLE** sulla stessa HEAD, ma \`pr-autorebase\` non ha ancora tolto \`${HANDOFF_CONFLICT_LABEL}\` dopo l'apertura di questo hand-off (nessuna prova da merge-tree). Nessuna PR di riapplicazione per ora.`,
+        `- PR di origine #${handoffOrigin}: ${verdict.reason}`,
+      );
+      return;
+    }
     if (!verdict.resolved) {
       console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} — proceeding (reapply still needed).`);
       setOutput(false);
       return;
     }
-    console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} → short-circuit, no reapply PR.`);
-    shortCircuit(
+    console.log(`Conflict hand-off of PR #${handoffOrigin}: ${verdict.reason} → close, no reapply PR.`);
+    closeResolvedHandoff(
       verdict.reason === 'merged'
-        ? `⏭️ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **già mergiata**: il suo contenuto è su main e una PR di riapplicazione sarebbe un duplicato (caso #10136).`
-        : `⏭️ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è aperta e di nuovo **MERGEABLE**: il conflitto è già stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge. Nessuna PR di riapplicazione.`,
+        ? `✅ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è **già mergiata**: il suo contenuto è su main e una PR di riapplicazione sarebbe un duplicato (caso #10136).`
+        : `✅ **Pre-flight (auto, zero-Claude)**: la PR di origine **#${handoffOrigin}** è aperta e di nuovo **MERGEABLE**, e \`pr-autorebase\` ha tolto \`${HANDOFF_CONFLICT_LABEL}\` dopo l'apertura di questo hand-off (merge-tree pulito): il conflitto è già stato risolto sul suo branch, che prosegue nel proprio ciclo di review e merge. Nessuna PR di riapplicazione.`,
       `- PR di origine #${handoffOrigin}: ${verdict.reason}`,
     );
     return;

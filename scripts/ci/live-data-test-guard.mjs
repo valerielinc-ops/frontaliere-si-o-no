@@ -290,6 +290,10 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // ══════════════════════════════════════════════════════════════════════
   { file: "tests/apleona-schweiz-ag-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/article-author-source-parity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // The organization-entity regression also inspects generated static blog
+  // SEO modules. Its corpus reads are intentional, but the runtime/source
+  // inventory must keep it out of the blocking PR partition.
+  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
   { file: "tests/article-hero-image-integrity.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/articles-archive-chronological.test.ts", roots: ["data/all-known-job-slugs/", "data/jobs-snapshots-history/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog-slugs-sitemap-sync.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "replay", runtime: true },
@@ -339,6 +343,12 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: "tests/ti-market-snapshot-sector-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/ti-sector-hub-canton-scope.test.ts", roots: ["data/jobs.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/ti-weekly-employers-canton-scope.test.ts", roots: ["data/border-wait-averages.json", "data/jobs.json", "public/data/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // ─── Replay del 2026-09-30. Scandisce tutto il corpus degli articoli per
+  // verificare le cifre della simulazione fiscale contro il calcolatore: il
+  // corpus lo riscrive la sincronizzazione automatica (commit «Sync article …»
+  // senza (#N)), e la PR #10308 del 29-09 ha dovuto ripristinare quelle cifre.
+  // Stessa natura di irpef-brackets-2026 sopra: il corpus è il soggetto.
+  { file: "tests/article-tax-content-guard.test.ts", roots: ["packages/articles/content/", "services/locales/"], since: "2026-09-30", evidence: "replay", runtime: true },
 ]);
 
 /**
@@ -431,6 +441,22 @@ export const LIVE_DATA_SCAN_EXEMPTIONS = Object.freeze([
     roots: ['data/border-wait', 'data/jobs/', 'data/pharmac'],
     reason: 'i path sono SORGENTI SINTETICI passati allo scanner (`scanTestSource`) e nomi interrogati sul matcher; il repo sintetico vive in os.tmpdir(). La scansione del repo legge test, moduli e workflow, mai un file sotto data/ (#9743)',
   },
+  {
+    file: 'tests/merge-open-data-refresh.test.ts',
+    roots: ['data/events.json', 'packages/articles/content/', 'services/locales/'],
+    reason: 'every data/, packages/articles/content/ and services/locales/ path is written, symlinked and read inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the script under test',
+  },
+  {
+    file: 'tests/open-data-refresh-checkout.test.ts',
+    roots: ['packages/articles/content/'],
+    reason: 'the same fixture as merge-open-data-refresh: packages/articles/content/body.ts is written and symlinked inside a mkdtemp git repository under os.tmpdir(); the checkout read is limited to the five refresh scripts under test (#10754)',
+  },
+  {
+    file: 'tests/job-board-seo-titles.test.ts',
+    roots: ['data/jobs.json'],
+    reason: 'data/jobs.json is written and read only under fs.mkdtempSync; the separate checkout read is the staticPagesPlugin.ts source used to verify the static landing call',
+    runtime: true,
+  },
 ]);
 
 
@@ -468,6 +494,9 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/whats-new-localization-guard.test.ts", roots: [], since: "2026-09-19", movedFromFullExclusion: true },
   { file: "tests/all-known-job-slugs-store.test.ts", roots: ["data/all-known-job-slugs/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/blog/svizzera-section-routing.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
+  // #10686: il caso sui creator ImageObject legge i template SEO statici del
+  // corpus pubblicato; gli altri verificano codice del sito e restano nel gate.
+  { file: "tests/organization-entity-consolidation.test.ts", roots: ["packages/articles/content/"], since: "2026-10-01", evidence: "review", runtime: true },
   { file: "tests/cf-hot-404-bridge.test.ts", roots: ["data/employer-profiles.json", "data/search-cluster-301-map.json"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/cippatrasporti-crawler.test.ts", roots: ["data/jobs/"], since: "2026-09-19", evidence: "replay", runtime: true },
   { file: "tests/crawler-brand-domain-pairing.test.ts", roots: ["data/prospector/"], since: "2026-09-19", evidence: "replay", runtime: true },
@@ -496,6 +525,18 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   { file: "tests/scripts/publish-article-chunks-companions.test.ts", roots: ["packages/articles/content/"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/submit-indexnow-batch.test.ts", roots: ["public/sitemap-guides.xml"], since: "2026-09-19", evidence: "review", runtime: true },
   { file: "tests/translation-shadow-preflight-v2.test.ts", roots: ["data/job-popularity.json"], since: "2026-09-19", evidence: "review", runtime: true },
+  // ─── Censimento e replay del 2026-09-30 (hook su fs nei worker e nei processi
+  // figli, dati vivi riportati a 7 e 14 giorni fa). Questi file leggevano un
+  // dato vivo fuori da ogni elenco; in ognuno cambia esito un solo caso, o due,
+  // e solo quello è marcato `skipIf(SKIP_LIVE_DATA)`. Le spec in
+  // data/prospector/crawlers/ le riscrive il bot prospector (commit senza (#N)
+  // su apply, brefispersonal, yellowshark e gmo nella finestra misurata); il
+  // rilascio di Ginevra lo riscrive il workflow delle farmacie (34 commit su 36).
+  { file: "tests/apply-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/brefispersonal-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/schweizerhof-flims-crawler.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/prospector-spec-pagination.test.ts", roots: ["data/prospector/"], since: "2026-09-30", evidence: "replay", runtime: true },
+  { file: "tests/pharmacy-geneva-release.test.ts", roots: ["data/pharmacy-duties-geneva.json", "data/pharmacy-duties-geneva-status.json"], since: "2026-09-30", evidence: "replay", runtime: true },
 ]);
 
 /**

@@ -148,7 +148,7 @@ function renderHub(locale: Locale, snap: WeatherSnapshot | null, distDir: string
   const intro = renderHubIntro(locale);
 
   const localePathHub = locale === 'it' ? '' : `/${locale}`;
-  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameHub = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   const hubHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${HUB_SLUG.it}/`,
     en: `https://frontaliereticino.ch/en/${HUB_SLUG.en}/`,
@@ -218,7 +218,7 @@ function renderAlertPage(locale: Locale, cfg: WeatherAlertConfig, state: AlertSt
   const faqHtml = renderFaq(locale, cfg);
 
   const localePathAlert = locale === 'it' ? '' : `/${locale}`;
-  const homeNameAlert = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeNameAlert = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   const hubUrlAlert = `https://frontaliereticino.ch${localePathAlert}/${HUB_SLUG[locale]}/`;
   const alertHreflangs: Record<Locale, string> = {
     it: `https://frontaliereticino.ch/${ALERTS_PARENT_BY_LOCALE.it}/${cfg.slug.it}/`,
@@ -250,7 +250,7 @@ ${faqHtml}
 
 function renderBreadcrumb(locale: Locale, cfg: WeatherAlertConfig): string {
   const localePath = locale === 'it' ? '' : `/${locale}`;
-  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Start' : 'Accueil';
+  const homeText = locale === 'it' ? 'Home' : locale === 'en' ? 'Home' : locale === 'de' ? 'Startseite' : 'Accueil';
   return `<nav aria-label="Breadcrumb" class="max-w-3xl mx-auto py-3 text-sm"><ol class="flex flex-wrap items-center gap-1 text-muted"><li><a href="${localePath}/" class="hover:text-link">${homeText}</a></li><li class="text-muted">›</li><li><a href="${localePath}/${HUB_SLUG[locale]}/" class="hover:text-link">${escapeHtml(HUB_TITLE[locale])}</a></li><li class="text-muted">›</li><li class="text-heading font-medium" aria-current="page">${escapeHtml(cfg.title[locale])}</li></ol></nav>`;
 }
 
@@ -530,7 +530,8 @@ function jsonLd(locale: Locale, title: string, description: string, canonical: s
       url: 'https://frontaliereticino.ch/',
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': 'https://frontaliereticino.ch/#organization',
       name: 'Frontaliere Ticino',
       url: 'https://frontaliereticino.ch/',
     },

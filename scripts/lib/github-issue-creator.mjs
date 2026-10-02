@@ -325,17 +325,25 @@ function searchIssuesByTitlePrefix(
   fullTitle,
   state,
   searchLimit = 10,
+  { exactTitle = false } = {},
 ) {
+  const requestedTitle = String(fullTitle);
   const safePrefix = searchSafePrefix(fullTitle);
   // `gh issue list --search "in:title ..."` è token-match (fuzzy): titoli che
   // condividono token (es. "...(dist): post-deploy" vs "...(live): post-deploy",
   // o "CI Failure: Refresh Job Popularity" vs "...Refresh BFS Stats") possono
   // entrambi comparire. Filtra al match esatto di prefisso → niente commento
   // sul canonical sbagliato (altrimenti dist commenterebbe su issue live).
+  // I caller con bucket distinti oltre i 60 caratteri possono richiedere
+  // l'uguaglianza del titolo completo dopo la stessa query di candidati.
   // Match sul prefisso SANITIZZATO (stesso usato per la query) così il filtro
   // resta coerente quando lo slice grezzo era stato troncato a metà token.
   const matching = (issues) =>
-    issues.filter((i) => typeof i.title === 'string' && i.title.startsWith(safePrefix));
+    issues.filter((i) => typeof i.title === 'string' && (
+      exactTitle
+        ? i.title === requestedTitle.slice(0, 200)
+        : i.title.startsWith(safePrefix)
+    ));
 
   const searchedIssues = ghIssueList(state, [
     '--search', `in:title "${safePrefix.replace(/"/g, '\\"')}"`,
@@ -364,11 +372,12 @@ function searchIssuesByTitlePrefix(
   ).sort((a, b) => Number(b.number || 0) - Number(a.number || 0));
 }
 
-function findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest = false) {
+function findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest = false, options = {}) {
   const candidates = searchIssuesByTitlePrefix(
     fullTitle,
     'open',
     10,
+    options,
   );
   if (candidates === null) return undefined;
   if (preferNewest) {
@@ -380,8 +389,8 @@ function findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest = false) {
   return candidates;
 }
 
-function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false) {
-  const candidates = findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest);
+function findOpenIssueByTitlePrefix(fullTitle, preferNewest = false, options = {}) {
+  const candidates = findOpenIssueCandidatesByTitlePrefix(fullTitle, preferNewest, options);
   if (candidates === undefined) return undefined;
   return candidates[0] || null;
 }
@@ -524,14 +533,21 @@ function issueLabelNames(issue) {
  */
 const NEVER_REOPEN_TITLES = new Set([TRANSIENT_LEDGER_TITLE]);
 
-function findRecentlyClosedIssueByTitlePrefix(fullTitle, withinHours, dedupKey = null, occurredAt = null) {
+function findRecentlyClosedIssueByTitlePrefix(
+  fullTitle,
+  withinHours,
+  dedupKey = null,
+  occurredAt = null,
+  { exactTitle = false } = {},
+) {
   if (!withinHours || withinHours <= 0) return null;
   const cutoff = Date.now() - withinHours * 3600 * 1000;
   const wantedSignature = conditionSignature(fullTitle);
   const candidates = searchIssuesByTitlePrefix(
-    dedupKey || fullTitle,
+    exactTitle ? fullTitle : (dedupKey || fullTitle),
     'closed',
     CLOSED_SEARCH_LIMIT,
+    { exactTitle },
   );
   if (candidates === null) return undefined;
   const inWindow = candidates
@@ -929,12 +945,12 @@ function issueViewIsClosed(number) {
  * `persisted: true`. A refused or unverified close throws (the error carries
  * `persisted: false`) so callers cannot treat it as a successful no-op.
  *
- * @param {string} titlePrefix  Stable full title; its safe prefix derived from
- *                              DEDUP_TITLE_PREFIX_LEN is matched exactly as
- *                              createGithubIssue dedups.
- * @param {{ workflow?: string, runUrl?: string }} [ctx]
+ * @param {string} titlePrefix  Stable full title; by default its safe prefix
+ *                              derived from DEDUP_TITLE_PREFIX_LEN is matched.
+ * @param {{ workflow?: string, runUrl?: string, exactTitle?: boolean }} [ctx]
+ *                              exactTitle opts into complete-title matching.
  */
-export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
+export function resolveGithubIssue(titlePrefix, { workflow, runUrl, exactTitle = false } = {}) {
   if (isFailureReportingDisabled()) {
     console.log('[github-issue-creator] ENABLE_FAILURE_REPORT=false, skipping resolve');
     return null;
@@ -945,7 +961,7 @@ export function resolveGithubIssue(titlePrefix, { workflow, runUrl } = {}) {
   }
   // Pass the FULL title — searchSafePrefix slices + sanitizes internally and
   // needs the un-sliced title to detect a mid-word cut.
-  const existing = findOpenIssueByTitlePrefix(titlePrefix);
+  const existing = findOpenIssueByTitlePrefix(titlePrefix, false, { exactTitle });
   if (existing === undefined) {
     console.error('[github-issue-creator] resolve: open-issue lookup was unreliable — leaving the issue state unchanged');
     return null;
@@ -1090,6 +1106,10 @@ export async function createGithubIssue({
   // issue is found, its title is migrated in place before the recurrence is
   // commented, preserving the issue number and history.
   dedupKey = null,
+  // Opt-in for stable titles whose semantic bucket appears after the normal
+  // 60-character dedup prefix. The search still narrows candidates by prefix,
+  // then requires the complete (200-character-capped) title to match.
+  exactTitle = false,
   // Hours: a closed issue naming the SAME condition, closed no longer ago than
   // this, is REOPENED + commented instead of opening a fresh duplicate.
   //
@@ -1142,6 +1162,7 @@ export async function createGithubIssue({
   }
 
   const normalizedDedupKey = dedupKey == null ? null : String(dedupKey).trim();
+  const matchExactTitle = exactTitle === true;
   if (
     normalizedDedupKey
     && (normalizedDedupKey.length < 8 || !String(title).startsWith(normalizedDedupKey))
@@ -1163,8 +1184,9 @@ export async function createGithubIssue({
     : Number(reopenWithinHours);
 
   const openCandidates = findOpenIssueCandidatesByTitlePrefix(
-    dedupTitle,
+    matchExactTitle ? title : dedupTitle,
     Boolean(normalizedDedupKey),
+    { exactTitle: matchExactTitle },
   );
   if (openCandidates === undefined) return lookupFailedResult(title, 'open-issue');
   const newestOpen = openCandidates[0] || null;
@@ -1176,7 +1198,7 @@ export async function createGithubIssue({
   let newestClosed = null;
   if (normalizedDedupKey && Number.isFinite(reopenWindowHours) && reopenWindowHours > 0) {
     newestClosed = findRecentlyClosedIssueByTitlePrefix(
-      title, reopenWindowHours, normalizedDedupKey, occurredAt,
+      title, reopenWindowHours, normalizedDedupKey, occurredAt, { exactTitle: matchExactTitle },
     );
     if (newestClosed === undefined) return lookupFailedResult(title, 'closed-issue');
   }
@@ -1332,7 +1354,13 @@ export async function createGithubIssue({
     // repeat both GitHub calls on every cold start where newestClosed is null.
     let recentlyClosed = newestClosed;
     if (!normalizedDedupKey) {
-      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(title, reopenWindowHours, null, occurredAt);
+      recentlyClosed = findRecentlyClosedIssueByTitlePrefix(
+        title,
+        reopenWindowHours,
+        null,
+        occurredAt,
+        { exactTitle: matchExactTitle },
+      );
       if (recentlyClosed === undefined) return lookupFailedResult(title, 'closed-issue');
     }
     if (recentlyClosed) {

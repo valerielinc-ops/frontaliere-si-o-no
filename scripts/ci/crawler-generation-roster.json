@@ -280,6 +280,7 @@
     "19": [
       "alpiq",
       "bucher-suter",
+      "convit-holding",
       "cseb",
       "csl-behring",
       "forel-klinik",
@@ -403,6 +404,7 @@
       "brefispersonal",
       "capri-holdings",
       "christinavassalli",
+      "confederazione-ticino",
       "csd-engineers",
       "ecam",
       "fachkraft",
@@ -413,6 +415,7 @@
       "mcdonald-s-switzerland",
       "migros-hq",
       "nestle",
+      "pantr-ch",
       "posta-svizzera-centro-regionale",
       "postauto",
       "postfinance",
@@ -420,10 +423,6 @@
       "tsmg"
     ],
     "24": [
-      "confederazione-ticino",
-      "convit-holding",
-      "knowledge-lab",
-      "lwphr",
       "protectas"
     ],
     "01": [
@@ -664,6 +663,7 @@
       "hirslanden",
       "klinik-barmelweid",
       "localsearch",
+      "lwphr",
       "oetiker",
       "paraplegie",
       "solina",
@@ -1004,7 +1004,6 @@
     "klinik-susenberg": "data/jobs/by-crawler/klinik-susenberg.json",
     "klinik-wyssholzli": "data/jobs/by-crawler/klinik-wyssholzli.json",
     "kliniken-valens": "data/jobs/by-crawler/kliniken-valens.json",
-    "knowledge-lab": "data/jobs/by-crawler/knowledge-lab.json",
     "komax": "data/jobs/by-crawler/komax.json",
     "kone": "data/jobs/by-crawler/kone.json",
     "ksa": "data/jobs/by-crawler/ksa.json",
@@ -1093,6 +1092,7 @@
     "ottos": "data/jobs/by-crawler/ottos.json",
     "pallas-kliniken": "data/jobs/by-crawler/pallas-kliniken.json",
     "palliativklinik": "data/jobs/by-crawler/palliativklinik.json",
+    "pantr-ch": "data/jobs/by-crawler/pantr-ch.json",
     "paraplegie": "data/jobs/by-crawler/paraplegie.json",
     "parmag": "data/jobs/by-crawler/parmag.json",
     "patek-philippe": "data/jobs/by-crawler/patek-philippe.json",
@@ -1302,5 +1302,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:086bcc78ad174a9bf8664566eb9fa923010f10f523e0e1419e8c4c670a7c93b3"
+  "digest": "sha256:2dbb0cd78f2ac8487e04b89f96218c108b2871420ed3c3547001e33d806169ad"
 }

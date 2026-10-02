@@ -26,6 +26,7 @@ import { adSlotHtml, endOfContentMultiplexHtml } from './lib/adSlotHtml';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { CALC_HREF } from './shared/calcHref';
 import { formatUpdatedDate } from './shared/humanDate';
+import { sourceDateIso } from '../services/dataFreshness';
 import { WriteCollector } from './batchWrite';
 import { resolveBfsSalaryFlushed } from './shared/buildSignals';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
@@ -102,6 +103,7 @@ interface SalaryCopy {
   readonly breadcrumbHub: string;
   readonly breadcrumbHubPath: string;
   readonly updatedLabel: string;
+  readonly generatedLabel: string;
   readonly ctaCalc: string;
   readonly relatedLabel: string;
   readonly faqTitle: string;
@@ -137,7 +139,8 @@ const COPY: Record<SalaryLocale, SalaryCopy> = {
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Calcolatore stipendio',
     breadcrumbHubPath: '/calcola-stipendio/',
-    updatedLabel: 'Dati',
+    updatedLabel: 'Anno dei dati LSE',
+    generatedLabel: 'Pagina generata',
     ctaCalc: 'Calcola il tuo stipendio netto →',
     relatedLabel: 'Approfondisci',
     faqTitle: 'Domande frequenti',
@@ -198,7 +201,8 @@ const COPY: Record<SalaryLocale, SalaryCopy> = {
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Salary calculator',
     breadcrumbHubPath: '/en/calculate-salary/',
-    updatedLabel: 'Data',
+    updatedLabel: 'LSE data year',
+    generatedLabel: 'Page generated',
     ctaCalc: 'Calculate your net salary →',
     relatedLabel: 'Read more',
     faqTitle: 'Frequently asked questions',
@@ -256,10 +260,11 @@ const COPY: Record<SalaryLocale, SalaryCopy> = {
     },
   },
   de: {
-    breadcrumbHome: 'Home',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Lohnrechner',
     breadcrumbHubPath: '/de/gehalt-berechnen/',
-    updatedLabel: 'Daten',
+    updatedLabel: 'LSE-Datenjahr',
+    generatedLabel: 'Seite erstellt',
     ctaCalc: 'Nettolohn berechnen →',
     relatedLabel: 'Mehr erfahren',
     faqTitle: 'Häufige Fragen',
@@ -320,7 +325,8 @@ const COPY: Record<SalaryLocale, SalaryCopy> = {
     breadcrumbHome: 'Accueil',
     breadcrumbHub: 'Calculateur de salaire',
     breadcrumbHubPath: '/fr/calculer-salaire/',
-    updatedLabel: 'Données',
+    updatedLabel: 'Année des données ESS',
+    generatedLabel: 'Page générée',
     ctaCalc: 'Calculez votre salaire net →',
     relatedLabel: 'Pour aller plus loin',
     faqTitle: 'Questions fréquentes',
@@ -415,6 +421,8 @@ function renderCommon(opts: {
     median, national, faqs, ctaLine, alternates, dateStamp, distDir, relatedLinks,
   } = opts;
   const L = COPY[locale];
+  const datasetMeta = loadDataset().meta;
+  const datasetUpdatedAt = sourceDateIso(datasetMeta.generatedAt);
   // COPY declares `title` and `h1` as two fields, but for both families they
   // are the SAME sentence — the brand suffix is the only thing telling the
   // rendered <title> apart from the <h1>. buildTitleWithBrand (via
@@ -472,11 +480,11 @@ function renderCommon(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    ...(datasetUpdatedAt ? { dateModified: datasetUpdatedAt } : {}),
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),
@@ -516,7 +524,7 @@ function renderCommon(opts: {
       <h1 style="${H1_STYLE}">${esc(h1Display)}</h1>
       <p style="${LEDE_STYLE}">${esc(lede)}</p>
     </header>
-    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)}: ${esc(datasetMeta.waveYear)} · ${esc(L.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
     ${DRIVEBY_AD_SNIPPET}
     <div class="s-KZc0LQ"><a href="${esc(calcUrl)}" class="s-cta">${esc(L.ctaCalc)}</a></div>
@@ -533,7 +541,7 @@ function renderCommon(opts: {
       ${faqHtml}
     </section>
     <section class="s-KZc0LQ">
-      <p style="${BODY_STYLE};max-width:820px;font-size:13px;opacity:.85">${esc(L.sourceNote(loadDataset().meta.waveYear))}</p>
+      <p style="${BODY_STYLE};max-width:820px;font-size:13px;opacity:.85">${esc(L.sourceNote(datasetMeta.waveYear))}</p>
     </section>
     <section class="s-KZc0LQ">
       <h2 style="${H2_STYLE}">${esc(L.relatedLabel)}</h2>

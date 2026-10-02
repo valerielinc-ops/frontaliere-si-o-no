@@ -14,12 +14,14 @@ import { assertAdmin } from './adminEmployerInsights.js';
 import { getAdminDb } from './newsletterResendWebhookCore.js';
 import { resolveCvLink } from './publisherApplicationsCore.js';
 import { getStripe } from './stripePublisherCore.js';
+import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import {
   AUTOMATION_ADMIN_ACTIONS,
   AutomationAdminError,
   handleAutomationAdminAction,
   loadAutomationForAdmin,
+  recordOwnerSubmission,
 } from './assistedApplicationAutomationAdmin.js';
 import { runAutomationEffect } from './assistedApplicationAutomationEffects.js';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from './assistedApplicationCvCheck.js';
@@ -130,6 +132,46 @@ function notificationStatus(data, key) {
   return boundedString(data?.notifications?.[key]?.status, 40) || null;
 }
 
+function eventCount(value) {
+  const count = Number(value);
+  return Number.isFinite(count) && count > 0 ? Math.floor(count) : 0;
+}
+
+/**
+ * Every e-mail the candidate received, with what the providers reported back
+ * (assistedApplicationEmailEvents.js): delivery, opens, clicks, bounces.
+ */
+function candidateEmailsFor(data) {
+  const engagement = data?.emailEngagement && typeof data.emailEngagement === 'object' ? data.emailEngagement : {};
+  const notifications = data?.notifications && typeof data.notifications === 'object' ? data.notifications : {};
+  const keys = new Set([
+    ...Object.keys(notifications).filter((key) => /^(customer_|auto_candidate_)/.test(key)),
+    ...Object.keys(engagement),
+  ]);
+  return [...keys]
+    .filter((key) => /^[a-z0-9_]{1,80}$/.test(key))
+    .map((key) => {
+      const events = engagement[key] || {};
+      const sent = notifications[key] || {};
+      return {
+        key,
+        status: boundedString(sent.status, 40) || null,
+        sentAt: timestampToIso(sent.sentAt),
+        delivered: eventCount(events.delivered),
+        opens: eventCount(events.opens),
+        clicks: eventCount(events.clicks),
+        bounces: eventCount(events.bounces),
+        complaints: eventCount(events.complaints),
+        firstOpenAt: timestampToIso(events.firstOpenAt),
+        lastOpenAt: timestampToIso(events.lastOpenAt),
+        lastClickAt: timestampToIso(events.lastClickAt),
+        lastClickUrl: optionalString(events.lastClickUrl, 300) || null,
+      };
+    })
+    .sort((a, b) => String(a.sentAt || a.firstOpenAt || '').localeCompare(String(b.sentAt || b.firstOpenAt || '')))
+    .slice(0, 40);
+}
+
 function isAssistedApplicationStorageKey(orderId, value) {
   const key = boundedString(value, 600);
   const prefix = `assisted-application-uploads/${orderId}/`;
@@ -176,6 +218,7 @@ function serializeOrder(doc, cvUrl) {
       reminder: notificationStatus(data, 'customer_materials_reminder'),
       submitted: notificationStatus(data, 'customer_submitted'),
     },
+    candidateEmails: candidateEmailsFor(data),
     cvUploadedAt: timestampToIso(data.cvUploadedAt),
     consentVersion: optionalString(data.consentVersion, 120) || null,
     consentedAt: timestampToIso(data.consentedAt),
@@ -291,11 +334,13 @@ async function handleTransition(db, raw, adminEmail) {
   }
 
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(orderId);
+  let automated = false;
   try {
     await db.runTransaction(async (transaction) => {
       const snapshot = await transaction.get(orderRef);
       if (!snapshot.exists) throw new AssistedApplicationAdminError('order_not_found', 404);
       const current = snapshot.data() || {};
+      automated = Boolean(current.automationState);
       const fromStatus = statusFor(current);
       if (current.paymentStatus !== 'paid') {
         throw new AssistedApplicationAdminError('payment_not_confirmed', 409);
@@ -314,6 +359,12 @@ async function handleTransition(db, raw, adminEmail) {
     });
   } catch (error) {
     return transitionErrorResponse(error);
+  }
+  // An automated order Valerie marks sent from the queue closes its flow too
+  // (owner_submitted), so the automation box agrees with the queue. Only a
+  // flow the robot left to her moves; anything else is ignored.
+  if (toStatus === 'submitted' && automated) {
+    await recordOwnerSubmission({ db, orderId, adminEmail, via: 'owner', runEffect: runAutomationEffect }).catch((error) => console.error('[manageAssistedApplicationAdmin] flow not closed', orderId, error instanceof Error ? error.message : String(error)));
   }
   return { status: 200, body: { ok: true, orderId, submissionStatus: toStatus } };
 }
@@ -575,6 +626,11 @@ async function handleMutate(db, req, adminEmail) {
       const body = await handleAutomationAdminAction(db, raw, adminEmail, {
         runEffect: runAutomationEffect,
         bucket: getStorage().bucket(STORAGE_BUCKET),
+        // Read only by automationRevealAccount (portal accounts on the alias).
+        runKey: () => getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
+        // Read only by automationFillKit: the documents the fill extension attaches.
+        signUrl: resolveCvLink,
+        originalCvUrl: cvUrlForOrder,
       });
       return { status: 200, body };
     } catch (error) {

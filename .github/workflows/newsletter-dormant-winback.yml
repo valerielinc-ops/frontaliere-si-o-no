@@ -47,6 +47,13 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        # checkout profile: intentionally full
+        # Full checkout intenzionale: il profilo sparse precedente dichiarava
+        # 1.192 MB ma impiegava 158 s (run 35980901661); il checkout completo
+        # da 6.829 MB ha impiegato 141 s (run 36760319341), quindi è 17 s più
+        # rapido sul runner reale.
+        # Il confronto misura lo stesso step Checkout su due run del workflow;
+        # non include npm ci o gli step applicativi successivi.
 
       - name: Setup Node.js
         uses: actions/setup-node@v7

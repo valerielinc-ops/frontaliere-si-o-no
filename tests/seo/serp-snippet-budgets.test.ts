@@ -7,8 +7,8 @@ import {
   clampMetaDescription,
   TITLE_MAX_CHARS,
   META_DESCRIPTION_MAX_CHARS,
+  META_DESCRIPTION_MIN_CHARS,
 } from '../../build-plugins/shared/titleSuffix';
-import { clampSiteSuffix } from '../../build-plugins/shared/seoContentTokens';
 import { buildProfessionLandingCopy } from '../../build-plugins/professionLandingsCopy';
 import { PROFESSION_IDS, PROFESSION_LOCALES } from '../../build-plugins/professionLandingsData';
 import { CAREER_LANDING_COPY } from '../../build-plugins/careerLandingsCopy';
@@ -27,6 +27,7 @@ import {
 } from '../../build-plugins/weeklyEmployersData';
 import { titleFor as fuelIndexTitleFor, FUEL_INDEX_SLUG } from '../../build-plugins/fuelStationIndexPages';
 import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyData';
+import { generateFuelDailyPages } from '../../build-plugins/fuelDailyPagesPlugin';
 
 /**
  * SERP snippet budgets for the hand-authored landing families.
@@ -46,12 +47,17 @@ import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyDat
  */
 
 /**
- * True only when `clampMetaDescription` actually *drops* text.
+ * True only when `clampMetaDescription` actually *drops* source text.
  *
  * It does two things: collapse `\s+` to a single space, then word-aware
  * truncate. Comparing its output against the RAW input conflates the two — and
  * JS `\s` matches U+00A0 and U+202F, so any non-breaking space in the copy
  * reads as "truncated" even in a 94-char string with no ellipsis in sight.
+ *
+ * Short descriptions are intentionally enriched to the crawler minimum, so a
+ * plain output-vs-input comparison would now confuse additive context with a
+ * destructive truncation. The ellipsis is the unambiguous signal that source
+ * text was dropped.
  *
  * That is not hypothetical: `median.toLocaleString('fr-CH')` emits the group
  * separator chosen by the host ICU. macOS Node gives `62'000` (apostrophe),
@@ -65,8 +71,17 @@ import { FUEL_DAILY_LOCALES, FUEL_TYPES } from '../../build-plugins/fuelDailyDat
  * and still asserted separately.
  */
 function isTruncated(description: string): boolean {
-  const normalized = String(description).replace(/\s+/g, ' ').trim();
-  return clampMetaDescription(description) !== normalized;
+  return clampMetaDescription(description).endsWith('…');
+}
+
+function assertClampKeepsSource(description: string, clamped: string): void {
+  const normalized = description.replace(/\s+/g, ' ').trim();
+  if (clamped === normalized) return;
+  // A short source description is now enriched additively for the crawler;
+  // it must remain the complete prefix while evergreen context fills the
+  // metadata budget. This is not destructive truncation.
+  expect(clamped.startsWith(`${normalized} `)).toBe(true);
+  expect(clamped.length).toBeGreaterThanOrEqual(META_DESCRIPTION_MIN_CHARS);
 }
 
 describe('isTruncated — host-ICU independence', () => {
@@ -239,7 +254,7 @@ describe('SERP snippet budgets — employer profile intro prose (#6417)', () => 
           expect(clamped.endsWith('…')).toBe(true);
           expect(clamped).not.toMatch(/\s…$/); // no dangling space before the ellipsis
         } else {
-          expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+          assertClampKeepsSource(description, clamped);
         }
 
         // A clamp that survives should still carry substance, not just the
@@ -275,7 +290,7 @@ describe('SERP snippet budgets — weekly-employers hero copy (#6417)', () => {
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }
@@ -327,7 +342,7 @@ describe('SERP snippet budgets — fuel station index pages (#6417 item 3)', () 
       expect(clamped.endsWith('…')).toBe(true);
       expect(clamped).not.toMatch(/\s…$/);
     } else {
-      expect(clamped).toBe(description.replace(/\s+/g, ' ').trim());
+      assertClampKeepsSource(description, clamped);
     }
     expect(clamped.replace(/…$/, '').trim().length).toBeGreaterThan(40);
   }
@@ -344,10 +359,8 @@ describe('SERP snippet budgets — fuel station index pages (#6417 item 3)', () 
 });
 
 describe('fuel daily pages — Italian copy regressions', () => {
-  // The fuel plugin imports `data/`, so it cannot be imported in a sparse
-  // worktree (it would be red locally and green in CI, which is worse than no
-  // test). Scan the source instead — these are template literals, so the
-  // defect is visible without evaluating them.
+  // Source checks below cover copy templates; the budget check renders all
+  // daily pages with an explicit dataset and clock, including the final shell.
   const source = readFileSync(
     fileURLToPath(new URL('../../build-plugins/fuelDailyPagesPlugin.ts', import.meta.url)),
     'utf8',
@@ -390,35 +403,30 @@ describe('fuel daily pages — Italian copy regressions', () => {
     expect(itIntro?.[0]).not.toMatch(/\bSwiss\b/);
   });
 
-  it('the price-bearing title can never overflow the budget', () => {
-    // Adversarial check from review: is the fallback in `renderPage` sound at
-    // the boundary, once `clampSiteSuffix` has had its turn? The guard picks
-    // the price form only at <= TITLE_MAX_CHARS, and clampSiteSuffix appends
-    // the brand only if the total still fits — so the final string is never
-    // longer than the dated form it would otherwise have produced.
-    expect(source).toMatch(
-      /const titleBase = titleWithPrice\.length <= 66 \? titleWithPrice : titleWithDate;/,
-    );
-
-    const brand = 'Frontaliere Ticino';
-    const exactly66 = 'x'.repeat(TITLE_MAX_CHARS);
-    expect(clampSiteSuffix(exactly66, brand)).toBe(exactly66); // brand dropped
-    expect(clampSiteSuffix(exactly66, brand).length).toBe(TITLE_MAX_CHARS);
-
-    // Longest base that still keeps the brand: 66 - " | Frontaliere Ticino".
-    const fits = 'y'.repeat(TITLE_MAX_CHARS - ` | ${brand}`.length);
-    expect(clampSiteSuffix(fits, brand)).toBe(`${fits} | ${brand}`);
-    expect(clampSiteSuffix(fits, brand).length).toBe(TITLE_MAX_CHARS);
-
-    // One char more and the brand must go rather than overflow.
-    const oneOver = `${fits}z`;
-    expect(clampSiteSuffix(oneOver, brand)).toBe(oneOver);
-    expect(clampSiteSuffix(oneOver, brand).length).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+  it('emits price-bearing titles within the budget for every locale, fuel and zone', () => {
+    const today = new Date('2026-04-20T06:00:00.000Z');
+    const dataset = {
+      generatedAt: today.toISOString(),
+      municipalities: [{ swiss: { nearbyStations: [
+        '6830 Chiasso', '6850 Mendrisio', '6900 Lugano', '6500 Bellinzona', '6600 Locarno',
+      ].map((address, id) => ({
+        id: String(id), address, name: `Station ${id}`, brand: 'TEST',
+        sp95PriceChf: 1.899, dieselPriceChf: 2.019,
+      })) } }],
+    };
+    const pages = generateFuelDailyPages({ rootDir: '/tmp/frontaliere-fuel-title-budget', dataset, history: [], today });
+    expect(Object.keys(pages)).toHaveLength(48);
+    for (const [path, html] of Object.entries(pages)) {
+      const title = html.match(/<title>([^<]+)<\/title>/)?.[1];
+      expect(title, path).toBeDefined();
+      expect(title, path).toContain('CHF/l');
+      expect(title, path).toContain('TCS 20.04.2026');
+      expect(title?.length, path).toBeLessThanOrEqual(TITLE_MAX_CHARS);
+      expect(title, path).not.toContain('…');
+      const webPage = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+        .map((match) => JSON.parse(match[1])).find((entry) => entry['@type'] === 'WebPage');
+      expect(webPage?.dateModified, path).toBe(today.toISOString());
+    }
   });
 
-  it('keeps the ISO date stamp for schema.org and a display date for prose', () => {
-    // `dateModified` must stay ISO; only human-facing copy gets dd.MM.yyyy.
-    expect(source).toMatch(/dateModified: dateStamp/);
-    expect(source).toMatch(/function formatFuelDateDisplay/);
-  });
 });

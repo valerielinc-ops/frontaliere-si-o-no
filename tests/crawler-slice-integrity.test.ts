@@ -838,7 +838,7 @@ describe('crawler slice integrity guard', () => {
 
     expect(isProvenGhostExpiredReconciliation(filePath, previous, next, proof)).toBe(true);
     expect(assertCrawlerSliceWriteSafe(filePath, previous, next, {
-      housekeepingProof: proof,
+      expiredGhostProof: proof,
     }).reason).toBe('proven-ghost-expired-reconciliation');
     expect(isProvenGhostExpiredReconciliation(
       'data/jobs/by-crawler/rituals-cosmetics.json', previous, next, proof,
@@ -859,7 +859,7 @@ describe('crawler slice integrity guard', () => {
     try {
       writeJsonAtomic(guardedPath, JSON.parse(previous));
       expect(() => writeJsonAtomic(guardedPath, JSON.parse(next), {
-        housekeepingProof: proof,
+        expiredGhostProof: proof,
       })).not.toThrow();
 
       writeJsonAtomic(unprovenPath, JSON.parse(previous));

@@ -52,6 +52,9 @@ import {
 // access in that module is behind a `typeof window === 'undefined'` guard, so
 // module scope is inert under Node.
 import { ADS_CONSENT_STORAGE_KEY, ADS_CONSENT_GRANTED, ADS_CONSENT_DENIED, ADS_CONSENT_CHANGE_EVENT } from '../services/adsConsent';
+import { AD_PAGE_TEMPLATE_INLINE_FN } from '../services/adPageTemplate';
+import { isManualSlot } from '../services/adSlotKinds';
+import { observeManualAd } from '../services/manualAdLifecycle';
 import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '../services/adsenseSlots';
 import { BENIGN_MESSAGES, THIRD_PARTY_STACK_ORIGINS } from '../services/posthog-error-filter';
 import {
@@ -73,7 +76,7 @@ import {
   CHUNK_LOAD_ERROR_PATTERN_SOURCE,
   MODULE_LINK_SKEW_PATTERNS,
 } from '../services/resilientImport';
-import { adSlotHtml } from './lib/adSlotHtml';
+import { adSlotHtml, STATIC_AD_UNIQUE_PLACEMENTS } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
@@ -401,7 +404,7 @@ export function buildCanonicalBridgePage(options: {
  <meta charset="utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1">
  <title>${title}</title>
- <meta name="description" content="${clampMetaDescription(description)}">
+ <meta name="description" content="${clampMetaDescription(description, undefined, lang)}">
  <meta name="robots" content="${robotsContent}">
  <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
  ${ANALYTICS_SNIPPET}
@@ -443,7 +446,7 @@ export function buildFlatRedirect(
  // (e.g. "&am…"). The SERP budget applies to both the <meta description> and the
  // og:description below. This bridge is always noindex, but clamping keeps the
  // emit path consistent with every other generator (the deferred #2230 sibling).
- const desc = og ? esc(clampMetaDescription(og.description)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
+ const desc = og ? esc(clampMetaDescription(og.description, undefined, lang)) : 'Apri la versione canonica aggiornata di questa pagina su Frontaliere Ticino.';
  const ogTags = og
  ? `
  <meta property="og:type" content="article">
@@ -880,14 +883,34 @@ export const FC_ADBLOCK_BRIDGE_JS = `(function(){if(window.__ftFcAdBlockBridge)r
  *     single responsive `<ins>` per in-feed point (see `infeedAdListItemHtml`),
  *     not by skipping pushes here.
  */
-/**
- * Static slots are emitted before React and need a small watcher in the same
- * external loader. It gives back a reserve only after an explicit no-fill or
- * the shared timeout, and restores it if a late creative arrives. The legacy
- * slot-id fallback is intentional: incremental SEO HTML can retain an older
- * drive-by <ins> without the newer data-ft-static-ad marker.
- */
-const STATIC_AD_COLLAPSE_CONTENT = `var staticAdLegacySlot='2093992129',staticAdCollapsed='data-ft-static-ad-collapsed',staticAdWatches=new WeakMap();function staticAdIsTarget(el){return el.hasAttribute('data-ft-static-ad')||el.getAttribute('data-ad-slot')===staticAdLegacySlot;}function staticAdHasCreative(el){var status=el.getAttribute('data-ad-status');return status==='filled'||(status!=='unfilled'&&!!el.querySelector('iframe'));}function staticAdCollapseWhenSafe(el,immediate){if(staticAdHasCreative(el))return;if(!immediate){var rect=el.getBoundingClientRect();if(rect.bottom>0&&rect.top<window.innerHeight&&'IntersectionObserver'in window){var io=new IntersectionObserver(function(entries){if(entries[0]&&entries[0].isIntersecting)return;io.disconnect();var current=staticAdWatches.get(el);if(current)current.offscreen=null;if(!staticAdHasCreative(el))el.setAttribute(staticAdCollapsed,'');});var current=staticAdWatches.get(el);if(current)current.offscreen=io;io.observe(el);return;}}el.setAttribute(staticAdCollapsed,'');}function staticAdWatchAll(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}function staticAdArm(){if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',staticAdWatchAll,{once:true});else staticAdWatchAll();}function staticAdWatch(el){if(staticAdWatches.has(el))return;var state={timer:null,observer:null,offscreen:null};var stop=function(){if(state.timer!==null)clearTimeout(state.timer);if(state.observer)state.observer.disconnect();if(state.offscreen)state.offscreen.disconnect();staticAdWatches.delete(el);};var check=function(){if(staticAdHasCreative(el)){el.removeAttribute(staticAdCollapsed);stop();return;}if(el.getAttribute('data-ad-status')==='unfilled')staticAdCollapseWhenSafe(el,true);};if('MutationObserver'in window){state.observer=new MutationObserver(check);state.observer.observe(el,{childList:true,subtree:true,attributes:true,attributeFilter:['data-ad-status']});}state.timer=setTimeout(function(){if(!el.isConnected||staticAdHasCreative(el)){stop();return;}staticAdCollapseWhenSafe(el,true);},${AD_FILL_TIMEOUT_MS});staticAdWatches.set(el,state);check();}`;
+/** Manual slot state is shared with the SPA. A response deadline marks a
+ * pending request; only explicit no-fill/script failures collapse, offscreen.
+ * The static carrier consumes the same function over HTTP on corpus pages. */
+const STATIC_AD_COLLAPSE_CONTENT = `var observeManualAd=(function(){function __name(fn){return fn;}return ${observeManualAd.toString()};})();
+var staticAdManual=${isManualSlot.toString()};
+var staticAdTemplate=${AD_PAGE_TEMPLATE_INLINE_FN};
+var staticAdPlacements=${JSON.stringify(STATIC_AD_UNIQUE_PLACEMENTS)};
+var staticAdWatches=new Map();
+function staticAdIsTarget(el){return staticAdManual(el)&&!el.closest('[data-ft-ad-state]');}
+function staticAdWatch(el){
+ if(!staticAdIsTarget(el))return null;
+ if(staticAdWatches.has(el))return staticAdWatches.get(el);
+ var path=location.pathname,template=staticAdTemplate(path,document),placement=el.getAttribute('data-ad-placement')||staticAdPlacements[JSON.stringify([el.getAttribute('data-ad-slot'),el.getAttribute('data-ad-format'),el.getAttribute('data-ad-layout')||''])]||el.getAttribute('data-ad-slot');
+ var box=el.closest('.ft-infeed-ad')||el;
+ var state=observeManualAd(el,box,${AD_FILL_TIMEOUT_MS},function(next,reason){
+   el.setAttribute('data-ft-static-ad-state',next);
+   if(next==='collapsed')el.setAttribute('data-ft-static-ad-collapsed','');
+   else if(next==='filled'||next==='loading')el.removeAttribute('data-ft-static-ad-collapsed');
+ },function(event,metrics){
+   if(typeof window.gtag==='function')window.gtag('event',event,Object.assign({slot:el.getAttribute('data-ad-slot'),ad_format:el.getAttribute('data-ad-format'),page_path:path,page_template:template,placement:placement,render_path:'static',network:'adsense'},metrics));
+ });
+ staticAdWatches.set(el,state);return state;
+}
+function staticAdWatchAll(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++)if(staticAdIsTarget(slots[i]))staticAdWatch(slots[i]);}
+function staticAdArm(){function start(){staticAdWatchAll();new MutationObserver(function(){staticAdWatches.forEach(function(watch,el){if(!el.isConnected){watch.stop();staticAdWatches.delete(el);}});}).observe(document.body,{childList:true,subtree:true});}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();}
+function staticAdResolveManualFailure(reason){function resolve(){var slots=document.querySelectorAll('ins.adsbygoogle');for(var i=0;i<slots.length;i++){var watch=staticAdWatch(slots[i]);if(watch)watch.fail(reason);}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',resolve,{once:true});else resolve();}
+var staticScriptFailed=false;function staticAdScriptFailed(){staticScriptFailed=true;staticAdResolveManualFailure('script_failed');}`;
+
 /**
  * Consent-only part of the static loader. It intentionally runs before the
  * ad-serving bot gate: Funding Choices is the surface that collects consent,
@@ -912,7 +935,7 @@ const AD_PAGE_DIAG_CALL = `(${AD_PAGE_DIAG_FN})(function(){return(${BOT_GATE_FN}
  * ~2 KB minified × ~200k SEO pages = ~400 MB dist. Externalising drops per-page cost
  * from ~2200 B to ~90 B (the <script src=...> tag).
  */
-const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})())return;${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;try{(window.adsbygoogle=window.adsbygoogle||[]).push({});}catch(e){}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle'));for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(window.adsbygoogle)armSlots();else existing.addEventListener('load',armSlots,{once:true});return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=armSlots;document.head.appendChild(s);}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
+const ADSENSE_LOADER_TEMPLATE = `(function(){${FC_JOBBOARD_OFFERWALL_GATE_JS}${STATIC_AD_COLLAPSE_CONTENT}staticAdArm();${AD_PAGE_DIAG_CALL}if((function(){try{return window.localStorage.getItem('reader_noads_active')==='true';}catch(e){return false;}})()){staticAdResolveManualFailure('reader_entitlement');return;}${FC_CMP_BOOTSTRAP}if(hasAdsDecision()){ensureFc();}else if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',scheduleFc,{once:true});}else{scheduleFc();}if((${BOT_GATE_FN})())return;var queue=null,cursor=0,slotIo=null;function pushUpTo(idx){for(;cursor<=idx;cursor++){var el=queue[cursor];if(!el||!el.parentNode||el.getAttribute('data-adsbygoogle-status'))continue;var watch=staticAdWatch(el);try{(window.adsbygoogle=window.adsbygoogle||[]).push({});if(watch)watch.request();}catch(e){if(watch)watch.fail('push_failed');}}if(slotIo&&cursor>=queue.length){slotIo.disconnect();slotIo=null;}}function armSlots(){queue=[].slice.call(document.querySelectorAll('ins.adsbygoogle')).filter(staticAdIsTarget);for(var q=0;q<queue.length;q++)if(queue[q].hasAttribute('data-ft-static-ad'))staticAdWatch(queue[q]);if(!queue.length)return;if(!('IntersectionObserver' in window)){pushUpTo(queue.length-1);return;}slotIo=new IntersectionObserver(function(entries){var max=-1;for(var i=0;i<entries.length;i++){if(!entries[i].isIntersecting)continue;var k=queue.indexOf(entries[i].target);if(k>max)max=k;}if(max>=cursor)pushUpTo(max);},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<queue.length;j++)slotIo.observe(queue[j]);}var loaded=false;function loadScript(){if(loaded)return;loaded=true;var existing=document.querySelector('script[src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(existing){if(existing.getAttribute('data-loaded')==='1'||(window.adsbygoogle&&window.adsbygoogle.loaded))armSlots();else if(existing.getAttribute('data-failed')==='1')staticAdScriptFailed();else{existing.addEventListener('load',armSlots,{once:true});existing.addEventListener('error',staticAdScriptFailed,{once:true});}return;}var s=document.createElement('script');s.async=true;s.crossOrigin='anonymous';s.src='${ADSENSE_SCRIPT_SRC}';s.setAttribute('data-overlays','bottom');s.setAttribute('data-ad-frequency-hint','60s');s.onload=function(){s.setAttribute('data-loaded','1');armSlots();};s.onerror=function(){s.setAttribute('data-failed','1');staticAdScriptFailed();};document.head.appendChild(s);}window.addEventListener('online',function(){if(!staticScriptFailed||!hasAdsDecision())return;staticScriptFailed=false;var failed=document.querySelector('script[data-failed="1"][src*="pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"]');if(failed)failed.remove();staticAdWatches.forEach(function(watch,el){watch.stop();el.removeAttribute('data-ft-static-ad-collapsed');el.removeAttribute('data-ft-static-ad-state');});staticAdWatches.clear();loaded=false;loadScript();});function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function observe(){var EV=['scroll','touchstart','pointerdown','keydown','mousemove'];for(var e=0;e<EV.length;e++)document.addEventListener(EV[e],loadScript,{once:true,passive:true,capture:true});var slots=document.querySelectorAll('ins.adsbygoogle');for(var k=0;k<slots.length;k++)if(slots[k].hasAttribute('data-ft-static-ad'))staticAdWatch(slots[k]);if(!('IntersectionObserver' in window)||slots.length===0){(window.requestIdleCallback||ricFb)(loadScript,{timeout:1500});return;}var io=new IntersectionObserver(function(entries){for(var i=0;i<entries.length;i++){if(entries[i].isIntersecting){io.disconnect();loadScript();return;}}},{rootMargin:'${AD_SLOT_VIEWPORT_ROOT_MARGIN}'});for(var j=0;j<slots.length;j++)io.observe(slots[j]);(window.requestIdleCallback||ricFb)(loadScript,{timeout:2500});}function startAds(){if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',observe,{once:true});}else{observe();}}if(hasAdsDecision()){startAds();return;}var armed=false;function onGate(){if(armed||!hasAdsDecision())return;armed=true;startAds();}window.addEventListener('${ADS_CONSENT_CHANGE_EVENT}',onGate);window.addEventListener('storage',function(e){if(!e.key||e.key==='${ADS_CONSENT_STORAGE_KEY}')onGate();});})();`;
 export const ADSENSE_LOADER_CONTENT = ADSENSE_LOADER_TEMPLATE;
 export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
@@ -1129,8 +1152,9 @@ export const FAVICON_LINKS = `<link rel="icon" href="/favicon.ico" sizes="48x48"
  * Used to decide whether a static page has enough content to be indexed (>= 50 words).
  */
 export function countHtmlBodyWords(html: string): number {
- // Strip HTML tags
- const text = html.replace(/<[^>]+>/g, ' ');
+ // Drop inert <template> content (never rendered — e.g. the border-wait live
+ // variants), then strip HTML tags
+ const text = html.replace(/<template[\s\S]*?<\/template>/gi, ' ').replace(/<[^>]+>/g, ' ');
  // Collapse whitespace and split into words
  const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(w => w.length > 0);
  return words.length;

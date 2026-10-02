@@ -18,6 +18,7 @@ import { buildSlug as buildCanonicalSlug } from './regenerate-slugs-helpers.mjs'
 import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { lookupSwissPostalCode } from './swiss-postal-code.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -201,7 +202,7 @@ export async function fetchAllAnkerSwissJobs() {
     const { location, canton } = geography;
     const descriptionHtml = listing.description || '';
     const descriptionText = stripHtml(descriptionHtml);
-    if (!descriptionText) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       skipped.missingDescription++;
       continue;
     }

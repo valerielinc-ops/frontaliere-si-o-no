@@ -1,8 +1,11 @@
 /**
  * Per-order e-mail alias of the automated assisted application (owner
  * decision 2026-09-30: "alias ovunque"). The employer sees
- * `c-<10 chars>@candidature.frontaliereticino.ch` in portal forms and as the
- * Reply-To of e-mail applications; the phone number stays the candidate's.
+ * `nome.cognome.xxxx@candidature.frontaliereticino.ch` (the candidate's name
+ * and 4 random characters, so it reads as a person's address and still cannot
+ * be guessed from the name alone) in portal forms and as the Reply-To of
+ * e-mail applications; without a name, `c-<10 chars>@…` as before. The phone
+ * number stays the candidate's.
  * Every employer message therefore reaches our Email Worker, which hands it
  * to assistedApplicationInbound.js: classified, stored, forwarded to the
  * candidate with Reply-To set to the recruiter.
@@ -27,19 +30,51 @@ export { EMAIL_WORKER_NAME };
 const ZONE_NAME = 'frontaliereticino.ch';
 const CF_API = 'https://api.cloudflare.com/client/v4';
 const ALPHABET = 'abcdefghijkmnpqrstuvwxyz23456789';
-const LOCAL_PART_RE = /^c-[a-z2-9]{10}$/;
+// `c-xxxxxxxxxx` (no name) or `nome.cognome.xxxx`: up to four name parts,
+// letters and inner hyphens, then 4 random characters. Mirrored in the Email
+// Worker (infra/cloudflare-email-worker/stop-reply-handler.js, isAssistedAlias).
+const LOCAL_PART_RE = /^(?:c-[a-z2-9]{10}|[a-z]+(?:-[a-z]+)*(?:\.[a-z]+(?:-[a-z]+)*){0,3}\.[a-z2-9]{4})$/;
+const MAX_LOCAL_PART = 40;
+const MAX_NAME_PART = 30;
+const GERMAN_LETTERS = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' };
 
-export function newAliasLocalPart(bytes = randomBytes(10)) {
-  let out = 'c-';
-  for (const byte of bytes.subarray(0, 10)) out += ALPHABET[byte % ALPHABET.length];
+/** "Luigi D'Angelo-Müller" → "luigi.dangelo-mueller"; '' when no letter is left. */
+export function aliasNamePart(name) {
+  const parts = String(name || '')
+    .toLowerCase()
+    .replace(/[äöüß]/g, (letter) => GERMAN_LETTERS[letter])
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/['’`´]/g, '')
+    .split(/[^a-z-]+/)
+    .map((part) => part.replace(/-{2,}/g, '-').replace(/^-+|-+$/g, ''))
+    .filter(Boolean);
+  if (!parts.length) return '';
+  // First name and surname particles (de, van der…) up to four parts; a
+  // longer name keeps its first and last part.
+  let chosen = parts.length > 4 ? [parts[0], parts[parts.length - 1]] : parts;
+  if (chosen.join('.').length > MAX_NAME_PART) chosen = [parts[0], parts[parts.length - 1]];
+  const joined = chosen.join('.');
+  return joined.length > MAX_NAME_PART ? joined.slice(0, MAX_NAME_PART).replace(/[.-]+$/, '') : joined;
+}
+
+function randomChars(bytes, count) {
+  let out = '';
+  for (const byte of bytes.subarray(0, count)) out += ALPHABET[byte % ALPHABET.length];
   return out;
+}
+
+export function newAliasLocalPart(bytes = randomBytes(10), name = '') {
+  const namePart = aliasNamePart(name);
+  if (namePart) return `${namePart}.${randomChars(bytes, 4)}`;
+  return `c-${randomChars(bytes, 10)}`;
 }
 
 /** The local part when `address` is one of our aliases, else ''. */
 export function aliasLocalPart(address) {
   const value = String(address || '').trim().toLowerCase();
   const [local, domain] = value.split('@');
-  return domain === ALIAS_DOMAIN && LOCAL_PART_RE.test(local || '') ? local : '';
+  return domain === ALIAS_DOMAIN && String(local || '').length <= MAX_LOCAL_PART && LOCAL_PART_RE.test(local || '') ? local : '';
 }
 
 export function aliasAddress(localPart) {
@@ -105,12 +140,13 @@ export async function ensureOrderAlias({ db, orderId, cf = cloudflareEmailRoutin
   const orderRef = db.collection(ASSISTED_APPLICATIONS_COLLECTION).doc(String(orderId));
   const snapshot = await orderRef.get();
   const current = snapshot.data()?.candidateAlias;
+  const candidateName = snapshot.data()?.applicantName || snapshot.data()?.customerName || '';
   if (current?.address && current.active) return { address: current.address, active: true };
 
   let localPart = aliasLocalPart(current?.address);
   if (!localPart) {
     for (let attempt = 0; attempt < 5 && !localPart; attempt += 1) {
-      const candidate = newAliasLocalPart();
+      const candidate = newAliasLocalPart(randomBytes(10), candidateName);
       const aliasRef = db.collection(ALIASES_COLLECTION).doc(candidate);
       await db.runTransaction(async (transaction) => {
         localPart = null; // a retried transaction must not keep a candidate an earlier attempt picked

@@ -13,19 +13,25 @@
  * states and codes only: this repository is public.
  */
 
-import { appendFileSync } from 'node:fs';
+import { appendFileSync, writeFileSync } from 'node:fs';
 import { parseArgs } from 'node:util';
 import { pathToFileURL } from 'node:url';
 import { ASSISTED_APPLICATION_STORAGE_BUCKET, detectCvFileType } from '../../functions/src/assistedApplicationCvCheck.js';
 import { getFirestoreDb } from '../lib/firestore-admin.mjs';
 import { buildDraft, DraftAbort } from './lib/draft.mjs';
 import { maskValues, personalValuesOf, runKeyFrom } from './lib/secure-run.mjs';
+import { portalAccountStore } from './lib/portal/account.mjs';
+import { portalKnowledgeStore } from './lib/portal/knowledge.mjs';
+import { candidateValues, redactStopReport } from './lib/portal/stop-report.mjs';
+import { readPortalQuestions } from './lib/portal/portal.mjs';
+import { scheduleFollowups } from '../../functions/src/assistedApplicationFollowup.js';
 import { submitApplication } from './lib/submit.mjs';
 import { submissionGuard } from '../../functions/src/assistedApplicationSubmissionGuard.js';
 
 const BUCKET = ASSISTED_APPLICATION_STORAGE_BUCKET;
 const ORDER_ID_RE = /^[A-Za-z0-9_-]{6,128}$/;
-const MODES = new Set(['draft', 'submit']);
+// dry_run: the submission without the final click, for the owner's tests.
+const MODES = new Set(['draft', 'submit', 'dry_run']);
 const DRAFT_STATES = new Set(['drafting', 'regenerating']);
 
 function summary(line) {
@@ -71,7 +77,8 @@ async function main() {
   const order = orderSnapshot.data() || {};
   const flow = flowSnapshot.data() || {};
   const previousDraft = draftSnapshot.exists ? draftSnapshot.data() || null : null;
-  maskValues(personalValuesOf(order, previousDraft?.profile || {}));
+  // With what the candidate typed on the review page (a new phone, a new name...).
+  maskValues([personalValuesOf(order, previousDraft?.profile || {}), Object.values(flow.formOverrides || {})]);
 
   // A run that no longer matches the flow (superseded round, state moved on)
   // must not write anything.
@@ -84,8 +91,11 @@ async function main() {
 
   const runKey = runKeyFrom();
   const events = orderRef.collection('automation_events');
+  const dryRun = mode === 'dry_run';
   const report = async (event) => {
-    await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
+    // A dry run writes no event: whatever it finds (a closed ad, a question
+    // for the candidate) must not move the flow, and the watchdog never sees it.
+    if (!dryRun) await events.add({ ...event, round, mode, createdAt: Date.now(), runId: process.env.GITHUB_RUN_ID || null });
     summary(`mode=${mode} round=${round} event=${event.type}${event.error ? ` error=${event.error}` : ''}${event.channel ? ` channel=${event.channel}` : ''}`);
   };
 
@@ -108,6 +118,8 @@ async function main() {
         order, orderId, flow, previousDraft, cvBuffer, cvType, bucket, runKey,
         intake: intakeSnapshot.exists ? intakeSnapshot.data() : null,
         codex: (request) => requestCodexBrokerJson(request),
+        // A single-page portal form read ahead: its questions reach the first review.
+        readPortalQuestions,
       });
       await orderRef.collection('ai_drafts').doc('current').set(draft);
       summary(`draft ready in ${Math.round((Date.now() - started) / 1000)}s: verdict=${draft.verdict} channel=${draft.channel?.type} questions=${draft.questions.length} factWarnings=${draft.factCheck.unsupported.length}`);
@@ -128,12 +140,44 @@ async function main() {
     const { requestCodexBrokerJson } = await import('../lib/ai-models.mjs');
     const event = await submitApplication({
       order, orderId, flow, draft: previousDraft, cvBuffer, cvType, bucket, runKey, sendCascade: sendEmailCascade,
-      submissionGuard: submissionGuard(db, orderId, round),
+      dryRun,
+      submissionGuard: dryRun ? null : submissionGuard(db, orderId, round),
       codex: process.env.CODEX_AUTH_BROKER_SOCKET ? (request) => requestCodexBrokerJson(request) : null,
+      // Portal accounts on the order's alias: passwords masked in the log, encrypted in Firestore.
+      accounts: portalAccountStore({ db, orderId, key: runKey, mask: (value) => maskValues([value]) }),
+      // What each portal taught earlier confirmed submissions (self-correction, level 2).
+      knowledge: portalKnowledgeStore({ db }),
     });
+    // An application sent by e-mail gets its follow-ups (day 7 and 14); the
+    // recipient and subject stay in Firestore, not in the automation event.
+    if (event.followup && !dryRun) {
+      await scheduleFollowups(db, orderId, event.followup);
+      delete event.followup;
+    }
+    // What the portal received (career-ops application-answers), next to the
+    // draft for the interview prep and Valerie's panel; never in the event or the log.
+    if (event.portalAnswers) {
+      if (!dryRun && event.portalAnswers.answers.length) await orderRef.collection('ai_drafts').doc('current').set({ portalAnswers: event.portalAnswers }, { merge: true });
+      delete event.portalAnswers;
+    }
+    // Where the runner stopped (self-correction, level 3): stripped of every
+    // value of the candidate, for the workflow's fix-issue step; never in the event.
+    if (event.stopReport) {
+      const file = process.env.ASSISTED_APPLICATION_STOP_REPORT;
+      if (file) {
+        const values = candidateValues([
+          personalValuesOf(order, previousDraft?.profile || {}),
+          Object.values(flow.answers || {}),
+          Object.values(flow.formOverrides || {}),
+          order.candidateAlias?.address || '',
+        ]);
+        writeFileSync(file, JSON.stringify(redactStopReport(event.stopReport, values)));
+      }
+      delete event.stopReport;
+    }
     // Questions a portal asked become part of the draft, so the review page
     // shows them and the flow waits for the answers.
-    if (event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
+    if (!dryRun && event.type === 'submit_needs_candidate' && Array.isArray(event.questions) && event.questions.some((question) => question.question)) {
       const known = new Set((previousDraft.questions || []).map((question) => question.id));
       const added = event.questions.filter((question) => !known.has(question.id));
       await orderRef.collection('ai_drafts').doc('current').set({ questions: [...(previousDraft.questions || []), ...added] }, { merge: true });

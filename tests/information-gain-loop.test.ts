@@ -32,6 +32,9 @@ const cohort = (label: string, medianIgs: number, pages = 20) => ({
 });
 
 const OPTS = { floor: 5, tolerance: 1.5, target: 40, inventory: new Map<string, number>() };
+const titleCollisionFixture = JSON.parse(
+  fs.readFileSync(path.join(REPO_ROOT, 'tests/fixtures/information-gain-title-collision.json'), 'utf-8'),
+);
 
 describe('classifyCohorts — i tre bucket sono tre loop diversi', () => {
   it('una coorte fuori inventario sotto il floor è una regressione', () => {
@@ -167,6 +170,18 @@ describe('i titoli delle issue sono stabili e la misura sta nel corpo', () => {
     for (const line of titlesBlock.split('\n').filter((l) => l.includes('=> `'))) {
       expect(line).toMatch(/=> `\$\{label\}/);
     }
+  });
+
+  it('long labels can collide at 60 chars, so the loop uses full-title matching', () => {
+    const { label, regressionTitle, opportunityTitle } = titleCollisionFixture;
+    expect(regressionTitle).toBe(label + ' — information gain sotto il floor');
+    expect(opportunityTitle).toBe(label + ' — information gain sotto il target del 40%');
+    expect(regressionTitle.slice(0, 60)).toBe(opportunityTitle.slice(0, 60));
+
+    const open = src.slice(src.indexOf('const open = async'), src.indexOf('const resolve ='));
+    const resolve = src.slice(src.indexOf('const resolve ='), src.indexOf('for (const r of verdict.regressions'));
+    expect(open).toMatch(/exactTitle:\s*true/);
+    expect(resolve).toMatch(/exactTitle:\s*true/);
   });
 
   it('ogni corpo riporta la misura e il criterio di chiusura', () => {

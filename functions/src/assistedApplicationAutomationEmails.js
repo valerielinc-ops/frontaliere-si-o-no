@@ -22,6 +22,7 @@ import {
   brandSignature,
   renderBrandedEmail,
 } from './assistedApplicationEmailLayout.js';
+import { isTransientRunError } from './assistedApplicationFlow.js';
 import { ADMIN_QUEUE_URL } from './assistedApplicationNotifications.js';
 
 
@@ -91,6 +92,12 @@ const CANDIDATE_COPY = {
       preheader: 'Ti servono 2 minuti: è già tutto pronto.',
       lead: 'la tua candidatura per {job} presso {company} è pronta ma non è ancora stata inviata: il portale richiede il tuo passaggio finale.',
     },
+    questionsReminder: {
+      subject: 'Promemoria: la tua candidatura per {job} aspetta le tue risposte',
+      hero: 'Mancano solo le tue risposte',
+      preheader: 'Senza le tue risposte la candidatura non può partire.',
+      lead: 'la tua candidatura per {job} presso {company} è pronta, ma non può partire finché non rispondi ad alcune domande a cui solo tu puoi rispondere. Bastano pochi minuti: rispondi dalla pagina della candidatura e il resto riparte automaticamente.',
+    },
     action: {
       subject: 'Il portale di {company} chiede un’informazione in più',
       hero: 'Ci serve una tua risposta',
@@ -102,6 +109,14 @@ const CANDIDATE_COPY = {
       hero: 'Annuncio chiuso prima dell’invio',
       preheader: 'Il rimborso è già partito.',
       lead: 'l’annuncio per {job} presso {company} è stato chiuso prima che riuscissimo a inviare la candidatura. Come promesso ti abbiamo rimborsato {price}: lo vedrai sulla carta nei prossimi giorni.',
+    },
+    followup: {
+      subject: 'Sollecito per {job}: parte tra 12 ore',
+      hero: 'Un breve sollecito all’azienda',
+      preheader: 'Se va bene così non devi fare nulla.',
+      lead: 'sono passati {days} giorni da quando abbiamo inviato la tua candidatura per {job} presso {company} e non ha ancora risposto nessuno. Ho preparato un breve messaggio di sollecito, qui sotto.',
+      auto: 'Se non rispondi entro {deadline}, il sollecito partirà così com’è, a tuo nome come la candidatura. Dalla pagina puoi anche inviarlo subito o fermarlo.',
+      cta: 'Invia o ferma il sollecito',
     },
     reasons: { captcha: 'una verifica anti-robot', account: 'la creazione o la verifica di un account', rejected: 'un controllo del sito sull’invio automatico', portal_needs_candidate: 'un controllo del sito' },
   },
@@ -142,6 +157,12 @@ const CANDIDATE_COPY = {
       preheader: 'Du brauchst 2 Minuten, alles ist bereit.',
       lead: 'deine Bewerbung für {job} bei {company} ist bereit, aber noch nicht gesendet: das Portal verlangt deinen letzten Schritt.',
     },
+    questionsReminder: {
+      subject: 'Erinnerung: deine Bewerbung für {job} wartet auf deine Antworten',
+      hero: 'Es fehlen nur deine Antworten',
+      preheader: 'Ohne deine Antworten kann die Bewerbung nicht raus.',
+      lead: 'deine Bewerbung für {job} bei {company} ist bereit, kann aber erst raus, wenn du ein paar Fragen beantwortest, die nur du beantworten kannst. Es dauert nur wenige Minuten: Antworte auf der Seite deiner Bewerbung, der Rest läuft automatisch weiter.',
+    },
     action: {
       subject: 'Das Portal von {company} braucht eine weitere Angabe',
       hero: 'Wir brauchen deine Antwort',
@@ -153,6 +174,14 @@ const CANDIDATE_COPY = {
       hero: 'Inserat vor dem Versand geschlossen',
       preheader: 'Die Rückerstattung ist bereits unterwegs.',
       lead: 'das Inserat für {job} bei {company} wurde geschlossen, bevor wir die Bewerbung senden konnten. Wie versprochen haben wir dir {price} zurückerstattet; der Betrag erscheint in den nächsten Tagen auf deiner Karte.',
+    },
+    followup: {
+      subject: 'Nachfrage zu {job}: sie geht in 12 Stunden raus',
+      hero: 'Eine kurze Nachfrage beim Arbeitgeber',
+      preheader: 'Wenn es so passt, musst du nichts tun.',
+      lead: 'vor {days} Tagen haben wir deine Bewerbung für {job} bei {company} gesendet, und bisher hat niemand geantwortet. Ich habe eine kurze Nachfrage vorbereitet, siehe unten.',
+      auto: 'Wenn du bis {deadline} nicht antwortest, geht die Nachfrage so in deinem Namen raus, wie die Bewerbung. Auf der Seite kannst du sie auch sofort senden oder stoppen.',
+      cta: 'Nachfrage senden oder stoppen',
     },
     reasons: { captcha: 'eine Anti-Roboter-Prüfung', account: 'das Erstellen oder Bestätigen eines Kontos', rejected: 'eine Prüfung der Website beim automatischen Versand', portal_needs_candidate: 'eine Prüfung der Website' },
   },
@@ -193,6 +222,12 @@ const CANDIDATE_COPY = {
       preheader: 'Il vous faut 2 minutes, tout est prêt.',
       lead: 'votre candidature pour {job} chez {company} est prête mais pas encore envoyée : le portail demande votre dernière étape.',
     },
+    questionsReminder: {
+      subject: 'Rappel : votre candidature pour {job} attend vos réponses',
+      hero: 'Il ne manque que vos réponses',
+      preheader: 'Sans vos réponses, la candidature ne peut pas partir.',
+      lead: 'votre candidature pour {job} chez {company} est prête, mais elle ne peut pas partir tant que vous n’avez pas répondu à quelques questions auxquelles vous seul pouvez répondre. Cela ne prend que quelques minutes : répondez depuis la page de votre candidature et la suite repart automatiquement.',
+    },
     action: {
       subject: 'Le portail de {company} demande une information supplémentaire',
       hero: 'Nous avons besoin de votre réponse',
@@ -204,6 +239,14 @@ const CANDIDATE_COPY = {
       hero: 'Annonce fermée avant l’envoi',
       preheader: 'Le remboursement est déjà en cours.',
       lead: 'l’annonce pour {job} chez {company} a été fermée avant que nous puissions envoyer la candidature. Comme promis, nous vous avons remboursé {price} ; le montant apparaîtra sur votre carte dans les prochains jours.',
+    },
+    followup: {
+      subject: 'Relance pour {job} : elle part dans 12 heures',
+      hero: 'Une courte relance à l’employeur',
+      preheader: 'Si cela vous convient, vous n’avez rien à faire.',
+      lead: 'il y a {days} jours, nous avons envoyé votre candidature pour {job} chez {company}, et personne n’a encore répondu. J’ai préparé un court message de relance, ci-dessous.',
+      auto: 'Sans réponse de votre part avant {deadline}, la relance partira telle quelle, en votre nom comme la candidature. Depuis la page, vous pouvez aussi l’envoyer tout de suite ou l’arrêter.',
+      cta: 'Envoyer ou arrêter la relance',
     },
     reasons: { captcha: 'une vérification anti-robot', account: 'la création ou la vérification d’un compte', rejected: 'un contrôle du site sur l’envoi automatique', portal_needs_candidate: 'un contrôle du site' },
   },
@@ -244,6 +287,12 @@ const CANDIDATE_COPY = {
       preheader: 'It takes 2 minutes, everything is ready.',
       lead: 'your application for {job} at {company} is ready but not sent yet: the portal needs your final step.',
     },
+    questionsReminder: {
+      subject: 'Reminder: your application for {job} is waiting for your answers',
+      hero: 'Only your answers are missing',
+      preheader: 'Without your answers the application cannot go out.',
+      lead: 'your application for {job} at {company} is ready, but it cannot go out until you answer a few questions only you can answer. It takes a few minutes: answer on your application page and the rest resumes automatically.',
+    },
     action: {
       subject: 'The {company} portal needs one more answer',
       hero: 'We need your answer',
@@ -256,6 +305,14 @@ const CANDIDATE_COPY = {
       preheader: 'The refund is already on its way.',
       lead: 'the ad for {job} at {company} was closed before we could send the application. As promised we refunded your {price}; you will see it on your card in the next few days.',
     },
+    followup: {
+      subject: 'Follow-up for {job}: it goes out in 12 hours',
+      hero: 'A short follow-up to the employer',
+      preheader: 'If it looks right, you don’t need to do anything.',
+      lead: 'it has been {days} days since we sent your application for {job} at {company}, and nobody has replied yet. I prepared a short follow-up message, below.',
+      auto: 'If you don’t reply by {deadline}, the follow-up goes out as it is, in your name like the application. From the page you can also send it now or stop it.',
+      cta: 'Send or stop the follow-up',
+    },
     reasons: { captcha: 'an anti-robot check', account: 'creating or verifying an account', rejected: 'a site check on automated submissions', portal_needs_candidate: 'a site check' },
   },
 };
@@ -265,20 +322,90 @@ const OWNER_FLAG_LABELS = {
   knock_out: 'il CV non soddisfa un requisito indispensabile dell’annuncio (verdetto «scarso»)',
   no_posting: 'il testo dell’annuncio non è stato recuperato',
   channel_unknown: 'non è chiaro come candidarsi (nessun link o indirizzo valido)',
+  legitimacy: 'l’annuncio ha più segnali di posizione fantasma (vecchio, generico o contraddittorio): verifica prima di inviare',
 };
 
 const TAKEOVER_REASONS = {
   draft_failed: 'la bozza non è stata generata (errore del runner o di Codex)',
-  runner_timeout: 'il runner non ha risposto due volte di seguito',
+  runner_timeout: 'il runner non ha dato notizie per due volte di seguito',
   max_rounds: 'il candidato ha rifiutato la bozza per 3 volte',
   posting_closed: 'l’annuncio risulta chiuso: rimborso automatico avviato (se non riesce ricevi un secondo avviso)',
   refund_failed: 'il rimborso automatico non è riuscito: va fatto a mano dalla coda (il candidato non ha ancora ricevuto l’email di rimborso)',
   submit_failed: 'l’invio non è riuscito',
 };
 
+// The runner's error codes (scripts/assisted-application), in words.
+const RUNNER_ERRORS = [
+  [/^cv_unavailable/, 'il CV non si scarica dallo Storage'],
+  [/^cv_unreadable/, 'dal CV non si ricava testo leggibile'],
+  [/^documents_empty$/, 'Codex ha restituito una lettera o un’email vuota'],
+  [/^draft_missing_for_round$/, 'manca la bozza del round approvato'],
+  [/^fact_check_not_acknowledged$/, 'nei testi restano fatti non verificati senza la tua conferma'],
+  [/^email_failed$/, 'nessun provider ha accettato l’email al datore'],
+  [/^email_ambiguous$/, 'non è certo che l’email al datore sia partita: controlla prima di reinviarla'],
+  [/^portal_ambiguous$/, 'non è certo che il portale abbia ricevuto la candidatura: controlla prima di reinviarla'],
+  // JOIN run 36846326334: the portal's own message after the final click.
+  [/^portal_refused$/, 'il portale ha risposto che non è riuscito a inviare la candidatura (spesso per il suo controllo anti-robot): NON è partita'],
+  // JOIN, giro di prova 2026-10-01: the page stayed on the send button, invisible reCAPTCHA v3 on the portal.
+  [/^portal_antibot_ambiguous$/,'dopo il clic finale la pagina del portale non è cambiata e il portale usa un controllo anti-robot invisibile (reCAPTCHA): molto probabilmente la candidatura NON è arrivata. Controlla sul portale e, se manca, completala tu: il robot non la reinvia'],
+  [/^portal_validation$/, 'il portale ha rifiutato i dati del modulo'],
+];
+const STAGE_LABELS = { draft: 'la bozza non è stata generata', submit: 'l’invio non è riuscito' };
+// Why the portal runner stopped (scripts/assisted-application/lib/portal/portal.mjs).
+const PORTAL_STOPS = {
+  captcha: 'il portale ha chiesto un controllo anti-robot (CAPTCHA), che il robot non aggira',
+  account: 'il portale chiede di creare o verificare un account e il robot non ci è riuscito',
+  rejected: 'il portale ha rifiutato l’invio automatico',
+  portal_needs_candidate: 'il robot non è riuscito a completare una pagina del portale',
+  posting_mismatch: 'il modulo aperto dal link non nomina né l’azienda né il ruolo dell’annuncio: il robot non compila un modulo che potrebbe essere di un altro posto (se lo screenshot mostra quello giusto, «Riprova l’invio automatico» va avanti)',
+};
+const PORTAL_HINT = 'Il candidato non deve fare nulla. Dalla coda completa tu l’invio sul portale (link, risposte e documenti sono nel pannello) e segnala la candidatura come inviata, oppure premi «Riprova l’invio automatico».';
+const STAGE_HINTS = {
+  draft: 'Dalla coda «Rigenera» o «Riprendi automazione» rifà la bozza nello stesso giro: il candidato non perde nessuno dei suoi giri.',
+  submit: 'Controlla dalla coda se la candidatura è arrivata al datore prima di inviarla di nuovo.',
+};
+// What to do next when the runner's error says more than its stage. A refusal
+// in words is not ambiguous: nothing to check, and on an anti-robot portal a
+// new automatic send is refused again (JOIN, runs 36846326334 and 36859479435).
+// The candidate paid for the sending: Valerie completes it, never the candidate
+// (owner decision 2026-10-01).
+const RUNNER_HINTS = {
+  portal_refused: 'Non serve controllare il portale. Su un portale con controllo anti-robot (come JOIN) un nuovo invio automatico di solito viene rifiutato di nuovo: completala tu sul portale (link, risposte e documenti sono nel pannello) e poi premi «Segna come inviata».',
+};
+
+/**
+ * Why the flow stopped, for Valerie: the step, the cause in words, how many
+ * runs were tried; the runner's own message only as a technical detail.
+ * @param {{reason?:string, stage?:string, attempts?:number}} vars
+ * @returns {{reason:string, hint:string, detail:string}}
+ */
+export function describeTakeover({ reason, stage, attempts }) {
+  const raw = String(reason || '').trim();
+  if (TAKEOVER_REASONS[raw]) return { reason: TAKEOVER_REASONS[raw], hint: '', detail: '' };
+  if (raw.startsWith('portal:')) {
+    const code = raw.slice('portal:'.length);
+    return { reason: `l’invio sul portale si è fermato: ${PORTAL_STOPS[code] || PORTAL_STOPS.portal_needs_candidate}`, hint: PORTAL_HINT, detail: '' };
+  }
+  const step = STAGE_LABELS[stage] || 'il flusso automatico si è fermato';
+  const known = RUNNER_ERRORS.find(([pattern]) => pattern.test(raw));
+  let cause = known?.[1] || '';
+  if (!cause && isTransientRunError(raw)) {
+    cause = stage === 'submit'
+      ? 'Codex, la rete o il portale non hanno risposto in tempo'
+      : 'Codex non ha risposto in tempo o non era raggiungibile';
+  }
+  const runs = Number(attempts) > 1 ? `, anche dopo ${Number(attempts)} tentativi automatici` : '';
+  return {
+    reason: cause ? `${step}: ${cause}${runs}` : `${step}${runs}`,
+    hint: RUNNER_HINTS[raw] || STAGE_HINTS[stage] || '',
+    detail: known ? '' : clean(raw, 300),
+  };
+}
+
 /**
  * @param {string} kind candidate_review | candidate_reminder | candidate_handoff |
- *   candidate_handoff_reminder | candidate_action_needed | candidate_posting_closed
+ *   candidate_handoff_reminder | candidate_action_needed | candidate_questions_reminder | candidate_posting_closed |
+ *   candidate_followup_review (vars.followupText, vars.days)
  * @param {{locale:string, name:string, job:string, company:string, jobUrl:string, reviewUrl:string,
  *   deadlineAt?:number, held?:boolean, openQuestions?:number, reason?:string, price?:string, orderId:string}} vars
  */
@@ -291,7 +418,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
     candidate_handoff: copy.handoff,
     candidate_handoff_reminder: copy.handoffReminder,
     candidate_action_needed: copy.action,
+    candidate_questions_reminder: copy.questionsReminder,
     candidate_posting_closed: copy.closed,
+    candidate_followup_review: copy.followup,
   }[kind];
   if (!section) throw new Error(`unknown_automation_email:${kind}`);
   const values = {
@@ -301,6 +430,7 @@ export function buildCandidateAutomationEmail(kind, vars) {
     count: String(vars.openQuestions || 0),
     reason: copy.reasons[vars.reason] || copy.reasons.portal_needs_candidate,
     price: vars.price || '0,99 €',
+    days: String(vars.days || 7),
   };
   const greeting = copy.greeting(clean(vars.name, 80).split(' ')[0] || '');
   const html = [brandParagraph(esc(greeting)), brandParagraph(esc(fill(section.lead, values)))];
@@ -312,6 +442,13 @@ export function buildCandidateAutomationEmail(kind, vars) {
     const clock = vars.held ? fill(section.held, values) : fill(section.auto, values);
     html.push(brandCallout(`<strong>${esc(clock)}</strong>`), brandButton(vars.reviewUrl, copy.reviewCta), brandParagraph(esc(section.feedbackNote)));
     text.push(clock, `${copy.reviewCta}: ${vars.reviewUrl}`, section.feedbackNote);
+  } else if (kind === 'candidate_followup_review') {
+    // The follow-up as the employer will read it, then the 12-hour clock.
+    const followupText = String(vars.followupText || '').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n').trim().slice(0, 2000);
+    const quoted = esc(followupText).replace(/\n/g, '<br>');
+    const clock = fill(section.auto, values);
+    html.push(brandCallout(quoted), brandParagraph(`<strong>${esc(clock)}</strong>`), brandButton(vars.reviewUrl, section.cta));
+    text.push(followupText, clock, `${section.cta}: ${vars.reviewUrl}`);
   } else if (kind === 'candidate_handoff') {
     html.push(brandChecklist(section.steps), brandButton(vars.reviewUrl, copy.openCta), brandFinePrint(esc(section.after)));
     text.push(section.steps.map((step, index) => `${index + 1}. ${step}`).join('\n'), `${copy.openCta}: ${vars.reviewUrl}`, section.after);
@@ -337,9 +474,9 @@ export function buildCandidateAutomationEmail(kind, vars) {
 }
 
 /**
- * @param {'owner_review'|'owner_takeover'} kind
+ * @param {'owner_review'|'owner_takeover'|'owner_candidate_silent'} kind
  * @param {{job:string, company:string, orderId:string, deadlineAt?:number, flags?:string[], reason?:string,
- *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string}} vars
+ *   verdict?:string, summary?:string, channel?:string, candidateEmail?:string, days?:number, nudges?:number}} vars
  */
 export function buildOwnerAutomationEmail(kind, vars) {
   const job = clean(vars.job, 200) || '—';
@@ -368,9 +505,26 @@ export function buildOwnerAutomationEmail(kind, vars) {
   } else if (kind === 'owner_takeover') {
     subject = `[Candidatura] Presa in carico necessaria: ${job} — ${company}`;
     hero = 'Il flusso automatico si è fermato';
-    const reason = TAKEOVER_REASONS[vars.reason] || vars.reason || 'motivo non specificato';
+    const { reason, hint, detail } = describeTakeover(vars);
     html.push(brandParagraph(esc(`Motivo: ${reason}.`)));
     text.push(`Motivo: ${reason}.`);
+    if (hint) {
+      html.push(brandParagraph(esc(hint)));
+      text.push(hint);
+    }
+    if (detail) {
+      html.push(brandFinePrint(esc(`Dettaglio tecnico: ${detail}`)));
+      text.push(`Dettaglio tecnico: ${detail}`);
+    }
+  } else if (kind === 'owner_candidate_silent') {
+    subject = `[Candidatura] Il candidato non risponde: ${job} — ${company}`;
+    hero = 'Il candidato non ha ancora risposto';
+    const lead = `Da ${Number(vars.days) || 5} giorni la candidatura aspetta risposte che solo il candidato può dare, e ha già ricevuto ${Number(vars.nudges) || 2} promemoria. Senza quelle risposte non parte nulla: puoi scrivergli (l’indirizzo è qui sotto) o decidere dalla coda come chiudere l’ordine.`;
+    html.push(brandParagraph(esc(lead)));
+    text.push(lead);
+    // The address in the HTML too: the lead points to it (review of #10803).
+    const email = clean(vars.candidateEmail, 200);
+    if (email) html.push(brandParagraph(`Candidato: <a href="mailto:${esc(email)}">${esc(email)}</a>`));
   } else {
     throw new Error(`unknown_owner_automation_email:${kind}`);
   }

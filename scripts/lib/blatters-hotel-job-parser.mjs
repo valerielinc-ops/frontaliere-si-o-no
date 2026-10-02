@@ -14,8 +14,17 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
-import { loadSpec, runSpecInProduction } from './prospector/spec-crawler.mjs';
+import {
+  fetchHtmlViaBrowser,
+  loadSpec,
+  runSpecInProduction,
+} from './prospector/spec-crawler.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './authoritative-empty-snapshot.mjs';
+import { hotelcareerEmptyEmployerPageEvidence } from './hotelcareer-employer-page.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -25,6 +34,7 @@ export const BLATTERS_HOTEL_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';
 const BLATTERS_HOTEL_PATH = '/jobs/blatter-s-hotel-arosa-4340';
+const BLATTERS_HOTEL_EMPTY_FETCH_OUTCOME = 'anti_bot_block';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -121,9 +131,38 @@ function detectEmploymentType(text = '') {
  * Spec: data/prospector/crawlers/{key}.json — seed, modalita' di estrazione e
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
-async function fetchJobListings() {
-  const spec = loadSpec(BLATTERS_HOTEL_KEY);
-  return runSpecInProduction(spec);
+export async function fetchJobListings({
+  spec = loadSpec(BLATTERS_HOTEL_KEY),
+  runtime = { browserFetchImpl: fetchHtmlViaBrowser },
+} = {}) {
+  const seedPages = [];
+  const seedUrls = new Set(spec.seedUrls || []);
+  // Hotelcareer can reject the CI egress at the transport boundary and has
+  // also served an unmarked HTTP 200 interstitial. Keep the previous slice on
+  // an unobserved source, but give the shared prospector its bounded browser
+  // rescue before that soft exit and preserve the anti-bot evidence when a
+  // zero is still unproven (the same contract as the Vereina sibling).
+  const rows = await runSpecInProduction(
+    {
+      ...spec,
+      rescueOnEmptyListing: true,
+      emptyListingOutcome: BLATTERS_HOTEL_EMPTY_FETCH_OUTCOME,
+    },
+    {
+      ...runtime,
+      onPageFetched: (page, url) => {
+        if (seedUrls.has(url)) seedPages.push(page);
+      },
+    },
+  );
+  if (rows.length > 0) return rows;
+  // Same Hotelcareer employer page as vereinaklosters: an empty result is a
+  // zero only when the page itself states it has no vacancy.
+  for (const page of seedPages) {
+    const evidence = hotelcareerEmptyEmployerPageEvidence(page?.body, BLATTERS_HOTEL_PATH);
+    if (evidence) return markAuthoritativeEmptySnapshot([], evidence);
+  }
+  return rows;
 }
 
 /**
@@ -133,11 +172,15 @@ async function fetchJobListings() {
  * IMPORTANT: Only set source-locale fields. Other locales are filled
  * by the AI localization step and translate-pending pipeline.
  */
-export async function fetchAllBlattersHotelJobs() {
+export async function fetchAllBlattersHotelJobs({ fetchListings = fetchJobListings } = {}) {
   console.log(`🔍 Fetching Blatter's Arosa Hotel jobs`);
   console.log(`   Source: ${CAREER_URL}\n`);
 
-  const listings = await fetchJobListings();
+  const listings = await fetchListings();
+  if (isAuthoritativeEmptySnapshot(listings)) {
+    console.log(`  🧩 Source-proven zero: ${listings.authoritativeEmptyEvidence}`);
+    return listings;
+  }
   if (!listings || listings.length === 0) {
     console.warn('⚠️ No job listings returned.');
     return [];

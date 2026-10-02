@@ -48,8 +48,16 @@ async function reviewUrlFor(order, orderId, round, locale, deps) {
 export function automationEmailKey(effect, flow) {
   const round = Number(flow?.round) || 1;
   if (effect.kind === 'owner_review') return `auto_owner_review_r${round}${effect.held ? '_held' : ''}`;
-  if (effect.kind === 'owner_takeover') return `auto_owner_takeover_${String(effect.reason || 'x').replace(/[^a-z_]/g, '')}_r${round}`;
+  if (effect.kind === 'owner_takeover') {
+    // A known code names the message; a raw runner error only its step.
+    const reason = String(effect.reason || 'x');
+    const code = /^[a-z_]{1,40}$/.test(reason) ? reason : `${effect.stage || 'run'}_error`;
+    return `auto_owner_takeover_${code}_r${round}`;
+  }
   if (effect.kind === 'candidate_action_needed') return `auto_candidate_action_${(flow?.history || []).length}`;
+  // One per wait for the candidate's answers (a wait may come back in the same round, at the portal).
+  if (effect.kind === 'candidate_questions_reminder') return `auto_candidate_questions_reminder_${effect.since}_n${effect.nudge}`;
+  if (effect.kind === 'owner_candidate_silent') return `auto_owner_candidate_silent_${effect.since}`;
   if (effect.kind === 'candidate_handoff' || effect.kind === 'candidate_handoff_reminder' || effect.kind === 'candidate_posting_closed') {
     return `auto_${effect.kind}`;
   }
@@ -83,10 +91,14 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
         deadlineAt: flow.deadlineAt,
         flags: effect.flags || [],
         reason: effect.reason,
+        stage: effect.stage,
+        attempts: effect.attempts,
         verdict: VERDICT_LABELS[draft.verdict] || draft.verdict,
         summary: draft.summaryIt,
         channel: draft.channel?.label,
         candidateEmail: customerEmailFor(order),
+        days: effect.days,
+        nudges: effect.nudges,
       });
     }
     return buildCandidateAutomationEmail(effect.kind, {
@@ -115,7 +127,9 @@ async function sendAutomationEmail({ db, orderId, effect, flow, nowMs, deps }) {
 
 async function markSubmitted({ db, orderId, effect, flow }) {
   const orderRef = orderRefFor(db, orderId);
-  const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)' : `automazione (${flow.submittedVia || 'invio'})`;
+  const via = effect.by === 'candidate' ? 'il candidato dal portale (handoff)'
+    : effect.by === 'owner' ? 'Valerie sul portale, dopo lo stop del robot'
+      : `automazione (${flow.submittedVia || 'invio'})`;
   const notes = `Candidatura inviata da ${via}.`;
   let changed = false;
   await db.runTransaction(async (transaction) => {
@@ -136,7 +150,7 @@ async function markSubmitted({ db, orderId, effect, flow }) {
       fromStatus: order.submissionStatus,
       toStatus: 'submitted',
       submissionNotes: notes,
-      channel: flow.submittedVia || (effect.by === 'candidate' ? 'handoff' : 'automation'),
+      channel: flow.submittedVia || (effect.by === 'candidate' ? 'handoff' : effect.by === 'owner' ? 'owner' : 'automation'),
     }));
     changed = true;
   });

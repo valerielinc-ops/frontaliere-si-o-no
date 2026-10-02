@@ -19,6 +19,7 @@ import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
  *          stripHtml, normalizeSpace, isGrigioniItalianoJob
  */
 
+import { decode as decodeHTML } from 'html-entities';
 import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 import { detectLanguage } from './detect-language.mjs';
@@ -42,14 +43,7 @@ export function stripHtml(html = '') {
     .replace(/<\/p>/gi, '\n\n')
     .replace(/<\/li>/gi, '\n')
     .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/&(?:#(?:x[0-9a-f]+|[0-9]+)|[a-z][a-z0-9]+);/gi, (entity) => decodeHTML(entity))
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
     .trim();

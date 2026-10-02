@@ -5,6 +5,10 @@
  */
 
 export const ASSISTED_APPLICATIONS_COLLECTION = 'assisted_applications';
+/** Portal accounts the runner creates on an order's alias: `{order}/automation/accounts` (scripts/assisted-application/lib/portal/account.mjs). */
+export const PORTAL_ACCOUNTS_DOC_ID = 'accounts';
+/** Follow-ups of an application sent by e-mail: `{order}/automation/followup` (assistedApplicationFollowup.js). */
+export const FOLLOWUP_DOC_ID = 'followup';
 
 /** One-off price in EUR cents, shared by checkout validation and analytics. */
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = 99;
@@ -36,5 +40,16 @@ export const ASSISTED_APPLICATION_EVENT_TYPES = Object.freeze([
   // plus the owner's edits of the AI draft and a CV she uploads for the customer.
   'automation_transition',
   'automation_draft_edited',
+  'automation_candidate_edited',
   'cv_uploaded_by_owner',
 ]);
+
+// The mandate texts candidates agreed to, oldest first; the last is the one
+// shown now. v2 (2026-09-30) names the employer's terms accepted on the
+// candidate's behalf. firestore.rules and storage.rules accept exactly these.
+export const ASSISTED_APPLICATION_CONSENT_VERSIONS = Object.freeze(['assisted-application-v1', 'assisted-application-v2']);
+
+/** The candidate already gave the mandate, in a version still honoured: never asked (nor rewritten) again. */
+export function hasAssistedApplicationConsent(order) {
+  return ASSISTED_APPLICATION_CONSENT_VERSIONS.includes(String(order?.consentVersion || '')) && order?.consentedAt != null;
+}

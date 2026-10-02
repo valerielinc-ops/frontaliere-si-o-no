@@ -275,7 +275,7 @@ function extractSpanText(rowHtml, elementId) {
   const regex = new RegExp(`tableaslist_element_${elementId}"[^>]*>([\\s\\S]*?)(?=<span class="tableaslist_|<br\\s*/?>|$)`);
   const match = rowHtml.match(regex);
   if (!match) return '';
-  return normalizeSpace(decodeEntities(stripHtml(match[1])));
+  return normalizeSpace(stripHtml(match[1]));
 }
 
 /**
@@ -323,7 +323,7 @@ export function parseFhgrDetailPage(html = '', fallbackTitle = '') {
   // Intro text from <div class="einleitung" id="einschub">
   const introMatch = html.match(/<div\s+class="einleitung"[^>]*>([\s\S]*?)<\/div>/);
   if (introMatch) {
-    const introText = normalizeSpace(stripHtml(decodeEntities(introMatch[1])));
+    const introText = normalizeSpace(stripHtml(introMatch[1]));
     if (introText.length > 20) blocks.push(introText);
   }
 
@@ -333,7 +333,7 @@ export function parseFhgrDetailPage(html = '', fallbackTitle = '') {
 
   while ((textMatch = textRegex.exec(html)) !== null) {
     const rawContent = textMatch[1];
-    const cleaned = normalizeSpace(stripHtml(decodeEntities(rawContent)));
+    const cleaned = normalizeSpace(stripHtml(rawContent));
     if (cleaned.length > 20) {
       blocks.push(cleaned);
     }

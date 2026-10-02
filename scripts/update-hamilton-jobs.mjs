@@ -25,6 +25,7 @@
  *   5. Translates missing locales.
  */
 import fs from 'node:fs';
+import { decode as decodeHTML } from 'html-entities';
 import path from 'node:path';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
@@ -267,20 +268,13 @@ function buildJob(listing, detail) {
   // stripping the rest, so the audit's "^\s*[-•*]\s/m" detector can see the
   // bullet structure. Replacing \s+ → ' ' here flattened the markers and
   // tripped the no-structured-content ratchet. Preserve \n explicitly.
-  const description = rawDescription
+  const description = decodeHTML(rawDescription
     .replace(/<\/p>/gi, '\n')
     .replace(/<\/h[1-6]>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n- ')
     .replace(/<\/li>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ')
-    .replace(/&amp;/gi, '&')
-    .replace(/&lt;/gi, '<')
-    .replace(/&gt;/gi, '>')
-    .replace(/&quot;/gi, '"')
-    .replace(/&#39;/gi, "'")
-    .replace(/&[a-z]+;/gi, ' ')
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
     .replace(/[^\S\n]+/g, ' ')
     .replace(/\n[^\S\n]+/g, '\n')
     .replace(/[^\S\n]+\n/g, '\n')

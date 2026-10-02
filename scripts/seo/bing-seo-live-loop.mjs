@@ -361,11 +361,32 @@ export function checkSource({ repoRoot = REPO_ROOT } = {}) {
       'Il loop deve enumerare il grafo sitemap, partizionare ogni URL e aggregare i report senza scraping della UI Bing.',
     ));
   }
-  if (!loopWorkflow.includes('tree-inventory:') || !loopWorkflow.includes('tree-crawl:') || !loopWorkflow.includes('tree-report:')) {
+  if (!loopWorkflow.includes('tree-inventory:')
+    || !loopWorkflow.includes('tree-crawl:')
+    || !loopWorkflow.includes('tree-discovered-inventory:')
+    || !loopWorkflow.includes('tree-discovered-crawl:')
+    || !loopWorkflow.includes('tree-report:')) {
     findings.push(sourceFinding(
       'full-tree-workflow-source',
       '.github/workflows/bing-seo-loop.yml',
-      'Il workflow deve eseguire inventario, matrix crawl completo e aggregazione con issue deduplicata.',
+      'Il workflow deve eseguire inventario sitemap, frontiera dei link interni, matrix crawl completo e aggregazione con issue deduplicata.',
+    ));
+  }
+  if (!loopWorkflow.includes("workflows: ['Publish to GitHub Pages (deploy + validate)']")) {
+    findings.push(sourceFinding(
+      'full-tree-deploy-trigger-source',
+      '.github/workflows/bing-seo-loop.yml',
+      'Il full-tree crawl deve partire dal workflow_run del publish Pages reale, dopo deploy e validazione, non dal solo build.',
+    ));
+  }
+  if (!loopWorkflow.includes('publish-gate:')
+    || !loopWorkflow.includes('select(.name == "deploy")')
+    || !loopWorkflow.includes('select(.name == "validate-live / validate-live")')
+    || !loopWorkflow.includes('needs: publish-gate')) {
+    findings.push(sourceFinding(
+      'full-tree-publish-gate-source',
+      '.github/workflows/bing-seo-loop.yml',
+      'Il full-tree crawl deve verificare i job deploy e validate-live del publish prima di partire, anche quando un audit dist separato rende rosso il workflow aggregato.',
     ));
   }
   if (!policy.includes('BING_ROUTE_CONTRACTS') || !policy.includes("'/calcolatore-5x1000/'")) {

@@ -47,6 +47,7 @@ import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
 import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
+import { NURSING_FACILITIES_ANCHOR } from './shared/nursingFacilityLinks';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
@@ -391,9 +392,10 @@ function renderPage(opts: {
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -467,6 +469,7 @@ function renderPage(opts: {
     ${employerGridHtml}
     ${dividerHtml}
     ${sectionsHtml}
+    ${NURSING_FACILITIES_ANCHOR}
     <section class="s-KZc0LQ">
       <h2 class="s-BEjFo9">${esc(copy.faqTitle)}</h2>
       ${faqHtml}

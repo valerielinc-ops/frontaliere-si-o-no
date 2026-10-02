@@ -51,7 +51,7 @@
  * dir rather than duplicating the matching logic here.
  *
  * Always exits 0 — non-blocking, alerting only.
- * Usage: npx tsx scripts/monitor-sector-coverage.mjs [--dry-run]
+ * Usage: node --import tsx/esm scripts/monitor-sector-coverage.mjs [--dry-run]
  *        --dry-run: valuta e stampa, ma non scrive l'artefatto e non apre issue.
  */
 import fs from 'node:fs';
@@ -405,7 +405,7 @@ ${buildScheda({
     'settore. | **REPO**: sito; non preassegnata qui.',
   ],
   metrica: `prima=${actionableZeroSectors.length} zero TI non classificati atteso=0 zero TI non classificati`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando ripete il controllo sul corpus pubblicato senza scrivere l\'artefatto e senza',
     'coniare issue: la scheda si chiude quando nessun settore TI è più a 0 match reale.',
@@ -496,7 +496,7 @@ ${buildScheda({
     '| **REPO**: sito; non preassegnata qui.',
   ],
   metrica: `prima=${zeroIds.length} ruoli TI legacy a 0 match atteso=0 ruoli TI legacy a 0 match`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando rivaluta anche la grace window e stampa il verdetto senza scrivere l\'artefatto',
     'e senza coniare issue: la scheda si chiude quando non restano ruoli TI a 0 match.',
@@ -632,7 +632,7 @@ ${buildScheda({
     'normalizzazione dei titoli. | **REPO**: sito; non preassegnata qui.',
   ],
   metrica: `prima=${nationalZero.length} zero nazionali + ${state.pairs.length} coppie sotto floor atteso=nessun gap di copertura aperto`,
-  comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
+  comando: 'node --import tsx/esm scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando ricalcola il gap set e stampa il delta senza scrivere l\'artefatto e senza',
     'coniare issue: la scheda si chiude quando non restano gap da tracciare.',

@@ -126,7 +126,7 @@ describe('L8 authorised commercial export fetcher', () => {
       env: {},
       logger: { log() {} },
     });
-    expect(result).toMatchObject({ available: false, export: null });
+    expect(result).toMatchObject({ available: false, status: 'not_configured', export: null });
     expect(JSON.parse(fs.readFileSync(outputPath, 'utf8'))).toBeNull();
   });
 

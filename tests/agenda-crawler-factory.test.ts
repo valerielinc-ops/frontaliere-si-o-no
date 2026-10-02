@@ -4,14 +4,20 @@
  * per-source agenda crawler (currently scripts/crawl-ge-agenda.mjs, the pilot
  * non-TI canton). No live network — `fetchImpl` is always injected.
  */
-import { describe, it, expect, afterEach } from 'vitest';
-import { existsSync, readFileSync, rmSync } from 'node:fs';
+import { describe, it, expect, afterEach, afterAll, vi } from 'vitest';
+import { existsSync, mkdtempSync, readFileSync, rmSync } from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { createAgendaCrawler } from '../scripts/lib/agenda-crawler-factory.mjs';
-import { EVENT_SOURCES, EVENTS_SLICE_DIR } from '../scripts/lib/events-utils.mjs';
+import { EVENT_SOURCES } from '../scripts/lib/events-utils.mjs';
 
 const TEST_SOURCE_KEY = 'test-agenda-factory';
-const slicePath = path.join(EVENTS_SLICE_DIR, `${TEST_SOURCE_KEY}.json`);
+// La slice va in tmpdir (`sliceDir`), non in data/events/by-source/: un file
+// creato nel checkout durante la run lo vedono anche gli altri test che
+// scandiscono quella directory, e resta lì se il test muore a metà.
+const SLICE_DIR = mkdtempSync(path.join(os.tmpdir(), 'agenda-factory-'));
+const slicePath = path.join(SLICE_DIR, `${TEST_SOURCE_KEY}.json`);
+afterAll(() => rmSync(SLICE_DIR, { recursive: true, force: true }));
 
 // Register a throwaway EVENT_SOURCES entry for the duration of this file —
 // EVENT_SOURCES is a plain (non-frozen) object shared across the module
@@ -36,6 +42,7 @@ function makeConfig(overrides = {}) {
     politeDelayMs: 0,
     imageMirrorDelayMs: 0,
     fetchTimeoutMs: 50,
+    sliceDir: SLICE_DIR,
     ...overrides,
   };
 }
@@ -57,6 +64,29 @@ describe('createAgendaCrawler — config validation', () => {
 });
 
 describe('createAgendaCrawler — crawl()', () => {
+  it('enriches each deduplicated event before writing the source slice', async () => {
+    const event = { id: 'src:priced', title: 'Workshop', startDate: '2026-08-01', url: 'https://example.test/event' };
+    const fetchImpl = async (url: string) => okResponse(url === event.url ? 'CHF 50' : '<html></html>');
+    const price = { amount: 50, currency: 'CHF', isFree: false };
+    const enrichEvent = vi.fn(async (entry, fetchHtml) => ({ ...entry, ...(await fetchHtml(entry.url) ? { price } : {}) }));
+    const crawler = createAgendaCrawler(makeConfig({ fetchImpl, parseDayHtml: () => [event], iterations: 2, enrichEvent }));
+    const result = await crawler.crawl();
+    expect(enrichEvent).toHaveBeenCalledTimes(1);
+    expect(result.events[0].price).toEqual(price);
+    expect(JSON.parse(readFileSync(slicePath, 'utf8')).events[0].price).toEqual(price);
+  });
+
+  it('preserves listing metadata if detail enrichment throws', async () => {
+    const event = { id: 'src:failed', title: 'Workshop', startDate: '2026-08-01' };
+    const crawler = createAgendaCrawler(makeConfig({
+      fetchImpl: async () => okResponse('<html></html>'), parseDayHtml: () => [event], iterations: 1,
+      enrichEvent: async () => { throw new Error('detail unavailable'); },
+    }));
+    const result = await crawler.crawl({ dryRun: true });
+    expect(result.events[0]).toMatchObject(event);
+    expect(result.written).toBe(false);
+  });
+
   it('merges events by id across iterations, extending endDate forward, and writes the slice', async () => {
     const fetchImpl = async () => okResponse('<html></html>');
     const parseDayHtml = (_html: string, i: number) => [

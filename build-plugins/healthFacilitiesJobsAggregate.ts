@@ -9,7 +9,7 @@
  * live job count, healthcare-role mix + median salary (via the SAME
  * classifier + median helper the generator used), 30-day freshness, top
  * roles, the complete ranked job inventory (for the static job cards) and a
- * JobPosting-ready projection of the first featured jobs.
+ * ItemList projection of the first featured jobs.
  *
  * Module-level cache keyed by rootDir — the ~150 MB jobs.json is parsed once
  * per build (loadJobsJson is itself cached; this caches the per-facility
@@ -97,7 +97,7 @@ export interface FacilitySnapshot {
   readonly roleCounts: Readonly<Record<HealthcareRole, number>>;
   /** All valid live jobs, ordered with healthcare and featured roles first. */
   readonly jobs: readonly FacilityFeaturedJob[];
-  /** First six jobs kept for the bounded JobPosting JSON-LD projection. */
+  /** First six jobs kept for the bounded ItemList JSON-LD projection. */
   readonly featured: readonly FacilityFeaturedJob[];
 }
 

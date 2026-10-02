@@ -71,7 +71,7 @@ describe('WhatsNewModal', () => {
   it('renders modal with release notes when open=true', () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
     // Should show at least the first release version
-    expect(screen.getByText(new RegExp(RELEASES[0].version))).toBeTruthy();
+    expect(screen.getByText(`v${RELEASES[0].version}`, { exact: true })).toBeTruthy();
   });
 
   it('calls onClose when close button clicked', () => {
@@ -106,7 +106,7 @@ describe('WhatsNewModal', () => {
   it('renders all release sections', { timeout: 30000 }, () => {
     render(<WhatsNewModal open={true} onClose={vi.fn()} />);
     for (const release of RELEASES) {
-      expect(screen.getByText(new RegExp(release.version))).toBeTruthy();
+      expect(screen.getByText(`v${release.version}`, { exact: true })).toBeTruthy();
     }
   });
 

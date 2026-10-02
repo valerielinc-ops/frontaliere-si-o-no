@@ -1,245 +1,22 @@
 {
-  "generatedAt": "2026-09-30T13:52:51.356Z",
+  "generatedAt": "2026-10-01T19:03:37.524Z",
   "tally": {
     "good": 41,
-    "weak": 17,
+    "weak": 15,
     "bad": 0,
-    "insufficient": 2
+    "insufficient": 4
   },
-  "promotedVacancies": 667,
+  "promotedVacancies": 794,
   "reports": [
     {
-      "companyKey": "autogrill-schweiz-ag",
-      "vacancyCount": 20,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://careers.avoltaworld.com/job/Betriebsassistent-Stellvertretery/1432358133/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 912,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "juuh0a"
-        },
-        {
-          "url": "https://careers.avoltaworld.com/job/Crew-Member-Kitchen-CDD/1390703333/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1071,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv"
-          ],
-          "notJobSignals": [
-            "promo"
-          ],
-          "bodySignature": "1b2eauh"
-        },
-        {
-          "url": "https://careers.avoltaworld.com/job/Enterprise-Master-Data-Helpdesk-Manager/1421063533/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1044,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "duties"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "bvh6gp"
-        }
-      ],
-      "companyName": "Autogrill Schweiz-AG",
-      "companyHost": "careers.avoltaworld.com",
-      "platform": "avoltaworld.com",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": false
-    },
-    {
-      "companyKey": "buchi-com",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0.371,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 0.5,
-      "score": 0.738,
-      "verdict": "weak",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale",
-        "50% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://buchi.com/en/buchi-world/careers/what-to-expect-when-joining-us",
-          "reachable": true,
-          "titleMatch": 0.3333333333333333,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1250,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "pay",
-            "offer"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "ryrf5q"
-        },
-        {
-          "url": "https://buchi.com/en/buchi-world/careers/meet-our-awesome-staff",
-          "reachable": true,
-          "titleMatch": 0.4090909090909091,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1147,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "5sha4c"
-        }
-      ],
-      "companyName": "Büchi AG",
-      "companyHost": "buchi.com",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "lucarna-macana-ch",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.333,
-      "jobLikeRate": 1,
-      "score": 0.646,
-      "verdict": "weak",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://lucarna-macana.ch/stellen/lkw-chauffeur-m-w-d/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 592,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "at600q"
-        },
-        {
-          "url": "https://lucarna-macana.ch/stellen/mitarbeiter-finanzbuchhaltung-administration/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 621,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "a75h9c"
-        },
-        {
-          "url": "https://lucarna-macana.ch/stellen/metzger-foerderungsmitarbeitenden/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 599,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1n64w8t"
-        }
-      ],
-      "companyName": "Lucarna Macana AG",
-      "companyHost": "lucarna-macana.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "my",
+      "companyKey": "alltitude-com",
       "vacancyCount": 1,
       "sampled": 1,
       "reachableRate": 1,
       "titleMatchRate": 0.5,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
-      "locationSourceRate": 0,
+      "locationSourceRate": 1,
       "distinctRate": 1,
       "jobLikeRate": 1,
       "score": 0.851,
@@ -247,409 +24,289 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://my.jobalino.ch/job/ace72147187c827f2fbd5ec134b384ce/inauen-schaetti-ag/spontanbewerbung_6901",
+          "url": "https://alltitude.com/job/1",
           "reachable": true,
           "titleMatch": 0.5,
           "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 181,
+          "sourceBackedLocation": true,
+          "words": 870,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "requirements",
-            "duties",
-            "offer",
+            "cv",
+            "pay",
             "workplace"
           ],
           "notJobSignals": [],
-          "bodySignature": "uk8nxu"
+          "bodySignature": "1k1n49s"
         }
       ],
-      "companyName": "Inauen-Schätti AG",
-      "companyHost": "my.jobalino.ch",
-      "platform": "jobalino.ch",
+      "companyName": "alltitude SA",
+      "companyHost": "alltitude.com",
+      "platform": null,
       "mode": "jsonld",
       "runErrors": [],
       "logoFound": true
     },
     {
-      "companyKey": "schminkbar-ch",
-      "vacancyCount": 3,
+      "companyKey": "boostbar-ag",
+      "vacancyCount": 17,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.667,
+      "titleMatchRate": 0.567,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.333,
-      "jobLikeRate": 0.667,
-      "score": 0.794,
-      "verdict": "good",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "33% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://schminkbar.ch/job/lehrlingsbetreuerin-40-60-ab-sofort-oder-nach-vereinbarung/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 522,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "offer",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1ak4vfr"
-        },
-        {
-          "url": "https://schminkbar.ch/job/kosmetikerin-alle-filialen/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 499,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "s2n6tt"
-        },
-        {
-          "url": "https://schminkbar.ch/job/lehrstellen-fur-zurich-basel-winterthur/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 522,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "apply"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "hgy2m9"
-        }
-      ],
-      "companyName": "schminkbar (schweiz) ag",
-      "companyHost": "schminkbar.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "congrex",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
+      "locationSourceRate": 0.333,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 1,
+      "score": 0.871,
       "verdict": "good",
       "problems": [],
       "samples": [
         {
-          "url": "https://congrex.com/jobs/sachbearbeiterin-finanzen-50-70/",
+          "url": "https://boost-inc.jobs.personio.com/job/2682347",
           "reachable": true,
-          "titleMatch": 1,
+          "titleMatch": 0.5,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 1417,
+          "words": 456,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "cv",
+            "pay",
             "workload",
-            "contract",
-            "requirements",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "booking"
-          ],
-          "bodySignature": "p5rp3g"
-        },
-        {
-          "url": "https://congrex.com/jobs/event-organiser-80-100/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1461,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [
-            "booking"
-          ],
-          "bodySignature": "1oubsn2"
-        }
-      ],
-      "companyName": "Congrex Schweiz AG",
-      "companyHost": "congrex.com",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "lapis-personal",
-      "vacancyCount": 2,
-      "sampled": 2,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.5,
-      "jobLikeRate": 1,
-      "score": 0.66,
-      "verdict": "weak",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://lapis-personal.ch/eazyrecruitz_jobs/human-resources-manager-2/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 140,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "pljsy1"
-        },
-        {
-          "url": "https://lapis-personal.ch/eazyrecruitz_jobs/talent-acquisition-specialist/",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 126,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1bsvcpd"
-        }
-      ],
-      "companyName": "Lapis Personal GmbH",
-      "companyHost": "lapis-personal.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "unitas-people",
-      "vacancyCount": 26,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://unitas-people.ch/stelleninserate/wo-andere-frieren-weisst-du-warum-heizungsinstallateur-efz-31",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 348,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
             "duties"
           ],
           "notJobSignals": [],
-          "bodySignature": "xr4by4"
+          "bodySignature": "m9inx9"
         },
         {
-          "url": "https://unitas-people.ch/stelleninserate/lehrabgaenger-handwerk-technik-und-gewerbe-gesucht-8",
+          "url": "https://boost-inc.jobs.personio.com/job/2813367",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 623,
+          "words": 693,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "cv",
             "workload",
-            "requirements",
-            "duties",
-            "gender-tag"
+            "contract"
           ],
           "notJobSignals": [
             "stay"
           ],
-          "bodySignature": "1gl5zux"
+          "bodySignature": "swyzy2"
         },
         {
-          "url": "https://unitas-people.ch/stelleninserate/ganz-oben-mitbauen-dachdecker-efz-fuer-starke-projekte-17",
+          "url": "https://boost-inc.jobs.personio.com/job/2274213",
           "reachable": true,
-          "titleMatch": 1,
+          "titleMatch": 0.2,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 339,
+          "sourceBackedLocation": false,
+          "words": 551,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "gender-tag"
+            "workload"
           ],
-          "notJobSignals": [],
-          "bodySignature": "rl1z00"
+          "notJobSignals": [
+            "checkin"
+          ],
+          "bodySignature": "svwkg8"
         }
       ],
-      "companyName": "Unitas People GmbH",
-      "companyHost": "unitas-people.ch",
-      "platform": null,
+      "companyName": "boostbar ag",
+      "companyHost": "boost-inc.jobs.personio.com",
+      "platform": "personio.com",
       "mode": "template",
       "runErrors": [],
       "logoFound": false
     },
     {
-      "companyKey": "kursaal-bern",
-      "vacancyCount": 2,
-      "sampled": 2,
+      "companyKey": "foyer-handicap-ch",
+      "vacancyCount": 5,
+      "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 1,
+      "titleMatchRate": 0,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 0.5,
-      "score": 0.925,
-      "verdict": "good",
+      "locationSourceRate": 0,
+      "distinctRate": 0.2,
+      "jobLikeRate": 1,
+      "score": 0.635,
+      "verdict": "weak",
       "problems": [
-        "50% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
+        "i titoli estratti non corrispondono alla pagina ufficiale"
       ],
       "samples": [
         {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12382555-restaurantfachmann-frau-efz-bern-be-kursaal-bern-ag",
+          "url": "https://unjobpourmoi.ch/emploi/aide-de-cafeteria-5/",
           "reachable": true,
-          "titleMatch": 1,
+          "titleMatch": 0,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 644,
+          "sourceBackedLocation": false,
+          "words": 2552,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "workplace"
+            "requirements",
+            "duties",
+            "offer"
           ],
           "notJobSignals": [
-            "board"
+            "ecommerce"
           ],
-          "bodySignature": "ji6lh4"
+          "bodySignature": "1noh3k2"
         },
         {
-          "url": "https://www.yousty.ch/de-CH/lehrstellen/profile/12382553-fachmann-frau-hotellerie-hauswirtschaft-efz-bern-be-kursaal-bern-ag",
+          "url": "https://unjobpourmoi.ch/emploi/assistant-e-service-clientele-et-administration/",
           "reachable": true,
-          "titleMatch": 1,
+          "titleMatch": 0,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 655,
+          "sourceBackedLocation": false,
+          "words": 2524,
           "status": 200,
-          "jobLike": false,
+          "jobLike": true,
           "jobSignals": [
             "apply",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ],
+          "bodySignature": "o53esi"
+        },
+        {
+          "url": "https://unjobpourmoi.ch/emploi/aide-technicien-ne-de-maintenance/",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 2537,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ],
+          "bodySignature": "vmqad4"
+        }
+      ],
+      "companyName": "Foyer Handicap de Neuchâtel",
+      "companyHost": "unjobpourmoi.ch",
+      "platform": "unjobpourmoi.ch",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "marmobisa-ch",
+      "vacancyCount": 2,
+      "sampled": 2,
+      "reachableRate": 1,
+      "titleMatchRate": 0.333,
+      "contentfulRate": 0,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.632,
+      "verdict": "weak",
+      "problems": [
+        "i titoli estratti non corrispondono alla pagina ufficiale",
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "samples": [
+        {
+          "url": "https://marmobisa.ch/jobs/sachbearbeiter-kundendienst-60-100-w/m-in-ebersecken-lu/",
+          "reachable": true,
+          "titleMatch": 0.3333333333333333,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 718,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "duties",
+            "offer",
             "workplace"
           ],
           "notJobSignals": [
             "stay",
-            "board"
+            "amenities"
           ],
-          "bodySignature": "5pth9v"
+          "bodySignature": "njl6i7"
+        },
+        {
+          "url": "https://marmobisa.ch/jobs/monteur-spezialteile-100-w/m-in-ebersecken-lu/",
+          "reachable": true,
+          "titleMatch": 0.3333333333333333,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 695,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "duties",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay",
+            "amenities"
+          ],
+          "bodySignature": "t0yjob"
         }
       ],
-      "companyName": "Kursaal Bern AG",
-      "companyHost": "yousty.ch",
-      "platform": "yousty.ch",
+      "companyName": "Marmobisa AG",
+      "companyHost": "marmobisa.ch",
+      "platform": null,
       "mode": "template",
       "runErrors": [],
       "logoFound": true
     },
     {
-      "companyKey": "ofac",
-      "vacancyCount": 4,
+      "companyKey": "vistoria-ch",
+      "vacancyCount": 107,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.333,
-      "contentfulRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 0,
       "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.25,
+      "locationSourceRate": 0.333,
+      "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 0.738,
-      "verdict": "weak",
+      "score": 0.83,
+      "verdict": "good",
       "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "i titoli estratti non corrispondono alla pagina ufficiale"
+        "pagine di dettaglio senza testo: probabile render lato client"
       ],
       "samples": [
         {
-          "url": "https://ofac.ch/fr/jobs/responsable-du-service-comptabilite-0",
+          "url": "https://vistoria.ch/jobs/1-20082026.php",
           "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 741,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": true,
+          "words": 165,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -657,422 +314,55 @@
             "cv",
             "workload",
             "requirements",
-            "duties",
-            "workplace",
-            "hr"
+            "duties"
           ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1stwbfh"
+          "notJobSignals": [],
+          "bodySignature": "h5afae"
         },
         {
-          "url": "https://ofac.ch/fr/jobs/collaborateur-trice-support-applications-0",
+          "url": "https://vistoria.ch/jobs/40-29062026.php",
           "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
+          "titleMatch": 1,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 552,
+          "words": 180,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "cv",
             "workload",
-            "requirements",
             "duties",
-            "workplace",
-            "hr"
+            "offer"
           ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "xs5zrk"
+          "notJobSignals": [],
+          "bodySignature": "szhh9i"
         },
         {
-          "url": "https://ofac.ch/fr/jobs/ingenieur-de-developpement-net-hf",
+          "url": "https://vistoria.ch/jobs/91-13032024.php",
           "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
+          "titleMatch": 1,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 713,
+          "words": 166,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "cv",
             "workload",
             "requirements",
             "duties",
-            "gender-tag",
-            "workplace",
-            "hr"
+            "offer"
           ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "dhzpcj"
+          "notJobSignals": [],
+          "bodySignature": "1nz14gt"
         }
       ],
-      "companyName": "OFAC",
-      "companyHost": "ofac.ch",
+      "companyName": "Vistoria Group",
+      "companyHost": "vistoria.ch",
       "platform": null,
       "mode": "template",
       "runErrors": [],
       "logoFound": false
-    },
-    {
-      "companyKey": "ramseyer-dilger",
-      "vacancyCount": 5,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.8,
-      "jobLikeRate": 1,
-      "score": 0.983,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://ramseyer-dilger.ch/karriere/projektleiter-spengelertechnik",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 480,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "ji1ove"
-        },
-        {
-          "url": "https://ramseyer-dilger.ch/karriere/projektleiter-sanitaertechnik",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 473,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1fo9qej"
-        },
-        {
-          "url": "https://ramseyer-dilger.ch/karriere/bauleitender-sanitaerinstallateur",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 257,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1r4kyjc"
-        }
-      ],
-      "companyName": "Ramseyer & Dilger AG",
-      "companyHost": "ramseyer-dilger.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "metzgerei-mark",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 0.333,
-      "jobLikeRate": 1,
-      "score": 0.646,
-      "verdict": "weak",
-      "problems": [
-        "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.metzgerei-mark.ch/de/job/verkaeufer-fleisch-60-100-chur",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 259,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements"
-          ],
-          "notJobSignals": [
-            "promo"
-          ],
-          "bodySignature": "jqybcs"
-        },
-        {
-          "url": "https://www.metzgerei-mark.ch/de/job/lehrstelle-fleischfachmannfrau-efz",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 255,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1hqeds7"
-        },
-        {
-          "url": "https://www.metzgerei-mark.ch/de/job/fleischfachmannfrau-efz-100",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 348,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1vanyqy"
-        }
-      ],
-      "companyName": "Dorfladen Schiers - Metzgerei Mark",
-      "companyHost": "metzgerei-mark.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "ahapersonal",
-      "vacancyCount": 1,
-      "sampled": 1,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://ahapersonal.ch/Vacancyboard/Detail/34400",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 243,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "requirements",
-            "duties",
-            "offer",
-            "gender-tag",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1ubwt9d"
-        }
-      ],
-      "companyName": "AHA Personal AG",
-      "companyHost": "ahapersonal.ch",
-      "platform": null,
-      "mode": "jsonld",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "artemis-emplois",
-      "vacancyCount": 6,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 0.421,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 0.828,
-      "verdict": "good",
-      "problems": [
-        "i titoli estratti non corrispondono alla pagina ufficiale"
-      ],
-      "samples": [
-        {
-          "url": "https://artemis-emplois.ch/poste/secretaire-davocat-a-60-80/",
-          "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 271,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "geocj7"
-        },
-        {
-          "url": "https://artemis-emplois.ch/poste/secretaire-de-notaire-a-80/",
-          "reachable": true,
-          "titleMatch": 0.3333333333333333,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 287,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "u87ygr"
-        },
-        {
-          "url": "https://artemis-emplois.ch/poste/secretaire-de-notaire-a-100/",
-          "reachable": true,
-          "titleMatch": 0.42857142857142855,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 268,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties"
-          ],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1ybkj0j"
-        }
-      ],
-      "companyName": "Artemis Emplois Sàrl",
-      "companyHost": "artemis-emplois.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
-      "companyKey": "coworking-neuchatel",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 0,
-      "distinctRate": 1,
-      "jobLikeRate": 0,
-      "score": 0.85,
-      "verdict": "good",
-      "problems": [
-        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://vivre-en-thailande.com/category/vacances/ou-se-rendre-et-ou-se-loger/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1375,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1x23u5n"
-        },
-        {
-          "url": "https://vivre-en-thailande.com/category/vacances/preparer-ses-vacances-en-thailande/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1316,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "spjhzh"
-        },
-        {
-          "url": "https://vivre-en-thailande.com/category/vacances/les-precautions-a-prendre/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 1239,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [],
-          "notJobSignals": [
-            "stay"
-          ],
-          "bodySignature": "1w5c3bj"
-        }
-      ],
-      "companyName": "Coworking Neuchâtel SARL",
-      "companyHost": "vivre-en-thailande.com",
-      "platform": "vivre-en-thailande.com",
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
     },
     {
       "companyKey": "foyer-handicap",
@@ -1110,7 +400,7 @@
           "notJobSignals": [
             "ecommerce"
           ],
-          "bodySignature": "ghyr7h"
+          "bodySignature": "1noh3k2"
         },
         {
           "url": "https://unjobpourmoi.ch/emploi/assistant-e-service-clientele-et-administration/",
@@ -1129,7 +419,7 @@
           "notJobSignals": [
             "ecommerce"
           ],
-          "bodySignature": "1qsd8m5"
+          "bodySignature": "o53esi"
         },
         {
           "url": "https://unjobpourmoi.ch/emploi/aide-technicien-ne-de-maintenance/",
@@ -1148,7 +438,7 @@
           "notJobSignals": [
             "ecommerce"
           ],
-          "bodySignature": "svg9c7"
+          "bodySignature": "vmqad4"
         }
       ],
       "companyName": "Foyer Handicap",
@@ -1205,7 +495,7 @@
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "jic9a"
+          "bodySignature": "cf9ham"
         },
         {
           "url": "https://werner-rast.ch/2018/fuer-bewerbende/stellenangebote/berufsgruppe/?berufsgruppe=Sachbearbeitung",
@@ -1213,7 +503,7 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 326,
+          "words": 319,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1222,7 +512,7 @@
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "1m8nodp"
+          "bodySignature": "1y3d51z"
         }
       ],
       "companyName": "Werner Rast Personal Beratung Vermittlung AG",
@@ -1364,60 +654,58 @@
       "detailDistinctRate": 1,
       "locationSourceRate": 0.333,
       "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
+      "jobLikeRate": 0.333,
+      "score": 0.9,
       "verdict": "good",
-      "problems": [],
+      "problems": [
+        "67% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
       "samples": [
         {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/652/Description/1",
+          "url": "https://recruitingapp-2952.umantis.com/Vacancies/654/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 298,
+          "words": 144,
           "status": 200,
-          "jobLike": true,
+          "jobLike": false,
           "jobSignals": [
-            "apply",
-            "requirements",
-            "duties"
+            "apply"
           ],
           "notJobSignals": [],
-          "bodySignature": "ienym"
+          "bodySignature": "r9xd11"
         },
         {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/648/Description/1",
+          "url": "https://recruitingapp-2952.umantis.com/Vacancies/645/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 255,
+          "words": 200,
           "status": 200,
-          "jobLike": true,
+          "jobLike": false,
           "jobSignals": [
-            "apply",
-            "duties"
+            "apply"
           ],
           "notJobSignals": [],
-          "bodySignature": "w34z5t"
+          "bodySignature": "u96e2c"
         },
         {
-          "url": "https://recruitingapp-2952.umantis.com/Vacancies/641/Description/1",
+          "url": "https://recruitingapp-2952.umantis.com/Vacancies/640/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 274,
+          "words": 288,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "cv",
-            "offer"
+            "requirements"
           ],
           "notJobSignals": [],
-          "bodySignature": "1unx07c"
+          "bodySignature": "emenai"
         }
       ],
       "companyName": "EBP",
@@ -1601,7 +889,7 @@
             "offer"
           ],
           "notJobSignals": [],
-          "bodySignature": "sh81uv"
+          "bodySignature": "aa6t8r"
         },
         {
           "url": "https://bim-center-chur.ch/stellenangebote/3d-zeichnerin-architektin/",
@@ -1639,6 +927,41 @@
       "problems": [],
       "samples": [
         {
+          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4462/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 268,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "contract",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1cqbp16"
+        },
+        {
+          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4460/Description/1",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 230,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "duties"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "10mkk3a"
+        },
+        {
           "url": "https://recruitingapp-2849.umantis.com/Vacancies/4451/Description/1",
           "reachable": true,
           "titleMatch": 1,
@@ -1655,40 +978,6 @@
           ],
           "notJobSignals": [],
           "bodySignature": "1iaup43"
-        },
-        {
-          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4452/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 263,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "duties"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "84mxmk"
-        },
-        {
-          "url": "https://recruitingapp-2849.umantis.com/Vacancies/4447/Description/1",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 181,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "requirements",
-            "duties",
-            "offer"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "zfuao9"
         }
       ],
       "companyName": "Bewerbermanagement Kanton Thurgau Stellen",
@@ -1754,7 +1043,7 @@
       "platform": "umantis.com",
       "mode": "template",
       "runErrors": [],
-      "logoFound": true
+      "logoFound": false
     },
     {
       "companyKey": "recruitingapp-2896",
@@ -1929,29 +1218,30 @@
       ],
       "samples": [
         {
-          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1070/Description/1",
+          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1067/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 248,
+          "words": 352,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
             "workload",
-            "duties"
+            "duties",
+            "workplace"
           ],
           "notJobSignals": [],
-          "bodySignature": "llts3i"
+          "bodySignature": "18xngvi"
         },
         {
-          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1031/Description/1",
+          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1064/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 223,
+          "words": 299,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1960,15 +1250,15 @@
             "duties"
           ],
           "notJobSignals": [],
-          "bodySignature": "jh03w1"
+          "bodySignature": "1u49fuj"
         },
         {
-          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1063/Description/1",
+          "url": "https://recruitingapp-2919.umantis.com/Vacancies/1053/Description/1",
           "reachable": true,
           "titleMatch": 1,
           "contentful": false,
           "sourceBackedLocation": false,
-          "words": 262,
+          "words": 252,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -1977,7 +1267,7 @@
             "duties"
           ],
           "notJobSignals": [],
-          "bodySignature": "rw95il"
+          "bodySignature": "1u26ekv"
         }
       ],
       "companyName": "Bewerbermanagement Stadt Frauenfeld Stellen",
@@ -2008,7 +1298,7 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 1568,
+          "words": 1591,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2019,7 +1309,7 @@
             "offer"
           ],
           "notJobSignals": [],
-          "bodySignature": "i3pp7y"
+          "bodySignature": "1fqioet"
         },
         {
           "url": "https://www.blkb.ch/die-blkb/jobs-und-karriere/unsere-mitarbeitenden-erzaehlen.html",
@@ -2027,7 +1317,7 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 1187,
+          "words": 1210,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2037,7 +1327,7 @@
             "offer"
           ],
           "notJobSignals": [],
-          "bodySignature": "1qo5acy"
+          "bodySignature": "cupycp"
         }
       ],
       "companyName": "Jobs",
@@ -2049,28 +1339,28 @@
     },
     {
       "companyKey": "anker-swiss",
-      "vacancyCount": 310,
+      "vacancyCount": 319,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 0.206,
+      "locationSourceRate": 0.333,
+      "distinctRate": 0.201,
       "jobLikeRate": 1,
-      "score": 0.933,
+      "score": 0.932,
       "verdict": "good",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente"
       ],
       "samples": [
         {
-          "url": "https://anker-swiss.ch/stellen/allrounder-garten-1433870/",
+          "url": "https://anker-swiss.ch/stellen/gaertner-1441366/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 619,
+          "sourceBackedLocation": false,
+          "words": 595,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2083,15 +1373,15 @@
           "notJobSignals": [
             "stay"
           ],
-          "bodySignature": "11ewihr"
+          "bodySignature": "a0s1vy"
         },
         {
-          "url": "https://anker-swiss.ch/stellen/maler-1337028/",
+          "url": "https://anker-swiss.ch/stellen/zimmermann-1383326/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 594,
+          "words": 555,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2104,15 +1394,15 @@
           "notJobSignals": [
             "stay"
           ],
-          "bodySignature": "xfz9ki"
+          "bodySignature": "19erc6m"
         },
         {
-          "url": "https://anker-swiss.ch/stellen/gipser-trockenbauer-1279913/",
+          "url": "https://anker-swiss.ch/stellen/spengler-1346674/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 606,
+          "sourceBackedLocation": false,
+          "words": 613,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2125,7 +1415,7 @@
           "notJobSignals": [
             "stay"
           ],
-          "bodySignature": "1d26w9x"
+          "bodySignature": "1gqs36n"
         }
       ],
       "companyName": "Anker Swiss Ticino AG",
@@ -2159,7 +1449,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 806,
+          "words": 808,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2171,7 +1461,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "d0mdta"
+          "bodySignature": "6u9v0i"
         },
         {
           "url": "https://www.rhb.ch/de/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/",
@@ -2179,7 +1469,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 807,
+          "words": 809,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2191,7 +1481,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "wiok08"
+          "bodySignature": "1rksuhw"
         },
         {
           "url": "https://www.rhb.ch/de/job/spezialist-in-casemanagement-60_2026-2255/",
@@ -2199,7 +1489,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 803,
+          "words": 805,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2210,7 +1500,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "11w10yk"
+          "bodySignature": "1n9hawg"
         }
       ],
       "companyName": "Belvair",
@@ -2255,7 +1545,7 @@
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "5paee6"
+          "bodySignature": "1ksy6ym"
         },
         {
           "url": "https://bikeshopzizers.ch/jobs/praktikant-m-w-d-im-verkauf-und-als-velomechaniker/",
@@ -2275,7 +1565,7 @@
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "1a408hv"
+          "bodySignature": "liorlv"
         },
         {
           "url": "https://bikeshopzizers.ch/jobs/eventbarista-m-w-d-schweizweit/",
@@ -2297,7 +1587,7 @@
             "stay",
             "checkin"
           ],
-          "bodySignature": "8x7yxu"
+          "bodySignature": "1f9dko2"
         }
       ],
       "companyName": "Radsport Ullrich",
@@ -2312,25 +1602,25 @@
       "vacancyCount": 24,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.492,
-      "contentfulRate": 1,
+      "titleMatchRate": 0.443,
+      "contentfulRate": 0.667,
       "detailDistinctRate": 1,
-      "locationSourceRate": 0.333,
+      "locationSourceRate": 0,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 0.849,
+      "score": 0.778,
       "verdict": "good",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale"
       ],
       "samples": [
         {
-          "url": "https://corporate.blue-tomato.com/de/job/floor-manager-m-w-d-shop-haarlem/",
+          "url": "https://corporate.blue-tomato.com/de/job/head-of-real-estate-m-w-d-graz-schladming-wien/",
           "reachable": true,
-          "titleMatch": 0.47619047619047616,
-          "contentful": true,
+          "titleMatch": 0.4,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 989,
+          "words": 1237,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2339,24 +1629,21 @@
             "pay",
             "workload",
             "requirements",
-            "duties",
             "offer",
-            "gender-tag",
-            "workplace"
+            "gender-tag"
           ],
           "notJobSignals": [
-            "stay",
             "promo"
           ],
-          "bodySignature": "1knlz9i"
+          "bodySignature": "z13g6y"
         },
         {
-          "url": "https://corporate.blue-tomato.com/de/job/floor-manager-m-w-d-shop-trondheim/",
+          "url": "https://corporate.blue-tomato.com/de/job/shop-manager-m-w-d-shop-stockholm/",
           "reachable": true,
-          "titleMatch": 0.47619047619047616,
+          "titleMatch": 0.42857142857142855,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 992,
+          "words": 1048,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2374,15 +1661,15 @@
             "stay",
             "promo"
           ],
-          "bodySignature": "1ds1qv7"
+          "bodySignature": "s7q8l0"
         },
         {
-          "url": "https://corporate.blue-tomato.com/de/job/floor-manager-m-w-d-shop-st-gallen/",
+          "url": "https://corporate.blue-tomato.com/de/job/sales-assistant-m-w-d-shop-ravensburg/",
           "reachable": true,
-          "titleMatch": 0.5238095238095238,
+          "titleMatch": 0.5,
           "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 988,
+          "sourceBackedLocation": false,
+          "words": 991,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2400,7 +1687,7 @@
             "stay",
             "promo"
           ],
-          "bodySignature": "hg5rhl"
+          "bodySignature": "12l7bje"
         }
       ],
       "companyName": "Blue Tomato",
@@ -2456,14 +1743,15 @@
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
-      "contentfulRate": 1,
+      "contentfulRate": 0.333,
       "detailDistinctRate": 1,
       "locationSourceRate": 0,
       "distinctRate": 1,
       "jobLikeRate": 0,
-      "score": 0.85,
-      "verdict": "good",
+      "score": 0.737,
+      "verdict": "weak",
       "problems": [
+        "pagine di dettaglio senza testo: probabile render lato client",
         "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
       ],
       "samples": [
@@ -2471,24 +1759,24 @@
           "url": "https://www.lumnezia.ch/de/gemeinde/regionale-amtsstellen/berufsbeistandschaft-surselva",
           "reachable": true,
           "titleMatch": 1,
-          "contentful": true,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 691,
+          "words": 692,
           "status": 200,
           "jobLike": false,
           "jobSignals": [],
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "1nvklrc"
+          "bodySignature": "1g65nr3"
         },
         {
           "url": "https://www.lumnezia.ch/de/gemeinde/regionale-amtsstellen/betreibungs-und-konkursamt-surselva",
           "reachable": true,
           "titleMatch": 1,
-          "contentful": true,
+          "contentful": false,
           "sourceBackedLocation": false,
-          "words": 715,
+          "words": 716,
           "status": 200,
           "jobLike": false,
           "jobSignals": [
@@ -2497,7 +1785,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "7vcb63"
+          "bodySignature": "1493sgs"
         },
         {
           "url": "https://www.lumnezia.ch/de/gemeinde/regionale-amtsstellen/kindes-und-erwachsenenschutzbehoerde-kesb",
@@ -2505,14 +1793,14 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 705,
+          "words": 706,
           "status": 200,
           "jobLike": false,
           "jobSignals": [],
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "1mbqr6i"
+          "bodySignature": "129x4jx"
         }
       ],
       "companyName": "Camping Lumnezia",
@@ -2524,16 +1812,16 @@
     },
     {
       "companyKey": "rehaklinik-seewis",
-      "vacancyCount": 6,
+      "vacancyCount": 5,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.633,
+      "titleMatchRate": 0.8,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
       "locationSourceRate": 0.667,
       "distinctRate": 1,
       "jobLikeRate": 1,
-      "score": 0.891,
+      "score": 0.94,
       "verdict": "good",
       "problems": [],
       "samples": [
@@ -2556,6 +1844,23 @@
           "bodySignature": "1tolpg"
         },
         {
+          "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2568543-assistenzarzt-assistenzarztin-parkinsonzentrum-und-neurorehabilitation-100?name=%C3%84rzteschaft",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 853,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "ln23dj"
+        },
+        {
           "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2561019-oberarzt-oberarztin-a-mbf-fur-orthopadie-und-traumatologie-80-100?name=%C3%84rzteschaft",
           "reachable": true,
           "titleMatch": 1,
@@ -2572,23 +1877,6 @@
           ],
           "notJobSignals": [],
           "bodySignature": "1boicos"
-        },
-        {
-          "url": "https://www.vitrea-gesundheit.ch/de/karriere/aerztinnenaerzte/2513102-dienstarzt-dienstarztin-a-50-100?name=%C3%84rzteschaft",
-          "reachable": true,
-          "titleMatch": 0.5,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 847,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "workload",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "i9hs90"
         }
       ],
       "companyName": "Kurhaus",
@@ -2622,7 +1910,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 806,
+          "words": 808,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2634,7 +1922,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "d0mdta"
+          "bodySignature": "6u9v0i"
         },
         {
           "url": "https://www.rhb.ch/de/job/quereinsteiger-in-zugbegleitung-100-samedan_2026-2260/",
@@ -2642,7 +1930,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 807,
+          "words": 809,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2654,7 +1942,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "wiok08"
+          "bodySignature": "1rksuhw"
         },
         {
           "url": "https://www.rhb.ch/de/job/spezialist-in-casemanagement-60_2026-2255/",
@@ -2662,7 +1950,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 803,
+          "words": 805,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2673,7 +1961,7 @@
           "notJobSignals": [
             "booking"
           ],
-          "bodySignature": "11w10yk"
+          "bodySignature": "1n9hawg"
         }
       ],
       "companyName": "Belvédère",
@@ -2781,100 +2069,40 @@
     },
     {
       "companyKey": "crestapalace",
-      "vacancyCount": 3,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 0,
-      "score": 0.85,
-      "verdict": "good",
-      "problems": [
-        "100% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
-      ],
-      "samples": [
-        {
-          "url": "https://www.hotelcareer.ch/jobs/cresta-palace-hotel-14426/commis-de-patisserie-f%C3%BCr-die-wintersaison-2026-2027-4038846?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 794,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "apply",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay",
-            "promo"
-          ],
-          "bodySignature": "agxgls"
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/cresta-palace-hotel-14426/front-office-agent-2818107?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 667,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "apply",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "booking",
-            "stay",
-            "promo",
-            "checkin"
-          ],
-          "bodySignature": "azswvs"
-        },
-        {
-          "url": "https://www.hotelcareer.ch/jobs/cresta-palace-hotel-14426/spezialit%C3%A4tenkoch-asiatisch-f%C3%BCr-die-wintersaison-2026-2027-4018563?rltr=comp",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 757,
-          "status": 200,
-          "jobLike": false,
-          "jobSignals": [
-            "apply",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay",
-            "promo"
-          ],
-          "bodySignature": "1qk3ufb"
-        }
-      ],
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
       "companyName": "Cresta Palace",
       "companyHost": "hotelcareer.ch",
       "platform": "hotelcareer.ch",
       "mode": "template",
-      "runErrors": [],
+      "runErrors": [
+        "https://www.hotelcareer.ch/jobs/cresta-palace-hotel-14426: HTTP 403"
+      ],
       "logoFound": true
     },
     {
       "companyKey": "csem",
-      "vacancyCount": 18,
+      "vacancyCount": 20,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 0,
       "contentfulRate": 1,
       "detailDistinctRate": 1,
       "locationSourceRate": 1,
-      "distinctRate": 0.111,
+      "distinctRate": 0.1,
       "jobLikeRate": 1,
-      "score": 0.627,
+      "score": 0.626,
       "verdict": "weak",
       "problems": [
         "titoli ripetuti: il selettore ha agganciato un elemento ricorrente",
@@ -2882,59 +2110,12 @@
       ],
       "samples": [
         {
-          "url": "https://www.csem.ch/en/jobs/194220",
+          "url": "https://www.csem.ch/en/jobs/195033",
           "reachable": true,
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 1004,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "gender-tag",
-            "hr"
-          ],
-          "notJobSignals": [
-            "stay",
-            "amenities"
-          ],
-          "bodySignature": "ywq9zk"
-        },
-        {
-          "url": "https://www.csem.ch/en/jobs/193103",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 875,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "workload",
-            "requirements",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [
-            "stay",
-            "amenities"
-          ],
-          "bodySignature": "ls9fqa"
-        },
-        {
-          "url": "https://www.csem.ch/en/jobs/192156",
-          "reachable": true,
-          "titleMatch": 0,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 1019,
+          "words": 769,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -2950,7 +2131,53 @@
             "stay",
             "amenities"
           ],
-          "bodySignature": "niiwt3"
+          "bodySignature": "tyo21i"
+        },
+        {
+          "url": "https://www.csem.ch/en/jobs/193851",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 1099,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay",
+            "amenities"
+          ],
+          "bodySignature": "y17d4w"
+        },
+        {
+          "url": "https://www.csem.ch/en/jobs/192908",
+          "reachable": true,
+          "titleMatch": 0,
+          "contentful": true,
+          "sourceBackedLocation": true,
+          "words": 873,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "requirements",
+            "duties",
+            "gender-tag"
+          ],
+          "notJobSignals": [
+            "stay",
+            "amenities"
+          ],
+          "bodySignature": "1unrfh4"
         }
       ],
       "companyName": "CSEM Landquart",
@@ -3183,89 +2410,6 @@
       "logoFound": true
     },
     {
-      "companyKey": "pantr-ch",
-      "vacancyCount": 8,
-      "sampled": 3,
-      "reachableRate": 1,
-      "titleMatchRate": 1,
-      "contentfulRate": 1,
-      "detailDistinctRate": 1,
-      "locationSourceRate": 1,
-      "distinctRate": 1,
-      "jobLikeRate": 1,
-      "score": 1,
-      "verdict": "good",
-      "problems": [],
-      "samples": [
-        {
-          "url": "https://pantr.ch/jobs/senior-assistant-wirtschaftspruefung-206/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 500,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "workload",
-            "duties",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "1fw9g04"
-        },
-        {
-          "url": "https://pantr.ch/jobs/senior-business-controller-196/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 578,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "workload",
-            "workplace"
-          ],
-          "notJobSignals": [
-            "promo"
-          ],
-          "bodySignature": "1luku8k"
-        },
-        {
-          "url": "https://pantr.ch/jobs/mandatsleitung-und-teamleitung-stellvertretung-149/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": true,
-          "words": 505,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "apply",
-            "cv",
-            "pay",
-            "workload",
-            "workplace"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "7vkq75"
-        }
-      ],
-      "companyName": "Pantr GmbH",
-      "companyHost": "pantr.ch",
-      "platform": null,
-      "mode": "template",
-      "runErrors": [],
-      "logoFound": true
-    },
-    {
       "companyKey": "tip-tel-services-ag",
       "vacancyCount": 2,
       "sampled": 2,
@@ -3398,7 +2542,7 @@
           "notJobSignals": [
             "stay"
           ],
-          "bodySignature": "10fhoml"
+          "bodySignature": "1l0pjfx"
         }
       ],
       "companyName": "Walker Bedachungen GmbH",
@@ -3410,7 +2554,7 @@
     },
     {
       "companyKey": "chronos-personalberatung",
-      "vacancyCount": 22,
+      "vacancyCount": 23,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
@@ -3424,57 +2568,57 @@
       "problems": [],
       "samples": [
         {
-          "url": "https://chronos-personalberatung.ch/jobdetail/gebietsverkaufsleiter-moblie-klima-kaelte-heizung-100-m-w-d/",
+          "url": "https://chronos-personalberatung.ch/jobdetail/disponent-lagerverantwortlicher-allrounder-100-m-w/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 684,
+          "words": 666,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
-            "pay",
+            "workload",
+            "duties",
+            "gender-tag",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "du2yvx"
+        },
+        {
+          "url": "https://chronos-personalberatung.ch/jobdetail/abteilungsleiter-lueftung-klima-kaelte-m-w-d-100/",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 821,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
             "workload",
             "duties",
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "tdpl"
+          "bodySignature": "2ez1kf"
         },
         {
-          "url": "https://chronos-personalberatung.ch/jobdetail/gebietsverkaufsleiter-hlk-und-filtrationstechnik-m-w/",
+          "url": "https://chronos-personalberatung.ch/jobdetail/projektlead-structural-engineering-100-m-w-d/",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 703,
+          "words": 700,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
             "apply",
-            "duties",
-            "gender-tag"
-          ],
-          "notJobSignals": [],
-          "bodySignature": "rf7x2b"
-        },
-        {
-          "url": "https://chronos-personalberatung.ch/jobdetail/anlagen-oder-maschinenfuehrer-4-schichtmodell-100-m-w-d/",
-          "reachable": true,
-          "titleMatch": 1,
-          "contentful": true,
-          "sourceBackedLocation": false,
-          "words": 746,
-          "status": 200,
-          "jobLike": true,
-          "jobSignals": [
-            "pay",
             "workload",
             "duties",
             "gender-tag"
           ],
           "notJobSignals": [],
-          "bodySignature": "eyoryz"
+          "bodySignature": "14cce5y"
         }
       ],
       "companyName": "CHRONOS Personalberatung GmbH",
@@ -3508,7 +2652,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 744,
+          "words": 746,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -3522,7 +2666,7 @@
             "stay",
             "promo"
           ],
-          "bodySignature": "1zlg5n"
+          "bodySignature": "ak3rtp"
         },
         {
           "url": "https://hanseisenring.ch/unternehmen/karriere/jobportal/sachbearbeitung-rechnungspruefung",
@@ -3530,7 +2674,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 747,
+          "words": 749,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -3545,7 +2689,7 @@
             "stay",
             "promo"
           ],
-          "bodySignature": "awnvdx"
+          "bodySignature": "l0y3hv"
         },
         {
           "url": "https://hanseisenring.ch/unternehmen/karriere/jobportal/sachbearbeitung-einzelkuechen",
@@ -3553,7 +2697,7 @@
           "titleMatch": 0,
           "contentful": true,
           "sourceBackedLocation": true,
-          "words": 736,
+          "words": 738,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -3567,7 +2711,7 @@
             "stay",
             "promo"
           ],
-          "bodySignature": "1phitoz"
+          "bodySignature": "1duzj5x"
         }
       ],
       "companyName": "Hans Eisenring AG",
@@ -3659,16 +2803,16 @@
     },
     {
       "companyKey": "capannaalzasca",
-      "vacancyCount": 3,
+      "vacancyCount": 4,
       "sampled": 3,
       "reachableRate": 1,
-      "titleMatchRate": 0.194,
+      "titleMatchRate": 0.167,
       "contentfulRate": 0,
       "detailDistinctRate": 1,
       "locationSourceRate": 0,
       "distinctRate": 1,
       "jobLikeRate": null,
-      "score": 0.518,
+      "score": 0.508,
       "verdict": "weak",
       "problems": [
         "i titoli estratti non corrispondono alla pagina ufficiale",
@@ -3692,7 +2836,7 @@
         {
           "url": "https://www.sac-cas.ch/fileadmin/Der_SAC/Stellenausschreibungen/FachspezialistIn_Ausbildung___Sicherheit_60-80__DE.pdf",
           "reachable": true,
-          "titleMatch": 0.25,
+          "titleMatch": 0.16666666666666666,
           "contentful": false,
           "sourceBackedLocation": false,
           "words": 7505,
@@ -3768,7 +2912,7 @@
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 746,
+          "words": 747,
           "status": 200,
           "jobLike": false,
           "jobSignals": [
@@ -3778,7 +2922,7 @@
             "booking",
             "promo"
           ],
-          "bodySignature": "3r2h"
+          "bodySignature": "1cm27z5"
         }
       ],
       "companyName": "Bibliothek PHGR",
@@ -3958,7 +3102,7 @@
     },
     {
       "companyKey": "albiniepitigliani",
-      "vacancyCount": 7,
+      "vacancyCount": 6,
       "sampled": 3,
       "reachableRate": 1,
       "titleMatchRate": 1,
@@ -4013,12 +3157,12 @@
           "bodySignature": "1136cb9"
         },
         {
-          "url": "https://albiniepitigliani.altamiraweb.com/annunci-lavoro/Operativo-Terra-Import-Operations-Ground-Italy-Italy-Milano-686226761.htm",
+          "url": "https://albiniepitigliani.altamiraweb.com/annunci-lavoro/Operativo-Spedizioni-Via-Terra-Reparto-FTL-LTL-Operations-Ground-Italy-Italy-Milano-686224216.htm",
           "reachable": true,
           "titleMatch": 1,
           "contentful": true,
           "sourceBackedLocation": false,
-          "words": 489,
+          "words": 492,
           "status": 200,
           "jobLike": true,
           "jobSignals": [
@@ -4029,9 +3173,10 @@
             "duties"
           ],
           "notJobSignals": [
+            "booking",
             "ecommerce"
           ],
-          "bodySignature": "1a0jdgy"
+          "bodySignature": "61gqjq"
         }
       ],
       "companyName": "Albini e Pitigliani Spa",
@@ -4341,6 +3486,811 @@
       "mode": "template",
       "runErrors": [],
       "logoFound": false
+    },
+    {
+      "companyKey": "grandalavorosocconsrl",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 0.9,
+      "jobLikeRate": 1,
+      "score": 0.991,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://grandalavorosocconsrl.altamiraweb.com/jobs/ADDETTO-A-RECEPTION-E-GESTIONE-OPERATIVA-DEL-SERVIZIO-SALA-ALBA-CN-Bar-Ristorazione-Attivit%C3%A0-alberghiere-Alba-598600532.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 311,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "booking"
+          ],
+          "bodySignature": "iast0a"
+        },
+        {
+          "url": "https://grandalavorosocconsrl.altamiraweb.com/jobs/IMPIEGATO-A-CONTABILE-ALBA-CN-Amministrazione-Contabilit%C3%A0-Alba-595976698.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 240,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "tzazht"
+        },
+        {
+          "url": "https://grandalavorosocconsrl.altamiraweb.com/jobs/APPRENDISTA-IMPIEGATO-A-AMMINISTRATIVO-A-SAVIGLIANO-CN-Amministrazione-Contabilit%C3%A0-Savigliano-591456055.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 226,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "bi9kt"
+        }
+      ],
+      "companyName": "Granda Lavoro Soc. Cons R.L",
+      "companyHost": "grandalavorosocconsrl.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "kafi-shop",
+      "vacancyCount": 0,
+      "sampled": 0,
+      "reachableRate": 0,
+      "titleMatchRate": 0,
+      "contentfulRate": 0,
+      "detailDistinctRate": 0,
+      "locationSourceRate": 0,
+      "distinctRate": 0,
+      "jobLikeRate": null,
+      "score": 0,
+      "verdict": "insufficient",
+      "problems": [],
+      "samples": [],
+      "companyName": "Kafi-Shop Imhof KLG",
+      "companyHost": "kafi-shop.ch",
+      "platform": null,
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "leolandia",
+      "vacancyCount": 4,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://leolandia.altamiraweb.com/annunci-lavoro/MAGAZZINIERE-JUNIOR-SETTORE-RISTORAZIONE-Magazzino-Capriate-San-Gervasio-689115299.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 493,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "16cbqe7"
+        },
+        {
+          "url": "https://leolandia.altamiraweb.com/annunci-lavoro/MAGAZZINIERE-SETTORE-RISTORAZIONE-Magazzino-Capriate-San-Gervasio-686160075.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 463,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "6zwxa5"
+        },
+        {
+          "url": "https://leolandia.altamiraweb.com/annunci-lavoro/ASPIRANTE-MANUTENTORE-Manutenzione-Capriate-San-Gervasio-683887862.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 489,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "workload",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1hmqxog"
+        }
+      ],
+      "companyName": "Leolandia Spa",
+      "companyHost": "leolandia.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "logotelspa",
+      "vacancyCount": 4,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://logotelspa.altamiraweb.com/annunci-lavoro/Video-Editor-Junior-Stage-Design-Marketing-amp-Communication-ITALIA-MILANO-689437694.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 854,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1rhfn5l"
+        },
+        {
+          "url": "https://logotelspa.altamiraweb.com/annunci-lavoro/Digital-Content-Manager-Junior-Stage-Community-amp-Content-ITALIA-MILANO-558543418.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 718,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "b5s331"
+        },
+        {
+          "url": "https://logotelspa.altamiraweb.com/annunci-lavoro/Cybersecurity-Lead-Digital-Solutions-amp-Platform-ITALIA-MILANO-689425172.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1235,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "pay",
+            "requirements",
+            "duties",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1x6yrsi"
+        }
+      ],
+      "companyName": "Logotel Spa",
+      "companyHost": "logotelspa.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "luxurylivinggroup",
+      "vacancyCount": 6,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.889,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.967,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://luxurylivinggroup.altamiraweb.com/jobs/Addetto_Controllo_Qualit%C3%A0-OPERATIONS-IT_Italy_Forl%C3%AC-691818157.htm",
+          "reachable": true,
+          "titleMatch": 0.6666666666666666,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 556,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workload",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ],
+          "bodySignature": "yox9sg"
+        },
+        {
+          "url": "https://luxurylivinggroup.altamiraweb.com/jobs/Sales_Associate_Ralph_Lauren_Home-RETAIL-IT_Italy_Milano-688375624.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 958,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "knzg0y"
+        },
+        {
+          "url": "https://luxurylivinggroup.altamiraweb.com/jobs/Store_Manager_Ralph_Lauren_home-RETAIL-IT_Italy_Milano-671172598.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 1064,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "workload",
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "kgzplt"
+        }
+      ],
+      "companyName": "Luxury Living Group",
+      "companyHost": "luxurylivinggroup.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": false
+    },
+    {
+      "companyKey": "mutti",
+      "vacancyCount": 9,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 0.333,
+      "score": 0.9,
+      "verdict": "good",
+      "problems": [
+        "67% delle pagine di dettaglio non legge come annuncio di lavoro: probabile contenuto promozionale o editoriale"
+      ],
+      "samples": [
+        {
+          "url": "https://mutti.altamiraweb.com/annunci-lavoro/Manutentore-elettrico-Oliveto-Citra-PRODUCTION-Italia-Salerno-692886249.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 480,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "apply"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "mcsaip"
+        },
+        {
+          "url": "https://mutti.altamiraweb.com/annunci-lavoro/Addetto-a-alla-Logistica-LOGISTICS-Italia-Parma-665957284.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 371,
+          "status": 200,
+          "jobLike": false,
+          "jobSignals": [
+            "contract"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1pll8ze"
+        },
+        {
+          "url": "https://mutti.altamiraweb.com/annunci-lavoro/Operatore-trice-di-linea-Tempo-Determinato-Oliveto-Citra-SA-PRODUCTION-Italia-Salerno-308210491.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 228,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "contract",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1ph3glk"
+        }
+      ],
+      "companyName": "Mutti Spa",
+      "companyHost": "mutti.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "niederdorfitalia",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://niederdorfitalia.altamiraweb.com/annunci-lavoro/ELECTRONIC-TEST-SYSTEMS-ENGINEER-Area-tecnica-Ricerca-e-Sviluppo-Italia-Veneto-Vicenza-691556419.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 712,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "contract",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "gg2tj7"
+        },
+        {
+          "url": "https://niederdorfitalia.altamiraweb.com/annunci-lavoro/ASSISTENTE-di-DIREZIONE-Segretariato-Italia-Veneto-Verona-685436693.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 490,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1g3uei4"
+        },
+        {
+          "url": "https://niederdorfitalia.altamiraweb.com/annunci-lavoro/MECHANICAL-R-D-INNOVATION-ENGINEER-Area-tecnica-Ricerca-e-Sviluppo-Italia-Veneto-Verona-666057178.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 553,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "workplace",
+            "hr"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1ot49rm"
+        }
+      ],
+      "companyName": "NIEDERDORF ITALIA S.R.L.",
+      "companyHost": "niederdorfitalia.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "pewexalpasrl",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 0.978,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.993,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://pewexalpasrl.altamiraweb.com/annunci-lavoro/Addetto-a-Ufficio-Sicurezza-Security-Loss-Prevention-Vendita-Italia-Roma-691084512.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 605,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "pay",
+            "requirements",
+            "offer"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "10q5a1a"
+        },
+        {
+          "url": "https://pewexalpasrl.altamiraweb.com/annunci-lavoro/Capo-Reparto-Safo-Nuova-apertura-Aventino-Viale-Aventino-88-00153-Roma-RM-Vendita-Italia-Roma-668056702.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 220,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "19tubm5"
+        },
+        {
+          "url": "https://pewexalpasrl.altamiraweb.com/annunci-lavoro/Capo-Reparto-Ortofrutta-Nuova-apertura-Rieti-Via-Salaria-per-L-Aquila-Km-89-500-Localit%C3%A0-Villa-Stoli-02100-Rieti-RI-Vendita-Italia-Roma-668056368.htm",
+          "reachable": true,
+          "titleMatch": 0.9333333333333333,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 238,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "workload",
+            "requirements"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "2mryii"
+        }
+      ],
+      "companyName": "Pewex Alpa Srl",
+      "companyHost": "pewexalpasrl.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "pininfarina",
+      "vacancyCount": 6,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://pininfarina.altamiraweb.com/jobs/Invoicing-Specialist-Intern-SALES-amp-MARKETING-DEPARTMENT-Cambiano-689846510.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 479,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1iumkpf"
+        },
+        {
+          "url": "https://pininfarina.altamiraweb.com/jobs/Digital-Transformation-and-A-I-Specialist-IT-OFFICE-Cambiano-576375388.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 488,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "pay",
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1p5gnlh"
+        },
+        {
+          "url": "https://pininfarina.altamiraweb.com/jobs/Process-Engineer-Internship-MANUFACTURING-ENGINEERING-Cambiano-679034785.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 422,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "cv",
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "ft6h9v"
+        }
+      ],
+      "companyName": "pininfarina",
+      "companyHost": "pininfarina.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "telefonoazzurro",
+      "vacancyCount": 10,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 0,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 0.83,
+      "verdict": "good",
+      "problems": [
+        "pagine di dettaglio senza testo: probabile render lato client"
+      ],
+      "samples": [
+        {
+          "url": "https://telefonoazzurro.altamiraweb.com/Annunci/Offerte_di_lavoro_Assistente_di_Presidenza_ROMA_226283058.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 568,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1wfsi8u"
+        },
+        {
+          "url": "https://telefonoazzurro.altamiraweb.com/Annunci/Offerte_di_lavoro_Esperto_di_cybersecurity_243112006.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 607,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "requirements",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "164hltv"
+        },
+        {
+          "url": "https://telefonoazzurro.altamiraweb.com/Annunci/Offerte_di_lavoro_Operatore_Locale_di_Progetto_OLP_TREVISO_225242474.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": false,
+          "sourceBackedLocation": false,
+          "words": 289,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "requirements",
+            "duties",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "stay"
+          ],
+          "bodySignature": "2abseh"
+        }
+      ],
+      "companyName": "telefonoazzurro",
+      "companyHost": "telefonoazzurro.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
+    },
+    {
+      "companyKey": "trenord",
+      "vacancyCount": 9,
+      "sampled": 3,
+      "reachableRate": 1,
+      "titleMatchRate": 1,
+      "contentfulRate": 1,
+      "detailDistinctRate": 1,
+      "locationSourceRate": 0,
+      "distinctRate": 1,
+      "jobLikeRate": 1,
+      "score": 1,
+      "verdict": "good",
+      "problems": [],
+      "samples": [
+        {
+          "url": "https://trenord.altamiraweb.com/Annunci/Operatori_e_Tecnici_Manutenzione_Rotabili-276659141.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 351,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [
+            "ecommerce"
+          ],
+          "bodySignature": "wsoqzc"
+        },
+        {
+          "url": "https://trenord.altamiraweb.com/Annunci/Addetto_a_Modelli_e_Integrazione_Tariffaria-276212383.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 417,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "7esoos"
+        },
+        {
+          "url": "https://trenord.altamiraweb.com/Annunci/HR_Talent_Development_Specialist-270548349.htm",
+          "reachable": true,
+          "titleMatch": 1,
+          "contentful": true,
+          "sourceBackedLocation": false,
+          "words": 326,
+          "status": 200,
+          "jobLike": true,
+          "jobSignals": [
+            "apply",
+            "contract",
+            "requirements",
+            "offer",
+            "workplace"
+          ],
+          "notJobSignals": [],
+          "bodySignature": "1t03xf5"
+        }
+      ],
+      "companyName": "trenord",
+      "companyHost": "trenord.altamiraweb.com",
+      "platform": "altamiraweb.com",
+      "mode": "template",
+      "runErrors": [],
+      "logoFound": true
     }
   ]
 }

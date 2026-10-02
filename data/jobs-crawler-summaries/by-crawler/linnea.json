@@ -1,59 +1,18 @@
 {
   "key": "linnea",
   "label": "Linnea SA",
-  "generatedAt": "2026-09-29T21:10:37.598Z",
+  "generatedAt": "2026-10-01T21:10:22.842Z",
   "total": 0,
   "discovered": 0,
   "written": 0,
   "sourceProvenEmpty": true,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "url": "https://www.linnea.ch/careers/?position=1",
-      "applyUrl": "https://www.linnea.ch/careers/",
-      "title": "ERP System Administrator and IT Project Lead",
-      "company": "Linnea SA",
-      "companyKey": "linnea",
-      "location": "Riazzino",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "erp-system-administrator-and-it-project-lead-linnea",
-      "category": "technology",
-      "datePosted": "2026-03-29",
-      "source": "linnea-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Farmaceutica / Ingredienti botanici",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Riazzino"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 35",
-      "postalCode": "6595",
-      "addressLocality": "Riazzino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "id": "linnea-928d009f37b0",
-      "firstSeenAt": "2026-04-13T22:01:51.867Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [],
-  "durationMs": 11244
+  "durationMs": 9593
 }

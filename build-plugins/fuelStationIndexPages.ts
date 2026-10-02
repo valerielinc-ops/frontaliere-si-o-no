@@ -202,6 +202,8 @@ export interface SwissStationLeaf {
   /** Daily per-litre prices, kept together so the map can switch fuel without a new build. */
   readonly benzinaPriceChf?: number | null;
   readonly dieselPriceChf?: number | null;
+  readonly updatedAt?: string | null;
+  readonly dieselUpdatedAt?: string | null;
 }
 
 /** One Italian station leaf. */
@@ -400,7 +402,7 @@ const COPY_IT: IndexCopy = {
     label: 'Consiglio frontaliere',
     bodyByKind: (kind, fuelLabel) => {
       if (kind === 'swissStations') {
-        return `Scegli la stazione vicino al tuo valico: la differenza fra il distributore più caro e più economico della stessa zona è spesso di 5–10 centesimi/litro. Su un pendolarismo annuale può valere 500–1000 CHF.`;
+        return `Confronta lo stesso carburante e controlla la data di acquisizione. Valuta il risparmio sul pieno insieme ai costi della deviazione dal tuo percorso.`;
       }
       if (kind === 'italianStations') {
         return `Confronta il prezzo italiano del ${fuelLabel.toLowerCase()} con la stazione svizzera del tuo valico prima di partire: lo spread CHF/EUR cambia ogni giorno e ribalta facilmente la convenienza.`;
@@ -444,7 +446,7 @@ const COPY_EN: IndexCopy = {
     label: 'Commuter tip',
     bodyByKind: (kind, fuelLabel) => {
       if (kind === 'swissStations') {
-        return `Pick the right station near your crossing: the gap between the cheapest and the priciest pump in the same zone is often CHF 0.05–0.10 per litre. Over a year of commuting that’s CHF 500–1000.`;
+        return `Compare the same fuel and check collection dates. Weigh the saving on your full tank against the cost of any detour from your route.`;
       }
       if (kind === 'italianStations') {
         return `Compare today’s Italian ${fuelLabel.toLowerCase()} with the Swiss station at your usual crossing before driving — the CHF/EUR spread shifts daily and can flip the convenient side.`;
@@ -488,7 +490,7 @@ const COPY_DE: IndexCopy = {
     label: 'Grenzgänger-Tipp',
     bodyByKind: (kind, fuelLabel) => {
       if (kind === 'swissStations') {
-        return `Wähle die richtige Tankstelle nah am Grenzübergang: der Unterschied zwischen günstigster und teuerster Zapfsäule in derselben Region liegt oft bei CHF 0.05–0.10 pro Liter — übers Jahr gerechnet sind das CHF 500–1000.`;
+        return `Vergleiche denselben Kraftstoff und die Abrufdaten. Berücksichtige beim Preisvorteil auch die tatsächlichen Umwegkosten.`;
       }
       if (kind === 'italianStations') {
         return `Vergleiche den italienischen Preis für ${fuelLabel} mit der Schweizer Tankstelle deines Übergangs, bevor du losfährst: der CHF/EUR-Kurs verändert die günstigere Seite täglich.`;
@@ -532,7 +534,7 @@ const COPY_FR: IndexCopy = {
     label: 'Astuce frontalier',
     bodyByKind: (kind, fuelLabel) => {
       if (kind === 'swissStations') {
-        return `Choisissez la station proche de votre passage : l’écart entre la pompe la moins chère et la plus chère d’une même zone atteint souvent CHF 0.05–0.10 le litre. Sur une année de trajets, cela représente CHF 500–1000.`;
+        return `Comparez le même carburant et les dates d’acquisition. Évaluez l’économie sur le plein avec les frais réels du détour.`;
       }
       if (kind === 'italianStations') {
         return `Comparez le prix italien ${frFuelOf(fuelLabel)} avec la station suisse de votre passage avant de partir : le taux CHF/EUR évolue chaque jour et fait basculer le côté avantageux.`;
@@ -580,35 +582,35 @@ export function titleFor(
   if (kind === 'swissStations') {
     if (locale === 'it') return {
       title: `Tutte le stazioni ${lower} in Ticino — indice per zona`,
-      description: `Indice completo delle stazioni di rifornimento ${lower} monitorate in Ticino, raggruppate per zona (Chiasso, Mendrisio, Lugano, Bellinzona, Locarno). Aggiornamento giornaliero.`,
+      description: `Indice completo delle stazioni di rifornimento ${lower} monitorate in Ticino, raggruppate per zona (Chiasso, Mendrisio, Lugano, Bellinzona, Locarno). Prezzi segnalati dagli utenti TCS.`,
       h1: `Stazioni ${lower} in Ticino — indice completo`,
-      lede: `Sfoglia ogni stazione di rifornimento ${lower} che monitoriamo in Ticino, raggruppata per zona di confine. Ogni voce porta alla pagina giornaliera con prezzo aggiornato, posizione nella classifica della zona e contesto frontaliere.`,
-      methodology: `I prezzi provengono da TCS Benzinpreis (Touring Club Svizzero), che aggrega i listini ufficiali delle stazioni di rifornimento in Svizzera. La nostra pipeline li mappa per zona ticinese, dedupla le voci con stesso brand e indirizzo, e pubblica una pagina dedicata per ogni stazione monitorata. L'indice qui sotto raggruppa le stazioni per zona di confine così puoi confrontare a colpo d'occhio le opzioni più vicine al tuo valico abituale. Se la stazione che cerchi non compare, è possibile che TCS non l'abbia ancora rilevata oggi: torna domani — la lista viene rigenerata ogni notte.`,
-      frontaliereContext: `Per chi attraversa ogni giorno il confine Italia-Svizzera, il prezzo del ${lower} è una voce di spesa ricorrente. Confrontare le stazioni vicine al tuo valico — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — può far risparmiare 5-10 centesimi al litro: su un pieno da 50 litri sono 2,50-5 CHF, e su 200 pieni l'anno (lavoro 5 giorni a settimana) la differenza arriva a 500-1000 CHF. Questa pagina rende facile mappare il "tuo" set di stazioni: scegli la zona del tuo valico abituale e confronta le opzioni in base al brand, all'indirizzo e al prezzo del giorno.`,
+      lede: `Sfoglia ogni stazione di rifornimento ${lower} che monitoriamo in Ticino, raggruppata per zona di confine. Ogni voce porta alla pagina giornaliera con il prezzo rilevato, posizione nella classifica della zona e contesto frontaliere.`,
+      methodology: `I prezzi provengono da TCS Benzinpreis (Touring Club Svizzero), che raccoglie prezzi segnalati dagli utenti delle stazioni di rifornimento in Svizzera. La nostra pipeline li mappa per zona ticinese, dedupla le voci con stesso brand e indirizzo, e pubblica una pagina dedicata per ogni stazione monitorata. L'indice qui sotto raggruppa le stazioni per zona di confine così puoi confrontare a colpo d'occhio le opzioni più vicine al tuo valico abituale. Una stazione senza prezzo disponibile per questo carburante non entra nella lista. La data di acquisizione indica quando il dato è stato letto, non quando il gestore ha cambiato prezzo. Rigenerare la pagina non aggiorna il campione: controlla sempre il prezzo alla pompa.`,
+      frontaliereContext: `Per chi attraversa il confine Italia-Svizzera, il carburante è una spesa da confrontare sul percorso reale. Esempio ipotetico: 220 giorni con 60 km al giorno e un consumo di 6 litri ogni 100 km corrispondono a 792 litri annui. Una differenza di 0,10 CHF/litro su quel consumo vale 79,20 CHF, prima di eventuali deviazioni. Non sono medie misurate dei frontalieri né una promessa di risparmio. Per decidere, usa i tuoi chilometri e consumi, confronta lo stesso carburante in una valuta comune con un cambio datato e sottrai carburante, pedaggi e tempo della deviazione. La mappa aiuta a scegliere stazioni vicine al tragitto; indirizzo, modalità di servizio e data del dato restano parte del confronto.`,
     };
     if (locale === 'en') return {
       title: `All Swiss ${lower} stations — Ticino index`,
-      description: `Complete browseable index of ${lower} stations we monitor in Ticino, grouped by border zone. Updated daily from TCS Benzinpreis.`,
+      description: `Complete browseable index of ${lower} stations we monitor in Ticino, grouped by border zone. User-reported TCS prices.`,
       h1: `Swiss ${lower} stations — full Ticino index`,
-      lede: `Browse every Swiss ${lower} station we monitor in Ticino, grouped by border zone. Each entry links to the daily page with the latest price, ranking in the zone, and cross-border commuter context.`,
-      methodology: `Prices come from TCS Benzinpreis (Touring Club Suisse), which aggregates official listings from Swiss stations. Our pipeline maps each station to its Ticino border zone, deduplicates same-brand same-address entries, and publishes one dedicated page per station with daily-fresh data. The index below groups stations by zone so you can compare options near your usual border crossing at a glance. If the station you are looking for is missing, TCS may not have observed it today — the list is regenerated every night.`,
-      frontaliereContext: `For Italian-resident workers crossing into Switzerland every day, the ${lower} price is a recurring expense. Comparing stations near your crossing — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — can save CHF 0.05-0.10 per litre: on a 50-litre tank that is CHF 2.50-5, and across 200 fill-ups per year (5-day commute) the gap grows to CHF 500-1000. This page makes it easy to map your personal station set: pick the zone of your usual border crossing and compare options by brand, address, and today's price.`,
+      lede: `Browse every Swiss ${lower} station we monitor in Ticino, grouped by border zone. Each entry links to the daily page with the observed price, ranking in the zone, and cross-border commuter context.`,
+      methodology: `Prices come from TCS Benzinpreis (Touring Club Suisse), which collects user-reported prices for Swiss stations. Our pipeline maps each station to its Ticino border zone, deduplicates same-brand same-address entries, and publishes one dedicated page per station with the available observations. The index below groups stations by zone so you can compare options near your usual border crossing at a glance. A station without an available price for this fuel is not listed. Collection time indicates when the data was read, not when the operator changed its price. Rebuilding this page does not refresh the sample: always check the price at the pump.`,
+      frontaliereContext: `For workers crossing the Italy-Switzerland border, fuel costs should be compared on their actual route. Hypothetical example: 220 days at 60 km per day and 6 litres per 100 km mean 792 litres per year. A CHF 0.10/litre difference over that volume amounts to CHF 79.20 before detour costs. These are assumptions, not measured commuter averages or promised savings. Use your own distance and consumption, compare the same fuel in one currency with a dated exchange rate, and subtract fuel, tolls and time added by the detour. The map helps locate stations along your route; address, service mode and collection date remain part of the comparison.`,
     };
     if (locale === 'de') return {
       title: `Alle ${lower}-Tankstellen — Tessin-Index`,
-      description: `Vollständiger Index der von uns überwachten ${lower}-Tankstellen im Tessin, nach Grenzregion gruppiert. Tägliche Aktualisierung über TCS Benzinpreis.`,
+      description: `Vollständiger Index der von uns überwachten ${lower}-Tankstellen im Tessin, nach Grenzregion gruppiert. Preisangaben von TCS-Nutzern.`,
       h1: `${fuelLabel}-Tankstellen Tessin — vollständiger Index`,
-      lede: `Durchsuche jede ${lower}-Tankstelle, die wir im Tessin überwachen, gruppiert nach Grenzregion. Jeder Eintrag verlinkt auf die tagesaktuelle Seite mit Preis, Ranking in der Region und Grenzgänger-Kontext.`,
-      methodology: `Die Preise stammen von TCS Benzinpreis (Touring Club Schweiz), der die offiziellen Listen der Schweizer Tankstellen bündelt. Unsere Pipeline ordnet jede Tankstelle ihrer Tessiner Grenzregion zu, entfernt Duplikate mit derselben Marke und Adresse und veröffentlicht für jede überwachte Station eine eigene Seite mit tagesaktuellen Daten. Der Index unten gruppiert die Stationen nach Region, sodass du auf einen Blick die nächstgelegenen Optionen für deinen Grenzübergang vergleichen kannst. Fehlt eine Station, hat TCS sie heute noch nicht erfasst — die Liste wird jede Nacht neu erstellt.`,
-      frontaliereContext: `Für italienische Grenzgänger, die täglich in die Schweiz pendeln, ist der ${lower}-Preis eine wiederkehrende Ausgabe. Der Vergleich der Stationen in der Nähe deines Übergangs — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — kann CHF 0.05-0.10 pro Liter sparen: bei 50 Litern sind das CHF 2.50-5, und auf 200 Tankfüllungen pro Jahr summiert sich die Lücke auf CHF 500-1000. Diese Seite hilft dir, dein persönliches Stations-Set zusammenzustellen: wähle die Region deines üblichen Grenzübergangs und vergleiche Optionen nach Marke, Adresse und heutigem Preis.`,
+      lede: `Durchsuche jede ${lower}-Tankstelle, die wir im Tessin überwachen, gruppiert nach Grenzregion. Jeder Eintrag verlinkt auf die Seite mit erfasstem Preis, Ranking in der Region und Grenzgänger-Kontext.`,
+      methodology: `Die Preise stammen von TCS Benzinpreis (Touring Club Schweiz), der Preisangaben von Nutzern für Schweizer Tankstellen sammelt. Unsere Pipeline ordnet jede Tankstelle ihrer Tessiner Grenzregion zu, entfernt Duplikate mit derselben Marke und Adresse und veröffentlicht für jede überwachte Station eine eigene Seite mit den verfügbaren Angaben. Der Index unten gruppiert die Stationen nach Region, sodass du auf einen Blick die nächstgelegenen Optionen für deinen Grenzübergang vergleichen kannst. Eine Tankstelle ohne verfügbaren Preis für diesen Kraftstoff wird nicht aufgelistet. Die Abrufzeit bezeichnet das Lesen der Daten, nicht die Preisänderung durch den Betreiber. Ein Neuaufbau der Seite erneuert die Stichprobe nicht: prüfen Sie den Preis an der Zapfsäule.`,
+      frontaliereContext: `Für Grenzgänger sind Treibstoffkosten anhand der tatsächlichen Strecke zu vergleichen. Hypothetisches Beispiel: 220 Tage mit 60 km täglich und 6 Litern je 100 km ergeben 792 Liter im Jahr. Ein Unterschied von CHF 0,10 pro Liter entspricht dabei CHF 79,20 vor Umwegkosten. Das sind Annahmen, keine gemessenen Durchschnittswerte oder Sparversprechen. Verwenden Sie Ihre eigenen Kilometer und Verbrauchswerte, vergleichen Sie denselben Kraftstoff in einer Währung mit datiertem Wechselkurs und ziehen Sie zusätzliche Kosten für Kraftstoff, Maut und Zeit ab. Die Karte zeigt Stationen am Weg; Adresse, Bedienungsart und Abrufdatum gehören ebenfalls zum Vergleich.`,
     };
     return {
       title: `Toutes les stations ${lower} en Suisse — index Tessin`,
-      description: `Index complet des stations ${lower} surveillées au Tessin, groupées par zone frontalière. Mise à jour quotidienne via TCS Benzinpreis.`,
+      description: `Index complet des stations ${lower} surveillées au Tessin, groupées par zone frontalière. Prix signalés par les utilisateurs TCS.`,
       h1: `Stations ${lower} au Tessin — index complet`,
-      lede: `Parcourez chaque station ${lower} que nous surveillons au Tessin, groupée par zone frontalière. Chaque entrée mène à la page quotidienne avec le prix du jour, le classement dans la zone et le contexte frontalier.`,
-      methodology: `Les prix proviennent de TCS Benzinpreis (Touring Club Suisse), qui rassemble les tarifs officiels des stations suisses. Notre pipeline associe chaque station à sa zone tessinoise, déduplique les entrées de même marque et adresse, et publie une page dédiée par station avec des données quotidiennes. L'index ci-dessous groupe les stations par zone afin que vous puissiez comparer les options proches de votre passage habituel. Si la station recherchée manque, TCS ne l'a peut-être pas relevée aujourd'hui — la liste est régénérée chaque nuit.`,
-      frontaliereContext: `Pour les frontaliers italiens qui passent chaque jour en Suisse, le prix ${frFuelOf(lower)} est une dépense récurrente. Comparer les stations proches de votre passage — Chiasso, Brogeda, Gaggiolo, Stabio, Bizzarone — peut faire économiser CHF 0.05-0.10 le litre : sur un plein de 50 litres, c'est CHF 2.50-5, et sur 200 pleins par an, l'écart atteint CHF 500-1000. Cette page facilite la cartographie de votre ensemble personnel : choisissez la zone de votre passage habituel et comparez les options par marque, adresse et prix du jour.`,
+      lede: `Parcourez chaque station ${lower} que nous surveillons au Tessin, groupée par zone frontalière. Chaque entrée mène à la page quotidienne avec le prix relevé, le classement dans la zone et le contexte frontalier.`,
+      methodology: `Les prix proviennent de TCS Benzinpreis (Touring Club Suisse), qui recueille les prix signalés par les utilisateurs des stations suisses. Notre pipeline associe chaque station à sa zone tessinoise, déduplique les entrées de même marque et adresse, et publie une page dédiée par station avec des données quotidiennes. L'index ci-dessous groupe les stations par zone afin que vous puissiez comparer les options proches de votre passage habituel. Une station sans prix disponible pour ce carburant n’est pas listée. L’acquisition indique quand les données ont été lues, pas quand le gestionnaire a modifié son tarif. La régénération de la page ne renouvelle pas l’échantillon : vérifiez le prix à la pompe.`,
+      frontaliereContext: `Pour les frontaliers, le carburant se compare sur le trajet réel. Exemple hypothétique : 220 jours à 60 km par jour et 6 litres aux 100 km donnent 792 litres par an. Un écart de 0,10 CHF/litre sur ce volume représente 79,20 CHF avant les frais du détour. Ce sont des hypothèses, pas des moyennes mesurées ni une promesse d’économie. Utilisez vos kilomètres et consommations, comparez le même carburant dans une devise commune avec un taux de change daté, puis déduisez le carburant, les péages et le temps supplémentaires. La carte aide à repérer des stations sur le trajet ; adresse, mode de service et date du relevé complètent le calcul.`,
     };
   }
   if (kind === 'italianStations') {
@@ -703,6 +705,7 @@ export interface GroupedAnchors {
     readonly logoUrl?: string | null;
     /** Alt text for the logo `<img>` (typically the brand or station name). */
     readonly logoAlt?: string;
+    readonly collectedAt?: string | null;
     /** Optional station payload for the interactive Swiss price map. */
     readonly mapStation?: {
       readonly id: string;
@@ -716,6 +719,7 @@ export interface GroupedAnchors {
       readonly lng: number;
       readonly benzinaPriceChf: number | null;
       readonly dieselPriceChf: number | null;
+      readonly collectedAt: string | null;
     };
   }>;
   /** Stable id for the zone-chip jump nav and the H3 anchor target. */
@@ -813,21 +817,21 @@ function buildTagline(
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel].toLowerCase();
   const n = totalAnchors;
   if (locale === 'it') {
-    if (kind === 'swissStations') return `${n} stazioni ${fuelLabel} in Ticino, ${totalGroups} zone di confine. Aggiornamento giornaliero TCS.`;
+    if (kind === 'swissStations') return `${n} stazioni ${fuelLabel} in Ticino, ${totalGroups} zone di confine. Campione TCS.`;
     if (kind === 'italianStations') return `${n} stazioni ${fuelLabel} nelle città italiane di confine. Prezzi MIMIT aggiornati ogni giorno.`;
     return `${n} città italiane di confine seguite ogni giorno con il prezzo medio ${fuelLabel}.`;
   }
   if (locale === 'en') {
-    if (kind === 'swissStations') return `${n} Swiss ${fuelLabel} stations across ${totalGroups} border zones. TCS data refreshed daily.`;
+    if (kind === 'swissStations') return `${n} Swiss ${fuelLabel} stations across ${totalGroups} border zones. TCS sample.`;
     if (kind === 'italianStations') return `${n} Italian ${fuelLabel} stations across the border-zone cities. MIMIT prices refreshed daily.`;
     return `${n} Italian border cities tracked daily with the average ${fuelLabel} price.`;
   }
   if (locale === 'de') {
-    if (kind === 'swissStations') return `${n} Schweizer ${fuelLabel}-Tankstellen in ${totalGroups} Grenzregionen. TCS-Daten, täglich aktualisiert.`;
+    if (kind === 'swissStations') return `${n} Schweizer ${fuelLabel}-Tankstellen in ${totalGroups} Grenzregionen. TCS-Stichprobe.`;
     if (kind === 'italianStations') return `${n} italienische ${fuelLabel}-Tankstellen in den Grenzstädten. MIMIT-Preise, täglich aktualisiert.`;
     return `${n} italienische Grenzstädte mit täglichem Durchschnittspreis für ${fuelLabel}.`;
   }
-  if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Données TCS, mise à jour quotidienne.`;
+  if (kind === 'swissStations') return `${n} stations ${fuelLabel} en Suisse sur ${totalGroups} zones frontalières. Échantillon TCS.`;
   if (kind === 'italianStations') return `${n} stations italiennes ${fuelLabel} dans les villes frontalières. Prix MIMIT, mise à jour quotidienne.`;
   return `${n} villes italiennes frontalières suivies chaque jour avec le prix moyen ${frFuelOf(fuelLabel)}.`;
 }
@@ -954,30 +958,30 @@ interface FuelMapCopy {
 const FUEL_MAP_COPY: Record<FuelDailyLocale, FuelMapCopy> = {
   it: {
     title: 'Mappa prezzi carburante in Ticino',
-    description: 'Tutte le stazioni svizzere sulla mappa. I prezzi al litro sono quelli del giorno e diventano interattivi dopo il caricamento.',
+    description: 'Stazioni del campione TCS sulla mappa. Controlla la data di acquisizione e verifica il prezzo alla pompa.',
     noScript: 'La mappa interattiva richiede JavaScript. L’elenco completo delle stazioni e dei relativi link resta disponibile qui sotto.',
-    updatedLabel: 'Prezzi del giorno',
+    updatedLabel: 'Acquisizione dati',
     stationNoun: (count) => (count === 1 ? 'stazione mappata' : 'stazioni mappate'),
   },
   en: {
     title: 'Ticino fuel-price map',
-    description: 'Every Swiss station on one map. Per-litre prices are today’s readings and become interactive after loading.',
+    description: 'Stations from the TCS sample on one map. Check the collection date and confirm the price at the pump.',
     noScript: 'The interactive map requires JavaScript. The complete station list and its detail links remain available below.',
-    updatedLabel: 'Today’s prices',
+    updatedLabel: 'Data collection',
     stationNoun: (count) => (count === 1 ? 'station mapped' : 'stations mapped'),
   },
   de: {
     title: 'Karte der Treibstoffpreise im Tessin',
-    description: 'Alle Schweizer Tankstellen auf einer Karte. Die Literpreise stammen vom heutigen Stand und werden nach dem Laden interaktiv.',
+    description: 'Tankstellen der TCS-Stichprobe auf einer Karte. Prüfen Sie die Abrufzeit und den Preis an der Zapfsäule.',
     noScript: 'Die interaktive Karte benötigt JavaScript. Die vollständige Tankstellenliste und ihre Detailseiten bleiben unten verfügbar.',
-    updatedLabel: 'Preise des Tages',
+    updatedLabel: 'Datenabruf',
     stationNoun: (count) => (count === 1 ? 'Tankstelle auf der Karte' : 'Tankstellen auf der Karte'),
   },
   fr: {
     title: 'Carte des prix du carburant au Tessin',
-    description: 'Toutes les stations suisses sur une carte. Les prix au litre correspondent au jour affiché et deviennent interactifs après le chargement.',
+    description: 'Stations de l’échantillon TCS sur une carte. Vérifiez la date d’acquisition et le prix à la pompe.',
     noScript: 'La carte interactive nécessite JavaScript. La liste complète des stations et leurs pages de détail restent disponibles ci-dessous.',
-    updatedLabel: 'Prix du jour',
+    updatedLabel: 'Acquisition des données',
     stationNoun: (count) => (count === 1 ? 'station cartographiée' : 'stations cartographiées'),
   },
 };
@@ -987,22 +991,38 @@ const FUEL_MAP_COPY: Record<FuelDailyLocale, FuelMapCopy> = {
  * HTML so crawlers and users with JavaScript disabled still get a useful
  * section; App.tsx portals the interactive map into the empty mount point.
  */
+function validCollectionTime(value: string | null | undefined): string | null {
+  return value && Number.isFinite(Date.parse(value)) ? new Date(value).toISOString() : null;
+}
+
+function lastCompleteCollection(values: ReadonlyArray<string | null | undefined>): string | null {
+  const dates = values.map(validCollectionTime);
+  if (dates.length === 0 || dates.some((value) => value === null)) return null;
+  return new Date(Math.max(...dates.map((value) => Date.parse(value!)))).toISOString();
+}
+
+function collectionLabel(locale: FuelDailyLocale, timestamp: string | null): string {
+  if (!timestamp) return ({ it: 'Data di acquisizione non disponibile', en: 'Collection time unavailable', de: 'Abrufzeit nicht verfügbar', fr: 'Date d’acquisition indisponible' })[locale];
+  const date = new Intl.DateTimeFormat(`${locale}-CH`, { timeZone: 'Europe/Zurich', day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', timeZoneName: 'short' }).format(new Date(timestamp));
+  return `${({ it: 'Ultima acquisizione nel campione', en: 'Latest collection in the sample', de: 'Letzter Abruf in der Stichprobe', fr: 'Dernière acquisition dans l’échantillon' })[locale]}: ${date}`;
+}
+
 function renderFuelMapSection(
   locale: FuelDailyLocale,
   fuel: FuelType,
-  dateStamp: string,
+  collectedAt: string | null,
   stations: ReadonlyArray<NonNullable<GroupedAnchors['anchors'][number]['mapStation']>>,
 ): string {
   const mappedStations = stations.filter((station) => {
     const price = fuel === 'benzina' ? station.benzinaPriceChf : station.dieselPriceChf;
-    return typeof price === 'number' && Number.isFinite(price);
+    return typeof price === 'number' && Number.isFinite(price) && price > 0;
   });
   if (mappedStations.length === 0) return '';
   const copy = FUEL_MAP_COPY[locale];
   const payload = inlineScriptJson({
     locale,
     fuel,
-    updatedAt: dateStamp,
+    updatedAt: collectedAt,
     stations: mappedStations,
   });
   const stationCount = `${mappedStations.length} ${copy.stationNoun(mappedStations.length)}`;
@@ -1015,7 +1035,7 @@ function renderFuelMapSection(
       <div class="fuel-map-ssr-meta" aria-label="${esc(stationCount)}">
         <strong>${mappedStations.length}</strong>
         <span>${esc(copy.stationNoun(mappedStations.length))}</span>
-        <time dateTime="${esc(dateStamp)}">${esc(copy.updatedLabel)} · ${esc(dateStamp)}</time>
+        ${collectedAt ? `<time dateTime="${esc(collectedAt)}">${esc(collectionLabel(locale, collectedAt))}</time>` : `<span>${esc(collectionLabel(locale, null))}</span>`}
       </div>
     </div>
     <div id="fuel-station-map-root" class="fuel-map-mount" data-fuel-map-root></div>
@@ -1050,7 +1070,6 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     canonicalPath,
     alternates,
     groups,
-    today,
     distDir,
     relatedLinks,
     page,
@@ -1067,7 +1086,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     ? `${titles.title.split(' — ')[0]} — ${pageTitleSuffix}`
     : titles.title;
   const fuelLabel = FUEL_TYPE_LABEL[locale][fuel];
-  const dateStamp = today.toISOString().slice(0, 10);
+  const collectedAt = lastCompleteCollection(groups.flatMap((group) => group.anchors.map((anchor) => anchor.collectedAt)));
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
 
   const totalAnchors = groups.reduce((acc, g) => acc + g.anchors.length, 0);
@@ -1149,8 +1168,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     url: canonicalUrl,
     description: titles.description,
     inLanguage: locale,
-    dateModified: today.toISOString(),
-    datePublished: today.toISOString(),
+    ...(collectedAt ? { dateModified: collectedAt } : {}),
     isPartOf: {
       '@type': 'WebSite',
       url: `${BASE_URL}/`,
@@ -1165,7 +1183,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     },
   });
 
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   // Pre-cut removed: clampMetaDescription (160) runs downstream and is
   // word-aware. Slicing first only handed it a string already broken
   // mid-word, which is what reached the SERP snippet.
@@ -1182,7 +1200,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
   const ctaRow = renderCtaRow(ctaHref, copy.ctaDailyHub(fuelLabel));
   const zoneNav = totalAnchors > 0 ? renderZoneNav(groups, copy) : '';
   const pagination = renderIndexPagination(locale, page, totalPages, pagePathFor);
-  const fuelMap = renderFuelMapSection(locale, fuel, dateStamp, mapStations);
+  const fuelMap = renderFuelMapSection(locale, fuel, lastCompleteCollection(mapStations.map((station) => station.collectedAt)), mapStations);
 
   const proseBlock = `<section style="${PROSE_BLOCK_STYLE}" aria-label="${esc(copy.methodologyHeading)}">
     <h2 style="${PROSE_HEADING_STYLE}">${esc(copy.methodologyHeading)}</h2>
@@ -1200,7 +1218,7 @@ function renderIndexPage(opts: RenderIndexOpts): string {
     <span>${esc(pageH1)}</span>
   </nav>
   <header class="s-S1RSUf">
-    <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${dateStamp}</p>
+    <p style="${HERO_EYEBROW_STYLE}">${esc(collectionLabel(locale, collectedAt))}</p>
     <h1 style="${H1_STYLE}">${esc(pageH1)}</h1>
     <p style="${TAGLINE_STYLE}">${esc(tagline)}</p>
   </header>
@@ -1347,7 +1365,10 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
       {
         const groups: GroupedAnchors[] = [];
         for (const zone of FUEL_ZONES) {
-          const list = swissByZone.get(zone) ?? [];
+          const list = (swissByZone.get(zone) ?? []).filter((station) => {
+            const price = fuel === 'benzina' ? station.benzinaPriceChf : station.dieselPriceChf;
+            return typeof price === 'number' && Number.isFinite(price) && price > 0;
+          });
           if (list.length === 0) continue;
           const anchors = list
             .map((s) => ({
@@ -1356,6 +1377,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
               subtitle: s.address,
               logoUrl: resolveStationBrandLogoUrl(rootDir, s.brand),
               logoAlt: s.brand || s.name,
+              collectedAt: validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt),
             }))
             .filter((a) => isEmitted(a.href));
           if (anchors.length === 0) continue;
@@ -1377,6 +1399,7 @@ export function generateFuelIndexPages(inp: FuelIndexInputs): Record<string, str
                   lat: s.lat,
                   lng: s.lng,
                   benzinaPriceChf: typeof s.benzinaPriceChf === 'number' && Number.isFinite(s.benzinaPriceChf) ? s.benzinaPriceChf : null,
+                  collectedAt: validCollectionTime(fuel === 'diesel' ? s.dieselUpdatedAt ?? s.updatedAt : s.updatedAt),
                   dieselPriceChf: typeof s.dieselPriceChf === 'number' && Number.isFinite(s.dieselPriceChf) ? s.dieselPriceChf : null,
                 },
               };

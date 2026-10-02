@@ -1,0 +1,62 @@
+{
+  "key": "protectas",
+  "label": "Protectas SA",
+  "generatedAt": "2026-10-01T21:34:16.472Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 2944,
+  "avgDurationMs": 2944,
+  "durationHistory": [
+    2944
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "protectas-01bf4e1f2262",
+      "slug": "agente-di-sicurezza-ausiliario-luganese-contratto-orario-ronde-sorveglianza-lugano",
+      "company": "Protectas SA",
+      "companyKey": "protectas",
+      "companyDomain": "protectas.com",
+      "title": "Agente di sicurezza ausiliario - Luganese - contratto orario - Ronde & Sorveglianza",
+      "location": "Lugano",
+      "canton": "TI",
+      "url": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
+      "source": "Protectas SA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-10-01T21:34:09.359Z",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Sicurezza",
+      "contract": "part-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "mid",
+      "sector": "Sicurezza fisica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://www.protectas.com/it-ch/carriere/offerte-di-lavoro/744000150722610/",
+      "firstSeenAt": "2026-09-30T15:48:36.865Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

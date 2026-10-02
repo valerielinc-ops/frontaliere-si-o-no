@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
+import YAML from 'yaml';
 
 const ROOT = resolve(import.meta.dirname, '..');
 
@@ -10,7 +11,7 @@ const ROOT = resolve(import.meta.dirname, '..');
 // tests/data-refresh-pr-wiring.test.ts instead.
 const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/batch-faq-articles.yml',
-  '.github/workflows/crawler-health-monitor.yml',
+  '.github/workflows/cwv-monitor.yml',
   '.github/workflows/evergreen-pool-snapshot.yml',
   '.github/workflows/fb-events-daily-schedule.yml',
   '.github/workflows/funnel-metrics-snapshot.yml',
@@ -20,8 +21,12 @@ const WORKFLOW_HELPER_WRITERS = [
   '.github/workflows/quality-alerts.yml',
   '.github/workflows/refresh-gsc-marquee-demand.yml',
   '.github/workflows/regenerate-visual-baselines.yml',
-  '.github/workflows/sync-pharmacies-border.yml',
-  '.github/workflows/update-weather.yml',
+];
+
+const STATE_ONLY_MONITORS = [
+  '.github/workflows/auth-signup-subscriber-monitor.yml',
+  '.github/workflows/autologin-refusal-monitor.yml',
+  '.github/workflows/unsubscribe-credential-monitor.yml',
 ];
 
 function read(relativePath: string): string {
@@ -43,23 +48,18 @@ describe('main data writers use the shared retry contract', () => {
     }
   });
 
-  it('keeps the data-specific replay contracts', () => {
+  it('keeps the pharmacy PR publication contract', () => {
     const pharmacyWorkflow = read('.github/workflows/sync-pharmacies-border.yml');
-    const dutyFetch = pharmacyWorkflow.indexOf('node scripts/sync-pharmacy-duties.mjs || duty_exit=$?');
-    const finalizer = pharmacyWorkflow.indexOf('npm run pharmacies:import', dutyFetch);
-    const checker = pharmacyWorkflow.indexOf('npm run pharmacies:check', finalizer);
-    expect(pharmacyWorkflow).toContain("--regenerate-cmd '");
-    expect(pharmacyWorkflow).toContain('case "$duty_exit" in');
-    expect(pharmacyWorkflow).toContain('0|1|2)');
-    expect(pharmacyWorkflow).toContain('duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer');
-    expect(pharmacyWorkflow).toContain('atomic finalizer completed after duty diagnostic exit=$duty_exit');
-    expect(pharmacyWorkflow).toContain('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json');
-    expect(dutyFetch).toBeGreaterThan(-1);
-    expect(finalizer).toBeGreaterThan(dutyFetch);
+    const finalizer = pharmacyWorkflow.indexOf('run: npm run pharmacies:import');
+    const checker = pharmacyWorkflow.indexOf('run: npm run pharmacies:check');
+    const publisher = pharmacyWorkflow.indexOf('scripts/lib/open-data-refresh-pr.sh');
+    expect(pharmacyWorkflow).toContain('pull-requests: write');
+    expect(pharmacyWorkflow).toContain('GH_TOKEN: ${{ env.GITHUB_PAT }}');
+    expect(pharmacyWorkflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(pharmacyWorkflow).not.toContain('--regenerate-cmd');
+    expect(finalizer).toBeGreaterThan(-1);
     expect(checker).toBeGreaterThan(finalizer);
-    expect(read('.github/workflows/crawler-health-monitor.yml')).toContain(
-      'node scripts/check-crawler-health.mjs || true; git add data/crawler-health.json',
-    );
+    expect(publisher).toBeGreaterThan(checker);
     expect(read('.github/workflows/guard-data-integrity.yml')).toContain(
       'node scripts/ci/restore-data-integrity-files.mjs',
     );
@@ -68,6 +68,69 @@ describe('main data writers use the shared retry contract', () => {
     expect(buildHistoryWriter).toContain('git-push-with-retry.sh --max-attempts 5 --stash-dirty');
     expect(buildHistoryWriter).toContain('scripts/ci/assert-accumulator-write.mjs');
     expect(buildHistoryWriter).toContain('git commit --only -m "$HISTORY_COMMIT_MSG" -- "$history_path"');
+  });
+
+  it('routes the exchange snapshot through the protected PR publisher', () => {
+    const workflow = read('.github/workflows/update-exchange-history.yml');
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        update?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const updateJob = document.jobs?.update;
+
+    expect(updateJob, 'exchange history update job is missing').toBeDefined();
+    expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
+    expect(workflow).not.toContain('scripts/lib/git-push-with-retry.sh');
+    expect(updateJob?.['timeout-minutes']).toBeGreaterThanOrEqual(15);
+  });
+
+  it('bounds the CWV snapshot retry budget below its job timeout', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const document = YAML.parse(workflow) as {
+      jobs?: {
+        monitor?: {
+          'timeout-minutes'?: number;
+          steps?: Array<{ name?: string; run?: string }>;
+        };
+      };
+    };
+    const monitorJob = document.jobs?.monitor;
+    const snapshotStep = monitorJob?.steps?.find(
+      (step) => step.name === 'Commit weekly snapshot if changed',
+    );
+    const maxAttempts = snapshotStep?.run?.match(/--max-attempts\s+(\d+)/)?.[1];
+
+    expect(monitorJob, 'CWV monitor job is missing').toBeDefined();
+    expect(snapshotStep, 'CWV snapshot commit step is missing').toBeDefined();
+    expect(maxAttempts, 'CWV snapshot retry cap is missing').toBe('8');
+    expect(Number(maxAttempts)).toBeLessThan(monitorJob?.['timeout-minutes'] ?? 0);
+  });
+
+  it('keeps state-only monitor commit-backs isolated and bounded', () => {
+    for (const relativePath of STATE_ONLY_MONITORS) {
+      const document = YAML.parse(read(relativePath)) as {
+        jobs?: Record<string, {
+          steps?: Array<{
+            name?: string;
+            run?: string;
+            env?: Record<string, string | number>;
+          }>;
+        }>;
+      };
+      const commitStep = Object.values(document.jobs ?? {})
+        .flatMap((job) => job.steps ?? [])
+        .find((step) => step.name?.startsWith('Commit history'));
+
+      expect(commitStep, `${relativePath} is missing its history commit step`).toBeDefined();
+      expect(commitStep?.run, `${relativePath} must use the extra-only writer path`).toContain(
+        'git-commit-data.sh --extra-only',
+      );
+      expect(commitStep?.env?.MAX_PUSH_ATTEMPTS, `${relativePath} must cap push retries`).toBe('5');
+    }
   });
 
   it('keeps generated build snapshots out of history checkpoint commits', () => {

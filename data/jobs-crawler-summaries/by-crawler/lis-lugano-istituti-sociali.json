@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-09-29T21:18:42.936Z",
+  "generatedAt": "2026-10-01T21:26:16.498Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 38995,
-  "avgDurationMs": 38995,
+  "durationMs": 36820,
+  "avgDurationMs": 36820,
   "durationHistory": [
-    38995
+    36820
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -148,6 +148,7 @@
       "firstSeenAt": "2026-05-14T11:20:10.630Z",
       "salarySource": "reported",
       "applyUrl": "https://lavoraconnoi.lugano-lis.ch/job/view-job.php?id=33-operatori-sociosanitari-pregassona&language=it",
+      "needsRetranslation": true,
       "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,

@@ -1392,6 +1392,11 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       ...(hasRequestedHousekeepingProof && !verifyUnprovenHousekeeping
         ? { housekeepingProof: requestedHousekeepingProof }
         : {}),
+      // This wrapper owns the evidence decision. Do not file a parser-health
+      // issue until the deterministic housekeeping proof/source probe says
+      // whether the shrink is real; a proven quarantine is an accepted write,
+      // not a parser failure.
+      deferShrinkGuardIssue: true,
     });
     if (hasRequestedHousekeepingProof) {
       const archived = archiveRemovedJobsToSlice(
@@ -1423,6 +1428,12 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
       );
       throw err;
     }
+    const shrinkReport = {
+      crawlerKey,
+      priorCount: measured.priorCount,
+      newCount: measured.newCount,
+      ratio: measured.priorCount > 0 ? measured.newCount / measured.priorCount : 0,
+    };
     const priorJobs = measured.priorJobs;
     const suppliedVerdict = buildProvidedHousekeepingVerdict(
       priorJobs,
@@ -1447,28 +1458,40 @@ export async function writeJobsCrawlerSliceVerified(crawlerKey, jobs, options = 
         `  🔬 ${crawlerKey}: shrink guard tripped (${measured.priorCount} → ${measured.newCount}) — probing the disappearing job(s) against the source before deciding.`,
       );
     }
-    const verdict = suppliedVerdict || (verifyUnprovenHousekeeping
-      ? await verifyShrinkWithProvidedHousekeepingProof(
-        priorJobs,
-        measured.finalJobs,
-        requestedHousekeepingProof,
-        {
+    let verdict;
+    try {
+      verdict = suppliedVerdict || (verifyUnprovenHousekeeping
+        ? await verifyShrinkWithProvidedHousekeepingProof(
+          priorJobs,
+          measured.finalJobs,
+          requestedHousekeepingProof,
+          {
+            validate,
+            concurrency,
+            timeoutMs,
+            expectedNewCount: measured.newCount,
+            isTargetJob,
+          },
+        )
+        : await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
           validate,
           concurrency,
           timeoutMs,
           expectedNewCount: measured.newCount,
           isTargetJob,
-        },
-      )
-      : await verifyShrinkAgainstSource(priorJobs, measured.finalJobs, {
-        validate,
-        concurrency,
-        timeoutMs,
-        expectedNewCount: measured.newCount,
-        isTargetJob,
-      }));
+        }));
+    } catch (probeError) {
+      // Preserve the alert if source verification itself fails unexpectedly;
+      // an unverifiable shrink must remain visible and fail closed.
+      _createShrinkGuardIssue(crawlerKey, shrinkReport);
+      throw probeError;
+    }
 
     if (!verdict.corroborated) {
+      // The initial writer call deliberately deferred the alert. Only an
+      // uncorroborated shrink is a parser-health incident; proven housekeeping
+      // must not create a false-positive issue before this branch is reached.
+      _createShrinkGuardIssue(crawlerKey, shrinkReport);
       console.error(
         `  🚫 ${crawlerKey}: shrink NOT corroborated — ${verdict.alive} of ${verdict.checked} disappearing job(s) are still live at the source` +
           (verdict.unverifiable ? `, ${verdict.unverifiable} have no URL to probe` : '') +
@@ -2368,6 +2391,9 @@ export function isNearDuplicateLocalizedTitle(candidate, source) {
  *   hand-over, where this crawler is MEANT to take vacancies from the key that
  *   currently holds them; the reconciler does not need it, since it writes
  *   slices directly. Env equivalent: SKIP_OWNERSHIP_GUARD=1.
+ * @param {boolean} [options.deferShrinkGuardIssue] - Internal: defer creation
+ *   of the shrink issue until `writeJobsCrawlerSliceVerified` has corroborated
+ *   the removal. The anti-shrink refusal itself is never bypassed.
  * @param {unknown[]} [options.housekeepingProof] - Definitive route-preserving
  *   evidence for every removed job when accepting a source-verified shrink or
  *   a deliberate thin-source quarantine. Internal callers only; unproven
@@ -2635,7 +2661,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     if (shrinkWouldBlock && !safeSourceGeographyPrune) {
       const report = { crawlerKey, priorCount, newCount, ratio: newCount / priorCount };
       console.error(`\n🚨 Shrink guard FAILED for ${crawlerKey}: ${newCount}/${priorCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to persist, prior slice on disk kept\n`);
-      _createShrinkGuardIssue(crawlerKey, report);
+      if (!options.deferShrinkGuardIssue) _createShrinkGuardIssue(crawlerKey, report);
       const shrinkErr = new Error(`[shrink-guard] ${crawlerKey}: slice would shrink from ${priorCount} to ${newCount} jobs (${Math.round(report.ratio * 100)}% of prior) — refusing to write, source likely returned degraded results. Override with SKIP_SHRINK_GUARD=1 if this is a legitimate drop.`);
       // Carry the EXACT arrays the guard measured. `jobs` is reassigned inside
       // this function (`quarantineBoilerplateJobs` returns a new filtered

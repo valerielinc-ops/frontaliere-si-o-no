@@ -34,6 +34,8 @@ import path from 'node:path';
 import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { WriteCollector } from './batchWrite';
+import { formatSourceDate, sourceDateIso } from '../services/dataFreshness';
+import { formatUpdatedDate } from './shared/humanDate';
 import {
   BASE_URL,
   countHtmlBodyWords,
@@ -170,6 +172,8 @@ interface Copy {
   description: string;
   h1: string;
   updatedLabel: string;
+  generatedLabel: string;
+  unknownDateLabel: string;
   sourceLabel: string;
   ledeIntro: string;
   headlineActiveJobsLabel: string;
@@ -224,7 +228,9 @@ const COPY: Record<Locale, Copy> = {
     title: 'Mercato del lavoro frontalieri Ticino 2026 — Report dati originali | Frontaliere Ticino',
     description: "Report 2026 sul mercato del lavoro frontalieri in Ticino: stipendi medi per azienda e città, top datori di lavoro, settori in crescita. Dati aggregati dai job board svizzeri.",
     h1: 'Mercato del lavoro frontalieri Ticino 2026',
-    updatedLabel: 'Aggiornato',
+    updatedLabel: 'Dati elaborati',
+    generatedLabel: 'Pagina generata',
+    unknownDateLabel: 'Data di elaborazione non disponibile',
     sourceLabel: 'Fonte',
     ledeIntro: "Il mercato del lavoro per i frontalieri tra Italia e Svizzera nel 2026 è più dinamico e segmentato che mai. Questo report — il primo studio quantitativo indipendente pubblicato da Frontaliere Ticino — aggrega in tempo reale gli annunci attivi sui principali job board svizzeri (oltre cinquanta crawler dedicati) per fornire fotografia precisa di stipendi, aziende che assumono e città con più offerte. I dati che leggi qui sotto non provengono da survey volontarie o stime campionarie: sono il risultato di crawling giornaliero sulle pagine carriere di aziende pubbliche e private, convertiti in metriche comparabili tramite AI-assisted normalization. Il report viene aggiornato automaticamente ogni mese.",
     headlineActiveJobsLabel: 'Posizioni attive',
@@ -274,7 +280,9 @@ const COPY: Record<Locale, Copy> = {
     title: 'Ticino Cross-Border Job Market Report 2026 — Original Data | Frontaliere Ticino',
     description: "2026 report on the Ticino cross-border (frontaliere) job market: average salaries by company and city, top employers, fastest-growing sectors. Data aggregated from Swiss job boards.",
     h1: 'Ticino cross-border job market 2026',
-    updatedLabel: 'Updated',
+    updatedLabel: 'Data compiled',
+    generatedLabel: 'Page generated',
+    unknownDateLabel: 'Compilation date unavailable',
     sourceLabel: 'Source',
     ledeIntro: "The cross-border labour market between Italy and Switzerland in 2026 is more dynamic and segmented than ever. This report — the first independent quantitative study published by Frontaliere Ticino — aggregates in real time the active listings on major Swiss job boards (over fifty dedicated crawlers) to give you a precise picture of salaries, hiring companies and cities with the most openings. The figures below don't come from voluntary surveys or sample estimates: they are the result of daily crawling of public and private company career pages, converted into comparable metrics through AI-assisted normalization. The report is refreshed automatically every month.",
     headlineActiveJobsLabel: 'Active openings',
@@ -324,7 +332,9 @@ const COPY: Record<Locale, Copy> = {
     title: 'Tessiner Grenzgänger-Arbeitsmarkt 2026 — Originaldaten | Frontaliere Ticino',
     description: "Bericht 2026 zum Tessiner Grenzgänger-Arbeitsmarkt: Durchschnittslöhne nach Unternehmen und Stadt, Top-Arbeitgeber, wachsende Branchen. Daten aggregiert aus Schweizer Jobbörsen.",
     h1: 'Tessiner Grenzgänger-Arbeitsmarkt 2026',
-    updatedLabel: 'Aktualisiert',
+    updatedLabel: 'Daten aufbereitet',
+    generatedLabel: 'Seite erstellt',
+    unknownDateLabel: 'Aufbereitungsdatum nicht verfügbar',
     sourceLabel: 'Quelle',
     ledeIntro: "Der Grenzgänger-Arbeitsmarkt zwischen Italien und der Schweiz ist 2026 dynamischer und segmentierter denn je. Dieser Bericht — die erste unabhängige quantitative Studie von Frontaliere Ticino — aggregiert in Echtzeit die aktiven Stellenausschreibungen auf den wichtigsten Schweizer Jobbörsen (über fünfzig dedizierte Crawler), um ein präzises Bild von Löhnen, einstellenden Unternehmen und Städten mit den meisten Angeboten zu liefern. Die Zahlen stammen nicht aus freiwilligen Befragungen oder Stichprobenschätzungen: Sie sind das Ergebnis eines täglichen Crawlings der Karriereseiten öffentlicher und privater Unternehmen, über KI-gestützte Normalisierung in vergleichbare Kennzahlen überführt. Der Bericht wird monatlich automatisch aktualisiert.",
     headlineActiveJobsLabel: 'Aktive Stellen',
@@ -374,7 +384,9 @@ const COPY: Record<Locale, Copy> = {
     title: "Marché de l'emploi frontaliers Tessin 2026 — Rapport de données | Frontaliere Ticino",
     description: "Rapport 2026 sur le marché de l'emploi frontalier au Tessin : salaires moyens par entreprise et par ville, principaux employeurs, secteurs en croissance. Données agrégées depuis les plateformes suisses.",
     h1: "Marché de l'emploi frontaliers au Tessin en 2026",
-    updatedLabel: 'Mis à jour',
+    updatedLabel: 'Données compilées',
+    generatedLabel: 'Page générée',
+    unknownDateLabel: 'Date de compilation indisponible',
     sourceLabel: 'Source',
     ledeIntro: "Le marché du travail frontalier entre l'Italie et la Suisse en 2026 est plus dynamique et segmenté que jamais. Ce rapport — la première étude quantitative indépendante publiée par Frontaliere Ticino — agrège en temps réel les annonces actives sur les principales plateformes suisses (plus de cinquante crawlers dédiés) pour dresser un portrait précis des salaires, des entreprises qui recrutent et des villes les plus demandeuses. Les chiffres ci-dessous ne proviennent pas de sondages volontaires ou d'estimations sur échantillon : ils résultent d'un crawling quotidien des pages carrières d'entreprises publiques et privées, convertis en métriques comparables grâce à une normalisation assistée par IA. Le rapport est rafraîchi automatiquement chaque mois.",
     headlineActiveJobsLabel: 'Postes ouverts',
@@ -447,6 +459,8 @@ function renderReport(opts: {
 }): RenderedReport {
   const { locale, stats, dateStamp, distDir } = opts;
   const copy = COPY[locale];
+  const dataUpdatedAt = sourceDateIso(stats?.generatedAt);
+  const dataUpdatedLabel = formatSourceDate(stats?.generatedAt, locale) ?? copy.unknownDateLabel;
   const prefix = LOCALE_PREFIX[locale];
   const slug = REPORT_SLUG[locale];
   const urlPath = `${prefix}/${slug}/`.replace(/\/+/g, '/');
@@ -581,15 +595,16 @@ function renderReport(opts: {
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
+    ...(dataUpdatedAt ? { dateModified: dataUpdatedAt } : {}),
     author: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -609,12 +624,12 @@ function renderReport(opts: {
     url: canonicalUrl,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
-    datePublished: dateStamp,
-    dateModified: dateStamp,
+    ...(dataUpdatedAt ? { dateModified: dataUpdatedAt } : {}),
     inLanguage: locale,
     keywords:
       locale === 'en' ? ['cross-border workers', 'Ticino', 'salaries', 'job market', 'Swiss salaries']
@@ -646,7 +661,7 @@ function renderReport(opts: {
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="s-sy52lX">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dateStamp)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(copy.updatedLabel)} · ${esc(dataUpdatedLabel)} · ${esc(copy.sourceLabel)}: data/jobs-stats.json<br>${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <h1 style="${H1_STYLE}">${esc(copy.h1)}</h1>
       <p style="${LEDE_STYLE}">${esc(copy.ledeIntro)}</p>
     </header>

@@ -5891,14 +5891,14 @@ function _codexTransportError(message) {
   return Object.assign(new Error(message), { transportFault: true });
 }
 
-function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
+function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs, maxTimeoutMs = CODEX_CLI_MAX_TIMEOUT_MS }) {
   const socketPath = String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
   if (!socketPath) return Promise.reject(new Error('CODEX_AUTH_BROKER_SOCKET is not configured'));
   const remaining = Number(deadlineMs) > 0 ? Number(deadlineMs) - Date.now() : Infinity;
   if (remaining <= 0) return Promise.reject(new Error('Codex fallback skipped: caller deadline already expired'));
   const requestTimeoutMs = Math.min(
-    Math.max(1, Number.isFinite(Number(timeoutMs)) ? Number(timeoutMs) : CODEX_CLI_MAX_TIMEOUT_MS),
-    CODEX_CLI_MAX_TIMEOUT_MS,
+    Math.max(1, Number.isFinite(Number(timeoutMs)) ? Number(timeoutMs) : maxTimeoutMs),
+    maxTimeoutMs,
   );
 
   return new Promise((resolve, reject) => {
@@ -6045,10 +6045,17 @@ function _requestCodexExecution({ prompt, timeoutMs, schema, deadlineMs }) {
  * store or fall through to other providers. Same protocol, queue budget and
  * `function` profile as the callLLM lane; `schema` is sent as the strict
  * `--output-schema`. Resolves to the parsed JSON object.
+ *
+ * Its requests may run as long as the broker allows
+ * (`CODEX_BROKER_MAX_TIMEOUT_MS`, the setup action's
+ * `codex_broker_max_timeout_ms` output): a draft that is slow but alive must
+ * finish. Without it the cap stays the callLLM lanes' 10 minutes.
  * @param {{prompt:string, schema:object, timeoutMs?:number}} request
  */
 export async function requestCodexBrokerJson({ prompt, schema, timeoutMs = CODEX_CLI_MAX_TIMEOUT_MS }) {
-  const result = await _requestCodexExecution({ prompt, timeoutMs, schema });
+  const brokerMax = Number.parseInt(String(process.env.CODEX_BROKER_MAX_TIMEOUT_MS || '').trim(), 10);
+  const maxTimeoutMs = Number.isInteger(brokerMax) && brokerMax >= CODEX_CLI_MAX_TIMEOUT_MS ? brokerMax : CODEX_CLI_MAX_TIMEOUT_MS;
+  const result = await _requestCodexExecution({ prompt, timeoutMs, schema, maxTimeoutMs });
   let parsed;
   try {
     parsed = JSON.parse(result);

@@ -950,7 +950,7 @@ export function buildSectorHubSeo(
           count: safeCount > 0 ? safeCount : undefined,
         });
       }
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = (() => {
         if (sector === 'case-anziani') {
           return safeCount > 0
@@ -963,8 +963,8 @@ export function buildSectorHubSeo(
             : `Lavoro infermieri Svizzera Canton Ticino: posizioni in ospedali, cliniche e case anziani. Aggiornate ogni giorno, candidatura diretta.`;
         }
         return safeCount > 0
-          ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`
-          : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Candidati come frontaliere direttamente online, senza registrazione.`;
+          ? `Trova ${safeCount} offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Leggi liberamente gli annunci; accesso gratuito per candidarti.`
+          : `Trova offerte di lavoro per ${noun.toLowerCase()} in Ticino, aggiornate ogni giorno. Leggi liberamente gli annunci; accesso gratuito per candidarti.`;
       })();
       // H1: narrative ("990 posti vacanti nel settore Case Anziani in Ticino").
       // Never identical to the SEO title (Semrush W3, issue 105).
@@ -985,12 +985,12 @@ export function buildSectorHubSeo(
       })();
       const intro = (() => {
         if (sector === 'case-anziani') {
-          return `Case anziani Ticino offerte di lavoro: questa pagina raccoglie tutte le posizioni aperte in case di cura, residenze per anziani (RSA), istituti geriatrici e cooperative socio-assistenziali del Canton Ticino — tra cui Pregassona, OSCAM, RIS Lugano, Mendrisio, Bellinzona, Locarno, Chiasso, Massagno e Paradiso. Ogni annuncio è verificato e porta direttamente alla candidatura ufficiale del datore di lavoro, senza registrazione e senza intermediari. Profili più richiesti: infermieri, operatori socio-sanitari (OSS), animatori, ausiliari, cuochi e personale di pulizia.`;
+          return `Case anziani Ticino offerte di lavoro: questa pagina raccoglie tutte le posizioni aperte in case di cura, residenze per anziani (RSA), istituti geriatrici e cooperative socio-assistenziali del Canton Ticino — tra cui Pregassona, OSCAM, RIS Lugano, Mendrisio, Bellinzona, Locarno, Chiasso, Massagno e Paradiso. Puoi leggere gli annunci senza accesso; per proseguire alla candidatura ufficiale del datore di lavoro è richiesto un accesso gratuito. Profili più richiesti: infermieri, operatori socio-sanitari (OSS), animatori, ausiliari, cuochi e personale di pulizia.`;
         }
         if (sector === 'infermieri') {
-          return `Offerte lavoro infermieri Svizzera Canton Ticino: in questa pagina raccogliamo tutte le posizioni aperte oggi per infermieri diplomati e specialisti negli ospedali pubblici (rete EOC), cliniche private, case anziani e servizi di cure a domicilio (Spitex/SACD) ticinesi. Le offerte includono ruoli a tempo pieno e parziale, contratti a tempo indeterminato e mandati per supplenze. Ogni annuncio porta alla candidatura ufficiale, senza registrazione. Per i frontalieri italiani il riconoscimento del titolo passa dalla Croce Rossa Svizzera (SRC); il nostro elenco indica sede, datore di lavoro e profilo richiesto in modo trasparente.`;
+          return `Offerte lavoro infermieri Svizzera Canton Ticino: in questa pagina raccogliamo tutte le posizioni aperte oggi per infermieri diplomati e specialisti negli ospedali pubblici (rete EOC), cliniche private, case anziani e servizi di cure a domicilio (Spitex/SACD) ticinesi. Le offerte includono ruoli a tempo pieno e parziale, contratti a tempo indeterminato e mandati per supplenze. Gli annunci sono leggibili senza accesso; un accesso gratuito permette di proseguire alla candidatura ufficiale. Per i frontalieri italiani il riconoscimento del titolo passa dalla Croce Rossa Svizzera (SRC); il nostro elenco indica sede, datore di lavoro e profilo richiesto in modo trasparente.`;
         }
-        return `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Ogni annuncio porta alla candidatura ufficiale dell'azienda.`;
+        return `Pagina dedicata alle opportunità di lavoro ${noun.toLowerCase()} in Ticino. Contiene solo annunci attivi, pubblicati da ospedali, case anziani, scuole e cooperative ticinesi. Gli annunci sono leggibili senza accesso; un accesso gratuito permette di proseguire alla candidatura ufficiale dell'azienda.`;
       })();
       const faq = [
         {
@@ -1005,7 +1005,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Come avviene la candidatura?',
-          answer: 'Cliccando su un annuncio ti portiamo direttamente al sito ufficiale del datore di lavoro, dove puoi candidarti senza passaggi intermedi e senza registrazione su Frontaliere Ticino.',
+          answer: 'La descrizione è leggibile senza accesso. Per aprire la candidatura sul sito ufficiale del datore di lavoro è richiesto un accesso gratuito a Frontaliere Ticino; il datore può richiedere una propria iscrizione.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -1019,14 +1019,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Browse ${safeCount} ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`
         : `Browse ${noun.toLowerCase()} jobs in Ticino, Switzerland — updated every day. Apply online for free as a cross-border worker.`;
       const h1 = safeCount > 0
         ? `${safeCount} open positions for ${noun} in Ticino`
         : `Career opportunities for ${noun} in Ticino`;
-      const intro = `A dedicated hub for ${noun.toLowerCase()} job opportunities in Ticino, Switzerland. Every listing links directly to the employer's official application page.`;
+      const intro = `A dedicated hub for ${noun.toLowerCase()} job opportunities in Ticino, Switzerland. Read full listings without signing in. Free sign-in is required to continue to the employer's official application page.`;
       const faq = [
         {
           question: `How many ${noun.toLowerCase()} jobs are there in Ticino?`,
@@ -1040,7 +1040,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'How do I apply?',
-          answer: 'Each listing links directly to the employer\'s official application page — no registration needed on Frontaliere Ticino.',
+          answer: 'Read the full description without signing in. Free sign-in on Frontaliere Ticino is required to open the official application page; the employer may require a separate account.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -1054,14 +1054,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Entdecke ${safeCount} Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`
         : `Entdecke Stellen für ${noun} im Tessin, täglich aktualisiert. Kostenlos online bewerben als Grenzgänger.`;
       const h1 = safeCount > 0
         ? `${safeCount} offene Stellen für ${noun} im Tessin`
         : `Karrierechancen für ${noun} im Tessin`;
-      const intro = `Spezielle Seite für ${noun}-Stellenangebote im Tessin. Jede Anzeige führt direkt zur offiziellen Bewerbungsseite des Arbeitgebers.`;
+      const intro = `Spezielle Seite für ${noun}-Stellenangebote im Tessin. Anzeigen sind ohne Anmeldung lesbar. Um zur offiziellen Bewerbungsseite zu gelangen, ist eine kostenlose Anmeldung erforderlich.`;
       const faq = [
         {
           question: `Wie viele Stellen für ${noun} gibt es im Tessin?`,
@@ -1075,7 +1075,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Wie bewerbe ich mich?',
-          answer: 'Jede Anzeige verlinkt direkt auf die offizielle Bewerbungsseite des Arbeitgebers — keine Registrierung erforderlich.',
+          answer: 'Die vollständige Beschreibung ist ohne Anmeldung lesbar. Für die offizielle Bewerbung ist eine kostenlose Anmeldung bei Frontaliere Ticino erforderlich; der Arbeitgeber kann ein eigenes Konto verlangen.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };
@@ -1089,14 +1089,14 @@ export function buildSectorHubSeo(
         year: yearStr,
         count: safeCount > 0 ? safeCount : undefined,
       });
-      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+      const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
       const desc = safeCount > 0
         ? `Parcourez ${safeCount} offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`
         : `Parcourez les offres d'emploi pour ${noun.toLowerCase()} au Tessin, mises à jour chaque jour. Postulez gratuitement en ligne comme frontalier.`;
       const h1 = safeCount > 0
         ? `${safeCount} postes ouverts pour ${noun} au Tessin`
         : `Opportunités de carrière pour ${noun} au Tessin`;
-      const intro = `Page dédiée aux offres d'emploi pour ${noun.toLowerCase()} au Tessin. Chaque annonce renvoie directement à la candidature officielle de l'employeur.`;
+      const intro = `Page dédiée aux offres d'emploi pour ${noun.toLowerCase()} au Tessin. Les annonces sont lisibles sans connexion. Une connexion gratuite est nécessaire pour accéder à la candidature officielle de l'employeur.`;
       const faq = [
         {
           question: `Combien d'offres pour ${noun.toLowerCase()} au Tessin ?`,
@@ -1110,7 +1110,7 @@ export function buildSectorHubSeo(
         },
         {
           question: 'Comment postuler ?',
-          answer: 'Chaque annonce renvoie directement à la page de candidature officielle de l\'employeur — sans inscription sur Frontaliere Ticino.',
+          answer: 'La description complète est accessible sans connexion. Une connexion gratuite à Frontaliere Ticino est nécessaire pour ouvrir la candidature officielle ; l’employeur peut demander un compte distinct.',
         },
       ];
       return { title, desc, ogT: titleBase, ogD: desc, h1, intro, faq };

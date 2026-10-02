@@ -18,6 +18,8 @@ import { buildConflictHandoffIssue } from '../scripts/ci/pr-autorebase.mjs';
 import {
   conflictHandoffOriginPr as drainerOriginPr,
   findOverlapFile,
+  normalizeOpenPrPage,
+  STALLED_PR_LABELS,
 } from '../scripts/ci/followup-drainer.mjs';
 import {
   conflictHandoffExpectedHead,
@@ -53,7 +55,8 @@ describe('titolo di hand-off: i due parser leggono ciò che pr-autorebase scrive
 });
 
 describe('findOverlapFile ignora la PR che l\'hand-off sostituisce (#10131)', () => {
-  const map = new Map([
+  type PrEntry = { title: string; files: Set<string>; labels?: string[] };
+  const map = new Map<number, PrEntry>([
     [10121, { title: 'fix(offerwall): reconcile stale SPA route state', files: new Set(['services/offerwallClickGate.ts']) }],
   ]);
 
@@ -72,6 +75,36 @@ describe('findOverlapFile ignora la PR che l\'hand-off sostituisce (#10131)', ()
     withOther.set(10200, { title: 'fix: other', files: new Set(['services/offerwallClickGate.ts']) });
     expect(findOverlapFile(['services/offerwallClickGate.ts'], withOther, { ignorePr: 10121 })?.prNumber)
       .toBe(10200);
+  });
+
+  it.each(STALLED_PR_LABELS)('REGRESSIONE #10586: una PR ferma (%s) non è lavoro in volo', (label) => {
+    // #10555 era `has-conflicts` + `stale-review`: aspettarla rinviava per
+    // sempre l'hand-off di #10569, che a sua volta la teneva in conflitto.
+    const withStalled = new Map(map);
+    withStalled.set(10555, {
+      title: 'fix(ci): gate scheduled data refreshes through PRs',
+      files: new Set(['services/offerwallClickGate.ts']),
+      labels: [label],
+    });
+    expect(findOverlapFile(['services/offerwallClickGate.ts'], withStalled, { ignorePr: 10121 })).toBeNull();
+  });
+
+  it('una PR attiva con label qualsiasi resta un overlap', () => {
+    const withActive = new Map(map);
+    withActive.set(10200, { title: 'fix: other', files: new Set(['services/offerwallClickGate.ts']), labels: ['collision-risk', 'agent:autofix'] });
+    expect(findOverlapFile(['services/offerwallClickGate.ts'], withActive, { ignorePr: 10121 })?.prNumber).toBe(10200);
+  });
+
+  it('la mappa delle PR aperte porta le label dalla REST; assenti = nessuna (overlap pieno)', () => {
+    expect(normalizeOpenPrPage([
+      { number: 10555, title: 't', body: null, labels: [{ name: 'has-conflicts' }, { name: 'stale-review' }] },
+      { number: 10556, title: 'u', body: 'b' },
+    ])?.rows).toEqual([
+      { number: 10555, title: 't', body: '', labels: ['has-conflicts', 'stale-review'] },
+      { number: 10556, title: 'u', body: 'b', labels: [] },
+    ]);
+    const source = readFileSync('scripts/ci/followup-drainer.mjs', 'utf8');
+    expect(source).toContain('labels: pr.labels, files: new Set(filesScan.rows)');
   });
 
   it('il pre-flight del drainer passa il titolo del candidato', () => {
@@ -124,7 +157,7 @@ describe('handoffOriginVerdict: quando l\'hand-off non ha più nulla da riapplic
     expect(handoff).toBeGreaterThan(closed);
     expect(handoff).toBeGreaterThan(-1);
     expect(handoff).toBeLessThan(followUpOnly);
-    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable,mergeStateStatus,headRefOid'");
+    expect(main.slice(handoff, followUpOnly)).toContain("'--json', 'state,mergeable,mergeStateStatus,headRefOid,labels'");
   });
 });
 
@@ -134,5 +167,13 @@ describe('prompt di issue-fix: stessa eccezione nella regola Overlap-file', () =
     const rule = workflow.slice(workflow.indexOf('**Overlap-file**'), workflow.indexOf('**Capability guard'));
     expect(rule).toContain('riapplicare la PR #N su main');
     expect(rule).toContain('la PR #N non è overlap');
+  });
+
+  it('le PR ferme non contano come overlap, con le stesse label del drainer', () => {
+    const workflow = readFileSync('.github/workflows/issue-fix.yml', 'utf8');
+    const rule = workflow.slice(workflow.indexOf('**Overlap-file**'), workflow.indexOf('**Capability guard'));
+    expect(rule).toContain('--json number,title,labels');
+    for (const label of STALLED_PR_LABELS) expect(rule).toContain(`\`${label}\``);
+    expect(rule).toContain('STALLED_PR_LABELS');
   });
 });

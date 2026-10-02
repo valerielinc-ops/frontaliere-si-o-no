@@ -25,6 +25,8 @@ import {
   gatePreservedFollowupMatches,
   persistedBucketIssueMatches,
   readBucketIssue,
+  ghBucketRead,
+  ISSUE_NUMBER_NOT_FOUND_RE,
   verifyPersistenceCli,
   triageMarkerPersistenceExpectation,
   verifyTriageMarkerPersistence,
@@ -567,6 +569,15 @@ describe('follow-up provider session bound', () => {
     // Input non validi non devono inventare un residuo.
     expect(deferredCount(null as unknown as number[], [1])).toBe(0);
     expect(deferredCount([1, 2], [1, 2, 3])).toBe(0);
+
+    // La run #36799206433 ha raccolto 179 candidati: i 165 oltre il cap erano
+    // un rinvio pianificato, con collection_ok=true. Il guasto di un reader
+    // GitHub ha un bit separato e non deve riscrivere questa classificazione.
+    const candidates = Array.from({ length: FOLLOWUP_SESSION_BATCH_LIMIT + 165 }, (_, i) => i + 1);
+    const session = selectFollowupSessionBatch(candidates);
+    expect(deferredCount(candidates, session)).toBe(165);
+    const collector = readFileSync(new URL('../scripts/ci/collect-followup-batch.mjs', import.meta.url), 'utf8');
+    expect(collector).toContain('emit(sessionBatch, dailyKey, { collectionOk: true, deferred, quarantined });');
   });
 });
 
@@ -760,5 +771,149 @@ describe('quarantena del marker che non converge', () => {
     // Elenco illeggibile: nessuna scrittura alla cieca.
     expect((await reportQuarantinedMarkers(quarantined, { listIssues: () => null, createIssue, log })).unverifiable).toBe(true);
     expect(created).toHaveLength(1);
+  });
+});
+
+describe('bucket assente da un repository ≠ bucket illeggibile (run 36799206433)', () => {
+  // Il bucket del sito #10433 non esiste nel corpus. Dopo che i suoi ultimi
+  // item erano spariti dal corpo, il 404 del corpus rendeva il verdetto `null`
+  // («bucket non leggibile»): il collector rimetteva le PR nel batch a ogni
+  // run invece di metterle in quarantena con l'allarme.
+  const SITE = 'valerielinc-ops/frontaliere-si-o-no';
+  const CORPUS = 'nanakokyobashi-rgb/frontaliere-articles';
+  const marker = '## Post-merge follow-up triage\n\nCreated/updated: daily bucket #10433 `follow-up(daily:2026-09-30)` (sito) con 1 item:\n- `FU-2026-09-30-079` — Correct Coop workplace locality evidence';
+  const prComments = JSON.stringify({ comments: [{ createdAt: '2026-09-30T22:28:42Z', body: marker }] });
+  const truncatedBucket = {
+    number: 10433,
+    title: 'follow-up(daily:2026-09-30): 69 items — valerielinc-ops/frontaliere-si-o-no',
+    body: '## Batch\n- State: sealed\n\n### FU-2026-09-30-075 — Prevent nested-body duplication\n- State: open\n- Sources: PR #10325\n- ',
+  };
+  const notFound = Object.assign(new Error('Command failed: gh issue view 10433'), {
+    stderr: 'GraphQL: Could not resolve to an issue or pull request with the number of 10433. (repository.issue)\n',
+  });
+  const rateLimited = Object.assign(new Error('gh issue view failed'), {
+    stderr: Buffer.from('HTTP 502: Bad Gateway (https://api.github.com/graphql)'),
+  });
+
+  function runThroughGhBucketRead(siteOutcome: string | Error, corpusOutcome: string | Error = notFound) {
+    const calls: Array<{ command: string; repo: string }> = [];
+    const exec = (command: string, args: string[]) => {
+      const repo = args[args.indexOf('--repo') + 1];
+      calls.push({ command, repo });
+      const outcome = repo === SITE ? siteOutcome : corpusOutcome;
+      if (outcome instanceof Error) throw outcome;
+      return outcome;
+    };
+    // Reproduce ghBucketRead's actual third parameter. If readBucketIssue
+    // passes `true`, it reaches ghBucketRead as `exec` and the TypeError is
+    // converted to null, exactly as in production.
+    const run = (args: string[], token = '', execArg: unknown = exec) =>
+      ghBucketRead(args, token, execArg as never);
+    return { run, calls };
+  }
+
+  const realBucketSamples = [
+    {
+      bucket: 10433,
+      pr: 10188,
+      createdAt: '2026-09-29T23:45:30Z',
+      marker: [
+        '## Post-merge follow-up triage',
+        '',
+        'Created/updated: daily bucket #10433 `follow-up(daily:2026-09-30)` (valerielinc-ops/frontaliere-si-o-no) con 1 item:',
+        '- `FU-2026-09-30-001` — prova post-merge di Deploy to GitHub Pages dopo la run cancellata.',
+      ].join('\n'),
+      issue: {
+        number: 10433,
+        title: 'follow-up(daily:2026-09-30): 69 items — valerielinc-ops/frontaliere-si-o-no',
+        body: '## Batch\n- State: sealed\n\n### FU-2026-09-30-001 — Post-merge deploy proof\n- State: open\n- Sources: PR #10188',
+      },
+    },
+    {
+      bucket: 10283,
+      pr: 10102,
+      createdAt: '2026-09-29T04:29:34Z',
+      marker: [
+        '## Post-merge follow-up triage',
+        '',
+        'Created/updated: daily bucket #10283 `follow-up(daily:2026-09-29)` con 2 item:',
+        '- `FU-2026-09-29-001` — verifica Vitest della closure crawler non eseguita per resource-guard locale.',
+        '- `FU-2026-09-29-002` — mirror dei crawler-group nel corpus dopo il drift sync.',
+      ].join('\n'),
+      issue: {
+        number: 10283,
+        title: 'follow-up(daily:2026-09-29): 10 items — valerielinc-ops/frontaliere-si-o-no',
+        body: '## Batch\n- State: sealed\n\n### FU-2026-09-29-001 — Vitest closure\n- State: open\n- Sources: PR #10102',
+      },
+    },
+  ];
+
+  it('classifica il NOT_FOUND del numero come risposta definitiva, il resto come illeggibile', () => {
+    const exec = (outcome: unknown) => () => {
+      if (outcome instanceof Error) throw outcome;
+      return outcome as string;
+    };
+    expect(ghBucketRead(['issue', 'view', '10433'], '', exec(notFound) as never)).toBe(false);
+    expect(ghBucketRead(['issue', 'view', '10433'], '', exec(Object.assign(new Error('x'), {
+      stderr: Buffer.from('GraphQL: Could not resolve to an Issue with the number of 10433. (repository.issue)'),
+    })) as never)).toBe(false);
+    // Repository illeggibile/inesistente, guasto di rete o auth: non prova nulla.
+    for (const stderr of [
+      "GraphQL: Could not resolve to a Repository with the name 'owner/missing'. (repository)",
+      'HTTP 502: Bad Gateway (https://api.github.com/graphql)',
+      'HTTP 401: Bad credentials',
+      '',
+    ]) {
+      expect(ghBucketRead(['issue', 'view', '10433'], '', exec(Object.assign(new Error('x'), { stderr })) as never)).toBeNull();
+    }
+    expect(ghBucketRead(['issue', 'view', '10433'], '', exec('{"number":10433}') as never)).toBe('{"number":10433}');
+    expect(ISSUE_NUMBER_NOT_FOUND_RE.test('Could not resolve to a Repository with the name')).toBe(false);
+  });
+
+  it('un numero assente dal corpus lascia definitiva la lettura del sito', () => {
+    const run = (args: string[]) => (args[args.indexOf('--repo') + 1] === CORPUS ? false : JSON.stringify(truncatedBucket));
+    const read = readBucketIssue(10433, run as never, [SITE, CORPUS]);
+    expect(read).toEqual({ candidates: [{ ...truncatedBucket, repo: SITE }], unreadable: false });
+    // L'item della PR non c'e' piu': non persistito (`false`), non «illeggibile».
+    expect(verifyTriageMarkerPersistence(marker, 10332, () => read, prComments)).toBe(false);
+    // Un marker non provato piu' vecchio di 6h esce dal batch con l'allarme.
+    expect(markerIdempotencyDecision(false, Date.parse('2026-09-30T22:28:42Z'), Date.parse('2026-10-01T05:00:00Z'))).toBe('quarantine');
+    const lines: string[] = [];
+    expect(verifyPersistenceCli(['10332'], { read: () => prComments, readIssue: () => read, log: (line: string) => lines.push(line) })).toBe(false);
+    expect(lines).toEqual(['triage incompleta: PR #10332 senza item/Source persistito né prova del gate (bucket=[10433]).']);
+  });
+
+  for (const sample of realBucketSamples) {
+    it(`verifica il bucket reale #${sample.bucket} passando la firma effettiva di ghBucketRead`, () => {
+      const bucketJson = JSON.stringify(sample.issue);
+      const { run, calls } = runThroughGhBucketRead(bucketJson);
+      const comments = JSON.stringify({ comments: [{ createdAt: sample.createdAt, body: sample.marker }] });
+      const read = readBucketIssue(sample.bucket, run as never, [SITE, CORPUS]);
+      expect(read).toEqual({ candidates: [{ ...sample.issue, repo: SITE }], unreadable: false });
+      expect(calls).toEqual([{ command: 'gh', repo: SITE }, { command: 'gh', repo: CORPUS }]);
+
+      const lines: string[] = [];
+      expect(verifyPersistenceCli([String(sample.pr)], {
+        read: () => comments,
+        readIssue: (number: number) => readBucketIssue(number, run as never, [SITE, CORPUS]),
+        log: (line: string) => lines.push(line),
+      })).toBe(true);
+      expect(lines).toEqual([`PR #${sample.pr}: persistenza provata (bucket=[${sample.bucket}]).`]);
+    });
+  }
+
+  it('un errore GitHub reale resta unreadable attraverso readBucketIssue e il verifier', () => {
+    const { run, calls } = runThroughGhBucketRead(rateLimited);
+    const read = readBucketIssue(10433, run as never, [SITE, CORPUS]);
+    expect(read).toEqual({ candidates: [], unreadable: true });
+    expect(calls).toEqual([{ command: 'gh', repo: SITE }, { command: 'gh', repo: CORPUS }]);
+    expect(verifyTriageMarkerPersistence(marker, 10332, () => read, prComments)).toBeNull();
+  });
+
+  it('un vero guasto di lettura resta «non leggibile» e tiene la PR nel batch', () => {
+    const run = (args: string[]) => (args[args.indexOf('--repo') + 1] === CORPUS ? null : JSON.stringify(truncatedBucket));
+    const read = readBucketIssue(10433, run as never, [SITE, CORPUS]);
+    expect(read.unreadable).toBe(true);
+    expect(verifyTriageMarkerPersistence(marker, 10332, () => read, prComments)).toBeNull();
   });
 });

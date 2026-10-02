@@ -1638,12 +1638,14 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     datePublished: stats.endDate.toISOString(),
     dateModified: `${todayIso}T00:00:00.000Z`,
     author: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -1664,12 +1666,14 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
@@ -1749,7 +1753,7 @@ function renderSnapshotPage(inp: SnapshotPageInputs): string {
         : locale === 'de' ? `Tessiner Arbeitsmarkt ${monthLabel.monthName} ${monthLabel.year} — Statistik`
         : `Marché travail Tessin ${monthLabel.monthName} ${monthLabel.year} — tendances`)
       : JOB_MARKET_HUB_NAME[locale];
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(intro, 180);
 
   const robots = noindex ? 'noindex,follow' : 'index,follow';
@@ -1948,12 +1952,14 @@ function renderHubPage(inp: HubPageInputs): string {
     isAccessibleForFree: true,
     license: 'https://creativecommons.org/licenses/by/4.0/',
     creator: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
@@ -2012,7 +2018,7 @@ function renderHubPage(inp: HubPageInputs): string {
   // report"); add a year stamp + brand suffix so SEO <title> stays
   // distinct even after the test's stripBrand normalisation (Semrush W3).
   const titleBase = `${h1} ${new Date().getFullYear()}`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const description = truncateAtWordBoundary(copy.hubIntro, 180);
 
   // Above-the-fold tagline (≤120 chars) — replaces the long hubIntro
@@ -2834,7 +2840,7 @@ function renderSectorPage(inp: SectorPageInputs): string {
     : locale === 'en' ? `${sectorLabel} job market in Ticino`
     : locale === 'de' ? `Arbeitsmarkt ${sectorLabel} Tessin`
     : `Marché travail ${sectorLabel} Tessin`;
-  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino');
+  const title = clampSiteSuffix(titleBase, 'Frontaliere Ticino', 60);
   const metaDesc = copy.metaDesc(sectorLabel, stats.activeJobs);
 
   const statTiles = `<section class="s-VOrae_" aria-label="${esc(copy.kicker)}">

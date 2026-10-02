@@ -1,6 +1,7 @@
 import React from 'react';
 import { FileText, Scale, AlertTriangle, Globe, ArrowLeft } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
+import { PUBLIC_CONTACT_EMAIL } from '@/services/publicContact';
 
 export const TermsOfService: React.FC = () => {
  const nav = useNavigation();
@@ -23,7 +24,7 @@ export const TermsOfService: React.FC = () => {
  </div>
  <div>
  <h1 className="text-2xl sm:text-3xl font-extrabold font-display text-strong">Termini di Servizio</h1>
- <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Marzo 2026</p>
+ <p className="text-sm text-muted mt-1">Ultimo aggiornamento: Settembre 2026</p>
  </div>
  </div>
  <p className="text-subtle leading-relaxed">
@@ -163,13 +164,74 @@ export const TermsOfService: React.FC = () => {
  </div>
  </div>
 
- {/* Section 6: Modifiche */}
+ {/* Section 6: Candidatura assistita */}
+ <div id="candidatura-assistita" className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
+ <div className="flex items-center gap-3 mb-4">
+ <div className="p-2 bg-info-subtle rounded-xl">
+ <Scale className="text-info" size={24} />
+ </div>
+ <h2 className="text-xl font-bold font-display text-strong">6. Candidatura assistita a pagamento</h2>
+ </div>
+ <div className="space-y-3 text-subtle">
+ <p>
+  <strong>6.1 Il servizio.</strong> Con un pagamento unico prepariamo e inviamo a tuo nome la candidatura per un solo
+  annuncio. Lettera di presentazione, email per l&apos;azienda e risposte al modulo sono redatte con l&apos;aiuto di un
+  modello di intelligenza artificiale sulla base del tuo CV e dei dati che ci fornisci, controllate da
+  un&apos;operatrice e sottoposte alla tua approvazione: puoi correggerle o chiedere una nuova versione. Se non
+  rispondi entro 12 ore dall&apos;email di revisione, la candidatura parte così com&apos;è, come indicato nell&apos;email.
+  Non siamo un&apos;agenzia di collocamento né affiliati all&apos;azienda, e non garantiamo risposta, colloquio o assunzione.
+ </p>
+ <p>
+  <strong>6.2 Il mandato.</strong> Con la conferma prima del caricamento del CV ci conferisci un mandato limitato a
+  quell&apos;annuncio per: inviare la candidatura a tuo nome, per email o tramite il portale dell&apos;azienda; creare,
+  se il portale lo richiede, un account a tuo nome con un indirizzo email dedicato alla candidatura e una password
+  casuale; accettare per tuo conto le condizioni d&apos;uso, l&apos;informativa sulla protezione dei dati e le altre
+  dichiarazioni che l&apos;azienda o il portale richiedono per ricevere la candidatura, solo nella misura necessaria
+  all&apos;invio; ricevere sull&apos;indirizzo dedicato le risposte dell&apos;azienda e inoltrartele; inviare, se
+  l&apos;azienda non risponde a una candidatura partita per email, fino a due brevi solleciti a tuo nome, che ti
+  mostriamo prima. Non accettiamo mai per tuo conto consensi facoltativi (newsletter, marketing, avvisi di lavoro,
+  talent pool, condivisione con altre aziende) né dichiarazioni che solo tu puoi rendere: in quei casi ti chiediamo
+  di rispondere o di completare tu il passaggio. Puoi revocare il mandato fino all&apos;invio scrivendo a
+  <a href={`mailto:${PUBLIC_CONTACT_EMAIL}`} className="underline">{PUBLIC_CONTACT_EMAIL}</a>.
+ </p>
+ <p>
+  <strong>6.3 I tuoi impegni.</strong> Dichiari che il CV, i documenti e i dati che ci fornisci sono veritieri,
+  aggiornati e tuoi, e che puoi comunicarli all&apos;azienda. Le risposte che solo tu puoi dare (permesso di lavoro,
+  disponibilità, pretese salariali, domande del portale) le fornisci tu; del contenuto della candidatura che approvi
+  rispondi tu nei confronti dell&apos;azienda.
+ </p>
+ <p>
+  <strong>6.4 Azienda e portali.</strong> Dopo l&apos;invio, il trattamento dei tuoi dati da parte dell&apos;azienda o
+  del portale è regolato dalle loro condizioni e dalla loro informativa privacy, di cui non siamo responsabili. Non
+  aggiriamo controlli anti-robot, verifiche di identità o altri controlli del portale: se il portale li richiede,
+  ti passiamo il collegamento e le risposte preparate perché tu completi l&apos;invio dal tuo browser.
+ </p>
+ <p>
+  <strong>6.5 Pagamento e rimborso.</strong> Chiedi espressamente che il servizio inizi subito dopo il pagamento.
+  Se l&apos;annuncio risulta chiuso prima che la candidatura sia inviata, ti rimborsiamo automaticamente l&apos;intero
+  importo. Una volta inviata la candidatura il servizio è eseguito e l&apos;importo non è rimborsabile, fatti salvi
+  i diritti che la legge applicabile ti riconosce come consumatore.
+ </p>
+ <p>
+  <strong>6.6 Dati personali.</strong> Come trattiamo il CV, i dati e le email di questa candidatura (fornitori,
+  conservazione di 90 giorni, diritti) è descritto nell&apos;
+  <button onClick={() => nav.navigateTo('privacy')} className="text-accent hover:underline font-semibold">informativa privacy</button>,
+  alla voce «Candidatura assistita a pagamento».
+ </p>
+ <p>
+  <strong>6.7 Responsabilità.</strong> Nei limiti consentiti dalla legge, la nostra responsabilità per il servizio è
+  limitata all&apos;importo pagato, salvo dolo o colpa grave.
+ </p>
+ </div>
+ </div>
+
+ {/* Section 7: Modifiche */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="flex items-center gap-3 mb-4">
  <div className="p-2 bg-surface-raised rounded-xl">
  <FileText className="text-subtle" size={24} />
  </div>
- <h2 className="text-xl font-bold font-display text-strong">6. Modifiche ai Termini</h2>
+ <h2 className="text-xl font-bold font-display text-strong">7. Modifiche ai Termini</h2>
  </div>
  <div className="space-y-3 text-subtle">
  <p>
@@ -180,10 +242,10 @@ export const TermsOfService: React.FC = () => {
  </div>
  </div>
 
- {/* Section 7: Contatti */}
+ {/* Section 8: Contatti */}
  <div className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm">
  <div className="space-y-3 text-subtle">
- <h2 className="text-xl font-bold font-display text-strong">7. Contatti</h2>
+ <h2 className="text-xl font-bold font-display text-strong">8. Contatti</h2>
  <p>
  Per domande o chiarimenti sui presenti termini di servizio, puoi contattarci tramite
  la <button onClick={() => nav.navigateTo('contact')} className="text-accent hover:underline font-semibold">pagina contatti</button> o

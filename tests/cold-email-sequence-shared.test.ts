@@ -17,9 +17,10 @@ const fromShared = rawFromShared as unknown as (args: {
 // about what we actually send — this guards the single-source invariant
 // (AGENTS.md Non-Negotiable #6).
 describe('cold-email sequence: single shared source (no drift)', () => {
-  it('generate-cold-emails re-exports the exact shared buildSequence + OPTOUT_EMAIL', () => {
+  it('generate-cold-emails re-exports the exact shared builder and keeps its sender contact separate', () => {
     expect(fromGenerate).toBe(fromShared);
-    expect(OPTOUT_FROM_GENERATE).toBe(OPTOUT_EMAIL);
+    expect(OPTOUT_FROM_GENERATE).not.toBe(OPTOUT_EMAIL);
+    expect(OPTOUT_FROM_GENERATE).toMatch(/@frontaliereticino\.ch$/);
   });
 
   it('builds the full 4-touch sequence', () => {

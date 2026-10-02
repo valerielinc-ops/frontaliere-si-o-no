@@ -68,13 +68,17 @@ vi.mock('../scripts/lib/expired-jobs-archive.mjs', () => ({
   archiveRemovedJobsToSlice: mocks.archiveRemovedJobsToSlice,
 }));
 
-vi.mock('../scripts/lib/transient-fetch.mjs', () => ({
-  RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
-  WAF_IP_BLOCK_STATUS: new Set([403]),
-  isTransientFetchError: vi.fn(() => false),
-  isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
-  fetchWithRetry: vi.fn(),
-}));
+vi.mock('../scripts/lib/transient-fetch.mjs', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('../scripts/lib/transient-fetch.mjs')>();
+  return {
+    RETRYABLE_STATUS: new Set([500, 502, 503, 504]),
+    WAF_IP_BLOCK_STATUS: new Set([403]),
+    isTransientFetchError: vi.fn(() => false),
+    isConnectionLevelFetchError: mocks.isConnectionLevelFetchError,
+    fetchWithRetry: vi.fn(),
+    isRetryBudgetExhausted: actual.isRetryBudgetExhausted,
+  };
+});
 
 vi.mock('../scripts/lib/jina-proxy.mjs', () => ({
   fetchHtmlViaJinaWithRetry: vi.fn(),
@@ -737,5 +741,43 @@ describe('standard crawler authoritative-empty policy', () => {
       ]),
       expect.any(Object),
     );
+  });
+
+  it('passes the stored company snapshot to source-specific fetchers', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'fetch-existing-snapshot-root-'));
+    const stored = {
+      id: 'test-old-1',
+      slug: 'old-job',
+      companyKey: COMPANY_KEY,
+      url: 'https://example.com/jobs/old',
+      description: SOURCE_BODY,
+    };
+    mocks.readExistingCrawlerJobs.mockReturnValueOnce([stored]);
+    let received: { existingJobs?: object[] } | undefined;
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Fetch Context Test',
+        root,
+        fetchJobs: async (context) => {
+          received = context;
+          return [{
+            id: 'test-new-1',
+            slug: 'new-job',
+            companyKey: COMPANY_KEY,
+            title: 'Fresh job',
+            description: SOURCE_BODY,
+            location: 'Lugano',
+            canton: 'TI',
+            url: 'https://example.com/jobs/fresh',
+          }];
+        },
+        isCompanyJob: () => true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(received).toEqual({ existingJobs: [stored] });
   });
 });

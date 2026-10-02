@@ -17,6 +17,7 @@ import { createHash } from 'node:crypto';
 import type { Plugin } from 'vite';
 import { BASE_URL, ANALYTICS_SNIPPET, ROBOTS_INDEX_ENHANCED_CONTENT } from './constants';
 import { inlineScriptJson } from './shared/inlineJsonScript';
+import { formatUpdatedDate } from './shared/humanDate';
 import { PDF_PAGE_A4, PDF_MARGIN_DEFAULT, PDF_BASE_PALETTE, collectPdfBuffer } from './shared/pdfKitTheme';
 import { unescapeTsString } from '../scripts/lib/unescape-ts-string.mjs';
 
@@ -462,10 +463,8 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
  image: seoHeroImageObject(hero),
  encodingFormat: 'application/pdf',
  encoding: { '@type': 'MediaObject', contentUrl: pdfUrl, encodingFormat: 'application/pdf' },
- author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
- publisher: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
- datePublished: dateStamp,
- dateModified: dateStamp,
+ author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+ publisher: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
  inLanguage: 'it',
  isAccessibleForFree: true,
  });
@@ -487,13 +486,13 @@ function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: stri
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(guide.title)} | Frontaliere Ticino</title>
-<meta name="description" content="${esc(clampMetaDescription(guide.subtitle))}">
+<meta name="description" content="${esc(clampMetaDescription(guide.subtitle, undefined, 'it'))}">
 <meta name="robots" content="${ROBOTS_INDEX_ENHANCED_CONTENT}">
 <link rel="canonical" href="${canonical}">
 ${hreflangLinks}
 <meta property="og:type" content="article">
 <meta property="og:title" content="${esc(guide.title)}">
-<meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle))}">
+<meta property="og:description" content="${esc(clampMetaDescription(guide.subtitle, undefined, 'it'))}">
 <meta property="og:url" content="${canonical}">
 <meta property="og:site_name" content="Frontaliere Ticino">
 <!-- Was /icons/icon-512x512.png: a 512x512 square app icon, below the 1200-wide
@@ -525,11 +524,11 @@ nav a{color:#2563eb;text-decoration:none}
 ${renderSeoHeroImage(hero)}
 <div class="download-box">
 <a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
-<p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>
+<p class="meta">Formato PDF · Gratuito · Data di revisione del documento non documentata<br>Pagina generata: ${esc(formatUpdatedDate(dateStamp, 'it'))}</p>
 </div>
 <p>${esc(guide.bodyText)}</p>
 <p>Questa guida fa parte delle risorse gratuite di <a href="/">Frontaliere Ticino</a> per i lavoratori transfrontalieri tra Svizzera e Italia.</p>
-<p>Consulta anche l'<a href="/articoli-frontaliere/${guide.articleUrlSlug}/">articolo completo online</a> per la versione aggiornata in tempo reale.</p>
+<p>Consulta anche l'<a href="/articoli-frontaliere/${guide.articleUrlSlug}/">articolo completo online</a> per consultare il contenuto sul sito.</p>
 </article>
 <nav>
 <a href="/">Simulatore Fiscale</a> · <a href="/guida-frontaliere/">Guida Frontaliere</a> · <a href="/articoli-frontaliere/">Articoli</a> · <a href="/cerca-lavoro-ticino/">Lavoro Ticino</a>
@@ -552,7 +551,6 @@ function updateGuidesSitemap(fs: typeof import('node:fs'), rootDir: string, gene
  </url>
  <url>
  <loc>${pdfUrl}</loc>
- <lastmod>${dateStamp}</lastmod>
  <changefreq>monthly</changefreq>
  <priority>0.5</priority>
  </url>`;
@@ -671,7 +669,7 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  // ── Skip path: source unchanged AND cached PDF is on disk ───
  // Copy the cached PDF to dist/ rather than regenerating. The
  // landing page is cheap (HTML string interpolation) so we
- // always re-emit it to pick up date stamps + size.
+ // always re-emit it with page generation time and size, never a new PDF revision date.
  let pdfBuffer: Buffer;
  if (previousHash === sourceHash && fs.existsSync(cachedPath)) {
  pdfBuffer = fs.readFileSync(cachedPath);
@@ -691,7 +689,7 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
 
  const sizeKb = (pdfBuffer.length / 1024).toFixed(1);
 
- // Generate HTML landing page (always — cheap, picks up date)
+ // Generate HTML landing page (always — page generation is separate from PDF revision)
  const landingDir = path.join(rootDir, 'dist', 'guides', guide.filename);
  fs.mkdirSync(landingDir, { recursive: true });
  const landingHtml = generateLandingPage(guide, sizeKb, dateStamp);
@@ -718,3 +716,6 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
  },
  };
 }
+
+// Test hook: render the landing without generating a PDF or mutating the cache.
+export const __renderPdfLandingPageForTest = generateLandingPage;

@@ -37,7 +37,7 @@ function table(rows, headers) {
 
 console.log(`# Calculator funnel drop — PostHog investigation (last ${WINDOW}d)\n`);
 console.log(`Host: ${HOST} · Project: ${PID} · Generated: ${new Date().toISOString()}\n`);
-console.log(`Context: GA4 reports funnel_step:entry → input_start drop -71 % (24.216 users → 7.043).\n`);
+console.log(`Historical context (2026-05-18): independent GA4 step counts were 24,216 entry users and 7,043 input_start users; this does not establish a sequential drop-off.\n`);
 
 // ── 1. Baseline counts (entry / input_start / calculate / compare) ───────────
 console.log(`## 1. Step counts (last ${WINDOW}d, funnel = calculator)\n`);
@@ -56,8 +56,8 @@ const qCounts = `
 const rCounts = await runHogQL(qCounts.trim());
 table(rCounts.results || [], ['step', 'events', 'users']);
 
-// ── 2. Top entry landing URLs WITHOUT a subsequent input_start ───────────────
-console.log(`## 2. Top entry landing URLs for users who never fired input_start (same session)\n`);
+// ── 2. Top entry landing URLs WITHOUT an input_start anywhere in the window ───────────────
+console.log(`## 2. Top entry landing URLs for users without input_start anywhere in the same window (distinct_id; no session or ordering join)\n`);
 const qDropUrls = `
   SELECT properties.$current_url AS url, count(DISTINCT distinct_id) AS users
   FROM events
@@ -73,10 +73,10 @@ const qDropUrls = `
   LIMIT 20
 `;
 const rDropUrls = await runHogQL(qDropUrls.trim());
-table(rDropUrls.results || [], ['url', 'dropping_users']);
+table(rDropUrls.results || [], ['url', 'entry_only_users']);
 
-// ── 3. Compare: top entry landing URLs that DID convert to input_start ───────
-console.log(`## 3. Top entry landing URLs that DID convert to input_start (same window)\n`);
+// ── 3. Compare: top entry landing URLs with input_start also observed ───────
+console.log(`## 3. Top entry landing URLs with input_start also observed (same window)\n`);
 const qConvUrls = `
   SELECT properties.$current_url AS url, count(DISTINCT distinct_id) AS users
   FROM events
@@ -92,10 +92,10 @@ const qConvUrls = `
   LIMIT 20
 `;
 const rConvUrls = await runHogQL(qConvUrls.trim());
-table(rConvUrls.results || [], ['url', 'converting_users']);
+table(rConvUrls.results || [], ['url', 'users_with_both_events']);
 
-// ── 4. Device split (mobile vs desktop) among dropping users ─────────────────
-console.log(`## 4. Device split among dropping users (entry-only, no input_start)\n`);
+// ── 4. Device split (mobile vs desktop) among entry-only users ─────────────────
+console.log(`## 4. Device split among entry-only users (entry-only, no input_start)\n`);
 const qDevice = `
   SELECT properties.$device_type AS device, count(DISTINCT distinct_id) AS users
   FROM events
@@ -110,10 +110,10 @@ const qDevice = `
   ORDER BY users DESC
 `;
 const rDevice = await runHogQL(qDevice.trim());
-table(rDevice.results || [], ['device', 'dropping_users']);
+table(rDevice.results || [], ['device', 'entry_only_users']);
 
-// ── 5. Device split among converting users (for ratio comparison) ────────────
-console.log(`## 5. Device split among converting users (entry + input_start)\n`);
+// ── 5. Device split among users with both events in the window (for ratio comparison) ────────────
+console.log(`## 5. Device split among users with both events in the window (entry + input_start)\n`);
 const qDeviceConv = `
   SELECT properties.$device_type AS device, count(DISTINCT distinct_id) AS users
   FROM events
@@ -128,10 +128,10 @@ const qDeviceConv = `
   ORDER BY users DESC
 `;
 const rDeviceConv = await runHogQL(qDeviceConv.trim());
-table(rDeviceConv.results || [], ['device', 'converting_users']);
+table(rDeviceConv.results || [], ['device', 'users_with_both_events']);
 
-// ── 6. Browser split among dropping users ────────────────────────────────────
-console.log(`## 6. Browser split among dropping users\n`);
+// ── 6. Browser split among entry-only users ────────────────────────────────────
+console.log(`## 6. Browser split among entry-only users\n`);
 const qBrowser = `
   SELECT properties.$browser AS browser, count(DISTINCT distinct_id) AS users
   FROM events
@@ -147,10 +147,10 @@ const qBrowser = `
   LIMIT 10
 `;
 const rBrowser = await runHogQL(qBrowser.trim());
-table(rBrowser.results || [], ['browser', 'dropping_users']);
+table(rBrowser.results || [], ['browser', 'entry_only_users']);
 
-// ── 7. Top errors in dropping sessions ──────────────────────────────────────
-console.log(`## 7. Top \`$exception\` messages in dropping sessions (same distinct_id, last ${WINDOW}d)\n`);
+// ── 7. Top errors in entry-only users across the window ──────────────────────────────────────
+console.log(`## 7. Top \`$exception\` messages in entry-only users across the window (same distinct_id, last ${WINDOW}d)\n`);
 const qErrors = `
   SELECT
     coalesce(properties.$exception_values.1, properties.$exception_message) AS msg,
@@ -178,7 +178,7 @@ const rErrors = await runHogQL(qErrors.trim());
 table(rErrors.results || [], ['msg', 'type', 'events', 'users']);
 
 // ── 8. landing_path payload on entry events (what URLs are firing entry) ─────
-console.log(`## 8. \`landing_path\` payload values on entry events (drop-only)\n`);
+console.log(`## 8. \`landing_path\` payload values on entry events (entry-only users in the window)\n`);
 const qLandingPath = `
   SELECT properties.landing_path AS landing_path, count(DISTINCT distinct_id) AS users
   FROM events
@@ -194,10 +194,10 @@ const qLandingPath = `
   LIMIT 25
 `;
 const rLandingPath = await runHogQL(qLandingPath.trim());
-table(rLandingPath.results || [], ['landing_path', 'dropping_users']);
+table(rLandingPath.results || [], ['landing_path', 'entry_only_users']);
 
-// ── 9. Sample dropping session IDs (for manual session-recording inspection) ─
-console.log(`## 9. Sample 15 dropping-user distinct_ids + their $session_id\n`);
+// ── 9. Sample entry-event session IDs for entry-only users (for manual session-recording inspection) ─
+console.log(`## 9. Sample 15 entry-only-user distinct_ids + their $session_id\n`);
 const qSessions = `
   SELECT DISTINCT distinct_id, properties.$session_id AS sid, properties.$current_url AS url, timestamp
   FROM events
@@ -216,13 +216,13 @@ const rSessions = await runHogQL(qSessions.trim());
 table(rSessions.results || [], ['distinct_id', 'session_id', 'url', 'timestamp']);
 
 // ── 10. Daily trend — is the drop new or stable? ────────────────────────────
-console.log(`## 10. Daily trend (last 14d) — entry vs input_start users\n`);
+console.log(`## 10. Daily trend (last 14d) — entry vs input_start event counts (unsequenced)\n`);
 const qTrend = `
   SELECT
     toDate(timestamp) AS day,
     countIf(properties.step = 'entry') AS entries,
     countIf(properties.step = 'input_start') AS input_starts,
-    round(100.0 * countIf(properties.step = 'input_start') / nullif(countIf(properties.step = 'entry'), 0), 1) AS conv_pct
+    round(100.0 * countIf(properties.step = 'input_start') / nullif(countIf(properties.step = 'entry'), 0), 1) AS event_ratio_pct
   FROM events
   WHERE event = 'funnel_step' AND properties.funnel = 'calculator'
     AND timestamp > now() - INTERVAL 14 DAY
@@ -230,6 +230,6 @@ const qTrend = `
   ORDER BY day DESC
 `;
 const rTrend = await runHogQL(qTrend.trim());
-table(rTrend.results || [], ['day', 'entries (events)', 'input_starts (events)', 'conv %']);
+table(rTrend.results || [], ['day', 'entries (events)', 'input_starts (events)', 'input_start / entry events % (unsequenced)']);
 
 console.log(`---\n_Generated by scripts/investigate-calc-funnel-drop.mjs_`);

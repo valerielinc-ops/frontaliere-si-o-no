@@ -6,9 +6,10 @@ name: Bing SEO closed loop
 on:
   schedule:
     - cron: '35 4 * * *'
-  # Re-run the complete tree immediately after the publish workflow finishes.
-  # The scheduled run remains the safety net for external/content-only changes;
-  # a failed publish must not create a noisy issue from a half-deployed tree.
+  # Re-run the complete tree immediately after the Pages publish workflow finishes.
+  # The gate below admits the run when the actual Pages deploy and live
+  # validation jobs are green, even if a separate dist-quality audit made the
+  # aggregate publish workflow red after the site was already live.
   workflow_run:
     workflows: ['Publish to GitHub Pages (deploy + validate)']
     types: [completed]
@@ -39,10 +40,50 @@ permissions:
   contents: write
   pull-requests: write
   issues: write
+  actions: read
 
 jobs:
+  # The workflow_run conclusion describes the aggregate publish workflow, so a
+  # failed post-build validator can hide a successful Pages deployment. Read
+  # the triggering run's job conclusions and crawl only when the live surface
+  # was actually published and validated. A failed deploy remains fail-closed.
+  publish-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      eligible: ${{ steps.gate.outputs.eligible }}
+    steps:
+      - name: Verify Pages deploy and live validation
+        id: gate
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          PUBLISH_RUN_ID: ${{ github.event.workflow_run.id }}
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if [ "${EVENT_NAME}" != 'workflow_run' ]; then
+            echo 'eligible=true' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if ! jobs_json="$(gh run view "${PUBLISH_RUN_ID}" --repo "${GITHUB_REPOSITORY}" --json jobs 2>/tmp/publish-gate-error); then
+            echo '::warning::Impossibile leggere i job del publish run; full-tree saltato in modo fail-closed.'
+            sed -n '1,4p' /tmp/publish-gate-error || true
+            echo 'eligible=false' >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          deploy="$(jq -r '[.jobs[] | select(.name == "deploy") | .conclusion][0] // ""' <<<"${jobs_json}")"
+          live="$(jq -r '[.jobs[] | select(.name == "validate-live / validate-live") | .conclusion][0] // ""' <<<"${jobs_json}")"
+          echo "publish deploy=${deploy:-<missing>} validate-live=${live:-<missing>}"
+          if [ "${deploy}" = 'success' ] && [ "${live}" = 'success' ]; then
+            echo 'eligible=true' >> "$GITHUB_OUTPUT"
+          else
+            echo '::warning::Pages non verificato come live (deploy/validate-live non entrambi verdi); full-tree saltato.'
+            echo 'eligible=false' >> "$GITHUB_OUTPUT"
+          fi
+
   audit:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: publish-gate
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 25
     steps:
@@ -231,7 +272,8 @@ jobs:
   # every URL is assigned to exactly one deterministic partition, so the
   # matrix below really covers the full published tree rather than a sample.
   tree-inventory:
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: publish-gate
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -242,6 +284,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
             /scripts/lib/meta-description-extract.mjs
           sparse-checkout-cone-mode: false
 
@@ -269,8 +313,8 @@ jobs:
           if-no-files-found: error
 
   tree-crawl:
-    needs: tree-inventory
-    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    needs: [publish-gate, tree-inventory]
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' && needs.tree-inventory.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 50
     strategy:
@@ -288,6 +332,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
             /scripts/lib/meta-description-extract.mjs
           sparse-checkout-cone-mode: false
 
@@ -325,9 +371,126 @@ jobs:
           path: ${{ runner.temp }}/partition-${{ matrix.partition }}.json
           if-no-files-found: error
 
+  # The sitemap pass also records every same-origin HTML link it sees. Build a
+  # second deterministic manifest from those links so old weekly archives,
+  # article subroutes and other internally reachable pages are verified even
+  # when a publisher forgot to include them in XML. Query-string calculators,
+  # assets and malformed editor tokens stay in the report ledger rather than
+  # exploding the crawl into an unbounded parameter space.
+  tree-discovered-inventory:
+    needs: [publish-gate, tree-inventory, tree-crawl]
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' && needs.tree-inventory.result == 'success' && needs.tree-crawl.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout crawler
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/meta-description-extract.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Download sitemap manifest
+        uses: actions/download-artifact@v8
+        with:
+          name: bing-site-tree-manifest
+          path: ${{ runner.temp }}/bing-site-tree-manifest
+
+      - name: Download sitemap partition reports
+        uses: actions/download-artifact@v8
+        with:
+          pattern: bing-site-tree-partition-*
+          path: ${{ runner.temp }}/bing-site-tree-reports
+          merge-multiple: true
+
+      - name: Build internal-link frontier manifest
+        run: |
+          set -euo pipefail
+          node scripts/seo/bing-site-explorer-crawl.mjs \
+            --discovered-inventory \
+            --base-url https://frontaliereticino.ch \
+            --base-manifest-file "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
+            --reports-dir "$RUNNER_TEMP/bing-site-tree-reports" \
+            --partitions 24 \
+            --out "$RUNNER_TEMP/bing-site-tree-discovered-manifest.json"
+
+      - name: Upload internal-link frontier manifest
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-site-tree-discovered-manifest
+          path: ${{ runner.temp }}/bing-site-tree-discovered-manifest.json
+          if-no-files-found: error
+
+  tree-discovered-crawl:
+    needs: [publish-gate, tree-discovered-inventory]
+    if: ${{ needs.publish-gate.outputs.eligible == 'true' && needs.tree-discovered-inventory.result == 'success' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        partition: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    steps:
+      - name: Checkout crawler
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/meta-description-extract.mjs
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Download internal-link frontier manifest
+        uses: actions/download-artifact@v8
+        with:
+          name: bing-site-tree-discovered-manifest
+          path: ${{ runner.temp }}/bing-site-tree-discovered-manifest
+
+      - name: Crawl internal-link frontier partition ${{ matrix.partition }}
+        run: |
+          set -euo pipefail
+          node scripts/seo/bing-site-explorer-crawl.mjs \
+            --manifest-file "$RUNNER_TEMP/bing-site-tree-discovered-manifest/bing-site-tree-discovered-manifest.json" \
+            --partition "${{ matrix.partition }}" \
+            --partitions 24 \
+            --concurrency 8 \
+            --timeout-ms 30000 \
+            --retries 4 \
+            --rescue-concurrency 1 \
+            --rescue-retries 4 \
+            --rescue-delay-ms 3000 \
+            --out "$RUNNER_TEMP/frontier-partition-${{ matrix.partition }}.json"
+
+      - name: Upload internal-link frontier report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: bing-site-tree-frontier-partition-${{ matrix.partition }}
+          path: ${{ runner.temp }}/frontier-partition-${{ matrix.partition }}.json
+          if-no-files-found: error
+
   tree-report:
-    needs: [tree-inventory, tree-crawl]
-    if: ${{ always() && needs.tree-inventory.result == 'success' && (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') }}
+    needs: [publish-gate, tree-inventory, tree-crawl, tree-discovered-inventory, tree-discovered-crawl]
+    if: ${{ always() && needs.publish-gate.outputs.eligible == 'true' && needs.tree-inventory.result == 'success' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
@@ -338,6 +501,8 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             /scripts/seo/
+            /scripts/lib/canonicalExemptions.mjs
+            /scripts/lib/jobBoardSections.mjs
             /scripts/lib/meta-description-extract.mjs
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
@@ -367,8 +532,28 @@ jobs:
           path: ${{ runner.temp }}/bing-site-tree-reports
           merge-multiple: true
 
+      - name: Download internal-link frontier manifest
+        continue-on-error: true
+        if: ${{ needs.tree-discovered-inventory.result == 'success' }}
+        uses: actions/download-artifact@v8
+        with:
+          name: bing-site-tree-discovered-manifest
+          path: ${{ runner.temp }}/bing-site-tree-discovered-manifest
+
+      - name: Download internal-link frontier reports
+        continue-on-error: true
+        if: ${{ needs.tree-discovered-crawl.result == 'success' }}
+        uses: actions/download-artifact@v8
+        with:
+          pattern: bing-site-tree-frontier-partition-*
+          path: ${{ runner.temp }}/bing-site-tree-frontier-reports
+          merge-multiple: true
+
       - name: Ensure report directory exists
-        run: mkdir -p "$RUNNER_TEMP/bing-site-tree-reports"
+        run: |
+          mkdir -p "$RUNNER_TEMP/bing-site-tree-reports"
+          mkdir -p "$RUNNER_TEMP/bing-site-tree-discovered-manifest"
+          mkdir -p "$RUNNER_TEMP/bing-site-tree-frontier-reports"
 
       - name: Prepare Firebase credentials for GitHub App/PAT auth
         env:
@@ -400,8 +585,35 @@ jobs:
       - name: Aggregate coverage and findings
         id: report
         continue-on-error: true
+        env:
+          FRONTIER_INVENTORY_RESULT: ${{ needs.tree-discovered-inventory.result }}
+          FRONTIER_CRAWL_RESULT: ${{ needs.tree-discovered-crawl.result }}
         run: |
           set -euo pipefail
+          extra_args=()
+          frontier_manifest="$RUNNER_TEMP/bing-site-tree-discovered-manifest/bing-site-tree-discovered-manifest.json"
+          if [ -f "$frontier_manifest" ]; then
+            extra_args+=(
+              --supplemental-manifest "$frontier_manifest"
+              --supplemental-reports-dir "$RUNNER_TEMP/bing-site-tree-frontier-reports"
+            )
+          fi
+          if [ "$FRONTIER_INVENTORY_RESULT" != 'success' ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              "frontiera interna: tree-discovered-inventory=${FRONTIER_INVENTORY_RESULT}; manifest non disponibile"
+            )
+          elif [ "$FRONTIER_CRAWL_RESULT" != 'success' ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              "frontiera interna: tree-discovered-crawl=${FRONTIER_CRAWL_RESULT}; copertura non completa"
+            )
+          elif [ ! -f "$frontier_manifest" ]; then
+            extra_args+=(
+              --supplemental-coverage-error
+              'frontiera interna: manifest non pubblicato dall’inventario'
+            )
+          fi
           node scripts/seo/bing-site-explorer-report.mjs \
             --reports-dir "$RUNNER_TEMP/bing-site-tree-reports" \
             --manifest "$RUNNER_TEMP/bing-site-tree-manifest/bing-site-tree-manifest.json" \
@@ -411,7 +623,8 @@ jobs:
             --rescue-delay-ms 3000 \
             --rescue-deadline-ms 480000 \
             --out "$RUNNER_TEMP/bing-site-tree-summary.json" \
-            --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md"
+            --issue-body "$RUNNER_TEMP/bing-site-tree-issue.md" \
+            "${extra_args[@]}"
 
       - name: Upload full-tree report
         if: always()

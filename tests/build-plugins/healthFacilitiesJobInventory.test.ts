@@ -58,7 +58,68 @@ describe('health-facility visible inventory', () => {
     const { html } = renderFacilityPage('it', facility, snapshot, '2026-09-14', root);
     expect((html.match(/<article /g) || []).length).toBe(8);
     expect((html.match(/class="ft-infeed-ad/g) || []).length).toBe(2);
-    expect((html.match(/"@type":"JobPosting"/g) || []).length).toBe(6);
+    expect(html).not.toContain('"@type":"JobPosting"');
+    expect(html).toContain('"@type":"ItemList"');
+    expect((html.match(/"@type":"WebPage"/g) || []).length).toBe(6);
+  });
+
+  it('keeps long facility titles distinct after the metadata cap', () => {
+    const root = fixtureRoot(8);
+    const facility = getHealthFacility('usz');
+    const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');
+    if (!facility || !snapshot) throw new Error('USZ fixture did not aggregate');
+
+    // The source names differ only after the 66-character SERP budget. The
+    // route-derived token must survive the metadata-only cap, while the
+    // visible H1/body/schema keep their complete source names.
+    const prefix = 'N'.repeat(70);
+    const first = renderFacilityPage(
+      'it',
+      { ...facility, slug: 'fixture-long-facility-a', name: `${prefix}A` },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const second = renderFacilityPage(
+      'it',
+      { ...facility, slug: 'fixture-long-facility-b', name: `${prefix}B` },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const title = (html: string): string => html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+
+    const firstTitle = title(first);
+    const secondTitle = title(second);
+    expect(firstTitle.length).toBeLessThanOrEqual(66);
+    expect(secondTitle.length).toBeLessThanOrEqual(66);
+    expect(firstTitle).not.toBe(secondTitle);
+    expect(first).toContain(`${prefix}A`);
+    expect(second).toContain(`${prefix}B`);
+  });
+
+  it('caps facility titles after HTML escaping metadata names', () => {
+    const root = fixtureRoot(8);
+    const facility = getHealthFacility('usz');
+    const snapshot = aggregateHealthFacilityJobs(root, Date.parse('2026-09-14T00:00:00.000Z')).get('usz');
+    if (!facility || !snapshot) throw new Error('USZ fixture did not aggregate');
+
+    const html = renderFacilityPage(
+      'it',
+      {
+        ...facility,
+        slug: 'fixture-escaped-facility',
+        name: `${'N'.repeat(70)} &A<Z>\"`,
+      },
+      snapshot,
+      '2026-09-14',
+      root,
+    ).html;
+    const title = html.match(/<title>([^<]*)<\/title>/)?.[1] ?? '';
+
+    // This is the serialized title seen by the crawler: & becomes &amp; and
+    // the other reserved characters expand as well.
+    expect(title.length).toBeLessThanOrEqual(66);
   });
 
   it('keeps a production-sized complete facility inventory under the finite weight ceiling', () => {

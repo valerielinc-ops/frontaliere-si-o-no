@@ -73,9 +73,10 @@ jobs:
           TRANSLATION_MANUAL_OVERRIDE: ${{ github.event_name == 'workflow_dispatch' && (inputs.skip_translate == true || inputs.dry_run == true || inputs.collect_company_served == true || inputs.company_key != '' || inputs.max_jobs != '900' || inputs.mopup_max_jobs != '6000') && 'true' || 'false' }}
         run: |-
           set -euo pipefail
-          fail_open() {
-            echo "::warning::translate-pending queue guard could not inspect GitHub Actions; continuing with the heavy run to preserve throughput."
-            echo "run=true" >> "$GITHUB_OUTPUT"
+          fail_closed() {
+            local reason="${1:-unknown}"
+            echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}); skipping the heavy run to keep the queue bounded."
+            echo "run=false" >> "$GITHUB_OUTPUT"
             echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"
             exit 0
           }
@@ -109,32 +110,34 @@ jobs:
           }
           active_runs=""
           for run_status in queued pending waiting requested in_progress; do
-            runs_path="/repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"
-            if ! status_json="$(guard_api "$runs_path")"; then fail_open; fi
-            if ! printf "%s" "$status_json" | jq -e 'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))' >/dev/null; then fail_open; fi
+            runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"
+            if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi
+            if ! printf "%s" "$status_json" | jq -e 'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))' >/dev/null; then fail_closed "workflow_runs_${run_status}_payload"; fi
             status_total_count="$(printf "%s" "$status_json" | jq -r '.total_count')"
             status_returned_count="$(printf "%s" "$status_json" | jq -r '.workflow_runs | length')"
-            if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi
-            if ! status_runs="$(printf "%s" "$status_json" | jq -c '.workflow_runs[]')"; then fail_open; fi
+            if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed "workflow_runs_${run_status}_truncated"; fi
+            if ! status_runs="$(printf "%s" "$status_json" | jq -c '.workflow_runs[]')"; then fail_closed "workflow_runs_${run_status}_rows"; fi
             if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$'\n'}${status_runs}"; fi
           done
-          if [ -z "$active_runs" ]; then fail_open; fi
-          if ! current_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) == $current) | .created_at][0] // empty')"; then fail_open; fi
-          if [ -z "$current_created_at" ]; then fail_open; fi
-          if ! waiting_candidates="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")] | .[] | [.created_at, .id] | @tsv')"; then fail_open; fi
-          if ! in_progress_ids="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_open; fi
+          current_run_path="repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          if ! current_run_json="$(guard_api "$current_run_path")"; then fail_closed "current_run"; fi
+          if ! printf "%s" "$current_run_json" | jq -e --arg current "$GITHUB_RUN_ID" 'type == "object" and ((.id | tostring) == $current) and ((.created_at | type) == "string")' >/dev/null; then fail_closed "current_run_payload"; fi
+          if ! current_created_at="$(printf "%s" "$current_run_json" | jq -r '.created_at // empty')"; then fail_closed "current_run_created_at"; fi
+          if [ -z "$current_created_at" ]; then fail_closed "current_run_created_at"; fi
+          if ! waiting_candidates="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current) | select(.status == "queued" or .status == "pending" or .status == "waiting" or .status == "requested")] | .[] | [.created_at, .id] | @tsv')"; then fail_closed "waiting_candidates"; fi
+          if ! in_progress_ids="$(printf "%s\n" "$active_runs" | jq -rs --arg current "$GITHUB_RUN_ID" '[.[] | select((.id | tostring) != $current and .status == "in_progress") | .id] | .[]')"; then fail_closed "in_progress_runs"; fi
           in_progress_count="$(printf "%s\n" "$in_progress_ids" | awk 'NF {count++} END {print count + 0}')"
-          if [ "$in_progress_count" -gt 20 ]; then fail_open; fi
+          if [ "$in_progress_count" -gt 20 ]; then fail_closed "in_progress_runs_bound"; fi
           active_heavy_runs=0
           while IFS= read -r run_id; do
             [ -z "$run_id" ] && continue
-            if ! run_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg run_id "$run_id" '[.[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_open; fi
-            if [ -z "$run_created_at" ]; then fail_open; fi
-            jobs_path="/repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"
-            if ! jobs_json="$(guard_api "$jobs_path")"; then fail_open; fi
-            if ! printf "%s" "$jobs_json" | jq -e 'type == "object" and (.jobs | type) == "array"' >/dev/null; then fail_open; fi
-            if ! translate_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate") | .status][0] // empty')"; then fail_open; fi
-            if ! guard_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate_queue_guard") | .status][0] // empty')"; then fail_open; fi
+            if ! run_created_at="$(printf "%s\n" "$active_runs" | jq -rs --arg run_id "$run_id" '[.[] | select((.id | tostring) == $run_id) | .created_at][0] // empty')"; then fail_closed "in_progress_run_created_at"; fi
+            if [ -z "$run_created_at" ]; then fail_closed "in_progress_run_created_at"; fi
+            jobs_path="repos/${GITHUB_REPOSITORY}/actions/runs/${run_id}/jobs?per_page=100"
+            if ! jobs_json="$(guard_api "$jobs_path")"; then fail_closed "jobs_${run_id}"; fi
+            if ! printf "%s" "$jobs_json" | jq -e 'type == "object" and (.jobs | type) == "array"' >/dev/null; then fail_closed "jobs_${run_id}_payload"; fi
+            if ! translate_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate") | .status][0] // empty')"; then fail_closed "jobs_${run_id}_translate"; fi
+            if ! guard_status="$(printf "%s" "$jobs_json" | jq -r '[.jobs[] | select(.name == "translate_queue_guard") | .status][0] // empty')"; then fail_closed "jobs_${run_id}_guard"; fi
             case "$translate_status" in
               queued|pending|waiting|requested)
                 waiting_candidates="${waiting_candidates}${waiting_candidates:+$'\n'}${run_created_at} ${run_id}"
@@ -155,7 +158,7 @@ jobs:
           candidate_count="$(printf "%s\n" "$waiting_candidates" | awk 'NF {count++} END {print count + 0}')"
           oldest_candidate="$(printf "%s\n" "$waiting_candidates" | LC_ALL=C sort -k1,1 -k2,2n | head -n 1)"
           oldest_run_id="$(printf "%s\n" "$oldest_candidate" | awk '{print $2}')"
-          if [ -z "$oldest_run_id" ]; then fail_open; fi
+          if [ -z "$oldest_run_id" ]; then fail_closed "oldest_run"; fi
           other_waiting=$((candidate_count - 1))
           if [ "$oldest_run_id" = "$GITHUB_RUN_ID" ]; then
             echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."

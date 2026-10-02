@@ -1,7 +1,11 @@
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
 import { describe, expect, it } from 'vitest';
 
 import {
   classifyDocument,
+  collectDiscoveredInventory,
   collectSitemapInventory,
   crawlPartition,
   extractInternalLinks,
@@ -12,6 +16,8 @@ import {
 } from '../../scripts/seo/bing-site-explorer-crawl.mjs';
 import {
   aggregateCrawlReports,
+  buildIssueBody,
+  readPartitionReports,
   rescueTransientReports,
 } from '../../scripts/seo/bing-site-explorer-report.mjs';
 
@@ -37,10 +43,33 @@ describe('Bing-compatible full-tree crawler', () => {
   });
 
   it('classifies noindex, canonical drift, soft 404 and HTTP errors', () => {
-    const noindex = classifyDocument({ url: `${BASE}/partner/`, status: 200, headers: new Headers({ 'x-robots-tag': 'noindex' }), html: '<title>Partner</title><link rel="canonical" href="https://frontaliereticino.ch/partner/"><meta name="robots" content="noindex">' });
+    const noindex = classifyDocument({ url: `${BASE}/partner/`, status: 200, headers: new Headers({ 'x-robots-tag': 'noindex' }), html: '<title>Partner</title><link rel="canonical" href="https://frontaliereticino.ch/partner/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina partner nel controllo SEO completo del sito e mantenere il contratto di crawling."/><meta name="robots" content="noindex">' });
     expect(noindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     const drift = classifyDocument({ url: `${BASE}/a/`, status: 200, html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/b/">' });
     expect(drift.findings.map((item) => item.code)).toContain('canonical-drift');
+
+    const expectedJobConsolidation = classifyDocument({
+      url: `${BASE}/en/find-jobs-geneva/a/`,
+      status: 200,
+      html: '<title>A</title><link rel="canonical" href="https://frontaliereticino.ch/en/find-jobs-geneva/b/">',
+    });
+    expect(expectedJobConsolidation.findings.map((item) => item.code)).toContain('canonical-expected');
+    expect(expectedJobConsolidation.findings.map((item) => item.code)).not.toContain('canonical-drift');
+
+    const expectedPreviousSlugBridge = classifyDocument({
+      url: `${BASE}/blog/vecchio-slug/`,
+      status: 200,
+      html: '<title>Archivio</title><link rel="canonical" href="https://frontaliereticino.ch/blog/nuovo-slug/"><script>__BRIDGE_TARGET_SLUG__</script>',
+    });
+    expect(expectedPreviousSlugBridge.findings.map((item) => item.code)).toContain('canonical-expected');
+
+    const thinBridge = classifyDocument({
+      url: `${BASE}/blog/legacy/`,
+      status: 200,
+      html: '<title>Archivio</title><link rel="canonical" href="https://frontaliereticino.ch/blog/current/"><p>Versione canonica disponibile</p>',
+    });
+    expect(thinBridge.findings.map((item) => item.code)).toContain('canonical-drift');
+
     const gone = classifyDocument({ url: `${BASE}/missing/`, status: 200, html: '<title>404 — Pagina non trovata</title><h1>Pagina non trovata</h1>' });
     expect(gone.findings.map((item) => item.code)).toContain('soft-404');
     expect(classifyDocument({ url: `${BASE}/missing/`, status: 404 }).findings[0].code).toBe('http-error');
@@ -54,6 +83,24 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(minified.canonical).toBe(`${BASE}/minified/`);
     expect(minified.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
     expect(minified.findings.map((item) => item.code)).not.toContain('canonical-missing');
+
+    const metadata = classifyDocument({
+      url: `${BASE}/metadata/`,
+      status: 200,
+      html: '<title>Questo titolo supera intenzionalmente il limite SEO definito dal crawler per la verifica</title><link rel="canonical" href="https://frontaliereticino.ch/metadata/"><meta name="description" content="Descrizione breve">',
+    });
+    expect(metadata.findings.map((item) => item.code)).toEqual(expect.arrayContaining([
+      'title-too-long',
+      'meta-description-too-short',
+    ]));
+
+    const newsHeadline = 'Un titolo storico molto lungo che resta identico nel NewsArticle per preservare la sua elegibilità editoriale';
+    const newsInvariant = classifyDocument({
+      url: `${BASE}/articoli-frontaliere/storico/`,
+      status: 200,
+      html: `<title>${newsHeadline}</title><link rel="canonical" href="${BASE}/articoli-frontaliere/storico/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina storica nel controllo SEO completo e mantenere il contratto di crawling."><script type="application/ld+json">${JSON.stringify({ '@type': 'NewsArticle', headline: newsHeadline })}</script>`,
+    });
+    expect(newsInvariant.findings.map((item) => item.code)).not.toContain('title-too-long');
 
     const pdf = classifyDocument({
       url: `${BASE}/guide.pdf`,
@@ -70,6 +117,54 @@ describe('Bing-compatible full-tree crawler', () => {
       headers: new Headers({ 'x-robots-tag': 'noindex' }),
     });
     expect(nonHtmlNoindex.findings.map((item) => item.code)).toContain('noindex-in-sitemap');
+  });
+
+  it('keeps expected canonical consolidations out of the actionable issue body', () => {
+    const expectedUrl = `${BASE}/blog/vecchio-slug/`;
+    const driftUrl = `${BASE}/blog/old/`;
+    const report = {
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: 2,
+      partition: 0,
+      partitions: 1,
+      partitionTotal: 2,
+      checkedCount: 2,
+      codeCounts: { 'canonical-expected': 1, 'canonical-drift': 1 },
+      statusCounts: { 200: 2 },
+      folderStats: {
+        '/blog/': {
+          checked: 2,
+          statuses: { 200: 2 },
+          findings: { 'canonical-expected': 1, 'canonical-drift': 1 },
+        },
+      },
+      findings: [
+        {
+          code: 'canonical-expected',
+          url: expectedUrl,
+          root: '/blog/',
+          status: 200,
+          detail: 'canonical consolidato (previous-slug-bridge)',
+        },
+        {
+          code: 'canonical-drift',
+          url: driftUrl,
+          root: '/blog/',
+          status: 200,
+          detail: 'canonical diverso',
+        },
+      ],
+      discoveredOutOfSitemap: [],
+    };
+
+    const summary = aggregateCrawlReports([report], { manifestCount: 2, sitemapCount: 1, baseUrl: BASE });
+    const issueBody = buildIssueBody(summary);
+    expect(summary.actionableCount).toBe(1);
+    expect(issueBody).toContain('### canonical-drift (1)');
+    expect(issueBody).not.toContain('### canonical-expected');
+    expect(issueBody).not.toContain('`canonical-expected`');
+    expect(issueBody).toContain('| `/blog/` | 2 | 0 | 1 |');
   });
 
   it('does not match SEO attributes inside other attribute names or values', () => {
@@ -124,7 +219,7 @@ describe('Bing-compatible full-tree crawler', () => {
       fetchImpl: async () => {
         calls += 1;
         if (calls === 1) return new Response('', { status: 503 });
-        return new Response('<title>Rescued</title><link rel="canonical" href="https://frontaliereticino.ch/rescue/">', {
+        return new Response('<title>Rescued</title><link rel="canonical" href="https://frontaliereticino.ch/rescue/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina recuperata nel controllo SEO completo del sito e mantenere il contratto di crawling.">', {
           status: 200,
           headers: { 'content-type': 'text/html' },
         });
@@ -178,7 +273,7 @@ describe('Bing-compatible full-tree crawler', () => {
     const result = await rescueTransientReports([report], { baseUrl: BASE, urls: [url] }, {
       fetchImpl: async () => {
         calls += 1;
-        return new Response('<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/global-rescue/">', {
+        return new Response('<title>Recovered</title><link rel="canonical" href="https://frontaliereticino.ch/global-rescue/"><meta name="description" content="Una descrizione sufficientemente lunga per rappresentare la pagina recuperata nel controllo SEO completo del sito e mantenere il contratto di crawling.">', {
           status: 200,
           headers: { 'content-type': 'text/html' },
         });
@@ -239,9 +334,68 @@ describe('Bing-compatible full-tree crawler', () => {
     expect(inventory.errors[0].error).toMatch(/vuoto|non supportato/);
   });
 
-  it('extracts same-site HTML links without assets, externals or router actions', () => {
-    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">bad</a>', `${BASE}/`, BASE);
-    expect(links).toEqual(['https://frontaliereticino.ch/cerca-lavoro-ticino/', 'https://frontaliereticino.ch/contattaci/']);
+  it('keeps same-site link evidence while excluding externals and router actions', () => {
+    const links = extractInternalLinks('<a href="/contattaci">Contatti</a><a href=/cerca-lavoro-ticino>Job board</a><a href="/?calc=1">query</a><a href="/assets/app.js">asset</a><a href="https://example.com/">external</a><a href="nav:pension">router action</a><a href="<nav:calculator>">malformed editor token</a>', `${BASE}/`, BASE);
+    expect(links).toEqual([
+      '<nav:calculator>',
+      'https://frontaliereticino.ch/?calc=1',
+      'https://frontaliereticino.ch/assets/app.js',
+      'https://frontaliereticino.ch/cerca-lavoro-ticino/',
+      'https://frontaliereticino.ch/contattaci/',
+    ]);
+  });
+
+  it('carries malformed, dynamic and non-HTML links into the discovery report', async () => {
+    const report = await crawlPartition({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/source/`] },
+      partition: 0,
+      partitions: 1,
+      concurrency: 1,
+      retries: 0,
+      rescueDelayMs: 0,
+      fetchImpl: async () => new Response(
+        '<a href="<nav:calculator>">malformed</a><a href="/?calc=1">query</a><a href="/asset.js">asset</a>',
+        { status: 200, headers: { 'content-type': 'text/html' } },
+      ),
+    });
+
+    expect(report.discoveredOutOfSitemap).toEqual([
+      '<nav:calculator>',
+      `${BASE}/?calc=1`,
+      `${BASE}/asset.js`,
+    ]);
+  });
+
+  it('builds a bounded second frontier and keeps dynamic or malformed links as evidence', () => {
+    const frontier = collectDiscoveredInventory({
+      manifest: { baseUrl: BASE, urls: [`${BASE}/in-sitemap/`] },
+      reports: [{
+        discoveredOutOfSitemap: [
+          `${BASE}/in-sitemap/`,
+          `${BASE}/storico/settimana-18-2026/`,
+          `${BASE}/calcola-stipendio/?reddito=100000`,
+          `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
+          `${BASE}/assets/app.js`,
+          '<nav:calculator>',
+        ],
+      }],
+    });
+
+    expect(frontier.urls).toEqual([`${BASE}/storico/settimana-18-2026/`]);
+    expect(frontier.sourceDiscoveredCount).toBe(5);
+    expect(frontier.excludedByReason).toEqual({
+      'dynamic-query': 1,
+      'malformed-route': 2,
+      'non-html-or-private': 1,
+    });
+    expect(frontier.findings).toEqual(expect.arrayContaining([
+      expect.objectContaining({
+        code: 'internal-link-malformed',
+        url: `${BASE}/articoli/test/%3Cnav:calculator%3E/`,
+      }),
+      expect.objectContaining({ code: 'internal-link-malformed', url: '<nav:calculator>' }),
+    ]));
+    expect(frontier.folders).toEqual({ '/storico/': 1 });
   });
 
   it('fails closed when a partition is missing or duplicated', () => {
@@ -249,6 +403,53 @@ describe('Bing-compatible full-tree crawler', () => {
     const summary = aggregateCrawlReports([base(0), base(0)], { manifestCount: 2, sitemapCount: 1, baseUrl: BASE });
     expect(summary.coverageOk).toBe(false);
     expect(summary.coverageErrors.join(' ')).toMatch(/duplicata|mancante|diversa/);
+  });
+
+  it('aggregates sitemap coverage with the internally linked HTML frontier', () => {
+    const sitemapUrl = `${BASE}/in-sitemap/`;
+    const frontierUrl = `${BASE}/storico/settimanale-18-2026/`;
+    const makeReport = (url, partition = 0) => ({
+      schemaVersion: 1,
+      baseUrl: BASE,
+      manifestCount: 1,
+      partition,
+      partitions: 1,
+      partitionTotal: 1,
+      checkedCount: 1,
+      codeCounts: { 'http-error': 1 },
+      statusCounts: { 404: 1 },
+      folderStats: { '/storico/': { checked: 1, statuses: { 404: 1 }, findings: { 'http-error': 1 } } },
+      findings: [{ code: 'http-error', url, root: '/storico/', status: 404, detail: 'HTTP 404' }],
+      discoveredOutOfSitemap: [],
+    });
+    const summary = aggregateCrawlReports(
+      [makeReport(sitemapUrl)],
+      { baseUrl: BASE, sitemapCount: 1, manifestCount: 1, urls: [sitemapUrl] },
+      {
+        supplementalReports: [makeReport(frontierUrl)],
+        supplementalManifest: { baseUrl: BASE, kind: 'discovered-frontier', manifestCount: 1, urls: [frontierUrl] },
+      },
+    );
+
+    expect(summary.coverageOk).toBe(true);
+    expect(summary.manifestCount).toBe(2);
+    expect(summary.checkedCount).toBe(2);
+    expect(summary.supplementalManifestCount).toBe(1);
+    expect(summary.scopes.map((scope) => scope.name)).toEqual(['sitemap', 'frontiera interna']);
+    expect(summary.actionableCount).toBe(2);
+    expect(buildIssueBody(summary)).toContain('Frontiera interna crawlable: **1 URL**');
+  });
+
+  it('reads the frontier partition filename prefix used by the workflow artifacts', () => {
+    const reportsDir = mkdtempSync(join(tmpdir(), 'bing-site-frontier-reports-'));
+    try {
+      writeFileSync(join(reportsDir, 'frontier-partition-0.json'), JSON.stringify({ partition: 0 }));
+      writeFileSync(join(reportsDir, 'partition-0.json'), JSON.stringify({ partition: 99 }));
+
+      expect(readPartitionReports(reportsDir, 'frontier-partition-')).toEqual([{ partition: 0 }]);
+    } finally {
+      rmSync(reportsDir, { recursive: true, force: true });
+    }
   });
 
   it('treats a partially unread sitemap graph as incomplete coverage', () => {
@@ -274,5 +475,19 @@ describe('Bing-compatible full-tree crawler', () => {
     });
     expect(summary.coverageOk).toBe(false);
     expect(summary.coverageErrors.join(' ')).toContain('sitemap non letto');
+  });
+
+  it('fails closed when the internal-link frontier job fails before reporting', () => {
+    const summary = aggregateCrawlReports([], {
+      baseUrl: BASE,
+      sitemapCount: 1,
+      manifestCount: 0,
+      errors: [],
+    }, {
+      supplementalCoverageErrors: ['frontiera interna: tree-discovered-inventory=failure; manifest non disponibile'],
+    });
+
+    expect(summary.coverageOk).toBe(false);
+    expect(summary.coverageErrors).toContain('frontiera interna: tree-discovered-inventory=failure; manifest non disponibile');
   });
 });

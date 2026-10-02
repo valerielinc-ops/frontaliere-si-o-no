@@ -1,49 +1,18 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-09-29T21:39:10.002Z",
+  "generatedAt": "2026-10-01T21:36:39.342Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9580,
-  "avgDurationMs": 9580,
+  "unchangedCount": 4,
+  "durationMs": 8443,
+  "avgDurationMs": 8443,
   "durationHistory": [
-    9580
+    8443
   ],
-  "newJobs": [
-    {
-      "title": "Tecnico Controllo Qualità - Q-team",
-      "slug": "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-      "applyUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "general",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-09-29",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "_qualityScore": 71,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 10,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Precious Metal Control Manager",
@@ -74,11 +43,11 @@
       "firstSeenAt": "2026-08-19T21:38:27.862Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 91,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -110,12 +79,50 @@
       "currency": "CHF",
       "firstSeenAt": "2026-08-12T22:07:24.592Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
-      "_qualityScore": 84,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "title": "Tecnico Controllo Qualità - Q-team",
+      "slug": "tecnico-controllo-qualita-q-team-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
+      "applyUrl": "https://careers.mkspamp.com/jobs/8474301-tecnico-controllo-qualita-q-team",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "general",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-09-29",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "id": "mks-pamp-94c930306b63",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-29T21:39:07.108Z",
+      "_qualityScore": 91,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -185,7 +192,6 @@
       "postalCode": "6874",
       "firstSeenAt": "2026-04-23T22:07:57.426Z",
       "salarySource": "estimated",
-      "needsRetranslation": true,
       "retranslationAttempts": 0,
       "_qualityScore": 94,
       "_qualityBreakdown": {
@@ -233,7 +239,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

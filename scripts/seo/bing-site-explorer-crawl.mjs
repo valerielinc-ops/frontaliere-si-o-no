@@ -10,10 +10,11 @@
  */
 
 import { createHash } from 'node:crypto';
-import { mkdirSync, readFileSync, writeFileSync } from 'node:fs';
+import { mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { parseAttributes } from '../lib/meta-description-extract.mjs';
+import { classifyCanonicalMismatch } from '../lib/canonicalExemptions.mjs';
 
 export const CRAWLER_SCHEMA_VERSION = 1;
 export const DEFAULT_BASE_URL = 'https://frontaliereticino.ch';
@@ -35,6 +36,10 @@ export const DEFAULT_RESCUE_RETRIES = 4;
 export const DEFAULT_RESCUE_DELAY_MS = 3_000;
 export const DEFAULT_MAX_BODY_BYTES = 256 * 1024;
 export const DEFAULT_MAX_SITEMAP_BYTES = 64 * 1024 * 1024;
+export const DISCOVERY_SAMPLE_LIMIT = 100;
+export const TITLE_MAX_CHARS = 66;
+export const META_DESCRIPTION_MIN_CHARS = 120;
+const MALFORMED_NAVIGATION_TOKEN_RE = /^<\s*nav\s*:[^>]+>\s*$/i;
 
 function decodeXmlEntities(value) {
   return String(value || '')
@@ -266,6 +271,105 @@ export async function collectSitemapInventory({
   };
 }
 
+function decodedPath(value) {
+  try { return decodeURIComponent(new URL(value).pathname); } catch { return new URL(value).pathname; }
+}
+
+function isMalformedNavigationToken(value) {
+  return MALFORMED_NAVIGATION_TOKEN_RE.test(decodeXmlEntities(String(value || '')).trim());
+}
+
+/**
+ * Decide whether a same-site link is an HTML route worth crawling as part of
+ * the SEO tree. Query-string links are deliberately kept as evidence but not
+ * expanded into the crawl frontier: calculators, filters and tracking URLs
+ * can create an unbounded parameter space and are not sitemap documents.
+ */
+export function classifyDiscoveredUrl(value, baseUrl = DEFAULT_BASE_URL) {
+  const raw = decodeXmlEntities(String(value ?? '')).trim();
+  if (isMalformedNavigationToken(raw)) return { url: raw, reason: 'malformed-route' };
+  const normalized = normalizeUrl(value, baseUrl);
+  if (!normalized || !isSameOrigin(normalized, baseUrl)) return { url: normalized || String(value || ''), reason: 'outside-origin' };
+  const parsed = new URL(normalized);
+  if (parsed.search) return { url: normalized, reason: 'dynamic-query' };
+  if (!isCrawlableLink(normalized)) return { url: normalized, reason: 'non-html-or-private' };
+  // Broken editor tokens such as <nav:calculator> are useful findings, not
+  // valid routes to expand. Keep them in the evidence ledger separately.
+  if (/<\s*nav\s*:/i.test(decodedPath(normalized))) return { url: normalized, reason: 'malformed-route' };
+  return { url: normalized, reason: 'crawl' };
+}
+
+/**
+ * Build the next deterministic frontier from links found during the sitemap
+ * crawl. This is intentionally a separate manifest: the first pass remains
+ * the authoritative sitemap coverage, while the second pass verifies real
+ * HTML routes that are linked internally but omitted from XML sitemaps.
+ */
+export function collectDiscoveredInventory({
+  reports = [],
+  manifest,
+  baseUrl = manifest?.baseUrl || DEFAULT_BASE_URL,
+  partitions = DEFAULT_PARTITIONS,
+} = {}) {
+  if (!manifest || !Array.isArray(manifest.urls)) throw new Error('manifest.urls mancante');
+  const manifestSet = new Set(manifest.urls);
+  const discovered = new Set();
+  for (const report of reports) {
+    for (const url of report?.discoveredOutOfSitemap || []) {
+      if (!manifestSet.has(url)) discovered.add(url);
+    }
+  }
+  const urls = [];
+  const excludedByReason = {};
+  const excludedSamplesByReason = {};
+  const frontierFindings = [];
+  for (const value of [...discovered].sort()) {
+    const classified = classifyDiscoveredUrl(value, baseUrl);
+    if (classified.reason === 'crawl') {
+      urls.push(classified.url);
+      continue;
+    }
+    increment(excludedByReason, classified.reason);
+    const samples = excludedSamplesByReason[classified.reason] || (excludedSamplesByReason[classified.reason] = []);
+    if (samples.length < DISCOVERY_SAMPLE_LIMIT) samples.push(classified.url);
+    if (classified.reason === 'malformed-route') {
+      const normalized = normalizeUrl(classified.url, baseUrl);
+      frontierFindings.push({
+        code: 'internal-link-malformed',
+        url: classified.url,
+        detail: 'Link interno verso un token di navigazione/editor non valido.',
+        root: normalized ? folderFor(normalized) : '/',
+      });
+    }
+  }
+  const uniqueUrls = [...new Set(urls)].sort();
+  const folders = {};
+  const partitionCounts = {};
+  for (const url of uniqueUrls) {
+    const folder = folderFor(url);
+    increment(folders, folder);
+    const partition = partitionFor(url, partitions);
+    increment(partitionCounts, partition);
+  }
+  return {
+    schemaVersion: CRAWLER_SCHEMA_VERSION,
+    kind: 'discovered-frontier',
+    generatedAt: new Date().toISOString(),
+    baseUrl: originFor(baseUrl),
+    parentManifestCount: manifest.urls.length,
+    sourceReportCount: reports.length,
+    sourceDiscoveredCount: discovered.size,
+    manifestCount: uniqueUrls.length,
+    urls: uniqueUrls,
+    folders,
+    partitions: partitionCounts,
+    excludedByReason,
+    excludedSamplesByReason,
+    findings: frontierFindings,
+    errors: [],
+  };
+}
+
 function attr(attributes, name) {
   const parsed = parseAttributes(attributes);
   return decodeXmlEntities(parsed[String(name || '').toLowerCase()] ?? '');
@@ -299,6 +403,49 @@ function findTitle(html) {
   return stripTags(String(html || '').match(/<title\b[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '');
 }
 
+function normalizeMetadataText(value) {
+  return decodeXmlEntities(stripTags(String(value || ''))).replace(/\s+/g, ' ').trim();
+}
+
+/**
+ * Google News headlines are intentionally allowed to exceed the generic SERP
+ * title budget when the emitted `<title>` is byte-identical to the
+ * NewsArticle headline. Capping only one of the two fields would break the
+ * eligibility contract; this is an explicit, machine-checked exemption.
+ */
+function hasNewsArticleTitleInvariant(html, title) {
+  const expected = normalizeMetadataText(title);
+  if (!expected) return false;
+  const scripts = String(html || '').matchAll(
+    /<script\b[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi,
+  );
+  for (const match of scripts) {
+    try {
+      const stack = [JSON.parse(match[1])];
+      while (stack.length) {
+        const node = stack.pop();
+        if (!node || typeof node !== 'object') continue;
+        const type = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        if (type.includes('NewsArticle') && normalizeMetadataText(node.headline) === expected) return true;
+        for (const value of Object.values(node)) {
+          if (value && typeof value === 'object') stack.push(value);
+        }
+      }
+    } catch {
+      // One malformed JSON-LD block must not hide a valid NewsArticle block.
+    }
+  }
+  return false;
+}
+
+function findMetaDescription(html) {
+  for (const match of String(html || '').matchAll(/<meta\b([^>]*)>/gi)) {
+    if (attr(match[1], 'name').toLowerCase() !== 'description') continue;
+    return attr(match[1], 'content').replace(/\s+/g, ' ').trim();
+  }
+  return '';
+}
+
 function isSoft404(html, title) {
   const heading = String(html || '').match(/<h1\b[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || '';
   const signal = `${title} ${stripTags(heading)}`.trim();
@@ -318,11 +465,22 @@ function isCrawlableLink(value) {
 
 export function extractInternalLinks(html, pageUrl, baseUrl = DEFAULT_BASE_URL) {
   const links = new Set();
-  for (const match of String(html || '').matchAll(/<a\b([^>]*)>/gi)) {
+  // Keep quoted hrefs intact even when an invalid editor token contains `>`.
+  // A plain `[^>]*` tag matcher would stop at that character and lose the
+  // token before the evidence classifier gets a chance to see it.
+  for (const match of String(html || '').matchAll(/<a\b((?:(?:[^"'<>]|"[^"]*"|'[^']*'|<(?!\/a\b)))*)>/gi)) {
     const href = attr(match[1], 'href');
     if (!href || href.startsWith('#')) continue;
+    const rawHref = decodeXmlEntities(href).trim();
+    // Preserve broken editor/navigation tokens as evidence. They are not
+    // crawlable routes, but dropping the raw href here would make the second
+    // frontier unable to report the internal link that produced the defect.
+    if (isMalformedNavigationToken(rawHref)) {
+      links.add(rawHref);
+      continue;
+    }
     const normalized = normalizeUrl(href, pageUrl);
-    if (!normalized || !isSameOrigin(normalized, baseUrl) || !isCrawlableLink(normalized)) continue;
+    if (!normalized || !isSameOrigin(normalized, baseUrl)) continue;
     links.add(normalized);
   }
   return [...links].sort();
@@ -339,34 +497,62 @@ export function classifyDocument({ url, status, finalUrl = url, headers = {}, co
   const xRobots = typeof headers.get === 'function' ? headers.get('x-robots-tag') || '' : headers['x-robots-tag'] || '';
   if (statusNumber === 0) {
     findings.push(finding('fetch-error', url, 'La richiesta non ha prodotto una risposta HTTP.'));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber >= 300 && statusNumber < 400) {
     findings.push(finding('redirect', url, `HTTP ${statusNumber} verso ${finalUrl}.`, { status: statusNumber }));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   if (statusNumber < 200 || statusNumber >= 400) {
     findings.push(finding('http-error', url, `HTTP ${statusNumber}.`, { status: statusNumber }));
-    return { findings, title: '', canonical: '', noindex: false, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: false, soft404: false };
   }
   const normalizedContentType = String(contentType || '').toLowerCase();
   const headerNoindex = /\bnoindex\b/i.test(xRobots);
   if (normalizedContentType && !/(?:text\/html|application\/xhtml\+xml)\b/i.test(normalizedContentType)) {
     if (headerNoindex) findings.push(finding('noindex-in-sitemap', url, 'La risorsa pubblicata in sitemap dichiara noindex.'));
-    return { findings, title: '', canonical: '', noindex: headerNoindex, soft404: false };
+    return { findings, title: '', description: '', canonical: '', noindex: headerNoindex, soft404: false };
   }
   const title = findTitle(html);
+  const description = findMetaDescription(html);
   const canonical = findCanonical(html, url);
   const metaRobots = findMetaRobots(html).join(',');
   const noindex = /\bnoindex\b/i.test(`${xRobots},${metaRobots}`);
   const soft404 = isSoft404(html, title);
+  if (!title) findings.push(finding('title-missing', url, 'La pagina in sitemap non contiene un <title>.'));
+  else if (title.length > TITLE_MAX_CHARS && !hasNewsArticleTitleInvariant(html, title)) {
+    findings.push(finding(
+      'title-too-long',
+      url,
+      `<title> misura ${title.length} caratteri; limite ${TITLE_MAX_CHARS}.`,
+    ));
+  }
+  if (!description) {
+    findings.push(finding('meta-description-missing', url, 'La pagina in sitemap non contiene una meta description.'));
+  } else if (description.length < META_DESCRIPTION_MIN_CHARS) {
+    findings.push(finding(
+      'meta-description-too-short',
+      url,
+      `La meta description misura ${description.length} caratteri; minimo ${META_DESCRIPTION_MIN_CHARS}.`,
+    ));
+  }
   if (noindex) findings.push(finding('noindex-in-sitemap', url, 'La pagina pubblicata in sitemap dichiara noindex.'));
   if (!canonical) findings.push(finding('canonical-missing', url, 'Manca il canonical nella risposta HTML.'));
   else if (normalizeUrl(canonical) !== normalizeUrl(finalUrl || url)) {
-    findings.push(finding('canonical-drift', url, `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`));
+    const exemption = classifyCanonicalMismatch({ url: finalUrl || url, canonical, html });
+    if (exemption) {
+      findings.push(finding(
+        'canonical-expected',
+        url,
+        `Canonical ${canonical} consolidato correttamente (${exemption}).`,
+        { exemption },
+      ));
+    } else {
+      findings.push(finding('canonical-drift', url, `Canonical ${canonical} diverso dalla URL finale ${finalUrl || url}.`));
+    }
   }
   if (soft404) findings.push(finding('soft-404', url, 'La risposta è 200 ma il titolo/H1 identifica una pagina non trovata.'));
-  return { findings, title, canonical, noindex, soft404 };
+  return { findings, title, description, canonical, noindex, soft404 };
 }
 
 async function probeOnce(url, {
@@ -404,6 +590,7 @@ async function probeOnce(url, {
     status: response.status,
     finalUrl,
     title: classified.title,
+    description: classified.description,
     canonical: classified.canonical,
     noindex: classified.noindex,
     soft404: classified.soft404,
@@ -590,6 +777,31 @@ async function main() {
       console.error(error?.stack || error);
       process.exitCode = 1;
     }
+    return;
+  }
+  if (args['discovered-inventory']) {
+    const manifestFile = stringArg(args, 'base-manifest-file', '');
+    const reportsDir = stringArg(args, 'reports-dir', 'bing-site-tree-reports');
+    if (!manifestFile) throw new Error('specificare --base-manifest-file con --discovered-inventory');
+    const manifest = JSON.parse(readFileSync(resolve(manifestFile), 'utf8'));
+    const reports = readdirSync(resolve(reportsDir))
+      .filter((name) => /^partition-\d+\.json$/.test(name))
+      .sort()
+      .map((name) => JSON.parse(readFileSync(resolve(reportsDir, name), 'utf8')));
+    const inventory = collectDiscoveredInventory({
+      manifest,
+      reports,
+      baseUrl,
+      partitions: intArg(args, 'partitions', DEFAULT_PARTITIONS),
+    });
+    writeJson(out, inventory);
+    console.log(JSON.stringify({
+      mode: 'discovered-frontier',
+      sourceDiscoveredCount: inventory.sourceDiscoveredCount,
+      manifestCount: inventory.manifestCount,
+      excludedByReason: inventory.excludedByReason,
+      out,
+    }, null, 2));
     return;
   }
   const manifestFile = stringArg(args, 'manifest-file', '');

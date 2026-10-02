@@ -370,7 +370,13 @@ const translations: Record<string, string> = {
 
  // Stats View
  'affiliate.sectionTitle': 'Strumenti consigliati',
+ 'affiliate.referralDisclosure': "Alcuni link contengono codici di invito o referral. Al momento non abbiamo accordi di affiliazione attivi.",
  'affiliate.disclosure': 'Alcuni link possono generare una commissione che ci aiuta a mantenere il servizio gratuito.',
+ "affiliate.cta.check": "Verifica costo e condizioni →",
+ "affiliate.conditions.exchange": "Stima per l’importo selezionato. Tasso, commissioni e tempi definitivi sono confermati dal fornitore prima dell’operazione.",
+ "affiliate.conditions.banks": "Confronta canone, cambio, bonifici e prelievi: il costo totale dipende dall’uso. Verifica requisiti, promozioni e condizioni aggiornate.",
+ "affiliate.conditions.mobile": "Confronta canone, attivazione e roaming: soglie, fair use e requisiti delle promozioni possono cambiare il costo totale.",
+ "affiliate.conditions.health": "Il premio è una stima per i parametri selezionati. Franchigia, partecipazione ai costi ed eventuali coperture aggiuntive restano da verificare nel preventivo.",
  'affiliate.cta': 'Scopri →',
  'affiliate.cta.benefit': 'Confronta l\'offerta →',
 

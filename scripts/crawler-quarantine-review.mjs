@@ -37,6 +37,7 @@ import {
   QUARANTINE_RETIRE_RED_WAVES,
   applyQuarantineDecisions,
   decideQuarantine,
+  holdLastQuarantineMember,
   isMutatingDecision,
   loadQuarantineRegistry,
   quarantineDeadline,
@@ -186,13 +187,22 @@ export function buildQuarantineReviewPrBody({ decisions, registry, corpusRepo = 
       lines.push(`- **in questa PR** — \`${d.slug}\` diventa fallimento noto, tracciato da #${issues[d.slug]}: il suo rosso resta escluso dal verdetto del gruppo ${registry.group} fino al ${deadline}; ${describeEvidence(d, corpusRepo)}.`);
     } else if (d.action === 'mark-recovering') {
       lines.push(`- **in questa PR** — \`${d.slug}\` e' tornato verde (${describeEvidence(d, corpusRepo)}): perde la tolleranza, un suo nuovo rosso fa di nuovo fallire il gruppo; rientra dopo ${QUARANTINE_REJOIN_GREEN_WAVES} ondate verdi.`);
+    } else if (d.action === 'hold' && d.dropsTolerance) {
+      lines.push(`- **in questa PR** — \`${d.slug}\` e' tornato verde (${describeEvidence(d, corpusRepo)}) e perde la tolleranza: un suo nuovo rosso fa di nuovo fallire il gruppo ${registry.group}.`);
     }
   }
   if (workflowPaths.length > 0) {
     lines.push(`- **in questa PR** — registro, pin e workflow rigenerati da \`scripts/generate-crawler-group-workflows.mjs\`: \`data/crawler-quarantine.json\`, \`data/crawler-group-assignments.json\`, ${workflowPaths.map((p) => `\`${p}\``).join(', ')}.`);
   }
-  const pending = decisions.filter((d) => d.action === 'keep-failing');
-  const pendingLines = pending.map((d) => `- **per scelta** — \`${d.slug}\` resta fallimento noto (#${d.issue}) fino al ${d.deadline}: ${describeEvidence(d, corpusRepo)}. **Motivo:** ne' ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse ne' ${QUARANTINE_RETIRE_DAYS} giorni sono ancora raggiunti. **Prossimo passo:** la review successiva lo ritira alla soglia, o lo segna in recupero al primo verde.`);
+  const pendingLines = decisions.flatMap((d) => {
+    if (d.action === 'keep-failing') {
+      return [`- **per scelta** — \`${d.slug}\` resta fallimento noto (#${d.issue}) fino al ${d.deadline}: ${describeEvidence(d, corpusRepo)}. **Motivo:** ne' ${QUARANTINE_RETIRE_RED_WAVES} ondate rosse ne' ${QUARANTINE_RETIRE_DAYS} giorni sono ancora raggiunti. **Prossimo passo:** la review successiva lo ritira alla soglia, o lo segna in recupero al primo verde.`];
+    }
+    if (d.action === 'hold') {
+      return [`- **per scelta** — \`${d.slug}\` resta nel gruppo ${registry.group} anche con ${describeEvidence(d, corpusRepo)}. **Motivo:** ${d.reason} (\`holdLastQuarantineMember\`). **Prossimo passo:** rientra alla prima review dopo l'ingresso di un altro crawler in quarantena.`];
+    }
+    return [];
+  });
   return `## Implementato
 
 ${lines.join('\n')}
@@ -323,12 +333,21 @@ async function main() {
     : collectWaves({ corpusRepo: args.corpusRepo, group: registry.group, limit: args.limit, memberSlugs });
   console.log(`ondate osservate: ${waves.length} (${waves.filter((w) => w.source === 'notice').length} con notice, ${waves.filter((w) => w.source === 'legacy').length} lette dalle annotation)`);
 
-  const decisions = decideQuarantine({ registry, waves, now });
+  // Read the pins before any side effect: whether a decision would empty the
+  // quarantine group depends on them, and that has to be settled before an
+  // issue is opened (run 36789918924 opened the retirement issue, then died in
+  // the generator on the empty group).
+  const assignments = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+  const decisions = holdLastQuarantineMember({
+    registry,
+    assignments: assignments.groups,
+    decisions: decideQuarantine({ registry, waves, now }),
+  });
   for (const d of decisions) {
-    console.log(`  ${d.slug.padEnd(28)} ${d.action.padEnd(16)} ${d.evidence.latest ?? '-'} x${d.evidence.streak} (osservate ${d.evidence.observed})`);
+    console.log(`  ${d.slug.padEnd(28)} ${d.action.padEnd(16)} ${d.evidence.latest ?? '-'} x${d.evidence.streak} (osservate ${d.evidence.observed})${d.action === 'hold' ? ` — ${d.reason}` : ''}`);
   }
   const mutating = decisions.filter(isMutatingDecision);
-  const tracked = decisions.filter((d) => d.action === 'keep-failing');
+  const tracked = decisions.filter((d) => (d.action === 'keep-failing' || d.action === 'hold') && !isMutatingDecision(d));
   if (!args.apply) {
     console.log(`\n${mutating.length} decisioni con effetto; --apply per eseguirle.`);
     return;
@@ -346,7 +365,6 @@ async function main() {
     return;
   }
 
-  const assignments = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
   const next = applyQuarantineDecisions({ registry, assignments: assignments.groups, decisions: mutating, now, issues });
   writeJsonAtomic(QUARANTINE_PATH, quarantineRegistryDoc(next.registry));
   writeJsonAtomic(ASSIGNMENTS_PATH, { ...assignments, groups: next.assignments });

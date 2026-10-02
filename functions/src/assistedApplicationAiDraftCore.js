@@ -6,6 +6,7 @@
  */
 
 import { buildFactIndex, checkGeneratedFacts } from './assistedApplicationAiFactCheck.js';
+import { sanitizeValidation } from './lib/answerRules.js';
 import { formatLetterDate, letterSubject } from './assistedApplicationAiPrompts.js';
 
 export const LETTER_FILE_LABEL = {
@@ -89,6 +90,13 @@ export function sanitizeRequirements(raw) {
     applicationEmail: clean(raw?.applicationEmail, 254),
     contactPerson: clean(raw?.contactPerson, 200),
     applicationInstructions: clean(raw?.applicationInstructions, 400),
+    legitimacy: {
+      specificity: ['specific', 'mixed', 'vague'].includes(raw?.legitimacy?.specificity) ? raw.legitimacy.specificity : 'mixed',
+      contradictions: list(raw?.legitimacy?.contradictions, 5).map((item) => clean(item, 300)).filter(Boolean),
+      contractorQuote: clean(raw?.legitimacy?.contractorQuote, 300),
+      aiDirectedQuote: clean(raw?.legitimacy?.aiDirectedQuote, 300),
+      rolling: raw?.legitimacy?.rolling === true,
+    },
   };
 }
 
@@ -107,6 +115,12 @@ export function verifyQuotes(requirements, postingText) {
     }
   }
   if (!holds(requirements.workPermitQuote)) requirements.workPermitQuote = '';
+  // Legitimacy signals are quotes too: one the posting does not contain is dropped.
+  if (requirements.legitimacy) {
+    requirements.legitimacy.contradictions = requirements.legitimacy.contradictions.filter((quote) => holds(quote));
+    if (!holds(requirements.legitimacy.contractorQuote)) requirements.legitimacy.contractorQuote = '';
+    if (!holds(requirements.legitimacy.aiDirectedQuote)) requirements.legitimacy.aiDirectedQuote = '';
+  }
   if (requirements.applicationEmail && !haystack.includes(requirements.applicationEmail.toLowerCase())) {
     requirements.applicationEmail = '';
   }
@@ -124,9 +138,18 @@ function sanitizeQuestions(raw) {
     type: QUESTION_TYPES.has(item?.type) ? item.type : 'text',
     options: list(item?.options, 12).map((option) => clean(option, 80)).filter(Boolean),
     required: item?.required === true,
+    // Only a safe, self-consistent rule is kept (functions/src/lib/answerRules.js).
+    validation: sanitizeValidation(item?.validation, { type: QUESTION_TYPES.has(item?.type) ? item.type : 'text' }),
     source: 'match',
   })).filter((item) => item.id && item.question && !seen.has(item.id) && seen.add(item.id)).slice(0, 6);
 }
+
+export const SALARY_RULE_MESSAGES = {
+  it: 'Indica un importo, per esempio CHF 80’000 all’anno.',
+  de: 'Gib einen Betrag an, zum Beispiel CHF 80’000 pro Jahr.',
+  fr: 'Indiquez un montant, par exemple CHF 80’000 par an.',
+  en: 'Give an amount, for example CHF 80’000 a year.',
+};
 
 const FALLBACK_QUESTIONS = {
   work_permit: {
@@ -155,11 +178,13 @@ export function ensureRequiredQuestions(questions, { requirements, profile, answ
   const text = (id) => FALLBACK_QUESTIONS[id][locale] || FALLBACK_QUESTIONS[id].it;
   if (requirements?.workPermitQuote && !profile?.workPermit && !has('work_permit')) {
     const [question, why] = text('work_permit');
-    result.push({ id: 'work_permit', question, why, type: 'choice', options: FALLBACK_QUESTIONS.work_permit.options, required: true, source: 'rule' });
+    result.push({ id: 'work_permit', question, why, type: 'choice', options: FALLBACK_QUESTIONS.work_permit.options, required: true, validation: sanitizeValidation({}, { type: 'choice' }), source: 'rule' });
   }
   if (requirements?.salaryRequested && !has('salary_expectation')) {
     const [question, why] = text('salary_expectation');
-    result.push({ id: 'salary_expectation', question, why, type: 'text', options: [], required: true, source: 'rule' });
+    // An amount, whatever the format: "CHF 80'000", "80k", "85 000 - 90 000".
+    const validation = sanitizeValidation({ pattern: '.*\\d.*', maxLength: 120, example: "CHF 80'000", message: SALARY_RULE_MESSAGES[locale] || SALARY_RULE_MESSAGES.it }, { type: 'text' });
+    result.push({ id: 'salary_expectation', question, why, type: 'text', options: [], required: true, validation, source: 'rule' });
   }
   return result.slice(0, 8);
 }
@@ -215,7 +240,7 @@ export function candidateIdentity(order, profile) {
   return { name, email, phone };
 }
 
-function splitName(fullName) {
+export function splitName(fullName) {
   const parts = clean(fullName, 200).split(' ').filter(Boolean);
   if (parts.length < 2) return { firstName: parts[0] || '', lastName: '' };
   return { firstName: parts.slice(0, -1).join(' '), lastName: parts[parts.length - 1] };
@@ -241,7 +266,8 @@ function field(key, label, value, { needsConfirmation = false, note = '' } = {})
  * availability answers come from the profile or the candidate's answers only.
  */
 export function buildFormAnswers({ identity, profile, documents, answers = {} }) {
-  const { firstName, lastName } = splitName(identity.name);
+  // The split the candidate chose on the review page, else the last word is the surname.
+  const { firstName, lastName } = typeof identity.firstName === 'string' ? identity : splitName(identity.name);
   const languages = (profile?.languages || []).map((item) => [item.language, item.level].filter(Boolean).join(' ')).filter(Boolean).join(', ');
   const permit = clean(answers.work_permit, 200) || profile?.workPermit || '';
   const availability = clean(answers.availability, 200) || profile?.availability || '';
@@ -292,7 +318,43 @@ export function safeFileStem(value) {
     .replace(/^_+|_+$/g, '') || 'Candidato';
 }
 
-/** Fact gate over every text that may leave in the candidate's name. */
+/**
+ * The initials of each line of the order that has two capitalised words or
+ * more: "Ente Ospedaliero Cantonale" is also "EOC", the employer's short name
+ * in its own posting, not a tool the letter claims.
+ */
+export function employerInitials(orderLine) {
+  return String(orderLine || '').split('\n')
+    .map((line) => line.split(/\s+/).filter((word) => /^\p{Lu}/u.test(word)).map((word) => word[0]).join(''))
+    .filter((initials) => initials.length >= 2)
+    .join(' ');
+}
+
+// The texts where a tool reads as the candidate's claim. Not `whyCompany`
+// (it talks about the employer), nor the interview pack or the follow-up,
+// which go through this gate with their own fields.
+const CLAIM_FIELDS = ['coverLetter', 'emailSubject', 'emailBody', 'motivationShort'];
+
+/**
+ * Fact gate over every text that may leave in the candidate's name.
+ *
+ * Numbers, e-mails, URLs and phones may come from any source, the posting
+ * included. A tool, a certificate or a standard (SAP, ISO 9001, PowerPoint) in
+ * the letter or the e-mail is a claim about the candidate, backed only by the
+ * candidate's own texts (CV, answers, edits) and by the order line, which
+ * holds the company name and the job title exactly as the letter is given them.
+ * The posting text backs none: a tool only the posting names, claimed in the
+ * letter, is the invention this catches, and nothing in a posting tells an
+ * employer's short name from a required tool, so an employer acronym written
+ * only there ("EOC" for an order that says "Ente Ospedaliero Cantonale") is
+ * flagged for the owner to confirm. The place reaches the letter as the
+ * posting's structured location, which is not among the sources; its only
+ * tool-shaped part, a canton code, is never a claim (NOT_A_CLAIM).
+ */
 export function checkDraftFacts(texts, sources) {
-  return checkGeneratedFacts(texts, buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers]));
+  // `candidate`: what the candidate wrote on the review page vouches for itself.
+  const index = buildFactIndex([sources?.text, sources?.posting, sources?.order, sources?.answers, sources?.candidate], {
+    claimSources: [sources?.text, sources?.order, sources?.answers, sources?.candidate, employerInitials(sources?.order)],
+  });
+  return checkGeneratedFacts(texts, index, { toolFields: CLAIM_FIELDS });
 }

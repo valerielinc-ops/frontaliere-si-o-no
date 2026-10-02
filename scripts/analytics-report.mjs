@@ -41,6 +41,8 @@ import {
   clusterTopQueries,
 } from './lib/analytics-opportunity-utils.mjs';
 import { normalizeInspectionUrl } from './lib/url-normalize.mjs';
+import { buildTrafficFilter, fetchTrafficQuality } from './lib/ga4-traffic-quality.mjs';
+import { fetchRuntimeIncidentHistory } from './lib/runtime-incident-history.mjs';
 import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import {
   EMPLOYER_INSIGHTS_GA4_CUSTOM_DIMENSIONS,
@@ -1082,6 +1084,25 @@ async function reportGA4(token) {
     log('⚠️', `GA4 application funnel: ${e.message}`);
   }
 
+  // C4: two explicit populations on the same settled dates, beside the raw ranking.
+  if (hasSettledWindow) {
+    result.trafficQuality = await fetchTrafficQuality({
+      runReport: (body) => fetchRetry(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
+        method: 'POST', headers, body: JSON.stringify(body),
+      }),
+      dateRanges: settledRequest.dateRanges,
+      build: process.env.GITHUB_SHA || null,
+    });
+    try {
+      result.runtimeIncidents = await fetchRuntimeIncidentHistory({ startDate: fmtDate(startDate), endDate: settledEnd, recentDays: 7 });
+    } catch {
+      result.runtimeIncidents = { status: 'unavailable', reason: 'unsupported_report_window' };
+    }
+  } else {
+    result.trafficQuality = { status: 'unavailable', reason: 'No settled date range' };
+    result.runtimeIncidents = { status: 'unavailable', reason: 'No settled date range' };
+  }
+
   // ── 3b. Top pages + top articles + keyword intent ─────────
   try {
     const topPagesRes = await fetchRetry(
@@ -1092,19 +1113,21 @@ async function reportGA4(token) {
         body: JSON.stringify({
           ...baseRequest,
           dimensions: [{ name: 'pagePath' }],
+          dimensionFilter: buildTrafficFilter(),
           metrics: [
             { name: 'screenPageViews' },
             { name: 'totalUsers' },
             { name: 'averageSessionDuration' },
           ],
           orderBys: [{ metric: { metricName: 'screenPageViews' }, desc: true }],
-          limit: 20,
+          limit: 50,
         }),
       }
     );
 
     if (topPagesRes.ok) {
       const data = await topPagesRes.json();
+      result.topPagesScope = { hostname: 'frontaliereticino.ch', dateRanges: baseRequest.dateRanges, limit: 50, totalRows: data.rowCount ?? null, metadata: data.metadata || {} };
       result.topPages = (data.rows || []).map((r) => ({
         path: r.dimensionValues[0].value,
         views: parseInt(r.metricValues[0].value),
@@ -1199,6 +1222,7 @@ async function reportGA4(token) {
     }
 
     result.pageTemplatePerformance = aggregateRowsByTemplate(result.topPages || [], 'ga4');
+    result.pageTemplatePerformanceScope = 'Top50 sample only; users are page-user sums, not distinct template users; duration is weighted by page users. Full pageview coverage is trafficQuality.raw.pageViewsByTemplate.';
     result.keywordInterest = rankKeywordsFromPages(result.topPages || [], { limit: 20 });
     result.articleKeywordInterest = rankKeywordsFromPages(result.topArticlePages || [], {
       limit: 20,
@@ -1213,7 +1237,7 @@ async function reportGA4(token) {
 
     if (!flags.json && result.topPages.length > 0) {
       log('', '');
-      log('📄', 'Top 20 Pagine (GA4):');
+      log('📄', 'Top 50 Pagine (GA4, frontaliereticino.ch, finestra grezza):');
       log('', '  Pagina'.padEnd(55) + 'Views'.padStart(8) + 'Users'.padStart(8) + 'Durata'.padStart(8));
       log('', '  ' + '─'.repeat(75));
       for (const p of result.topPages) {
@@ -1221,7 +1245,7 @@ async function reportGA4(token) {
       }
       if (result.pageTemplatePerformance.length > 0) {
         log('', '');
-        log('🧱', 'Performance GA4 per template pagina:');
+        log('🧱', 'Campione top50 per template; utenti sommati per pagina, durata ponderata:');
         for (const row of result.pageTemplatePerformance.slice(0, 8)) {
           log('', `  ${row.pageTemplate.padEnd(20)} Views ${String(row.views).padStart(7)}  Users ${String(row.users).padStart(6)}  Dur ${String(`${row.avgDuration}s`).padStart(6)}`);
         }

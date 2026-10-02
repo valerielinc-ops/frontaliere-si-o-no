@@ -425,6 +425,17 @@ jobs:
         if: steps.gate.outputs.skipped != 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         run: |
           set -euo pipefail
+          # The corpus registry is also the source for the standalone client
+          # chunks. Record this before committing because the working-tree diff
+          # is clean afterwards; a public/ or sitemap-only sync must not spend
+          # a CDN publication on unchanged article registries.
+          if git diff --quiet -- packages/articles/content \
+             && git diff --quiet --cached -- packages/articles/content \
+             && [ -z "$(git ls-files --others --exclude-standard -- packages/articles/content)" ]; then
+            echo "article-content-changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "article-content-changed=true" >> "$GITHUB_OUTPUT"
+          fi
           # Recorded BEFORE the commit, because after it `git diff` is clean.
           # Drives the edge-publish step below: /sitemap-news.xml is served
           # from R2, not from this commit, so committing a fresher file does
@@ -541,6 +552,137 @@ jobs:
           # (writing nothing, committing nothing) if the API has moved since.
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd "node scripts/pull-articles-corpus.mjs && node scripts/pull-articles-api.mjs && if [ ! -x node_modules/.bin/vitest ]; then npm ci --no-audit --no-fund; fi && npm test -- tests/generated-content-parses.test.ts && git add -- ${FILES[*]}"
+
+      # The corpus sync is the automatic writer for packages/articles/content,
+      # but the SPA reads the stable CDN registry/companion chunks rather than
+      # the checked-in files. Keep this publication in the same section lease
+      # as fast-publish/resync: companions first, registry second, and fail
+      # closed if either the source snapshot or an upload/purge is not current.
+      - name: Acquire article chunk section locks for synced corpus
+        id: acquire_synced_chunk_locks
+        if: steps.commit.outputs.article-content-changed == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: node scripts/lib/r2-section-lock.mjs acquire --section frontaliere,svizzera --owner "$LOCK_OWNER"
+
+      - name: Renew article chunk section locks for synced corpus
+        id: renew_synced_chunk_locks
+        if: steps.acquire_synced_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          rm -f "$LOCK_RENEW_PID_FILE" "$LOCK_RENEW_FAILURE_FILE" "$LOCK_RENEW_LOG_FILE"
+          # Do not wrap the renewer in setsid: on a runner process-group leader
+          # setsid forks, so $! would point at an exited wrapper instead of the
+          # live renewer that the later checks and cleanup must supervise.
+          env -u RUNNER_TRACKING_ID nohup node scripts/lib/r2-section-lock.mjs renew \
+            --section frontaliere,svizzera \
+            --owner "$LOCK_OWNER" \
+            --failure-file "$LOCK_RENEW_FAILURE_FILE" \
+            >"$LOCK_RENEW_LOG_FILE" 2>&1 < /dev/null &
+          echo "$!" > "$LOCK_RENEW_PID_FILE"
+          sleep 1
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Check synced article chunk source is current
+        id: check_synced_chunk_source
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::notice::Refreshing stale synced article chunks from $SOURCE_SHA to current origin/main $MAIN_SHA"
+            git checkout --detach --force origin/main
+            SOURCE_SHA="$(git rev-parse HEAD)"
+            CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+            if [ "$CURRENT" != "true" ]; then
+              echo "::error::synced article chunk refresh did not reach origin/main $MAIN_SHA"
+              exit 1
+            fi
+          fi
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+
+      - name: Verify synced article chunk lock before publication
+        id: verify_synced_chunk_lock_before_publish
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.check_synced_chunk_source.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      - name: Recheck synced article chunk source before publication
+        id: recheck_synced_chunk_source_before_publish
+        if: steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success'
+        run: |
+          set -euo pipefail
+          SOURCE_SHA="$(git rev-parse HEAD)"
+          git fetch --no-tags --depth=1 origin main
+          MAIN_SHA="$(git rev-parse origin/main)"
+          CURRENT="$(node scripts/lib/article-chunk-publish-freshness.mjs --source-sha "$SOURCE_SHA" --main-sha "$MAIN_SHA")"
+          echo "current=$CURRENT" >> "$GITHUB_OUTPUT"
+          if [ "$CURRENT" != "true" ]; then
+            echo "::error::synced article chunk source advanced after the pre-publication freshness check: source $SOURCE_SHA is not current origin/main $MAIN_SHA"
+            exit 1
+          fi
+
+      - name: Publish client article chunks for synced corpus
+        id: publish_synced_chunks
+        if: steps.commit.outputs.article-content-changed == 'true' && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success' && steps.verify_synced_chunk_lock_before_publish.outcome == 'success' && steps.check_synced_chunk_source.outputs.current == 'true' && steps.recheck_synced_chunk_source_before_publish.outcome == 'success' && steps.recheck_synced_chunk_source_before_publish.outputs.current == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        run: npx -y tsx@4.23.15 scripts/publish-article-chunks.mjs --strict --no-ticker
+
+      - name: Verify synced article chunk lock after publication
+        id: verify_synced_chunk_lock_after_publish
+        if: always() && steps.acquire_synced_chunk_locks.outcome == 'success' && steps.renew_synced_chunk_locks.outcome == 'success'
+        run: |
+          set -euo pipefail
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          LOCK_RENEW_FAILURE_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.failure"
+          LOCK_RENEW_LOG_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.log"
+          if [ -s "$LOCK_RENEW_FAILURE_FILE" ]; then
+            cat "$LOCK_RENEW_FAILURE_FILE" >&2
+            cat "$LOCK_RENEW_LOG_FILE" >&2 || true
+            exit 1
+          fi
+          kill -0 "$(cat "$LOCK_RENEW_PID_FILE")"
+
+      # Release the shared leases even when strict publication or a lock check
+      # fails. The first DELETE is ETag-guarded; stop the watcher and retry once
+      # so a heartbeat racing that DELETE cannot leave this owner's lease behind.
+      - name: Release article chunk section locks for synced corpus
+        if: always() && steps.acquire_synced_chunk_locks.outcome == 'success'
+        env:
+          LOCK_OWNER: sync-articles-${{ github.run_id }}/${{ github.run_attempt }}
+        run: |
+          set -uo pipefail
+          release_status=0
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          LOCK_RENEW_PID_FILE="$RUNNER_TEMP/sync-articles-chunk-lock-renewer.pid"
+          if [ -s "$LOCK_RENEW_PID_FILE" ]; then
+            renew_pid="$(cat "$LOCK_RENEW_PID_FILE")"
+            kill -TERM "$renew_pid" 2>/dev/null || true
+            for _ in 1 2 3 4 5; do
+              kill -0 "$renew_pid" 2>/dev/null || break
+              sleep 1
+            done
+            kill -KILL "$renew_pid" 2>/dev/null || true
+            wait "$renew_pid" 2>/dev/null || true
+          fi
+          node scripts/lib/r2-section-lock.mjs release --section frontaliere,svizzera --owner "$LOCK_OWNER" || release_status=$?
+          exit "$release_status"
 
       # ── The invariant this job is the only actor able to maintain ───────────
       #

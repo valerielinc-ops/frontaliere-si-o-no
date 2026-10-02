@@ -161,7 +161,7 @@ const domusCard = (title: string) => `<div class="job"><div class="title"><h3>${
   <a href="https://www.jobup.ch/fr/emplois/detail/1/">&gt; Voir cette offre d’emploi</a></div>`;
 const domusBoard = (cards: string) => `<div id="mod-xml-loader" class="jobs">${cards}</div>`;
 
-describe('authoritative empty zero — jobs.ch family, umantis and fondation-domus', () => {
+describe('authoritative empty zero — source-validated crawler runners', () => {
   beforeEach(() => clearPoliteFetchStateForTests());
 
   /* ── 1. The wiring the runners must keep ───────────────────────────── */
@@ -179,6 +179,7 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     ['scripts/update-apleona-schweiz-ag-jobs.mjs'],
     ['scripts/update-hofweissbad-jobs.mjs'],
     ['scripts/update-giardino-jobs.mjs'],
+    ['scripts/update-faulhaber-jobs.mjs'],
   ])('%s asks the pipeline for a source-proven zero', (runner) => {
     const source = readRepoFile(runner);
     // recruitingapp-2677 proves a complete foreign snapshot before allowing
@@ -189,6 +190,51 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     expect(source).toContain(validator);
     expect(source).toContain('allowAuthoritativeEmptySnapshot: true');
     expect(source).toContain("authoritativeSnapshotScope: 'empty-only'");
+  });
+
+  it('Kiabi opts into empty-only snapshots after a strict SmartRecruiters source walk', () => {
+    const parser = readRepoFile('scripts/lib/kiabi-job-parser.mjs');
+    const runner = readRepoFile('scripts/update-kiabi-jobs.mjs');
+
+    expect(parser).toContain('onComplete: (proof) => { sourceReadProof = proof; }');
+    expect(parser).toContain('sourceReadProof.paginationIntegrityProven === true');
+    expect(parser).toContain('sourceReadProof.recordsSeen === sourceReadProof.totalFound');
+    expect(runner).toContain('validateAuthoritativeSnapshot: (jobs) => jobs?.authoritativeEmptySnapshot === true');
+    expect(runner).toContain('allowAuthoritativeEmptySnapshot: true');
+    expect(runner).toContain("authoritativeSnapshotScope: 'empty-only'");
+  });
+
+  it('publishes Tinext zero only when the validated Kenjo API reports no active positions', () => {
+    const source = readRepoFile('scripts/update-tinext-jobs.mjs');
+    const discovery = source.slice(
+      source.indexOf('async function discoverListings()'),
+      source.indexOf('/* ── Build job objects ─────────────────────────────────────── */'),
+    );
+    const provenEmptyBranch = source.slice(
+      source.indexOf('if (positions.length === 0) {'),
+      source.indexOf('// 2. Fetch detail pages and build job objects'),
+    );
+    const helper = source.slice(
+      source.indexOf('async function publishAuthoritativeEmptySnapshot()'),
+      source.indexOf('/* ── Main ──────────────────────────────────────────────────── */'),
+    );
+    const unbuiltListingsBranch = source.slice(
+      source.indexOf('if (jobs.length === 0) {'),
+      source.indexOf('// 3. Merge into jobs.json'),
+    );
+
+    expect(discovery).toContain("keys: ['activePositions', 'positions']");
+    expect(discovery).toContain('if (envelopeDrifted)');
+    expect(discovery).toContain('throw new Error(`Unexpected Kenjo API response shape');
+    expect(provenEmptyBranch).toContain('await publishAuthoritativeEmptySnapshot()');
+    expect(helper).toContain('updateAdapterConfig([])');
+    expect(helper).toContain('archiveRemovedJobsToSlice(diff.removedJobs, COMPANY_KEY)');
+    expect(helper).toContain('writeJobsCrawlerSlice(COMPANY_KEY, [], { skipShrinkGuard: true })');
+    expect(helper).toContain('authoritativeEmptySnapshot: true');
+    expect(helper).toContain('await assembleJobsDataset()');
+    // A non-empty API list whose details all fail is not a proven zero.
+    expect(unbuiltListingsBranch).toContain('return;');
+    expect(unbuiltListingsBranch).not.toContain('authoritativeEmptySnapshot: true');
   });
 
   it('never masks these three with an EMPTY_OK_CRAWLERS entry', () => {

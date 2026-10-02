@@ -15,6 +15,9 @@ export function extractFieldsInPage() {
   const clean = (value) => String(value || '').replace(/\s+/g, ' ').trim().slice(0, 300);
   // Personio marks a required field "Geschlecht* (erforderlich)" without the `required` attribute.
   const REQUIRED_LABEL = /\*|\((erforderlich|pflichtfeld|required|obbligatorio|obligatoire)\)/i;
+  // Ids a framework generates, which say nothing to the planner: React's
+  // useId (":r3:", "_r_3_", "«r3»"), MUI's "mui-12", "input-7", hex ids.
+  const GENERATED_ID_RE = /(^|[:_«])r_?[0-9a-z]{1,4}_?[:»]|_r_\d+_|^(mui|input|field|file|upload)[-_:]?\d+$|^[a-f0-9-]{16,}$/i;
   const visible = (element) => {
     const style = window.getComputedStyle(element);
     const rect = element.getBoundingClientRect();
@@ -49,7 +52,60 @@ export function extractFieldsInPage() {
     // Last resort: the closest container's own text before the control.
     const container = element.closest('li, .field, .form-group, [class*="question"], [class*="field"]');
     const text = container ? clean((container.innerText || '').split('\n')[0]) : '';
-    return text || clean(element.getAttribute('name') || element.id);
+    if (text) return text;
+    // The first of name and id that is not generated ("input-7" never hides "email-address").
+    const names = [element.getAttribute('name'), element.id].map(clean).filter(Boolean);
+    const technical = names.find((value) => !GENERATED_ID_RE.test(value));
+    if (technical) return technical;
+    // No label, only a generated id (JOIN's CV drop zone: "file:_r_3_:input"):
+    // the heading the control sits under and the text of its zone say what it
+    // is ("Carica il tuo CV · Carica file"). Giro di prova 2026-10-01.
+    return [...new Set([headingBefore(element), zoneText(element)].filter(Boolean))].join(' · ') || names[0] || '';
+  };
+  // A heading of another step a portal keeps in the page, hidden, names nothing.
+  const shown = (node) => {
+    if (node.closest('[hidden], [aria-hidden="true"]')) return false;
+    const style = window.getComputedStyle(node);
+    const rect = node.getBoundingClientRect();
+    return style.display !== 'none' && style.visibility !== 'hidden' && rect.width > 0 && rect.height > 0;
+  };
+  // Node.DOCUMENT_POSITION_FOLLOWING, without relying on the global Node.
+  const FOLLOWING = 4;
+  // A heading inside another section of the page (a step, a dialog, a tab
+  // the field is not in) names nothing in this one.
+  const SECTIONS = 'section, article, fieldset, dialog, [role="dialog"], [role="tabpanel"], [role="region"]';
+  const headingBefore = (element) => {
+    let found = '';
+    for (const heading of document.querySelectorAll('h1, h2, h3, h4, legend')) {
+      const section = heading.closest(SECTIONS);
+      if (section && !section.contains(element)) continue;
+      // eslint-disable-next-line no-bitwise
+      if ((heading.compareDocumentPosition(element) & FOLLOWING) && shown(heading)) found = clean(heading.innerText || heading.textContent);
+    }
+    return found;
+  };
+  // The words of the control's own zone (NodeFilter.SHOW_TEXT = 4): the text
+  // nearest before it, else the first after it, so two unnamed fields in one
+  // zone never share the first one's question.
+  const zoneText = (element) => {
+    let node = element.parentElement;
+    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+      const walker = document.createTreeWalker(node, 4);
+      let before = '';
+      let after = '';
+      for (let text = walker.nextNode(); text; text = walker.nextNode()) {
+        // Never from inside a control: a select's first option is an answer, not a question.
+        if (text.parentElement?.closest('select, option, textarea, [role="listbox"], [role="option"], h1, h2, h3, h4, legend')) continue;
+        const value = clean(text.textContent);
+        if (!value) continue;
+        // eslint-disable-next-line no-bitwise
+        if (text.compareDocumentPosition(element) & FOLLOWING) before = value;
+        else if (!after) after = value;
+      }
+      const words = before || after;
+      if (words) return words.slice(0, 80);
+    }
+    return '';
   };
   const groupQuestion = (element) => {
     const group = element.closest('fieldset, [role="radiogroup"], [role="group"], .application-question, .field, li');
@@ -73,7 +129,43 @@ export function extractFieldsInPage() {
     }
     return element.getAttribute('data-aa-id');
   };
+  // A limit the form states only in words or with a counter ("max. 500
+  // caratteri", "0 / 1000"): shortened by us at a sentence end rather than cut
+  // by the portal mid-sentence (career-ops counts the final answer).
+  const statedLimit = (element) => {
+    const described = (element.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean)
+      .map((id) => document.getElementById(id)?.textContent || '').join(' ');
+    const zone = `${described} ${element.parentElement?.parentElement?.textContent || ''}`.slice(0, 2000);
+    const words = /(?:max(?:imum|imal)?\.?|massimo|höchstens|jusqu'à|bis zu|up to|fino a)\s*(\d{2,5})\s*(?:characters|chars|caratteri|zeichen|caractères)/i.exec(zone);
+    // A counter only from the field's own description: "Step 1 / 12" is no limit.
+    const counter = /\b\d{1,5}\s*\/\s*(\d{2,5})\b/.exec(described);
+    return Number(words?.[1] || counter?.[1]) || null;
+  };
   const fields = [];
+  // JOIN's date picker is a question made of two comboboxes and a grid of day
+  // buttons. Treat the widget as one field: exposing its implementation
+  // controls separately gives the planner two generated questions and leaves
+  // the disabled next button untouched.
+  const datePickerSelector = '[data-scope="date-picker"][data-part="root"]';
+  for (const picker of document.querySelectorAll(datePickerSelector)) {
+    if (!visible(picker)) continue;
+    const label = clean(picker.getAttribute('aria-label') || headingBefore(picker) || zoneText(picker));
+    const selected = picker.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value') || '';
+    fields.push({
+      id: idFor(picker),
+      kind: 'date',
+      inputType: 'date',
+      name: clean(picker.getAttribute('name') || ''),
+      label,
+      required: picker.getAttribute('aria-required') !== 'false' && !picker.hasAttribute('data-optional'),
+      value: clean(selected),
+      search: false,
+      maxLength: null,
+      accept: '',
+      autocomplete: clean(picker.getAttribute('autocomplete') || ''),
+      invalid: picker.getAttribute('aria-invalid') === 'true',
+    });
+  }
   const radios = new Map();
   const controls = document.querySelectorAll('input, select, textarea, [role="combobox"]');
   for (const element of controls) {
@@ -83,6 +175,7 @@ export function extractFieldsInPage() {
     // The site's own search box is not part of the application; Workday's
     // "selectinput" (a search box that picks an option) is.
     if (type === 'search' && element.getAttribute('data-uxi-widget-type') !== 'selectinput') continue;
+    if (element.closest(datePickerSelector)) continue;
     if (element.disabled || element.readOnly || !visible(element)) continue;
     const required = element.required || element.getAttribute('aria-required') === 'true';
     if (type === 'radio') {
@@ -111,7 +204,7 @@ export function extractFieldsInPage() {
       required: required || REQUIRED_LABEL.test(labelFor(element)),
       value: type === 'file' ? '' : pills.length ? pills.join(', ') : clean(element.value || ''),
       search: element.getAttribute('data-uxi-widget-type') === 'selectinput' || element.getAttribute('enterkeyhint') === 'search',
-      maxLength: Number(element.getAttribute('maxlength')) || null,
+      maxLength: Number(element.getAttribute('maxlength')) > 0 ? Number(element.getAttribute('maxlength')) : (tag === 'textarea' || type === 'text' ? statedLimit(element) : null),
       accept: type === 'file' ? clean(element.getAttribute('accept') || '') : '',
       autocomplete: clean(element.getAttribute('autocomplete') || ''),
       invalid: element.getAttribute('aria-invalid') === 'true',
@@ -123,6 +216,37 @@ export function extractFieldsInPage() {
     fields.push(field);
   }
   for (const entry of radios.values()) fields.push(entry);
+  // ARIA radio groups without a native input (JOIN's option cards,
+  // <div role="radio" aria-checked>): one field per group, its question from
+  // the group's label or the heading before it, each option by its own text
+  // without the "a"/"b" badge. Giro di prova 2026-10-01 ("Qual è il suo stato
+  // di autorizzazione al lavoro per Svizzera?" read as no field at all).
+  const ariaGroups = new Map();
+  for (const element of document.querySelectorAll('[role="radio"]')) {
+    if (element.tagName.toLowerCase() === 'input' || element.getAttribute('aria-disabled') === 'true' || !visible(element)) continue;
+    let container = element.closest('[role="radiogroup"]');
+    for (let node = element.parentElement; !container && node && node !== document.body; node = node.parentElement) {
+      if (node.querySelectorAll('[role="radio"]').length > 1) container = node;
+    }
+    container ||= element.parentElement;
+    const words = [];
+    const walker = document.createTreeWalker(element, 4);
+    for (let text = walker.nextNode(); text && words.length < 2; text = walker.nextNode()) {
+      const value = clean(text.textContent);
+      if (value.length > 1) words.push(value);
+    }
+    const label = clean(element.getAttribute('aria-label') || textOf(element.getAttribute('aria-labelledby')) || words.join(' — '));
+    if (!label) continue;
+    let entry = ariaGroups.get(container);
+    if (!entry) {
+      const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
+      entry = { id: idFor(container), kind: 'radio', name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      ariaGroups.set(container, entry);
+    }
+    entry.options.push({ value: label, label, aaId: idFor(element) });
+    if (element.getAttribute('aria-checked') === 'true') entry.value = label;
+  }
+  for (const entry of ariaGroups.values()) if (entry.options.length) fields.push(entry);
   // Workday-style dropdowns are buttons that open a listbox (OfferOS
   // aria-driver): a field whose options are read later by opening it.
   for (const element of document.querySelectorAll('button[aria-haspopup="listbox"], [role="button"][aria-haspopup="listbox"]')) {
@@ -156,21 +280,35 @@ export function extractFieldsInPage() {
   // Only a CAPTCHA a person must act on counts (career-ops: fill, and hand
   // the human step over). Invisible reCAPTCHA/hCaptcha badges, present on
   // most Lever and Greenhouse forms from the start, are not a challenge.
+  const answered = (name) => {
+    const responses = [...document.querySelectorAll(`[name="${name}"]`)];
+    return responses.length > 0 && responses.every((field) => String(field.value || '').trim());
+  };
   const captcha = [...document.querySelectorAll('iframe')].some((frame) => {
     const src = String(frame.getAttribute('src') || '');
     const rect = frame.getBoundingClientRect();
     const shown = rect.width > 40 && rect.height > 40 && window.getComputedStyle(frame).visibility !== 'hidden';
     if (!shown) return false;
-    if (/recaptcha\/(api2|enterprise)\/anchor/.test(src)) return !/size=invisible/.test(src);
-    if (/recaptcha\/(api2|enterprise)\/bframe/.test(src)) return true;
-    if (/hcaptcha\.com/.test(src)) return /frame=(challenge|checkbox)(?!-invisible)/.test(src);
+    if (/recaptcha\/(api2|enterprise)\/anchor/.test(src)) return !/size=invisible/.test(src) && !answered('g-recaptcha-response');
+    if (/recaptcha\/(api2|enterprise)\/bframe/.test(src)) return !answered('g-recaptcha-response');
+    if (/hcaptcha\.com/.test(src)) return /frame=(challenge|checkbox)(?!-invisible)/.test(src) && !answered('h-captcha-response');
     // DataDome (SmartRecruiters): a full-page challenge or block, never solved by the runner.
-    return /challenges\.cloudflare\.com|captcha-delivery\.com/.test(src);
+    if (/challenges\.cloudflare\.com/.test(src)) return !answered('cf-turnstile-response');
+    return /captcha-delivery\.com/.test(src);
   });
   const passwordVisible = [...document.querySelectorAll('input[type="password"]')].some(visible);
   // The form's own validation messages, read back to the planner when a page does not advance.
+  // A framework's route announcer is no message on the form: Next.js reads the
+  // page title as role="alert" (JOIN, 2026-10-01). Only the announcer itself is
+  // left out: a visually hidden validation message still counts (review of #10707).
+  const ROUTE_ANNOUNCER = '#__next-route-announcer__, next-route-announcer, #gatsby-announcer, [id*="route-announcer" i]';
+  // Rendered, whatever its size: a message styled for screen readers only
+  // (1 px, or 0) is still the form's reason (second review of #10707).
+  const rendered = (element) => (typeof element.checkVisibility === 'function'
+    ? element.checkVisibility({ visibilityProperty: true })
+    : window.getComputedStyle(element).display !== 'none' && window.getComputedStyle(element).visibility !== 'hidden');
   const errors = [...new Set([...document.querySelectorAll('[role="alert"], [data-automation-id*="error" i], [class*="error-message" i], [class*="errorMessage"], .error, .invalid-feedback')]
-    .filter((element) => visible(element))
+    .filter((element) => rendered(element) && !element.closest(ROUTE_ANNOUNCER))
     .map((element) => clean(element.innerText || element.textContent).slice(0, 160))
     .filter(Boolean))].slice(0, 8);
   return {

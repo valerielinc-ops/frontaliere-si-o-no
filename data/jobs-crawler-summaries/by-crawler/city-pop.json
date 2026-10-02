@@ -1,21 +1,23 @@
 {
   "key": "city-pop",
   "label": "City Pop",
-  "generatedAt": "2026-09-29T21:25:16.560Z",
+  "generatedAt": "2026-10-01T21:23:07.938Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2615,
-  "avgDurationMs": 2615,
+  "durationMs": 5091,
+  "avgDurationMs": 5091,
   "durationHistory": [
-    2615
+    5091
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://www.jobs.ch/en/vacancies/detail/2b348b1e-a516-4a1f-87f6-748275ef32cf/",
       "source": "City Pop Dedicated Parser (jobs.ch)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:25:10.196Z",
+      "crawledAt": "2026-10-01T21:22:57.447Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Bernerstrasse Süd 169",

@@ -1,16 +1,16 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-09-29T21:30:04.713Z",
+  "generatedAt": "2026-10-01T21:28:21.672Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12785,
-  "avgDurationMs": 12785,
+  "durationMs": 9398,
+  "avgDurationMs": 9398,
   "durationHistory": [
-    12785
+    9398
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -23,8 +23,8 @@
       "title": "Technische:r Betriebsmitarbeiter:in Wasserkraftwerk Gösgen",
       "location": "Niedergösgen",
       "canton": "SO",
-      "postalCode": "4500",
-      "streetAddress": "",
+      "postalCode": "5013",
+      "streetAddress": "Niedergösgen",
       "addressLocality": "Niedergösgen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -38,14 +38,15 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=150&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:30:00.341Z",
+      "crawledAt": "2026-10-01T21:28:12.759Z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T15:00:06.553Z",
-      "_qualityScore": 83,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 20
       }
     },
     {
@@ -72,13 +73,13 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:30:00.339Z",
+      "crawledAt": "2026-10-01T21:28:12.753Z",
       "firstSeenAt": "2026-09-24T00:02:12.812Z",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -106,7 +107,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:30:00.335Z",
+      "crawledAt": "2026-10-01T21:28:12.735Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -126,7 +127,7 @@
       "location": "Lausanne",
       "canton": "VD",
       "postalCode": "1003",
-      "streetAddress": "",
+      "streetAddress": "Lausanne",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -140,60 +141,21 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:30:00.337Z",
+      "crawledAt": "2026-10-01T21:28:12.752Z",
+      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
       "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 21,
-        "completeness": 17
+        "completeness": 20
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "alpiq-c58e916d1b0b",
-      "slug": "product-manager-trading-and-origination-alpiq-olten",
-      "company": "Alpiq",
-      "companyKey": "alpiq",
-      "companyDomain": "alpiq.com",
-      "title": "Product Manager - Trading and Origination",
-      "location": "Olten",
-      "canton": "SO",
-      "postalCode": "4600",
-      "streetAddress": "",
-      "addressLocality": "Olten",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "energy",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-10",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/21",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=21&lang=en_GB",
-      "source": "Alpiq Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-28T05:08:56.488Z",
-      "firstSeenAt": "2026-09-10T23:23:08.459Z",
-      "salaryMin": 130000,
-      "salaryMax": 198000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }

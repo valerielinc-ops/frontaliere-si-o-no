@@ -414,6 +414,30 @@ describe('daily item parsing and lifecycle', () => {
     expect(updated).toContain(`### FU-${DAY}-001 — Proteggi il comportamento\n- State: done`);
   });
 
+  it('accepts stable FU headings at H2 while keeping numbered legacy items at H3', () => {
+    const firstH2 = item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001`,
+      `## FU-${DAY}-001`,
+    );
+    const source = body(firstH2, item(`FU-${DAY}-002`));
+    const parsed = parseFollowupItems(source);
+    expect(parsed.map((entry) => entry.id)).toEqual([
+      `FU-${DAY}-001`,
+      `FU-${DAY}-002`,
+    ]);
+    expect(hasStableItemIds(source)).toBe(true);
+
+    const updated = updateFollowupItemState(source, `FU-${DAY}-001`, 'done');
+    expect(updated).toContain(`## FU-${DAY}-001 — Proteggi il comportamento\n- State: done`);
+    expect(parseFollowupItems(updated)[0]?.state).toBe('done');
+
+    const numberedH2 = body(item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001 — Proteggi il comportamento`,
+      '## 1. Legacy item',
+    ));
+    expect(parseFollowupItems(numberedH2)).toEqual([]);
+  });
+
   it('rifiuta State duplicati/conflicting live ma ignora esempi in fence e quote', () => {
     const valid = body(item(`FU-${DAY}-001`)).replace(
       '- Suggested action: aggiungi `firstGuard()` e `secondGuard()` in `scripts/example.mjs`',
@@ -431,9 +455,13 @@ describe('daily item parsing and lifecycle', () => {
   });
 
   it('close e reconcile ignorano headings/campi annidati in fence e quote', () => {
-    const nested = body(item(`FU-${DAY}-001`)).replace(
+    const rootH2 = item(`FU-${DAY}-001`).replace(
+      `### FU-${DAY}-001`,
+      `## FU-${DAY}-001`,
+    );
+    const nested = body(rootH2).replace(
       '- Original text:\n  > il controllo non è sempre applicato',
-      '- Original text:\n```md\n### FU-2020-01-01-999 — item finto\n- State: done\n- Suggested action: aggiungi `ghost()` in `scripts/example.mjs`\n```\n> ### FU-2020-01-01-998 — item citato\n> - State: done\n  > il controllo non è sempre applicato',
+      '- Original text:\n```md\n## FU-2020-01-01-999 — item finto\n- State: done\n- Suggested action: aggiungi `ghost()` in `scripts/example.mjs`\n```\n> ## FU-2020-01-01-998 — item citato\n> - State: done\n  > il controllo non è sempre applicato',
     ).replace('- State: collecting', '- State: sealed');
     expect(parseFollowupItems(nested).map((entry) => entry.id)).toEqual([`FU-${DAY}-001`]);
     const reconciled = reconcileDailyItems(nested, resolvedIo, DAY);

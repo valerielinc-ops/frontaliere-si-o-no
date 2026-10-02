@@ -55,6 +55,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(questionFromLabel('Do you have a working permit?*')).toBe('Do you have a working permit?');
   });
 
+  // Giro di prova 2026-10-01: JOIN asks "Che sesso sei?" with an "N/A" option.
+  it('reads "sesso" as a demographic question that only "N/A" may answer by rule', () => {
+    const sex = { id: 's1', kind: 'select', label: 'Che sesso sei?', required: true, options: [{ label: 'Maschio' }, { label: 'Femmina' }, { label: 'N/A' }] };
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const declined = guardPlan({ actions: [{ fieldId: 's1', action: 'select', value: 'N/A', document: 'none', source: 'rule' }], missingRequired: [] }, [sex], candidate);
+    expect(declined.actions).toHaveLength(1);
+    const guessed = guardPlan({ actions: [{ fieldId: 's1', action: 'select', value: 'Maschio', document: 'none', source: 'rule' }], missingRequired: [] }, [sex], candidate);
+    expect(guessed.actions).toEqual([]);
+    expect(guessed.missingRequired.map((item: any) => item.fieldId)).toEqual(['s1']);
+  });
+
   it('never takes an empty answer as the candidate’s: a required field stays a question', () => {
     const fields = [
       { id: 'f1', kind: 'text', label: 'Nationality', required: true },
@@ -122,6 +133,17 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
+  it('plans a JOIN date picker from the candidate date and asks when it is absent', () => {
+    const date = { id: 'dob', kind: 'date', label: 'Quando sei nato?', required: true, value: '' };
+    const candidate = { answers: {}, profile: { dateOfBirth: '12.05.1990' }, portalQuestionsAnswered: [] };
+    const filled = guardPlan({ actions: [{ fieldId: 'dob', action: 'fill', value: '1990-05-12', source: 'profile' }], missingRequired: [] }, [date], candidate);
+    expect(filled).toEqual({ actions: [expect.objectContaining({ fieldId: 'dob', action: 'fill', value: '1990-05-12' })], missingRequired: [] });
+    expect(holdsValue({ ...date, value: '1990-05-12' })).toBe(true);
+
+    const missing = guardPlan({ actions: [], missingRequired: [] }, [date], { answers: {}, profile: {}, portalQuestionsAnswered: [] });
+    expect(missing.missingRequired).toEqual([expect.objectContaining({ fieldId: 'dob', type: 'date', question: 'Quando sei nato?' })]);
+  });
+
   it('asks each missing field once and never a field the plan already answers', () => {
     const guarded = guardPlan({
       actions: [{ fieldId: 'f1', action: 'fill', value: 'Luca', document: 'none', source: 'identity' }],
@@ -176,7 +198,15 @@ describe('portal runner helpers', () => {
   it('recognises next, submit, confirmation and validation in four languages', () => {
     for (const text of ['Next', 'Weiter', 'Avanti', 'Suivant', 'Save and continue']) expect(NEXT_RE.test(text)).toBe(true);
     for (const text of ['Submit application', 'Bewerbung absenden', 'Invia candidatura', 'Envoyer ma candidature', 'Postuler']) expect(SUBMIT_RE.test(text)).toBe(true);
+    // Giro di prova 2026-10-01: JOIN's review page ends with «Conferma e applica».
+    for (const text of ['Conferma e applica', 'Confirm and apply', 'Bestätigen und bewerben', 'Confirmer et postuler', 'Candidati']) expect(SUBMIT_RE.test(text)).toBe(true);
+    for (const text of ['Continua', 'Indietro', 'Modifica', 'Applica filtro']) expect(SUBMIT_RE.test(text)).toBe(false);
+    // Review of #10725: the whole label, so a filter control is never the submission.
+    for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
+    for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
+    // JOIN says "du"/"tu".
+    for (const text of ['Grazie per esserti candidato!', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);
     expect(findButton([{ id: 'b1', text: 'Cancel' }, { id: 'b2', text: 'Weiter' }], NEXT_RE)).toEqual({ id: 'b2', text: 'Weiter' });
     // A disabled submit (required fields still empty) is not clicked, but the runner can see it.

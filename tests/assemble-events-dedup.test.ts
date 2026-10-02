@@ -74,6 +74,66 @@ describe('pickRichestEvent', () => {
     const b = ev({ id: 'guidle:bbb', sourceKey: 'guidle' });
     expect(pickRichestEvent([b, a])).toBe(a);
   });
+
+  it('keeps the richer record and recovers its missing tariff from a duplicate', () => {
+    const winner = ev({
+      id: 'tio-agenda:62425', title: 'Orbita Chopin', startDate: '2026-10-04', comune: 'Ascona',
+      description: 'Concerto ad Ascona.', imageUrl: 'https://tio.example/concert.jpg',
+      url: 'https://tio.example/concert', previousRoutes: [{ canton: 'TI', comune: 'Ascona', slug: 'old-concert' }],
+      price: { url: 'https://tickets.example/tio', availability: 'https://schema.org/InStock' },
+    });
+    const donor = ev({
+      id: 'guidle:A2L45W7', sourceKey: 'guidle', title: 'Orbita Chopin',
+      startDate: '2026-10-04', comune: 'Ascona',
+      price: { amount: 40, currency: 'CHF', isFree: false, url: 'https://tickets.example/guidle' },
+    });
+    const before = JSON.stringify([winner, donor]);
+    const result = dedupeFuzzy([winner, donor]);
+    expect(result.mergedAway).toBe(1);
+    expect(result.events).toEqual([{ ...winner, price: { ...winner.price, amount: 40, currency: 'CHF', isFree: false } }]);
+    expect(dedupeFuzzy([donor, winner]).events).toEqual(result.events);
+    expect(JSON.stringify([winner, donor])).toBe(before);
+  });
+
+  it('preserves an already known price on the winner even when another source disagrees', () => {
+    const winner = ev({ description: 'Full description.', price: { amount: 45, currency: 'CHF', isFree: false } });
+    const donor = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { amount: 40, currency: 'CHF', isFree: false } });
+    expect(pickRichestEvent([winner, donor])).toBe(winner);
+  });
+
+  it.each([
+    [{ amount: 40, currency: 'CHF' }, { amount: 45, currency: 'CHF' }],
+    [{ amount: 40, currency: 'CHF' }, { amount: 40, currency: 'EUR' }],
+    [{ isFree: true, currency: 'CHF' }, { amount: 40, currency: 'CHF' }],
+  ])('leaves conflicting duplicate prices unresolved (%j, %j)', (firstPrice, secondPrice) => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const first = ev({ id: 'guidle:1', sourceKey: 'guidle', price: firstPrice });
+    const second = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland', price: secondPrice });
+    expect(pickRichestEvent([winner, first, second])).toBe(winner);
+  });
+
+  it('recovers explicit free admission and ignores empty or invalid monetary values', () => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const free = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { isFree: true, currency: 'CHF' } });
+    expect(pickRichestEvent([winner, free]).price).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    for (const amount of [undefined, null, '', '40', NaN, Infinity, -1]) {
+      const invalid = ev({ id: 'guidle:2', sourceKey: 'guidle', price: { amount, currency: 'CHF' } });
+      expect(pickRichestEvent([winner, invalid])).toBe(winner);
+    }
+  });
+
+  it('accepts agreeing tariffs from several sources without importing their booking metadata', () => {
+    const winner = ev({ description: 'Full description.', imageUrl: 'https://tio.example/photo.jpg' });
+    const first = ev({ id: 'guidle:1', sourceKey: 'guidle', price: { amount: 40, currency: 'CHF', url: 'https://tickets.example/one' } });
+    const second = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland', price: { amount: 40, currency: 'CHF', url: 'https://tickets.example/two' } });
+    expect(pickRichestEvent([winner, first, second]).price).toEqual({ amount: 40, currency: 'CHF', isFree: false });
+  });
+
+  it('does not transfer tariffs between same-source collisions that the deduper keeps separate', () => {
+    const first = ev({ id: 'myswitzerland:1', sourceKey: 'myswitzerland' });
+    const second = ev({ id: 'myswitzerland:2', sourceKey: 'myswitzerland', price: { amount: 40, currency: 'CHF' } });
+    expect(dedupeFuzzy([first, second]).events).toEqual([first, second]);
+  });
 });
 
 describe('dedupeFuzzy', () => {

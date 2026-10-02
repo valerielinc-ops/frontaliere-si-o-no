@@ -1,21 +1,23 @@
 {
   "key": "suchthilfe-region-basel",
   "label": "Suchthilfe Region Basel",
-  "generatedAt": "2026-09-29T21:19:43.516Z",
+  "generatedAt": "2026-10-01T21:19:22.117Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4870,
-  "avgDurationMs": 4870,
+  "durationMs": 4814,
+  "avgDurationMs": 4814,
   "durationHistory": [
-    4870
+    4814
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/07/Coach_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:19:36.124Z",
+      "crawledAt": "2026-10-01T21:19:15.005Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -48,11 +50,11 @@
       "postedDate": "2026-07-09",
       "applyUrl": "https://www.suchthilfe.ch/jobs/",
       "firstSeenAt": "2026-07-09T22:26:32.387Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -63,13 +65,13 @@
       "companyKey": "suchthilfe-region-basel",
       "companyDomain": "suchthilfe.ch",
       "title": "Pflegefachperson Nachtdienst 40-80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Reinach",
       "canton": "BL",
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2026/02/Pflege-Fachp-Nacht_2026.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:19:34.806Z",
+      "crawledAt": "2026-10-01T21:19:13.693Z",
       "addressLocality": "Reinach",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -85,11 +87,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://www.suchthilfe.ch/jobs/",
       "firstSeenAt": "2026-05-21T00:25:07.039Z",
-      "_qualityScore": 75,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -100,13 +102,13 @@
       "companyKey": "suchthilfe-region-basel",
       "companyDomain": "suchthilfe.ch",
       "title": "Gastfamilien für SPEKTRUM - Therapie in Gastfamilien",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Basel",
       "canton": "BS",
       "url": "https://www.suchthilfe.ch/wp-content/uploads/2020/09/Gastfamilien_2020.pdf",
       "source": "Suchthilfe Region Basel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:19:35.483Z",
+      "crawledAt": "2026-10-01T21:19:14.422Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -122,11 +124,11 @@
       "postedDate": "2026-05-21",
       "applyUrl": "https://www.suchthilfe.ch/jobs/",
       "firstSeenAt": "2026-05-21T00:25:07.625Z",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 17
       }
     }

@@ -1,21 +1,23 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-09-29T21:21:42.404Z",
+  "generatedAt": "2026-10-01T21:21:47.703Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4782,
-  "avgDurationMs": 4782,
+  "unchangedCount": 1,
+  "durationMs": 4893,
+  "avgDurationMs": 4893,
   "durationHistory": [
-    4782
+    4893
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +34,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:21:33.706Z",
+      "crawledAt": "2026-10-01T21:21:34.336Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -72,7 +74,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:21:34.632Z",
+      "crawledAt": "2026-10-01T21:21:34.751Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -99,10 +101,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "kuhn-rikon-119347dd0f71",
-      "slug": "produktionsmitarbeiter-in-100-kuhn-rikon-rikon",
+      "slug": "personale-di-produzione-100-kuhn-rikon-rikon",
       "company": "Kuhn Rikon",
       "companyKey": "kuhn-rikon",
       "companyDomain": "kuhnrikon.com",
@@ -113,7 +118,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:21:34.178Z",
+      "crawledAt": "2026-10-01T09:16:48.552Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -132,15 +137,17 @@
       "externalId": "32d44bf225d93aeca1f2eea1de8acc55",
       "hiringOrganizationName": "Kuhn Rikon",
       "firstSeenAt": "2026-08-18T22:07:50.326Z",
-      "_qualityScore": 88,
+      "salaryMin": 76000,
+      "salaryMax": 102500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -49,7 +49,7 @@ import {
 } from './shared/seoHeroImage';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatUpdatedDate } from './shared/humanDate';
 import { differentiateH1FromTitle } from './shared/seoContentTokens';
 import { WriteCollector } from './batchWrite';
 import {
@@ -79,7 +79,8 @@ interface FaqHubCopy {
   readonly tocTitle: string;
   readonly breadcrumbHome: string;
   readonly breadcrumbHub: string;
-  readonly updatedLabel: string;
+  readonly generatedLabel: string;
+  readonly reviewUnknown: string;
   readonly disclaimer: string;
   readonly relatedTitle: string;
   readonly relatedLinks: ReadonlyArray<{ href: string; label: string }>;
@@ -108,7 +109,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Categorie trattate',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Guida frontaliere',
-    updatedLabel: 'Aggiornato',
+    generatedLabel: 'Pagina generata',
+    reviewUnknown: 'Data di revisione non documentata',
     disclaimer:
       'Le informazioni contenute in questa pagina hanno valore informativo e non sostituiscono la consulenza personalizzata di un commercialista, un avvocato o un patronato. Le norme fiscali, previdenziali e sui permessi cambiano con frequenza: verifica sempre le fonti ufficiali linkate in ogni risposta.',
     relatedTitle: 'Approfondisci',
@@ -138,7 +140,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Covered categories',
     breadcrumbHome: 'Home',
     breadcrumbHub: 'Cross-border guide',
-    updatedLabel: 'Updated',
+    generatedLabel: 'Page generated',
+    reviewUnknown: 'Review date not documented',
     disclaimer:
       'The information on this page is for guidance only and does not replace personal advice from an accountant, lawyer or union office. Tax, social-security and permit rules change frequently: always verify with the official sources linked in each answer.',
     relatedTitle: 'Go deeper',
@@ -164,9 +167,10 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
       'Jede Antwort umfasst 80-180 Wörter, nennt die anwendbare Norm (KVG, AHVG, BVG, OR, AIG, TUIR, GD 230/2021) und verweist auf offizielle Quellen (Fedlex, AFC Tessin, BSV, SEM, Agenzia Entrate, INPS). Inhalte entsprechen dem Stand 2026 (Sätze, Obergrenzen, Prämien, Mindestlöhne).',
     ],
     tocTitle: 'Behandelte Kategorien',
-    breadcrumbHome: 'Start',
+    breadcrumbHome: 'Startseite',
     breadcrumbHub: 'Grenzgängerleitfaden',
-    updatedLabel: 'Aktualisiert',
+    generatedLabel: 'Seite erstellt',
+    reviewUnknown: 'Überprüfungsdatum nicht dokumentiert',
     disclaimer:
       'Die Angaben dienen der Orientierung und ersetzen keine persönliche Beratung durch einen Treuhänder, Anwalt oder eine Gewerkschaft. Steuer-, Sozialversicherungs- und Bewilligungsregeln ändern sich häufig: immer die verlinkten Primärquellen prüfen.',
     relatedTitle: 'Vertiefen',
@@ -194,7 +198,8 @@ const COPY: Record<FaqHubLocale, FaqHubCopy> = {
     tocTitle: 'Catégories traitées',
     breadcrumbHome: 'Accueil',
     breadcrumbHub: 'Guide frontalier',
-    updatedLabel: 'Mis à jour',
+    generatedLabel: 'Page générée',
+    reviewUnknown: 'Date de révision non documentée',
     disclaimer:
       "Les informations de cette page sont indicatives et ne remplacent pas un conseil personnalisé (expert-comptable, avocat, syndicat). Les règles fiscales, de sécurité sociale et de permis changent régulièrement : vérifiez toujours les sources officielles indiquées.",
     relatedTitle: 'Approfondir',
@@ -474,7 +479,7 @@ function renderPage(
       <span>${esc(copy.h1)}</span>
     </nav>
     <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="fh-eyebrow">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
       <!-- Demoted from <h1> to <h2> in Phase 4C: hubChrome's hero already emits
            the page's primary <h1>, and Semrush W6 / Issue 104 flagged the
            FAQ + comparisons hubs for shipping two H1 tags. The body heading
@@ -534,11 +539,10 @@ function renderPage(
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -942,7 +946,7 @@ function renderEntryPage(
       <span>${esc(categoryLabel)}</span>
     </nav>
     <header class="fh-hd">
-      <p class="fh-eyebrow">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+      <p class="fh-eyebrow">${esc(copy.reviewUnknown)} · ${esc(copy.generatedLabel)}: ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     </header>
     ${renderSeoHeroImage(hero)}
     <section class="fh-q" data-speakable>
@@ -995,11 +999,10 @@ function renderEntryPage(
     image: seoHeroImageObject(hero),
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({ url: `${BASE_URL}/icons/icon-512x512.png`, width: 512, height: 512 }),

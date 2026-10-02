@@ -23,7 +23,9 @@ on:
         description: 'draft | submit'
         required: true
         type: choice
-        options: [draft, submit]
+        # dry_run: fill the portal pages (or prepare the e-mail) and stop
+        # before the final click; nothing is sent and the flow never moves.
+        options: [draft, submit, dry_run]
       round:
         description: 'Review round the run belongs to'
         required: true
@@ -43,8 +45,11 @@ permissions:
 jobs:
   agent:
     runs-on: ubuntu-latest
-    # Draft at Codex effort max: 4 calls, measured 9-15 min on 2026-09-30.
-    timeout-minutes: 60
+    # Draft at Codex effort max: 4 calls, measured 6-15 min on 2026-09-30,
+    # but one call of round 2 of the trial ran past 10 min. Each call may now
+    # take up to 30 min (broker_max_timeout_ms): three calls in a row, plus
+    # setup, stay under this; the Functions watchdog (RUN_WATCHDOG_MS) waits longer.
+    timeout-minutes: 120
     steps:
       - name: Validate inputs
         env:
@@ -112,11 +117,19 @@ jobs:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           broker_idle_ttl_ms: '3600000'
           broker_max_concurrency: '2'
+          # A slow draft must finish (owner decision 2026-09-30): 30 min per call.
+          broker_max_timeout_ms: '1800000'
 
-      # The portal runner drives Chromium (headless) for portals without an account.
+      # The portal runner drives Chromium; the draft reads a single-page form's
+      # questions ahead (career-ops apply.md: identify all questions first).
       - name: Install Chromium for the portal runner
-        if: inputs.mode == 'submit'
         run: npx playwright install --with-deps chromium
+
+      - name: Install NopeCHA for portal submissions
+        if: inputs.mode != 'draft'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
 
       - name: Run agent
         env:
@@ -124,7 +137,23 @@ jobs:
           MODE: ${{ inputs.mode }}
           ROUND: ${{ inputs.round }}
           CODEX_AUTH_BROKER_SOCKET: ${{ steps.codex.outputs.codex_auth_broker_socket }}
-        run: node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+          CODEX_BROKER_MAX_TIMEOUT_MS: ${{ steps.codex.outputs.codex_broker_max_timeout_ms }}
+          # The trial run printed MaxListenersExceededWarning on a PassThrough
+          # with no stack: the trace names the library that adds the listeners.
+          NODE_OPTIONS: --trace-warnings
+          # Where a portal stop is reported for the fix issue (self-correction, level 3).
+          ASSISTED_APPLICATION_STOP_REPORT: ${{ runner.temp }}/portal-stop.json
+          NOPECHA_EXTENSION_PATH: ${{ inputs.mode != 'draft' && format('{0}/nopecha/extension', runner.temp) || '' }}
+        # A real (headed) Chromium on a virtual screen: some ATS turn away a
+        # browser that calls itself HeadlessChrome, in its user agent and in its
+        # client hints. Nothing is disguised (owner decision 2026-10-01).
+        run: |
+          if command -v xvfb-run >/dev/null 2>&1; then
+            export ASSISTED_APPLICATION_HEADED=1
+            xvfb-run --auto-servernum --server-args="-screen 0 1366x900x24" node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+          else
+            node scripts/assisted-application/agent.mjs --order "$ORDER_ID" --mode "$MODE" --round "$ROUND"
+          fi
 
       - name: Cleanup Codex auth broker
         if: always()
@@ -138,6 +167,18 @@ jobs:
           node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
             --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
             || echo "::warning::Codex auth broker cleanup did not complete"
+
+      # Self-correction, level 3 (owner decision 2026-10-01): a portal page the
+      # runner could not get through becomes a fix issue for the Codex fixer,
+      # with no candidate data (struck out by agent.mjs, and again here).
+      - name: Open the fix issue for a portal stop
+        if: always() && (inputs.mode == 'submit' || inputs.mode == 'dry_run')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          STOP_REPORT: ${{ runner.temp }}/portal-stop.json
+          RUN_URL: https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: node scripts/assisted-application/report-portal-stop.mjs
 
       - name: Report failure to GitHub Issues
         if: failure()

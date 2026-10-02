@@ -16,7 +16,9 @@ const ACTION_TIMEOUT_MS = 6000;
 
 /**
  * Custom-styled radios and checkboxes hide the native input (Workday): the
- * normal check, then a forced one, then the element's own click.
+ * normal check, then a forced one, then a real click on the label. Never a
+ * script click (career-ops, Lever: a programmatic click on a box pops an
+ * hCaptcha challenge in the middle of the form).
  */
 async function setChoice(locator, checked) {
   try {
@@ -24,11 +26,58 @@ async function setChoice(locator, checked) {
   } catch {
     try {
       await locator.setChecked(checked, { force: true, timeout: ACTION_TIMEOUT_MS });
-    } catch {
+    } catch (error) {
       const current = await locator.isChecked({ timeout: 2000 }).catch(() => !checked);
-      if (current !== checked) await locator.evaluate((element) => element.click(), null, { timeout: 2000 });
+      if (current === checked) return;
+      // The label is what people click: marked in the page, then clicked in the same document (iframes too).
+      const marked = await locator.evaluate((element) => {
+        const label = (element.id && document.querySelector(`label[for="${CSS.escape(element.id)}"]`)) || element.closest('label');
+        label?.setAttribute('data-aa-label', 'choice');
+        return Boolean(label);
+      }, null, { timeout: 2000 }).catch(() => false);
+      if (!marked) throw error;
+      const label = locator.locator('xpath=ancestor::html[1]//label[@data-aa-label="choice"]').first();
+      await label.click({ timeout: ACTION_TIMEOUT_MS });
+      await label.evaluate((element) => element.removeAttribute('data-aa-label')).catch(() => {});
     }
   }
+}
+
+/** The text, shortened at a sentence end (else a word end) to fit `max` characters. */
+export function fitToLength(text, max) {
+  const value = String(text || '');
+  if (!max || value.length <= max) return value;
+  const cut = value.slice(0, max);
+  // The last sentence end in the second half of the limit: never a half sentence.
+  let end = -1;
+  for (const match of cut.matchAll(/[.!?…](?=\s|$)/g)) end = match.index + 1;
+  if (end >= max * 0.5) return cut.slice(0, end).trim();
+  const space = cut.lastIndexOf(' ');
+  return (space > 0 ? cut.slice(0, space) : cut).replace(/[\s,;:–—-]+$/, '').trim();
+}
+
+/**
+ * The choice took (career-ops: "verify each selection"): a native select
+ * shows the label, a custom control shows the option's text near it.
+ */
+async function choiceRegistered(locator, kind, label) {
+  const wanted = String(label || '').toLowerCase().trim();
+  return locator.evaluate((element, { kind: fieldKind, wanted: text }) => {
+    // Equal, never "contains" (review of #10715: "IT" is not "Italy").
+    const same = (value) => String(value || '').toLowerCase().replace(/\s+/g, ' ').trim() === text;
+    if (fieldKind === 'select') return same(element.options?.[element.selectedIndex]?.text);
+    if (same(element.value) && element.getAttribute('aria-expanded') !== 'true') return true;
+    // A text shown next to the control equal to the choice, never one inside a
+    // list still open (NodeFilter.SHOW_TEXT = 4): an option is no proof of a choice.
+    let node = element.parentElement;
+    for (let depth = 0; node && depth < 4; depth += 1, node = node.parentElement) {
+      const walker = document.createTreeWalker(node, 4);
+      for (let shown = walker.nextNode(); shown; shown = walker.nextNode()) {
+        if (!shown.parentElement?.closest('[role="listbox"], [role="option"], option, script, style') && same(shown.textContent)) return true;
+      }
+    }
+    return false;
+  }, { kind, wanted: wanted.replace(/\s+/g, ' ') }, { timeout: 2000 }).catch(() => false);
 }
 
 /** The option's own element, or (after a re-render dropped our id) the radio with that label. */
@@ -75,17 +124,144 @@ async function pickSuggestion(page, field, locator, value) {
   else await locator.press('Tab').catch(() => {});
 }
 
+/**
+ * Types to filter, then clicks the option that carries the value. No option,
+ * no choice: Enter would take whichever option is highlighted (career-ops,
+ * Workday: never pick by position), so the field fails and is planned again.
+ */
 async function fillCombobox(page, field, locator, value) {
   await locator.click({ timeout: ACTION_TIMEOUT_MS });
   await locator.pressSequentially(value.slice(0, 40), { delay: TYPE_DELAY_MS * 2 });
   const frame = page.frames()[field.frame || 0] || page.mainFrame();
-  const option = frame.getByRole('option', { name: value, exact: false }).first();
+  // The exact label only (review of #10715): "IT" never picks "Italy".
+  const option = frame.getByRole('option', { name: value, exact: true }).first();
   try {
     await option.waitFor({ state: 'visible', timeout: 4000 });
-    await option.click({ timeout: ACTION_TIMEOUT_MS });
   } catch {
-    await locator.press('Enter');
+    await locator.press('Escape').catch(() => {});
+    throw new Error('option_not_found');
   }
+  await option.click({ timeout: ACTION_TIMEOUT_MS });
+}
+
+/** "YYYY-MM-DD", "DD.MM.YYYY" and "DD/MM/YYYY" → a date picker target. */
+function parsePortalDate(value) {
+  const text = String(value || '').trim();
+  let match = /^(\d{4})-(\d{1,2})-(\d{1,2})/.exec(text);
+  if (match) return { year: Number(match[1]), month: Number(match[2]), day: Number(match[3]) };
+  match = /^(\d{1,2})[./-](\d{1,2})[./-](\d{4})$/.exec(text);
+  return match ? { year: Number(match[3]), month: Number(match[2]), day: Number(match[1]) } : null;
+}
+
+const portalDateIso = ({ year, month, day }) => `${year}-${String(month).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
+
+async function comboContext(combo) {
+  return combo.evaluate((element) => {
+    const box = element.closest('[data-testid*="Select"], [data-testid="DatePickerInput"], [role="group"]')
+      || element.parentElement?.parentElement || element.parentElement;
+    return `${element.value || ''} ${box?.innerText || box?.textContent || ''}`.replace(/\s+/g, ' ').trim();
+  }).catch(() => '');
+}
+
+/** The popup owned by a combobox, never an unrelated visible list in the frame. */
+async function popupOwnedByCombo(frame, combo) {
+  const relations = await Promise.all(['aria-controls', 'aria-owns'].map((attribute) => combo.getAttribute(attribute)));
+  const ids = [...new Set(relations.flatMap((value) => String(value || '').split(/\s+/).filter(Boolean)))];
+  for (const id of ids) {
+    const escapedId = id.replace(/["\\]/g, '\\$&');
+    const popup = frame.locator(`[id="${escapedId}"]`).first();
+    if (await popup.count()) return popup;
+  }
+  return null;
+}
+
+async function chooseDatePickerYear(frame, combo, year) {
+  try {
+    await combo.click({ timeout: ACTION_TIMEOUT_MS });
+    await combo.press('Control+A').catch(() => {});
+    await combo.press('Backspace').catch(() => {});
+    await combo.pressSequentially(String(year), { delay: TYPE_DELAY_MS * 2, timeout: ACTION_TIMEOUT_MS });
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
+    const option = popup.getByRole('option', { name: String(year), exact: true }).first();
+    await option.waitFor({ state: 'visible', timeout: 4000 });
+    await option.click({ timeout: ACTION_TIMEOUT_MS });
+    return true;
+  } catch {
+    await combo.press('Escape').catch(() => {});
+    return false;
+  }
+}
+
+async function chooseDatePickerMonth(frame, combo, month) {
+  try {
+    await combo.click({ timeout: ACTION_TIMEOUT_MS });
+    await combo.press('ArrowDown').catch(() => {});
+    // JOIN portals the month menu outside the date-picker root. Follow the
+    // combobox's relation instead of indexing every visible option in the
+    // frame, where another open list can shift the month index.
+    const popup = await popupOwnedByCombo(frame, combo);
+    if (!popup) throw new Error('date_picker_popup_unowned');
+    const options = popup.locator('[role="option"]:visible');
+    await options.nth(month - 1).waitFor({ state: 'visible', timeout: 4000 });
+    await options.nth(month - 1).click({ timeout: ACTION_TIMEOUT_MS });
+    return true;
+  } catch {
+    await combo.press('Escape').catch(() => {});
+    return false;
+  }
+}
+
+/** Fill the JOIN/Zag date picker without exposing its internal controls as answers. */
+async function fillDatePicker(page, field, locator, value) {
+  const date = parsePortalDate(value);
+  if (!date || date.month < 1 || date.month > 12 || date.day < 1 || date.day > 31) throw new Error('invalid_date');
+  const wanted = portalDateIso(date);
+  const frame = page.frames()[field.frame || 0] || page.mainFrame();
+  const target = () => locator.locator(`[data-value="${wanted}"]:not([data-disabled]):not([data-outside-range])`).first();
+  const targetVisible = async () => await target().count() > 0 && await target().isVisible().catch(() => false);
+
+  if (!await targetVisible()) {
+    const combos = locator.locator('input[role="combobox"]');
+    const comboCount = await combos.count();
+    const values = await Promise.all(Array.from({ length: comboCount }, (_, index) => combos.nth(index).inputValue().catch(() => '')));
+    const contexts = await Promise.all(Array.from({ length: comboCount }, (_, index) => comboContext(combos.nth(index))));
+    const yearIndex = values.findIndex((value) => value.trim() === String(date.year)) >= 0
+      ? values.findIndex((value) => value.trim() === String(date.year))
+      : contexts.findIndex((context) => context.trim() === String(date.year));
+    const year = yearIndex >= 0 ? combos.nth(yearIndex) : comboCount >= 2 ? combos.nth(0) : null;
+    const month = comboCount >= 2 ? combos.nth(yearIndex >= 0 ? (yearIndex === 0 ? 1 : 0) : 1) : null;
+    if (year) await chooseDatePickerYear(frame, year, date.year);
+    if (month && !await targetVisible()) await chooseDatePickerMonth(frame, month, date.month);
+  }
+
+  // Comboboxes are the fast path; month arrows are a bounded fallback for
+  // portals that expose the grid but not usable option menus.
+  for (let attempt = 0; attempt < 600 && !await targetVisible(); attempt += 1) {
+    const shown = await locator.locator('[data-part="table-cell-trigger"]:visible:not([data-outside-range])').first().getAttribute('data-value').catch(() => '');
+    if (!shown) break;
+    const [year, month] = shown.split('-').map(Number);
+    const forward = year * 12 + month < date.year * 12 + date.month;
+    const arrow = locator.locator(`[data-part="${forward ? 'next' : 'prev'}-trigger"]`).first();
+    const namedArrow = locator.getByRole('button', { name: forward ? /next month/i : /previous month/i }).first();
+    const control = (await arrow.count()) ? arrow : namedArrow;
+    if (!await control.count()) break;
+    await control.click({ timeout: ACTION_TIMEOUT_MS });
+    await page.waitForTimeout(20);
+  }
+  if (!await targetVisible()) throw new Error('date_not_found');
+  await target().click({ timeout: ACTION_TIMEOUT_MS });
+}
+
+async function dateRegistered(locator, value) {
+  const date = parsePortalDate(value);
+  if (!date) return false;
+  const wanted = portalDateIso(date);
+  return locator.evaluate((element, expected) => {
+    const selected = element.querySelector('[data-part="table-cell-trigger"][data-selected], [data-part="table-cell-trigger"][aria-selected="true"]')?.getAttribute('data-value');
+    const hidden = [...element.querySelectorAll('input')].some((input) => input.value === expected);
+    return selected === expected || hidden;
+  }, wanted, { timeout: 2000 }).catch(() => false);
 }
 
 /**
@@ -113,17 +289,25 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
         const option = field.options.find((item) => item.label === action.value || item.value === action.value);
         if (!option) throw new Error('radio_option_missing');
         await setChoice(await radioLocator(page, field, option), true);
-      } else if (field.kind === 'select') {
-        await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
-      } else if (field.kind === 'listbox') {
-        // Workday: open the listbox and click the option (OfferOS aria-driver).
-        await locator.click({ timeout: ACTION_TIMEOUT_MS });
-        const frame = page.frames()[field.frame || 0] || page.mainFrame();
-        await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
-      } else if (field.kind === 'combobox') {
-        await fillCombobox(page, field, locator, action.value);
+      } else if (['select', 'listbox', 'combobox'].includes(field.kind)) {
+        if (field.kind === 'select') {
+          await locator.selectOption({ label: action.value }, { timeout: ACTION_TIMEOUT_MS });
+        } else if (field.kind === 'listbox') {
+          // Workday: open the listbox and click the option (OfferOS aria-driver).
+          await locator.click({ timeout: ACTION_TIMEOUT_MS });
+          const frame = page.frames()[field.frame || 0] || page.mainFrame();
+          await frame.getByRole('option', { name: action.value, exact: true }).first().click({ timeout: 6000 });
+        } else {
+          await fillCombobox(page, field, locator, action.value);
+        }
+        // A click that did not take leaves the field empty while the run goes on as if answered.
+        if (!await choiceRegistered(locator, field.kind, action.value)) throw new Error('choice_not_registered');
+      } else if (field.kind === 'date') {
+        await fillDatePicker(page, field, locator, action.value);
+        if (!await dateRegistered(locator, action.value)) throw new Error('date_not_registered');
       } else {
-        await fillText(locator, field.maxLength ? action.value.slice(0, field.maxLength) : action.value);
+        // A long text is shortened at a sentence end, never cut in the middle of one.
+        await fillText(locator, fitToLength(action.value, field.maxLength));
         if (field.kind === 'text' && !['email', 'password'].includes(field.inputType)) await pickSuggestion(page, field, locator, action.value);
       }
       results.push({ fieldId: field.id, ok: true });
@@ -136,8 +320,14 @@ export async function applyActions(page, fields, actions, files, { pause = () =>
 }
 
 export const NEXT_RE = /^(next|continue|weiter|avanti|continua|prosegui|suivant|continuer|nächster schritt|save and continue|speichern und weiter|proceed)\b/i;
-export const SUBMIT_RE = /(submit|send application|apply now|^apply$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|invia( la)? candidatura|^invia$|candidati ora|envoyer( ma)? candidature|^envoyer$|postuler|soumettre)/i;
-export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|vielen dank für ihre bewerbung|ihre bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet))|grazie per (la tua|la sua|aver inviato)|candidatura (è stata )?(inviata|ricevuta)|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise))/i;
+// JOIN's review page ends with «Conferma e applica» (giro di prova 2026-10-01):
+// "confirm and apply/send" in the four languages is the final click too, as
+// the WHOLE label ("Conferma e applica filtro" is a filter, not a submission).
+export const SUBMIT_RE = /(submit|send application|apply now|^apply$|^confirm and (apply|send|submit)\W*$|absenden|bewerbung (absenden|senden|abschicken)|jetzt bewerben|^bestätigen und (bewerben|absenden|senden)\W*$|invia( la)? candidatura|^invia$|candidati ora|^candidati$|^applica$|^conferma e (applica|invia|candidati)\W*$|envoyer( ma)? candidature|^envoyer$|postuler|soumettre|^confirmer et (postuler|envoyer)\W*$)/i;
+export const CONFIRM_RE = /(thank you for (your )?appl|thanks for applying|application (has been )?(received|submitted|sent)|we have received your|vielen dank für (ihre|deine) bewerbung|ihre bewerbung (ist )?(eingegangen|erhalten|wurde (erfolgreich )?(übermittelt|gesendet))|grazie per (la tua|la sua|aver inviato|esserti candidat)|candidatura (è stata )?(inviata|ricevuta)|merci pour votre candidature|votre candidature a (bien )?été (envoyée|reçue|transmise))/i;
+// The portal itself says the application did NOT go (JOIN, giro di prova
+// 2026-10-01: «Non siamo riusciti a inviare la tua candidatura. Riprova.»).
+export const REFUSED_RE = /(non siamo riusciti a inviare la (tua|sua) candidatura|impossibile inviare la candidatura|we (couldn['’]?t|could not|were unable to) (submit|send) your application|your application could not be (submitted|sent)|(ihre|deine) bewerbung konnte nicht (gesendet|übermittelt|abgeschickt) werden|wir konnten (ihre|deine) bewerbung nicht (senden|übermitteln)|nous n['’]avons pas pu (envoyer|transmettre) votre candidature|votre candidature n['’]a pas pu être (envoyée|transmise))/i;
 export const VALIDATION_RE = /(this field is required|required field|pflichtfeld|bitte (füllen|geben) sie|campo (obbligatorio|richiesto)|champ (obligatoire|requis)|please (fill|complete|enter))/i;
 
 /** First enabled button matching the pattern (a disabled one is returned only when asked). */

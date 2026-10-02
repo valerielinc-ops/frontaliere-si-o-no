@@ -22,7 +22,7 @@ import { fileURLToPath } from 'node:url';
 import { PHARMACY_TIME_ZONE } from '../services/pharmacies/time.mjs';
 import { validatePharmacyReleaseContract } from '../services/pharmacies/release-contract-validator.mjs';
 import { canonicalJson } from './lib/canonical-json-digest.mjs';
-import { httpFetchWithRetry, transportErrorKind } from './lib/transient-fetch.mjs';
+import { httpFetchWithRetry, isRetryBudgetExhausted, transportErrorKind } from './lib/transient-fetch.mjs';
 
 import {
   ITALY_BORDER_PROVINCES,
@@ -332,9 +332,16 @@ export async function fetchText(url, { timeoutMs = 60_000, accept = '*/*' } = {}
   } catch (error) {
     const kind = transportErrorKind(error);
     const message = error instanceof Error ? error.message : String(error);
-    throw new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
+    const wrapped = new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
+    if (isRetryBudgetExhausted(error)) wrapped.retryBudgetExhausted = true;
+    throw wrapped;
   }
-  if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+  if (!response.ok) {
+    const error = new Error(`HTTP ${response.status} for ${url}`);
+    error.status = response.status;
+    if (isRetryBudgetExhausted(response)) error.retryBudgetExhausted = true;
+    throw error;
+  }
   return response.text();
 }
 
@@ -351,9 +358,16 @@ async function fetchBuffer(url) {
   } catch (error) {
     const kind = transportErrorKind(error);
     const message = error instanceof Error ? error.message : String(error);
-    throw new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
+    const wrapped = new Error(`Failed to fetch ${url} (${kind}): ${message}`, { cause: error });
+    if (isRetryBudgetExhausted(error)) wrapped.retryBudgetExhausted = true;
+    throw wrapped;
   }
-  if (!response.ok) throw new Error(`HTTP ${response.status} for ${url}`);
+  if (!response.ok) {
+    const error = new Error(`HTTP ${response.status} for ${url}`);
+    error.status = response.status;
+    if (isRetryBudgetExhausted(response)) error.retryBudgetExhausted = true;
+    throw error;
+  }
   return Buffer.from(await response.arrayBuffer());
 }
 
@@ -373,8 +387,16 @@ async function readItalyInput() {
     // not ship `/tmp/...` or a workstation path in the checked-in snapshot.
     return { records: recordsFromPayload(await readJsonFile(localItalyJson)), downloadUrl: ITALY_PHARMACY_DATASET_PAGE };
   }
-  const downloadUrl = await discoverItalyDownloadUrl();
-  return { records: recordsFromPayload(JSON.parse(await fetchText(downloadUrl, { accept: 'application/json' }))), downloadUrl };
+  try {
+    const downloadUrl = await discoverItalyDownloadUrl();
+    return { records: recordsFromPayload(JSON.parse(await fetchText(downloadUrl, { accept: 'application/json' }))), downloadUrl };
+  } catch (error) {
+    if (!isRetryBudgetExhausted(error)) throw error;
+    const message = error instanceof Error ? error.message : String(error);
+    const sourceError = `Italian pharmacy catalogue refresh was not published after transient source failure: ${message}`;
+    console.warn(`[import-pharmacies-border] ${sourceError}; preserving the previous snapshot`);
+    return { records: null, downloadUrl: null, sourceError };
+  }
 }
 
 async function readOsmInput() {
@@ -405,6 +427,12 @@ async function readTicinoPdfText() {
     await writeFile(pdfPath, await fetchBuffer(TICINO_PHARMACY_PDF_URL));
     const { stdout } = await execFileAsync('pdftotext', ['-layout', pdfPath, '-'], { maxBuffer: 4 * 1024 * 1024 });
     return { text: stdout, source: TICINO_PHARMACY_PDF_URL };
+  } catch (error) {
+    if (!isRetryBudgetExhausted(error)) throw error;
+    const message = error instanceof Error ? error.message : String(error);
+    const sourceError = `Ticino pharmacy catalogue refresh was not published after transient source failure: ${message}`;
+    console.warn(`[import-pharmacies-border] ${sourceError}; preserving the previous snapshot`);
+    return { text: '', source: TICINO_PHARMACY_PDF_URL, sourceError };
   } finally {
     await rm(tempDir, { recursive: true, force: true });
   }
@@ -470,12 +498,38 @@ function assertBorderRecords(records) {
 }
 
 /**
+ * Keeps a known-complete Italian snapshot when the official source exhausts
+ * its transient retry budget. The old fetch timestamp is deliberately kept so
+ * freshness/health consumers see stale data rather than a false fresh fetch.
+ */
+export function buildPreservedItalySnapshot(previous, sourceError) {
+  const pharmacies = Array.isArray(previous?.pharmacies) ? previous.pharmacies : [];
+  if (pharmacies.length < BORDER_MINIMUMS.italy) {
+    throw new Error(`Cannot preserve the Italian snapshot: only ${pharmacies.length} records (minimum ${BORDER_MINIMUMS.italy})`);
+  }
+  for (const [province, minimum] of Object.entries(BORDER_MINIMUMS.italyByProvince)) {
+    const count = pharmacies.filter((pharmacy) => pharmacy.province === province).length;
+    if (count < minimum) {
+      throw new Error(`Cannot preserve the Italian snapshot: only ${count} records for ${province} (minimum ${minimum})`);
+    }
+  }
+  assertBorderRecords(pharmacies);
+  return {
+    ...previous,
+    _pharmacyCount: pharmacies.length,
+    _errors: [String(sourceError || 'Italian catalogue refresh was not published; previous snapshot preserved')],
+    _preserved: true,
+    pharmacies,
+  };
+}
+
+/**
  * Builds the Ticino catalogue payload before release metadata is attached.
  * A suspicious PDF parse keeps the previous payload and its last successful
  * `_fetchedAt`; the explicit marker makes the resulting release partial (or
  * stale when that preserved timestamp has aged out).
  */
-export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmElements = [], requiredIds = [] }) {
+export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmElements = [], requiredIds = [], sourceError = null }) {
   const rows = Array.isArray(parsed?.rows) ? parsed.rows : [];
   const warnings = Array.isArray(parsed?.warnings) ? [...parsed.warnings] : [];
   const previousPharmacies = Array.isArray(previous?.pharmacies) ? previous.pharmacies : [];
@@ -485,10 +539,10 @@ export function buildTicinoCatalogueSnapshot({ parsed, previous, fetchedAt, osmE
   let errors = [];
 
   if (preserved) {
-    warnings.push(`PDF parse produced ${rows.length} records; preserving the previous ${previousPharmacies.length}-record dataset`);
+    warnings.push(sourceError || `PDF parse produced ${rows.length} records; preserving the previous ${previousPharmacies.length}-record dataset`);
     pharmacies = previousPharmacies;
     publishedFetchedAt = typeof previous?._fetchedAt === 'string' ? previous._fetchedAt : null;
-    errors = ['Ticino catalogue refresh was not published; previous snapshot preserved'];
+    errors = [sourceError || 'Ticino catalogue refresh was not published; previous snapshot preserved'];
   } else {
     pharmacies = buildTicinoCompleteRecords(rows, {
       previous: previousPharmacies,
@@ -572,17 +626,40 @@ async function main() {
       fetchedAt,
       osmElements: osm.elements,
       requiredIds: dutyPharmacyIds,
+      sourceError: ticinoInput.sourceError,
     });
   }
   const ticinoPharmacies = ticinoOutput.pharmacies;
 
-  const italianPharmacies = buildItalianBorderRecords(italy.records, {
-    fetchedAt,
-    asOf,
-    osmElements: osm.elements,
-    datasetUrl: ITALY_PHARMACY_DATASET_PAGE,
-    previous: previousItaly.pharmacies || [],
-  });
+  const italyOutput = italy.sourceError
+    ? buildPreservedItalySnapshot(previousItaly, italy.sourceError)
+    : {
+      _source: ITALY_PHARMACY_DATASET_PAGE,
+      _sourceDownloadUrl: italy.downloadUrl,
+      _license: 'Italian Open Data Licence v2.0',
+      _fetchedAt: fetchedAt,
+      _asOf: asOf,
+      _userAgent: USER_AGENT,
+      _pharmacyCount: 0,
+      _errors: [],
+      _warnings: osm.elements.length ? [] : [osm.warning || 'OpenStreetMap enrichment unavailable; optional fields remain source-limited'],
+      _scope: { country: 'IT', provinces: ITALY_BORDER_PROVINCES },
+      _osmAttribution: osm.elements.length ? 'OpenStreetMap contributors, ODbL 1.0' : null,
+      pharmacies: [],
+    };
+  const italianPharmacies = italy.sourceError
+    ? italyOutput.pharmacies
+    : buildItalianBorderRecords(italy.records, {
+      fetchedAt,
+      asOf,
+      osmElements: osm.elements,
+      datasetUrl: ITALY_PHARMACY_DATASET_PAGE,
+      previous: previousItaly.pharmacies || [],
+    });
+  if (!italy.sourceError) {
+    italyOutput._pharmacyCount = italianPharmacies.length;
+    italyOutput.pharmacies = italianPharmacies;
+  }
   if (italianPharmacies.length < BORDER_MINIMUMS.italy) {
     throw new Error(`Italian border filter produced only ${italianPharmacies.length} records; refusing to publish a truncated dataset (minimum ${BORDER_MINIMUMS.italy})`);
   }
@@ -612,20 +689,7 @@ async function main() {
     await writeJson(DUTIES_PATH, atomic.duties);
     await writeJson(DUTIES_STATUS_PATH, atomic.status);
   }
-  await writeJson(ITALY_OUTPUT_PATH, {
-    _source: ITALY_PHARMACY_DATASET_PAGE,
-    _sourceDownloadUrl: italy.downloadUrl,
-    _license: 'Italian Open Data Licence v2.0',
-    _fetchedAt: fetchedAt,
-    _asOf: asOf,
-    _userAgent: USER_AGENT,
-    _pharmacyCount: italianPharmacies.length,
-    _errors: [],
-    _warnings: osm.elements.length ? [] : [osm.warning || 'OpenStreetMap enrichment unavailable; optional fields remain source-limited'],
-    _scope: { country: 'IT', provinces: ITALY_BORDER_PROVINCES },
-    _osmAttribution: osm.elements.length ? 'OpenStreetMap contributors, ODbL 1.0' : null,
-    pharmacies: italianPharmacies,
-  });
+  await writeJson(ITALY_OUTPUT_PATH, italyOutput);
 
   console.log(`[import-pharmacies-border] Ticino: ${ticinoPharmacies.length}; Italy CO/VA/VB: ${italianPharmacies.length}; OSM enrichment records: ${osm.elements.length}`);
 }

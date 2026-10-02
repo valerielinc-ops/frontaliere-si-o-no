@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
 /**
  * Davos Klosters Bergbahnen AG job parser — tourism/mountain railways.
@@ -42,16 +43,14 @@ export function normalizeDavosKlostersBergbahnenJobUrl(rawUrl = '') {
 // ── shared utilities ──────────────────────────────────────────────────
 
 export function stripHtml(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<br\s*\/?>/gi, '\n')
     .replace(/<li[^>]*>/gi, '\n• ')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/\s+/g, ' ').trim();
 }
 
@@ -66,17 +65,15 @@ export function stripHtml(html = '') {
  * behaviour other callers rely on is unchanged.
  */
 export function richTextToLines(html = '') {
-  return String(html || '')
+  return decodeHTML(String(html || '')
     .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
     .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
     .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
     .replace(/<li[^>]*>/gi, '\n• ')
     .replace(/<\/(?:li|p|h[1-6]|div|ul|ol|tr)>/gi, '\n')
     .replace(/<br\s*\/?>/gi, '\n')
-    .replace(/<[^>]+>/g, ' ')
-    .replace(/&nbsp;/gi, ' ').replace(/&amp;/gi, '&').replace(/&lt;/gi, '<').replace(/&gt;/gi, '>').replace(/&quot;/gi, '"').replace(/&apos;/gi, "'")
-    .replace(/&#(\d+);/g, (_, n) => String.fromCharCode(Number(n)))
-    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => String.fromCharCode(parseInt(hex, 16)))
+    .replace(/<[^>]+>/g, ' '), { scope: 'strict' })
+    .replaceAll('\u00a0', ' ')
     .replace(/[ \t\f\v]+/g, ' ')
     .split('\n').map((l) => l.trim()).filter(Boolean).join('\n')
     .trim();

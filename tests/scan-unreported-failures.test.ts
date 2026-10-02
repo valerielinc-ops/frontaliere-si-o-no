@@ -36,6 +36,7 @@ import {
   workflowNameFromIssue,
   latestIssuePerWorkflow,
   latestClosedIssuePerWorkflow,
+  closedFailureIssueWorkflows,
   closedIssueCoversRun,
   runBody,
   dormantBody,
@@ -149,6 +150,41 @@ describe('dedup con issue canoniche che dichiarano il workflow nel corpo', () =>
       number: 10260,
       closedAt: '2026-09-29T11:34:09Z',
     });
+  });
+
+  // Run 36798138310: `gh issue list --state closed --limit 1000` su un repo con
+  // più di 1.000 issue chiuse raggiungeva il cap a ogni passata, e 13 rossi
+  // senza issue aperta non venivano consegnati («storico delle issue chiuse
+  // illeggibile»). Lo storico che serve è quello chiuso dopo l'orizzonte, letto
+  // per intero dalla REST paginata.
+  it('legge per intero le issue chiuse dopo l\'orizzonte, oltre 1.000 righe, senza le PR', () => {
+    const horizon = '2026-09-29T23:50:05Z';
+    const filler = (n: number) => ({ number: n, title: `Altro ${n}`, closed_at: '2026-09-30T10:00:00Z', body: '' });
+    const pages = Array.from({ length: 12 }, (_, p) => Array.from({ length: 100 }, (_, i) => filler(20_000 + p * 100 + i)));
+    pages[11] = pages[11].slice(0, 37);
+    pages[10][50] = {
+      number: 10706,
+      title: 'CI Failure: Rerender Article Hubs',
+      closed_at: '2026-09-30T21:00:00Z',
+      body: '',
+    };
+    pages[3][7] = { number: 10650, title: 'CI Failure: Rerender Article Hubs', closed_at: '2026-09-30T08:00:00Z', body: '', pull_request: { url: 'x' } } as never;
+    const requested: number[] = [];
+    const closed = closedFailureIssueWorkflows(horizon, {
+      fetchPage: (page: number) => { requested.push(page); return pages[page - 1] ?? []; },
+    });
+    expect(requested).toEqual(Array.from({ length: 12 }, (_, i) => i + 1));
+    expect(closed?.get('Rerender Article Hubs')).toEqual({ number: 10706, closedAt: '2026-09-30T21:00:00Z' });
+    expect(closedIssueCoversRun(closed?.get('Rerender Article Hubs'), '2026-09-30T20:00:00Z')).toBe(true);
+  });
+
+  it('una pagina illeggibile o un listing senza fondo non provano l\'assenza della canonica', () => {
+    const horizon = '2026-09-29T23:50:05Z';
+    const full = Array.from({ length: 100 }, (_, i) => ({ number: i + 1, title: 'x', closed_at: horizon, body: '' }));
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: (page: number) => (page === 2 ? null : full) })).toBeNull();
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: () => full, maxPages: 3 })).toBeNull();
+    expect(closedFailureIssueWorkflows('not-a-date', { fetchPage: () => [] })).toBeNull();
+    expect(closedFailureIssueWorkflows(horizon, { fetchPage: () => [] })?.size).toBe(0);
   });
 
   it('non riapre uno storico già coperto ma lascia passare una run nuova', () => {

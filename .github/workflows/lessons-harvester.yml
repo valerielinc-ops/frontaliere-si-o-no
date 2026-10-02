@@ -143,9 +143,10 @@ jobs:
       # (non serve all'aggregazione), quindi il push moriva con
       # ERR_MODULE_NOT_FOUND (run 36339448967). Si installa SOLO typescript,
       # alla versione del lockfile, fuori dal workspace, e lo si espone con un
-      # symlink in node_modules/ (gitignorato): e' l'unico pacchetto non-builtin
-      # del grafo dei gate (check-sibling-patterns, sibling-check-gate,
-      # gh-pr-body-check, pr-body-check-gate).
+      # package in node_modules/ (gitignorato): il sandbox Codex puo' leggere il
+      # workspace ma non seguire un symlink verso RUNNER_TEMP. E' l'unico
+      # pacchetto non-builtin del grafo dei gate (check-sibling-patterns,
+      # sibling-check-gate, gh-pr-body-check, pr-body-check-gate).
       - name: Provide sibling-checker dependency (typescript only)
         if: steps.guard.outputs.open_proposals == '0' && steps.harvest.outputs.has_novel == 'true'
         run: |
@@ -155,7 +156,9 @@ jobs:
           mkdir -p "$deps_dir"
           npm install --prefix "$deps_dir" --no-audit --no-fund --ignore-scripts "typescript@$ts_version"
           mkdir -p node_modules
-          ln -sfn "$deps_dir/node_modules/typescript" node_modules/typescript
+          rm -rf -- node_modules/typescript
+          cp -a -- "$deps_dir/node_modules/typescript" node_modules/typescript
+          test ! -L node_modules/typescript
           node --input-type=module -e "import ts from 'typescript'; console.log('typescript', ts.version)"
 
       - name: Pre-flight — Codex lane quota telemetry

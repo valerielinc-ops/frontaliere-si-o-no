@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-29T21:21:47.267Z",
-  "total": 6,
+  "generatedAt": "2026-10-01T21:21:05.858Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 5,
-  "removedCount": 1,
-  "unchangedCount": 1,
-  "durationMs": 6504,
-  "avgDurationMs": 6504,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 5370,
+  "avgDurationMs": 5370,
   "durationHistory": [
-    6504
+    5370
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,11 +32,11 @@
       "firstSeenAt": "2026-09-24T14:25:08.686Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/junior-amministrazione-crediti-banca-del-sempione-lugano/",
-      "_qualityScore": 73,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -58,11 +58,11 @@
       "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/junior-legal-banca-del-sempione-lugano/",
-      "_qualityScore": 73,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -81,7 +81,7 @@
       "slug": "banca-del-sempione-global-wealth-management-private-banker-zurich-2",
       "sourceLang": "it",
       "id": "banca-sempione-f9feccc2fb3b",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-11T21:32:17.504Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-private-banker-zurich-2/",
@@ -108,7 +108,7 @@
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "sourceLang": "it",
       "id": "banca-sempione-a117dec221e9",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T21:11:04.811Z",
       "crawledAt": "",
       "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-consulente-alla-clientela-private-banker/",
@@ -146,80 +146,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
-      "company": "Banca del Sempione",
-      "companyKey": "banca-sempione",
-      "url": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "descriptionIt": "Global Wealth Management – Assistente alla Consulenza (Lugano) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte della Divisione di Global Wealth Management – Area Private Banking sarai inserito/a nel team che affianca i Consulenti svolgendo le attività di supporto ai processi di investimento e gestione del patrimonio della Clientela, concorrendo a coglierne tempestivamente le esigenze e…",
-      "postedDate": "2026-08-21",
-      "source": "company-website",
-      "slug": "banca-del-sempione-global-wealth-management-assistente-alla-consulenza-lugano",
-      "sourceLang": "it",
-      "id": "banca-sempione-f1f2cedfa71f",
-      "firstSeenAt": "2026-08-21T22:03:26.436Z",
-      "crawledAt": "",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/global-wealth-management-assistente-alla-consulenza-lugano/",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "unchangedJobs": [
-    {
-      "title": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch)",
-      "company": "Banca del Sempione",
-      "companyKey": "banca-sempione",
-      "url": "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "category": "legal",
-      "descriptionIt": "Responsabile Compliance e AM – Banca del Sempione (Milano Branch) presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Responsabile Compliance AML della costituenda Branch di Banca del Sempione a Milano. Avrà la responsabilità delle attività di compliance, di prevenzione e di contrasto del riciclaggio di denaro e del finanziamento del terrorismo (AML/CFT). Riporterà direttamente al Branch Manager e…",
-      "postedDate": "2026-06-12",
-      "source": "company-website",
-      "slug": "banca-del-sempione-responsabile-compliance-e-am-banca-del-sempione-milano-branch",
-      "sourceLang": "it",
-      "id": "banca-sempione-f74739997e11",
-      "firstSeenAt": "2026-06-12T11:43:52.286Z",
-      "crawledAt": "",
-      "salaryMin": 87000,
-      "salaryMax": 149500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.bancasempione.ch/job/responsabile-compliance-e-am-banca-del-sempione-milano-branch/",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "removedJobs": [],
+  "unchangedJobs": []
 }

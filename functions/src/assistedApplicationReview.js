@@ -13,18 +13,29 @@
 
 import { MAX_REVIEW_ROUNDS } from './assistedApplicationFlow.js';
 import { applyAutomationEvent, draftRefFor, flowRefFor, orderRefFor } from './assistedApplicationAutomation.js';
-import { buildFormAnswers, candidateIdentity, clean, cleanBlock } from './assistedApplicationAiDraftCore.js';
+import { buildCoverLetterPdf } from './assistedApplicationAiDocuments.js';
+import { checkDraftFacts, clean, cleanBlock, letterPdfBlocks } from './assistedApplicationAiDraftCore.js';
+import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
+import { candidateWithEdits, fieldView, formAnswersWithEdits, planCandidateEdits, TEXT_LIMITS } from './assistedApplicationCandidateEdits.js';
 import { getReviewTokenSecret, verifyReviewToken } from './assistedApplicationReviewToken.js';
+import { followupRefFor } from './assistedApplicationFollowup.js';
+import { answerMessage, validateAnswer } from './lib/answerRules.js';
+import { decideFollowup, followupReviewPayload } from './assistedApplicationFollowupSweep.js';
 
-const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted']);
+const ACTIONS = new Set(['approve', 'reject', 'answers', 'confirm_submitted', 'cv_choice', 'edit']);
+// What the candidate wrote vouches for itself in the fact check (bounded).
+const MAX_CANDIDATE_SOURCE = 20000;
+const CV_CHOICES = new Set(['tailored', 'original']);
+const FOLLOWUP_ACTIONS = new Set(['followup_send', 'followup_skip']);
 const MAX_ANSWER_CHARS = 500;
 const MIN_FEEDBACK_CHARS = 5;
 
 class ReviewError extends Error {
-  constructor(code, status = 400) {
+  constructor(code, status = 400, details = null) {
     super(code);
     this.code = code;
     this.status = status;
+    this.details = details;
   }
 }
 
@@ -35,7 +46,29 @@ async function authorize(token, deps) {
   return verified;
 }
 
-function questionView(question) {
+// A start date (availability, "inizio", "Eintritt", "début") is never in the past.
+const START_DATE_RE = /availab|disponib|verfügbar|verfuegbar|ab wann|\bstart|inizio|entrata in servizio|beginn|eintritt|antritt|arbeitsbeginn|début|entrée en (fonction|service)|prise de poste|à partir de quand|when can you/i;
+
+/** Today in Zurich, YYYY-MM-DD. */
+export function zurichToday(nowMs = Date.now()) {
+  return new Intl.DateTimeFormat('en-CA', { timeZone: 'Europe/Zurich', year: 'numeric', month: '2-digit', day: '2-digit' }).format(new Date(nowMs));
+}
+
+/** The earliest date a date question accepts: today for a start date, else none. */
+export function minDateFor(question, nowMs = Date.now()) {
+  return question?.type === 'date' && START_DATE_RE.test(`${question.id || ''} ${question.question || ''}`) ? zurichToday(nowMs) : null;
+}
+
+/**
+ * The proposed start date (owner decision 2026-09-30): the first day of the
+ * month three months after next month, e.g. 1 January 2027 in September 2026.
+ */
+export function defaultStartDate(nowMs = Date.now()) {
+  const [year, month] = zurichToday(nowMs).split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1 + 4, 1)).toISOString().slice(0, 10);
+}
+
+function questionView(question, nowMs = Date.now()) {
   return {
     id: question.id,
     question: question.question,
@@ -43,29 +76,38 @@ function questionView(question) {
     type: question.type,
     options: question.options || [],
     required: Boolean(question.required),
+    minDate: minDateFor(question, nowMs),
+    // The rule the page checks while the candidate types (answerRules.js).
+    validation: question.validation || null,
+    // A proposal shown in the field, never an answer until the candidate saves it.
+    suggested: minDateFor(question, nowMs) ? defaultStartDate(nowMs) : null,
   };
 }
 
 /** What the candidate sees. Built from the draft, never the operator fields. */
-export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl }) {
+/** The ATS check the candidate sees: grade and keyword coverage, before and after tailoring. */
+function atsView(report) {
+  return report ? { grade: report.structural?.grade || null, keywordCoverage: report.keywords?.coverage ?? null, missing: (report.keywords?.missing || []).slice(0, 8) } : null;
+}
+
+export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
   const answers = flow?.answers || {};
-  const questions = (draft?.questions || []).map(questionView);
+  const questions = (draft?.questions || []).map((question) => questionView(question, nowMs));
   const openRequired = questions.filter((question) => question.required && !String(answers[question.id] ?? '').trim());
   const channel = draft?.channel || {};
-  const identity = candidateIdentity(order, draft?.profile);
-  const motivation = (draft?.formAnswers || []).reduce((acc, field) => ({ ...acc, [field.key]: field.value }), {});
-  const formAnswers = draft ? buildFormAnswers({
-    identity,
-    profile: draft.profile,
-    documents: { motivationShort: motivation.motivationShort, whyCompany: motivation.whyCompany },
-    answers,
-  }) : [];
+  const locale = order?.locale || 'it';
+  // With what the candidate changed on this page (assistedApplicationCandidateEdits.js).
+  const formAnswers = formAnswersWithEdits({ order, draft, flow });
   const stale = round !== current;
+  const ready = Boolean(draft && draft.status === 'ready' && Number(draft.round) === current);
   return {
     ok: true,
     stale,
+    // The link of the round the candidate just sent back: the next version is
+    // being prepared, which is what the page says (not "an older version").
+    preparingNext: stale && current === Number(round) + 1 && ['regenerating', 'drafting', 'owner_review'].includes(state),
     state,
     round: current,
     roundsLeft: Math.max(0, MAX_REVIEW_ROUNDS - current),
@@ -79,21 +121,28 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl }
       channel: channel.type || null,
       channelLabel: channel.label || null,
     },
-    ready: Boolean(draft && draft.status === 'ready' && Number(draft.round) === current),
+    ready,
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,
     applicationEmail: channel.type === 'email' && draft?.applicationEmail
       ? { to: draft.applicationEmail.to, subject: draft.applicationEmail.subject, body: draft.applicationEmail.body }
       : null,
-    formAnswers: formAnswers.map(({ key, label, value }) => ({ key, label, value })),
+    formAnswers: formAnswers.map((field) => fieldView(field, { draft, locale })),
+    editLimits: TEXT_LIMITS,
+    editedAt: draft?.candidateEditedAt || null,
     questions,
     answers: Object.fromEntries(questions.map((question) => [question.id, String(answers[question.id] ?? '')])),
     feedback: (flow?.feedback || []).map((item) => ({ round: item.round, text: item.text })),
+    // The tailored ATS CV (sent unless the candidate chooses their original).
+    tailoredCv: draft?.tailoredCv?.status === 'ready' ? { url: tailoredCvUrl, choice: flow?.cvChoice === 'original' ? 'original' : 'tailored' } : null,
+    ats: draft?.ats ? { original: atsView(draft.ats.original), tailored: atsView(draft.ats.tailored) } : null,
     can: {
       approve: !stale && state === 'candidate_review' && openRequired.length === 0,
       reject: !stale && state === 'candidate_review',
       answer: !stale && (state === 'candidate_review' || state === 'needs_candidate_action'),
       confirmSubmitted: !stale && state === 'candidate_handoff',
+      chooseCv: !stale && state === 'candidate_review' && draft?.tailoredCv?.status === 'ready',
+      edit: !stale && state === 'candidate_review' && ready,
     },
   };
 }
@@ -112,17 +161,91 @@ async function loadAll(db, orderId) {
   };
 }
 
-function sanitizeAnswers(raw, draft) {
+/**
+ * The answers kept, each checked with its question's rule, the same check the
+ * page runs while the candidate types (functions/src/lib/answerRules.js). Any
+ * failure refuses the whole save with a message per field.
+ */
+export function sanitizeAnswers(raw, draft, nowMs = Date.now(), locale = 'it') {
   const allowed = new Map((draft?.questions || []).map((question) => [question.id, question]));
+  const todayIso = zurichToday(nowMs);
   const out = {};
+  const fields = {};
   for (const [id, value] of Object.entries(raw && typeof raw === 'object' ? raw : {})) {
     const question = allowed.get(id);
     if (!question) continue;
     const text = clean(value, MAX_ANSWER_CHARS);
-    if (question.type === 'choice' && question.options?.length && text && !question.options.includes(text)) continue;
+    // Clearing an answer is always allowed; an open required one is caught on approval.
+    const view = { ...question, required: false, minDate: minDateFor(question, nowMs) };
+    const result = validateAnswer(text, view, { todayIso });
+    if (!result.ok) {
+      fields[id] = answerMessage(result, view, locale);
+      continue;
+    }
     out[id] = text;
   }
+  if (Object.keys(fields).length) throw new ReviewError('invalid_answers', 400, { fields });
   return out;
+}
+
+/**
+ * The candidate's changes to the letter, the e-mail and the fields, before
+ * approving (no flow event: the submission reads them). The letter PDF is
+ * rebuilt when its text or the header (name, phone, place) changes; the
+ * candidate's own words become a fact source.
+ */
+async function saveCandidateEdits({ db, bucket, orderId, order, flow, draft, body, nowMs }) {
+  const locale = order?.locale || 'it';
+  const plan = planCandidateEdits(body, { order, draft, flow, locale });
+  if (Object.keys(plan.errors).length) throw new ReviewError('invalid_edits', 400, { fields: plan.errors });
+  if (!plan.changed.length) return [];
+  const nextFlow = { ...flow, formOverrides: { ...(flow.formOverrides || {}), ...plan.overrides } };
+  const next = { ...draft, ...plan.draftPatch };
+  const factSources = {
+    ...(draft.factSources || {}),
+    candidate: [draft.factSources?.candidate || '', plan.candidateText].filter(Boolean).join('\n').slice(-MAX_CANDIDATE_SOURCE),
+  };
+  const motivation = Object.fromEntries((next.formAnswers || []).map((field) => [field.key, field.value]));
+  const factCheck = checkDraftFacts({
+    coverLetter: next.coverLetter?.text,
+    emailSubject: next.applicationEmail?.subject,
+    emailBody: next.applicationEmail?.body,
+    motivationShort: motivation.motivationShort,
+    whyCompany: motivation.whyCompany,
+  }, factSources);
+
+  let coverLetterPdfKey = draft.coverLetterPdfKey;
+  if ((plan.draftPatch.coverLetter || plan.identityChanged) && bucket) {
+    const { identity, profile } = candidateWithEdits({ order, draft: next, flow: nextFlow });
+    const pdf = buildCoverLetterPdf(letterPdfBlocks({
+      identity,
+      profile,
+      posting: { contactPerson: draft.contactPerson || '' },
+      companyName: order.companyName,
+      language: draft.language || 'it',
+      letter: next.coverLetter,
+      title: draft.job?.title || order.jobTitle || '',
+      now: new Date(nowMs),
+    }));
+    coverLetterPdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${draft.round || 1}-candidate-${nowMs}.pdf`;
+    await bucket.file(coverLetterPdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+  }
+  await draftRefFor(db, orderId).set({
+    ...plan.draftPatch,
+    factSources,
+    factCheck: { ...factCheck, basis: draft.factCheck?.basis || null },
+    coverLetterPdfKey,
+    candidateEditedAt: nowMs,
+  }, { merge: true });
+  if (Object.keys(plan.overrides).length) {
+    await flowRefFor(db, orderId).set({ formOverrides: nextFlow.formOverrides, updatedAt: nowMs }, { merge: true });
+  }
+  await orderRefFor(db, orderId).collection('events').doc().set(buildAssistedApplicationEvent('automation_candidate_edited', {
+    actor: 'candidate',
+    changed: plan.changed,
+    fields: Object.keys(plan.overrides),
+  }));
+  return plan.changed;
 }
 
 /**
@@ -135,24 +258,57 @@ export async function handleAssistedApplicationReview(req, deps) {
   try {
     if (method === 'GET') {
       const token = String(req.query?.t || '');
-      const { orderId, round } = await authorize(token, { ...deps, nowMs });
+      const { orderId, round, kind } = await authorize(token, { ...deps, nowMs });
+      if (kind === 'followup') {
+        const [orderSnapshot, draftSnapshot, followupSnapshot] = await Promise.all([
+          orderRefFor(deps.db, orderId).get(), draftRefFor(deps.db, orderId).get(), followupRefFor(deps.db, orderId).get(),
+        ]);
+        if (!orderSnapshot.exists || !followupSnapshot.exists) throw new ReviewError('not_found', 404);
+        return { status: 200, body: followupReviewPayload({ order: orderSnapshot.data(), draft: draftSnapshot.data() || {}, followup: followupSnapshot.data(), n: round }) };
+      }
       const { order, flow, draft } = await loadAll(deps.db, orderId);
-      const coverLetterUrl = draft?.coverLetterPdfKey && deps.signUrl
-        ? await deps.signUrl(draft.coverLetterPdfKey).catch(() => null)
-        : null;
-      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl }) };
+      const sign = (key) => (key && deps.signUrl ? deps.signUrl(key).catch(() => null) : null);
+      const [coverLetterUrl, tailoredCvUrl] = await Promise.all([
+        sign(draft?.coverLetterPdfKey),
+        sign(draft?.tailoredCv?.status === 'ready' ? draft.tailoredCv.pdfKey : null),
+      ]);
+      return { status: 200, body: buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl, nowMs }) };
     }
     if (method !== 'POST') return { status: 405, body: { ok: false, error: 'method_not_allowed' } };
 
     const body = req.body && typeof req.body === 'object' ? req.body : {};
     const action = String(body.action || '');
-    if (!ACTIONS.has(action)) throw new ReviewError('invalid_action');
-    const { orderId, round } = await authorize(String(body.t || ''), { ...deps, nowMs });
-    const { flow, draft } = await loadAll(deps.db, orderId);
+    if (!ACTIONS.has(action) && !FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
+    const { orderId, round, kind } = await authorize(String(body.t || ''), { ...deps, nowMs });
+    // A follow-up link acts only on its follow-up, a review link only on the review.
+    if ((kind === 'followup') !== FOLLOWUP_ACTIONS.has(action)) throw new ReviewError('invalid_action');
+    if (kind === 'followup') {
+      const result = await decideFollowup({
+        db: deps.db, orderId, n: round, decision: action === 'followup_send' ? 'send' : 'skip', nowMs, sendCascade: deps.sendCascade,
+      });
+      if (!result.ok && result.error === 'not_pending') throw new ReviewError('not_allowed', 409);
+      return { status: 200, body: { ok: true, sent: Boolean(result.sent), stopped: Boolean(result.stopped) } };
+    }
+    const { order, flow, draft } = await loadAll(deps.db, orderId);
     if (Number(flow.round || 1) !== round) throw new ReviewError('stale_link', 409);
 
+    if (action === 'cv_choice') {
+      // Which CV leaves: no flow event, the next submission reads it.
+      const choice = String(body.cvChoice || '');
+      if (!CV_CHOICES.has(choice) || draft?.tailoredCv?.status !== 'ready') throw new ReviewError('invalid_cv_choice');
+      if (flow.state !== 'candidate_review') throw new ReviewError('not_allowed', 409);
+      await flowRefFor(deps.db, orderId).set({ cvChoice: choice, updatedAt: nowMs }, { merge: true });
+      return { status: 200, body: { ok: true, state: flow.state, cvChoice: choice } };
+    }
+    if (action === 'edit') {
+      if (flow.state !== 'candidate_review' || !draft || draft.status !== 'ready' || Number(draft.round) !== round) {
+        throw new ReviewError('not_allowed', 409);
+      }
+      const changed = await saveCandidateEdits({ db: deps.db, bucket: deps.bucket, orderId, order, flow, draft, body, nowMs });
+      return { status: 200, body: { ok: true, state: flow.state, changed } };
+    }
     if (action === 'answers') {
-      const answers = sanitizeAnswers(body.answers, draft);
+      const answers = sanitizeAnswers(body.answers, draft, nowMs, order?.locale || 'it');
       if (!Object.keys(answers).length) throw new ReviewError('no_valid_answers');
       await flowRefFor(deps.db, orderId).set({ answers: { ...(flow.answers || {}), ...answers }, updatedAt: nowMs }, { merge: true });
     }
@@ -169,7 +325,7 @@ export async function handleAssistedApplicationReview(req, deps) {
     if (!result.ok && action !== 'answers') throw new ReviewError(result.ignored || 'not_allowed', 409);
     return { status: 200, body: { ok: true, state: result.flow?.state || flow.state } };
   } catch (error) {
-    if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code } };
+    if (error instanceof ReviewError) return { status: error.status, body: { ok: false, error: error.code, ...(error.details || {}) } };
     throw error;
   }
 }

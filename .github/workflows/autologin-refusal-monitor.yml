@@ -65,13 +65,35 @@ jobs:
         uses: actions/checkout@v7
         with:
           ref: main
-          fetch-depth: 0
-          # Stessa diagnosi di crawler-health-monitor.yml (#4120/#4266):
-          # fetch-depth: 0 da solo scarica ~1,36 GB di blob e si mangia il budget
-          # del job nel checkout. blob:none tiene la storia dei commit (serve al
-          # rebase sotto) e rimanda i blob.
+          fetch-depth: 1
+          # Il commit-back usa il percorso isolato `--extra-only` sotto: gli
+          # basta il tree corrente e il blob della serie di questo monitor, non
+          # la storia completa del corpus.
           filter: blob:none
           persist-credentials: true
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
         timeout-minutes: 7
 
       - name: Setup Node
@@ -127,6 +149,12 @@ jobs:
         # cambiato dopo il flip?" resta senza il termine di paragone. Stesso
         # motivo per cui crawler-health committa il suo stato.
         if: always()
+        env:
+          # Questo monitor possiede solo la propria directory docs: non deve
+          # entrare nel percorso legacy che risincronizza tutti i dati job. Il
+          # cap lascia il contenzioso sul writer globale al giro successivo,
+          # prima che il job venga cancellato dal timeout.
+          MAX_PUSH_ATTEMPTS: '5'
         run: |
           set -uo pipefail
           # `|| ec=$?` e non `; ec=$?`: Actions lancia gli step con `bash -e {0}`,
@@ -134,7 +162,7 @@ jobs:
           # riga successiva possa leggerne il codice — e il ramo del 42 qui sotto
           # sarebbe codice morto.
           ec=0
-          bash scripts/lib/git-commit-data.sh "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
+          bash scripts/lib/git-commit-data.sh --extra-only "📊 Auto-generated autologin refusal metrics" docs/autologin-refusal/ || ec=$?
           # 42 e' il codice documentato di git-commit-data.sh per "contesa sul
           # push, si risana al giro dopo" — l'unica classe che il suo header
           # dichiara sicura da assorbire. Senza questa riga una corsa con un

@@ -48,6 +48,35 @@ function crawlerResultSteps(steps: any[]) {
     && !step.id.startsWith('crawler-generation-'));
 }
 
+function runTranslateQueueGuardFixture(guardRun: string, ghScript: string, runId = '400') {
+  const scratch = fs.mkdtempSync(path.join(os.tmpdir(), 'translate-queue-guard-fixture-'));
+  const binDir = path.join(scratch, 'bin');
+  fs.mkdirSync(binDir);
+  const outputPath = path.join(scratch, 'github-output');
+  fs.writeFileSync(path.join(binDir, 'gh'), ghScript, { mode: 0o755 });
+  const fixtureRun = `PATH=${binDir}:$PATH\n${guardRun}`;
+
+  try {
+    const stdout = execFileSync('bash', ['-e', '-c', fixtureRun], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: `${binDir}:${process.env.PATH ?? ''}`,
+        BASH_ENV: '/dev/null',
+        GITHUB_OUTPUT: outputPath,
+        GITHUB_REPOSITORY: 'nanakokyobashi-rgb/frontaliere-articles',
+        GITHUB_RUN_ID: runId,
+        GITHUB_EVENT_NAME: 'schedule',
+        TRANSLATION_MANUAL_OVERRIDE: 'false',
+        GH_TOKEN: 'fixture-token',
+      },
+    });
+    return { stdout, output: fs.readFileSync(outputPath, 'utf8') };
+  } finally {
+    fs.rmSync(scratch, { recursive: true, force: true });
+  }
+}
+
 function makeCrawlers(n: number, durationFn: (i: number) => number): Crawler[] {
   return Array.from({ length: n }, (_, i) => ({ slug: `crawler-${i}`, durationMs: durationFn(i) }));
 }
@@ -1181,7 +1210,7 @@ describe('#6882 — Apleona has one explicit full-target wall timeout', () => {
   });
 });
 
-describe('real-corpus invariant: every manifest crawler in exactly one committed crawler-group-*.yml', () => {
+describe('real-corpus invariant: every active manifest crawler in exactly one committed crawler-group-*.yml', () => {
   // Guards the COMMITTED OUTPUT, not just packGroups() in isolation (which
   // the tests above already cover with synthetic data). generate() throws if
   // its own in-memory packGroups() result mismatches its input crawlers, but
@@ -1193,12 +1222,16 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
   // entries, not against the full committed corpus). Extracts each group's
   // background-step crawler slugs the same way the generator names them
   // (`id: crawler-<slug>`) and diffs the union against
-  // data/crawler-manifest.json's slugs.
-  it('data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
+  // the active slugs in data/crawler-manifest.json. Retired crawlers remain in
+  // the manifest for route/data continuity, but the generator deliberately
+  // removes them from the scheduled corpus (data/crawler-quarantine.json).
+  it('active data/crawler-manifest.json slugs == union of all crawler-group-*.yml background steps, each exactly once', () => {
     const REPO_ROOT = path.resolve(import.meta.dirname, '..');
     const WORKFLOWS_DIR = path.join(REPO_ROOT, '.github/workflows');
     const { manifest } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-manifest.json'), 'utf8'));
-    const manifestSlugs = manifest.map((c) => c.slug);
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(REPO_ROOT, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const manifestSlugs = manifest.map((c) => c.slug).filter((slug) => !retiredSlugs.has(slug));
 
     const files = fs.readdirSync(WORKFLOWS_DIR).filter((f) => /^crawler-group-\d+\.yml$/.test(f));
     expect(files.length).toBeGreaterThan(0);
@@ -1226,7 +1259,10 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
 
     const manifestSlugSet = new Set(manifestSlugs);
     const extraneous = [...occurrences.keys()].filter((slug) => !manifestSlugSet.has(slug));
-    expect(extraneous, `crawlers in group workflows but absent from data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+    expect(extraneous, `crawlers in group workflows but absent from active data/crawler-manifest.json: ${extraneous.join(', ')}`).toEqual([]);
+
+    const retiredScheduled = [...occurrences.keys()].filter((slug) => retiredSlugs.has(slug));
+    expect(retiredScheduled, `retired crawlers must not be scheduled: ${retiredScheduled.join(', ')}`).toEqual([]);
   });
 });
 
@@ -1594,7 +1630,9 @@ describe('cross-repo crawler execution artifacts', () => {
     const { contract } = generateArtifacts();
     const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
     const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'));
-    const currentCrawlerCount = manifest.manifest.length;
+    const { retired = {} } = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-quarantine.json'), 'utf8'));
+    const retiredSlugs = new Set(Object.keys(retired));
+    const currentCrawlerCount = manifest.manifest.filter((crawler: any) => !retiredSlugs.has(crawler.slug)).length;
 
     expect(groups).toHaveLength(GROUP_COUNT);
     expect(contract.crawlerCount).toBe(currentCrawlerCount);
@@ -1831,7 +1869,7 @@ describe('cross-repo crawler execution artifacts', () => {
       expect(fs.readFileSync(path.join(outDir, observer.source), 'utf8'))
         .toBe(fs.readFileSync(path.join(portableDir, observer.source), 'utf8'));
     }
-  });
+  }, 60_000);
 
   it('rifiuta un ancoraggio commit non osservabile e conserva ref/sha espliciti', () => {
     expect(resolveCrawlerContractSource({
@@ -2454,7 +2492,7 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('for run_status in queued pending waiting requested in_progress');
     expect(guardStep.run).toContain('status_total_count');
     expect(guardStep.run).toContain('status_returned_count');
-    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_open; fi');
+    expect(guardStep.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
     expect(guardStep.run).toContain('remaining_seconds');
     expect(guardStep.run).toContain('call_timeout_seconds');
     expect(guardStep.run).toContain('api_retry_limit=3');
@@ -2472,7 +2510,154 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(guardStep.run).toContain('workflow_dispatch');
     expect(guardStep.env.TRANSLATION_MANUAL_OVERRIDE).toContain('inputs.skip_translate');
     expect(guardStep.run).toContain('run=false');
-    expect(guardStep.run).toContain('continuing with the heavy run to preserve throughput');
+    expect(guardStep.run).toContain('current_run_path');
+    expect(guardStep.run).toContain('skipping the heavy run to keep the queue bounded');
+    expect(guardStep.run).not.toContain('fail_open');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando la run corrente è l’unica attiva', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested"|*"status=in_progress")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('admits the oldest waiting run');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('ammette il pesante quando l’altra run in_progress ha già il job translate in corso', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued"|*"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"},{"name":"translate_queue_guard","status":"completed"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"pending"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).toContain('1 heavy run(s) currently active and 0 waiting behind it');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=0');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non entra in fail_closed quando total_count coincide con le righe restituite per ogni status', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":501,"created_at":"2026-09-30T09:00:00Z","status":"queued"}]}'
+    ;;
+  *"status=pending"|*"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+
+    expect(stdout).not.toContain('could not inspect GitHub Actions');
+    expect(output).toContain('run=true');
+    expect(output).toContain('waiting_runs=1');
+    expect(output).not.toContain('waiting_runs=-1');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('salta il pesante con piu run pending anche se la lista non contiene ancora la run corrente', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(guardStep.run, String.raw`#!/usr/bin/env bash
+set -euo pipefail
+endpoint="$2"
+case "$endpoint" in
+  *"status=queued")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=pending")
+    printf '%s\n' '{"total_count":2,"workflow_runs":[{"id":101,"created_at":"2026-09-30T09:00:00Z","status":"pending"},{"id":102,"created_at":"2026-09-30T09:30:00Z","status":"pending"}]}'
+    ;;
+  *"status=waiting"|*"status=requested")
+    printf '%s\n' '{"total_count":0,"workflow_runs":[]}'
+    ;;
+  *"status=in_progress")
+    printf '%s\n' '{"total_count":1,"workflow_runs":[{"id":100,"created_at":"2026-09-30T08:00:00Z","status":"in_progress"}]}'
+    ;;
+  */actions/runs/100/jobs?*)
+    printf '%s\n' '{"jobs":[{"name":"translate","status":"in_progress"}]}'
+    ;;
+  */actions/runs/400)
+    printf '%s\n' '{"id":400,"created_at":"2026-09-30T10:00:00Z","status":"in_progress"}'
+    ;;
+  *)
+    echo "unexpected endpoint: $endpoint" >&2
+    exit 64
+    ;;
+esac
+`);
+    expect(stdout).toContain('found older run 101');
+    expect(output).toContain('run=false');
+    expect(output).toContain('waiting_runs=2');
+  }, CROSS_REPO_GENERATION_TIMEOUT);
+
+  it('non ammette il pesante quando la discovery API fallisce', () => {
+    const { outDir } = generateArtifacts();
+    const translation = YAML.parse(fs.readFileSync(path.join(outDir, 'translate-pending.yml'), 'utf8'));
+    const guardStep = translation.jobs.translate_queue_guard.steps
+      .find((step: any) => step.id === 'translate_queue_guard');
+    const { stdout, output } = runTranslateQueueGuardFixture(
+      guardStep.run,
+      '#!/usr/bin/env bash\nexit 1\n',
+    );
+    expect(stdout).toContain('skipping the heavy run to keep the queue bounded');
+    expect(output).toContain('run=false');
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
   it('un fallimento parziale non puo rilanciare i crawler gia eseguiti', () => {

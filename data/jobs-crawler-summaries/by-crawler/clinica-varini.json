@@ -1,21 +1,26 @@
 {
   "key": "clinica-varini",
   "label": "Clinica Varini",
-  "generatedAt": "2026-09-29T21:20:59.539Z",
+  "generatedAt": "2026-10-01T21:12:52.332Z",
   "total": 0,
-  "discovered": null,
+  "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
-  "abortKind": "no-jobs-parsed",
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
+  "durationMs": 3379,
+  "avgDurationMs": 3379,
+  "durationHistory": [
+    3379
+  ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [],
-  "earlyExit": true,
-  "exitCode": 0
+  "unchangedJobs": []
 }

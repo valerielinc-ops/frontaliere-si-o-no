@@ -1,5 +1,125 @@
 [
   {
+    "slug": "epfl-tela-vuoto-epfl-lausanne",
+    "title": "Canevas EPFL (vide)",
+    "titleByLocale": {
+      "fr": "Canevas EPFL (vide)",
+      "it": "EPFL tela (vuoto)",
+      "en": "EPFL canvas (empty)",
+      "de": "EPFL-Leinwand (leer)"
+    },
+    "company": "EPFL",
+    "companyKey": "epfl",
+    "location": "Lausanne",
+    "addressLocality": "Lausanne",
+    "descriptionByLocale": {
+      "fr": "Mission\n\nAjouter texte\n\nPrincipales tâches et responsabilités\n\nProfil\n\nNous offrons\n\nInformations\n\nDate d'entrée en fonction : 15/10/2026\n\nTaux d'occupation min : 60,00\n\nTaux d'occupation max : 80,00\n\nType de contrat : CDD\n\nDurée : 2-4 months\n\nRéférence : 2486",
+      "it": "Missione\n\nAggiungi testo\n\nPrincipali compiti e responsabilità\n\nProfilo\n\nOffriamo\n\nInformazioni\n\nData effettiva: 15/10/2026\n\nTasso di occupazione minimo: 60.00\n\nTasso massimo di occupazione: 80,00\n\nTipo di contratto: CSD\n\nDurata: 2-4 mesi\n\nRiferimento: 2486",
+      "en": "Mission\n\nAdd text\n\nMain tasks and responsibilities\n\nProfile\n\nWe offer\n\nInformation\n\nEffective date: 15/10/2026\n\nMin occupancy rate: 60.00\n\nMax occupancy rate : 80,00\n\nType of contract: CSD\n\nDuration: 2-4 months\n\nReference: 2486",
+      "de": "Mission\n\nText hinzufügen\n\nHauptaufgaben und Zuständigkeiten\n\nProfil\n\nWir bieten\n\nInformation\n\nDatum des Inkrafttretens: 15/10/2026\n\nMindestbelegungsrate: 60,00\n\nMax Belegungsrate: 80,00\n\nArt des Vertrags: Zentralverwahrer\n\nDauer: 2-4 Monate\n\nBezug: 2486"
+    },
+    "slugByLocale": {
+      "fr": "canevas-epfl-vide-epfl-lausanne",
+      "it": "epfl-tela-vuoto-epfl-lausanne",
+      "en": "epfl-canvas-empty-epfl-lausanne",
+      "de": "epfl-leinwand-leer-epfl-lausanne"
+    },
+    "sector": "education",
+    "expiredAt": "2026-09-30T21:17:41.127Z",
+    "previousSlugs": [
+      "canevas-epfl-vide-epfl-lausanne",
+      "consigliere-strategico-del-vicepresidente-epfl-lausanne",
+      "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
+      "canevas-epfl-empty-epfl-lausanne",
+      "strategic-advisor-to-the-vice-president-epfl-lausanne",
+      "strategischer-berater-des-vizeprasidenten-epfl-lausanne",
+      "stage-analyse-de-donnees-environnementales-epfl-lausanne",
+      "analyse-des-donnees-environnementales-des-stages-epfl-lausanne",
+      "consigliere-strategico-per-l-ufficio-del-vicepresidente-epfl-lausanne",
+      "consulente-strategico-dell-ufficio-del-vicepresidente-epfl-lausanne",
+      "strategischer-berater-des-buros-des-vizeprasidenten-epfl-lausanne",
+      "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne",
+      "cadre-epfl-epfl-lausanne",
+      "conseiller-strategique-aupres-du-bureau-de-la-vice-presidence-epfl-lausanne",
+      "strategic-advisor-to-the-vice-president-s-office-epfl-lausanne",
+      "tirocinio-in-analisi-dei-dati-ambientali-epfl-lausanne",
+      "canevas-epfl-vuoto-epfl-lausanne",
+      "praktikum-umwelt-datenanalyse-epfl-lausanne",
+      "strategischer-rahmen-epfl-epfl-lausanne",
+      "canevas-epfl-leer-epfl-lausanne",
+      "praktikum-umweltdatenanalyse-epfl-lausanne",
+      "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
+      "strategieberater-in-im-buro-des-vizeprasidenten-epfl-lausanne",
+      "stage-en-analyse-de-donnees-environnementales-epfl-lausanne-bc087f",
+      "internship-environmental-data-analysis-epfl-lausanne",
+      "stage-analyse-des-donnees-environnementales-epfl-lausanne",
+      "stagiaire-analyse-donnees-environnementales-epfl-lausanne",
+      "stagiaire-analyse-umweltdaten-epfl-lausanne",
+      "canevas-epfl-epfl-lausanne"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "consigliere-strategico-del-vicepresidente-epfl-lausanne",
+        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
+        "canevas-epfl-empty-epfl-lausanne"
+      ],
+      "en": [
+        "strategic-advisor-to-the-vice-president-epfl-lausanne",
+        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
+        "canevas-epfl-empty-epfl-lausanne"
+      ],
+      "de": [
+        "strategischer-berater-des-vizeprasidenten-epfl-lausanne",
+        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
+        "canevas-epfl-empty-epfl-lausanne"
+      ],
+      "fr": [
+        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
+        "stage-analyse-de-donnees-environnementales-epfl-lausanne",
+        "analyse-des-donnees-environnementales-des-stages-epfl-lausanne",
+        "canevas-epfl-empty-epfl-lausanne"
+      ]
+    },
+    "salaryMin": 60500,
+    "salaryMax": 91500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28vide%29/1165514555",
+    "firstSeenAt": "2026-09-28T21:19:10.838Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28empty%29/1164897255",
+        "firstSeenAt": "2026-06-12T12:04:22.995Z",
+        "title": "Canevas EPFL (empty)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28empty%29/1164914655",
+        "firstSeenAt": "2026-06-16T13:23:18.656Z",
+        "title": "Canevas EPFL (empty)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28vide%29/1165514555",
+        "firstSeenAt": "2026-09-28T21:19:10.838Z",
+        "title": "Canevas EPFL (vide)"
+      },
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-conseiller%c2%b7%c3%a8re-strat%c3%a9gique-aupr%c3%a8s-de-la-vice-pr%c3%a9sidence/1164914555",
+        "firstSeenAt": "2026-06-16T13:23:18.086Z",
+        "title": "Conseiller·ère stratégique auprès de la Vice-présidence"
+      },
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-internship-environmental-data-analysis/1164897255",
+        "firstSeenAt": "2026-06-12T12:04:22.995Z",
+        "title": "Internship Environmental Data Analysis"
+      },
+      {
+        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-strategic-advisor-to-the-vice-president&apos;s-office/1164914655",
+        "firstSeenAt": "2026-06-16T13:23:18.656Z",
+        "title": "Strategic Advisor to the Vice President's Office"
+      }
+    ]
+  },
+  {
     "slug": "progetti-di-governance-responsabile-e-qualita-dei-servizi-epfl-lausanne",
     "title": "Responsable Gouvernance Projets et Qualité des Services",
     "titleByLocale": {
@@ -189,56 +309,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-innovation-manager/1165497355",
     "firstSeenAt": "2026-09-25T14:45:14.754Z"
-  },
-  {
-    "slug": "icp-systems-ingegnere-epfl-lausanne",
-    "title": "ICP Systems Engineer",
-    "titleByLocale": {
-      "it": "ICP Systems Ingegnere",
-      "en": "ICP Systems Engineer",
-      "de": "ICP Systems Ingenieur",
-      "fr": "ICP Systems Ingénieur"
-    },
-    "company": "EPFL",
-    "companyKey": "epfl",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Missione\n\nLa piattaforma integrata di calcolo (ICP) fornisce infrastrutture e servizi IT avanzati per supportare la comunità di EPFL. Stiamo cercando un System Engineer per rafforzare il nostro team e aiutare a progettare, consegnare ed evolvere il nostro portafoglio di servizi, vale a dire per quanto riguarda le esigenze di dati sensibili.\n\nSe siete appassionati di infrastrutture IT all'avanguardia e motivati da consentire una ricerca efficace, ci piacerebbe sentire da voi.\n\nContribuirai a una vasta gamma di servizi, comprese le piattaforme di calcolo, storage e AI, mentre lavorerai a stretto contatto con ricercatori e team IT di EPFL.\n\nQuesto ruolo richiede una mentalità orientata al cliente, adattabilità e forti competenze di collaborazione. Si svolgerà un ruolo chiave nel migliorare la consegna dei servizi e garantire le nostre soluzioni soddisfare le esigenze in evoluzione della comunità di ricerca.\n\nAccogliamo le applicazioni da professionisti esperti e laureati recenti che cercano di iniziare la loro carriera.\n\nCome datore di lavoro pari opportunità, incoraggiamo i candidati di tutti i generi, sfondi e età da applicare.\n\nPrincipali doveri e responsabilità\n\n• Contribuire alla progettazione, implementazione e supporto di un'infrastruttura Trusted Research Environment\n\n• Contribuisci alla manutenzione, al supporto e al miglioramento continuo delle nostre offerte di servizio\n\n• Progettazione, implementazione e distribuzione di nuovi servizi in linea con la ricerca e le esigenze istituzionali\n\n• Collabora con team di supporto IT e utenti finali, garantendo una comunicazione di alta qualità e la consegna dei servizi\n\n• Partecipazione all'automazione, ottimizzazione e modernizzazione delle infrastrutture e dei flussi di lavoro\n\n• Supporta l'affidabilità, la scalabilità e la sicurezza dei servizi della piattaforma\n\nProfilo\n\n• Laurea o Master in Informatica (o esperienza equivalente)\n\n• Forte giocatore di squadra con una mentalità strutturata, affidabile e proattiva\n\n• Adattibilità e agilità in un ambiente dinamico, con un approccio pragmatico alla risoluzione dei problemi\n\n• Eccellente capacità di comunicazione e capacità di comprendere le esigenze degli utenti e le sfide aziendali\n\n• Capacità di lavorare in modo indipendente e collaborativo\n\n• Interessi nel lavorare in un ambiente multiculturale e ricercato\n\n• Fluente in francese e inglese (scritto e parlato)\n\nCompetenze tecniche richieste:\n\n• Forte conoscenza dell'amministrazione del sistema Linux in produzione (Ubuntu, Red Hat)\n\n• Esperienza con tecnologie per container (Docker, Podman, containerd)\n\n• Esperienza di piattaforme di orchestrazione dei container operativi (Kubernetes)\n\n• Esperienza di distribuzione delle applicazioni in ambienti cloud-native (ad esempio, Helm, Terraform)\n\n• Esperienza con l'infrastruttura on-premises (server, networking, storage in ambienti datacenter)\n\n• Esperienza con IT Security migliori pratiche e principi\n\n• Conoscenza dei principali servizi IT: DNS, DHCP, bilanciamento del carico (HAProxy), Keepalived, TLS\n\n• Esperienza con strumenti di gestione della configurazione (Ansible, Puppet)\n\n• Familiarità con le pratiche DevOps/GitOps e condutture CI/CD (GitLab CI/CD, FluxCD)\n\n• Servizi operativi basati su risorse aperte\n\n• Proficienza nella scrittura e nella programmazione (Python, Bash, Git)\n\nContiamo come un vantaggio la vostra esperienza possibile con (abilità tecniche facoltative):\n\n• Esperienza con ambienti sensibili (Trusted Research Environment)\n\n• Esperienza con piattaforme di virtualizzazione (OpenStack)\n\n• Esperienza con sistemi di gestione dell'identità e dell'accesso (Keycloak, Authentik)\n\n• Certificazioni CNCF (ad esempio, CKA, CKAD)\n\n• Esperienza con sistemi di archiviazione, filesystem e archiviazione dati\n\nOffriamo\n\n• Un ambiente di lavoro dinamico, collaborativo e multiculturale\n\n• L'opportunità di contribuire alla ricerca scientifica ad alto impatto\n\n• Uno stipendio competitivo basato sull'esperienza e sulle qualifiche\n\n• Opportunità di apprendimento continua e di sviluppo professionale\n\nInformazioni\n\nData di inizio del contratto: appena possibile\n\nTasso di attività: 100.00\n\nTipo di contratto: CDI\n\nRiferimento: 2423\n\nSi prega di notare che saranno considerate solo le applicazioni effettuate tramite il portale EPFL.\n\nPer domande si prega di contattare: miguel.fontesmedeiros@",
-      "en": "Mission\n\nThe Integrated Computing Platform (ICP) provides advanced IT infrastructure and services to support EPFL’s community. We are looking for a System Engineer to strengthen our team and help design, deliver, and evolve our service portfolio, namely with regards to sensitive data needs.\n\nIf you are passionate about cutting-edge IT infrastructure and motivated by enabling impactful research, we would love to hear from you.\n\nYou will contribute to a diverse range of services, including compute, storage, and AI platforms, while working closely with researchers and IT teams across EPFL.\n\nThis role requires a customer-oriented mindset, adaptability, and strong collaboration skills. You will play a key role in improving service delivery and ensuring our solutions meet the evolving needs of the research community.\n\nWe welcome applications from both experienced professionals and recent graduates looking to start their careers.\n\nAs an equal opportunity employer, we encourage candidates of all genders, backgrounds, and ages to apply.\n\nMain duties and responsibilities\n\n• Contribute to the design, implementation and support of a Trusted Research Environment infrastructure\n\n• Contribute to the maintenance, support, and continuous improvement of our service offerings\n\n• Design, implement, and deploy new services aligned with research and institutional needs\n\n• Collaborate with IT support teams and end users, ensuring high-quality communication and service delivery\n\n• Participate in automation, optimization, and modernization of infrastructure and workflows\n\n• Support the reliability, scalability, and security of the platform services\n\nProfile\n\n• Bachelor’s or Master’s degree in Computer Science (or equivalent experience)\n\n• Strong team player with a structured, reliable, and proactive mindset\n\n• Adaptability and agility in a dynamic environment, with a pragmatic approach to problem-solving\n\n• Excellent communication skills and ability to understand user needs and business challenges\n\n• Ability to work both independently and collaboratively\n\n• Interest in working in a multicultural and research-driven environment\n\n• Fluent in French and English (written and spoken)\n\nRequired technical skills:\n\n• Strong knowledge of Linux system administration in production (Ubuntu, Red Hat)\n\n• Experience with container technologies (Docker, Podman, containerd)\n\n• Experience operating container orchestration platforms (Kubernetes)\n\n• Experience deploying applications in cloud-native environments (e.g., Helm, Terraform)\n\n• Experience with on-premises infrastructure (servers, networking, storage in datacenter environments)\n\n• Experience with IT Security best practices and principles\n\n• Knowledge of core IT services: DNS, DHCP, load balancing (HAProxy), Keepalived, TLS\n\n• Experience with configuration management tools (Ansible, Puppet)\n\n• Familiarity with DevOps/GitOps practices and CI/CD pipelines (GitLab CI/CD, FluxCD)\n\n• Experience operating open-source-based services\n\n• Proficiency in scripting and programming (Python, Bash, Git)\n\nWe count as an advantage your possible experience with (optional technical skills):\n\n• Experience with Sensitive Data environments (Trusted Research Environment)\n\n• Experience with virtualization platforms (OpenStack)\n\n• Experience with identity and access management systems (Keycloak, Authentik)\n\n• CNCF certifications (e.g., CKA, CKAD)\n\n• Experience with storage systems, filesystems, and data archiving\n\nWe offer\n\n• A dynamic, collaborative, and multicultural working environment\n\n• The opportunity to contribute to high-impact scientific research\n\n• A competitive salary based on experience and qualifications\n\n• Continuous learning and professional development opportunities\n\nInformations\n\nContract Start Date : As soon as possible\n\nActivity Rate : 100.00\n\nContract Type: CDI\n\nReference: 2423\n\nPlease note that only applications made through EPFL portal will be considered.\n\nFor questions please contact: miguel.fontesmedeiros@",
-      "de": "Mission\n\nDie Integrated Computing Platform (ICP) bietet fortschrittliche IT-Infrastruktur und -Services zur Unterstützung der EPFL-Community. Wir suchen einen System Engineer, um unser Team zu stärken und unser Serviceportfolio zu entwerfen, zu liefern und weiterzuentwickeln, insbesondere im Hinblick auf sensible Datenanforderungen.\n\nWenn Sie sich für eine hochmoderne IT-Infrastruktur begeistern und durch wirkungsvolle Forschung motiviert sind, würden wir uns freuen, von Ihnen zu hören.\n\nSie werden zu einer Vielzahl von Dienstleistungen beitragen, einschließlich Rechen-, Speicher- und KI-Plattformen, während Sie eng mit Forschern und IT-Teams in der gesamten EPFL zusammenarbeiten.\n\nDiese Rolle erfordert eine kundenorientierte Denkweise, Anpassungsfähigkeit und starke Zusammenarbeitsfähigkeiten. Sie werden eine Schlüsselrolle bei der Verbesserung der Servicebereitstellung spielen und sicherstellen, dass unsere Lösungen den sich entwickelnden Bedürfnissen der Forschungsgemeinschaft entsprechen.\n\nWir begrüßen Bewerbungen sowohl von erfahrenen Fachleuten als auch von Absolventen, die ihre Karriere beginnen möchten.\n\nAls Arbeitgeber für Chancengleichheit ermutigen wir Kandidaten aller Geschlechter, Hintergründe und Altersgruppen, sich zu bewerben.\n\nHauptaufgaben und Zuständigkeiten\n\n• Beitrag zur Gestaltung, Implementierung und Unterstützung einer Trusted Research Environment Infrastruktur\n\n• Beitrag zur Wartung, Unterstützung und kontinuierlichen Verbesserung unserer Serviceangebote\n\n• Konzipieren, Implementieren und Bereitstellen neuer Dienste, die auf Forschungs- und institutionelle Bedürfnisse ausgerichtet sind\n\n• Zusammenarbeit mit IT-Supportteams und Endbenutzern, um eine qualitativ hochwertige Kommunikation und Servicebereitstellung zu gewährleisten\n\n• Beteiligen Sie sich an der Automatisierung, Optimierung und Modernisierung von Infrastruktur und Workflows\n\n• Unterstützung der Zuverlässigkeit, Skalierbarkeit und Sicherheit der Plattformdienste\n\nProfil\n\n• Bachelor- oder Master-Abschluss in Informatik (oder gleichwertige Erfahrung)\n\n• Starker Teamplayer mit einer strukturierten, zuverlässigen und proaktiven Denkweise\n\n• Anpassungsfähigkeit und Agilität in einem dynamischen Umfeld mit einem pragmatischen Ansatz zur Problemlösung\n\n• Hervorragende Kommunikationsfähigkeiten und Fähigkeit, die Bedürfnisse der Benutzer und geschäftlichen Herausforderungen zu verstehen\n\n• Fähigkeit, sowohl unabhängig als auch kooperativ zu arbeiten\n\n• Interesse an Arbeit in einem multikulturellen und forschungsorientierten Umfeld\n\n• Fließend in Französisch und Englisch (geschrieben und gesprochen)\n\nErforderliche technische Fähigkeiten:\n\n• Starke Kenntnisse der Linux-Systemadministration in der Produktion (Ubuntu, Red Hat)\n\n• Erfahrung mit Containertechnologien (Docker, Podman, containerd)\n\n• Betreiben von Container-Orchestrierungsplattformen (Kubernetes)\n\n• Erfahrung in der Bereitstellung von Anwendungen in Cloud-nativen Umgebungen (z. B. Helm, Terraform)\n\n• Erfahrung mit On-Premises-Infrastruktur (Server, Networking, Storage in Datacenter-Umgebungen)\n\n• Erfahrung mit Best Practices und Prinzipien für IT Security\n\n• Kenntnisse der Kern-IT-Services: DNS, DHCP, Load Balancing (HAProxy), Keepalived, TLS\n\n• Erfahrung mit Konfigurationsmanagement-Tools (Ansible, Puppet)\n\n• Vertrautheit mit DevOps/GitOps-Praktiken und CI/CD-Pipelines (GitLab CI/CD, FluxCD)\n\n• Erfahrung im Betrieb von Open-Source-basierten Services\n\n• Kenntnisse in Skripting und Programmierung (Python, Bash, Git)\n\nWir zählen als Vorteil Ihre mögliche Erfahrung mit (optionale technische Fähigkeiten):\n\n• Erfahrung mit sensiblen Datenumgebungen (Trusted Research Environment)\n\n• Erfahrung mit Virtualisierungsplattformen (OpenStack)\n\n• Erfahrung mit Identitäts- und Zugangsmanagementsystemen (Keycloak, Authentik)\n\n• CNCF-Zertifizierungen (z. B. CKA, CKAD)\n\n• Erfahrung mit Speichersystemen, Dateisystemen und Datenarchivierung\n\nWir bieten\n\n• Eine dynamische, kollaborative und multikulturelle Arbeitsumgebung\n\n• Die Möglichkeit, zu einflussreicher wissenschaftlicher Forschung beizutragen\n\n• Ein wettbewerbsfähiges Gehalt basierend auf Erfahrung und Qualifikationen\n\n• Kontinuierliches Lernen und berufliche Entwicklungsmöglichkeiten\n\nInformationen\n\nVertragsbeginndatum: So schnell wie möglich\n\nAktivitätsrate: 100,00\n\nArt des Vertrags: CDI\n\nBezug: 2423\n\nBitte beachten Sie, dass nur Anträge über das EPFL-Portal berücksichtigt werden.\n\nFür Fragen kontaktieren Sie bitte: miguel.fontesmedeiros@",
-      "fr": "Mission\n\nLa plateforme informatique intégrée (PIC) fournit une infrastructure et des services informatiques avancés pour soutenir la communauté de l'EPFL. Nous sommes à la recherche d'un ingénieur système pour renforcer notre équipe et aider à concevoir, fournir et développer notre portefeuille de services, à savoir en ce qui concerne les besoins de données sensibles.\n\nSi vous êtes passionné par une infrastructure informatique de pointe et motivé par la recherche impactée, nous aimerions avoir de vos nouvelles.\n\nVous contribuerez à une gamme variée de services, y compris des plateformes de calcul, de stockage et d'IA, tout en travaillant en étroite collaboration avec les chercheurs et les équipes informatiques de l'EPFL.\n\nCe rôle exige une mentalité orientée vers le client, une capacité d'adaptation et de solides compétences en collaboration. Vous jouerez un rôle clé en améliorant la prestation des services et en veillant à ce que nos solutions répondent aux besoins changeants du milieu de la recherche.\n\nNous accueillons les candidatures de professionnels expérimentés et de jeunes diplômés désireux de commencer leur carrière.\n\nEn tant qu'employeur à chances égales, nous encourageons les candidats de tous les sexes, de tous les antécédents et de tous les âges à présenter leur candidature.\n\nPrincipales fonctions et responsabilités\n\n• Contribuer à la conception, à la mise en oeuvre et au soutien d'une infrastructure d'environnement de recherche fiable\n\n• Contribuer à l'entretien, au soutien et à l'amélioration continue de nos services\n\n• Concevoir, mettre en oeuvre et déployer de nouveaux services adaptés aux besoins de la recherche et des institutions\n\n• Collaborer avec les équipes de soutien informatique et les utilisateurs finaux, en assurant une communication et une prestation de services de haute qualité\n\n• Participer à l'automatisation, à l'optimisation et à la modernisation des infrastructures et des flux de travail\n\n• Soutenir la fiabilité, l'évolutivité et la sécurité des services de la plateforme\n\nProfil\n\n• Baccalauréat ou maîtrise en informatique (ou expérience équivalente)\n\n• Fort joueur d'équipe avec un esprit structuré, fiable et proactif\n\n• Adaptabilité et agilité dans un environnement dynamique, avec une approche pragmatique de la résolution des problèmes\n\n• Excellentes compétences en communication et capacité à comprendre les besoins des utilisateurs et les défis commerciaux\n\n• Capacité de travailler de façon indépendante et en collaboration\n\n• Intérêt à travailler dans un environnement multiculturel et axé sur la recherche\n\n• Fluent en français et en anglais (écrit et parlé)\n\nCompétences techniques requises:\n\n• Forte connaissance de l'administration du système Linux dans la production (Ubuntu, Red Hat)\n\n• Expérience des technologies de conteneurs (Docker, Podman, conteneurd)\n\n• Expérience des plateformes d'orchestration de conteneurs d'exploitation (Kubernetes)\n\n• Expérience du déploiement d'applications dans des environnements nuageux (p. ex. Helm, Terraform)\n\n• Expérience de l'infrastructure sur site (serveurs, réseau, stockage dans les environnements datacenters)\n\n• Expérience des meilleures pratiques et des principes de la sécurité informatique\n\n• Connaissance des services informatiques de base: DNS, DHCP, équilibrage de charge (HAProxy), Keepavire, TLS\n\n• Expérience des outils de gestion de configuration (Ansible, Puppet)\n\n• Connaissance des pratiques DevOps/GitOps et des pipelines CI/CD (GitLab CI/CD, FluxCD)\n\n• Expérience de l'exploitation de services open source\n\n• Compétence en script et en programmation (Python, Bash, Git)\n\nNous comptons comme avantage votre expérience possible avec (compétences techniques facultatives):\n\n• Expérience des environnements de données sensibles (Environnement de recherche fiable)\n\n• Expérience avec les plateformes de virtualisation (OpenStack)\n\n• Expérience des systèmes de gestion d'identité et d'accès (Keycloak, Authentik)\n\n• Certifications CNCF (p. ex., CKA, CKAD)\n\n• Expérience des systèmes de stockage, des systèmes de fichiers et de l'archivage des données\n\nNous offrons\n\n• Un environnement de travail dynamique, collaboratif et multiculturel\n\n• La possibilité de contribuer à la recherche scientifique à haut impact\n\n• Un salaire concurrentiel basé sur l'expérience et les qualifications\n\n• Possibilités de formation continue et de perfectionnement professionnel\n\nInformations\n\nDate de début du contrat : Dès que possible\n\nTaux d'activité : 100,00\n\nType de contrat: CDI\n\nRéférence: 2423\n\nVeuillez noter que seules les demandes faites par le biais du portail de l'EPFL seront prises en considération.\n\nPour toute question, veuillez contacter: miguel.fontesmedeiros@"
-    },
-    "slugByLocale": {
-      "it": "icp-systems-ingegnere-epfl-lausanne",
-      "en": "icp-systems-engineer-epfl-lausanne",
-      "de": "icp-systems-ingenieur-epfl-lausanne",
-      "fr": "icp-systems-ingenieur-epfl-lausanne"
-    },
-    "sector": "education",
-    "expiredAt": "2026-09-28T11:25:46.073Z",
-    "previousSlugs": [
-      "icp-systems-engineer-epfl-lausanne",
-      "icp-systems-ingegnere-epfl-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "icp-systems-engineer-epfl-lausanne",
-        "icp-systems-ingegnere-epfl-lausanne"
-      ],
-      "de": [
-        "icp-systems-engineer-epfl-lausanne"
-      ],
-      "fr": [
-        "icp-systems-engineer-epfl-lausanne"
-      ]
-    },
-    "salaryMin": 71000,
-    "salaryMax": 107500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-icp-systems-engineer/1165342955",
-    "firstSeenAt": "2026-08-27T00:43:15.468Z"
   },
   {
     "slug": "responsabile-del-servizio-per-le-operazioni-e-le-infrastrutture-it-epfl-lausanne",
@@ -4838,115 +4908,6 @@
         "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-postdoc-position-on-ai-alignment-and-safe-ai-available-at-epfl-dlab/1164220755",
         "firstSeenAt": "2026-05-21T11:51:06.172Z",
         "title": "Postdoc position on AI alignment and safe AI available at EPFL DLAB"
-      }
-    ]
-  },
-  {
-    "slug": "consigliere-strategico-del-vicepresidente-epfl-lausanne",
-    "title": "Conseiller·ère stratégique auprès de la Vice-présidence",
-    "titleByLocale": {
-      "it": "Consigliere Strategico del Vicepresidente",
-      "en": "Strategic Advisor to the Vice-President",
-      "de": "Strategischer Berater des Vizepräsidenten",
-      "fr": "Conseiller·ère stratégique auprès de la Vice-présidence"
-    },
-    "company": "EPFL",
-    "companyKey": "epfl",
-    "location": "Lausanne",
-    "addressLocality": "Lausanne",
-    "descriptionByLocale": {
-      "it": "Missione Supportare il Vicepresidente per il sostegno alle iniziative strategiche (VPS) nello sviluppo e nella gestione di partenariati strategici che rafforzano il posizionamento nazionale e internazionale dell'EPFL. All'interfaccia tra mondo accademico, sistema sanitario, autorità pubbliche, filantropia e industria, contribuite a strutturare collaborazioni dal forte impatto scientifico e sociale. Agisci come un partner fidato e dal pensiero strategico, identificando opportunità, analizzando problemi e strutturando le decisioni. In stretta collaborazione con la Vicepresidente e il suo Vice, contribuisci a gestire un portafoglio di iniziative e garantisci la coerenza con le priorità della Vicepresidenza. La posizione pone particolare enfasi sulla gestione delle interfacce con le organizzazioni partner, sullo sviluppo dell'ecosistema e sulle collaborazioni multi-istituzionali. Principali compiti e responsabilità Consulenza strategica e partenariato di riflessione\n• Supportare il Vicepresidente come sparring partner su questioni strategiche.\n• Analizzare situazioni complesse e formulare raccomandazioni concrete.\n• Sfidare le ipotesi e fornire nuove prospettive. Sviluppo e realizzazione di iniziative strategiche\n• Contribuire alla progettazione e realizzazione di iniziative multi-partner.\n• Coordinare gli stakeholder interni ed esterni.\n• Governance della struttura, tabelle di marcia e attuazione.\n• Facilitare l'allineamento tra i partner e contribuire alla risoluzione delle sfide emergenti. Supporto esecutivo e posizionamento istituzionale\n• Preparare briefing, analisi, presentazioni e discorsi.\n• Effettuare benchmark e monitoraggio strategico.\n• In collaborazione con gli Affari Istituzionali, contribuire al posizionamento dell'EPFL nei dibattiti nazionali e internazionali relativi alla ricerca, all'innovazione e all'istruzione superiore. Coordinamento di partenariati e rappresentanza\n• Facilitare le interazioni con i principali partner esterni\n• Garantire il seguito degli impegni e dei file strategici\n• Organizzare riunioni e interazioni ad alto rischio\n• Rappresentare la Vice-presenza su base ad hoc\n• Sviluppare rapporti di fiducia con le parti interessate Profilo\n• Istruzione universitaria superiore; Il dottorato o un'esperienza equivalente costituiscono un vantaggio.\n• 5 anni o più di esperienza nello sviluppo e nella gestione di partnership strategiche, iniziative complesse multi-stakeholder o collaborazioni istituzionali.\n• L'esperienza nel campo dell'istruzione superiore, della ricerca, dell'innovazione, della sanità, della consulenza, degli affari pubblici, della filantropia o in un campo correlato costituisce un vantaggio.\n• Comprovata capacità di interagire con decisori di alto livello in contesti accademici, pubblici, ospedalieri, filantropici e industriali.\n• Buona conoscenza degli ecosistemi di ricerca, innovazione e istruzione superiore.\n• Ottime capacità analitiche, di sintesi e di comunicazione, con capacità di cogliere rapidamente argomenti scientifici e istituzionali complessi.\n• Forti capacità organizzative e capacità di gestire più file strategici contemporaneamente.\n• Grande autonomia, diplomazia, discrezione e senso politico.\n• Spirito imprenditoriale e capacità di identificare opportunità e portare avanti progetti.\n• Ottima padronanza del francese e dell'inglese; Il tedesco è una risorsa. Perché aderire a VPS ed EPFL?\n• Contribuire a iniziative ad alto impatto nell'interfaccia tra scienza, innovazione e società.\n• Interagire con i principali partner nazionali e internazionali.\n• Svolgere un ruolo centrale nello sviluppo delle collaborazioni strategiche dell'EPFL.\n• Lavorare direttamente con i decisori istituzionali e le parti interessate esterne di alto livello",
-      "en": "Mission Support the Vice-President for Support for Strategic Initiatives (VPS) in the development and management of strategic partnerships that strengthen the national and international positioning of EPFL. At the interface between the academic world, the health system, public authorities, philanthropy and industry, you contribute to structuring collaborations with strong scientific and societal impact. You act as a trusted and strategic thinking partner, identifying opportunities, analyzing issues and structuring decisions. In close collaboration with the Vice-President and her Deputy, you help to manage a portfolio of initiatives and ensure consistency with the priorities of the Vice-Presidency. The position places particular emphasis on managing interfaces with partner organizations, ecosystem development and multi-institutional collaborations. Main tasks and responsibilities Strategic advice and reflection partnership\n• Support the Vice-President as a sparring partner on strategic issues.\n• Analyze complex situations and formulate concrete recommendations.\n• Challenge assumptions and provide new perspectives. Development and deployment of strategic initiatives\n• Contribute to the design and deployment of multi-partner initiatives.\n• Coordinate internal and external stakeholders.\n• Structure governance, roadmaps and implementation.\n• Facilitate alignment between partners and contribute to the resolution of emerging challenges. Executive support and institutional positioning\n• Prepare briefings, analyses, presentations and speeches.\n• Carry out benchmarks and strategic monitoring.\n• In collaboration with Institutional Affairs, contribute to the positioning of EPFL in national and international discussions relating to research, innovation and higher education. Coordination of partnerships and representation\n• Facilitate interactions with key external partners\n• Ensure follow-up on commitments and strategic files\n• Organize high-stakes meetings and interactions\n• Represent the Vice-presence on an ad hoc basis\n• Develop relationships of trust with stakeholders Profile\n• Higher university education; PhD or equivalent experience is an asset.\n• 5 years or more of experience in developing and managing strategic partnerships, complex multi-stakeholder initiatives or institutional collaborations.\n• Experience in higher education, research, innovation, healthcare, consulting, public affairs, philanthropy or a related field is an advantage.\n• Proven ability to interact with high-level decision-makers in academic, public, hospital, philanthropic and industrial settings.\n• Good understanding of the research, innovation and higher education ecosystems.\n• Excellent analytical, synthesis and communication skills, with an ability to quickly grasp complex scientific and institutional subjects.\n• Strong organizational skills and ability to manage several strategic files simultaneously.\n• Great autonomy, diplomacy, discretion and political sense.\n• Entrepreneurial spirit and ability to identify opportunities and advance projects.\n• Excellent command of French and English; German is an asset. Why join VPS and EPFL?\n• Contribute to high-impact initiatives at the interface between science, innovation and society.\n• Interact with leading national and international partners.\n• Play a central role in the development of EPFL’s strategic collaborations.\n• Work directly with institutional decision-makers and high-level external stakeholders",
-      "de": "Mission Unterstützen Sie den Vizepräsidenten für die Unterstützung strategischer Initiativen (VPS) bei der Entwicklung und Verwaltung strategischer Partnerschaften, die die nationale und internationale Positionierung der EPFL stärken. An der Schnittstelle zwischen Wissenschaft, Gesundheitssystem, Behörden, Philanthropie und Industrie tragen Sie zur Gestaltung von Kooperationen mit starker wissenschaftlicher und gesellschaftlicher Wirkung bei. Sie agieren als vertrauenswürdiger und strategisch denkender Partner, der Chancen erkennt, Probleme analysiert und Entscheidungen strukturiert. In enger Zusammenarbeit mit der Vizepräsidentin und ihrem Stellvertreter helfen Sie bei der Verwaltung eines Portfolios von Initiativen und stellen die Übereinstimmung mit den Prioritäten der Vizepräsidentschaft sicher. Die Position legt besonderen Wert auf die Verwaltung von Schnittstellen zu Partnerorganisationen, die Entwicklung von Ökosystemen und multiinstitutionelle Kooperationen. Hauptaufgaben und Verantwortungsbereiche Strategische Beratung und Reflexionspartnerschaft\n• Unterstützung des Vizepräsidenten als Sparringspartner in strategischen Fragen.\n• Analysieren Sie komplexe Situationen und formulieren Sie konkrete Empfehlungen.\n• Hinterfragen Sie Annahmen und bieten Sie neue Perspektiven. Entwicklung und Umsetzung strategischer Initiativen\n• Beitrag zur Gestaltung und Umsetzung von Initiativen mit mehreren Partnern.\n• Koordinieren Sie interne und externe Stakeholder.\n• Strukturieren Sie Governance, Roadmaps und Implementierung.\n• Erleichterung der Abstimmung zwischen Partnern und Beitrag zur Lösung neu auftretender Herausforderungen. Unterstützung der Führungskräfte und institutionelle Positionierung\n• Bereiten Sie Briefings, Analysen, Präsentationen und Reden vor.\n• Durchführung von Benchmarks und strategischem Monitoring.\n• Tragen Sie in Zusammenarbeit mit Institutional Affairs zur Positionierung der EPFL in nationalen und internationalen Diskussionen über Forschung, Innovation und Hochschulbildung bei. Koordinierung von Partnerschaften und Vertretung\n• Erleichtern Sie die Interaktion mit wichtigen externen Partnern.\n• Sorgen Sie für die Nachverfolgung von Verpflichtungen und strategischen Dossiers.\n• Organisieren Sie wichtige Besprechungen und Interaktionen. Ein Doktortitel oder gleichwertige Erfahrung ist von Vorteil.\n• 5 Jahre oder mehr Erfahrung in der Entwicklung und Verwaltung strategischer Partnerschaften, komplexer Multi-Stakeholder-Initiativen oder institutioneller Kooperationen.\n• Erfahrung in den Bereichen Hochschulbildung, Forschung, Innovation, Gesundheitswesen, Beratung, öffentliche Angelegenheiten, Philanthropie oder einem verwandten Bereich ist von Vorteil.\n• Nachgewiesene Fähigkeit zur Interaktion mit hochrangigen Entscheidungsträgern im akademischen, öffentlichen, Krankenhaus-, philanthropischen und industriellen Umfeld.\n• Gutes Verständnis der Forschungs-, Innovations- und Hochschulökosysteme.\n• Hervorragende Analyse-, Synthese- und Kommunikationsfähigkeiten mit der Fähigkeit, komplexe wissenschaftliche und institutionelle Themen schnell zu erfassen.\n• Starke organisatorische Fähigkeiten und die Fähigkeit, mehrere strategische Dateien gleichzeitig zu verwalten.\n• Große Autonomie, Diplomatie, Diskretion und politisches Gespür.\n• Unternehmergeist und die Fähigkeit, Chancen zu erkennen und Projekte voranzutreiben.\n• Ausgezeichnete Französisch- und Englischkenntnisse; Deutsch ist von Vorteil. Warum VPS und EPFL beitreten?\n• Tragen Sie zu wirkungsvollen Initiativen an der Schnittstelle zwischen Wissenschaft, Innovation und Gesellschaft bei.\n• Interagieren Sie mit führenden nationalen und internationalen Partnern.\n• Eine zentrale Rolle bei der Entwicklung der strategischen Kooperationen der EPFL spielen.\n• Arbeiten Sie direkt mit institutionellen Entscheidungsträgern und hochrangigen externen Stakeholdern zusammen",
-      "fr": "Mission Soutenir la Vice-présidente pour le soutien aux Initiatives Stratégiques (VPS) dans le développement et la gestion de partenariats stratégiques qui renforcent le positionnement national et international de l’EPFL. À l’interface entre le monde académique, le système de santé, les pouvoirs publics, la philanthropie et l’industrie, vous contribuez à structurer des collaborations à fort impact scientifique et sociétal. Vous agissez comme partenaire de confiance et de réflexion stratégique, en identifiant des opportunités, en analysant les enjeux et en structurant les décisions. En collaboration étroite avec la Vice-présidente et son Adjoint, vous contribuez à piloter un portefeuille d’initiatives et à assurer la cohérence avec les priorités de la Vice-présidence. Le poste met un accent particulier sur la gestion des interfaces avec les organisations partenaires, le développement d’écosystèmes et les collaborations multi-institutionnelles. Principales tâches et responsabilités Conseil stratégique et partenariat de réflexion\n• Accompagner la Vice-présidente comme sparring partner sur des enjeux stratégiques.\n• Analyser des situations complexes et formuler des recommandations concrètes.\n• Challenger les hypothèses et apporter des perspectives nouvelles. Développement et déploiement d’initiatives stratégiques\n• Contribuer à la conception et au déploiement d’initiatives multi-partenaires.\n• Coordonner les parties prenantes internes et externes.\n• Structurer gouvernance, feuilles de route et mise en œuvre.\n• Faciliter l’alignement entre partenaires et contribuer à la résolution des défis émergents. Appui exécutif et positionnement institutionnel\n• Préparer briefings, analyses, présentations et discours.\n• Réaliser des benchmarks et veilles stratégiques.\n• En collaboration avec les Affaires Institutionnelles, contribuer au positionnement de l’EPFL dans les discussions nationales et internationales relatives à la recherche, l’innovation et l’enseignement supérieur. Coordination des partenariats et représentation\n• Faciliter les interactions avec les partenaires externes clés\n• Assurer le suivi des engagements et des dossiers stratégiques\n• Organiser réunions et interactions à fort enjeu\n• Représenter ponctuellement la Vice-présidente\n• Développer des relations de confiance avec les parties prenantes Profil\n• Formation universitaire supérieure; doctorat ou expérience équivalente constitue un atout.\n• 5 ans et plus d’expérience dans le développement et la gestion de partenariats stratégiques, d’initiatives complexes multi-acteurs ou de collaborations institutionnelles.\n• Une expérience dans l’enseignement supérieur, la recherche, l’innovation, la santé, le conseil, les affaires publiques, la philanthropie ou un domaine connexe constitue un avantage.\n• Capacité avérée à interagir avec des décideurs de haut niveau dans les milieux académique, public, hospitalier, philanthropique et industriel.\n• Bonne compréhension des écosystèmes de la recherche, de l’innovation et de l’enseignement supérieur.\n• Excellentes capacités d’analyse, de synthèse et de communication, avec une aptitude à appréhender rapidement des sujets scientifiques et institutionnels complexes.\n• Solides compétences organisationnelles et capacité à gérer simultanément plusieurs dossiers stratégiques.\n• Grande autonomie, diplomatie, discrétion et sens politique.\n• Esprit entrepreneurial et capacité à identifier des opportunités et à faire avancer des projets.\n• Excellente maîtrise du français et de l’anglais ; l’allemand constitue un atout. Pourquoi rejoindre la VPS et l’EPFL ?\n• Contribuer à des initiatives à fort impact à l’interface entre science, innovation et société.\n• Interagir avec des partenaires nationaux et internationaux de premier plan.\n• Jouer un rôle central dans le développement des collaborations stratégiques d’EPFL.\n• Travailler directement avec des décideurs institutionnels et des acteurs externes de haut nive"
-    },
-    "slugByLocale": {
-      "it": "consigliere-strategico-del-vicepresidente-epfl-lausanne",
-      "en": "strategic-advisor-to-the-vice-president-epfl-lausanne",
-      "de": "strategischer-berater-des-vizeprasidenten-epfl-lausanne",
-      "fr": "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne"
-    },
-    "sector": "education",
-    "expiredAt": "2026-07-03T21:52:01.355Z",
-    "previousSlugs": [
-      "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
-      "consigliere-strategico-per-l-ufficio-del-vicepresidente-epfl-lausanne",
-      "consulente-strategico-dell-ufficio-del-vicepresidente-epfl-lausanne",
-      "canevas-epfl-empty-epfl-lausanne",
-      "strategischer-berater-des-buros-des-vizeprasidenten-epfl-lausanne",
-      "conseiller-strategique-aupres-du-bureau-du-vice-president-epfl-lausanne",
-      "cadre-epfl-epfl-lausanne",
-      "canevas-epfl-vide-epfl-lausanne",
-      "conseiller-strategique-aupres-du-bureau-de-la-vice-presidence-epfl-lausanne",
-      "strategic-advisor-to-the-vice-president-s-office-epfl-lausanne",
-      "tirocinio-in-analisi-dei-dati-ambientali-epfl-lausanne",
-      "canevas-epfl-vuoto-epfl-lausanne",
-      "praktikum-umwelt-datenanalyse-epfl-lausanne",
-      "strategischer-rahmen-epfl-epfl-lausanne",
-      "canevas-epfl-leer-epfl-lausanne",
-      "praktikum-umweltdatenanalyse-epfl-lausanne",
-      "strategischer-berater-im-buro-des-vizeprasidenten-epfl-lausanne",
-      "strategieberater-in-im-buro-des-vizeprasidenten-epfl-lausanne",
-      "stage-en-analyse-de-donnees-environnementales-epfl-lausanne-bc087f",
-      "internship-environmental-data-analysis-epfl-lausanne",
-      "stage-analyse-des-donnees-environnementales-epfl-lausanne",
-      "stagiaire-analyse-donnees-environnementales-epfl-lausanne",
-      "stagiaire-analyse-umweltdaten-epfl-lausanne",
-      "canevas-epfl-epfl-lausanne",
-      "stage-analyse-de-donnees-environnementales-epfl-lausanne",
-      "analyse-des-donnees-environnementales-des-stages-epfl-lausanne"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
-        "canevas-epfl-empty-epfl-lausanne"
-      ],
-      "en": [
-        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
-        "canevas-epfl-empty-epfl-lausanne"
-      ],
-      "de": [
-        "conseiller-ere-strategique-aupres-de-la-vice-presidence-epfl-lausanne",
-        "canevas-epfl-empty-epfl-lausanne"
-      ],
-      "fr": [
-        "stage-analyse-de-donnees-environnementales-epfl-lausanne",
-        "analyse-des-donnees-environnementales-des-stages-epfl-lausanne",
-        "canevas-epfl-empty-epfl-lausanne"
-      ]
-    },
-    "postalCode": "1003",
-    "salaryMin": 83500,
-    "salaryMax": 126500,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-conseiller%c2%b7%c3%a8re-strat%c3%a9gique-aupr%c3%a8s-de-la-vice-pr%c3%a9sidence/1164914555",
-    "firstSeenAt": "2026-06-16T13:23:18.086Z",
-    "sourceIdentityHistory": [
-      {
-        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28empty%29/1164897255",
-        "firstSeenAt": "2026-06-12T12:04:22.995Z",
-        "title": "Canevas EPFL (empty)"
-      },
-      {
-        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-canevas-epfl-%28empty%29/1164914655",
-        "firstSeenAt": "2026-06-16T13:23:18.656Z",
-        "title": "Canevas EPFL (empty)"
-      },
-      {
-        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-conseiller%c2%b7%c3%a8re-strat%c3%a9gique-aupr%c3%a8s-de-la-vice-pr%c3%a9sidence/1164914555",
-        "firstSeenAt": "2026-06-16T13:23:18.086Z",
-        "title": "Conseiller·ère stratégique auprès de la Vice-présidence"
-      },
-      {
-        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-internship-environmental-data-analysis/1164897255",
-        "firstSeenAt": "2026-06-12T12:04:22.995Z",
-        "title": "Internship Environmental Data Analysis"
-      },
-      {
-        "sourceIdentity": "url:https://careers.epfl.ch/job/lausanne-strategic-advisor-to-the-vice-president&apos;s-office/1164914655",
-        "firstSeenAt": "2026-06-16T13:23:18.656Z",
-        "title": "Strategic Advisor to the Vice President's Office"
       }
     ]
   },

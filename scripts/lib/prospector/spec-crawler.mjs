@@ -225,6 +225,13 @@ export function geographyFieldsForDecision(decision = {}) {
  * @param {string} url @param {any} urlPolicy @param {Record<string, any>} runtime
  */
 export async function fetchRuntimePage(url, urlPolicy, runtime) {
+  const notifyPageFetched = (page) => {
+    // This is an observational, synchronous hook: its return value is
+    // deliberately ignored so it cannot change the fetch result or delay the
+    // crawler transport.
+    if (typeof runtime.onPageFetched === 'function') void runtime.onPageFetched(page, url);
+    return page;
+  };
   const result = await politeFetch(url, {
     urlPolicy,
     dispatcher: urlPolicy.dispatcher,
@@ -249,7 +256,7 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
   // the body is an explicit anti-bot challenge. Without this check a promoted
   // spec crawler feeds the interstitial to vacancy extraction, gets zero rows,
   // and the standard pipeline records a misleading `no-jobs-parsed` bail-out.
-  if (result.ok && !directChallenge) return result;
+  if (result.ok && !directChallenge) return notifyPageFetched(result);
 
   // Two source-side egress failures can be rescued by the clean-IP Jina path:
   // (a) a public career page answers 403/406/415/451, or an explicit 200
@@ -272,14 +279,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
       sleepImpl: runtime.jinaSleepImpl,
     });
     if (proxiedBody != null && !looksLikeAntiBotChallenge(proxiedBody)) {
-      return {
+      return notifyPageFetched({
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
         body: proxiedBody,
         proxiedBy: 'jina',
-      };
+      });
     }
     // Jina's retry helper filters its known error envelope, but some WAF
     // challenge variants are valid-looking 200 bodies. Keep the same
@@ -299,14 +306,14 @@ export async function fetchRuntimePage(url, urlPolicy, runtime) {
     && (connectionLevelFailure || antiBotResponse)) {
     const browserBody = await tryBrowserRescue(url, runtime);
     if (browserBody) {
-      return {
+      return notifyPageFetched({
         ...result,
         ok: true,
         status: 200,
         url: result.url || url,
         body: browserBody,
         proxiedBy: 'browser',
-      };
+      });
     }
   }
 
@@ -402,7 +409,29 @@ function extractListingCandidates(html, effectiveUrl, templateRx) {
     const direct = host ? matchKnownTemplate(links, templateRx, host) : [];
     if (direct.length) candidates = direct;
   }
+  // A candidate outside the learned detail template is never published (the
+  // row builder drops it), so it must not count as a listing either. The
+  // generic cascade's own template guess can pick page chrome: Hotelcareer's
+  // empty employer page yields one "Karriere" footer link
+  // (`/jobs/yourcareergroup-schweiz-gmbh-42198`). Counted as a candidate, it
+  // skipped the empty-listing rescue and diagnostic and turned a page that
+  // says "no vacancies" into a silent `no-jobs-parsed` (vereinaklosters,
+  // corpus group 19 runs 36632563903 / 36778722341).
+  if (templateRx) candidates = candidates.filter((v) => matchesDetailTemplate(v.sourceUrl || v.url, templateRx));
   return { links, candidates };
+}
+
+/**
+ * @param {string} rawUrl
+ * @param {RegExp} templateRx
+ * @returns {boolean}
+ */
+function matchesDetailTemplate(rawUrl, templateRx) {
+  try {
+    return templateRx.test(new URL(rawUrl).pathname);
+  } catch {
+    return false;
+  }
 }
 
 /**
@@ -627,6 +656,122 @@ export function findNextListingPageUrl(html, pageUrl) {
   return null;
 }
 
+function numericPathPage(url) {
+  const match = String(url.pathname || '').match(/^(.*\/page\/)(\d+)(\/.*)?$/i);
+  if (!match) return null;
+  return {
+    prefix: match[1],
+    number: Number(match[2]),
+    suffix: match[3] || '',
+  };
+}
+
+function numericQueryPage(url) {
+  for (const [name, value] of url.searchParams) {
+    if (/(?:^|[_-])(?:page|paged|p)(?:$|[_-])/i.test(name) && /^\d+$/.test(value)) {
+      return { name, number: Number(value) };
+    }
+  }
+  return null;
+}
+
+function comparableSearchParams(url, excludedName) {
+  return [...url.searchParams]
+    .filter(([name]) => name !== excludedName)
+    .sort(([leftName, leftValue], [rightName, rightValue]) => (
+      leftName.localeCompare(rightName) || leftValue.localeCompare(rightValue)
+    ));
+}
+
+/**
+ * Whether `nextUrl` is the last numbered page the current listing announces.
+ *
+ * A few sources expose a rel=next link to a one-past-the-end page. This helper
+ * only recognizes that case when the page itself contains a numbered
+ * pagination control whose largest same-route number is the rel=next target;
+ * an arbitrary 404 is never treated as a normal end marker.
+ *
+ * @param {string} html
+ * @param {string} pageUrl
+ * @param {string} nextUrl
+ * @returns {boolean}
+ */
+export function isLastAnnouncedListingPage(html, pageUrl, nextUrl) {
+  let current;
+  let next;
+  try {
+    current = new URL(pageUrl);
+    next = new URL(nextUrl, pageUrl);
+  } catch {
+    return false;
+  }
+  if (current.origin !== next.origin) return false;
+
+  const nextPathPage = numericPathPage(next);
+  const nextQueryPage = nextPathPage ? null : numericQueryPage(next);
+  if (!nextPathPage && !nextQueryPage) return false;
+
+  const sourceHtml = String(html || '');
+  const tagRx = /<(?:a|link)\b[^>]*>/gi;
+  let tag;
+  let largest = null;
+  while ((tag = tagRx.exec(sourceHtml))) {
+    const tagName = /^<\s*([a-z]+)/i.exec(tag[0])?.[1]?.toLowerCase() || '';
+    const rel = /\brel\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const relValue = rel ? (rel[1] ?? rel[2] ?? rel[3] ?? '') : '';
+    // The next link is the one-past-the-end signal being validated. It is not
+    // independent pagination evidence and must never make itself the largest
+    // announced page.
+    if (relValue.toLowerCase().split(/\s+/).includes('next')) continue;
+    const href = /\bhref\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const hrefValue = href ? (href[1] ?? href[2] ?? href[3] ?? '') : '';
+    if (!hrefValue) continue;
+    const close = tagName === 'a' ? sourceHtml.indexOf('</a', tagRx.lastIndex) : -1;
+    const innerText = (close >= 0 ? sourceHtml.slice(tagRx.lastIndex, close) : '')
+      .replace(/<[^>]+>/g, ' ')
+      .replace(/&(?:nbsp|amp);/gi, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    const ariaLabel = /\baria-label\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const title = /\btitle\s*=\s*(?:"([^"]*)"|'([^']*)'|([^\s>]+))/i.exec(tag[0]);
+    const controlLabel = [
+      innerText,
+      ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '') : '',
+      title ? (title[1] ?? title[2] ?? title[3] ?? '') : '',
+    ].join(' ');
+    // A same-origin job/detail link can itself contain `/page/<n>` or
+    // `?page=<n>`. Require a distinct numbered control label so those links
+    // do not masquerade as pagination evidence.
+    if (!/^\d+$/.test(innerText)
+      && !/^\d+$/.test(ariaLabel ? (ariaLabel[1] ?? ariaLabel[2] ?? ariaLabel[3] ?? '').trim() : '')
+      && !/^\d+$/.test(title ? (title[1] ?? title[2] ?? title[3] ?? '').trim() : '')
+      && !/(?:page|seite|pagina)\s*#?\s*\d+/i.test(controlLabel)) continue;
+    let candidate;
+    try { candidate = new URL(hrefValue.replace(/&amp;/g, '&'), pageUrl); } catch { continue; }
+    if (candidate.origin !== current.origin) continue;
+
+    if (nextPathPage) {
+      const candidatePage = numericPathPage(candidate);
+      if (!candidatePage
+        || candidatePage.prefix !== nextPathPage.prefix
+        || candidatePage.suffix !== nextPathPage.suffix
+        || candidate.search !== next.search) continue;
+      largest = Math.max(largest ?? 0, candidatePage.number);
+      continue;
+    }
+
+    const candidatePage = numericQueryPage(candidate);
+    if (!candidatePage
+      || candidate.pathname !== next.pathname
+      || candidatePage.name !== nextQueryPage.name
+      || JSON.stringify(comparableSearchParams(candidate, candidatePage.name))
+        !== JSON.stringify(comparableSearchParams(next, nextQueryPage.name))) continue;
+    largest = Math.max(largest ?? 0, candidatePage.number);
+  }
+
+  return largest != null && largest === (nextPathPage?.number ?? nextQueryPage?.number);
+}
+
 /**
  * Compare two listing URLs after URL parsing and fragment removal. A small
  * number of sources put a self-referential `rel=next` on their final page;
@@ -695,11 +840,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       const vacancy = /** @type {any} */ (v);
       const sourceUrl = vacancy.sourceUrl || v.url;
       try { await validateUrl(sourceUrl); } catch { continue; }
-      if (templateRx) {
-        let pathname = '';
-        try { pathname = new URL(sourceUrl).pathname; } catch { continue; }
-        if (!templateRx.test(pathname)) continue;
-      }
+      if (templateRx && !matchesDetailTemplate(sourceUrl, templateRx)) continue;
       if (bySlug.has(v.url)) continue;
       const listingEvidence = umantisListingEvidence.get(umantisVacancyIdentity(sourceUrl));
       bySlug.set(v.url, {
@@ -832,6 +973,7 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
       let pageUrl = effectiveSeedUrl;
       let nextUrl = findNextListingPageUrl(html, pageUrl);
       let pages = 1;
+      let currentPageCandidateCount = candidates.length;
       while (nextUrl) {
         if (pagination.selfNextIsTerminal && isSameListingPageUrl(nextUrl, pageUrl)) {
           console.warn(
@@ -855,7 +997,27 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           );
         }
         visited.add(nextUrl);
-        const next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        let next;
+        try {
+          next = await fetchRuntimePage(nextUrl, validateUrl, runtime);
+        } catch (error) {
+          const readRows = bySlug.size - seedRowsBefore;
+          const coverageSatisfied = declaredTotal != null
+            && readRows >= Math.ceil(declaredTotal * pagination.minCoverage);
+          const announcedFinal = currentPageCandidateCount > 0
+            && isLastAnnouncedListingPage(html, pageUrl, nextUrl);
+          const terminalNotFound = error?.status === 404
+            && error?.retryable === false
+            && !error?.antiBotExhausted;
+          if (terminalNotFound && (coverageSatisfied || announcedFinal)) {
+            console.warn(
+              `[prospector:${spec.companyKey}] listing paginata: ${nextUrl} risponde HTTP 404; `
+              + `fine della paginazione accettata (${coverageSatisfied ? 'copertura sufficiente' : 'ultima pagina annunciata'})`,
+            );
+            break;
+          }
+          throw error;
+        }
         pages += 1;
         pageUrl = next.url || nextUrl;
         const body = next.body || '';
@@ -863,12 +1025,15 @@ export async function collectSpecListingRows(spec, runtime, validateUrl) {
           ? extractUmantisListingEvidence(body, pageUrl)
           : new Map();
         const extracted = extractListingCandidates(body, pageUrl, templateRx);
+        const nextCandidates = filterListingCandidates(spec, extracted.candidates);
         await addListingCandidates(
-          filterListingCandidates(spec, extracted.candidates),
+          nextCandidates,
           nextEvidence,
           pageUrl,
           pagination.pageStateParams,
         );
+        html = body;
+        currentPageCandidateCount = nextCandidates.length;
         nextUrl = findNextListingPageUrl(body, pageUrl);
       }
       const seedRows = bySlug.size - seedRowsBefore;

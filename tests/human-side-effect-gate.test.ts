@@ -213,8 +213,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Generate and upload fuel prices/u,
     /Persist daily snapshot/u,
     /Snapshot fuel history/u,
-    /Commit repo cache/u,
-    /Trigger deploy workflow/u,
+    /Open PR with fuel price cache/u,
   ],
   'backfill-expired-from-history.yml': [
     /Recover dropped jobs/u,
@@ -225,16 +224,14 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
     /Run URL Inspection sweep/u,
     /Run Cloudflare edge 404 sweep/u,
     /Prune non-resolving/u,
-    /Commit and push$/u,
-    /Re-mint App token/u,
-    /Trigger deploy if compat changed/u,
+    /Open pull request with 404 compatibility updates/u,
+    /Mint App token/u,
   ],
   'discover-404s-via-cloudflare.yml': [
     /Run Cloudflare 404 sweep/u,
     /Refresh CF-hot 404 list/u,
     /Prune non-resolving/u,
-    /Commit and push$/u,
-    /Trigger deploy if compat changed/u,
+    /Open pull request with 404 compatibility updates/u,
   ],
   'generate-border-wait-ranking-weekly.yml': [
     /Refresh ranking digest article body/u,
@@ -464,7 +461,14 @@ describe('workflow wiring without the human approval gate', () => {
       }
 
       if (commitName) {
-        expect(step(source, commitName), name + ' / ledger commit guard').toContain(TRUSTED_SCHEDULE_LIVE_FLAG);
+        // main renamed Telegram's ledger commit step to an explicit PR step;
+        // keep the branch-local pre-rename fixture covered while the PR merge
+        // ref tests the current workflow from main.
+        const ledgerStepName = name === 'telegram-channel-broadcast.yml'
+          && source.includes('- name: Open PR with posted ledgers')
+          ? 'Open PR with posted ledgers'
+          : commitName;
+        expect(step(source, ledgerStepName), name + ' / ledger commit guard').toContain(TRUSTED_SCHEDULE_LIVE_FLAG);
       }
     }
   });

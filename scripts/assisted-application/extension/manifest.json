@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Frontaliere Ticino — Compila candidatura",
+  "version": "1.1.0",
+  "description": "Compila sul portale del datore la candidatura assistita preparata dal robot. L'invio finale lo premi tu.",
+  "minimum_chrome_version": "116",
+  "permissions": ["storage", "tabs", "scripting", "alarms"],
+  "host_permissions": ["<all_urls>"],
+  "background": { "service_worker": "background.js" },
+  "content_scripts": [
+    {
+      "matches": ["https://frontaliereticino.ch/*gestione-contenuti-xk9mp2q/*"],
+      "js": ["bridge.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "action": { "default_title": "Compila candidatura" }
+}

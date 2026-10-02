@@ -1,19 +1,58 @@
 {
   "key": "agroscope",
   "label": "Agroscope",
-  "generatedAt": "2026-09-29T21:12:59.009Z",
+  "generatedAt": "2026-10-01T21:14:14.669Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 11,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 7220,
-  "avgDurationMs": 7220,
+  "durationMs": 11905,
+  "avgDurationMs": 11905,
   "durationHistory": [
-    7220
+    11905
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "title": "Sanitär- und Heizungstechniker/in",
+      "slug": "sanitar-und-heizungstechniker-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20095",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "engineering",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-29",
+      "validThrough": "2026-11-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "id": "agroscope-7ef1058e63a6",
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 116500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-08-18T21:36:14.124Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/sanitaer-und-heizungstechniker-in/b4f1bfbd-9e19-4b8f-b14a-8c06a51ba969",
+      "_qualityScore": 81,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 13,
+        "completeness": 19
+      }
+    },
     {
       "title": "Administrative/-r Mitarbeiter/-in",
       "slug": "administrative-r-mitarbeiter-in-agroscope-posieux",
@@ -42,13 +81,14 @@
       "salaryMax": 104000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:53:09.416Z",
+      "firstSeenAt": "2026-09-23T23:34:58.444Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/administrative-r-mitarbeiter-in/fee031f9-d7d6-4520-a39d-0c1d34216d13",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 13,
         "completeness": 19
       }
     },
@@ -82,11 +122,12 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/technisch-wissenschaftliche-r-mitarbeiter-in-im-bereich-pflanzenpathologie/d5204047-e4d2-401a-891e-c8cbb0667ea9",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -120,11 +161,12 @@
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-26T13:53:09.416Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/leiter-in-forschungsgruppe-klima-und-landwirtschaft/248679d2-32b0-4585-843f-19b0b8b19347",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -158,11 +200,12 @@
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
       "postalCode": "",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-entscheidungsunterstuetzung-landwirtschaftliches-wassermanagement/8956961b-b686-4d77-986d-0912616e26df",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -196,11 +239,12 @@
       "firstSeenAt": "2026-09-16T23:45:19.150Z",
       "postalCode": "",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/phd-zu-wertschoepfungsketten-fuer-huelsenfruechte-in-der-schweiz/f81977d9-6003-49d6-84ba-8397a36e8d31",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -234,11 +278,12 @@
       "firstSeenAt": "2026-09-11T13:34:01.138Z",
       "postalCode": "8356",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/postdoktorand-in-zum-thema-modellbasierte-bewertung-von-ernaehrungssystemen/e5aa02a8-7175-48a9-bfab-c308bfdca70b",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 22
       }
     },
@@ -270,51 +315,14 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:53:09.416Z",
+      "firstSeenAt": "2026-09-23T23:34:58.444Z",
       "needsRetranslation": true,
-      "_qualityScore": 85,
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Jurist/in",
-      "slug": "jurist-in-agroscope-posieux",
-      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
-      "company": "Agroscope",
-      "companyKey": "agroscope",
-      "companyDomain": "admin.ch",
-      "location": "Posieux",
-      "addressLocality": "Posieux",
-      "postalCode": "",
-      "addressRegion": "FR",
-      "addressCountry": "CH",
-      "canton": "FR",
-      "country": "CH",
-      "category": "science",
-      "sector": "Pubblica amministrazione",
-      "source": "agroscope-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-10",
-      "validThrough": "2026-10-14",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "id": "agroscope-0ff3bc3f4d94",
-      "needsRetranslation": true,
-      "salaryMin": 89000,
-      "salaryMax": 147500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "firstSeenAt": "2026-09-10T23:06:37.551Z",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 16,
+        "translation": 13,
         "completeness": 19
       }
     },
@@ -346,12 +354,14 @@
       "salaryMax": 147500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-26T13:53:09.416Z",
-      "_qualityScore": 87,
+      "firstSeenAt": "2026-09-09T13:44:14.822Z",
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/hr-business-partner-in/ab7460ad-9b24-4543-a241-614ba5d10867",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 13,
         "completeness": 19
       }
     },
@@ -385,11 +395,12 @@
       "firstSeenAt": "2026-09-04T13:27:18.232Z",
       "postalCode": "",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/landwirtschaftliche-r-fachmitarbeiter-in-obstbau/1b44425b-ad7c-4a43-9795-972b21b47f66",
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 19
       }
     },
@@ -423,15 +434,56 @@
       "salarySource": "reported",
       "postalCode": "8046",
       "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/forschungsgruppenleiter-in-extension-gemuesebau/29bbeb33-c800-4870-aeab-f1a7c02e34a0",
-      "_qualityScore": 90,
+      "needsRetranslation": true,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Jurist/in",
+      "slug": "jurist-in-agroscope-posieux",
+      "url": "https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=19847",
+      "company": "Agroscope",
+      "companyKey": "agroscope",
+      "companyDomain": "admin.ch",
+      "location": "Posieux",
+      "addressLocality": "Posieux",
+      "postalCode": "",
+      "addressRegion": "FR",
+      "addressCountry": "CH",
+      "canton": "FR",
+      "country": "CH",
+      "category": "science",
+      "sector": "Pubblica amministrazione",
+      "source": "agroscope-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-10",
+      "validThrough": "2026-10-14",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "id": "agroscope-0ff3bc3f4d94",
+      "needsRetranslation": true,
+      "salaryMin": 89000,
+      "salaryMax": 147500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "firstSeenAt": "2026-09-10T23:06:37.551Z",
+      "sourceIdentity": "url:https://jobs.admin.ch/posti-vacanti/jurist-in/8273841a-9747-4441-919d-29a9b01d68aa",
+      "_qualityScore": 82,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 19
+      }
+    }
+  ],
   "unchangedJobs": []
 }

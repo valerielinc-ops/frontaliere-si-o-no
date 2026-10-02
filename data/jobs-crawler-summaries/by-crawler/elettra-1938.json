@@ -1,21 +1,23 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-09-29T21:26:59.789Z",
+  "generatedAt": "2026-10-01T21:26:33.021Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7223,
-  "avgDurationMs": 7223,
+  "durationMs": 6910,
+  "avgDurationMs": 6910,
   "durationHistory": [
-    7223
+    6910
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:26:50.935Z",
+      "crawledAt": "2026-10-01T21:26:23.020Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -48,11 +50,11 @@
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/hw-engineer-729790/it/",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:55:35.445Z",
-      "_qualityScore": 66,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 10,
         "completeness": 17
       }
     },
@@ -68,7 +70,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:26:52.394Z",
+      "crawledAt": "2026-10-01T21:26:24.367Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -84,11 +86,11 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "firstSeenAt": "2026-09-18T23:20:34.167Z",
-      "_qualityScore": 77,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 15,
+        "translation": 25,
         "completeness": 17
       }
     }

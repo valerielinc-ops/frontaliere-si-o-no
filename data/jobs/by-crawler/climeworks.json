@@ -1,6 +1,6 @@
 {
   "crawlerKey": "climeworks",
-  "assembledAt": "2026-09-29T21:14:06.944Z",
+  "assembledAt": "2026-10-01T21:11:36.415Z",
   "jobs": [
     {
       "id": "climeworks-bcdf637f980a",
@@ -33,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:01.616Z",
+      "crawledAt": "2026-10-01T21:11:32.476Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -83,18 +83,15 @@
       "remote": true,
       "previousSlugs": [
         "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon",
-          "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
-          "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
+          "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
         ],
         "en": [
-          "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
-          "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
+          "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich"
         ]
       },
       "firstSeenAt": "2026-07-03T21:37:32.367Z",
@@ -144,7 +141,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:01.614Z",
+      "crawledAt": "2026-10-01T21:11:32.474Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -202,8 +199,7 @@
           "lead-eic-ingegnere-100-climeworks-zurich"
         ],
         "en": [
-          "lead-eic-engineer-100-climeworks-zurich",
-          "lead-eic-engineer-100-climeworks-opfikon-zurich"
+          "lead-eic-engineer-100-climeworks-zurich"
         ],
         "de": [
           "lead-eic-engineer-100-climeworks-opfikon-zurich"
@@ -259,7 +255,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:01.611Z",
+      "crawledAt": "2026-10-01T21:11:32.472Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -318,8 +314,7 @@
           "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
         ],
         "en": [
-          "sorbent-module-product-owner-80-100-climeworks-zurich",
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
+          "sorbent-module-product-owner-80-100-climeworks-zurich"
         ],
         "de": [
           "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
@@ -372,7 +367,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:14:01.605Z",
+      "crawledAt": "2026-10-01T21:11:32.470Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,8 +426,7 @@
           "gestione-delle-operazioni-commerciali-100-climeworks-opfikon-zurich"
         ],
         "en": [
-          "commercial-operations-manager-100-climeworks-zurich",
-          "commercial-operations-manager-100-climeworks-opfikon-zurich"
+          "commercial-operations-manager-100-climeworks-zurich"
         ],
         "de": [
           "commercial-operations-manager-100-climeworks-opfikon-zurich"
@@ -452,6 +446,116 @@
           "@type": "QuantitativeValue",
           "minValue": 117000,
           "maxValue": 180000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH"
+    },
+    {
+      "id": "climeworks-01aa72db8a19",
+      "slug": "avviso-legale-100-climeworks-zurich",
+      "slugByLocale": {
+        "it": "avviso-legale-100-climeworks-zurich",
+        "en": "legal-counsel-100-climeworks-zurich",
+        "de": "rechtsberatung-100-climeworks-zurich",
+        "fr": "conseiller-juridique-100-climeworks-zurich"
+      },
+      "company": "Climeworks",
+      "companyKey": "climeworks",
+      "companyDomain": "climeworks.com",
+      "title": "Legal Counsel (100%)",
+      "titleByLocale": {
+        "it": "Avviso legale (100%)",
+        "en": "Legal Counsel (100%)",
+        "de": "Rechtsberatung (100%)",
+        "fr": "Conseiller juridique (100 %)"
+      },
+      "description": "• Legal Advisory: You join a thought-leading in-house legal team that provides high-quality, pragmatic legal advice to all parts of the organization. You devise and implement measures to accelerate delivery of those services.\n\n• Corporate Legal Support: You negotiate and draft agreements across the Climeworks Group and serve as a primary point of contact and resident expert on corporate law matters affecting the company.\n\n• Commercial Partnership: You enthusiastically embrace work on a variety of legal and commercial matters to promote attainment of the company’s objectives.\n\n• Legal Operations: You coordinate external legal support and design and implement scalable and cost-effective approaches to legal work.\n\n• Stakeholder Alignment: You will help ensure alignment of the purpose and work of and between your client groups.\n\nRequirements:\n• Mission: You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.\n\n• Legal expertise: You are a qualified lawyer with a solid background in corporate law and finance, commercial contracts, and business transactions. Demonstrated experience in practice areas such as employment law, technology transactions, public policy, or project finance will be considered a plus.\n\n• Adaptability: You are comfortable working in a fast-paced, often-shifting, and international work environment.\n\n• Working style & mindset: You are known for an efficient, reliable working style and for your strong financial literacy and business mindset. You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.\n\n• Curiosity: You are curious about technology and enjoy understanding how things work. You are a lifelong learner and do not shy away from exploring new hobbies or areas of interest.\n\n• Continuous improvement: You adhere to a philosophy of continuous improvement and celebrate the successes of your team and those around you.\n\n• Language skills: You have strong business fluency in written and spoken English. German fluency is considered a plus.\n\nOur promise: At Climeworks, you are accepted for who you are, and we are committed to building an inclusive environment where everyone feels valued. We encourage all qualified applicants to apply – regardless of background, identity, or experience. Studies show that women and individuals from minority backgrounds often only apply for jobs when they meet 100% of the listed criteria. If this sounds like you, don’t hold back. If you think you’d make a great fit for this role, we’d love to hear from you, even if you don’t check every single box. Let’s tackle one of humankind’s greatest challenges together.\n\nWhat we offer:\n\n• Time Off: Enjoy 25 paid vacation days every year, plus public holidays.\n\n• Flexibility: Work how it suits you best. We offer a hybrid work setup and up to 4 weeks of remote work annually within any EU country.\n\n• Ownership: Fair base pay paired with an equity package – because your contributions matter.\n\n• Family Support: Inclusive parental leave.\n\n• Continuous Learning: Dedicated budget to invest in your professional growth.\n\n• Referral Rewards: Help us grow our team and earn bonuses for your successful referrals.\n\nSalary: At Climeworks, salary ranges are assigned to a job based on the level of seniority and the location specific market median of similar jobs according to external benchmark surveys. Individual compensation depends on your skills, experience, and the value you bring to the team.\n\nFormalities:\n\n• This position is based in Opfikon, Zurich, and we ask that you work onsite at least three days per week.\n\n• We do not accept candidate profiles through recruitment agencies.",
+      "descriptionByLocale": {
+        "it": "• Legal Advisory: Ti unisci a un team legale in-house leader di pensiero che fornisce consulenza legale di alta qualità e pragmatica a tutte le parti dell'organizzazione. Devi elaborare e implementare misure per accelerare la consegna di tali servizi.\n\n• Corporate Legal Support: Lei negozia e elabora accordi in tutto il Gruppo Climeworks e funge da punto di contatto e da esperto residente in materia di diritto societario.\n\n• Partenariato commerciale: Lei abbraccia con entusiasmo il lavoro su una varietà di questioni legali e commerciali per promuovere il raggiungimento degli obiettivi dell'azienda.\n\n• Operazioni legali: coordina il supporto legale esterno e progetta e implementa approcci scalabili e convenienti al lavoro legale.\n\n• Allineamento degli stakeholder: aiuterà a garantire l'allineamento dello scopo e del lavoro di e tra i vostri gruppi di clienti.\n\nRequisiti:\n• Missione: Lei è un individuo appassionato e guidato dalla missione che desidera l'opportunità di contribuire a sviluppare un'industria e accelerare il viaggio a zero netto.\n\n• Competenza legale: Lei è un avvocato qualificato con un solido background in diritto societario e finanza, contratti commerciali e transazioni commerciali. L'esperienza dimostrata in settori di pratica come il diritto del lavoro, le transazioni tecnologiche, la politica pubblica o il finanziamento del progetto sarà considerato un plus.\n\n• Adaptability: Lei è comodo lavorare in un ambiente di lavoro veloce, spesso mutante e internazionale.\n\n• Stile di lavoro & mindset: Sei conosciuto per uno stile di lavoro efficiente e affidabile e per la tua forte alfabetizzazione finanziaria e mentalità aziendale. Sei un individuo appassionato e guidato dalla missione che desidera l'opportunità di aiutare a sviluppare un'industria e accelerare il viaggio a zero netto.\n\n• Curiosità: Siete curiosi di conoscere la tecnologia e di capire come funzionano le cose. Sei un studente di vita e non timido lontano da esplorare nuovi hobby o aree di interesse.\n\n• Miglioramento continuo: si aderisce a una filosofia di miglioramento continuo e celebrare i successi del vostro team e quelli intorno a voi.\n\n• Competenze linguistiche: Hai una forte influenza aziendale in inglese scritto e parlato. La fluenza tedesca è considerata un vantaggio.\n\nLa nostra promessa: A Climeworks, siete accettati per chi siete, e ci impegniamo a costruire un ambiente inclusivo dove tutti si sentono apprezzati. Incoraggiamo tutti i candidati qualificati ad applicare – indipendentemente da background, identità o esperienza. Gli studi dimostrano che le donne e gli individui provenienti da background minoritari spesso si applicano solo per i posti di lavoro quando soddisfano il 100% dei criteri elencati. Se questo suona come te, non tenere indietro. Se pensate di fare una grande misura per questo ruolo, ci piacerebbe sentire da voi, anche se non si controlla ogni singola scatola. Cerchiamo di affrontare insieme una delle sfide più grandi del genere umano.\n\nCosa offriamo:\n\n• Time Off: Godetevi 25 giorni di vacanza pagati ogni anno, più festivi.\n\n• Flessibilità: lavorare come si adatta meglio. Offriamo una configurazione di lavoro ibrida e fino a 4 settimane di lavoro remoto ogni anno in qualsiasi paese dell'UE.\n\n• ProprietÃ: la base giusta paga accoppiata con un pacchetto azionario – perché i vostri contributi sono importanti.\n\n• Supporto familiare: congedo parentale incluso.\n\n• Apprendimento continuo: bilancio dedicato per investire nella vostra crescita professionale.\n\n• Referral Rewards: Aiutaci a crescere il nostro team e guadagnare bonus per i tuoi referral di successo.\n\nSalario: A Climeworks, le gamme salariali sono assegnate a un lavoro basato sul livello di anzianità e la posizione mediana di mercato specifico di lavori simili secondo i sondaggi di benchmark esterni. Il compenso individuale dipende dalle tue abilità, esperienza e dal valore che porti alla squadra.\n\nFormalità:\n\n• Questa posizione si trova a Opfikon, Zurigo, e ti chiediamo di lavorare in loco almeno tre giorni alla settimana.\n\n• Non accettiamo i profili dei candidati attraverso le agenzie di reclutamento.",
+        "en": "• Legal Advisory: You join a thought-leading in-house legal team that provides high-quality, pragmatic legal advice to all parts of the organization. You devise and implement measures to accelerate delivery of those services.\n\n• Corporate Legal Support: You negotiate and draft agreements across the Climeworks Group and serve as a primary point of contact and resident expert on corporate law matters affecting the company.\n\n• Commercial Partnership: You enthusiastically embrace work on a variety of legal and commercial matters to promote attainment of the company’s objectives.\n\n• Legal Operations: You coordinate external legal support and design and implement scalable and cost-effective approaches to legal work.\n\n• Stakeholder Alignment: You will help ensure alignment of the purpose and work of and between your client groups.\n\nRequirements:\n• Mission: You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.\n\n• Legal expertise: You are a qualified lawyer with a solid background in corporate law and finance, commercial contracts, and business transactions. Demonstrated experience in practice areas such as employment law, technology transactions, public policy, or project finance will be considered a plus.\n\n• Adaptability: You are comfortable working in a fast-paced, often-shifting, and international work environment.\n\n• Working style & mindset: You are known for an efficient, reliable working style and for your strong financial literacy and business mindset. You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.\n\n• Curiosity: You are curious about technology and enjoy understanding how things work. You are a lifelong learner and do not shy away from exploring new hobbies or areas of interest.\n\n• Continuous improvement: You adhere to a philosophy of continuous improvement and celebrate the successes of your team and those around you.\n\n• Language skills: You have strong business fluency in written and spoken English. German fluency is considered a plus.\n\nOur promise: At Climeworks, you are accepted for who you are, and we are committed to building an inclusive environment where everyone feels valued. We encourage all qualified applicants to apply – regardless of background, identity, or experience. Studies show that women and individuals from minority backgrounds often only apply for jobs when they meet 100% of the listed criteria. If this sounds like you, don’t hold back. If you think you’d make a great fit for this role, we’d love to hear from you, even if you don’t check every single box. Let’s tackle one of humankind’s greatest challenges together.\n\nWhat we offer:\n\n• Time Off: Enjoy 25 paid vacation days every year, plus public holidays.\n\n• Flexibility: Work how it suits you best. We offer a hybrid work setup and up to 4 weeks of remote work annually within any EU country.\n\n• Ownership: Fair base pay paired with an equity package – because your contributions matter.\n\n• Family Support: Inclusive parental leave.\n\n• Continuous Learning: Dedicated budget to invest in your professional growth.\n\n• Referral Rewards: Help us grow our team and earn bonuses for your successful referrals.\n\nSalary: At Climeworks, salary ranges are assigned to a job based on the level of seniority and the location specific market median of similar jobs according to external benchmark surveys. Individual compensation depends on your skills, experience, and the value you bring to the team.\n\nFormalities:\n\n• This position is based in Opfikon, Zurich, and we ask that you work onsite at least three days per week.\n\n• We do not accept candidate profiles through recruitment agencies.",
+        "de": "• Rechtsberatung: Sie treten einem vordenklichen internen Rechtsteam bei, das qualitativ hochwertige, pragmatische Rechtsberatung für alle Teile der Organisation bietet. Sie entwickeln und implementieren Maßnahmen, um die Bereitstellung dieser Dienste zu beschleunigen.\n\n• Corporate Legal Support: Sie verhandeln und entwerfen Verträge in der Climeworks-Gruppe und dienen als primärer Ansprechpartner und ansässiger Experte für gesellschaftsrechtliche Angelegenheiten, die das Unternehmen betreffen.\n\n• Kommerzielle Partnerschaft: Sie arbeiten begeistert an einer Vielzahl von rechtlichen und kommerziellen Angelegenheiten, um die Erreichung der Unternehmensziele zu fördern.\n\n• Legal Operations: Sie koordinieren externe rechtliche Unterstützung und entwerfen und implementieren skalierbare und kostengünstige Ansätze für die juristische Arbeit.\n\n• Stakeholder Alignment: Sie tragen dazu bei, die Ausrichtung von Zweck und Arbeit von und zwischen Ihren Kundengruppen sicherzustellen.\n\nAnforderungen:\n• Mission: Sie sind eine leidenschaftliche, missionsorientierte Person, die sich nach einer Gelegenheit sehnt, die Entwicklung einer Branche zu unterstützen und die Reise zum Netto-Null zu beschleunigen.\n\n• Rechtsexpertise: Sie sind ein qualifizierter Rechtsanwalt mit einem soliden Hintergrund in Gesellschaftsrecht und Finanzen, Handelsverträgen und Geschäftstransaktionen. Nachgewiesene Erfahrungen in Praxisbereichen wie Arbeitsrecht, Technologietransaktionen, Public Policy oder Projektfinanzierung werden als Plus angesehen.\n\n• Anpassungsfähigkeit: Sie fühlen sich wohl in einem schnelllebigen, sich oft verändernden und internationalen Arbeitsumfeld.\n\n• Arbeitsstil & Denkweise: Sie sind bekannt für einen effizienten, zuverlässigen Arbeitsstil und für Ihre starke Finanzkompetenz und Geschäftsmentalität. Sie sind eine leidenschaftliche, missionarische Person, die sich nach einer Gelegenheit sehnt, die Entwicklung einer Branche zu unterstützen und die Reise zum Netto-Null zu beschleunigen.\n\n• Neugier: Sie sind neugierig auf Technologie und genießen es zu verstehen, wie die Dinge funktionieren. Sie sind ein lebenslanger Lernender und scheuen sich nicht davor, neue Hobbys oder Interessengebiete zu erkunden.\n\n• Kontinuierliche Verbesserung: Sie halten sich an eine Philosophie der kontinuierlichen Verbesserung und feiern die Erfolge Ihres Teams und Ihrer Umgebung.\n\n• Sprachkenntnisse: Sie haben eine starke Business-Fließfähigkeit in schriftlichem und gesprochenem Englisch. Deutsch fließend gilt als Plus.\n\nUnser Versprechen: Bei Climeworks werden Sie als das akzeptiert, was Sie sind, und wir sind bestrebt, ein integratives Umfeld zu schaffen, in dem sich jeder geschätzt fühlt. Wir ermutigen alle qualifizierten Bewerber, sich zu bewerben - unabhängig von Hintergrund, Identität oder Erfahrung. Studien zeigen, dass Frauen und Personen mit Minderheitenhintergrund sich oft nur dann um eine Stelle bewerben, wenn sie 100% der aufgeführten Kriterien erfüllen. Wenn das nach dir klingt, halte dich nicht zurück. Wenn Sie denken, dass Sie sich hervorragend für diese Rolle eignen, würden wir gerne von Ihnen hören, auch wenn Sie nicht jede einzelne Box überprüfen. Lasst uns gemeinsam eine der größten Herausforderungen der Menschheit angehen.\n\nWas wir anbieten:\n\n• Freizeit: Genießen Sie 25 bezahlte Urlaubstage pro Jahr, plus Feiertage.\n\n• Flexibilität: Arbeiten Sie, wie es Ihnen am besten passt. Wir bieten eine hybride Arbeitseinrichtung und bis zu 4 Wochen Remote-Arbeit pro Jahr in jedem EU-Land.\n\n• Eigentum: Faire Grundvergütung gepaart mit einem Aktienpaket - weil Ihre Beiträge wichtig sind.\n\n• Familienunterstützung: Inklusive Elternzeit.\n\n• Continuous Learning: Dediziertes Budget, um in Ihr berufliches Wachstum zu investieren.\n\n• Empfehlungsbelohnungen: Helfen Sie uns, unser Team zu erweitern und Boni für Ihre erfolgreichen Empfehlungen zu verdienen.\n\nGehalt: Bei Climeworks werden Gehaltsbereiche auf der Grundlage der Dienstaltersstufe und des standortspezifischen Marktmedians ähnlicher Arbeitsplätze nach externen Benchmark-Umfragen zugewiesen. Die individuelle Vergütung hängt von Ihren Fähigkeiten, Ihrer Erfahrung und dem Wert ab, den Sie dem Team bringen.\n\nFormalitäten:\n\n• Diese Position hat ihren Sitz in Opfikon, Zürich, und wir bitten Sie, mindestens drei Tage pro Woche vor Ort zu arbeiten.\n\n• Wir akzeptieren keine Kandidatenprofile durch Personalvermittler.",
+        "fr": "• Conseils juridiques : Vous vous joignez à une équipe juridique interne de pointe qui fournit des conseils juridiques pragmatiques et de grande qualité à toutes les parties de l'organisation. Vous concevez et mettez en œuvre des mesures pour accélérer la prestation de ces services.\n\n• Soutien juridique de l'entreprise : Vous négociez et rédigez des ententes dans l'ensemble du groupe Climeworks et vous servez de point de contact principal et d'expert résident en droit des sociétés.\n\n• Partenariat commercial: Vous embrassez avec enthousiasme le travail sur une variété de questions juridiques et commerciales pour promouvoir la réalisation des objectifs de l'entreprise.\n\n• Opérations juridiques : Vous coordonnez le soutien juridique externe et la conception et la mise en oeuvre d'approches évolutives et rentables du travail juridique.\n\n• Harmonisation des intervenants : Vous aiderez à harmoniser le but et le travail de vos groupes de clients et entre eux.\n\nExigences:\n• Mission : Vous êtes une personne passionnée et motivée par la mission qui désire avoir l'occasion d'aider à développer une industrie et d'accélérer le voyage à zéro net.\n\n• Expertise juridique : Vous êtes un avocat qualifié ayant une solide expérience en droit des sociétés et en finance, en contrats commerciaux et en transactions commerciales. L'expérience démontrée dans des domaines de pratique tels que le droit du travail, les transactions technologiques, les politiques publiques ou le financement de projets sera considérée comme un plus.\n\n• Adaptabilité: Vous êtes à l'aise de travailler dans un environnement de travail rapide, souvent changeant et international.\n\n• Style de travail & mentalité: Vous êtes connu pour un style de travail efficace et fiable et pour votre solide culture financière et votre mentalité d'affaires. Vous êtes une personne passionnée et motivée par la mission qui a besoin d'une opportunité pour aider à développer une industrie et accélérer le voyage à zéro net.\n\n• Curiosity: Vous êtes curieux de la technologie et aimez comprendre comment les choses fonctionnent. Vous êtes un apprenant tout au long de la vie et n'hésitez pas à explorer de nouveaux passe-temps ou domaines d'intérêt.\n\n• Amélioration continue : Vous adhèrez à une philosophie d'amélioration continue et célébrez les succès de votre équipe et de ceux qui vous entourent.\n\n• Compétences linguistiques : Vous avez une forte maîtrise des affaires en anglais écrit et parlé. La maîtrise allemande est considérée comme un plus.\n\nNotre promesse: Chez Climeworks, vous êtes accepté pour qui vous êtes, et nous nous engageons à construire un environnement inclusif où tout le monde se sent valorisé. Nous encourageons tous les candidats qualifiés à postuler, peu importe leur origine, leur identité ou leur expérience. Les études montrent que les femmes et les personnes issues de minorités ne postulent souvent qu'à des emplois répondant à 100 % des critères énumérés. Si ça te ressemble, ne retiens pas. Si vous pensez que vous feriez un grand ajustement pour ce rôle, nous aimerions entendre de vous, même si vous ne cochez pas chaque case. Faisons face à l'un des plus grands défis de l'humanité ensemble.\n\nCe que nous offrons:\n\n• Temps libre: Profitez de 25 jours de vacances payés chaque année, plus les jours fériés.\n\n• Flexibilité: Travaillez comme il vous convient le mieux. Nous offrons une configuration de travail hybride et jusqu'à 4 semaines de travail à distance chaque année dans n'importe quel pays de l'UE.\n\n• Propriété : Un salaire de base équitable jumelé à un forfait d'actions – car vos contributions sont importantes.\n\n• Soutien familial : congé parental inclusif.\n\n• Apprentissage continu : budget dédié pour investir dans votre croissance professionnelle.\n\n• Referenceal Rewards: Aidez-nous à développer notre équipe et gagner des bonus pour vos références réussies.\n\nSalaire : À Climeworks, les échelles salariales sont affectées à un emploi en fonction du niveau d'ancienneté et de la médiane du marché de l'emplacement de postes semblables selon des sondages de référence externes. La rémunération individuelle dépend de vos compétences, de votre expérience et de la valeur que vous apportez à l'équipe.\n\nFormalités\n\n• Cette position est basée à Opfikon, Zurich, et nous vous demandons de travailler sur place au moins trois jours par semaine.\n\n• Nous n'acceptons pas les profils de candidats par l'intermédiaire des agences de recrutement."
+      },
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
+      "source": "Climeworks Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:11:32.466Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Legale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Clima e Sostenibilità",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://climeworks.recruitee.com/o/legal-counsel-100-101",
+      "requirements": [
+        "Mission: You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.",
+        "Legal expertise: You are a qualified lawyer with a solid background in corporate law and finance, commercial contracts, and business transactions. Demonstrated experience in practice areas such as employment law, technology transactions, public policy, or project finance will be considered a plus.",
+        "Adaptability: You are comfortable working in a fast-paced, often-shifting, and international work environment.",
+        "Working style & mindset: You are known for an efficient, reliable working style and for your strong financial literacy and business mindset. You are a passionate, mission-driven individual who craves an opportunity to help develop an industry and accelerate the journey to net zero.",
+        "Curiosity: You are curious about technology and enjoy understanding how things work. You are a lifelong learner and do not shy away from exploring new hobbies or areas of interest.",
+        "Continuous improvement: You adhere to a philosophy of continuous improvement and celebrate the successes of your team and those around you.",
+        "Language skills: You have strong business fluency in written and spoken English. German fluency is considered a plus.",
+        "Our promise: At Climeworks, you are accepted for who you are, and we are committed to building an inclusive environment where everyone feels valued. We encourage all qualified applicants to apply – regardless of background, identity, or experience. Studies show that women and individuals from minority backgrounds often only apply for jobs when they meet 100% of the listed criteria. If this sounds like you, don’t hold back. If you think you’d make a great fit for this role, we’d love to hear from you, even if you don’t check every single box. Let’s tackle one of humankind’s greatest challenges together.",
+        "What we offer:",
+        "Time Off: Enjoy 25 paid vacation days every year, plus public holidays.",
+        "Flexibility: Work how it suits you best. We offer a hybrid work setup and up to 4 weeks of remote work annually within any EU country.",
+        "Ownership: Fair base pay paired with an equity package – because your contributions matter.",
+        "Family Support: Inclusive parental leave.",
+        "Continuous Learning: Dedicated budget to invest in your professional growth.",
+        "Referral Rewards: Help us grow our team and earn bonuses for your successful referrals.",
+        "Salary: At Climeworks, salary ranges are assigned to a job based on the level of seniority and the location specific market median of similar jobs according to external benchmark surveys. Individual compensation depends on your skills, experience, and the value you bring to the team.",
+        "Formalities:",
+        "This position is based in Opfikon, Zurich, and we ask that you work onsite at least three days per week.",
+        "We do not accept candidate profiles through recruitment agencies."
+      ],
+      "requirementsByLocale": {
+        "en": [
+          "Adaptability: You are comfortable working in a fast-paced, often-shifting, and international work environment.",
+          "Language skills: You have strong business fluency in written and spoken English. German fluency is considered a plus.",
+          "What we offer:",
+          "Time Off: Enjoy 25 paid vacation days every year, plus public holidays.",
+          "Ownership: Fair base pay paired with an equity package – because your contributions matter.",
+          "Family Support: Inclusive parental leave.",
+          "Continuous Learning: Dedicated budget to invest in your professional growth.",
+          "Referral Rewards: Help us grow our team and earn bonuses for your successful referrals."
+        ]
+      },
+      "remote": true,
+      "previousSlugs": [
+        "legal-counsel-100-climeworks-zurich",
+        "avviso-legale-100-climeworks-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-100-climeworks-zurich",
+          "avviso-legale-100-climeworks-zurich"
+        ],
+        "de": [
+          "legal-counsel-100-climeworks-zurich"
+        ],
+        "fr": [
+          "legal-counsel-100-climeworks-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-30T21:11:56.184Z",
+      "salaryMin": 85000,
+      "salaryMax": 145000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 85000,
+          "maxValue": 145000,
           "unitText": "YEAR"
         }
       },

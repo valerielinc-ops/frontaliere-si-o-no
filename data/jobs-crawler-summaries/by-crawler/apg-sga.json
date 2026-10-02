@@ -1,23 +1,26 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-09-29T21:26:00.064Z",
-  "total": 3,
+  "generatedAt": "2026-10-01T21:19:22.967Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5674,
-  "avgDurationMs": 5674,
+  "unchangedCount": 0,
+  "durationMs": 5434,
+  "avgDurationMs": 5434,
   "durationHistory": [
-    5674
+    5434
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "apg-sga-12225fe82f80",
       "slug": "mitarbeiter-in-operations-80-100-wallisellen-apg-sga-ch",
@@ -30,7 +33,7 @@
       "url": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:25:52.569Z",
+      "crawledAt": "2026-10-01T21:19:17.535Z",
       "addressLocality": "Wallisellen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -45,16 +48,15 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://jobs.apgsga.ch/publication/mitarbeiter-in-operations-wallisellen/ba43j13o8v2hwdgpyfbzs98o8xbg36vzajfb374i7i5k534lkr3c0bde4en10yw5",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-29T21:25:52.569Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "apg-sga-8e5baee3415c",
       "slug": "product-manager-80-100-zurich-apg-sga-ch",
@@ -67,7 +69,7 @@
       "url": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:25:53.163Z",
+      "crawledAt": "2026-10-01T21:19:18.045Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -82,6 +84,7 @@
       "featured": false,
       "postedDate": "2026-09-17",
       "applyUrl": "https://jobs.apgsga.ch/publication/product-manager-zuerich/4dw7rjtnwll3skuq04y6pj5uyvobmqpaihd07e0qy6fl3plddv1yshxuxtiiu5yf",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:23:28.802Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -93,47 +96,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "apg-sga-584d443b0b17",
-      "slug": "junior-software-ingegnere-java-spring-80-100-zurich-apg-sga-zurich",
-      "company": "APG|SGA",
-      "companyKey": "apg-sga",
-      "companyDomain": "apgsga.ch",
-      "title": "Junior Software Engineer Java / Spring 80-100%, Zürich",
-      "location": "Zürich",
-      "canton": "ZH",
-      "url": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
-      "source": "APG|SGA Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T09:21:22.016Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8027",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "junior",
-      "sector": "Pubblicità / Media esterni",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-15",
-      "applyUrl": "https://jobs.apgsga.ch/publication/junior-software-engineer-java-spring-zuerich/5c4lusdhri8wsbixw0vcpfsisgh8c4g0tdg0vwik66vv3rjgfdu5yybrvw2y1m4g",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-23T23:45:29.841Z",
-      "salaryMin": 57500,
-      "salaryMax": 87000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

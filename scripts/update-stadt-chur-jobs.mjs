@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 import dns from 'node:dns';
-import { Agent } from 'undici';
+// `fetch` must come from the same undici copy as `Agent`: Node's bundled fetch
+// rejects an npm-undici 8 dispatcher ("invalid onRequestStart method").
+import { Agent, fetch as undiciFetch } from 'undici';
 // Force IPv4-first DNS resolution (GitHub Actions runners sometimes prefer IPv6 which times out)
 dns.setDefaultResultOrder('ipv4first');
 /**
@@ -18,7 +20,7 @@ dns.setDefaultResultOrder('ipv4first');
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -34,6 +36,7 @@ import {
   writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -51,11 +54,13 @@ import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { parseFeed, parseRss2JsonItems } from './lib/stadt-chur-feed-parser.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   keepStoredSourceBodiesByKey,
   sourceBodyForJob,
 } from './lib/stored-source-body.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
+import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -113,7 +118,7 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 
 const TIMEOUT_MS = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '30000', 10);
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoCrawler/1.0; +https://frontaliereticino.ch)';
-const DETAIL_DELAY_MS = 800;
+const DETAIL_DELAY_MS = 1_000;
 const MAX_RETRIES = 3;
 const RETRY_DELAY_MS = 5000;
 
@@ -180,7 +185,7 @@ async function fetchWithRetry(url, options = {}, retries = MAX_RETRIES) {
   const dispatcher = new Agent({ connect: { timeout: TIMEOUT_MS } });
   for (let attempt = 1; attempt <= retries; attempt++) {
     try {
-      const res = await fetch(url, {
+      const res = await undiciFetch(url, {
         ...options,
         dispatcher,
         signal: AbortSignal.timeout(TIMEOUT_MS + 5000),
@@ -242,16 +247,26 @@ function mapEmploymentType(title = '') {
 // ──────────────────────────────────────────────────────────────
 
 async function fetchDetailPage(url) {
+  let relayFallback = false;
   try {
     const res = await fetchWithRetry(url, {
       headers: { 'User-Agent': UA, Accept: 'text/html' },
     }, 2);
-    if (!res.ok) return null;
-    return await res.text();
+    if (res.ok) return await res.text();
+    relayFallback = res.status === 403;
+    if (!relayFallback) return null;
+    console.warn(`  ⚠️ Detail fetch returned HTTP 403 for ${url}`);
   } catch (err) {
     console.warn(`  ⚠️ Detail fetch failed for ${url}: ${err.message}`);
-    return null;
+    relayFallback = true;
   }
+
+  if (relayFallback) {
+    const relayed = await fetchSourceViaRelay(url);
+    if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
+    if (relayed) console.warn(`  ⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  }
+  return null;
 }
 
 // Direct detail-page fetches hit the same datacenter-egress block as the feed
@@ -358,7 +373,7 @@ async function fetchFeed() {
 // Build
 // ──────────────────────────────────────────────────────────────
 
-function buildJob(entry, detailDescription = null) {
+export function buildJob(entry, detailDescription = null) {
   const title = entry.title || '';
   const link = entry.link || '';
   // Extract job ID from URL (e.g., j1657 from "...-de-j1657.html")
@@ -366,8 +381,18 @@ function buildJob(entry, detailDescription = null) {
   const jobId = jobIdMatch ? jobIdMatch[1] : '';
   const slug = slugify(`${title}-stadt-chur-${jobId}`);
 
+  const detailText = stripHtml(detailDescription || '');
+  const contentText = stripHtml(entry.content || '');
   const summaryText = stripHtml(entry.summary || '');
-  const description = (detailDescription || summaryText).slice(0, 3000);
+  // rss2json exposes the source page body as `content` while its `description`
+  // field is only the short feed summary. Prefer a verified-rich detail/body
+  // value so a proxy fallback does not silently discard the full description.
+  const sourceText = meetsSourceBodyFloor(detailText)
+    ? detailText
+    : meetsSourceBodyFloor(contentText)
+      ? contentText
+      : detailText || contentText || summaryText;
+  const description = sourceText.slice(0, 3000);
   const sourceLang = detectLang(title + ' ' + description) || 'de';
   const category = inferCategory(entry.category, title);
   const empType = mapEmploymentType(title);
@@ -519,7 +544,19 @@ async function main() {
   console.log('═══════════════════════════════════════');
   console.log('Phase 1: Fetch Atom feed');
   console.log('═══════════════════════════════════════');
-  const entries = await fetchFeed();
+  let entries;
+  try {
+    entries = await fetchFeed();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ ${COMPANY_NAME}: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    const stored = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
+    await rewriteStoredJobsWithoutThinSource(stored);
+    return;
+  }
 
   if (entries.length === 0) {
     console.log('ℹ️ No jobs found in feed — cleaning stored thin-source rows only.');
@@ -639,4 +676,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Stadt Chur'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Stadt Chur'));
+}

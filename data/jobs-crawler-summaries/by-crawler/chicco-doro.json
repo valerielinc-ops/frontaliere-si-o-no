@@ -1,21 +1,23 @@
 {
   "key": "chicco-doro",
   "label": "Chicco d’Oro",
-  "generatedAt": "2026-09-29T21:13:54.777Z",
+  "generatedAt": "2026-10-01T21:15:02.914Z",
   "total": 0,
   "discovered": 0,
   "parsed": 0,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 0,
   "authoritativeEmptySnapshot": true,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10710,
-  "avgDurationMs": 10710,
+  "durationMs": 5923,
+  "avgDurationMs": 5923,
   "durationHistory": [
-    10710
+    5923
   ],
   "newJobs": [],
   "updatedJobs": [],

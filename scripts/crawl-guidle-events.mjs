@@ -95,6 +95,7 @@
  */
 
 import path from 'node:path';
+import { createHash } from 'node:crypto';
 import { pathToFileURL } from 'node:url';
 import { gunzipSync } from 'node:zlib';
 import { JSDOM } from 'jsdom';
@@ -105,7 +106,6 @@ import {
   resolveComuneNationwide,
   mirrorEventImage,
   cleanEventText,
-  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
@@ -113,9 +113,11 @@ import {
   saveGeocodeCache,
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
-import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { loadCursor, saveCursor, loadGenericCursor, saveGenericCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { fetchEventBookingPrice, supportedEventBookingUrl } from './lib/event-booking-price.mjs';
 import {
   extractEventOfferMetadata,
+  parseEventPriceText,
   extractEventPeopleFromText,
   extractEventPeopleFromTitle,
   firstEventImageUrl,
@@ -323,7 +325,7 @@ export function extractCategory(doc, locale) {
 export function extractPrice(doc, locale) {
   const acc = findAccordion(doc, PRICE_LABELS[locale]);
   if (!acc) return undefined;
-  return parsePriceText(text(acc));
+  return parseEventPriceText(text(acc));
 }
 
 /**
@@ -392,6 +394,7 @@ export function mapDetailPageToLocaleData(html, locale, baseUrl) {
     imageSourceUrl,
     category,
     price: enrichedPrice,
+    bookingUrl: supportedEventBookingUrl(doc.querySelector('#ticketingUrl')?.getAttribute('href')),
     geo,
     canton,
     ...(organizer ? { organizer } : {}),
@@ -460,6 +463,7 @@ export function mapGuidleEvent(code, localeResults) {
     imageSourceUrl,
     addressLocality: primary.addressLocality,
     cantonHint: primary.canton,
+    bookingUrl: LOCALES.map(locale => localeResults[locale]?.bookingUrl).find(Boolean),
   };
 }
 
@@ -515,7 +519,7 @@ async function fetchLocaleData(pathSuffix, locale) {
   return { htmlOk: true, data: mapped ? { ...mapped, url } : null };
 }
 
-function parseArgs(argv) {
+export function parseGuidleArgs(argv) {
   const dryRun = argv.includes('--dry-run');
   let limit;
   const eqArg = argv.find((a) => a.startsWith('--limit='));
@@ -526,18 +530,48 @@ function parseArgs(argv) {
     if (idx >= 0) limit = Number.parseInt(argv[idx + 1] || '', 10);
   }
   if (!Number.isFinite(limit) || limit <= 0) limit = undefined;
-  return { dryRun, limit };
+  const flags = argv.filter(arg => arg === '--ids' || arg.startsWith('--ids='));
+  if (flags.length > 1) throw new Error('Specify --ids only once');
+  let ids;
+  if (flags.length) {
+    const flag = flags[0];
+    const raw = flag === '--ids' ? argv[argv.indexOf(flag) + 1] : flag.slice(6);
+    const tokens = typeof raw === 'string' ? raw.split(',').map(id => id.trim().replace(/^guidle:/i, '')) : [];
+    if (!tokens.length || tokens.some(id => !/^[A-Za-z0-9]{7}$/.test(id))) {
+      throw new Error('--ids requires comma-separated Guidle codes (7 alphanumeric characters)');
+    }
+    ids = [...new Set(tokens)].sort();
+  }
+  return { dryRun, limit, ids };
+}
+
+export function selectGuidleEntries(entries, ids) {
+  if (!ids) return { entries, selectionKey: null };
+  const requested = new Set(ids);
+  const selected = entries.filter(([code]) => requested.has(code)).sort(([left], [right]) => left.localeCompare(right));
+  const selectionKey = createHash('sha256').update(JSON.stringify([ids, selected.map(([code]) => code)])).digest('hex');
+  return { entries: selected, selectionKey };
+}
+
+export function targetedGuidleResumeIndex(checkpoint, selectionKey) {
+  return checkpoint?.selectionKey === selectionKey && Number.isInteger(checkpoint.nextIndex) && checkpoint.nextIndex >= 0
+    ? checkpoint.nextIndex : 0;
 }
 
 async function main() {
-  const { dryRun, limit } = parseArgs(process.argv.slice(2));
+  const { dryRun, limit, ids } = parseGuidleArgs(process.argv.slice(2));
   const crawledAt = new Date().toISOString();
   const deadline = Date.now() + RUN_BUDGET_MS;
 
-  const { entries, shardsOk, shardsFailed } = await collectEventUrls(limit);
+  const { entries: catalog, shardsOk, shardsFailed } = await collectEventUrls(ids ? undefined : limit);
+  const { entries, selectionKey } = selectGuidleEntries(catalog, ids);
+  if (ids && !entries.length) throw new Error('No requested Guidle IDs are available in the sitemap catalog');
+  if (ids) console.log(`[guidle] targeted selection: ${entries.length}/${ids.length} requested ID(s) available; other source events retained`);
   console.log(`[guidle] sitemap: ${shardsOk} shard(s) ok, ${shardsFailed} failed, ${entries.length} unique event(s) in catalog`);
 
-  const startIndex = limit ? 0 : loadCursor(SOURCE.key) % Math.max(entries.length, 1);
+  const targetedCheckpoint = path.join(EVENTS_SLICE_DIR, '..', 'checkpoints', 'guidle-targeted.json');
+  const resumeIndex = ids ? targetedGuidleResumeIndex(loadGenericCursor(targetedCheckpoint, null), selectionKey) : loadCursor(SOURCE.key);
+  const startIndex = limit ? 0 : resumeIndex % Math.max(entries.length, 1);
   if (!limit && startIndex > 0) {
     console.log(`[guidle] resuming from checkpoint index ${startIndex}/${entries.length}`);
   }
@@ -551,6 +585,7 @@ async function main() {
   let cursor = startIndex;
 
   while (visited < entries.length) {
+    if (limit && visited >= limit) break;
     if (!limit && Date.now() >= deadline) {
       console.log(
         `[guidle] time budget (${RUN_BUDGET_MS}ms) reached after ${visited}/${entries.length} event(s) — stopping, will resume next run`,
@@ -581,6 +616,10 @@ async function main() {
       }
     } else {
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
+      if (!Number.isFinite(event.price?.amount) && mapped.bookingUrl) {
+        const bookingPrice = await fetchEventBookingPrice(event, mapped.bookingUrl);
+        if (bookingPrice) event.price = { ...event.price, ...bookingPrice };
+      }
       const { comune, canton } = resolveComuneNationwide(
         { venue: [event.venue, addressLocality].filter(Boolean).join(' '), title: event.title, region: undefined },
         cantonHint,
@@ -642,7 +681,10 @@ async function main() {
     return;
   }
 
-  if (!limit && entries.length > 0) saveCursor(SOURCE.key, cursor, crawledAt);
+  if (!limit && entries.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 

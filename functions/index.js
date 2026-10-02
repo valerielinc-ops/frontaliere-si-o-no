@@ -1,4 +1,5 @@
 import { onRequest } from 'firebase-functions/v2/https';
+import { handleJobsSourceRelay } from './src/jobsSourceRelay.js';
 import {
  ensureAdminApp,
  handleResendWebhookRequest,
@@ -85,12 +86,14 @@ import {
 } from './src/assistedApplicationNotifications.js';
 import {
   handleRunnerEvent,
-  isAutomationEnabled,
+  isAutomationEnabledFor,
   maybeStartAutomation,
   runAutomationSweep,
 } from './src/assistedApplicationAutomation.js';
 import { runAutomationEffect } from './src/assistedApplicationAutomationEffects.js';
 import { handleAssistedApplicationReview } from './src/assistedApplicationReview.js';
+import { runFollowupSweep } from './src/assistedApplicationFollowupSweep.js';
+import { isNewlyProcessedInterviewInvite, prepareInterviewPack } from './src/assistedApplicationInterviewPrep.js';
 import { handleAssistedApplicationEmailCv } from './src/assistedApplicationEmailCv.js';
 import { handleAssistedApplicationInbound, processAssistedApplicationInbound } from './src/assistedApplicationInbound.js';
 import { ensureOrderAlias } from './src/assistedApplicationAlias.js';
@@ -122,11 +125,29 @@ import {
 } from './src/jobAlertBackfillCore.js';
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
-import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
+import { acceptsGzip, getCachedPublicPlateAuctionSnapshotBody, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
 import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 import { ORCHESTRATOR_CLOUD_SCHEDULE, dispatchOrchestrator } from './src/orchestratorCronDispatch.js';
 
 ensureAdminApp();
+
+// Narrow, authenticated fetch relay for the two job sources that reject
+// datacenter egress. Cloud Run IAM rejects unauthenticated callers before the
+// container starts; the workflow-side OIDC token remains a second factor in
+// the handler. No source headers supplied by the caller are forwarded upstream.
+export const jobsSourceRelay = onRequest(
+  {
+    invoker: 'private',
+    region: 'europe-west6',
+    memory: '256MiB',
+    timeoutSeconds: 15,
+    minInstances: 0,
+    maxInstances: 1,
+    concurrency: 1,
+    cors: false,
+  },
+  handleJobsSourceRelay,
+);
 
 /**
  * Authenticated petition signature endpoint.
@@ -443,11 +464,17 @@ export const getTrafficCurrent = onRequest(
 
 // Public plate-auction snapshot. Firestore stays server-only; the response is
 // allow-listed in plateAuctions.js and deliberately excludes bidder/winner
-// identities from eCari sources.
+// identities from eCari sources. The body is built at most once per 5 minutes
+// per instance (getCachedPublicPlateAuctionSnapshotBody): one build is ~22'700
+// billed Firestore reads. 1GiB like refreshPlateAuctions, which reads the same
+// collection: at 256MiB a build overran the limit (258-269 MiB measured
+// 2026-10-01) and every call in flight on the instance failed. Clients that
+// accept gzip get the copy compressed once per build: uncompressed, each
+// answer was ~16.5 MB of internet egress.
 export const getPlateAuctions = onRequest(
  {
  region: 'europe-west6',
- memory: '256MiB',
+ memory: '1GiB',
  timeoutSeconds: 30,
  cors: true,
  },
@@ -457,9 +484,15 @@ export const getPlateAuctions = onRequest(
  return;
  }
  try {
- const snapshot = await getPublicPlateAuctionSnapshot();
+ const { body, gzip } = await getCachedPublicPlateAuctionSnapshotBody();
  res.set('Cache-Control', 'public, max-age=300, s-maxage=300');
- res.status(200).json(snapshot);
+ res.vary('Accept-Encoding');
+ if (acceptsGzip(req.get('accept-encoding'))) {
+ res.set('Content-Encoding', 'gzip');
+ res.type('application/json').status(200).send(gzip);
+ } else {
+ res.type('application/json').status(200).send(body);
+ }
  } catch (error) {
  console.error('[getPlateAuctions]', error instanceof Error ? error.message : String(error));
  res.status(503).json({ schema: 1, auctions: [], sources: {}, error: 'plate_auction_snapshot_unavailable' });
@@ -2339,7 +2372,7 @@ export const assistedApplicationEmailCv = onRequest(
         db: getAdminDb(),
         bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         secret: newsletterSecret,
-        isEnabled: () => isAutomationEnabled(),
+        isEnabled: (orderId) => isAutomationEnabledFor(orderId),
       });
       if (body.matched) console.log('[assistedApplicationEmailCv] CV attached to an order');
       res.status(status).json(body);
@@ -2388,6 +2421,8 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
       runKey: await getRemoteConfigValue('ASSISTED_APPLICATION_RUN_KEY'),
       classify: (request) => codexStructured(request),
       sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      // An acknowledgement or a reply settles a submission of unknown outcome.
+      runEffect: (context) => runAutomationEffect(context),
     });
     if (!result.skipped) console.log('[processAssistedApplicationInboundMessage]', result.category, result.forwarded);
   },
@@ -2395,18 +2430,70 @@ export const processAssistedApplicationInboundMessage = onDocumentCreated(
 
 // Candidate review page API (signed link from the review e-mails, no login).
 export const assistedApplicationReview = onRequest(
-  { region: 'europe-west6', memory: '256MiB', timeoutSeconds: 30, cors: true },
+  // 512MiB: an edit by the candidate rebuilds the letter PDF.
+  { region: 'europe-west6', memory: '512MiB', timeoutSeconds: 60, cors: true },
   async (req, res) => {
     try {
       const { status, body } = await handleAssistedApplicationReview(req, {
         db: getAdminDb(),
+        bucket: getAssistedApplicationStorage().bucket(ASSISTED_APPLICATION_STORAGE_BUCKET),
         runEffect: (context) => runAutomationEffect(context),
         signUrl: (key) => resolveAssistedApplicationFileLink(key),
+        // A follow-up the candidate sends right away (af1 link).
+        sendCascade: async (emails, options) => {
+          await bridgeEmailCascadeCredentialsToEnv();
+          return sendAssistedApplicationCascade(emails, options);
+        },
       });
       res.status(status).json(body);
     } catch (error) {
       console.error('[assistedApplicationReview]', error instanceof Error ? error.message : String(error));
       res.status(500).json({ ok: false, error: 'internal_error' });
+    }
+  },
+);
+
+// Follow-ups of the applications sent by e-mail (day 7 and 14, 12 h for the
+// candidate to stop them), behind the automation flag.
+export const sweepAssistedApplicationFollowups = onSchedule(
+  { region: 'europe-west6', schedule: 'every 30 minutes', timeZone: 'Europe/Zurich', memory: '512MiB', timeoutSeconds: 540 },
+  async () => {
+    try {
+      await bridgeEmailCascadeCredentialsToEnv();
+      const summary = await runFollowupSweep({
+        db: getAdminDb(),
+        codex: (request) => codexStructured(request),
+        sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      });
+      if (summary.processed) console.log('[sweepAssistedApplicationFollowups]', JSON.stringify(summary.results));
+    } catch (error) {
+      console.error('[sweepAssistedApplicationFollowups]', error instanceof Error ? error.message : String(error));
+    }
+  },
+);
+
+// An interview invitation on the order alias: the candidate gets the
+// interview prep pack (career-ops modes/interview-prep.md), once per order.
+// On the write that marks an interview invitation processed (the inbound
+// trigger classifies it after the message is stored).
+// Retried on failure: prepareInterviewPack releases its claim before throwing.
+export const prepareAssistedApplicationInterview = onDocumentWritten(
+  { region: 'europe-west6', document: 'assisted_applications/{orderId}/inbox/{messageId}', memory: '512MiB', timeoutSeconds: 540, retry: true },
+  async (event) => {
+    if (!isNewlyProcessedInterviewInvite(event.data?.before?.data(), event.data?.after?.data())) return;
+    try {
+      await bridgeEmailCascadeCredentialsToEnv();
+      const result = await prepareInterviewPack({
+        db: getAdminDb(),
+        orderId: event.params.orderId,
+        messageId: event.params.messageId,
+        codex: (request) => codexStructured(request),
+        sendCascade: (emails, options) => sendAssistedApplicationCascade(emails, options),
+      });
+      console.log('[prepareAssistedApplicationInterview]', event.params.orderId, JSON.stringify(result));
+    } catch (error) {
+      console.error('[prepareAssistedApplicationInterview]', error instanceof Error ? error.message : String(error));
+      throw error;
     }
   },
 );

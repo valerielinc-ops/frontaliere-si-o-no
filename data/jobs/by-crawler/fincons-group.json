@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fincons-group",
-  "assembledAt": "2026-09-29T09:13:38.953Z",
+  "assembledAt": "2026-10-01T21:19:05.777Z",
   "jobs": [
     {
       "title": "Applikations-Manager:in 80 - 100%",
@@ -67,6 +67,7 @@
         }
       },
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "applikations-manager-in-80-100-fincons-group-full-time"
@@ -77,8 +78,7 @@
       },
       "previousSlugs": [
         "applikations-manager-in-80-100-fincons-group-full-time"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "DevOps Engineer Cloud & Datenbanken 80 - 100%",
@@ -107,7 +107,7 @@
       "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Konzeption, Weiterentwicklung und Betrieb von Datenbank-Services für PostgreSQL, MongoDB und MS SQL auf Azure und AWS\n- Bereitstellung der Datenbank-Services über GitOps, Operatoren und ein Self-Service-Portal\n- Unterstützung der Anwendungsteams bei der Nutzung und Anbindung der Datenbanken\n- Begleitung von Service-Umstellungen sowie Umsetzung von neuen Anforderungen und Verbesserungen\n- Wartung und Betrieb der Datenbank-Services in Zusammenarbeit mit externen Betriebsteams\n\n## Anforderungen\n\n- Erfahrung in der Softwareentwicklung mit Go und Node.js, idealerweise für die Automatisierung von Infrastrukturprozessen\n- Gute praktische Erfahrung im Bmit Infrastructure as Code und Automatisierungstools wie Terraform und Crossplane\n- Kenntnisse in CI/CD- und GitOps-Umgebungen mit Git, ArgoCD und Tekton\n- Erfahrung mit Kubernetes oder OpenShift\n- Gute Kenntnisse von Cloud-Plattformen, insbesondere AWS oder Azure\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
       "titleByLocale": {
         "it": "DevOps Ingegnere Cloud & Datenbanken 80 - 100%",
-        "en": "DevOps Engineer Cloud & Databases 80 - 100%",
+        "en": "DevOps Engineer Cloud & Datenbanken 80 - 100%",
         "de": "DevOps Ingenieur Cloud & Datenbanken 80 - 100%",
         "fr": "DevOps Ingénieur Cloud & Datenbanken 80 - 100%"
       },
@@ -401,6 +401,73 @@
       ]
     },
     {
+      "title": "Professional Applikations-Entwickler:in 80 - 100%",
+      "slug": "professional-applikations-entwickler-in-80-100-fincons-group-full-time",
+      "url": "https://fincons.applytojob.com/apply/ZXHIVRLFoF/Professional-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/ZXHIVRLFoF/Professional-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-30",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung und Implementierung neuer Funktionen für das Self-Service-Portal auf Basis von Backstage.\n- Migration und Modernisierung bestehender Portal-Funktionalitäten von der Angular-basierten Altanwendung auf die React-basierte Backstage-Plattform.\n- Weiterentwicklung und Anpassung der Backend-Komponenten des Self-Service-Portals in Go.\n- Konzeption, Erstellung und Durchführung von Unit-, Integrations- und Qualitätstests zur Sicherstellung der Softwarequalität.\n- Durchführung von Wissenstransfermaßnahmen sowie Schulung und Unterstützung des internen Teams bei der Einführung und Nutzung der neuen Plattform.\n\n## Anforderungen\n\n- Mehrjährige Berufserfahrung als Full-Stack DevOps Engineer oder in einer vergleichbaren technischen Rolle.\n- Fundierte Kenntnisse in der Entwicklung mit Go sowie praktische Erfahrung in der Umsetzung anspruchsvoller Softwarelösungen.\n- Sehr gute Programmierkenntnisse in TypeScript und umfangreiche Erfahrung in der Entwicklung von Frontend-Anwendungen mit React.\n- Erfahrung mit Backstage.io oder vergleichbaren Developer-Portalen und Self-Service-Plattformen.\n- Hohe Eigenverantwortung, ausgeprägte Problemlösungskompetenz sowie sehr gute Kommunikationsfähigkeiten für die Zusammenarbeit und den Wissenstransfer im Team.\n- Sehr gute Deutschkenntnisse (C1/C2)\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+      "titleByLocale": {
+        "it": "Professional Applikations-Entwickler:in 80 - 100%",
+        "en": "Professional Applikations-Entwickler:in 80 - 100%",
+        "de": "Professional Applikations-Entwickler:in 80 - 100%",
+        "fr": "Professional Applikations-Entwickler:in 80 - 100%"
+      },
+      "descriptionByLocale": {
+        "de": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung und Implementierung neuer Funktionen für das Self-Service-Portal auf Basis von Backstage.\n- Migration und Modernisierung bestehender Portal-Funktionalitäten von der Angular-basierten Altanwendung auf die React-basierte Backstage-Plattform.\n- Weiterentwicklung und Anpassung der Backend-Komponenten des Self-Service-Portals in Go.\n- Konzeption, Erstellung und Durchführung von Unit-, Integrations- und Qualitätstests zur Sicherstellung der Softwarequalität.\n- Durchführung von Wissenstransfermaßnahmen sowie Schulung und Unterstützung des internen Teams bei der Einführung und Nutzung der neuen Plattform.\n\n## Anforderungen\n\n- Mehrjährige Berufserfahrung als Full-Stack DevOps Engineer oder in einer vergleichbaren technischen Rolle.\n- Fundierte Kenntnisse in der Entwicklung mit Go sowie praktische Erfahrung in der Umsetzung anspruchsvoller Softwarelösungen.\n- Sehr gute Programmierkenntnisse in TypeScript und umfangreiche Erfahrung in der Entwicklung von Frontend-Anwendungen mit React.\n- Erfahrung mit Backstage.io oder vergleichbaren Developer-Portalen und Self-Service-Plattformen.\n- Hohe Eigenverantwortung, ausgeprägte Problemlösungskompetenz sowie sehr gute Kommunikationsfähigkeiten für die Zusammenarbeit und den Wissenstransfer im Team.\n- Sehr gute Deutschkenntnisse (C1/C2)\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "it": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung und Implementierung neuer Funktionen für das Self-Service-Portal auf Basis von Backstage.\n- Migration und Modernisierung bestehender Portal-Funktionalitäten von der Angular-basierten Altanwendung auf die React-basierte Backstage-Plattform.\n- Weiterentwicklung und Anpassung der Backend-Komponenten des Self-Service-Portals in Go.\n- Konzeption, Erstellung und Durchführung von Unit-, Integrations- und Qualitätstests zur Sicherstellung der Softwarequalität.\n- Durchführung von Wissenstransfermaßnahmen sowie Schulung und Unterstützung des internen Teams bei der Einführung und Nutzung der neuen Plattform.\n\n## Anforderungen\n\n- Mehrjährige Berufserfahrung als Full-Stack DevOps Engineer oder in einer vergleichbaren technischen Rolle.\n- Fundierte Kenntnisse in der Entwicklung mit Go sowie praktische Erfahrung in der Umsetzung anspruchsvoller Softwarelösungen.\n- Sehr gute Programmierkenntnisse in TypeScript und umfangreiche Erfahrung in der Entwicklung von Frontend-Anwendungen mit React.\n- Erfahrung mit Backstage.io oder vergleichbaren Developer-Portalen und Self-Service-Plattformen.\n- Hohe Eigenverantwortung, ausgeprägte Problemlösungskompetenz sowie sehr gute Kommunikationsfähigkeiten für die Zusammenarbeit und den Wissenstransfer im Team.\n- Sehr gute Deutschkenntnisse (C1/C2)\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "en": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung und Implementierung neuer Funktionen für das Self-Service-Portal auf Basis von Backstage.\n- Migration und Modernisierung bestehender Portal-Funktionalitäten von der Angular-basierten Altanwendung auf die React-basierte Backstage-Plattform.\n- Weiterentwicklung und Anpassung der Backend-Komponenten des Self-Service-Portals in Go.\n- Konzeption, Erstellung und Durchführung von Unit-, Integrations- und Qualitätstests zur Sicherstellung der Softwarequalität.\n- Durchführung von Wissenstransfermaßnahmen sowie Schulung und Unterstützung des internen Teams bei der Einführung und Nutzung der neuen Plattform.\n\n## Anforderungen\n\n- Mehrjährige Berufserfahrung als Full-Stack DevOps Engineer oder in einer vergleichbaren technischen Rolle.\n- Fundierte Kenntnisse in der Entwicklung mit Go sowie praktische Erfahrung in der Umsetzung anspruchsvoller Softwarelösungen.\n- Sehr gute Programmierkenntnisse in TypeScript und umfangreiche Erfahrung in der Entwicklung von Frontend-Anwendungen mit React.\n- Erfahrung mit Backstage.io oder vergleichbaren Developer-Portalen und Self-Service-Plattformen.\n- Hohe Eigenverantwortung, ausgeprägte Problemlösungskompetenz sowie sehr gute Kommunikationsfähigkeiten für die Zusammenarbeit und den Wissenstransfer im Team.\n- Sehr gute Deutschkenntnisse (C1/C2)\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "fr": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung und Implementierung neuer Funktionen für das Self-Service-Portal auf Basis von Backstage.\n- Migration und Modernisierung bestehender Portal-Funktionalitäten von der Angular-basierten Altanwendung auf die React-basierte Backstage-Plattform.\n- Weiterentwicklung und Anpassung der Backend-Komponenten des Self-Service-Portals in Go.\n- Konzeption, Erstellung und Durchführung von Unit-, Integrations- und Qualitätstests zur Sicherstellung der Softwarequalität.\n- Durchführung von Wissenstransfermaßnahmen sowie Schulung und Unterstützung des internen Teams bei der Einführung und Nutzung der neuen Plattform.\n\n## Anforderungen\n\n- Mehrjährige Berufserfahrung als Full-Stack DevOps Engineer oder in einer vergleichbaren technischen Rolle.\n- Fundierte Kenntnisse in der Entwicklung mit Go sowie praktische Erfahrung in der Umsetzung anspruchsvoller Softwarelösungen.\n- Sehr gute Programmierkenntnisse in TypeScript und umfangreiche Erfahrung in der Entwicklung von Frontend-Anwendungen mit React.\n- Erfahrung mit Backstage.io oder vergleichbaren Developer-Portalen und Self-Service-Plattformen.\n- Hohe Eigenverantwortung, ausgeprägte Problemlösungskompetenz sowie sehr gute Kommunikationsfähigkeiten für die Zusammenarbeit und den Wissenstransfer im Team.\n- Sehr gute Deutschkenntnisse (C1/C2)\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)"
+      },
+      "slugByLocale": {
+        "it": "professional-applikations-entwickler-in-80-100-fincons-group-full-time",
+        "en": "professional-applikations-entwickler-in-80-100-fincons-group-full-time",
+        "de": "professional-applikations-entwickler-in-80-100-fincons-group-bern",
+        "fr": "professional-applikations-entwickler-in-80-100-fincons-group-full-time"
+      },
+      "metadata": {
+        "experienceRequirements": "",
+        "uniqueJobCode": "",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-c747e29c8de5",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 124500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-19T22:53:40.684Z"
+    },
+    {
       "title": "Professional Applikations-Entwickler:in 60 - 100%",
       "slug": "sviluppatore-di-applicazioni-professionali-60-100-fincons-group-bern",
       "url": "https://fincons.applytojob.com/apply/kKlSxhrfjx/Professional-ApplikationsEntwicklerin-60-100",
@@ -628,6 +695,7 @@
         }
       },
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "professional-business-analyst-in-60-100-fincons-group-full-time"
@@ -635,8 +703,7 @@
       },
       "previousSlugs": [
         "professional-business-analyst-in-60-100-fincons-group-full-time"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Professional Software-Ingenieur:In 80 - 100%",
@@ -950,12 +1017,11 @@
         "it": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-f3dior"
         ],
         "en": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
-          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
         ],
         "fr": [
           "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
@@ -964,6 +1030,84 @@
       "previousSlugs": [
         "senior-applikations-entwickler-in-80-100-fincons-group-full-time-k79vyz",
         "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+        "senior-applikations-entwickler-in-80-100-fincons-group-full-time-f3dior"
+      ]
+    },
+    {
+      "title": "Senior Applikations-Entwickler:in 80 - 100%",
+      "slug": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+      "url": "https://fincons.applytojob.com/apply/bRRlAFaeHA/Senior-ApplikationsEntwicklerin-80-100",
+      "applyUrl": "https://fincons.applytojob.com/apply/bRRlAFaeHA/Senior-ApplikationsEntwicklerin-80-100",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-15",
+      "validThrough": "2026-12-14",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung von Datenmodellen auf einer Enterprise Analytics Plattform (Snowflake und Microsoft Azure).\n- ​​​​​​​Bereitstellung von Reporting-Applikationen in Microsoft Power BI oder Streamlit sowie Unterstützung der Fachbereiche im Self-Service.\n- Mitarbeit im BizDevOps-Team mit Fokus auf Entwicklung, Betrieb und kontinuierliche Optimierung der Lösungen.\n- Mitarbeit in der Anforderungsanalyse, Erarbeitung von Lösungsvorschlägen sowie Umsetzung fachlicher Anforderungen.\n\n## Anforderungen\n\n- Fundierte Kenntnisse in SQL sowie in der relationalen Datenmodellierung.\n- ​​​​​​​Fundierte Erfahrung in der Erstellung von Berichten und Dashboards mit Microsoft Power BI.\n- Grundlegende Kenntnisse von Cloud-Plattformen, idealerweise im Microsoft-Umfeld.\n- Kenntnisse in der Programmiersprache Python.\n- Nachgewiesene Erfahrung im Stakeholder-Management.\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+      "titleByLocale": {
+        "it": "Senior Applikations-Entwickler:in 80 - 100%",
+        "en": "Senior Applikations-Entwickler:in 80 - 100%",
+        "de": "Senior Applikations-Entwickler:in 80 - 100%",
+        "fr": "Senior Applikations-Entwickler:in 80 - 100%"
+      },
+      "descriptionByLocale": {
+        "de": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung von Datenmodellen auf einer Enterprise Analytics Plattform (Snowflake und Microsoft Azure).\n- ​​​​​​​Bereitstellung von Reporting-Applikationen in Microsoft Power BI oder Streamlit sowie Unterstützung der Fachbereiche im Self-Service.\n- Mitarbeit im BizDevOps-Team mit Fokus auf Entwicklung, Betrieb und kontinuierliche Optimierung der Lösungen.\n- Mitarbeit in der Anforderungsanalyse, Erarbeitung von Lösungsvorschlägen sowie Umsetzung fachlicher Anforderungen.\n\n## Anforderungen\n\n- Fundierte Kenntnisse in SQL sowie in der relationalen Datenmodellierung.\n- ​​​​​​​Fundierte Erfahrung in der Erstellung von Berichten und Dashboards mit Microsoft Power BI.\n- Grundlegende Kenntnisse von Cloud-Plattformen, idealerweise im Microsoft-Umfeld.\n- Kenntnisse in der Programmiersprache Python.\n- Nachgewiesene Erfahrung im Stakeholder-Management.\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "it": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung von Datenmodellen auf einer Enterprise Analytics Plattform (Snowflake und Microsoft Azure).\n- ​​​​​​​Bereitstellung von Reporting-Applikationen in Microsoft Power BI oder Streamlit sowie Unterstützung der Fachbereiche im Self-Service.\n- Mitarbeit im BizDevOps-Team mit Fokus auf Entwicklung, Betrieb und kontinuierliche Optimierung der Lösungen.\n- Mitarbeit in der Anforderungsanalyse, Erarbeitung von Lösungsvorschlägen sowie Umsetzung fachlicher Anforderungen.\n\n## Anforderungen\n\n- Fundierte Kenntnisse in SQL sowie in der relationalen Datenmodellierung.\n- ​​​​​​​Fundierte Erfahrung in der Erstellung von Berichten und Dashboards mit Microsoft Power BI.\n- Grundlegende Kenntnisse von Cloud-Plattformen, idealerweise im Microsoft-Umfeld.\n- Kenntnisse in der Programmiersprache Python.\n- Nachgewiesene Erfahrung im Stakeholder-Management.\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "en": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung von Datenmodellen auf einer Enterprise Analytics Plattform (Snowflake und Microsoft Azure).\n- ​​​​​​​Bereitstellung von Reporting-Applikationen in Microsoft Power BI oder Streamlit sowie Unterstützung der Fachbereiche im Self-Service.\n- Mitarbeit im BizDevOps-Team mit Fokus auf Entwicklung, Betrieb und kontinuierliche Optimierung der Lösungen.\n- Mitarbeit in der Anforderungsanalyse, Erarbeitung von Lösungsvorschlägen sowie Umsetzung fachlicher Anforderungen.\n\n## Anforderungen\n\n- Fundierte Kenntnisse in SQL sowie in der relationalen Datenmodellierung.\n- ​​​​​​​Fundierte Erfahrung in der Erstellung von Berichten und Dashboards mit Microsoft Power BI.\n- Grundlegende Kenntnisse von Cloud-Plattformen, idealerweise im Microsoft-Umfeld.\n- Kenntnisse in der Programmiersprache Python.\n- Nachgewiesene Erfahrung im Stakeholder-Management.\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "fr": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Entwicklung von Datenmodellen auf einer Enterprise Analytics Plattform (Snowflake und Microsoft Azure).\n- ​​​​​​​Bereitstellung von Reporting-Applikationen in Microsoft Power BI oder Streamlit sowie Unterstützung der Fachbereiche im Self-Service.\n- Mitarbeit im BizDevOps-Team mit Fokus auf Entwicklung, Betrieb und kontinuierliche Optimierung der Lösungen.\n- Mitarbeit in der Anforderungsanalyse, Erarbeitung von Lösungsvorschlägen sowie Umsetzung fachlicher Anforderungen.\n\n## Anforderungen\n\n- Fundierte Kenntnisse in SQL sowie in der relationalen Datenmodellierung.\n- ​​​​​​​Fundierte Erfahrung in der Erstellung von Berichten und Dashboards mit Microsoft Power BI.\n- Grundlegende Kenntnisse von Cloud-Plattformen, idealerweise im Microsoft-Umfeld.\n- Kenntnisse in der Programmiersprache Python.\n- Nachgewiesene Erfahrung im Stakeholder-Management.\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)"
+      },
+      "slugByLocale": {
+        "it": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+        "en": "senior-applikations-entwickler-in-80-100-fincons-group-full-time",
+        "de": "senior-applikations-entwickler-in-80-100-fincons-group-bern",
+        "fr": "senior-applikations-entwickler-in-80-100-fincons-group-full-time"
+      },
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260915070555_PBEMB5NCWZIKD0IK",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-8ec6f30654af",
+      "needsRetranslation": true,
+      "salaryMin": 113000,
+      "salaryMax": 192000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 113000,
+          "maxValue": 192000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+        ],
+        "en": [
+          "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
+        ]
+      },
+      "previousSlugs": [
         "senior-applikations-entwickler-in-80-100-fincons-group-full-time-3zmlg0"
       ]
     },
@@ -1554,6 +1698,89 @@
       "streetAddress": "Piazza Riforma 1"
     },
     {
+      "title": "Senior Projektleiter:in 40 - 50%",
+      "slug": "senior-responsabile-di-progetto-40-50-fincons-group-bern",
+      "url": "https://fincons.applytojob.com/apply/ozwFlrQgVc/Senior-Projektleiterin-40-50",
+      "applyUrl": "https://fincons.applytojob.com/apply/ozwFlrQgVc/Senior-Projektleiterin-40-50",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Bern",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "postalCode": "3011",
+      "streetAddress": "Bundesplatz 3",
+      "canton": "BE",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-30",
+      "validThrough": "2026-12-29",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Projektleitung Payment Service Provider Ausschreibung.\n- Erstellen der fachlichen/technischen Ausschreibungsunterlagen für die Ausschreibung nach BöB/VöB\n- Koordination und Begleitung des gesamten Ausschreibungsverfahrens gemeinsam mit Payment und Einkauf\n- Aufarbeitung der Unterlagen für die Bewertung der Angebote\n- Mitarbeit bei Bewertung der Angebote\n\n## Anforderungen\n\n- Erfahrungen in komplexen Beschaffungsprojekten nach BöB/VöB\n- Strukturierte und organisierte Arbeitsweise\n- Erfahrungen in der Business Analyse und schnelle Auffassungsgabe\n- Fundierte Erfahrungen im Erfassen von funktionalen und nicht-funktionalen Anforderungen\n- Payment Erfahrung und Markt Kenntnisse\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+      "titleByLocale": {
+        "it": "Senior Responsabile di progetto 40 - 50%",
+        "en": "Senior Project Manager 40 - 50%",
+        "de": "Senior Projektleiter:in 40 - 50%",
+        "fr": "Senior Chef de projet 40 - 50%"
+      },
+      "descriptionByLocale": {
+        "it": "Fincons Group è una società di consulenza IT che da 40 anni ha plasmato il futuro digitale delle aziende leader nei mercati internazionali. Il Gruppo Fincons ha fatto un nome per se stesso predicendo e interpretando con successo nuovi modelli di business e il rapido sviluppo dei sistemi IT. Ha costruito una gamma completa di servizi: dalla ricerca e dalla consulenza alla progettazione e allo sviluppo, dall'integrazione di sistemi di soluzioni software leader alla gestione delle applicazioni, supportando i suoi clienti passo dopo passo nel loro percorso di trasformazione digitale. Fincons è un'azienda multinazionale con oltre 2.600 dipendenti e diversi uffici in tutto il mondo (in Italia, Svizzera, Germania, Francia, Regno Unito, Belgio e Stati Uniti), ma soprattutto un'azienda familiare dove i fondatori svolgono un ruolo strategico con dedizione e passione, costruendo l'azienda sugli stessi principi di una famiglia unita e premurosa. Compiti:\n\n- Gestione del progetto Servizio di pagamento offerta.\n- Preparazione dei documenti di gara tecnica per la gara BöB/VöB\n- Coordinamento e sostegno dell'intero processo di aggiudicazione insieme al pagamento e all'acquisto\n- Preparazione dei documenti per la valutazione delle offerte\n- Cooperazione nella valutazione delle offerte\n\n## Requisiti\n\n- Esperienza in complessi progetti di approvvigionamento secondo BöB/VöB\n- Metodi di lavoro strutturati e organizzati\n- Esperienza nell'analisi aziendale e rapida comprensione\n- Esperienza sonora nel catturare requisiti funzionali e non funzionali\n- Esperienza di pagamento e conoscenza del mercato\n- Ottima conoscenza del tedesco (C1/C2) e buona conoscenza dell'inglese.\n\nPerche' Fincons?\n\n- Innovazione & Diversità: lavorare su tecnologie all'avanguardia in un ambiente creativo.\n- Carriera & ulteriore sviluppo: trarre vantaggio dalle opportunità di sviluppo individuali.\n- Una cultura aziendale in cui i nostri dipendenti altamente qualificati e soddisfatti sono il motore del nostro successo.\n- Flessibilità: Lavoro ibrido con l'opzione home office.\n\nApplicare subito! Tutti i candidati qualificati sono considerati per l'occupazione senza riguardo alla razza, al colore, alla religione, al sesso, all'orientamento sessuale, all'identità di genere, all'origine nazionale, all'età, alla disabilità o allo status di veterano protetto o a qualsiasi altra base giuridica protetta secondo la legge applicabile. I dati verranno trattati e conservati esclusivamente ai fini di questa o futura selezione, per cui l'art. 1 sono garantiti. Decreto Legislativo 196/03 e Regolamento UE 679/2016 (GDPR)",
+        "en": "Fincons Group is an IT consulting company that has been shaping the digital future of leading companies in international markets for 40 years. The Fincons Group has made a name for itself by predicting and successfully interpreting new business models and the rapid development of IT systems. She has built up a complete range of services: from research and consulting to design and development, from system integration of leading software solutions to application management, supporting her customers step by step on their digital transformation journey. Fincons is a multinational company with more than 2,600 employees and several offices worldwide (in Italy, Switzerland, Germany, France, the United Kingdom, Belgium and the USA), but above all a family business where the founders play a strategic role with dedication and passion, building the company on the same principles of a united and caring family. Tasks:\n\n- Project management Payment service provider tendering.\n- Preparation of technical tender documents for the BöB/VöB tender\n- Coordination and support of the entire tendering process together with payment and purchasing\n- Preparation of documents for the evaluation of tenders\n- Cooperation in the evaluation of tenders\n\n## Requirements\n\n- Experience in complex procurement projects according to BöB/VöB\n- Structured and organised working methods\n- Experience in business analysis and rapid understanding\n- Sound experience in capturing functional and non-functional requirements\n- Payment experience and market knowledge\n- Very good knowledge of German (C1/C2) and good knowledge of English.\n\nWhy Fincons?\n\n- Innovation & Diversity: Work on forward-looking technologies in a creative environment.\n- Career & further development: Benefit from individual development opportunities.\n- A company culture in which our highly qualified and satisfied employees are the engine of our success.\n- Flexibility: Hybrid working with home office option.\n\nApply now! All qualified applicants shall be considered for employment without regard to race, colour, religion, gender, sexual orientation, gender identity, national origin, age, disability or protected veteran status or any other legally protected basis in accordance with applicable law. The data will be processed and stored exclusively for the purpose of this or future selection, whereby the in art. 1 are guaranteed. Legislative Decree 196/03 and EU Regulation 679/2016 (GDPR)",
+        "de": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Projektleitung Payment Service Provider Ausschreibung.\n- Erstellen der fachlichen/technischen Ausschreibungsunterlagen für die Ausschreibung nach BöB/VöB\n- Koordination und Begleitung des gesamten Ausschreibungsverfahrens gemeinsam mit Payment und Einkauf\n- Aufarbeitung der Unterlagen für die Bewertung der Angebote\n- Mitarbeit bei Bewertung der Angebote\n\n## Anforderungen\n\n- Erfahrungen in komplexen Beschaffungsprojekten nach BöB/VöB\n- Strukturierte und organisierte Arbeitsweise\n- Erfahrungen in der Business Analyse und schnelle Auffassungsgabe\n- Fundierte Erfahrungen im Erfassen von funktionalen und nicht-funktionalen Anforderungen\n- Payment Erfahrung und Markt Kenntnisse\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
+        "fr": "Fincons Group est une société de conseil en informatique qui façonne l'avenir numérique des grandes entreprises sur les marchés internationaux depuis 40 ans. Le Groupe Fincons s'est fait un nom en prédisant et en interprétant avec succès de nouveaux modèles d'affaires et le développement rapide des systèmes informatiques. Elle a développé une gamme complète de services : de la recherche et du conseil à la conception et au développement, de l'intégration de systèmes de solutions logicielles de pointe à la gestion des applications, en soutenant ses clients étape par étape dans leur parcours de transformation numérique. Fincons est une entreprise multinationale comptant plus de 2600 salariés et plusieurs bureaux dans le monde entier (Italie, Suisse, Allemagne, France, Royaume-Uni, Belgique et États-Unis), mais surtout une entreprise familiale où les fondateurs jouent un rôle stratégique avec dévouement et passion, en construisant l'entreprise sur les mêmes principes d'une famille unie et bienveillante. Tâches :\n\n- Gestion de projet Appel d'offres pour les prestataires de services de paiement.\n- Préparation du dossier d'appel d'offres technique pour l'appel d'offres BöB/VöB\n- Coordination et soutien de l'ensemble de la procédure d'appel d'offres ainsi que des paiements et des achats\n- Préparation des documents d'évaluation des offres\n- Coopération dans l'évaluation des offres\n\n## Exigences\n\n- Expérience dans des projets d'approvisionnement complexes selon BöB/VöB\n- Méthodes de travail structurées et organisées\n- Expérience en analyse commerciale et compréhension rapide\n- Une bonne expérience dans la capture des exigences fonctionnelles et non fonctionnelles\n- Expérience de paiement et connaissance du marché\n- Très bonne connaissance de l'allemand (C1/C2) et bonne connaissance de l'anglais.\n\nPourquoi Fincons ?\n\n- Innovation et diversité : travailler sur des technologies tournées vers l'avenir dans un environnement créatif.\n- Carrière et perfectionnement professionnel : Bénéficiez des possibilités de perfectionnement individuel.\n- Une culture d'entreprise dans laquelle nos employés hautement qualifiés et satisfaits sont le moteur de notre succès.\n- Flexibilité: Hybride avec option bureau à domicile.\n\nPrésentez-vous ! Tous les candidats qualifiés sont considérés pour un emploi sans considération de race, de couleur, de religion, de sexe, d'orientation sexuelle, d'identité de genre, d'origine nationale, d'âge, de handicap ou de statut d'ancien combattant protégé ou de toute autre base légalement protégée conformément à la loi applicable. Les données seront traitées et stockées exclusivement aux fins de cette sélection ou de la sélection future, par laquelle l'art. 1 sont garantis. Décret législatif 196/03 et règlement de l'UE 679/2016 (RGPD)"
+      },
+      "slugByLocale": {
+        "it": "senior-responsabile-di-progetto-40-50-fincons-group-bern",
+        "en": "senior-project-manager-40-50-fincons-group-bern",
+        "de": "senior-projektleiter-in-40-50-fincons-group-bern",
+        "fr": "senior-chef-de-projet-40-50-fincons-group-bern"
+      },
+      "metadata": {
+        "experienceRequirements": "Experienced",
+        "uniqueJobCode": "job_20260930091226_B6Z88JYHMVJPIP3P",
+        "listingLocation": "Bern, Bern, Switzerland",
+        "listingDepartment": ""
+      },
+      "id": "fincons-group-a326ba8cd451",
+      "salaryMin": 56500,
+      "salaryMax": 96000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 56500,
+          "maxValue": 96000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-30T21:11:59.483Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-projektleiter-in-40-50-fincons-group-part-time"
+        ],
+        "en": [
+          "senior-projektleiter-in-40-50-fincons-group-part-time"
+        ],
+        "fr": [
+          "senior-projektleiter-in-40-50-fincons-group-part-time"
+        ],
+        "de": [
+          "senior-projektleiter-in-40-50-fincons-group-part-time"
+        ]
+      },
+      "previousSlugs": [
+        "senior-projektleiter-in-40-50-fincons-group-part-time"
+      ]
+    },
+    {
       "title": "Senior Software-Ingenieur:in 100%",
       "slug": "ingegnere-di-software-senior-100-fincons-group-bern",
       "url": "https://fincons.applytojob.com/apply/46gvjW8sFX/Senior-SoftwareIngenieurin-100",
@@ -1777,6 +2004,7 @@
         }
       },
       "firstSeenAt": "2026-09-18T23:16:19.604Z",
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "software-entwickler-in-backend-50-fincons-group-part-time"
@@ -1787,8 +2015,7 @@
       },
       "previousSlugs": [
         "software-entwickler-in-backend-50-fincons-group-part-time"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "System DevOps Engineer 80%",
@@ -1972,9 +2199,9 @@
       "source": "fincons-dedicated-crawler",
       "sourceLang": "de",
       "postedDate": "2026-07-02",
-      "validThrough": "2026-09-30",
-      "employmentType": "part-time",
-      "contractType": "part-time",
+      "validThrough": "",
+      "employmentType": "full-time",
+      "contractType": "full-time",
       "description": "Unternehmen im Überblick Die Fincons Group ist ein IT-Beratungsunternehmen, welches seit 40 Jahren die digitale Zukunft führender Unternehmen auf internationalen Märkten gestaltet. Die Fincons Group hat sich einen Namen gemacht, indem sie neue Geschäftsmodelle und die rasche Entwicklung von IT-Systemen vorhersieht und erfolgreich interpretiert. Dazu hat sie ein komplettes Dienstleistungsangebot aufgebaut: von der Forschung und Beratung bis hin zu Design und Entwicklung, von der Systemintegration führender Softwarelösungen bis hin zum Anwendungsmanagement, wobei sie ihre Kunden Schritt für Schritt auf ihrem Weg der digitalen Transformation unterstützt. Fincons ist ein multinationales Unternehmen mit mehr als 2.600 Mitarbeitern und mehreren Niederlassungen weltweit (in Italien, der Schweiz, Deutschland, Frankreich, dem Vereinigten Königreich, Belgien und den USA), aber vor allem ein Familienunternehmen, in dem die Gründer mit Engagement und Leidenschaft eine strategische Rolle spielen und das Unternehmen auf den gleichen Prinzipien einer vereinten und fürsorglichen Familie gründen. Aufgaben:\n\n- Abstimmung mit dem Entwicklungsteam zur Erarbeitung und Weiterentwicklung von Teststrategien\n- Prüfung und Auswertung von Anforderungen und Spezifikationen als Grundlage für manuelle und automatisierte Testfälle\n- Durchführung manueller und automatisierter Tests sowie Bewertung der Testergebnisse\n- Erfassung und Dokumentation von Testergebnissen sowie Meldung und Nachverfolgung von Defekten gegenüber dem Entwicklungsteam\n- Gemeinsame Erarbeitung und Konkretisierung von Anforderungen mit dem Entwicklungsteam\n- Unterstützung bei der Analyse und Lösung auftretender Probleme\n\n## Anforderungen\n\n- Abgeschlossenes Studium der Informatik (Universität, ETH, Fachhochschule) oder eine gleichwertige Qualifikation\n- Erfahrung als Testerin bzw. Tester in einem agilen Entwicklungsumfeld (Scrum/Kanban)\n- Nachweisbare Kenntnisse im manuellen Testen sowie in der Testautomatisierung und im Test-Scripting, vorzugsweise mit Cucumber\n- Fundierte Kenntnisse im Testmanagement sowie in Testmethoden und -verfahren\n- Praktische Erfahrung im Testen grosser und komplexer Bahnsysteme, idealerweise in den Bereichen Disposition, Steuerung, Leittechnik oder Stellwerklogik\n- n sowie selbstständige und verantwortungsbewusste Arbeitsweise\n- Sehr gute Deutschkenntnisse (C1/C2) sowie gute Englischkenntnisse.\n\nWarum Fincons?\n\n- Innovation & Vielfalt: Arbeite an zukunftsweisenden Technologien in einem kreativen Umfeld.\n- Karriere & Weiterentwicklung: Profitiere von individuellen Entwicklungsmöglichkeiten.\n- Eine Unternehmenskultur, in der unsere hochqualifizierten und zufriedenen Mitarbeiter der Motor unseres Erfolgs sind.\n- Flexibilität: Hybrides Arbeiten mit Home-Office-Option.\n\nBewirb dich jetzt! Alle qualifizierten Bewerber werden ohne Rücksicht auf Rasse, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Alter, Behinderung oder geschützten Veteranenstatus oder eine andere gesetzlich geschützte Grundlage in Übereinstimmung mit dem geltenden Recht für eine Beschäftigung in Betracht gezogen. Die Daten werden ausschließlich zum Zwecke dieser oder zukünftiger Auswahl verarbeitet und gespeichert, wodurch die in Art. 1 genannten Rechte garantiert werden. 13 Gesetzesdekret 196/03 und EU-Verordnung 679/2016 (DSGVO)",
       "titleByLocale": {
         "it": "Test Engineer 80 - 100%",
@@ -1995,8 +2222,8 @@
         "fr": "ingenieur-d-essai-80-100-fincons-group-bern"
       },
       "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260702083946_M7T778OSD0VQPQCO",
+        "experienceRequirements": "",
+        "uniqueJobCode": "",
         "listingLocation": "Bern, Bern, Switzerland",
         "listingDepartment": ""
       },

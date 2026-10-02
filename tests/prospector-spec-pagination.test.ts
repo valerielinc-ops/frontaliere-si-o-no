@@ -12,10 +12,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 import {
   collectSpecListingRows,
   createSpecUrlPolicy,
   findNextListingPageUrl,
+  isLastAnnouncedListingPage,
   normalizeSpecPagination,
   readDeclaredListingTotal,
   stripListingPageState,
@@ -23,6 +25,10 @@ import {
 
 const ORIGIN = 'https://jobs.example.ch';
 const publicLookup = async () => [{ address: '93.184.216.34', family: 4 }];
+const STELLENTREFF_PAGE_58 = fs.readFileSync(
+  path.resolve(import.meta.dirname, 'fixtures/stellentreff-page-58.html'),
+  'utf8',
+);
 
 function listingPage({ ids, page, total, next }: { ids: string[], page: number, total?: number, next?: string }) {
   const query = page > 1 ? `?sf_paged=${page}` : '';
@@ -177,9 +183,37 @@ describe('spec.pagination', () => {
 
   it('una pagina successiva che risponde con errore non produce una listing parziale', async () => {
     const pages = {
-      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` }),
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2'], page: 1, total: 40, next: `${ORIGIN}/?sf_paged=2` })
+        + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
     };
     await expect(collect(specWith({ pagination: PAGINATION }), pages)).rejects.toThrow(/HTTP 404/);
+  });
+
+  it('accetta un 404 successivo quando la copertura dichiarata e sufficiente', async () => {
+    const pages = {
+      [`${ORIGIN}/`]: listingPage({ ids: ['sa1', 'sa2', 'sa3', 'sa4'], page: 1, total: 4, next: `${ORIGIN}/?sf_paged=2` })
+        + `<a href="${ORIGIN}/?sf_paged=3">3</a>`,
+    };
+    const { rows } = await collect(specWith({ pagination: PAGINATION }), pages);
+    expect(rows).toHaveLength(4);
+  });
+
+  it('accetta il 404 della pagina finale annunciata dal fixture reale Stellentreff', async () => {
+    const pageUrl = 'https://www.stellentreff.ch/stellen/page/58/';
+    const nextUrl = 'https://www.stellentreff.ch/stellen/page/59/';
+    const spec = specWith({
+      companyKey: 'stellentreff',
+      companyName: 'Stellentreff AG',
+      companyHost: 'stellentreff.ch',
+      seedUrls: [pageUrl],
+      detailTemplate: '/stellen/*/',
+      pagination: { maxPages: 120 },
+    });
+    const { rows, fetched } = await collect(spec, { [pageUrl]: STELLENTREFF_PAGE_58 });
+    expect(isLastAnnouncedListingPage(STELLENTREFF_PAGE_58, pageUrl, nextUrl)).toBe(true);
+    expect(rows).toHaveLength(2);
+    expect(fetched).toContain(pageUrl);
+    expect(fetched).toContain(nextUrl);
   });
 
   it('senza spec.pagination legge solo il seed e segnala il next non seguito', async () => {
@@ -214,6 +248,26 @@ describe('helper di paginazione', () => {
       .toBe(`${ORIGIN}/list?page=3`);
   });
 
+  it('richiede un controllo numerato distinto dal rel=next', () => {
+    const pageUrl = `${ORIGIN}/jobs/page/58`;
+    const nextUrl = `${ORIGIN}/jobs/page/59`;
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}">`,
+      pageUrl,
+      nextUrl,
+    )).toBe(false);
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}"><a href="${nextUrl}">59</a>`,
+      pageUrl,
+      nextUrl,
+    )).toBe(true);
+    expect(isLastAnnouncedListingPage(
+      `<link rel="next" href="${nextUrl}"><a href="${nextUrl}">offerta</a>`,
+      pageUrl,
+      nextUrl,
+    )).toBe(false);
+  });
+
   it('toglie dall\'URL di dettaglio solo i parametri di paginazione dichiarati', () => {
     const state = ['sf_paged'];
     expect(stripListingPageState(`${ORIGIN}/job/sa3/?sf_paged=2`, `${ORIGIN}/?sf_paged=2`, state)).toBe(`${ORIGIN}/job/sa3/`);
@@ -233,7 +287,10 @@ describe('helper di paginazione', () => {
       .toMatchObject({ maxPages: 50, minCoverage: 0.95, declaredTotalRx: null, pageStateParams: [] });
   });
 
-  it('la spec yellowshark dichiara la paginazione e il contatore reale della fonte', () => {
+  // I due casi qui sotto leggono le spec VIVE in data/prospector/crawlers/, che
+  // il bot prospector riscrive: fuori dal gate delle PR, nel monitor post-merge
+  // (replay del 2026-09-30: l'esito cambia con i dati di 7 e 14 giorni fa).
+  it.skipIf(SKIP_LIVE_DATA)('la spec yellowshark dichiara la paginazione e il contatore reale della fonte', () => {
     const spec = JSON.parse(fs.readFileSync(path.resolve(process.cwd(), 'data/prospector/crawlers/yellowshark.json'), 'utf8'));
     const pagination = normalizeSpecPagination(spec);
     // Markup osservato su https://jobs.yellowshark.com/ il 2026-09-28.
@@ -244,7 +301,7 @@ describe('helper di paginazione', () => {
     expect(pagination.pageStateParams).toEqual(['sf_paged']);
   });
 
-  it('le spec promosse con una listing paginata dichiarano la paginazione', () => {
+  it.skipIf(SKIP_LIVE_DATA)('le spec promosse con una listing paginata dichiarano la paginazione', () => {
     // Pagine misurate il 2026-09-28: pagina 2 di ciascun seed contiene annunci
     // assenti da pagina 1, quindi leggere solo il seed archivia offerte vive.
     const measuredPages: Record<string, number> = { yellowshark: 56, sta: 88, stellenpartner: 41, stellentreff: 57, gmo: 3 };

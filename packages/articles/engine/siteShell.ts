@@ -50,7 +50,7 @@ export interface ArticleImageObjectInput {
   // (`OrganizationCreator | PersonCreator`) structurally — narrow enough for
   // the real function's parameter to satisfy this shape (a plain
   // `Record<string, unknown>` here would NOT typecheck against that union).
-  creator?: { '@type': 'Organization' | 'Person'; name: string; url?: string };
+  creator?: { '@type': 'Organization' | 'NewsMediaOrganization' | 'Person'; name: string; url?: string };
   copyrightNotice?: string;
   license?: string;
   acquireLicensePage?: string;
@@ -140,9 +140,19 @@ export interface SiteShellContract {
     measureLength?: (s: string) => number,
   ) => string;
   truncateHeadline: (headline: string, max: number) => string;
+  /** Truncate against the serialized (HTML-escaped) length of a metadata title. */
+  truncateHeadlineToMeasuredBudget: (
+    headline: string,
+    max: number,
+    measure: (value: string) => number,
+  ) => string;
   titleBrandSuffix: string;
   titleMaxChars: number;
-  clampMetaDescription: (description: string, max?: number) => string;
+  clampMetaDescription: (
+    description: string,
+    max?: number,
+    locale?: 'it' | 'en' | 'de' | 'fr',
+  ) => string;
   metaDescriptionMaxChars: number;
   /**
    * Repair a description/title that arrived ALREADY cut mid-clause from the

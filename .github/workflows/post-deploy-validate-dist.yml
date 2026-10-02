@@ -59,14 +59,9 @@ jobs:
       # 14 GB default partition. Best-effort: `|| true` keeps the build
       # green if a path was already pruned by a future image refresh.
       - name: Free disk space on runner
-        run: |
-          df -h /
-          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
-            /opt/hostedtoolcache/CodeQL /usr/local/share/powershell \
-            /usr/local/share/chromium /usr/local/lib/node_modules \
-            /usr/local/share/boost /usr/share/swift 2>/dev/null || true
-          sudo docker image prune -af 2>/dev/null || true
-          df -h /
+        # One list for every job that rehydrates the logical dist; it prints
+        # df (blocks AND inodes) before/after. See its header for why.
+        run: bash scripts/ci/free-runner-disk.sh
 
       - name: Setup Node.js
         uses: actions/setup-node@v7
@@ -1285,6 +1280,15 @@ jobs:
           # captured per-variant rc into /tmp/post-build-failures.txt
           # inside the subshell, so the FAIL aggregator below sees them.
           wait "$DIST_MULTI_PID" || true
+          wait
+
+          # FULL-DIST SERIAL PHASE — strict JobPosting completeness is
+          # deliberately unsampled and walks every rehydrated dist/ HTML file.
+          # It must not overlap the light pool's other walkers: keeping the
+          # same spawn_capped helper here preserves the deploy-ref skew guard,
+          # timing row, per-gate log, and blocking failure propagation while
+          # this invocation runs after every pooled job has completed.
+          spawn_capped validate:jobposting-schema /tmp/jobposting-schema.log npm run validate:jobposting-schema
           wait
 
           # dist:quality-tests's own rate line, unconditionally (issue

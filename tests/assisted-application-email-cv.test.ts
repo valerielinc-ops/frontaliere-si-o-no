@@ -1,4 +1,4 @@
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { createMemoryFirestore } from './helpers/memoryFirestore';
 import { addressOf, decodeEncodedWords, parseMimeMessage, senderAuthenticated } from '../functions/src/lib/mimeMessage.js';
 import { candidateNotesFrom, handleAssistedApplicationEmailCv } from '../functions/src/assistedApplicationEmailCv.js';
@@ -106,9 +106,12 @@ describe('CV by e-mail reply', () => {
   it('does nothing while the automation flag is off: the e-mail reaches Valerie as today', async () => {
     const database = store();
     const bucket = fakeBucket();
-    const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: database.db, bucket, secret: SECRET, isEnabled: async () => false });
+    const isEnabled = vi.fn(async () => false);
+    const result = await handleAssistedApplicationEmailCv(request(rawMessage()), { db: database.db, bucket, secret: SECRET, isEnabled });
     expect(result.body).toEqual({ ok: true, matched: false, reason: 'automation_off' });
     expect(bucket.files.size).toBe(0);
+    // Asked for this order: during the trial run only the named orders are on.
+    expect(isEnabled).toHaveBeenCalledWith(ORDER);
   });
 
   it('rejects a request without the worker secret', async () => {

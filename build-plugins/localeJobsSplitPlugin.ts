@@ -11,6 +11,7 @@ import {
 // Relative import (no `@/` alias): this file is in the vite.config plugin
 // graph, where alias VALUE imports fail at config load time.
 import { buildJobSlugShards, type SlugMapJobEntry } from '../services/jobSlugShards';
+import { isListingInventoryJob, normalizeListingIdentity } from '../services/jobBoardInventory';
 import {
  buildCantonShards,
  cantonShardFileName,
@@ -62,6 +63,8 @@ const DETAIL_FIELDS = new Set([
  'titleByLocale', 'slugByLocale',
  'sector', 'experienceLevel',
  'validThrough', 'benefits',
+ // Posting age for the assisted application's legitimacy check (career-ops Block G).
+ 'postedDate', 'firstSeenAt',
  'contactPerson', 'contactPhone',
  'pensum', 'pensumMin', 'pensumMax',
  'workModel', 'remote',
@@ -94,10 +97,10 @@ export function localeJobsSplitPlugin(rootDir: string): Plugin {
 
  // Strip fixture-data records (e.g. "Fixture Corp SA" seed) so they cannot
  // leak into dist/data/jobs-*.json or dist/data/job-detail/*.json.
- const jobs = rawJobs.filter((j) => !isFixtureJobEntry(j));
+ const jobs = rawJobs.filter((j) => !isFixtureJobEntry(j) && isListingInventoryJob(j)).map(normalizeListingIdentity);
  const dropped = rawJobs.length - jobs.length;
  if (dropped > 0) {
- console.log(`[locale-jobs-split] Filtered ${dropped} fixture job(s) before locale split`);
+ console.log(`[locale-jobs-split] Filtered ${dropped} fixture or ineligible listing job(s) before locale split`);
  }
 
  const dataDir = path.resolve(outDir, 'data');

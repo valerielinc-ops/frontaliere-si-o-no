@@ -58,6 +58,7 @@ import {
   type BorderCrossingSlug,
   type BorderCrossingRegion,
 } from './borderWaitData';
+import { borderReadingState, formatSourceDate, sourceDateIso } from '../services/dataFreshness';
 
 // ── URL slugs for the map hub page ────────────────────────────────
 
@@ -119,6 +120,9 @@ interface Copy {
   faqQ3: string;
   faqA3: string;
   updatedLabel: string;
+  generatedLabel: string;
+  missingDateLabel: string;
+  staleLabel: string;
   crossingColumn: string;
   regionColumn: string;
   liveColumn: string;
@@ -188,7 +192,10 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     faqA2: "Sì, con un caveat. Il dato è accurato per i successivi 10-15 minuti; oltre quella finestra possono cambiare condizioni meteo, incidenti, controlli mirati. Per viaggi di oltre 30 minuti ti consigliamo di rifrescare la pagina a metà percorso. La webcam live, quando disponibile (ASTRA o Polizia Cantonale), è lo strumento più affidabile per confermare una coda in corso.",
     faqQ3: "Perché alcuni valichi mostrano “dati non disponibili”?",
     faqA3: "I valichi minori di montagna (Biegno-Indemini, Dumenza-Cassinone, Lanzo d'Intelvi-Arogno) hanno traffico molto basso e la Traffic API non restituisce velocità affidabili al di sotto di una soglia di flusso. In quel caso mostriamo lo storico medio e omettiamo il live. Gli otto valichi principali sono coperti al 100 %.",
-    updatedLabel: 'Aggiornato',
+    updatedLabel: 'Ultima osservazione',
+    generatedLabel: 'Pagina generata',
+    missingDateLabel: 'Data osservazione non disponibile',
+    staleLabel: 'Dato scaduto: non descrive il traffico attuale',
     crossingColumn: 'Valico',
     regionColumn: 'Area',
     liveColumn: 'Live',
@@ -251,7 +258,10 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     faqA2: "Yes, with a caveat. The figure is accurate for the next 10–15 minutes; beyond that, weather, incidents or targeted checks may change. For trips longer than 30 minutes we suggest refreshing the page mid-way. The live webcam (ASTRA or Polizia Cantonale), when available, is the most reliable tool to confirm a queue in progress.",
     faqQ3: 'Why do some crossings show “data unavailable”?',
     faqA3: "Minor mountain crossings (Biegno-Indemini, Dumenza-Cassinone, Lanzo d'Intelvi-Arogno) have very low traffic and the Traffic API doesn't return reliable speeds below a flow threshold. In that case we show the historical average and omit the live figure. The eight main crossings are covered 100 %.",
-    updatedLabel: 'Updated',
+    updatedLabel: 'Last observation',
+    generatedLabel: 'Page generated',
+    missingDateLabel: 'Observation date unavailable',
+    staleLabel: 'Outdated reading: not current traffic',
     crossingColumn: 'Crossing',
     regionColumn: 'Area',
     liveColumn: 'Live',
@@ -314,12 +324,15 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     faqA2: "Ja, mit Vorbehalt. Die Zahl ist für die nächsten 10–15 Minuten akkurat; danach können Wetter, Unfälle oder gezielte Kontrollen die Lage ändern. Für Fahrten über 30 Minuten empfehlen wir eine Aktualisierung der Seite unterwegs. Die Live-Webcam (ASTRA oder Polizia Cantonale), sofern verfügbar, ist das zuverlässigste Instrument zur Stau-Bestätigung.",
     faqQ3: 'Warum zeigen einige Übergänge „Daten nicht verfügbar“?',
     faqA3: "Kleine Bergübergänge (Biegno-Indemini, Dumenza-Cassinone, Lanzo d'Intelvi-Arogno) haben sehr geringen Verkehr; die Traffic API liefert unter einem Flussschwellenwert keine zuverlässigen Geschwindigkeiten. In diesem Fall zeigen wir den historischen Mittelwert und lassen den Livewert weg. Die acht Hauptübergänge sind zu 100 % abgedeckt.",
-    updatedLabel: 'Aktualisiert',
+    updatedLabel: 'Letzte Beobachtung',
+    generatedLabel: 'Seite erstellt',
+    missingDateLabel: 'Beobachtungsdatum nicht verfügbar',
+    staleLabel: 'Veraltete Messung: kein aktueller Verkehr',
     crossingColumn: 'Übergang',
     regionColumn: 'Raum',
     liveColumn: 'Live',
     liveLink: 'Öffnen →',
-    breadcrumbHome: 'Home',
+    breadcrumbHome: 'Startseite',
     breadcrumbGuide: 'Grenzgänger-Leitfaden',
     ctaAll: 'Alle Übergänge (Hub)',
     ctaCalculator: 'Netto berechnen',
@@ -377,7 +390,10 @@ const COPY: Record<BorderWaitLocale, Copy> = {
     faqA2: "Oui, avec une nuance. La donnée est précise pour les 10–15 prochaines minutes ; au-delà, météo, incidents ou contrôles ciblés peuvent changer la donne. Pour des trajets de plus de 30 minutes, on suggère un rafraîchissement à mi-parcours. La webcam live (ASTRA ou Polizia Cantonale), lorsque disponible, est l'outil le plus fiable pour confirmer une file en cours.",
     faqQ3: 'Pourquoi certains passages affichent « données indisponibles » ?',
     faqA3: "Les petits passages de montagne (Biegno-Indemini, Dumenza-Cassinone, Lanzo d'Intelvi-Arogno) ont un trafic très faible et la Traffic API ne renvoie pas de vitesses fiables en dessous d'un seuil de flux. Dans ce cas, nous affichons la moyenne historique et omettons le live. Les huit passages principaux sont couverts à 100 %.",
-    updatedLabel: 'Mis à jour',
+    updatedLabel: 'Dernière observation',
+    generatedLabel: 'Page générée',
+    missingDateLabel: 'Date d’observation indisponible',
+    staleLabel: 'Mesure périmée : trafic actuel inconnu',
     crossingColumn: 'Passage',
     regionColumn: 'Zone',
     liveColumn: 'Live',
@@ -576,12 +592,6 @@ function crossingStatus(
   return minutes < 5 ? 'green' : minutes < 15 ? 'yellow' : 'red';
 }
 
-function formatSnapshotTime(value: string | undefined | null, fallback: string): string {
-  return typeof value === 'string' && value.length >= 16
-    ? value.slice(0, 16).replace('T', ' ')
-    : fallback;
-}
-
 function buildHubUrl(locale: BorderWaitLocale): string {
   const prefix = BORDER_WAIT_LOCALE_PREFIX[locale];
   const section = BORDER_WAIT_SECTION[locale];
@@ -592,7 +602,7 @@ function renderCrossingsList(
   locale: BorderWaitLocale,
   copy: Copy,
   current: BorderWaitMapSnapshot,
-  dateStamp: string,
+  today: Date,
 ): string {
   const crossings = TICINO_MAP_CROSSINGS.slice();
   const regionLabelByRegion: Partial<Record<BorderCrossingRegion, string>> = {
@@ -613,12 +623,13 @@ function renderCrossingsList(
     const chipClass = chipClassByRegion[region] ?? 'bw-chip';
     const liveUrl = buildCrossingLiveUrl(slug, locale);
     const snapshot = current.perCrossing[slug];
-    const minutes = crossingMinutes(snapshot);
-    const status = crossingStatus(snapshot, minutes);
+    const observedAt = sourceDateIso(snapshot?.lastUpdate, today);
+    const minutes = observedAt ? crossingMinutes(snapshot) : null;
+    const status = observedAt ? crossingStatus(snapshot, minutes) : null;
     const source = snapshot?.source ? sourceLabels[snapshot.source] ?? snapshot.source : '—';
-    const updated = formatSnapshotTime(snapshot?.lastUpdate, dateStamp);
-    const state = minutes === null ? 'unavailable' : 'snapshot';
-    return `<li class="bw-crossing" data-bw-crossing="${esc(slug)}" data-bw-data-state="${state}">
+    const updated = formatSourceDate(snapshot?.lastUpdate, locale, today) ?? copy.missingDateLabel;
+    const state = minutes === null ? 'unavailable' : borderReadingState(snapshot?.lastUpdate, today);
+    return `<li class="bw-crossing" data-bw-crossing="${esc(slug)}" data-bw-data-state="${state}" data-bw-observed-at="${observedAt ? Date.parse(observedAt) : ''}">
       <div class="bw-crossing-main">
         <div class="bw-crossing-title">
           <a class="bw-crossing-link" href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE}">${esc(name)}</a>
@@ -627,11 +638,11 @@ function renderCrossingsList(
         <div class="bw-crossing-readout">
           <span class="bw-readout-label">${esc(copy.waitLabel)}</span>
           <strong class="bw-wait-value" data-bw-field="totalCrossingMinutes">${esc(minutes === null ? copy.unavailableLabel : `${minutes} min`)}</strong>
-          <span class="bw-status" data-bw-field="status" aria-label="${esc(copy.statusLabel)}">${esc(status ? STATUS_LABELS[locale][status] : copy.unavailableLabel)}</span>
+          <span class="bw-status" data-bw-field="status" aria-label="${esc(copy.statusLabel)}">${esc(state === 'stale' ? copy.staleLabel : status ? STATUS_LABELS[locale][status] : copy.unavailableLabel)}</span>
         </div>
       </div>
       <div class="bw-crossing-meta">
-        <span>${esc(copy.updatedLabel)} <time data-bw-field="lastUpdate">${esc(updated)}</time></span>
+        <span>${esc(copy.updatedLabel)} <time data-bw-field="lastUpdate"${observedAt ? ` datetime="${observedAt}"` : ''}>${esc(updated)}${state === 'stale' ? ` · ${esc(copy.staleLabel)}` : ''}</time></span>
         <span>${esc(copy.sourceLabel)} <span data-bw-field="source">${esc(source)}</span></span>
       </div>
       <a class="bw-crossing-cta" href="${esc(liveUrl)}" style="${LINK_ACCENT_STYLE}">${esc(copy.liveLink)}</a>
@@ -652,10 +663,11 @@ interface RenderedPage {
 export function renderPage(opts: {
   locale: BorderWaitLocale;
   dateStamp: string;
+  today?: Date;
   distDir?: string;
   current?: BorderWaitMapSnapshot;
 }): RenderedPage {
-  const { locale, dateStamp, distDir, current = EMPTY_MAP_SNAPSHOT } = opts;
+  const { locale, distDir, current = EMPTY_MAP_SNAPSHOT, today = new Date() } = opts;
   const copy = COPY[locale];
   const urlPath = `${BORDER_WAIT_LOCALE_PREFIX[locale]}/${MAP_PATH[locale]}/`.replace(/\/+/g, '/');
   const canonicalUrl = `${BASE_URL}${urlPath}`;
@@ -680,9 +692,11 @@ export function renderPage(opts: {
     ? `${BASE_URL}/guida-frontaliere/`
     : `${BASE_URL}/${locale}/${locale === 'en' ? 'cross-border-guide' : locale === 'de' ? 'grenzgaenger-ratgeber' : 'guide-frontalier'}/`;
 
-  const crossingsList = renderCrossingsList(locale, copy, current, dateStamp);
+  const crossingsList = renderCrossingsList(locale, copy, current, today);
   const crossingHeading = copy.crossingsH2.replace(/\b26\b/g, String(TICINO_MAP_CROSSINGS.length));
-  const snapshotStamp = formatSnapshotTime(current.updatedAt, dateStamp);
+  const snapshotAt = sourceDateIso(current.updatedAt, today);
+  const snapshotStamp = formatSourceDate(current.updatedAt, locale, today) ?? copy.missingDateLabel;
+  const snapshotState = borderReadingState(current.updatedAt, today);
 
   // Embed iframe snippet — points to the hub (not the map hub itself) so the
   // widget stays generic and can be placed on any third-party site.
@@ -720,11 +734,11 @@ export function renderPage(opts: {
     url: canonicalUrl,
     inLanguage: locale,
     mapType: 'https://schema.org/TransitMap',
-    datePublished: dateStamp,
-    dateModified: dateStamp,
+    ...(snapshotAt ? { dateModified: snapshotAt } : {}),
     hasPart: places,
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
     },
@@ -748,10 +762,11 @@ export function renderPage(opts: {
   // same sheet (.s-EDtWsL gains min-width:0 + max-width:min(1100px,100%)):
   // .s-EDtWsL is a grid item of the display:grid .seo-static-content wrapper;
   // min-width:auto let wide tables stretch the track past the viewport
-  // (≈1116px on a 382px screen). It fixes THIS page (inner main carries ONLY
-  // .s-EDtWsL) but is a NO-OP on comparisonsHubPlugin, whose inner main carried
-  // `seo-static-content s-EDtWsL` (specificity 0,1,1 > 0,1,0, nested grid keeps
-  // min-width:auto at two levels) — tracked in #961, fixed structurally in #962.
+  // (≈1116px on a 382px screen). It fixes THIS page (inner content wrapper
+  // carries ONLY .s-EDtWsL) but is a NO-OP on comparisonsHubPlugin, whose
+  // inner wrapper carried `seo-static-content s-EDtWsL` (specificity 0,1,1 >
+  // 0,1,0, nested grid keeps min-width:auto at two levels) — tracked in #961,
+  // fixed structurally in #962.
 
   const statGrid = renderStatGrid([
     { label: copy.statCrossingsLabel, value: String(TICINO_MAP_CROSSINGS.length), tone: 'accent' },
@@ -792,8 +807,8 @@ export function renderPage(opts: {
     </nav>
     <header class="s-sy52lX">
       <div class="bw-head-row">
-        <p class="s-GMBtq0" style="margin:0">${esc(copy.updatedLabel)} · ${esc(snapshotStamp)}</p>
-        <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span><span data-bw-live-badge>${esc(`${copy.snapshotLabel} · ${snapshotStamp}`)}</span></span>
+        <p class="s-GMBtq0" style="margin:0">${esc(copy.generatedLabel)} · <time datetime="${today.toISOString()}">${esc(formatSourceDate(today.toISOString(), locale, today))}</time></p>
+        <span class="bw-live"><span class="bw-live-dot" aria-hidden="true"></span><span data-bw-live-badge data-bw-live="false" data-bw-observed-at="${snapshotAt ? Date.parse(snapshotAt) : ''}">${esc(`${copy.snapshotLabel} · ${snapshotStamp}${snapshotState === 'stale' ? ` · ${copy.staleLabel}` : ''}`)}</span></span>
       </div>
       <h1 class="s-mvYgwu">${esc(copy.h1)}</h1>
       <p class="s-MwAgth">${esc(copy.quickLede)}</p>
@@ -855,7 +870,9 @@ export function renderPage(opts: {
   `;
 
   const wordCount = countHtmlBodyWords(body);
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: wordCount >= MIN_INDEXABLE_WORDS })}</div>`;
 
   const html = buildSeoPageHtml({
     locale,
@@ -887,7 +904,8 @@ export function borderWaitMapPlugin(rootDir: string): Plugin {
       }
       const distDir = path.resolve(rootDir, 'dist');
       const collector = new WriteCollector({ distDir, pluginName: 'borderWaitMapPlugin' });
-      const dateStamp = new Date().toISOString().slice(0, 10);
+      const today = new Date();
+      const dateStamp = today.toISOString().slice(0, 10);
       const current = readCurrentSnapshot(rootDir);
       const sitemapEntries: string[] = [];
 
@@ -905,7 +923,7 @@ export function borderWaitMapPlugin(rootDir: string): Plugin {
       }
 
       for (const locale of BORDER_WAIT_LOCALES) {
-        const render = renderPage({ locale, dateStamp, distDir, current });
+        const render = renderPage({ locale, dateStamp, today, distDir, current });
 
         if (render.wordCount < MIN_INDEXABLE_WORDS) {
           console.warn(`\x1b[33m[border-wait-map]\x1b[0m ${locale} below MIN_INDEXABLE_WORDS (${render.wordCount}) — will be noindex`);

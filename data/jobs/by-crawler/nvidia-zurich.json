@@ -1,6 +1,6 @@
 {
   "crawlerKey": "nvidia-zurich",
-  "assembledAt": "2026-09-29T21:28:54.089Z",
+  "assembledAt": "2026-10-01T21:24:30.410Z",
   "jobs": [
     {
       "id": "nvidia-zurich-ac40a1fa78c0",
@@ -33,7 +33,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Architect--GPU-Networking-Research_JR2016906",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:49.296Z",
+      "crawledAt": "2026-10-01T21:24:26.261Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -107,12 +107,13 @@
         "de": "NVIDIA verändert seit mehr als 25 Jahren Computergrafik, PC-Gaming und beschleunigtes Rechnen. Es ist ein einzigartiges Erbe der Innovation, das durch großartige Technologie angetrieben wird - und erstaunliche Menschen.\nHeute nutzen wir das unbegrenzte Potenzial der KI, um die nächste Ära des Computing zu definieren. Eine Ära, in der unsere GPU als Gehirn von Computern, Robotern und selbstfahrenden Autos fungiert, die die Welt verstehen können. Zu tun, was noch nie zuvor getan wurde, erfordert Vision, Innovation und die besten Talente der Welt. Als NVIDIAN werden Sie in eine vielfältige, unterstützende Umgebung eintauchen, in der jeder dazu inspiriert ist, seine beste Arbeit zu leisten. Treten Sie dem Team bei und sehen Sie, wie Sie die Welt nachhaltig beeinflussen können.\nNVIDIA treibt KI und Hochleistungsrechnen voran. DGX Cloud zielt darauf ab, eine vollständig verwaltete KI-Plattform für große Cloud-Anbieter bereitzustellen und KI-Workloads mithilfe einer leistungsstarken NVIDIA-Infrastruktur zu optimieren.\nArbeiten Sie mit dem DGX Cloud-Team von NVIDIA als Senior Site Reliability Engineer zusammen, um leistungsstarke DGX Cloud-Cluster für KI-Forscher und Unternehmenskunden weltweit zu pflegen.\n\nWas du tun wirst:\n\n• Erstellen, Implementieren und Unterstützen von Betriebs- und Zuverlässigkeitsaspekten großer Kubernetes-Cluster mit Schwerpunkt auf skalierbarer Leistung, Echtzeitüberwachung, Protokollierung und Alarmierung\n\n• Definieren Sie SLOs / SLIs, überwachen Sie Fehlerbudgets und straffen Sie die Berichterstattung\n\n• Support-Services vor dem Start durch Systemerstellungsberatung, Entwicklung von Software-Tools, Plattformen und Frameworks, Kapazitätsmanagement und Launch Reviews\n\n• Wartung von Diensten, sobald sie live sind, durch Messung und Überwachung von Verfügbarkeit, Latenz und Gesamtzustand des Systems\n\n• Betrieb und Optimierung von GPU-Workloads in AWS, GCP, Azure, OCI und privaten Clouds\n\n• Skalieren Sie Systeme nachhaltig durch Mechanismen wie Automatisierung und entwickeln Sie Systeme, indem Sie auf Veränderungen drängen, die die Zuverlässigkeit und Geschwindigkeit verbessern\n\n• Lead Triage und Root-Cause-Analyse von hochgradigen Vorfällen\n\n• Praxis ausgewogene Incident Response und schuldlose Postmortems\n\n• Teilnahme an der On-Call-Rotation zur Unterstützung von Produktionsdienstleistungen\n\nWas wir sehen müssen:\n\n• BS in Informatik oder verwandten technischen Bereich oder gleichwertige Erfahrung\n\n• 10+ Jahre Erfahrung im Betrieb von Produktionsdienstleistungen\n\n• Expertenwissen über Kubernetes Administration, Containerisierung und Microservices Architektur\n\n• Erfahrung mit Infrastruktur-Automatisierungstools (z.B. Terraform, Ansible, Chef, Puppet)\n\n• Kenntnisse in mindestens einer High-Level-Programmiersprache (z. B. Python, Go)\n\n• Vertiefte Kenntnisse von Linux-Betriebssystemen, Netzwerkgrundlagen (TCP/IP) und Cloud-Sicherheitsstandards\n\n• Kenntnisse der SRE-Prinzipien, einschließlich SLOs, SLIs, Fehlerbudgets und Incident-Handling\n\n• Erleben Sie die Erstellung und den Betrieb umfassender Observability Stacks (Monitoring, Logging, Tracing) mit Tools wie OpenTelemetry, Prometheus, Grafana, ELK Stack, Lightstep, Splunk usw.\n\nMöglichkeiten, sich von der Masse abzuheben:\n\n• Betrieb von GPU-beschleunigten Clustern mit KubeVirt in Produktion\n\n• Anwendung von Generativ-KI-Techniken zur Verringerung der betrieblichen Arbeit\n\n• Erfahrung mit Workflow-Orchestrierungsplattformen wie Temporal, Cadence, Airflow, Argo Workflows oder Step Functions",
         "fr": "NVIDIA transforme le graphisme informatique, le jeu PC et l'informatique accélérée depuis plus de 25 ans. C'est un héritage unique de l'innovation qui est alimenté par la grande technologie – et des gens étonnants.\nAujourd'hui, nous utilisons le potentiel illimité de l'IA pour définir la prochaine ère de l'informatique. Une époque où notre GPU agit comme le cerveau d'ordinateurs, de robots et de voitures autonomes qui peuvent comprendre le monde. Faire ce qui n'a jamais été fait avant prend la vision, l'innovation, et le monde des meilleurs talents. En tant que NVIDIAN, vous serez immergé dans un environnement diversifié et solidaire où tout le monde est inspiré à faire son meilleur travail. Venez rejoindre l'équipe et voir comment vous pouvez avoir un impact durable sur le monde.\nNVIDIA conduit l'IA et le calcul haute performance vers l'avant. DGX Cloud vise à fournir une plateforme d'IA entièrement gérée sur les principaux fournisseurs de cloud, en optimisant la charge de travail d'IA grâce à une infrastructure NVIDIA haute performance.\nTravailler avec l'équipe DGX Cloud de NVIDIA en tant qu'ingénieur principal de fiabilité du site pour maintenir des grappes DGX Cloud haute performance pour les chercheurs en AI et les clients d'entreprise dans le monde entier.\n\nCe que vous allez faire:\n\n• Construire, mettre en œuvre et soutenir les aspects opérationnels et de fiabilité des grandes grappes Kubernetes en mettant l'accent sur les performances à l'échelle, la surveillance en temps réel, l'enregistrement et l'alerte\n\n• Définir les ALS/ALS, surveiller les budgets d'erreurs et rationaliser les rapports\n\n• Services d'appui avant leur lancement par le biais de services de conseil en création de système, de développement d'outils logiciels, de plates-formes et de cadres, de gestion des capacités et d'examens de lancement\n\n• Maintenir les services une fois qu'ils sont en vie en mesurant et en surveillant la disponibilité, la latence et la santé globale du système\n\n• Exploiter et optimiser les charges de travail GPU sur les nuages AWS, GCP, Azure, OCI et privés\n\n• Systèmes d'échelle durable grâce à des mécanismes comme l'automatisation et l'évolution des systèmes en poussant vers des changements qui améliorent la fiabilité et la vitesse\n\n• Triage du plomb et analyse des incidents de haute gravité\n\n• Pratiquer une réponse équilibrée aux incidents et des postmortems irréprochables\n\n• Participer à la rotation sur appel pour appuyer les services de production\n\nCe que nous devons voir :\n\n• BS en informatique ou dans un domaine technique connexe, ou expérience équivalente\n\n• 10+ ans d'expérience en exploitation de services de production\n\n• Connaissances spécialisées de l'administration, de la conteneurisation et de l'architecture des microservices de Kubernetes\n\n• Expérience des outils d'automatisation des infrastructures (p. ex. Terraform, Ansible, Chef, Marionnette)\n\n• Compétence dans au moins un langage de programmation de haut niveau (p. ex. Python, Go)\n\n• Connaissance approfondie des systèmes d'exploitation Linux, des fondamentaux du réseau (TCP/IP) et des normes de sécurité en nuage\n\n• Connaissance approfondie des principes du SRE, englobant les ALS, les ALS, les budgets d'erreurs et la gestion des incidents\n\n• Expérimentez la construction et l'exploitation de piles d'observation complètes (suivi, log, traçage) à l'aide d'outils comme OpenTelemetry, Prométheus, Grafana, ELK Stack, Lightstep, Spunk, etc.\n\nComment se démarquer de la foule :\n\n• Exploitation de grappes accélérées GPU avec KubeVirt en production\n\n• Application de techniques d'AI génériques pour réduire le travail opérationnel\n\n• Expérience avec les plates-formes d'orchestration de workflow comme Temporal, Cadence, Airflow, Argo Workflows ou Step Functions"
       },
+      "needsRetranslation": true,
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Site-Reliability-Engineer--DGX-Cloud_JR2021427-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:28.328Z",
+      "crawledAt": "2026-10-01T21:24:19.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -191,7 +192,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Research-Scientist--AI-RL-and-LLMs_JR2023706",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:27.620Z",
+      "crawledAt": "2026-10-01T21:24:18.751Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -271,7 +272,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-and-AI-Network-Software-Architect_JR2022878",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:26.952Z",
+      "crawledAt": "2026-10-01T21:24:17.589Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -363,7 +364,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Solutions-Architect--Higher-Education-and-Research--Multimodal-and-Physical-AI_JR2024873",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:26.059Z",
+      "crawledAt": "2026-10-01T21:24:16.787Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -449,7 +450,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Supercomputing-and-Higher-Education-Account-Manager_JR2024073",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:24.416Z",
+      "crawledAt": "2026-10-01T21:24:15.077Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -528,7 +529,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Developer_JR2008695",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:22.862Z",
+      "crawledAt": "2026-10-01T21:24:13.419Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -623,7 +624,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineer--Energy_JR2018521",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:22.161Z",
+      "crawledAt": "2026-10-01T21:24:12.707Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -703,7 +704,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-HPC-AI-Cluster-Engineer_JR2018385",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:21.439Z",
+      "crawledAt": "2026-10-01T21:24:12.017Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -776,7 +777,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-Software-Developer--AI-Networking_JR2016186",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:17.357Z",
+      "crawledAt": "2026-10-01T21:24:08.164Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -849,7 +850,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Senior-GPU-Networking-Architect_JR2015083",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:11.273Z",
+      "crawledAt": "2026-10-01T21:24:03.425Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -929,7 +930,7 @@
       "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/PhD-Research-Intern--Autonomous-Systems-and-Physical-AI-Research---2027_JR2024606-1",
       "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:28:05.391Z",
+      "crawledAt": "2026-10-01T21:23:57.858Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -973,6 +974,86 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "nvidia-zurich-e67e605911e0",
+      "slug": "sviluppatore-technology-engineering-tirocinante-compute-performance-nvidia-ufficio-zurich-zurich",
+      "slugByLocale": {
+        "it": "sviluppatore-technology-engineering-tirocinante-compute-performance-nvidia-ufficio-zurich-zurich",
+        "en": "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch",
+        "de": "entwickler-technology-engineering-praktikant-compute-performance-nvidia-ufficio-zurich-zurich",
+        "fr": "developpeur-technology-engineering-stagiaire-compute-performance-nvidia-ufficio-zurich-zurich"
+      },
+      "company": "NVIDIA (ufficio Zurich)",
+      "companyKey": "nvidia-zurich",
+      "companyDomain": "nvidia.com",
+      "title": "Developer Technology Engineering Intern - Compute Performance",
+      "titleByLocale": {
+        "it": "Sviluppatore Technology Engineering Tirocinante - Compute Performance",
+        "en": "Developer Technology Engineering Intern - Compute Performance",
+        "de": "Entwickler Technology Engineering Praktikant - Compute Performance",
+        "fr": "Développeur Technology Engineering Stagiaire - Compute Performance"
+      },
+      "description": "NVIDIA is hiring passionate, world-class computer science studetns to work in its Compute Developer Technology (Devtech) team. With highly competitive salaries and a comprehensive benefits package, NVIDIA is widely considered to be one of the technology industry's most desirable employers. We have some of the most brilliant and talented people in the world working with us and our engineering teams are growing fast in some of the hottest and state of the art fields: Deep Learning, Artificial Intelligence, Autonomous Vehicles, Supercomputing and more. Are you a creative and autonomous computer scientist with a real passion for parallel computing? If so, we want to hear from you.\n\nWhat you will be doing:\nIn this role, you will research and develop techniques to GPU-accelerate leading applications in high performance computing fields within scientific computing, computational engineering, and data science. You will be performing in-depth analysis and optimization to ensure the best possible performance on current and next-generation GPU architectures. This involves:\n\n• Working directly with key application developers to understand the current and future problems they are solving, crafting and optimizing core parallel algorithms and data structures to provide the best solutions using GPUs, through both library development and direct contribution to the applications.\n\n• Collaborating closely with diverse groups at NVIDIA such as the architecture, research, libraries, tools, and system software teams to influence the design of next-generation architectures, software platforms, and programming models, by investigating the impact on application performance and developer productivity.\n\nWhat we need to see:\n\n• Pursuing a MSc or preferably PhD degree in an engineering or computer science related discipline. While not a requirement, domain expertise in telecommunications, medical imaging, machine learning, deep learning, or natural sciences is helpful.\n\n• Programming fluency in C/C++ and/or Fortran with a deep understanding of software design, programming techniques, and algorithms.\n\n• Strong mathematical fundamentals, including linear algebra and numerical methods.\n\n• Experience with parallel programming, ideally CUDA C/C++ and OpenACC.\n\n• Strong communication and organization skills, with a logical approach to problem solving, good time management, and task prioritization skills.\n\nNVIDIA is committed to fostering a diverse work environment and proud to be an equal opportunity employer. As we highly value diversity in our current and future employees, we do not discriminate (including in our hiring and promotion practices) on the basis of race, religion, color, national origin, gender, gender expression, sexual orientation, age, marital status, veteran status, disability status or any other characteristic protected by law.​",
+      "descriptionByLocale": {
+        "it": "NVIDIA sta assumendo esperti di informatica di livello mondiale per lavorare nel suo team Compute Developer Technology (Devtech). Con stipendi altamente competitivi e un pacchetto completo di benefici, NVIDIA è ampiamente considerato uno dei datori di lavoro più desiderabili del settore tecnologico. Abbiamo alcune delle persone più brillanti e di talento nel mondo che lavorano con noi e i nostri team di ingegneria stanno crescendo velocemente in alcuni dei campi più caldi e di stato dell'arte: Deep Learning, Artificial Intelligence, Autonomous Vehicles, Supercomputing e altro ancora. Sei uno scienziato informatico creativo e autonomo con una vera passione per il calcolo parallelo? Se è così, vogliamo sentire da voi.\n\nCosa farai:\nIn questo ruolo, cercherai e svilupperai tecniche per le applicazioni leader di GPU-accelerate nei campi di calcolo ad alte prestazioni all'interno del calcolo scientifico, dell'ingegneria computazionale e della scienza dei dati. Potrai eseguire analisi e ottimizzazione approfondite per garantire le migliori prestazioni possibili sulle architetture GPU attuali e di nuova generazione. Ciò comporta:\n\n• Lavorare direttamente con gli sviluppatori di applicazioni chiave per comprendere i problemi attuali e futuri che stanno risolvendo, realizzando e ottimizzando algoritmi e strutture dati paralleli core per fornire le migliori soluzioni utilizzando GPU, attraverso lo sviluppo di librerie e il contributo diretto alle applicazioni.\n\n• Collaborando a stretto contatto con diversi gruppi di NVIDIA come l'architettura, la ricerca, le biblioteche, gli strumenti e i team di software di sistema per influenzare la progettazione di architetture di nuova generazione, piattaforme software e modelli di programmazione, indagando l'impatto sulle prestazioni delle applicazioni e sulla produttività degli sviluppatori.\n\nCosa dobbiamo vedere:\n\n• L'acquisto di una laurea MSc o preferibilmente PhD in una disciplina di ingegneria o informatica. Anche se non è un requisito, competenze di dominio nelle telecomunicazioni, imaging medico, machine learning, deep learning, o scienze naturali è utile.\n\n• Fluency di programmazione in C/C++ e/o Fortran con una profonda comprensione del software, delle tecniche di programmazione e degli algoritmi.\n\n• Forti fondamenti matematici, tra cui algebra lineare e metodi numerici.\n\n• Esperienza con programmazione parallela, idealmente CUDA C/C++ e OpenACC.\n\n• Forte capacità di comunicazione e di organizzazione, con un approccio logico al problem solving, buona gestione del tempo e competenze di priorità compito.\n\nNVIDIA si impegna a promuovere un ambiente di lavoro diversificato e orgoglioso di essere un datore di lavoro pari opportunità. Poiché apprezziamo molto la diversità nei nostri dipendenti attuali e futuri, non discriminate (anche nelle nostre pratiche di assunzione e promozione) sulla base di razza, religione, colore, origine nazionale, sesso, espressione di genere, orientamento sessuale, età, stato civile, stato veterano, stato di disabilità o qualsiasi altra caratteristica protetta dalla legge.",
+        "en": "NVIDIA is hiring passionate, world-class computer science studetns to work in its Compute Developer Technology (Devtech) team. With highly competitive salaries and a comprehensive benefits package, NVIDIA is widely considered to be one of the technology industry's most desirable employers. We have some of the most brilliant and talented people in the world working with us and our engineering teams are growing fast in some of the hottest and state of the art fields: Deep Learning, Artificial Intelligence, Autonomous Vehicles, Supercomputing and more. Are you a creative and autonomous computer scientist with a real passion for parallel computing? If so, we want to hear from you.\n\nWhat you will be doing:\nIn this role, you will research and develop techniques to GPU-accelerate leading applications in high performance computing fields within scientific computing, computational engineering, and data science. You will be performing in-depth analysis and optimization to ensure the best possible performance on current and next-generation GPU architectures. This involves:\n\n• Working directly with key application developers to understand the current and future problems they are solving, crafting and optimizing core parallel algorithms and data structures to provide the best solutions using GPUs, through both library development and direct contribution to the applications.\n\n• Collaborating closely with diverse groups at NVIDIA such as the architecture, research, libraries, tools, and system software teams to influence the design of next-generation architectures, software platforms, and programming models, by investigating the impact on application performance and developer productivity.\n\nWhat we need to see:\n\n• Pursuing a MSc or preferably PhD degree in an engineering or computer science related discipline. While not a requirement, domain expertise in telecommunications, medical imaging, machine learning, deep learning, or natural sciences is helpful.\n\n• Programming fluency in C/C++ and/or Fortran with a deep understanding of software design, programming techniques, and algorithms.\n\n• Strong mathematical fundamentals, including linear algebra and numerical methods.\n\n• Experience with parallel programming, ideally CUDA C/C++ and OpenACC.\n\n• Strong communication and organization skills, with a logical approach to problem solving, good time management, and task prioritization skills.\n\nNVIDIA is committed to fostering a diverse work environment and proud to be an equal opportunity employer. As we highly value diversity in our current and future employees, we do not discriminate (including in our hiring and promotion practices) on the basis of race, religion, color, national origin, gender, gender expression, sexual orientation, age, marital status, veteran status, disability status or any other characteristic protected by law.​",
+        "de": "NVIDIA stellt leidenschaftliche Computerwissenschaftler von Weltklasse ein, um in seinem Team für Compute Developer Technology (Devtech) zu arbeiten. Mit sehr wettbewerbsfähigen Gehältern und einem umfassenden Leistungspaket gilt NVIDIA weithin als einer der begehrtesten Arbeitgeber der Technologiebranche. Wir haben einige der brillantesten und talentiertesten Menschen der Welt, die mit uns zusammenarbeiten, und unsere Ingenieurteams wachsen schnell in einigen der heißesten und modernsten Bereiche: Deep Learning, Künstliche Intelligenz, autonome Fahrzeuge, Supercomputing und mehr. Sind Sie ein kreativer und autonomer Informatiker mit einer echten Leidenschaft für Parallel Computing? Wenn ja, wollen wir von Ihnen hören.\n\nWas Sie tun werden:\nIn dieser Rolle erforschen und entwickeln Sie Techniken, um führende Anwendungen in Hochleistungs-Computing-Bereichen in den Bereichen Scientific Computing, Computational Engineering und Data Science zu beschleunigen. Sie führen eine eingehende Analyse und Optimierung durch, um die bestmögliche Leistung für aktuelle und GPU-Architekturen der nächsten Generation zu gewährleisten. Dazu gehören:\n\n• Arbeiten Sie direkt mit wichtigen Anwendungsentwicklern zusammen, um die aktuellen und zukünftigen Probleme zu verstehen, die sie lösen, erstellen und optimieren, um die besten Lösungen mit GPUs zu bieten, sowohl durch Bibliotheksentwicklung als auch durch direkten Beitrag zu den Anwendungen.\n\n• Enge Zusammenarbeit mit verschiedenen Gruppen bei NVIDIA wie Architektur, Forschung, Bibliotheken, Tools und Systemsoftwareteams, um das Design von Architekturen der nächsten Generation, Softwareplattformen und Programmiermodellen zu beeinflussen, indem die Auswirkungen auf die Anwendungsleistung und die Produktivität der Entwickler untersucht werden.\n\nWas wir sehen müssen:\n\n• Verfolgung eines MSc oder vorzugsweise PhD-Abschluss in einer Ingenieur- oder Informatik verwandten Disziplin. Obwohl dies keine Voraussetzung ist, ist das Fachwissen in den Bereichen Telekommunikation, medizinische Bildgebung, maschinelles Lernen, Deep Learning oder Naturwissenschaften hilfreich.\n\n• Programmieren Sie fließend in C / C ++ und / oder Fortran mit einem tiefen Verständnis von Software-Design, Programmiertechniken und Algorithmen.\n\n• Starke mathematische Grundlagen, einschließlich linearer Algebra und numerischer Methoden.\n\n• Erfahrung mit paralleler Programmierung, idealerweise CUDA C/C++ und OpenACC.\n\n• Starke Kommunikations- und Organisationsfähigkeiten mit einem logischen Ansatz zur Problemlösung, gutem Zeitmanagement und Fähigkeiten zur Aufgabenpriorisierung.\n\nNVIDIA engagiert sich für ein vielfältiges Arbeitsumfeld und ist stolz darauf, ein Arbeitgeber mit gleichen Chancen zu sein. Da wir die Vielfalt unserer derzeitigen und zukünftigen Mitarbeiter sehr schätzen, diskriminieren wir nicht (einschließlich unserer Einstellungs- und Beförderungspraktiken) auf der Grundlage von Rasse, Religion, Hautfarbe, nationaler Herkunft, Geschlecht, Geschlechtsausdruck, sexueller Orientierung, Alter, Familienstand, Veteranenstatus, Behinderungsstatus oder anderen gesetzlich geschützten Merkmalen.",
+        "fr": "NVIDIA recrute des étudiants en informatique passionnés et de calibre mondial pour travailler dans son équipe de calcul de technologie (Devtech). Avec des salaires très compétitifs et un ensemble complet d'avantages sociaux, NVIDIA est largement considéré comme l'un des employeurs les plus souhaitables de l'industrie de la technologie. Nous avons quelques-unes des personnes les plus brillantes et les plus talentueuses du monde travaillant avec nous et nos équipes d'ingénierie grandissent rapidement dans certains des domaines les plus chauds et les plus modernes : Deep Learning, Artificial Intelligence, Autonomous Vehicles, Supercomputing et plus encore. Êtes-vous un informaticien créatif et autonome avec une véritable passion pour l'informatique parallèle? Si oui, nous voulons avoir des nouvelles de vous.\n\nCe que vous ferez :\nDans ce rôle, vous étudierez et développerez des techniques pour accélérer les applications de pointe dans les domaines de l'informatique de haute performance au sein de l'informatique scientifique, de l'ingénierie informatique et de la science des données. Vous effectuerez une analyse et une optimisation en profondeur pour assurer la meilleure performance possible sur les architectures GPU actuelles et de prochaine génération. Cela implique:\n\n• Travailler directement avec les développeurs d'applications clés pour comprendre les problèmes actuels et futurs qu'ils résolvent, écrivent et optimisent les algorithmes parallèles de base et les structures de données afin de fournir les meilleures solutions utilisant les GPU, par le développement de la bibliothèque et la contribution directe aux applications.\n\n• Collaborer étroitement avec divers groupes de NVIDIA, comme les équipes d'architecture, de recherche, de bibliothèques, d'outils et de logiciels système, afin d'influencer la conception des architectures de prochaine génération, des plates-formes logicielles et des modèles de programmation, en étudiant l'impact sur la performance des applications et la productivité des développeurs.\n\nCe que nous devons voir :\n\n• Poursuivre une maîtrise ou de préférence un doctorat dans une discipline liée à l'ingénierie ou à l'informatique. Bien que ce ne soit pas une exigence, l'expertise en télécommunications, en imagerie médicale, en apprentissage automatique, en apprentissage profond ou en sciences naturelles est utile.\n\n• Connaissance de la programmation en C/C++ et/ou Fortran avec une compréhension approfondie de la conception de logiciels, des techniques de programmation et des algorithmes.\n\n• Forts fondamentaux mathématiques, y compris l'algèbre linéaire et les méthodes numériques.\n\n• Expérience avec la programmation parallèle, idéalement CUDA C/C++ et OpenACC.\n\n• Des compétences solides en communication et en organisation, avec une approche logique de la résolution des problèmes, une bonne gestion du temps et des compétences en matière de hiérarchisation des tâches.\n\nNVIDIA s'engage à favoriser un milieu de travail diversifié et est fière d'être un employeur à égalité de chances. Étant donné que nous accordons une grande valeur à la diversité de nos employés actuels et futurs, nous ne faisons aucune discrimination (y compris dans nos pratiques d'embauche et de promotion) fondée sur la race, la religion, la couleur, l'origine nationale, le sexe, l'expression du sexe, l'orientation sexuelle, l'âge, l'état matrimonial, le statut d'ancien combattant, le statut d'invalidité ou toute autre caractéristique protégée par la loi."
+      },
+      "needsRetranslation": false,
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineering-Intern---Compute-Performance_JR2026775",
+      "source": "NVIDIA (ufficio Zurich) Dedicated Parser (Workday)",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:23:55.445Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Tecnologia / Semiconduttori",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-30",
+      "applyUrl": "https://nvidia.wd5.myworkdayjobs.com/en-US/NVIDIAExternalCareerSite/job/Switzerland-Zurich/Developer-Technology-Engineering-Intern---Compute-Performance_JR2026775",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "jobReqId": "JR2026775",
+      "previousSlugs": [
+        "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch",
+        "sviluppatore-technology-engineering-tirocinante-compute-performance-nvidia-ufficio-zurich-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch",
+          "sviluppatore-technology-engineering-tirocinante-compute-performance-nvidia-ufficio-zurich-zurich"
+        ],
+        "de": [
+          "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch"
+        ],
+        "fr": [
+          "developer-technology-engineering-intern-compute-performance-nvidia-zurich-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-30T21:18:07.989Z",
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
           "unitText": "YEAR"
         }
       }

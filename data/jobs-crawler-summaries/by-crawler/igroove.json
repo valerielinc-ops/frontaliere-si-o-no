@@ -1,21 +1,23 @@
 {
   "key": "igroove",
   "label": "iGroove AG",
-  "generatedAt": "2026-09-29T21:26:54.261Z",
+  "generatedAt": "2026-10-01T21:37:54.857Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2858,
-  "avgDurationMs": 2858,
+  "durationMs": 4309,
+  "avgDurationMs": 4309,
   "durationHistory": [
-    2858
+    4309
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +33,7 @@
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:26:49.685Z",
+      "crawledAt": "2026-10-01T21:37:44.659Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "SZ",
       "streetAddress": "Churerstrasse 135",

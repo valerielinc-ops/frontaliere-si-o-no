@@ -99,6 +99,7 @@
  * 6. Attribution is captured once per session, not on every page_view
  */
 
+import { jobJourneyFields, recordJobJourneyStep, type JobJourneyStep, type JobJourneyIdentity } from './jobApplicationJourney';
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { redactPersonalData } from './privacy/redactPii';
 import { classifyQuestionTopic } from './privacy/questionTopic';
@@ -111,9 +112,29 @@ import {
  isGoogleIosAppInjectedStackOverflow,
  BROWSER_EXTENSION_ORIGIN_PATTERN,
 } from './benignErrorPatterns';
-import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
+import { safeAffiliateToken, buildAffiliatePubref, sanitizeAffiliatePubref } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
 import { jobGateNewsletterTags } from './jobGateExperiment';
+
+export interface AffiliateTelemetry {
+ surface?: string;
+ position?: string;
+ campaign?: string;
+ variant?: string;
+ attributionId?: string;
+ commercialActive?: boolean;
+}
+
+function affiliateTelemetry(partnerId: string, context: string, attribution: AffiliateTelemetry) {
+ const partner_id = safeAffiliateToken(partnerId, 'unknown');
+ const surface = safeAffiliateToken(attribution.surface, 'web');
+ const position = safeAffiliateToken(attribution.position, safeAffiliateToken(context, 'unknown'));
+ const campaign = safeAffiliateToken(attribution.campaign, 'affiliate');
+ const variant = safeAffiliateToken(attribution.variant, 'control');
+ const attribution_id = sanitizeAffiliatePubref(attribution.attributionId || buildAffiliatePubref({ partnerId: partner_id, surface, position, campaign, variant }));
+ return { partner_id, context: safeAffiliateToken(context, 'unknown'), surface, position, campaign, variant,
+  attribution_id, commercial_active: attribution.commercialActive === true, content_type: 'affiliate', item_id: attribution_id };
+}
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -1242,35 +1263,14 @@ export const Analytics = {
  return resolvedPageViewEmissionId;
  },
 
- /**
- * Affiliate click — tracks partner clicks with context for revenue attribution
- */
- trackAffiliateClick: (
-  partnerId: string,
-  context: string,
-  attribution?: {
-   surface?: string;
-   position?: string;
-   campaign?: string;
-   variant?: string;
-  },
- ) => {
- const safePartnerId = safeAffiliateToken(partnerId, 'unknown');
- const safeContext = safeAffiliateToken(context, 'unknown');
- const surface = safeAffiliateToken(attribution?.surface, 'web');
- const position = safeAffiliateToken(attribution?.position, safeContext);
- const campaign = safeAffiliateToken(attribution?.campaign, 'affiliate');
- const variant = safeAffiliateToken(attribution?.variant, 'control');
- log('affiliate_click', {
- partner_id: safePartnerId,
- context: safeContext,
- surface,
- position,
- campaign,
- variant,
- content_type: 'affiliate',
- item_id: `${safePartnerId}_${surface}_${position}_${campaign}_${variant}`,
- });
+ /** A visible referral CTA; Firebase is the unsampled source of truth. */
+ trackAffiliateImpression: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  logFirebaseOnly('affiliate_impression', affiliateTelemetry(partnerId, context, attribution));
+ },
+
+ /** Affiliate click retains the historical stream and the canonical network reference. */
+ trackAffiliateClick: (partnerId: string, context: string, attribution: AffiliateTelemetry = {}) => {
+  log('affiliate_click', affiliateTelemetry(partnerId, context, attribution));
  },
 
  /** Bounded G4 affiliate experiment exposure; contains only categorical ids. */
@@ -2030,6 +2030,12 @@ export const Analytics = {
  });
  },
 
+ /** Tab-scoped, deduplicated journey stages, emitted to Firebase only. */
+ trackJobApplicationStep: (identity: JobJourneyIdentity, step: JobJourneyStep) => {
+  const event = recordJobJourneyStep(identity, step);
+  if (event) logFirebaseOnly('job_application_journey', event);
+ },
+
  /**
  * Candidatura su un annuncio — emette `job_apply` con attribuzione per-azienda
  * pulita. `employer_key` è la chiave canonica `companyKey` del dataset e
@@ -2071,6 +2077,8 @@ export const Analytics = {
  ) => {
   const destinationHost = resolveExternalDestinationHost(destination);
   if (!destinationHost) return false;
+  const identity = { jobSlug: job.slugByLocale?.it || job.slug || '', employerKey: job.companyKey || undefined };
+  Analytics.trackJobApplicationStep(identity, 'handoff');
   log(JOB_APPLY_HANDOFF_EVENT, {
    ...buildJobApplyAttributionParams(job),
    is_sponsored: job.featured ? 'sponsored' : 'free',
@@ -2217,6 +2225,10 @@ export const Analytics = {
   * sent to this stream.
   */
  trackJobAuthGate: (action: 'view' | 'method_click' | 'success' | 'fail' | 'dismiss', details: JobAuthGateTelemetry = {}) => {
+  if (details.jobSlug) {
+   const steps = { view: 'gate_view', method_click: 'auth_start', success: 'auth_success', fail: 'auth_error', dismiss: 'gate_dismiss' } as const;
+   Analytics.trackJobApplicationStep({ jobSlug: details.jobSlug }, steps[action]);
+  }
   const surface = details.surface || 'unknown';
   const method = details.method || 'unknown';
   const state = details.authState || 'unknown';
@@ -2231,6 +2243,7 @@ export const Analytics = {
   ].join('|');
 
   logFirebaseOnly('ui_interaction', {
+   ...(details.jobSlug ? jobJourneyFields({ jobSlug: details.jobSlug }) : {}),
    page: 'job_auth_gate',
    section: surface,
    component: method,
@@ -2783,7 +2796,7 @@ export const Analytics = {
   * instead of inferring it from a zero impression count.
   */
  trackJobAlertCtaSkipped: (
- surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button',
+ surface: 'job_detail_prompt' | 'job_board_filters' | 'sticky_banner' | 'end_card' | 'job_detail_button' | 'inline_card',
  reason:
  | 'no_auth'
  | 'no_category'

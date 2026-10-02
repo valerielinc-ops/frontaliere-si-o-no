@@ -30,6 +30,8 @@ import { ASSISTED_APPLICATIONS_COLLECTION } from './assistedApplicationConstants
 import { buildAssistedApplicationEvent } from './assistedApplicationAudit.js';
 import { isAssistedApplicationCvKey } from './assistedApplicationCvCheck.js';
 import { TERMINAL_STATES, transition } from './assistedApplicationFlow.js';
+import { scheduleFollowups } from './assistedApplicationFollowup.js';
+import { isUnconfirmedSubmission, submissionGuard, submissionLeftAt } from './assistedApplicationSubmissionGuard.js';
 import { GITHUB_API, getRepoConfig } from './githubProxy.js';
 import { githubApiHeaders } from './githubApiHeaders.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
@@ -42,8 +44,12 @@ export const AUTOMATION_EVENTS_SUBCOLLECTION = 'automation_events';
 export const AI_DRAFTS_SUBCOLLECTION = 'ai_drafts';
 export const AI_DRAFT_DOC_ID = 'current';
 
-/** A dispatched run that reported nothing for this long is presumed lost. */
-export const RUN_WATCHDOG_MS = 45 * 60 * 1000;
+/**
+ * A dispatched run that reported nothing for this long is presumed lost.
+ * Longer than the agent job's timeout-minutes (120, three 30-minute Codex
+ * calls in a row): a slow run that is still alive is never dispatched twice.
+ */
+export const RUN_WATCHDOG_MS = 150 * 60 * 1000;
 /** Draft runs at Codex effort max take ~10–15 min; submissions can take longer. */
 export const MAX_DISPATCH_ATTEMPTS = 2;
 const DISPATCH_TIMEOUT_MS = 20_000;
@@ -72,15 +78,38 @@ export function draftRefFor(db, orderId) {
   return orderRefFor(db, orderId).collection(AI_DRAFTS_SUBCOLLECTION).doc(AI_DRAFT_DOC_ID);
 }
 
+/**
+ * The Remote Config flag: "true" automates every order; "false" or empty
+ * none; anything else is a list of order ids (commas or spaces) and automates
+ * only those — the final trial run, before switching on for everyone.
+ */
+export function parseAutomationFlag(value) {
+  const text = String(value || '').trim();
+  if (text.toLowerCase() === 'true') return { all: true, orders: new Set() };
+  if (!text || text.toLowerCase() === 'false') return { all: false, orders: new Set() };
+  return { all: false, orders: new Set(text.split(/[\s,]+/).filter(Boolean)) };
+}
+
 /** Fails closed: any error reading Remote Config means "off". */
-export async function isAutomationEnabled(read = null) {
+async function readAutomationFlag(read) {
   try {
-    const reader = read || getRemoteConfigValue;
-    return String(await reader(AUTOMATION_FLAG_KEY) || '').trim().toLowerCase() === 'true';
+    return parseAutomationFlag(await (read || getRemoteConfigValue)(AUTOMATION_FLAG_KEY));
   } catch (error) {
     console.warn('[assistedApplicationAutomation] flag read failed', error instanceof Error ? error.message : String(error));
-    return false;
+    return parseAutomationFlag('');
   }
+}
+
+/** On for at least one order: the sweeps run (they only touch orders that have a flow). */
+export async function isAutomationEnabled(read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.size > 0;
+}
+
+/** On for this order: whatever creates a flow or changes its e-mails asks this. */
+export async function isAutomationEnabledFor(orderId, read = null) {
+  const flag = await readAutomationFlag(read);
+  return flag.all || flag.orders.has(String(orderId || ''));
 }
 
 /** The order's CV passed the magic-byte check for its current key. */
@@ -213,7 +242,8 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
         mode: dispatch.mode,
         round: nextFlow.round,
         requestedAt: nowMs,
-        attempts: 1,
+        // A retry carries its count, so the watchdog and the flow share the limit.
+        attempts: Number(dispatch.attempts) || 1,
         reason: dispatch.reason || null,
       };
     }
@@ -253,7 +283,7 @@ export async function applyAutomationEvent({ db, orderId, event, actor = 'system
  */
 export async function maybeStartAutomation(before, after, orderId, {
   db,
-  enabled = isAutomationEnabled,
+  enabled = isAutomationEnabledFor,
   runEffect,
   ensureAlias = null,
   nowMs = Date.now(),
@@ -263,7 +293,7 @@ export async function maybeStartAutomation(before, after, orderId, {
   if (!cvJustReady) return { ok: true, skipped: 'no_new_cv' };
   const eligibility = automationEligibility(after, orderId);
   if (!eligibility.eligible) return { ok: true, skipped: eligibility.reason };
-  if (!(await enabled())) return { ok: true, skipped: 'automation_disabled' };
+  if (!(await enabled(orderId))) return { ok: true, skipped: 'automation_disabled' };
   return startAutomation({ db, orderId, runEffect, nowMs, reason: 'cv_verified', ensureAlias });
 }
 
@@ -431,6 +461,65 @@ export async function handleRunnerEvent({ db, orderId, eventRef, data, runEffect
     claimRef: eventRef,
   });
   return result;
+}
+
+// ── Employer e-mail on the alias (inbox) ───────────────────────────────────
+
+const ACKNOWLEDGED = Object.freeze({ type: 'submit_acknowledged' });
+
+/**
+ * career-ops apply.md: an application is sent on the success page OR the
+ * confirmation e-mail. A submit of unknown outcome (a portal after its final
+ * click, an e-mail send nobody confirmed) stays "sending" in the submission
+ * guard and the flow holds it for Valerie; an acknowledgement or a reply of
+ * the employer on the order's alias proves it arrived. The guard goes on
+ * record as sent, then the flow moves to `submitted` as on submit_succeeded.
+ * Nothing happens when nothing left (no final click: the message is about
+ * something else), for a message older than the send, or once the flow is
+ * past it: a second message finds it submitted.
+ *
+ * @param {{db, orderId:string, receivedAt:number, runEffect:Function, nowMs?:number}} args
+ */
+export async function confirmSubmissionByEmployer({ db, orderId, receivedAt, runEffect, nowMs = Date.now() }) {
+  const flowSnapshot = await flowRefFor(db, orderId).get();
+  if (!flowSnapshot.exists) return { ok: false, ignored: 'no_flow' };
+  const flow = flowSnapshot.data() || {};
+  // The flow's own rule decides first: the guard is never touched for a flow past it.
+  const refused = transition(flow, ACKNOWLEDGED, { nowMs }).ignored;
+  if (refused) return { ok: false, ignored: refused };
+  const guard = submissionGuard(db, orderId, flow.round);
+  const record = await guard.read();
+  const leftAt = submissionLeftAt(record);
+  // Confirmed by an earlier message whose flow event did not land: applied now.
+  const confirmedBefore = record?.state === 'sent' && record.confirmedBy === 'acknowledgement';
+  if (!confirmedBefore) {
+    if (!isUnconfirmedSubmission(record)) return { ok: false, ignored: 'nothing_unconfirmed' };
+    if (Number(receivedAt) < leftAt) return { ok: false, ignored: 'before_submit' };
+    await guard.markSent({ channel: record.channel, confirmedBy: 'acknowledgement', confirmedAt: nowMs }, leftAt);
+  }
+  const result = await applyAutomationEvent({
+    db,
+    orderId,
+    event: ACKNOWLEDGED,
+    actor: 'employer_email',
+    runEffect,
+    nowMs,
+    patchFlow: () => ({ submittedVia: record.channel }),
+  });
+  if (result.ok && record.channel === 'email') await scheduleConfirmedEmailFollowups(db, orderId, leftAt);
+  return result;
+}
+
+/**
+ * The follow-ups the runner schedules after an e-mail application that went
+ * through; this one's outcome was unknown, so it had none. Its Message-ID is
+ * not on record: the "Re:" subject threads them anyway.
+ */
+async function scheduleConfirmedEmailFollowups(db, orderId, sentAt) {
+  const draft = (await draftRefFor(db, orderId).get()).data() || {};
+  const to = String(draft.applicationEmail?.to || draft.channel?.email || '').trim().toLowerCase();
+  if (!to) return null;
+  return scheduleFollowups(db, orderId, { to, subject: draft.applicationEmail?.subject || '', messageId: '', sentAt });
 }
 
 export function newRequestId() {

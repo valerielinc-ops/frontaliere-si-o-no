@@ -444,7 +444,9 @@ function renderPage(opts: {
     <p class="s-kddz8N">${esc(copy.disclaimer)}</p>
     ${relatedHtml}`;
 
-  const bodyHtml = `<main class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</main>`;
+  // buildSeoPageHtml already provides the crawler-facing <main> landmark.
+  // Keep this class on a neutral wrapper so the page has one main landmark.
+  const bodyHtml = `<div class="s-EDtWsL">${body}${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(body) >= MIN_INDEXABLE_WORDS })}</div>`;
 
   // ── Structured data ────────────────────────────────────────────
   const breadcrumbLd = inlineScriptJson({
@@ -478,9 +480,10 @@ function renderPage(opts: {
     url: canonicalUrl,
     datePublished: dateStamp,
     dateModified: dateStamp,
-    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    author: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
-      '@type': 'Organization',
+      '@type': 'NewsMediaOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: 'Frontaliere Ticino',
       url: `${BASE_URL}/`,
       logo: imageObjectLd({
@@ -513,7 +516,7 @@ function renderPage(opts: {
     url: canonicalUrl,
     inLanguage: locale,
     license: 'https://creativecommons.org/licenses/by/4.0/',
-    creator: { '@type': 'Organization', name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
+    creator: { '@type': 'NewsMediaOrganization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     distribution: [
       {
         '@type': 'DataDownload',

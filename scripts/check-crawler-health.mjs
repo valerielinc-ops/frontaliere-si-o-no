@@ -412,14 +412,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // by the parser's SWISS_LOCATION_RE. Verified live 2026-07-11: HTTP 200,
   // parser healthy, zero CH openings is the genuine state (audit #3797).
   'franklin-university',
-  // INTEGRA Biosciences (Zizers, GR — but hires group-wide): the careers page
-  // is behind Cloudflare bot protection (403 "Just a moment…" to datacenter
-  // IPs); the crawler routes through the shared Jina clean-IP proxy and parses
-  // the real listing. Verified live 2026-07-14: Jina fetch succeeds, parser
-  // healthy, currently zero CH openings (the group posts mostly US/DE roles) —
-  // genuine 0, not a fetch failure (issue #4144, fixed in #4114). Re-arms when
-  // a CH vacancy appears.
-  'integra-biosciences',
   // Privatklinik Siloah (Swiss Medical Network): the SmartRecruiters tenant
   // API (companies/SwissMedicalNetwork1/postings) currently lists 80 CH
   // postings with ZERO attributed to the Siloah department — verified
@@ -1417,20 +1409,21 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
     lastObservedJobs === 0 &&
     !transientTransportAbort;
 
-  // A proven fetch failure cancels every empty-ok signal, including a manual
-  // EMPTY_OK_CRAWLERS entry. Those signals all mean "this zero is not evidence
-  // of breakage"; `anti_bot_block`/`selector_miss` plus the explicit transport
-  // and endpoint outcomes are evidence of breakage, on the run's own report.
-  // Letting the allowlist win would mask exactly the case
-  // #6496 is about — a listed source that has actually died — and would also
-  // reset the streak that must keep growing while it stays broken. Same
-  // reasoning as `abortedRun` below, one step earlier in the pipeline.
+  // A fetch failure, process-exit receipt, or parser-positive zero-output
+  // receipt cancels every empty-ok signal, including a manual
+  // EMPTY_OK_CRAWLERS entry. None of those receipts proves that the source is
+  // empty: an abort may have happened before publication, and `parsed > 0`
+  // with no output proves that work was lost after the parser. Letting an
+  // allowlist or inferred-filter signal win would reset the streak on an
+  // incomplete result instead of keeping the prior slice protected.
   const emptyOk =
+    !fetchFailed &&
+    !abortedRun &&
+    !pipelineDroppedAll &&
     (EMPTY_OK_CRAWLERS.has(observation.slug) ||
       autoFilteredEmpty ||
       authoritativeEmpty ||
-      filteredEmptyOutcome) &&
-    !fetchFailed;
+      filteredEmptyOutcome);
 
   // The run aborted before publishing (exit-guard slice). This deliberately
   // does NOT feed `emptyOk`: even a soft transport abort must keep its streak
@@ -1588,12 +1581,13 @@ function nextCrawlerState(prev, observation, nowIso, nowMs) {
         : abortKind === 'crash'
           ? 'the crawler crashed before publishing'
           : 'the early-exit cause was not reported';
-    reason = pipelineDroppedAll && !abortedRun
-      // The parser worked — it handed `parsed` jobs to the pipeline and the
-      // published slice still came out empty. Naming it "returned 0 jobs"
-      // sends triage to the selectors, which are provably fine; the drop
-      // happened in merge/expiry/validation/slice instead.
-      ? `${consecutiveEmptyRuns} consecutive runs published 0 jobs while the parser emitted ${observation.parsed} (post-parser pipeline drop: merge/expiry/validation/slice) — the selectors are working, look downstream of the parser`
+    reason = pipelineDroppedAll
+      // The parser emitted jobs but the receipt has no output. For an early
+      // exit this is an incomplete/truncated run, not a source-proven empty
+      // state; direct triage downstream of the parser and at the abort path.
+      ? abortedRun
+        ? `${consecutiveEmptyRuns} consecutive runs aborted with a 0-job receipt after the parser emitted ${observation.parsed} (post-parser pipeline drop or truncated receipt) — inspect the pipeline and abort path; the source was observed`
+        : `${consecutiveEmptyRuns} consecutive runs published 0 jobs while the parser emitted ${observation.parsed} (post-parser pipeline drop: merge/expiry/validation/slice) — the selectors are working, look downstream of the parser`
       : abortedRun
       // `?? 'unknown'` and never `?? 0`: 0 means "deliberate bail-out" and
       // non-zero means "crash", which is different triage. An absent field is

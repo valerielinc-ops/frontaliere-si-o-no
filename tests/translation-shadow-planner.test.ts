@@ -152,9 +152,15 @@ describe('translation shadow planner', () => {
     const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), 'translation-shadow-'));
     const inputPath = path.join(tempDir, 'units.json');
     const memoryPath = path.join(tempDir, 'memory.json');
+    // `.tmp/translation-shadow/` è la destinazione IN-REPO che la CLI ammette
+    // (ignorata da git, nessun altro test la legge): è il soggetto di questo caso,
+    // quindi resta qui. La pulizia sta in un `finally`, così un'asserzione rossa
+    // non lascia file nel checkout.
     const shadowDir = path.resolve('.tmp/translation-shadow');
     fs.mkdirSync(shadowDir, { recursive: true });
     const outputPath = path.join(shadowDir, `plan-${process.pid}-${Date.now()}.json`);
+    const directOutputPath = path.join(shadowDir, `direct-plan-${process.pid}-${Date.now()}.json`);
+    try {
     const inputBytes = `${JSON.stringify({ schemaVersion: 1, units: [hit] }, null, 2)}\n`;
     const memoryBytes = serializeTranslationMemory(fixtureMemory());
     fs.writeFileSync(inputPath, inputBytes);
@@ -177,7 +183,6 @@ describe('translation shadow planner', () => {
       memory: expect.stringMatching(/^sha256:[a-f0-9]{64}$/),
     });
 
-    const directOutputPath = path.join(shadowDir, `direct-plan-${process.pid}-${Date.now()}.json`);
     const expectedReport = planTranslationShadow({ units: [hit], memory: fixtureMemory() });
     const returnedReport = runTranslationShadowPlanCli([
       '--input', inputPath,
@@ -188,10 +193,13 @@ describe('translation shadow planner', () => {
     expect(JSON.parse(fs.readFileSync(directOutputPath, 'utf8'))).toEqual(expectedReport);
     expect(fs.readFileSync(inputPath, 'utf8')).toBe(inputBytes);
     expect(fs.readFileSync(memoryPath, 'utf8')).toBe(memoryBytes);
-
-    fs.unlinkSync(outputPath);
-    fs.unlinkSync(directOutputPath);
-    fs.rmdirSync(shadowDir);
+    } finally {
+      fs.rmSync(outputPath, { force: true });
+      fs.rmSync(directOutputPath, { force: true });
+      // Solo se vuota: non cancellare file di una run locale dello strumento.
+      try { fs.rmdirSync(shadowDir); } catch { /* non vuota o già rimossa */ }
+      fs.rmSync(tempDir, { recursive: true, force: true });
+    }
   });
 
   it('rejects implicit output and paths that could overwrite production or inputs', () => {
@@ -289,6 +297,9 @@ describe('translation shadow planner', () => {
 
     const symlinkShadowRoot = path.resolve('.tmp/translation-shadow');
     expect(() => fs.lstatSync(symlinkShadowRoot)).toThrow();
+    // `.tmp/` (ignorata da git) deve esistere per creare il symlink: non dipendere
+    // dal caso precedente che la crea come effetto collaterale.
+    fs.mkdirSync(path.dirname(symlinkShadowRoot), { recursive: true });
     try {
       fs.symlinkSync(path.resolve('data/jobs'), symlinkShadowRoot, 'dir');
       const symlinkToProduction = spawnSync(process.execPath, [

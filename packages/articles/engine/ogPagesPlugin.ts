@@ -8,10 +8,11 @@
  */
 
 import path from 'path';
+import { decodeHtmlText } from './shared/htmlEntities';
 import { buildRelatedArticlesIndex } from './relatedArticlesIndex';
 import type { Plugin } from 'vite';
 import { getSiteShell } from './siteShell';
-import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml } from './articleSeoFallback';
+import { buildArticleSeoSections, cleanupArticleBodySections, articleBodySectionLabel, renderArticleDerivedSectionsHtml, renderArticleInlineMarkup } from './articleSeoFallback';
 import { loadSwissArticleCanonicalOverrides, resolveSwissArticleCanonicalUrl, resolveShadowedArticleWinnerSlug } from './shared/swissArticleCanonicalOverrides';
 import { loadArticleReviewOverrides, resolveArticleReviewerSlug } from './shared/articleReviewOverrides';
 import { stripMarkdownPlain } from './shared/stripMarkdownPlain';
@@ -205,6 +206,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  WriteCollector,
  buildTitleWithBrand,
  truncateHeadline,
+ truncateHeadlineToMeasuredBudget,
  titleBrandSuffix: TITLE_BRAND_SUFFIX,
  titleMaxChars: TITLE_MAX_CHARS,
  clampMetaDescription,
@@ -212,8 +214,8 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  truncateCodeUnits,
  stableChunkFile,
  stableChunkFiles,
- differentiateH1FromTitle,
  inlineScriptJson,
+ differentiateH1FromTitle,
  criticalCssLink: CRITICAL_CSS_LINK,
  imageObjectLd,
  resolveSpaBundle,
@@ -1067,9 +1069,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  /** Extract plain-text excerpt from HTML body for structured data articleBody */
  const extractExcerpt = (htmlBody: string | undefined, maxChars = 500): string => {
  if (!htmlBody) return '';
- return htmlBody
- .replace(/<[^>]+>/g, ' ') // strip HTML tags
- .replace(/&[a-z]+;/gi, ' ') // strip HTML entities
+ return decodeHtmlText(htmlBody.replace(/<[^>]+>/g, ' '))
  .replace(/\s+/g, ' ') // normalize whitespace
  .trim()
  .slice(0, maxChars)
@@ -1143,12 +1143,18 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  // brand first (it's "nice-to-have", not a ranking signal) before resorting
  // to mid-headline truncation.
  const articleLocale: 'it' | 'en' | 'de' | 'fr' = (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
+ const isEvent = en.sdType === 'Event';
  const baseTitleProbe = buildTitleWithBrand(localizedTitle);
  const collidesInLocale = (articleTitleCollisions[articleLocale].get(baseTitleProbe) || 0) > 1;
  const articleSlugForLocale = String(urlPath || '').split('/').filter(Boolean).pop() || en.articleId;
  const disamb = collidesInLocale ? articleHashFromSlug(articleSlugForLocale, localizedTitle) : '';
  let htmlPageTitle: string;
- if (!disamb) {
+ if (!isEvent) {
+  // NewsArticle has a stricter invariant than the generic SERP title cap:
+  // <title>, the visible H1 and NewsArticle.headline must remain the source
+  // headline byte-for-byte. The brand/disambiguator cap is Event-only.
+  htmlPageTitle = localizedTitle;
+ } else if (!disamb) {
   // No collision: trust buildTitleWithBrand to either keep brand or drop it.
   // It never truncates -- long headlines emit verbatim and the audit baseline
   // ratchets them down at source.
@@ -1160,19 +1166,25 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
   // only path where ellipsis truncation is acceptable because the alternative
   // is dropping the (#hash) and breaking the title-uniqueness audit).
   const withBrandAndDisamb = `${localizedTitle}${disamb}${TITLE_BRAND_SUFFIX}`;
-  if (withBrandAndDisamb.length <= TITLE_MAX_CHARS) {
+  if (esc(withBrandAndDisamb).length <= TITLE_MAX_CHARS) {
    htmlPageTitle = withBrandAndDisamb;
   } else {
    const headlinePlusDisamb = `${localizedTitle}${disamb}`;
-   if (headlinePlusDisamb.length <= TITLE_MAX_CHARS) {
+   if (esc(headlinePlusDisamb).length <= TITLE_MAX_CHARS) {
     htmlPageTitle = headlinePlusDisamb;
    } else {
-    const headlineBudget = TITLE_MAX_CHARS - disamb.length;
-    const truncated = truncateHeadline(localizedTitle, Math.max(1, headlineBudget));
+    const truncated = truncateHeadlineToMeasuredBudget(
+      localizedTitle,
+      TITLE_MAX_CHARS,
+      (candidate) => esc(`${candidate}${disamb}`).length,
+    );
     htmlPageTitle = `${truncated}${disamb}`;
    }
   }
  }
+ const h1Display = isEvent
+  ? differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale)
+  : localizedTitle;
  const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
  const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
  const allBodyKeys = localizedBody ? Object.keys(localizedBody).filter(k => /^body\d+$/.test(k)).sort((a, b) => {
@@ -1216,14 +1228,15 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const authorObj: Record<string, unknown> = resolvedAuthor
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${resolvedAuthor.slug}/#person`,
  name: resolvedAuthor.name,
  jobTitle: resolvedAuthor.role,
  url: `${BASE_URL}/autori/${resolvedAuthor.slug}/`,
- worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
+ worksFor: { '@type': 'NewsMediaOrganization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
  ...(resolvedAuthor.social?.linkedin ? { sameAs: [resolvedAuthor.social.linkedin] } : {}),
  }
  : {
- '@type': 'Organization' as const,
+ '@type': 'NewsMediaOrganization' as const,
  '@id': `${BASE_URL}/#organization`,
  name: en.authorName || 'Redazione Frontaliere Ticino',
  url: `${BASE_URL}/chi-siamo/`,
@@ -1237,6 +1250,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  const reviewedByObj: Record<string, unknown> | undefined = reviewerAuthor
  ? {
  '@type': 'Person' as const,
+ '@id': `${BASE_URL}/autori/${reviewerAuthor.slug}/#person`,
  name: reviewerAuthor.name,
  jobTitle: reviewerAuthor.role,
  url: `${BASE_URL}/autori/${reviewerAuthor.slug}/`,
@@ -1245,7 +1259,6 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : undefined;
 
  // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
- const isEvent = en.sdType === 'Event';
  let ldObj: Record<string, unknown>;
 
  if (isEvent) {
@@ -1359,7 +1372,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  inLanguage: locale,
  // Author matches the visible "Di {authorName}" byline below and the
  // SPA-side Person schema (#3520) — Google's guidance: structured-data
- // author must match the byline. Person/Organization object defined once
+ // author must match the byline. Person/NewsMediaOrganization object defined once
  // above (authorObj), resolved from the article's real authorSlug.
  author: authorObj,
  // Same canonical entity as index.html / SPA (#3524); ORGANIZATION_LD is
@@ -1503,7 +1516,7 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  : 'Domande frequenti';
  visibleFaqHtml = `<details class="s-lfB4Bo"><summary class="s-qAjSfB">${faqLabel}</summary><dl class="s-4vhLHi">` +
  useFaqPairs.slice(0, 10).map(pair =>
- `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${esc(pair.answer).substring(0, 500)}</dd>`
+ `<dt class="s-fG2BFJ">${esc(pair.question)}</dt><dd class="s-nrPIRx">${renderArticleInlineMarkup(pair.answer)}</dd>`
  ).join('') +
  `</dl></details>`;
  }
@@ -1512,12 +1525,12 @@ export async function renderArticlePages(opts: RenderArticlePagesOptions): Promi
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
  ${FAVICON_LINKS}
  <title>${esc(htmlPageTitle)}</title>
- <meta name="description" content="${esc(clampMetaDescription(metaDesc))}">
+ <meta name="description" content="${esc(clampMetaDescription(metaDesc, undefined, articleLocale))}">
  <link rel="canonical" href="${effectiveCanonicalUrl}">
  <meta property="og:type" content="article">
  <meta property="og:url" content="${effectiveCanonicalUrl}">
  <meta property="og:title" content="${esc(localizedTitle)}">
- <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc))}">
+ <meta property="og:description" content="${esc(clampMetaDescription(localizedDesc, undefined, articleLocale))}">
  <meta property="og:image" content="${imgU}">
  <meta property="og:image:width" content="${en.imgW}">
  <meta property="og:image:height" content="${en.imgH}">
@@ -1620,7 +1633,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body class="bg-surface-alt text-heading overflow-x-hidden">
- ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(true)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1><p class="article-byline s-L_lk4l">Di ${en.authorSlug && en.authorName ? `<a href="/autori/${en.authorSlug}/" rel="author">${esc(en.authorName)}</a>` : esc(en.authorName || 'Redazione Frontaliere Ticino')} · ${buildDateByline(en.datePub || en.dateMod || todayIso, en.dateMod || en.datePub || todayIso, locale)}</p>${heroFigureHtml}<p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}${buildRelatedArticlesHtml(en.articleId, articleCategoryById[en.articleId] || '', locale)}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
  </body>
 </html>`;
@@ -1644,7 +1657,7 @@ ${headTags}
  ${OFFERWALL_FC_SNIPPET}
  </head>
  <body>
- ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(differentiateH1FromTitle(localizedTitle, htmlPageTitle, articleLocale))}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
+ ${articleRootShell(false)}<main class="seo-static-content"><article class="ft-blog-article"><h1>${esc(h1Display)}</h1>${heroFigureHtml}<p>${esc(localizedDesc)}</p><nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/${SECTION.indexSlug.it}/">Articoli</a></nav></article></main>${ARTICLE_FOOTER_ROOT}
  </body>
 </html>`;
  };

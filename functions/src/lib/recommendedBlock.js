@@ -63,10 +63,10 @@ function escapeHtml(str) {
 
 // ── Block chrome i18n (eyebrow + disclosure) ─────────────────────────
 const CHROME_I18N = {
-  it: { eyebrow: '⭐ Consigliato per te', sponsoredLabel: 'Contenuto sponsorizzato', affiliateLabel: 'In collaborazione con un partner · link affiliato' },
-  en: { eyebrow: '⭐ Recommended for you', sponsoredLabel: 'Sponsored content', affiliateLabel: 'In partnership with a partner · affiliate link' },
-  de: { eyebrow: '⭐ Für dich empfohlen', sponsoredLabel: 'Gesponserter Inhalt', affiliateLabel: 'In Zusammenarbeit mit einem Partner · Affiliate-Link' },
-  fr: { eyebrow: '⭐ Recommandé pour toi', sponsoredLabel: 'Contenu sponsorisé', affiliateLabel: 'En partenariat avec un partenaire · lien affilié' },
+  it: { eyebrow: '⭐ Consigliato per te', sponsoredLabel: 'Contenuto sponsorizzato', referralLabel: 'Link con codice di invito o referral · nessun accordo di affiliazione attivo', affiliateLabel: 'In collaborazione con un partner · link affiliato' },
+  en: { eyebrow: '⭐ Recommended for you', sponsoredLabel: 'Sponsored content', referralLabel: 'Invitation or referral link · no active affiliate agreement', affiliateLabel: 'In partnership with a partner · affiliate link' },
+  de: { eyebrow: '⭐ Für dich empfohlen', sponsoredLabel: 'Gesponserter Inhalt', referralLabel: 'Einladungs- oder Empfehlungslink · keine aktive Affiliate-Vereinbarung', affiliateLabel: 'In Zusammenarbeit mit einem Partner · Affiliate-Link' },
+  fr: { eyebrow: '⭐ Recommandé pour toi', sponsoredLabel: 'Contenu sponsorisé', referralLabel: 'Lien d’invitation ou de parrainage · aucun accord d’affiliation actif', affiliateLabel: 'En partenariat avec un partenaire · lien affilié' },
 };
 
 function chrome(locale, key) {
@@ -204,7 +204,7 @@ export function pickNewsletterRecommendation({ locale, interest } = {}) {
     title: c.title,
     body: c.body,
     cta: c.cta,
-    disclosure: chrome(loc, 'affiliateLabel'),
+    disclosure: chrome(loc, partner.commercialActive ? 'affiliateLabel' : 'referralLabel'),
   };
 }
 

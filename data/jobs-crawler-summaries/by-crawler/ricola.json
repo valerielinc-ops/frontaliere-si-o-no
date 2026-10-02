@@ -1,21 +1,23 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-29T21:35:36.774Z",
+  "generatedAt": "2026-10-01T21:32:15.004Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5298,
-  "avgDurationMs": 5298,
+  "durationMs": 5922,
+  "avgDurationMs": 5922,
   "durationHistory": [
-    5298
+    5922
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,13 +28,13 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Controlling (100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:35:29.304Z",
+      "crawledAt": "2026-10-01T21:32:08.211Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -49,11 +51,11 @@
       "postedDate": "2026-09-24",
       "applyUrl": "https://career.ricola.com/Vacancies/1064/Description/2",
       "firstSeenAt": "2026-09-24T00:11:03.696Z",
-      "_qualityScore": 78,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -64,13 +66,13 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Health & Safety 80%",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:35:29.672Z",
+      "crawledAt": "2026-10-01T21:32:08.577Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -87,11 +89,11 @@
       "postedDate": "2026-07-09",
       "applyUrl": "https://career.ricola.com/Vacancies/1062/Description/2",
       "firstSeenAt": "2026-07-09T12:27:34.476Z",
-      "_qualityScore": 78,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 15,
+        "translation": 23,
         "completeness": 20
       }
     }

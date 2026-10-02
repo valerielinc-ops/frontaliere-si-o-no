@@ -203,7 +203,8 @@ async function queryPerplexity(query) {
 
     if (!res) return null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('Perplexity', res, hasChatCompletionEnvelope);
+  if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   const citations = data.citations || [];
 
@@ -241,8 +242,9 @@ async function queryGemini(query) {
 
   if (!res) return null;
 
-  const data = await res.json();
-  const content = data.candidates?.[0]?.content?.parts?.[0]?.text || '';
+  const data = await readJsonResponse('Gemini', res, hasGeminiEnvelope);
+  if (!data) return null;
+  const content = getGeminiText(data);
   const groundingChunks = data.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
   // Grounding chunks expose the source both as a redirect uri (which never
   // contains the real host) and as `web.title`, which IS the domain — match
@@ -283,7 +285,8 @@ async function queryGitHubModels(query) {
 
   if (!res) return null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('GitHub Models', res, hasChatCompletionEnvelope);
+  if (!data) return null;
   const content = data.choices?.[0]?.message?.content || '';
   return { content, citations: [], raw: data };
 }
@@ -340,7 +343,8 @@ async function queryOpenRouter(query) {
   // the request was never emitted, so the report must not read it as a zero.
   if (!res) return cappedBySpendGuard ? UNMEASURED_BUDGET_CAP : null;
 
-  const data = await res.json();
+  const data = await readJsonResponse('OpenRouter', res);
+  if (!data) return null;
   const message = data.choices?.[0]?.message || {};
   const choice = data.choices?.[0] || {};
   const hasStringContent = typeof message.content === 'string';
@@ -413,6 +417,55 @@ function resetRetryBudget() { retryBudgetLeftMs.clear(); }
 function resetRunBudgets() {
   resetOpenRouterBudget();
   resetRetryBudget();
+}
+
+/**
+ * Parse and validate a successful provider response without allowing an
+ * upstream brownout page, health response, or unrelated JSON payload to abort
+ * the whole visibility run. A 2xx response does not prove the provider
+ * contract (GitHub Models returned plain-text `OK` during its retirement
+ * brownout).
+ */
+function isRecord(value) {
+  return value !== null && typeof value === 'object' && !Array.isArray(value);
+}
+
+function hasChatCompletionEnvelope(data) {
+  const message = data.choices?.[0]?.message;
+  return Array.isArray(data.choices)
+    && isRecord(message)
+    && typeof message.content === 'string'
+    && message.content.trim().length > 0;
+}
+
+function getGeminiText(data) {
+  const parts = Array.isArray(data?.candidates)
+    ? data.candidates[0]?.content?.parts
+    : null;
+  if (!Array.isArray(parts)) return '';
+  return parts.find(part => isRecord(part) && typeof part.text === 'string' && part.text.trim().length > 0)?.text || '';
+}
+
+function hasGeminiEnvelope(data) {
+  return getGeminiText(data).length > 0;
+}
+
+async function readJsonResponse(label, res, isExpectedEnvelope = isRecord) {
+  const body = await res.text();
+  let data;
+  try {
+    data = JSON.parse(body);
+  } catch {
+    const preview = body.replace(/\s+/g, ' ').trim().slice(0, 200) || '<empty body>';
+    console.warn(`  ⚠ ${label} API returned invalid JSON: ${preview}`);
+    return null;
+  }
+
+  if (!isRecord(data) || !isExpectedEnvelope(data)) {
+    console.warn(`  ⚠ ${label} API returned JSON with an unexpected response envelope`);
+    return null;
+  }
+  return data;
 }
 
 /**
@@ -1059,6 +1112,9 @@ export {
   findCompetitorMentions,
   generateMarkdown,
   loadPreviousReport,
+  queryGemini,
+  queryPerplexity,
+  queryGitHubModels,
   runCheck,
   queryOpenRouter,
   applyPlatformAnswer,

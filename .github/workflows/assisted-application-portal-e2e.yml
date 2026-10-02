@@ -1,0 +1,139 @@
+name: Assisted application portal e2e
+
+# The portal runner of the assisted application (scripts/assisted-application/
+# lib/portal/) on a local fake portal: sign-in, account creation on the alias,
+# verification link, form, upload, submit; and the owner's fill extension
+# (scripts/assisted-application/extension) on a JOIN-like wizard, up to the send
+# button it must never press. No employer, no Codex, no secrets.
+# vitest cannot cover it: tests.yml has no browser.
+on:
+  workflow_dispatch:
+    inputs:
+      probe_nopecha_free:
+        description: 'Diagnose anonymous Token API availability (key normally required; public demo only)'
+        type: boolean
+        default: false
+  pull_request:
+    paths:
+      - 'scripts/assisted-application/lib/portal/**'
+      - 'scripts/assisted-application/lib/nopecha-probe.mjs'
+      - 'scripts/assisted-application/lib/secure-run.mjs'
+      - 'scripts/assisted-application/portal-e2e.mjs'
+      - 'scripts/assisted-application/extension/**'
+      - 'scripts/assisted-application/extension-e2e.mjs'
+      - 'scripts/assisted-application/nopecha-e2e.mjs'
+      - 'scripts/assisted-application/install-nopecha.sh'
+      - '.github/workflows/assisted-application-portal-e2e.yml'
+
+concurrency:
+  group: assisted-application-portal-e2e-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  e2e:
+    runs-on: ubuntu-latest
+    # The runner on the fake portal takes ~13 min on a hosted runner, then NopeCHA.
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Node 22 + npm ci; the npm cache is only read on a PR ref, saved on main
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Portal runner on the fake portal
+        run: node scripts/assisted-application/portal-e2e.mjs
+
+      - name: Install official NopeCHA extension
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/assisted-application/install-nopecha.sh "${{ runner.temp }}/nopecha"
+
+      - name: NopeCHA browser integration
+        env:
+          NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
+        run: node scripts/assisted-application/nopecha-e2e.mjs
+
+      - name: Verify the free Token API on GitHub Actions
+        if: inputs.probe_nopecha_free
+        env:
+          NOPECHA_EXTENSION_PATH: ${{ runner.temp }}/nopecha/extension
+        run: node scripts/assisted-application/nopecha-e2e.mjs --probe-free
+
+  # Its own job (run 36888505712: in the 15-minute portal job the extension step
+  # started after 15 min and was cut after 18 s).
+  extension:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Node 22 + npm ci; the npm cache is only read on a PR ref, saved on main
+      # (tests/npm-cache-save-main-only.test.ts).
+      - name: Setup Node.js + npm ci
+        uses: ./.github/actions/ci-npm-setup
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Fill extension on a JOIN-like wizard
+        run: node scripts/assisted-application/extension-e2e.mjs

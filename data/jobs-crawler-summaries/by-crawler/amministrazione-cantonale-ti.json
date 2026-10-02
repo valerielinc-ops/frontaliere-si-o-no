@@ -1,79 +1,18 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-09-29T21:27:55.159Z",
-  "total": 12,
-  "newCount": 2,
+  "generatedAt": "2026-10-01T21:24:56.183Z",
+  "total": 10,
+  "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 23978,
-  "avgDurationMs": 23978,
+  "durationMs": 18177,
+  "avgDurationMs": 18177,
   "durationHistory": [
-    23978
+    18177
   ],
-  "newJobs": [
-    {
-      "id": "company-213hk3",
-      "slug": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-d-appello-secondo-camera-civile-lugano-amministrazione-cantona",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Tribunale d'appello",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-29",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
-      "source": "Company Careers Crawler",
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-29T21:27:43.174Z",
-      "firstSeenAt": "2026-09-29T21:27:43.174Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 67,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-213hk1",
-      "slug": "cancelliere-a-i-oppure-cancelliere-a-ii-a-tempo-pieno-100-presso-il-tribunale-penale-cantonale-lugano-amministrazione-cantonale-ti-bellinzon",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Tribunale d'appello",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-26",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4285",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4285",
-      "source": "Company Careers Crawler",
-      "salaryMin": 93625,
-      "salaryMax": 150736,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-29T21:27:43.174Z",
-      "firstSeenAt": "2026-09-29T21:27:43.174Z",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "_qualityScore": 72,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 19
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-213j37",
@@ -115,35 +54,37 @@
       }
     }
   ],
-  "removedJobs": [
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "company-213hk2",
+      "id": "company-213hk3",
       "slug": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Tribunale d'appello",
       "location": "Bellinzona",
       "canton": "TI",
-      "category": "finance",
+      "category": "admin",
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-26",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4284",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4284",
+      "postedDate": "2026-09-29",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
+      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
       "source": "Company Careers Crawler",
-      "salaryMin": 93625,
-      "salaryMax": 150736,
       "companyKey": "amministrazione-cantonale-ti",
       "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-29T09:28:34.355Z",
+      "crawledAt": "2026-09-29T21:27:43.174Z",
       "firstSeenAt": "2026-09-23T23:50:33.725Z",
       "sourceLang": "it",
-      "salarySource": "reported",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "salarySource": "estimated",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4283",
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -151,9 +92,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "unchangedJobs": [
+    },
     {
       "id": "company-213hjy",
       "slug": "tecnico-a-informatico-a-contratto-di-durata-determinata-a-tempo-pieno-100-presso-il-centro-di-risorse-didattiche-e-digitali-cerdd-bellinzona-213hjy",
@@ -182,6 +121,7 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4288",
       "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
@@ -341,43 +281,6 @@
       }
     },
     {
-      "id": "company-213hkz",
-      "slug": "capo-sezione-ii-presso-la-sezione-dell-insegnamento-medio-bellinzona-amministrazione-cantonale-ticino-bellinzona",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Capo sezione II, presso la Sezione dell’insegnamento medio, Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "other",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272",
-      "source": "Company Careers Crawler",
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-09-29T21:27:43.174Z",
-      "firstSeenAt": "2026-09-08T23:31:23.092Z",
-      "sourceLang": "it",
-      "salaryMin": 108673,
-      "salaryMax": 172822,
-      "salarySource": "reported",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272",
-      "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4272",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
       "id": "company-213hlr",
       "slug": "medico-ai-a-tempo-parziale-50-a-tempo-pieno-100-presso-l-istituto-delle-assicurazioni",
       "company": "Amministrazione Cantonale Ticino",
@@ -445,7 +348,6 @@
       "salarySource": "reported",
       "applyUrl": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
       "sourceIdentity": "url:https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4059",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,

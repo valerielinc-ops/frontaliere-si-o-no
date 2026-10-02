@@ -1,7 +1,7 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-09-29T21:25:08.189Z",
+  "generatedAt": "2026-10-01T21:24:30.768Z",
   "total": 1,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": true,
@@ -9,10 +9,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3009,
-  "avgDurationMs": 3009,
+  "durationMs": 2119,
+  "avgDurationMs": 2119,
   "durationHistory": [
-    3009
+    2119
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "sector": "Immobiliare & Architettura",
       "source": "artisa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-09-29",
+      "postedDate": "2026-10-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -46,6 +46,7 @@
       "streetAddress": "Via Nassa 5",
       "postalCode": "6900",
       "firstSeenAt": "2026-09-28T21:19:59.384Z",
+      "sourceIdentity": "url:https://artisagroup.com/carriera",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,

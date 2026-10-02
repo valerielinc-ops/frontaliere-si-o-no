@@ -26,8 +26,10 @@ import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import {
   writeJobsCrawlerSlice,
+  writeJobsCrawlerSliceVerified,
   writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard,
+  markCrawlerSummaryAbortKind,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -36,7 +38,7 @@ import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergePreserve
 } from './lib/dedicated-crawler-common.mjs';
 import { dropStaleLocaleDescriptions, sourceSlotTitleAndSlug } from './lib/source-locale-slots.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, isConnectionLevelFetchError } from './lib/crawler-template.mjs';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import {
   dropFabricatedLocaleText,
@@ -54,6 +56,7 @@ import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { firstLocationSegment } from './lib/ats-clients/workday-client.mjs';
 import { meetsSourceBodyFloor } from './lib/source-body-floor.mjs';
 import { keepStoredSourceBodies } from './lib/stored-source-body.mjs';
+import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -679,6 +682,20 @@ function validateLocales() {
   });
 }
 
+async function rewriteStoredJobsWithoutThinSource(storedJobs) {
+  return rewritePreparedStoredJobs({
+    prepare: (jobs) => jobs,
+    storedJobs,
+    companyKey: BRACCO_KEY,
+    companyLabel: BRACCO_COMPANY_NAME,
+    write: (jobs, options) => writeJobsCrawlerSliceVerified(BRACCO_KEY, jobs, {
+      isTargetJob: isBraccoJob,
+      ...options,
+    }),
+    assemble: () => assembleJobsDataset(),
+  });
+}
+
 // ─────────────────────────────────────────────────────────────
 // Main
 // ─────────────────────────────────────────────────────────────
@@ -696,12 +713,28 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob))
 
   // Phase 1: Fetch jobs from Workday API
-  const discoveredJobs = await fetchBraccoJobs();
+  let discoveredJobs;
+  try {
+    discoveredJobs = await fetchBraccoJobs();
+  } catch (err) {
+    if (!isConnectionLevelFetchError(err)) throw err;
+    markCrawlerSummaryAbortKind('connection-level-fetch');
+    console.log(
+      `\n⚠️ Bracco Suisse: connection-level fetch failure after retries + proxy fallback (${err?.message || err}). Keeping existing jobs (no de-index).`,
+    );
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob),
+    );
+    return;
+  }
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No Bracco jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
-    console.log('   Keeping existing jobs — no changes to data/jobs.json.');
+    console.log('   Keeping valid existing jobs and quarantining thin-source rows.');
+    await rewriteStoredJobsWithoutThinSource(
+      readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob),
+    );
     const _cdResult = logStats(beforeSnapshot);
     crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;

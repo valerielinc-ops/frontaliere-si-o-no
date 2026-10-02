@@ -4,6 +4,7 @@ import {
   isConnectionLevelFetchError,
   fetchWithRetry,
   httpFetchWithRetry,
+  isRetryBudgetExhausted,
   markRetryExhaustedError,
   MAX_RETRY_AFTER_MS,
   parseRetryAfterMs,
@@ -243,6 +244,16 @@ describe('fetchWithRetry', () => {
       fetchWithRetry(attempt, { retries: 1, retryBaseMs: 0, isTransient: () => true }),
     ).rejects.toThrow();
     expect(attempt).toHaveBeenCalledTimes(2);
+  });
+});
+
+describe('isRetryBudgetExhausted', () => {
+  it('recognizes terminal errors, wrapped causes, and terminal responses', () => {
+    expect(isRetryBudgetExhausted({ retryExhausted: true })).toBe(true);
+    expect(isRetryBudgetExhausted(new Error('persistent source error'))).toBe(false);
+    expect(isRetryBudgetExhausted({ cause: { retryExhausted: true } })).toBe(true);
+    expect(isRetryBudgetExhausted({ retryBudgetExhausted: true })).toBe(true);
+    expect(isRetryBudgetExhausted({ response: { retryBudgetExhausted: true } })).toBe(true);
   });
 });
 

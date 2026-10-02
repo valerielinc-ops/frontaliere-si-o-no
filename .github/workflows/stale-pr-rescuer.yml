@@ -15,6 +15,11 @@ name: Stale PR rescuer (self-healing signal)
 #      `tests.yml`) → prima cadeva in un `else` muto ed era irrecuperabile. Fix:
 #      `stale-review`, che riapre il grafo dei rerun e dei fixer.
 #      Misurata su 8 PR ferme 1-4 giorni il 2026-08-05 (issue #5041).
+#   D) conflitto con main (`has-conflicts`, messa da pr-autorebase con
+#      merge-tree): GitHub non avvia i workflow `pull_request` su una PR in
+#      conflitto, quindi nessun rerun puo' produrre un verdetto. Prima finiva in
+#      C, senza run da rilanciare e quindi senza marker: un commento identico a
+#      ogni completamento di `tests` (#10608/#10609, 120+ commenti in 8 h).
 #
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con la frugalità di
 # issue-triage). Azione = label `stale-review` + UN commento idempotente con la
@@ -167,6 +172,7 @@ jobs:
             HEAD=$(echo "$pr" | jq -r '.headRefOid')
             UPD=$(echo "$pr" | jq -r '.updatedAt')
             HAS_AUTOFIX=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end')
+            HAS_CONFLICTS=$(echo "$pr" | jq -r 'if any(.labels[]?.name; . == "has-conflicts") then "true" else "false" end')
             IS_DRAFT=$(echo "$pr" | jq -r '.isDraft')
 
             # Il rescuer e il recycle sono strumenti del loop autonomo. La
@@ -378,7 +384,14 @@ jobs:
             fi
 
             REASON=""; RESCUE=""; CLASS=""
-            if [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then
+            if [ "${HAS_CONFLICTS:-false}" = "true" ]; then
+              CLASS="D"
+              # Classe D: prima delle altre, perche' il conflitto le rende tutte
+              # inerti — nessun `pull_request` parte, quindi niente test, review
+              # o fixer su questa head finche' il conflitto resta.
+              REASON="conflitto con \`main\` (\`has-conflicts\` da pr-autorebase): GitHub non avvia i workflow \`pull_request\` su una PR in conflitto, quindi nessun test, review o fixer puo' partire su questa head"
+              RESCUE="nessun rerun possibile finche' il conflitto resta. Una PR del ciclo passa a issue-fix con l'hand-off di pr-autorebase (issue «riapplicare la PR su main»); se resta ferma, recycle-stale-prs la ricicla."
+            elif [ "$TESTS_CONCL" = "success" ] && [ "$LAST_CID" != "$HEAD" ]; then
               CLASS="A"
               # Classe A: tests verdi sull'head corrente da >2h ma nessuna review
               # l'ha mai coperto (workflow-validation drift o coda congestionata —
@@ -441,11 +454,21 @@ jobs:
             # non è più un semaforo che nasconde la PR al giro successivo.
             # La chiave (classe, head) permette di riprovare uno stallo quando
             # cambia il commit o la diagnosi, senza commentare a ogni cron.
+            # Due marker: quello pieno chiude la coppia (classe, head); quello
+            # `pending` dice che il commento c'e' gia' ma il rerun non e'
+            # riuscito, cosi' il giro dopo ritenta SOLO l'azione. Prima il
+            # commento senza marker veniva ripostato a ogni tick finche' il
+            # rerun falliva — per sempre quando il run non esiste (#10608).
             posted=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/issues/$N/comments?per_page=100" 2>/dev/null || echo '[]')
             POSTED_BODIES=$(echo "$posted" | jq -rs '[.[][]? | .body // ""] | join("\n")' 2>/dev/null || echo "")
             MARKER="<!-- stale-pr-rescuer class=$CLASS head=${HEAD:0:7} -->"
+            PENDING_MARKER="<!-- stale-pr-rescuer class=$CLASS head=${HEAD:0:7} pending -->"
             case "$POSTED_BODIES" in
               *"$MARKER"*) echo "PR #$N: classe $CLASS su ${HEAD:0:7} già segnalata — nessuna azione"; continue ;;
+            esac
+            ALREADY_COMMENTED=false
+            case "$POSTED_BODIES" in
+              *"$PENDING_MARKER"*) ALREADY_COMMENTED=true ;;
             esac
 
             "$TRUSTED_GH_BIN" pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
@@ -480,17 +503,39 @@ jobs:
                   | (try (capture("/actions/runs/(?<id>[1-9][0-9]*)").id) catch "")
                 end')
             ACTION_OK=true
-            if [ -n "$RESCUE_RUN" ]; then
-              "$TRUSTED_GH_BIN" run rerun "$RESCUE_RUN" --repo "$REPO" || {
-                ACTION_OK=false
-                echo "::warning::Cannot rerun code checks for PR #$N."
-              }
-            else
-              ACTION_OK=false
-              echo "::warning::Nessun run pull_request esistente per PR #$N: checkpoint manuale, nessun dispatch trusted."
-            fi
-            COMMENT_MARKER=""
+            case "$CLASS" in
+              A|C)
+                if [ -n "$RESCUE_RUN" ]; then
+                  "$TRUSTED_GH_BIN" run rerun "$RESCUE_RUN" --repo "$REPO" || {
+                    ACTION_OK=false
+                    echo "::warning::Cannot rerun code checks for PR #$N."
+                  }
+                else
+                  ACTION_OK=false
+                  echo "::warning::Nessun run pull_request esistente per PR #$N: checkpoint manuale, nessun dispatch trusted."
+                fi
+                ;;
+              *)
+                # B: il re-review guard di `tests.yml` salta su una review
+                # terminale gia' presente sulla HEAD, quindi il rerun rifarebbe
+                # lo stesso rosso — e quel rosso «review saltata dal guard»
+                # pr-autorebase lo leggeva come stuck-red e mergiava main,
+                # azzerando il round cap del 🔴-fixer (#10467, #10580).
+                # D: in conflitto nessun run pull_request puo' ripartire.
+                echo "PR #$N classe $CLASS: nessun rerun (non produrrebbe un verdetto nuovo)."
+                ;;
+            esac
+            COMMENT_MARKER="$PENDING_MARKER"
             if [ "$ACTION_OK" = "true" ]; then COMMENT_MARKER="$MARKER"; fi
+            if [ "$ALREADY_COMMENTED" = "true" ]; then
+              if [ "$ACTION_OK" = "true" ]; then
+                "$TRUSTED_GH_BIN" pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): rerun del check eseguito sulla head %s.\n%s' "${HEAD:0:7}" "$COMMENT_MARKER")" \
+                  2>/dev/null || echo "comment fallito PR #$N"
+              else
+                echo "PR #$N: classe $CLASS su ${HEAD:0:7} già commentata, azione ancora non riuscita — nessun commento nuovo."
+              fi
+              continue
+            fi
             "$TRUSTED_GH_BIN" pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._\n%s' "$REASON" "$RESCUE" "$COMMENT_MARKER")" \
               2>/dev/null || echo "comment fallito PR #$N"
           done

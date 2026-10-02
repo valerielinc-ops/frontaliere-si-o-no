@@ -8,7 +8,7 @@ import {
   resolveAddress,
   fetchAllKiabiJobs,
 } from '../scripts/lib/kiabi-job-parser.mjs';
-import { slugify } from '../scripts/lib/crawler-template.mjs';
+import { evaluateAuthoritativeSnapshot, slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Kiabi Suisse crawler parser', () => {
   // ── Constants ──
@@ -280,7 +280,7 @@ describe('Kiabi Suisse crawler parser', () => {
     });
 
     it('dedupes postings that resolve to the same applyUrl', async () => {
-      const duplicate = { ...FRIBOURG_POSTING };
+      const duplicate = { ...FRIBOURG_POSTING, id: '744000199999003' };
       mockSmartRecruitersApi([FRIBOURG_POSTING, duplicate]);
       const jobs = await fetchAllKiabiJobs();
       expect(jobs).toHaveLength(1);
@@ -291,12 +291,43 @@ describe('Kiabi Suisse crawler parser', () => {
       mockSmartRecruitersApi([blank]);
       const jobs = await fetchAllKiabiJobs();
       expect(jobs).toHaveLength(0);
+      expect(jobs.authoritativeEmptySnapshot).toBe(false);
     });
 
-    it('returns an empty array when the API returns no Swiss postings at all', async () => {
+    it('proves an empty Swiss snapshot only after a complete source walk', async () => {
       mockSmartRecruitersApi([FRANCE_POSTING]);
       const jobs = await fetchAllKiabiJobs();
       expect(jobs).toEqual([]);
+      expect(jobs.authoritativeEmptySnapshot).toBe(true);
+      expect(evaluateAuthoritativeSnapshot(jobs, {
+        validateAuthoritativeSnapshot: (batch) => batch.authoritativeEmptySnapshot === true,
+        allowAuthoritativeEmptySnapshot: true,
+        authoritativeSnapshotScope: 'empty-only',
+      })).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+    });
+
+    it('fails closed when SmartRecruiters pagination is truncated', async () => {
+      const firstPage = Array.from({ length: 100 }, (_, index) => ({
+        ...FRANCE_POSTING,
+        id: `fr-${index}`,
+      }));
+      const requestedOffsets: string[] = [];
+      vi.stubGlobal('fetch', vi.fn(async (url: string) => {
+        const offset = new URL(url).searchParams.get('offset') || '0';
+        requestedOffsets.push(offset);
+        return {
+          ok: true,
+          json: async () => ({
+            offset: Number(offset),
+            limit: 100,
+            totalFound: 101,
+            content: offset === '0' ? firstPage : [],
+          }),
+        };
+      }));
+
+      await expect(fetchAllKiabiJobs()).rejects.toThrow(/walk was incomplete/);
+      expect(requestedOffsets).toEqual(['0', '100']);
     });
 
     it('does not leak the raw posting’s recruiter/creator personal name into the assembled job', async () => {

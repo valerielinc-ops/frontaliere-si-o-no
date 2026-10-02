@@ -32,9 +32,9 @@
  * exits 1 so CI surfaces it loudly instead of silently reporting nothing
  * forever.
  *
- * Usage: npx tsx scripts/campaign-goal-check.mjs [--dry-run]
- *        (`tsx`, non `node`: importa scripts/lib/seo-ctr-curve.mjs, che a
- *        sua volta importa moduli foglia .ts)
+ * Usage: node --import tsx/esm scripts/campaign-goal-check.mjs [--dry-run]
+ *        (il loader `tsx` consente a scripts/lib/seo-ctr-curve.mjs di
+ *        importare i moduli foglia .ts)
  *   --dry-run: evaluate + print the table, but never write state or open
  *              issues (used for local dry runs / tests).
  */
@@ -435,7 +435,7 @@ function gscWindow(days, lagDays = 3) {
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - lagDays);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - days);
+  start.setUTCDate(start.getUTCDate() - (days - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   return { startDate: fmt(start), endDate: fmt(end) };
 }
@@ -581,7 +581,7 @@ async function ga4SessionsByChannelGroup(token, channelGroupExact, windowDays) {
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - GA4_LAG_DAYS);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - windowDays);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
@@ -610,7 +610,7 @@ async function ga4RunReport(token, { dimensions = [], metrics, dimensionFilter, 
   const end = new Date();
   end.setUTCDate(end.getUTCDate() - lagDays);
   const start = new Date(end);
-  start.setUTCDate(start.getUTCDate() - windowDays);
+  start.setUTCDate(start.getUTCDate() - (windowDays - 1));
   const fmt = (d) => d.toISOString().slice(0, 10);
   const res = await fetch(`https://analyticsdata.googleapis.com/v1beta/${propertyId}:runReport`, {
     method: 'POST',
@@ -928,7 +928,7 @@ export function buildIssueBody({ goal, outcome, matureAt }) {
         'sito.',
       ],
       metrica: `prima=${outcome.detail} atteso=${outcome.targetDescription}`,
-      comando: 'node scripts/campaign-goal-check.mjs --dry-run',
+      comando: 'node --import tsx/esm scripts/campaign-goal-check.mjs --dry-run',
       note: [
         'Il comando rivaluta tutti gli obiettivi e stampa la tabella senza scrivere lo stato',
         "e senza coniare: la issue si chiude quando questa riga passa. Vuole le credenziali",

@@ -14,8 +14,8 @@
  * lives in the caller-supplied `baseUrl`/`parseDayHtml`, not here.
  *
  * `crawl-tio-agenda.mjs` itself is NOT refactored onto this factory — it has
- * extra per-event enrichment (price, geocoding, title translation) this pilot
- * doesn't need, and re-plumbing a crawler that commits straight to `main`
+ * extra per-event enrichment (geocoding, title translation). Re-plumbing a
+ * crawler that commits straight to `main`
  * daily is a bigger, separate risk than this issue's stated scope (one pilot
  * canton). New agenda sources should use this factory; nothing here
  * duplicates it (there was no factory before this file).
@@ -82,6 +82,7 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {string} sourceKey - must have a matching `EVENT_SOURCES` entry.
  * @property {(i: number) => string} baseUrl
  * @property {(html: string, i: number) => Array<object> | Promise<Array<object>>} parseDayHtml
+ * @property {(event: object, fetchHtml: Function) => Promise<object>} [enrichEvent] - source detail metadata, before mirroring/writing.
  * @property {number} [iterations] - default loop count / hard safety ceiling.
  * @property {number} [horizonDays] - stop once furthest-seen startDate reaches today+N.
  * @property {boolean} [stopOnEmptyPage] - stop after 2 consecutive empty-but-ok pages (once >=1 event seen).
@@ -91,6 +92,9 @@ const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
  * @property {number} [imageMirrorDelayMs]
  * @property {boolean} [mirrorImages] - default true (no-hotlink policy).
  * @property {typeof fetch} [fetchImpl] - injectable for tests.
+ * @property {string} [sliceDir] - where the per-source slice is merged;
+ *   default EVENTS_SLICE_DIR (data/events/by-source). Tests pass a tmpdir so
+ *   they never create files inside the checkout.
  */
 
 /** @param {AgendaCrawlerConfig} config */
@@ -99,6 +103,7 @@ export function createAgendaCrawler(config) {
     sourceKey,
     baseUrl,
     parseDayHtml,
+    enrichEvent,
     iterations: defaultIterations = DEFAULT_ITERATIONS,
     horizonDays,
     stopOnEmptyPage = false,
@@ -108,6 +113,7 @@ export function createAgendaCrawler(config) {
     imageMirrorDelayMs = DEFAULT_IMAGE_MIRROR_DELAY_MS,
     mirrorImages = true,
     fetchImpl = fetch,
+    sliceDir = EVENTS_SLICE_DIR,
   } = config || {};
 
   if (!sourceKey || typeof sourceKey !== 'string') {
@@ -232,7 +238,20 @@ export function createAgendaCrawler(config) {
       return { events: [], pagesOk, pagesFail, written: false };
     }
 
-    const normalizedEvents = events.map((event) => fillEventPeopleDefaults(event, source));
+    const enrichedEvents = [];
+    for (const event of events) {
+      let enriched = event;
+      if (enrichEvent) {
+        try {
+          enriched = { ...event, ...await enrichEvent(event, fetchHtml) };
+        } catch (err) {
+          console.warn(`[${sourceKey}] detail enrichment failed for ${event.id}: ${err?.message || err}`);
+        }
+        await sleep(politeDelayMs);
+      }
+      enrichedEvents.push(enriched);
+    }
+    const normalizedEvents = enrichedEvents.map((event) => fillEventPeopleDefaults(event, source));
     const mirroredEvents = await mirrorImagesForEvents(normalizedEvents);
     const sorted = [...mirroredEvents].sort((a, b) => (a.startDate || '').localeCompare(b.startDate || ''));
 
@@ -241,7 +260,7 @@ export function createAgendaCrawler(config) {
       return { events: sorted, pagesOk, pagesFail, written: false };
     }
 
-    const slicePath = path.join(EVENTS_SLICE_DIR, `${source.key}.json`);
+    const slicePath = path.join(sliceDir, `${source.key}.json`);
     const total = mergeEventsIntoSlice({
       slicePath,
       sourceKey: source.key,

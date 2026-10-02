@@ -6,6 +6,7 @@ import {
   PROFILE_SCHEMA,
   REQUIREMENTS_SCHEMA,
 } from '../functions/src/assistedApplicationAiPrompts.js';
+import { TAILORED_CV_SCHEMA } from '../functions/src/assistedApplicationTailoredCv.js';
 import { buildDraft, DraftAbort } from '../scripts/assisted-application/lib/draft.mjs';
 import { classifyLiveness, isHardClosed } from '../scripts/assisted-application/lib/liveness.mjs';
 import { decryptJson, encryptJson, maskValues } from '../scripts/assisted-application/lib/secure-run.mjs';
@@ -100,6 +101,13 @@ function fakeCodex() {
         motivationShort: 'Mi motiva il lavoro di reparto.', whyCompany: 'Ospedale di riferimento.',
       };
     }
+    if (schema === TAILORED_CV_SCHEMA) {
+      return {
+        headline: 'Infermiera', summary: 'Infermiera con esperienza in reparto.', competencies: ['triage', 'astrofisica'],
+        experience: [{ index: 0, bullets: ['Reparto da 24 letti.'] }], skills: ['triage'],
+        sectionTitles: { summary: 'Profilo', competencies: 'Competenze', experience: 'Esperienza', education: 'Formazione', certifications: 'Certificazioni', skills: 'Competenze tecniche', languages: 'Lingue' },
+      };
+    }
     throw new Error('unexpected schema');
   });
 }
@@ -121,7 +129,13 @@ describe('draft mode', () => {
       order, orderId: ORDER_ID, flow: { round: 1, answers: {} }, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
       codex, bucket, runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
     });
-    expect(codex).toHaveBeenCalledTimes(4);
+    // Profile, requirements, match, letter and the tailored ATS CV (career-ops extras).
+    expect(codex).toHaveBeenCalledTimes(5);
+    expect(draft.tailoredCv).toMatchObject({ status: 'ready', dropped: ['astrofisica'] });
+    expect(bucket.files.has(draft.tailoredCv.pdfKey)).toBe(true);
+    expect(draft.ats.original.structural.grade).toBeTruthy();
+    expect(draft.ats.tailored.keywords).toBeTruthy();
+    expect(['high_confidence', 'caution', 'suspicious']).toContain(draft.legitimacy.tier);
     expect(draft).toMatchObject({ status: 'ready', round: 1, verdict: 'good', language: 'it', channel: { type: 'lever' } });
     // Inferred rows are never critical; unverified quotes and invented addresses are dropped.
     expect(draft.requirements[2]).toMatchObject({ basis: 'inferred', importance: 'meaningful', quote: '' });
@@ -137,6 +151,25 @@ describe('draft mode', () => {
     const archive = JSON.parse(bucket.files.get(draft.archiveKey)!.toString('utf8'));
     expect(decryptJson(archive, KEY).postingText).toContain('Ospedale cerca');
     expect(draft.applicationEmail.body).toContain('Maria Rossi');
+    // The subject names the position and the candidate (the model's "Candidatura infermiera" is not used).
+    expect(draft.applicationEmail.subject).toMatch(/^Candidatura per la posizione di .+ – Maria Rossi$/);
+  });
+
+  it('writes the next round from the candidate as corrected on the review page', async () => {
+    const codex = fakeCodex();
+    const flow = { round: 2, answers: { work_permit: 'G' }, formOverrides: { languages: 'Deutsch C1', workPermit: 'B', salary: 'CHF 90000' } };
+    const draft = await buildDraft({
+      order, orderId: ORDER_ID, flow, previousDraft: null, cvBuffer: cvPdf(), cvType: 'pdf',
+      codex, bucket: fakeBucket(), runKey: KEY, resolve: publicDns, fetchImpl: fakeFetch(), nowMs: Date.UTC(2026, 8, 30), log: quiet,
+    });
+    const promptFor = (schema: unknown) => (codex.mock.calls as any[]).find(([request]) => request.schema === schema)[0].prompt;
+    for (const schema of [MATCH_SCHEMA, DOCUMENTS_SCHEMA]) {
+      expect(promptFor(schema)).toContain('Deutsch C1');
+      expect(promptFor(schema)).toContain('"work_permit":"B"');
+    }
+    expect(draft.profile).toMatchObject({ languages: [{ language: 'Deutsch C1', level: '' }], workPermit: 'B' });
+    // The corrected salary answers the question the posting asks.
+    expect(draft.questions.map((question: any) => question.id)).not.toContain('salary_expectation');
   });
 
   it('stops before any Codex call when the posting is closed', async () => {
@@ -171,11 +204,43 @@ describe('submit mode', () => {
       order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
       bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet,
     });
-    expect(event).toEqual({ type: 'submit_succeeded', channel: 'email' });
+    // The follow-ups (day 7 and 14) get the recipient, the subject and our Message-ID.
+    expect(event).toMatchObject({ type: 'submit_succeeded', channel: 'email', followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
+    expect(event.followup.messageId).toMatch(/^<aa-.+@candidature\.frontaliereticino\.ch>$/);
     const [[items, options]] = sendCascade.mock.calls as any;
     expect(options).toEqual({ delayMs: 0, forceProvider: 'resend' });
     expect(items[0].payload).toMatchObject({ to: ['hr@ospedale.ch'], replyTo: 'maria.rossi@example.com', from: '"Maria Rossi via Frontaliere Ticino" <valerie@frontaliereticino.ch>' });
     expect(items[0].payload.attachments.map((item: any) => item.filename)).toEqual(['CV_Maria_Rossi.pdf', 'Lettera_di_presentazione_Maria_Rossi.pdf']);
+    // Sent in the candidate's name: no rewritten links, no open pixel.
+    expect(items[0].payload).toMatchObject({ tracking: false, openTracking: false });
+  });
+
+  it('a dry run prepares the e-mail, keeps it encrypted next to the order, and sends nothing', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const sendCascade = vi.fn();
+    const event = await submitApplication({
+      order, orderId: ORDER_ID, flow: { answers: { salary_expectation: 'CHF 80k' } }, draft: baseDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      bucket, runKey: KEY, sendCascade, resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, dryRun: true,
+    });
+    expect(event).toEqual({ type: 'dry_run_ready', channel: 'email' });
+    expect(sendCascade).not.toHaveBeenCalled();
+    expect([...bucket.files.keys()].some((key) => key.includes('dry-run-email'))).toBe(true);
+  });
+
+  it('fills the portal form with the corrections the candidate made on the review page', async () => {
+    const bucket = fakeBucket();
+    await bucket.file(baseDraft.coverLetterPdfKey).save(Buffer.from('%PDF-1.4 letter'));
+    const portalDraft = { ...baseDraft, channel: { type: 'lever', applyUrl: 'https://jobs.lever.co/ospedale/1/apply' } };
+    const runner = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
+    await submitApplication({
+      order, orderId: ORDER_ID, draft: portalDraft, cvBuffer: cvPdf(), cvType: 'pdf',
+      flow: { answers: { salary_expectation: 'CHF 80k' }, formOverrides: { firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' } },
+      bucket, runKey: KEY, sendCascade: vi.fn(), resolve: publicDns, fetchImpl: fakeFetch(), log: quiet, codex: vi.fn(), portalRunner: runner,
+    });
+    const [[ctx]] = runner.mock.calls as any;
+    expect(ctx.candidate.identity).toMatchObject({ fullName: 'Maria Luisa Rossi', firstName: 'Maria Luisa', lastName: 'Rossi', phone: '+41 91 000 00 00', location: 'Varese' });
+    expect(ctx.files.cv).toMatch(/CV_Maria_Luisa_Rossi\.pdf$/);
   });
 
   it('submits on a portal once, resumes a run that died before the click, never one that died after it', async () => {
@@ -203,8 +268,10 @@ describe('submit mode', () => {
     // Died while filling the form: nothing reached the employer, the retry starts again.
     const beforeClick = createMemoryFirestore();
     await expect(submit(beforeClick.db, async () => { throw new Error('browser crashed'); })).rejects.toThrow('browser crashed');
-    const again = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }));
-    expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    const given = [{ question: 'Vorname', answer: 'Maria', source: 'identity' }];
+    const again = vi.fn(async () => ({ event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [], answers: given } }));
+    // What went into the form travels next to the event, for the draft (agent.mjs), never inside it.
+    expect(await submit(beforeClick.db, again)).toEqual({ type: 'submit_handoff', reason: 'captcha', portalAnswers: { status: 'submit_handoff', at: expect.any(Number), answers: given } });
     expect(again).toHaveBeenCalledTimes(1);
     expect(beforeClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'captcha' } });
 
@@ -239,12 +306,20 @@ describe('submit mode', () => {
     // application, so the claim stays "sending" and no later run presses it again.
     const captchaAfterClick = createMemoryFirestore();
     const clicksThenCaptcha = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_handoff', reason: 'captcha' }, evidence: { steps: [] } }; };
-    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toEqual({ type: 'submit_handoff', reason: 'captcha' });
+    expect(await submit(captchaAfterClick.db, clicksThenCaptcha)).toMatchObject({ type: 'submit_handoff', reason: 'captcha' });
     expect(captchaAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sending' } });
     expect(await submissionGuard(captchaAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'in_flight' });
     const notAgain = vi.fn();
     expect(await submit(captchaAfterClick.db, notAgain)).toEqual({ type: 'submit_failed', error: 'portal_ambiguous' });
     expect(notAgain).not.toHaveBeenCalled();
+
+    // The portal said in words, after the click, that it did not send (JOIN
+    // «Non siamo riusciti a inviare…»): released, Valerie's retry claims it again.
+    const refusedAfterClick = createMemoryFirestore();
+    const clicksThenRefused = async (ctx: any) => { await ctx.onBeforeSubmit(); return { event: { type: 'submit_failed', error: 'portal_refused' }, evidence: { steps: [], antibot: true } }; };
+    expect(await submit(refusedAfterClick.db, clicksThenRefused)).toMatchObject({ type: 'submit_failed', error: 'portal_refused' });
+    expect(refusedAfterClick.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'failed', reason: 'portal_refused' } });
+    expect(await submissionGuard(refusedAfterClick.db, ORDER_ID, 1).claim('portal', Date.now(), { resumable: true })).toMatchObject({ status: 'claimed' });
   });
 
   it('sends an application once per order and round, whatever the watchdog re-dispatches', async () => {
@@ -259,7 +334,8 @@ describe('submit mode', () => {
     });
     expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email' });
     // The first run sent it, then died before its event: the retry does not send again.
-    expect(await run()).toEqual({ type: 'submit_succeeded', channel: 'email', replayed: true });
+    // The replay still hands over what the follow-ups need, from the record of the first send.
+    expect(await run()).toMatchObject({ type: 'submit_succeeded', channel: 'email', replayed: true, followup: { to: 'hr@ospedale.ch', subject: 'Candidatura' } });
     expect(sendCascade).toHaveBeenCalledTimes(1);
     expect(store.read(`assisted_applications/${ORDER_ID}/automation/submission`)).toMatchObject({ r1: { state: 'sent', channel: 'email', to: 'hr@ospedale.ch' } });
 

@@ -86,6 +86,47 @@ describe('reconcile slug writer — stable ownership before slug fallback (#7920
   });
 });
 
+describe('reconcile expired cleanup — byte-floor proof alignment', () => {
+  const activeJob = (company: string) => ({
+    slug: 'store-manager-zurich',
+    slugByLocale: { it: 'store-manager-zurich' },
+    previousSlugs: ['store-manager-zurich-old'],
+    title: 'Store Manager',
+    company,
+    location: 'Zürich',
+  });
+
+  const expiredJob = (company: string) => ({
+    slug: 'store-manager-zurich-old',
+    slugByLocale: { it: 'store-manager-zurich-old' },
+    title: 'Store Manager',
+    company,
+    location: 'Zürich',
+  });
+
+  it('removes an already-attributed expired route only with matching owner metadata', () => {
+    const result = reconcileExpiredSlugs(
+      [activeJob('Rituals Cosmetics')],
+      [expiredJob('Rituals Cosmetics')],
+      { dryRun: false },
+    );
+
+    expect(result.reconciledIds).toEqual(new Set(['store-manager-zurich-old']));
+    expect(result.updatedExpired).toHaveLength(0);
+  });
+
+  it('keeps a shared route archived when owner metadata disagrees', () => {
+    const result = reconcileExpiredSlugs(
+      [activeJob('Other Company')],
+      [expiredJob('Rituals Cosmetics')],
+      { dryRun: false },
+    );
+
+    expect(result.reconciledIds).toEqual(new Set());
+    expect(result.updatedExpired).toHaveLength(1);
+  });
+});
+
 // The early-return path (above) and the main-loop path return distinct object
 // literals (the early-return guard vs the main-loop return in each fn). The static
 // guard in the assemble file only covers the caller, not the function's return

@@ -27,6 +27,8 @@
  *     never dedup into each other);
  *   - no percentage appears in the title (a number in the title changes every
  *     run and every run would open a new issue).
+ * Long labels can leave the bucket name beyond the 60-character dedup prefix,
+ * so this producer opts into full-title matching for both open and resolve.
  * The measurement lives in the body, where it belongs — and it is re-stated on
  * every occurrence, because a stale figure in an issue is how the loop ends up
  * working from a number that is no longer true.
@@ -240,6 +242,7 @@ async function main() {
       priority,
       labels,
       workflow: WORKFLOW,
+      exactTitle: true,
       consecutiveGate,
     });
     if (res) opened.push(title);
@@ -251,7 +254,11 @@ async function main() {
       resolved.push(title);
       return;
     }
-    const res = resolveGithubIssue(title, { workflow: WORKFLOW, runUrl: RUN_URL });
+    const res = resolveGithubIssue(title, {
+      workflow: WORKFLOW,
+      runUrl: RUN_URL,
+      exactTitle: true,
+    });
     if (res) resolved.push(title);
   };
 

@@ -17,24 +17,28 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
-import { fileURLToPath } from 'node:url';
 import {
   EVENT_IMAGE_MAX_BYTES,
   mirrorEventImage,
   resetEventImageManifestCache,
 } from '../scripts/lib/events-utils.mjs';
 
-const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const EVENT_IMAGE_DIR = path.join(REPO_ROOT, 'public', 'images', 'events');
 const MIB = 1024 * 1024;
 const URL_OK = 'https://images.example.test/a.jpg';
 
 let dir: string;
+// Le immagini vanno in tmpdir (EVENTS_IMAGE_DIR), non in public/images/events/
+// del checkout, dove gli altri test e la build le vedrebbero durante la run.
+let EVENT_IMAGE_DIR: string;
 let previousManifest: string | undefined;
+let previousImageDir: string | undefined;
 const written: string[] = [];
 
 beforeEach(() => {
   dir = mkdtempSync(path.join(tmpdir(), 'events-image-body-'));
+  EVENT_IMAGE_DIR = path.join(dir, 'images');
+  previousImageDir = process.env.EVENTS_IMAGE_DIR;
+  process.env.EVENTS_IMAGE_DIR = EVENT_IMAGE_DIR;
   previousManifest = process.env.EVENTS_IMAGE_MANIFEST_PATH;
   process.env.EVENTS_IMAGE_MANIFEST_PATH = path.join(dir, 'manifest.json');
   writeFileSync(process.env.EVENTS_IMAGE_MANIFEST_PATH, '{}\n');
@@ -47,6 +51,8 @@ afterEach(() => {
   vi.restoreAllMocks();
   if (previousManifest === undefined) delete process.env.EVENTS_IMAGE_MANIFEST_PATH;
   else process.env.EVENTS_IMAGE_MANIFEST_PATH = previousManifest;
+  if (previousImageDir === undefined) delete process.env.EVENTS_IMAGE_DIR;
+  else process.env.EVENTS_IMAGE_DIR = previousImageDir;
   resetEventImageManifestCache();
   for (const file of written.splice(0)) rmSync(file, { force: true });
   rmSync(dir, { recursive: true, force: true });

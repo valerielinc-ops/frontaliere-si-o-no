@@ -1,18 +1,52 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-09-29T21:12:04.826Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-10-01T21:13:18.335Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3466,
-  "avgDurationMs": 3466,
+  "durationMs": 4212,
+  "avgDurationMs": 4212,
   "durationHistory": [
-    3466
+    4212
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "cedes-33d85e05de4e",
+      "slug": "operator-in-smd-assembly-cedes-landquart",
+      "company": "CEDES AG",
+      "companyKey": "cedes",
+      "companyDomain": "cedes.com",
+      "title": "Operator in SMD Assembly",
+      "location": "Landquart",
+      "canton": "GR",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "postalCode": "7302",
+      "addressCountry": "CH",
+      "category": "technology",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "url": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
+      "source": "CEDES Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-10-01T21:13:08.795Z",
+      "needsRetranslation": true,
+      "applyUrl": "https://www.cedes.com/en/career/jobs/operator-in-smd-assembly/",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "cedes-38194b91f772",
@@ -36,7 +70,7 @@
       "url": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:11:57.172Z",
+      "crawledAt": "2026-10-01T21:13:09.085Z",
       "firstSeenAt": "2026-08-25T09:46:00.183Z",
       "applyUrl": "https://www.cedes.com/en/career/jobs/lead-buyer-electronics/",
       "_qualityScore": 87,
@@ -69,7 +103,7 @@
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-29T21:11:56.868Z",
+      "crawledAt": "2026-10-01T21:13:08.494Z",
       "firstSeenAt": "2026-04-13T10:12:14.899Z",
       "applyUrl": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "_qualityScore": 83,

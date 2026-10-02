@@ -12,7 +12,6 @@
 import { buildCoverLetterPdf } from '../../../functions/src/assistedApplicationAiDocuments.js';
 import {
   buildFormAnswers,
-  candidateIdentity,
   checkDraftFacts,
   ensureRequiredQuestions,
   letterPdfBlocks,
@@ -24,6 +23,7 @@ import {
   verifyQuotes,
 } from '../../../functions/src/assistedApplicationAiDraftCore.js';
 import { classifyApplicationChannel, fetchJobPosting } from '../../../functions/src/assistedApplicationAiJob.js';
+import { candidateWithEdits } from '../../../functions/src/assistedApplicationCandidateEdits.js';
 import {
   DOCUMENTS_SCHEMA,
   MATCH_SCHEMA,
@@ -34,6 +34,7 @@ import {
   codexPrompt,
   documentsSystemPrompt,
   documentsUserText,
+  applicationEmailSubject,
   letterSubject,
   matchSystemPrompt,
   matchUserText,
@@ -41,13 +42,27 @@ import {
   requirementsUserText,
   resolveLetterLanguage,
 } from '../../../functions/src/assistedApplicationAiPrompts.js';
+import { atsReport } from '../../../functions/src/assistedApplicationAts.js';
+import { assessLegitimacy } from '../../../functions/src/assistedApplicationLegitimacy.js';
+import {
+  TAILORED_CV_SCHEMA,
+  buildTailoredCvPdf,
+  checkTailoredCvFacts,
+  sanitizeTailoredCv,
+  tailoredCvPlainText,
+  tailoredCvSystemPrompt,
+  tailoredCvUserText,
+} from '../../../functions/src/assistedApplicationTailoredCv.js';
 import { readCvText } from './cv-text.mjs';
+import { candidateForForm } from './portal/portal.mjs';
 import { checkPostingLiveness } from './posting-liveness.mjs';
 import { maskValues, personalValuesOf, storeEvidence } from './secure-run.mjs';
 
 const MAX_SOURCE_CHARS = 30_000;
 const MAX_POSTING_EXCERPT = 6_000;
-const CODEX_TIMEOUT_MS = 600_000;
+// A slow call at effort max must finish rather than fail the draft: the
+// broker of assisted-application-agent.yml allows 30 min per request.
+const CODEX_TIMEOUT_MS = 30 * 60 * 1000;
 const CANDIDATE_LOCALES = new Set(['it', 'de', 'fr', 'en']);
 
 export class DraftAbort extends Error {
@@ -82,7 +97,6 @@ export async function buildDraft(ctx) {
   const fetchImpl = ctx.fetchImpl || fetch;
   const nowMs = ctx.nowMs || Date.now();
   const round = Number(flow?.round) || 1;
-  const answers = flow?.answers || {};
   // Fase 2: what the candidate wrote in the e-mail that carried the CV.
   const candidateNotes = String(ctx.intake?.emailNotes || '').slice(0, 4000);
   const log = ctx.log || ((...args) => console.log('[assisted-application]', ...args));
@@ -127,9 +141,24 @@ export async function buildDraft(ctx) {
     requirements = verifyQuotes(sanitizeRequirements(requirementsRaw), postingText);
   }
   maskValues(personalValuesOf(order, profile));
+  // What the candidate corrected on the review page (name, phone, place,
+  // languages, permit, salary...) wins over the CV and over older answers:
+  // every prompt, the questions and the saved draft use the corrected candidate.
+  const edited = candidateWithEdits({ order, draft: { profile }, flow });
+  profile = edited.profile;
+  const answers = edited.answers;
+  const identity = edited.identity;
 
   const locale = candidateLocale(order);
   const profileJson = JSON.stringify(profile);
+  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
+  const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
+  // The tailored ATS CV needs only the profile and the requirements: it runs
+  // while the match and the letter are written.
+  const tailoredCvPromise = buildTailoredCv({
+    codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes,
+    cvText, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
+  });
   const matchRaw = await codex({
     prompt: codexPrompt(matchSystemPrompt(locale), matchUserText({
       profile, requirements, answers, candidateNotes, postingExcerpt: postingText.slice(0, MAX_POSTING_EXCERPT),
@@ -140,9 +169,6 @@ export async function buildDraft(ctx) {
   const match = sanitizeMatch(matchRaw, requirements.requirements.length, `${cvText}\n${profileJson}\n${JSON.stringify(answers)}\n${candidateNotes}`);
   const questions = ensureRequiredQuestions(match.questions, { requirements, profile, answers, locale });
 
-  const language = resolveLetterLanguage(requirements.postingLanguage, order.locale);
-  const title = String(posting.titles?.[language] || requirements.roleTitle || order.jobTitle || '').slice(0, 300);
-  const identity = candidateIdentity(order, profile);
   const documentsRaw = await codex({
     prompt: codexPrompt(documentsSystemPrompt(language), documentsUserText({
       candidateName: identity.name,
@@ -173,12 +199,19 @@ export async function buildDraft(ctx) {
     text: cvText.slice(0, MAX_SOURCE_CHARS),
     posting: postingText.slice(0, MAX_SOURCE_CHARS),
     order: [order.jobTitle, order.companyName, identity.name, identity.email, identity.phone, title].join('\n'),
-    answers: [...Object.values(answers), candidateNotes].join('\n'),
+    // The candidate's own words: answers, notes, the changes asked for, the fields they corrected.
+    answers: [
+      ...Object.values(answers),
+      candidateNotes,
+      ...(flow?.feedback || []).map((item) => String(item?.text || '')),
+      ...Object.values(edited.overrides),
+    ].join('\n'),
   };
   const letterBody = letterText(documents.coverLetter);
+  const emailSubject = applicationEmailSubject(language, title, identity.name, documents.emailSubject);
   const factCheck = checkDraftFacts({
     coverLetter: letterBody,
-    emailSubject: documents.emailSubject,
+    emailSubject,
     emailBody: documents.emailBody,
     motivationShort: documents.motivationShort,
     whyCompany: documents.whyCompany,
@@ -189,12 +222,42 @@ export async function buildDraft(ctx) {
     postingText,
     applicationEmail: requirements.applicationEmail,
   });
+  // The portal's own required questions, read ahead on a single-page form
+  // (career-ops apply.md): the candidate answers them on the first review,
+  // not in a second round at submit time. Questions already asked are kept.
+  const formAnswers = buildFormAnswers({ identity, profile, documents, answers });
+  if (ctx.readPortalQuestions && channel.applyUrl) {
+    const portal = await ctx.readPortalQuestions({
+      channelType: channel.type,
+      applyUrl: channel.applyUrl,
+      language,
+      candidateLocale: locale,
+      candidate: candidateForForm({ identity, profile, answers, draft: { formAnswers, coverLetter: { text: letterBody } } }),
+      codex,
+      log,
+    });
+    const known = new Set(questions.map((question) => question.id));
+    questions.push(...portal.filter((question) => !known.has(question.id)));
+    log('portal pre-read', channel.type, `${portal.length} questions`);
+  }
 
   const pdf = buildCoverLetterPdf(letterPdfBlocks({
     identity, profile, posting, companyName: order.companyName, language, letter: documents.coverLetter, title, now: new Date(nowMs),
   }));
   const pdfKey = `assisted-application-uploads/${orderId}/ai-cover-letter-r${round}-${nowMs}.pdf`;
   await bucket.file(pdfKey).save(pdf, { contentType: 'application/pdf', resumable: false });
+
+  // Extras (career-ops): the ATS check of the candidate's own CV and of the
+  // tailored one, and the posting's legitimacy tier (Block G).
+  const tailored = await tailoredCvPromise;
+  const ats = {
+    original: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText, cvMethod }),
+    ...(tailored.text ? { tailored: atsReport({ requirements: requirements.requirements, roleTitle: requirements.roleTitle, cvText: tailored.text, cvMethod: 'pdf' }) } : {}),
+  };
+  const legitimacy = assessLegitimacy({
+    posting, legitimacy: requirements.legitimacy, livenessResult: liveness.page?.result, companyName: order.companyName, nowMs,
+  });
+  log('ats', ats.original.structural.grade, `${ats.original.keywords.coverage ?? '-'}%`, 'tailored', tailored.record.status, 'legitimacy', legitimacy.tier);
 
   const signature = [identity.name, identity.email, identity.phone].filter(Boolean).join('\n');
   const draft = {
@@ -225,14 +288,17 @@ export async function buildDraft(ctx) {
     coverLetter: { ...documents.coverLetter, text: letterBody, subject: letterSubject(language, title) },
     applicationEmail: {
       to: channel.email || '',
-      subject: documents.emailSubject || letterSubject(language, title),
+      subject: emailSubject,
       body: `${documents.emailBody}\n\n${signature}`.trim(),
     },
-    formAnswers: buildFormAnswers({ identity, profile, documents, answers }),
+    formAnswers,
     profile,
     factCheck: { ...factCheck, basis: cvMethod },
     factSources,
     coverLetterPdfKey: pdfKey,
+    ats,
+    legitimacy,
+    tailoredCv: tailored.record,
   };
 
   // career-ops "application snapshot": the posting as it was read and the
@@ -246,6 +312,36 @@ export async function buildDraft(ctx) {
     nowMs,
   });
   return draft;
+}
+
+/**
+ * The tailored ATS CV (functions/src/assistedApplicationTailoredCv.js). Never
+ * fails the draft: without it the original CV is sent.
+ * @returns {Promise<{record: object, text: string}>}
+ */
+async function buildTailoredCv({ codex, bucket, orderId, round, nowMs, log, profile, requirements, title, language, identity, answers, candidateNotes, cvText, postingExcerpt }) {
+  try {
+    const raw = await codex({
+      prompt: codexPrompt(tailoredCvSystemPrompt(language), tailoredCvUserText({
+        profile, requirements: requirements.requirements, roleTitle: title, postingExcerpt, answers,
+      })),
+      schema: TAILORED_CV_SCHEMA,
+      timeoutMs: CODEX_TIMEOUT_MS,
+    });
+    const cv = sanitizeTailoredCv(raw, { profile, cvText, language });
+    const text = tailoredCvPlainText(cv, { identity, profile });
+    const facts = checkTailoredCvFacts(cv, { cvText, profile, answers: { ...answers, notes: candidateNotes } });
+    if (!facts.ok) {
+      log('tailored cv: fact gate failed, the original CV will be sent');
+      return { record: { status: 'fact_check_failed', unsupported: facts.unsupported.slice(0, 10), dropped: cv.dropped, language }, text };
+    }
+    const pdfKey = `assisted-application-uploads/${orderId}/ai-cv-r${round}-${nowMs}.pdf`;
+    await bucket.file(pdfKey).save(buildTailoredCvPdf(cv, { identity, profile }), { contentType: 'application/pdf', resumable: false });
+    return { record: { status: 'ready', pdfKey, language, headline: cv.headline, dropped: cv.dropped }, text };
+  } catch (error) {
+    log('tailored cv failed', error instanceof Error ? error.message.slice(0, 80) : 'error');
+    return { record: { status: 'failed', language }, text: '' };
+  }
 }
 
 function hashText(text) {

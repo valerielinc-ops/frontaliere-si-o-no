@@ -5,9 +5,13 @@ vi.mock('../functions/src/remoteConfigSecrets.js', () => ({ getRemoteConfigValue
 const {
   CANDIDATE_REMINDER_BEFORE_MS,
   CANDIDATE_REVIEW_MS,
+  HELD_OWNER_NOTICE_AFTER_MS,
+  HELD_REMINDERS_AFTER_MS,
+  MAX_RUN_ATTEMPTS,
   MAX_REVIEW_ROUNDS,
   OWNER_REVIEW_MS,
   evaluateRedFlags,
+  isTransientRunError,
   transition,
 } = await import('../functions/src/assistedApplicationFlow.js');
 const { mintReviewToken, verifyReviewToken } = await import('../functions/src/assistedApplicationReviewToken.js');
@@ -20,6 +24,52 @@ const cleanDraft = {
   factCheck: { ok: true, unsupported: [] },
   questions: [],
 };
+
+describe('draft failures', () => {
+  // Trial run 2026-09-30: round 2 went to the owner on "codex auth broker rejected the request; codex timed out".
+  const brokerError = 'codex auth broker rejected the request_ codex timed out after <number>ms';
+
+  it('retries a transient failure, and hands over after the last attempt or on a real error', () => {
+    const regenerating = { state: 'regenerating', round: 2, dispatch: { mode: 'draft', round: 2, attempts: 1 } };
+    const retry = transition(regenerating, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('regenerating');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...regenerating, dispatch: { ...regenerating.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'draft_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['draft_failed'] });
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: brokerError, stage: 'draft', attempts: MAX_RUN_ATTEMPTS }]);
+
+    const real = transition(regenerating, { type: 'draft_failed', error: 'cv_unavailable:not_found' }, { draft: cleanDraft, nowMs: T0 });
+    expect(real.flow.state).toBe('owner_takeover');
+  });
+
+  it('knows which errors another run can fix', () => {
+    for (const error of [brokerError, 'codex_http_503', 'codex_http_429', 'rate_limit', 'ETIMEDOUT', 'ECONNREFUSED', 'ENETUNREACH', 'EHOSTUNREACH', 'EAI_AGAIN', 'model overloaded']) {
+      expect(isTransientRunError(error)).toBe(true);
+    }
+    // runner_timeout: the watchdog already re-dispatched the silent run.
+    for (const error of ['cv_unavailable:not_found', 'posting_unreadable', 'invalid_profile', 'runner_timeout', 'codex_http_400', '']) {
+      expect(isTransientRunError(error)).toBe(false);
+    }
+  });
+
+  it('runs a submission again after a transient failure, never after an ambiguous one', () => {
+    const submitting = { state: 'submitting', round: 1, dispatch: { mode: 'submit', round: 1, attempts: 1 } };
+    const retry = transition(submitting, { type: 'submit_failed', error: brokerError }, { draft: cleanDraft, nowMs: T0 });
+    expect(retry.flow.state).toBe('submitting');
+    expect(retry.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'transient_retry', attempts: 2 }]);
+
+    const last = transition({ ...submitting, dispatch: { ...submitting.dispatch, attempts: MAX_RUN_ATTEMPTS } }, { type: 'submit_failed', error: 'Timeout 30000ms exceeded' }, { draft: cleanDraft, nowMs: T0 });
+    expect(last.flow.state).toBe('owner_takeover');
+    expect(last.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'Timeout 30000ms exceeded', stage: 'submit', attempts: MAX_RUN_ATTEMPTS }]);
+
+    // The application may have reached the employer: the owner checks first.
+    for (const error of ['email_ambiguous', 'portal_ambiguous', 'email_failed', 'portal_validation', 'runner_timeout']) {
+      const step = transition(submitting, { type: 'submit_failed', error }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: [error] });
+    }
+  });
+});
 
 describe('red flags', () => {
   it('separates what only Valerie can clear from what only the candidate can answer', () => {
@@ -117,12 +167,82 @@ describe('approval flow', () => {
     expect(step.flow).toMatchObject({ state: 'candidate_review', deadlineAt: null, heldBy: ['question:permit'] });
     expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
     expect(transition(step.flow, { type: 'candidate_approve' }, { draft: withQuestion, nowMs: T0 + 1 }).ignored).toBe('questions_open');
-    expect(transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + 2 * CANDIDATE_REVIEW_MS }).ignored).toBe('nothing_due');
+    expect(transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + CANDIDATE_REVIEW_MS }).ignored).toBe('nothing_due');
+    // A day later only a reminder goes out: nothing leaves without the answers.
+    const nudged = transition(step.flow, { type: 'tick' }, { draft: withQuestion, nowMs: T0 + 2 * CANDIDATE_REVIEW_MS });
+    expect(nudged.flow).toMatchObject({ state: 'candidate_review', deadlineAt: null, heldBy: ['question:permit'] });
+    expect(nudged.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
 
     const answeredAt = T0 + 3 * 60 * 60_000;
     step = transition(step.flow, { type: 'candidate_answers' }, { draft: withQuestion, answers: { permit: 'Permesso G' }, nowMs: answeredAt });
     expect(step.flow).toMatchObject({ state: 'candidate_review', deadlineAt: answeredAt + CANDIDATE_REVIEW_MS, heldBy: [] });
     expect(step.effects).toEqual([]);
+  });
+
+  // Owner question 2026-10-01: «cosa succede dopo le 12 ore che l'utente non risponde alle domande?»
+  it('reminds a candidate who does not answer at 24 h and 72 h, then tells Valerie after 5 days', () => {
+    const questions = [{ id: 'permit', required: true }, { id: 'rate', required: true }];
+    const draft = { ...cleanDraft, questions };
+    let step = transition({ state: 'owner_review', deadlineAt: T0 + OWNER_REVIEW_MS }, { type: 'owner_approve' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldSince: T0, heldNudges: 0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_review', held: true, round: 1 }]);
+
+    // One answer of two: still waiting, on the same schedule.
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { permit: 'Permesso G' }, nowMs: T0 + 60_000 });
+    expect(step.flow).toMatchObject({ heldBy: ['question:rate'], heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([]);
+    const answers = { permit: 'Permesso G' };
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldNudges: 1, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[1], deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] + 1 }).ignored).toBe('nothing_due');
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_REMINDERS_AFTER_MS[1] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 2, since: T0 }]);
+    expect(step.flow).toMatchObject({ heldNudges: 2, reminderAt: T0 + HELD_OWNER_NOTICE_AFTER_MS });
+
+    step = transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + HELD_OWNER_NOTICE_AFTER_MS });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'owner_candidate_silent', since: T0, days: 5, nudges: 2 }]);
+    // The order keeps waiting for the answers, with no clock left: Valerie decides.
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:rate'], heldNudges: 3, reminderAt: null, deadlineAt: null });
+    expect(transition(step.flow, { type: 'tick' }, { draft, answers, nowMs: T0 + 30 * 24 * 60 * 60_000 }).ignored).toBe('nothing_due');
+
+    // The last answer ends the wait and starts the 12 h clock, with its own reminder.
+    const answeredAt = T0 + 6 * 24 * 60 * 60_000;
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { ...answers, rate: '80 CHF' }, nowMs: answeredAt });
+    expect(step.flow).toMatchObject({
+      state: 'candidate_review', heldBy: [], heldSince: null, heldNudges: 0,
+      deadlineAt: answeredAt + CANDIDATE_REVIEW_MS, reminderAt: answeredAt + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS,
+    });
+  });
+
+  it('gives the 12 h clock after a wait its own reminder, even when an earlier clock sent one (review of #10803)', () => {
+    const draft = { ...cleanDraft, questions: [{ id: 'permit', required: true }] };
+    // The earlier 12 h clock already reminded the candidate; at its end a question is open.
+    let step = transition({ state: 'candidate_review', deadlineAt: T0, reminderSentAt: T0 - CANDIDATE_REMINDER_BEFORE_MS, heldBy: [] }, { type: 'tick' }, { draft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_review', heldBy: ['question:permit'], heldSince: T0, reminderSentAt: null });
+    const answeredAt = T0 + 60 * 60_000;
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { permit: 'Permesso G' }, nowMs: answeredAt });
+    expect(step.flow.heldBy).toEqual([]);
+    expect(step.flow.reminderAt).toBe(answeredAt + CANDIDATE_REVIEW_MS - CANDIDATE_REMINDER_BEFORE_MS);
+  });
+
+  it('reminds the candidate of the portal\'s questions too, each wait with its own reminders', () => {
+    const questions = [{ id: 'screening_1', required: true }];
+    let step = transition({ state: 'submitting' }, { type: 'submit_needs_candidate', questions }, { draft: cleanDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'needs_candidate_action', heldSince: T0, reminderAt: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    const draft = { ...cleanDraft, questions };
+    step = transition(step.flow, { type: 'tick' }, { draft, nowMs: T0 + HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_questions_reminder', nudge: 1, since: T0 }]);
+
+    // Answered: the submit runs again and the wait is over.
+    step = transition(step.flow, { type: 'candidate_answers' }, { draft, answers: { screening_1: 'Sì' }, nowMs: T0 + 2 * HELD_REMINDERS_AFTER_MS[0] });
+    expect(step.flow).toMatchObject({ state: 'submitting', heldSince: null, heldNudges: 0, reminderAt: null });
+    // The portal asks again: a new wait, with reminders of its own.
+    const again = T0 + 3 * HELD_REMINDERS_AFTER_MS[0];
+    step = transition(step.flow, { type: 'submit_needs_candidate', questions: [{ id: 'screening_2', required: true }] }, { draft, nowMs: again });
+    expect(step.flow).toMatchObject({ heldSince: again, heldNudges: 0, reminderAt: again + HELD_REMINDERS_AFTER_MS[0] });
   });
 
   it('regenerates on rejection and hands over to Valerie after the third one', () => {
@@ -178,10 +298,22 @@ describe('review link token', () => {
 });
 
 describe('career-ops handoff, closed ads and owner regeneration', () => {
-  it('hands a portal over to the candidate and counts it sent only on their confirmation', () => {
-    let step = transition({ state: 'submitting', round: 1 }, { type: 'submit_handoff', reason: 'captcha' }, { draft: cleanDraft, nowMs: T0 });
-    expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['captcha'], reminderAt: T0 + 24 * 60 * 60_000 });
-    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: 'captcha' }]);
+  // Owner decision 2026-10-01 (giro di prova su JOIN): the candidate paid not to apply by hand.
+  it('sends a portal the robot could not finish to Valerie, who retries it or chooses to hand it over', () => {
+    const roundDraft = { ...cleanDraft, round: 1 };
+    let step = transition({ state: 'submitting', round: 1, dispatch: { mode: 'submit', attempts: 1 } }, { type: 'submit_handoff', reason: 'captcha' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'owner_takeover', heldBy: ['portal:captcha'], reminderAt: null });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'owner_takeover', reason: 'portal:captcha', stage: 'submit', attempts: 1 }]);
+
+    const retried = transition(step.flow, { type: 'owner_retry_submit' }, { draft: roundDraft, nowMs: T0 });
+    expect(retried.flow.state).toBe('submitting');
+    expect(retried.effects).toEqual([{ type: 'dispatch', mode: 'submit', reason: 'owner_retry' }]);
+    // Never without the approved draft of the round.
+    expect(transition(step.flow, { type: 'owner_retry_submit' }, { draft: { ...cleanDraft, round: 0 }, nowMs: T0 }).ignored).toBe('no_approved_draft');
+
+    step = transition(step.flow, { type: 'owner_handoff' }, { draft: roundDraft, nowMs: T0 });
+    expect(step.flow).toMatchObject({ state: 'candidate_handoff', heldBy: ['owner_handoff'], reminderAt: T0 + 24 * 60 * 60_000 });
+    expect(step.effects).toEqual([{ type: 'email', kind: 'candidate_handoff', reason: null }]);
     const reminder = transition(step.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 24 * 60 * 60_000 });
     expect(reminder.effects).toEqual([{ type: 'email', kind: 'candidate_handoff_reminder' }]);
     expect(transition(reminder.flow, { type: 'tick' }, { draft: cleanDraft, nowMs: T0 + 48 * 60 * 60_000 }).ignored).toBe('nothing_due');
@@ -204,10 +336,59 @@ describe('career-ops handoff, closed ads and owner regeneration', () => {
 
   it('lets Valerie regenerate, even after taking the order over', () => {
     for (const state of ['owner_review', 'owner_takeover', 'candidate_review']) {
-      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: cleanDraft, nowMs: T0 });
+      const step = transition({ state, round: 2 }, { type: 'owner_regenerate' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 });
       expect(step.flow).toMatchObject({ state: 'regenerating', round: 3 });
       expect(step.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
     }
     expect(transition({ state: 'submitted' }, { type: 'owner_regenerate' }, { nowMs: T0 }).ignored).toBe('not_regenerable');
+  });
+
+  // Trial run 2026-09-30: round 2 failed on Codex, and "Rigenera" moved Luigi to his last round.
+  it('writes a failed round again as the same round, never costing the candidate a round', () => {
+    const failed = { state: 'owner_takeover', round: 2, heldBy: ['draft_failed'] };
+    const roundOneDraft = { ...cleanDraft, round: 1 };
+    const regenerated = transition(failed, { type: 'owner_regenerate' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(regenerated.flow).toMatchObject({ state: 'regenerating', round: 2, heldBy: [] });
+    expect(regenerated.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_regenerate' }]);
+    // The very first draft failed: still round 1.
+    expect(transition({ ...failed, round: 1 }, { type: 'owner_regenerate' }, { draft: null, nowMs: T0 }).flow.round).toBe(1);
+
+    // "Riprendi automazione" has nothing to review either: the draft is written again.
+    const resumed = transition(failed, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 });
+    expect(resumed.flow).toMatchObject({ state: 'regenerating', round: 2 });
+    expect(resumed.effects).toEqual([{ type: 'dispatch', mode: 'draft', reason: 'owner_resume' }]);
+    // With the round's draft in hand, resuming reviews it as before.
+    expect(transition({ ...failed, heldBy: ['submit_failed'] }, { type: 'owner_resume' }, { draft: { ...cleanDraft, round: 2 }, nowMs: T0 }).flow.state).toBe('owner_review');
+    // A closed ad is not drafted again by a resume.
+    expect(transition({ ...failed, heldBy: ['posting_closed'] }, { type: 'owner_resume' }, { draft: roundOneDraft, nowMs: T0 }).flow.state).toBe('owner_review');
+  });
+});
+
+describe('employer acknowledgement of a submit of unknown outcome', () => {
+  // career-ops apply.md: "sent" on the success page OR the confirmation e-mail.
+  it('marks the order submitted from a running submit or one Valerie holds as ambiguous', () => {
+    for (const flow of [
+      { state: 'submitting', round: 1 },
+      { state: 'owner_takeover', round: 1, heldBy: ['portal_ambiguous'] },
+      // JOIN 2026-10-01: the same unknown outcome behind an invisible reCAPTCHA.
+      { state: 'owner_takeover', round: 1, heldBy: ['portal_antibot_ambiguous'] },
+      { state: 'owner_takeover', round: 1, heldBy: ['email_ambiguous'] },
+    ]) {
+      const step = transition(flow, { type: 'submit_acknowledged' }, { draft: cleanDraft, nowMs: T0 });
+      expect(step.flow).toMatchObject({ state: 'submitted', heldBy: [], deadlineAt: null, reminderAt: null });
+      expect(step.flow.history.at(-1)).toEqual({ at: T0, event: 'submit_acknowledged', state: 'submitted' });
+      expect(step.effects).toEqual([{ type: 'mark_submitted' }]);
+    }
+  });
+
+  it('never moves a flow that holds anything else, or is past the submit', () => {
+    for (const heldBy of [['portal:captcha'], ['owner'], ['runner_timeout'], ['posting_closed'], ['max_rounds']]) {
+      expect(transition({ state: 'owner_takeover', heldBy }, { type: 'submit_acknowledged' }, { nowMs: T0 }).ignored).toBe('not_ambiguous_submit');
+    }
+    for (const state of ['submitted', 'failed', 'candidate_review', 'candidate_handoff', 'drafting']) {
+      expect(transition({ state }, { type: 'submit_acknowledged' }, { nowMs: T0 }).ignored).toBe('not_ambiguous_submit');
+    }
+    // The runner's own success is still accepted only while it submits.
+    expect(transition({ state: 'owner_takeover', heldBy: ['portal_ambiguous'] }, { type: 'submit_succeeded' }, { nowMs: T0 }).ignored).toBe('terminal');
   });
 });

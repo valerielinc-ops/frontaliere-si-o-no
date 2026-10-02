@@ -41,9 +41,26 @@ export interface AutomationQuestionView {
 }
 
 /** Automated flow + AI draft, as functions/src/assistedApplicationAutomationAdmin.js returns them. */
+export interface AtsReportView {
+  structural: { score: number; grade: string; pass: boolean; issues: Array<{ code: string; severity: 'critical' | 'warning' | 'info' }>; notChecked: string[] };
+  keywords: { coverage: number | null; present: string[]; thin: string[]; missing: string[]; roleTitle: string; roleTitleFound: boolean | null };
+}
+
 export interface AssistedApplicationAutomationView {
   /** Employer messages received on the order alias (newest first, max 10). */
   inbox?: Array<{ receivedAt: number | null; from: string; subject: string; category: string; summaryIt: string; interviewWhen: string; forwarded: string | null }>;
+  /** Follow-ups of an e-mail application (day 7 and 14). */
+  followup?: {
+    state: 'scheduled' | 'awaiting_candidate' | 'sending' | 'done' | 'stopped' | null;
+    sent: number;
+    dueAt: number | null;
+    stopReason: string | null;
+    pending: { n: number; body: string; deadlineAt: number | null } | null;
+  } | null;
+  /** Interview prep pack sent on an interview invitation. */
+  interviewPrep?: { status: string; sentAt: number | null; questions: number; stories: number } | null;
+  /** Portal accounts the runner created on the order's alias (no password: automationRevealAccount). */
+  accounts?: Array<{ host: string; email: string; createdAt: number | null; verifiedAt: number | null; lastSignInAt: number | null; revealedAt: number | null }>;
   flow: {
     state: string | null;
     round: number;
@@ -52,6 +69,8 @@ export interface AssistedApplicationAutomationView {
     heldBy: string[];
     feedback: Array<{ round: number; at: number; text: string }>;
     answers: Record<string, string>;
+    /** The fields the candidate corrected on the review page. */
+    formOverrides?: Record<string, string>;
     dispatch: { mode: string; round: number; requestedAt: number; attempts: number; reason: string | null } | null;
     history: Array<{ at: number; event: string; state: string }>;
   } | null;
@@ -75,9 +94,41 @@ export interface AssistedApplicationAutomationView {
     factCheckAcknowledgedAt: number | null;
     knockOutAcknowledgedAt: number | null;
     editedAt: number | null;
+    /** When the candidate last saved their own changes on the review page. */
+    candidateEditedAt?: number | null;
     cvTextMethod: string | null;
     coverLetterUrl: string | null;
+    /** career-ops ATS check: structural grade and keyword coverage, of the candidate's CV and of the tailored one. */
+    ats: { original: AtsReportView; tailored?: AtsReportView } | null;
+    /** career-ops Block G. */
+    legitimacy: {
+      tier: 'high_confidence' | 'caution' | 'suspicious';
+      ageDays: number | null;
+      signals: Array<{ key: string; weight: 'positive' | 'neutral' | 'concerning'; reliability: string; detail: string }>;
+      notes: Array<{ key: string; quote?: string; detail?: string }>;
+    } | null;
+    tailoredCv: { status: 'ready' | 'fact_check_failed' | 'failed' | 'skipped'; dropped: string[]; unsupported: Array<{ token: string; context: string }>; url: string | null } | null;
+    cvChoice: 'tailored' | 'original';
+    /** What the portal received, question by question (career-ops application-answers). */
+    portalAnswers: { status: string; at: number; answers: Array<{ question: string; answer: string; source: string }> } | null;
   } | null;
+}
+
+/** One e-mail to the candidate and what the providers reported (opens are indicative). */
+export interface AssistedApplicationCandidateEmail {
+  key: string;
+  status: string | null;
+  sentAt: string | null;
+  delivered: number;
+  opens: number;
+  clicks: number;
+  bounces: number;
+  complaints: number;
+  firstOpenAt: string | null;
+  lastOpenAt: string | null;
+  lastClickAt: string | null;
+  /** Without the query: review links carry a signed token. */
+  lastClickUrl: string | null;
 }
 
 export interface AssistedApplicationAdminOrder {
@@ -106,6 +157,8 @@ export interface AssistedApplicationAdminOrder {
   cvFileCheck: string | null;
   /** Status of the automatic customer emails (`sent`, `failed`, `ambiguous`, `sending`). */
   emails: { intro: string | null; reminder: string | null; submitted: string | null };
+  /** Every e-mail the candidate received, with the delivery, opens and clicks the providers reported. */
+  candidateEmails?: AssistedApplicationCandidateEmail[];
   cvUploadedAt: string | null;
   consentVersion: string | null;
   consentedAt: string | null;
@@ -159,6 +212,8 @@ function errorMessage(error: unknown, status: number): string {
     already_started_or_ineligible: 'Automazione già avviata, oppure ordine senza CV verificato.',
     no_flow: 'L’automazione non è stata avviata per questo ordine.',
     invalid_email: 'Indirizzo email non valido.',
+    already_sent: 'Questa candidatura risulta già inviata.',
+    submission_unconfirmed: 'Il pulsante d’invio è già stato premuto senza conferma del portale.',
   };
   return messages[code] || `Operazione non riuscita (${code || status}).`;
 }
@@ -178,7 +233,8 @@ async function requestAdmin(
     },
   });
   const data = await response.json().catch(() => ({}));
-  if (!response.ok || !data.ok) throw new Error(errorMessage(data.error, response.status));
+  // The code travels with the message: the queue reacts to some (submission_unconfirmed).
+  if (!response.ok || !data.ok) throw Object.assign(new Error(errorMessage(data.error, response.status)), { code: String(data.error || '') });
   return data as Record<string, unknown>;
 }
 
@@ -237,8 +293,15 @@ export type AutomationAdminAction =
   | 'automationTakeover'
   | 'automationResume'
   | 'automationRegenerate'
+  | 'automationRetrySubmit'
+  | 'automationHandoff'
   | 'automationEditDraft'
-  | 'automationSetAnswers';
+  | 'automationSetAnswers'
+  | 'automationRevealAccount'
+  | 'automationFillKit'
+  | 'automationMarkClicked'
+  | 'automationMarkSubmitted'
+  | 'automationVerificationLink';
 
 /** One action of the automated flow (functions/src/assistedApplicationAutomationAdmin.js). */
 export async function runAutomationAdminAction(

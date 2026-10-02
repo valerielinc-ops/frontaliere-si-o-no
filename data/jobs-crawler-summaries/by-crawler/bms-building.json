@@ -1,23 +1,26 @@
 {
   "key": "bms-building",
   "label": "BMS Building Materials",
-  "generatedAt": "2026-09-29T21:13:21.602Z",
-  "total": 31,
+  "generatedAt": "2026-10-01T21:13:38.368Z",
+  "total": 30,
   "discovered": null,
-  "parsed": 31,
+  "parsed": 30,
   "lastFetchOutcome": null,
-  "written": 31,
+  "sourceBodyFailureCount": 0,
+  "sourceBodyFailures": [],
+  "written": 30,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 30,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 38661,
-  "avgDurationMs": 38661,
+  "durationMs": 38933,
+  "avgDurationMs": 38933,
   "durationHistory": [
-    38661
+    38933
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "bms-building-5210958d7921",
       "slug": "logistiker-w-m-d-80-100-bms-building-ch",
@@ -30,7 +33,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/220-logistiker-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:10.145Z",
+      "crawledAt": "2026-10-01T21:13:29.757Z",
       "addressLocality": "Chur",
       "addressCountry": "CH",
       "country": "CH",
@@ -44,16 +47,16 @@
       "featured": false,
       "postedDate": "2026-09-29",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/c9jlga076xt8zxyvgtr67x847b2sle",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-28T22:12:18.380Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 4,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "bms-building-3fde458c2d42",
       "slug": "conseiller-ere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f-h-d-100-bms",
@@ -66,7 +69,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/219-conseillerere-de-vente-revetements-sols-et-murs-et-sanitaire-en-exposition-f/h/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:13:09.162Z",
+      "crawledAt": "2026-10-01T21:13:28.704Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -80,13 +83,13 @@
       "featured": false,
       "postedDate": "2026-09-25",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/397b75j65ssplausnp3wxfet0urdrl",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-05-05T10:13:23.664Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -102,7 +105,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/171-technicien-cuisines-au-service-back-office-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:43.394Z",
+      "crawledAt": "2026-10-01T21:13:00.632Z",
       "addressLocality": "Villeneuve",
       "addressCountry": "CH",
       "country": "CH",
@@ -116,12 +119,13 @@
       "featured": false,
       "postedDate": "2026-09-16",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/623fmt14p4ty3de37qpqi2of4qjelb",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:45:02.890Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -137,7 +141,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/218-kundenberatung-aussendienst-baustoffe-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:08.153Z",
+      "crawledAt": "2026-10-01T21:13:27.540Z",
       "addressLocality": "Rümlang",
       "addressCountry": "CH",
       "country": "CH",
@@ -151,12 +155,13 @@
       "featured": false,
       "postedDate": "2026-09-16",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/txc4y0l3tokc0tex2ypqgm27at2k8u",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:45:31.105Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -172,7 +177,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/214-conseiller-de-vente-shop-materiaux-de-construction-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:13:06.008Z",
+      "crawledAt": "2026-10-01T21:13:25.280Z",
       "addressLocality": "Carouge",
       "addressCountry": "CH",
       "country": "CH",
@@ -186,12 +191,13 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/l6b4tpktao180kkqnpj6adxsfs5bi4",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:34:27.973Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -207,7 +213,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/215-conseiller-de-vente-shop-technique-du-batiment-sanitaire-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:13:07.029Z",
+      "crawledAt": "2026-10-01T21:13:26.325Z",
       "addressLocality": "Yverdon-les-Bains",
       "addressCountry": "CH",
       "country": "CH",
@@ -221,12 +227,13 @@
       "featured": false,
       "postedDate": "2026-09-11",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/m5x9353zmwpw5ikq8ziopuhd7f01bv",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:34:29.028Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -242,7 +249,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/213-conseiller-de-vente-shop-materiaux-de-construction-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:13:04.653Z",
+      "crawledAt": "2026-10-01T21:13:24.206Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -256,12 +263,13 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/5f4ucp6lpo5arjzsbfkywzrsxdqrej",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:44:41.059Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -277,7 +285,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/211-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:03.656Z",
+      "crawledAt": "2026-10-01T21:13:23.065Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,10 +300,10 @@
       "postedDate": "2026-09-01",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/s87emjne0k102n524c8o84399axsbx",
       "firstSeenAt": "2026-09-01T10:15:58.416Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
+        "richness": 25,
         "translation": 25,
         "completeness": 17
       }
@@ -312,7 +320,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/198-logistiker-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:55.167Z",
+      "crawledAt": "2026-10-01T21:13:13.945Z",
       "addressLocality": "Fideris",
       "addressCountry": "CH",
       "country": "CH",
@@ -326,12 +334,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/2sqbp47uhmr6qklpfszhfgyn9v7i5h",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:04:06.562Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -347,7 +356,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/209-product-data-specialist-sanitaer-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:01.532Z",
+      "crawledAt": "2026-10-01T21:13:20.784Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -361,12 +370,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/sxhxqyquhrw0j5ol8bdiwhfccivyn9",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:04:18.389Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -382,7 +392,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/210-product-data-specialist-rohbau-w/m/d-80-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:02.645Z",
+      "crawledAt": "2026-10-01T21:13:21.917Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -396,12 +406,13 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/ebljac8w5cl8zkz57pntcby6ihvlx3",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:04:19.458Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -417,7 +428,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/203-product-manager-revetements-de-sol-portes-et-amenagement-exterieur-bois-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:59.382Z",
+      "crawledAt": "2026-10-01T21:13:18.544Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -431,12 +442,13 @@
       "featured": false,
       "postedDate": "2026-08-13",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/umnjkw2xncj3tfdv692z3ar0fjtlas",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:24:40.140Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -452,7 +464,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/204-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:13:00.392Z",
+      "crawledAt": "2026-10-01T21:13:19.605Z",
       "addressLocality": "Grenchen",
       "addressCountry": "CH",
       "country": "CH",
@@ -466,12 +478,13 @@
       "featured": false,
       "postedDate": "2026-08-12",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/idftspll97ed08sdfzx6hjtj7juxt4",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:33:00.214Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -487,7 +500,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/201-conseiller-de-vente-exposition-sanitaire-et-revetements-sols-murs-f/h/d-a-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:57.146Z",
+      "crawledAt": "2026-10-01T21:13:16.113Z",
       "addressLocality": "Givisiez",
       "addressCountry": "CH",
       "country": "CH",
@@ -501,12 +514,13 @@
       "featured": false,
       "postedDate": "2026-08-04",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/gs44g2b9fqbjsjrxpjss5pfxl7pb84",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:44:05.075Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -522,7 +536,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/202-fleet-management-specialist-100-w/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:58.244Z",
+      "crawledAt": "2026-10-01T21:13:17.289Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -536,12 +550,13 @@
       "featured": false,
       "postedDate": "2026-08-04",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/44aviy31wyxlnua94gk04kblopgect",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-04T11:44:06.205Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -557,7 +572,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/200-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:56.162Z",
+      "crawledAt": "2026-10-01T21:13:15.023Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -572,10 +587,10 @@
       "postedDate": "2026-08-03",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/bym172tfhel6lqv8mr9li81juh8da3",
       "firstSeenAt": "2026-08-03T22:16:34.810Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
+        "richness": 25,
         "translation": 25,
         "completeness": 17
       }
@@ -592,7 +607,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/197-kundenberatung-richner-shop-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:54.135Z",
+      "crawledAt": "2026-10-01T21:13:12.900Z",
       "addressLocality": "Volketswil",
       "addressCountry": "CH",
       "country": "CH",
@@ -606,47 +621,13 @@
       "featured": false,
       "postedDate": "2026-07-29",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/xzsqmd49wcdhxc9kjc85oh8ynkw5x2",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-29T11:37:00.918Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 17
-      }
-    },
-    {
-      "id": "bms-building-30ae836c1873",
-      "slug": "logistiker-w-m-d-80-100-bms-building-ch",
-      "company": "BMS Building Materials",
-      "companyKey": "bms-building",
-      "companyDomain": "bmsuisse.ch",
-      "title": "Logistiker (w/m/d) 80 - 100%",
-      "location": "Grenchen",
-      "canton": "SO",
-      "url": "https://jobs.bmsuisse.ch/jobs/detail/163-logistiker-w/m/d-80-100/",
-      "source": "BMS Building Materials Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:42.311Z",
-      "addressLocality": "Grenchen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "2540",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Edilizia / Materiali da costruzione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/scgwu924ydhhzhv5s0vc4ildc4llna",
-      "firstSeenAt": "2026-07-28T22:12:18.380Z",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -662,7 +643,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/178-logistiker-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:45.695Z",
+      "crawledAt": "2026-10-01T21:13:03.016Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -676,12 +657,13 @@
       "featured": false,
       "postedDate": "2026-07-28",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/cr240krqnrdx07f85mvr8hij151k4z",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-28T22:12:23.553Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -697,7 +679,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/196-conseiller-vente-exposition-sanitaire-et-carrelage-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:53.071Z",
+      "crawledAt": "2026-10-01T21:13:11.828Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -711,12 +693,13 @@
       "featured": false,
       "postedDate": "2026-07-27",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/zlpwqm6ba59eynwf7qb78s1codkcss",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-27T12:35:04.132Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -732,7 +715,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/195-representant-externe-pour-le-canton-de-vaud-departement-des-cuisines-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:52.053Z",
+      "crawledAt": "2026-10-01T21:13:10.643Z",
       "addressLocality": "Etoy",
       "addressCountry": "CH",
       "country": "CH",
@@ -746,12 +729,13 @@
       "featured": false,
       "postedDate": "2026-07-24",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/dumtwws56jr8c710vpod99kz5mp3m2",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T11:22:43.282Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -767,7 +751,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/194-teamleitung-logistik-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:51.071Z",
+      "crawledAt": "2026-10-01T21:13:09.587Z",
       "addressLocality": "Hunzenschwil",
       "addressCountry": "CH",
       "country": "CH",
@@ -781,12 +765,13 @@
       "featured": false,
       "postedDate": "2026-07-20",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/suf27hbsaer16btoiuaxoii5mfkeyz",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-20T22:56:26.812Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
+        "richness": 24,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -802,7 +787,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/36-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:38.026Z",
+      "crawledAt": "2026-10-01T21:12:56.220Z",
       "addressLocality": "Winterthur",
       "addressCountry": "CH",
       "country": "CH",
@@ -816,12 +801,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/vc1ot2zx30amz7n1n07v4c9j7tnzk3",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T22:47:03.506Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -837,7 +823,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/81-sachbearbeitung-innendienst-rohbau-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:39.144Z",
+      "crawledAt": "2026-10-01T21:12:57.394Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -851,12 +837,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/x6r3seoim6id69fr776g8s2a8cf5gx",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T22:47:04.634Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -872,7 +859,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/116-sachbearbeitung-innendienst-sanitaer-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:40.239Z",
+      "crawledAt": "2026-10-01T21:12:58.453Z",
       "addressLocality": "Kriens",
       "addressCountry": "CH",
       "country": "CH",
@@ -886,12 +873,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/fe9pegdrhu6uxhw5i3dt64c32l2gny",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T22:47:13.165Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -907,7 +895,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/150-assistant-mecanique-avec-permis-pl-a-100-f/h/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-29T21:12:41.309Z",
+      "crawledAt": "2026-10-01T21:12:59.498Z",
       "addressLocality": "Bulle",
       "addressCountry": "CH",
       "country": "CH",
@@ -921,12 +909,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/e7yso45yns4uc3eln5ak3cge3dfgep",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-02T22:47:22.800Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -942,7 +931,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/173-functional-application-manager-ai-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:44.572Z",
+      "crawledAt": "2026-10-01T21:13:01.889Z",
       "addressLocality": "Buchs",
       "addressCountry": "CH",
       "country": "CH",
@@ -956,12 +945,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/zx4u8wnko24tgozhcs19wik88i8k3l",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T10:55:21.377Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -977,7 +967,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/182-standortleitung-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:46.793Z",
+      "crawledAt": "2026-10-01T21:13:04.220Z",
       "addressLocality": "Schmerikon",
       "addressCountry": "CH",
       "country": "CH",
@@ -991,12 +981,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/28w5uce81fcqmnpzqemu7bj1jnnmyy",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T10:55:32.149Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -1012,7 +1003,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/184-kundenberatung-shop-sanitaer-mit-springerfunktion-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:47.913Z",
+      "crawledAt": "2026-10-01T21:13:05.391Z",
       "addressLocality": "Cham",
       "addressCountry": "CH",
       "country": "CH",
@@ -1026,12 +1017,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/rifas3nh9shyndn9e82q6w65avros1",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T21:35:02.564Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     },
@@ -1047,7 +1039,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/188-consulente-interno-carpenteria-e-lattoneria-con-responsabilita-acquisti-materiali-edili-100-f/m/d/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-29T21:12:48.967Z",
+      "crawledAt": "2026-10-01T21:13:07.331Z",
       "addressLocality": "Bellinzona",
       "addressCountry": "CH",
       "country": "CH",
@@ -1062,10 +1054,10 @@
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/gkzwen33pgro109yu8kvhz4y9tyw1w",
       "firstSeenAt": "2026-07-07T12:09:58.256Z",
-      "_qualityScore": 88,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
+        "richness": 25,
         "translation": 25,
         "completeness": 17
       }
@@ -1082,7 +1074,7 @@
       "url": "https://jobs.bmsuisse.ch/jobs/detail/190-teamleitung-im-baubedarf-shop-w/m/d-100/",
       "source": "BMS Building Materials Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-29T21:12:49.971Z",
+      "crawledAt": "2026-10-01T21:13:08.367Z",
       "addressLocality": "Gebenstorf",
       "addressCountry": "CH",
       "country": "CH",
@@ -1096,12 +1088,13 @@
       "featured": false,
       "postedDate": "2026-07-10",
       "applyUrl": "https://bmsuisse.onlyfy.jobs/application/apply/qpq0lkceiulvub3p8pz3p3qd9xjtme",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T22:29:16.175Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
+        "richness": 25,
+        "translation": 21,
         "completeness": 17
       }
     }

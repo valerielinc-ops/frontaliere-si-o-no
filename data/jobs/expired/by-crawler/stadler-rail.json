@@ -1,5 +1,56 @@
 [
   {
+    "slug": "gestione-e-ricezione-delle-merci-stadler-rail-bussnang",
+    "title": "Mitarbeiter:in Logistik Umschlag und Wareneingang",
+    "titleByLocale": {
+      "it": "Gestione e ricezione delle merci",
+      "en": "Employee logistics handling and receipt of goods",
+      "de": "Mitarbeiter:in Logistik Umschlag und Wareneingang",
+      "fr": "Gestion logistique des employés et réception des marchandises"
+    },
+    "company": "Stadler Rail",
+    "companyKey": "stadler-rail",
+    "location": "Bussnang",
+    "addressLocality": "Bussnang",
+    "descriptionByLocale": {
+      "it": "PROFESSIONALE\n\n• -La formazione completa come logistica: in EFZ\n• -Sogni anni di esperienza professionale nella logistica\n• - ID staffetta\n• Esperienza nel trattare i sistemi ERP (SAP è un vantaggio)\n• - Gioia in un'attività attiva all'interno e all'esterno\n\nTASKS\n\n• Caricamento e scarico di camion con camion e gru\n• Accettazione e assegnazione delle merci e loro corretta distribuzione interna\n• -Trasporti materiali interni con camion industriali\n• -Ritorno dei beni vuoti\n• -Smaltimento rapido\n• - Preoccupazioni per ordine e pulizia nei locali\n• Lavorare con i sistemi ERP (SAP benefico)\n• -Ispezione delle merci per quantità, identificazione e qualità\n• -Controllare le ricevute delle merci sulla base delle note di consegna e registrarle nel sistema ERP",
+      "en": "PROFILE\n\n• -Completed training as a logistician:in EFZ\n• -Several years of professional experience in logistics\n• -Stapler ID\n• Experience in dealing with ERP systems (SAP is an advantage)\n• - Joy in an active activity in the interior and exterior\n\nTASKS\n\n• Loading and unloading of trucks with truck and crane\n• Acceptance and assignment of goods and their correct internal distribution\n• -Internal material transport with industrial trucks\n• -Return of empty goods\n• -Skilled disposal\n• - Concerns for order and cleanliness on the premises\n• Working with ERP systems (SAP beneficial)\n• -Inspection of goods for quantity, identification and quality\n• -Check goods receipts on the basis of delivery notes and register them in the ERP system",
+      "de": "PROFIL\n\n• -Abgeschlossene Ausbildung als Logistiker:in EFZ\n• -Mehrjährige Berufserfahrung in der Logistik\n• -Staplerausweis\n• -Erfahrung im Umgang mit ERP-Systemen (SAP von Vorteil)\n• -Freude an einer aktiven Tätigkeit im Innen- und Aussenbereich\n\nAUFGABEN\n\n• -Be- und Entladen von LKW mit Stapler und Kran\n• -Annahme und Zuordnung der Ware und deren korrekte interne Verteilung\n• -Interne Materialtransporte mit Flurförderzeugen\n• -Rückführung von Leergut\n• -Fachgerechte Entsorgung\n• -Sorgen für Ordnung und Sauberkeit auf dem Betriebsareal\n• -Arbeiten mit ERP-Systemen (SAP von Vorteil)\n• -Warenkontrolle auf Stückzahl, Identifikation und Qualität\n• -Wareneingänge anhand von Lieferscheinen prüfen und im ERP-System verbuchen",
+      "fr": "PROFIL\n\n• -Formation complète en tant que logisticien:dans EFZ\n• -Plusieurs années d'expérience professionnelle en logistique\n• Numéro d'identification\n• Expérience dans le traitement des systèmes ERP (le PAS est un avantage)\n• - Joy dans une activité active à l'intérieur et à l'extérieur\n\nTÂCHES\n\n• Chargement et déchargement de camions avec camion et grue\n• Acceptation et cession des marchandises et leur distribution interne correcte\n• -Transport de matériel interne avec camions industriels\n• -Retour des marchandises vides\n• - Élimination des déchets\n• - Préoccupations concernant l'ordre et la propreté des locaux\n• Travailler avec les systèmes de PGI (SAP avantageux)\n• -Inspection des marchandises pour la quantité, l'identification et la qualité\n• - Vérifier les reçus de marchandises sur la base des notes de livraison et les enregistrer dans le système PGI"
+    },
+    "slugByLocale": {
+      "it": "gestione-e-ricezione-delle-merci-stadler-rail-bussnang",
+      "en": "employee-logistics-handling-and-receipt-of-goods-stadler-rail-bussnang",
+      "de": "mitarbeiter-in-logistik-umschlag-und-wareneingang-stadler-rail-ch",
+      "fr": "gestion-logistique-des-employes-et-reception-des-marchandises-stadler-rail-bussnang"
+    },
+    "sector": "Rail vehicle manufacturing",
+    "expiredAt": "2026-09-30T22:06:26.551Z",
+    "previousSlugs": [
+      "mitarbeiter-in-logistik-umschlag-und-wareneingang-stadler-rail-ch",
+      "addetto-a-alla-logistica-umschlag-e-wareneingang-stadler-rail-bussnang"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-in-logistik-umschlag-und-wareneingang-stadler-rail-ch",
+        "addetto-a-alla-logistica-umschlag-e-wareneingang-stadler-rail-bussnang"
+      ],
+      "en": [
+        "mitarbeiter-in-logistik-umschlag-und-wareneingang-stadler-rail-ch"
+      ],
+      "fr": [
+        "mitarbeiter-in-logistik-umschlag-und-wareneingang-stadler-rail-ch"
+      ]
+    },
+    "postalCode": "9565",
+    "salaryMin": 57500,
+    "salaryMax": 87000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://careers.stadlerrail.com/job/bussnang-mitarbeiterin-logistik-umschlag-und-wareneingang-tg-t-9565/1369328855",
+    "firstSeenAt": "2026-09-24T00:11:18.825Z"
+  },
+  {
     "slug": "programmatore-robot-nella-tecnologia-di-saldatura-stadler-rail-altenrhein",
     "title": "Roboterprogrammierer:in Schweisstechnik",
     "titleByLocale": {
@@ -291,81 +342,6 @@
     "salaryPeriod": "YEAR",
     "sourceIdentity": "url:https://careers.stadlerrail.com/job/st_-margrethen-sandstrahlerin-sg-s-9430/1365803755",
     "firstSeenAt": "2026-08-28T05:34:54.620Z"
-  },
-  {
-    "slug": "schleifer-cnc-fertigung-stadler-rail-ch-2",
-    "title": "Schleifer (CNC Fertigung)",
-    "titleByLocale": {
-      "it": "Grinder (produzione CNC)",
-      "en": "Grinder (CNC manufacturing)",
-      "de": "Schleifer (CNC Fertigung)",
-      "fr": "Grinder (fabrication de CNC)"
-    },
-    "company": "Stadler Rail",
-    "companyKey": "stadler-rail",
-    "location": "Steinach",
-    "addressLocality": "Steinach",
-    "descriptionByLocale": {
-      "it": "PROFESSIONALE\n\n• Esperienza nella lavorazione del metallo, preferibilmente con lavori di rettifica su alluminio\n\n• Lettura dei disegni di design\n\n• Artigianato e un buon occhio per i dettagli\n\n• Metodo di lavoro indipendente e affidabile\n\n• Resilienza e lavoro di squadra\n\n• Prontezza per il lavoro a turni nel funzionamento a 2 turni\n\n•\n\nTASKS\n\n• Rettifica e sbavatura di profili in alluminio e assemblaggi di saldatura come specificato\n\n• Garantire qualità della superficie e precisione dimensionale\n\n• Funzionamento e manutenzione di rettificatrici e utensili manuali\n\n• Ispezione visiva delle parti prodotte e documentazione delle fasi di lavoro\n\n• Rispetto delle linee guida sulla sicurezza e sulla qualità",
-      "en": "PROFILE\n\n• Experience in metal working, preferably with grinding work on aluminium\n\n• Reading of design drawings\n\n• Craftsmanship and a good eye for detail\n\n• Independent and reliable working method\n\n• Resilience and teamwork\n\n• Readiness for shift work in 2-shift operation\n\n•\n\nTASKS\n\n• Grinding and deburring of aluminum profiles and welding assemblies as specified\n\n• Ensuring surface quality and dimensional accuracy\n\n• Operation and maintenance of grinding machines and hand tools\n\n• Visual inspection of the manufactured parts and documentation of the work steps\n\n• Compliance with safety and quality guidelines",
-      "de": "PROFIL\n\n• Erfahrung in der Metallbearbeitung, vorzugsweise mit Schleifarbeiten an Aluminium\n\n• Lesen von Konstruktionszeichnungen\n\n• Handwerkliches Geschick und ein gutes Auge für Details\n\n• Selbstständige und zuverlässige Arbeitsweise\n\n• Belastbarkeit und Teamfähigkeit\n\n• Bereitschaft zur Schichtarbeit im 2-Schicht-Betrieb\n\nAUFGABEN\n\n• Schleifen und Entgraten von Aluminiumprofilen und Schweissbaugruppen nach Vorgabe\n\n• Sicherstellen der Oberflächenqualität und Massgenauigkeit\n\n• Bedienung und Pflege von Schleifmaschinen und Handwerkzeugen\n\n• Sichtkontrolle der gefertigten Teile und Dokumentation der Arbeitsschritte\n\n• Einhaltung von Sicherheits- und Qualitätsrichtlinien",
-      "fr": "PROFIL\n\n• Expérience dans le travail des métaux, de préférence avec les travaux de meulage sur aluminium\n\n• Lecture des dessins et modèles\n\n• L'artisanat et un bon oeil pour le détail\n\n• Méthode de travail indépendante et fiable\n\n• Résilience et travail d'équipe\n\n• Préparation au travail posté en 2 équipes\n\n•\n\nTÂCHES\n\n• Broyage et décapage des profilés en aluminium et des assemblages de soudage tels que spécifiés\n\n• Assurer la qualité de la surface et la précision dimensionnelle\n\n• Fonctionnement et entretien des machines à broyer et des outils à main\n\n• Inspection visuelle des pièces fabriquées et documentation des étapes de travail\n\n• Respect des directives de sécurité et de qualité"
-    },
-    "slugByLocale": {
-      "de": "schleifer-cnc-fertigung-stadler-rail-ch"
-    },
-    "sector": "Rail vehicle manufacturing",
-    "expiredAt": "2026-09-27T00:20:32.465Z",
-    "previousSlugs": [
-      "schleifer-cnc-fertigung-stadler-rail-ch",
-      "grinder-produzione-cnc-stadler-rail-bussnang",
-      "collaboratore-trice-cnc-fertigung-stadler-rail-bussnang",
-      "associate-cnc-fertigung-stadler-rail-bussnang",
-      "mitarbeiter-in-cnc-fertigung-stadler-rail-ch",
-      "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
-      "collaboratore-trice-cnc-fertigung-stadler-rail-steinach",
-      "associate-cnc-fertigung-stadler-rail-steinach",
-      "collaborateur-trice-cnc-fertigung-stadler-rail-steinach",
-      "grinder-cnc-manufacturing-stadler-rail-bussnang",
-      "grinder-fabrication-de-cnc-stadler-rail-bussnang"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "schleifer-cnc-fertigung-stadler-rail-ch",
-        "grinder-produzione-cnc-stadler-rail-bussnang",
-        "collaboratore-trice-cnc-fertigung-stadler-rail-bussnang",
-        "associate-cnc-fertigung-stadler-rail-bussnang",
-        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch",
-        "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
-        "collaboratore-trice-cnc-fertigung-stadler-rail-steinach",
-        "associate-cnc-fertigung-stadler-rail-steinach",
-        "collaborateur-trice-cnc-fertigung-stadler-rail-steinach"
-      ],
-      "en": [
-        "grinder-cnc-manufacturing-stadler-rail-bussnang",
-        "schleifer-cnc-fertigung-stadler-rail-ch",
-        "associate-cnc-fertigung-stadler-rail-bussnang",
-        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch",
-        "associate-cnc-fertigung-stadler-rail-steinach"
-      ],
-      "de": [
-        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch"
-      ],
-      "fr": [
-        "grinder-fabrication-de-cnc-stadler-rail-bussnang",
-        "schleifer-cnc-fertigung-stadler-rail-ch",
-        "collaborateur-trice-cnc-fertigung-stadler-rail-bussnang",
-        "collaborateur-trice-cnc-fertigung-stadler-rail-steinach",
-        "mitarbeiter-in-cnc-fertigung-stadler-rail-ch"
-      ]
-    },
-    "postalCode": "9323",
-    "salaryMin": 64500,
-    "salaryMax": 87000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR",
-    "sourceIdentity": "url:https://careers.stadlerrail.com/job/steinach-schleifer-%28cnc-fertigung%29-sg-s-9323/1360050955",
-    "firstSeenAt": "2026-08-27T00:52:26.109Z"
   },
   {
     "slug": "responsabile-strategy-business-development-stadler-rail-frauenfeld",

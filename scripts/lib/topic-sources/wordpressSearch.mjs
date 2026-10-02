@@ -1,3 +1,4 @@
+import { decode as decodeHTML } from 'html-entities';
 // scripts/lib/topic-sources/wordpressSearch.mjs
 //
 // Search-based ingestion via WordPress REST API.
@@ -26,22 +27,20 @@ const MAX_AGE_DAYS = 7;
 const TIMEOUT_MS = 12000;
 
 /**
- * Strip HTML tags + decode common entities from rendered title/excerpt.
+ * Strip HTML tags + decode HTML entities from rendered title/excerpt.
  */
 function stripHtml(s) {
-  return String(s ?? '')
-    .replace(/<[^>]+>/g, '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&apos;/g, "'")
-    .replace(/&#8217;/g, "'")
-    .replace(/&#8216;/g, "'")
-    .replace(/&#8220;/g, '"')
-    .replace(/&#8221;/g, '"')
-    .replace(/&#8211;/g, '–')
-    .replace(/&#8212;/g, '—')
-    .replace(/&nbsp;/g, ' ')
-    .replace(/&[a-z]+;/gi, ' ')
+  const text = String(s ?? '').replace(/<[^>]+>/g, '')
+    .replace(/&#(?:[xX]([0-9a-fA-F]+)|(\d+));/g, (entity, hex, decimal) => {
+      const code = Number.parseInt(hex ?? decimal, hex === undefined ? 10 : 16);
+      // html-entities 2.x permits surrogate code points and rejects U+10FFFF.
+      // Normalize only complete source references, before the single decode.
+      if (code <= 0 || code > 0x10ffff || (code >= 0xd800 && code <= 0xdfff)) return '\ufffd';
+      return code === 0x10ffff ? String.fromCodePoint(code) : entity;
+    });
+  return decodeHTML(text, { scope: 'strict' })
+    .replace(/[‘’]/g, "'")
+    .replace(/[“”]/g, '"')
     .replace(/\s+/g, ' ')
     .trim();
 }
