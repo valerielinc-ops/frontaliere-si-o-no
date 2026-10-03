@@ -429,13 +429,20 @@ export function privacyConsentControls(snapshot = {}) {
   // disabled: that is the DPCS dialog waiting for the review checkbox.
   const dialogFields = fields.filter(isDialogControl);
   const reviewCandidates = dialogFields.filter((field) => field.kind === 'checkbox'
-    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`)) || null;
+    && PRIVACY_REVIEW_RE.test(`${field.label || ''} ${field.name || ''} ${field.autocomplete || ''}`));
   let review = null;
   let accept = null;
   for (const candidate of reviewCandidates) {
     const candidateButtons = buttons.filter((button) => isDialogControl(button) && belongsToDialog(button, candidate));
     const candidateAccept = findButton(candidateButtons, PRIVACY_ACCEPT_RE, { includeDisabled: true });
-    if (!review || (candidateAccept?.disabled && !accept?.disabled)) {
+    // A disabled accept button means this dialog is waiting for its review
+    // checkbox. If several matching dialogs are waiting at once, the later
+    // snapshot entry is the dialog opened most recently (the DPCS modal), so
+    // it must replace the earlier candidate even when disabled states tie.
+    if (!review
+      || (candidateAccept && !accept)
+      || (candidateAccept?.disabled === true && accept?.disabled !== true)
+      || (candidateAccept?.disabled === true && accept?.disabled === true)) {
       review = candidate;
       accept = candidateAccept;
     }
