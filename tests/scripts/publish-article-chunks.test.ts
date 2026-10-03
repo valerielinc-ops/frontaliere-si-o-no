@@ -90,7 +90,7 @@ describe('computeTickerArticles articlesOverride (issue #4881)', () => {
   it('uses the override instead of the module-level ARTICLES import when given', () => {
     const np = path;
     const fresh = [
-      { id: 'zzz-brand-new-article', category: 'novita' as const, date: '2099-01-01', image: 'x', hasCalculator: false },
+      { id: 'zzz-brand-new-article', category: 'novita' as const, date: new Date().toISOString(), image: 'x', hasCalculator: false },
       ...ARTICLES.slice(0, 2),
     ];
     const withOverride = computeTickerArticles(fs, np, ROOT_DIR, fresh);

@@ -25,6 +25,7 @@ import {
   generateNewsTickerModule,
 } from '../build-plugins/newsTickerDataPlugin';
 import { ARTICLES } from '../data/blog-articles-data';
+import { articleSourceDate } from '../packages/articles/engine/shared/sourceDates';
 
 const ROOT = np.resolve(__dirname, '..');
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
@@ -32,9 +33,10 @@ const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 describe('newsTickerDataPlugin generator', () => {
   const articles = computeTickerArticles(fs, np, ROOT);
 
-  it('produces exactly 5 articles, newest first (same ordering as the old runtime sort)', () => {
+  it('produces exactly 5 dated articles, newest first', () => {
     expect(articles).toHaveLength(5);
     const expectedIds = [...ARTICLES]
+      .filter((article) => articleSourceDate(article.date) !== undefined)
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 5)
       .map((a) => a.id);
@@ -44,6 +46,22 @@ describe('newsTickerDataPlugin generator', () => {
         new Date(articles[i].date).getTime(),
       );
     }
+  });
+
+  it('excludes unknown publication dates from the latest-news ordering', () => {
+    const record = ARTICLES[0];
+    const entries = [
+      { ...record, id: 'unknown-first', date: '' },
+      { ...record, id: 'older', date: '2026-01-01' },
+      { ...record, id: 'invalid-middle', date: 'unknown' },
+      { ...record, id: 'impossible', date: '2026-02-30' },
+      { ...record, id: 'partial', date: '2026-02' },
+      { ...record, id: 'future', date: new Date(Date.now() + 86400000).toISOString() },
+      { ...record, id: 'newest', date: '2026-02-01T12:00:00Z' },
+    ];
+    const payload = computeTickerArticles(fs, np, ROOT, entries);
+    expect(payload.map((article) => article.id)).toEqual(['newest', 'older']);
+    expect(computeTickerArticles(fs, np, ROOT, [{ ...record, date: '' }])).toEqual([]);
   });
 
   it('resolves real titles and slugs for every locale (no raw i18n keys, no empty slugs)', () => {
