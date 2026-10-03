@@ -121,7 +121,10 @@ jobs:
           WINDOW_DAYS: ${{ github.event.inputs.window_days || '14' }}
           THRESHOLD: ${{ github.event.inputs.threshold || '3' }}
           HARVEST_OUT: harvest-clusters.json
-          FOLLOWUP_NO_AUTOCLOSE: '1'
+          # Niente FOLLOWUP_NO_AUTOCLOSE qui: il self-heal chiude un'escalation solo
+          # senza pin/claim, con la finestra letta per intero e il bucket misurato
+          # sotto soglia dopo il cutoff (selfHealDecision). Il kill switch resta
+          # nello script per un'emergenza.
           # Escalation issues are filed deterministically BY THIS SCRIPT (canonical
           # title + code-level dedup) — no Claude turn, no LLM title drift.
           HARVEST_EMIT_ESCALATIONS: 'true'
