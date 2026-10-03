@@ -41,6 +41,7 @@ import {
   writeCrossCrawlerDedupProofFile,
   writeHousekeepingProofFile,
 } from './lib/crawler-slice-integrity.mjs';
+import { reportBlockingLocaleSlots } from './lib/job-locale-slot-prep-report.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -1001,7 +1002,19 @@ async function main() {
   console.log(`✅ jobs.json aggiornati (data/ + public/data) e meta aggiornato${HOUSEKEEPING_SCOPE ? ` — scope ${HOUSEKEEPING_SCOPE}` : ''}`);
 }
 
-main().catch((err) => {
-  console.error('❌ Job housekeeping error:', err);
-  process.exitCode = 1;
-});
+main()
+  .then(() => {
+    // Dataset mode only, and after main() on EVERY exit path — including the
+    // early return when nothing was removed, which skips the final writes.
+    // Re-read data/jobs.json from disk (what prep's snapshot carries to the
+    // build) and name, per crawler, the records the dist gate
+    // validate:translation-completeness would block. Report only: no record
+    // is removed and the exit code does not change (see the module header).
+    if (!SLICE_FILE) {
+      reportBlockingLocaleSlots({ dataJobsPath: DATA_JOBS_PATH, slicesDir: ACTIVE_SLICES_DIR });
+    }
+  })
+  .catch((err) => {
+    console.error('❌ Job housekeeping error:', err);
+    process.exitCode = 1;
+  });
