@@ -170,6 +170,36 @@ describe('portal field extraction', () => {
     expect(limit('d')).toBe(20);
   });
 
+  // Coop's SuccessFactors form, mapped on 2026-10-03.
+  it('reads SuccessFactors’ picklists as selects and its UI5 birth date as a date field', () => {
+    const page = extract(`
+      <input aria-label="Anrede" type="text" placeholder="Bitte auswählen" role="combobox" aria-owns="63:_listSelect" aria-required="true" class="rcmpaginatedselectinput">
+      <input aria-label="Suche" type="text" role="combobox" aria-controls="results">
+      <div id="97:_datepicker" class="datePicker"><ui5-date-picker-xweb-calendar-widget ui5-date-picker="" title="Geburtsdatum" accessible-name="Geburtsdatum" format-pattern="dd.MM.yyyy" required="" placeholder="TT.MM.JJJJ"></ui5-date-picker-xweb-calendar-widget></div>`);
+    const anrede = page.fields.find((field: any) => field.label === 'Anrede');
+    expect(anrede).toMatchObject({ kind: 'combobox', required: true, selectLike: true, ownedList: '63:_listSelect' });
+    // A search box is no select, even with a list of its own.
+    expect(page.fields.find((field: any) => field.label === 'Suche')).toMatchObject({ kind: 'combobox', selectLike: false });
+    expect(page.fields.find((field: any) => field.label === 'Geburtsdatum')).toMatchObject({ kind: 'text', inputType: 'date', widget: 'ui5-date', datePattern: 'dd.MM.yyyy', required: true });
+  });
+
+  it('answers «Vermittlungsbüro?» with its No, whatever the plan said, and never asks the candidate', () => {
+    const agency = { id: 'f27', kind: 'combobox', selectLike: true, label: '* Stammt diese Bewerbung von einem Vermittlungsbüro? (Falls ja: Mit Einreichen des Dossiers werden die AGB der Coop Genossenschaft für die Personalvermittlung auf Erfolgsbasis akzeptiert.)', required: true, value: '', options: [{ value: 'Ja', label: 'Ja' }, { value: 'Nein', label: 'Nein' }] };
+    const yes = guardPlan({ actions: [{ fieldId: 'f27', action: 'select', value: 'Ja', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [agency]);
+    expect(yes.actions).toEqual([{ fieldId: 'f27', action: 'select', value: 'Nein', document: 'none', source: 'rule', evidence: '' }]);
+    expect(yes.missingRequired).toEqual([]);
+    const asked = guardPlan({ actions: [], missingRequired: [{ fieldId: 'f27', question: 'Agenzia?', why: '', type: 'choice', options: ['Ja', 'Nein'] }] }, [agency]);
+    expect(asked.actions.map((action: any) => action.value)).toEqual(['Nein']);
+    expect(asked.missingRequired).toEqual([]);
+    // Review of #11036: options not read, no "No" to choose: the plan's "Ja" is dropped, the field stays open.
+    const unread = guardPlan({ actions: [{ fieldId: 'a', action: 'select', value: 'Ja', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [{ id: 'a', kind: 'combobox', label: 'Vermittlungsbüro', required: true, value: '', options: [] }]);
+    expect(unread.actions.some((action: any) => action.fieldId === 'a')).toBe(false);
+    expect(unread.missingRequired.map((item: any) => item.fieldId)).toEqual(['a']);
+    // Any other Ja/Nein question is left to the plan.
+    const employee = { ...agency, id: 'f26', label: '* Ich bin bereits Mitarbeiter/in bei der Coop Gruppe' };
+    expect(guardPlan({ actions: [{ fieldId: 'f26', action: 'select', value: 'Nein', document: 'none', source: 'rule', evidence: '' }], missingRequired: [] }, [employee]).actions.map((action: any) => action.value)).toEqual(['Nein']);
+  });
+
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>
