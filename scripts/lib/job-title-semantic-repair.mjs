@@ -1,19 +1,24 @@
 /** Source-backed correction of restaurant title and employer-brand mistranslations.
  * Only known corruptions are rewritten; identities and URLs are never derived here.
  */
+const CREW_TITLE = /^crew$/i;
 const BAD_CREW = /^(?:United Nations|Nazioni Unite|Vereinte Nationen|Nations Unies|Besatzung)$/i;
 
 export function repairJobTitleSemanticsInPlace(job) {
   if (!job || typeof job !== 'object') return 0;
-  const sourceTitle = String(job.titleByLocale?.[job.sourceLang] || job.title || '').trim();
-  if (!/^crew$/i.test(sourceTitle)) return 0;
+  // sourceLang describes the body; a borrowed source title may have a different
+  // effective language. An original Crew must not be hidden by that locale slot.
+  const originalTitle = String(job.title || '').trim();
+  const sourceTitle = CREW_TITLE.test(originalTitle) ? originalTitle
+    : String(job.titleByLocale?.[job.sourceLang] || originalTitle).trim();
+  if (!CREW_TITLE.test(sourceTitle)) return 0;
   // Require employer evidence, not the translated title itself. A real UN role
   // or an airline's Crew/Besatzung has no restaurant employer anchor.
   if (!isMcDonaldsEmployer(job)) return 0;
   let changed = 0;
   if (BAD_CREW.test(String(job.title || '').trim())) { job.title = sourceTitle; changed++; }
   for (const [locale, title] of Object.entries(job.titleByLocale || {})) {
-    if (locale === job.sourceLang || typeof title !== 'string' || !BAD_CREW.test(title.trim())) continue;
+    if (typeof title !== 'string' || !BAD_CREW.test(title.trim())) continue;
     job.titleByLocale[locale] = sourceTitle;
     changed++;
   }

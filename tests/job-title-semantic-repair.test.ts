@@ -23,6 +23,15 @@ describe('source-backed restaurant Crew semantic repair', () => {
     job.titleByLocale.de = 'Vereinte Nationen';
     expect(repairJobTitleSemanticsInPlace(job)).toBe(1);
   });
+  it('uses the original title when body source language points to a localized title slot', () => {
+    const job = { ...fixture(), sourceLang: 'it', titleByLocale: { it: 'Equipaggio', de: 'Vereinte Nationen' } };
+    expect(repairJobTitleSemanticsInPlace(job)).toBe(1);
+    expect(job.titleByLocale).toEqual({ it: 'Equipaggio', de: 'Crew' });
+    job.titleByLocale.it = 'Nazioni Unite';
+    expect(repairJobTitleSemanticsInPlace(job)).toBe(1);
+    expect(job.titleByLocale.it).toBe('Crew');
+    expect(repairJobTitleSemanticsInPlace(job)).toBe(0);
+  });
   it('preserves genuine UN roles, aviation Crew and valid translations', () => {
     for (const job of [
       { ...fixture(), title: 'United Nations', titleByLocale: { fr: 'Nations Unies', en: 'United Nations' } },
