@@ -341,7 +341,13 @@ jobs:
 
           # Non correre sopra il gemello: se il 🔴-fixer sta girando su questo
           # branch, il suo push arriverebbe sopra il nostro (o viceversa).
+          # `--created`: un elenco per `--branch` senza finestra puo' tornare
+          # fermo a settimane prima (scripts/ci/lib/run-listing-window.mjs) e
+          # nascondere proprio la run in corso. Una run del fixer ancora in
+          # coda o in esecuzione non ha piu' di due giorni.
+          busy_since="$(jq -rn 'now - (2 * 86400) | strftime("%Y-%m-%d")')"
           busy=$(gh run list --repo "$REPO" --workflow=pr-redflag-fixer.yml --branch "$head_ref" \
+            --created ">=$busy_since" \
             --json status --jq '[.[] | select(.status=="in_progress" or .status=="queued")] | length' 2>/dev/null || echo 0)
           if [ "${busy:-0}" -gt 0 ]; then
             skip "Il 🔴-fixer sta gia' girando su '$head_ref' → skip per evitare una push race (no-op, si rivaluta al prossimo rosso)."

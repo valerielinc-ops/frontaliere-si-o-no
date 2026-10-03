@@ -60,6 +60,7 @@
 import { pathToFileURL } from 'node:url';
 import { execFileSync } from 'node:child_process';
 import { intFromEnv } from '../lib/int-from-env.mjs';
+import { createdSinceQuery } from './lib/run-listing-window.mjs';
 import {
   buildLocaleFromJobName,
   classifyBuildLocaleFailure,
@@ -244,6 +245,8 @@ export function decideRearm({ headSha, runs, selfRunId, maxBuildsPerSha = DEFAUL
 
 /* c8 ignore start — I/O shell around the pure core above */
 
+const REARM_LISTING_WINDOW_DAYS = 7;
+
 function gh(args) {
   return execFileSync('gh', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim();
 }
@@ -406,9 +409,16 @@ async function main() {
     headSha = gh(['api', `repos/${repo}/commits/${branch}`, '--jq', '.sha']);
     // per_page=60 comfortably spans the busiest measured window (100 runs / 41 h
     // ⇒ ~2.4/h); older runs cannot change any branch above.
+    // The `created` window is what makes those 60 the CURRENT ones: a
+    // `branch=` listing without it can come back frozen weeks in the past
+    // (scripts/ci/lib/run-listing-window.mjs), and here a stale listing shows
+    // no live run and no build of HEAD — i.e. it reads as `pipeline-stopped`
+    // and dispatches. Seven days is far wider than the ~25 h those 60 rows
+    // span, so it never drops a run the decision used before. decideRearm()
+    // does not depend on the order of the rows.
     const raw = gh([
       'api',
-      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&per_page=60`,
+      `repos/${repo}/actions/workflows/${workflow}/runs?branch=${branch}&${createdSinceQuery(REARM_LISTING_WINDOW_DAYS)}&per_page=60`,
       '--jq',
       '[.workflow_runs[] | {id, headSha: .head_sha, status, conclusion}]',
     ]);

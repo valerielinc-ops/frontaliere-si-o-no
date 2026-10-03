@@ -67,6 +67,9 @@ const testTreeLintTests = new Set([
 // esisteva dal 25-09 (#9797) ma su 126 test scelti per quel diff lui mancava.
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
+  // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
+  // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
+  ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
 ]);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few

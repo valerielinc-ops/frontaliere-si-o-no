@@ -392,6 +392,12 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['.github/workflows/pr-redflag-fixer.yml'])).toContain(guard);
     expect(selectionFor(['scripts/ci/review-gate.mjs'])).toContain(guard);
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(guard);
+    // Stesso perimetro per il lint degli elenchi di run per `branch` senza
+    // finestra `created`.
+    const runListing = 'tests/run-listing-created-window.test.ts';
+    expect(selectionFor(['.github/actions/fetch-pages-artifact/action.yml'])).toContain(runListing);
+    expect(selectionFor(['scripts/ci/rearm-deploy-build.mjs'])).toContain(runListing);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(runListing);
   }, 120_000);
 
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
