@@ -67,10 +67,12 @@
  *   - slugify() / stripHtml()               — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
+import { JSDOM } from 'jsdom';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { fetchHtml, slugify, stripHtml, normalizeSpace, stripScriptsAndStyles } from './crawler-template.mjs';
 import { inferAnyCanton } from './target-swiss-locations.mjs';
 import { parseSwissShortDate } from './hospital-custom-html-helpers.mjs';
+import { meetsSourceBodyFloor } from './source-body-floor.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -84,6 +86,40 @@ const ATS_HOST = 'company.jobcloud.ch';
 const LISTING_URL = `https://${ATS_HOST}/fr/job-list/${LISTING_ID}`;
 const JOBUP_HOST = 'www.jobup.ch';
 const JOBUP_COMPANY_URL = 'https://www.jobup.ch/fr/societes/26216-croix-rouge-fribourgeoise/emplois/';
+
+// Jobup renders the employer's own cards inside a dedicated list container.
+// Keep the selector list explicit and fail closed: the profile also contains
+// related/recommended links elsewhere in the document, and UUID-shaped detail
+// URLs alone do not prove that a posting belongs to this employer.
+const JOBUP_PROFILE_JOB_LIST_SELECTORS = [
+  '[data-cy="company-jobs-list"]',
+  '[data-cy="company-job-list"]',
+  '[data-cy="company-jobs"]',
+  '[data-cy="job-list"]',
+  '[data-cy="jobs-list"]',
+  '[data-cy="serp-list"]',
+  '[data-testid="company-jobs-list"]',
+  '[data-testid="company-job-list"]',
+  '[data-testid="company-jobs"]',
+  '[data-testid="job-list"]',
+  '[data-testid="jobs-list"]',
+  '#company-jobs-list',
+  '#company-job-list',
+  '#company-jobs',
+  '#job-list',
+  '#jobs-list',
+  '[class~="company-jobs-list"]',
+  '[class~="company-job-list"]',
+  '[class~="company-jobs"]',
+  '[class~="job-list"]',
+  '[class~="jobs-list"]',
+  '[class~="job-offers"]',
+  '[class*="company-jobs-list"]',
+  '[class*="company-job-list"]',
+  '[class*="job-list"]',
+  '[class*="jobs-list"]',
+].join(',');
+const JOBUP_DETAIL_PATH_RE = /^\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\/?$/i;
 
 const SECTOR = 'Sociale / Socio-sanitario';
 
@@ -270,20 +306,32 @@ export function extractListingLinks(html = '') {
  * hrefs (and both quote styles) over time.
  */
 export function extractJobupListingLinks(html = '') {
-  const re = /href\s*=\s*(["'])((?:https?:\/\/(?:www\.)?jobup\.ch)?\/(?:fr\/emplois|en\/jobs)\/detail\/[0-9a-fA-F-]{36}\/?(?:[?#][^"']*)?)\1/gi;
+  if (!html) return [];
+
+  const dom = new JSDOM(String(html));
   const seen = new Set();
-  let m;
-  // eslint-disable-next-line no-cond-assign
-  while ((m = re.exec(html)) !== null) {
-    const rawHref = decodeNumericEntities(m[2]).replace(/&amp;/g, '&');
-    try {
-      const parsed = new URL(rawHref, `https://${JOBUP_HOST}`);
-      const host = parsed.hostname.toLowerCase();
-      if (host !== JOBUP_HOST && host !== 'jobup.ch') continue;
-      seen.add(parsed.href);
-    } catch {
-      // Ignore malformed source links and keep scanning the listing page.
+  try {
+    const containers = dom.window.document.querySelectorAll(JOBUP_PROFILE_JOB_LIST_SELECTORS);
+    for (const container of containers) {
+      const hrefs = [...container.querySelectorAll('a[href]')]
+        .map((anchor) => anchor.getAttribute('href') || '')
+        .filter((href) => isJobupDetailUrl(href));
+      if (!hrefs.length) continue;
+
+      for (const rawHref of hrefs) {
+        try {
+          const parsed = new URL(decodeNumericEntities(rawHref).replace(/&amp;/g, '&'), `https://${JOBUP_HOST}`);
+          seen.add(parsed.href);
+        } catch {
+          // Ignore malformed source links and keep scanning the own-job container.
+        }
+      }
+      // The first matching container is the profile's own job list. Do not
+      // continue into a later related/recommended list after collecting it.
+      break;
     }
+  } finally {
+    dom.window.close();
   }
   return [...seen];
 }
@@ -366,10 +414,19 @@ function extractJobupLocation(posting) {
 
 function extractJobupDescription(html, posting) {
   const jsonLdDescription = posting?.description;
-  if (jsonLdDescription) return normalizeSpace(stripHtml(decodeNumericEntities(jsonLdDescription)));
+  const jsonLdText = jsonLdDescription
+    ? normalizeSpace(stripHtml(decodeNumericEntities(jsonLdDescription)))
+    : '';
 
   const bodyMatch = html.match(/<[^>]+class=["'][^"']*\bC_PBODYHTML\b[^"']*["'][^>]*>([\s\S]*?)(?:<h2\b[^>]*>\s*Autres recherches|<\/main>|$)/i);
-  return bodyMatch ? normalizeSpace(stripHtml(bodyMatch[1])) : '';
+  const bodyText = bodyMatch ? normalizeSpace(stripHtml(bodyMatch[1])) : '';
+
+  // Jobup sometimes exposes only a short teaser in JSON-LD while the
+  // employer's full source text remains in C_PBODYHTML. Prefer that visible
+  // body when the JSON-LD value cannot clear the shared source floor; never
+  // pass a sub-floor source body on to an indexable job page.
+  if (meetsSourceBodyFloor(jsonLdText)) return jsonLdText;
+  return meetsSourceBodyFloor(bodyText) ? bodyText : '';
 }
 
 function normalizePostedDate(rawDate = '') {
@@ -383,7 +440,7 @@ function isJobupDetailUrl(rawUrl = '') {
     const parsed = new URL(rawUrl, `https://${JOBUP_HOST}`);
     const host = parsed.hostname.toLowerCase();
     return (host === JOBUP_HOST || host === 'jobup.ch')
-      && /\/(?:fr\/emplois|en\/jobs)\/detail\//.test(parsed.pathname);
+      && JOBUP_DETAIL_PATH_RE.test(parsed.pathname);
   } catch {
     return false;
   }
@@ -491,7 +548,7 @@ export async function fetchAllCroixRougeFribourgeoiseJobs() {
     if (!title || title.length < 3) continue;
 
     const { city, canton, postalCode, streetAddress } = resolveAddress(lieuDeTravail);
-    const descriptionText = description || `${title} — ${CROIX_ROUGE_FRIBOURGEOISE_COMPANY_NAME}, ${city}.`;
+    const descriptionText = meetsSourceBodyFloor(description) ? description : '';
     const sourceLang = detectLang(descriptionText || title, 'fr');
     const jobSlug = slugify(`${title} croix-rouge-fribourgeoise ${city}`);
     const urlHash = createHash('sha1').update(detailUrl).digest('hex').slice(0, 12);
