@@ -2116,6 +2116,19 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
   '# writes therefore survive without a Firestore lease in this workflow.',
 ];
 
+// Il guard decide la troncatura sulle RIGHE lette, non su `total_count`: per un
+// elenco di run filtrato per `status` GitHub restituisce un `total_count` che
+// non coincide con le righe (run non piu' elencabili, run in transizione di
+// stato). Confrontarli spegneva la traduzione con zero run in coda. Una pagina
+// con meno di `per_page` righe chiude l'elenco; solo se anche l'ultima pagina
+// ammessa e' piena il guard si ferma: le pagine piene sono un tetto di lettura,
+// non la prova che l'elenco sia troncato.
+const TRANSLATE_QUEUE_GUARD_PAGE_SIZE = 100;
+const TRANSLATE_QUEUE_GUARD_MAX_PAGES = 3;
+const TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME = 'Fail the run when the queue guard was blind';
+const TRANSLATE_QUEUE_GUARD_BLIND_TITLE =
+  'translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita';
+
 function translatePendingQueueGuardJob() {
   return {
     'runs-on': 'ubuntu-latest',
@@ -2123,6 +2136,7 @@ function translatePendingQueueGuardJob() {
     permissions: { actions: 'read' },
     outputs: {
       run: '${{ steps.translate_queue_guard.outputs.run }}',
+      guard_error: '${{ steps.translate_queue_guard.outputs.guard_error }}',
     },
     steps: [{
       name: 'Skip duplicate queued translation run',
@@ -2138,15 +2152,18 @@ function translatePendingQueueGuardJob() {
         'set -euo pipefail',
         'fail_closed() {',
         '  local reason="${1:-unknown}"',
-        '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}); skipping the heavy run to keep the queue bounded."',
+        '  local detail="${2:-}"',
+        '  echo "::warning::translate-pending queue guard could not inspect GitHub Actions (${reason}${detail:+; ${detail}}); skipping the heavy run to keep the queue bounded."',
         '  echo "run=false" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=-1" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=${reason}" >> "$GITHUB_OUTPUT"',
         '  exit 0',
         '}',
         'if [ "$GITHUB_EVENT_NAME" = "workflow_dispatch" ] && [ "$TRANSLATION_MANUAL_OVERRIDE" = "true" ]; then',
         '  echo "::warning::translate-pending manual workflow_dispatch input detected; bypassing the duplicate guard by request."',
         '  echo "run=true" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=0" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         '  exit 0',
         'fi',
         'guard_started_at=$SECONDS',
@@ -2171,16 +2188,26 @@ function translatePendingQueueGuardJob() {
         '    sleep "$api_retry_delay_seconds"',
         '  done',
         '}',
+        `status_page_size=${TRANSLATE_QUEUE_GUARD_PAGE_SIZE}`,
+        `status_page_limit=${TRANSLATE_QUEUE_GUARD_MAX_PAGES}`,
         'active_runs=""',
         'for run_status in queued pending waiting requested in_progress; do',
-        '  runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=100&status=${run_status}"',
-        '  if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi',
-        '  if ! printf "%s" "$status_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_${run_status}_payload"; fi',
-        '  status_total_count="$(printf "%s" "$status_json" | jq -r \'.total_count\')"',
-        '  status_returned_count="$(printf "%s" "$status_json" | jq -r \'.workflow_runs | length\')"',
-        '  if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed "workflow_runs_${run_status}_truncated"; fi',
-        '  if ! status_runs="$(printf "%s" "$status_json" | jq -c \'.workflow_runs[]\')"; then fail_closed "workflow_runs_${run_status}_rows"; fi',
-        '  if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_runs}"; fi',
+        '  status_page=1',
+        '  status_rows_read=0',
+        '  while :; do',
+        '    runs_path="repos/${GITHUB_REPOSITORY}/actions/workflows/translate-pending.yml/runs?per_page=${status_page_size}&page=${status_page}&status=${run_status}"',
+        '    if ! status_json="$(guard_api "$runs_path")"; then fail_closed "workflow_runs_${run_status}"; fi',
+        '    if ! printf "%s" "$status_json" | jq -e \'type == "object" and ((.total_count | type) == "number") and (.total_count >= 0) and (.total_count == (.total_count | floor)) and (.workflow_runs | type) == "array" and all(.workflow_runs[]; (.id != null) and ((.created_at | type) == "string") and ((.status | type) == "string"))\' >/dev/null; then fail_closed "workflow_runs_${run_status}_payload"; fi',
+        '    status_total_count="$(printf "%s" "$status_json" | jq -r \'.total_count\')"',
+        '    status_returned_count="$(printf "%s" "$status_json" | jq -r \'.workflow_runs | length\')"',
+        '    if ! status_runs="$(printf "%s" "$status_json" | jq -c \'.workflow_runs[]\')"; then fail_closed "workflow_runs_${run_status}_rows"; fi',
+        '    if [ -n "$status_runs" ]; then active_runs="${active_runs}${active_runs:+$\'\\n\'}${status_runs}"; fi',
+        '    status_rows_read=$((status_rows_read + status_returned_count))',
+        '    if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi',
+        '    if [ "$status_page" -ge "$status_page_limit" ]; then fail_closed "workflow_runs_${run_status}_truncated" "total_count=${status_total_count}, rows=${status_rows_read}, pages=${status_page}"; fi',
+        '    status_page=$((status_page + 1))',
+        '  done',
+        '  if [ "$status_total_count" -ne "$status_rows_read" ]; then echo "::notice::translate-pending queue guard: ${run_status} total_count=${status_total_count} but rows=${status_rows_read}; deciding on the rows."; fi',
         'done',
         'current_run_path="repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"',
         'if ! current_run_json="$(guard_api "$current_run_path")"; then fail_closed "current_run"; fi',
@@ -2227,11 +2254,30 @@ function translatePendingQueueGuardJob() {
         '  echo "✅ translate-pending queue guard admits the oldest waiting run; ${active_heavy_runs} heavy run(s) currently active and ${other_waiting} waiting behind it."',
         '  echo "run=true" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         'else',
         '  echo "::warning::translate-pending queue guard found older run ${oldest_run_id}; skipping this duplicate. The oldest run will process the backlog."',
         '  echo "run=false" >> "$GITHUB_OUTPUT"',
         '  echo "waiting_runs=$other_waiting" >> "$GITHUB_OUTPUT"',
+        '  echo "guard_error=" >> "$GITHUB_OUTPUT"',
         'fi',
+      ].join('\n'),
+    }, {
+      // Un guard cieco salta il job pesante (fail-closed sulla coda) ma non
+      // deve piu' chiudere la run in verde: senza questo step 13 run su 14
+      // risultavano `success` senza tradurre nulla. Il job fallisce, `translate`
+      // resta saltato perche' la sua dipendenza non e' riuscita, e la run rossa
+      // viene raccolta dallo scanner delle run fallite. Un duplicato legittimo
+      // (run piu' vecchia in coda) lascia `guard_error` vuoto e resta verde.
+      name: TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME,
+      if: "steps.translate_queue_guard.outputs.guard_error != ''",
+      env: {
+        GUARD_ERROR: '${{ steps.translate_queue_guard.outputs.guard_error }}',
+      },
+      run: [
+        'set -euo pipefail',
+        `echo "::error::${TRANSLATE_QUEUE_GUARD_BLIND_TITLE}. Il guard della coda non ha potuto decidere (guard_error=\${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."`,
+        'exit 1',
       ].join('\n'),
     }],
   };

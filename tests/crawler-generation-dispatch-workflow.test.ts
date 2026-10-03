@@ -158,16 +158,15 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(portableCurrent.jobs.translate_queue_guard.concurrency).toBeUndefined();
     const queueGuard = portableCurrent.jobs.translate_queue_guard.steps
       .find((step: any) => step.id === 'translate_queue_guard');
-    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=100');
+    expect(queueGuard?.run).toContain('/actions/workflows/translate-pending.yml/runs?per_page=');
     expect(queueGuard?.run).toContain('.status == "queued"');
     expect(queueGuard?.run).toContain('.status == "pending"');
     expect(queueGuard?.run).toContain('.status == "waiting"');
     expect(queueGuard?.run).toContain('.status == "requested"');
     expect(queueGuard?.run).toContain('for run_status in queued pending waiting requested in_progress');
-    expect(queueGuard?.run).toContain('per_page=100&status=${run_status}');
-    expect(queueGuard?.run).toContain('status_total_count');
-    expect(queueGuard?.run).toContain('status_returned_count');
-    expect(queueGuard?.run).toContain('if [ "$status_total_count" -gt "$status_returned_count" ]; then fail_closed');
+    expect(queueGuard?.run).toContain('per_page=${status_page_size}&page=${status_page}&status=${run_status}');
+    expect(queueGuard?.run).toContain('if [ "$status_returned_count" -lt "$status_page_size" ]; then break; fi');
+    expect(queueGuard?.run).not.toMatch(/"\$status_total_count" -gt/);
     expect(queueGuard?.run).toContain('remaining_seconds');
     expect(queueGuard?.run).toContain('call_timeout_seconds');
     expect(queueGuard?.run).toContain('timeout --kill-after=0s');
