@@ -691,7 +691,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Dato live non disponibile in questo momento. I numeri sotto sono medie storiche del valico — usali come riferimento.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. Questa pagina viene rigenerata automaticamente ad ogni deploy — i dati live provengono dalla collezione Firestore alimentata dal cron di traffico con provider a rotazione, gli stessi numeri usati nella mappa interattiva del sito. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
+      `Pianifica il passaggio da ${c} consultando prima il dato corrente ed eventualmente la webcam live quando disponibile. Negli ultimi 30 giorni l'ora migliore per transitare è stata ${bestHour}, mentre l'ora peggiore è ${worstHour}. La fonte e l’ora di osservazione accompagnano le stime: controllale prima di partire e confrontale con la mappa interattiva. Se stai tornando in ${country.name} dopo il lavoro, ricorda che i picchi pendolari possono cambiare rapidamente: tra le 17 e le 19 anche ${c} può registrare code. Per i frontalieri abituali, conviene sempre tenere il documento d'identità a portata di mano: anche con l'area Schengen, il valico di ${c} può essere oggetto di controlli a campione su veicoli, merci e dichiarazioni doganali (importazioni di alimentari oltre la franchigia, valuta in contanti sopra 10.000 CHF, sostanze regolamentate). I controlli più mirati avvengono solitamente nelle fasce 6:00–8:00 e 17:00–19:30, sovrapposti ai picchi pendolari. Per chi guida un'auto aziendale registrata in Svizzera, ricorda di portare la lettera di autorizzazione del datore di lavoro e l'estratto del libretto di circolazione: in caso di controllo doganale ${country.customsAdjective} evita lunghi accertamenti.`,
     updatedLabel: 'Aggiornamento',
     currentStatusLabel: 'Stato attuale',
     waitMinutesLabel: 'Minuti di attesa',
@@ -759,7 +759,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Come vengono calcolati i minuti di attesa?",
         a: () =>
-          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta e salvati in Firestore.",
+          "I tempi di attesa derivano da due misure routing: il segmento di avvicinamento (≈500 m prima del valico) e il segmento di passaggio (valico → checkpoint svizzero). Il tempo aggiuntivo rispetto alla percorrenza senza traffico è la coda. I dati vengono raccolti ogni 15 minuti nelle ore di punta.",
       },
       {
         q: () => 'Cosa fare se la coda supera i 40 minuti?',
@@ -797,7 +797,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live data is currently unavailable. The numbers below are historical averages for this crossing — use them as a reference.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. This page is regenerated on every deploy — live data comes from the Firestore collection fed by a rotating traffic-provider cron, the same numbers used across the site's interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
+      `Plan your ${c} crossing by checking the current reading and, when available, the live webcam feed. Over the last 30 days the best hour to transit has been ${bestHour}; the worst hour is ${worstHour}. Check the source and observation time before leaving, and compare the readings with the interactive map. If you are returning to ${country.name} after work, remember that commuter peaks can change quickly: between 17:00 and 19:00 ${c} may also show queues. For regular cross-border commuters, always keep your ID document at hand: even within the Schengen area, the ${c} crossing can be subject to spot checks on vehicles, goods and customs declarations (food imports above the personal allowance, cash above CHF 10,000, regulated substances). The most targeted checks usually fall between 06:00–08:00 and 17:00–19:30, overlapping with commuter peaks. If you drive a Switzerland-registered company car, keep the employer authorisation letter and a copy of the vehicle registration in the glovebox: this avoids prolonged customs questioning at ${country.customsAdjective} border checkpoints.`,
     updatedLabel: 'Updated',
     currentStatusLabel: 'Current status',
     waitMinutesLabel: 'Wait minutes',
@@ -865,7 +865,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'How are wait minutes calculated?',
         a: () =>
-          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours and persisted to Firestore.',
+          'Wait times are derived from two routing measurements: an approach segment (~500 m before the crossing) and the crossing segment (crossing → Swiss checkpoint). The excess time over the traffic-free baseline is the queue. Data is collected every 15 minutes during peak hours.',
       },
       {
         q: () => 'What should I do if the queue exceeds 40 minutes?',
@@ -903,7 +903,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         'Live-Daten sind derzeit nicht verfügbar. Die Werte unten sind historische Mittelwerte für diesen Übergang — als Orientierung nutzen.',
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Diese Seite wird bei jedem Deploy neu generiert — Live-Daten stammen aus der Firestore-Kollektion, die der rotierende Verkehrs-Cronjob füllt, dieselben Werte wie auf der interaktiven Karte der Seite. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
+      `Planen Sie die Überquerung bei ${c}, indem Sie zuerst den aktuellen Messwert und — falls verfügbar — die Live-Webcam prüfen. In den letzten 30 Tagen war die beste Transitzeit ${bestHour}, die schlechteste ${worstHour}. Prüfe vor der Abfahrt die Quelle und Beobachtungszeit und vergleiche die Werte mit der interaktiven Karte. Wer abends nach ${country.name} zurückkehrt, sollte beachten, dass sich Pendlerstaus schnell verändern können: Zwischen 17:00 und 19:00 Uhr kann auch ${c} Rückstau aufweisen. Für regelmässige Grenzgänger empfiehlt es sich, das Ausweisdokument griffbereit zu halten: Auch innerhalb des Schengen-Raums kann ${c} Stichprobenkontrollen für Fahrzeuge, Waren und Zollanmeldungen unterliegen (Lebensmittelimporte über der Personenfreimenge, Bargeld über CHF 10'000, regulierte Substanzen). Die gezieltesten Kontrollen finden in der Regel zwischen 06:00–08:00 und 17:00–19:30 Uhr statt — also genau in den Pendler-Stosszeiten. Wer einen in der Schweiz zugelassenen Firmenwagen fährt, sollte das Schreiben des Arbeitgebers und eine Kopie der Fahrzeugausweispapiere im Handschuhfach mitführen, um langwierige Befragungen am ${country.customsAdjective} Zoll zu vermeiden.`,
     updatedLabel: 'Aktualisiert',
     currentStatusLabel: 'Aktueller Stand',
     waitMinutesLabel: 'Wartezeit (Min.)',
@@ -971,7 +971,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => 'Wie werden die Wartezeiten berechnet?',
         a: () =>
-          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst und in Firestore persistiert.',
+          'Die Wartezeiten stammen aus zwei Routing-Messungen: einem Annäherungssegment (~500 m vor dem Übergang) und dem Übergangssegment (Übergang → Schweizer Kontrollpunkt). Die Mehrzeit gegenüber dem verkehrsfreien Referenzwert ist die Wartezeit. Die Daten werden während der Stosszeiten alle 15 Minuten erfasst.',
       },
       {
         q: () => 'Was tun, wenn die Wartezeit 40 Minuten überschreitet?',
@@ -1009,7 +1009,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
         "Données en direct indisponibles pour le moment. Les valeurs ci-dessous sont des moyennes historiques du poste — à utiliser comme référence.",
     },
     paragraph: (c, country, bestHour, worstHour) =>
-      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Cette page est régénérée à chaque déploiement — les données live proviennent de la collection Firestore alimentée par un cron de trafic à fournisseurs rotatifs, les mêmes chiffres que la carte interactive du site. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
+      `Planifiez votre passage par ${c} en consultant d'abord la valeur actuelle et, lorsqu'elle est disponible, la webcam en direct. Sur les 30 derniers jours la meilleure heure de transit a été ${bestHour}, la pire ${worstHour}. Vérifiez la source et l’heure de la mesure avant de partir et comparez les valeurs avec la carte interactive. Si vous rentrez ${country.frDestinationPreposition ?? 'en'} ${country.name} après le travail, notez que les files pendulaires peuvent évoluer rapidement : entre 17h et 19h ${c} peut aussi afficher des files. Pour les frontaliers réguliers, gardez toujours votre pièce d'identité à portée de main : même dans l'espace Schengen, le passage de ${c} peut faire l'objet de contrôles aléatoires sur les véhicules, les marchandises et les déclarations douanières (importations alimentaires au-delà de la franchise personnelle, espèces au-delà de 10 000 CHF, substances réglementées). Les contrôles les plus ciblés se concentrent entre 06h00–08h00 et 17h00–19h30, soit pendant les pics pendulaires. Si vous conduisez un véhicule de société immatriculé en Suisse, gardez la lettre d'autorisation de l'employeur et une copie de la carte grise dans la boîte à gants : cela évite les interrogations prolongées aux postes douaniers ${country.customsAdjective}.`,
     updatedLabel: 'Mis à jour',
     currentStatusLabel: 'État actuel',
     waitMinutesLabel: "Minutes d'attente",
@@ -1077,7 +1077,7 @@ const COPY: Record<BorderWaitLocale, Copy> = {
       {
         q: () => "Comment les minutes d'attente sont-elles calculées ?",
         a: () =>
-          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe et persistées dans Firestore.",
+          "Les temps d'attente dérivent de deux mesures de routage : un segment d'approche (≈500 m avant le poste) et le segment de passage (poste → point de contrôle suisse). Le temps supplémentaire par rapport à la référence sans trafic correspond à la file. Les données sont collectées toutes les 15 minutes en heures de pointe.",
       },
       {
         q: () => "Que faire si la file dépasse 40 minutes ?",
@@ -1301,29 +1301,29 @@ function renderLeafLivePlanningProse(
     : locale === 'de' ? `Den Übergang ${crossingLabel} planen: Snapshot, Live-Wert und Stosszeiten`
     : `Planifier le passage de ${crossingLabel} : instantané, valeur live et heures de pointe`;
   const paragraphs = locale === 'it' ? [
-    `Il numero che vedi nella card "Stato attuale" di ${crossingLabel} può cambiare anche dopo l'apertura della pagina. Al momento della build (l'orario indicato accanto alla pillola "snapshot") leggiamo lo stato dalla collezione Firestore alimentata dal cron TomTom; quando il browser carica la pagina, uno script di hydration di circa 2 KB richiede via REST la lettura più recente e sostituisce in-place i minuti, l'ora di aggiornamento e la pillola — che diventa "live (Firestore, agg. HH:MM)". Se il browser blocca la richiesta (estensioni privacy, rete aziendale restrittiva o offline), continui a vedere lo snapshot di build: è un dato reale, ma più vecchio. Per ${crossingLabel} la finestra di picco rilevata sulle ultime 4 settimane è ${peakWindow || '6:30–8:30 e 17:00–19:00'} CET, valore coerente con il pattern pendolare ${regionDisplay}.`,
-    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno la stessa pipeline di hydration, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. ${
+    `Il valore di ${crossingLabel} può aggiornarsi dopo l’apertura della pagina. Controlla sempre l’ora della rilevazione e la fonte accanto ai minuti di attesa: un dato recente è più utile per decidere quando partire. Se non arriva un aggiornamento, resta visibile l’ultima lettura disponibile, che può essere scaduta. Una stima del traffico descrive il ritardo sul tratto stradale osservato e non garantisce la durata dei controlli doganali. Per confrontare due valichi, verifica che le letture si riferiscano a orari vicini e considera anche il tempo necessario per raggiungere il percorso alternativo.`,
+    `Se il dato live mostra una coda significativa, valuta i valichi della stessa zona: ${altSentence || 'i valichi alternativi listati sopra'}. Le pagine corrispondenti hanno lo stesso aggiornamento delle letture, quindi puoi tenerne due aperte in tab separati e scegliere quella con il numero più basso al momento della partenza. ${
       isTicinoCorridor
         ? `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dell'autostrada A2 da Lugano a ${crossingLabel} non è incluso, e va sommato a parte (tipicamente 12–25 minuti a seconda del punto di origine in Ticino). Per chi rientra di sera dal lavoro a Lugano, Mendrisio o Bellinzona, la differenza tra valico autostradale e valico locale può variare di 8–15 minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita le riconfigurazioni di corsia tipiche del lato italiano dell'autostrada.`
         : `Ricorda che il valore "min di attesa" misura solo il segmento di approccio + checkpoint: il tempo di percorrenza dal tuo punto di partenza fino a ${crossingLabel} non è incluso nel dato e va sommato a parte, in base alla distanza reale del tuo tragitto. Per chi rientra di sera dal lavoro, la differenza tra un valico principale e un valico locale della stessa zona può comunque valere alcuni minuti complessivi anche quando il dato di coda è simile, perché lo svincolo locale evita spesso le code improvvise tipiche dei valichi a maggior volume.`
     }`,
   ] : locale === 'en' ? [
-    `The number shown in the "Current status" card for ${crossingLabel} can change after you open the page. At build time (the timestamp next to the "snapshot" pill) we read the state from the Firestore collection fed by the TomTom cron; when the browser loads the page, a ~2 KB hydration script requests the freshest reading via REST and swaps the minute count, the update timestamp and the pill — which becomes "live (Firestore, upd. HH:MM)". If the browser blocks the request (privacy extensions, restrictive corporate network or offline), you keep seeing the build-time snapshot: it is a real measurement, just older. For ${crossingLabel} the peak window observed over the last 4 weeks is ${peakWindow || '6:30–8:30 and 17:00–19:00'} CET, consistent with the ${regionDisplay} commuter pattern.`,
-    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same hydration pipeline, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. ${
+    `The reading for ${crossingLabel} may update after opening the page. Always check the observation time and source beside the wait estimate: a recent reading is more useful when deciding when to leave. If no update arrives, the last available reading remains visible and may be expired. A traffic estimate describes delays on the observed road segment and does not guarantee the duration of customs checks. When comparing crossings, check that observations were taken at similar times and include the extra travel time needed to reach an alternative route.`,
+    `If the live reading shows a significant queue, consider the crossings in the same cluster: ${altSentence || 'the alternative crossings listed above'}. The corresponding pages share the same reading updates, so you can keep two open in separate tabs and pick the one with the lowest number at departure time. ${
       isTicinoCorridor
         ? `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the A2 motorway travel time from Lugano to ${crossingLabel} is not included and must be added separately (typically 12–25 minutes depending on the Ticino starting point). For those returning in the evening from work in Lugano, Mendrisio or Bellinzona, the difference between motorway and local crossing can vary by 8–15 total minutes even when the queue figure is similar, because the local exit avoids the lane-reconfiguration patterns typical of the Italian side of the motorway.`
         : `Remember that the "wait minutes" value only measures the approach + checkpoint segment: the travel time from your own starting point to ${crossingLabel} is not included in the figure and must be added separately, depending on your actual route. For those returning in the evening, the difference between a main crossing and a local crossing in the same area can still be worth a few total minutes even when the queue figure is similar, because the local exit often avoids the sudden backups typical of higher-volume crossings.`
     }`,
   ] : locale === 'de' ? [
-    `Die in der Karte "Aktueller Stand" für ${crossingLabel} angezeigte Zahl kann sich auch nach dem Öffnen der Seite ändern. Beim Build-Zeitpunkt (der Zeitstempel neben der "Snapshot"-Pille) lesen wir den Zustand aus der Firestore-Kollektion, die der TomTom-Cron speist; sobald der Browser die Seite lädt, fordert ein etwa 2 KB grosses Hydration-Skript per REST die aktuellste Messung an und ersetzt die Minutenzahl, den Aktualisierungszeitstempel und die Pille — die zu "live (Firestore, akt. HH:MM)" wird. Wenn der Browser die Anfrage blockiert (Privacy-Erweiterungen, restriktives Firmennetzwerk oder offline), siehst du weiterhin den Build-Snapshot: ein echter, aber älterer Messwert. Für ${crossingLabel} liegt das Spitzenfenster der letzten 4 Wochen bei ${peakWindow || '6:30–8:30 und 17:00–19:00'} MEZ, im Einklang mit dem Pendlermuster ${regionDisplay}.`,
-    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Hydration-Pipeline, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. ${
+    `Der Wert für ${crossingLabel} kann sich nach dem Öffnen der Seite aktualisieren. Prüfe die Beobachtungszeit und die Quelle neben der Wartezeit: Aktuelle Messwerte helfen bei der Wahl der Abfahrtszeit. Ohne Aktualisierung bleibt die letzte verfügbare Beobachtung sichtbar und kann veraltet sein. Die Verkehrsschätzung beschreibt die Verzögerung auf dem beobachteten Strassenabschnitt und garantiert keine Dauer der Zollkontrolle. Vergleiche Übergänge anhand zeitnaher Beobachtungen und berücksichtige die zusätzliche Fahrzeit zur Alternativroute.`,
+    `Wenn der Live-Wert eine deutliche Warteschlange anzeigt, prüfe die Übergänge derselben Zone: ${altSentence || 'die oben gelisteten Alternativübergänge'}. Die zugehörigen Seiten teilen dieselbe Aktualisierung der Messwerte, du kannst also zwei in getrennten Tabs offen lassen und beim Losfahren denjenigen mit dem kleinsten Wert wählen. ${
       isTicinoCorridor
         ? `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit auf der A2 von Lugano nach ${crossingLabel} ist nicht enthalten und muss separat addiert werden (typischerweise 12–25 Minuten je nach Tessiner Ausgangspunkt). Für die Rückfahrer am Abend aus Lugano, Mendrisio oder Bellinzona kann der Unterschied zwischen Autobahn- und lokalem Übergang 8–15 Minuten Gesamtzeit ausmachen, auch wenn die Warteschlangenanzeige ähnlich ist — die lokale Ausfahrt umgeht die für die italienische Autobahnseite typischen Spurumbauten.`
         : `Beachte, dass der Wert "Wartezeit (Min.)" nur das Annäherungs- + Kontrollsegment misst: Die Fahrzeit von deinem Ausgangspunkt bis ${crossingLabel} ist darin nicht enthalten und muss je nach tatsächlicher Strecke separat addiert werden. Für Rückfahrer am Abend kann der Unterschied zwischen einem Hauptübergang und einem lokalen Übergang derselben Zone auch bei ähnlicher Warteschlangenanzeige noch einige Minuten insgesamt ausmachen, weil die lokale Ausfahrt die für stark frequentierte Übergänge typischen plötzlichen Rückstaus oft vermeidet.`
     }`,
   ] : [
-    `Le nombre affiché dans la carte « État actuel » pour ${crossingLabel} peut évoluer après l'ouverture de la page. Au moment de la build (l'horodatage à côté de la pastille « instantané »), nous lisons l'état depuis la collection Firestore alimentée par le cron TomTom ; quand le navigateur charge la page, un script d'hydratation d'environ 2 Ko interroge en REST la mesure la plus récente et remplace les minutes, l'heure de mise à jour et la pastille — qui devient « live (Firestore, maj HH:MM) ». Si le navigateur bloque la requête (extensions de confidentialité, réseau d'entreprise restrictif ou hors ligne), vous continuez à voir l'instantané de build : c'est une vraie mesure, simplement plus ancienne. Pour ${crossingLabel}, la fenêtre de pointe observée sur les 4 dernières semaines est ${peakWindow || '6h30–8h30 et 17h00–19h00'} CET, cohérente avec le motif pendulaire ${regionDisplay}.`,
-    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même pipeline d'hydratation : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. ${
+    `La valeur pour ${crossingLabel} peut être actualisée après l’ouverture de la page. Vérifiez toujours l’heure de la mesure et la source près du temps d’attente : une mesure récente aide à choisir le moment du départ. Sans actualisation, la dernière valeur disponible reste visible et peut être périmée. Une estimation de trafic décrit le retard sur le tronçon observé et ne garantit pas la durée du contrôle douanier. Comparez des observations prises à des heures proches et ajoutez le trajet nécessaire pour rejoindre un autre passage.`,
+    `Si la valeur live affiche une file importante, regardez les passages du même secteur : ${altSentence || 'les passages alternatifs listés plus haut'}. Les pages correspondantes partagent le même actualisation des mesures : vous pouvez en garder deux ouvertes dans des onglets séparés et choisir celle avec la valeur la plus basse au moment du départ. ${
       isTicinoCorridor
         ? `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet sur l'A2 entre Lugano et ${crossingLabel} n'est pas inclus et doit être additionné séparément (généralement 12–25 minutes selon le point de départ au Tessin). Pour ceux qui rentrent le soir depuis Lugano, Mendrisio ou Bellinzona, l'écart entre passage autoroutier et passage local peut atteindre 8–15 minutes au total même quand la file affichée est similaire, car la sortie locale évite les reconfigurations de voies typiques du côté italien de l'autoroute.`
         : `Rappelez-vous que la valeur « minutes d'attente » mesure uniquement le segment d'approche + contrôle : le temps de trajet depuis votre point de départ jusqu'à ${crossingLabel} n'est pas inclus et doit être additionné séparément selon votre itinéraire réel. Pour ceux qui rentrent le soir, l'écart entre un passage principal et un passage local du même secteur peut malgré tout représenter quelques minutes au total même quand la file affichée est similaire, car la sortie locale évite souvent les à-coups soudains typiques des passages à fort volume.`
@@ -1333,7 +1333,7 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'Domande sul dato live',
         q1: `Ogni quanto si aggiorna il numero per ${crossingLabel}?`,
-        a1: `La pipeline TomTom interroga ${crossingLabel} ogni 10–15 minuti durante le fasce di picco (${peakWindow || '6:30–8:30 e 17:00–19:00'} CET) e ogni 30–60 minuti fuori picco. Lo snapshot pre-renderizzato risale all'ultimo deploy del sito (4–8 volte al giorno); il valore live nel browser è quello al momento dell'apertura della pagina, recuperato direttamente da Firestore.`,
+        a1: "Controlla la data e l’ora accanto alla lettura. La pagina prova a mostrare l’ultimo dato disponibile; se non arriva un aggiornamento, resta la lettura precedente. Non considerare attuale un dato segnalato come scaduto.",
         q2: `Perché vedo qualche minuto qui ma in autostrada non c'era coda?`,
         a2: `Il valore misura il tempo aggiuntivo sul segmento di approccio (~500 m prima del valico) rispetto alla percorrenza senza traffico. Anche con autostrada scorrevole, una manovra di controllo doganale, un'inversione di corsia o un veicolo pesante in avvicinamento possono temporaneamente alzare il numero. È normale che lo stesso valico oscilli di 5–10 minuti tra due polling consecutivi nelle fasce di picco di ${crossingLabel}.`,
       }
@@ -1341,7 +1341,7 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'Live reading FAQ',
         q1: `How often is the ${crossingLabel} number refreshed?`,
-        a1: `The TomTom pipeline polls ${crossingLabel} every 10–15 minutes during peak windows (${peakWindow || '6:30–8:30 and 17:00–19:00'} CET) and every 30–60 minutes off peak. The pre-rendered snapshot dates back to the last site deploy (4–8 per day); the live value in the browser is the one at page open, fetched directly from Firestore.`,
+        a1: "Check the date and time beside the reading. The page attempts to show the latest available observation; if no update arrives, the previous reading remains. Do not treat an expired reading as current.",
         q2: `Why do I see a few minutes here but the motorway looked clear?`,
         a2: `The value measures the extra time on the approach segment (~500 m before the crossing) vs the traffic-free baseline. Even with a smooth motorway, a customs check, a lane switch or an approaching heavy vehicle can briefly bump the number. It is normal for ${crossingLabel} to oscillate by 5–10 minutes between two consecutive polls during peak windows.`,
       }
@@ -1349,14 +1349,14 @@ function renderLeafLivePlanningProse(
     ? {
         title: 'FAQ zum Live-Wert',
         q1: `Wie oft wird die Zahl für ${crossingLabel} aktualisiert?`,
-        a1: `Die TomTom-Pipeline ruft ${crossingLabel} alle 10–15 Minuten in den Spitzenzeiten (${peakWindow || '6:30–8:30 und 17:00–19:00'} MEZ) und alle 30–60 Minuten ausserhalb davon ab. Der vorgerenderte Snapshot stammt vom letzten Site-Deploy (4–8 pro Tag); der Live-Wert im Browser ist der zum Zeitpunkt des Seitenaufrufs, direkt aus Firestore geholt.`,
+        a1: "Prüfe Datum und Uhrzeit neben dem Messwert. Die Seite versucht, die neueste Beobachtung anzuzeigen. Ohne Aktualisierung bleibt der vorherige Wert sichtbar. Veraltete Werte beschreiben nicht die aktuelle Lage.",
         q2: `Warum sehe ich hier ein paar Minuten, obwohl die Autobahn frei wirkte?`,
         a2: `Der Wert misst die zusätzliche Zeit auf dem Annäherungssegment (~500 m vor dem Übergang) gegenüber der Referenz ohne Verkehr. Auch bei freier Autobahn können eine Zollkontrolle, ein Spurwechsel oder ein nahender Lastwagen den Wert kurz anheben. Es ist normal, dass ${crossingLabel} in den Spitzenzeiten zwischen zwei aufeinanderfolgenden Pollings um 5–10 Minuten schwankt.`,
       }
     : {
         title: 'FAQ valeur live',
         q1: `À quelle fréquence le nombre pour ${crossingLabel} est-il actualisé ?`,
-        a1: `Le pipeline TomTom interroge ${crossingLabel} toutes les 10–15 minutes dans les fenêtres de pointe (${peakWindow || '6h30–8h30 et 17h00–19h00'} CET) et toutes les 30–60 minutes hors pointe. L'instantané pré-rendu date du dernier déploiement du site (4–8 par jour) ; la valeur live dans le navigateur est celle au moment de l'ouverture, récupérée directement depuis Firestore.`,
+        a1: "Vérifiez la date et l’heure près de la mesure. La page essaie de montrer la dernière observation disponible. Sans actualisation, la valeur précédente reste visible. Une valeur périmée ne décrit pas la situation actuelle.",
         q2: `Pourquoi je vois quelques minutes ici alors que l'autoroute paraissait fluide ?`,
         a2: `La valeur mesure le temps supplémentaire sur le segment d'approche (~500 m avant le passage) par rapport à la référence sans trafic. Même avec une autoroute fluide, un contrôle douanier, un changement de voie ou un poids lourd qui approche peut faire monter brièvement le nombre. Il est normal que ${crossingLabel} oscille de 5–10 minutes entre deux polls consécutifs en heure de pointe.`,
       };
@@ -1430,47 +1430,47 @@ function renderHubPlanningProse(
       ? `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie (Lugano–Brogeda ~12 minutes via l'A2 ; Mendrisio–Stabio ~6 minutes via l'E35) ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage autoroutier avec 12 minutes de file est presque toujours plus rapide qu'un local avec 4 minutes, car la sortie de route principale a une capacité moindre et les tronçons urbains ajoutent 5 à 10 minutes. Règle empirique pour pendulaires : prendre l'autoroute en semaine entre 06h00 et 09h30 et après 16h00 uniquement si la file live est sous 8 minutes ; au-delà de 15 minutes, basculer sur un passage local comme Bizzarone, Stabio ou Crociale dei Mulini est presque toujours plus rapide.`
       : `Pour choisir un passage, pondérez trois facteurs dans l'ordre : (1) temps de trajet depuis l'origine jusqu'à la sortie frontalière ; (2) file live affichée dans le tableau ; (3) type de passage — autoroute, route principale ou local. Un passage principal avec une file plus longue est souvent malgré tout plus rapide qu'un passage local à la file apparemment plus courte, car la sortie secondaire a une capacité moindre et les accès urbains ajoutent du temps. Règle empirique pour pendulaires : en heures de pointe (06h00–09h30 et 16h00–19h00), privilégiez le passage affichant la file live la plus basse dans le tableau, pas nécessairement le plus proche géographiquement.`;
   const paragraphs = locale === 'it' ? [
-    `I numeri che vedi nella tabella di ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'valico' : 'valichi'}) sono uno snapshot Firestore alimentato dal cron TomTom (workflow GitHub Actions traffic-scheduler.yml), aggiornato ogni 10–15 minuti nelle fasce di punta. Quando apri la pagina, un piccolo script di hydration richiede tramite REST la lettura più fresca e sostituisce ogni cella della colonna "Minuti di attesa" — la pillola accanto alla data passa da "snapshot" a "live (Firestore, agg. HH:MM)". Se l'hydration fallisce (browser offline, estensioni privacy aggressive, reti aziendali con CSP molto rigida), continui a vedere lo snapshot di build: ricarica la pagina o controlla la console se sospetti un blocco.`,
+    `La tabella di ${scopeLabel} comprende ${rowCount} valichi. Per ciascuna riga controlla la fonte e l’ora della rilevazione prima di confrontare i minuti di attesa. I valori possono aggiornarsi dopo l’apertura della pagina; se non è disponibile una lettura recente, considera il dato precedente come indicativo e consulta anche la webcam, quando presente. Il simbolo — non significa assenza di coda: indica che non è disponibile un valore utilizzabile. Verifica inoltre gli orari del valico e il tempo di viaggio necessario per raggiungerlo.`,
     howToChoose,
   ] : locale === 'en' ? [
-    `The numbers in the ${scopeLabel} table (${rowCount} crossing${rowCount === 1 ? '' : 's'}) are a Firestore snapshot fed by the TomTom cron (GitHub Actions workflow traffic-scheduler.yml), refreshed every 10–15 minutes during peak windows. When you open the page, a small hydration script requests the freshest reading via REST and swaps every "wait minutes" cell — the pill next to the date flips from "snapshot" to "live (Firestore, upd. HH:MM)". If hydration fails (browser offline, aggressive privacy extensions, corporate networks with strict CSP), you keep seeing the build-time snapshot: reload the page or check the console if you suspect a block.`,
+    `The ${scopeLabel} table covers ${rowCount} crossings. Check each observation time and source before comparing wait estimates. Values may update after opening the page; if a recent reading is unavailable, treat the previous value as indicative and check the webcam where available. A dash does not mean there is no queue: it means no usable value is available. Also check crossing opening hours and the travel time needed to reach an alternative crossing.`,
     howToChoose,
   ] : locale === 'de' ? [
-    `Die Zahlen in der Tabelle ${scopeLabel} (${rowCount} ${rowCount === 1 ? 'Übergang' : 'Übergänge'}) sind ein Firestore-Snapshot, gespeist vom TomTom-Cron (GitHub-Actions-Workflow traffic-scheduler.yml), in Spitzenzeiten alle 10–15 Minuten aktualisiert. Beim Öffnen der Seite fordert ein kleines Hydration-Skript per REST die jüngste Messung an und ersetzt jede Zelle der Spalte „Wartezeit (Min.)" — die Pille neben dem Datum wechselt von „Snapshot" zu „live (Firestore, akt. HH:MM)". Schlägt die Hydration fehl (offline, aggressive Privacy-Erweiterungen, Firmennetzwerk mit strenger CSP), siehst du weiterhin den Build-Snapshot: Seite neu laden oder Konsole prüfen, falls du einen Block vermutest.`,
+    `Die Tabelle für ${scopeLabel} umfasst ${rowCount} Übergänge. Prüfe vor dem Vergleich der Wartezeiten die Beobachtungszeit und Quelle jeder Zeile. Die Werte können sich nach dem Öffnen aktualisieren. Fehlt ein aktueller Messwert, dient der vorherige nur zur Orientierung; nutze gegebenenfalls die Webcam. Ein Strich bedeutet nicht freie Fahrt, sondern dass kein verwendbarer Wert vorliegt. Beachte ausserdem die Öffnungszeiten des Übergangs und die Fahrzeit zur Alternativroute.`,
     howToChoose,
   ] : [
-    `Les nombres du tableau ${scopeLabel} (${rowCount} passage${rowCount === 1 ? '' : 's'}) sont un instantané Firestore alimenté par le cron TomTom (workflow GitHub Actions traffic-scheduler.yml), rafraîchi toutes les 10–15 minutes en période de pointe. À l'ouverture de la page, un petit script d'hydratation demande la mesure la plus récente via REST et remplace chaque cellule de la colonne « minutes d'attente » — la pastille à côté de la date passe d'« instantané » à « live (Firestore, maj HH:MM) ». Si l'hydratation échoue (navigateur hors ligne, extensions de confidentialité agressives, réseau d'entreprise avec CSP stricte), vous continuez à voir l'instantané de build : rechargez la page ou vérifiez la console en cas de blocage.`,
+    `Le tableau de ${scopeLabel} présente ${rowCount} passages. Vérifiez la source et l’heure de chaque mesure avant de comparer les attentes. Les valeurs peuvent être actualisées après l’ouverture de la page. Sans mesure récente, utilisez la précédente à titre indicatif et consultez la webcam si elle est disponible. Un tiret ne signifie pas absence de file : aucune valeur exploitable n’est disponible. Vérifiez aussi les horaires du passage et le trajet pour rejoindre un itinéraire alternatif.`,
     howToChoose,
   ];
   const faqLabels = locale === 'it'
     ? {
         title: 'Domande sulla tabella',
         q1: 'Cosa significa "snapshot" rispetto a "live" nella pillola?',
-        a1: 'La pillola "snapshot di YYYY-MM-DD" è il valore presente al momento dell\'ultimo deploy (4–8 deploy al giorno). Quando l\'hydration completa la lettura Firestore, la pillola diventa "live (Firestore, agg. HH:MM)" e i numeri in tabella vengono aggiornati con le ultime misure (latenza ~5 minuti dalla rilevazione TomTom).',
-        q2: 'Perché alcune righe restano a "—" dopo l\'hydration?',
+        a1: "Controlla la data e l’ora accanto alla lettura. La pagina prova a mostrare l’ultimo dato disponibile; se non arriva un aggiornamento, resta la lettura precedente. Non considerare attuale un dato segnalato come scaduto.",
+        q2: 'Perché alcune righe restano a "—" dopo l’aggiornamento?',
         a2: 'I valichi minori senza copertura TomTom o BAZG mostrano "—" finché non maturano abbastanza dati statistici. In quel caso il valore è una media storica calcolata sugli ultimi 30 giorni di osservazioni: la pagina di dettaglio del valico mostra il banner "Dati statistici" giallo per segnalare che si tratta di una stima, non di una misura live.',
       }
     : locale === 'en'
     ? {
         title: 'Table FAQ',
         q1: 'What does "snapshot" vs "live" mean in the pill?',
-        a1: 'The "snapshot of YYYY-MM-DD" pill is the value at the time of the last deploy (4–8 deploys per day). When hydration completes the Firestore read, the pill flips to "live (Firestore, upd. HH:MM)" and the table numbers refresh to the latest measurements (~5-minute latency from the TomTom poll).',
-        q2: 'Why do some rows stay at "—" after hydration?',
+        a1: "Check the date and time beside the reading. The page attempts to show the latest available observation; if no update arrives, the previous reading remains. Do not treat an expired reading as current.",
+        q2: 'Why do some rows stay at "—" after updating?',
         a2: 'Minor crossings without TomTom or BAZG coverage show "—" until enough statistical data accumulates. In that case the value is a historical average over the last 30 days of observations: the crossing detail page shows the yellow "Historical averages" banner to flag that it is an estimate, not a live measurement.',
       }
     : locale === 'de'
     ? {
         title: 'FAQ zur Tabelle',
         q1: 'Was bedeutet „Snapshot" vs „live" in der Pille?',
-        a1: 'Die Pille „Snapshot vom YYYY-MM-DD" ist der Wert zum Zeitpunkt des letzten Deploys (4–8 Deploys pro Tag). Sobald die Hydration die Firestore-Lesung abschliesst, wechselt die Pille zu „live (Firestore, akt. HH:MM)" und die Tabellenwerte werden auf die jüngsten Messungen aktualisiert (etwa 5 Minuten Latenz vom TomTom-Polling).',
-        q2: 'Warum bleiben manche Zeilen nach der Hydration auf „—"?',
+        a1: "Prüfe Datum und Uhrzeit neben dem Messwert. Die Seite versucht, die neueste Beobachtung anzuzeigen. Ohne Aktualisierung bleibt der vorherige Wert sichtbar. Veraltete Werte beschreiben nicht die aktuelle Lage.",
+        q2: 'Warum bleiben manche Zeilen nach der Aktualisierung auf „—"?',
         a2: 'Kleinere Übergänge ohne TomTom- oder BAZG-Abdeckung zeigen „—" so lange, bis genügend statistische Daten vorliegen. In diesem Fall ist der Wert ein historischer Durchschnitt der letzten 30 Beobachtungstage: Die Detailseite des Übergangs zeigt das gelbe Banner „Historischer Durchschnitt" als Hinweis darauf, dass es sich um eine Schätzung handelt.',
       }
     : {
         title: 'FAQ tableau',
         q1: 'Que signifie « instantané » vs « live » dans la pastille ?',
-        a1: 'La pastille « instantané du YYYY-MM-DD » est la valeur au moment du dernier déploiement (4–8 par jour). Lorsque l\'hydratation termine la lecture Firestore, la pastille passe à « live (Firestore, maj HH:MM) » et les nombres du tableau sont rafraîchis avec les dernières mesures (latence ~5 minutes depuis le poll TomTom).',
-        q2: 'Pourquoi certaines lignes restent à « — » après l\'hydratation ?',
+        a1: "Vérifiez la date et l’heure près de la mesure. La page essaie de montrer la dernière observation disponible. Sans actualisation, la valeur précédente reste visible. Une valeur périmée ne décrit pas la situation actuelle.",
+        q2: 'Pourquoi certaines lignes restent à « — » après l’actualisation ?',
         a2: 'Les passages mineurs sans couverture TomTom ou BAZG affichent « — » tant que suffisamment de données statistiques ne sont pas accumulées. Dans ce cas, la valeur est une moyenne historique sur les 30 derniers jours d\'observations : la page de détail du passage affiche le bandeau jaune « Moyennes historiques » pour signaler qu\'il s\'agit d\'une estimation et non d\'une mesure live.',
       };
   return `<section class="s-GlcYCp">
@@ -2090,27 +2090,20 @@ function renderLeafPage(inp: LeafInputs): string {
     ...(observedAt ? { dateModified: observedAt } : {}),
   });
 
-  // B.3 — Enhanced Place + TouristAttraction (@type array) schema with
-  // openingHoursSpecification, amenityFeature, publicAccess — richer signals
-  // for "valico" + "dogana" queries.
+  // Describe the border checkpoint, not a tourist attraction.
   const placeLd = reg
     ? inlineScriptJson({
         '@context': 'https://schema.org',
-        '@type': ['Place', 'TouristAttraction'],
+        '@type': 'Place',
         '@id': `${canonicalUrl}#place`,
         name: crossingDisplay,
         description: intro,
         url: canonicalUrl,
         address: {
           '@type': 'PostalAddress',
-          // Always 'CH': the Place being described is the Swiss-side
-          // checkpoint itself (hence addressRegion: reg.canton, a BFS
-          // canton code). addressLocality names the nearest foreign-side
-          // town for orientation only — reg.country (the foreign side's
-          // own country) does not apply to this address.
+          // The registry only names the foreign town; do not mix it with a Swiss address.
           addressCountry: 'CH',
           addressRegion: reg.canton,
-          addressLocality: reg.foreignSide,
         },
         geo: {
           '@type': 'GeoCoordinates',
@@ -2147,11 +2140,6 @@ function renderLeafPage(inp: LeafInputs): string {
             '@type': 'LocationFeatureSpecification',
             name: 'Webcam live',
             value: Array.isArray(reg.webcams) && reg.webcams.length > 0,
-          },
-          {
-            '@type': 'LocationFeatureSpecification',
-            name: 'Copertura BAZG (dati ufficiali)',
-            value: Boolean(reg.bazgCoverage),
           },
           {
             '@type': 'LocationFeatureSpecification',

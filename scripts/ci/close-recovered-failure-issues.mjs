@@ -860,6 +860,19 @@ function fetchIssueComments(issueNumber) {
 // spinge verso la chiusura (il comportamento vecchio), mai verso l'hold.
 const RUN_HISTORY_LIMIT = 100;
 
+// Finestra `created` del listing su `main`. `gh run list -b main` senza finestra
+// restituisce a tratti un elenco fermo a settimane o mesi prima (misurato il
+// 2026-09-28 e il 2026-10-02): qui farebbe leggere verdi vecchi come recupero, o
+// nasconderebbe il verde che c'è. 90 giorni contengono anche un workflow mensile;
+// un workflow senza run nella finestra dà `null`, cioè «lascia la issue aperta».
+// La data è calcolata qui e non importata da un helper: il file è un gemello
+// `identical` del corpus e un import nuovo non scenderebbe col mirror.
+export const RUN_HISTORY_WINDOW_DAYS = 90;
+
+function runHistoryCreatedFilter(nowMs = Date.now()) {
+  return `>=${new Date(nowMs - RUN_HISTORY_WINDOW_DAYS * 86_400_000).toISOString().slice(0, 10)}`;
+}
+
 const CRAWLER_GENERATION_SHADOW_PREFIX = 'crawler-generation-shadow-';
 
 /** Production crawler runs use the generation token as their branch name. */
@@ -905,9 +918,9 @@ export function sortCrawlerRecoveryRuns(runs) {
  * remain main-scoped; crawler recovery must list branches and filter the
  * returned head branch explicitly because `gh` has no wildcard `--branch`.
  */
-export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = false } = {}) {
+export function buildRunListArgs(workflowName, { includeCrawlerShadowBranches = false, nowMs = Date.now() } = {}) {
   const args = ['run', 'list', '-w', workflowName];
-  if (!includeCrawlerShadowBranches) args.push('-b', 'main');
+  if (!includeCrawlerShadowBranches) args.push('-b', 'main', '--created', runHistoryCreatedFilter(nowMs));
   args.push(
     '-L', String(RUN_HISTORY_LIMIT),
     '--json', 'databaseId,conclusion,status,createdAt,headBranch',

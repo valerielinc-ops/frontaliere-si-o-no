@@ -1558,6 +1558,7 @@ const enCore: Record<string, string> = {
  'freshness.source.ufsp': 'FOPH — Federal Office of Public Health',
  'common.day': 'day',
  'jobs.compare': 'Compare',
+ 'strumenti.payslip': 'Payslip',
  'comparators.ral': 'Net Salary',
  'ral.title': 'Net Salary Calculator: Italy vs Switzerland',
  'ral.subtitle': 'Compare net salary at the same gross between Italy and Switzerland',

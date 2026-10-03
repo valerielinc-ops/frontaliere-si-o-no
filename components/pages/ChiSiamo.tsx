@@ -255,7 +255,9 @@ export const ChiSiamo: React.FC = () => {
  </BulletItem>
  <BulletItem>
  <strong>Uso dell'IA</strong>: utilizziamo strumenti di IA generativa per
- bozze iniziali; ogni articolo è revisionato dalla redazione. Vedi la
+ bozze e traduzioni, con controlli automatici e possibili correzioni
+ redazionali. Non garantiamo una revisione umana preventiva di ogni
+ articolo. Vedi la
  nostra{' '}
  <a
  href="/metodologia/"

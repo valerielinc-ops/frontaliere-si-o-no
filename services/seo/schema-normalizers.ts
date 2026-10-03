@@ -29,6 +29,9 @@ function normalizeArticleEntity(
 ): Record<string, any> {
  if (!isRecord(value)) return { ...fallback };
 
+ // Only explicit site identities can inherit the publisher's fields.
+ // A shared name (with or without an external ID) is not proof of identity.
+ if (value['@id'] !== ORGANIZATION_ID && !isSiteOrganizationCreator(value)) return { ...value };
  const out = { ...fallback, ...value };
  if (!out.name) out.name = fallback.name;
  if (!out.url) out.url = fallback.url;
@@ -98,10 +101,10 @@ function isAppSchema(record: Record<string, any>): boolean {
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
  // Legacy records include both anonymous Organization nodes and the
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
- // Preserve the stable identity while emitting Google's supported base type.
+ // Reattach site records to the canonical identity while emitting the base type.
  if (isSiteOrganizationCreator(record)) {
   record['@type'] = ORGANIZATION_LD['@type'];
-  record['@id'] ??= ORGANIZATION_ID;
+  record['@id'] = ORGANIZATION_ID;
  }
 
  if (isSchemaType(record, 'Dataset') && !record.license) {
