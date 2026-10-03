@@ -459,7 +459,11 @@ describe('sync-articles-sitemaps.yml: a skip stops the whole run, not just one s
 
     //  - a PR delivery publishes the working tree of this run, where both
     //    pulls already ran, so one publisher call carries both halves.
-    const publisherCalls = run.match(/scripts\/lib\/open-data-refresh-pr\.sh/g) ?? [];
+    //    Shell comments are not calls: a comment naming the script must not
+    //    count as a second publisher.
+    const publisherCalls = run
+      .split('\n')
+      .filter((line) => !line.trim().startsWith('#') && line.includes('scripts/lib/open-data-refresh-pr.sh'));
     expect(
       regenerate.length + publisherCalls.length,
       'the commit step has no delivery path at all',

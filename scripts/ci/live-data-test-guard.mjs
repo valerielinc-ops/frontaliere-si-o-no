@@ -542,7 +542,7 @@ export const LIVE_DATA_PARTIAL_TESTS = Object.freeze([
   // `packages/articles/content/`) si legge solo dove `SKIP_LIVE_DATA` e' falso.
   // Traccia del 2026-10-03 con `VITEST_SKIP_LIVE_DATA=true`: zero accessi a
   // `services/locales/blog-*` e a `packages/articles/content/`.
-  { file: "tests/i18n-completeness.test.ts", roots: ["services/locales/"], since: "2026-10-03", evidence: "review", runtime: true, movedFromFullExclusion: true },
+  { file: "tests/i18n-completeness.test.ts", roots: ["services/locales/"], since: "2026-10-03", evidence: "trace", runtime: true, movedFromFullExclusion: true },
 ]);
 
 /**
