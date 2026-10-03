@@ -578,6 +578,7 @@ async function main() {
 
   const events = [];
   const goneIds = [];
+  const detailFailureIds = [];
   let goneEverywhere = 0;
   let driftSuspected = 0;
   let resolvedComune = 0;
@@ -610,9 +611,11 @@ async function main() {
         // this run's contribution (neither added nor removed); the
         // aggregate detailFetchesOk-based guard below surfaces the drift.
         driftSuspected += 1;
+        detailFailureIds.push(eventStableId(SOURCE.key, code));
       } else {
         goneEverywhere += 1;
         goneIds.push(eventStableId(SOURCE.key, code));
+        detailFailureIds.push(eventStableId(SOURCE.key, code));
       }
     } else {
       const { event, imageSourceUrl, addressLocality, cantonHint } = mapped;
@@ -681,10 +684,6 @@ async function main() {
     return;
   }
 
-  if (!limit && entries.length > 0) {
-    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
-    else saveCursor(SOURCE.key, cursor, crawledAt);
-  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
@@ -716,7 +715,15 @@ async function main() {
     freshEvents: translatedEvents,
     goneIds,
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount: visited,
   });
+  // Advance the catalog only after the detail-failure policy accepts and
+  // writes this slice. A rejected batch must be retried from the same cursor.
+  if (!limit && entries.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpoint, { selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   console.log(
     `[guidle] merged ${events.length} event(s) (${goneIds.length} source disappearance(s) retained) → ${total} total in ${path.relative(process.cwd(), slicePath)}`,
   );

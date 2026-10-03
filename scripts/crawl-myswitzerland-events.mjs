@@ -958,6 +958,7 @@ async function main() {
   }
 
   const events = [];
+  const detailFailureIds = [];
   let detailOk = 0;
   let detailFail = 0;
   let visited = 0;
@@ -974,7 +975,10 @@ async function main() {
     const rec = records[cursor];
     const enrichment = await fetchDetailEnrichment(rec.perLocaleHits);
     if (enrichment) detailOk += 1;
-    else detailFail += 1;
+    else {
+      detailFail += 1;
+      detailFailureIds.push(eventStableId(SOURCE.key, rec.objectID));
+    }
 
     const mapped = mapEventRecord(rec.objectID, rec.perLocaleHits, enrichment || {});
     if (mapped) {
@@ -1044,10 +1048,6 @@ async function main() {
     return;
   }
 
-  if (!limit && records.length > 0) {
-    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
-    else saveCursor(SOURCE.key, cursor, crawledAt);
-  }
   saveEventTitleTranslationCache(translationCache);
   saveGeocodeCache(geocodeCache);
 
@@ -1083,7 +1083,15 @@ async function main() {
     freshEvents: freshEvents,
     goneIds: [],
     crawledAt,
+    detailFailureIds,
+    detailAttemptCount: visited,
   });
+  // Advance the catalog only after the detail-failure policy accepts and
+  // writes this slice. A rejected batch must be retried from the same cursor.
+  if (!limit && records.length > 0) {
+    if (ids) saveGenericCursor(targetedCheckpointPath, { selectionKey: selection.selectionKey, nextIndex: cursor, updatedAt: crawledAt });
+    else saveCursor(SOURCE.key, cursor, crawledAt);
+  }
   console.log(`[myswitzerland] merged ${events.length} detail record(s) + ${indexedPriceBackfills.length} indexed / ${bookingPriceBackfills.length} booking price backfill(s) → ${total} total in ${path.relative(process.cwd(), slicePath)}`);
 }
 

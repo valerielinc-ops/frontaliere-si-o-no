@@ -293,7 +293,14 @@ export function extractGeneveEventPrice(html, eventUrl) {
 
 export async function enrichGeneveEvent(event, fetchHtml) {
   const html = await fetchHtml(event.url);
-  if (!html) return event;
+  if (!html) {
+    const unchanged = { ...event };
+    Object.defineProperty(unchanged, 'detailFetchFailed', {
+      value: true,
+      enumerable: false,
+    });
+    return unchanged;
+  }
   const price = extractGeneveEventPrice(html, event.url);
   return price ? { ...event, price } : event;
 }

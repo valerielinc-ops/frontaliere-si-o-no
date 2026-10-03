@@ -764,6 +764,8 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     const failingFetch = async () => null;
     const out = await enrichEventsWithPrice(events, failingFetch);
     expect(out[0].price).toBeUndefined();
+    expect((out as any).detailFailureIds).toEqual(['tio-agenda:1']);
+    expect((out as any).detailAttemptCount).toBe(1);
   });
 });
 
