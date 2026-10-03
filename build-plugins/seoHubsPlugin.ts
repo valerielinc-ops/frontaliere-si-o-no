@@ -79,7 +79,6 @@ import { cantonCompanyHubs } from './shared/cantonCompanyHubRegistry';
 import { isCantonNoindex } from './shared/cantonNoindexRegistry';
 import { hasCantonSectorPage } from './shared/cantonSectorPageRegistry';
 import { renderCantonSeoProse, type CantonSeoLocale, type CantonSeoSlot } from './shared/cantonSeoProse';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { sanitizeJobTitleForDisplay, stripLiteralMarkdown } from './shared/stripLiteralMarkdown';
 import { readAllKnownJobSlugs } from '../scripts/lib/all-known-job-slugs-store.mjs';
 
@@ -946,7 +945,6 @@ function buildHtml(args: BuildHtmlArgs): string {
   const pageTitle = baseTitle.length + brandSuffix.length <= 60 ? `${baseTitle}${brandSuffix}` : baseTitle;
   const canonicalPath = paginatedPath(basePath, page);
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
-  const dateStamp = new Date().toISOString().slice(0, 10);
 
   // hreflang: only emit alternates for page-1 (paginated pages share lang)
   const hreflangs = page === 1
@@ -1006,9 +1004,6 @@ function buildHtml(args: BuildHtmlArgs): string {
     url: canonicalUrl,
     description,
     inLanguage: locale,
-    // Day-granularity, not a full build timestamp — see
-    // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
     mainEntity: {
       '@type': 'ItemList',
       numberOfItems: displayCount,
@@ -1072,12 +1067,12 @@ function buildHtml(args: BuildHtmlArgs): string {
   // total, the current page position, and the last-updated date so users get
   // immediate context above the data area (rule #17).
   const tileLabelsGlobal = {
-    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina', aggiornato: 'Aggiornato' },
-    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page', aggiornato: 'Updated' },
-    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite', aggiornato: 'Aktualisiert' },
-    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page', aggiornato: 'Mis à jour' },
+    it: { count: HUB_KEY_TILE_LABELS.it[hubKey], pagina: 'Pagina' },
+    en: { count: HUB_KEY_TILE_LABELS.en[hubKey], pagina: 'Page' },
+    de: { count: HUB_KEY_TILE_LABELS.de[hubKey], pagina: 'Seite' },
+    fr: { count: HUB_KEY_TILE_LABELS.fr[hubKey], pagina: 'Page' },
   }[locale];
-  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div><div class="s-tbase"><div class="s-tlbl">${esc(tileLabelsGlobal.aggiornato)}</div><div class="s-tval" style="font-size:18px">${esc(dateStamp)}</div></div></section>`;
+  const statTilesHtml = `<section class="s-iQjIAb" aria-label="${esc({ it: 'Numeri chiave', en: 'Key numbers', de: 'Kennzahlen', fr: 'Chiffres clés' }[locale])}"><div class="s-tacc"><div class="s-tlbl">${esc(tileLabelsGlobal.count)}</div><div class="s-tval">${esc(displayCount.toLocaleString(locale))}</div></div><div class="s-tok"><div class="s-tlbl">${esc(tileLabelsGlobal.pagina)}</div><div class="s-tval">${esc(`${page} / ${totalPages}`)}</div></div></section>`;
 
   const ctaPathGlobal = locale === 'it' ? '/calcola-stipendio/'
     : locale === 'de' ? '/de/gehalt-berechnen/'
@@ -1142,7 +1137,7 @@ ${hreflangs}${xDefault}${prevLink}${nextLink}
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(sectionOverride ? (page > 1 ? `${sectionOverride.h1} — ${pageLabel(locale, page)}` : sectionOverride.h1) : buildHubH1(locale, hubKey, displayCount, page))}</h1>
         <p class="s-OPPwy-">${esc(description)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, displayCount))}</p>
       </header>
       ${statTilesHtml}
       ${ctaHtmlGlobal}
@@ -1168,9 +1163,6 @@ function emptyLabel(locale: HubLocale): string {
 }
 function countLabel(locale: HubLocale, n: number): string {
   return { it: `${n.toLocaleString('it')} risorse`, en: `${n.toLocaleString('en')} entries`, de: `${n.toLocaleString('de')} Einträge`, fr: `${n.toLocaleString('fr')} entrées` }[locale];
-}
-function updatedLabel(locale: HubLocale): string {
-  return { it: 'Aggiornato', en: 'Updated', de: 'Aktualisiert', fr: 'Mis à jour' }[locale];
 }
 
 interface PaginationRenderOptions {
@@ -1430,7 +1422,7 @@ export function buildPaginationIndexHtml(args: PaginationIndexPageArgs): string 
     <header class="s-S1RSUf">
       <h1 class="s-e3gkVi">${esc(copy.title)}</h1>
       <p class="s-OPPwy-">${esc(copy.intro)}</p>
-      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${esc(dateStamp)}</p>
+      <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
     </header>
     <section>
       <h2 class="s-o3IET6">${esc(copy.listHeading)}</h2>
@@ -1996,7 +1988,7 @@ export function buildThinCantonHubHtml(args: {
       <header class="s-S1RSUf">
         <h1 class="s-e3gkVi">${esc(h1)}</h1>
         <p class="s-OPPwy-">${esc(intro)}</p>
-        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))} · ${esc(updatedLabel(locale))} ${dateStamp}</p>
+        <p class="s-Sn0UIv">${esc(countLabel(locale, totalItems))}</p>
       </header>
       ${statTilesHtml}
       ${adviceHtml}
@@ -2232,13 +2224,13 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
             `    <xhtml:link rel="alternate" hreflang="${alt}" href="${BASE_URL}${paginationIndexPath(archiveBases[alt], indexPage)}" />`,
           ).join('\n');
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`,
           );
         }
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
         }
       }
@@ -2303,7 +2295,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
@@ -2362,7 +2354,7 @@ function emitThinCantonHubs(args: ThinCantonHubArgs): void {
         if (locale === 'it') {
           const url = `${BASE_URL}${basePath}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
+            `  <url>\n    <loc>${url}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`,
           );
         }
       }
@@ -2613,7 +2605,7 @@ function renderArticleHubPagesCore(args: RenderArticleHubCoreArgs): void {
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
@@ -2789,7 +2781,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       const url = `${BASE_URL}${canonicalPath}`;
       const priority = page === 1 ? '0.7' : '0.5';
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n${altLinks}\n    <changefreq>daily</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
       );
     }
 
@@ -2816,7 +2808,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       });
       for (const { canonicalPath } of indexPages) {
         sitemapEntries.push(
-          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
+          `  <url>\n    <loc>${BASE_URL}${canonicalPath}</loc>\n    <changefreq>${hubKey === 'jobs' ? 'daily' : 'weekly'}</changefreq>\n    <priority>0.4</priority>\n  </url>`,
         );
       }
     }
@@ -2997,7 +2989,7 @@ export function emitSeoHubs(args: EmitArgs): { pagesEmitted: number; sitemapEntr
       pagesEmitted++;
       const url = `${BASE_URL}${basePath}`;
       sitemapEntries.push(
-        `  <url>\n    <loc>${url}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+        `  <url>\n    <loc>${url}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.6</priority>\n  </url>`,
       );
     }
   }

@@ -36,6 +36,7 @@ beforeEach(() => {
 afterEach(() => {
   fs.rmSync(root, { recursive: true, force: true });
   vi.restoreAllMocks();
+  vi.useRealTimers();
 });
 
 describe('cluster cache manifest honesty', () => {
@@ -138,5 +139,40 @@ describe('cluster cache manifest honesty', () => {
     expect(restored).toBeNull();
     expect(warn.mock.calls.some((c) => String(c[0]).includes('restore failed for'))).toBe(true);
     expect(warn.mock.calls.some((c) => String(c[0]).includes('cache INVALID'))).toBe(true);
+  });
+});
+
+
+describe('cached sitemap freshness', () => {
+  it('restores unchanged pages on different days without manufacturing URL dates', async () => {
+    const initial = Date.now();
+    const oldDay = new Date(initial - 7 * 86_400_000).toISOString().slice(0, 10);
+    const dist = path.join(root, 'dist');
+    const shard = 'sitemap-search-clusters-001.xml';
+    const html = '<html><body>Unchanged substantive content</body></html>';
+    const page = 'cerca-lavoro-ticino/ricerca-a/index.html';
+    const sitemap = `<urlset><url><loc>https://frontaliereticino.ch/a/</loc><lastmod>${oldDay}</lastmod><priority>0.6</priority></url></urlset>`;
+    write(dist, page, html);
+    write(dist, shard, sitemap);
+    // A different sitemap and an index have independent, valid date provenance.
+    write(dist, 'sitemap-blog.xml', sitemap);
+    write(dist, 'sitemap.xml', `<sitemapindex><sitemap><loc>https://frontaliereticino.ch/${shard}</loc><lastmod>${oldDay}</lastmod></sitemap></sitemapindex>`);
+    saveToCache(root, dist, KEY, [page, shard, 'sitemap-blog.xml', 'sitemap.xml'], [], [], [], []);
+    const results: string[] = [];
+    vi.useFakeTimers({ toFake: ['Date'] });
+    for (const offset of [0, 2]) {
+      vi.setSystemTime(initial + offset * 86_400_000);
+      const restoredDir = path.join(root, `restored-${offset}`);
+      fs.mkdirSync(restoredDir);
+      expect(await tryRestoreFromCache(root, restoredDir, KEY)).not.toBeNull();
+      expect(fs.readFileSync(path.join(restoredDir, page), 'utf-8')).toBe(html);
+      expect(fs.readFileSync(path.join(restoredDir, 'sitemap-blog.xml'), 'utf-8')).toBe(sitemap);
+      expect(fs.readFileSync(path.join(restoredDir, 'sitemap.xml'), 'utf-8')).toContain(`<lastmod>${oldDay}</lastmod>`);
+      const restored = fs.readFileSync(path.join(restoredDir, shard), 'utf-8');
+      expect(restored).not.toContain('<lastmod>');
+      expect(restored).toContain('<loc>https://frontaliereticino.ch/a/</loc>');
+      results.push(restored);
+    }
+    expect(results[0]).toBe(results[1]);
   });
 });

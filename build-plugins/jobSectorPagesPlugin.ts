@@ -67,7 +67,6 @@ import {
   type SectorCountableJob,
   type SectorHubKey,
 } from './jobSectorLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTOR_HUB_EMOJI } from './shared/sectorHubEmoji';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import { resolveSectorPagesFlushed } from './shared/buildSignals';
@@ -435,7 +434,6 @@ export function buildSectorLandingHtml(opts: BuildSectorLandingHtmlOptions): str
     isPartOf: sectionRootUrl,
     // Day-granularity, not a full build timestamp — see
     // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-    dateModified: buildDayStampIso(),
   });
 
   const faqLd = seo.faq.length > 0
@@ -731,7 +729,7 @@ export function jobSectorPagesPlugin(rootDir: string): Plugin {
           // locale this <url> block itself represents.
           const itUrl = `${BASE_URL}${buildSectorHubPath('it', sector)}`;
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>daily</changefreq>\n    <priority>0.9</priority>\n  </url>`,
           );
         }
       }

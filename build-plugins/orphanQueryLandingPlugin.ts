@@ -75,7 +75,6 @@ import {
 } from './orphanQueryData';
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
 import { listSliceFileNames } from '../scripts/lib/crawler-slice-files.mjs';
@@ -655,8 +654,6 @@ function renderPage(opts: {
     description: editorialBody.slice(0, 200),
     inLanguage: locale,
     isPartOf: { '@type': 'WebSite', url: `${BASE_URL}/`, name: 'Frontaliere Ticino' },
-    datePublished: dateStamp,
-    dateModified: dateStamp,
   });
 
   // Decide indexability — <MIN_MATCHING_JOBS jobs → noindex (anti-doorway).
@@ -962,7 +959,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         if (render.indexable) {
           pagesIndexable++;
           sitemapEntries.push(
-            `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
+            `  <url>\n    <loc>${BASE_URL}${render.urlPath}</loc>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`,
           );
           indexableByLocale[cluster.locale].push({
             slug: cluster.canonicalSlug,
@@ -1082,7 +1079,6 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
           inLanguage: loc,
           // Day-granularity, not a full build timestamp — see
           // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-          dateModified: buildDayStampIso(),
           mainEntity: {
             '@type': 'ItemList',
             numberOfItems: sorted.length,
@@ -1171,7 +1167,7 @@ export function orphanQueryLandingPlugin(rootDir: string): Plugin {
         collector.add(path.join(distDir, hubPath.replace(/\/+$/, '') + '.html'), hubHtml);
 
         sitemapEntries.push(
-          `  <url>\n    <loc>${canonicalUrl}</loc>\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
+          `  <url>\n    <loc>${canonicalUrl}</loc>\n    <changefreq>daily</changefreq>\n    <priority>0.7</priority>\n  </url>`,
         );
       }
 

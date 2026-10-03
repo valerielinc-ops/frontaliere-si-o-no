@@ -241,11 +241,15 @@ describe('pharmacy directory page matrix', () => {
     const before = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, new Date(snapshotAt - 1));
     const after = buildPharmacyDirectoryPage(descriptor!, 'it', '', dutiesJson as unknown as PharmacyDutiesDataset, afterNow);
     expect(before.indexable).toBe(false);
-    expect(before.html).not.toContain(formatDutyDateTime(sample!.startsAt));
+    // Other cantons can already publish a duty with the same start time.
+    // Assert the Ticino duty identity, then its own interval, not a page-wide date.
+    const dutyIdPattern = `data-duty-id=(?:"${sample!.id}"|${sample!.id})(?=[\\s>])`;
+    expect(before.html).not.toMatch(new RegExp(dutyIdPattern));
     expect(after.indexable).toBe(true);
-    expect(after.html).toContain(formatDutyDateTime(sample!.startsAt));
-    expect(after.html).toContain(formatDutyDateTime(sample!.endsAt));
-    expect(after.html).toMatch(new RegExp(`data-duty-id=(?:"${sample!.id}"|${sample!.id})`));
+    const publishedDuty = after.html.match(new RegExp(`<li\\b[^>]*${dutyIdPattern}[^>]*>[\\s\\S]*?<\\/li>`))?.[0];
+    expect(publishedDuty).toBeDefined();
+    expect(publishedDuty).toContain(formatDutyDateTime(sample!.startsAt));
+    expect(publishedDuty).toContain(formatDutyDateTime(sample!.endsAt));
   });
 
   it('keeps every indexable directory page above the text-html ratio floor', { timeout: 90000 }, () => {

@@ -54,7 +54,6 @@ import {
 import { renderRecencyHubProse } from './shared/jobListingProse';
 import { renderJobBoardCommuterContext } from './shared/jobBoardCommuterContext';
 import { windowDaysForVariant } from './jobRecencyLanding';
-import { buildDayStampIso } from './shared/buildDayStamp';
 import { SECTION_LEGACY_TI } from './shared/cantonSection';
 
 const LOCALES: ReadonlyArray<JobLandingLocale> = ['it', 'en', 'de', 'fr'];
@@ -278,7 +277,6 @@ export function jobRecencyPagesPlugin(rootDir: string): Plugin {
             isPartOf: sectionRootUrl,
             // Day-granularity, not a full build timestamp — see
             // build-plugins/shared/buildDayStamp.ts (per-build churn fix).
-            dateModified: buildDayStampIso(),
           });
 
           const faqLd = model.faq.length > 0
@@ -427,7 +425,7 @@ ${alternates}
           )}`;
           const priority = variant === 'last-3-days' ? '0.9' : '0.8';
           sitemapEntries.push(
-            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
+            `  <url>\n    <loc>${canonicalUrl}</loc>\n${altLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${itUrl}" />\n    <changefreq>hourly</changefreq>\n    <priority>${priority}</priority>\n  </url>`,
           );
         }
       }
