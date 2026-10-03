@@ -9,6 +9,25 @@ const jobBoardSource = readFileSync(
 );
 
 describe('assisted application JobBoard handoff', () => {
+  it('ships with the GPT rewarded video switched off and its paid fallback reachable', () => {
+    const gptSource = readFileSync(resolve(process.cwd(), 'components/shared/GptAdSlot.tsx'), 'utf8');
+    const rewardedSource = readFileSync(resolve(process.cwd(), 'services/rewardedWebAd.ts'), 'utf8');
+    const experimentSource = readFileSync(resolve(process.cwd(), 'services/assistedApplicationExperiment.ts'), 'utf8');
+
+    // Owner decision 2026-10-03: no GPT rewarded request until the unit has demand.
+    expect(gptSource).toContain('export const GPT_REWARDED_ENABLED = false;');
+    expect(rewardedSource).toContain(
+      "if (!GPT_REWARDED_ENABLED) return { reason: 'gpt_unavailable', detail: 'rewarded_disabled' };",
+    );
+    // The reason the switch reports must keep opening the paid offer instead
+    // of a silent hand-off.
+    const loadFailures = experimentSource.slice(
+      experimentSource.indexOf('export const OFFERWALL_LOAD_FAILURE_REASONS'),
+      experimentSource.indexOf('export function isOfferwallLoadFailure'),
+    );
+    expect(loadFailures).toContain("'gpt_unavailable'");
+  });
+
   it('routes the paid and rewarded treatments through the detail render', () => {
     const start = jobBoardSource.indexOf('const handleApply =');
     const end = jobBoardSource.indexOf('const handleShare =', start);
