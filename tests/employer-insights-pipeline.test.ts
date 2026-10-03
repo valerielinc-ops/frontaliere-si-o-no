@@ -1143,6 +1143,79 @@ describe('employer insights technical deduplication', () => {
     });
   });
 
+  it('scopes live emission evidence to Employer Insights surfaces', async () => {
+    const ga4Window = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-13T00:00:00+02:00',
+      kind: 'ga4-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    const row = (path: string, employerKey: string, jobSlug: string, emissionId: string, eventCount: number) => ({
+      dimensionValues: [
+        '20260909',
+        'page_view',
+        employerKey || '(not set)',
+        jobSlug || '(not set)',
+        path,
+        emissionId || '(not set)',
+      ],
+      metricValues: [{ value: String(eventCount) }, { value: '1' }, { value: '1' }],
+    });
+    const report = async () => ({
+      rowCount: 2,
+      rows: [
+        row('/statistiche/', '', '', '', 50),
+        row('/cerca-lavoro-ticino/role-it/', 'acme', 'role-it', 'emission-1', 4),
+      ],
+    });
+
+    const evidence = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+    });
+
+    expect(evidence.result.rows).toHaveLength(1);
+    expect(evidence.result.coverage).toMatchObject({
+      selection: 'employer-insights',
+      providerRowsReturned: 2,
+      providerTotalRows: 2,
+      returned: 4,
+      sourceObserved: 4,
+      identityObserved: 4,
+      emissionIdObserved: 4,
+      emissionIdMissingObserved: 0,
+      firstCompleteIdentityAt: '2026-09-08T22:00:00.000Z',
+    });
+
+    const blocked = await queryGa4EmissionEvidence(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report: async () => ({
+        rowCount: 2,
+        rows: [
+          row('/statistiche/', '', '', '', 50),
+          {
+            dimensionValues: [
+              '20260909',
+              'job_apply',
+              'acme',
+              'role-it',
+              '/cerca-lavoro-ticino/role-it/',
+              '(not set)',
+            ],
+            metricValues: [{ value: '2' }, { value: '1' }, { value: '1' }],
+          },
+        ],
+      }),
+    });
+    expect(blocked.result.coverage).toMatchObject({
+      returned: 2,
+      emissionIdMissingObserved: 2,
+      firstCompleteIdentityAt: null,
+    });
+  });
+
   it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
     const catalog = buildIdentityCatalog([job({ slug: 'infermieri' })]);
     const result = aggregateEmployerEvents([{
