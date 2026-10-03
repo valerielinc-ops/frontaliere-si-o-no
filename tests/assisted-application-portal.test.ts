@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { guardPlan, holdsValue, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
-import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
+import { guardPlan, holdsValue, ownConsent, planSystemPrompt, PLAN_SCHEMA, questionFromLabel } from '../scripts/assisted-application/lib/portal/plan.mjs';
+import { CONFIRM_RE, NEXT_RE, SUBMIT_RE, VALIDATION_RE, chooseFiles, findButton } from '../scripts/assisted-application/lib/portal/fill.mjs';
 import { candidateForForm, slugId, WAVE1_CHANNELS } from '../scripts/assisted-application/lib/portal/portal.mjs';
 import { personalValuesOf } from '../scripts/assisted-application/lib/secure-run.mjs';
 
@@ -133,6 +133,69 @@ describe('portal plan guard (career-ops apply rules in code)', () => {
     expect(holdsValue({ kind: 'file', value: '' })).toBe(false);
   });
 
+  it('ticks the application’s own required consent in code when the plan leaves it, and nothing else', () => {
+    const candidate = { answers: {}, profile: {}, portalQuestionsAnswered: [] };
+    const fields = [
+      { id: 'c1', kind: 'checkbox', label: 'I agree to the Privacy Policy Statement', required: true, checked: false },
+      { id: 'c2', kind: 'checkbox', label: 'Newsletter gemäss Datenschutzerklärung abonnieren', required: true, checked: false },
+      { id: 'c3', kind: 'checkbox', label: 'I hold a valid work permit and accept the privacy policy', required: true, checked: false },
+      { id: 'c4', kind: 'checkbox', label: 'Datenschutzerklärung gelesen', required: false, checked: false },
+      { id: 'c5', kind: 'checkbox', label: 'Ho letto l’informativa privacy e acconsento al trattamento dei dati', required: true, checked: false },
+    ];
+    // umantis, 2026-10-03: the planner skipped the required privacy box, and the candidate was asked it as a text question.
+    const guarded = guardPlan({
+      actions: [{ fieldId: 'c1', action: 'skip', source: 'rule', value: '' }, { fieldId: 'c5', action: 'uncheck', source: 'rule', value: '' }],
+      missingRequired: [{ fieldId: 'c1', question: 'Accetti l’informativa?', why: '', type: 'yes_no', options: [] }],
+    }, fields, candidate);
+    expect(guarded.actions.filter((action: any) => action.action === 'check').map((action: any) => [action.fieldId, action.source])).toEqual([['c1', 'consent'], ['c5', 'consent']]);
+    // A required marketing box and one that also declares a fact stay questions; an optional box is left alone.
+    expect(guarded.missingRequired.map((item: any) => item.fieldId).sort()).toEqual(['c2', 'c3']);
+    expect(ownConsent(fields[3])).toBe(false);
+    expect(ownConsent({ kind: 'text', label: 'Privacy', required: true })).toBe(false);
+    // The choice on what happens to the data afterwards is the planner's, by rule: never kept for other openings.
+    expect(planSystemPrompt('it')).toContain('select the option that deletes it');
+  });
+
+  // umantis, 2026-10-03: the letter was still at 15% when the CV went in and the send button was reached.
+  it('waits for a file the form sends as soon as it is chosen, and only a moment when it sends nothing', async () => {
+    const run = async (requests: Array<{ at: number; until: number; method?: string }>) => {
+      let clock = 0;
+      const handlers: Record<string, Set<(request: any) => void>> = { request: new Set(), requestfinished: new Set(), requestfailed: new Set() };
+      const live = requests.map((item) => ({ ...item, method: () => item.method || 'POST', started: false, ended: false }));
+      const page = {
+        on: (event: string, handler: any) => handlers[event].add(handler),
+        off: (event: string, handler: any) => handlers[event].delete(handler),
+        waitForTimeout: async (ms: number) => {
+          clock += ms;
+          for (const request of live) {
+            if (!request.started && clock >= request.at) { request.started = true; handlers.request.forEach((handler) => handler(request)); }
+            if (request.started && !request.ended && clock >= request.until) { request.ended = true; handlers.requestfinished.forEach((handler) => handler(request)); }
+          }
+        },
+      };
+      const chosen: any[] = [];
+      await chooseFiles(page as any, { setInputFiles: async (paths: any) => { chosen.push(paths); } } as any, '/tmp/cv.pdf', { now: () => clock });
+      return { clock, chosen, listeners: Object.values(handlers).reduce((sum, set) => sum + set.size, 0) };
+    };
+    // Nothing leaves on the choice (the file goes with the submit): the quiet moment only, and no listener left.
+    const plain = await run([]);
+    expect(plain.chosen).toEqual(['/tmp/cv.pdf']);
+    expect(plain.clock).toBeGreaterThanOrEqual(700);
+    expect(plain.clock).toBeLessThan(1200);
+    expect(plain.listeners).toBe(0);
+    // An upload that starts at once and takes 5 s is waited for.
+    const upload = await run([{ at: 150, until: 5000 }]);
+    expect(upload.clock).toBeGreaterThanOrEqual(5700);
+    expect(upload.clock).toBeLessThan(6500);
+    // Sent in two pieces with a short gap: both.
+    expect((await run([{ at: 150, until: 2000 }, { at: 2300, until: 4000 }])).clock).toBeGreaterThanOrEqual(4600);
+    // A plain GET (an image, a script) is nobody's upload; a request that never ends is not waited for ever.
+    expect((await run([{ at: 150, until: 9000, method: 'GET' }])).clock).toBeLessThan(1200);
+    const stuck = await run([{ at: 150, until: Infinity }]);
+    expect(stuck.clock).toBeGreaterThanOrEqual(45_000);
+    expect(stuck.clock).toBeLessThan(47_000);
+  });
+
   it('plans a JOIN date picker from the candidate date and asks when it is absent', () => {
     const date = { id: 'dob', kind: 'date', label: 'Quando sei nato?', required: true, value: '' };
     const candidate = { answers: {}, profile: { dateOfBirth: '12.05.1990' }, portalQuestionsAnswered: [] };
@@ -205,6 +268,8 @@ describe('portal runner helpers', () => {
     for (const text of ['Conferma e applica filtro', 'Confirm and apply filters', 'Bestätigen und bewerben später']) expect(SUBMIT_RE.test(text)).toBe(false);
     for (const text of ['Conferma e applica →', 'Confirm and submit']) expect(SUBMIT_RE.test(text)).toBe(true);
     for (const text of ['Thank you for applying!', 'Vielen Dank für Ihre Bewerbung', 'La candidatura è stata inviata', 'Votre candidature a bien été envoyée']) expect(CONFIRM_RE.test(text)).toBe(true);
+    // The same thanks in more words (an ATS in English, 2026-10-03).
+    for (const text of ['Thank you very much for your application', 'Many thanks for your application!']) expect(CONFIRM_RE.test(text)).toBe(true);
     // JOIN says "du"/"tu".
     for (const text of ['Grazie per esserti candidato!', 'Vielen Dank für deine Bewerbung']) expect(CONFIRM_RE.test(text)).toBe(true);
     expect(VALIDATION_RE.test('Dieses Feld ist ein Pflichtfeld')).toBe(true);

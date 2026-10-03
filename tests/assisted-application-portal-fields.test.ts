@@ -170,6 +170,12 @@ describe('portal field extraction', () => {
     expect(limit('d')).toBe(20);
   });
 
+  it('says which <form> a control is sent with', () => {
+    const page = extract('<form><label for="p">Password</label><input id="p" type="password"><label for="cv">Resume</label><input id="cv" type="file"></form>'
+      + '<form><label for="q">Suche</label><input id="q"></form><label for="alone">Notiz</label><input id="alone">');
+    expect(page.fields.map((field: any) => [field.label, field.form])).toEqual([['Password', 0], ['Resume', 0], ['Suche', 1], ['Notiz', -1]]);
+  });
+
   it('keeps Workday’s select-input search boxes and leaves the site’s own search out', () => {
     const page = extract(`
       <form role="search"><input type="search" name="q" aria-label="Jobs durchsuchen"></form>

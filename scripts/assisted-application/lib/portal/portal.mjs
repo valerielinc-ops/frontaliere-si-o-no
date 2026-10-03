@@ -9,7 +9,9 @@
  * 2026-10-01); an unresolved challenge still ends in a handoff.
  * A login page is handled by account.mjs: an
  * account on the order's alias, created by the runner and verified through
- * the order's inbox. A required answer only the candidate can give ends in
+ * the order's inbox. An application form that asks for the account's password
+ * itself (umantis) is the form: filled and sent as any other, the password
+ * with it. A required answer only the candidate can give ends in
  * `submit_needs_candidate` with the question; the flow asks it on the review
  * page and dispatches the submission again.
  * A click on "submit" whose outcome cannot be confirmed is never retried
@@ -21,7 +23,7 @@
  */
 
 import { AGENT_ROUNDS, advanceLocator, completeWithAgent, submitLocator } from './agent.mjs';
-import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
+import { CREATE_ACCOUNT_RE, SIGN_IN_RE, VERIFY_PAGE_RE, authPageKind, codeField, inlineAccountForm, loginFields, newPortalPassword, registrationOutcome, verificationOutcome } from './account.mjs';
 import { extractFields } from './fields.mjs';
 import { startPortalDiagnostics } from './diagnostics.mjs';
 import { NO_PORTAL_KNOWLEDGE, labelsAt, learnedButton } from './knowledge.mjs';
@@ -341,6 +343,34 @@ export function postingMatch(pageText, job = {}) {
   return title.every(variant) ? 'match' : 'mismatch';
 }
 
+/**
+ * The form the posting's own apply button opened. An ATS on another host
+ * often names the role and never the company (umantis for Grand Hotel
+ * Kronenhof, 2026-10-03: «Concierge - Application», at most the group's
+ * name): the company was read on the posting the runner came from
+ * (`postingMatched`), the role is read on the form, every word of it. A form
+ * reached any other way is judged by postingMatch alone.
+ */
+export function formPostingMatch(formText, job = {}, { postingMatched = false } = {}) {
+  const direct = postingMatch(formText, job);
+  if (direct !== 'mismatch' || !postingMatched) return direct;
+  return postingMatch(formText, { title: job.title }) === 'match' ? 'match' : 'mismatch';
+}
+
+// A send button that names an application: «Submit final application»,
+// «Bewerbung absenden», «Invia candidatura», «Envoyer ma candidature».
+const NAMES_APPLICATION_RE = /(appl|bewerb|candid|postul)/i;
+
+/**
+ * The application form asks for its account's password itself (account.mjs)
+ * and its button sends an application: the form, not a login page. A bare
+ * «Submit» or «Konto erstellen» under a password stays a registration.
+ */
+export function ownAccountForm(snapshot) {
+  return Boolean(snapshot.passwordVisible) && inlineAccountForm(snapshot)
+    && snapshot.buttons.some((button) => SUBMIT_RE.test(button.text) && NAMES_APPLICATION_RE.test(button.text));
+}
+
 /** Questions for the candidate from a plan's missing required fields (ids are stable slugs). */
 function questionsFrom(missingRequired) {
   const questions = [];
@@ -570,6 +600,30 @@ async function handleAuth({ page, snapshot, ctx }) {
 }
 
 /**
+ * The password of an application form that creates its own account
+ * (ownAccountForm): the one this order already holds for the portal, else a
+ * new one, stored (encrypted) BEFORE it is typed, as for a registration page:
+ * a run that dies after the send click still knows it. A dry run types one it
+ * never stores (its form is never sent, so no account comes of it).
+ * @param {Map<string,string>} passwords the run's own, by host (re-typed when the page is planned again)
+ * @returns {Promise<boolean>} every password field took it
+ */
+async function typeOwnPassword({ page, snapshot, ctx, passwords }) {
+  const host = new URL(page.url()).hostname;
+  let password = passwords.get(host) || (await ctx.accounts.load(host))?.password || '';
+  if (!password) {
+    password = newPortalPassword({ portal: host });
+    if (ctx.dryRun) ctx.accounts.mask?.(password);
+    else await ctx.accounts.save(host, { email: ctx.candidate.identity.email, password });
+  }
+  passwords.set(host, password);
+  const fields = snapshot.fields.filter((field) => field.inputType === 'password');
+  const results = await applyActions(page, snapshot.fields, fields.map((field) => ({ fieldId: field.id, action: 'fill', value: password })), {});
+  // Only whether it went in: the filler's own message may quote what it typed.
+  return results.length === fields.length && results.every((result) => result.ok);
+}
+
+/**
  * A required field of the page is still empty. A file input's value is never
  * read by the snapshot (`holdsValue` counts it empty), so its own `files` say
  * whether the CV went in; an upload widget that clears its input reads as empty.
@@ -787,21 +841,34 @@ export async function submitViaPortal(ctx) {
     });
     evidence.liveness = { result: rendered.result, code: rendered.code };
     if (isHardClosed(rendered)) return { event: { type: 'posting_closed', reason: rendered.code }, evidence };
+    // The posting itself, before its apply button: where the company is read
+    // when the form behind the button names only the role (formPostingMatch).
+    const postingUrl = page.url();
+    const postingNamed = postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${postingUrl}`, ctx.job) === 'match';
     ({ page, snapshot } = await openApplicationForm(context, page, snapshot));
     if (snapshot.fields.some((field) => field.kind === 'listbox')) snapshot = await extractFields(page);
     // The form must be the posting's: an address that lands on a list of jobs
     // with a "Bewerben" must not apply to another one. Valerie's retry, after
     // she looked at the screenshot, goes on.
-    const formMatch = async () => postingMatch(`${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`, ctx.job);
+    const formMatch = async () => {
+      const seen = `${await page.title().catch(() => '')} ${await pageText(page)} ${page.url()}`;
+      const result = formPostingMatch(seen, ctx.job, { postingMatched: postingNamed && page.url() !== postingUrl });
+      // Said in the evidence: the company was read on the posting, the form names only the role.
+      if (result === 'match' && postingMatch(seen, ctx.job) === 'mismatch') evidence.postingMatchVia = 'posting_page';
+      return result;
+    };
     const match = await formMatch();
     evidence.postingMatch = match;
     // A sign-in page often names neither the company nor the role
     // (SuccessFactors, Coop 2026-10-02): the check waits for the form behind it.
-    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ctx.skipPostingCheck;
+    // An application form with its own password field is the form: checked now.
+    let postingCheckPending = match === 'mismatch' && snapshot.passwordVisible && !ownAccountForm(snapshot) && !ctx.skipPostingCheck;
     if (match === 'mismatch' && !postingCheckPending && !ctx.skipPostingCheck) return await handoff('posting_mismatch');
     let validationRetries = 0;
     let stuckOnPage = 0;
     let authSteps = 0;
+    // The passwords this run typed into application forms that create their own account, by host.
+    const ownPasswords = new Map();
     const uploaded = new Set();
     // Pages whose sections and CV dialog were opened (openFormSections), and the tries.
     const openedOnce = new Set();
@@ -832,6 +899,7 @@ export async function submitViaPortal(ctx) {
           candidateLocale: ctx.candidateLocale,
           codex: ctx.codex,
           files: ctx.files,
+          secrets: [...ownPasswords.values()],
           maxRounds: Math.min(AGENT_ROUNDS, MAX_AGENT_CALLS - agentCalls),
           log,
         });
@@ -851,7 +919,11 @@ export async function submitViaPortal(ctx) {
       evidence.steps.push({ step, url: page.url(), fields: snapshot.fields.length, errors: snapshot.errors || [] });
       log(`portal step ${step}: ${snapshot.fields.length} fields`);
       if (snapshot.captcha) return await handoff('captcha');
-      if (snapshot.passwordVisible) {
+      // The form asks for its account's password itself (umantis): no login
+      // page to get through, the password is typed with the rest of the form.
+      let ownAccount = ownAccountForm(snapshot);
+      if (ownAccount && !ctx.accounts) return await handoff('account');
+      if (snapshot.passwordVisible && !ownAccount) {
         if (!ctx.accounts || ++authSteps > MAX_AUTH_STEPS) return await handoff('account');
         const auth = await handleAuth({ page, snapshot, ctx });
         evidence.steps.at(-1).auth = {
@@ -884,6 +956,8 @@ export async function submitViaPortal(ctx) {
       }
       const opened = await openFormSections(page, snapshot, { files: ctx.files, done: openedOnce, tries: openTries });
       snapshot = opened.snapshot;
+      // A section just opened may hold the form’s own password field.
+      if (!ownAccount && ctx.accounts) ownAccount = ownAccountForm(snapshot);
       if (opened.cv) {
         evidence.steps.at(-1).cv = opened.cv;
         if (opened.cv !== 'unavailable') record('Lebenslauf', uploadLabel('cv', ctx.candidate), 'documents');
@@ -900,7 +974,9 @@ export async function submitViaPortal(ctx) {
       let after = snapshot;
       let unclearQuestions = [];
       if (workable(snapshot)) {
-        const plan = await planPage({ snapshot, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
+        // The planner never sees a password field, nor what a retry finds typed in it.
+        const planned = ownAccount ? { ...snapshot, fields: snapshot.fields.filter((field) => field.inputType !== 'password') } : snapshot;
+        const plan = await planPage({ snapshot: planned, candidate: ctx.candidate, candidateLocale: ctx.candidateLocale, codex: ctx.codex });
         // A required field with no readable label is no question for the
         // candidate ("select-input-_r_p_"): the agent finds its question on the page.
         const unclear = plan.missingRequired.some((item) => machineLabel(snapshot.fields.find((field) => field.id === item.fieldId)?.label));
@@ -923,6 +999,11 @@ export async function submitViaPortal(ctx) {
         }
         evidence.steps.at(-1).actions = actions.map(({ fieldId, action, source, document }) => ({ fieldId, action, source, document }));
         evidence.steps.at(-1).failures = results.filter((result) => !result.ok);
+        if (ownAccount) {
+          const typed = await typeOwnPassword({ page, snapshot, ctx, passwords: ownPasswords });
+          evidence.steps.at(-1).auth = { kind: 'inline', outcome: !typed ? 'password_not_typed' : ctx.dryRun ? 'dry_run' : 'ok' };
+          if (!typed) return await handoff('account');
+        }
 
         after = await extractFields(page, NAVIGATION);
         // The portal moved to another page by itself (JOIN registers the e-mail
@@ -1041,6 +1122,8 @@ export async function submitViaPortal(ctx) {
       evidence.finalUrl = page.url();
       log(`portal outcome: ${outcome}`);
       if (outcome === 'confirmed') {
+        // The application went, and with it the account its form asked a password for.
+        for (const host of ownPasswords.keys()) await ctx.accounts.mark(host, { status: 'created' }).catch(() => {});
         // The portal confirmed: what this run had to learn is remembered for the next one (level 2).
         const learnedFinal = final.by === 'agent' || !SUBMIT_RE.test(final.label) ? { path: anonymizePath(finalUrl), label: final.label } : null;
         if (ctx.knowledge && (learnedFinal || namedNext.length)) {

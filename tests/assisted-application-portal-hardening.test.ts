@@ -4,6 +4,8 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  formPostingMatch,
+  ownAccountForm,
   postingMatch,
   PREREAD_CHANNELS,
   readPortalQuestions,
@@ -36,6 +38,37 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
     expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
+  // umantis for a hotel, 2026-10-03: the form names the role («Concierge - Application»), never the employer.
+  it('reads the company on the posting and the role on the form its apply button opened', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge (m/w/d)' };
+    const form = 'Concierge - Application | Application Tracking System Concierge Click on Login if you have already set up your profile. https://recruitingapp-0000.umantis.com/Vacancies/717/Application/New/2';
+    // The form alone: a stop, as before.
+    expect(formPostingMatch(form, job)).toBe('mismatch');
+    // Opened by the apply button of a posting that named the company: the role is enough.
+    expect(formPostingMatch(form, job, { postingMatched: true })).toBe('match');
+    // Never another role of the same employer, and never without a role to read.
+    expect(formPostingMatch(form, { ...job, title: 'Chef de Rang' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch(form, { company: job.company }, { postingMatched: true })).toBe('mismatch');
+    // A form that names the company needs no posting; an order that names nothing is never stopped.
+    expect(formPostingMatch(`Grand Hotel Esempio · ${form}`, job)).toBe('match');
+    expect(formPostingMatch('anything', {}, { postingMatched: true })).toBe('unknown');
+  });
+
+  it('takes a form with its own password field for the form only when its button sends an application', () => {
+    const fields = [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }];
+    const page = (text: string, extra: Record<string, unknown> = {}) => ({ passwordVisible: true, fields, buttons: [{ text: 'Login for recruiters' }, { text }], ...extra });
+    expect(ownAccountForm(page('Submit final application'))).toBe(true);
+    expect(ownAccountForm(page('Bewerbung absenden'))).toBe(true);
+    expect(ownAccountForm(page('Invia candidatura'))).toBe(true);
+    // A registration that also takes a CV: its button creates an account, the login pages handle it.
+    expect(ownAccountForm(page('Konto erstellen'))).toBe(false);
+    expect(ownAccountForm(page('Submit'))).toBe(false);
+    // No password on the page, or no CV sent with it.
+    expect(ownAccountForm(page('Submit final application', { passwordVisible: false }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0]] }))).toBe(false);
+    expect(ownAccountForm(page('Submit final application', { fields: [fields[0], { ...fields[1], form: 1 }] }))).toBe(false);
   });
 
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
