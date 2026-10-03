@@ -117,7 +117,7 @@ describe('fill extension: JOIN steps', () => {
           const root = this.attachShadow({ mode: 'open' });
           root.innerHTML = '<input type="text">';
           const inner = root.querySelector('input');
-          inner.addEventListener('keydown', (event) => { if (event.key === 'Enter') this._value = inner.value; });
+          inner.addEventListener('change', () => { this._value = inner.value; });
         }
         get value() { return this._value; }
       });`);
