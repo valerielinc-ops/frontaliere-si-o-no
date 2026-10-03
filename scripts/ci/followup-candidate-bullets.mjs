@@ -52,12 +52,17 @@ const DEFAULT_TWIN_LOOKUP_CAP = 40;
 
 const twinOf = (side) => (side === 'site' ? 'corpus' : 'site');
 
-/** `./a/b.ts:12` → `a/b.ts`. */
+/**
+ * `./a/b.ts:12` → `a/b.ts`. L'ancora di riga puo' avere la `L` davanti ai
+ * numeri (`a/b.ts:L12`, `a/b.ts:L12-L20`): e' la forma con cui il reviewer cita
+ * i file nei finding, e senza toglierla il path non supera la validazione e il
+ * bullet resta senza instradamento.
+ */
 export function normalizeCitedPath(value) {
   return String(value ?? '')
     .trim()
     .replace(/^\.\//, '')
-    .replace(/:\d+(?:[-:]\d+)*$/, '');
+    .replace(/:L?\d+(?:[-:]L?\d+)*$/, '');
 }
 
 // I nomi di una voce sui due lati: stessa regola di `entryPaths()` in

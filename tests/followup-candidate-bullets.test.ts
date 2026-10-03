@@ -177,6 +177,32 @@ describe('citedPaths', () => {
       + '`git diff origin/main -- a/b.ts`, `../etc/passwd.txt`, `package.json`; di nuovo `scripts/ci/foo.mjs`',
     )).toEqual(['scripts/ci/foo.mjs', 'build-plugins/bar.ts']);
   });
+
+  // Il reviewer cita i file come `path:L251`: con la sola forma numerica quel
+  // path veniva scartato, `routes` restava vuoto e il triage ricadeva sulla
+  // mappa in prosa, cioe' poteva coniare il follow-up nel repository sbagliato.
+  it.each([
+    ['ancora con L', '`scripts/ci/foo.mjs:L12`'],
+    ['intervallo con L su entrambi i capi', '`scripts/ci/foo.mjs:L12-L20`'],
+    ['intervallo con L solo in testa', '`scripts/ci/foo.mjs:L12-20`'],
+    ['riga e colonna', '`scripts/ci/foo.mjs:12:5`'],
+    ['intervallo numerico', '`scripts/ci/foo.mjs:12-20`'],
+    ['prefisso ./ e ancora con L', '`./scripts/ci/foo.mjs:L7`'],
+  ])('toglie l\'ancora di riga dal path citato (%s)', (_label, text) => {
+    expect(citedPaths(text)).toEqual(['scripts/ci/foo.mjs']);
+  });
+
+  it('non scambia per ancora un nome di file che finisce con L e cifre', () => {
+    expect(citedPaths('`scripts/ci/levelL12.mjs` e `docs/NOTE-L3.md`')).toEqual(['scripts/ci/levelL12.mjs', 'docs/NOTE-L3.md']);
+  });
+
+  it('instrada un path citato con ancora L come lo stesso path senza ancora', () => {
+    const manifestFiles = [{ path: 'scripts/ci/foo.mjs', mode: 'identical' }];
+    const plain = mirrorRoute({ path: 'scripts/ci/foo.mjs', side: 'corpus', manifestFiles });
+    const anchored = mirrorRoute({ path: 'scripts/ci/foo.mjs:L12', side: 'corpus', manifestFiles });
+    expect(anchored).toEqual(plain);
+    expect(anchored.targetPath).toBe('scripts/ci/foo.mjs');
+  });
 });
 
 describe('classifyCandidateBullets', () => {
