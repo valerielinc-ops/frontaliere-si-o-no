@@ -277,6 +277,29 @@ export function bornSatisfiedItemIds(markers) {
 }
 
 /**
+ * Gli input dei gate giornalieri, calcolati in UN punto: `gateArgs` sono gli
+ * argomenti posizionali dal terzo in poi che `main()` passa a
+ * `reconcileDailyItems` e a entrambe le chiamate di `dailyBucketCloseGate`
+ * (chiave, repository e conteggio dal titolo, poi l'insieme born-satisfied dai
+ * commenti fidati), cosi' i tre punti di chiamata non possono divergere.
+ * `null` se il titolo non e' un bucket giornaliero o se i commenti non sono
+ * leggibili (senza commenti non si esclude un marker born-satisfied).
+ * @returns {{daily: object, itemMarkers: object[], bornSatisfied: Set<string>, gateArgs: unknown[]}|null}
+ */
+export function dailyBucketGateInputs(title, comments) {
+  const daily = dailyBucketInfo(title || '');
+  if (!daily || !Array.isArray(comments)) return null;
+  const itemMarkers = parseItemMarkers(comments, { isTrusted: isTrustedAuthor });
+  const bornSatisfied = bornSatisfiedItemIds(itemMarkers);
+  return {
+    daily,
+    itemMarkers,
+    bornSatisfied,
+    gateArgs: [daily.dailyKey, daily.targetRepository, daily.itemCount, bornSatisfied],
+  };
+}
+
+/**
  * Item-level close gate for a sealed daily bucket. Every item must be structurally
  * readable, accepted, explicitly `done`, token-confirmed, and backed by strong evidence.
  * A single unresolved/ambiguous/weak item vetoes the whole issue.
@@ -475,6 +498,18 @@ export function decideBucketVerifyRequest({ body, bornSatisfiedIds = null, comme
   return { action: 'request', reason: 'awaiting-verification', items: pending, newIds };
 }
 
+/**
+ * Se la richiesta di verifica puo' (ri)mettere `maybe-resolved`. No quando un
+ * flag del reconciler e' gia' stato postato e la label manca: e' l'obiezione
+ * umana di `decideReconcileAction` (label tolta dopo il flag), e rimetterla la
+ * cancellerebbe, aprendo la via alla chiusura al giro in cui tutto e' `done`.
+ */
+export function shouldEnsureVerifyLabel({ comments, labelNames }) {
+  const hasLabel = Array.isArray(labelNames) && labelNames.includes(LABEL);
+  if (hasLabel) return true;
+  return !(Array.isArray(comments) && comments.some((c) => isReconcileFlagComment(c?.body)));
+}
+
 function lastMarkerFor(markers, type, itemId) {
   return (Array.isArray(markers) ? markers : []).filter((marker) => marker?.type === type && marker.item === itemId).at(-1) ?? null;
 }
@@ -518,7 +553,7 @@ export function bucketVerifyRequestBody({ items, markers = [], bornSatisfiedIds 
       `- Motivo del blocco: ${blocked ? `\`${blocked.reason}\`` : 'nessun marker di blocco'}`,
       `- Evidenza: ${evidenceText}`,
       `- Target file: ${codeSpan(item.targetFile) || 'non dichiarato'}`,
-      metric ? `- METRICA | COMANDO: ${metric}` : '- METRICA | COMANDO: assente nella scheda',
+      `- METRICA dell'item, da rimisurare: ${metric || 'assente nella scheda'}`,
       born.has(item.id)
         ? '- Token di accettazione gia\' vero al conio (FU_ITEM_BORN_SATISFIED): trovarlo nel file non conferma l\'item.'
         : null,
@@ -526,7 +561,7 @@ export function bucketVerifyRequestBody({ items, markers = [], bornSatisfiedIds 
   }
   lines.push(
     '',
-    'Esito: se la METRICA e\' al bersaglio, chiudi il bucket con l\'evidenza della misura; se il difetto c\'e\' ancora, riporta l\'item a `State: open`. Il reconciler non chiude da qui: chiude una persona con evidenza o il token di accettazione.',
+    'Esito: se la METRICA e\' al bersaglio, chiudi il bucket con l\'evidenza della misura; se il difetto c\'e\' ancora, riporta l\'item a `State: open`, togli `maybe-resolved` e ri-aggiungi `agent:fix`. Il reconciler non chiude da qui: chiude una persona con evidenza o il token di accettazione.',
   );
   return lines.filter((line) => line !== null).join('\n');
 }
@@ -771,28 +806,21 @@ function main() {
     const daily = dailyBucketInfo(iss.title || '');
     let resolved;
     let evidence;
-    let bornSatisfied = null;
+    let gateInputs = null;
     if (daily) {
       // I marker a grana item stanno nei commenti. Senza commenti leggibili non
       // si sa se un token era gia' vero al conio: niente `done`, niente chiusura.
       if (comments === undefined) comments = readIssueComments(iss.number);
-      if (!Array.isArray(comments)) {
+      gateInputs = dailyBucketGateInputs(iss.title, comments);
+      if (!gateInputs) {
         console.log(`::warning::reconcile-followups: impossibile leggere i commenti di #${iss.number}; bucket lasciato invariato (nessun done, nessuna richiesta di verifica)`);
         continue;
       }
-      const itemMarkers = parseItemMarkers(comments, { isTrusted: isTrustedAuthor });
-      bornSatisfied = bornSatisfiedItemIds(itemMarkers);
+      const { itemMarkers, bornSatisfied } = gateInputs;
       // Daily buckets are reconciled item-by-item. An issue-wide token hit would let
       // one completed item hide another open item, which is precisely the aggregate
       // closure bug this format removes.
-      const itemReconciliation = reconcileDailyItems(
-        iss.body || '',
-        diskIo,
-        daily.dailyKey,
-        daily.targetRepository,
-        daily.itemCount,
-        bornSatisfied,
-      );
+      const itemReconciliation = reconcileDailyItems(iss.body || '', diskIo, ...gateInputs.gateArgs);
       for (const id of itemReconciliation.bornSatisfied || []) {
         console.log(`#${iss.number}: item ${id} token presente ma gia' vero al conio (FU_ITEM_BORN_SATISFIED) → non marcato done.`);
       }
@@ -822,14 +850,7 @@ function main() {
           }
         }
       }
-      const bucketGate = dailyBucketCloseGate(
-        reconciledBody,
-        diskIo,
-        daily.dailyKey,
-        daily.targetRepository,
-        daily.itemCount,
-        bornSatisfied,
-      );
+      const bucketGate = dailyBucketCloseGate(reconciledBody, diskIo, ...gateInputs.gateArgs);
       const bucketLine = dailyBucketSummaryLine({
         number: iss.number,
         body: reconciledBody,
@@ -854,6 +875,7 @@ function main() {
               verifyRequests.push({
                 number: iss.number,
                 ids: request.items.map((item) => item.id),
+                ensureLabel: shouldEnsureVerifyLabel({ comments, labelNames }),
                 body: bucketVerifyRequestBody({ items: request.items, markers: itemMarkers, bornSatisfiedIds: bornSatisfied }),
               });
             } catch (e) {
@@ -889,15 +911,8 @@ function main() {
       ? aggregateCloseGate(iss.body || '', diskIo)
       : { blocks: false, reason: null };
     if (isDailyBucketTitle(iss.title || '')) {
-      const dailyInfo = dailyBucketInfo(iss.title || '');
-      aggGate = dailyBucketCloseGate(
-        iss.body || '',
-        diskIo,
-        dailyInfo?.dailyKey,
-        dailyInfo?.targetRepository,
-        dailyInfo?.itemCount,
-        bornSatisfied,
-      );
+      // Stessi argomenti delle due chiamate sopra (stesso titolo, stessi commenti).
+      aggGate = dailyBucketCloseGate(iss.body || '', diskIo, ...(gateInputs?.gateArgs ?? []));
     }
     const isAggregate = aggGate.blocks;
     const hasPriorFlag = alreadyCommented(iss.number);
@@ -984,6 +999,10 @@ Chiusa come **completed** (done-but-open). Si **riapre da sola** se il segnale s
     const posted = gh(['issue', 'comment', String(v.number), ...repoArgs, '--body', v.body], { allowFail: true });
     if (posted === null) {
       console.log(`::warning::reconcile-followups: richiesta di verifica per #${v.number} non postata; si ripete al prossimo giro`);
+      continue;
+    }
+    if (!v.ensureLabel) {
+      console.log(`#${v.number}: \`${LABEL}\` tolta dopo un flag (obiezione umana) → solo il commento, label non rimessa.`);
       continue;
     }
     gh(['issue', 'edit', String(v.number), ...repoArgs, '--add-label', LABEL], { allowFail: true });

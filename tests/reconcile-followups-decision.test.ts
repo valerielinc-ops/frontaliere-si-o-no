@@ -14,6 +14,7 @@ import {
   bucketVerifyRequestBody,
   dailyBucketCloseGate,
   dailyBucketSummaryLine,
+  dailyBucketGateInputs,
   decideBucketVerifyRequest,
   isAggregateTitle,
   decideReconcileAction,
@@ -21,8 +22,9 @@ import {
   isStrongAutoCloseEvidence,
   parseIssueCommentsResponse,
   reconcileDailyItems,
+  shouldEnsureVerifyLabel,
 } from '../scripts/ci/reconcile-followups.mjs';
-import { itemBlockedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
+import { itemBlockedMarker, itemBornSatisfiedMarker, itemEvidenceMarker, parseItemMarkers } from '../scripts/ci/lib/followup-item-evidence.mjs';
 import { isTrustedAuthor } from '../scripts/ci/route-already-fixed.mjs';
 
 describe('alreadyCommented — esito vuoto riuscito distinto dall’errore (#8034)', () => {
@@ -264,7 +266,8 @@ describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIF
     });
     expect(text.startsWith(`<!-- FU_BUCKET_VERIFY_REQUEST: items=${A} -->`)).toBe(true);
     expect(text).toContain('Misura la METRICA: PR mergiata, commit e run verde provano che la PR esiste, non che l\'item sia risolto');
-    expect(text).toContain('- METRICA | COMANDO: prima=3 atteso=0 | COMANDO: node scripts/lib/prospector/extract.mjs --audit');
+    expect(text).toContain("- METRICA dell'item, da rimisurare: prima=3 atteso=0 | COMANDO: node scripts/lib/prospector/extract.mjs --audit");
+    expect(text).toContain('togli `maybe-resolved` e ri-aggiungi `agent:fix`');
     expect(text).toContain('- Motivo del blocco: `awaiting-verification`');
     expect(text).toContain('PR #9001, commit `abcdef123456`, run 37000000001, legame `target-file`');
     expect(text).toContain('- Target file: `scripts/lib/prospector/extract.mjs`');
@@ -335,12 +338,34 @@ describe('richiesta di verifica per un bucket senza item aperti (FU_BUCKET_VERIF
       .toBe('bucket #1: done=1 open=0 blocked=0 awaiting=- born_satisfied=- reason=closable');
   });
 
-  it('main() passa lo stesso insieme born-satisfied a reconcile e ai due gate, e legge i commenti prima', () => {
-    const source = fs.readFileSync(path.resolve(process.cwd(), 'scripts/ci/reconcile-followups.mjs'), 'utf8');
-    const mainBody = source.slice(source.indexOf('function main()'));
-    expect(mainBody.match(/daily(?:Info)?\??\.itemCount,\n\s+bornSatisfied,\n/gu)?.length)
-      .toBe(mainBody.match(/dailyBucketCloseGate\(|reconcileDailyItems\(/gu)?.length);
-    expect(mainBody.indexOf('bornSatisfied = bornSatisfiedItemIds(')).toBeLessThan(mainBody.indexOf('reconcileDailyItems('));
-    expect(mainBody).toContain('verify_requested=${verifyRequests.length}');
+  it('gli input dei gate giornalieri portano l’insieme born-satisfied a reconcile e al gate', () => {
+    const title = `follow-up(daily:${DAY}): 2 items — valerielinc-ops/frontaliere-si-o-no`;
+    const born = { ...bot, body: itemBornSatisfiedMarker({ item: A }) };
+    const inputs = dailyBucketGateInputs(title, [born]);
+    expect(inputs?.daily).toEqual({ dailyKey: DAY, itemCount: 2, targetRepository: 'valerielinc-ops/frontaliere-si-o-no' });
+    expect([...(inputs?.bornSatisfied ?? [])]).toEqual([A]);
+    // Stessi argomenti per reconcileDailyItems e per dailyBucketCloseGate: l'item
+    // nato vero non diventa done e il bucket tutto done resta bloccato.
+    const reconciled = reconcileDailyItems(bucket(bucketItem(A, 'open'), bucketItem(B, 'open')), io, ...(inputs?.gateArgs ?? []));
+    expect(reconciled.bornSatisfied).toEqual([A]);
+    expect(reconciled.changes.map((change: { id: string }) => change.id)).toEqual([B]);
+    const allDone = bucket(bucketItem(A, 'done'), bucketItem(B, 'done'));
+    expect(dailyBucketCloseGate(allDone, io, ...(inputs?.gateArgs ?? []))).toMatchObject({ blocks: true, reason: 'born-satisfied-token' });
+    // Senza marker gli stessi argomenti lasciano il comportamento di oggi.
+    const plain = dailyBucketGateInputs(title, []);
+    expect(dailyBucketCloseGate(allDone, io, ...(plain?.gateArgs ?? [])).reason).not.toBe('born-satisfied-token');
+  });
+
+  it('commenti illeggibili o titolo non giornaliero → nessun input (bucket lasciato invariato)', () => {
+    expect(dailyBucketGateInputs(`follow-up(daily:${DAY}): 1 item — owner/repo`, null)).toBeNull();
+    expect(dailyBucketGateInputs('follow-up: aggregato', [])).toBeNull();
+  });
+
+  it('maybe-resolved non viene rimessa dopo un’obiezione umana al flag', () => {
+    const flag = { ...bot, body: '<!-- reconcile-bot:flag -->\n🤖 **Reconcile (auto)**' };
+    expect(isReconcileFlagComment(flag.body)).toBe(true);
+    expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up'] })).toBe(false);
+    expect(shouldEnsureVerifyLabel({ comments: [flag], labelNames: ['follow-up', 'maybe-resolved'] })).toBe(true);
+    expect(shouldEnsureVerifyLabel({ comments: [], labelNames: ['follow-up'] })).toBe(true);
   });
 });
