@@ -58,6 +58,28 @@ describe('Temenos crawler parser', () => {
     expect(jobs).toEqual([]);
   });
 
+  it('does not prove empty when a Swiss location descriptor is present', async () => {
+    mockTemenosWorkday({
+      faceted: { total: 0, jobPostings: [], facets: [] },
+      unfiltered: {
+        total: 16,
+        jobPostings: [],
+        facets: [{
+          facetParameter: 'locationMainGroup',
+          values: [{
+            descriptor: 'Locations',
+            values: [{ id: 'geneva', descriptor: 'ExCo Geneva', count: 1 }],
+          }],
+        }],
+      },
+    });
+
+    const jobs = await fetchAllTemenosJobs();
+
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs).toEqual([]);
+  });
+
   it('wires the runner to accept only a proven empty snapshot', () => {
     const runner = fs.readFileSync(path.join(__dirname, '..', 'scripts', 'update-temenos-jobs.mjs'), 'utf8');
     expect(runner).toContain('validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(TEMENOS_COMPANY_NAME)');
