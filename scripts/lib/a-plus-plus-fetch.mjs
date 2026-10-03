@@ -1,6 +1,7 @@
 import { fetchHtml, fetchHtmlWithCookies } from './crawler-template.mjs';
 
 const DEFAULT_TIMEOUT_MS = 20_000;
+const LISTING_CARD_MARKER = 'vacancy__render';
 
 /**
  * Build a page fetcher for the A++ InRecruiting tenant.
@@ -37,7 +38,15 @@ export function createAplusPageFetcher({ listingUrl, userAgent }) {
     };
 
     try {
-      return await fetchHtmlWithCookies(url, { timeoutMs, cookieJar, headers });
+      const html = await fetchHtmlWithCookies(url, { timeoutMs, cookieJar, headers });
+      // Keep fetchHtml's existing 200-but-challenge rescue for the listing:
+      // a WAF challenge can be an HTTP-success response, so it does not enter
+      // the catch branch even though the parser would see zero cards.
+      if (url === listingUrl && !html.includes(LISTING_CARD_MARKER)) {
+        console.warn(`⚠️ A++ listing session returned no vacancy card marker for ${url}; retrying through shared HTML rescue`);
+        return fetchHtml(url, { timeoutMs, headers });
+      }
+      return html;
     } catch (sessionError) {
       console.warn(
         `⚠️ A++ session fetch failed for ${url}: ${sessionError?.message || sessionError}; retrying through shared HTML rescue`,

@@ -24,7 +24,7 @@ describe('A++ page fetcher', () => {
     const seen: Array<{ url: string; headers: Record<string, string> }> = [];
     const fetchMock = vi.fn(async (url: string, init: RequestInit) => {
       seen.push({ url, headers: init.headers as Record<string, string> });
-      return htmlResponse('<html>live vacancy</html>', seen.length === 1
+      return htmlResponse('<div class="vacancy__render">live vacancy</div>', seen.length === 1
         ? ['intervieweb_session=session-1; Path=/; Secure']
         : []);
     });
@@ -42,5 +42,23 @@ describe('A++ page fetcher', () => {
     expect(seen[1].headers.Cookie).toContain('intervieweb_session=session-1');
     expect(seen[1].headers.Referer).toBe(listingUrl);
     expect(seen[1].headers['Sec-Fetch-Mode']).toBe('navigate');
+  });
+
+  it('keeps the shared rescue path when a listing challenge returns HTTP 200', async () => {
+    const listingUrl = 'https://inrecruiting.intervieweb.it/a2plus/en/career';
+    const rescuedListing = `<div class="vacancy__render">${'live vacancy '.repeat(80)}</div>`;
+    const fetchMock = vi
+      .fn()
+      .mockResolvedValueOnce(htmlResponse('<html><title>Just a moment...</title></html>'))
+      .mockResolvedValueOnce(htmlResponse(rescuedListing));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const fetchPage = createAplusPageFetcher({
+      listingUrl,
+      userAgent: 'A++ test browser',
+    });
+
+    await expect(fetchPage(listingUrl, 1_000)).resolves.toBe(rescuedListing);
+    expect(fetchMock).toHaveBeenCalledTimes(2);
   });
 });
