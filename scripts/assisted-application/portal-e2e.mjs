@@ -35,7 +35,7 @@ const sfOrigin = (server) => `http://career2.successfactors.localhost:${server.a
 function fakePortal() {
   const state = { accounts: new Map(), verified: new Set(), sessions: new Set(), applications: [], widgetApplications: [], summarySubmissions: 0, summaryCv: [], newsletter: false, pending: null, refuseNextRegistration: false };
   // Coop, 2026-10-02: Prospective.ch's career page in front of SAP SuccessFactors.
-  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [] };
+  const coop = { later: 0, accounts: new Map(), sessions: new Set(), applications: [], jobAbo: false, privacyAccepted: 0, refused: [], cvUploads: 0, validationRefusals: 0, flaky: false };
   const page = (title, body) => `<!doctype html><html lang="de"><head><meta charset="utf-8"><title>${title}</title></head><body><main>${body}</main></body></html>`;
   const form = (action, inner, multipart = false) => `<form method="post" action="${action}"${multipart ? ' enctype="multipart/form-data"' : ''}>${inner}</form>`;
   const readBody = (req) => new Promise((resolve) => {
@@ -44,6 +44,41 @@ function fakePortal() {
     req.on('end', () => resolve(Buffer.concat(chunks).toString('latin1')));
   });
   const sessionOf = (req) => /sid=([a-z0-9]+)/.exec(req.headers.cookie || '')?.[1];
+  // Coop's SuccessFactors application page as mapped on 2026-10-03: its sections
+  // closed behind «Alle Abschnitte einblenden», the CV only through «Lebenslauf
+  // hochladen», a dialog whose file input exists once it is open and uploads at
+  // once; «Bewerben» with something missing comes back with the portal's errors.
+  const sfApplyPage = (errors = []) => page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>
+    ${errors.length ? `<div role="alert"><p>Bitte korrigieren Sie die folgenden Fehler.</p>${errors.map((error) => `<p>${error}</p>`).join('')}</div>` : ''}
+    <button type="button" id="expand">Alle Abschnitte einblenden</button>
+    ${form('/sf/apply', `<section id="docs"${errors.length ? '' : ' hidden'}><h3>Meine Dokumente</h3><span>Lebenslauf *</span> <span id="cvname"></span>
+        <button type="button" id="cvbtn" aria-haspopup="dialog">Lebenslauf hochladen</button><input type="hidden" name="cv" id="cvdone" value=""></section>
+      <section id="profile"${errors.length ? '' : ' hidden'}><label for="v">* Vorname</label><input id="v" name="first" required><label for="n">* Nachname</label><input id="n" name="last" required><label for="m">* E-Mail</label><input id="m" type="email" name="mail" required></section>
+      <button type="button">Speichern</button><button type="submit">Bewerben</button>`)}
+    <div role="dialog" id="up" hidden></div>
+    <script>
+      // A flaky portal (review of #11022): the first click on each control is dropped.
+      const flaky = ${coop.flaky ? 'true' : 'false'};
+      const dropped = new Set();
+      const dropsFirst = (id) => flaky && !dropped.has(id) && dropped.add(id);
+      document.getElementById('expand').addEventListener('click', () => { if (dropsFirst('expand')) return; for (const id of ['docs', 'profile']) document.getElementById(id).hidden = false; });
+      document.getElementById('cvbtn').addEventListener('click', () => {
+        if (dropsFirst('cvbtn')) return;
+        const dialog = document.getElementById('up');
+        dialog.innerHTML = '<p>Quelle für das Hochladen der Datei auswählen</p><label for="f">Von Gerät hochladen</label><input type="file" id="f">';
+        dialog.hidden = false;
+        document.getElementById('f').addEventListener('change', async (event) => {
+          const file = event.target.files[0];
+          const body = new FormData();
+          body.append('cv', file);
+          await fetch('/sf/upload', { method: 'POST', body });
+          document.getElementById('cvdone').value = '1';
+          document.getElementById('cvname').textContent = file.name;
+          dialog.hidden = true;
+          dialog.innerHTML = '';
+        });
+      });
+    </script>`);
 
   const server = http.createServer(async (req, res) => {
     const url = new URL(req.url, 'http://portal.test');
@@ -73,7 +108,7 @@ function fakePortal() {
     if (url.pathname.startsWith('/ohws/redirect/')) return redirect(`${sfOrigin(server)}${SF_JOB}`);
     if (route === 'GET /sf/career') {
       if (coop.sessions.has(sessionOf(req))) {
-        return send(page('Karrierechancen: Bewerbung', `<h1>Coop</h1><h2>Bäcker:in - Konditor:in (Schwerpunkt Bäckerei)</h2>${form('/sf/apply', '<label for="v">Vorname: *</label><input id="v" name="first" required><label for="n">Nachname: *</label><input id="n" name="last" required><label for="m">E-Mail-Adresse: *</label><input id="m" type="email" name="mail" required><label for="cv">Lebenslauf: *</label><input id="cv" type="file" name="cv" required><button type="button">Entwurf speichern</button><button type="submit">Bewerben</button>', true)}`));
+        return send(sfApplyPage());
       }
       return send(page('Karrierechancen: Anmelden', `<p>Haben Sie schon ein Konto? Mit bestehendem Profil anmelden und bewerben</p>${form('/sf/login', '<label for="u">E-Mail-Adresse:*</label><input id="u" type="text" name="username" required><label for="p">Kennwort:*</label><input id="p" type="password" name="password" required><button type="submit">Anmelden</button>')}<p><a href="/sf/register">Noch kein Profil? Hier registrieren</a> und direkt bewerben</p>`));
     }
@@ -137,9 +172,24 @@ function fakePortal() {
       coop.sessions.add(sid);
       return redirect(SF_JOB, { 'set-cookie': `sid=${sid}; Path=/` });
     }
-    if (route === 'POST /sf/apply') {
+    if (route === 'POST /sf/upload') {
       const raw = await readBody(req);
-      coop.applications.push({ hasCv: /filename="CV_/.test(raw), first: /name="first"\r\n\r\n([^\r]*)/.exec(raw)?.[1] || '' });
+      if (/filename="CV_/.test(raw)) coop.cvUploads += 1;
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"ok":true}');
+    }
+    if (route === 'POST /sf/apply') {
+      const body = new URLSearchParams(await readBody(req));
+      const errors = [
+        body.get('cv') !== '1' && 'Lebenslauf ist erforderlich',
+        !body.get('first') && 'Vorname ist erforderlich',
+        !body.get('last') && 'Nachname ist erforderlich',
+      ].filter(Boolean);
+      if (errors.length) {
+        coop.validationRefusals += 1;
+        return send(sfApplyPage(errors));
+      }
+      coop.applications.push({ hasCv: coop.cvUploads > 0, first: body.get('first') || '' });
       return send(page('Karrierechancen', '<h1>Vielen Dank für deine Bewerbung</h1>'));
     }
     if (route === 'GET /login') {
@@ -527,8 +577,17 @@ async function main() {
       coopFirst.event.type === 'submit_succeeded' && coop.accounts.size === 1 && coop.privacyAccepted === 1 && !coop.jobAbo
       && coop.refused.length === 0 && coopAuth.some((auth) => auth.privacy === 'accepted') && coopFirst.evidence.finalButton?.label === 'Bewerben'
       && coop.applications.length === 1 && coop.applications[0].hasCv && coop.applications[0].first === 'Luca');
+    check('Coop: the closed sections are opened and the CV goes in through «Lebenslauf hochladen» before «Bewerben»',
+      coop.validationRefusals === 0 && coop.cvUploads === 1 && coopFirst.evidence.steps.some((step) => step.cv === 'uploaded')
+      && (coopFirst.evidence.finalOutcomes || []).join(',') === 'confirmed');
     check('Coop: the sign-in page names no company, so the posting is checked on the form behind it', coopFirst.evidence.postingMatch === 'match');
+    // This time the portal drops the first click on the sections and on the CV dialog.
+    coop.flaky = true;
     const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
+    coop.flaky = false;
+    check('Coop: a dropped first click on the sections or the CV dialog is tried again, never «Bewerben» on a closed form',
+      coopAgain.event.type === 'submit_succeeded' && coop.validationRefusals === 0 && coop.cvUploads === 2
+      && coopAgain.evidence.steps.some((step) => step.cv === 'uploaded'));
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
     // Review of #11015: a statement whose dialog takes 6 s to open is still accepted (8 s per click).
