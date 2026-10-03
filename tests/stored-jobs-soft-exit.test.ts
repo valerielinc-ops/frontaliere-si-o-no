@@ -21,32 +21,6 @@ const FIXTURE = JSON.parse(fs.readFileSync(
   'utf8',
 ));
 
-function countCleanedExitBlocks(source: string): number {
-  const file = ts.createSourceFile('runner.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
-  let exits = 0;
-  const visit = (node: ts.Node) => {
-    if (ts.isBlock(node)) {
-      let cleaned = false;
-      for (const statement of node.statements) {
-        if (ts.isReturnStatement(statement)) {
-          if (cleaned) exits += 1;
-          break;
-        }
-        if (ts.isExpressionStatement(statement) && ts.isAwaitExpression(statement.expression)) {
-          const call = statement.expression.expression;
-          if (ts.isCallExpression(call) && ts.isIdentifier(call.expression)
-            && call.expression.text === 'cleanStoredJobsOnSoftExit' && call.arguments.length === 0) {
-            cleaned = true;
-          }
-        }
-      }
-    }
-    ts.forEachChild(node, visit);
-  };
-  visit(file);
-  return exits;
-}
-
 describe('stored-job cleanup exit observer', () => {
   it('allows summary reporting between awaited cleanup and return', () => {
     expect(countCleanedExitBlocks('async function main() { if (empty) { await cleanStoredJobsOnSoftExit(); reportSummary(); return; } }')).toBe(1);
@@ -241,6 +215,69 @@ describe('own-runner crawlers clean their stored jobs at the zero-job exit', () 
   });
 });
 
+// Inspect statement structure, not whitespace adjacency: a legitimate summary
+// write may sit between cleanup and return (BPS, main change #11150).
+function countCleanedExitBlocks(source: string): number {
+  const tree = ts.createSourceFile('runner.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS);
+  const coveredReturns = new Set<ts.ReturnStatement>();
+  function visit(node: ts.Node) {
+    if (ts.isBlock(node)) {
+      for (let i = 0; i < node.statements.length; i++) {
+        const statement = node.statements[i];
+        if (ts.isReturnStatement(statement) || ts.isThrowStatement(statement)) break;
+        if (!ts.isExpressionStatement(statement) || !ts.isAwaitExpression(statement.expression)) continue;
+        const call = statement.expression.expression;
+        if (!ts.isCallExpression(call) || !ts.isIdentifier(call.expression)
+            || call.expression.text !== 'cleanStoredJobsOnSoftExit' || call.arguments.length !== 0) continue;
+        // The return must be in this same branch, reached after the awaited
+        // cleanup. Only straight-line declarations/expressions may intervene.
+        for (const next of node.statements.slice(i + 1)) {
+          if (ts.isReturnStatement(next)) { coveredReturns.add(next); break; }
+          if (!ts.isVariableStatement(next) && !ts.isExpressionStatement(next)) break;
+        }
+      }
+      for (const statement of node.statements) {
+        visit(statement);
+        if (ts.isReturnStatement(statement) || ts.isThrowStatement(statement)) break;
+      }
+      return;
+    }
+    ts.forEachChild(node, visit);
+  }
+  visit(tree);
+  return coveredReturns.size;
+}
+
+describe('stored-job cleanup exit statement detection', () => {
+  it('permits summary writes and declarations after awaited cleanup in the same branch', () => {
+    expect(countCleanedExitBlocks(`async function main() {
+      if (jobs.length === 0) {
+        await cleanStoredJobsOnSoftExit();
+        const duration = getElapsed();
+        writeSummaryCrawlerSlice({ duration });
+        return;
+      }
+    }`)).toBe(1);
+  });
+  it('counts distinct covered exits rather than multiple calls before one return', () => {
+    expect(countCleanedExitBlocks(`async function main() {
+      if (a) { await cleanStoredJobsOnSoftExit(); await cleanStoredJobsOnSoftExit(); return; }
+      if (b) { return; }
+    }`)).toBe(1);
+  });
+  it.each([
+    'if (jobs.length === 0) { writeSummaryCrawlerSlice({}); return; }',
+    'if (jobs.length === 0) { cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { await cleanStoredJobsOnSoftExit(); } else { return; }',
+    'if (jobs.length === 0) { return; await cleanStoredJobsOnSoftExit(); }',
+    'if (jobs.length === 0) { return; await cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { throw new Error(); await cleanStoredJobsOnSoftExit(); return; }',
+    'if (jobs.length === 0) { await cleanStoredJobsOnSoftExit(); if (skip) return; }',
+  ])('rejects absent, unawaited, unreachable or different-branch cleanup: %s', (body) => {
+    expect(countCleanedExitBlocks(`async function main() { ${body} }`)).toBe(0);
+  });
+});
+
 // Runners of lots H and K with their own per-job cleanup in the merge
 // (`drop<Name>FabricatedText`): a local `cleanStoredJobsOnSoftExit` runs the
 // same cleanup, and every zero-job exit calls it before returning. swisscom,
@@ -280,8 +317,7 @@ describe('lot H/K runners clean their stored jobs at every zero-job exit', () =>
       expect(fn).toContain(`prepare: (jobs) => { for (const job of jobs) ${mergeDrop}(job); },`);
       expect(fn).toMatch(/storedJobs: readExistingCrawlerJobs\([A-Z_]+, DATA_JOBS\)\.filter\([A-Za-z]+\),/);
       expect(fn).toMatch(/write: \(jobs, options\) => writeJobsCrawlerSlice(?:Verified)?\([A-Z_]+, jobs, options\),/);
-      // Cleanup must be awaited in the same block before its return. A
-      // diagnostic summary can read the cleaned slice between those steps.
+      // Cleanup must be awaited before return in the same straight-line branch.
       expect(countCleanedExitBlocks(source)).toBe(exits);
       expect(source.split('await cleanStoredJobsOnSoftExit();').length - 1).toBe(exits);
     });

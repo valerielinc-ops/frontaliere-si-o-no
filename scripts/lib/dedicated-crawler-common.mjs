@@ -1,3 +1,4 @@
+import { repairJobTranslationSemanticsInPlace } from './job-title-semantic-repair.mjs';
 import { decode as decodeHTML } from 'html-entities';
 import { createHash } from 'node:crypto';
 import fs from 'node:fs';
@@ -2106,7 +2107,7 @@ function applyTranslationCache(job, cacheEntry) {
       applied = true;
     }
   }
-  return applied;
+  return repairJobTranslationSemanticsInPlace(job) > 0 || applied;
 }
 
 function buildCacheEntry(job, hash) {
@@ -3001,7 +3002,8 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const exReqFn = exReq || extractRequirementsFromText;
   const h2stFn = h2st || htmlToStructuredTextDCC;
 
-  const out = { ...job };
+  const out = { ...job, titleByLocale: { ...job.titleByLocale }, descriptionByLocale: { ...job.descriptionByLocale } };
+  repairJobTranslationSemanticsInPlace(out);
   const titleByLocale = (out.titleByLocale && typeof out.titleByLocale === 'object') ? { ...out.titleByLocale } : {};
   const currentByLocale = (out.descriptionByLocale && typeof out.descriptionByLocale === 'object') ? { ...out.descriptionByLocale } : {};
   // Publisher-authored records pin their declared source language (see
@@ -3354,6 +3356,7 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
 
   out.titleByLocale = titleByLocale;
   out.descriptionByLocale = currentByLocale;
+  repairJobTranslationSemanticsInPlace(out);
   out.requirementsByLocale = reqByLocale;
 
   // Post-translation quality gate: if any translated title still contains leftover
