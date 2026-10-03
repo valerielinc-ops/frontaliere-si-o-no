@@ -22,6 +22,7 @@ import { NAV_ACTION_ROUTES, buildSystemPrompt, type NavAction } from '@/services
 import { searchJobs, type SearchJobsResult, type Locale as ChatbotLocale } from '@/services/chatbotTools';
 import { requestSlot, releaseSlot, isActive, subscribe, hasActiveSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 
 /** Last-touch attribution for a login started from this box (see authService). */
 const AI_CHATBOT_AUTH_ATTRIBUTION = { cta: 'ai_chatbot_social', component: 'AiChatbot' } as const;
@@ -824,13 +825,12 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  bubble is recorded verbatim — and replay is sampled at 30%
  (`services/posthog.ts`). Clarity has no masking configured in this repo
  either. Redacting the analytics event (#5196) does nothing about that
- copy; these two attributes do. `ph-no-capture` is PostHog's opt-out,
- `data-clarity-mask` is Clarity's. */}
+ copy; the two markers of services/replayPrivacy.ts do. */}
  <div
- {...(msg.role === 'user' ? { 'data-clarity-mask': 'true' } : {})}
+ {...(msg.role === 'user' ? REPLAY_PRIVATE_ATTRS : {})}
  className={`max-w-[80%] px-3 py-2 rounded-2xl text-sm ${
  msg.role === 'user'
- ? 'ph-no-capture bg-accent-strong text-on-accent rounded-br-md whitespace-pre-wrap'
+ ? `${REPLAY_PRIVATE_CLASS} bg-accent-strong text-on-accent rounded-br-md whitespace-pre-wrap`
  : 'bg-surface-raised text-heading rounded-bl-md'
  }`}
  >
@@ -932,7 +932,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
  label stays visible; only the question itself is masked. */}
  <div className="text-sm text-accent bg-accent-subtle border border-accent-border rounded-lg p-2 mb-3">
  <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span>{' '}
- <span className="ph-no-capture" data-clarity-mask="true">{pendingQuestion}</span>
+ <span className={REPLAY_PRIVATE_CLASS} {...REPLAY_PRIVATE_ATTRS}>{pendingQuestion}</span>
  </div>
 
  <div ref={googleButtonRef} className="mb-2 flex justify-center min-h-[1px]" />
