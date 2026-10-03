@@ -16,6 +16,12 @@
       "issue": 10662,
       "homeGroup": 15,
       "reason": "11 ondate rosse consecutive (soglia 10)"
+    },
+    "bally": {
+      "retiredAt": "2026-10-03T13:45:10Z",
+      "issue": 11073,
+      "homeGroup": 18,
+      "reason": "La pagina ufficiale careers ora instrada a LinkedIn; il tenant SmartRecruiters del crawler non pubblica piu' annunci e non e' disponibile un feed strutturato supportato"
     }
   }
 }
