@@ -7649,6 +7649,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-fiscale-ginevra-2026.title': 'Steuererklärung Schweiz 2026: Leitfaden Genf',
     'blog.article.guida-fiscale-ginevra-2026.excerpt': 'Leitfaden 2026 zur Steuererklärung in der Schweiz: drei Steuerstufen, ESTV/ESFC, Abzüge, Online-Verfahren und Fokus auf den Kanton Genf für 2026.',
     'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Online ausgefüllte Schweizer Steuererklärung mit Unterlagen und kantonalem Stadtpanorama',
+    'blog.article.fisco-berna-guida-2026.title': 'Schweizer Steuererklärung: praktischer Leitfaden 2026 in Bern',
+    'blog.article.fisco-berna-guida-2026.excerpt': 'Drei Steuerstufen, kommunaler Steuerfuss und getrennte Zuständigkeiten: der Leitfaden 2026 zur Online-Steuererklärung im Kanton Bern, mit einem nationalen Vergleich.',
+    'blog.article.fisco-berna-guida-2026.imageAlt': 'Schweizer Steuerunterlagen und Taschenrechner auf einem Schreibtisch mit Fokus auf den Kanton Bern',
 };
 
 export default blogMetaChDe;

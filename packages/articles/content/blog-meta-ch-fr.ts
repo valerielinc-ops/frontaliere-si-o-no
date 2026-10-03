@@ -7649,6 +7649,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-fiscale-ginevra-2026.title': 'Déclaration d\'impôts Suisse 2026 : guide Genève',
     'blog.article.guida-fiscale-ginevra-2026.excerpt': 'Guide 2026 de la déclaration fiscale en Suisse : trois niveaux d’imposition, AFC/ESTV, déductions, procédure en ligne et focus sur le canton de Genève pour 2026.',
     'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Déclaration fiscale suisse en ligne avec documents et vue urbaine cantonale',
+    'blog.article.fisco-berna-guida-2026.title': 'Déclaration fiscale suisse : guide pratique 2026 à Berne',
+    'blog.article.fisco-berna-guida-2026.excerpt': 'Trois niveaux fiscaux, multiplicateur communal et compétences distinctes : le guide 2026 de la déclaration en ligne dans le canton de Berne, avec comparaison nationale.',
+    'blog.article.fisco-berna-guida-2026.imageAlt': 'Documents fiscaux suisses et calculatrice sur un bureau, avec un focus sur le canton de Berne',
 };
 
 export default blogMetaChFr;

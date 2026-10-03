@@ -7649,6 +7649,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-fiscale-ginevra-2026.title': 'Dichiarazione imposte Svizzera 2026: guida Ginevra',
     'blog.article.guida-fiscale-ginevra-2026.excerpt': 'Guida 2026 alla dichiarazione delle imposte in Svizzera: tre livelli fiscali, AFC/ESTV, deduzioni, procedura online e focus sul canton Ginevra per il 2026.',
     'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Dichiarazione fiscale svizzera online con documenti e panorama urbano cantonale',
+    'blog.article.fisco-berna-guida-2026.title': 'Dichiarazione imposte svizzera: guida pratica 2026 a Berna',
+    'blog.article.fisco-berna-guida-2026.excerpt': 'Tre livelli fiscali, moltiplicatore comunale e competenze separate: la guida 2026 alla dichiarazione online nel canton Berna, con confronto nazionale.',
+    'blog.article.fisco-berna-guida-2026.imageAlt': 'Documenti fiscali svizzeri e calcolatrice su una scrivania, con focus sul canton Berna',
 };
 
 export default blogMetaChIt;

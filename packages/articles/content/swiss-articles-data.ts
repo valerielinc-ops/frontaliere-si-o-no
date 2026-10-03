@@ -22975,6 +22975,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'marco-ferrari',
     authorName: 'Marco Ferrari',
    },
+   {
+    id: 'fisco-berna-guida-2026',
+    category: 'fiscale',
+    date: '2026-10-03T09:08:36.139Z',
+    image: '/images/blog/fisco-berna-guida-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

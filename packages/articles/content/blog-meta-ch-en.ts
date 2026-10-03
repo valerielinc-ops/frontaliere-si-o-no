@@ -7649,6 +7649,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-fiscale-ginevra-2026.title': 'Swiss Tax Return 2026: Geneva Guide',
     'blog.article.guida-fiscale-ginevra-2026.excerpt': '2026 Guide to Swiss Tax Returns: three tax levels, AFC/ESTV, deductions, online procedure and a focus on the canton of Geneva for 2026.',
     'blog.article.guida-fiscale-ginevra-2026.imageAlt': 'Swiss tax return completed online with documents and a Canton urban backdrop',
+    'blog.article.fisco-berna-guida-2026.title': 'Swiss tax return: practical guide for 2026 in Bern',
+    'blog.article.fisco-berna-guida-2026.excerpt': 'Three tax levels, municipal multiplier and separate jurisdictions: the 2026 guide to the online tax return in the Canton of Bern, with a national comparison.',
+    'blog.article.fisco-berna-guida-2026.imageAlt': 'Swiss tax papers and calculator on a desk, with a focus on the canton of Bern',
 };
 
 export default blogMetaChEn;

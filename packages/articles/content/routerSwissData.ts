@@ -2572,6 +2572,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'inquilini-cantoni-disdetta': { it: 'inquilini-cantoni-disdetta', en: 'swiss-rent-tenant-rights', de: 'mietrecht-schweiz-argau', fr: 'location-suisse-argovie' },
  'fisco-zurigo-guida-online': { it: 'fisco-zurigo-guida-online', en: 'zurich-tax-return-online-guide', de: 'steuererklaerung-zuerich-online-ratgeber', fr: 'declaration-impots-zurich-guide-en-ligne' },
  'guida-fiscale-ginevra-2026': { it: 'guida-fiscale-ginevra-2026', en: 'geneva-tax-return-guide-2026', de: 'steuererklaerung-genf-leitfaden-2026', fr: 'declaration-impots-geneve-guide-2026' },
+ 'fisco-berna-guida-2026': { it: 'fisco-berna-guida-2026', en: 'swiss-tax-guide-bern-2026', de: 'steuererklaerung-bern-2026', fr: 'declaration-impots-berne-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
