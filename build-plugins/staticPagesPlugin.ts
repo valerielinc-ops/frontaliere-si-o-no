@@ -3184,7 +3184,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
 
  // Dynamic override for the IT job-board landing: inject the live count
  // + fire emoji into title/description. Keeps existing structured data.
- if (isJobBoardLandingPath(url.path) && jobBoardCounts.it > 0) {
+ if (isJobBoardLandingPath(url.path)) {
  const dyn = buildJobBoardSeo('it', jobBoardCounts.it, jobBoardYear);
  seo = { ...seo, title: dyn.title, desc: dyn.desc, ogT: dyn.ogT, ogD: dyn.ogD };
  }
@@ -4304,9 +4304,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  canton: 'TI',
  locale: locale as ArchiveHubLocale,
  display: 'Ticino',
- // jobsCount is only used in the helper's non-TI branch, so the exact
- // value is irrelevant for TI byte-identity.
- jobsCount: jobsTotalPages * JOBS_PAGE_SIZE,
+ // Active vacancies use the same locale count as title and metadata;
+ // archive pagination includes historical entries and is not an active count.
+ jobsCount: jobBoardCounts[locale as JobBoardLocale],
  totalPages: jobsTotalPages,
  archiveNavigablePages,
  archiveBaseHref: HUB_SLUGS[locale as ArchiveHubLocale]?.jobsAll ?? '/cerca-lavoro-ticino/tutti/',
@@ -5888,7 +5888,6 @@ ${hrefTags}
  if (
  isJobBoardLandingPath(locPath)
  && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')
- && jobBoardCounts[hl.lang as JobBoardLocale] > 0
  ) {
  const loc = hl.lang as JobBoardLocale;
  const dyn = buildJobBoardSeo(loc, jobBoardCounts[loc], jobBoardYear);
