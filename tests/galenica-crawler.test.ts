@@ -56,6 +56,12 @@ describe('isSwissGalenicaItem (issue #3055 item 3)', () => {
     expect(isSwissGalenicaItem(item)).toBe(false);
   });
 
+  it('rejects a one-character locality even when the source canton is valid', () => {
+    const item = { contact: { state: 'TI', city: 'S' } };
+    expect(resolveGalenicaCanton(item.contact)).toBe('');
+    expect(isSwissGalenicaItem(item)).toBe(false);
+  });
+
   it('accepts Swiss localities resolved through the source canton', () => {
     expect(isSwissGalenicaItem({ contact: { state: 'VD', city: 'Blonay' } })).toBe(true);
     expect(isSwissGalenicaItem({ contact: { state: 'BE', city: 'Wabern' } })).toBe(true);
