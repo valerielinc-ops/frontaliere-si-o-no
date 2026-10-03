@@ -79,6 +79,7 @@ describe('static frontier health guidance', () => {
     const page = readFileSync('build-plugins/staticPagesPlugin.ts', 'utf8');
     const block = page.split('// Block 5: Assicurazione Sanitaria')[1].split('// Block 6:')[0];
     const data = buildEuPremiumSnapshot(fixture(2026), { year: 2026, sourceUrl });
+    if (!isCurrentEuPremiumSnapshot(data, 2026)) throw new Error('Invalid official Italy fixture');
     const values = Object.values(data.countries.IT.insurers).map(insurer => euMonthlyPremium(insurer, '26+', false)!);
     expect(block).toContain(`CHF ${Math.min(...values)} a CHF ${Math.max(...values).toFixed(2)}`);
     expect(block).toContain('Paese di domicilio, non quelli del Cantone di lavoro');
