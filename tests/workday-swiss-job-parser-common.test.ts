@@ -112,6 +112,46 @@ describe('createWorkdaySwissParser — faceted Workday auth fallback', () => {
     expect(listingRequests[1].appliedFacets).toEqual({});
   });
 
+  it('refetches the live board when the Swiss facet returns an empty page', async () => {
+    const listingRequests: any[] = [];
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        const body = JSON.parse(init.body);
+        listingRequests.push(body);
+        if (Object.keys(body.appliedFacets || {}).length > 0) {
+          return new Response(JSON.stringify({ total: 0, jobPostings: [] }), { status: 200 });
+        }
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Senior Underwriting Assistant',
+            externalPath: '/job/Zurich/Senior-Underwriting-Assistant_R7298',
+            locationsText: 'Zurich, Switzerland',
+            postedOn: 'Posted Today',
+            bulletFields: ['R7298'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'Zurich, Switzerland',
+          jobRequisitionLocation: { country: { alpha2Code: 'CH', descriptor: 'Switzerland' } },
+          jobDescription: ROLE_BODY,
+        },
+      }), { status: 200 });
+    }) as any;
+
+    const jobs = await makeParser().fetchAllJobs();
+
+    expect(jobs.map((job: any) => job.title)).toEqual(['Senior Underwriting Assistant']);
+    expect(listingRequests).toHaveLength(2);
+    expect(listingRequests[0].appliedFacets).toEqual({
+      locationCountry: ['187134fccb084a0ea9b4b95f23890dbe'],
+    });
+    expect(listingRequests[1].appliedFacets).toEqual({});
+  });
+
   it('keeps an explicit anti-bot outcome when both listing requests are blocked', async () => {
     global.fetch = vi.fn(async (url: string) => (
       String(url).endsWith('/jobs')

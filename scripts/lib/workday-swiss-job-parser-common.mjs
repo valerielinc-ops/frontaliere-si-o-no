@@ -649,6 +649,7 @@ export function createWorkdaySwissParser(config) {
     console.log(`   Workday: ${API_BASE}\n`);
 
     let facetApplied = true;
+    let facetReturnedEmpty = false;
     let listings = [];
     // How the faceted pagination ended — the completeness evidence for the
     // authoritative-empty proof. Only the faceted fetch fills it.
@@ -674,13 +675,28 @@ export function createWorkdaySwissParser(config) {
       console.warn(`⚠️ ${companyName}: locationCountry facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
       facetApplied = false;
     }
+
+    // A tenant can accept the facet request and answer with an empty page even
+    // while its unfiltered board still contains Swiss postings (a stale or
+    // silently unsupported facet). Treat the empty filtered response like the
+    // rejected-facet path: retry the live board and apply the strict per-listing
+    // Swiss gate instead of turning a live source into `no-jobs-parsed`.
+    if (facetApplied && listings.length === 0) {
+      facetReturnedEmpty = true;
+      console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
+      facetApplied = false;
+      listings = await fetchJobListings({ useCountryFacet: false });
+    }
+
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
       // The unfiltered retry is the last transport attempt. Do not replace its
       // annotated empty array while probing for an authoritative zero.
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
-      if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
+      if (proveSwissAbsentFromLiveBoard) {
+        return proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats);
+      }
       return listings || [];
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
