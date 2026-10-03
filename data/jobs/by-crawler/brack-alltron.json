@@ -1,6 +1,6 @@
 {
   "crawlerKey": "brack-alltron",
-  "assembledAt": "2026-10-02T21:26:22.203Z",
+  "assembledAt": "2026-10-03T09:20:24.475Z",
   "jobs": [
     {
       "id": "brack-alltron-ec1ba397b901",
@@ -34,7 +34,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/kv-langzeitpratikant-in-sog-handel/243abb8a-9937-4217-a0cb-de62ac53bc5e",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.017Z",
+      "crawledAt": "2026-10-03T09:20:07.990Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-kaufmann-frau-efz-handel/f9114c3e-2250-40c0-b9f3-d69dffc73a43",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.016Z",
+      "crawledAt": "2026-10-03T09:20:07.988Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -165,7 +165,8 @@
           "maxValue": 78500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-18c2b5a47d3a",
@@ -198,7 +199,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-ict-fachmann-frau-efz/b7c7b927-603f-4b0e-b3ec-4ca5737e54c4",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.014Z",
+      "crawledAt": "2026-10-03T09:20:07.984Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -249,7 +250,8 @@
           "maxValue": 99000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-dada4efa1113",
@@ -282,7 +284,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-mediamatiker-in-efz/423304bb-69c6-4da4-8233-8b378c421288",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.015Z",
+      "crawledAt": "2026-10-03T09:20:07.986Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -331,7 +333,8 @@
           "maxValue": 92500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-b4b696e51562",
@@ -364,7 +367,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-logistiker-in-efz-lager/841de3c4-d4ba-493c-8a7d-29eed54db63f",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.013Z",
+      "crawledAt": "2026-10-03T09:20:07.983Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -424,7 +427,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-42d52152fcf0",
@@ -458,7 +462,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/deputy-teamlead-warehousing-goods-flow/db26aeb7-0956-46ef-9362-b2ba1c83e318",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.011Z",
+      "crawledAt": "2026-10-03T09:20:07.979Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -522,7 +526,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/principal-engineer-frontend/969a83de-4767-4ef4-a38b-451b3210374c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.009Z",
+      "crawledAt": "2026-10-03T09:20:07.976Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -553,7 +557,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-b17a6824faef",
@@ -586,7 +591,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/specialist-operational-planning-control-logistikleitstand/1511e978-195d-4995-9efd-fb01e453e0f7",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.008Z",
+      "crawledAt": "2026-10-03T09:20:07.974Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -632,7 +637,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-4d4d873ec26e",
@@ -665,7 +671,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/mitarbeiter-in-haustechnik/a902831a-c9f4-4708-a033-fae662a7bcc6",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.006Z",
+      "crawledAt": "2026-10-03T09:20:07.970Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -712,7 +718,8 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-bd3fd987999b",
@@ -745,7 +752,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lehrstelle-als-polymechaniker-in-efz/c5cada14-1429-4713-8d54-ba9f840f71e0",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.004Z",
+      "crawledAt": "2026-10-03T09:20:07.966Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -792,7 +799,8 @@
           "maxValue": 108000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-1e04096ddf95",
@@ -825,7 +833,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/deputy-teamlead-cargo-large-orders/17058df6-d06b-4528-bb2a-7e8ca6385670",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.002Z",
+      "crawledAt": "2026-10-03T09:20:07.958Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -881,7 +889,8 @@
           "maxValue": 146000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-bf617c6e1f79",
@@ -915,7 +924,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/specialized-sales-physical-ai-robotics/db946c1b-0dde-48dc-a0cf-200251971c58",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.000Z",
+      "crawledAt": "2026-10-03T09:20:07.954Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1003,7 +1012,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/business-development-manager-physical-ai-robotics/395728d0-a41d-47af-8e9f-08e119fc7a26",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.999Z",
+      "crawledAt": "2026-10-03T09:20:07.952Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1081,7 +1090,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lead-category-computing/82e7d61b-6ab3-40da-8df9-51e0b1c5e649",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.997Z",
+      "crawledAt": "2026-10-03T09:20:07.950Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1159,7 +1168,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistician/513304a6-2122-4ea9-a6dd-c520bed5764a",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.996Z",
+      "crawledAt": "2026-10-03T09:20:07.947Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1240,7 +1249,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-software-engineer/60ab728e-698b-4c13-8152-02ea6c3baf2e",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.994Z",
+      "crawledAt": "2026-10-03T09:20:07.944Z",
       "addressLocality": "Zürich und/oder Mägenwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1281,7 +1290,8 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-e1fbad29dd17",
@@ -1315,7 +1325,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-modern-workplace-engineer/cae81230-fbbc-4950-801d-0d7d6cd25707",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.989Z",
+      "crawledAt": "2026-10-03T09:20:07.941Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1379,7 +1389,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/erp-developer-nav/ef39d19d-6519-41aa-a60e-b11201c79cbe",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.988Z",
+      "crawledAt": "2026-10-03T09:20:07.939Z",
       "addressLocality": "Zürich und/oder Mägenwil",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1420,7 +1430,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-460aa21e1ee2",
@@ -1453,7 +1464,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistics-coordinator-shipping/7f080993-e05d-46a0-96a9-c316cca92fff",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.985Z",
+      "crawledAt": "2026-10-03T09:20:07.935Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1497,7 +1508,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-b78a340cc261",
@@ -1531,7 +1543,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/teamlead-value-added-services/0a44558c-ef59-47ae-81ef-9e1c0fdb1c2c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.983Z",
+      "crawledAt": "2026-10-03T09:20:07.932Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1611,7 +1623,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-sport/3ccc86ee-33ec-48be-96c6-7187bbd37bc8",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.981Z",
+      "crawledAt": "2026-10-03T09:20:07.929Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1676,7 +1688,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-cables-batteries-computing-accessories/d36e6519-f773-467c-8aae-bf7b271d763d",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.979Z",
+      "crawledAt": "2026-10-03T09:20:07.925Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1757,7 +1769,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/product-manager-in-microsoft-surface-und-monitore/3bcbb499-e76e-4a83-9042-d9be14150007",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.980Z",
+      "crawledAt": "2026-10-03T09:20:07.927Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1832,7 +1844,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/machine-specialist/fdfd5b1c-4c57-4bcc-8db8-d415266d044c",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.978Z",
+      "crawledAt": "2026-10-03T09:20:07.923Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1876,7 +1888,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-3bfffcb91e81",
@@ -1910,7 +1923,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/mitarbeiter-in-kommissionieren-autostore-kleinteilelager/9ca496c0-e10a-4493-bbcf-a53f601e76f6",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.976Z",
+      "crawledAt": "2026-10-03T09:20:07.920Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1992,7 +2005,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/stellvertretende-teamleitung-warenausgang/a64f7c12-9b0b-45cf-aa91-0cbd3a51ec26",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.974Z",
+      "crawledAt": "2026-10-03T09:20:07.916Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2039,7 +2052,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-79acd775d3b5",
@@ -2073,7 +2087,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/operative-r-einkaeufer-in-befristet-fuer-6-monate/8c0b107a-cfe1-42c7-b6f9-7050892bd1b2",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.972Z",
+      "crawledAt": "2026-10-03T09:20:07.913Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2208,7 +2222,9 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-3a6c7d36e340",
@@ -2242,7 +2258,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/logistics-agent/c0e40810-ea5c-4744-9165-1f81a5a8242b",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.965Z",
+      "crawledAt": "2026-10-03T09:20:07.907Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2320,7 +2336,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/industrial-mechanic/dabd0227-1168-49ab-9911-7ecd2beef6bd",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.963Z",
+      "crawledAt": "2026-10-03T09:20:07.897Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2401,7 +2417,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/enterprise-architect-business-applications/9ac3265c-4d54-41fd-89bf-aaacba5d54a3",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.959Z",
+      "crawledAt": "2026-10-03T09:20:07.891Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2466,7 +2482,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/team-lead-software-engineering-sourcing-purchasing/ecf93c57-defe-4d1b-aab4-2f726ca6e0c3",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.960Z",
+      "crawledAt": "2026-10-03T09:20:07.893Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2530,7 +2546,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/teamleiter-infrastruktur-gebaeudetechnik/a739868c-1ba8-43f2-a05b-0f895a86a323",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.957Z",
+      "crawledAt": "2026-10-03T09:20:07.888Z",
       "addressLocality": "Willisau",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2574,7 +2590,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "brack-alltron-cd632348dd8d",
@@ -2608,7 +2625,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-product-manager-online-shops-checkout/8f2947dd-d50f-4416-8134-301541daff13",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.942Z",
+      "crawledAt": "2026-10-03T09:20:07.869Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2641,7 +2658,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:58.942Z"
+      "firstSeenAt": "2026-10-03T09:20:07.869Z"
     },
     {
       "id": "brack-alltron-8301e7f41996",
@@ -2675,7 +2692,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/lead-security-risks/6bae31d8-1cfd-47b7-b0ad-9ed4eb295acf",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.940Z",
+      "crawledAt": "2026-10-03T09:20:07.867Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2708,7 +2725,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:58.940Z"
+      "firstSeenAt": "2026-10-03T09:20:07.867Z"
     },
     {
       "id": "brack-alltron-d1d816eb9501",
@@ -2742,7 +2759,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/senior-digital-analytics-engineer/4868e2f8-3f66-443f-9eb9-ce0701d1ddcf",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.938Z",
+      "crawledAt": "2026-10-03T09:20:07.860Z",
       "addressLocality": "Mägenwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2775,7 +2792,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:58.938Z"
+      "firstSeenAt": "2026-10-03T09:20:07.860Z"
     },
     {
       "id": "brack-alltron-bfd714cfb76a",
@@ -2809,7 +2826,7 @@
       "url": "https://jobs.brackalltron.ch/offene-stellen/coiffeur-in-efz-60-wallisellen/5803978c-0418-4624-8a8c-7baa14e41715",
       "source": "Brack.Alltron AG Dedicated Parser (Prospective medium 1005615)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:58.932Z",
+      "crawledAt": "2026-10-03T09:20:07.851Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2842,7 +2859,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:58.932Z"
+      "firstSeenAt": "2026-10-03T09:20:07.851Z"
     }
   ]
 }
