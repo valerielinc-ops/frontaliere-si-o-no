@@ -29,6 +29,9 @@ function normalizeArticleEntity(
 ): Record<string, any> {
  if (!isRecord(value)) return { ...fallback };
 
+ // Only explicit site identities can inherit the publisher's fields.
+ // A shared name (with or without an external ID) is not proof of identity.
+ if (value['@id'] !== ORGANIZATION_ID && !isSiteOrganizationCreator(value)) return { ...value };
  const out = { ...fallback, ...value };
  if (!out.name) out.name = fallback.name;
  if (!out.url) out.url = fallback.url;
