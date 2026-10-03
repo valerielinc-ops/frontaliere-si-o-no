@@ -11,6 +11,7 @@ import {
   buildAnswerConsultingApplyUrl,
   fetchAllAnswerConsultingJobs,
 } from '../scripts/lib/answerconsulting-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 const WIDGET_URL = 'https://apply.workable.com/api/v1/widget/accounts/answermodules';
@@ -156,7 +157,9 @@ describe('AnswerConsulting SA crawler parser', () => {
 
     it('returns an empty array for a payload with no jobs', () => {
       expect(parseAnswerConsultingWidgetPayload({ jobs: [] })).toEqual([]);
-      expect(parseAnswerConsultingWidgetPayload({})).toEqual([]);
+      const missingJobs = parseAnswerConsultingWidgetPayload({});
+      expect(missingJobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(missingJobs)).toBe(false);
       expect(parseAnswerConsultingWidgetPayload(null)).toEqual([]);
     });
 
@@ -239,7 +242,7 @@ describe('AnswerConsulting SA crawler parser', () => {
       global.fetch = originalFetch;
     });
 
-    it('returns an empty array when the widget feed has no jobs (current live state: 0 openings)', async () => {
+    it('marks a valid empty widget feed as an authoritative zero', async () => {
       global.fetch = vi.fn(async (url: string) => {
         expect(String(url)).toBe(WIDGET_URL);
         return new Response(JSON.stringify({ name: 'AnswerModules', jobs: [] }), { status: 200 });
@@ -247,6 +250,7 @@ describe('AnswerConsulting SA crawler parser', () => {
 
       const jobs = await fetchAllAnswerConsultingJobs();
       expect(jobs).toEqual([]);
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
     });
 
     it('parses a successful feed, keeping only Swiss jobs and producing complete structured-data fields', async () => {
