@@ -29,12 +29,12 @@ function normalizeArticleEntity(
 ): Record<string, any> {
  if (!isRecord(value)) return { ...fallback };
 
+ // Only explicit site identities can inherit the publisher's fields.
+ // A shared name (with or without an external ID) is not proof of identity.
+ if (value['@id'] !== ORGANIZATION_ID && !isSiteOrganizationCreator(value)) return { ...value };
  const out = { ...fallback, ...value };
  if (!out.name) out.name = fallback.name;
- // An external identity without a URL must not inherit the site's URL:
- // that would make the recursive normalizer mistake it for the publisher.
- if (!value.url && value['@id'] && value['@id'] !== ORGANIZATION_ID) delete out.url;
- else if (!out.url) out.url = fallback.url;
+ if (!out.url) out.url = fallback.url;
  return out;
 }
 

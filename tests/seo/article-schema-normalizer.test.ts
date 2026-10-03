@@ -23,13 +23,16 @@ describe('static Article JSON-LD safety net', () => {
     expect(normalized.image.contentUrl).toBe(normalized.image.url);
   });
 
-  it('keeps external same-name identities external through both normalization passes', () => {
-    const external = Object.freeze({ '@type': 'Organization', '@id': 'https://example.com/#newsroom', name: 'Frontaliere Ticino' });
+  it.each([
+    { '@id': 'https://example.com/#newsroom' },
+    {},
+  ])('keeps external same-name identities external through both normalization passes: %j', (identity) => {
+    const external = Object.freeze({ '@type': 'Organization', name: 'Frontaliere Ticino', ...identity });
     const normalized = normalizeStructuredData(normalizeArticleStructuredData({
       '@type': 'NewsArticle', author: external, publisher: external,
     }));
     for (const entity of [normalized.author, normalized.publisher]) {
-      expect(entity['@id']).toBe(external['@id']);
+      expect(entity).toEqual(external);
       expect(entity).not.toHaveProperty('url');
     }
     expect(external).not.toHaveProperty('url');
