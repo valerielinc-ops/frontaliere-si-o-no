@@ -7661,6 +7661,18 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Third pillar 3a: 2026 advantages in the canton of Zurich',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Guide 2026 to the third pillar 3a in the canton of Zurich: three tax levels, municipal multiplier and banking or insurance providers.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Swiss tax papers and a 3a savings plan on a desk with Zurich skyline.',
+    'blog.article.guida-terzo-3a-berna.title': 'Swiss third pillar 3a: 2026 benefits in the canton of Bern',
+    'blog.article.guida-terzo-3a-berna.excerpt': '2026 Guide to 3a in the canton of Bern: indexed maximum, three tax levels, and comparison between banking and insurance providers.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Swiss resident reviewing third-pillar 3a and tax documents',
+    'blog.article.lista-governo-ticino-2027.title': 'Forward with Ticino&Lavoro: 2027 Government list',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli and Giovanni Albertini are on the list for the State Council on 11 aprile 2027.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Political presentation in Lamone for the Ticino government candidate list',
+    'blog.article.guida-3a-fisco-vaud.title': 'Third pillar 3a: 2026 benefits in the canton of Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': '2026 guide to the third pillar 3a in the canton of Vaud: tax benefits, three tax levels, indexed maximum amount and national comparison.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Tax documents and calculator for Swiss third-pillar 3a planning in Vaud',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Geneva: 1,500 march for Palestine, urge Israel sanctions',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Around 1,500 demonstrators in Geneva call for relations with Israel to be blocked and for Netanyahu to be arrested. Bern: no detention for negotiating purposes.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palestine demonstration in Geneva with Palestinian and Swiss flags',
 };
 
 export default blogMetaChEn;

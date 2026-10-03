@@ -98626,6 +98626,396 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a2-coldrerio-incidente-camion': {
+    title: 'Tamponamento sull\'A2 a Coldrerio: 73enne grave',
+    description: 'Incidente sull\'A2 a Coldrerio: un\'auto ha tamponato un camion fermo. Un 73enne è in pericolo di vita, la conducente ha ferite lievi; traffico su una corsia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tamponamento, sull, coldrerio, 73enne',
+    ogTitle: 'Tamponamento sull\'A2 a Coldrerio: 73enne grave',
+    ogDescription: 'Incidente nel pomeriggio sull\'A2 in direzione sud: la conducente 68enne ha riportato ferite lievi, il passeggero 73enne è stato portato in elicottero all\'ospedale. L\'autostrada è stata chiusa e poi il traffico è stato incanalato su una corsia.',
+    canonicalPath: '/articoli-frontaliere/a2-coldrerio-incidente-camion/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tamponamento sull'A2 a Coldrerio: 73enne grave",
+      "description": "Incidente sull'A2 a Coldrerio: un'auto ha tamponato un camion fermo. Un 73enne è in pericolo di vita, la conducente ha ferite lievi; traffico su una corsia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/a2-coldrerio-incidente-camion.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico e soccorsi sull'A2 a Coldrerio dopo un tamponamento tra auto e camion"
+      },
+      "datePublished": "2026-10-03T13:38:42+00:00",
+      "dateModified": "2026-10-03T13:38:42+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-coldrerio-incidente-camion/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-giornata-sostenibilita-mezzana': {
+    title: 'Giornata transfrontaliera sulla sostenibilità a Mezzana',
+    description: 'Oltre settanta docenti della Regione Insubrica si sono riuniti a Mezzana per una giornata tra teoria, atelier pratici e progetti sulla sostenibilità.',
+    keywords: 'frontalieri, ticino, svizzera, italia, giornata, transfrontaliera, sulla, sostenibilità',
+    ogTitle: 'Sostenibilità, giornata transfrontaliera a Mezzana',
+    ogDescription: 'A Mezzana, esperti del Cantone Ticino e di Regione Lombardia hanno incontrato oltre settanta docenti per parlare di sostenibilità, gestione forestale responsabile e attività da portare in classe, con una scheda da consegnare entro metà marzo 2027.',
+    canonicalPath: '/articoli-frontaliere/giornata-sostenibilita-mezzana/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Giornata transfrontaliera sulla sostenibilità a Mezzana",
+      "description": "Oltre settanta docenti della Regione Insubrica si sono riuniti a Mezzana per una giornata tra teoria, atelier pratici e progetti sulla sostenibilità.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/giornata-sostenibilita-mezzana.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Docenti durante una giornata formativa sulla sostenibilità a Mezzana"
+      },
+      "datePublished": "2026-10-03T14:21:55+00:00",
+      "dateModified": "2026-10-03T14:21:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giornata-sostenibilita-mezzana/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-scontro-ss707-largo-flaiano': {
+    title: 'Incidente sulla SS707 a Varese, bretella chiusa per ore',
+    description: 'Incidente sulla SS707 a Varese: due auto coinvolte, chiusura per ore tra Largo Flaiano e lo svincolo dei Laghi; due feriti, codice giallo, viabilità riaperta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sulla, ss707, varese',
+    ogTitle: 'Incidente sulla SS707 a Varese, bretella chiusa per ore',
+    ogDescription: 'Scontro tra due auto sulla SS707 alle porte di Varese. La tratta tra Largo Flaiano e lo svincolo dei Laghi è rimasta chiusa per ore, con deviazione verso il centro città. Due persone, un uomo e una donna, sono state soccorse in codice giallo.',
+    canonicalPath: '/articoli-frontaliere/scontro-ss707-largo-flaiano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sulla SS707 a Varese, bretella chiusa per ore",
+      "description": "Incidente sulla SS707 a Varese: due auto coinvolte, chiusura per ore tra Largo Flaiano e lo svincolo dei Laghi; due feriti, codice giallo, viabilità riaperta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/scontro-ss707-largo-flaiano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "SS707 a Varese chiusa dopo lo scontro tra due auto"
+      },
+      "datePublished": "2026-10-03T15:12:55+00:00",
+      "dateModified": "2026-10-03T15:12:55+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-ss707-largo-flaiano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-preventivo-ticino-2027-vitta': {
+    title: 'Preventivo 2027 Ticino: disavanzo vicino ai 100 milioni',
+    description: 'Il preventivo 2027 del Canton Ticino prevede un disavanzo di quasi 100 milioni e un debito oltre i 3 miliardi. Ecco i dettagli di Christian Vitta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, preventivo, disavanzo, vicino, milioni',
+    ogTitle: 'Preventivo 2027 Ticino: disavanzo vicino ai 100 milioni',
+    ogDescription: 'Christian Vitta presenta l\'ultimo preventivo: debito possibile oltre 3 miliardi alla fine del 2027 e necessità di una riflessione a 360 gradi sulle entrate.',
+    canonicalPath: '/articoli-frontaliere/preventivo-ticino-2027-vitta/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Preventivo 2027 Ticino: disavanzo vicino ai 100 milioni",
+      "description": "Il preventivo 2027 del Canton Ticino prevede un disavanzo di quasi 100 milioni e un debito oltre i 3 miliardi. Ecco i dettagli di Christian Vitta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/preventivo-ticino-2027-vitta.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzi governativi di Bellinzona, sede del preventivo cantonale"
+      },
+      "datePublished": "2026-10-03T15:33:09+00:00",
+      "dateModified": "2026-10-03T15:33:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/preventivo-ticino-2027-vitta/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-viabilita-varese-tre-valli-ottobre': {
+    title: 'Varese, viabilità Tre Valli: chiusure 3 e 4 ottobre',
+    description: 'Varese: chiusure stradali per Cronometro e Gran Fondo Tre Valli Varesine il 3 e 4 ottobre. Orari, vie interessate e divieti di sosta. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, viabilità, valli, chiusure',
+    ogTitle: 'Varese, viabilità Tre Valli: chiusure 3 e 4 ottobre',
+    ogDescription: 'Attenzione ai transiti a Varese il weekend del 3-4 ottobre: chiusure per la Cronometro e la 10ª Gran Fondo Tre Valli Varesine. Ecco gli orari e le vie interessate.',
+    canonicalPath: '/articoli-frontaliere/viabilita-varese-tre-valli-ottobre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Varese, viabilità Tre Valli: chiusure 3 e 4 ottobre",
+      "description": "Varese: chiusure stradali per Cronometro e Gran Fondo Tre Valli Varesine il 3 e 4 ottobre. Orari, vie interessate e divieti di sosta. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/viabilita-varese-tre-valli-ottobre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Segnale stradale in un paesaggio autunnale ticinese"
+      },
+      "datePublished": "2026-10-03T16:00:25+00:00",
+      "dateModified": "2026-10-03T16:00:25+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viabilita-varese-tre-valli-ottobre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-saronno-autofficina-sequestrata': {
+    title: 'Saronno, sequestrata un’autofficina per irregolarità',
+    description: 'Polizia locale in un’autofficina di Saronno: due lavoratori senza contratto, irregolarità sulla sicurezza e autorizzazioni. Attività sequestrata e sospesa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, sequestrata, autofficina, irregolarità',
+    ogTitle: 'Saronno, sequestrata un’autofficina per irregolarità',
+    ogDescription: 'A Saronno, la Polizia locale ha trovato due cittadini extracomunitari al lavoro senza contratto regolare. Uno era senza permesso di soggiorno; il controllo ha riguardato anche qualifica professionale, sicurezza e autorizzazioni dell’autofficina.',
+    canonicalPath: '/articoli-frontaliere/saronno-autofficina-sequestrata/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Saronno, sequestrata un’autofficina per irregolarità",
+      "description": "Polizia locale in un’autofficina di Saronno: due lavoratori senza contratto, irregolarità sulla sicurezza e autorizzazioni. Attività sequestrata e sospesa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/saronno-autofficina-sequestrata.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Autofficina di Saronno sottoposta al controllo della Polizia locale"
+      },
+      "datePublished": "2026-10-03T17:19:56+00:00",
+      "dateModified": "2026-10-03T17:19:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/saronno-autofficina-sequestrata/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-museo-storico-palazzo-civico-lugano': {
+    title: 'Museo storico a Palazzo Civico: mozione interpartitica a Lugano',
+    description: 'Dieci consiglieri comunali propongono un museo storico al secondo piano di Palazzo Civico a Lugano. Spazi liberi nel 2028 col trasloco a Cornaredo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, museo, storico, palazzo, civico',
+    ogTitle: 'Museo storico a Palazzo Civico: mozione a Lugano',
+    ogDescription: 'Dieci consiglieri comunali di Lugano chiedono di valutare un museo storico negli spazi di Palazzo Civico che si libereranno nel 2028. La proposta nasce dal successo della mostra «Lugano Belle Époque» e dalla storia museale cittadina. Il vicesindaco',
+    canonicalPath: '/articoli-frontaliere/museo-storico-palazzo-civico-lugano/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Museo storico a Palazzo Civico: mozione interpartitica a Lugano",
+      "description": "Dieci consiglieri comunali propongono un museo storico al secondo piano di Palazzo Civico a Lugano. Spazi liberi nel 2028 col trasloco a Cornaredo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/museo-storico-palazzo-civico-lugano.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo Civico di Lugano, edificio neoclassico sede del Municipio"
+      },
+      "datePublished": "2026-10-03T17:47:01+00:00",
+      "dateModified": "2026-10-03T17:47:01+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/museo-storico-palazzo-civico-lugano/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-diego-kostner-milano-hockey': {
+    title: 'Diego kostner lascia l\'ambrì piotta | Frontaliere Ticino',
+    description: 'Diego Kostner lascia subito l\'Ambrì Piotta dopo dieci stagioni: 432 partite, 52 reti e 77 assist in National League prima del passaggio al Milano Hockey Club.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diego, kostner, lascia, ambrì',
+    ogTitle: 'Kostner lascia l\'Ambrì per il Milano Hockey Club',
+    ogDescription: 'Dopo dieci stagioni in biancoblù, il centro classe 1992 chiude l\'esperienza in Leventina. Il club annuncia la partenza immediata; il 34enne di Bressanone continuerà con il neonato Milano Hockey Club.',
+    canonicalPath: '/articoli-frontaliere/diego-kostner-milano-hockey/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diego kostner lascia l'ambrì piotta",
+      "description": "Diego Kostner lascia subito l'Ambrì Piotta dopo dieci stagioni: 432 partite, 52 reti e 77 assist in National League prima del passaggio al Milano Hockey Club.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/diego-kostner-milano-hockey.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pista di hockey in Ticino nei colori biancoblù dell'Ambrì Piotta"
+      },
+      "datePublished": "2026-10-03T18:09:34+00:00",
+      "dateModified": "2026-10-03T18:09:34+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diego-kostner-milano-hockey/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-controlli-zona-tutela-como': {
+    title: 'Como, Polizia locale: 16 allontanamenti e 4 denunce',
+    description: 'Como, controlli della Polizia Locale tra il 15 settembre e il 2 ottobre 2026: 16 ordini di allontanamento e 4 denunce nelle aree a tutela rafforzata di Como.',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, polizia, locale, allontanamenti',
+    ogTitle: 'Como: 16 allontanamenti e 4 denunce',
+    ogDescription: 'Dal 15 settembre al 2 ottobre 2026 la Polizia Locale di Como ha controllato l\'area del Crocifisso e i Giardini di viale Varese: 16 ordini di allontanamento e quattro persone straniere deferite all\'Autorità giudiziaria.',
+    canonicalPath: '/articoli-frontaliere/controlli-zona-tutela-como/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, Polizia locale: 16 allontanamenti e 4 denunce",
+      "description": "Como, controlli della Polizia Locale tra il 15 settembre e il 2 ottobre 2026: 16 ordini di allontanamento e 4 denunce nelle aree a tutela rafforzata di Como.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/controlli-zona-tutela-como.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Parco urbano in Ticino con viali alberati e edifici storici"
+      },
+      "datePublished": "2026-10-03T18:39:28+00:00",
+      "dateModified": "2026-10-03T18:39:28+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-zona-tutela-como/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-como-pusher-consegne-domicilio': {
+    title: 'Como, arrestato pusher per consegne a domicilio',
+    description: 'Arrestato a Como un 48enne per detenzione ai fini di spaccio: sequestrati 51.45 grammi in 86 dosi, altri 141.18 grammi di cocaina e circa 4000 euro in contanti',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, arrestato, pusher, consegne',
+    ogTitle: 'Como: arrestato il 48enne delle consegne a domicilio',
+    ogDescription: 'Como, la Polizia di Stato ha arrestato un 48enne cittadino italiano di origini domenicane. La Squadra Mobile ha accertato cessioni di cocaina a domicilio in città e periferia; sequestrati 51.45 grammi in 86 dosi, denaro, due telefoni e altra',
+    canonicalPath: '/articoli-frontaliere/como-pusher-consegne-domicilio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Como, arrestato pusher per consegne a domicilio",
+      "description": "Arrestato a Como un 48enne per detenzione ai fini di spaccio: sequestrati 51.45 grammi in 86 dosi, altri 141.18 grammi di cocaina e circa 4000 euro in contanti",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/como-pusher-consegne-domicilio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Como, operazione della Polizia di Stato contro lo spaccio in città."
+      },
+      "datePublished": "2026-10-03T19:06:08+00:00",
+      "dateModified": "2026-10-03T19:06:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-pusher-consegne-domicilio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

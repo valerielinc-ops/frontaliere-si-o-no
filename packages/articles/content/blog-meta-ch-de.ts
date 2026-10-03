@@ -7661,6 +7661,18 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.pilastro3a-zurigo-strategia.title': 'Dritte Säule 3a: Vorteile 2026 im Kanton Zürich',
     'blog.article.pilastro3a-zurigo-strategia.excerpt': 'Leitfaden 2026 zur dritten Säule 3a im Kanton Zürich: drei Steuerstufen, kommunaler Multiplikator und Bank- oder Versicherungsanbieter.',
     'blog.article.pilastro3a-zurigo-strategia.imageAlt': 'Schweizer Steuerunterlagen und ein 3a-Sparplan auf einem Schreibtisch mit Zürcher Skyline.',
+    'blog.article.guida-terzo-3a-berna.title': 'Schweizer Säule 3a: Vorteile 2026 im Kanton Bern',
+    'blog.article.guida-terzo-3a-berna.excerpt': 'Leitfaden 2026 zur Säule 3a im Kanton Bern: indexierter Höchstbetrag, drei Steuerebenen und Vergleich von Bank- und Versicherungsanbietern.',
+    'blog.article.guida-terzo-3a-berna.imageAlt': 'Person in der Schweiz prüft Unterlagen zur Säule 3a und zu Steuern',
+    'blog.article.lista-governo-ticino-2027.title': 'Weiter mit Ticino&Lavoro: Regierungsliste 2027',
+    'blog.article.lista-governo-ticino-2027.excerpt': 'Sergio Savoia, Amalia Mirante, Valentina Mühlemann, Evaristo Roncelli und Giovanni Albertini stehen für den Staatsrat vom 11 aprile 2027 auf der Liste.',
+    'blog.article.lista-governo-ticino-2027.imageAlt': 'Politische Präsentation in Lamone für die Tessiner Regierungsliste',
+    'blog.article.guida-3a-fisco-vaud.title': 'Dritte Säule 3a: Vorteile 2026 im Kanton Vaud',
+    'blog.article.guida-3a-fisco-vaud.excerpt': 'Leitfaden 2026 zur dritten Säule 3a im Kanton Vaud: Steuervorteile, drei Besteuerungsebenen, indexierter Höchstbetrag und nationaler Vergleich.',
+    'blog.article.guida-3a-fisco-vaud.imageAlt': 'Steuerunterlagen und Rechner für die Schweizer Säule 3a im Kanton Waadt',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.title': 'Genf: 1.500 für Palästina auf der Straße, Sanktionen gegen Israel gefordert',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.excerpt': 'Etwa 1.500 Demonstrierende in Genf fordern eine Blockade der Beziehungen zu Israel und die Festnahme von Netanyahu. Bern: keine Festnahme aus Verhandlungsgründen.',
+    'blog.article.ginevra-manifestazione-palestina-sanzioni-2025.imageAlt': 'Pro-Palästina-Demonstration in Genf mit palästinensischen und Schweizer Flaggen',
 };
 
 export default blogMetaChDe;
