@@ -120,7 +120,7 @@ import {
  isKnownTicinoCommuterCity, CALC_HREF,
 } from './shared/jobBoardCommuterContext';
 import { FX_HREF } from './shared/comparatorHref';
-import { formatUpdatedSentence } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { renderCompanyHubFrontalierContext } from './shared/companyHubFrontalierContext';
 import { companyFollowMountPlaceholder } from './shared/companyFollowMountPlaceholder';
 import { resolveHubCompanyKey } from './shared/companyFollowIdentity';
@@ -5783,7 +5783,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-xzWvwM">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -5947,7 +5947,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6123,7 +6123,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6311,7 +6311,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6489,7 +6489,7 @@ ${staticAnalyticsHtml}
  <span>${esc(model.heading)}</span>
  </nav>
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6687,7 +6687,7 @@ ${staticAnalyticsHtml}
  <span>${esc(model.heading)}</span>
  </nav>
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -6965,7 +6965,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(pageH1)}</h1>
  <p class="s-wU5Nrr">${esc(pageDesc)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7192,7 +7192,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7360,7 +7360,7 @@ ${staticAnalyticsHtml}
  ${railGutters(true).open}
  <main class="seo-static-content s-it71Rt">
  <header class="s-S_0cal sx-hero">
- <p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(dateStamp, locale))}</p>
+ <p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
  <h1 class="s-P0Hs0W">${esc(model.heading)}</h1>
  <p class="s-wU5Nrr">${esc(model.description)}</p>
  <p class="s-rDKEKn">${esc(model.intro)}</p>
@@ -7710,7 +7710,7 @@ ${staticAnalyticsHtml}
  // styles bind without per-page CSS. Before this template the body was
  // a bare `<h1><p><p><ul>` which rendered visibly unstyled next to TI
  // siblings.
- const updatedDate = new Date().toISOString().slice(0, 10);
+ const generationDate = new Date().toISOString().slice(0, 10);
  const jobCountLabel = locale === 'it' ? 'Offerte attive'
    : locale === 'en' ? 'Open positions'
    : locale === 'de' ? 'Offene Stellen'
@@ -7728,7 +7728,7 @@ ${staticAnalyticsHtml}
    : locale === 'de' ? `Stellenangebote in ${cityDisplay}`
    : `Offres d'emploi à ${cityDisplay}`;
  const tilesHtml = `<section class="s-S6PRaY"><div class="s-CGuDZg"><div class="s-JFi4vt">${esc(jobCountLabel)}</div><div class="s-9UotdJ">${cityJobs.length}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(cantonTileLabel)}</div><div class="s-9UotdJ">${esc(canton)}</div></div><div class="s-3kP_AL"><div class="s-z4q8yI">${esc(permitTileLabel)}</div><div class="s-9UotdJ">G</div></div></section>`;
- const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatUpdatedSentence(updatedDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
+ const bodyHtml = `<header class="s-S_0cal sx-hero"><p class="s-zNiFzy sx-kick">${esc(formatPageGenerationDate(generationDate, locale))}</p><h1 class="s-P0Hs0W">${esc(cityHubSeo.h1)}</h1><p class="s-wU5Nrr">${esc(pageDesc)}</p>${intro}</header>${tilesHtml}<section class="s-KZc0LQ"><div class="s-r2QmTP"><h2 class="s-CqexyJ">${esc(listHeading)}</h2><a class="s-YszcPD" href="${sectionRootUrl}">${esc(backLabel)}</a></div><ul class="s-0WjlyL">${listHtml}</ul></section>${renderCompanyCityLinks(cityCompanyCityLinks, locale, companyCityCityHubHeading(locale, cityDisplay), (l) => l.companyName, (l) => `${BASE_URL}${companyCityHubPath(locale, canton, l.companySlug, l.citySlug)}`)}${nearbyEventsBlockForJobPage(locale, canton, cityDisplay, cDisplay)}${wrapHubSeoContext(locale as 'it' | 'en' | 'de' | 'fr', renderJobBoardCommuterContext({ locale, location: cityDisplay, cantonDisplay: cDisplay, cantonSlot: 'city-landing', cantonEntityName: cityDisplay }))}`;
  // Use buildSeoPageHtml (NOT buildSimplePage) so the page emits
  // `<main class="seo-static-content">` OUTSIDE `<div id="root">` +
  // `<div id="footer-root"></div>`. The legacy path (buildSimplePage default
@@ -8621,8 +8621,8 @@ ${staticAnalyticsHtml}
  // propagated from the TI sector hubs (PR #1118). The H1/headline keyword stays
  // clean (emoji is aria-hidden, only in the eyebrow). Secondary tiles drop out
  // when their signal is 0, so a thin sector degrades to one clean tile.
- const updatedEyebrow = locale === 'it' ? `Aggiornato · ${dateStamp}` : locale === 'en' ? `Updated · ${dateStamp}` : locale === 'de' ? `Aktualisiert · ${dateStamp}` : `Mis à jour · ${dateStamp}`;
- const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(updatedEyebrow)}</p>`;
+ const generationEyebrow = formatPageGenerationDate(dateStamp, locale);
+ const eyebrowHtml = `<p style="${HERO_EYEBROW_STYLE}"><span aria-hidden="true" style="font-size:15px">${SECTOR_HUB_EMOJI[sector]}</span> ${esc(generationEyebrow)}</p>`;
  const activeLabel = locale === 'it' ? 'Offerte attive' : locale === 'en' ? 'Active jobs' : locale === 'de' ? 'Aktive Stellen' : 'Offres actives';
  const freshLabel = locale === 'it' ? 'Nuove · 7gg' : locale === 'en' ? 'New · 7d' : locale === 'de' ? 'Neu · 7T' : 'Récent · 7j';
  const companiesLabel = locale === 'it' ? 'Aziende' : locale === 'en' ? 'Companies' : locale === 'de' ? 'Unternehmen' : 'Entreprises';

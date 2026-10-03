@@ -1,7 +1,7 @@
 {
   "key": "sune-egge",
   "label": "Fachspital Sune-Egge",
-  "generatedAt": "2026-10-03T09:32:30.704Z",
+  "generatedAt": "2026-10-03T21:31:20.246Z",
   "total": 6,
   "discovered": null,
   "parsed": 6,
@@ -14,12 +14,10 @@
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8496,
-  "avgDurationMs": 8496,
+  "durationMs": 6545,
+  "avgDurationMs": 6545,
   "durationHistory": [
-    5995,
-    6585,
-    8496
+    6545
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +33,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2814735",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:22.010Z",
+      "crawledAt": "2026-10-03T21:31:11.449Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,7 +70,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2805911",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:21.350Z",
+      "crawledAt": "2026-10-03T21:31:10.841Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -109,7 +107,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2773194",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:20.963Z",
+      "crawledAt": "2026-10-03T21:31:10.598Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -146,7 +144,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2763228",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:20.297Z",
+      "crawledAt": "2026-10-03T21:31:09.980Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -183,7 +181,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2729968",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:19.634Z",
+      "crawledAt": "2026-10-03T21:31:09.343Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -220,7 +218,7 @@
       "url": "https://swsieber.jobs.personio.com/job/2610155",
       "source": "Fachspital Sune-Egge Dedicated Parser (Personio JSON)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:32:18.961Z",
+      "crawledAt": "2026-10-03T21:31:08.715Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -247,5 +245,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
