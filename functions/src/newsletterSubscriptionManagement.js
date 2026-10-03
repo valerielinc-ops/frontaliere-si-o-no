@@ -417,6 +417,7 @@ const BRAND_ALIAS_TO_CANONICAL = Object.freeze({
  'bewerbungsmanagement-spital-davos': 'spital-davos',
  'kzu-recruiting': 'kzu',
  'diakoniewerk-neumuenster': 'spital-zollikerberg',
+ 'capri-holdings-michael-kors-versace': 'michael-kors',
 });
 
 export function normalizeCompanyAlertKey(value) {

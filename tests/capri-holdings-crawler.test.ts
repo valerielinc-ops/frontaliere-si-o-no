@@ -567,3 +567,20 @@ describe('Capri description fields', () => {
     expect(job.needsRetranslation).toBe(true);
   });
 });
+
+describe('Capri Holdings: il nome mostrato è il marchio Michael Kors (owner 2026-10-03)', () => {
+  it('pubblica i job come Michael Kors e il vecchio nome porta allo stesso hub', async () => {
+    const { readFileSync } = await import('node:fs');
+    const source = readFileSync('scripts/update-capri-holdings-jobs.mjs', 'utf8');
+    expect(source).toContain("const CAPRI_COMPANY_NAME = 'Michael Kors';");
+
+    const { canonicalCompanyProfileSlug, companyDisplayIdentityKeys } = await import('../build-plugins/shared/companyProfileSlug.mjs');
+    const { isBrandAlias } = await import('../build-plugins/shared/brandCanonicalMap.mjs');
+    expect(canonicalCompanyProfileSlug('Michael Kors', 'capri-holdings')).toBe('michael-kors');
+    // L'hub e il profilo già pubblicati col vecchio nome diventano un ponte,
+    // e chi segue l'azienda col vecchio nome resta sulla stessa identità.
+    expect(isBrandAlias('capri-holdings-michael-kors-versace')).toBe(true);
+    expect(canonicalCompanyProfileSlug('Capri Holdings (Michael Kors / Versace)', 'capri-holdings')).toBe('michael-kors');
+    expect(companyDisplayIdentityKeys('Capri Holdings (Michael Kors / Versace)')).toEqual(['michael-kors']);
+  });
+});
