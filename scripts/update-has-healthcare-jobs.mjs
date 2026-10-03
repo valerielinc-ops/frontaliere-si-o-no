@@ -68,6 +68,7 @@ import {
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
 import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
+import { CRAWLER_TRANSPORT_FAILURE_OUTCOMES } from './lib/crawler-fetch-outcome.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -87,12 +88,6 @@ const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DETAIL_DELAY_MS = 1_000;
-const TRANSPORT_FETCH_OUTCOMES = new Set([
-  'anti_bot_block',
-  'connection_error',
-  'exhausted_retry',
-]);
-
 function jobMatchKey(job) {
   return extractStableJobId(job?.url)
     || String(job?.url || '').trim().replace(/\/+$/, '');
@@ -208,7 +203,7 @@ function fetchOutcomeForError(error) {
 }
 
 function abortKindForFetchOutcome(outcome) {
-  return TRANSPORT_FETCH_OUTCOMES.has(outcome)
+  return CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(outcome)
     ? 'connection-level-fetch'
     : 'no-jobs-parsed';
 }
@@ -240,7 +235,7 @@ export function classifyHasHealthcareDiscovery({
   const allDetailsFailedAtTransport =
     discovered > 0
     && detailOutcomes.length === discovered
-    && TRANSPORT_FETCH_OUTCOMES.has(firstDetailOutcome)
+    && CRAWLER_TRANSPORT_FAILURE_OUTCOMES.has(firstDetailOutcome)
     && detailOutcomes.every((outcome) => outcome === firstDetailOutcome);
 
   if (allDetailsFailedAtTransport) {
