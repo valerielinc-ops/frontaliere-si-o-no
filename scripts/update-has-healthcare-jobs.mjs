@@ -20,7 +20,12 @@
  */
 import fs from 'node:fs';
 import path from 'node:path';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import {
+  exitCrawlerOnError,
+  fetchHtml,
+  isConnectionLevelFetchError,
+  WAF_IP_BLOCK_STATUS,
+} from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import {
   printPublishedJobUrls,
@@ -62,6 +67,7 @@ import {
 } from './lib/stored-source-body.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { fetchSourceViaRelay } from './lib/source-relay-fetch.mjs';
+import { isRetryBudgetExhausted } from './lib/transient-fetch.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -81,6 +87,11 @@ const COMPANY_HOST = 'e-lavoro.ch';
 const CAREERS_URL = 'https://e-lavoro.ch/node/104';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const DETAIL_DELAY_MS = 1_000;
+const TRANSPORT_FETCH_OUTCOMES = new Set([
+  'anti_bot_block',
+  'connection_error',
+  'exhausted_retry',
+]);
 
 function jobMatchKey(job) {
   return extractStableJobId(job?.url)
@@ -162,45 +173,91 @@ function isTrustedDomain(rawUrl = '') {
 // ─────────────────────────────────────────────────────────────
 
 async function fetchPage(url, timeoutMs = 20_000) {
-  const controller = new AbortController();
-  const timer = setTimeout(() => controller.abort(), timeoutMs);
-  let relayFallback = false;
   try {
-    const res = await fetch(url, {
-      signal: controller.signal,
+    // The shared helper retries transient responses and uses the Jina clean-IP
+    // fallback for connection/WAF failures. The old bespoke fetch swallowed
+    // both classes as `''`, turning a live source into an unexplained `[]`.
+    return await fetchHtml(url, {
+      timeoutMs,
       headers: {
         'User-Agent':
           'Mozilla/5.0 (compatible; FrontaliereBot/1.0; +https://frontaliereticino.ch)',
         Accept: 'text/html,application/xhtml+xml',
       },
     });
-    if (res.ok) return await res.text();
-    relayFallback = res.status === 403;
-    if (!relayFallback) {
-      console.warn(`⚠️ HTTP ${res.status} for ${url}`);
-      return '';
-    }
-    console.warn(`⚠️ HTTP 403 for ${url}; trying source relay when configured.`);
   } catch (err) {
     console.warn(`⚠️ Fetch failed for ${url}: ${err?.message || err}`);
-    relayFallback = true;
-  } finally {
-    clearTimeout(timer);
+    // Keep the Firebase relay as a second clean-IP path for the two sources it
+    // allowlists. It is deliberately optional; when unavailable the original
+    // error must reach the discovery boundary instead of becoming an empty
+    // source claim.
+    if (isConnectionLevelFetchError(err) || WAF_IP_BLOCK_STATUS.has(err?.status)) {
+      const relayed = await fetchSourceViaRelay(url);
+      if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
+      if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+    }
+    throw err;
+  }
+}
+
+function fetchOutcomeForError(error) {
+  if (isRetryBudgetExhausted(error)) return 'exhausted_retry';
+  if (WAF_IP_BLOCK_STATUS.has(error?.status)) return 'anti_bot_block';
+  if (isConnectionLevelFetchError(error)) return 'connection_error';
+  return 'feed_endpoint_unavailable';
+}
+
+function abortKindForFetchOutcome(outcome) {
+  return TRANSPORT_FETCH_OUTCOMES.has(outcome)
+    ? 'connection-level-fetch'
+    : 'no-jobs-parsed';
+}
+
+/**
+ * Keep the zero-job receipt honest at the fetch/parser boundary. A listing
+ * fetch failure is transport evidence; a fetched listing whose detail pages
+ * produce no source body is selector/parser evidence. Neither is a proven
+ * empty source.
+ */
+export function classifyHasHealthcareDiscovery({
+  listingFetchOutcome = null,
+  discovered = 0,
+  parsed = 0,
+  detailFetchOutcomes = [],
+} = {}) {
+  if (parsed > 0) return { lastFetchOutcome: 'ok', abortKind: null };
+  if (listingFetchOutcome) {
+    return {
+      lastFetchOutcome: listingFetchOutcome,
+      abortKind: abortKindForFetchOutcome(listingFetchOutcome),
+    };
   }
 
-  if (relayFallback) {
-    const relayed = await fetchSourceViaRelay(url);
-    if (relayed?.status >= 200 && relayed.status < 300) return relayed.text;
-    if (relayed) console.warn(`⚠️ Source relay returned HTTP ${relayed.status} for ${url}`);
+  const detailOutcomes = Array.isArray(detailFetchOutcomes)
+    ? detailFetchOutcomes.filter(Boolean)
+    : [];
+  const firstDetailOutcome = detailOutcomes[0];
+  const allDetailsFailedAtTransport =
+    discovered > 0
+    && detailOutcomes.length === discovered
+    && TRANSPORT_FETCH_OUTCOMES.has(firstDetailOutcome)
+    && detailOutcomes.every((outcome) => outcome === firstDetailOutcome);
+
+  if (allDetailsFailedAtTransport) {
+    return {
+      lastFetchOutcome: firstDetailOutcome,
+      abortKind: abortKindForFetchOutcome(firstDetailOutcome),
+    };
   }
-  return '';
+
+  return { lastFetchOutcome: 'selector_miss', abortKind: 'no-jobs-parsed' };
 }
 
 // ─────────────────────────────────────────────────────────────
 // Job listing parsing
 // ─────────────────────────────────────────────────────────────
 
-function parseListingPage(html) {
+export function parseListingPage(html) {
   const jobs = [];
   // The Drupal listing has this structure per job card:
   //   <span class="job-title-row">TITLE</span>  (inside a col div)
@@ -376,23 +433,41 @@ function parseDate(dateStr = '') {
 // Main discovery
 // ─────────────────────────────────────────────────────────────
 
-async function fetchJobs() {
+async function fetchJobs(counts) {
   console.log(`📡 Fetching job listing page: ${CAREERS_URL}`);
-  const listingHtml = await fetchPage(CAREERS_URL);
-  if (!listingHtml) {
+  let listingHtml;
+  try {
+    listingHtml = await fetchPage(CAREERS_URL);
+  } catch (error) {
+    const lastFetchOutcome = fetchOutcomeForError(error);
+    Object.assign(counts, {
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome,
+      abortKind: abortKindForFetchOutcome(lastFetchOutcome),
+    });
     console.warn('⚠️ Failed to fetch listing page.');
     return [];
   }
 
   const listings = parseListingPage(listingHtml);
+  counts.discovered = listings.length;
   console.log(`📋 Found ${listings.length} job listing(s) on page.`);
 
   const jobs = [];
+  const detailFetchOutcomes = [];
   for (const listing of listings) {
     // Keep sequential relay fallbacks outside the relay's per-host 1 s window.
     await new Promise((r) => setTimeout(r, DETAIL_DELAY_MS));
     console.log(`  📄 Fetching detail: ${listing.title} → ${listing.detailUrl}`);
-    const detailHtml = await fetchPage(listing.detailUrl);
+    let detailHtml;
+    try {
+      detailHtml = await fetchPage(listing.detailUrl);
+    } catch (error) {
+      detailFetchOutcomes.push(fetchOutcomeForError(error));
+      console.warn(`  ⚠️ Detail fetch failed for ${listing.detailUrl} — not published in this run.`);
+      continue;
+    }
     const detail = detailHtml
       ? parseDetailPage(detailHtml)
       : { sections: {}, language: '', education: '' };
@@ -437,6 +512,12 @@ async function fetchJobs() {
     jobs.push(job);
   }
 
+  counts.parsed = jobs.length;
+  Object.assign(counts, classifyHasHealthcareDiscovery({
+    discovered: listings.length,
+    parsed: jobs.length,
+    detailFetchOutcomes,
+  }));
   return jobs;
 }
 
@@ -677,7 +758,8 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(COMPANY_KEY, 'HAS Healthcare');
+  const counts = { discovered: null, parsed: null, lastFetchOutcome: null, abortKind: null };
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'HAS Healthcare', counts);
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  HAS Healthcare Advanced Synthesis — Dedicated Crawler');
@@ -688,7 +770,7 @@ async function main() {
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
 
   // Phase 1: Fetch and parse jobs
-  const discoveredJobs = await fetchJobs();
+  const discoveredJobs = await fetchJobs(counts);
 
   if (discoveredJobs.length === 0) {
     console.log('\n⚠️ No HAS Healthcare jobs discovered.');
@@ -710,6 +792,7 @@ async function main() {
   // Phase 3: Merge into data/jobs.json
   const mergeStats = await mergeJobs(discoveredJobs);
   if (mergeStats.noPublishableJobs) {
+    counts.abortKind = 'no-jobs-parsed';
     console.warn(
       `⚠️ ${COMPANY_NAME}: all ${discoveredJobs.length} source body/bodies are below the 50-word source-body floor; quarantining thin-source rows.`,
     );
@@ -730,6 +813,7 @@ async function main() {
   const stats = logStats(beforeSnapshot);
   crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
+    counts.abortKind = 'no-jobs-parsed';
     console.log(
       'ℹ️ No HAS Healthcare jobs found after crawl. No error — exiting OK.'
     );
@@ -762,6 +846,11 @@ async function main() {
     label: 'HAS Healthcare',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: counts.discovered,
+    parsed: counts.parsed,
+    written: _sliceJobs.length,
+    lastFetchOutcome: counts.lastFetchOutcome || 'ok',
+    abortKind: null,
     newCount: crawlDiff.newJobs.length,
     updatedCount: crawlDiff.updatedJobs.length,
     removedCount: crawlDiff.removedJobs.length,
