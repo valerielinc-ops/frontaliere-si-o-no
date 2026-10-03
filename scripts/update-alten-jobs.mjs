@@ -30,6 +30,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAltenListingHtml,
+  getAltenListingSnapshot,
   isAltenListingPageReady,
   isAltenSwissLocation,
   parseAltenDetailHtml,
@@ -110,18 +111,24 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function isBrowserExitError(error = {}) {
+  const message = String(error?.message || error);
+  return /target page,\s*context or browser has been closed/i.test(message);
+}
+
 async function waitForListing(page) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 60000;
   const started = Date.now();
+  let previousSnapshot = null;
   while (Date.now() - started < timeoutMs) {
     const title = await page.title();
     const content = await page.textContent('body').catch(() => '');
     const html = await page.content().catch(() => '');
-    // The old title/text pair was a fail-closed bail-out: a harmless copy or
-    // locale change returned null before the parser ever saw the page. Prefer
-    // source evidence, while retaining the explicit empty marker as the only
-    // valid zero-result signal.
-    if (isAltenListingPageReady({ html, title, content })) return true;
+    const snapshot = getAltenListingSnapshot({ html, title, content });
+    if (isAltenListingPageReady({ snapshot, previousSnapshot })) {
+      return { ...snapshot, sourceReadComplete: true };
+    }
+    previousSnapshot = snapshot;
     await page.waitForTimeout(1000);
   }
   return false;
@@ -192,11 +199,13 @@ function markTransientFetch(error) {
   CRAWL_STATE.lastFetchOutcome = transientFetchOutcome(error);
 }
 
-function buildAltenListings(html, source = 'browser') {
+function buildAltenListings(html, source = 'browser', { stableSourceSnapshot = source === 'jina' } = {}) {
   const sourceRows = parseAltenListingHtml(html);
   const listings = sourceRows.filter((row) => isAltenSwissLocation(row.location));
   const terminationProven = sourceRows.length < LISTING_PAGE_CAP;
   const sourceReadComplete = Boolean(
+    stableSourceSnapshot === true
+    &&
     terminationProven
     && sourceRows.altenListingSkippedMalformedRows === 0
     && (sourceRows.length > 0 ? sourceRows.altenListingMarkupSeen : sourceRows.altenListingEmptyStateObserved),
@@ -256,15 +265,18 @@ async function discoverListings() {
   try {
     return await withBrowser(async (page) => {
       await page.goto(CAREERS_URL, { waitUntil: 'domcontentloaded', timeout: 60000 });
-      const ok = await waitForListing(page);
-      if (!ok) throw new Error('ALTEN listing did not become available in browser session');
-      return buildAltenListings(await page.content());
+      const readySnapshot = await waitForListing(page);
+      if (!readySnapshot) throw new Error('ALTEN listing did not become available in browser session');
+      return buildAltenListings(readySnapshot.html, 'browser', {
+        stableSourceSnapshot: readySnapshot.sourceReadComplete === true,
+      });
     });
   } catch (err) {
     // Treat connectivity / challenge errors as a transient unavailability.
     // Return null so main() preserves the existing jobs.json content rather
     // than wiping ALTEN entries on a bad run.
-    const isTransient = /did not become available|net::ERR_|timeout|403/i.test(err.message);
+    const errorMessage = String(err?.message || err);
+    const isTransient = isBrowserExitError(err) || /did not become available|net::ERR_|timeout|403/i.test(errorMessage);
     if (isTransient) {
       console.warn(`⚠️  ALTEN site or listing unavailable: ${err.message}`);
       try {
@@ -334,8 +346,8 @@ async function buildJobsViaAltenEgress(listings) {
       skipped += 1;
     }
   }
-  if (jobs.length === 0 && listings.length > 0) {
-    throw new Error(`Failed to fetch any ALTEN job details via clean egress (${skipped}/${listings.length} skipped)`);
+  if (skipped > 0) {
+    throw new Error(`Failed to fetch complete ALTEN job details via clean egress (${skipped}/${listings.length} skipped)`);
   }
   return jobs;
 }
@@ -397,17 +409,15 @@ async function buildJobs(listings) {
     if (jobs.length === 0 && listings.length === 0) {
       console.log('ℹ️  Nessun annuncio trovato per ALTEN Switzerland — non è un errore, il crawler prosegue.');
     }
-    if (jobs.length === 0 && listings.length > 0) {
-      throw new Error(`Failed to fetch any ALTEN job details (${skipped}/${listings.length} skipped)`);
-    }
     if (skipped > 0) {
-      console.warn(`  ⚠️  Skipped ${skipped}/${listings.length} detail pages due to errors`);
+      throw new Error(`Failed to fetch complete ALTEN job details (${skipped}/${listings.length} skipped)`);
     }
     return jobs;
     });
   } catch (err) {
     const msg = err?.message || String(err);
-    const isTransient = /listing session could not be initialized|did not become available|net::ERR_|timeout|TimeoutError|403/i.test(msg);
+    const isTransient = isBrowserExitError(err)
+      || /listing session could not be initialized|detail batch incomplete|did not become available|net::ERR_|timeout|TimeoutError|403/i.test(msg);
     if (isTransient) {
       console.warn(`⚠️  ALTEN detail session unavailable: ${msg}`);
       try {

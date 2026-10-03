@@ -89,20 +89,55 @@ export function parseAltenListingHtml(html = '') {
   return rows;
 }
 
+function altenListingSnapshotSignature(sourceRows) {
+  return JSON.stringify({
+    rows: sourceRows.map(({ title, href, location, postedDate }) => ({
+      title,
+      href,
+      location,
+      postedDate,
+    })),
+    markupSeen: sourceRows.altenListingMarkupSeen === true,
+    recordCount: sourceRows.altenListingRecordCount || 0,
+    skippedMalformedRows: sourceRows.altenListingSkippedMalformedRows || 0,
+    emptyStateObserved: sourceRows.altenListingEmptyStateObserved === true,
+  });
+}
+
 /**
- * Decide whether the browser has reached an ALTEN listing page. The page title
- * and the localized copy are presentation details, not source identity: the
- * crawler must wait for actual listing evidence (or an explicit empty marker)
- * before treating a page as ready.
+ * Capture the source evidence used to decide whether an ALTEN listing page is
+ * ready. A single parsed card is only an intermediate DOM state; callers must
+ * compare this snapshot with the preceding poll before accepting it.
  */
-export function isAltenListingPageReady({ html = '', title = '', content = '' } = {}) {
+export function getAltenListingSnapshot({ html = '', title = '', content = '' } = {}) {
   const sourceRows = parseAltenListingHtml(html);
-  const pageText = `${title}\n${content}`;
-  const isAltenPage = /alten(?:\s+switzerland)?/i.test(pageText);
-  const hasListingCopy = /\b(?:job offers?|job assignments?|vacancies?|positions?|stellenangebote|offres?)\b/i.test(content);
-  return sourceRows.length > 0
-    || sourceRows.altenListingEmptyStateObserved === true
-    || (isAltenPage && hasListingCopy);
+  return {
+    html,
+    title,
+    content,
+    sourceRows,
+    sourceSignature: altenListingSnapshotSignature(sourceRows),
+    hasSourceEvidence: sourceRows.length > 0 || sourceRows.altenListingEmptyStateObserved === true,
+  };
+}
+
+/**
+ * Decide whether the browser has reached a stable ALTEN listing page. The page
+ * title and localized copy are presentation details, not source identity. A
+ * source snapshot is accepted only after the same evidence was observed by
+ * two consecutive polls, preventing a still-hydrating first card (or empty
+ * marker) from being treated as a terminal listing.
+ */
+export function isAltenListingPageReady({
+  html = '',
+  title = '',
+  content = '',
+  snapshot = null,
+  previousSnapshot = null,
+} = {}) {
+  const currentSnapshot = snapshot || getAltenListingSnapshot({ html, title, content });
+  return currentSnapshot.hasSourceEvidence === true
+    && previousSnapshot?.sourceSignature === currentSnapshot.sourceSignature;
 }
 
 export function parseAltenDetailHtml(html = '', pageUrl = '') {

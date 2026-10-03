@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   parseAltenListingHtml,
+  getAltenListingSnapshot,
   isAltenListingPageReady,
   parseAltenDetailHtml,
   isAltenSwissLocation,
@@ -52,10 +53,47 @@ describe('alten-job-parser', () => {
           </div>
         </main>
       </body></html>`;
-    expect(isAltenListingPageReady({
+    const snapshot = getAltenListingSnapshot({
       html,
       title: 'Careers | ALTEN Switzerland',
       content: '2 Job assignments',
+    });
+    expect(isAltenListingPageReady({ snapshot })).toBe(false);
+    expect(isAltenListingPageReady({ snapshot, previousSnapshot: snapshot })).toBe(true);
+  });
+
+  it('waits for the terminal listing snapshot after hydration adds cards', () => {
+    const firstSnapshot = getAltenListingSnapshot({
+      html: `
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+        </main>`,
+    });
+    const expandedSnapshot = getAltenListingSnapshot({
+      html: `
+        <main class="wp-block-webfactory-card">
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/903-pipe-project-manager-it/">Project Manager</a>
+            <div class="card-location"><span class="location-list">Ticino</span></div>
+          </div>
+          <div class="card-inner offer-item">
+            <a class="card-title" href="/jobs/904-cloud-engineer/">Cloud Engineer</a>
+            <div class="card-location"><span class="location-list">Bern</span></div>
+          </div>
+        </main>`,
+    });
+
+    expect(isAltenListingPageReady({ snapshot: firstSnapshot })).toBe(false);
+    expect(isAltenListingPageReady({
+      snapshot: expandedSnapshot,
+      previousSnapshot: firstSnapshot,
+    })).toBe(false);
+    expect(isAltenListingPageReady({
+      snapshot: expandedSnapshot,
+      previousSnapshot: expandedSnapshot,
     })).toBe(true);
   });
 
