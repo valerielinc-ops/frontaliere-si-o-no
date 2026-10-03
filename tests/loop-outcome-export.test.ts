@@ -20,10 +20,15 @@ import {
   exportL7,
   fetchL5EventSessions,
   GoogleDataClient,
+  L5_DECISION_EVENT_CONTRACT,
+  l5GatedDateRange,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 const ROOT = 'projects/test/databases/(default)/documents';
+// The fixtures use a fixed September window; the gate date is moved before it
+// so these cases exercise the counting, not the transition clamp.
+const L5_GATED_BEFORE_FIXTURES = { ...L5_DECISION_EVENT_CONTRACT, nextActionGateEffectiveFrom: '2026-09-01' };
 const L7_POLICY = JSON.parse(fs.readFileSync(
   path.resolve('data/loop-fleet/loop-registry.json'),
   'utf8',
@@ -150,6 +155,7 @@ describe('read-only loop outcome exporters', () => {
     const output = await exportL5({
       now: NOW,
       days: 8,
+      eventContract: L5_GATED_BEFORE_FIXTURES,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: {
         request: async (url: string, init: RequestInit) => {
@@ -387,6 +393,7 @@ describe('read-only loop outcome exporters', () => {
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
       client: clientFor(1598, 19),
+      eventContract: L5_GATED_BEFORE_FIXTURES,
     });
 
     expect([...calls].sort()).toEqual(['decision_moment_completed', 'decision_moment_next_action']);
@@ -406,7 +413,7 @@ describe('read-only loop outcome exporters', () => {
     // More next-action sessions than completion sessions contradicts the
     // client gate: no outcome file may be written as a measurement.
     const rejectedPath = path.join(outputDir, 'rejected.json');
-    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client: clientFor(1, 2) }))
+    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client: clientFor(1, 2), eventContract: L5_GATED_BEFORE_FIXTURES }))
       .rejects.toThrow('nextUsefulActions greater than eligibleDecisionSessions');
     expect(fs.existsSync(rejectedPath)).toBe(false);
     expect(() => buildL5DecisionMomentExport({
@@ -414,6 +421,52 @@ describe('read-only loop outcome exporters', () => {
       nextUsefulActions: 2,
       generatedAt: NOW,
     })).toThrow('nextUsefulActions greater than eligibleDecisionSessions');
+  });
+
+  it('keeps days before the client gate out of the L5 window', async () => {
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
+    const ranges: Array<{ startDate: string; endDate: string }> = [];
+    const client = {
+      request: async (_url: string, init: RequestInit) => {
+        const body = JSON.parse(String(init.body));
+        ranges.push(body.dateRanges[0]);
+        const completed = body.dimensionFilter.filter.stringFilter.value === 'decision_moment_completed';
+        return { rowCount: 1, rows: [{ metricValues: [{ value: completed ? '700' : '9' }] }] };
+      },
+    };
+    // Settled window 2026-09-03..2026-09-10, gate live from 09-08: the five
+    // ungated days are dropped and the outcome says which window it measured.
+    const straddling = { ...L5_DECISION_EVENT_CONTRACT, nextActionGateEffectiveFrom: '2026-09-08' };
+    const output = await (exportL5 as any)({
+      now: NOW,
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client,
+      eventContract: straddling,
+    });
+    expect(ranges.length).toBeGreaterThan(0);
+    for (const range of ranges) expect(range).toEqual({ startDate: '2026-09-08', endDate: '2026-09-10' });
+    expect(output).toMatchObject({
+      independent: true,
+      telemetryWindow: { startDate: '2026-09-08', endDate: '2026-09-10' },
+      evidence: { eventContract: { nextActionGateEffectiveFrom: '2026-09-08' } },
+      _meta: { telemetryWindow: { startDate: '2026-09-08', endDate: '2026-09-10' } },
+    });
+
+    // The shipped contract: a window that ends before the gate date has no
+    // gated day, so nothing is read and nothing is written as a measurement.
+    const before = ranges.length;
+    const rejectedPath = path.join(outputDir, 'before-gate.json');
+    expect(L5_DECISION_EVENT_CONTRACT.nextActionGateEffectiveFrom > '2026-09-10').toBe(true);
+    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client }))
+      .rejects.toThrow(`L5 next-action gate is effective from ${L5_DECISION_EVENT_CONTRACT.nextActionGateEffectiveFrom}`);
+    expect(ranges.length).toBe(before);
+    expect(fs.existsSync(rejectedPath)).toBe(false);
+
+    const settled = { startDate: '2026-09-03', endDate: '2026-09-10' };
+    expect(l5GatedDateRange(settled, '2026-08-01')).toEqual(settled);
+    expect(l5GatedDateRange(settled, '2026-09-10')).toEqual({ startDate: '2026-09-10', endDate: '2026-09-10' });
+    expect(() => l5GatedDateRange(settled, '2026-09-11')).toThrow('holds no gated day yet');
+    expect(() => l5GatedDateRange(settled, undefined)).toThrow('requires nextActionGateEffectiveFrom');
   });
 
   it('reads an absent L5 event as zero sessions and refuses approximated totals', async () => {

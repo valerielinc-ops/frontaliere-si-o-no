@@ -440,8 +440,6 @@ const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
 const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
 const L5_COMPLETED_GA_SESSION_KEY = 'fr_l5_completed_ga_session_v1';
-let l5CompletedGaSessionId: string | null = null;
-let l5DecisionMomentQueue: Promise<void> = Promise.resolve();
 
 /**
  * Read the current GA4 session instead of treating a browser tab as a GA4
@@ -471,26 +469,6 @@ function readGa4SessionId(): Promise<string | null> {
    finish(null);
   }
  });
-}
-
-/** Remember which GA4 session holds an L5 completion (tab storage + memory). */
-function rememberL5Completion(gaSessionId: string): void {
- l5CompletedGaSessionId = gaSessionId;
- try {
-  sessionStorage.setItem(L5_COMPLETED_GA_SESSION_KEY, gaSessionId);
- } catch {
-  // Private browsing or blocked storage: the module value still covers the
-  // current page lifetime.
- }
-}
-
-function readL5CompletedGaSessionId(): string | null {
- if (l5CompletedGaSessionId) return l5CompletedGaSessionId;
- try {
-  return sessionStorage.getItem(L5_COMPLETED_GA_SESSION_KEY);
- } catch {
-  return null;
- }
 }
 
 function claimL2UsefulAction(): boolean {
@@ -554,6 +532,14 @@ export function shouldSendDecisionMomentToGa4(
  return Boolean(gaSessionId) && completedGaSessionId === gaSessionId;
 }
 
+export interface DecisionMomentEmitterDeps {
+ readGaSessionId: () => Promise<string | null>;
+ sendGa4: (eventName: string, params: Record<string, any>) => void;
+ sendPostHog: (eventName: string, params: Record<string, any>) => void;
+ /** Tab storage for the completed GA4 session; may throw or be missing. */
+ storage: () => Pick<Storage, 'getItem' | 'setItem'> | null | undefined;
+}
+
 /**
  * Single emission point of the two L5 events. GA4 receives a next action only
  * when the same GA4 session already holds a completion, so the sessions with a
@@ -562,19 +548,56 @@ export function shouldSendDecisionMomentToGa4(
  * needs neither a join nor a custom dimension. An unknown GA4 session is
  * fail-closed. PostHog keeps the ungated historical stream. Calls are
  * serialised so a next action clicked right after a completion sees it.
+ *
+ * The completed session is remembered in memory and in tab storage, so it
+ * survives a full-page navigation in the same tab. A completion in one tab
+ * followed by a next action in another tab of the same GA4 session is dropped:
+ * an undercount, in the fail-closed direction.
  */
-const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> => {
- const emit = async () => {
-  const enrichedParams = enrichEventParams(eventName, params);
-  posthogCapture(eventName, enrichedParams);
-  const gaSessionId = await readGa4SessionId();
-  if (eventName === DECISION_MOMENT_COMPLETED_EVENT && gaSessionId) rememberL5Completion(gaSessionId);
-  if (!shouldSendDecisionMomentToGa4(eventName, gaSessionId, readL5CompletedGaSessionId())) return;
-  logFirebaseOnly(eventName, enrichedParams);
+export function createDecisionMomentEmitter(deps: DecisionMomentEmitterDeps) {
+ let completedGaSessionId: string | null = null;
+ let queue: Promise<void> = Promise.resolve();
+
+ const remember = (gaSessionId: string): void => {
+  completedGaSessionId = gaSessionId;
+  try {
+   deps.storage()?.setItem(L5_COMPLETED_GA_SESSION_KEY, gaSessionId);
+  } catch {
+   // Private browsing or blocked storage: the closure value still covers the
+   // current page lifetime.
+  }
  };
- l5DecisionMomentQueue = l5DecisionMomentQueue.then(emit).catch(() => undefined);
- return l5DecisionMomentQueue;
-};
+ const readCompleted = (): string | null => {
+  if (completedGaSessionId) return completedGaSessionId;
+  try {
+   return deps.storage()?.getItem(L5_COMPLETED_GA_SESSION_KEY) ?? null;
+  } catch {
+   return null;
+  }
+ };
+
+ return (eventName: string, params: Record<string, any>): Promise<void> => {
+  const emit = async () => {
+   deps.sendPostHog(eventName, params);
+   const gaSessionId = await deps.readGaSessionId();
+   if (eventName === DECISION_MOMENT_COMPLETED_EVENT && gaSessionId) remember(gaSessionId);
+   if (!shouldSendDecisionMomentToGa4(eventName, gaSessionId, readCompleted())) return;
+   deps.sendGa4(eventName, params);
+  };
+  queue = queue.then(emit).catch(() => undefined);
+  return queue;
+ };
+}
+
+const emitDecisionMoment = createDecisionMomentEmitter({
+ readGaSessionId: readGa4SessionId,
+ sendGa4: (eventName, params) => logFirebaseOnly(eventName, params),
+ sendPostHog: (eventName, params) => posthogCapture(eventName, params),
+ storage: () => (typeof sessionStorage === 'undefined' ? null : sessionStorage),
+});
+
+const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
+ emitDecisionMoment(eventName, enrichEventParams(eventName, params));
 
 const setProps = (properties: Record<string, string>) => {
  if (_firebaseReady) {

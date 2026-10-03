@@ -219,10 +219,93 @@ describe('analytics.ts — L5 decision-moment contract', () => {
     expect(shouldSendDecisionMomentToGa4(next, null, null)).toBe(false);
   });
 
-  it('routes both L5 events through the one gated emission point', () => {
-    const emitter = analyticsSrc.match(/const logDecisionMoment = [\s\S]*?\n\};/)?.[0] ?? '';
-    expect(emitter).toMatch(/if \(!shouldSendDecisionMomentToGa4\([^)]*\)\)\) return;\s*logFirebaseOnly\(eventName, enrichedParams\);/);
-    expect(emitter.match(/logFirebaseOnly\(/g)).toHaveLength(1);
+  it('gates the next action on a remembered completion of the same GA4 session', async () => {
+    const { createDecisionMomentEmitter } = await vi.importActual<typeof import('../services/analytics')>('../services/analytics');
+    const completed = 'decision_moment_completed';
+    const next = 'decision_moment_next_action';
+    const tabStorage = (initial: Record<string, string> = {}) => {
+      const values = new Map(Object.entries(initial));
+      return {
+        values,
+        getItem: (key: string) => values.get(key) ?? null,
+        setItem: (key: string, value: string) => { values.set(key, value); },
+      };
+    };
+    const harness = (options: { session?: string | null; storage?: ReturnType<typeof tabStorage> | 'throws' } = {}) => {
+      const state = { session: options.session === undefined ? 'ga-1' : options.session };
+      const ga4: string[] = [];
+      const postHog: string[] = [];
+      const storage = options.storage ?? tabStorage();
+      const emit = createDecisionMomentEmitter({
+        // The real reader answers asynchronously (gtag callback or timeout).
+        readGaSessionId: () => new Promise((done) => setTimeout(() => done(state.session), 1)),
+        sendGa4: (eventName) => { ga4.push(eventName); },
+        sendPostHog: (eventName) => { postHog.push(eventName); },
+        storage: () => {
+          if (storage === 'throws') throw new Error('storage blocked');
+          return storage;
+        },
+      });
+      return { emit, ga4, postHog, state, storage };
+    };
+
+    // (a) A next action without a completion: PostHog keeps it, GA4 never sees it.
+    const alone = harness();
+    await alone.emit(next, {});
+    expect(alone.postHog).toEqual([next]);
+    expect(alone.ga4).toEqual([]);
+
+    // (b) Completion then next action in the same GA4 session: both reach GA4.
+    const same = harness();
+    await same.emit(completed, {});
+    await same.emit(next, {});
+    expect(same.ga4).toEqual([completed, next]);
+    expect(same.postHog).toEqual([completed, next]);
+
+    // (c) The GA4 session rolled between the two: the next action is dropped.
+    const rolled = harness();
+    await rolled.emit(completed, {});
+    rolled.state.session = 'ga-2';
+    await rolled.emit(next, {});
+    expect(rolled.ga4).toEqual([completed]);
+    expect(rolled.postHog).toEqual([completed, next]);
+
+    // (d) Unknown session at completion: nothing is remembered, so a later
+    // next action is dropped even once the session id becomes readable.
+    const unknown = harness({ session: null });
+    await unknown.emit(completed, {});
+    expect(unknown.ga4).toEqual([completed]);
+    expect((unknown.storage as ReturnType<typeof tabStorage>).values.size).toBe(0);
+    unknown.state.session = 'ga-1';
+    await unknown.emit(next, {});
+    expect(unknown.ga4).toEqual([completed]);
+
+    // (e) A next action fired right after the completion, without awaiting it,
+    // still sees the completion: the calls are serialised.
+    const burst = harness();
+    void burst.emit(completed, {});
+    await burst.emit(next, {});
+    expect(burst.ga4).toEqual([completed, next]);
+
+    // (f) Full-page navigation: a fresh emitter finds the marker in tab storage.
+    const first = harness();
+    await first.emit(completed, {});
+    const reloaded = harness({ storage: first.storage as ReturnType<typeof tabStorage> });
+    await reloaded.emit(next, {});
+    expect(reloaded.ga4).toEqual([next]);
+    // ... and a marker left by an older GA4 session does not open the gate.
+    const stale = harness({ session: 'ga-2', storage: first.storage as ReturnType<typeof tabStorage> });
+    await stale.emit(next, {});
+    expect(stale.ga4).toEqual([]);
+
+    // Blocked storage degrades to the in-memory value instead of throwing.
+    const blocked = harness({ storage: 'throws' });
+    await blocked.emit(completed, {});
+    await blocked.emit(next, {});
+    expect(blocked.ga4).toEqual([completed, next]);
+  });
+
+  it('routes both L5 events through the one emission point', () => {
     for (const eventConstant of ['DECISION_MOMENT_COMPLETED_EVENT', 'DECISION_MOMENT_NEXT_ACTION_EVENT']) {
       const emissions = analyticsSrc.match(new RegExp(`\\w+\\(${eventConstant},`, 'g')) ?? [];
       expect(emissions).toEqual([`logDecisionMoment(${eventConstant},`]);

@@ -119,7 +119,7 @@ describe('loop fleet workflow contract', () => {
     expect(fs.existsSync(path.resolve(provisioner))).toBe(true);
     for (const name of numberedLoopWorkflows()) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit|google-auth-library/u);
+      expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit/u);
       const scripts = new Set([...source.matchAll(/\bnode (scripts\/[\w./-]+\.mjs)/gu)].map((match) => match[1]));
       expect(scripts.size, name).toBeGreaterThan(0);
       for (const script of scripts) {

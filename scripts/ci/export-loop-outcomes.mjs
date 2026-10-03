@@ -40,6 +40,12 @@ export const DEFAULT_L9_WINDOW_HOURS = 240;
  * native `sessions` metric per event name is the whole measurement. A
  * session-key dimension would need one of the property's 50 EVENT-scoped
  * slots, which a monitor must never depend on.
+ *
+ * `nextActionGateEffectiveFrom` is the first GA4 calendar date on which the
+ * gate is the only producer of next-action events. Earlier days hold events
+ * sent without the gate (and bundles cached at the edge keep sending them for
+ * a while after the deploy), so they are not a subset measurement and never
+ * enter the window: the export starts at this date or stays unavailable.
  */
 export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionEvent: 'decision_moment_completed',
@@ -49,6 +55,7 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
   nextActionGate: 'emitted only after a completion in the same GA4 session',
+  nextActionGateEffectiveFrom: '2026-10-05',
   sessionMetric: 'sessions',
   source: 'GA4 Data API',
 });
@@ -460,26 +467,49 @@ export function buildL5DecisionMomentExport({
   };
 }
 
+/**
+ * Clamp the settled L5 window to the days on which the client gate was live.
+ * A window that ends before the gate has no gated day at all: that is not a
+ * measurement, so the caller records the outcome as unavailable.
+ */
+export function l5GatedDateRange(range, effectiveFrom) {
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(String(effectiveFrom ?? ''))) {
+    throw new Error('L5 event contract requires nextActionGateEffectiveFrom as YYYY-MM-DD');
+  }
+  if (effectiveFrom > range.endDate) {
+    throw new Error(
+      `L5 next-action gate is effective from ${effectiveFrom}: the settled window ends ${range.endDate} and holds no gated day yet`,
+    );
+  }
+  return {
+    startDate: effectiveFrom > range.startDate ? effectiveFrom : range.startDate,
+    endDate: range.endDate,
+  };
+}
+
 export async function exportL5({
   outputPath,
   now = new Date(),
   days = DEFAULT_L5_WINDOW_DAYS,
   propertyId = null,
   client = null,
+  eventContract = L5_DECISION_EVENT_CONTRACT,
 } = {}) {
+  const range = l5GatedDateRange(ga4DateRange(Number(days), 2, now), eventContract.nextActionGateEffectiveFrom);
   const analytics = client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
-  const range = ga4DateRange(Number(days), 2, now);
   const counts = await fetchL5DecisionMomentCounts({
     client: analytics,
     startDate: range.startDate,
     endDate: range.endDate,
     propertyId,
+    eventContract,
   });
   const outcome = buildL5DecisionMomentExport({
     eligibleDecisionSessions: counts.eligibleDecisionSessions,
     nextUsefulActions: counts.nextUsefulActions,
     generatedAt: now,
     telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
+    eventContract,
   });
   writeJsonFile(outputPath, outcome);
   return outcome;
