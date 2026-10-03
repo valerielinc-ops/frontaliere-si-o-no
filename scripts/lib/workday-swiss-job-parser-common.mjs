@@ -25,7 +25,10 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
 import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
-import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -600,7 +603,10 @@ export function createWorkdaySwissParser(config) {
         // The unfiltered retry is the last transport attempt. Preserve the
         // cause on the empty array so the standard pipeline records an
         // anti-bot failure rather than treating it as a legitimate zero.
-        out.fetchOutcome = 'anti_bot_block';
+        Object.defineProperty(out, 'fetchOutcome', {
+          value: 'anti_bot_block',
+          enumerable: false,
+        });
         return out;
       }
       throw err;
@@ -919,7 +925,18 @@ export function createWorkdaySwissParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
-    jobs.missingDetailUrlCount = missingDetailUrlCount;
+    Object.defineProperty(jobs, 'missingDetailUrlCount', {
+      value: missingDetailUrlCount,
+      enumerable: false,
+    });
+    // A facet-empty response can be a stale/unsupported filter rather than a
+    // proof on its own. Once the unfiltered retry has gone through the strict
+    // Swiss gate, the same live-board summary proof is valid when that retry
+    // produces no Swiss jobs. Preserve an unproven result as a bare batch.
+    if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
+      const proven = await proveSwissAbsentEmpty(true, facetStats);
+      if (isAuthoritativeEmptySnapshot(proven)) return proven;
+    }
     // Source-proven zero: the facet-scoped board was observed whole (the
     // iterator yielded exactly the `total` page 0 announced and no page failed
     // — a short page alone is not proof, a tenant can cut a page short while
