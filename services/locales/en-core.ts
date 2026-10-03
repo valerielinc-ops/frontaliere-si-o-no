@@ -875,6 +875,8 @@ const enCore: Record<string, string> = {
  'jobBoard.assisted.review.waiting.owner_review': "The application is in its final check: you will soon get the email to approve it.",
  'jobBoard.assisted.review.waiting.submitting': "You approved it: your application is in the sending queue and goes out within a few minutes. You can close this page; I will write to you as soon as it has gone out.",
  'jobBoard.assisted.review.submitted': "Your application has been sent. Good luck!",
+ 'jobBoard.assisted.review.submittedWhatsapp': "For this job the company takes applications only on WhatsApp: I have sent you the link and the steps by email. Open the link on your phone, send the prepared message and answer the assistant’s questions in the chat. Good luck!",
+ 'jobBoard.assisted.review.openWhatsapp': "Open the application on WhatsApp",
  'jobBoard.assisted.review.takeover': "Valerie is following your application personally: she will write to you shortly.",
  'jobBoard.assisted.review.heldByQuestions': "Some answers are needed before sending (fields with *). Until they are given, the application does not go out.",
  'jobBoard.assisted.review.heldByDocuments': "Some documents the posting asks for are missing before sending: upload them below, or choose to send without them. Until then, the application does not go out.",
