@@ -1611,6 +1611,7 @@ const translations: Record<string, string> = {
  'jobs.compare': 'Confronta',
 
  // --- Shopping Calculator ---
+ 'strumenti.payslip': 'Busta Paga',
  'comparators.ral': 'RAL Netta',
  'ral.title': 'Calcolatore RAL Netta: Italia vs Svizzera',
  'ral.subtitle': 'Confronta lo stipendio netto a parità di lordo tra Italia e Svizzera',
