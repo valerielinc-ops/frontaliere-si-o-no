@@ -323,6 +323,23 @@ jobs:
             fi
           done 9< /tmp/health-issues.tsv
 
+      - name: Close failure issues of retired crawlers
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # `Crawler Failure: Run <slug>` and `[parser-health] <slug>:` of a
+          # crawler in `retired` (data/crawler-quarantine.json): the central
+          # closer cannot judge them (no `Run <slug>` step left in the roster)
+          # and keeps them open forever. Closed as not planned only with
+          # evidence (open tracker, or a retirement reason written by hand),
+          # through resolveGithubIssue — i.e. scripts/lib/github-issue-creator.mjs
+          # --resolve --reason not_planned. `[crawler-health]` is left to the
+          # step above.
+          node scripts/ci/close-retired-crawler-issues.mjs
+
       - name: Fail if any crawler stale
         id: failgate
         if: steps.health.outcome == 'failure'
