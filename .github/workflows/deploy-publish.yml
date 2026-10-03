@@ -527,13 +527,15 @@ jobs:
   # Pages publish to have happened → gated on deploy.
   # ───────────────────────────────────────────────────────────────────────
   validate-live:
-    needs: deploy
-    if: ${{ !cancelled() && needs.deploy.result == 'success' }}
+    needs: [resolve-publish-plan, deploy]
+    if: ${{ !cancelled() && needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.deploy.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
       deploy_event_name: ${{ github.event.workflow_run.event }}
       deploy_ref: ${{ github.event.workflow_run.head_sha }}
+      healthy_locales: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
+      stale_locales: ${{ needs.resolve-publish-plan.outputs.stale_locales }}
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)

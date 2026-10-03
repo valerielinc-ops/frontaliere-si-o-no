@@ -8,6 +8,10 @@ import {
   validateLocalePublishProvenance,
 } from '../scripts/ci/locale-publish-provenance.mjs';
 import { resolveLocalePublishPlan } from '../scripts/ci/resolve-locale-publish-plan.mjs';
+import {
+  localeHomeUrl,
+  validateLocaleHomes,
+} from '../scripts/ci/validate-locale-publish-live.mjs';
 
 const SOURCE_RUN_ID = '36850086638';
 const SOURCE_SHA = 'a'.repeat(40);
@@ -213,8 +217,43 @@ describe('locale publish workflow wiring', () => {
     expect(String(deployJob.if)).toContain("contains(fromJSON(needs.resolve-publish-plan.outputs.healthy_locales), 'it')");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
     expect(validateDist.needs).toBe('resolve-publish-plan');
+    expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'deploy']);
+    expect(publish.jobs['validate-live'].with.healthy_locales).toContain('healthy_locales');
     const recheck = (deployJob.steps as Array<Record<string, any>>)
       .find((step) => step.name === 'Enforce IT provenance identity');
     expect(String(recheck?.run)).toContain('--validate-dir');
+  });
+});
+
+describe('locale live smoke observer', () => {
+  it('uses the canonical trailing-slash home for IT and each shard locale', () => {
+    expect(localeHomeUrl('https://frontaliereticino.ch/', 'it')).toBe('https://frontaliereticino.ch/');
+    expect(localeHomeUrl('https://frontaliereticino.ch/', 'en')).toBe('https://frontaliereticino.ch/en/');
+  });
+
+  it('checks healthy publishes and declared stale fallbacks together', async () => {
+    const calls: string[] = [];
+    const verdict = await validateLocaleHomes({
+      baseUrl: 'https://example.test',
+      healthyLocales: ['it', 'de'],
+      staleLocales: ['en'],
+      attempts: 1,
+      intervalMs: 0,
+      fetchImpl: async (url) => {
+        calls.push(url);
+        return { status: 200 } as Response;
+      },
+    });
+    expect(verdict.ok).toBe(true);
+    expect(verdict.entries.map((entry) => [entry.locale, entry.classification])).toEqual([
+      ['it', 'healthy-publish'],
+      ['de', 'healthy-publish'],
+      ['en', 'stale-fallback'],
+    ]);
+    expect(calls).toEqual([
+      'https://example.test/',
+      'https://example.test/de/',
+      'https://example.test/en/',
+    ]);
   });
 });

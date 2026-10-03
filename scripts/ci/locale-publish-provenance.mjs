@@ -189,6 +189,12 @@ export function validateLocalePublishProvenance(manifest, {
   }
   if (manifest.cdnStatus !== 'coherent') pushError(errors, `cdnStatus is ${JSON.stringify(manifest.cdnStatus)}`);
   if (manifest.cdnBuildId !== manifest.buildId) pushError(errors, 'cdnBuildId differs from buildId');
+  const expectedArtifact = manifest.locale === 'it'
+    ? 'github-pages'
+    : `locale-dist-${manifest.locale}-${text(manifest.sourceRunId)}`;
+  if (manifest.artifactName !== expectedArtifact) {
+    pushError(errors, `artifactName ${JSON.stringify(manifest.artifactName)} does not match ${JSON.stringify(expectedArtifact)}`);
+  }
   if (manifest.payloadStatus !== 'complete') pushError(errors, `payloadStatus is ${JSON.stringify(manifest.payloadStatus)}`);
   if (requirePublished && (manifest.published !== true || manifest.publishStatus !== 'published')) {
     pushError(errors, 'manifest is not marked published');
