@@ -18,6 +18,7 @@ describe('protected data refreshes publish through pull requests', () => {
     '.github/workflows/telegram-channel-broadcast.yml',
     '.github/workflows/update-exchange-history.yml',
     '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cwv-monitor.yml',
     '.github/workflows/cron-dispatch-canary.yml',
     '.github/workflows/update-weather.yml',
     '.github/workflows/crawl-events.yml',
@@ -209,6 +210,7 @@ describe('protected data refreshes publish through pull requests', () => {
 
   it.each([
     '.github/workflows/cf-5xx-monitor.yml',
+    '.github/workflows/cwv-monitor.yml',
     '.github/workflows/cron-dispatch-canary.yml',
     '.github/workflows/telegram-channel-broadcast.yml',
     '.github/workflows/update-exchange-history.yml',
@@ -228,6 +230,33 @@ describe('protected data refreshes publish through pull requests', () => {
     );
     expect(workflow).toContain('scripts/lib/open-data-refresh-pr.sh');
     expect(workflow).toContain('--branch chore/telegram-member-count-history');
+  });
+
+  it('publishes the weekly CWV snapshot through its stable PR branch', () => {
+    const workflow = read('.github/workflows/cwv-monitor.yml');
+    const carry = workflow.indexOf('- name: Carry forward pending CWV snapshot PR');
+    const measure = workflow.indexOf('node scripts/cwv-monitor-check.mjs');
+    const publish = workflow.indexOf('- name: Open PR with snapshot');
+
+    expect(workflow).toContain('persist-credentials: false');
+    expect(workflow).toContain('--path data/cwv-monitor-history.json');
+    expect(workflow).toContain('--branch chore/cwv-monitor-history');
+    // The monitor reruns PostHog queries; the stable branch makes a per-retry
+    // regeneration unnecessary, and the helper has no such option.
+    expect(workflow).not.toContain('--regenerate-cmd');
+    // Two consecutive recorded weeks coin a regression. A snapshot PR still
+    // open at the next run must reach both the monitor and the publisher,
+    // whose same-file rule otherwise keeps only the newest JSON snapshot.
+    expect(carry).toBeGreaterThan(-1);
+    expect(measure).toBeGreaterThan(carry);
+    expect(publish).toBeGreaterThan(measure);
+    expect(workflow).toContain(
+      'git restore --source="refs/remotes/origin/${branch}" -- "$history_path"',
+    );
+    expect(workflow).toContain('git ls-remote "$remote_url" "refs/heads/${branch}"');
+    expect(workflow.slice(publish)).toContain(
+      "if: always() && steps.measure.outcome != 'cancelled'",
+    );
   });
 
   it('fails closed when the crawler cannot authenticate its stable refresh branch probe', () => {
