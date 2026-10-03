@@ -17,6 +17,10 @@ import {
   GA4_READONLY_SCOPE,
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
+import {
+  L5_DECISION_SESSION_DIMENSION_API_NAME,
+  L5_DECISION_SESSION_PARAMETER,
+} from '../lib/ga4-l5-decision-dimension.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
@@ -40,8 +44,8 @@ export const L5_DECISION_EVENT_CONTRACT = Object.freeze({
   completionTaskProperty: 'task_id',
   nextActionSurfaceProperty: 'decision_surface',
   nextActionIdProperty: 'action_id',
-  sessionKeyProperty: 'decision_session_id',
-  sessionDimension: 'customEvent:decision_session_id',
+  sessionKeyProperty: L5_DECISION_SESSION_PARAMETER,
+  sessionDimension: L5_DECISION_SESSION_DIMENSION_API_NAME,
   gaSessionDimension: 'gaSessionId',
   sessionMetric: 'sessions',
   source: 'GA4 Data API',
