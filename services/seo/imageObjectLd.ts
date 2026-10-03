@@ -86,10 +86,11 @@ export function isOrganizationCreatorType(value: unknown): boolean {
   return types.some((type) => type === 'Organization' || type === 'NewsMediaOrganization');
 }
 
-export function isSiteOrganizationCreator(value: { '@type'?: unknown; name?: unknown; url?: unknown }): boolean {
+export function isSiteOrganizationCreator(value: { '@type'?: unknown; '@id'?: unknown; name?: unknown; url?: unknown }): boolean {
   return isOrganizationCreatorType(value['@type'])
-    && value.name === SITE_ORG.name
-    && (value.url === undefined || value.url === SITE_ORG.url || value.url === SITE_ORG.url.replace(/\/$/, ''));
+    && (value['@id'] === SITE_ORGANIZATION_ID
+      || (value.name === SITE_ORG.name
+        && (value.url === SITE_ORG.url || value.url === SITE_ORG.url.replace(/\/$/, ''))));
 }
 
 export interface ImageObjectInput {
