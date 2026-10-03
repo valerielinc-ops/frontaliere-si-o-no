@@ -197,10 +197,20 @@ function slugify(text = '', suffix = '') {
 }
 
 
-async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}) {
+/**
+ * Inline title translation for a USI posting. With SKIP_AI_TRANSLATION=1 (the
+ * orchestrated crawl) no local-pipeline or free-tier call is made and '' comes
+ * back: the caller tries the deterministic rescue rules, then leaves the slot
+ * empty with `needsRetranslation` for translate-pending, like every crawler of
+ * the group (owner decision 2026-10-03; sbb since 2026-10-02).
+ */
+export async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}, {
+  skipAiTranslation = process.env.SKIP_AI_TRANSLATION === '1',
+} = {}) {
   const source = String(text || '').trim();
   if (!source || !hasUsableTitle(source)) return '';
   if (sourceLang === targetLang) return source;
+  if (skipAiTranslation) return '';
 
   const local = await translateTextWithLocalPipeline({
     text: source,
