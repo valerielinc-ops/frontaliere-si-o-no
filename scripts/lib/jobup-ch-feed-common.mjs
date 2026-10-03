@@ -29,6 +29,7 @@
  *   - Pôle Santé Pays-d'Enhaut, Château-d'Oex (key `hpe`)
  *   - Étab. Hospitaliers Nord Vaudois, Yverdon (key `ehnv`)
  */
+import { sourcePostingDateFields } from './source-posting-date.mjs';
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify } from './crawler-template.mjs';
@@ -378,7 +379,7 @@ function detectExperienceLevel(title = '', contrat = '') {
  * `JobPosting` schema with `description` (HTML) — far richer than the feed's
  * `ref` category text.
  */
-export async function fetchJobupDetailDescription(detailUrl) {
+export async function fetchJobupDetailDescription(detailUrl, { includePostingDate = false } = {}) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -421,7 +422,10 @@ export async function fetchJobupDetailDescription(detailUrl) {
               .replace(/<li[^>]*>/gi, '\n• ')
               .replace(/<\/(p|div|li|h[1-6])>/gi, '\n')
               .replace(/<[^>]+>/g, ' ');
-            return decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
+            const description = decodeEntities(text).replace(/\n{3,}/g, '\n\n').replace(/ {2,}/g, ' ').trim();
+            return includePostingDate
+              ? { description, rawPostedDate: typeof item.datePosted === 'string' ? item.datePosted : '' }
+              : description;
           }
         }
       } catch {
@@ -449,6 +453,7 @@ export async function fetchJobupDetailDescription(detailUrl) {
  * @param {string} config.defaultPostalCode  Legacy config; never used as a location fallback
  * @param {string} [config.publicCareerUrl]  Corporate career page URL
  * @param {string} [config.defaultSourceLang='fr']
+ * @param {boolean} [config.publicationDateFromDetail=false] Use only the observed JobPosting publication date.
  */
 export function createJobupChFeedParser(config) {
   const {
@@ -459,6 +464,7 @@ export function createJobupChFeedParser(config) {
     defaultCanton,
     publicCareerUrl,
     defaultSourceLang = 'fr',
+    publicationDateFromDetail = false,
   } = config;
 
   if (!companyKey || !companyName || !jobupKey || !defaultCanton) {
@@ -569,7 +575,8 @@ export function createJobupChFeedParser(config) {
       const postalCode = lieu.postal;
 
       // Fetch detail page for rich description (JSON-LD JobPosting)
-      const detailDescription = await fetchJobupDetailDescription(link);
+      const detail = await fetchJobupDetailDescription(link, { includePostingDate: publicationDateFromDetail });
+      const detailDescription = typeof detail === 'string' ? detail : detail.description;
       await new Promise((r) => setTimeout(r, 250));
       if (!hasPublishableJobupDetail(detailDescription)) {
         console.log(`     ⚠ detail content rejected for ${link}: missing or thin source description`);
@@ -582,7 +589,9 @@ export function createJobupChFeedParser(config) {
       const sourceLang = detectLang(description || title, defaultSourceLang);
       const jobSlug = slugify(`${title} ${companyKey} ${location}`);
       const urlHash = createHash('sha1').update(link).digest('hex').slice(0, 12);
-      const postedDate = parseJobupDate(raw?.puddate || '') || todayIso;
+      const postingFields = publicationDateFromDetail
+        ? sourcePostingDateFields(typeof detail === 'object' ? detail.rawPostedDate : '')
+        : { postedDate: parseJobupDate(raw?.puddate || '') || todayIso };
 
       jobs.push({
         id: `${companyKey}-${urlHash}`,
@@ -622,7 +631,7 @@ export function createJobupChFeedParser(config) {
         sector: 'Sanità / Ospedali',
         currency: 'CHF',
         featured: false,
-        postedDate,
+        ...postingFields,
         applyUrl: link,
         requirements: [],
         requirementsByLocale: { [sourceLang]: [] },
