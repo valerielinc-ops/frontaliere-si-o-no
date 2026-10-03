@@ -685,14 +685,14 @@
       case 'date':
         return chooseDate(element, answer.value);
       case 'ui5-date': {
-        // Typed into its own input in the pattern it states, then confirmed as Enter does.
+        // Typed into its own input in the pattern it states, then committed by its input and change events.
         const inner = element.shadowRoot?.querySelector('input');
         const date = parseDate(answer.value);
         if (!inner || !date) return false;
         const pattern = /dd/.test(entry.pattern) && /MM/.test(entry.pattern) && /yyyy/.test(entry.pattern) ? entry.pattern : 'dd.MM.yyyy';
         const text = pattern.replace('yyyy', String(date.year)).replace('MM', String(date.month).padStart(2, '0')).replace('dd', String(date.day).padStart(2, '0'));
+        // setValue raises its input and change: no Enter, which submits SuccessFactors' form.
         setValue(inner, text);
-        fire(inner, 'keydown', { key: 'Enter' });
         await sleep(config.stepMs);
         return String(element.value || '') === text;
       }
