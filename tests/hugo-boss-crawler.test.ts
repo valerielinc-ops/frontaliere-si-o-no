@@ -7,6 +7,7 @@
 import { describe, it, expect, vi } from 'vitest';
 
 import { fetchJobs } from '../scripts/update-hugo-boss-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 import {
   assertHugoBossNationalReadComplete,
@@ -212,7 +213,7 @@ describe('fetchJobs national pagination', () => {
     const pages = new Map([
       ['0', makeSearchPage(4, [
         makeSwissJob('valid-1'),
-        { jobId: 'dropped-1', reqId: 'dropped-1' },
+        { jobId: 'dropped-1', reqId: 'dropped-1', title: 'Germany job', city: 'Frankfurt', country: 'Germany' },
       ])],
       ['2', makeSearchPage(4, [
         makeSwissJob('valid-2'),
@@ -247,8 +248,49 @@ describe('fetchJobs national pagination', () => {
   it('accepts a valid empty Phenom DDO/data envelope as a proven termination', async () => {
     const fetchHtml = vi.fn(async () => makeSearchPage(0, []));
 
-    await expect(fetchJobs({ fetchHtml })).resolves.toEqual([]);
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: true,
+      coverage: 'complete',
+      discovered: 0,
+      published: 0,
+      targetMatches: 0,
+      authoritativeEmptySnapshot: true,
+    });
     expect(fetchHtml).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails closed when a non-empty DDO row is silently dropped by the parser', async () => {
+    const fetchHtml = vi.fn(async () => makeSearchPage(1, [{
+      jobId: 'title-drift',
+      reqId: 'title-drift',
+      city: 'Zürich',
+      country: 'Switzerland',
+    }]));
+
+    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/lost records.*field drift/i);
+  });
+
+  it('does not mark a duplicate-page zero as authoritative', async () => {
+    const repeatedPage = makeSearchPage(4, [
+      { ...makeSwissJob('foreign-1'), city: 'Frankfurt', state: 'Hessen', cityStateCountry: 'Frankfurt, Hessen, Germany', country: 'Germany' },
+      { ...makeSwissJob('foreign-2'), city: 'Munich', state: 'Bavaria', cityStateCountry: 'Munich, Bavaria, Germany', country: 'Germany' },
+    ]);
+    const fetchHtml = vi.fn(async () => repeatedPage);
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: false,
+      coverage: 'max-observed',
+      targetMatches: 0,
+      authoritativeEmptySnapshot: false,
+    });
   });
 
   it('publishes the maximum observed snapshot when Phenom repeats a page after bounded retries', async () => {

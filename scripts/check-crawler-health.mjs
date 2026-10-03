@@ -391,8 +391,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
   // (same defunct AITI e-recruiting platform migration as imerys).
   'helsinn',
-  // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
-  'hugo-boss',
   // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
   // source (the SmartRecruiters company no longer exists) while its Workday
   // board listed 3 Swiss reqs. It now proves its own zero every run
