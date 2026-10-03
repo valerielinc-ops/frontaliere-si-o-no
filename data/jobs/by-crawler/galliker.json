@@ -1,6 +1,6 @@
 {
   "crawlerKey": "galliker",
-  "assembledAt": "2026-10-02T21:12:17.832Z",
+  "assembledAt": "2026-10-03T09:11:19.122Z",
   "jobs": [
     {
       "id": "galliker-20c96e31a974",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/878019/0470/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:12.617Z",
+      "crawledAt": "2026-10-03T09:11:12.761Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -68,7 +68,8 @@
       "firstSeenAt": "2026-10-01T09:14:03.236Z",
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-a-galliker-altishofen"
+          "teamleiter-a-galliker-altishofen",
+          "team-leader-a-galliker-transport-ag-altishofen"
         ],
         "fr": [
           "teamleiter-a-galliker-altishofen"
@@ -78,8 +79,10 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-a-galliker-altishofen"
-      ]
+        "teamleiter-a-galliker-altishofen",
+        "team-leader-a-galliker-transport-ag-altishofen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "galliker-0c9cf35eeb73",
@@ -113,7 +116,7 @@
       "url": "https://apply.refline.ch/878019/0469/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:12.246Z",
+      "crawledAt": "2026-10-03T09:11:12.391Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -148,7 +151,8 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-baumaler-galliker-altishofen"
+          "teamleiter-baumaler-galliker-altishofen",
+          "capo-squadra-baumaler-galliker-transport-ag-altishofen"
         ],
         "en": [
           "teamleiter-baumaler-galliker-altishofen"
@@ -158,7 +162,8 @@
         ]
       },
       "previousSlugs": [
-        "teamleiter-baumaler-galliker-altishofen"
+        "teamleiter-baumaler-galliker-altishofen",
+        "capo-squadra-baumaler-galliker-transport-ag-altishofen"
       ]
     },
     {
@@ -193,7 +198,7 @@
       "url": "https://apply.refline.ch/878019/0468/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:11.875Z",
+      "crawledAt": "2026-10-03T09:11:12.019Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -259,7 +264,7 @@
       "url": "https://apply.refline.ch/878019/0178/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:11.507Z",
+      "crawledAt": "2026-10-03T09:11:11.649Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -280,12 +285,14 @@
       "externalId": "0178",
       "previousSlugs": [
         "strassentransport-disponent-m-w-d-100-pfungen-galliker-pfungen",
-        "strassentransport-disponent-m-w-d-100-pfungen-galliker-transport-ag-pfungen"
+        "strassentransport-disponent-m-w-d-100-pfungen-galliker-transport-ag-pfungen",
+        "trasporto-stradale-scheduling-m-f-d-100-pick-galliker-transport-ag-pfungen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "strassentransport-disponent-m-w-d-100-pfungen-galliker-pfungen",
-          "strassentransport-disponent-m-w-d-100-pfungen-galliker-transport-ag-pfungen"
+          "strassentransport-disponent-m-w-d-100-pfungen-galliker-transport-ag-pfungen",
+          "trasporto-stradale-scheduling-m-f-d-100-pick-galliker-transport-ag-pfungen"
         ],
         "en": [
           "strassentransport-disponent-m-w-d-100-pfungen-galliker-pfungen"
@@ -341,7 +348,7 @@
       "url": "https://apply.refline.ch/878019/0466/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:11.135Z",
+      "crawledAt": "2026-10-03T09:11:11.277Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -362,12 +369,14 @@
       "externalId": "0466",
       "previousSlugs": [
         "disponent-food-healthcare-abend-a-galliker-altishofen",
-        "disponent-food-healthcare-abend-a-galliker-transport-ag-altishofen"
+        "disponent-food-healthcare-abend-a-galliker-transport-ag-altishofen",
+        "ristorante-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-food-healthcare-abend-a-galliker-altishofen",
-          "disponent-food-healthcare-abend-a-galliker-transport-ag-altishofen"
+          "disponent-food-healthcare-abend-a-galliker-transport-ag-altishofen",
+          "ristorante-a-galliker-transport-ag-altishofen"
         ],
         "fr": [
           "disponent-food-healthcare-abend-a-galliker-altishofen"
@@ -420,7 +429,7 @@
       "url": "https://apply.refline.ch/878019/0465/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:10.764Z",
+      "crawledAt": "2026-10-03T09:11:10.907Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -444,13 +453,15 @@
         "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen-2",
         "autotrasporto-ce-a-galliker-transport-ag-altishofen",
         "temporary-chauffeur-ce-autotransporte-a-galliker-transport-ag-altishofen",
-        "chauffeur-temporaire-ce-autotransporte-a-galliker-transport-ag-altishofen"
+        "chauffeur-temporaire-ce-autotransporte-a-galliker-transport-ag-altishofen",
+        "autotrasporto-ce-a-galliker-transport-ag-altishofen-49b7a9"
       ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
           "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen-2",
-          "autotrasporto-ce-a-galliker-transport-ag-altishofen"
+          "autotrasporto-ce-a-galliker-transport-ag-altishofen",
+          "autotrasporto-ce-a-galliker-transport-ag-altishofen-49b7a9"
         ],
         "en": [
           "aushilfschauffeur-ce-autotransporte-a-galliker-altishofen",
@@ -508,7 +519,7 @@
       "url": "https://apply.refline.ch/878019/0225/pub/17/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:10.393Z",
+      "crawledAt": "2026-10-03T09:11:10.536Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -529,12 +540,14 @@
       "externalId": "0225",
       "previousSlugs": [
         "lastwagenreiniger-a-galliker-altishofen",
-        "lastwagenreiniger-a-galliker-transport-ag-altishofen"
+        "lastwagenreiniger-a-galliker-transport-ag-altishofen",
+        "pulitore-di-camion-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lastwagenreiniger-a-galliker-altishofen",
-          "lastwagenreiniger-a-galliker-transport-ag-altishofen"
+          "lastwagenreiniger-a-galliker-transport-ag-altishofen",
+          "pulitore-di-camion-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "lastwagenreiniger-a-galliker-transport-ag-altishofen"
@@ -590,7 +603,7 @@
       "url": "https://apply.refline.ch/878019/0416/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:10.022Z",
+      "crawledAt": "2026-10-03T09:11:10.166Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -616,7 +629,8 @@
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen",
         "dipendenti-della-tecnologia-galliker-transport-ag-altishofen-102eee",
         "building-technology-employees-galliker-transport-ag-altishofen-102eee",
-        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-102eee"
+        "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen-102eee",
+        "dipendenti-della-tecnologia-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -624,7 +638,8 @@
           "collaboratore-trice-gebaudetechnik-galliker-transport-ag-altishofen",
           "building-technology-employees-galliker-transport-ag-altishofen",
           "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen",
-          "dipendenti-della-tecnologia-galliker-transport-ag-altishofen-102eee"
+          "dipendenti-della-tecnologia-galliker-transport-ag-altishofen-102eee",
+          "dipendenti-della-tecnologia-galliker-transport-ag-altishofen"
         ],
         "en": [
           "mitarbeiter-gebaudetechnik-galliker-altishofen",
@@ -682,7 +697,7 @@
       "url": "https://apply.refline.ch/878019/0380/pub/11/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:09.652Z",
+      "crawledAt": "2026-10-03T09:11:09.795Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -708,7 +723,8 @@
         "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen",
         "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen-d62d62",
         "employee-spare-parts-warehouse-truck-a-galliker-transport-ag-altishofen-d62d62",
-        "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen-d62d62"
+        "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen-d62d62",
+        "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -716,7 +732,8 @@
           "collaboratore-trice-ersatzteillager-lkw-a-galliker-transport-ag-altishofen",
           "employee-spare-parts-warehouse-truck-a-galliker-transport-ag-altishofen",
           "camion-d-entrepot-de-pieces-de-rechange-pour-employes-a-galliker-transport-ag-altishofen",
-          "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen-d62d62"
+          "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen-d62d62",
+          "pezzi-di-ricambio-del-dipendente-camion-del-magazzino-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "mitarbeiter-ersatzteillager-lkw-a-galliker-altishofen",
@@ -774,7 +791,7 @@
       "url": "https://apply.refline.ch/878019/0150/pub/21/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:07.741Z",
+      "crawledAt": "2026-10-03T09:11:09.422Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -806,7 +823,8 @@
         "lkw-diagnostiker-a-galliker-altishofen-3ei5v0",
         "diagnostica-per-camion-a-galliker-transport-ag-altishofen-439701",
         "truck-diagnostician-a-galliker-transport-ag-altishofen-439701",
-        "diagnosticien-du-camion-a-galliker-transport-ag-altishofen-439701"
+        "diagnosticien-du-camion-a-galliker-transport-ag-altishofen-439701",
+        "diagnostica-per-camion-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -820,7 +838,8 @@
           "lkw-diagnostiker-a-galliker-altishofen-7o7jl6",
           "diagnosticien-du-camion-a-galliker-transport-ag-altishofen-4241e9",
           "lkw-diagnostiker-a-galliker-altishofen-3ei5v0",
-          "diagnostica-per-camion-a-galliker-transport-ag-altishofen-439701"
+          "diagnostica-per-camion-a-galliker-transport-ag-altishofen-439701",
+          "diagnostica-per-camion-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "lkw-diagnostiker-a-galliker-altishofen",
@@ -877,7 +896,7 @@
       "url": "https://apply.refline.ch/878019/0417/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:07.373Z",
+      "crawledAt": "2026-10-03T09:11:08.977Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -902,7 +921,8 @@
         "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen",
         "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen",
         "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-6681ea",
-        "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen-6681ea"
+        "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen-6681ea",
+        "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-ba9531"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -911,7 +931,8 @@
           "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen",
           "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-6681ea",
           "gestionnaire-de-projet-subalterne-technologie-du-batiment-a-galliker-transport-ag-altishofen-6681ea",
-          "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen"
+          "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen",
+          "junior-project-manager-building-technology-a-galliker-transport-ag-altishofen-ba9531"
         ],
         "en": [
           "junior-projektleiter-gebaudetechnik-a-galliker-altishofen",
@@ -935,7 +956,8 @@
           "maxValue": 82000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-dc22aaf73427",
@@ -968,7 +990,7 @@
       "url": "https://apply.refline.ch/878019/0414/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:07.002Z",
+      "crawledAt": "2026-10-03T09:11:07.956Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -995,7 +1017,8 @@
         "chef-de-projet-junior-construction-et-entretien-galliker-transport-ag-altishofen",
         "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-85758d",
         "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen-85758d",
-        "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-85758d"
+        "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen-85758d",
+        "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1004,7 +1027,8 @@
           "junior-project-manager-construction-and-maintenance-galliker-transport-ag-altishofen",
           "chef-de-projet-subalterne-construction-et-entretien-galliker-transport-ag-altishofen",
           "chef-de-projet-junior-construction-et-entretien-galliker-transport-ag-altishofen",
-          "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-85758d"
+          "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen-85758d",
+          "junior-project-manager-costruzione-e-manutenzione-galliker-transport-ag-altishofen"
         ],
         "en": [
           "junior-projektleiter-bau-und-unterhalt-galliker-altishofen",
@@ -1029,7 +1053,8 @@
           "maxValue": 82000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-bc826b76056e",
@@ -1063,7 +1088,7 @@
       "url": "https://apply.refline.ch/878019/0431/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:06.634Z",
+      "crawledAt": "2026-10-03T09:11:07.585Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1091,7 +1116,8 @@
         "allrounder-waschanlage-und-car-logistique-galliker-transport-ag-altishofen",
         "gruppo-lavabo-responsabile-e-cooperazione-in-car-logistics-a-galliker-transport-ag-altishofen-531185",
         "group-responsible-washing-plant-and-cooperation-in-car-logistics-a-galliker-transport-ag-altishofen-531185",
-        "groupe-responsable-de-l-usine-de-lavage-et-de-la-cooperation-en-logistique-des-voitures-a-galliker-transport-ag-531185"
+        "groupe-responsable-de-l-usine-de-lavage-et-de-la-cooperation-en-logistique-des-voitures-a-galliker-transport-ag-531185",
+        "gruppo-lavabo-responsabile-e-cooperazione-in-car-logistics-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1101,7 +1127,8 @@
           "groupe-responsable-de-l-usine-de-lavage-et-de-la-cooperation-en-logistique-des-voitures-a-galliker-transport-ag",
           "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistique-a-galliker-transport-ag-altishofen",
           "allrounder-waschanlage-und-car-logistique-galliker-transport-ag-altishofen",
-          "gruppo-lavabo-responsabile-e-cooperazione-in-car-logistics-a-galliker-transport-ag-altishofen-531185"
+          "gruppo-lavabo-responsabile-e-cooperazione-in-car-logistics-a-galliker-transport-ag-altishofen-531185",
+          "gruppo-lavabo-responsabile-e-cooperazione-in-car-logistics-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "gruppenverantwortlicher-waschanlage-und-mitarbeit-in-der-car-logistics-a-galliker",
@@ -1159,7 +1186,7 @@
       "url": "https://apply.refline.ch/878019/0454/pub/5/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:06.262Z",
+      "crawledAt": "2026-10-03T09:11:07.215Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1202,7 +1229,8 @@
         "rim-painter-a-galliker-transport-ag-altishofen",
         "peintres-a-roues-a-galliker-transport-ag-altishofen",
         "artiste-peintre-a-galliker-transport-ag-altishofen",
-        "fahrzeugschlosser-a-galliker-transport-ag-altishofen"
+        "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
+        "rim-pittore-a-galliker-transport-ag-altishofen-5a3090"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1224,7 +1252,8 @@
           "fahrzeugschlosser-a-galliker-altishofen",
           "installatore-di-veicoli-a-galliker-transport-ag-altishofen",
           "vehicle-closer-a-galliker-transport-ag-altishofen",
-          "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
+          "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
+          "rim-pittore-a-galliker-transport-ag-altishofen-5a3090"
         ],
         "en": [
           "felgenlackierer-a-galliker-transport-ag-altishofen",
@@ -1249,7 +1278,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-8f297b34edd0",
@@ -1282,7 +1312,7 @@
       "url": "https://apply.refline.ch/878019/0403/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:05.892Z",
+      "crawledAt": "2026-10-03T09:11:06.843Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1312,7 +1342,8 @@
         "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
         "vehicle-closer-a-galliker-transport-ag-altishofen",
         "serrurier-automobile-a-galliker-transport-ag-altishofen",
-        "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen"
+        "plus-pres-du-vehicule-a-galliker-transport-ag-altishofen",
+        "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-5cfb4c"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1323,7 +1354,8 @@
           "fahrzeugbewerter-a-galliker-altishofen",
           "evaluateur-du-vehicule-a-galliker-transport-ag-altishofen",
           "fahrzeugbewerter-a-galliker-transport-ag-altishofen",
-          "veicolo-piu-vicino-a-galliker-transport-ag-altishofen"
+          "veicolo-piu-vicino-a-galliker-transport-ag-altishofen",
+          "veicolo-piu-vicino-a-galliker-transport-ag-altishofen-5cfb4c"
         ],
         "en": [
           "fahrzeugschlosser-a-galliker-transport-ag-altishofen",
@@ -1353,7 +1385,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-84eba3a4d778",
@@ -1387,7 +1420,7 @@
       "url": "https://apply.refline.ch/878019/0413/pub/15/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:05.521Z",
+      "crawledAt": "2026-10-03T09:11:06.472Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1473,7 +1506,7 @@
       "url": "https://apply.refline.ch/878019/0126/pub/32/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:05.148Z",
+      "crawledAt": "2026-10-03T09:11:06.101Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1498,13 +1531,15 @@
         "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
         "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c",
         "carrossier-pw-a-galliker-transport-ag-altishofen",
-        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen"
+        "chauffeur-de-carrosserie-pw-a-galliker-transport-ag-altishofen",
+        "pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "carrosseriespengler-pw-a-galliker-altishofen",
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen",
-          "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen"
+          "idraulico-carrozzeria-pw-a-galliker-transport-ag-altishofen",
+          "pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "carrosseriespengler-pw-a-galliker-transport-ag-altishofen-3j6f0c"
@@ -1562,7 +1597,7 @@
       "url": "https://apply.refline.ch/878019/0032/pub/27/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:04.777Z",
+      "crawledAt": "2026-10-03T09:11:05.731Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1597,7 +1632,8 @@
         "carrosserie-painter-nfz-a-galliker-transport-ag-altishofen",
         "carrosserielackierer-nfz-a-galliker-altishofen-ujxkph",
         "carrosserie-peintre-nfz-a-galliker-transport-ag-altishofen",
-        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
+        "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
+        "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1616,7 +1652,8 @@
           "carrosserie-painter-nfz-a-galliker-transport-ag-altishofen",
           "carrosserielackierer-nfz-a-galliker-altishofen-ujxkph",
           "carrosserie-peintre-nfz-a-galliker-transport-ag-altishofen",
-          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
+          "carrosserielackierer-pw-a-galliker-transport-ag-altishofen",
+          "carrosserie-pittore-pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "carrosserielackierer-pw-a-galliker-transport-ag-altishofen"
@@ -1672,7 +1709,7 @@
       "url": "https://apply.refline.ch/878019/0411/pub/9/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:04.405Z",
+      "crawledAt": "2026-10-03T09:11:05.360Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1692,11 +1729,13 @@
       "requirementsByLocale": {},
       "externalId": "0411",
       "previousSlugs": [
-        "carrosserielackierer-nfz-a-galliker-altishofen"
+        "carrosserielackierer-nfz-a-galliker-altishofen",
+        "carrosserie-pittore-nfz-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "carrosserielackierer-nfz-a-galliker-altishofen"
+          "carrosserielackierer-nfz-a-galliker-altishofen",
+          "carrosserie-pittore-nfz-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "carrosserielackierer-nfz-a-galliker-altishofen"
@@ -1752,7 +1791,7 @@
       "url": "https://apply.refline.ch/878019/0407/pub/8/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:04.037Z",
+      "crawledAt": "2026-10-03T09:11:04.990Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1777,12 +1816,14 @@
         "operational-staff-technical-delivery-service-a-galliker-transport-ag-altishofen-2e7f9d",
         "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen-gm19n2",
         "service-de-prestation-technique-du-personnel-operationnel-a-galliker-transport-ag-altishofen-2e7f9d",
-        "service-de-livraison-technique-du-personnel-operationnel-a-galliker-transport-ag-altishofen"
+        "service-de-livraison-technique-du-personnel-operationnel-a-galliker-transport-ag-altishofen",
+        "servizio-di-consegna-tecnico-del-personale-operativo-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen",
-          "servizio-di-consegna-tecnico-del-personale-operativo-a-galliker-transport-ag-altishofen-52fdaa"
+          "servizio-di-consegna-tecnico-del-personale-operativo-a-galliker-transport-ag-altishofen-52fdaa",
+          "servizio-di-consegna-tecnico-del-personale-operativo-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "betriebsmitarbeiter-technischer-ablieferservice-a-galliker-altishofen",
@@ -1817,7 +1858,7 @@
       "slug": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
       "slugByLocale": {
         "it": "elettricisti-commerciali-a-galliker-transport-ag-altishofen",
-        "en": "business-electricians-a-galliker-transport-ag-altishofen",
+        "en": "betriebselektriker-a-galliker-transport-ag-altishofen",
         "de": "betriebselektriker-a-galliker-altishofen",
         "fr": "electriciens-d-affaires-a-galliker-transport-ag-altishofen"
       },
@@ -1843,7 +1884,7 @@
       "url": "https://apply.refline.ch/878019/0382/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:03.665Z",
+      "crawledAt": "2026-10-03T09:11:04.620Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1864,14 +1905,18 @@
       "externalId": "0382",
       "previousSlugs": [
         "betriebselektriker-a-galliker-altishofen",
-        "betriebselektriker-a-galliker-transport-ag-altishofen"
+        "betriebselektriker-a-galliker-transport-ag-altishofen",
+        "business-electricians-a-galliker-transport-ag-altishofen",
+        "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-a-galliker-altishofen",
-          "betriebselektriker-a-galliker-transport-ag-altishofen"
+          "betriebselektriker-a-galliker-transport-ag-altishofen",
+          "elettricisti-commerciali-a-galliker-transport-ag-altishofen"
         ],
         "en": [
+          "business-electricians-a-galliker-transport-ag-altishofen",
           "betriebselektriker-a-galliker-transport-ag-altishofen"
         ],
         "fr": [
@@ -1925,7 +1970,7 @@
       "url": "https://apply.refline.ch/878019/0446/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:03.293Z",
+      "crawledAt": "2026-10-03T09:11:04.249Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1949,7 +1994,8 @@
         "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen-t5zxnu",
         "automotive-mechatronics-specialist-pw-a-galliker-transport-ag-altishofen",
         "mecatronique-automobile-specialiste-pw-a-galliker-transport-ag-altishofen",
-        "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen"
+        "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
+        "specialista-di-meccatronica-automobilistica-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1957,7 +2003,8 @@
           "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen-t5zxnu",
           "automotive-mechatronics-specialist-pw-a-galliker-transport-ag-altishofen",
           "mecatronique-automobile-specialiste-pw-a-galliker-transport-ag-altishofen",
-          "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen"
+          "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen",
+          "specialista-di-meccatronica-automobilistica-pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "automobilmechatroniker-pw-a-galliker-transport-ag-altishofen"
@@ -2013,7 +2060,7 @@
       "url": "https://apply.refline.ch/878019/0046/pub/24/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:02.917Z",
+      "crawledAt": "2026-10-03T09:11:03.872Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2042,7 +2089,8 @@
         "automobile-specialiste-nf-entree-laterale-a-galliker-transport-ag-altishofen-afff5f",
         "automobilfachmann-nf-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen",
         "specialista-automobilistico-nf-laterale-a-galliker-transport-ag-altishofen",
-        "commercial-vehicle-mechanic-career-changer-a-galliker-transport-ag-altishofen"
+        "commercial-vehicle-mechanic-career-changer-a-galliker-transport-ag-altishofen",
+        "innesto-laterale-nf-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2054,7 +2102,8 @@
           "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen-uka4vz",
           "automobile-specialiste-nf-entree-laterale-a-galliker-transport-ag-altishofen-afff5f",
           "automobilfachmann-nf-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen",
-          "specialista-automobilistico-nf-laterale-a-galliker-transport-ag-altishofen"
+          "specialista-automobilistico-nf-laterale-a-galliker-transport-ag-altishofen",
+          "innesto-laterale-nf-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "automobilfachmann-nf-quereinsteiger-a-galliker-altishofen",
@@ -2111,7 +2160,7 @@
       "url": "https://apply.refline.ch/878019/0219/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:02.545Z",
+      "crawledAt": "2026-10-03T09:11:03.500Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2131,11 +2180,13 @@
       "requirementsByLocale": {},
       "externalId": "0219",
       "previousSlugs": [
-        "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
+        "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
+        "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
+          "automobilfachmann-mechatroniker-pw-a-galliker-altishofen",
+          "specialista-automobilistico-meccatronica-specialista-pw-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "automobilfachmann-mechatroniker-pw-a-galliker-altishofen"
@@ -2191,7 +2242,7 @@
       "url": "https://apply.refline.ch/878019/0451/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:02.173Z",
+      "crawledAt": "2026-10-03T09:11:03.128Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2211,11 +2262,13 @@
       "requirementsByLocale": {},
       "externalId": "0451",
       "previousSlugs": [
-        "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+        "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
+        "specialista-meccatronica-nfz-spatdienst-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
+          "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen",
+          "specialista-meccatronica-nfz-spatdienst-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "automobilfachmann-mechatroniker-nfz-spatdienst-a-galliker-altishofen"
@@ -2271,7 +2324,7 @@
       "url": "https://apply.refline.ch/878019/0452/pub/3/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:01.799Z",
+      "crawledAt": "2026-10-03T09:11:02.756Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2291,11 +2344,13 @@
       "requirementsByLocale": {},
       "externalId": "0452",
       "previousSlugs": [
-        "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen"
+        "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
+        "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen"
+          "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen",
+          "assistente-automobilistico-specialista-nfz-a-servizio-in-ritardo-galliker-transport-ag-altishofen"
         ],
         "en": [
           "automobilassistent-fachmann-nfz-a-spatdienst-galliker-altishofen"
@@ -2351,7 +2406,7 @@
       "url": "https://apply.refline.ch/878019/0376/pub/18/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:01.414Z",
+      "crawledAt": "2026-10-03T09:11:02.384Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2416,7 +2471,7 @@
       "url": "https://apply.refline.ch/878019/0204/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:01.038Z",
+      "crawledAt": "2026-10-03T09:11:02.017Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2436,11 +2491,13 @@
       "requirementsByLocale": {},
       "externalId": "0204",
       "previousSlugs": [
-        "chauffeur-c-ce-m-w-d-staad-galliker-staad"
+        "chauffeur-c-ce-m-w-d-staad-galliker-staad",
+        "chauffeur-c-ce-m-f-d-staad-galliker-transport-ag-staad"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-ce-m-w-d-staad-galliker-staad"
+          "chauffeur-c-ce-m-w-d-staad-galliker-staad",
+          "chauffeur-c-ce-m-f-d-staad-galliker-transport-ag-staad"
         ],
         "en": [
           "chauffeur-c-ce-m-w-d-staad-galliker-staad"
@@ -2462,7 +2519,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-e3085077a645",
@@ -2495,7 +2553,7 @@
       "url": "https://apply.refline.ch/878019/0264/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:00.664Z",
+      "crawledAt": "2026-10-03T09:11:01.645Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2520,7 +2578,8 @@
         "logistician-efz-a-galliker-transport-ag-schachen",
         "logistiker-efz-a-galliker-schachen",
         "logisticien-efz-a-galliker-transport-ag-schachen",
-        "logistiker-cfc-a-galliker-transport-ag-schachen-vbqa4h"
+        "logistiker-cfc-a-galliker-transport-ag-schachen-vbqa4h",
+        "logistiker-cfc-a-schachen-galliker-transport-ag-schachen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2529,7 +2588,8 @@
           "logistician-efz-a-galliker-transport-ag-schachen",
           "logistiker-efz-a-galliker-schachen",
           "logisticien-efz-a-galliker-transport-ag-schachen",
-          "logistiker-cfc-a-galliker-transport-ag-schachen-vbqa4h"
+          "logistiker-cfc-a-galliker-transport-ag-schachen-vbqa4h",
+          "logistiker-cfc-a-schachen-galliker-transport-ag-schachen"
         ],
         "en": [
           "logistiker-efz-a-schachen-galliker-schachen",
@@ -2556,7 +2616,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-78136ab40245",
@@ -2590,7 +2651,7 @@
       "url": "https://apply.refline.ch/878019/0409/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:00.283Z",
+      "crawledAt": "2026-10-03T09:11:01.273Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2610,11 +2671,13 @@
       "requirementsByLocale": {},
       "externalId": "0409",
       "previousSlugs": [
-        "chauffeur-kat-ce-kat-c-mit-ausbildung-ce-junior-driver-kat-b-mit-ausbildung-ce-m-w-d"
+        "chauffeur-kat-ce-kat-c-mit-ausbildung-ce-junior-driver-kat-b-mit-ausbildung-ce-m-w-d",
+        "chauffeur-cat-ce-cat-c-con-formazione-ce-junior-driver-cat-b-con-formazione-ce-m-f-d-galliker-transport-ag-schachen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-kat-ce-kat-c-mit-ausbildung-ce-junior-driver-kat-b-mit-ausbildung-ce-m-w-d"
+          "chauffeur-kat-ce-kat-c-mit-ausbildung-ce-junior-driver-kat-b-mit-ausbildung-ce-m-w-d",
+          "chauffeur-cat-ce-cat-c-con-formazione-ce-junior-driver-cat-b-con-formazione-ce-m-f-d-galliker-transport-ag-schachen"
         ],
         "en": [
           "chauffeur-kat-ce-kat-c-mit-ausbildung-ce-junior-driver-kat-b-mit-ausbildung-ce-m-w-d"
@@ -2669,7 +2732,7 @@
       "url": "https://apply.refline.ch/878019/0106/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:59.911Z",
+      "crawledAt": "2026-10-03T09:11:00.903Z",
       "addressLocality": "Pfungen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2690,12 +2753,14 @@
       "externalId": "0106",
       "previousSlugs": [
         "logistiker-a-galliker-pfungen",
-        "logistiker-a-galliker-transport-ag-pfungen"
+        "logistiker-a-galliker-transport-ag-pfungen",
+        "logisticista-a-galliker-transport-ag-pfungen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-a-galliker-pfungen",
-          "logistiker-a-galliker-transport-ag-pfungen"
+          "logistiker-a-galliker-transport-ag-pfungen",
+          "logisticista-a-galliker-transport-ag-pfungen"
         ],
         "en": [
           "logistiker-a-galliker-transport-ag-pfungen"
@@ -2717,7 +2782,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-ab89293368ba",
@@ -2751,7 +2817,7 @@
       "url": "https://apply.refline.ch/878019/0154/pub/6/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:59.533Z",
+      "crawledAt": "2026-10-03T09:11:00.536Z",
       "addressLocality": "Staad",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2775,7 +2841,8 @@
         "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-staad",
         "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-gj96jd",
         "junior-chauffeur-lateral-entrant-staad-m-f-d-galliker-transport-ag-staad",
-        "chauffeur-junior-entrant-lateral-staad-h-f-d-galliker-transport-ag-staad"
+        "chauffeur-junior-entrant-lateral-staad-h-f-d-galliker-transport-ag-staad",
+        "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-staad-e09fec"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2783,7 +2850,8 @@
           "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-staad",
           "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-gj96jd",
           "junior-chauffeur-lateral-entrant-staad-m-f-d-galliker-transport-ag-staad",
-          "chauffeur-junior-entrant-lateral-staad-h-f-d-galliker-transport-ag-staad"
+          "chauffeur-junior-entrant-lateral-staad-h-f-d-galliker-transport-ag-staad",
+          "junior-chauffeur-candidato-a-in-riqualificazione-staad-m-w-d-galliker-transport-ag-staad-e09fec"
         ],
         "en": [
           "junior-chauffeur-quereinsteiger-staad-m-w-d-galliker-staad",
@@ -2841,7 +2909,7 @@
       "url": "https://apply.refline.ch/878019/0125/pub/17/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:57.937Z",
+      "crawledAt": "2026-10-03T09:11:00.165Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -2861,11 +2929,13 @@
       "requirementsByLocale": {},
       "externalId": "0125",
       "previousSlugs": [
-        "chauffeur-c-ce-a-galliker-landquart"
+        "chauffeur-c-ce-a-galliker-landquart",
+        "autista-c-ce-a-galliker-transport-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-ce-a-galliker-landquart"
+          "chauffeur-c-ce-a-galliker-landquart",
+          "autista-c-ce-a-galliker-transport-ag-landquart"
         ],
         "en": [
           "chauffeur-c-ce-a-galliker-landquart"
@@ -2918,7 +2988,7 @@
       "url": "https://apply.refline.ch/878019/0459/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:57.565Z",
+      "crawledAt": "2026-10-03T09:10:59.795Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -2938,11 +3008,13 @@
       "requirementsByLocale": {},
       "externalId": "0459",
       "previousSlugs": [
-        "chauffeur-berufsbildner-a-jona-galliker-jona"
+        "chauffeur-berufsbildner-a-jona-galliker-jona",
+        "allenatore-formazione-professionale-a-jona-galliker-transport-ag-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-berufsbildner-a-jona-galliker-jona"
+          "chauffeur-berufsbildner-a-jona-galliker-jona",
+          "allenatore-formazione-professionale-a-jona-galliker-transport-ag-jona"
         ],
         "en": [
           "chauffeur-berufsbildner-a-jona-galliker-jona"
@@ -2998,7 +3070,7 @@
       "url": "https://apply.refline.ch/878019/0268/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:57.193Z",
+      "crawledAt": "2026-10-03T09:10:59.423Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3018,11 +3090,13 @@
       "requirementsByLocale": {},
       "externalId": "0268",
       "previousSlugs": [
-        "fachperson-betriebsunterhalt-a-galliker-luzern"
+        "fachperson-betriebsunterhalt-a-galliker-luzern",
+        "manutenzione-professionale-a-galliker-transport-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-betriebsunterhalt-a-galliker-luzern"
+          "fachperson-betriebsunterhalt-a-galliker-luzern",
+          "manutenzione-professionale-a-galliker-transport-ag-luzern"
         ],
         "en": [
           "fachperson-betriebsunterhalt-a-galliker-luzern"
@@ -3053,7 +3127,7 @@
         "it": "logisticista-a-galliker-transport-ag-altishofen",
         "en": "logistician-a-galliker-transport-ag-altishofen",
         "de": "logistiker-a-galliker-altishofen",
-        "fr": "logistique-a-galliker-transport-ag-altishofen"
+        "fr": "logisticien-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3077,7 +3151,7 @@
       "url": "https://apply.refline.ch/878019/0056/pub/12/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:56.818Z",
+      "crawledAt": "2026-10-03T09:10:57.911Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3099,18 +3173,22 @@
       "previousSlugs": [
         "logistiker-a-galliker-altishofen",
         "logistiker-a-galliker-transport-ag-altishofen",
+        "logistique-a-galliker-transport-ag-altishofen",
+        "logisticista-a-galliker-transport-ag-altishofen",
         "logisticien-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-a-galliker-altishofen",
-          "logistiker-a-galliker-transport-ag-altishofen"
+          "logistiker-a-galliker-transport-ag-altishofen",
+          "logisticista-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "logistiker-a-galliker-transport-ag-altishofen"
         ],
         "fr": [
           "logistiker-a-galliker-transport-ag-altishofen",
+          "logistique-a-galliker-transport-ag-altishofen",
           "logisticien-a-galliker-transport-ag-altishofen"
         ]
       },
@@ -3127,7 +3205,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-d388462152bf",
@@ -3161,7 +3240,7 @@
       "url": "https://apply.refline.ch/878019/0458/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:56.445Z",
+      "crawledAt": "2026-10-03T09:10:57.541Z",
       "addressLocality": "Schachen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3182,12 +3261,14 @@
       "externalId": "0458",
       "previousSlugs": [
         "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
-        "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen"
+        "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen",
+        "hgv-o-meccanica-delle-macchine-agricole-a-galliker-transport-ag-schachen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lkw-oder-landmaschinenmechaniker-a-galliker-schachen",
-          "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen"
+          "lkw-o-landmaschinenmechaniker-a-galliker-transport-ag-schachen",
+          "hgv-o-meccanica-delle-macchine-agricole-a-galliker-transport-ag-schachen"
         ],
         "en": [
           "lkw-oder-landmaschinenmechaniker-a-galliker-schachen"
@@ -3243,7 +3324,7 @@
       "url": "https://apply.refline.ch/878019/0445/pub/2/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:56.067Z",
+      "crawledAt": "2026-10-03T09:10:57.175Z",
       "addressLocality": "Jona",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -3263,11 +3344,13 @@
       "requirementsByLocale": {},
       "externalId": "0445",
       "previousSlugs": [
-        "chauffeur-c-ce-a-jona-galliker-jona"
+        "chauffeur-c-ce-a-jona-galliker-jona",
+        "autista-c-ce-a-jona-galliker-transport-ag-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-c-ce-a-jona-galliker-jona"
+          "chauffeur-c-ce-a-jona-galliker-jona",
+          "autista-c-ce-a-jona-galliker-transport-ag-jona"
         ],
         "en": [
           "chauffeur-c-ce-a-jona-galliker-jona"
@@ -3320,7 +3403,7 @@
       "url": "https://apply.refline.ch/878019/0457/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:55.633Z",
+      "crawledAt": "2026-10-03T09:10:56.803Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3340,11 +3423,13 @@
       "requirementsByLocale": {},
       "externalId": "0457",
       "previousSlugs": [
-        "stv-teamleiter-logistik-a-galliker-altishofen"
+        "stv-teamleiter-logistik-a-galliker-altishofen",
+        "stv-team-leader-logistics-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleiter-logistik-a-galliker-altishofen"
+          "stv-teamleiter-logistik-a-galliker-altishofen",
+          "stv-team-leader-logistics-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "stv-teamleiter-logistik-a-galliker-altishofen"
@@ -3375,7 +3460,7 @@
         "it": "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "en": "senior-staff-member-healthcare-a-galliker-transport-ag-altishofen",
         "de": "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
-        "fr": "soins-de-sante-a-galliker-transport-ag-altishofen"
+        "fr": "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       },
       "company": "Galliker Transport AG",
       "companyKey": "galliker",
@@ -3400,7 +3485,7 @@
       "url": "https://apply.refline.ch/878019/0456/pub/1/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:55.261Z",
+      "crawledAt": "2026-10-03T09:10:56.432Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3421,17 +3506,21 @@
       "externalId": "0456",
       "previousSlugs": [
         "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
+        "soins-de-sante-a-galliker-transport-ag-altishofen",
+        "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen",
         "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
+          "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
+          "membro-del-personale-senior-healthcare-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen"
         ],
         "fr": [
           "leitstandmitarbeiter-healthcare-a-galliker-altishofen",
+          "soins-de-sante-a-galliker-transport-ag-altishofen",
           "operateur-de-centre-de-controle-healthcare-a-galliker-transport-ag-altishofen"
         ]
       },
@@ -3482,7 +3571,7 @@
       "url": "https://apply.refline.ch/878019/0425/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:54.886Z",
+      "crawledAt": "2026-10-03T09:10:56.059Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3502,11 +3591,13 @@
       "requirementsByLocale": {},
       "externalId": "0425",
       "previousSlugs": [
-        "sachbearbeiter-neuwagen-a-galliker-altishofen"
+        "sachbearbeiter-neuwagen-a-galliker-altishofen",
+        "dipendenti-di-auto-nuove-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-neuwagen-a-galliker-altishofen"
+          "sachbearbeiter-neuwagen-a-galliker-altishofen",
+          "dipendenti-di-auto-nuove-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "sachbearbeiter-neuwagen-a-galliker-altishofen"
@@ -3562,7 +3653,7 @@
       "url": "https://apply.refline.ch/878019/0257/pub/7/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:54.516Z",
+      "crawledAt": "2026-10-03T09:10:55.694Z",
       "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -3642,7 +3733,7 @@
       "url": "https://apply.refline.ch/878019/0439/pub/4/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:54.147Z",
+      "crawledAt": "2026-10-03T09:10:55.319Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3667,7 +3758,8 @@
         "building-technology-employees-galliker-transport-ag-altishofen",
         "mitarbeiter-gebaudetechnik-galliker-altishofen",
         "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen",
-        "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
+        "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
+        "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3676,7 +3768,8 @@
           "building-technology-employees-galliker-transport-ag-altishofen",
           "mitarbeiter-gebaudetechnik-galliker-altishofen",
           "employes-de-la-technologie-du-batiment-galliker-transport-ag-altishofen",
-          "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen"
+          "collaboratore-trice-felgencenter-a-galliker-transport-ag-altishofen",
+          "collaboratore-trice-technischer-unterhalt-logistikanlagen-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "mitarbeiter-technischer-unterhalt-logistikanlagen-a-galliker-altishofen",
@@ -3736,7 +3829,7 @@
       "url": "https://apply.refline.ch/878019/0231/pub/10/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:53.775Z",
+      "crawledAt": "2026-10-03T09:10:54.946Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3757,12 +3850,14 @@
       "externalId": "0231",
       "previousSlugs": [
         "logistiker-tiefkuhl-a-galliker-altishofen",
-        "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen"
+        "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen",
+        "logisticista-congelato-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-tiefkuhl-a-galliker-altishofen",
-          "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen"
+          "logistiker-tiefkuhl-a-galliker-transport-ag-altishofen",
+          "logisticista-congelato-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "logistiker-tiefkuhl-a-galliker-altishofen"
@@ -3784,7 +3879,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "galliker-30880e088bbc",
@@ -3818,7 +3914,7 @@
       "url": "https://apply.refline.ch/878019/0039/pub/55/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:53.405Z",
+      "crawledAt": "2026-10-03T09:10:54.574Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3838,11 +3934,13 @@
       "requirementsByLocale": {},
       "externalId": "0039",
       "previousSlugs": [
-        "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
+        "junior-chauffeur-quereinsteiger-a-galliker-altishofen",
+        "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen-e4e3ff"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
+          "junior-chauffeur-quereinsteiger-a-galliker-altishofen",
+          "junior-chauffeur-candidato-a-in-riqualificazione-a-galliker-transport-ag-altishofen-e4e3ff"
         ],
         "en": [
           "junior-chauffeur-quereinsteiger-a-galliker-altishofen"
@@ -3898,7 +3996,7 @@
       "url": "https://apply.refline.ch/878019/0042/pub/42/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:53.034Z",
+      "crawledAt": "2026-10-03T09:10:54.207Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3918,11 +4016,13 @@
       "requirementsByLocale": {},
       "externalId": "0042",
       "previousSlugs": [
-        "chauffeure-c-ce-a-galliker-altishofen"
+        "chauffeure-c-ce-a-galliker-altishofen",
+        "autisti-c-ce-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeure-c-ce-a-galliker-altishofen"
+          "chauffeure-c-ce-a-galliker-altishofen",
+          "autisti-c-ce-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "chauffeure-c-ce-a-galliker-altishofen"
@@ -3978,7 +4078,7 @@
       "url": "https://apply.refline.ch/878019/0043/pub/38/index.html",
       "source": "Galliker Dedicated Parser (Refline tenant 878019, JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:11:52.660Z",
+      "crawledAt": "2026-10-03T09:10:53.834Z",
       "addressLocality": "Altishofen",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3998,11 +4098,13 @@
       "requirementsByLocale": {},
       "externalId": "0043",
       "previousSlugs": [
-        "chauffeur-ce-autotransporte-a-galliker-altishofen"
+        "chauffeur-ce-autotransporte-a-galliker-altishofen",
+        "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "chauffeur-ce-autotransporte-a-galliker-altishofen"
+          "chauffeur-ce-autotransporte-a-galliker-altishofen",
+          "trasporti-auto-con-autista-ce-a-galliker-transport-ag-altishofen"
         ],
         "en": [
           "chauffeur-ce-autotransporte-a-galliker-altishofen"
@@ -4104,7 +4206,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }

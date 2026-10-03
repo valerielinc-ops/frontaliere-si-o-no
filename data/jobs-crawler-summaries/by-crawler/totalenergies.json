@@ -1,7 +1,7 @@
 {
   "key": "totalenergies",
   "label": "TotalEnergies",
-  "generatedAt": "2026-10-02T21:12:58.233Z",
+  "generatedAt": "2026-10-03T09:14:50.439Z",
   "total": 10,
   "discovered": null,
   "parsed": 10,
@@ -13,10 +13,11 @@
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 27480,
-  "avgDurationMs": 27480,
+  "durationMs": 29532,
+  "avgDurationMs": 29532,
   "durationHistory": [
-    27480
+    27480,
+    29532
   ],
   "newJobs": [
     {
@@ -31,7 +32,7 @@
       "url": "https://jobs.totalenergies.com/en_US/careers/JobDetail/Quantitative-Machine-Learning-Engineer/83862",
       "source": "TotalEnergies Dedicated Parser (Avature)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:12:49.765Z",
+      "crawledAt": "2026-10-03T09:14:43.117Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "streetAddress": "Route de l'Aéroport 10",
