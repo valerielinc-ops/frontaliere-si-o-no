@@ -335,4 +335,53 @@ describe('sibling AST layer', () => {
     expect(collectAstFacts('scripts/check.sh', 'echo "$HOME"')).toEqual([]);
   });
 
+  it('does not confuse an export-list binding with a shadowing parameter', () => {
+    const files = new Set(['scripts/one.mjs', 'scripts/consumer.mjs']);
+    const source = 'const Buffer = {}; export { Buffer }; function wrapper(Buffer) { return Buffer.isBuffer(value); }';
+    const facts = collectAstFacts('scripts/one.mjs', source, { files });
+    const calls = facts.filter((fact) => fact.kind === 'call');
+    expect(calls[0].binding.module).toBe('local:scripts/one.mjs');
+    const consumer = collectAstFacts('scripts/consumer.mjs', "import { Buffer } from './one.mjs'; Buffer.isBuffer(value);", { files });
+    expect(matchAstFacts(calls, consumer)).toEqual([]);
+    const exported = facts.filter((fact) => fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported);
+    expect(exported.map((fact) => fact.key)).toEqual(['Buffer']);
+  });
+
+  it('does not export a private same-named binding through a reexport', () => {
+    const facts = collectAstFacts('scripts/one.mjs', "export { guardSession } from './shared.mjs'; function guardSession() {}", {
+      files: new Set(['scripts/one.mjs', 'scripts/shared.mjs']),
+    });
+    expect(facts.filter((fact) => fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported)).toEqual([]);
+  });
+
+  it('retains an aliased project consumer in candidate-only parsing', () => {
+    const files = new Set(['scripts/provider.mjs', 'scripts/consumer.mjs', 'scripts/other.mjs']);
+    const changed = collectAstFacts('scripts/provider.mjs', 'export function guardSession() { return true; }', { files });
+    const options = { files, candidateOnly: true,
+      factKeys: new Set(['identifier|guardSession|call', 'identifier|guardSession|declaration']),
+      bindingKeys: new Set(['scripts/provider.mjs#guardSession']),
+    };
+    const consumer = collectAstFacts('scripts/consumer.mjs', "import { guardSession as runGuard } from './provider.mjs'; runGuard();", options);
+    expect(consumer.some((fact) => fact.key === 'runGuard' && fact.role === 'call')).toBe(true);
+    expect(astMatchLabels(matchAstFacts(changed, consumer))).toContain('graph:scripts/provider.mjs#guardSession');
+    const unrelated = collectAstFacts('scripts/consumer.mjs', "import { guardSession as runGuard } from './other.mjs'; runGuard();", options);
+    expect(matchAstFacts(changed, unrelated)).toEqual([]);
+  });
+
+  it('does not equate different methods on aliases of the same imported object', () => {
+    const files = new Set(['scripts/provider.mjs', 'scripts/one.mjs', 'scripts/two.mjs']);
+    const one = collectAstFacts('scripts/one.mjs', "import { client } from './provider.mjs'; client.readSession();", { files });
+    const two = collectAstFacts('scripts/two.mjs', "import { client as other } from './provider.mjs'; other.clearSession();", { files });
+    expect(matchAstFacts(one, two)).toEqual([]);
+  });
+
+  it('filters changed lines before aggregating identical call evidence', () => {
+    const facts = collectAstFacts('scripts/one.mjs', 'guardSession(value);\nguardSession(value);', {
+      lineRanges: [{ start: 2, end: 2 }],
+    });
+    expect(facts.filter((fact) => fact.kind === 'call').map((fact) => fact.fingerprint)).toEqual(['guardSession(value)']);
+    const candidate = collectAstFacts('scripts/two.mjs', 'guardSession(value);');
+    expect(matchAstFacts(facts, candidate).some((match) => match.key === 'guardSession')).toBe(true);
+  });
+
 });

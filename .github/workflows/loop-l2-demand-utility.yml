@@ -13,6 +13,7 @@ on:
       - 'scripts/lib/nursing-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
@@ -20,6 +21,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   pull_request:
@@ -31,6 +33,7 @@ on:
       - 'scripts/lib/nursing-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
@@ -38,6 +41,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   workflow_dispatch:
@@ -73,6 +77,7 @@ jobs:
             /scripts/lib/nursing-landing-path.mjs
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/app-error-recency.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/loop-l2-demand-utility.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs
@@ -80,6 +85,7 @@ jobs:
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /.github/workflows/loop-l2-demand-utility.yml
           sparse-checkout-cone-mode: false
       - name: Setup Node.js

@@ -118,7 +118,13 @@ const STABLE_SUBSTITUTIONS = [/\$\{\{\s*github\.workflow\s*\}\}/g, /\$\{\{\s*git
 const ENTITY_DISCRIMINANTS: Record<string, string[]> = {
   'cathedral-seo-gates-check.yml': ['${name}'], // one issue per regressed gate
   'crawler-health-monitor.yml': ['${slug}'], // one issue per crawler
-  'deploy.yml': ['${{ matrix.locale }}'], // one issue per locale shard
+  // One issue per locale shard. The matrix leg that pushes a shard, and the two
+  // titles it reports under, moved from deploy.yml to deploy-publish.yml with
+  // PR 11155 (2026-10-03): this entry kept naming the old file, so the moved
+  // title read as unstable and the lint went red on main for every PR that
+  // selected it. The entry follows the step; the test below it now says so by
+  // name when one is left behind.
+  'deploy-publish.yml': ['${{ matrix.locale }}'], // one issue per locale shard
   'rerender-article-corpus.yml': ['${{ matrix.section }}'], // one issue per section shard
   // Same granularity as rerender-article-corpus.yml directly above, and for
   // the same reason: `section` ranges over a CLOSED set of two values
@@ -315,6 +321,29 @@ describe('monitor issues are deduped at the source (#5121)', () => {
     // helper's dedup exactly as a raw `gh issue create` would: the values
     // belong in the BODY, which is where the metric's history is read.
     expect(offenders).toEqual([]);
+  });
+
+  it('every per-entity discriminant still appears in a title of its workflow', () => {
+    // The allowlist is keyed by FILE. When a reporting step moves to another
+    // workflow the old entry goes dead and the moved title has no entry: the
+    // stability check above then reports a legitimate per-entity title as
+    // unstable, which reads like a new bug in a workflow nobody touched. This
+    // names the real cause instead — the entry that was left behind.
+    const stale: string[] = [];
+    for (const [file, tokens] of Object.entries(ENTITY_DISCRIMINANTS)) {
+      const full = path.join(WORKFLOWS_DIR, file);
+      if (!fs.existsSync(full)) {
+        stale.push(`${file}: workflow no longer exists`);
+        continue;
+      }
+      const titles = resolveTitles(fs.readFileSync(full, 'utf-8'));
+      for (const token of tokens) {
+        if (!titles.some((title) => title.includes(token))) {
+          stale.push(`${file}: no title uses ${token} any more — did the reporting step move to another workflow?`);
+        }
+      }
+    }
+    expect(stale).toEqual([]);
   });
 
   it('no title built by a monitor SCRIPT varies between runs', () => {

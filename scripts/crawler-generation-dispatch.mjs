@@ -842,6 +842,7 @@ export function evaluateCrawlerGenerationPreflight({
   remoteWorkflow,
   remoteArtifacts,
   verifiedSiteCodeCommit = null,
+  siteCodeFallback = null,
 }) {
   const reasons = [];
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) reasons.push('corpus_commit_invalid');
@@ -903,6 +904,7 @@ export function evaluateCrawlerGenerationPreflight({
       siteCodeCommit: verifiedSiteCodeCommit,
       reasons: [],
       warnings: ['site_contract_compatibility_fallback'],
+      ...(siteCodeFallback ? { siteCodeFallback } : {}),
     };
   }
   const ready = reasons.length === 0;
@@ -998,6 +1000,62 @@ function canUseSiteContractFallback({ reasons, localContract, remoteContract, si
     && localContract.generatorSha256 !== remoteContract.generatorSha256;
 }
 
+async function readSiteContractAt({ request, sleep, ref }) {
+  let response;
+  try {
+    response = await requestPreflightRead({
+      request,
+      sleep,
+      input: {
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/contents/${SITE_CONTRACT_PATH}?ref=${encodeURIComponent(ref)}`,
+        apiVersion: GITHUB_API_VERSION,
+      },
+    });
+  } catch {
+    return null;
+  }
+  if (response?.status !== 200) return null;
+  try {
+    return JSON.parse(decodeContentsResponse(response).toString('utf8'));
+  } catch {
+    return null;
+  }
+}
+
+// La cronologia `commits?path=contract.json` elenca SOLO i commit che hanno
+// cambiato il contratto: il primo che coincide col corpus è quello che lo ha
+// INTRODOTTO, cioè il commit più vecchio possibile con quel contratto. Le
+// ondate lanciate su quel commit perdono tutte le fix mergiate fra
+// l'introduzione e il cambio di contratto successivo (run corpus 37112857893:
+// checkout a 4b0f33de, 21 ore prima del contratto successivo). L'ultimo commit
+// di `main` che ha ancora il contratto compatibile è il genitore del commit
+// che lo ha sostituito: lo si usa solo dopo aver riletto il contratto a quel
+// ref, così una storia non lineare ricade sul commit introduttivo invece di
+// eseguire codice che presuppone workflow diversi.
+// LIMITE noto: `parents[0]` è l'ultimo commit di `main` con quel contratto
+// solo se il commit che lo ha sostituito sta sulla first-parent di `main`
+// (squash merge, la regola del repo). Se il cambio arrivasse con un merge
+// commit non squash, la cronologia elencherebbe il commit del BRANCH e il suo
+// genitore sarebbe uno stato intermedio della PR con lo stesso contratto:
+// supera la rilettura e viene scelto con `stale: false`. Il contratto resta
+// compatibile, quindi l'ondata è corretta ma può essere più arretrata del
+// necessario; la misura affidabile del ritardo è `commitsBehindMain`.
+async function resolveLatestCompatibleSiteCodeCommit({ request, sleep, remoteContract, supersedingEntry }) {
+  const parentCommit = supersedingEntry?.parents?.[0]?.sha;
+  if (!COMMIT_RE.test(parentCommit ?? '')) return { reason: 'superseding_parent_unavailable' };
+  const parentContract = await readSiteContractAt({ request, sleep, ref: parentCommit });
+  if (parentContract === null) return { reason: 'superseding_parent_contract_unreadable' };
+  try {
+    if (canonicalJson(parentContract) !== canonicalJson(remoteContract)) {
+      return { reason: 'superseding_parent_contract_mismatch' };
+    }
+  } catch {
+    return { reason: 'superseding_parent_contract_mismatch' };
+  }
+  return { siteCodeCommit: parentCommit, reason: 'parent_of_superseding_contract_change' };
+}
+
 async function resolveCompatibleSiteCodeCommit({ request, remoteContract, sleep }) {
   let historyResponse;
   try {
@@ -1014,37 +1072,77 @@ async function resolveCompatibleSiteCodeCommit({ request, remoteContract, sleep 
     return null;
   }
   if (historyResponse?.status !== 200 || !Array.isArray(historyResponse.body)) return null;
-  for (const entry of historyResponse.body.slice(0, MAX_SITE_CONTRACT_HISTORY_CANDIDATES)) {
-    const siteCodeCommit = entry?.sha;
-    if (!COMMIT_RE.test(siteCodeCommit ?? '')) continue;
-    let response;
+  const history = historyResponse.body.slice(0, MAX_SITE_CONTRACT_HISTORY_CANDIDATES);
+  for (const [index, entry] of history.entries()) {
+    const introducingCommit = entry?.sha;
+    if (!COMMIT_RE.test(introducingCommit ?? '')) continue;
+    const siteContract = await readSiteContractAt({ request, sleep, ref: introducingCommit });
+    if (siteContract === null) continue;
     try {
-      response = await requestPreflightRead({
-        request,
-        sleep,
-        input: {
-          method: 'GET',
-          path: `/repos/${SITE_REPOSITORY}/contents/${SITE_CONTRACT_PATH}?ref=${encodeURIComponent(siteCodeCommit)}`,
-          apiVersion: GITHUB_API_VERSION,
-        },
-      });
-    } catch {
-      continue;
-    }
-    if (response?.status !== 200) continue;
-    let siteContract;
-    try {
-      siteContract = JSON.parse(decodeContentsResponse(response).toString('utf8'));
-    } catch {
-      continue;
-    }
-    try {
-      if (canonicalJson(siteContract) === canonicalJson(remoteContract)) return siteCodeCommit;
+      if (canonicalJson(siteContract) !== canonicalJson(remoteContract)) continue;
     } catch {
       return null;
     }
+    if (index === 0) {
+      return {
+        siteCodeCommit: introducingCommit,
+        strategy: 'contract_introducing_commit',
+        reason: 'latest_contract_change_on_main',
+        contractIntroducedBy: introducingCommit,
+        supersededBy: null,
+        stale: false,
+      };
+    }
+    const supersedingEntry = history[index - 1];
+    const supersededBy = COMMIT_RE.test(supersedingEntry?.sha ?? '') ? supersedingEntry.sha : null;
+    const latest = await resolveLatestCompatibleSiteCodeCommit({
+      request, sleep, remoteContract, supersedingEntry,
+    });
+    if (latest.siteCodeCommit) {
+      return {
+        siteCodeCommit: latest.siteCodeCommit,
+        strategy: 'latest_compatible_main_commit',
+        reason: latest.reason,
+        contractIntroducedBy: introducingCommit,
+        supersededBy,
+        stale: false,
+      };
+    }
+    // Il commit introduttivo resta un'ondata valida (#10474: meglio codice
+    // vecchio che nessuna ondata), ma è più arretrato del genitore atteso:
+    // `stale` è il segnale che l'orchestratore trasforma in issue.
+    return {
+      siteCodeCommit: introducingCommit,
+      strategy: 'contract_introducing_commit',
+      reason: latest.reason,
+      contractIntroducedBy: introducingCommit,
+      supersededBy,
+      stale: true,
+    };
   }
   return null;
+}
+
+// Quanto è arretrato il commit scelto rispetto a `main` del sito. Solo
+// diagnostica: una lettura fallita lascia `null`, mai un numero inventato, e
+// non cambia la decisione di dispatch.
+async function measureSiteCodeLag({ request, sleep, siteCodeCommit, siteMainCommit }) {
+  const head = COMMIT_RE.test(siteMainCommit ?? '') ? siteMainCommit : 'main';
+  try {
+    const response = await requestPreflightRead({
+      request,
+      sleep,
+      input: {
+        method: 'GET',
+        path: `/repos/${SITE_REPOSITORY}/compare/${encodeURIComponent(siteCodeCommit)}...${encodeURIComponent(head)}?per_page=1`,
+        apiVersion: GITHUB_API_VERSION,
+      },
+    });
+    const aheadBy = response?.status === 200 ? response.body?.ahead_by : null;
+    return Number.isSafeInteger(aheadBy) && aheadBy >= 0 ? aheadBy : null;
+  } catch {
+    return null;
+  }
 }
 
 async function readPreflightSnapshot({ request, localContract, localObserver, sleep }) {
@@ -1104,6 +1202,7 @@ export async function runPreflight({
   observerPath,
   sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay)),
   onTransientMismatch = () => {},
+  siteMainCommit = null,
 }) {
   const localContract = JSON.parse(fs.readFileSync(contractPath, 'utf8'));
   const localObserver = fs.readFileSync(observerPath);
@@ -1112,11 +1211,12 @@ export async function runPreflight({
     const snapshot = await readPreflightSnapshot({ request, localContract, localObserver, sleep });
     let { result } = snapshot;
     if (!result.ready && hasRecoverableContractMismatch(result.reasons)) {
-      const siteCodeCommit = await resolveCompatibleSiteCodeCommit({
+      const compatible = await resolveCompatibleSiteCodeCommit({
         request,
         remoteContract: snapshot.remoteContract,
         sleep,
       });
+      const siteCodeCommit = compatible?.siteCodeCommit ?? null;
       if (canUseSiteContractFallback({
         reasons: result.reasons,
         localContract,
@@ -1124,6 +1224,15 @@ export async function runPreflight({
         siteCodeCommit,
       })) {
         result = evaluateCrawlerGenerationPreflight({
+          siteCodeFallback: {
+            strategy: compatible.strategy,
+            reason: compatible.reason,
+            contractIntroducedBy: compatible.contractIntroducedBy,
+            supersededBy: compatible.supersededBy,
+            stale: compatible.stale,
+            siteMainCommit: COMMIT_RE.test(siteMainCommit ?? '') ? siteMainCommit : null,
+            commitsBehindMain: await measureSiteCodeLag({ request, sleep, siteCodeCommit, siteMainCommit }),
+          },
           corpusCodeCommit: snapshot.corpusCodeCommit,
           localContract,
           remoteContract: snapshot.remoteContract,
@@ -1158,6 +1267,21 @@ export async function runPreflight({
     await sleep(delayMs);
   }
   throw new Error('crawler_generation_preflight_reconciliation_unreachable');
+}
+
+// Output dello step di preflight letti da orchestrate-crawlers.yml. Le chiavi
+// `site_code_fallback_*` alimentano lo step che apre o chiude la issue
+// «Ondata crawler su codice arretrato»: `stale` è vero solo per un'ondata
+// PRONTA lanciata sul commit introduttivo mentre esiste un contratto successivo.
+export function formatPreflightStepOutputs(result) {
+  const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';
+  const fallback = result.siteCodeFallback ?? null;
+  return `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}`
+    + `\nsite_code_commit=${result.siteCodeCommit ?? ''}\nreasons=${reasonText}`
+    + `\nsite_code_fallback_stale=${result.ready === true && fallback?.stale === true}`
+    + `\nsite_code_fallback_reason=${fallback?.reason ?? ''}`
+    + `\nsite_code_fallback_superseded_by=${fallback?.supersededBy ?? ''}`
+    + `\nsite_code_commits_behind_main=${fallback?.commitsBehindMain ?? ''}\n`;
 }
 
 function parseArguments(argv) {
@@ -1215,6 +1339,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
         request,
         contractPath: path.resolve(values['--contract']),
         observerPath: path.resolve(values['--observer']),
+        siteMainCommit: env.GITHUB_SHA,
         onTransientMismatch: ({ attempt, nextAttempt, maxAttempts, delayMs, reasons }) => {
           process.stderr.write(
             `::notice::crawler generation preflight transient lineage skew on attempt ${attempt}/${maxAttempts}`
@@ -1231,13 +1356,8 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       };
     }
     const reasonText = result.reasons?.length > 0 ? result.reasons.join(',') : 'none';
-    if (env.GITHUB_OUTPUT) {
-      fs.appendFileSync(
-        env.GITHUB_OUTPUT,
-        `ready=${result.ready}\ndispatch_mode=${result.dispatchMode}\ncorpus_commit=${result.corpusCodeCommit ?? ''}`
-          + `\nsite_code_commit=${result.siteCodeCommit ?? ''}\nreasons=${reasonText}\n`,
-      );
-    }
+    const fallback = result.siteCodeFallback ?? null;
+    if (env.GITHUB_OUTPUT) fs.appendFileSync(env.GITHUB_OUTPUT, formatPreflightStepOutputs(result));
     if (env.GENERATION_PREFLIGHT_OUTPUT) {
       writeJsonAtomic(env.GENERATION_PREFLIGHT_OUTPUT, result, { compact: true });
     }
@@ -1250,7 +1370,9 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
     if (result.ready && (result.warnings ?? []).includes('site_contract_compatibility_fallback')) {
       process.stderr.write(
         `::warning::crawler generation contract mismatch; dispatching compatible site commit ${result.siteCodeCommit}`
-        + ` against ${CALLER_REPOSITORY}@${result.corpusCodeCommit}\n`,
+        + ` against ${CALLER_REPOSITORY}@${result.corpusCodeCommit}`
+        + ` (site main=${fallback?.siteMainCommit ?? 'unknown'}, commits behind main=${fallback?.commitsBehindMain ?? 'unknown'},`
+        + ` strategy=${fallback?.strategy ?? 'unknown'}, reason=${fallback?.reason ?? 'unknown'})\n`,
       );
     }
     if (!result.ready) {
