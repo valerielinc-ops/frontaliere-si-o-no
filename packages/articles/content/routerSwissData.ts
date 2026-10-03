@@ -2569,6 +2569,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'locazione-cauzione-argovia-2026': { it: 'locazione-cauzione-argovia-2026', en: 'switzerland-rents-aargau-2026', de: 'mieten-schweiz-aargau-2026', fr: 'loyers-suisse-argovie-2026' },
  'dazio-ue-pacchi-posta': { it: 'dazio-ue-pacchi-posta', en: 'eu-tariff-swiss-post-parcels', de: 'eu-zoll-swiss-post-pakete', fr: 'droits-ue-colis-poste-suisse' },
  'spedizioni-ue-posta-svizzera': { it: 'spedizioni-ue-posta-svizzera', en: 'eu-duties-small-parcels-swiss-post', de: 'eu-zoll-kleine-pakete-schweizerische-post', fr: 'droits-ue-petits-colis-poste-suisse' },
+ 'inquilini-cantoni-disdetta': { it: 'inquilini-cantoni-disdetta', en: 'swiss-rent-tenant-rights', de: 'mietrecht-schweiz-argau', fr: 'location-suisse-argovie' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

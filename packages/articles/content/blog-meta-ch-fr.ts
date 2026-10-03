@@ -7640,6 +7640,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.spedizioni-ue-posta-svizzera.title': 'Droits de douane de l\'UE sur les colis : impact sur la Poste suisse',
     'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Depuis juillet, l\'UE applique un droit de 3 euros pour chaque article provenant de pays tiers. La Poste suisse signale une baisse à deux chiffres du nombre de colis à destination de l\'UE.',
     'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Colis de la Poste suisse préparés pour l\'envoi vers l\'Union européenne',
+    'blog.article.inquilini-cantoni-disdetta.title': 'Locations en Suisse 2026 : marché immobilier d’Argovie',
+    'blog.article.inquilini-cantoni-disdetta.excerpt': 'Marché suisse des loyers en 2026 : en Argovie, caution maximale de trois mensualités, formulaire cantonal et 30 jours pour contester.',
+    'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Immeuble résidentiel suisse et documents pour un contrat de location',
 };
 
 export default blogMetaChFr;

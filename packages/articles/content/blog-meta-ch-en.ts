@@ -7640,6 +7640,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.spedizioni-ue-posta-svizzera.title': 'EU duties on parcels: impact on Posta svizzera',
     'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Since July, the EU has charged 3 euro for each item from third countries. The Posta svizzera reports a double-digit decline in parcels to the EU.',
     'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Swiss Post parcels prepared for shipment to the European Union',
+    'blog.article.inquilini-cantoni-disdetta.title': 'Swiss rentals 2026: Aargau real estate market',
+    'blog.article.inquilini-cantoni-disdetta.excerpt': 'Swiss rental market in 2026: in Aargau, a maximum deposit of three months’ rent, a cantonal form, and 30 days to contest.',
+    'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Swiss residential building with documents for a rental contract',
 };
 
 export default blogMetaChEn;

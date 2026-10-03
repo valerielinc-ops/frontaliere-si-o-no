@@ -7640,6 +7640,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.spedizioni-ue-posta-svizzera.title': 'EU-Zölle auf Pakete: Auswirkungen auf die Schweizerische Post',
     'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Seit Juli erhebt die EU 3 Euro pro Artikel aus Drittstaaten. Die Schweizerische Post meldet einen zweistelligen Rückgang der Pakete in die EU.',
     'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Pakete der Schweizer Post für den Versand in die Europäische Union',
+    'blog.article.inquilini-cantoni-disdetta.title': 'Mieten Schweiz 2026: Immobilienmarkt Aargau',
+    'blog.article.inquilini-cantoni-disdetta.excerpt': 'Schweizer Mietmarkt 2026: Im Aargau gelten eine maximale Kaution von drei Monatsmieten, ein kantonales Formular und 30 Tage für eine Anfechtung.',
+    'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Schweizer Wohngebäude mit Unterlagen für einen Mietvertrag',
 };
 
 export default blogMetaChDe;

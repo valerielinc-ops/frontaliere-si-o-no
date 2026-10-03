@@ -7640,6 +7640,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.spedizioni-ue-posta-svizzera.title': 'Dazi UE sui pacchi: impatto sulla Posta svizzera',
     'blog.article.spedizioni-ue-posta-svizzera.excerpt': 'Dal luglio l\'UE applica 3 euro per ogni articolo dai Paesi terzi. La Posta svizzera segnala un calo a due cifre dei pacchi verso l\'UE.',
     'blog.article.spedizioni-ue-posta-svizzera.imageAlt': 'Pacchi della Posta svizzera destinati all\'Unione europea',
+    'blog.article.inquilini-cantoni-disdetta.title': 'Affitti Svizzera 2026: mercato immobiliare Argovia',
+    'blog.article.inquilini-cantoni-disdetta.excerpt': 'Mercato degli affitti svizzero nel 2026: in Argovia cauzione massima di tre mensilità, modulo cantonale e 30 giorni per contestare.',
+    'blog.article.inquilini-cantoni-disdetta.imageAlt': 'Edificio residenziale svizzero con documenti per un contratto d\'affitto',
 };
 
 export default blogMetaChIt;
