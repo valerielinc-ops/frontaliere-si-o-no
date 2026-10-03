@@ -1,6 +1,6 @@
 {
   "crawlerKey": "recruitingapp-1154",
-  "assembledAt": "2026-10-02T21:27:35.803Z",
+  "assembledAt": "2026-10-03T09:28:19.255Z",
   "jobs": [
     {
       "id": "recruitingapp-1154-84ce77d2fbf5",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3791/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:29.631Z",
+      "crawledAt": "2026-10-03T09:28:15.818Z",
       "addressLocality": "St. Margrethen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -125,7 +125,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3802/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:29.329Z",
+      "crawledAt": "2026-10-03T09:28:15.516Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -173,7 +173,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "recruitingapp-1154-a1b5a6fb7e67",
@@ -206,7 +207,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3807/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:29.025Z",
+      "crawledAt": "2026-10-03T09:28:15.214Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -254,7 +255,8 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "recruitingapp-1154-88e2522fd51f",
@@ -287,7 +289,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3809/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:28.723Z",
+      "crawledAt": "2026-10-03T09:28:14.912Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -360,7 +362,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3811/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:28.419Z",
+      "crawledAt": "2026-10-03T09:28:14.610Z",
       "addressLocality": "Wittenbach",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -439,7 +441,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3813/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:28.113Z",
+      "crawledAt": "2026-10-03T09:28:14.307Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -518,7 +520,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3814/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:27.811Z",
+      "crawledAt": "2026-10-03T09:28:14.005Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -561,7 +563,8 @@
           "maxValue": 140000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "recruitingapp-1154-ecf4221285e2",
@@ -594,7 +597,7 @@
       "url": "https://recruitingapp-1154.umantis.com/Vacancies/3815/Description/1",
       "source": "SGKB Bewerbermanagement Stellen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:27:27.508Z",
+      "crawledAt": "2026-10-03T09:28:13.703Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -637,7 +640,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }

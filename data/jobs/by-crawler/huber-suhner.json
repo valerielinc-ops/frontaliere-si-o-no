@@ -1,6 +1,6 @@
 {
   "crawlerKey": "huber-suhner",
-  "assembledAt": "2026-10-02T21:28:31.479Z",
+  "assembledAt": "2026-10-03T09:29:16.262Z",
   "jobs": [
     {
       "id": "huber-suhner-aa1bb70ac296",
@@ -132,7 +132,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/6339/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:25.572Z",
+      "crawledAt": "2026-10-03T09:29:10.541Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -215,7 +215,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8179/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:24.602Z",
+      "crawledAt": "2026-10-03T09:29:09.987Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -320,7 +320,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8112/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:23.634Z",
+      "crawledAt": "2026-10-03T09:29:09.434Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -402,7 +402,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8194/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:22.692Z",
+      "crawledAt": "2026-10-03T09:29:08.456Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -489,7 +489,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7957/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:21.724Z",
+      "crawledAt": "2026-10-03T09:29:07.514Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -571,7 +571,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7975/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:20.745Z",
+      "crawledAt": "2026-10-03T09:29:06.513Z",
       "addressLocality": "Pfäffikon",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -657,7 +657,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7542/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:19.806Z",
+      "crawledAt": "2026-10-03T09:29:05.517Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -710,7 +710,8 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "huber-suhner-4e1b09a0b325",
@@ -744,7 +745,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8259/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:18.835Z",
+      "crawledAt": "2026-10-03T09:29:04.585Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -828,7 +829,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8215/Description/2",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:28:17.897Z",
+      "crawledAt": "2026-10-03T09:29:03.596Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -870,9 +871,9 @@
       "id": "huber-suhner-3ad1d46d7a6c",
       "slug": "customer-service-representative-huber-suhner-herisau",
       "slugByLocale": {
+        "de": "customer-service-representative-huber-suhner-herisau",
         "it": "customer-service-representative-huber-suhner-herisau",
         "en": "customer-service-representative-huber-suhner-herisau",
-        "de": "customer-service-representative-huber-suhner-herisau",
         "fr": "customer-service-representative-huber-suhner-herisau"
       },
       "company": "Huber+Suhner AG",
@@ -887,9 +888,9 @@
       },
       "description": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
       "descriptionByLocale": {
+        "de": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
         "it": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
         "en": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
-        "de": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…",
         "fr": "Ihr Aufgabengebiet\n\n• Betreuung und Beratung unserer Kunden in der Region EMEA über alle drei Technologiebereiche und verschiedene Kommunikationskanäle\n• Bearbeitung von Kundenanfragen, Erstellung von Angeboten sowie Abwicklung von Aufträgen\n• Verantwortung für Reklamations- und Eskalationsmanagement\n• Enge Zusammenarbeit mit internen Schnittstellen wie Vertrieb, Logistik, Planung und PQM\n• Unterstützung bei Verkaufsförderungsmassnahmen, z. B. Messen und Kundenbesuchen\n• Aktive Mitarbeit in Projekten\n• Sicherstellung einer hohen Kundenzufriedenheit\n\nIhr Profil\n\n• Kundenorientierter Teamplayer mit abgeschlossener kaufmännischer oder technischer Ausbildung oder gleichwertige Qualifikation\n• Mehrjährige Berufserfahrung in einer vergleichbaren Position\n• Ausgeprägtes Interesse an unseren Produkten oder bereits vorhandene Kenntnisse in ähnlichen Produktpaletten, Anwendungen, Märkten oder im B2B-Umfeld\n• Verständnis für Planung und Supply Chain Management von Vorteil\n• Hohe Serviceorientierung, Organisationstalent sowie Kommunikationsstärke und eine proaktive Persönlichkeit\n• Positive Einstellung, Flexibilität und Zuverlässigkeit\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift zwingend erforderlich; weitere Sprachen von Vorteil\n• Sicherer Umgang mit MS Office, idealerweise auch mit ERP-Systemen; SAP-Kenntnisse wünschenswert\n\nWieso HUBER+SUHNER?\n\n• 40-Stunden-Woche\n• Bis zu 6 Wochen Ferien\n• Remote-Work\n• Personalrestaurant mit abwechslungsreichen Menüs zu attraktiven Preisen\n• Beitrag zu Fitness- & Bäder-Abos\n• Grosszügiger Beitrag zum Halbtax-Abo\n• Überobligatorische Pensionskasse und vieles mehr…"
       },
       "location": "Herisau",
@@ -897,7 +898,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/8279/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:16.909Z",
+      "crawledAt": "2026-10-03T09:29:02.669Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -931,7 +932,7 @@
           "servizio-clienti-representative-huber-suhner-ag-herisau"
         ]
       },
-      "firstSeenAt": "2026-10-02T21:28:16.909Z",
+      "firstSeenAt": "2026-10-03T09:29:02.669Z",
       "salaryMin": 67000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -944,7 +945,8 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "huber-suhner-4fbcd607bf1e",
@@ -978,7 +980,7 @@
       "url": "https://recruiting.hubersuhner.com/Vacancies/7783/Description/1",
       "source": "Huber+Suhner AG Dedicated Parser (Umantis @ recruiting.hubersuhner.com)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:28:15.960Z",
+      "crawledAt": "2026-10-03T09:29:01.719Z",
       "addressLocality": "Herisau",
       "addressRegion": "AR",
       "addressCountry": "CH",
@@ -1015,7 +1017,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:28:15.960Z"
+      "firstSeenAt": "2026-10-03T09:29:01.719Z"
     }
   ]
 }

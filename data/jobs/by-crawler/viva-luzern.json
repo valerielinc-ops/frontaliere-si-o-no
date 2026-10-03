@@ -1,6 +1,6 @@
 {
   "crawlerKey": "viva-luzern",
-  "assembledAt": "2026-10-02T21:14:30.783Z",
+  "assembledAt": "2026-10-03T09:14:31.071Z",
   "jobs": [
     {
       "id": "viva-luzern-5b65d7a19c0c",
@@ -33,7 +33,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-oder-betreuung-efz/c09e6e2b-540c-4320-91c5-cb956ab6c7e5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.796Z",
+      "crawledAt": "2026-10-03T09:13:52.865Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -75,12 +75,14 @@
       },
       "previousSlugs": [
         "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern",
-        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2"
+        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
+        "operatore-socio-sanitario-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fachfrau-mann-gesundheit-oder-betreuung-efz-viva-luzern-luzern",
-          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2"
+          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern-2",
+          "operatore-socio-sanitario-viva-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-05-19T18:25:39.380Z",
@@ -96,7 +98,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "viva-luzern-e87910a5c03f",
@@ -105,7 +108,7 @@
         "it": "pflegefachfrau-mann-hf-viva-luzern",
         "en": "certified-nursing-professional-viva-luzern-luzern",
         "de": "pflegefachfrau-mann-hf-viva-luzern-luzern",
-        "fr": "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
+        "fr": "professionnel-de-soins-viva-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -130,7 +133,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf/cc1bce20-e58d-4ae3-9c1a-713f5237ccaa",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.795Z",
+      "crawledAt": "2026-10-03T09:13:52.864Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -170,7 +173,8 @@
         "nursing-professional-hf-temporary-viva-luzern-luzern",
         "soins-infirmiers-professionnels-hf-temporaire-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
-        "professionnel-de-soins-viva-luzern"
+        "professionnel-de-soins-viva-luzern",
+        "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -204,6 +208,7 @@
         "fr": [
           "specialiste-des-soins-palliatifs-viva-luzern-luzern",
           "soins-infirmiers-professionnels-hf-viva-luzern",
+          "infirmier-infirmiere-diplome-e-es-viva-luzern-luzern",
           "professionnel-de-soins-viva-luzern"
         ]
       },
@@ -254,7 +259,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-betreuung-und-pflege/ce7584af-db46-4488-9fd9-e5e1f2192316",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.794Z",
+      "crawledAt": "2026-10-03T09:13:52.862Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -355,7 +360,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk/f3addf97-defe-43c8-a9d0-85e9c3d28690",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.793Z",
+      "crawledAt": "2026-10-03T09:13:52.861Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -436,7 +441,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-keine-geteilten-dienste-im-bereich-pflege/1f23ea8f-dc96-4500-87b5-d5e710d52714",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.792Z",
+      "crawledAt": "2026-10-03T09:13:52.859Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -517,7 +522,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege/5370ba7d-fad9-45a2-aa75-5af7fdd17642",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.791Z",
+      "crawledAt": "2026-10-03T09:13:52.857Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -537,12 +542,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern"
+        "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+        "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern",
-          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern"
+          "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern",
+          "infermieristica-professionale-hf-senza-servizi-di-assistenza-condivisa-viva-luzern-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-keine-geteilten-dienste-im-bereich-pflege-viva-luzern-luzern"
@@ -597,7 +604,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/assistent-in-gesundheit-und-soziales-oder-pflegehelfer-in-srk-keine-geteilten-dienste-im-bereich-pflege/3d38778e-14ab-41a7-9b3d-ce2bddf702b2",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.790Z",
+      "crawledAt": "2026-10-03T09:13:52.855Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -676,7 +683,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege-fuer-die-demenz-wohngruppe/ee8b8ca5-2d50-412e-b489-b01ee0ae385c",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.789Z",
+      "crawledAt": "2026-10-03T09:13:52.851Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -755,7 +762,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fuer-die-demenz-wohngruppe/ccbfa5c2-4beb-43d0-8b7f-f12e5f5c5fd5",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.787Z",
+      "crawledAt": "2026-10-03T09:13:52.845Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -774,11 +781,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
+        "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva",
+        "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
+          "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva",
+          "fachfrau-mann-gesundheit-cfc-o-pflegefachfrau-mann-hf-per-la-demenz-wohngruppe-viva-luzern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-oder-pflegefachfrau-mann-hf-fur-die-demenz-wohngruppe-viva"
@@ -834,7 +843,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-fuer-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung/b56e0936-9a9e-485d-8d35-cd286dd309a9",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.786Z",
+      "crawledAt": "2026-10-03T09:13:52.842Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -853,11 +862,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
+        "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva",
+        "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
+          "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva",
+          "pflegefachfrau-mann-hf-per-wohnbereich-con-teils-gerontopsychiatrischer-specializzazione-viva-luzern"
         ],
         "en": [
           "pflegefachfrau-mann-hf-fur-wohnbereich-mit-teils-gerontopsychiatrischer-fachrichtung-viva"
@@ -913,7 +924,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleitung-nacht-betreuung-und-pflege/f6cf51cf-3352-4ed9-ad4f-e53831f95338",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.782Z",
+      "crawledAt": "2026-10-03T09:13:52.840Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1005,7 +1016,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-kueche/a4916bcb-a9f3-4538-828c-dea51b7bcbc7",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.780Z",
+      "crawledAt": "2026-10-03T09:13:52.837Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1024,11 +1035,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "teamleiter-in-kuche-viva-luzern-luzern"
+        "teamleiter-in-kuche-viva-luzern-luzern",
+        "team-leader-cuisine-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamleiter-in-kuche-viva-luzern-luzern"
+          "teamleiter-in-kuche-viva-luzern-luzern",
+          "team-leader-cuisine-viva-luzern-luzern"
         ],
         "fr": [
           "teamleiter-in-kuche-viva-luzern-luzern"
@@ -1081,7 +1094,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/teamleiter-in-betreuung-und-pflege/913e4859-1c5d-4545-ace6-4e596a948f0e",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.779Z",
+      "crawledAt": "2026-10-03T09:13:52.836Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1160,7 +1173,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/pflegefachfrau-mann-hf-palliative-care/78c1f742-8405-4637-8b09-24f62e33ee5d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.777Z",
+      "crawledAt": "2026-10-03T09:13:52.833Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1239,7 +1252,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/aufnahmeverantwortliche-r/8d474404-5306-4e6b-a842-9dbff53d0ec3",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.776Z",
+      "crawledAt": "2026-10-03T09:13:52.828Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1262,7 +1275,8 @@
         "ricevimento-responsabile-r-viva-luzern-luzern",
         "reception-responsible-r-viva-luzern-luzern",
         "responsable-de-la-reception-r-viva-luzern-luzern",
-        "aufnahmeverantwortliche-r-viva-luzern-luzern-laceoz"
+        "aufnahmeverantwortliche-r-viva-luzern-luzern-laceoz",
+        "ricevimento-responsabile-r-viva-luzern-luzern-9719c7"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1270,7 +1284,8 @@
           "ricevimento-responsabile-r-viva-luzern-luzern",
           "reception-responsible-r-viva-luzern-luzern",
           "responsable-de-la-reception-r-viva-luzern-luzern",
-          "aufnahmeverantwortliche-r-viva-luzern-luzern-laceoz"
+          "aufnahmeverantwortliche-r-viva-luzern-luzern-laceoz",
+          "ricevimento-responsabile-r-viva-luzern-luzern-9719c7"
         ],
         "en": [
           "aufnahmeverantwortliche-r-viva-luzern-luzern",
@@ -1328,7 +1343,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/stv-teamleiter-in-pflege/28359277-7f1b-49c3-8572-694ea25e16fd",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.775Z",
+      "crawledAt": "2026-10-03T09:13:52.825Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1347,11 +1362,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stv-teamleiter-in-pflege-viva-luzern-luzern"
+        "stv-teamleiter-in-pflege-viva-luzern-luzern",
+        "personale-capo-del-team-infermieristico-viva-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleiter-in-pflege-viva-luzern-luzern"
+          "stv-teamleiter-in-pflege-viva-luzern-luzern",
+          "personale-capo-del-team-infermieristico-viva-luzern-luzern"
         ],
         "en": [
           "stv-teamleiter-in-pflege-viva-luzern-luzern"
@@ -1407,7 +1424,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/fachfrau-mann-gesundheit-efz/e190e5d0-e970-4a27-92e4-c8a53f587b03",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.772Z",
+      "crawledAt": "2026-10-03T09:13:52.820Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1426,11 +1443,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+        "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
+        "fachfrau-mann-gesundheit-cfc-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
+          "fachfrau-mann-gesundheit-efz-viva-luzern-luzern",
+          "fachfrau-mann-gesundheit-cfc-viva-luzern"
         ],
         "en": [
           "fachfrau-mann-gesundheit-efz-viva-luzern-luzern"
@@ -1458,7 +1477,7 @@
       "slug": "cuocere-cucinare-viva-luzern-luzern",
       "slugByLocale": {
         "it": "cuocere-cucinare-viva-luzern-luzern",
-        "en": "cook-cook-viva-luzern-luzern",
+        "en": "kochin-koch-viva-luzern",
         "de": "kochin-koch-viva-luzern-luzern",
         "fr": "cuisiniere-viva-luzern-luzern"
       },
@@ -1485,7 +1504,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/koechin-koch/801ef47f-7193-477c-ba0c-38bd7c0cae1d",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.769Z",
+      "crawledAt": "2026-10-03T09:13:52.815Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1505,14 +1524,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kochin-koch-viva-luzern-luzern",
+        "cook-cook-viva-luzern-luzern",
+        "cuocere-cucinare-viva-luzern-luzern",
         "kochin-koch-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "kochin-koch-viva-luzern-luzern"
+          "kochin-koch-viva-luzern-luzern",
+          "cuocere-cucinare-viva-luzern-luzern"
         ],
         "en": [
           "kochin-koch-viva-luzern-luzern",
+          "cook-cook-viva-luzern-luzern",
           "kochin-koch-viva-luzern"
         ],
         "fr": [
@@ -1565,7 +1588,7 @@
       "url": "https://jobs.vivaluzern.ch/offene-stellen/mitarbeiter-in-wohnbereichsgastronomie-im-abendservice/62868e15-4bc9-4a9d-bd54-0b9083540e27",
       "source": "Viva Luzern Dedicated Parser (Prospective medium 1002590)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.758Z",
+      "crawledAt": "2026-10-03T09:13:52.791Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1584,11 +1607,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-wohnbereichsgastronomie-im-abendservice-viva-luzern-luzern"
+        "mitarbeiter-in-wohnbereichsgastronomie-im-abendservice-viva-luzern-luzern",
+        "collaboratore-trice-in-wohnbereichsgastronomie-im-abendservice-viva-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-wohnbereichsgastronomie-im-abendservice-viva-luzern-luzern"
+          "mitarbeiter-in-wohnbereichsgastronomie-im-abendservice-viva-luzern-luzern",
+          "collaboratore-trice-in-wohnbereichsgastronomie-im-abendservice-viva-luzern"
         ]
       },
       "salaryMin": 86500,

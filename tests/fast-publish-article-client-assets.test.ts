@@ -79,6 +79,21 @@ describe('rerender article hubs workflow', () => {
     expect(hubDriver).toContain('refusing to move the client behind the hub');
   });
 
+  it('defers armed rerenders while the stable corpus sync PR is open', () => {
+    expect(hubWorkflow).toContain('id: corpus_sync');
+    expect(hubWorkflow).toContain('--head chore/sync-articles-sitemaps');
+    expect(hubWorkflow).toContain('echo "deferred=true" >> "$GITHUB_OUTPUT"');
+    expect(hubWorkflow).toContain(
+      "if: steps.corpus_sync.outputs.deferred != 'true' && steps.mode.outputs.dry != 'true'",
+    );
+    expect(hubWorkflow).toContain(
+      "if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
+    );
+    expect(hubWorkflow).toContain(
+      "if: failure() && steps.corpus_sync.outputs.deferred != 'true'",
+    );
+  });
+
   it('defers a published-ahead ID gap even when the manifest count still matches', async () => {
     const fetchMock = vi.fn((url: string) => {
       if (url.endsWith('/manifest.json')) {
@@ -182,7 +197,9 @@ describe('rerender article hubs workflow', () => {
     expect(deferAt).toBeLessThan(publishAt);
     expect(hubDriver).toContain("fs.appendFileSync(process.env.GITHUB_OUTPUT, 'deferred=true\\n')");
     expect(hubWorkflow).toContain("steps.render.outputs.deferred != 'true'");
-    expect(hubWorkflow).toContain("if: success() && steps.render.outputs.deferred != 'true'");
+    expect(hubWorkflow).toContain(
+      "if: success() && steps.corpus_sync.outputs.deferred != 'true' && steps.render.outputs.deferred != 'true'",
+    );
   });
 
   it('rejects a live hub card absent from the local registry', async () => {
@@ -306,7 +323,9 @@ describe('rerender article hubs workflow', () => {
     expect(hubWorkflow).toContain('r2-section-lock.mjs renew');
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_ENFORCE=true');
     expect(hubWorkflow).toContain('ARTICLE_CHUNK_LOCK_FAILURE_FILE');
-    expect(hubWorkflow).toContain("if: always() && steps.acquire_chunk_lock.outcome == 'success'");
+    expect(hubWorkflow).toContain(
+      "if: always() && steps.corpus_sync.outputs.deferred != 'true' && steps.acquire_chunk_lock.outcome == 'success'",
+    );
   });
 
   it('keeps the renewer pid attached to the live process in every article publisher', () => {

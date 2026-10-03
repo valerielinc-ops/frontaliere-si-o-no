@@ -1,17 +1,18 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-10-02T21:13:53.900Z",
+  "generatedAt": "2026-10-03T09:10:40.811Z",
   "total": 79,
   "newCount": 2,
   "updatedCount": 70,
   "removedCount": 4,
   "unchangedCount": 7,
-  "durationMs": 35035,
-  "avgDurationMs": 35035,
+  "durationMs": 36843,
+  "avgDurationMs": 36843,
   "durationHistory": [
     37562,
-    35035
+    35035,
+    36843
   ],
   "newJobs": [
     {
@@ -889,8 +890,8 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "firstSeenAt": "2026-09-21T15:57:50.187Z",
       "needsRetranslation": false,
+      "firstSeenAt": "2026-09-21T15:57:50.187Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,

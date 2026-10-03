@@ -1,6 +1,6 @@
 {
   "crawlerKey": "schulthess-klinik",
-  "assembledAt": "2026-10-02T21:14:39.441Z",
+  "assembledAt": "2026-10-03T09:12:14.586Z",
   "jobs": [
     {
       "id": "schulthess-klinik-9214d811c47d",
@@ -81,7 +81,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "schulthess-klinik-0b32553ee454",
@@ -164,7 +165,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "schulthess-klinik-f226253b6361",
@@ -250,7 +252,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "crawlerMissStreak": 1
     },
     {
       "id": "schulthess-klinik-93d8ce3bb1fc",
@@ -284,7 +287,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-hf-fh-im-bereich-intermediate-care-imc/48e0236d-d7b2-4e77-8c30-db26b0ddf6b0",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.845Z",
+      "crawledAt": "2026-10-03T09:12:09.970Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -370,7 +373,7 @@
       "url": "https://job.schulthess-klinik.ch/job-vacancies/director-of-research/5436004d-b4fd-4783-a9f4-3412327ae7cb",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:33.842Z",
+      "crawledAt": "2026-10-03T09:12:09.967Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -451,7 +454,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-fuer-die-bettenstationen/815a04d2-89e2-4018-9b7c-1cc368677341",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.837Z",
+      "crawledAt": "2026-10-03T09:12:09.965Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -539,7 +542,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/pflegefachperson-mit-entwicklungsperspektive-zur-fachverantwortung-auf-der-bettenstation/d4e72e6d-3527-417c-a433-f6b297abf3b9",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.831Z",
+      "crawledAt": "2026-10-03T09:12:09.962Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -620,7 +623,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/arztsekretaerin-arztsekretaer-schulter-und-ellbogenchirurgie/7ca302b9-6563-4230-b545-33faeeb48848",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.828Z",
+      "crawledAt": "2026-10-03T09:12:09.959Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -699,7 +702,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/med-praxisassistentin-med-praxisassistent-rheumatologie-rehabilitation/94604294-e3a6-46d1-8b85-9004375c688a",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.824Z",
+      "crawledAt": "2026-10-03T09:12:09.956Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -760,9 +763,9 @@
       "id": "schulthess-klinik-e39332fa355e",
       "slug": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
       "slugByLocale": {
+        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
         "it": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
         "en": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
-        "de": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",
         "fr": "senior-cloud-amp-system-engineer-schulthess-klinik-zurich"
       },
       "company": "Schulthess Klinik",
@@ -777,9 +780,9 @@
       },
       "description": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
       "descriptionByLocale": {
+        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "it": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "en": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
-        "de": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center.",
         "fr": "Aufgaben:\n• Konzeption und Implementierung von Microsoft-Technologien (Azure, M365, Windows Server, Hyper-V, Security, Netzwerk, Backup etc.)\n\n• Betrieb, Weiterentwicklung und Stabilisierung unserer bestehenden On-Premises-Infrastruktur (Windows Server, VMware, Storage, Netzwerk, Security, Backup)\n\n• Verantwortung für die Architektur und Umsetzung von komplexen IT-Infrastrukturprojekten\n\n• Entwicklung und Implementierung von Azure-Ressourcen: Unterstützung beim Aufbau und Betrieb einer Azure-Betriebsplattform\n\n• Sicherstellen, dass alle Projekte qualitativ hochwertig, im Zeit- und Kostenrahmen umgesetzt werden\n\n• Kontinuierliche Optimierung unserer IT-Prozesse, Architekturen und Automatisierungen\n\n• Durchführung von stufengerechten Präsentationen und technischen Workshops\n\n• Zusammenarbeit: Enge Kooperation mit Entwicklung, DevOps, SecOps, Application Management und zur Integration von Anwendungen und Diensten\n\nAnforderungen:\n• Du hast eine abgeschlossene Informatik-Ausbildung oder gleichwertige Berufserfahrung (mindestens 5 Jahre im Cloud Engineering oder System Engineering).\n\n• Du hast idealerweise eine höhere Weiterbildung in Informatik absolviert oder verfügst über einschlägige Zertifizierungen.\n\n• Du bringst tiefgehendes technisches Know-how in Microsoft- und Cloud-Technologien mit – insbesondere in M365, Azure, Windows Server, Netzwerktechnologien und Security.\n\n• Du hast Erfahrung mit hybriden IT-Umgebungen (z. B. VMware, Hyper-V, AD / Azure AD, Hybrid Exchange, VPN, Firewalls) arbeitest selbstständig, denkst unternehmerisch und übernimmst gerne Verantwortung.\n\n• Du begeisterst Dich für Innovation, Automatisierung und digitale Transformation.\n\n• Du kommunizierst sicher auf Deutsch und Englisch, sowohl mündlich als auch schriftlich.\n\nWir bieten:\n• Flexible Arbeitszeiten/-modelle\n\n• 40 Stundenwoche\n\n• Möglichkeit für Homeoffice\n\n• Attraktive Sozialleistungen und zahlreiche Benefits\n\n• Teamspirit\n\n• Work-Life-Balance / Familienfreundlichkeit\n\nDie Schulthess Klinik in Zürich ist eine der führenden orthopädischen Kliniken Europas mit über 1'100 Mitarbeitenden. Unser zentrales Anliegen ist es, Menschen von ihren Schmerzen zu befreien und ihre Mobilität wiederherzustellen. Als Spezialklinik konzentrieren wir uns auf chirurgische Orthopädie, Neurologie, Rheumatologie und Sportmedizin. Die Schulthess Klinik ist Swiss Olympic Medical Center."
       },
       "needsRetranslation": true,
@@ -788,7 +791,7 @@
       "url": "https://job.schulthess-klinik.ch/offene-stellen/senior-cloud-system-engineer/9be11ac1-1153-4e3f-a0ce-23e312012c61",
       "source": "Schulthess Klinik Dedicated Parser (Prospective medium 1007262)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:33.797Z",
+      "crawledAt": "2026-10-03T09:12:09.926Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -808,7 +811,7 @@
       "requirementsByLocale": {
         "de": []
       },
-      "firstSeenAt": "2026-10-02T21:14:33.797Z",
+      "firstSeenAt": "2026-10-03T09:12:09.926Z",
       "previousSlugsByLocale": {
         "it": [
           "senior-cloud-amp-system-engineer-schulthess-klinik-zurich",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "moncucco",
-  "assembledAt": "2026-10-02T21:16:01.666Z",
+  "assembledAt": "2026-10-03T09:11:37.972Z",
   "jobs": [
     {
       "id": "moncucco-d958fe9db290",
@@ -46,7 +46,7 @@
       "applyUrl": "https://www.moncucco.ch/capoclinica_chirurgia_viscerale.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:15:56.426Z",
+      "crawledAt": "2026-10-03T09:11:33.753Z",
       "firstSeenAt": "2026-09-25T14:43:35.632Z",
       "salaryMin": 70500,
       "salaryMax": 98500,
@@ -61,7 +61,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "moncucco-8b751476ca5b",
@@ -107,7 +108,7 @@
       "applyUrl": "https://www.moncucco.ch/infermiere_capo_reparto_area_internistica.php5",
       "source": "Gruppo Ospedaliero Moncucco Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:15:56.058Z",
+      "crawledAt": "2026-10-03T09:11:33.469Z",
       "firstSeenAt": "2026-08-05T11:36:52.216Z",
       "salaryMin": 95000,
       "salaryMax": 132500,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "talan",
-  "assembledAt": "2026-10-02T21:12:48.937Z",
+  "assembledAt": "2026-10-03T09:10:31.858Z",
   "jobs": [
     {
       "id": "talan-68cff378c8b2",
@@ -33,7 +33,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000137693459-qa-engineer-ebanking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.873Z",
+      "crawledAt": "2026-10-03T09:10:26.734Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -75,7 +75,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-8b2dd9df4445",
@@ -108,7 +109,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000135283150-ms-cloud-engineer-product-specialist-m365-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.874Z",
+      "crawledAt": "2026-10-03T09:10:26.735Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -153,7 +154,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-838cc2a04384",
@@ -187,7 +189,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000126717821-developpeur-abap-s-4hana?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.875Z",
+      "crawledAt": "2026-10-03T09:10:26.736Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -252,7 +254,7 @@
       "title": "Business Analyste Core Banking",
       "titleByLocale": {
         "it": "Business Analyst Core Banking",
-        "en": "Business Analyst Core Banking",
+        "en": "Business Analyste Core Banking",
         "de": "Business Analyst Core Banking",
         "fr": "Business Analyste Core Banking"
       },
@@ -268,7 +270,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144774739-business-analyste-core-banking?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.871Z",
+      "crawledAt": "2026-10-03T09:10:26.729Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -313,7 +315,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-844767b140bb",
@@ -347,7 +350,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144775714-senior-java-platform-engineer?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.870Z",
+      "crawledAt": "2026-10-03T09:10:26.732Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -426,7 +429,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000144777899-developpeur-net-api?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.872Z",
+      "crawledAt": "2026-10-03T09:10:26.733Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -507,7 +510,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000148235109-business-analyst-enterprise-data-management-edm-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.869Z",
+      "crawledAt": "2026-10-03T09:10:26.731Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -549,7 +552,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-4a8c50799f86",
@@ -635,7 +639,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "talan-30acc5222a82",
@@ -668,7 +673,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000152678154-analyste-developpeur-sql?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.862Z",
+      "crawledAt": "2026-10-03T09:10:26.720Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -687,22 +692,6 @@
       "jobReqId": "744000152678154",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "analyste-developpeur-sql-talan-geneve-switzerland",
-        "analizzatore-sql-developer-talan-geneve-switzerland"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "analyste-developpeur-sql-talan-geneve-switzerland",
-          "analizzatore-sql-developer-talan-geneve-switzerland"
-        ],
-        "en": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ],
-        "de": [
-          "analyste-developpeur-sql-talan-geneve-switzerland"
-        ]
-      },
       "firstSeenAt": "2026-09-30T21:13:04.350Z",
       "salaryMin": 63000,
       "salaryMax": 107500,
@@ -716,7 +705,24 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "analyste-developpeur-sql-talan-geneve-switzerland",
+          "analizzatore-sql-developer-talan-geneve-switzerland"
+        ],
+        "en": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ],
+        "de": [
+          "analyste-developpeur-sql-talan-geneve-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "analyste-developpeur-sql-talan-geneve-switzerland",
+        "analizzatore-sql-developer-talan-geneve-switzerland"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "talan-827097ba6739",
@@ -749,7 +755,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870429-ai-platform-engineer-plugins-marketplace-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.867Z",
+      "crawledAt": "2026-10-03T09:10:26.724Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -807,7 +813,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-d96f65b3eb5e",
@@ -841,7 +848,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151868230-consultant-power-bi-microsoft-fabric?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.865Z",
+      "crawledAt": "2026-10-03T09:10:26.717Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "postalCode": "",
@@ -932,7 +939,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000151870259-lead-data-analyst?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.868Z",
+      "crawledAt": "2026-10-03T09:10:26.726Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -986,7 +993,8 @@
           "maxValue": 165500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "talan-9addce44f74f",
@@ -1020,7 +1028,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153113299-consultant-sap-basis?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.865Z",
+      "crawledAt": "2026-10-03T09:10:26.721Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1167,7 +1175,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153133249-consultant-expert-sap-crm-f-h?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.864Z",
+      "crawledAt": "2026-10-03T09:10:26.715Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",
@@ -1201,7 +1209,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:12:42.864Z"
+      "firstSeenAt": "2026-10-03T09:10:26.715Z"
     },
     {
       "id": "talan-77288cd4a877",
@@ -1235,7 +1243,7 @@
       "url": "https://jobs.smartrecruiters.com/Talan/744000153192441-developpeur-sap-full-stack-abap-fiori-btp-?oga=true",
       "source": "Talan Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:12:42.860Z",
+      "crawledAt": "2026-10-03T09:10:26.711Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "postalCode": "1201",

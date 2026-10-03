@@ -1,6 +1,6 @@
 {
   "crawlerKey": "jsafrasarasin",
-  "assembledAt": "2026-10-02T21:14:48.397Z",
+  "assembledAt": "2026-10-03T09:12:04.153Z",
   "jobs": [
     {
       "id": "jsafrasarasin-633fe62884d6",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "en": "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
-        "de": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "de": "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel",
         "fr": "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
       },
       "company": "J. Safra Sarasin",
@@ -33,7 +33,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/459/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:43.515Z",
+      "crawledAt": "2026-10-03T09:11:57.907Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -51,17 +51,22 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+          "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano"
         ],
         "it": [
-          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch"
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+          "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano"
         ],
         "de": [
+          "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
           "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
         ]
       },
       "previousSlugs": [
         "team-head-legal-entities-client-data-management-office-jsafrasarasin-ch",
+        "team-head-legal-entities-client-data-management-office-j-safra-sarasin-lugano",
+        "team-head-legal-entita-ufficio-gestione-dati-del-cliente-j-safra-sarasin-lugano",
         "teamleiter-juristischer-einheiten-buro-fur-kundendatenverwaltung-j-safra-sarasin-basel"
       ],
       "firstSeenAt": "2026-08-23T09:42:52.269Z",
@@ -110,7 +115,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/496/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:43.214Z",
+      "crawledAt": "2026-10-03T09:11:57.606Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -128,17 +133,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch",
+          "senior-fix-engineer-specialist-j-safra-sarasin-lugano"
         ],
         "it": [
-          "senior-fix-engineer-specialist-jsafrasarasin-ch"
+          "senior-fix-engineer-specialist-jsafrasarasin-ch",
+          "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
         ],
         "fr": [
           "senior-fix-engineer-specialist-jsafrasarasin-ch"
         ]
       },
       "previousSlugs": [
-        "senior-fix-engineer-specialist-jsafrasarasin-ch"
+        "senior-fix-engineer-specialist-jsafrasarasin-ch",
+        "senior-fix-engineer-specialist-j-safra-sarasin-lugano",
+        "senior-fix-ingegnere-specialista-j-safra-sarasin-lugano"
       ],
       "firstSeenAt": "2026-08-23T09:42:49.241Z",
       "salaryMin": 113500,
@@ -186,7 +195,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/511/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:42.913Z",
+      "crawledAt": "2026-10-03T09:11:57.304Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -203,11 +212,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-fmi-business-analyst-jsafrasarasin-ch"
+        "senior-fmi-business-analyst-jsafrasarasin-ch",
+        "senior-fmi-business-analista-j-safra-sarasin-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-fmi-business-analyst-jsafrasarasin-ch"
+          "senior-fmi-business-analyst-jsafrasarasin-ch",
+          "senior-fmi-business-analista-j-safra-sarasin-zurich"
         ],
         "de": [
           "senior-fmi-business-analyst-jsafrasarasin-ch"
@@ -262,7 +273,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/514/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:42.611Z",
+      "crawledAt": "2026-10-03T09:11:57.002Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -279,11 +290,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "investment-communications-specialist-jsafrasarasin-ch"
+        "investment-communications-specialist-jsafrasarasin-ch",
+        "investment-communications-specialista-j-safra-sarasin-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "investment-communications-specialist-jsafrasarasin-ch"
+          "investment-communications-specialist-jsafrasarasin-ch",
+          "investment-communications-specialista-j-safra-sarasin-zurich-ch"
         ],
         "de": [
           "investment-communications-specialist-jsafrasarasin-ch"
@@ -338,7 +351,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/516/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:42.309Z",
+      "crawledAt": "2026-10-03T09:11:56.700Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -355,11 +368,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
+        "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
+        "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
+          "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch",
+          "marketing-materiali-designer-termine-fisso-1-anno-j-safra-sarasin-zurich-ch"
         ],
         "de": [
           "marketing-materials-designer-fixed-term-1-year-jsafrasarasin-ch"
@@ -381,7 +396,8 @@
           "maxValue": 136000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jsafrasarasin-cf7f9af0c102",
@@ -414,7 +430,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/518/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:42.008Z",
+      "crawledAt": "2026-10-03T09:11:56.397Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -431,11 +447,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "crm-external-asset-manager-jsafrasarasin-ch"
+        "crm-external-asset-manager-jsafrasarasin-ch",
+        "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crm-external-asset-manager-jsafrasarasin-ch"
+          "crm-external-asset-manager-jsafrasarasin-ch",
+          "crm-gestione-delle-risorse-esterne-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "crm-external-asset-manager-jsafrasarasin-ch"
@@ -490,7 +508,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/474/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:41.706Z",
+      "crawledAt": "2026-10-03T09:11:56.095Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -508,11 +526,13 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "en": [
-          "avaloq-integration-engineer-jsafrasarasin-ch"
+          "avaloq-integration-engineer-jsafrasarasin-ch",
+          "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
         ],
         "it": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-          "avaloq-integration-engineer-jsafrasarasin-ch"
+          "avaloq-integration-engineer-jsafrasarasin-ch",
+          "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
         ],
         "de": [
           "senior-banking-systems-integration-engineer-jsafrasarasin-ch"
@@ -523,7 +543,8 @@
       },
       "previousSlugs": [
         "senior-banking-systems-integration-engineer-jsafrasarasin-ch",
-        "avaloq-integration-engineer-jsafrasarasin-ch"
+        "avaloq-integration-engineer-jsafrasarasin-ch",
+        "senior-banking-systems-integration-ingegnere-j-safra-sarasin-lugano"
       ],
       "firstSeenAt": "2026-08-23T09:42:51.665Z",
       "salaryMin": 99500,
@@ -571,7 +592,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/521/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:41.405Z",
+      "crawledAt": "2026-10-03T09:11:55.793Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -588,11 +609,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "head-reconciliation-jsafrasarasin-ch"
+        "head-reconciliation-jsafrasarasin-ch",
+        "riconciliazione-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "head-reconciliation-jsafrasarasin-ch"
+          "head-reconciliation-jsafrasarasin-ch",
+          "riconciliazione-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "head-reconciliation-jsafrasarasin-ch"
@@ -647,7 +670,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/523/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:41.103Z",
+      "crawledAt": "2026-10-03T09:11:55.490Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -664,11 +687,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "workplace-operations-engineer-jsafrasarasin-ch"
+        "workplace-operations-engineer-jsafrasarasin-ch",
+        "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "workplace-operations-engineer-jsafrasarasin-ch"
+          "workplace-operations-engineer-jsafrasarasin-ch",
+          "workplace-operations-ingegnere-j-safra-sarasin-basel-ch"
         ],
         "de": [
           "workplace-operations-engineer-jsafrasarasin-ch"
@@ -723,7 +748,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/522/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:40.801Z",
+      "crawledAt": "2026-10-03T09:11:55.187Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -740,11 +765,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "operational-risk-manager-jsafrasarasin-ch"
+        "operational-risk-manager-jsafrasarasin-ch",
+        "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "operational-risk-manager-jsafrasarasin-ch"
+          "operational-risk-manager-jsafrasarasin-ch",
+          "gestione-del-rischio-operativo-j-safra-sarasin-geneva-ch"
         ],
         "de": [
           "operational-risk-manager-jsafrasarasin-ch"
@@ -799,7 +826,7 @@
       "url": "https://jsafrasarasin.umantis.com/Vacancies/525/Description/2",
       "source": "J. Safra Sarasin Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:14:40.498Z",
+      "crawledAt": "2026-10-03T09:11:54.884Z",
       "addressLocality": "Geneva",
       "addressRegion": "GE",
       "addressCountry": "CH",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zurzach-care",
-  "assembledAt": "2026-10-02T21:13:59.929Z",
+  "assembledAt": "2026-10-03T09:14:54.590Z",
   "jobs": [
     {
       "id": "zurzach-care-f3fae33e2890",
@@ -33,7 +33,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Klinische-Psychologin-Klinischer-Psychologe-80-100-GL-8784/1433719733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:54.872Z",
+      "crawledAt": "2026-10-03T09:14:04.015Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -81,7 +81,8 @@
           "maxValue": 113000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-4c04cb23b3b6",
@@ -159,7 +160,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-6e20c223b8f4",
@@ -193,7 +195,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Diplomierter-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-MSK-und-INTAngio-AG-5330/1402747633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:53.959Z",
+      "crawledAt": "2026-10-03T09:14:47.796Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -271,7 +273,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Physiotherapeutin-Station%C3%A4r-mit-Fachverantwortung-Neurologie-60-100-AG-5330/1424539433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:53.382Z",
+      "crawledAt": "2026-10-03T09:14:47.191Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -345,7 +347,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Ern%C3%A4hrungsberaterin-Ern%C3%A4hrungsberater-30-LU-6000/1434916233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.836Z",
+      "crawledAt": "2026-10-03T09:14:45.998Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -425,7 +427,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Mitarbeiter-Lingerie-und-Reinigung-80-GL-8784/1434848533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:52.295Z",
+      "crawledAt": "2026-10-03T09:14:46.598Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -502,7 +504,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Ergotherapeutin-Ergotherapeut-80-100-Ambulant-AG-5330/1435287433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:51.634Z",
+      "crawledAt": "2026-10-03T09:14:45.412Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -581,7 +583,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Pr%C3%A4senz%C3%A4rztin-Pr%C3%A4senzarzt-f%C3%BCr-Nacht-und-Feiertagsdienste-20-100-AG-5404/1414701033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:51.076Z",
+      "crawledAt": "2026-10-03T09:14:42.371Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -630,7 +632,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-35d05d8065be",
@@ -664,7 +667,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Fachverantwortlicher-Ergotherapeutin-Ergotherapeut-80-100-LU-6000/1414870133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:50.493Z",
+      "crawledAt": "2026-10-03T09:14:44.198Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -744,7 +747,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-%28Stv%29-Ober%C3%A4rztin-Oberarzt-f%C3%BCr-intern_-onkologische-und-visz_-chirurgische-Rehabilitation-80-BS-4058/1414588233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:49.921Z",
+      "crawledAt": "2026-10-03T09:14:42.975Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -836,7 +839,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Dipl_-Pflegefachfrau-Pflegefachmann-f%C3%BCr-%C3%9Cberwachungsrehabilitation-%28IMC%29-60-100-Z%C3%BCri-8952/1414629133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:49.341Z",
+      "crawledAt": "2026-10-03T09:14:43.583Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -913,7 +916,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Bad-und-Saunameisterin-60-100-AG-5400/1417569633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:48.773Z",
+      "crawledAt": "2026-10-03T09:14:44.813Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -966,7 +969,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-b80c6025a661",
@@ -1000,7 +1004,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Baden-D%C3%A4ttwil-AG-5404/1205972801/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:48.154Z",
+      "crawledAt": "2026-10-03T09:14:41.657Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1083,7 +1087,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Vorpraktikantin-Physiotherapie-50-100-6-Monate-befristet-AG-5404/1386067233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:47.255Z",
+      "crawledAt": "2026-10-03T09:14:40.066Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1160,7 +1164,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Bad-Zurzach-AG-5330/1248661601/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:46.637Z",
+      "crawledAt": "2026-10-03T09:14:39.460Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1235,7 +1239,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Ergotherapeutin-Ergotherapeut-90-100-LU-6000/1395606633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:45.991Z",
+      "crawledAt": "2026-10-03T09:14:40.693Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1311,7 +1315,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Mitarbeiterin-Mitarbeiter-B%C3%A4der-im-Stundenlohn-%28ca_-10-%29-GL-8784/1437165933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:45.350Z",
+      "crawledAt": "2026-10-03T09:14:38.265Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -1359,7 +1363,8 @@
           "maxValue": 11300,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-ee7f39e330ce",
@@ -1392,7 +1397,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Projektleiter-Digitalisierung-Gesundheitswesen-80-100-AG-5330/1436972633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:44.736Z",
+      "crawledAt": "2026-10-03T09:14:38.861Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1438,7 +1443,8 @@
           "maxValue": 166000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-35ccfe801823",
@@ -1471,7 +1477,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Dipl_-Pflegefachperson-FaGe-MPA-60-100-im-Sp%C3%A4t-und-Nachtdienst-AG-5400/1437124733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:44.161Z",
+      "crawledAt": "2026-10-03T09:14:37.624Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1519,7 +1525,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-be73f802b205",
@@ -1553,7 +1560,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Spontanbewerbung-ZURZACH-Care-AG-5330/1168242201/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:43.524Z",
+      "crawledAt": "2026-10-03T09:14:36.312Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1631,7 +1638,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Dipl_-Pflegefachfrau-Dipl_-Pflegefachmann-IMC-70-100-AG-5404/1376891433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:42.932Z",
+      "crawledAt": "2026-10-03T09:14:36.945Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1720,7 +1727,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Betriebstechnikerin-Betriebstechniker-mit-Hintergrund-Heizung-Sanit%C3%A4r-AG-5401/1437545333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:42.285Z",
+      "crawledAt": "2026-10-03T09:14:35.653Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1789,9 +1796,9 @@
       },
       "description": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch",
       "descriptionByLocale": {
+        "de": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch",
         "it": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch",
         "en": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch",
-        "de": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch",
         "fr": "Mit deinen Aufgaben wird FORTYSEVEN auch zur Genussoase\n\n• Zubereitung hochwertiger, ausgewogener und ansprechend präsentierter Speisen für das Tagesgeschäft beider Restaurants und für Veranstaltungen\n\n• Herstellung und Vorbereitung des Mise-en-place sowie Abstimmung der Tagesaufgaben mit der Küchenleitung\n\n• Leidenschaftliches, sauberes und professionelles Arbeiten im Front-Cooking und vor den Gästen\n\n• Warenannahme inklusive Kontrolle von Menge, Temperatur, Qualität und Gewicht sowie fachgerechte Einlagerung und Kennzeichnung\n\n• Regelmässige Kontrolle der Lagerbestände, Produktqualität und Ablaufdaten sowie Unterstützung bei Bestellungen\n\n• Konsequente Einhaltung des HACCP-Konzepts, der Hygiene-, Qualitäts- und Sicherheitsstandards sowie der Reinigungspläne\n\n• Fachgerechter Umgang mit Allergien und Unverträglichkeiten und korrekte Weitergabe relevanter Informationen\n\n• Kostenbewusster Umgang mit Lebensmitteln, aktive Reduktion von Food Waste und korrekte Abfalltrennung gemäss FORTYSEVEN-System\n\n• Reinigung und Desinfektion der Arbeitsflächen und Küchenbereiche sowie Meldung defekter Geräte an die Küchenleitung\n\n• Sorgfältige Übergaben für den Folgetag sowie Dokumentation wichtiger Informationen und Gästerückmeldungen\n\n• Pflege eines freundlichen und professionellen Gästekontakts sowie Zusammenarbeit mit anderen Abteilungen\n\n• Aktive Mitwirkung an der Weiterentwicklung von Angeboten, Abläufen und FORTYSEVEN-Standards\n\nMit deiner Leidenschaft für frische Zutaten schaffst du Wohlgefühl für Seele und Gaumen.\n\nWas ich mir von dir wünsche\n\n• Abgeschlossene Berufslehre als Koch/Köchin EFZ oder EBA oder eine vergleichbare Qualifikation\n\n• Mindestens eini Jahr Berufserfahrung in einer professionellen Küche\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift; weitere Sprachen sind von Vorteil\n\n• Fundiertes Fachwissen zu Hygiene, Lebensmittelsicherheit, Allergien und Unverträglichkeiten\n\n• Freude am regelmässigen Gästekontakt und eine klare, professionelle Kommunikation\n\n• Selbstständige, effiziente und belastbare Arbeitsweise, auch bei höherem Arbeitsanfall\n\n• Aufgeschlossene, motivierte, loyale, hilfsbereite und teamorientierte Persönlichkeit\n\n• Interesse an modernen und gesundheitsorientierten Ernährungstrends sowie hohe Dienstleistungs- und Qualitätsorientierung\n\n• Kostenbewusstsein und ein verantwortungsvoller Umgang mit Waren, Ressourcen und Infrastruktur\n\nDein Lohn\n\nWenn du die notwendigen Kenntnisse und Erfahrungen für diese Stelle mitbringst, würden wir uns freuen, dir ein faires Gehaltsangebot zwischen CHF 58’500 bis CHF 65'000 (100% Pensum) zu machen.\n\nErfüllst du die Anforderungen nicht alle, dann freuen wir uns auch über deine Bewerbung. In diesem Fall kann dein Einstiegslohn leicht unter dieser Spanne liegen.\n\nDeine Ansprechperson\n\nBitte reiche deine Bewerbung ausschliesslich über unser Bewerbertool ein.\n\nAllgemeine Fragen zum Bewerbungsprozess, gerne direkt an:\n\nCorinna Schmidle\n HR Business Partnerin\n +41 56 269 78 28\n\nFragen zum Arbeitsinhalt gerne direkt an:\n\nPatrick Pöttschacher\n Leiter Gastronomie\n p.poettschacher@fortyseven.ch"
       },
       "needsRetranslation": true,
@@ -1800,7 +1807,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-KochK%C3%B6chin-80-100-AG-5400/1437860133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:41.709Z",
+      "crawledAt": "2026-10-03T09:14:35.062Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1866,7 +1873,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Physiotherapeutin-Physiotherapeut-auf-Stundenbasis-GL-8784/1417149333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:41.128Z",
+      "crawledAt": "2026-10-03T09:14:34.434Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -1950,7 +1957,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Vorpraktikantin-Therapie-%28wmd%29-100-Baden-AG-5401/1417221733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:40.542Z",
+      "crawledAt": "2026-10-03T09:14:33.810Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2033,7 +2040,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-AG-5404/1368061433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:39.615Z",
+      "crawledAt": "2026-10-03T09:14:32.598Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2089,7 +2096,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-b939d379565e",
@@ -2122,7 +2130,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-Z%C3%BCri-8952/1417567833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:39.024Z",
+      "crawledAt": "2026-10-03T09:14:32.005Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2178,7 +2186,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-51e40d9cb078",
@@ -2212,7 +2221,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Berufsbildnerin-Berufsbildner-Pflege-80-100-LU-6000/1408261933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:38.422Z",
+      "crawledAt": "2026-10-03T09:14:31.424Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2305,7 +2314,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Dipl_-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-Neurologie-AG-5330/1439293233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:37.788Z",
+      "crawledAt": "2026-10-03T09:14:30.824Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2385,7 +2394,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Logop%C3%A4din-Logop%C3%A4de-f%C3%BCr-station%C3%A4re-Therapien-mit-Schwerpunkt-Neurologie-40-80-AG-5330/1439367333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:37.165Z",
+      "crawledAt": "2026-10-03T09:14:30.217Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2467,7 +2476,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Bildungsmanagerin-Bildungsmanager-80-100-Pflege-und-Frauengesundheit-AG-5330/1408639333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:36.573Z",
+      "crawledAt": "2026-10-03T09:14:29.605Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2553,7 +2562,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-Diplomierte-Pflegefachfrau-Pflegefachmann-80-100-Fachbereich-Onkologie-BS-4058/1440175833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:36.011Z",
+      "crawledAt": "2026-10-03T09:14:28.965Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -2632,7 +2641,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Diplomierte-Pflegefachfrau-Diplomierter-Pflegefachmann-Dauernachtwache-40-60-LU-6000/1369740433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:35.432Z",
+      "crawledAt": "2026-10-03T09:14:28.374Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -2674,7 +2683,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-a1c69e5ad2f2",
@@ -2707,7 +2717,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Assistenz%C3%A4rztin-Assistenzarzt-AIM-Rheumatologie-PMR-100-AG-5330/1369933933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:34.852Z",
+      "crawledAt": "2026-10-03T09:14:27.759Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2768,7 +2778,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-3eeb5cde475c",
@@ -2801,7 +2812,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Assistenz%C3%A4rztin-Assistenzarzt-Neurologie-100-AG-5330/1369934233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:34.261Z",
+      "crawledAt": "2026-10-03T09:14:27.107Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2881,7 +2892,8 @@
           "maxValue": 123000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-3fd00160249a",
@@ -2914,7 +2926,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Projektleiterin-IT-und-Digitalisierungsprojekte-80-100-AG-5330/1419050733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:33.606Z",
+      "crawledAt": "2026-10-03T09:14:26.520Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -2960,7 +2972,8 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-72df319c4e0a",
@@ -2993,7 +3006,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Restaurationsfachfrau-mann-EFZ-oder-Restaurantangestellter-EBA-Start-2027-AG-5330/1409410733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:31.885Z",
+      "crawledAt": "2026-10-03T09:14:23.420Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3039,7 +3052,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-cef0544ddc23",
@@ -3072,7 +3086,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Basel-BS-4058/1409402733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:33.025Z",
+      "crawledAt": "2026-10-03T09:14:24.014Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3118,7 +3132,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-de4eae7fffc3",
@@ -3151,7 +3166,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Lehrstelle-K%C3%B6chin-Koch-EFZ-oder-K%C3%BCchenangestellter-EBA-Start-2027-Braunwald-GL-8784/1409394333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:31.286Z",
+      "crawledAt": "2026-10-03T09:14:25.866Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -3197,7 +3212,8 @@
           "maxValue": 87500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-416bbcae2c85",
@@ -3230,7 +3246,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Logistiker-Logistikerin-EFZ-Start-2027-AG-5330/1409406933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:30.728Z",
+      "crawledAt": "2026-10-03T09:14:24.606Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3276,7 +3292,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-97e9c5d38d8b",
@@ -3310,7 +3327,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Kauffrau-Kaufmann-%28KV%29-EFZ-Start-2027-AG-5330/1409404933/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:32.474Z",
+      "crawledAt": "2026-10-03T09:14:25.215Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3386,7 +3403,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-K%C3%B6chin-Koch-EFZ-oder-K%C3%BCchenangestellter-EBA-Start-2027-Baden-AG-5401/1409441433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:30.103Z",
+      "crawledAt": "2026-10-03T09:14:22.425Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3432,7 +3449,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-a91f5522268f",
@@ -3465,7 +3483,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Fachmann-Fachfrau-Betriebsunterhalt-EFZ-Start-2027-AG-5330/1409399533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:29.531Z",
+      "crawledAt": "2026-10-03T09:14:21.795Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3511,7 +3529,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-c8254262a308",
@@ -3545,7 +3564,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Basel-Gruppenleiterin-Gruppenleiter-Pflege-internistischonkologische-Rehabilitation-90-100-BS-4058/1430436033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:28.587Z",
+      "crawledAt": "2026-10-03T09:14:21.185Z",
       "addressLocality": "Basel",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -3624,7 +3643,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-Assistentin-Assistent-Gesundheit-und-Soziales-%28AGS%29-EBA-Start-2027-Baden-AG-5401/1409620733/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:27.591Z",
+      "crawledAt": "2026-10-03T09:14:19.014Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3670,7 +3689,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-08094ac3e577",
@@ -3703,7 +3723,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Assistentin-Assistent-Gesundheit-und-Soziales-%28AGS%29-EBA-Start-2027-Bad-Zurzach-AG-5330/1409621133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:26.983Z",
+      "crawledAt": "2026-10-03T09:14:19.636Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3749,7 +3769,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-bc89de16abfb",
@@ -3782,7 +3803,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-K%C3%B6chin-Koch-EFZ-oder-K%C3%BCchenangestellter-EBA-Start-2027-Bad-Zurzach-AG-5330/1409621333/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:26.367Z",
+      "crawledAt": "2026-10-03T09:14:20.234Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3828,7 +3849,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-077ee83aae01",
@@ -3861,7 +3883,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Limmattal-Z%C3%BCri-8952/1409620533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:25.776Z",
+      "crawledAt": "2026-10-03T09:14:18.421Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3907,7 +3929,8 @@
           "maxValue": 98500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-987b6f38826a",
@@ -3940,7 +3963,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Vorpraktikum-Therapie-%28ErgotherapiePhysiotherapie%29-100-AG-5330/1291298901/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:24.765Z",
+      "crawledAt": "2026-10-03T09:14:16.255Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4016,7 +4039,7 @@
       "title": "Physiotherapeutin / Physiotherapeut mit Schwerpunkt MSK 60-100 %",
       "titleByLocale": {
         "it": "Fisioterapista / Fisioterapista con focus su MSK 60-100 %",
-        "en": "Physiotherapist / Physiotherapist with a focus on MSK 60-100 %",
+        "en": "Physiotherapeutin / Physiotherapeut mit Schwerpunkt MSK 60-100 %",
         "de": "Physiotherapeutin / Physiotherapeut mit Schwerpunkt MSK 60-100 %",
         "fr": "Physiothérapeute / Physiothérapeute avec un accent sur MSK 60-100 %"
       },
@@ -4032,7 +4055,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Physiotherapeutin-Physiotherapeut-mit-Schwerpunkt-MSK-60-100-Z%C3%BCri-8952/1420906533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:24.139Z",
+      "crawledAt": "2026-10-03T09:14:16.841Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4072,7 +4095,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-c54f4b39925e",
@@ -4106,7 +4130,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Chef%C3%A4rztin-Chefarzt-100-Fachbereich-Neurologie-AG-5330/1431538133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:23.525Z",
+      "crawledAt": "2026-10-03T09:14:17.461Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4186,7 +4210,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Chef%C3%A4rztin-Chefarzt-100-Fachbereich-MSK-AG-5330/1431538533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:22.933Z",
+      "crawledAt": "2026-10-03T09:14:15.650Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4266,7 +4290,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Ausbildung-dipl_-Pflegefachperson-HF-%282-oder-3-j%C3%A4hrig%2C-auch-f%C3%BCr-FaGe%29-Limmattal-Z%C3%BCri-8952/1288183001/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:22.352Z",
+      "crawledAt": "2026-10-03T09:14:14.413Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4351,7 +4375,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Baden-D%C3%A4ttwil-AG-5404/1410697233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:21.698Z",
+      "crawledAt": "2026-10-03T09:14:13.805Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4397,7 +4421,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-2e0e1f90c0ca",
@@ -4430,7 +4455,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Baden-AG-5401/1410697833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:21.132Z",
+      "crawledAt": "2026-10-03T09:14:15.029Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4476,7 +4501,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-677f4d47de4e",
@@ -4509,7 +4535,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Lehrstelle-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-EFZ-Start-2027-Bad-Zurzach-AG-5330/1410698133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:20.508Z",
+      "crawledAt": "2026-10-03T09:14:12.908Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4555,7 +4581,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-f1e5c817611e",
@@ -4589,7 +4616,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Logop%C3%A4din-Logop%C3%A4de-60-100-LU-6000/1441679233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:19.932Z",
+      "crawledAt": "2026-10-03T09:14:12.333Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4668,7 +4695,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Praktikantin-SPA-&-Wellness-Massagen-von-November-2026-Februar-2027-AG-5400/1371449033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:19.321Z",
+      "crawledAt": "2026-10-03T09:14:11.663Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4712,7 +4739,8 @@
           "maxValue": 82500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-c6f31689beff",
@@ -4746,7 +4774,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Pr%C3%A4senz%C3%A4rztin-Pr%C3%A4senzarzt-Z%C3%BCri-8952/1442363833/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:18.745Z",
+      "crawledAt": "2026-10-03T09:14:10.722Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4809,7 +4837,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Assistentin-Assistent-der-Gesch%C3%A4ftsleitung-60-80-AG-5330/1431870633/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:17.780Z",
+      "crawledAt": "2026-10-03T09:14:09.545Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4863,7 +4891,8 @@
           "maxValue": 98400,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-708363e3f465",
@@ -4896,7 +4925,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Luzern-Diplomierter-Pflegefachfrau-Pflegefachmann-60-100-LU-6000/1372472433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:16.870Z",
+      "crawledAt": "2026-10-03T09:14:08.922Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4940,7 +4969,8 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-6d0c81b670cf",
@@ -4973,7 +5003,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-D%C3%A4ttwil-Fachfrau-Fachmann-Gesundheit-60-100-AG-5404/1372919133/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:16.283Z",
+      "crawledAt": "2026-10-03T09:14:08.314Z",
       "addressLocality": "Baden-Dättwil",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5069,7 +5099,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Bereichsleiterin-Bereichsleiter-Ertragsmanagement-und-Medizincontrolling-80-100-AG-5330/1432799033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:15.702Z",
+      "crawledAt": "2026-10-03T09:14:06.406Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5151,7 +5181,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Schlieren-Fachfrau-Fachmann-Gesundheit-%28FaGe%29-Nachtdienst-50-100-Z%C3%BCri-8952/1423085233/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:15.114Z",
+      "crawledAt": "2026-10-03T09:14:07.678Z",
       "addressLocality": "Schlieren",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -5244,7 +5274,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Braunwald-Assistenz%C3%A4rztin-Assistenzarzt-Psychiatrie-und-Psychotherapie-100-GL-8784/1432767033/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:14.486Z",
+      "crawledAt": "2026-10-03T09:14:07.062Z",
       "addressLocality": "Braunwald",
       "addressRegion": "GL",
       "addressCountry": "CH",
@@ -5322,9 +5352,9 @@
       "description": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
       "descriptionByLocale": {
         "de": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
-        "it": "La riabilitazione di Bad Zurzach offre riabilitazione in tutti i luoghi in alto niveau medico. L'offerta di riabilitazione varia da neuro-logie a muscolo-scheletriche/rheumato-logie, cardio-logie a medicina del sonno (clinica per la medicina del sonno). Nel Centro Dolore Bad Zurzach, i trattamenti antidolorifici sono offerti nel quadro di programmi speciali che includono la diagnosi del dolore, il trattamento e la terapia.\n\nVi offriamo una variegata area di lavoro, un ambiente di lavoro moderno e interessanti ore di lavoro (Mo – Fr dalle 07:00 alle 16:30 – nessun servizio week-end).\n\nI tuoi compiti\n\n• Campionamento del sangue: si prende il controllo del prelievo giornaliero di sangue nelle stazioni e in laboratorio\n\n• Laboratorio: Lei è responsabile dell'analisi del sangue/urina (ematologia, chimica, sedimenti urinari e Regno Unito) incl. Responsabile dei controlli di qualità interni/esterni\n\n• Collaborazione: Lei lavora con un laboratorio esterno\n\n• ECG: si mette a riposo e 7 giorni ECG\n\n• Pianificazione: Pianifichi estrazioni di sangue e ECG s\n\n• Organizzazione: Si prende il controllo del servizio fatturazione in LIS (sistema informativo di laboratorio) e l'ordinazione e altri lavori di ufficio\n\n• X-ray: Lei esegue raggi X convenzionali e dossibili (estremità, toracico, spina dorsale, pelvi, fianchi, ecc.)\n\n• Gestione dei risultati: Invii le prescrizioni a raggi X agli istituti esterni e ai risultati delle importazioni nel CIS\n\nIl tuo profilo\n\n• Formazione: Formazione completa come assistente di pratica medica / assistente di pratica medica (MPA), obbligatoria con diploma di raggi X, possibilmente. Diploma per raggi X intensivi dosi già disponibili o la volontà di completarlo\n\n• Esperienza: Porti una buona esperienza nel campionamento del sangue, nel lavoro di laboratorio generale e nella creazione di ECG\n\n• Personalità: Porti responsabilità personale, pensiero orientato al processo e un atteggiamento empatico così come lavoro di squadra, resilienza e buone capacità di comunicazione\n\n• Conoscenza IT: La gestione sicura di MS Office e sistemi clinici comuni è una questione naturalmente per voi\n\n• Lingue: Buona conoscenza del tedesco\n\nCosa offriamo\n\n• Co-creazione: lavorare in un ambiente di lavoro moderno e partecipare attivamente\n\n• Clima di lavoro stimolante e collegiale: Lavorare in un team di supporto e di apprezzamento che lavora insieme per la migliore cura possibile dei pazienti\n\n• Prestazioni di sicurezza sociale sopra la media: beneficia di vantaggi sociali attraenti\n\n• Istruzione e formazione: quota generosa dei costi nell'istruzione e nella formazione\n\n• Sconti: Utilizzare sconti da vari partner, come grossisti, farmacie e la nostra appartenenza a Benefit@work\n\n• Ingresso gratuito: Godetevi l'ingresso gratuito e altri vantaggi presso il centro benessere FORTYSEVEN.\n\nNon vediamo l'ora della tua applicazione online!\n\nPersona di contatto\n\nDali Gogsadze-Fritz\nGruppo leader\nTelefono: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
-        "en": "The Bad Zurzach rehabilitation offers rehabilitation in all places on high medical niveau. The rehabilitation offer ranges from neuro-logie to musculoskeletal/rheumato-logie, cardio-logie to sleep medicine (clinic for sleep medicine). In the Pain Center Bad Zurzach, pain treatments are offered within the framework of special programs that include pain diagnosis, treatment and therapy.\n\nWe offer you a varied area of work, a modern working environment and attractive working hours (Mo – Fr from 07:00 – 16:30 – no weekend services).\n\nYour tasks\n\n• Blood sampling: You take over the daily blood sampling at the stations and in the laboratory\n\n• Laboratory: You are responsible for the analysis of blood/urine (hematology, chemistry, urine sediment and UK) incl. Responsible for internal/external quality controls\n\n• Collaboration: You work with an external laboratory\n\n• ECG: You put on rest and 7-day ECG’s\n\n• Planning: You plan blood draws and ECG s\n\n• Organization: You take over the service billing in the LIS (laboratory information system) and the ordering and other office work\n\n• X-ray: You perform conventional and dose-intensive X-rays (extremities, thoracic, spine, pelvis, hips, etc.)\n\n• Findings management: You send X-ray prescriptions to external institutes and import findings into the CIS\n\nYour profile\n\n• Training: Completed training as medical practice assistant / medical practice assistant (MPA), mandatory with X-ray diploma, possibly. Diploma for dose-intensive X-ray already available or the willingness to complete it\n\n• Experience: You bring good experience in blood sampling, general laboratory work and creation of ECGs\n\n• Personality: You bring personal responsibility, process-oriented thinking and an empathetic attitude as well as teamwork, resilience and good communication skills\n\n• IT knowledge: Safe handling of MS Office and common clinical systems is a matter of course for you\n\n• Languages: Good knowledge of German\n\nWhat we offer\n\n• Co-creation: Work in a modern working environment and actively participate\n\n• Inspiring and collegial work climate: Work in a supportive and appreciative team that works together for the best possible patient care\n\n• Above-average social security benefits: Benefit from attractive social security benefits\n\n• Education and training: generous share of costs in education and training\n\n• Discounts: Use discounts from various partners, such as wholesalers, pharmacies and our membership of Benefit@work\n\n• Free admission: Enjoy free admission and other benefits at the FORTYSEVEN spa.\n\nWe look forward to your online application!\n\nContact person\n\nDali Gogsadze-Fritz\nGroup leader laboratory\nTelephone: +41 56 269 53 80\n\nEmail: dali.gogsadze@zurzachcare.ch",
-        "fr": "La réhabilitation Bad Zurzach offre une réhabilitation dans tous les endroits sur le niveau médical élevé. L'offre de réadaptation va de neuro-logie à musculosquelettique/rhumato-logie, cardio-logie à la médecine du sommeil (clinique pour la médecine du sommeil). Dans le centre de douleur Bad Zurzach, les traitements de la douleur sont offerts dans le cadre de programmes spéciaux qui incluent le diagnostic de la douleur, le traitement et la thérapie.\n\nNous vous offrons un espace de travail varié, un environnement de travail moderne et des horaires de travail attrayants (Mo – Fr de 07:00 – 16:30 – pas de services du week-end).\n\nVos tâches\n\n• Prélèvement de sang : vous prenez en charge le prélèvement de sang quotidien aux stations et au laboratoire\n\n• Laboratoire: Vous êtes responsable de l'analyse du sang/urine (hématologie, chimie, sédiment urinaire et UK) y compris. Responsable des contrôles de qualité internes/externes\n\n• Collaboration: Vous travaillez avec un laboratoire externe\n\n• ECG: Vous mettez le repos et 7 jours ECG\n\n• Planification: Vous prévoyez des prélèvements de sang et ECG s\n\n• Organisation : Vous prenez en charge la facturation du service dans le SIL (système d'information du laboratoire) et les commandes et autres travaux de bureau\n\n• Rayons X : Vous effectuez des rayons X conventionnels et à forte dose (extrémités, thoraciques, rachis, bassin, hanches, etc.)\n\n• Gestion des résultats : vous envoyez des ordonnances de radiographie à des instituts externes et importez les résultats dans le SIC\n\nVotre profil\n\n• Formation : Formation terminée en tant qu'assistant de pratique médicale / assistant de pratique médicale (MPA), obligatoire avec diplôme de radiographie, éventuellement. Diplôme pour radiographie à forte dose déjà disponible ou la volonté de le compléter\n\n• Expérience: Vous apportez une bonne expérience dans l'échantillonnage sanguin, le travail de laboratoire général et la création d'ECG\n\n• Personnalité: Vous apportez la responsabilité personnelle, la pensée orientée processus et une attitude empathique ainsi que le travail d'équipe, la résilience et de bonnes compétences en communication\n\n• Connaissance de la TI : La gestion sécuritaire du bureau de la SP et des systèmes cliniques communs est une question bien sûr pour vous\n\n• Langues: Bonne connaissance de l'allemand\n\nCe que nous offrons\n\n• Co-création : travailler dans un environnement de travail moderne et participer activement\n\n• Climat de travail inspirant et collégial : travailler dans une équipe de soutien et d'appréciation qui travaille ensemble pour les meilleurs soins possibles\n\n• Prestations de sécurité sociale supérieures à la moyenne: Prestations de sécurité sociale attrayantes\n\n• Éducation et formation: une part généreuse des coûts de l'éducation et de la formation\n\n• Réductions: Utilisez les réductions de différents partenaires, tels que les grossistes, les pharmacies et notre adhésion à Benefit@work\n\n• Entrée gratuite: Profitez de l'admission gratuite et d'autres avantages au spa FORTYSEVEN.\n\nNous nous réjouissons de votre candidature en ligne!\n\nPersonne à contacter\n\nDali Gogsadze-Fritz\nLaboratoire chef de groupe\nTéléphone: +41 56 269 53 80\n\nCourriel: dali.gogsadze@zurzachcare.ch"
+        "it": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
+        "en": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch",
+        "fr": "Die Re­ha­kli­nik Bad Zurzach bie­tet Re­ha­bi­li­ta­ti­on in al­len Fa­cet­ten auf ho­hem me­di­zi­ni­schem Ni­veau. Das re­ha­bi­li­ta­ti­ve An­ge­bot reicht von Neu­ro­lo­gie über Mus­ku­los­ke­let­tal/​Rheu­ma­to­lo­gie, Kar­dio­lo­gie bis hin zur Schlaf­me­di­zin (Kli­nik für Schlaf­me­di­zin). Im Schmerz­zen­trum Bad Zurzach wer­den im Rah­men von Spe­zi­al­pro­gram­men Schmerz­be­hand­lun­gen an­ge­bo­ten, die Schmerz­dia­gnos­tik, -be­ra­tung und -the­ra­pie um­fas­sen.\n\nWir bieten dir ein abwechslungsreiches Aufgabengebiet, ein modernes Arbeitsumfeld und attraktive Arbeitszeiten (Mo – Fr von 07:00 – 16:30 Uhr - keine Wochenenddienste).\n\nDeine Aufgaben\n\n• Blutentnahme:  Du übernimmst die täglichen Blutentnahmen auf den Stationen und im Labor\n\n• Labor:  Du bist für die Analyse des Blutes/Urin (Hämatologie, Chemie, Urin Sediment und UK) inkl. Qualitätskontrollen intern/extern zuständig\n\n• Zusammenarbeit:  Du arbeitest mit einem externen Labor zusammen\n\n• EKG:  Du legst Ruhe-, und 7-Tage-EKG’s an\n\n• Planung:  Du planst Blutentnahmen und EKG`s\n\n• Organisation:  Du übernimmst die Leistungsabrechnung im LIS (Laborinformationssystem) und das Bestellwesen sowie weitere Büroarbeiten\n\n• Röntgen: Du führst konventionelle und dosisintensive Röntgenaufnahmen durch (Extremitäten, Thorax, Wirbelsäulen, Becken, Hüften usw.)\n\n• Befundmanagement: Du versendest Röntgenverordnungen an externe Institute und importierst Befunde ins KIS\n\nDein Profil\n\n• Ausbildung:  Abgeschlossene Ausbildung als Medizinische Praxisassistentin / Medizinischer Praxisassistent (MPA), zwingend mit Röntgendiplom, evtl. Diplom für dosisintensives Röntgen bereits vorhanden oder die Bereitschaft, dieses noch zu absolvieren\n\n• Erfahrung:  Du bringst gute Erfahrung in Blutentnahmen, allgemeinen Laborarbeiten und Anlegen von EKG`s mit\n\n• Persönlichkeit: Du bringst Eigenverantwortung, prozessorientiertes Denken und eine empathische Haltung sowie Teamfähigkeit, Belastbarkeit und gute Kommunikationsfähigkeiten mit\n\n• IT-Kenntnisse : Sicherer Umgang mit MS Office und gängigen Kliniksystemen ist für dich selbstverständlich\n\n• Sprachen:  Gute Deutschkenntnisse\n\nWas wir bieten\n\n• Mitgestaltung:  Wirke in einer modernen Arbeitsumgebung mit und bringe dich aktiv mit ein\n\n• Inspirierendes und kollegiales Arbeitsklima:  Arbeite in einem unterstützenden und wertschätzenden Team, welches sich gemeinsam für die bestmögliche Patientenversorgung einsetzt\n\n• Überdurchschnittliche Sozialversicherungsleistungen:  Profitiere von attraktiven Sozialversicherungsleistungen\n\n• Aus- und Weiterbildung:  Grosszügige Kostenbeteiligung an Aus- und Weiterbildungen\n\n• Rabatte:  Nutze Rabatte bei diversen Partnern, wie Grosshändlern, Apotheken sowie unsere Mitgliedschaft bei Benefit@work\n\n• Kostenloser Eintritt:  Geniesse kostenlosen Eintritt und weitere Vergünstigungen in der Wellness-Therme FORTYSEVEN\n\nWir freuen uns auf deine Onlinebewerbung!\n\nAnsprechpartnerin\n\nDali Gogsadze-Fritz\nGruppenleiterin Labor\nTelefon: +41 56 269 53 80\n\nE-Mail: dali.gogsadze@zurzachcare.ch"
       },
       "needsRetranslation": true,
       "location": "Bad Zurzach",
@@ -5332,7 +5362,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Medizinischer-Praxisassistentin-%28MPA%29-Labor-und-R%C3%B6ntgen-50-AG-5330/1443581533/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:13.354Z",
+      "crawledAt": "2026-10-03T09:14:05.801Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5372,7 +5402,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:13:13.354Z"
+      "firstSeenAt": "2026-10-03T09:14:05.801Z"
     },
     {
       "id": "zurzach-care-36b59b4dcc80",
@@ -5406,7 +5436,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Baden-Fach%C3%A4rztin-Facharzt-mit-Interesse-an-der-Schlafmedizin-AG-5400/1293089501/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:12.765Z",
+      "crawledAt": "2026-10-03T09:14:04.611Z",
       "addressLocality": "Baden",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5548,7 +5578,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-4cf1dcd2d2b0",
@@ -5630,7 +5661,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "zurzach-care-b3be25fc0dfc",
@@ -5664,7 +5696,7 @@
       "url": "https://karriere.zurzachcare.ch/job/Bad-Zurzach-Fachleute-Gesundheit-%28FAGE%29-AG-5330/1443892433/",
       "source": "ZURZACH Care Dedicated Parser (SuccessFactors CSB)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:13.909Z",
+      "crawledAt": "2026-10-03T09:14:05.205Z",
       "addressLocality": "Bad Zurzach",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5696,7 +5728,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:13:13.909Z"
+      "firstSeenAt": "2026-10-03T09:14:05.205Z"
     }
   ]
 }

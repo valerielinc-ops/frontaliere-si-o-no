@@ -1,7 +1,7 @@
 {
   "key": "beekeeper",
   "label": "Beekeeper",
-  "generatedAt": "2026-10-02T21:30:07.477Z",
+  "generatedAt": "2026-10-03T09:34:58.026Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3202,
-  "avgDurationMs": 3202,
+  "durationMs": 2262,
+  "avgDurationMs": 2262,
   "durationHistory": [
     4492,
-    3202
+    3202,
+    2262
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +36,7 @@
       "url": "https://job.lumapps.com/jobs/8483000-senior-account-executive-germany",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:56.746Z",
+      "crawledAt": "2026-10-03T09:34:52.696Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -74,7 +75,7 @@
       "url": "https://job.lumapps.com/jobs/8081204-senior-account-manager",
       "source": "Beekeeper Dedicated Parser (LumApps/Teamtailor)",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:29:56.748Z",
+      "crawledAt": "2026-10-03T09:34:52.697Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "streetAddress": "Herostrasse 12",
@@ -137,6 +138,7 @@
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich",
       "crawlerMissStreak": 1,
       "_qualityScore": 93,
       "_qualityBreakdown": {
@@ -144,8 +146,7 @@
         "richness": 18,
         "translation": 25,
         "completeness": 25
-      },
-      "sourceIdentity": "url:https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich"
+      }
     }
   ]
 }

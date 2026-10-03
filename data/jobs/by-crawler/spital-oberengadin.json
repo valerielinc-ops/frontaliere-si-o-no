@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-oberengadin",
-  "assembledAt": "2026-10-02T21:13:36.962Z",
+  "assembledAt": "2026-10-03T09:19:54.360Z",
   "jobs": [
     {
       "id": "spital-oberengadin-9d65ab205672",
@@ -16,9 +16,9 @@
       "companyDomain": "spital-oberengadin.ch",
       "title": "Dipl. Pflegefachfrau / -mann HF/FH",
       "titleByLocale": {
-        "it": "Dipl. Infermiera / -mann HF/FH",
-        "en": "Dipl. Nurse / -mann HF/FH",
         "de": "Dipl. Pflegefachfrau / -mann HF/FH",
+        "it": "Dipl. Pflegefachfrau / -mann HF/FH",
+        "en": "Dipl. Nurse / -mann HF/FH",
         "fr": "Dipl. Infirmière / -mann HF/FH"
       },
       "description": "Das Spital Oberengadin AG in Samedan, ein Betrieb der KSGR-Gruppe, ist mit dem grössten Spital Südbündens für die medizinische Grundversorgung der Bevölkerung und der Gäste verantwortlich. Für die interdisziplinäre Abteilung mit Schwerpunkt Kind, Wochenbett, Gynäkologie und Chirurgie suchen wir per sofort oder nach Vereinbarung eine/-n motivierte/-n\n\nIhre Aufgaben\n\n• familienzentrierte Pflege und Beratung von Wöchnerinnen und ihren Neugeborenen sowie von Kindern und deren Angehörigen\n• fachgerechte und patientenorientierte Pflege von gynäkologischen und chirurgischen Patient/-innen\n• Sicherstellung einer interprofessionellen und interdisziplinären Zusammenarbeit\n\nIhr Profil\n\n• Dipl. Pflegefachperson HF/FH (oder entsprechendes Diplom mit SRK-Anerkennung)\n• idealerweise Berufserfahrung im pädiatrischen Bereich und/oder mit Wöchnerinnen oder die Bereitschaft, sich in das vielfältige Fachgebiet einzuarbeiten\n• belastbare, flexible, verantwortungsbewusste Persönlichkeit mit hohem Qualitäts-bewusstsein\n• Deutsch in Wort und Schrift, Italienisch und weitere Sprachen von Vorteil\n\nPensum: 60-100%",
@@ -54,7 +54,6 @@
       "pensumMin": 60,
       "pensumMax": 100,
       "pensum": "60 - 100%",
-      "firstSeenAt": "2026-10-01T09:16:42.388Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -68,7 +67,9 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "firstSeenAt": "2026-10-01T09:16:42.388Z",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "spital-oberengadin-54638ba26c36",
@@ -102,7 +103,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4050574",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:29.664Z",
+      "crawledAt": "2026-10-03T09:19:48.412Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -177,7 +178,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4050572",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:29.087Z",
+      "crawledAt": "2026-10-03T09:19:47.727Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -258,7 +259,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058444",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:28.497Z",
+      "crawledAt": "2026-10-03T09:19:47.087Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -306,7 +307,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "spital-oberengadin-1754e26cf423",
@@ -340,7 +342,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4058442",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:27.917Z",
+      "crawledAt": "2026-10-03T09:19:46.447Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -422,7 +424,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4056202",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:27.313Z",
+      "crawledAt": "2026-10-03T09:19:45.816Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -509,7 +511,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4064056",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:26.738Z",
+      "crawledAt": "2026-10-03T09:19:45.136Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -593,7 +595,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4068317",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:26.161Z",
+      "crawledAt": "2026-10-03T09:19:44.506Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -677,7 +679,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4071550",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:25.466Z",
+      "crawledAt": "2026-10-03T09:19:43.868Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -763,7 +765,7 @@
       "url": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4079045",
       "source": "Spital Oberengadin Dedicated Parser (Solique careers portal)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:24.732Z",
+      "crawledAt": "2026-10-03T09:19:43.010Z",
       "addressLocality": "Samedan",
       "addressRegion": "GR",
       "addressCountry": "CH",
@@ -776,7 +778,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://live.solique.ch/stiftung-gesundheitsversorgung-oberengadin/job/details/4079045",
       "requirements": [],
       "requirementsByLocale": {
@@ -807,7 +809,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:13:24.732Z"
+      "firstSeenAt": "2026-10-03T09:19:43.010Z"
     }
   ]
 }
