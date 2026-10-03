@@ -40,7 +40,8 @@ describe('mirrorRoute — lato sito', () => {
       path: 'host/batchWrite.ts', side: 'site', manifestFiles: MANIFEST, existsHere, existsTwin,
     });
     expect(route).toEqual({ repo: 'site', targetPath: 'build-plugins/batchWrite.ts', why: 'manifest:identical' });
-    expect(existsHere).not.toHaveBeenCalled();
+    // Il nome è quello del gemello: si guarda solo che qui non esista un omonimo.
+    expect(existsHere).toHaveBeenCalledWith('host/batchWrite.ts');
     expect(existsTwin).not.toHaveBeenCalled();
   });
 
@@ -55,8 +56,34 @@ describe('mirrorRoute — lato sito', () => {
     const existsTwin = never('existsTwin');
     expect(mirrorRoute({
       path: 'scripts/ci/pr-body-contract.mjs', side: 'site', manifestFiles: MANIFEST,
-      existsHere: never('existsHere'), existsTwin,
+      existsHere: only(), existsTwin,
     })).toEqual({ repo: 'corpus', targetPath: 'scripts/ci/pr-body-contract.mjs', why: 'manifest:corpus-only' });
+    expect(existsTwin).not.toHaveBeenCalled();
+  });
+
+  it('un omonimo che esiste qui non eredita la voce del gemello', () => {
+    // Caso reale: `scripts/ci/redflag-doc-sections.mjs` esiste sul sito ed è
+    // `corpus-only` nel manifest. `bin/where-to-fix` dal sito: nessun vincolo.
+    const manifestFiles = [
+      ...MANIFEST,
+      { path: 'scripts/ci/redflag-doc-sections.mjs', mode: 'corpus-only' },
+    ];
+    const existsTwin = never('existsTwin');
+    expect(mirrorRoute({
+      path: 'scripts/ci/redflag-doc-sections.mjs', side: 'site', manifestFiles,
+      existsHere: only('scripts/ci/redflag-doc-sections.mjs'), existsTwin,
+    })).toEqual({ repo: 'site', targetPath: 'scripts/ci/redflag-doc-sections.mjs', why: 'no-entry:exists-here' });
+    // Vale per ogni mode: un file del sito che si chiama come la copia corpus
+    // di un `identical` rinominato non va spostato sul sitePath di quella voce.
+    expect(mirrorRoute({
+      path: 'host/batchWrite.ts', side: 'site', manifestFiles,
+      existsHere: only('host/batchWrite.ts'), existsTwin,
+    })).toMatchObject({ repo: 'site', targetPath: 'host/batchWrite.ts', why: 'no-entry:exists-here' });
+    // Lookup locale fallito: non si sa se l'omonimo esiste, quindi unknown.
+    expect(mirrorRoute({
+      path: 'scripts/ci/redflag-doc-sections.mjs', side: 'site', manifestFiles,
+      existsHere: () => null, existsTwin,
+    })).toMatchObject({ repo: 'unknown', why: 'manifest:twin-name:here-lookup-failed' });
     expect(existsTwin).not.toHaveBeenCalled();
   });
 
@@ -200,7 +227,7 @@ describe('classifyCandidateBullets', () => {
     ].join('\n');
     const existsTwin = never('existsTwin');
     const bullets = classifyCandidateBullets({
-      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: never('existsHere'), existsTwin,
+      pr: { body }, side: 'site', manifestFiles: MANIFEST, existsHere: only(), existsTwin,
     });
     expect(bullets.map((b) => [b.state, b.candidate])).toEqual([
       ['blocked-technical', true],
@@ -211,6 +238,67 @@ describe('classifyCandidateBullets', () => {
       { path: 'host/batchWrite.ts', repo: 'site', targetPath: 'build-plugins/batchWrite.ts', why: 'manifest:identical' },
     ]);
     expect(existsTwin).not.toHaveBeenCalled();
+  });
+
+  it('le righe di chiusura e «Nessuno» con motivo non diventano candidati', () => {
+    // Forme reali: PR 11113 («Nessuno — snapshot automatizzato, senza residui.»)
+    // e PR 11195 (`Addresses #7079` in coda alla sezione).
+    const body = [
+      '## Non implementato (ancora)',
+      '',
+      '- Nessuno — snapshot automatizzato, senza residui.',
+      '',
+      'Addresses #7079',
+      'Closes #12',
+      'Follow-up item: FU-2026-09-28-012',
+      '',
+      '🤖 Generated with [Claude Code](https://claude.com/claude-code)',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullets).toEqual([{
+      text: 'Nessuno — snapshot automatizzato, senza residui.',
+      kind: 'empty-declared',
+      state: null,
+      candidate: false,
+      reason: 'empty',
+      routes: [],
+    }]);
+  });
+
+  it('«Nessuno» seguito da testo è un residuo, non una sezione vuota', () => {
+    const body = '## Non implementato (ancora)\n- Nessuno dei crawler sibling è stato corretto\n';
+    const [bullet] = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullet).toMatchObject({ kind: 'bullet', candidate: true, reason: null });
+  });
+
+  it('distingue le righe di lista dalla prosa: solo i bullet sono materia di conio', () => {
+    const body = [
+      '## Non implementato (ancora)',
+      '- Estendere il fix ai crawler sibling',
+      '  resta da coprire il parser paginato',
+      '1. Portare la guardia nel gemello',
+      'Nota per il revisore.',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({ pr: { body }, side: 'site', manifestFiles: MANIFEST });
+    expect(bullets.map((b) => b.kind)).toEqual(['bullet', 'prose', 'bullet', 'prose']);
+  });
+
+  it('dichiara perché un bullet non è candidato: stato che chiude oppure match lessicale', () => {
+    const body = [
+      '## Non implementato (ancora)',
+      '- Altro lavoro — in questa PR',
+      // Residuo misto: l'oracolo lo scarta per «aggiungere un test», ma porta
+      // un'edit concreta. Il motivo `hard-exclude` lo lascia al triage.
+      '- Correggere il parser in `scripts/x.mjs` e aggiungere un test — blocked: fonte assente',
+    ].join('\n');
+    const bullets = classifyCandidateBullets({
+      pr: { body }, side: 'site', manifestFiles: MANIFEST,
+      existsHere: never('existsHere'), existsTwin: never('existsTwin'),
+    });
+    expect(bullets.map((b) => [b.candidate, b.reason, b.state])).toEqual([
+      [false, 'closing-state', 'in-this-pr'],
+      [false, 'hard-exclude', 'blocked-technical'],
+    ]);
   });
 
   it('senza manifest i candidati restano candidati e ogni route è unknown', () => {

@@ -47,6 +47,16 @@ describe('post-merge follow-up triage prompt', () => {
     expect(prompt).toMatch(/`candidate: false`[^\n]*NON creare issue/);
   });
 
+  it('rende vincolante solo lo stato che chiude, e solo per le righe di lista', () => {
+    // Il match lessicale dell'hard-exclude resta al giudizio del triage, e
+    // `candidate: true` è ammissibilità, non un ordine di coniare.
+    expect(prompt).toMatch(/`candidate: false` con `reason: closing-state`[^\n]*NON creare issue/);
+    expect(prompt).toMatch(/`reason: hard-exclude`[^\n]*LESSICALE/);
+    expect(prompt).toMatch(/`candidate: true` significa AMMISSIBILE/);
+    expect(prompt).toMatch(/Solo `kind: bullet` è materia di conio/);
+    expect(prompt).not.toMatch(/`candidate: true`[^\n]*\*\*crea issue\*\*/);
+  });
+
   it('vincola il token derivato a essere assente oggi, accanto all\'istruzione di derivarlo', () => {
     const derive = prompt.indexOf('DERIVALO invece di scartarlo');
     const absent = prompt.indexOf('ASSENTE OGGI');

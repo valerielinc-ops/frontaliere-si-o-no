@@ -38,7 +38,7 @@ import { execFileSync } from 'node:child_process';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { bulletState } from '../lib/pr-body-sections-check.mjs';
+import { bulletState, decisionDeferralSpecificity } from '../lib/pr-body-sections-check.mjs';
 import { extractNonImplementedItems, isCandidateItem } from './followup-has-candidates.mjs';
 
 export const MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
@@ -108,9 +108,24 @@ export function mirrorRoute({ path: cited, side, manifestFiles, existsHere, exis
   // Prima il nome sul lato della PR, poi quello del gemello: un bullet del
   // sito può citare `host/batchWrite.ts` (nome corpus di un file `identical`).
   let matches = [];
+  let matchedBy = side;
   for (const nameSide of [side, twin]) {
     matches = manifestFiles.filter((entry) => entryNames(entry)?.[nameSide] === target);
-    if (matches.length > 0) break;
+    if (matches.length > 0) {
+      matchedBy = nameSide;
+      break;
+    }
+  }
+
+  // Il path corrisponde solo al nome che una voce ha SUL GEMELLO. Se un file
+  // con quel path esiste anche qui, è un omonimo senza voce su questo lato
+  // (`scripts/ci/redflag-doc-sections.mjs` esiste sul sito ed è `corpus-only`
+  // nel manifest): la voce non parla di lui, e `bin/where-to-fix` da qui
+  // risponde «nessun vincolo». Senza una risposta certa non si instrada.
+  if (matches.length > 0 && matchedBy === twin) {
+    const here = lookup(existsHere, target);
+    if (here === true) return { repo: side, targetPath: target, why: 'no-entry:exists-here' };
+    if (here === null) return { repo: 'unknown', targetPath: target, why: 'manifest:twin-name:here-lookup-failed' };
   }
 
   if (matches.length > 0) {
@@ -132,7 +147,7 @@ export function mirrorRoute({ path: cited, side, manifestFiles, existsHere, exis
     if (routes.every((route) => route === null)) {
       // `adapted`: le due copie sono file diversi. Vale quella che il bullet
       // cita davvero, cioè il repository in cui quel path esiste.
-      if (lookup(existsHere, target) === true) {
+      if (matchedBy === side && lookup(existsHere, target) === true) {
         return { repo: side, targetPath: target, why: 'manifest:adapted:exists-here' };
       }
       if (lookup(existsTwin, target) === true) {
@@ -177,12 +192,50 @@ export function citedPaths(text) {
   return found;
 }
 
-// La riga di attribuzione in coda al body cade dentro la sezione (è l'ultima
-// del documento) ma non è un residuo.
+// La sezione arriva fino a fine body: vi cadono dentro anche righe che non sono
+// residui. Quelle di servizio si scartano; non sono materia di triage.
 const ATTRIBUTION_TRAILER_RE = /^🤖\s+Generated with\b/u;
+const CLOSING_REF_TRAILER_RE =
+  /^(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|addresses|supersedes|refs?)\s+(?:[\w.-]+\/[\w.-]+)?#\d+[\s.]*$/i;
+const FOLLOWUP_ITEM_TRAILER_RE = /^follow-up item:\s*FU-/i;
+const isTrailer = (item) =>
+  ATTRIBUTION_TRAILER_RE.test(item) || CLOSING_REF_TRAILER_RE.test(item) || FOLLOWUP_ITEM_TRAILER_RE.test(item);
+
+// «Nessuno — snapshot automatizzato, senza residui.»: la sezione dichiara di
+// essere vuota e ne dà il motivo. La parola deve essere seguita da un segno,
+// non da altro testo: «Nessuno dei sibling è stato corretto» resta un residuo.
+const EMPTY_DECLARED_RE = /^[*_`]*(?:nessuno|niente|none|nothing)[*_`]*\s*(?:$|[.:;,(—–-])/i;
+
+const LIST_MARKER_RE = /^\s*(?:[-*+]|\d+[.)])\s+\S/;
+// Stessa normalizzazione di `extractNonImplementedItems()`: serve solo a
+// riconoscere, fra gli item che l'oracolo restituisce, quelli nati da una riga
+// di lista.
+const oracleForm = (line) => line.replace(/^\s*[-*]\s+/, '').trim();
+
+function listItemForms(body) {
+  const forms = new Set();
+  for (const line of String(body ?? '').split('\n')) {
+    if (LIST_MARKER_RE.test(line)) forms.add(oracleForm(line));
+  }
+  return forms;
+}
+
+// Perché un item non è candidato. `closing-state` ed `empty` sono verdetti;
+// `hard-exclude` è il match lessicale di `HARD_EXCLUDE_RES`, che l'oracolo
+// dichiara sicuro solo come gate aggregato: bullet per bullet resta un indizio.
+function nonCandidateReason(item, state) {
+  const closes = state !== null && state !== 'blocked-technical'
+    && (state === 'in-this-pr' || state === 'chained-pr' || decisionDeferralSpecificity(item).specific);
+  return closes ? 'closing-state' : 'hard-exclude';
+}
 
 /**
- * Classifica e instrada i bullet di `## Non implementato (ancora)`.
+ * Classifica e instrada le righe di `## Non implementato (ancora)`.
+ *
+ * `kind`: `bullet` (riga di lista: materia di conio), `empty-declared`
+ * («Nessuno» con motivo: mai candidato), `prose` (riga non di lista:
+ * continuazione o nota, il bundle non decide per lei). Le righe di servizio
+ * (`Closes|Addresses #N`, `Follow-up item:`, attribuzione) non compaiono.
  *
  * @param {{
  *   pr: {body?: string},
@@ -191,15 +244,21 @@ const ATTRIBUTION_TRAILER_RE = /^🤖\s+Generated with\b/u;
  *   existsHere?: (p: string) => boolean|null,
  *   existsTwin?: (p: string) => boolean|null,
  * }} input
- * @returns {Array<{text: string, state: string|null, candidate: boolean,
+ * @returns {Array<{text: string, kind: 'bullet'|'empty-declared'|'prose', state: string|null,
+ *   candidate: boolean, reason: 'closing-state'|'hard-exclude'|'empty'|null,
  *   routes: Array<{path: string, repo: string, targetPath: string, why: string}>}>}
  */
 export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, existsTwin }) {
+  const listForms = listItemForms(pr?.body);
   return extractNonImplementedItems(pr?.body)
-    .filter((item) => !ATTRIBUTION_TRAILER_RE.test(item))
+    .filter((item) => !isTrailer(item))
     .map((item) => {
+      const state = bulletState(item);
+      if (EMPTY_DECLARED_RE.test(item)) {
+        return { text: item, kind: 'empty-declared', state, candidate: false, reason: 'empty', routes: [] };
+      }
       const candidate = isCandidateItem(item);
-      // Un bullet che non si conia non ha un bersaglio da instradare: niente
+      // Una riga che non si conia non ha un bersaglio da instradare: niente
       // lookup, quindi niente chiamate al gemello.
       const routes = candidate
         ? citedPaths(item).map((cited) => ({
@@ -207,7 +266,14 @@ export function classifyCandidateBullets({ pr, side, manifestFiles, existsHere, 
           ...mirrorRoute({ path: cited, side, manifestFiles, existsHere, existsTwin }),
         }))
         : [];
-      return { text: item, state: bulletState(item), candidate, routes };
+      return {
+        text: item,
+        kind: listForms.has(item) ? 'bullet' : 'prose',
+        state,
+        candidate,
+        reason: candidate ? null : nonCandidateReason(item, state),
+        routes,
+      };
     });
 }
 
@@ -220,8 +286,10 @@ export function renderCandidateBulletsSection(entries, { manifestOk, repos = DEF
   const lines = [
     '## Candidate bullets',
     '',
-    'Bullet di `## Non implementato (ancora)` già classificati da `scripts/ci/followup-candidate-bullets.mjs`.',
-    '`candidate: false` = non coniare. `routes[].repo` + `targetPath` = `Target repository` + `Target file`',
+    'Righe di `## Non implementato (ancora)` già classificate da `scripts/ci/followup-candidate-bullets.mjs`.',
+    '`kind: bullet` = riga di lista; `empty-declared` = «Nessuno» con motivo; `prose` = riga non di lista (contesto).',
+    '`candidate: false` con `reason: closing-state|empty` = non coniare; `reason: hard-exclude` = match lessicale, da confermare.',
+    '`candidate: true` = ammissibile, soggetto ai filtri del triage. `routes[].repo` + `targetPath` = `Target repository` + `Target file`',
     `(\`site\` = ${repos.site}, \`corpus\` = ${repos.corpus}, \`unknown\` = non verificato).`,
     `Manifest di mirror: ${manifestOk ? 'letto' : 'NON leggibile (ogni route è `unknown`)'}.`,
     '',
