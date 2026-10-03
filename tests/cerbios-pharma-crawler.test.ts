@@ -13,6 +13,7 @@ import {
   stripHtml,
   normalizeSpace,
 } from '@/scripts/lib/cerbios-pharma-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixture: e-lavoro.ch listing with jobs ────────────────
 const LISTING_WITH_JOBS = `
@@ -139,6 +140,13 @@ describe('parseListingPage', () => {
   it('returns empty array when no jobs available', () => {
     const jobs = parseListingPage(LISTING_NO_JOBS);
     expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('does not treat an unrecognised empty page as an authoritative zero', () => {
+    const jobs = parseListingPage('<main><h1>I nostri annunci</h1><div class="view-content"></div></main>');
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
   it('returns empty array for empty input', () => {
