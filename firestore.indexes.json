@@ -150,6 +150,14 @@
       ]
     },
     {
+      "collectionGroup": "private",
+      "fieldPath": "applicationIntentAuthUid",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "fieldPath": "campaign_id",
       "indexes": [
