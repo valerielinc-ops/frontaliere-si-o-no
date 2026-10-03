@@ -7,6 +7,7 @@
  * both newly admitted and last-known-good stale locales remain servable after
  * the Pages publish.
  */
+import { intFromEnv } from '../lib/int-from-env.mjs';
 export const LOCALES = Object.freeze(['it', 'en', 'de', 'fr']);
 
 function text(value) {
@@ -106,9 +107,9 @@ export async function validateLocaleHomes({
 function main() {
   const healthy = parseLocaleList(process.env.HEALTHY_LOCALES, LOCALES);
   const stale = parseLocaleList(process.env.STALE_LOCALES, []);
-  const attempts = Number(process.env.LOCALE_SMOKE_ATTEMPTS || 12);
-  const intervalMs = Number(process.env.LOCALE_SMOKE_INTERVAL_MS || 10_000);
-  const timeoutMs = Number(process.env.LOCALE_SMOKE_TIMEOUT_MS || 20_000);
+  const attempts = intFromEnv('LOCALE_SMOKE_ATTEMPTS', 12);
+  const intervalMs = intFromEnv('LOCALE_SMOKE_INTERVAL_MS', 10_000);
+  const timeoutMs = intFromEnv('LOCALE_SMOKE_TIMEOUT_MS', 20_000);
   validateLocaleHomes({
     baseUrl: process.env.LIVE_BASE_URL || 'https://frontaliereticino.ch',
     healthyLocales: healthy,
