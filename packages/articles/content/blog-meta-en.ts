@@ -12386,6 +12386,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.radar-strade-ticinesi-ottobre.title': 'Speed checks in Ticino from October 5 to 11',
     'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'From 5 to 11 October, checks are planned on Ticino\'s roads. The Cantonal Police manages the speed-camera map and indicates the locations concerned.',
     'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Speed checks on a Ticino road in autumn',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Unemployment for cross-border workers, the rules could change',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'The current rules for cross-border workers residing in Italy provide for NASpI. A European revision could shift responsibility to the country of last employment after 22 consecutive weeks.',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Panoramic view of Lake Lugano in the morning, with mountains and the city in the background, symbolizing cross-border work.',
 };
 
 export default blogMetaEn;

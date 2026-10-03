@@ -12388,6 +12388,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.radar-strade-ticinesi-ottobre.title': 'Contrôles de vitesse au Tessin du 5 au 11 octobre',
     'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Du 5 au 11 octobre, des contrôles sont prévus sur les routes tessinoises. La Police cantonale gère la carte des radars et indique les localités concernées.',
     'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Contrôles de vitesse sur une route tessinoise en automne',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Chômage des frontaliers, les règles pourraient changer',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Les règles actuelles pour les travailleurs frontaliers résidant en Italie prévoient la NASpI. Une révision européenne pourrait transférer la compétence au pays du dernier emploi après 22 semaines consécutives.',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Vue panoramique du lac de Lugano le matin, avec les montagnes et la ville en arrière-plan, symbolisant le travail transfrontalier.',
 };
 
 export default blogMetaFr;

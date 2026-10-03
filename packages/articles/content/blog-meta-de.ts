@@ -12385,6 +12385,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.radar-strade-ticinesi-ottobre.title': 'Geschwindigkeitskontrollen im Tessin vom 5. bis 11. Oktober',
     'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Vom 5. bis 11. Oktober sind auf den Tessiner Straßen Kontrollen vorgesehen. Die Kantonspolizei betreut die Radarkarte und gibt die betroffenen Orte an.',
     'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Geschwindigkeitskontrollen auf einer Tessiner Strasse im Herbst',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Arbeitslosigkeit bei Grenzgängern: Die Regeln könnten sich ändern',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Die derzeitigen Regeln für in Italien wohnhafte Grenzgänger sehen die NASpI vor. Eine europäische Reform könnte die Zuständigkeit nach 22 aufeinanderfolgenden Wochen auf das Land der letzten Beschäftigung verlagern.',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Panoramablick auf den Luganersee am Morgen, mit Bergen und Stadt im Hintergrund, symbolisch für grenzüberschreitende Arbeit.',
 };
 
 export default blogMetaDe;

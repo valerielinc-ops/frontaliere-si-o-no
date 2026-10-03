@@ -12387,6 +12387,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.radar-strade-ticinesi-ottobre.title': 'Controlli velocità in Ticino dal 5 all\'11 ottobre',
     'blog.article.radar-strade-ticinesi-ottobre.excerpt': 'Dal 5 all\'11 ottobre sono previsti controlli sulle strade ticinesi. La Polizia cantonale cura la mappa dei radar e indica le località interessate.',
     'blog.article.radar-strade-ticinesi-ottobre.imageAlt': 'Controlli della velocità su una strada del Ticino in autunno',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.title': 'Disoccupazione frontalieri, le regole potrebbero cambiare',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.excerpt': 'Le attuali regole per i frontalieri residenti in Italia prevedono la NASpI. Una revisione europea potrebbe spostare la competenza al Paese dell\'ultima occupazione dopo 22 settimane consecutive.',
+    'blog.article.disoccupazione-frontalieri-cambio-regole.imageAlt': 'Vista panoramica del lago di Lugano al mattino, con le montagne e la città sullo sfondo, simbolo di lavoro transfrontaliero.',
 };
 
 export default blogMetaIt;

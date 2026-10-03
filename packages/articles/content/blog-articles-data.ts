@@ -37150,6 +37150,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'disoccupazione-frontalieri-cambio-regole',
+ category: 'novita',
+ date: '2026-10-03T06:35:30.742Z',
+ image: '/images/blog/disoccupazione-frontalieri-cambio-regole.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
