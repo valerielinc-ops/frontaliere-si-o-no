@@ -99,10 +99,22 @@ function fakePortal() {
         <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><button type="button" id="ok">Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
           const dialog = document.getElementById('dpcsDialog');
-          document.getElementById('dataPrivacyId').addEventListener('click', () => { if (document.getElementById('c').value) dialog.hidden = false; });
+          // As on Coop's SuccessFactors (run 37056165460): the password repeat checks
+          // itself on blur, and a click on the statement's link meanwhile is lost.
+          let checking = false;
+          document.getElementById('p2').addEventListener('blur', () => {
+            checking = true;
+            fetch('/sf/pwd-policy', { method: 'POST' }).finally(() => { checking = false; });
+          });
+          document.getElementById('dataPrivacyId').addEventListener('click', () => { if (!checking && document.getElementById('c').value) dialog.hidden = false; });
           document.getElementById('ok').addEventListener('click', () => { document.getElementById('dpcs').value = '1'; dialog.hidden = true; });
           document.getElementById('no').addEventListener('click', () => { dialog.hidden = true; });
         </script>`));
+    }
+    if (route === 'POST /sf/pwd-policy') {
+      await new Promise((done) => setTimeout(done, 1200));
+      res.writeHead(200, { 'content-type': 'application/json' });
+      return res.end('{"ok":true}');
     }
     if (route === 'POST /sf/register') {
       const body = new URLSearchParams(await readBody(req));
