@@ -80,6 +80,11 @@ const LOCALES = ['it', 'en', 'de', 'fr'];
 const UA =
   process.env.JOBS_CRAWLER_USER_AGENT ||
   'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
+const SUMMARY_COUNTS = {
+  discovered: null,
+  parsed: null,
+  lastFetchOutcome: null,
+};
 
 /* ── Matchers ──────────────────────────────────────────────── */
 function isBpsJob(job) {
@@ -126,7 +131,7 @@ export async function fetchJobs() {
     listingHtml = await fetchHtml(BPS_LISTING_URL, timeoutMs);
   } catch (err) {
     console.error(`❌ Failed to fetch listing page: ${err?.message || err}`);
-    return [];
+    throw err;
   }
 
   // Use robust regex to find all carriera-*.php links (matches the original working pattern)
@@ -146,6 +151,8 @@ export async function fetchJobs() {
     const parserMatch = parserListings.find((p) => p.url === url);
     return { url, title: parserMatch?.title || '' };
   });
+  SUMMARY_COUNTS.discovered = listings.length;
+  SUMMARY_COUNTS.lastFetchOutcome = 'ok';
   console.log(`📋 Found ${listings.length} job link(s) on listing page.`);
 
   const jobs = [];
@@ -254,6 +261,10 @@ export async function fetchJobs() {
     console.log(`  ✅ ${listing.title} — ${location}`);
   }
 
+  SUMMARY_COUNTS.parsed = jobs.length;
+  SUMMARY_COUNTS.lastFetchOutcome = jobs.length > 0
+    ? 'ok'
+    : (listings.length > 0 ? 'filtered_empty' : 'ok');
   console.log(`📋 Total BPS Suisse jobs discovered: ${jobs.length}`);
   return jobs;
 }
@@ -345,7 +356,7 @@ function cleanStoredJobsOnSoftExit() {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse');
+  registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse', SUMMARY_COUNTS);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${BPS_COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');
@@ -354,6 +365,30 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
     await cleanStoredJobsOnSoftExit();
+    const _durationMs = getCrawlerElapsedMs();
+    const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+    const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
+    writeSummaryCrawlerSlice({
+      key: BPS_KEY,
+      label: 'BPS Suisse',
+      generatedAt: new Date().toISOString(),
+      total: _sliceJobs.length,
+      discovered: SUMMARY_COUNTS.discovered,
+      parsed: SUMMARY_COUNTS.parsed,
+      lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
+      written: _sliceJobs.length,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: 0,
+      unchangedCount: 0,
+      durationMs: _durationMs,
+      avgDurationMs: _durationMs,
+      durationHistory: [_durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: [],
+      unchangedJobs: [],
+    });
     return;
   }
 
@@ -401,6 +436,9 @@ async function main() {
     label: 'BPS Suisse',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
+    discovered: SUMMARY_COUNTS.discovered,
+    parsed: SUMMARY_COUNTS.parsed,
+    lastFetchOutcome: SUMMARY_COUNTS.lastFetchOutcome,
     newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount,
     durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs],
     newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),

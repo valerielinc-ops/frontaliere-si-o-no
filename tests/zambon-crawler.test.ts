@@ -178,6 +178,15 @@ describe('parseListingPage — guards', () => {
     expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
   });
 
+  it('keeps a discovered listing when no-position copy is incidental page text', () => {
+    const jobs = parseListingPage(
+      '<main><p>No open positions</p>'
+      + '<a href="https://app.ncoreplat.com/jobposition/112500/quality-control-analyst">Quality Control Analyst</a></main>',
+    );
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].id).toBe('112500');
+  });
+
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
   });

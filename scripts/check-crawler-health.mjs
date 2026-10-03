@@ -275,24 +275,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reads the Prospective medium its redirect leads to and is no longer
   // expected to be empty — issue 5253.)
   'paraplegie',
-  // Psychiatriezentrum Münsingen (PZM, Prospective medium 1008606): the
-  // public career site (pzmag.ch/karriere) now 301-redirects to
-  // upz-bern.ch/karriere — PZM merged with UPD Bern into "Universitäres
-  // Psychiatrisches Zentrum Bern (UPZ)" (verified live 2026-07-11). The
-  // shared Prospective API is still live (71 postings on medium 1008606),
-  // but every listing's `links.directlink` now resolves to the generic
-  // `ohws.prospective.ch/public/v1/jobs/{id}` job-direct format instead of
-  // the `jobs.pzmag.ch` host this parser's `acceptDirectlinkHosts`
-  // allowlist requires — so 0 is the correct, permanent output for this
-  // companyKey, not a selector break. The former PZM roles (verified: e.g.
-  // "Dipl. Pflegefachperson im Nachtdienst ICM", Hunzigenallee 1
-  // Münsingen) are surfaced by the sibling `upd` crawler, which reads the
-  // merged UPZ vacancy set (Prospective medium 1000842, 30 of 107 postings
-  // in Münsingen on 2026-09-29) — so no coverage is lost. Retiring
-  // the dedicated crawler (removing it from `.github/workflows/
-  // crawler-group-10.yml`) is the complete follow-up but out of reach for
-  // the automated fixer (no `workflows` push scope); tracked in #4080.
-  'pzm-muensingen',
   // Würth International (Chur, GR): the careers listing
   // (https://www.wurth-international.com/web/en/wurthinternational/jobs_career/jobs/Jobs.php)
   // returns HTTP 200 with its unchanged structure but currently shows "Keine
@@ -376,8 +358,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // evidence lives in the #3797 issue comment; one-line summary here.
   // Workable API confirms `total:0`; page states "no job openings".
   'answerconsulting',
-  // e-lavoro.ch/node/91 explicit empty state, no listed vacancies.
-  'cerbios-pharma',
   // No jobs/careers page exists anywhere on chiccodoro.com.
   'chicco-doro',
   // jobs.ch profile shows "Jobs (0)"; no jobs/career page on citypop.com.
@@ -389,11 +369,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // `ferring` left this list on 2026-10-02: it now proves its Swiss zero every
   // run from the live Workday board (`proveSwissAbsentFromLiveBoard` on the
   // tenant's `Location_Country` facet, scripts/update-ferring-jobs.mjs).
-  // e-lavoro.ch/node/76 zero listings; jobopportunity.ch subdomain is dead
-  // (same defunct AITI e-recruiting platform migration as imerys).
-  'helsinn',
-  // Phenom People JSON embeds `"totalHits":0,"jobs":[]` for location=Coldrerio.
-  'hugo-boss',
   // `imerys` left this list on 2026-10-02: the "corroborated zero" was a dead
   // source (the SmartRecruiters company no longer exists) while its Workday
   // board listed 3 Swiss reqs. It now proves its own zero every run
@@ -456,22 +431,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // reappears. Same legitimately-empty regional-filter case as
   // manor/bracco/fnz.
   'clariant',
-  // Josef Müller Gemüse AG (Hünenberg ZG, produce/salad processing):
-  // verified live 2026-07-21 — the jobs.ch company-profile page
-  // (https://www.jobs.ch/de/firmen/33612-josef-mueller-gemuese-ag/) returns
-  // HTTP 200, the "Jobs (0)" tab counter and the
-  // `data-cy="company-no-vacancies"` block ("Derzeit sind keine
-  // Stellenangebote vorhanden") both confirm zero current postings, and no
-  // `/de/stellenangebote/detail/{uuid}/` links are present in the markup —
-  // parseJosefMuellerListing() correctly extracts 0 from a genuinely
-  // vacancy-free page. This is a small single-site produce processor
-  // (~170 employees) that previously had exactly one listing
-  // (lastNonZeroJobs: 1); it legitimately has stretches with no openings.
-  // The listing selector (URL-shape regex, not a class name) and the
-  // JobPosting JSON-LD detail parser are unchanged and healthy; re-arms
-  // automatically when jobs.ch lists a new vacancy. Same legitimately-empty
-  // small-employer case as linnea/banca-raiffeisen-vedeggio-cassarate/wuerth-international.
-  'josef-mueller',
   // Yapeal AG (Swiss mobile banking, Zürich): verified live 2026-07-25 — the
   // Personio XML feed (https://yapeal-ag.jobs.personio.de/xml) returns HTTP
   // 200 with a well-formed but empty `<workzag-jobs>` document (0
