@@ -472,17 +472,17 @@ export function buildL5DecisionMomentExport({
  * A window that ends before the gate has no gated day at all: that is not a
  * measurement, so the caller records the outcome as unavailable.
  */
-export function l5GatedDateRange(range, effectiveFrom) {
-  if (!/^\d{4}-\d{2}-\d{2}$/u.test(String(effectiveFrom ?? ''))) {
+export function l5GatedDateRange(range, gateDate) {
+  if (!/^\d{4}-\d{2}-\d{2}$/u.test(String(gateDate ?? ''))) {
     throw new Error('L5 event contract requires nextActionGateEffectiveFrom as YYYY-MM-DD');
   }
-  if (effectiveFrom > range.endDate) {
+  if (gateDate > range.endDate) {
     throw new Error(
-      `L5 next-action gate is effective from ${effectiveFrom}: the settled window ends ${range.endDate} and holds no gated day yet`,
+      `L5 next-action gate is effective from ${gateDate}: the settled window ends ${range.endDate} and holds no gated day yet`,
     );
   }
   return {
-    startDate: effectiveFrom > range.startDate ? effectiveFrom : range.startDate,
+    startDate: gateDate > range.startDate ? gateDate : range.startDate,
     endDate: range.endDate,
   };
 }

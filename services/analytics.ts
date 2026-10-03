@@ -589,7 +589,7 @@ export function createDecisionMomentEmitter(deps: DecisionMomentEmitterDeps) {
  };
 }
 
-const emitDecisionMoment = createDecisionMomentEmitter({
+const sendGatedDecisionMoment = createDecisionMomentEmitter({
  readGaSessionId: readGa4SessionId,
  sendGa4: (eventName, params) => logFirebaseOnly(eventName, params),
  sendPostHog: (eventName, params) => posthogCapture(eventName, params),
@@ -597,7 +597,7 @@ const emitDecisionMoment = createDecisionMomentEmitter({
 });
 
 const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
- emitDecisionMoment(eventName, enrichEventParams(eventName, params));
+ sendGatedDecisionMoment(eventName, enrichEventParams(eventName, params));
 
 const setProps = (properties: Record<string, string>) => {
  if (_firebaseReady) {
