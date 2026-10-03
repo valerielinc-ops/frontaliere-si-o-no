@@ -51,7 +51,11 @@ import {
 import { extractStableJobId } from './lib/job-match-key.mjs';
 import { htmlFragmentToMarkdown, parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 import { SWISS_CANTONS } from './lib/crawler-location-config.mjs';
-import { inferAnyCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
+import {
+  inferAnyCanton,
+  isTargetSwissLocation,
+  swissMunicipalityCantons,
+} from './lib/target-swiss-locations.mjs';
 import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -272,12 +276,16 @@ function buildJobUrl(job) {
 }
 
 /**
- * Resolve a Solique contact to a Swiss canton without inventing a fixed
- * employer canton. `contact.state` is authoritative when present, while
- * `inferAnyCanton` resolves the city for blank/localized state values. The
- * canton name is included in the `isTargetSwissLocation` signal because the
- * source uses localities such as "Blonay" and "Wabern" that are not all
- * represented as standalone municipality aliases in the current BFS file.
+ * Resolve a Solique location to a Swiss canton without inventing a fixed
+ * employer canton. The source's city is authoritative when it is an
+ * unambiguous Swiss municipality: the regular feed's `contact` is the
+ * recruiting office, and apprenticeship contacts can retain a stale/default
+ * state after a branch moves canton (Moutier/BE → JU). A valid source state is
+ * still used for localities not present in the BFS municipality snapshot and
+ * to disambiguate homonyms. The canton name is included in the
+ * `isTargetSwissLocation` signal because the source uses localities such as
+ * "Blonay" and "Wabern" that are not all represented as standalone
+ * municipality aliases in the current BFS file.
  */
 const SWISS_COUNTRY_VALUES = new Set(['CH', 'CHE', 'SWITZERLAND', 'SCHWEIZ', 'SUISSE', 'SVIZZERA']);
 
@@ -291,7 +299,22 @@ export function resolveGalenicaCanton(contact = {}) {
     || (rawState && !stateCanton)
     || (country && !SWISS_COUNTRY_VALUES.has(country))) return '';
 
-  const canton = stateCanton || inferAnyCanton(city);
+  const cityCantons = swissMunicipalityCantons(city);
+  let canton = '';
+  if (cityCantons.length === 1) {
+    // A source-backed, unambiguous municipality outranks a contact/default
+    // state. This is the Sion/VD and Moutier/BE failure mode from #11049.
+    canton = cityCantons[0];
+  } else if (cityCantons.length > 1) {
+    // A homonym is safe only when the source state selects one of its known
+    // cantons. An unrelated state is a contradictory pair: reject it instead
+    // of silently choosing the first canton in the lookup table.
+    canton = stateCanton && cityCantons.includes(stateCanton) ? stateCanton : '';
+  } else {
+    // Keep the source state for valid localities not yet represented by the
+    // municipality snapshot (for example Blonay, Wabern and Le Lignon).
+    canton = stateCanton || inferAnyCanton(city);
+  }
   const cantonNames = SWISS_CANTONS[canton]?.names || [];
   const locationSignal = [city, ...cantonNames].filter(Boolean).join(' ');
   return canton && isTargetSwissLocation(locationSignal) ? canton : '';
