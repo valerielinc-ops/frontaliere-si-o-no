@@ -6,6 +6,7 @@ on:
     paths:
       - '.github/corpus-workflows/**'
       - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
+      - 'scripts/ci/translate-watchdog-pin.mjs'
       - 'scripts/ci/sync-crawler-workflows-to-corpus.sh'
       - 'scripts/lib/crawler-generation-group-ids.mjs'
       - '.github/workflows/sync-crawler-workflows-to-corpus.yml'
@@ -31,6 +32,7 @@ jobs:
           sparse-checkout: |
             /.github/corpus-workflows/
             /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
+            /scripts/ci/translate-watchdog-pin.mjs
             /scripts/lib/crawler-generation-group-ids.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs
