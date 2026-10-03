@@ -344,6 +344,9 @@
          body (full-viewport CLS score of 1.0 on mobile). See cls-live audit. */
       html { margin: 0; padding: 0; scrollbar-gutter: stable; }
       body { margin: 0; padding: 0; }
+      /* The initial H1 margin otherwise collapses through main/root/body before
+         async preflight arrives, shifting the whole viewport by ~21px. */
+      #homepage-static-h1 { margin: 0; }
       /* Reserve mobile widget area so deferred React widgets don't cause CLS when
          they mount. 160px matches min-h-[160px] on the .md:hidden mobile container
          in CalcolatoreTabContent.tsx; the inline value applies before Tailwind
