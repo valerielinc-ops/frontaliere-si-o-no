@@ -7616,6 +7616,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazioni-vaud-regole-2026.title': 'Rentals in Switzerland 2026: Vaud real estate market',
     'blog.article.locazioni-vaud-regole-2026.excerpt': 'In the canton of Vaud, federal rules apply: a maximum deposit of three months, a blocked account and 30 days to contest the termination notice.',
     'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Residential building and rental notice board in canton Vaud',
+    'blog.article.deposito-modulo-conciliazione.title': 'Swiss rental market 2026: St. Gallen',
+    'blog.article.deposito-modulo-conciliazione.excerpt': 'Rentals in Switzerland in 2026: maximum deposit of three months\' rent, an escrow account, and 30 days to challenge the landlord\'s termination notice in St. Gallen.',
+    'blog.article.deposito-modulo-conciliazione.imageAlt': 'Swiss residential building for an article about the rental market',
 };
 
 export default blogMetaChEn;

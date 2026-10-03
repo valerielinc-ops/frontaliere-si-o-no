@@ -7616,6 +7616,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazioni-vaud-regole-2026.title': 'Affitti in Svizzera 2026: mercato immobiliare Vaud',
     'blog.article.locazioni-vaud-regole-2026.excerpt': 'Nel canton Vaud valgono le regole federali: deposito massimo di tre mesi, conto vincolato e 30 giorni per contestare la disdetta.',
     'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Edificio residenziale e bacheca per gli affitti nel canton Vaud',
+    'blog.article.deposito-modulo-conciliazione.title': 'Mercato degli affitti in Svizzera 2026: San Gallo',
+    'blog.article.deposito-modulo-conciliazione.excerpt': 'Affitti in Svizzera nel 2026: deposito massimo di tre mensilità, conto vincolato e 30 giorni per contestare la disdetta del locatore a San Gallo.',
+    'blog.article.deposito-modulo-conciliazione.imageAlt': 'Edificio residenziale svizzero per un articolo sul mercato degli affitti',
 };
 
 export default blogMetaChIt;

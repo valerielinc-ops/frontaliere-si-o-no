@@ -7616,6 +7616,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazioni-vaud-regole-2026.title': 'Mieten in der Schweiz 2026: Immobilienmarkt Waadt',
     'blog.article.locazioni-vaud-regole-2026.excerpt': 'Im Kanton Waadt gelten die Bundesregeln: maximal drei Monatsmieten als Kaution, ein Sperrkonto und 30 Tage, um die Kündigung anzufechten.',
     'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Wohngebäude und Mietinserate im Kanton Waadt',
+    'blog.article.deposito-modulo-conciliazione.title': 'Schweizer Mietmarkt 2026: St. Gallen',
+    'blog.article.deposito-modulo-conciliazione.excerpt': 'Mieten in der Schweiz im Jahr 2026: Kaution von höchstens drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung des Vermieters in St. Gallen anzufechten.',
+    'blog.article.deposito-modulo-conciliazione.imageAlt': 'Schweizer Wohngebäude für einen Artikel über den Mietmarkt',
 };
 
 export default blogMetaChDe;

@@ -7616,6 +7616,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazioni-vaud-regole-2026.title': 'Loyers en Suisse 2026 : marché immobilier du canton de Vaud',
     'blog.article.locazioni-vaud-regole-2026.excerpt': 'Dans le canton de Vaud, les règles fédérales s\'appliquent : garantie locative maximale de trois mois, compte bloqué et 30 jours pour contester le congé.',
     'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Immeuble résidentiel et tableau d\'annonces locatives dans le canton de Vaud',
+    'blog.article.deposito-modulo-conciliazione.title': 'Marché locatif en Suisse 2026 : Saint-Gall',
+    'blog.article.deposito-modulo-conciliazione.excerpt': 'Locations en Suisse en 2026 : dépôt de garantie maximal de trois mois de loyer, compte bloqué et 30 jours pour contester la résiliation du bailleur à Saint-Gall.',
+    'blog.article.deposito-modulo-conciliazione.imageAlt': 'Immeuble résidentiel suisse pour un article sur le marché locatif',
 };
 
 export default blogMetaChFr;

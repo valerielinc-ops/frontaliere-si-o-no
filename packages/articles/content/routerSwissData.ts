@@ -2561,6 +2561,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'locazione-cauzione-basilea-2026': { it: 'locazione-cauzione-basilea-2026', en: 'swiss-rent-deposit-basel-2026', de: 'mietrecht-kaution-basel-2026', fr: 'location-caution-bale-2026' },
  'deposito-cauzionale-basilea': { it: 'deposito-cauzionale-basilea', en: 'swiss-rent-deposit-basel', de: 'mietkaution-schweiz-basel', fr: 'depot-loyer-suisse-bale' },
  'locazioni-vaud-regole-2026': { it: 'locazioni-vaud-regole-2026', en: 'vaud-rent-rights-2026', de: 'mietrecht-waadt-2026', fr: 'loyers-vaud-droits-2026' },
+ 'deposito-modulo-conciliazione': { it: 'deposito-modulo-conciliazione', en: 'rental-deposit-official-form', de: 'mietkaution-formular-schlichtung', fr: 'depot-formulaire-conciliation' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
