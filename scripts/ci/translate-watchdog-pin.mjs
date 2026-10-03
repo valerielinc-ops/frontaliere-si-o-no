@@ -349,6 +349,111 @@ export function renderPinBodyLines({ delta, report } = {}) {
   return { implemented, pending };
 }
 
+/**
+ * La riga del pin e' un fatto della CONSEGNA, non della creazione della PR: a
+ * ogni ritrasporto il pin puo' cambiare (corpus PR 2066: body con `bb1c1e69…`
+ * mentre il diff portava `befa1307…`). Il resto del body appartiene
+ * all'orchestratore e non si riscrive; queste due sezioni si', ma solo fra i
+ * loro marcatori. Una sezione vuota resta come coppia di marcatori, cosi'
+ * l'aggiornamento successivo sa dove scrivere.
+ */
+export const PIN_BODY_SECTIONS = Object.freeze({
+  implemented: Object.freeze({
+    heading: '## Implementato',
+    start: '<!-- translate-watchdog-pin:implemented -->',
+    end: '<!-- /translate-watchdog-pin:implemented -->',
+    legacyPrefix: '- in questa PR: pin del watchdog rinfrescato:',
+  }),
+  pending: Object.freeze({
+    heading: '## Non implementato (ancora)',
+    start: '<!-- translate-watchdog-pin:pending -->',
+    end: '<!-- /translate-watchdog-pin:pending -->',
+    legacyPrefix: `- blocked: decisione del proprietario. ${UNREFRESHABLE_TITLE}`,
+  }),
+});
+
+/** Blocchi delimitati da accodare alle due sezioni del body. */
+export function renderPinBodySections(lines = {}) {
+  const block = (name) => {
+    const { start, end } = PIN_BODY_SECTIONS[name];
+    return `${start}\n${lines[name] ?? ''}${end}\n`;
+  };
+  return { implemented: block('implemented'), pending: block('pending') };
+}
+
+function blockLines(name, block) {
+  const { start, end } = PIN_BODY_SECTIONS[name];
+  const lines = String(block ?? '').replace(/\r\n/g, '\n').replace(/\n$/, '').split('\n');
+  if (lines.length < 2 || lines[0] !== start || lines.at(-1) !== end
+    || lines.slice(1, -1).some((line) => line === start || line === end)) {
+    throw new Error(`blocco ${name} del pin senza la coppia di marcatori attesa`);
+  }
+  return lines;
+}
+
+function replaceSection(lines, name, newLines) {
+  const { heading, start, end, legacyPrefix } = PIN_BODY_SECTIONS[name];
+  const bare = (line) => line.replace(/\r$/, '');
+  const starts = lines.flatMap((line, i) => (bare(line) === start ? [i] : []));
+  const ends = lines.flatMap((line, i) => (bare(line) === end ? [i] : []));
+  if (starts.length > 0 || ends.length > 0) {
+    if (starts.length !== 1 || ends.length !== 1 || ends[0] < starts[0]) {
+      throw new Error(`marcatori della sezione ${name} del pin non accoppiati nel body (start ${starts.length}, end ${ends.length})`);
+    }
+    return [...lines.slice(0, starts[0]), ...newLines, ...lines.slice(ends[0] + 1)];
+  }
+
+  // Body aperto prima dei marcatori: la riga generata, se c'e', si sostituisce
+  // dov'e' (ogni sua copia: mai duplicarla); altrimenti la sezione entra dopo
+  // l'ultimo bullet della sezione giusta.
+  const legacy = lines.flatMap((line, i) => (bare(line).startsWith(legacyPrefix) ? [i] : []));
+  if (legacy.length > 0) {
+    const out = [];
+    lines.forEach((line, i) => {
+      if (i === legacy[0]) out.push(...newLines);
+      else if (!legacy.includes(i)) out.push(line);
+    });
+    return out;
+  }
+  const headingIndex = lines.findIndex((line) => bare(line).trim() === heading);
+  if (headingIndex < 0) {
+    throw new Error(`sezione \`${heading}\` assente dal body: riga del pin non collocabile`);
+  }
+  let sectionEnd = lines.findIndex((line, i) => i > headingIndex && /^#{1,6}\s/.test(line));
+  if (sectionEnd < 0) sectionEnd = lines.length;
+  let insertAt = -1;
+  for (let i = headingIndex + 1; i < sectionEnd; i += 1) {
+    if (/^[-*+]\s/.test(lines[i])) {
+      insertAt = i + 1;
+      // Righe di continuazione rientrate dello stesso bullet.
+      while (insertAt < sectionEnd && /^\s+\S/.test(lines[insertAt])) insertAt += 1;
+    }
+  }
+  if (insertAt < 0) {
+    insertAt = headingIndex + 1;
+    while (insertAt < sectionEnd && bare(lines[insertAt]).trim() === '') insertAt += 1;
+  }
+  return [...lines.slice(0, insertAt), ...newLines, ...lines.slice(insertAt)];
+}
+
+/**
+ * Sostituisce nel body di una PR di trasporto gia' aperta SOLO le sezioni del
+ * pin, lasciando byte per byte tutto il resto (bullet, `Closes`, contesto che
+ * l'orchestratore aggiunge dopo la creazione). `sections` sono i blocchi di
+ * `renderPinBodySections`. Ritorna `{ body, changed }`.
+ */
+export function replacePinBodySections(body, sections = {}) {
+  if (typeof body !== 'string') throw new Error('body is required');
+  const eol = body.includes('\r\n') ? '\r' : '';
+  let lines = body.split('\n');
+  for (const name of Object.keys(PIN_BODY_SECTIONS)) {
+    const newLines = blockLines(name, sections[name]).map((line) => `${line}${eol}`);
+    lines = replaceSection(lines, name, newLines);
+  }
+  const next = lines.join('\n');
+  return { body: next, changed: next !== body };
+}
+
 function readOptional(filePath) {
   return fs.existsSync(filePath) ? fs.readFileSync(filePath, 'utf8') : undefined;
 }
@@ -386,12 +491,26 @@ if (isMain) {
       workflowBytes: fs.existsSync(workflowPath) ? fs.readFileSync(workflowPath) : undefined,
     });
     const report = JSON.parse(fs.readFileSync(path.join(stateDir, 'report.json'), 'utf8'));
-    const { implemented, pending } = renderPinBodyLines({ delta, report });
+    const { implemented, pending } = renderPinBodySections(renderPinBodyLines({ delta, report }));
     fs.writeFileSync(path.join(stateDir, 'implemented.md'), implemented);
     fs.writeFileSync(path.join(stateDir, 'pending.md'), pending);
     console.log(delta
       ? `Watchdog runtime delta is confined to its pin: ${delta.previousPin} -> ${delta.nextPin}`
       : 'Watchdog runtime unchanged against corpus main.');
+  } else if (command === '--update-body') {
+    // --update-body <body-in> <stateDir> <body-out>: scrive <body-out> solo se
+    // le sezioni del pin cambiano; il chiamante scrive la PR solo se esiste.
+    const [bodyIn, stateDir, bodyOut] = rest;
+    if (!bodyOut) throw new Error('usage: --update-body <body-in> <stateDir> <body-out>');
+    fs.rmSync(bodyOut, { force: true });
+    const { body, changed } = replacePinBodySections(fs.readFileSync(bodyIn, 'utf8'), {
+      implemented: fs.readFileSync(path.join(stateDir, 'implemented.md'), 'utf8'),
+      pending: fs.readFileSync(path.join(stateDir, 'pending.md'), 'utf8'),
+    });
+    if (changed) fs.writeFileSync(bodyOut, body);
+    console.log(changed
+      ? 'Transport PR body: watchdog pin sections updated.'
+      : 'Transport PR body: watchdog pin sections already current.');
   } else if (command === '--fail-if-unrefreshable') {
     // Ultimo passo del trasporto: il job non resta verde su una consegna che
     // lascia la PR del corpus rossa in attesa di una revisione umana.
@@ -404,6 +523,6 @@ if (isMain) {
       process.exit(1);
     }
   } else {
-    throw new Error('usage: translate-watchdog-pin.mjs --assert-artifact|--refresh|--describe|--fail-if-unrefreshable ...');
+    throw new Error('usage: translate-watchdog-pin.mjs --assert-artifact|--refresh|--describe|--update-body|--fail-if-unrefreshable ...');
   }
 }
