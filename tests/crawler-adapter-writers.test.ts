@@ -307,15 +307,24 @@ describe('Raiffeisen VC bilingual discovery invariants', () => {
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unavailable, timeoutMs: 1000 })).rejects.toThrow(/503/);
   });
 
-  it('accepts zero only from both branded pages with an explicit empty marker', async () => {
-    const zero = async () => new Response(`${marker}<p>Offerte attive: 0</p></html>`, { status: 200 });
+  it('accepts zero only from both branded pages with a listing-count element', async () => {
+    const zero = async () => new Response(
+      `${marker}<div class="listing-count">0</div><p>Offene Stellen – 0 neue Hinweise</p></html>`,
+      { status: 200 },
+    );
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: zero, timeoutMs: 1000 }))
       .resolves.toMatchObject({ urls: [], pagesSucceeded: 2, sourceZero: true });
+    const unrelated = async () => new Response(
+      `${marker}<p>Offene Stellen – 0 neue Hinweise</p></html>`,
+      { status: 200 },
+    );
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 }))
+      .rejects.toThrow(/explicit zero-open-positions marker/);
     const unmarkedZero = async () => new Response(`${marker}</html>`, { status: 200 });
     await expect(fetchRaiffeisenJobUrls({ fetchImpl: unmarkedZero, timeoutMs: 1000 }))
       .rejects.toThrow(/explicit zero-open-positions marker/);
-    const unrelated = async () => new Response('<html>challenge</html>', { status: 200 });
-    await expect(fetchRaiffeisenJobUrls({ fetchImpl: unrelated, timeoutMs: 1000 }))
+    const invalid = async () => new Response('<html>challenge</html>', { status: 200 });
+    await expect(fetchRaiffeisenJobUrls({ fetchImpl: invalid, timeoutMs: 1000 }))
       .rejects.toThrow(/identity marker/);
   });
 
