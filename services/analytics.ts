@@ -438,30 +438,55 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
 const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
 const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
-const L5_DECISION_SESSION_STORAGE_KEY = 'fr_l5_decision_session_v1';
-let l5DecisionSessionId: string | null = null;
+const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
+let l5DecisionSessionOpaqueId: string | null = null;
 
 /**
- * Keep the two L5 events joinable in GA4 without sending a PostHog-only
- * session identifier. The value is opaque and scoped to the browser tab's
- * session storage; storage failures fall back to the current page lifetime.
+ * Read the current GA4 session instead of treating a browser tab as a GA4
+ * session. GA4 can roll a session while a tab remains open, so a tab-scoped
+ * key alone is not safe for an exact outcome join.
  */
-function getL5DecisionSessionId(): string {
- if (l5DecisionSessionId) return l5DecisionSessionId;
- if (typeof window !== 'undefined') {
+function getL5DecisionSessionOpaqueId(): string {
+ if (!l5DecisionSessionOpaqueId) l5DecisionSessionOpaqueId = createAnalyticsEmissionIdSource();
+ return l5DecisionSessionOpaqueId;
+}
+
+function readGa4SessionId(): Promise<string | null> {
+ if (typeof window === 'undefined') return Promise.resolve(null);
+ const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
+ if (typeof gtag !== 'function') return Promise.resolve(null);
+
+ return new Promise((resolve) => {
+  let settled = false;
+  const finish = (value: unknown) => {
+   if (settled) return;
+   settled = true;
+   resolve(typeof value === 'string' && value.trim() ? value.trim() : null);
+  };
+  const timeout = window.setTimeout(() => finish(null), 250);
   try {
-   const stored = window.sessionStorage.getItem(L5_DECISION_SESSION_STORAGE_KEY);
-   if (stored) {
-    l5DecisionSessionId = stored;
-    return stored;
-   }
-  } catch { /* blocked storage — use the in-memory fallback below */ }
- }
- l5DecisionSessionId = createAnalyticsEmissionIdSource();
- if (typeof window !== 'undefined') {
-  try { window.sessionStorage.setItem(L5_DECISION_SESSION_STORAGE_KEY, l5DecisionSessionId); } catch { /* best effort */ }
- }
- return l5DecisionSessionId;
+   gtag('get', GA4_MEASUREMENT_ID, 'session_id', (value: unknown) => {
+    window.clearTimeout(timeout);
+    finish(value);
+   });
+  } catch {
+   window.clearTimeout(timeout);
+   finish(null);
+  }
+ });
+}
+
+/**
+ * Keep the two L5 events joinable in GA4 without sending the opaque key to
+ * PostHog. The opaque component prevents cross-user collisions; the current
+ * GA4 session component prevents one long-lived tab from joining two GA4
+ * sessions. The exporter repeats the same join with GA4's `gaSessionId`
+ * dimension and remains fail-closed when the session is unavailable.
+ */
+async function getL5DecisionSessionId(): Promise<string> {
+ const opaqueId = getL5DecisionSessionOpaqueId();
+ const gaSessionId = await readGa4SessionId();
+ return gaSessionId ? `${opaqueId}:${gaSessionId}` : opaqueId;
 }
 
 function claimL2UsefulAction(): boolean {
@@ -516,8 +541,11 @@ const log = (eventName: string, params?: Record<string, any>) => {
 };
 
 /** Emit L5's session join key to Firebase/GA4 while keeping PostHog historical. */
-const logDecisionMoment = (eventName: string, params: Record<string, any>) => {
- const enrichedParams = enrichEventParams(eventName, params);
+const logDecisionMoment = async (eventName: string, params: Record<string, any>) => {
+ const enrichedParams = enrichEventParams(eventName, {
+  ...params,
+  decision_session_id: await getL5DecisionSessionId(),
+ });
  const posthogParams = { ...enrichedParams };
  delete posthogParams.decision_session_id;
  posthogCapture(eventName, posthogParams);
@@ -1992,21 +2020,20 @@ export const Analytics = {
  * L5 decision-surface outcome contract. These fields are categorical only:
  * no user-entered answers, labels or destination URLs are sent. The outcome
  * exporter joins the two Firebase/GA4 events by an opaque decision-session
- * key that is not mirrored into the historical PostHog payload.
+ * key plus the GA4 session; neither is mirrored into the historical PostHog
+ * payload.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
-  logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {
    decision_surface: truncate(surface, 60),
    task_id: truncate(task, 80),
-   decision_session_id: getL5DecisionSessionId(),
   });
  },
 
  trackDecisionMomentNextAction: (surface: string, action: string) => {
-  logDecisionMoment(DECISION_MOMENT_NEXT_ACTION_EVENT, {
+  void logDecisionMoment(DECISION_MOMENT_NEXT_ACTION_EVENT, {
    decision_surface: truncate(surface, 60),
    action_id: truncate(action, 80),
-   decision_session_id: getL5DecisionSessionId(),
   });
  },
 
