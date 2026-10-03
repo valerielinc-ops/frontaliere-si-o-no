@@ -247,7 +247,7 @@ describe('fetchAllNestleJobs — location marker cleanup', () => {
         </span>
       </div>
     </body></html>`;
-    const searchHtml = '<table><tr><td class="colTitle"><a class="jobTitle-link" href="/job/Konolfingen-Test/1255000201/">Production Specialist</a></td><td class="colLocation"><span class="jobLocation">Konolfingen, CH</span></td><td class="colDate"><span class="jobDate">Sep 20, 2026</span></td></tr></table>';
+    const searchHtml = '<table><tr class="data-row"><td class="colTitle"><a class="jobTitle-link" href="/job/Konolfingen-Test/1255000201/">Production Specialist</a></td><td class="colFacility"></td><td class="colLocation"><span class="jobLocation">Konolfingen, CH</span></td><td class="colDate"><span class="jobDate">Sep 20, 2026</span></td></tr></table>';
     vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(
       url.includes('/search/') ? searchHtml : detailHtml,
       { status: 200, headers: { 'content-type': 'text/html' } },
