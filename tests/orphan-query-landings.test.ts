@@ -187,6 +187,34 @@ describe('orphanQueryData — job matching', () => {
     expect(jobMatchesCluster(job, cluster)).toBe(true);
   });
 
+  it('requires the complete profession and ignores salary/search filler', () => {
+    const c = makeCluster('it', 'stipendio-specialista-delle-dogane-svizzera', 30,
+      ['dogan', 'specialist', 'stipendi'], ['svizzera']);
+    const customs = activeJob({ title: 'Specialista dogana e sicurezza dei confini' });
+    const medical = activeJob({ title: 'Specialista medico psichiatria' });
+    const assistant = activeJob({ title: 'Assistente medico' });
+    expect(jobMatchesCluster(customs, c)).toBe(true);
+    expect(jobMatchesCluster(medical, c)).toBe(false);
+    expect(jobMatchesCluster(assistant, c)).toBe(false);
+    expect(jobMatchesCluster(activeJob({ title: 'Dog specialist' }), c)).toBe(false);
+    expect(filterMatchingJobs([medical, assistant, customs], c, 15)).toEqual([customs]);
+    const software = makeCluster('en', 'software-engineer-salary', 30,
+      ['softwar', 'engineer', 'salary'], ['switzerland']);
+    expect(jobMatchesCluster(activeJob({ title: 'Software Engineer' }), software)).toBe(true);
+    expect(jobMatchesCluster(activeJob({ title: 'Mechanical Engineer' }), software)).toBe(false);
+  });
+
+  it.each([['HR Manager', ['hr', 'manager']], ['IT Support', ['it', 'support']]] as const)('matches short exact acronyms: %s', (title, roles) => {
+    const c = makeCluster('it', 'short-role', 10, [...roles], []);
+    expect(jobMatchesCluster(activeJob({ title }), c)).toBe(true);
+  });
+
+  it('does not use the preposition in as the informatics profession', () => {
+    const c = makeCluster('it', 'specialista-informatica', 10, ['specialist', 'informatic'], []);
+    expect(jobMatchesCluster(activeJob({ title: 'Specialista in neurologia' }), c)).toBe(false);
+    expect(jobMatchesCluster(activeJob({ title: 'Specialista informatica' }), c)).toBe(true);
+  });
+
   it('does not match a job whose title has no role overlap', () => {
     const job = activeJob({ title: 'Pastry Chef', addressLocality: 'Lugano' });
     expect(jobMatchesCluster(job, cluster)).toBe(false);

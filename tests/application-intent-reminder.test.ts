@@ -9,6 +9,7 @@ import {
 import {
   buildApplicationIntentReminderEmailHtml,
   buildApplicationIntentReminderEmailText,
+  getApplicationIntentReminderStrings,
 } from '../scripts/lib/applicationIntentReminderEmail.mjs';
 import {
   claimApplicationIntentReminderDeliveries,
@@ -34,6 +35,7 @@ const sourceJob = {
   company: 'Source SA',
   canton: 'TI',
   location: 'Lugano',
+  postedDate: '2026-08-10',
   category: 'IT',
   sector: 'Technology',
 };
@@ -146,7 +148,7 @@ describe('application-intent reminder eligibility and recommendations', () => {
       (job) => `https://example.test/${job.slug}`,
       NOW,
     );
-    expect(entry).toMatchObject({ id: 'source', intentId: 'intent-1', sourceJob });
+    expect(entry).toMatchObject({ id: 'source', intentId: 'intent-1', postedDate: '2026-08-10', sourceJob });
 
     const candidateJobs = [
       { ...sourceJob, id: 'same-company', companyKey: 'source-company', title: 'Senior Software Engineer', titleByLocale: { it: 'Senior Software Engineer' }, slug: 'senior-software-engineer', slugByLocale: { it: 'senior-software-engineer' }, location: 'Lugano' },
@@ -168,7 +170,22 @@ describe('application-intent reminder email', () => {
     company: 'Source SA',
     location: 'Lugano',
     url: 'https://example.test/source',
+    companyKey: 'abb-svizzera-sede-ticino',
+    postedDate: '2026-08-10',
+    sector: 'Sanità',
+    category: 'healthcare',
+    salaryMin: 80000,
+    salaryMax: 100000,
+    currency: 'CHF',
+    baseSalary: { value: { unitText: 'YEAR' } },
+    contract: 'full-time',
   };
+
+  it('uses a factual subject that counts clicks instead of completed applications', () => {
+    const strings = getApplicationIntentReminderStrings('it');
+    expect(strings.subject(1)).toBe('Hai cliccato «Candidati» su un annuncio');
+    expect(strings.subject(5)).toBe('Hai cliccato «Candidati» su 5 annunci');
+  });
 
   it('uses application-specific copy and does not claim completion', () => {
     const text = buildApplicationIntentReminderEmailText({
@@ -197,6 +214,24 @@ describe('application-intent reminder email', () => {
     expect(html).toContain('Frontaliere Ticino');
     expect(html).toContain('https://example.test/unsubscribe');
     expect(html).toContain('Another Engineer');
+  });
+
+  it('uses the shared job card fields for the source listing', () => {
+    const html = buildApplicationIntentReminderEmailHtml({
+      locale: 'it',
+      applicationIntentEntries: [entry],
+      recommendations: [],
+      manageUrl: 'https://example.test/profile',
+      unsubUrl: 'https://example.test/unsubscribe',
+      email: 'reader@example.test',
+    });
+    expect(html).toMatch(/<img src="https:\/\/cdn\.frontaliereticino\.ch\/images\/brands\/abb-svizzera-sede-ticino\.png"/);
+    expect(html).toContain('CHF 80K–100K/anno');
+    expect(html).toContain('Tempo pieno');
+    expect(html).toContain('Lugano');
+    expect(html).toContain('Pubblicato il');
+    expect(html).toContain('Sanità');
+    expect(html).toContain('Da verificare');
   });
 });
 

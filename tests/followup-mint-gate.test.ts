@@ -39,8 +39,17 @@ import {
   qualifySourcePrLookups,
   triageMarkerCitesBucket,
   preserveDemotedOnSourcePrs,
+  decideDailyMintGate,
+  partitionDailyBucketItems,
+  rebuildDailyBody,
 } from '../scripts/ci/gate-minted-followups.mjs';
-import { citedTokens, hasFalsifiableAcceptance, splitFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
+import {
+  citedTokens,
+  dedupeDailyItems,
+  hasFalsifiableAcceptance,
+  parseFollowupItems,
+  splitFollowupItems,
+} from '../scripts/ci/followup-resolution-match.mjs';
 
 const GATE_SRC = fileURLToPath(new URL('../scripts/ci/gate-minted-followups.mjs', import.meta.url));
 const WORKFLOW = fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url));
@@ -407,6 +416,152 @@ describe('gate sul conio — conservazione per item e per repository', () => {
     expect(posts[1].body).toContain('controllare due');
     expect(posts[1].body).not.toContain('controllare uno');
   });
+});
+
+// Titolo di fallimento: «Gate sul conio: item già `done` rimosso dal corpo del bucket».
+// Misurato il 2026-10-02 sul bucket 10677: FU-064 marcato `done` alle 11:38Z, demoto e
+// tolto dal corpo alle 22:08Z. Un bucket `collecting` viene ripartizionato a ogni
+// passata e gli oracoli di ammissione guardano lo stato di OGGI, non quello del conio.
+describe('gate sul conio — un item già done è un fatto registrato, non un candidato', () => {
+  const DAY = '2026-10-02';
+  const TITLE = `follow-up(daily:${DAY}): 2 items — owner/repo`;
+  const falsifiable = (id: string, state: string, token = 'firstGuard()') => [
+    `### ${id} — Proteggi il comportamento`,
+    `- State: ${state}`,
+    '- Sources: PR #8101; reviewer 🟡',
+    '- Target file: `scripts/example.mjs`',
+    `- Suggested action: aggiungi \`${token}\` in \`scripts/example.mjs\``,
+    `- Acceptance token: \`${token}\``,
+  ].join('\n');
+  // Accettazione non falsificabile: l'oracolo di oggi la respinge.
+  const vague = (id: string, state: string) => [
+    `### ${id} — Rischio da rivalutare`,
+    `- State: ${state}`,
+    '- Sources: PR #8102; reviewer 🟡',
+    '- Suggested action: valuta il rischio in futuro',
+  ].join('\n');
+  // Item macchina: ammesso solo finché il workflow citato è rotto.
+  const machine = (id: string, state: string) => [
+    `### ${id} — Ripara la misura`,
+    `- State: ${state}`,
+    '- Sources: PR #8103; reviewer 🟡',
+    '- Target file: `.github/workflows/measure.yml`',
+    '- Suggested action: chiamare `machineCheck()` in `.github/workflows/measure.yml`',
+  ].join('\n');
+  const bucket = (...items: string[]) => [
+    '## Batch',
+    `- Daily key: ${DAY} (Europe/Zurich)`,
+    '- State: collecting',
+    '- Target repository: owner/repo',
+    '',
+    '## Item',
+    ...items.flatMap((entry) => ['', entry]),
+    '',
+  ].join('\n');
+  const idsAndStates = (text: string) => parseFollowupItems(text).map((item) => `${item.id}:${item.state}`);
+  const withWorkflow = (run: (dir: string) => void) => {
+    const dir = mkdtempSync(join(tmpdir(), 'mint-gate-done-'));
+    try {
+      writeFileSync(join(dir, 'measure.yml'), 'name: Measure\non: workflow_dispatch\njobs:\n  check:\n    runs-on: ubuntu-latest\n    steps:\n      - run: node scripts/ci/measure.mjs\n');
+      run(dir);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  };
+
+  it('un item done con accettazione oggi non falsificabile resta nel corpo, done, e non è fra i demoti', () => {
+    const source = bucket(falsifiable(`FU-${DAY}-001`, 'open'), vague(`FU-${DAY}-002`, 'done'));
+    const partition = partitionDailyBucketItems(source);
+    expect(partition.demoted).toEqual([]);
+    expect(partition.donePreserved).toEqual([`FU-${DAY}-002`]);
+
+    const decision = decideDailyMintGate({ title: TITLE, body: source });
+    expect(decision.action).toBe('seal');
+    expect(decision.demoted).toEqual([]);
+    expect(decision.donePreserved).toEqual([`FU-${DAY}-002`]);
+    // Conteggio, ID stabili e stati invariati: il reconciler non vede `mismatched-item-count`.
+    expect(idsAndStates(decision.body || '')).toEqual(idsAndStates(source));
+  });
+
+  it('lo stesso item, ma open, viene demoto come prima', () => {
+    const source = bucket(falsifiable(`FU-${DAY}-001`, 'open'), vague(`FU-${DAY}-002`, 'open'));
+    const decision = decideDailyMintGate({ title: TITLE, body: source });
+    expect(decision.action).toBe('demote');
+    expect(decision.donePreserved).toEqual([]);
+    expect(decision.demoted.join('\n')).toContain('valuta il rischio in futuro');
+    expect(idsAndStates(decision.body || '')).toEqual([`FU-${DAY}-001:open`]);
+  });
+
+  it('solo done salta l\'ammissione: in-progress e blocked restano valutati', () => {
+    for (const state of ['in-progress', 'blocked']) {
+      const source = bucket(falsifiable(`FU-${DAY}-001`, 'open'), vague(`FU-${DAY}-002`, state));
+      const partition = partitionDailyBucketItems(source);
+      expect(partition.demoted.map((item: { id: string }) => item.id)).toEqual([`FU-${DAY}-002`]);
+      expect(partition.donePreserved).toEqual([]);
+    }
+  });
+
+  it('un item macchina done sopravvive quando il workflow che ha riparato non è più rotto', () => {
+    withWorkflow((dir) => {
+      const healthy = {
+        workflowDirectory: dir,
+        getRuns: () => [{ status: 'completed', conclusion: 'success' }, { status: 'completed', conclusion: 'success' }],
+      };
+      const done = bucket(falsifiable(`FU-${DAY}-001`, 'open'), machine(`FU-${DAY}-002`, 'done'));
+      const kept = decideDailyMintGate({ title: TITLE, body: done }, { machineOptions: healthy });
+      expect(kept.action).toBe('seal');
+      expect(kept.donePreserved).toEqual([`FU-${DAY}-002`]);
+      expect(idsAndStates(kept.body || '')).toEqual(idsAndStates(done));
+
+      // Controllo: lo stesso item ancora open, stesso oracolo → demoto.
+      const open = bucket(falsifiable(`FU-${DAY}-001`, 'open'), machine(`FU-${DAY}-002`, 'open'));
+      const dropped = decideDailyMintGate({ title: TITLE, body: open }, { machineOptions: healthy });
+      expect(dropped.action).toBe('demote');
+      expect(idsAndStates(dropped.body || '')).toEqual([`FU-${DAY}-001:open`]);
+    });
+  });
+
+  it('un bucket già sealed non perde un item done a una passata successiva', () => {
+    const source = bucket(falsifiable(`FU-${DAY}-001`, 'open'), vague(`FU-${DAY}-002`, 'done'))
+      .replace('- State: collecting', '- State: sealed');
+    const decision = decideDailyMintGate({ title: TITLE, body: source });
+    expect(decision).toMatchObject({ action: 'keep', reason: 'already-sealed', body: null });
+    expect(decision.donePreserved).toEqual([`FU-${DAY}-002`]);
+  });
+
+  it('coppia duplicata done + open: resta il done, in qualunque ordine, con le Sources di entrambi', () => {
+    const third = falsifiable(`FU-${DAY}-003`, 'open', 'thirdGuard()');
+    const openTwin = falsifiable(`FU-${DAY}-001`, 'open');
+    const doneTwin = falsifiable(`FU-${DAY}-002`, 'done').replace('PR #8101', 'PR #8104');
+    for (const source of [bucket(openTwin, third, doneTwin), bucket(doneTwin, third, openTwin)]) {
+      const parsed = parseFollowupItems(source);
+      const result = dedupeDailyItems(parsed, 'owner/repo');
+      expect(result.duplicates.map((entry) => entry.item.id)).toEqual([`FU-${DAY}-001`]);
+      const survivor = result.items.find((item) => item.id === `FU-${DAY}-002`);
+      expect(survivor?.state).toBe('done');
+      expect(survivor?.text).toContain('PR #8101');
+      expect(survivor?.text).toContain('PR #8104');
+      // I superstiti restano nell'ordine sorgente.
+      const order = parsed.map((item) => item.id).filter((id) => id !== `FU-${DAY}-001`);
+      expect(result.items.map((item) => item.id)).toEqual(order);
+
+      const decision = decideDailyMintGate({ title: TITLE, body: source });
+      expect(decision.action).toBe('dedupe');
+      const rebuilt = parseFollowupItems(decision.body || '');
+      expect(rebuilt.map((item) => `${item.id}:${item.state}`).sort())
+        .toEqual([`FU-${DAY}-002:done`, `FU-${DAY}-003:open`]);
+    }
+  });
+
+  it('rebuildDailyBody lascia byte-identico il testo di un item done conservato', () => {
+    const doneItem = vague(`FU-${DAY}-002`, 'done');
+    const source = bucket(falsifiable(`FU-${DAY}-001`, 'open'), doneItem);
+    const { head, valid } = partitionDailyBucketItems(source);
+    expect(rebuildDailyBody(head, valid)).toContain(doneItem);
+  });
+
+  // La riga `MINT_GATE_TALLY … done_preserved=<n>` è osservata sul processo vero in
+  // `tests/followup-mint-gate-batch.test.ts`, non con un pin sul sorgente.
 });
 
 describe('gate sul conio — pin sul sorgente', () => {
