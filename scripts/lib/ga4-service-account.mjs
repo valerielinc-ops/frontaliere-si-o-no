@@ -3,6 +3,7 @@
 // analytics-report.mjs, setup-ga4-user-dimensions.mjs, user-value-report.mjs
 // (AGENTS.md #6 — literal duplication extracted to prevent drift).
 import { settledWindow } from './analytics-settled-window.mjs';
+import { productionAppErrorFilter } from './app-error-recency.mjs';
 
 export const DEFAULT_GA4_PROPERTY_ID = 'properties/524485296';
 export const GA4_READONLY_SCOPE = 'https://www.googleapis.com/auth/analytics.readonly';
@@ -133,7 +134,9 @@ export async function fetchGa4ErrorEntries({
       const data = await runGa4Report({
         token,
         fetchImpl,
-        body: { ...base, dimensionFilter: exactEventFilter(eventName) },
+        // Production host only — same rule as `errorHealth.appErrors` in
+        // analytics-report.mjs: the property also receives dev-server events.
+        body: { ...base, dimensionFilter: productionAppErrorFilter(eventName) },
       });
       const rows = (data.rows || []).map((row) => ({
         type: row.dimensionValues?.[0]?.value || eventName,

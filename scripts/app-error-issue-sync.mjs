@@ -9,6 +9,13 @@
  * open/recur an issue, so a single one-off exception doesn't spam the
  * backlog. Capped at MAX_ISSUES per run.
  *
+ * Recency-gated: the report window is a TRAILING 30 days, so the threshold
+ * alone re-confirms a day-2 spike for four more weekly reports. An entry must
+ * also have >= MIN_COUNT hits in the last 7 days (`last7d`, written by
+ * analytics-report.mjs), come from the production host, and the chunk-load
+ * family files ONE canonical issue instead of one per truncated URL — see
+ * ./lib/app-error-recency.mjs.
+ *
  * Labeled `stability` + `app-error` — NOT `agent:fix`. AGENTS.md's
  * auto-route allowlist is `crawler`/`follow-up` only; a real user-facing
  * error needs human triage before an autonomous fixer touches it.
@@ -22,6 +29,12 @@ import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics
 import { hasActionableErrorMessage, isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
+import {
+  APP_ERROR_RECENT_DAYS,
+  CHUNK_LOAD_FAMILY,
+  groupChunkLoadFamily,
+  isProductionHost,
+} from './lib/app-error-recency.mjs';
 
 const REPORT_PATH = process.env.ANALYTICS_REPORT_PATH || 'reports/analytics-latest.json';
 const MIN_COUNT = intFromEnv('APP_ERROR_MIN_COUNT', 5);
@@ -32,18 +45,61 @@ export function truncate(value, n) {
   return str.length > n ? `${str.slice(0, n - 1)}…` : str;
 }
 
+/** `last7d` se il report lo ha misurato, altrimenti `null` (non uno zero). */
+function measuredRecent(e) {
+  return Number.isFinite(e?.last7d) ? e.last7d : null;
+}
+
+/**
+ * Il numero su cui si decide e si ordina: gli ultimi 7 giorni quando sono
+ * misurati, il totale della finestra solo quando il report non li porta.
+ */
+function relevantCount(e) {
+  return measuredRecent(e) ?? (e.count || 0);
+}
+
+/**
+ * True quando la voce va coniata o riconfermata: sopra soglia nella finestra
+ * E, se la recenza e' misurata, sopra soglia anche negli ultimi 7 giorni.
+ * Esportata perche' il test la chiami sui casi limite.
+ */
+export function isRecentEnough(e, minCount = MIN_COUNT) {
+  if ((e.count || 0) < minCount) return false;
+  const recent = measuredRecent(e);
+  return recent === null || recent >= minCount;
+}
+
 /**
  * Il corpo della issue, scheda inclusa. Esportato perche' il test lo chiami:
  * `errorHealth` e lo stack arrivano dal report, non dall'entry.
  */
 export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
+    const recent = measuredRecent(e);
     const lines = [
       `**Type:** ${sanitizeTrackedDiagnosticValue(e.errorType)}`,
       `**Message:** ${sanitizeTrackedDiagnosticValue(e.errorMessage)}`,
       `**Page:** ${sanitizeTrackedDiagnosticValue(e.pagePath)}`,
       `**Hits (report window):** ${e.count} | **Affected users:** ${e.users}`,
+      recent === null
+        ? `**Last ${APP_ERROR_RECENT_DAYS} days:** not measured by this report (no \`last7d\`) — the count above may be an old spike`
+        : `**Last ${APP_ERROR_RECENT_DAYS} days:** ${recent} | **Last seen:** ${e.lastSeen || 'before the oldest day read'}`,
       `**Site-wide error rate:** ${errorRate}% (${healthStatus})`,
+      '',
+      '_GA4 truncates `error_message` at 100 characters: a URL in the message is cut mid-name '
+        + '(`…/assets/News` is the first letters of a longer chunk name, not an asset called `News`)._',
     ];
+    if (e.family === CHUNK_LOAD_FAMILY) {
+      lines.push('', `**Family members (${e.members.length} truncated signatures, one class):**`);
+      for (const m of e.members.slice(0, 15)) {
+        const mRecent = measuredRecent(m);
+        lines.push(
+          `- \`${sanitizeTrackedDiagnosticValue(m.errorType)}\` on \`${sanitizeTrackedDiagnosticValue(m.pagePath)}\` — `
+          + `${truncate(sanitizeTrackedDiagnosticValue(m.errorMessage), 110)} — ${m.count} hit`
+          + `${mRecent === null ? '' : `, ${mRecent} in the last ${APP_ERROR_RECENT_DAYS} days`}`,
+        );
+      }
+      lines.push('', '_Affected users is a per-row sum: one user hitting two URLs counts twice._');
+    }
     if (stack) {
       lines.push('', '**Stack:**', '```', truncate(sanitizeTrackedDiagnosticValue(stack), 1500), '```');
     }
@@ -60,7 +116,9 @@ export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
         'Dipende dal frame; non preassegnata qui. | **REPO**: sito | **MODE**: nessun vincolo',
         'di mirror.',
       ],
-      metrica: `prima=${e.count} hit nella finestra del report atteso=<${MIN_COUNT} (sotto la soglia del feeder)`,
+      metrica: recent === null
+        ? `prima=${e.count} hit nella finestra del report atteso=<${MIN_COUNT} (sotto la soglia del feeder)`
+        : `prima=${recent} hit negli ultimi ${APP_ERROR_RECENT_DAYS} giorni (${e.count} nella finestra del report) atteso=<${MIN_COUNT} (sotto la soglia del feeder)`,
       comando: 'node scripts/app-error-issue-sync.mjs --dry-run',
       note: [
         'Il comando rilegge `reports/analytics-latest.json` e stampa le issue che coniera',
@@ -70,7 +128,8 @@ export function buildIssueBody(e, { errorRate, healthStatus, stack } = {}) {
       ],
       osservatore: [
         '`.github/workflows/analytics.yml`, che ogni settimana rigira questo feeder e',
-        'ricommenta sulla issue canonica finche\' la firma resta sopra soglia. Non esiste un',
+        'ricommenta sulla issue canonica finche\' la firma resta sopra soglia NEGLI ULTIMI',
+        `${APP_ERROR_RECENT_DAYS} GIORNI (non nella finestra intera: un picco vecchio non riconferma). Non esiste un`,
         'closer automatico: il comando qui sopra e\' il criterio con cui chiuderla.',
       ],
       fallimento: `\`App Error: ${truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20)} — ${truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60)}\``,
@@ -93,8 +152,12 @@ export async function main() {
     return;
   }
 
-  const entries = (eh.appErrors || [])
-    .filter((e) => (e.count || 0) >= MIN_COUNT)
+  const actionable = (eh.appErrors || [])
+    // Host filter, not a signature filter: `analytics-report.mjs` already asks
+    // GA4 for the production host only, this is the same rule applied to
+    // whatever the report carries (dev server on `127.0.0.1`, the Firebase
+    // service domain). An entry without `hostName` predates the field: kept.
+    .filter((e) => e.hostName == null || e.hostName === '' || isProductionHost(e.hostName))
     // GA4 renders an empty/absent `error_message` custom dimension as the
     // literal "(not set)". Such a bucket is a message-less error class
     // (overwhelmingly reason-less unhandled_rejection — Promise.reject() /
@@ -117,11 +180,38 @@ export async function main() {
     // backlog issue: the client assigned this type only after proving that the
     // stack is outside our code. A generic message can still be actionable
     // when its type is first-party, so the type must be passed explicitly.
-    .filter((e) => !isIssueDenied(e.errorMessage, e.errorType))
-    .sort((a, b) => b.count - a.count);
+    .filter((e) => !isIssueDenied(e.errorMessage, e.errorType));
+
+  // One canonical issue for the chunk-load family, BEFORE the thresholds: the
+  // unit that crosses a threshold is the class, not each URL GA4 happened to
+  // cut at a different character.
+  const grouped = groupChunkLoadFamily(actionable);
+
+  if (grouped.some((e) => (e.count || 0) >= MIN_COUNT && measuredRecent(e) === null)) {
+    console.log(
+      '::warning::[app-error-issue-sync] report without `last7d` on some entries — '
+        + 'recency gate NOT applied to them (regenerate with analytics-report.mjs --save)',
+    );
+  }
+
+  const entries = grouped
+    .filter((e) => {
+      if (isRecentEnough(e)) return true;
+      if ((e.count || 0) >= MIN_COUNT) {
+        console.log(
+          `[app-error-issue-sync] skipping stale spike (${e.count} in the report window, `
+            + `${e.last7d} in the last ${APP_ERROR_RECENT_DAYS} days, last seen ${e.lastSeen || 'n/a'}): `
+            + `${truncate(e.errorMessage, 80)}`,
+        );
+      }
+      return false;
+    })
+    .sort((a, b) => relevantCount(b) - relevantCount(a));
 
   if (!entries.length) {
-    console.log(`[app-error-issue-sync] no app_error above MIN_COUNT=${MIN_COUNT} — nothing to sync`);
+    console.log(
+      `[app-error-issue-sync] no app_error above MIN_COUNT=${MIN_COUNT} in the last ${APP_ERROR_RECENT_DAYS} days — nothing to sync`,
+    );
     return;
   }
 
@@ -153,7 +243,7 @@ export async function main() {
     maxIssues: MAX_ISSUES,
     labels: ['stability', 'app-error'],
     source: 'Weekly Analytics Report — GA4 app_error',
-    priorityFor: (e) => ((eh.errorRate >= 1.0 || e.count >= MIN_COUNT * 10) ? 2 : 3),
+    priorityFor: (e) => ((eh.errorRate >= 1.0 || relevantCount(e) >= MIN_COUNT * 10) ? 2 : 3),
     titleFor: (e) => {
       const type = truncate(sanitizeTrackedDiagnosticValue(e.errorType) || 'error', 20);
       const msg = truncate(sanitizeTrackedDiagnosticValue(e.errorMessage), 60);
@@ -162,7 +252,7 @@ export async function main() {
     bodyFor: (e) => buildIssueBody(e, {
       errorRate: eh.errorRate,
       healthStatus: eh.healthStatus,
-      stack: stackByMessage.get(e.errorMessage),
+      stack: stackByMessage.get(e.errorMessage) ?? stackByMessage.get(e.members?.[0]?.errorMessage),
     }),
   });
 }
