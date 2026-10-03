@@ -1,7 +1,7 @@
 {
   "key": "clinique-generale-beaulieu",
   "label": "Clinique Générale-Beaulieu",
-  "generatedAt": "2026-10-03T09:22:13.095Z",
+  "generatedAt": "2026-10-03T21:21:30.200Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -10,18 +10,17 @@
   "sourceBodyFailures": [],
   "written": 2,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7140,
-  "avgDurationMs": 7140,
+  "durationMs": 7350,
+  "avgDurationMs": 7350,
   "durationHistory": [
-    6516,
-    4850,
-    7140
+    7350
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "clinique-generale-beaulieu-1f0325b73916",
       "slug": "infirmier-ere-chirurgie-nuit-clinique-generale-beaulieu",
@@ -36,7 +35,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000153323339-infirmier-ere-chirurgie-nuit",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:21:59.065Z",
+      "crawledAt": "2026-10-03T21:21:15.689Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -51,16 +50,15 @@
       "featured": false,
       "postedDate": "2026-10-03",
       "datePosted": "2026-10-03",
-      "_qualityScore": 62,
+      "firstSeenAt": "2026-07-17T22:38:50.801Z",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 4,
+        "translation": 18,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "clinique-generale-beaulieu-fbe40293dbd8",
       "slug": "infirmier-ere-instrumentiste-clinique-generale-beaulieu",
@@ -75,7 +73,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000135518323-infirmier-ere-instrumentiste",
       "source": "Clinique Générale-Beaulieu Dedicated Parser (SMN clinic=CGB)",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-03T09:22:01.978Z",
+      "crawledAt": "2026-10-03T21:21:18.521Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -101,5 +99,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
