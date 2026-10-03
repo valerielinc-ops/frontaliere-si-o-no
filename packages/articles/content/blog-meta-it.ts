@@ -12404,6 +12404,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furto-noranco-arresti-garage.title': 'Furto auto Noranco: tre arresti e veicoli recuperati',
     'blog.article.furto-noranco-arresti-garage.excerpt': 'Tre auto di alta gamma rubate a Noranco sono state recuperate. Tre persone, un 20enne italiano, un 21enne algerino e un 25enne francese, residenti in Francia, sono state fermate.',
     'blog.article.furto-noranco-arresti-garage.imageAlt': 'Immagine di un garage sicuro con sistemi di protezione, che richiama le misure di prevenzione contro i furti in Ticino.',
+    'blog.article.prezzi-carburanti-settembre.title': 'Inflazione Svizzera: +1% a settembre per i carburanti',
+    'blog.article.prezzi-carburanti-settembre.excerpt': 'L\'inflazione svizzera sale dell\'1% annuo a settembre: carburanti in testa con olio combustibile +65%, diesel +28,7% e benzina +19,9%.',
+    'blog.article.prezzi-carburanti-settembre.imageAlt': 'Distributore di carburante in Svizzera con auto in sosta',
 };
 
 export default blogMetaIt;

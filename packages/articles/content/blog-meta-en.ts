@@ -12403,6 +12403,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furto-noranco-arresti-garage.title': 'Noranco car theft: three arrests and vehicles recovered',
     'blog.article.furto-noranco-arresti-garage.excerpt': 'Three high-end cars stolen in Noranco have been recovered. Three people, a 20-year-old Italian national, a 21-year-old Algerian national and a 25-year-old French national, residing in France, were detained.',
     'blog.article.furto-noranco-arresti-garage.imageAlt': 'Image of a secure garage with protection systems, recalling prevention measures against thefts in Ticino.',
+    'blog.article.prezzi-carburanti-settembre.title': 'Swiss inflation: +1% in September driven by fuel',
+    'blog.article.prezzi-carburanti-settembre.excerpt': 'Swiss inflation rises by 1% annually in September: fuels lead the way, with heating oil +65%, diesel +28,7% and petrol +19,9%.',
+    'blog.article.prezzi-carburanti-settembre.imageAlt': 'Fuel station in Switzerland with cars parked nearby',
 };
 
 export default blogMetaEn;
