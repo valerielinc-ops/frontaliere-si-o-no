@@ -30,10 +30,18 @@ describe('L5 GA4 decision-session dimension contract', () => {
 
   it('provisions before live export and preserves a fail-closed reason on failure', () => {
     const workflow = read('.github/workflows/loop-l5-decision-moments.yml');
+    const setupIndex = workflow.indexOf('- name: Setup Node.js');
+    const installIndex = workflow.indexOf('- name: Install GA4 auth client');
+    const provisionStepIndex = workflow.indexOf('- name: Ensure L5 GA4 decision-session dimension');
     const provisionIndex = workflow.indexOf('scripts/ci/provision-l5-ga4-dimension.mjs');
     const exportIndex = workflow.indexOf('- name: Export fresh L5 outcomes');
 
     expect(provisionIndex).toBeGreaterThanOrEqual(0);
+    expect(installIndex).toBeGreaterThan(setupIndex);
+    expect(provisionStepIndex).toBeGreaterThan(installIndex);
+    expect(workflow).toContain('npm install --prefix "$RUNNER_TEMP/ga4-deps"');
+    expect(workflow).toContain('google-auth-library@11.1.0');
+    expect(workflow).toContain('ln -s "$RUNNER_TEMP/ga4-deps/node_modules" node_modules');
     expect(exportIndex).toBeGreaterThan(provisionIndex);
     expect(workflow).toContain('LOOP_FLEET_L5_EXPORT_UNAVAILABLE=1');
     expect(workflow).toContain('LOOP_FLEET_L5_EXPORT_UNAVAILABLE_REASON=');

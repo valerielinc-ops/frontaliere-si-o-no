@@ -93,9 +93,10 @@ successiva si stringe su un dato.
 
 ### Perché il floor è 5 % e non il 40 % della issue
 
-La issue chiedeva IGS > 40 % sulle pagine chiave. Nessuna famiglia del sito ci
-arriva oggi, e una soglia che nessuno rispetta è una soglia che viene abbassata,
-non raggiunta. Il 40 % resta **riportato** per coorte
+La issue chiedeva IGS > 40 % sulle pagine chiave. Il 40 % resta un obiettivo
+informativo per le coorti che non lo hanno ancora raggiunto, non una soglia da
+abbassare per assorbire un risultato debole. Quando una fix lo raggiunge, il
+valore resta **riportato** per coorte
 (`cohortsBelowIssueTarget40`), il gate morde a 5 %: «la pagina mediana ha almeno
 una frase su venti che le sorelle non hanno».
 
@@ -340,6 +341,32 @@ regime indicativo e canone comunale, e questa fix espone le relazioni utili tra
 questi fatti. Per andare oltre senza ripetere il payload servirebbe un fatto
 autoritativo nuovo per comune — per esempio tempi/modalità di pendolarismo o
 offerta abitativa osservata — che il dataset attuale non contiene.
+
+## #11039 — Germania: il profilo relazionale del comune
+
+La coorte italiana `it:/vivere-in-germania-lavorare-in-svizzera/~bfc05f` partiva
+da **8,9 %** su 22 pagine. Il leaf ripeteva invece gli stessi blocchi su
+tassazione, giorni di non rientro, assicurazione e FAQ: numeri e nome del
+comune non bastavano dopo le due maschere. La fix mantiene il confronto
+geografico di `nearestMunicipalityComparison`, ma aggiunge prosa calcolata dal
+dataset: rango per popolazione e distanza stradale con valore e vicini nominati,
+gli altri comuni dello stesso Landkreis, gli altri comuni serviti dallo stesso
+valico e l'insieme dei valichi coperti dai sei vicini più prossimi. Le posizioni
+considerano solo valori strettamente davanti, quindi i pari merito non ricevono
+un ordine inventato; i sort restano deterministici sullo slug.
+
+Il contesto normativo comune è stato spostato sull'hub (con la nota sulla fonte)
+e il leaf mantiene il fatto operativo sul telelavoro, il payload comunale, la
+CTA e il confronto locale. La misura pre-merge del 2026-10-03, sul renderer
+italiano e su tutte le 22 pagine above-floor della coorte, porta la mediana a
+**40,0 %** e lascia **0 pagine a gain zero**. Le altre coorti emesse dallo
+stesso renderer restano a 40,0 %, 41,2 % e 42,3 % nel medesimo replay.
+
+L'osservatore è `tests/information-gain-families-floor.test.ts`, con soglia
+40 %, e la copertura del renderer è in
+`tests/german-border-municipality-pages.test.ts`. Il comando live ufficiale
+resta `node scripts/ci/information-gain-live-scan.mjs --per-family=12` e va
+ricontrollato dopo il deploy.
 
 ## I calcolatori di stipendio: le leve, non le cifre (#7385)
 
