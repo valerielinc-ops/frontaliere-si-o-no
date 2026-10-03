@@ -1,17 +1,18 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-10-02T21:38:39.408Z",
+  "generatedAt": "2026-10-03T09:36:20.231Z",
   "total": 23,
   "newCount": 1,
   "updatedCount": 24,
   "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 22984,
-  "avgDurationMs": 22984,
+  "durationMs": 20997,
+  "avgDurationMs": 20997,
   "durationHistory": [
     22431,
-    22984
+    22984,
+    20997
   ],
   "newJobs": [
     {
@@ -931,12 +932,19 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:32:08.390Z",
       "crawledAt": "",
-      "_qualityScore": 71,
+      "salaryMin": 73000,
+      "salaryMax": 124500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 15,
-        "completeness": 9
+        "completeness": 14
       }
     },
     {
@@ -971,20 +979,20 @@
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T13:32:08.390Z",
       "crawledAt": "",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 14
-      },
       "salaryMin": 113000,
       "salaryMax": 192000,
       "currency": "CHF",
       "salarySource": "estimated",
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 14
+      }
     }
   ],
   "removedJobs": [
