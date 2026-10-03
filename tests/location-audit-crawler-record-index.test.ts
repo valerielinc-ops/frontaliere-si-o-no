@@ -78,6 +78,10 @@ describe('crawler location record index', () => {
     index.add({ id: 'duplicated', url: 'https://jobs.example/2', addressLocality: 'Lausanne', canton: 'VD' });
 
     expect(index.get({ id: 'duplicated', url: 'https://jobs.example/1' })).toBeNull();
+    expect(index.getWithStatus({ id: 'duplicated', url: 'https://jobs.example/1' })).toEqual({
+      record: null,
+      status: 'ambiguous',
+    });
   });
 
   it('keeps crawler provenance with the source location record', () => {
