@@ -7613,6 +7613,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.deposito-cauzionale-basilea.title': 'Locations en Suisse 2026 : dépôt de garantie et résiliation à Bâle',
     'blog.article.deposito-cauzionale-basilea.excerpt': 'Dans le canton de Bâle, les règles fédérales s\'appliquent : dépôt de garantie maximal de trois mensualités, compte bloqué, formulaire officiel et 30 jours pour contester.',
     'blog.article.deposito-cauzionale-basilea.imageAlt': 'Immeuble résidentiel suisse dans le canton de Bâle, dédié à la location',
+    'blog.article.locazioni-vaud-regole-2026.title': 'Loyers en Suisse 2026 : marché immobilier du canton de Vaud',
+    'blog.article.locazioni-vaud-regole-2026.excerpt': 'Dans le canton de Vaud, les règles fédérales s\'appliquent : garantie locative maximale de trois mois, compte bloqué et 30 jours pour contester le congé.',
+    'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Immeuble résidentiel et tableau d\'annonces locatives dans le canton de Vaud',
 };
 
 export default blogMetaChFr;

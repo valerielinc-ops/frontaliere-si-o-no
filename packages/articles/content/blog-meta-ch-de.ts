@@ -7613,6 +7613,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.deposito-cauzionale-basilea.title': 'Mieten in der Schweiz 2026: Kaution und Kündigung in Basel',
     'blog.article.deposito-cauzionale-basilea.excerpt': 'Im Kanton Basel gelten die Bundesregeln: höchstens drei Monatsmieten als Kaution, ein Sperrkonto, ein offizielles Formular und 30 Tage für eine Anfechtung.',
     'blog.article.deposito-cauzionale-basilea.imageAlt': 'Schweizer Wohngebäude im Kanton Basel zum Thema Mietwohnungen',
+    'blog.article.locazioni-vaud-regole-2026.title': 'Mieten in der Schweiz 2026: Immobilienmarkt Waadt',
+    'blog.article.locazioni-vaud-regole-2026.excerpt': 'Im Kanton Waadt gelten die Bundesregeln: maximal drei Monatsmieten als Kaution, ein Sperrkonto und 30 Tage, um die Kündigung anzufechten.',
+    'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Wohngebäude und Mietinserate im Kanton Waadt',
 };
 
 export default blogMetaChDe;

@@ -7613,6 +7613,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.deposito-cauzionale-basilea.title': 'Affitti Svizzera 2026: deposito e disdetta a Basilea',
     'blog.article.deposito-cauzionale-basilea.excerpt': 'Nel canton Basilea valgono le regole federali: deposito massimo di tre mensilità, conto vincolato, modulo ufficiale e 30 giorni per contestare.',
     'blog.article.deposito-cauzionale-basilea.imageAlt': 'Edificio residenziale svizzero nel canton Basilea, tema affitti e locazione',
+    'blog.article.locazioni-vaud-regole-2026.title': 'Affitti in Svizzera 2026: mercato immobiliare Vaud',
+    'blog.article.locazioni-vaud-regole-2026.excerpt': 'Nel canton Vaud valgono le regole federali: deposito massimo di tre mesi, conto vincolato e 30 giorni per contestare la disdetta.',
+    'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Edificio residenziale e bacheca per gli affitti nel canton Vaud',
 };
 
 export default blogMetaChIt;

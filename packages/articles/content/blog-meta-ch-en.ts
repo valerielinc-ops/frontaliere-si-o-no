@@ -7613,6 +7613,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.deposito-cauzionale-basilea.title': 'Swiss Rentals 2026: Deposit and Termination in Basel',
     'blog.article.deposito-cauzionale-basilea.excerpt': 'In the canton of Basel, federal rules apply: a maximum security deposit of three months\' rent, an escrow account, an official form and 30 days to contest.',
     'blog.article.deposito-cauzionale-basilea.imageAlt': 'Swiss residential building in the Basel canton, focused on rental housing',
+    'blog.article.locazioni-vaud-regole-2026.title': 'Rentals in Switzerland 2026: Vaud real estate market',
+    'blog.article.locazioni-vaud-regole-2026.excerpt': 'In the canton of Vaud, federal rules apply: a maximum deposit of three months, a blocked account and 30 days to contest the termination notice.',
+    'blog.article.locazioni-vaud-regole-2026.imageAlt': 'Residential building and rental notice board in canton Vaud',
 };
 
 export default blogMetaChEn;
