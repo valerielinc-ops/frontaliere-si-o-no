@@ -36,6 +36,7 @@
  * (`npm run build:ci`) always exercises this plugin — exit 0 required.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
@@ -259,6 +260,8 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -559,7 +562,7 @@ function renderPage(opts: {
     ${id in HERO_BADGES
       ? renderLandingHero(id, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
         }, copy.h1, templateB.denseLede)
       : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(templateB.eyebrow ?? '')}</p>
@@ -569,6 +572,7 @@ function renderPage(opts: {
     <p class="text-sm font-medium text-accent mt-1">${esc(competitionSummary ? ({ it: 'Pagina generata', en: 'Page generated', de: 'Seite erstellt', fr: 'Page générée' })[locale] : shell.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${competitionSummary ? competitionSummary.html : ''}
     ${statTilesHtml}
+    ${id === 'stage-lugano' || id === 'contratti-lavoro-frontalieri' ? reportedSalaryNote(locale, snapshot.reportedSalary) : ''}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerHtml}

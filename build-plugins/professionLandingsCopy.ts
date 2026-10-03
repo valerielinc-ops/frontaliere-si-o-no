@@ -1170,8 +1170,8 @@ const IT_SHELL: LocaleShell = {
   // the SERP. Both branches below stay under 160 with the month label intact.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} offerte di lavoro da ${role} in Ticino, aggiornate ${buildMonthYearLabel('it')}. Salario medio CHF ${median.toLocaleString('it-CH')}, CCL e riconoscimento del titolo italiano.`
-      : `Lavoro da ${role} in Ticino: salario medio CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento del titolo italiano. Aggiornato ${buildMonthYearLabel('it')}.`,
+      ? `${liveCount} offerte di lavoro da ${role} in Ticino, aggiornate ${buildMonthYearLabel('it')}. Stima editoriale CHF ${median.toLocaleString('it-CH')}, CCL e riconoscimento del titolo italiano.`
+      : `Lavoro da ${role} in Ticino: stima editoriale CHF ${median.toLocaleString('it-CH')}, CCL applicabile, riconoscimento del titolo italiano. Aggiornato ${buildMonthYearLabel('it')}.`,
   h1Template: (role) => `Lavoro da ${role} in Ticino: guida 2026 per frontalieri`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1205,11 +1205,11 @@ const IT_SHELL: LocaleShell = {
   sourcesLabel: 'Fonti ufficiali',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     live > 0
-      ? `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno.`
-      : `Nessuna posizione aperta al momento per ${role} in Ticino · stipendio mediano di riferimento CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
+      ? `${live} posizioni aperte per ${role} in Ticino · ${fresh30} nuove negli ultimi 30 giorni · stima editoriale CHF ${median.toLocaleString('it-CH')} lordi all'anno.`
+      : `Nessuna posizione aperta al momento per ${role} in Ticino · stima editoriale di riferimento CHF ${median.toLocaleString('it-CH')} lordi all'anno.`,
   eyebrow: 'Mestiere · Ticino · 2026',
   statTileLiveLabel: 'Offerte aperte',
-  statTileSalaryLabel: 'Stipendio mediano',
+  statTileSalaryLabel: 'Stima editoriale',
   statTileFreshLabel: 'Nuove (30 gg)',
   statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('it-CH')}/anno`,
   statFreshValueFmt: (n) => `${n} nuove`,
@@ -1236,8 +1236,8 @@ const EN_SHELL: LocaleShell = {
       : `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs Ticino 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Average CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement and Italian diploma recognition.`
-      : `${role} jobs in Ticino: average CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
+      ? `${liveCount} ${role} jobs in Ticino, updated ${buildMonthYearLabel('en')}. Editorial estimate CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement and Italian diploma recognition.`
+      : `${role} jobs in Ticino: editorial estimate CHF ${median.toLocaleString('en-CH')} gross per year, collective agreement, Italian diploma recognition. Updated ${buildMonthYearLabel('en')}.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} jobs in Ticino: 2026 cross-border guide`,
   ledeTemplate: (s, median, jobs) =>
@@ -1272,11 +1272,11 @@ const EN_SHELL: LocaleShell = {
   sourcesLabel: 'Official sources',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     live > 0
-      ? `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · median gross salary CHF ${median.toLocaleString('en-CH')} per year.`
-      : `No open positions for ${role} in Ticino right now · reference median gross salary CHF ${median.toLocaleString('en-CH')} per year.`,
+      ? `${live} open positions for ${role} in Ticino · ${fresh30} new in the last 30 days · editorial gross salary estimate CHF ${median.toLocaleString('en-CH')} per year.`
+      : `No open positions for ${role} in Ticino right now · editorial gross salary estimate CHF ${median.toLocaleString('en-CH')} per year.`,
   eyebrow: 'Profession · Ticino · 2026',
   statTileLiveLabel: 'Open positions',
-  statTileSalaryLabel: 'Median salary',
+  statTileSalaryLabel: 'Editorial salary estimate',
   statTileFreshLabel: 'New (30 days)',
   statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('en-CH')}/year`,
   statFreshValueFmt: (n) => `${n} new`,
@@ -1301,8 +1301,8 @@ const DE_SHELL: LocaleShell = {
     liveCount > 0 ? `${role} im Tessin: ${liveCount} Stellen` : `${role} im Tessin 2026`,
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV und Anerkennung italienischer Diplome.`
-      : `${role} im Tessin: Durchschnittslohn CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome. Stand ${buildMonthYearLabel('de')}.`,
+      ? `${liveCount} Stellen als ${role} im Tessin, Stand ${buildMonthYearLabel('de')}. Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, GAV und Anerkennung italienischer Diplome.`
+      : `${role} im Tessin: Redaktionelle Schätzung CHF ${median.toLocaleString('de-CH')} brutto/Jahr, geltender GAV, Anerkennung italienischer Diplome. Stand ${buildMonthYearLabel('de')}.`,
   h1Template: (role) => `${role} im Tessin: Grenzgänger-Leitfaden 2026`,
   ledeTemplate: (s, median, jobs) =>
     jobs > 0
@@ -1336,11 +1336,11 @@ const DE_SHELL: LocaleShell = {
   sourcesLabel: 'Offizielle Quellen',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     live > 0
-      ? `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`
-      : `Derzeit keine offenen Stellen für ${role} im Tessin · Richt-Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
+      ? `${live} offene Stellen für ${role} im Tessin · ${fresh30} neu in den letzten 30 Tagen · redaktionelle Lohnschätzung CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`
+      : `Derzeit keine offenen Stellen für ${role} im Tessin · redaktionelle Lohnschätzung CHF ${median.toLocaleString('de-CH')} brutto pro Jahr.`,
   eyebrow: 'Beruf · Tessin · 2026',
   statTileLiveLabel: 'Offene Stellen',
-  statTileSalaryLabel: 'Medianlohn',
+  statTileSalaryLabel: 'redaktionelle Lohnschätzung',
   statTileFreshLabel: 'Neu (30 Tage)',
   statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('de-CH')}/Jahr`,
   statFreshValueFmt: (n) => `${n} neu`,
@@ -1371,8 +1371,8 @@ const FR_SHELL: LocaleShell = {
   // and keeps the longest profession under META_DESCRIPTION_MAX_CHARS.
   descriptionTemplate: (role, median, liveCount) =>
     liveCount > 0
-      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`
-      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : salaire moyen CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`,
+      ? `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : ${liveCount} offres (${buildMonthYearLabel('fr')}). Estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`
+      : `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin (${buildMonthYearLabel('fr')}) : estimation éditoriale CHF ${median.toLocaleString('fr-CH')} brut/an, CCT applicable, diplôme italien reconnu.`,
   h1Template: (role) =>
     `${role.charAt(0).toUpperCase()}${role.slice(1)} au Tessin : guide frontalier 2026`,
   ledeTemplate: (s, median, jobs) =>
@@ -1407,11 +1407,11 @@ const FR_SHELL: LocaleShell = {
   sourcesLabel: 'Sources officielles',
   denseLedeTemplate: ({ role, live, fresh30, median }) =>
     live > 0
-      ? `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an.`
-      : `Aucun poste ouvert pour ${role} au Tessin actuellement · salaire médian de référence CHF ${median.toLocaleString('fr-CH')} brut par an.`,
+      ? `${live} postes ouverts pour ${role} au Tessin · ${fresh30} nouveaux ces 30 derniers jours · estimation salariale éditoriale CHF ${median.toLocaleString('fr-CH')} brut par an.`
+      : `Aucun poste ouvert pour ${role} au Tessin actuellement · estimation salariale éditoriale CHF ${median.toLocaleString('fr-CH')} brut par an.`,
   eyebrow: 'Métier · Tessin · 2026',
   statTileLiveLabel: 'Postes ouverts',
-  statTileSalaryLabel: 'Salaire médian',
+  statTileSalaryLabel: 'Estimation salariale éditoriale',
   statTileFreshLabel: 'Nouveaux (30 j)',
   statSalaryValueFmt: (n) => `CHF ${n.toLocaleString('fr-CH')}/an`,
   statFreshValueFmt: (n) => `${n} nouveaux`,
@@ -1487,7 +1487,7 @@ function buildSections(
       {
         title: shell.sectionHeadings.salary,
         paragraphs: [
-          `La forchetta salariale tipica per ${strings.role} in Ticino nel 2026 è CHF ${fmtN(minSal)}–${fmtN(maxSal)} lordi annui su 13 mensilità, con un valore mediano stimato di CHF ${fmtN(facts.medianSalaryChf)} ricavato dal dataset interno Frontaliere Ticino (${facts.jobsCount} posizioni campione). Le voci variabili — turni notturni, festivi, reperibilità, straordinari — possono aggiungere dal 5 al 20 % al totale.`,
+          `La forchetta salariale tipica per ${strings.role} in Ticino nel 2026 è CHF ${fmtN(minSal)}–${fmtN(maxSal)} lordi annui su 13 mensilità, con una stima editoriale di CHF ${fmtN(facts.medianSalaryChf)} come riferimento editoriale, non misurato sulle offerte attive. Le voci variabili — turni notturni, festivi, reperibilità, straordinari — possono aggiungere dal 5 al 20 % al totale.`,
           `Per stimare il netto personalizzato (frontaliere vecchio/nuovo, chilometraggio dal confine, stato civile, figli a carico) usa il calcolatore stipendio di Frontaliere Ticino. Ricorda che l'Accordo bilaterale 2020 distingue i "nuovi frontalieri" (assunti dopo il 17/07/2023) — tassati alla fonte al 80 % in CH + dichiarazione in Italia — dai "vecchi frontalieri" che mantengono il regime precedente. [Fonte: AFC — Imposta alla fonte](https://www.estv.admin.ch/it/imposta-alla-fonte).`,
           `Le differenze fra cantoni sono minime sui salari (CCL nazionale) ma importanti sulle tasse comunali: Lugano, Mendrisio, Bellinzona hanno moltiplicatori diversi. Il calcolatore del sito tiene conto anche di questo dettaglio.`,
         ],
@@ -1552,7 +1552,7 @@ function buildSections(
       {
         title: shell.sectionHeadings.salary,
         paragraphs: [
-          `The typical salary range for ${strings.role} in Ticino in 2026 is CHF ${fmtN(minSal)}–${fmtN(maxSal)} gross per year on 13 months, with an estimated median of CHF ${fmtN(facts.medianSalaryChf)} from the Frontaliere Ticino dataset (${facts.jobsCount} sampled openings). Variable compensation — night shifts, holidays, on-call, overtime — can add 5 to 20% to the total.`,
+          `The typical salary range for ${strings.role} in Ticino in 2026 is CHF ${fmtN(minSal)}–${fmtN(maxSal)} gross per year on 13 months, with an editorial estimate of CHF ${fmtN(facts.medianSalaryChf)} as an editorial reference, not measured from active listings. Variable compensation — night shifts, holidays, on-call, overtime — can add 5 to 20% to the total.`,
           `To estimate the personalised net (old/new cross-border, km from the border, marital status, dependants) use the Frontaliere Ticino salary calculator. The 2020 bilateral agreement distinguishes "new cross-borderers" (hired after 17/07/2023) — taxed at source at 80% in Switzerland plus Italian declaration — from "old cross-borderers" who keep the previous regime. [source: AFC — Withholding tax](https://www.estv.admin.ch/it/imposta-alla-fonte).`,
           `Inter-cantonal differences are minor on wages (national CLAs) but relevant on municipal tax: Lugano, Mendrisio, Bellinzona have different multipliers. The site calculator models this.`,
         ],
@@ -1617,7 +1617,7 @@ function buildSections(
       {
         title: shell.sectionHeadings.salary,
         paragraphs: [
-          `Die typische Lohnspanne für ${strings.role} im Tessin 2026 liegt bei CHF ${fmtN(minSal)}–${fmtN(maxSal)} brutto pro Jahr auf 13 Monate, mit einem geschätzten Median von CHF ${fmtN(facts.medianSalaryChf)} aus dem Frontaliere-Ticino-Datensatz (${facts.jobsCount} Stichproben). Variable Bestandteile — Nacht, Feiertag, Pikett, Überstunden — können 5 bis 20 % ergänzen.`,
+          `Die typische Lohnspanne für ${strings.role} im Tessin 2026 liegt bei CHF ${fmtN(minSal)}–${fmtN(maxSal)} brutto pro Jahr auf 13 Monate, mit einer redaktionellen Schätzung von CHF ${fmtN(facts.medianSalaryChf)} als redaktioneller Richtwert, nicht aus aktiven Anzeigen gemessen. Variable Bestandteile — Nacht, Feiertag, Pikett, Überstunden — können 5 bis 20 % ergänzen.`,
           `Für einen personalisierten Nettolohn (alter/neuer Grenzgänger, km-Abstand zur Grenze, Zivilstand, Kinder) den Lohnrechner von Frontaliere Ticino nutzen. Das bilaterale Abkommen 2020 trennt "neue Grenzgänger" (Anstellung nach 17.07.2023) — 80 % Quellensteuer in CH + italienische Deklaration — von "alten Grenzgängern" mit früherem Regime. [Quelle: EStV — Quellensteuer].`,
           `Kantonale Unterschiede sind beim Lohn minimal (nationale GAV), bei der Gemeindesteuer jedoch relevant: Lugano, Mendrisio, Bellinzona haben verschiedene Steuerfüsse.`,
         ],
@@ -1682,7 +1682,7 @@ function buildSections(
     {
       title: shell.sectionHeadings.salary,
       paragraphs: [
-        `La fourchette salariale typique pour ${strings.role} au Tessin en 2026 est CHF ${fmtN(minSal)}–${fmtN(maxSal)} brut par an sur 13 mois, avec une médiane estimée à CHF ${fmtN(facts.medianSalaryChf)} depuis le jeu de données Frontaliere Ticino (${facts.jobsCount} postes échantillonnés). Les éléments variables — nuit, fériés, astreinte, heures sup — peuvent ajouter 5 à 20 %.`,
+        `La fourchette salariale typique pour ${strings.role} au Tessin en 2026 est CHF ${fmtN(minSal)}–${fmtN(maxSal)} brut par an sur 13 mois, avec une estimation éditoriale à CHF ${fmtN(facts.medianSalaryChf)} comme repère éditorial, non mesuré sur les annonces actives. Les éléments variables — nuit, fériés, astreinte, heures sup — peuvent ajouter 5 à 20 %.`,
         `Pour estimer le net personnalisé (ancien/nouveau frontalier, km du confin, état civil, enfants) utilisez le calculateur Frontaliere Ticino. L'accord bilatéral 2020 distingue les "nouveaux frontaliers" (embauchés après le 17/07/2023) — imposés à 80 % en CH + déclaration italienne — des "anciens frontaliers" conservant le régime précédent. [source : AFC — Impôt à la source].`,
         `Les différences inter-cantonales sont minimes sur les salaires (CCT nationales) mais notables sur l'impôt communal : Lugano, Mendrisio, Bellinzona ont des coefficients différents.`,
       ],
@@ -1737,7 +1737,7 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `Quanto guadagna un/una ${strings.role} in Ticino nel 2026?`,
-        answer: `La forchetta tipica è CHF ${minStr}–${maxStr} lordi annui su 13 mensilità, con un valore mediano stimato di CHF ${medianStr} dal dataset interno di Frontaliere Ticino. Il netto dipende dal tipo di permesso (G vs B), dalla chilometraggio dal confine e dallo stato civile: usa il calcolatore del sito per una stima personalizzata.`,
+        answer: `La forchetta tipica è CHF ${minStr}–${maxStr} lordi annui su 13 mensilità, con una stima editoriale di CHF ${medianStr} come riferimento editoriale, non misurato sulle offerte attive. Il netto dipende dal tipo di permesso (G vs B), dalla chilometraggio dal confine e dallo stato civile: usa il calcolatore del sito per una stima personalizzata.`,
       },
       {
         question: `Quale CCL si applica a ${strings.role} in Ticino?`,
@@ -1764,7 +1764,7 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `How much does a ${strings.role} earn in Ticino in 2026?`,
-        answer: `The typical range is CHF ${minStr}–${maxStr} gross per year over 13 months, with an estimated median of CHF ${medianStr} from the Frontaliere Ticino dataset. Net pay depends on permit type (G vs B), distance from the border and marital status — use the site calculator for a personalised estimate.`,
+        answer: `The typical range is CHF ${minStr}–${maxStr} gross per year over 13 months, with an editorial estimate of CHF ${medianStr} as an editorial reference, not measured from active listings. Net pay depends on permit type (G vs B), distance from the border and marital status — use the site calculator for a personalised estimate.`,
       },
       {
         question: `Which collective agreement applies to ${strings.role} in Ticino?`,
@@ -1791,7 +1791,7 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
       },
       {
         question: `Wie viel verdient ein/e ${strings.role} im Tessin 2026?`,
-        answer: `Typische Bandbreite: CHF ${minStr}–${maxStr} brutto pro Jahr auf 13 Monate, mit geschätztem Median von CHF ${medianStr} aus dem Frontaliere-Ticino-Datensatz. Der Netto-Lohn hängt von Bewilligungsart (G/B), Grenzdistanz und Zivilstand ab — den Lohnrechner für eine personalisierte Schätzung nutzen.`,
+        answer: `Typische Bandbreite: CHF ${minStr}–${maxStr} brutto pro Jahr auf 13 Monate, mit redaktioneller Schätzung von CHF ${medianStr} als redaktioneller Richtwert, nicht aus aktiven Anzeigen gemessen. Der Netto-Lohn hängt von Bewilligungsart (G/B), Grenzdistanz und Zivilstand ab — den Lohnrechner für eine personalisierte Schätzung nutzen.`,
       },
       {
         question: `Welcher GAV gilt für ${strings.role} im Tessin?`,
@@ -1818,7 +1818,7 @@ function buildFaqs(locale: ProfessionLocale, id: ProfessionId): ProfessionLandin
     },
     {
       question: `Combien gagne un/une ${strings.role} au Tessin en 2026 ?`,
-      answer: `La fourchette typique est CHF ${minStr}–${maxStr} brut par an sur 13 mois, avec une médiane estimée à CHF ${medianStr} depuis le jeu de données Frontaliere Ticino. Le net dépend du type de permis (G vs B), de la distance au confin et de l'état civil — utilisez le calculateur du site pour une estimation personnalisée.`,
+      answer: `La fourchette typique est CHF ${minStr}–${maxStr} brut par an sur 13 mois, avec une estimation éditoriale à CHF ${medianStr} comme repère éditorial, non mesuré sur les annonces actives. Le net dépend du type de permis (G vs B), de la distance au confin et de l'état civil — utilisez le calculateur du site pour une estimation personnalisée.`,
     },
     {
       question: `Quelle CCT s'applique aux ${strings.role} au Tessin ?`,

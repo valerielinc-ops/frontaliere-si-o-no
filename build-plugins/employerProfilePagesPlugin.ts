@@ -40,6 +40,8 @@
  * Namespace: distinct from publisherAdPagesPlugin (`/lavoro/<slug>/`) — no
  * collision. Gate: SKIP_EMPLOYER_PROFILE_PAGES=1 fast-exits local builds.
  */
+import { reportedSalarySummary, isReportedAnnualChfSalary } from './shared/realSalaryMedian';
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
@@ -263,7 +265,7 @@ const OPEN_ROLES_LABEL: Record<Locale, string> = {
   it: 'Posizioni aperte', en: 'Open positions', de: 'Offene Stellen', fr: 'Postes ouverts',
 };
 const MEDIAN_SALARY_LABEL: Record<Locale, string> = {
-  it: 'Stipendio mediano', en: 'Median salary', de: 'Median­gehalt', fr: 'Salaire médian',
+  it: 'Mediana delle fasce dichiarate', en: 'Median of reported ranges', de: 'Median gemeldeter Lohnspannen', fr: 'Médiane des fourchettes déclarées',
 };
 const LOCATIONS_LABEL: Record<Locale, string> = {
   it: 'Sedi', en: 'Locations', de: 'Standorte', fr: 'Sites',
@@ -343,6 +345,7 @@ export interface CorpusJob {
   salaryMin?: number | null;
   salaryMax?: number | null;
   salarySource?: 'reported' | 'existing' | 'estimated';
+  currency?: string;
   companyDomain?: string;
   url?: string;
   [k: string]: unknown;
@@ -377,7 +380,7 @@ interface ProseTemplate {
    * per-build aggregate, distinct from the per-job contract badge already
    * shown on each card (see contractMixProse). */
   readonly contractMix: (label: string, count: number, total: number) => string;
-  /** Real salary min–max range across postings with a reported/estimated
+  /** Real salary min–max range across postings with a source-reported annual CHF
    * figure — distinct from the single median stat tile. */
   readonly salaryRange: (min: string, max: string) => string;
   readonly outro: string;
@@ -389,7 +392,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Il canton ${first} conta il maggior numero di offerte (${firstCount}), seguito da ${rest}.`,
     citiesSingle: (city) => `La sede principale con offerte attive è ${city}.`,
     citiesMulti: (first, firstCount, rest) => `A livello di città, le sedi con più posizioni aperte sono ${first} (${firstCount} offerte), seguita da ${rest}.`,
-    salary: (sal) => `Lo stipendio mediano stimato per queste offerte è di ${sal} lordi all’anno.`,
+    salary: (sal) => `La mediana delle fasce dichiarate nel campione è di ${sal} lordi all’anno.`,
     trend: (added, win) => `Negli ultimi ${win} giorni sono state pubblicate ${added} nuove offerte.`,
     contractMix: (label, count, total) => count === total
       ? `Tutte le posizioni attive sono a ${label}.`
@@ -403,7 +406,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Canton ${first} has the most openings (${firstCount}), followed by ${rest}.`,
     citiesSingle: (city) => `The main location with open positions is ${city}.`,
     citiesMulti: (first, firstCount, rest) => `By city, the locations with the most open positions are ${first} (${firstCount} openings), followed by ${rest}.`,
-    salary: (sal) => `The estimated median salary for these roles is ${sal} gross per year.`,
+    salary: (sal) => `The median of reported ranges in the sample is ${sal} gross per year.`,
     trend: (added, win) => `In the last ${win} days, ${added} new postings were published.`,
     contractMix: (label, count, total) => count === total
       ? `All active positions are ${label}.`
@@ -417,7 +420,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Der Kanton ${first} hat die meisten Stellen (${firstCount}), gefolgt von ${rest}.`,
     citiesSingle: (city) => `Der wichtigste Standort mit offenen Stellen ist ${city}.`,
     citiesMulti: (first, firstCount, rest) => `Nach Stadt betrachtet haben ${first} (${firstCount} Stellen) die meisten offenen Stellen, gefolgt von ${rest}.`,
-    salary: (sal) => `Das geschätzte Median­gehalt für diese Stellen beträgt ${sal} brutto pro Jahr.`,
+    salary: (sal) => `Der Median gemeldeter Lohnspannen in der Stichprobe beträgt ${sal} brutto pro Jahr.`,
     trend: (added, win) => `In den letzten ${win} Tagen wurden ${added} neue Stellen veröffentlicht.`,
     contractMix: (label, count, total) => count === total
       ? `Alle aktiven Stellen sind ${label}.`
@@ -431,7 +434,7 @@ const PROSE_TEMPLATES: Record<Locale, ProseTemplate> = {
     cantonsMulti: (first, firstCount, rest) => `Le canton de ${first} compte le plus grand nombre d’offres (${firstCount}), suivi de ${rest}.`,
     citiesSingle: (city) => `Le site principal avec des postes ouverts est ${city}.`,
     citiesMulti: (first, firstCount, rest) => `Par ville, les sites avec le plus de postes ouverts sont ${first} (${firstCount} offres), suivi de ${rest}.`,
-    salary: (sal) => `Le salaire médian estimé pour ces postes est de ${sal} brut par an.`,
+    salary: (sal) => `La médiane des fourchettes déclarées de l’échantillon est de ${sal} brut par an.`,
     trend: (added, win) => `Au cours des ${win} derniers jours, ${added} nouvelles annonces ont été publiées.`,
     contractMix: (label, count, total) => count === total
       ? `Tous les postes actifs sont en ${label}.`
@@ -482,12 +485,12 @@ function contractMixProse(jobs: CorpusJob[], locale: Locale): string {
   return PROSE_TEMPLATES[locale].contractMix(topLabel.toLowerCase(), topCount, total);
 }
 
-/** Real salary min–max range across postings with a reported/estimated
+/** Real salary min–max range across postings with a source-reported annual CHF
  * figure — distinct from the single median stat tile and the per-card salary
  * line. Returns '' when there isn't a genuine range
  * (fewer than 2 data points, or min === max — nothing to compare). */
 function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
-  const values = jobs
+  const values = jobs.filter(isReportedAnnualChfSalary)
     .flatMap((j) => [j.salaryMin, j.salaryMax])
     .filter((v): v is number => typeof v === 'number' && Number.isFinite(v) && v > 0);
   if (values.length < 2) return '';
@@ -509,7 +512,8 @@ function salaryRangeProse(jobs: CorpusJob[], locale: Locale): string {
  * sentences); see PR body for the honest remaining gap. */
 export function introProse(profile: EmployerProfile, jobs: CorpusJob[], locale: Locale): string {
   const t = PROSE_TEMPLATES[locale];
-  const sal = profile.salaryMedianChf ? fmtChf(profile.salaryMedianChf) : null;
+  const median = reportedSalarySummary(jobs).medianChf;
+  const sal = median ? fmtChf(median) : null;
   const added = profile.trend?.added ?? null;
   const win = profile.trend?.windowDays ?? 30;
   return [
@@ -574,9 +578,10 @@ function renderProfileBody(
   options: ProfileRenderOptions = {},
 ): string {
   const name = profile.name;
+  const salarySummary = reportedSalarySummary(allActiveJobs);
   const tiles = [
     statTile(OPEN_ROLES_LABEL[locale], String(profile.activeJobs)),
-    profile.salaryMedianChf ? statTile(MEDIAN_SALARY_LABEL[locale], fmtChf(profile.salaryMedianChf)) : '',
+    salarySummary.medianChf ? statTile(MEDIAN_SALARY_LABEL[locale], fmtChf(salarySummary.medianChf)) : '',
     statTile(LOCATIONS_LABEL[locale], esc(locationsSummary(profile)) || String(profile.cantons.length)),
     profile.sector ? statTile(SECTOR_LABEL[locale], esc(profile.sector)) : '',
     profile.trend?.added ? statTile(`${NEW_ROLES_LABEL[locale]} (${profile.trend.windowDays}g)`, `+${profile.trend.added}`) : '',
@@ -601,6 +606,7 @@ function renderProfileBody(
           salaryMin: job.salaryMin ?? null,
           salaryMax: job.salaryMax ?? null,
           salarySource: job.salarySource,
+          currency: job.currency,
           companyDomain: job.companyDomain,
           url: job.url,
         },
@@ -616,7 +622,8 @@ ${breadcrumbHtml(locale, name)}
 <header class="rounded-2xl border border-edge bg-surface-alt p-5 mb-5">
 <h1 class="text-[26px] font-bold text-strong leading-tight m-0 mb-1.5">${esc(employerHeadline(locale, name))}</h1>
 <p class="text-[15px] text-muted m-0">${esc(introProse(profile, allActiveJobs, locale).split('. ')[0])}.</p>
-<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}</div>
+<div class="grid grid-cols-2 sm:grid-cols-4 gap-2.5 mt-4">${tiles}
+${reportedSalaryNote(locale, salarySummary)}</div>
 </header>
 ${companyFollowMountPlaceholder({ company: name, companyKey: profile.companyKey, locale, surface: 'employer_profile' })}
 <section class="mb-7"><p class="my-2.5 leading-relaxed text-body">${esc(introProse(profile, allActiveJobs, locale))}</p><p class="my-2.5 leading-relaxed text-body">${esc(PROFILE_METHOD_NOTE[locale])}</p></section>
