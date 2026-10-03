@@ -7,12 +7,17 @@
 # Un import nuovo fuori da questi path va aggiunto qui, nella stessa PR:
 # lo impone tests/housekeeping-sparse-paths.test.ts.
 #
-# Formato: una directory (o un file di root) per riga, senza slash iniziale;
-# righe vuote e righe che cominciano con `#` sono ignorate. Niente commenti a
-# fine riga, niente glob, niente negazioni.
+# Formato: una DIRECTORY per riga, senza slash iniziale; righe vuote e righe
+# che cominciano con `#` sono ignorate. Niente commenti a fine riga, niente
+# glob, niente negazioni.
+#
+# Mai un file. In modalita' cone i file della root (package.json,
+# package-lock.json) sono sempre materializzati e non vanno elencati; e al
+# SECONDO checkout nella stessa directory `git sparse-checkout set` rifiuta
+# un path che non e' una directory («fatal: 'package.json' is not a
+# directory»): run corpus 37138786521 del 2026-10-03, entrambe le lane ferme
+# allo step «Checkout source repository».
 data/jobs/by-crawler
 data/jobs/expired/by-crawler
-package.json
-package-lock.json
 scripts
 packages/articles/engine/shared
