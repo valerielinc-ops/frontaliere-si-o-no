@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vaudoise",
-  "assembledAt": "2026-10-02T21:17:44.217Z",
+  "assembledAt": "2026-10-03T09:10:54.208Z",
   "jobs": [
     {
       "id": "vaudoise-9670a5945437",
@@ -33,7 +33,7 @@
       "url": "https://vaudoise.softgarden.io/job/63140024/Sp%C3%A9cialiste-prestations-cas-complexes-LAA-fran%C3%A7ais-allemand-h-f-x-80-?jobDbPVId=283777415&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:37.541Z",
+      "crawledAt": "2026-10-03T09:10:48.962Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -104,7 +104,7 @@
       "url": "https://vaudoise.softgarden.io/job/53667621/Gestionnaire-Prestations-Animalia-charg%C3%A9-des-assurances-pour-chiens-et-chats-h-f-x-80-100-?jobDbPVId=283777430&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:37.286Z",
+      "crawledAt": "2026-10-03T09:10:48.673Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -177,7 +177,7 @@
       "url": "https://vaudoise.softgarden.io/job/60419000/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=283777450&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:37.018Z",
+      "crawledAt": "2026-10-03T09:10:48.378Z",
       "addressLocality": "Châtel-Saint-Denis",
       "addressCountry": "CH",
       "country": "CH",
@@ -257,7 +257,7 @@
       "url": "https://vaudoise.softgarden.io/job/66983955/Juriste-junior-germanophone-h-f-x-90-?jobDbPVId=284014040&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:36.758Z",
+      "crawledAt": "2026-10-03T09:10:48.093Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -338,7 +338,7 @@
       "url": "https://vaudoise.softgarden.io/job/56620544/Versicherungs-und-Vorsorgeberater-in-m-w-d-100-?jobDbPVId=284073040&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:36.506Z",
+      "crawledAt": "2026-10-03T09:10:47.811Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -411,7 +411,7 @@
       "url": "https://vaudoise.softgarden.io/job/67263475/Mitarbeiter-in-Kundensupport-m-w-d-60-?jobDbPVId=284096625&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:36.253Z",
+      "crawledAt": "2026-10-03T09:10:47.530Z",
       "addressLocality": "Basel",
       "addressCountry": "CH",
       "country": "CH",
@@ -494,7 +494,7 @@
       "url": "https://vaudoise.softgarden.io/job/65923194/Senior-Sachbearbeiter-in-Leistungen-Unfall-m-w-d-80%E2%80%93100-?jobDbPVId=284304440&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:35.998Z",
+      "crawledAt": "2026-10-03T09:10:47.252Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -555,7 +555,7 @@
       "title": "Care Manager (h/f/x) - 80-100%",
       "titleByLocale": {
         "it": "Care Manager (m/f/x) - 80-100%",
-        "en": "Care Manager (m/f/x) - 80-100%",
+        "en": "Care Manager (h/f/x) - 80-100%",
         "de": "Care Manager (m/w/x) - 80-100%",
         "fr": "Care Manager (h/f/x) - 80-100%"
       },
@@ -571,7 +571,7 @@
       "url": "https://vaudoise.softgarden.io/job/65968298/Care-Manager-h-f-x-80-100-?jobDbPVId=284455815&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:35.742Z",
+      "crawledAt": "2026-10-03T09:10:46.978Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -601,7 +601,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-aec22eec18e8",
@@ -634,7 +635,7 @@
       "url": "https://vaudoise.softgarden.io/job/61638467/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=284455835&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:35.487Z",
+      "crawledAt": "2026-10-03T09:10:46.698Z",
       "addressLocality": "Fribourg",
       "addressCountry": "CH",
       "country": "CH",
@@ -713,7 +714,7 @@
       "url": "https://vaudoise.softgarden.io/job/64831661/Gruppenleiter-in-autoexpert-in-Deutschschweiz-m-w-d-80-100-?jobDbPVId=284732332&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:35.234Z",
+      "crawledAt": "2026-10-03T09:10:46.419Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -791,7 +792,7 @@
       "url": "https://vaudoise.softgarden.io/job/67022175/Chef-Cheffe-de-groupe-Formation-Assurances-de-personnes-Qualit%C3%A9-FR-DE-h-f-x-80-100-?jobDbPVId=284751197&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:34.955Z",
+      "crawledAt": "2026-10-03T09:10:46.116Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -873,7 +874,7 @@
       "url": "https://vaudoise.softgarden.io/job/67348490/Chef-Cheffe-de-groupe-Souscription-Choses-Assurances-Techniques-FR-DE-h-f-x-100-?jobDbPVId=284751227&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:34.697Z",
+      "crawledAt": "2026-10-03T09:10:45.835Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -952,7 +953,7 @@
       "url": "https://vaudoise.softgarden.io/job/67419112/Gruppenleiter-in-Underwriting-Sach-und-Technische-Versicherungen-FR-DE-m-w-d-100-?jobDbPVId=284768987&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:34.444Z",
+      "crawledAt": "2026-10-03T09:10:45.557Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1029,7 +1030,7 @@
       "url": "https://vaudoise.softgarden.io/job/67463792/Product-Owner-RH-h-f-x-%E2%80%93-100-%E2%80%93-CDD-1-an?jobDbPVId=285023487&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:34.192Z",
+      "crawledAt": "2026-10-03T09:10:45.278Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1101,7 +1102,7 @@
       "url": "https://vaudoise.softgarden.io/job/67493747/HR-Business-Partner-Senior-h-f-x-%E2%80%93-80-100-?jobDbPVId=285056517&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:33.935Z",
+      "crawledAt": "2026-10-03T09:10:44.982Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1131,7 +1132,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-8bc700b10adf",
@@ -1164,7 +1166,7 @@
       "url": "https://vaudoise.softgarden.io/job/67499332/Business-Analyst-Distribution-et-Experience-Client-h-f-x-80-100-?jobDbPVId=285092062&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:33.684Z",
+      "crawledAt": "2026-10-03T09:10:44.697Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1205,7 +1207,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-b01698b129e3",
@@ -1238,7 +1241,7 @@
       "url": "https://vaudoise.softgarden.io/job/67379855/Stagiaire-universitaire-HES-en-Transformation-Digitale-RH-h-f-x-?jobDbPVId=285105362&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:33.432Z",
+      "crawledAt": "2026-10-03T09:10:44.395Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1315,7 +1318,7 @@
       "url": "https://vaudoise.softgarden.io/job/67008105/Stagiaire-universitaire-HES-Performance-Talent-RH-h-f-x-?jobDbPVId=285105772&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:33.179Z",
+      "crawledAt": "2026-10-03T09:10:44.114Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1386,7 +1389,7 @@
       "url": "https://vaudoise.softgarden.io/job/67524172/Stagiaire-universitaire-HES-Master-en-Sciences-Actuarielles-%E2%80%93-Pr%C3%A9voyance-h-f-x-%E2%80%93-100-?jobDbPVId=285164442&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:32.926Z",
+      "crawledAt": "2026-10-03T09:10:43.834Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1463,7 +1466,7 @@
       "url": "https://vaudoise.softgarden.io/job/67524517/Stagiaire-universitaire-HES-Ma%C3%AEtrise-End-to-End-de-solutions-IA-h-f-x-%E2%80%93-80-100-?jobDbPVId=285165662&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:32.671Z",
+      "crawledAt": "2026-10-03T09:10:43.554Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1540,7 +1543,7 @@
       "url": "https://vaudoise.softgarden.io/job/67528837/Dienststellenleiter-in-Deutschschweiz-Leistungen-Unfall-m-w-d-80-100-?jobDbPVId=285201487&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:32.422Z",
+      "crawledAt": "2026-10-03T09:10:43.232Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1617,7 +1620,7 @@
       "url": "https://vaudoise.softgarden.io/job/64140823/Sp%C3%A9cialiste-Prestations-Accident-h-f-x-80-100-?jobDbPVId=285232842&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:32.166Z",
+      "crawledAt": "2026-10-03T09:10:42.957Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1768,7 +1771,7 @@
       "url": "https://vaudoise.softgarden.io/job/60739262/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285374807&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:31.907Z",
+      "crawledAt": "2026-10-03T09:10:42.677Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1867,7 +1870,7 @@
       "url": "https://vaudoise.softgarden.io/job/60446395/Chef-Cheffe-de-groupe-Perte-de-gain-maladie-80-100-h-f-x-?jobDbPVId=285374847&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:31.644Z",
+      "crawledAt": "2026-10-03T09:10:42.398Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1946,7 +1949,7 @@
       "url": "https://vaudoise.softgarden.io/job/60801417/Sachbearbeiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=285374852&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:31.389Z",
+      "crawledAt": "2026-10-03T09:10:41.674Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2069,7 +2072,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-cbab6af29815",
@@ -2102,7 +2106,7 @@
       "url": "https://vaudoise.softgarden.io/job/67561682/Gestionnaire-de-cas-complexes-LAA-bilingue-fran%C3%A7ais-italien-80-100-h-f-x-?jobDbPVId=285430227&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:31.132Z",
+      "crawledAt": "2026-10-03T09:10:41.390Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2148,7 +2152,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-648b2ee4c5b8",
@@ -2181,7 +2186,7 @@
       "url": "https://vaudoise.softgarden.io/job/67577687/Stagiaire-universitaire-HES-Business-Analyst-Copilot-Rovo-h-f-x-%E2%80%93-80-100-?jobDbPVId=285471892&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:30.880Z",
+      "crawledAt": "2026-10-03T09:10:41.114Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2256,7 +2261,7 @@
       "url": "https://vaudoise.softgarden.io/job/67617297/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285599377&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:30.626Z",
+      "crawledAt": "2026-10-03T09:10:40.832Z",
       "addressLocality": "Nyon",
       "addressCountry": "CH",
       "country": "CH",
@@ -2333,7 +2338,7 @@
       "url": "https://vaudoise.softgarden.io/job/66912865/Expertin-en-f%C3%BCr-Learning-Design-Digital-Learning-m-w-d-80-100-?jobDbPVId=285688092&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:30.373Z",
+      "crawledAt": "2026-10-03T09:10:40.332Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2409,7 +2414,7 @@
       "url": "https://vaudoise.softgarden.io/job/67649397/Stagiaire-universitaire-HES-en-Marketing-%C3%A9v%C3%A9nementiel-h-f-x-%E2%80%93-100-?jobDbPVId=285726012&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:30.115Z",
+      "crawledAt": "2026-10-03T09:10:40.046Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2486,7 +2491,7 @@
       "url": "https://vaudoise.softgarden.io/job/67651152/Stagiaire-universitaire-HES-en-Marketing-assurances-animali%C3%A8res-h-f-x-%E2%80%93-100-?jobDbPVId=285729822&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:29.858Z",
+      "crawledAt": "2026-10-03T09:10:39.771Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2563,7 +2568,7 @@
       "url": "https://vaudoise.softgarden.io/job/67666707/Stagiaire-universitaire-HES-Master-%E2%80%93-Assurances-de-personnes-h-f-x-%E2%80%93-100-?jobDbPVId=285778567&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:29.600Z",
+      "crawledAt": "2026-10-03T09:10:39.486Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2640,7 +2645,7 @@
       "url": "https://vaudoise.softgarden.io/job/66314843/Gestionnaire-prestations-perte-de-gain-maladie-h-f-x-80-100-?jobDbPVId=285864727&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:29.347Z",
+      "crawledAt": "2026-10-03T09:10:39.207Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2697,7 +2702,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-999d0cfa4d6d",
@@ -2730,7 +2736,7 @@
       "url": "https://vaudoise.softgarden.io/job/66994435/Responsable-Commercial-Pr%C3%A9voyance-h-f-x-80-100-?jobDbPVId=285885992&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:29.091Z",
+      "crawledAt": "2026-10-03T09:10:38.929Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2774,7 +2780,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-f5047f613519",
@@ -2807,7 +2814,7 @@
       "url": "https://vaudoise.softgarden.io/job/67700842/Conseiller-Conseill%C3%A8re-h-f-x-100-?jobDbPVId=285994302&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:28.839Z",
+      "crawledAt": "2026-10-03T09:10:38.644Z",
       "addressLocality": "Genève",
       "addressCountry": "CH",
       "country": "CH",
@@ -2884,7 +2891,7 @@
       "url": "https://vaudoise.softgarden.io/job/46867204/Chef-fe-de-groupe-des-Architectes-Solutions-IT-h-f-x-80-100-?jobDbPVId=286030997&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:28.586Z",
+      "crawledAt": "2026-10-03T09:10:38.344Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2922,7 +2929,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-3ff0e716961a",
@@ -2955,7 +2963,7 @@
       "url": "https://vaudoise.softgarden.io/job/53100444/Sachbearbeiter-in-Leistungen-Animalia-Hunde-und-Katzenversicherungen-m-w-d-80-100-?jobDbPVId=286031112&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:28.331Z",
+      "crawledAt": "2026-10-03T09:10:38.066Z",
       "addressLocality": "Suisse",
       "addressCountry": "CH",
       "country": "CH",
@@ -3033,7 +3041,7 @@
       "url": "https://vaudoise.softgarden.io/job/62226199/Brokerbetreuer-in-m-w-d-100-?jobDbPVId=286031142&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:28.044Z",
+      "crawledAt": "2026-10-03T09:10:37.770Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3121,7 +3129,7 @@
       "url": "https://vaudoise.softgarden.io/job/67600117/Gruppenleiter-in-Leistungen-Krankentaggeld-m-w-d-80-100-?jobDbPVId=286409027&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:27.789Z",
+      "crawledAt": "2026-10-03T09:10:37.488Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3138,11 +3146,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "gruppenleiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+        "gruppenleiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+        "servizi-di-gestione-del-gruppo-indennita-giornaliera-medica-m-f-d-80-100-vaudoise-assurances-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gruppenleiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
+          "gruppenleiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch",
+          "servizi-di-gestione-del-gruppo-indennita-giornaliera-medica-m-f-d-80-100-vaudoise-assurances-bern"
         ],
         "en": [
           "gruppenleiter-in-leistungen-krankentaggeld-m-w-d-80-100-vaudoise-ch"
@@ -3198,7 +3208,7 @@
       "url": "https://vaudoise.softgarden.io/job/67040195/Gruppenleiter-in-Ausbildung-Qualit%C3%A4t-DE-FR-m-w-d-80-100-?jobDbPVId=286418362&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:27.531Z",
+      "crawledAt": "2026-10-03T09:10:37.186Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -3251,9 +3261,9 @@
       },
       "description": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
       "descriptionByLocale": {
+        "de": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
         "it": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
         "en": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
-        "de": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome).",
         "fr": "Die Vaudoise ist eine der führenden Schweizer Versicherungen und eine attraktive und zukunftsorientierte Arbeitgeberin. Ganz im Sinne ihrer genossenschaftlichen Identität und ihrer Werte schafft die Vaudoise ein gesundes, inklusives und inspirierendes Arbeitsumfeld, in dem Sie sich weiterentwickeln können. In unserer Generalagentur in Zürich leben wir täglich die Werte von Nähe, Proaktivität, Menschlichkeit und Vertrauenswürdigkeit. Wir verstehen uns nicht nur als Versicherungsanbieter, sondern vielmehr als Partner unserer Kundinnen und Kunden auf ihrem Weg zu finanzieller Sicherheit und Wohlbefinden. Um diesem Anspruch gerecht zu werden, suchen wir nach einem/einer Mitarbeiter/in im Kundensupport, der/die diese Werte lebt und unsere Kundinnen und Kunden mit Engagement und Herzlichkeit unterstützt. Folgende spannende Aufgaben warten auf Sie:\n• Unterstützung unserer Mitarbeiter im Kundensupport\n• Vorbereiten von Offerten in den Nicht-Leben-Branchen im Privatkundengeschäft\n• Bearbeitung von Schadenfällen\n• Erledigung der anfallenden Korrespondenz\n• Bedienung des Versicherungspartners und dessen Kunden am Telefon Das zeichnet Sie aus:\n• Abgeschlossene Ausbildung in der Versicherungsbranche mit Erfahrung im kaufmännischen Bereich\n• Gute Kenntnisse über den Versicherungsagenturkanal von Vorteil\n• Stilsicheres Deutsch in Wort und Schrift\n• Verkaufs- und kundenorientiert\n• Selbstständiges Arbeiten und Flexibilität\n• Kommunikative und offene Persönlichkeit Wenn Sie darüber hinaus eine dynamische Persönlichkeit sind, die auch in hektischen Zeiten die Ruhe bewahrt, belastbar ist und sich nicht scheut, eigenständig Entscheidungen zu treffen, dann passen Sie perfekt in unser Team! Wir suchen jemanden der nicht nur mitdenkt, sondern auch proaktiv handelt und sich flexibel auf wechselnde Anforderungen einstellen kann. Im Gegenzug bieten wir Ihnen:\n• Ein angenehmes Arbeitsumfeld in einem genossenschaftlich geprägten Unternehmen, das mehrfach zum besten Arbeitgeber gewählt wurde\n• Zahlreiche Sozialleistungen, darunter Flexibilität bei der Arbeitsorganisation und diverse Mitarbeiterrabatte\n• Ein dynamisches Team\n• Das Wohlbefinden der Mitarbeitenden als erste Priorität Wir freuen uns auf Ihre vollständigen Bewerbungsunterlagen auf elektronischem Weg (mit Lebenslauf, Motivationsschreiben, Kopie der Arbeitszeugnisse und Diplome)."
       },
       "location": "Zürich",
@@ -3261,7 +3271,7 @@
       "url": "https://vaudoise.softgarden.io/job/67822787/Mitarbeiter-in-Kundensupport-m-w-d-80-?jobDbPVId=286427307&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:27.271Z",
+      "crawledAt": "2026-10-03T09:10:36.902Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -3288,7 +3298,7 @@
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:17:27.271Z",
+      "firstSeenAt": "2026-10-03T09:10:36.902Z",
       "salaryMin": 58800,
       "salaryMax": 89200,
       "salarySource": "estimated",
@@ -3335,7 +3345,7 @@
       "url": "https://vaudoise.softgarden.io/job/67087090/Apprenti-employ%C3%A9-de-commerce-en-assurances-priv%C3%A9es-h-f-x-pour-notre-Agence-de-la-Broye-%C3%A0-Payerne?jobDbPVId=286467585&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:27.015Z",
+      "crawledAt": "2026-10-03T09:10:36.624Z",
       "addressLocality": "Payerne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3352,11 +3362,13 @@
       "requirementsByLocale": {},
       "jobCategory": "Assicurazioni Direzione",
       "previousSlugs": [
-        "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-pour-notre-agence-de-la-broye-a"
+        "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-pour-notre-agence-de-la-broye-a",
+        "apprenti-dipendente-privato-di-assicurazione-m-f-x-per-la-nostra-agenzia-broye-a-payerne-vaudoise-assurances-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-pour-notre-agence-de-la-broye-a"
+          "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-pour-notre-agence-de-la-broye-a",
+          "apprenti-dipendente-privato-di-assicurazione-m-f-x-per-la-nostra-agenzia-broye-a-payerne-vaudoise-assurances-payerne"
         ],
         "en": [
           "apprenti-employe-de-commerce-en-assurances-privees-h-f-x-pour-notre-agence-de-la-broye-a"
@@ -3396,7 +3408,7 @@
       "title": "Business Analyst Atlassian (h/f/x) 80-100%",
       "titleByLocale": {
         "it": "Business Analista Atlassian (h/f/x) 80-100%",
-        "en": "Business Analyst Atlassian (m/f/x) 80-100%",
+        "en": "Business Analyst Atlassian (h/f/x) 80-100%",
         "de": "Business Analyst Atlassian (m/w/x) 80-100%",
         "fr": "Business Analyste Atlassian (h/f/x) 80-100%"
       },
@@ -3412,7 +3424,7 @@
       "url": "https://vaudoise.softgarden.io/job/64652474/Business-Analyst-Atlassian-h-f-x-80-100-?jobDbPVId=286467625&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:26.724Z",
+      "crawledAt": "2026-10-03T09:10:36.326Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3430,12 +3442,14 @@
       "jobCategory": "Informatica e tecnologia",
       "previousSlugs": [
         "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
-        "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne"
+        "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne",
+        "business-analista-atlassian-h-f-x-80-100-vaudoise-assurances-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-atlassian-h-f-x-80-100-vaudoise-ch",
-          "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne"
+          "business-analista-h-f-x-80-100-vaudoise-assurances-lausanne",
+          "business-analista-atlassian-h-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "firstSeenAt": "2026-07-31T22:21:23.991Z",
@@ -3452,14 +3466,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-8e1318b96440",
-      "slug": "universita-intern-hes-proprietario-del-prodotto-m-f-x-80-100-vaudoise-assurances-lausanne",
+      "slug": "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
       "slugByLocale": {
         "fr": "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
-        "it": "universita-intern-hes-proprietario-del-prodotto-m-f-x-80-100-vaudoise-assurances-lausanne",
+        "it": "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
         "en": "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
         "de": "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch"
       },
@@ -3469,23 +3484,23 @@
       "title": "Stagiaire universitaire/HES Product Owner (h/f/x) – 80-100%",
       "titleByLocale": {
         "fr": "Stagiaire universitaire/HES Product Owner (h/f/x) – 80-100%",
-        "en": "University Intern/HES Product Owner (m/f/x) – 80-100%",
-        "it": "Università Intern/HES Proprietario del prodotto (m/f/x) – 80-100%",
-        "de": "University Intern/HES Product Owner (m/w/x) – 80-100%"
+        "en": "Stagiaire universitaire/HES Product Owner (h/f/x) – 80-100%",
+        "it": "Stagiaire universitaire/HES Product Owner (h/f/x) – 80-100%",
+        "de": "Stagiaire universitaire/HES Product Owner (h/f/x) – 80-100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Division Marketing et Expérience client, nous recherchons un-e stagiaire universitaire/HES en cours de Bachelor ou Master, pour une durée de 6 mois dès février 2027. Vous rejoindrez l'équipe Product Owners et contribuerez à des initiatives stratégiques au cœur de la transformation de l'expérience client de la Vaudoise. Aux côtés de Product Owners expérimentés, vous participerez à l'évolution de produits et services digitaux liés notamment au CRM, aux parcours clients, aux communications digitales, à la data, à l'intelligence artificielle et à l'expérience omnicanale. Les missions qui vous attendent :\n• Accompagner un Product Owner dans le suivi de ses activités, la préparation de ses sujets et la coordination des prochaines étapes\n• Recueillir, analyser et structurer les besoins des utilisateurs et des parties prenantes\n• Participer à l'analyse des parcours clients et à l'identification d'opportunités créatrices de valeur\n• Contribuer à la gestion du backlog produit, à la formalisation des besoins et à la rédaction de user stories\n• Préparer des ateliers, des supports de décision, des présentations et des recommandations\n• Participer aux réflexions liées à la stratégie produit, à la priorisation des initiatives et à l'élaboration des feuilles de route\n• Soutenir l'équipe Product Owners dans ses activités transverses et ses démarches d'amélioration continue Ce que vous allez développer : PRODUCT MANAGEMENT De la vision au pilotage AGILE Backlog et user stories EXPÉRIENCE CLIENT Besoins et parcours TRANSFORMATION DIGITALE CRM, data et IA Votre profil :\n• Vous êtes actuellement en Bachelor ou Master (université ou HES) en management, systèmes d'information, économie, marketing, digital, data ou dans un domaine équivalent\n• Vous disposez d'excellentes capacités d'analyse, de synthèse et de structuration\n• Vous êtes à l'aise avec les outils bureautiques et collaboratifs tels qu'Excel, PowerPoint, Teams ou Confluence\n• Vous êtes capable de formaliser clairement un besoin et de produire une documentation simple, structurée et exploitable\n• Vous vous intéressez aux produits digitaux, à l'expérience client et aux nouvelles technologies\n• Une première connaissance des approches Agile, du Product Management, de l'UX ou de la Business Analysis constitue un atout\n• Un intérêt pour le CRM, la data, l'intelligence artificielle ou la transformation digitale constitue également un atout\n• Vous disposez d'une excellente maîtrise du français et d'un bon niveau professionnel en anglais Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• L'opportunité de découvrir le métier de Product Owner au sein d'une équipe expérimentée\n• Une expérience professionnelle variée et enrichissante sur des sujets stratégiques et innovants\n• La possibilité de développer vos compétences et votre réseau professionnel au sein de la Vaudoise\n• Selon les opportunités disponibles, une possibilité de poursuivre votre parcours professionnel au sein de notre entreprise L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
       "descriptionByLocale": {
         "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Division Marketing et Expérience client, nous recherchons un-e stagiaire universitaire/HES en cours de Bachelor ou Master, pour une durée de 6 mois dès février 2027. Vous rejoindrez l'équipe Product Owners et contribuerez à des initiatives stratégiques au cœur de la transformation de l'expérience client de la Vaudoise. Aux côtés de Product Owners expérimentés, vous participerez à l'évolution de produits et services digitaux liés notamment au CRM, aux parcours clients, aux communications digitales, à la data, à l'intelligence artificielle et à l'expérience omnicanale. Les missions qui vous attendent :\n• Accompagner un Product Owner dans le suivi de ses activités, la préparation de ses sujets et la coordination des prochaines étapes\n• Recueillir, analyser et structurer les besoins des utilisateurs et des parties prenantes\n• Participer à l'analyse des parcours clients et à l'identification d'opportunités créatrices de valeur\n• Contribuer à la gestion du backlog produit, à la formalisation des besoins et à la rédaction de user stories\n• Préparer des ateliers, des supports de décision, des présentations et des recommandations\n• Participer aux réflexions liées à la stratégie produit, à la priorisation des initiatives et à l'élaboration des feuilles de route\n• Soutenir l'équipe Product Owners dans ses activités transverses et ses démarches d'amélioration continue Ce que vous allez développer : PRODUCT MANAGEMENT De la vision au pilotage AGILE Backlog et user stories EXPÉRIENCE CLIENT Besoins et parcours TRANSFORMATION DIGITALE CRM, data et IA Votre profil :\n• Vous êtes actuellement en Bachelor ou Master (université ou HES) en management, systèmes d'information, économie, marketing, digital, data ou dans un domaine équivalent\n• Vous disposez d'excellentes capacités d'analyse, de synthèse et de structuration\n• Vous êtes à l'aise avec les outils bureautiques et collaboratifs tels qu'Excel, PowerPoint, Teams ou Confluence\n• Vous êtes capable de formaliser clairement un besoin et de produire une documentation simple, structurée et exploitable\n• Vous vous intéressez aux produits digitaux, à l'expérience client et aux nouvelles technologies\n• Une première connaissance des approches Agile, du Product Management, de l'UX ou de la Business Analysis constitue un atout\n• Un intérêt pour le CRM, la data, l'intelligence artificielle ou la transformation digitale constitue également un atout\n• Vous disposez d'une excellente maîtrise du français et d'un bon niveau professionnel en anglais Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• L'opportunité de découvrir le métier de Product Owner au sein d'une équipe expérimentée\n• Une expérience professionnelle variée et enrichissante sur des sujets stratégiques et innovants\n• La possibilité de développer vos compétences et votre réseau professionnel au sein de la Vaudoise\n• Selon les opportunités disponibles, une possibilité de poursuivre votre parcours professionnel au sein de notre entreprise L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Attivo nella formazione professionale, promuove lo sviluppo di giovani talenti, con ogni anno più di 120 studenti formati nei nostri dipartimenti. Al fine di rafforzare il nostro Marketing e Customer Experience Division, siamo alla ricerca di uno stage universitario/HES che attualmente studia Bachelor o Master, per un periodo di 6 mesi a partire dal febbraio 2027. Ti unirai al team Product Owners e contribuirai a iniziative strategiche nel cuore della trasformazione della customer experience di Vaudoise. Insieme a proprietari di prodotti esperti, parteciperai all'evoluzione dei prodotti e dei servizi digitali relativi a CRM, ai viaggi dei clienti, alle comunicazioni digitali, ai dati, all'intelligenza artificiale e all'esperienza omnicanale. Le missioni che vi aspettano:\n• Sostenere un Product Owner nel monitorare le proprie attività, preparare i propri argomenti e coordinare i prossimi passi\n• Raccogliere, analizzare e strutturare le esigenze degli utenti e degli stakeholder\n• Partecipazione all'analisi dei viaggi dei clienti e all'individuazione delle opportunità di creazione di valore\n• Contribuisci alla gestione del backlog del prodotto, alla formalizzazione delle esigenze e delle storie degli utenti\n• Preparare workshop, materiali decisionali, presentazioni e raccomandazioni\n• Partecipazione alla strategia di prodotto, priorità di iniziativa e sviluppo roadmap\n• Sostenere il team dei Proprietari del Prodotto nelle sue attività di taglio incrociato e nei continui sforzi di miglioramento Cosa svilupperai: GESTIONE DEI PRODOTTI Da Visione a Pilotage AGILE Backlog e storie utente Requisiti di ESPERIENZA DOGANALI e Route DIGITAL PROCESSING CRM, dati e IA Il tuo profilo:\n• Sei attualmente in Bachelor o Master (università o HES) in gestione, sistemi informativi, economia, marketing, digitale, dati o campo equivalente\n• Hai eccellenti capacità di analisi, sintesi e strutturazione\n• Sei a tuo agio con l'automazione degli uffici e strumenti collaborativi come Excel, PowerPoint, Team o Confluenza\n• Siete in grado di formalizzare chiaramente un bisogno e produrre documentazione semplice, strutturata e utilizzabile\n• Sei interessato a prodotti digitali, customer experience e nuove tecnologie\n• Conoscenza iniziale degli approcci Agile, Gestione dei prodotti, UX o Analisi aziendale è un bene\n• Un interesse per CRM, dati, intelligenza artificiale o trasformazione digitale è anche un bene\n• Hai un ottimo comando del francese e un buon livello professionale in inglese Vi offriamo:\n• Un ambiente di lavoro sano in una società cooperativa certificata \"Great Place to Work\"\n• L'opportunità di scoprire il commercio di Product Owner in un team esperto\n• Un'esperienza di lavoro diversificata e arricchita su temi strategici e innovativi\n• L'opportunità di sviluppare le tue competenze e la tua rete professionale all'interno del Vaudoise\n• A seconda delle opportunità disponibili, l'opportunità di continuare la tua carriera professionale all'interno della nostra azienda Il team HR non vede l'ora di ricevere il pacchetto completo delle applicazioni (CV, lettera di copertura e 3 trascrizioni finali).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. Active in vocational training, it promotes the development of young talent, with every year more than 120 learners trained in our departments. In order to strengthen our Marketing and Customer Experience Division, we are looking for a university/HES intern who is currently studying Bachelor or Master, for a period of 6 months as of February 2027. You will join the Product Owners team and contribute to strategic initiatives at the heart of the transformation of Vaudoise's customer experience. Along with experienced Product Owners, you will participate in the evolution of digital products and services related to CRM, customer journeys, digital communications, data, artificial intelligence and omnichannel experience. The missions that await you:\n• Support a Product Owner in monitoring its activities, preparing its topics and coordinating next steps\n• Collect, analyse and structure user and stakeholder needs\n• Participate in the analysis of customer journeys and the identification of value-creating opportunities\n• Contribute to product backlog management, formalization of needs and user stories\n• Prepare workshops, decision-making materials, presentations and recommendations\n• Participate in product strategy, initiative prioritization and roadmap development\n• Support the Product Owners team in its cross-cutting activities and continuous improvement efforts What you will develop: PRODUCT MANAGEMENT From Vision to Pilotage AGILE Backlog and user stories CUSTOMER EXPERIENCE Requirements and Route DIGITAL PROCESSING CRM, data and IA Your profile:\n• You are currently in Bachelor or Master (university or HES) in management, information systems, economics, marketing, digital, data or equivalent field\n• You have excellent analytical, synthesis and structuring capabilities\n• You are comfortable with office automation and collaborative tools such as Excel, PowerPoint, Teams or Confluence\n• You are able to clearly formalize a need and produce simple, structured and usable documentation\n• You are interested in digital products, customer experience and new technologies\n• Initial knowledge of Agile approaches, Product Management, UX or Business Analysis is an asset\n• An interest in CRM, data, artificial intelligence or digital transformation is also an asset\n• You have excellent command of French and a good professional level in English We offer you :\n• A healthy working environment in a cooperative company certified \"Great Place to Work\"\n• The opportunity to discover the trade of Product Owner in an experienced team\n• A varied and enriching work experience on strategic and innovative topics\n• The opportunity to develop your skills and professional network within the Vaudoise\n• Depending on the opportunities available, an opportunity to continue your professional career within our company The HR team is looking forward to receiving your complete application package (CV, cover letter and 3 final transcripts).",
-        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Aktiv in der beruflichen Bildung fördert sie die Entwicklung junger Talente, wobei jedes Jahr mehr als 120 Lernende in unseren Abteilungen ausgebildet werden. Um unseren Bereich Marketing und Customer Experience zu stärken, suchen wir einen Hochschul-/HES-Praktikanten, der derzeit Bachelor oder Master studiert, für einen Zeitraum von 6 Monaten ab Februar 2027. Sie treten dem Product Owners-Team bei und tragen zu strategischen Initiativen bei, die im Mittelpunkt der Transformation der Kundenerfahrung von Vaudoise stehen. Zusammen mit erfahrenen Product Ownern werden Sie an der Entwicklung digitaler Produkte und Dienstleistungen im Zusammenhang mit CRM, Customer Journeys, digitaler Kommunikation, Daten, künstlicher Intelligenz und Omnichannel-Erfahrung teilnehmen. Die Missionen, die euch erwarten:\n• Unterstützung eines Product Owners bei der Überwachung seiner Aktivitäten, der Vorbereitung seiner Themen und der Koordination der nächsten Schritte\n• Sammlung, Analyse und Strukturierung der Nutzer- und Stakeholderbedürfnisse\n• Beteiligen Sie sich an der Analyse von Customer Journeys und der Identifizierung von Wertschöpfungsmöglichkeiten\n• Beitrag zum Product Backlog Management, zur Formalisierung von Bedürfnissen und User Stories\n• Bereiten Sie Workshops, Entscheidungsunterlagen, Präsentationen und Empfehlungen vor\n• Teilnahme an Produktstrategie, Initiativpriorisierung und Roadmap-Entwicklung\n• Unterstützen Sie das Product Owners Team bei seinen Querschnittsaktivitäten und kontinuierlichen Verbesserungsbemühungen Was Sie entwickeln werden: PRODUKTMANAGEMENT From Vision to Pilotage AGILE Backlog und User Stories CUSTOMER EXPERIENCE Requirements and Route DIGITAL PROCESSING CRM, Daten und IA Ihr Profil:\n• Sie sind derzeit in Bachelor oder Master (Universität oder HES) in Management, Informationssysteme, Wirtschaft, Marketing, Digital, Daten oder gleichwertigen Bereich\n• Sie verfügen über hervorragende analytische, Synthese- und Strukturierungsfähigkeiten\n• Sie sind mit Büroautomation und kollaborativen Tools wie Excel, PowerPoint, Teams oder Confluence vertraut\n• Sie sind in der Lage, einen Bedarf klar zu formalisieren und eine einfache, strukturierte und nutzbare Dokumentation zu erstellen\n• Sie interessieren sich für digitale Produkte, Customer Experience und neue Technologien\n• Erste Kenntnisse in agilen Ansätzen, Produktmanagement, UX oder Business Analysis sind ein Asset\n• Ein Interesse an CRM, Daten, künstlicher Intelligenz oder digitaler Transformation ist ebenfalls ein Vorteil\n• Sie haben ausgezeichnete Französischkenntnisse und ein gutes professionelles Niveau in Englisch Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem genossenschaftlichen Unternehmen zertifiziert \"Great Place to Work\"\n• Die Möglichkeit, den Handel des Product Owners in einem erfahrenen Team zu entdecken\n• Eine abwechslungsreiche und bereichernde Arbeitserfahrung zu strategischen und innovativen Themen\n• Die Möglichkeit, Ihre Fähigkeiten und Ihr professionelles Netzwerk innerhalb der Vaudoise zu entwickeln\n• Abhängig von den verfügbaren Möglichkeiten, eine Möglichkeit, Ihre berufliche Karriere in unserem Unternehmen fortzusetzen Das HR-Team freut sich auf Ihr komplettes Bewerbungspaket (Lebenslauf, Anschreiben und 3 abschließende Transkripte)."
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Division Marketing et Expérience client, nous recherchons un-e stagiaire universitaire/HES en cours de Bachelor ou Master, pour une durée de 6 mois dès février 2027. Vous rejoindrez l'équipe Product Owners et contribuerez à des initiatives stratégiques au cœur de la transformation de l'expérience client de la Vaudoise. Aux côtés de Product Owners expérimentés, vous participerez à l'évolution de produits et services digitaux liés notamment au CRM, aux parcours clients, aux communications digitales, à la data, à l'intelligence artificielle et à l'expérience omnicanale. Les missions qui vous attendent :\n• Accompagner un Product Owner dans le suivi de ses activités, la préparation de ses sujets et la coordination des prochaines étapes\n• Recueillir, analyser et structurer les besoins des utilisateurs et des parties prenantes\n• Participer à l'analyse des parcours clients et à l'identification d'opportunités créatrices de valeur\n• Contribuer à la gestion du backlog produit, à la formalisation des besoins et à la rédaction de user stories\n• Préparer des ateliers, des supports de décision, des présentations et des recommandations\n• Participer aux réflexions liées à la stratégie produit, à la priorisation des initiatives et à l'élaboration des feuilles de route\n• Soutenir l'équipe Product Owners dans ses activités transverses et ses démarches d'amélioration continue Ce que vous allez développer : PRODUCT MANAGEMENT De la vision au pilotage AGILE Backlog et user stories EXPÉRIENCE CLIENT Besoins et parcours TRANSFORMATION DIGITALE CRM, data et IA Votre profil :\n• Vous êtes actuellement en Bachelor ou Master (université ou HES) en management, systèmes d'information, économie, marketing, digital, data ou dans un domaine équivalent\n• Vous disposez d'excellentes capacités d'analyse, de synthèse et de structuration\n• Vous êtes à l'aise avec les outils bureautiques et collaboratifs tels qu'Excel, PowerPoint, Teams ou Confluence\n• Vous êtes capable de formaliser clairement un besoin et de produire une documentation simple, structurée et exploitable\n• Vous vous intéressez aux produits digitaux, à l'expérience client et aux nouvelles technologies\n• Une première connaissance des approches Agile, du Product Management, de l'UX ou de la Business Analysis constitue un atout\n• Un intérêt pour le CRM, la data, l'intelligence artificielle ou la transformation digitale constitue également un atout\n• Vous disposez d'une excellente maîtrise du français et d'un bon niveau professionnel en anglais Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• L'opportunité de découvrir le métier de Product Owner au sein d'une équipe expérimentée\n• Une expérience professionnelle variée et enrichissante sur des sujets stratégiques et innovants\n• La possibilité de développer vos compétences et votre réseau professionnel au sein de la Vaudoise\n• Selon les opportunités disponibles, une possibilité de poursuivre votre parcours professionnel au sein de notre entreprise L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Division Marketing et Expérience client, nous recherchons un-e stagiaire universitaire/HES en cours de Bachelor ou Master, pour une durée de 6 mois dès février 2027. Vous rejoindrez l'équipe Product Owners et contribuerez à des initiatives stratégiques au cœur de la transformation de l'expérience client de la Vaudoise. Aux côtés de Product Owners expérimentés, vous participerez à l'évolution de produits et services digitaux liés notamment au CRM, aux parcours clients, aux communications digitales, à la data, à l'intelligence artificielle et à l'expérience omnicanale. Les missions qui vous attendent :\n• Accompagner un Product Owner dans le suivi de ses activités, la préparation de ses sujets et la coordination des prochaines étapes\n• Recueillir, analyser et structurer les besoins des utilisateurs et des parties prenantes\n• Participer à l'analyse des parcours clients et à l'identification d'opportunités créatrices de valeur\n• Contribuer à la gestion du backlog produit, à la formalisation des besoins et à la rédaction de user stories\n• Préparer des ateliers, des supports de décision, des présentations et des recommandations\n• Participer aux réflexions liées à la stratégie produit, à la priorisation des initiatives et à l'élaboration des feuilles de route\n• Soutenir l'équipe Product Owners dans ses activités transverses et ses démarches d'amélioration continue Ce que vous allez développer : PRODUCT MANAGEMENT De la vision au pilotage AGILE Backlog et user stories EXPÉRIENCE CLIENT Besoins et parcours TRANSFORMATION DIGITALE CRM, data et IA Votre profil :\n• Vous êtes actuellement en Bachelor ou Master (université ou HES) en management, systèmes d'information, économie, marketing, digital, data ou dans un domaine équivalent\n• Vous disposez d'excellentes capacités d'analyse, de synthèse et de structuration\n• Vous êtes à l'aise avec les outils bureautiques et collaboratifs tels qu'Excel, PowerPoint, Teams ou Confluence\n• Vous êtes capable de formaliser clairement un besoin et de produire une documentation simple, structurée et exploitable\n• Vous vous intéressez aux produits digitaux, à l'expérience client et aux nouvelles technologies\n• Une première connaissance des approches Agile, du Product Management, de l'UX ou de la Business Analysis constitue un atout\n• Un intérêt pour le CRM, la data, l'intelligence artificielle ou la transformation digitale constitue également un atout\n• Vous disposez d'une excellente maîtrise du français et d'un bon niveau professionnel en anglais Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• L'opportunité de découvrir le métier de Product Owner au sein d'une équipe expérimentée\n• Une expérience professionnelle variée et enrichissante sur des sujets stratégiques et innovants\n• La possibilité de développer vos compétences et votre réseau professionnel au sein de la Vaudoise\n• Selon les opportunités disponibles, une possibilité de poursuivre votre parcours professionnel au sein de notre entreprise L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Division Marketing et Expérience client, nous recherchons un-e stagiaire universitaire/HES en cours de Bachelor ou Master, pour une durée de 6 mois dès février 2027. Vous rejoindrez l'équipe Product Owners et contribuerez à des initiatives stratégiques au cœur de la transformation de l'expérience client de la Vaudoise. Aux côtés de Product Owners expérimentés, vous participerez à l'évolution de produits et services digitaux liés notamment au CRM, aux parcours clients, aux communications digitales, à la data, à l'intelligence artificielle et à l'expérience omnicanale. Les missions qui vous attendent :\n• Accompagner un Product Owner dans le suivi de ses activités, la préparation de ses sujets et la coordination des prochaines étapes\n• Recueillir, analyser et structurer les besoins des utilisateurs et des parties prenantes\n• Participer à l'analyse des parcours clients et à l'identification d'opportunités créatrices de valeur\n• Contribuer à la gestion du backlog produit, à la formalisation des besoins et à la rédaction de user stories\n• Préparer des ateliers, des supports de décision, des présentations et des recommandations\n• Participer aux réflexions liées à la stratégie produit, à la priorisation des initiatives et à l'élaboration des feuilles de route\n• Soutenir l'équipe Product Owners dans ses activités transverses et ses démarches d'amélioration continue Ce que vous allez développer : PRODUCT MANAGEMENT De la vision au pilotage AGILE Backlog et user stories EXPÉRIENCE CLIENT Besoins et parcours TRANSFORMATION DIGITALE CRM, data et IA Votre profil :\n• Vous êtes actuellement en Bachelor ou Master (université ou HES) en management, systèmes d'information, économie, marketing, digital, data ou dans un domaine équivalent\n• Vous disposez d'excellentes capacités d'analyse, de synthèse et de structuration\n• Vous êtes à l'aise avec les outils bureautiques et collaboratifs tels qu'Excel, PowerPoint, Teams ou Confluence\n• Vous êtes capable de formaliser clairement un besoin et de produire une documentation simple, structurée et exploitable\n• Vous vous intéressez aux produits digitaux, à l'expérience client et aux nouvelles technologies\n• Une première connaissance des approches Agile, du Product Management, de l'UX ou de la Business Analysis constitue un atout\n• Un intérêt pour le CRM, la data, l'intelligence artificielle ou la transformation digitale constitue également un atout\n• Vous disposez d'une excellente maîtrise du français et d'un bon niveau professionnel en anglais Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• L'opportunité de découvrir le métier de Product Owner au sein d'une équipe expérimentée\n• Une expérience professionnelle variée et enrichissante sur des sujets stratégiques et innovants\n• La possibilité de développer vos compétences et votre réseau professionnel au sein de la Vaudoise\n• Selon les opportunités disponibles, une possibilité de poursuivre votre parcours professionnel au sein de notre entreprise L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes)."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://vaudoise.softgarden.io/job/67835982/Stagiaire-universitaire-HES-Product-Owner-h-f-x-%E2%80%93-80-100-?jobDbPVId=286519212&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:26.466Z",
+      "crawledAt": "2026-10-03T09:10:36.036Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3517,24 +3532,27 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-02T21:17:26.466Z",
+      "firstSeenAt": "2026-10-03T09:10:36.036Z",
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch"
+          "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
+          "universita-intern-hes-proprietario-del-prodotto-m-f-x-80-100-vaudoise-assurances-lausanne"
         ]
       },
       "previousSlugs": [
-        "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch"
-      ]
+        "stagiaire-universitaire-hes-product-owner-h-f-x-80-100-vaudoise-ch",
+        "universita-intern-hes-proprietario-del-prodotto-m-f-x-80-100-vaudoise-assurances-lausanne"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-eb3568837b2e",
-      "slug": "apprendista-universitario-hes-in-sponsorizzazione-ed-eventi-m-f-x-100-vaudoise-assurances-lausanne",
+      "slug": "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
       "slugByLocale": {
         "fr": "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
-        "it": "apprendista-universitario-hes-in-sponsorizzazione-ed-eventi-m-f-x-100-vaudoise-assurances-lausanne",
-        "en": "university-trainee-hes-in-sponsoring-and-events-m-f-x-100-vaudoise-assurances-lausanne",
-        "de": "universitats-trainee-hes-in-sponsoring-und-events-m-w-x-100-vaudoise-assurances-lausanne"
+        "it": "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+        "en": "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+        "de": "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch"
       },
       "company": "Vaudoise Assurances",
       "companyKey": "vaudoise",
@@ -3542,23 +3560,23 @@
       "title": "Stagiaire universitaire/HES en Sponsoring et Evénements (h/f/x) –100%",
       "titleByLocale": {
         "fr": "Stagiaire universitaire/HES en Sponsoring et Evénements (h/f/x) –100%",
-        "it": "Apprendista universitario/HES in Sponsorizzazione ed Eventi (m/f/x) –100%",
-        "en": "University trainee/HES in Sponsoring and Events (m/f/x) –100%",
-        "de": "Universitäts-Trainee/HES in Sponsoring und Events (m/w/x) -100%"
+        "it": "Stagiaire universitaire/HES en Sponsoring et Evénements (h/f/x) –100%",
+        "en": "Stagiaire universitaire/HES en Sponsoring et Evénements (h/f/x) –100%",
+        "de": "Stagiaire universitaire/HES en Sponsoring et Evénements (h/f/x) –100%"
       },
       "description": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Département Brand Management, nous recherchons un/e stagiaire en cours de Bachelor ou Master pour une durée d’environ 6 mois dès février 2027 à Lausanne. Les missions qui vous attendent :\n• Apporter un soutien à la mise en place des activités de communication événementielle sur l’ensemble du territoire suisse\n• Assurer la coordination avec le Réseau de Vente et les partenaires internes dans le cadre des invitations clients\n• Être présent/e, veiller au bon déroulement, contrôler et suivre les opérations sur le terrain\n• Planifier et organiser les séances\n• Coordonner les activités avec les différents partenaires internes et externes\n• Répondre aux diverses demandes de soutien reçues par Brand Management\n• Respecter, tenir les délais et participer à l’évaluation des résultats de chaque activité Votre profil :\n• Vous êtes en cours de cursus académique (universitaire ou Haute école)\n• Vous avez de bonnes connaissances des outils bureautiques et de la suite Office\n• Vous êtes capable de travailler dans un environnement dynamique et exigeant\n• Vous avez des connaissances en gestion de projet\n• De langue maternelle française, vous avez de bonnes connaissances d'allemand (min. B2)\n• Créatif/ve et orienté/e solution, vous êtes fiable et dôté/e d’un sens de l’initiative\n• Vous avez des capacités relationnelles et êtes capable de travailler en équipe Vous êtes également à l’écoute, disponible et positif/ve. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• Une expérience professionnelle variée et enrichissante\n• Une éventuelle opportunité de replacement en fin de stage/formation L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
       "descriptionByLocale": {
         "fr": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Département Brand Management, nous recherchons un/e stagiaire en cours de Bachelor ou Master pour une durée d’environ 6 mois dès février 2027 à Lausanne. Les missions qui vous attendent :\n• Apporter un soutien à la mise en place des activités de communication événementielle sur l’ensemble du territoire suisse\n• Assurer la coordination avec le Réseau de Vente et les partenaires internes dans le cadre des invitations clients\n• Être présent/e, veiller au bon déroulement, contrôler et suivre les opérations sur le terrain\n• Planifier et organiser les séances\n• Coordonner les activités avec les différents partenaires internes et externes\n• Répondre aux diverses demandes de soutien reçues par Brand Management\n• Respecter, tenir les délais et participer à l’évaluation des résultats de chaque activité Votre profil :\n• Vous êtes en cours de cursus académique (universitaire ou Haute école)\n• Vous avez de bonnes connaissances des outils bureautiques et de la suite Office\n• Vous êtes capable de travailler dans un environnement dynamique et exigeant\n• Vous avez des connaissances en gestion de projet\n• De langue maternelle française, vous avez de bonnes connaissances d'allemand (min. B2)\n• Créatif/ve et orienté/e solution, vous êtes fiable et dôté/e d’un sens de l’initiative\n• Vous avez des capacités relationnelles et êtes capable de travailler en équipe Vous êtes également à l’écoute, disponible et positif/ve. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• Une expérience professionnelle variée et enrichissante\n• Une éventuelle opportunité de replacement en fin de stage/formation L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
-        "it": "Un datore di lavoro forte e preesistente, Vaudoise è uno dei principali assicuratori in Svizzera. Attivo nella formazione professionale, promuove lo sviluppo di giovani talenti, con ogni anno più di 120 studenti formati nei nostri dipartimenti. Al fine di rafforzare il nostro Brand Management Department, siamo alla ricerca di un Bachelor attuale o Master stagista per una durata di circa 6 mesi dal febbraio 2027 a Losanna. Le missioni che vi aspettano:\n• Sostenere la creazione di attività di comunicazione degli eventi in tutta la Svizzera\n• Assicurare il coordinamento con la rete di vendita e i partner interni nell'ambito degli inviti al cliente\n• Per essere presenti, per garantire una corretta condotta, per monitorare e monitorare le operazioni sul campo\n• Pianificazione e organizzazione di incontri\n• Coordinare le attività con i vari partner interni ed esterni\n• Rispondere a varie richieste di supporto ricevute da Brand Management\n• Incontrare, rispettare le scadenze e partecipare alla valutazione dei risultati di ogni attività Il tuo profilo:\n• Siete in corso accademico (università o liceo)\n• Hai una buona conoscenza degli strumenti di automazione degli uffici e della suite Office\n• Sei in grado di lavorare in un ambiente dinamico ed esigente\n• Hai conoscenza nella gestione dei progetti\n• In francese, hai una buona conoscenza del tedesco (min. B2)\n• Soluzione creativa e orientata, sei affidabile e rimosso da un senso di iniziativa\n• Hai capacità di relazione e sono in grado di lavorare come squadra Si sta anche ascoltando, disponibile e positivo/ve. Vi offriamo:\n• Un ambiente di lavoro sano in una società cooperativa certificata \"Great Place to Work\"\n• Un'esperienza di lavoro varia e gratificante\n• Una possibile opportunità di collocamento alla fine dello stage/training Il team HR non vede l'ora di ricevere il pacchetto completo delle applicazioni (CV, lettera di copertura e 3 trascrizioni finali).",
-        "en": "A strong and forward-looking employer, Vaudoise is one of the leading insurers in Switzerland. Active in vocational training, it promotes the development of young talent, with every year more than 120 learners trained in our departments. In order to strengthen our Brand Management Department, we are looking for a current Bachelor or Master's intern for a duration of around 6 months from February 2027 in Lausanne. The missions that await you:\n• Support the establishment of event communication activities throughout Switzerland\n• Ensure coordination with the Sales Network and internal partners as part of customer invitations\n• To be present, to ensure proper conduct, to monitor and monitor field operations\n• Planning and organizing meetings\n• Coordinate activities with the various internal and external partners\n• Respond to various requests for support received by Brand Management\n• Meet, meet deadlines and participate in the evaluation of the results of each activity Your profile:\n• You are in academic course (university or high school)\n• You have good knowledge of office automation tools and the Office suite\n• You are able to work in a dynamic and demanding environment\n• You have knowledge in project management\n• In French, you have good knowledge of German (min. B2)\n• Creative and oriented solution, you are reliable and removed from a sense of initiative\n• You have relationship skills and are able to work as a team You are also listening, available and positive/ve. We offer you :\n• A healthy working environment in a cooperative company certified \"Great Place to Work\"\n• A varied and rewarding work experience\n• A possible opportunity for placement at the end of the internship/training The HR team is looking forward to receiving your complete application package (CV, cover letter and 3 final transcripts).",
-        "de": "Als starker und vorausschauender Arbeitgeber ist Vaudoise einer der führenden Versicherer in der Schweiz. Aktiv in der beruflichen Bildung fördert sie die Entwicklung junger Talente, wobei jedes Jahr mehr als 120 Lernende in unseren Abteilungen ausgebildet werden. Um unser Brand Management zu stärken, suchen wir ab Februar 2027 einen aktuellen Bachelor- oder Masterpraktikanten für eine Dauer von rund 6 Monaten in Lausanne. Die Missionen, die euch erwarten:\n• Unterstützung beim Aufbau von Event-Kommunikationsaktivitäten in der ganzen Schweiz\n• Gewährleistung der Koordination mit dem Vertriebsnetz und internen Partnern im Rahmen von Kundeneinladungen\n• Um anwesend zu sein, um eine ordnungsgemäße Durchführung zu gewährleisten, um den Betrieb vor Ort zu überwachen und zu überwachen\n• Planung und Organisation von Meetings\n• Koordination der Aktivitäten mit den verschiedenen internen und externen Partnern\n• Reagieren Sie auf verschiedene Supportanfragen, die das Brand Management erhält\n• Treffen, Fristen einhalten und an der Auswertung der Ergebnisse jeder Aktivität teilnehmen Ihr Profil:\n• Sie sind im akademischen Kurs (Universität oder High School)\n• Sie haben gute Kenntnisse in Office Automation Tools und der Office Suite\n• Sie können in einem dynamischen und anspruchsvollen Umfeld arbeiten\n• Sie haben Kenntnisse im Projektmanagement\n• In Französisch haben Sie gute Deutschkenntnisse (min. B2)\n• Kreative und orientierte Lösung, Sie sind zuverlässig und entfernt von einem Gefühl der Initiative\n• Sie haben Beziehungsfähigkeiten und können als Team arbeiten Sie hören auch zu, verfügbar und positiv / ve. Wir bieten Ihnen:\n• Ein gesundes Arbeitsumfeld in einem genossenschaftlichen Unternehmen zertifiziert \"Great Place to Work\"\n• Eine abwechslungsreiche und lohnende Arbeitserfahrung\n• Eine mögliche Möglichkeit zur Platzierung am Ende des Praktikums / der Ausbildung Das HR-Team freut sich auf Ihr komplettes Bewerbungspaket (Lebenslauf, Anschreiben und 3 endgültige Transkripte)."
+        "it": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Département Brand Management, nous recherchons un/e stagiaire en cours de Bachelor ou Master pour une durée d’environ 6 mois dès février 2027 à Lausanne. Les missions qui vous attendent :\n• Apporter un soutien à la mise en place des activités de communication événementielle sur l’ensemble du territoire suisse\n• Assurer la coordination avec le Réseau de Vente et les partenaires internes dans le cadre des invitations clients\n• Être présent/e, veiller au bon déroulement, contrôler et suivre les opérations sur le terrain\n• Planifier et organiser les séances\n• Coordonner les activités avec les différents partenaires internes et externes\n• Répondre aux diverses demandes de soutien reçues par Brand Management\n• Respecter, tenir les délais et participer à l’évaluation des résultats de chaque activité Votre profil :\n• Vous êtes en cours de cursus académique (universitaire ou Haute école)\n• Vous avez de bonnes connaissances des outils bureautiques et de la suite Office\n• Vous êtes capable de travailler dans un environnement dynamique et exigeant\n• Vous avez des connaissances en gestion de projet\n• De langue maternelle française, vous avez de bonnes connaissances d'allemand (min. B2)\n• Créatif/ve et orienté/e solution, vous êtes fiable et dôté/e d’un sens de l’initiative\n• Vous avez des capacités relationnelles et êtes capable de travailler en équipe Vous êtes également à l’écoute, disponible et positif/ve. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• Une expérience professionnelle variée et enrichissante\n• Une éventuelle opportunité de replacement en fin de stage/formation L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
+        "en": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Département Brand Management, nous recherchons un/e stagiaire en cours de Bachelor ou Master pour une durée d’environ 6 mois dès février 2027 à Lausanne. Les missions qui vous attendent :\n• Apporter un soutien à la mise en place des activités de communication événementielle sur l’ensemble du territoire suisse\n• Assurer la coordination avec le Réseau de Vente et les partenaires internes dans le cadre des invitations clients\n• Être présent/e, veiller au bon déroulement, contrôler et suivre les opérations sur le terrain\n• Planifier et organiser les séances\n• Coordonner les activités avec les différents partenaires internes et externes\n• Répondre aux diverses demandes de soutien reçues par Brand Management\n• Respecter, tenir les délais et participer à l’évaluation des résultats de chaque activité Votre profil :\n• Vous êtes en cours de cursus académique (universitaire ou Haute école)\n• Vous avez de bonnes connaissances des outils bureautiques et de la suite Office\n• Vous êtes capable de travailler dans un environnement dynamique et exigeant\n• Vous avez des connaissances en gestion de projet\n• De langue maternelle française, vous avez de bonnes connaissances d'allemand (min. B2)\n• Créatif/ve et orienté/e solution, vous êtes fiable et dôté/e d’un sens de l’initiative\n• Vous avez des capacités relationnelles et êtes capable de travailler en équipe Vous êtes également à l’écoute, disponible et positif/ve. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• Une expérience professionnelle variée et enrichissante\n• Une éventuelle opportunité de replacement en fin de stage/formation L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes).",
+        "de": "Employeur solide et tourné vers l’avenir, la Vaudoise est l’un des assureurs leaders en Suisse. Active dans la formation professionnelle, elle favorise l’épanouissement des jeunes talents, avec chaque année plus de 120 apprenant-e-s formés dans nos départements. Afin de renforcer notre Département Brand Management, nous recherchons un/e stagiaire en cours de Bachelor ou Master pour une durée d’environ 6 mois dès février 2027 à Lausanne. Les missions qui vous attendent :\n• Apporter un soutien à la mise en place des activités de communication événementielle sur l’ensemble du territoire suisse\n• Assurer la coordination avec le Réseau de Vente et les partenaires internes dans le cadre des invitations clients\n• Être présent/e, veiller au bon déroulement, contrôler et suivre les opérations sur le terrain\n• Planifier et organiser les séances\n• Coordonner les activités avec les différents partenaires internes et externes\n• Répondre aux diverses demandes de soutien reçues par Brand Management\n• Respecter, tenir les délais et participer à l’évaluation des résultats de chaque activité Votre profil :\n• Vous êtes en cours de cursus académique (universitaire ou Haute école)\n• Vous avez de bonnes connaissances des outils bureautiques et de la suite Office\n• Vous êtes capable de travailler dans un environnement dynamique et exigeant\n• Vous avez des connaissances en gestion de projet\n• De langue maternelle française, vous avez de bonnes connaissances d'allemand (min. B2)\n• Créatif/ve et orienté/e solution, vous êtes fiable et dôté/e d’un sens de l’initiative\n• Vous avez des capacités relationnelles et êtes capable de travailler en équipe Vous êtes également à l’écoute, disponible et positif/ve. Nous vous offrons :\n• Un environnement de travail sain dans une entreprise mutualiste certifiée \" Great Place to Work \"\n• Une expérience professionnelle variée et enrichissante\n• Une éventuelle opportunité de replacement en fin de stage/formation L’équipe RH se réjouit de recevoir votre dossier de candidature complet (CV, lettre de motivation et 3 derniers bulletins de notes)."
       },
       "location": "Lausanne",
       "canton": "VD",
       "url": "https://vaudoise.softgarden.io/job/67837732/Stagiaire-universitaire-HES-en-Sponsoring-et-Ev%C3%A9nements-h-f-x-%E2%80%93100-?jobDbPVId=286524587&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:26.207Z",
+      "crawledAt": "2026-10-03T09:10:35.751Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3590,21 +3608,28 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-02T21:17:26.207Z",
+      "firstSeenAt": "2026-10-03T09:10:35.751Z",
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch"
+          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+          "apprendista-universitario-hes-in-sponsorizzazione-ed-eventi-m-f-x-100-vaudoise-assurances-lausanne"
         ],
         "en": [
-          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch"
+          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+          "university-trainee-hes-in-sponsoring-and-events-m-f-x-100-vaudoise-assurances-lausanne"
         ],
         "de": [
-          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch"
+          "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+          "universitats-trainee-hes-in-sponsoring-und-events-m-w-x-100-vaudoise-assurances-lausanne"
         ]
       },
       "previousSlugs": [
-        "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch"
-      ]
+        "stagiaire-universitaire-hes-en-sponsoring-et-evenements-h-f-x-100-vaudoise-ch",
+        "apprendista-universitario-hes-in-sponsorizzazione-ed-eventi-m-f-x-100-vaudoise-assurances-lausanne",
+        "university-trainee-hes-in-sponsoring-and-events-m-f-x-100-vaudoise-assurances-lausanne",
+        "universitats-trainee-hes-in-sponsoring-und-events-m-w-x-100-vaudoise-assurances-lausanne"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-2fefce49ca05",
@@ -3831,7 +3856,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "vaudoise-98215d0b886e",
@@ -3864,7 +3890,7 @@
       "url": "https://vaudoise.softgarden.io/job/67853347/Un-responsable-une-responsable-de-groupe-PMO-h-f-x-80-100-?jobDbPVId=286585922&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:25.948Z",
+      "crawledAt": "2026-10-03T09:10:35.466Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3897,7 +3923,7 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-02T21:17:25.948Z"
+      "firstSeenAt": "2026-10-03T09:10:35.466Z"
     },
     {
       "id": "vaudoise-00320d05d7ee",
@@ -3930,7 +3956,7 @@
       "url": "https://vaudoise.softgarden.io/job/67854862/Business-Analyst-Senior-h-f-x-80-100-?jobDbPVId=286595007&l=it",
       "source": "Vaudoise Assurances Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:17:25.685Z",
+      "crawledAt": "2026-10-03T09:10:35.181Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -3963,7 +3989,7 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-10-02T21:17:25.685Z"
+      "firstSeenAt": "2026-10-03T09:10:35.181Z"
     }
   ]
 }
