@@ -423,6 +423,29 @@ describe('rehydrate-section-shards.sh — batch artifacts are streamed from thei
     }
   });
 
+  it('preserves a release recorded before the first batch download', () => {
+    // s1 is already complete in the trunk and is visited before s2, the first
+    // section that needs batch 1. Its release marker must survive the
+    // downloader's initialization cleanup, otherwise batch 1 remains on disk
+    // until the end of the fan-out.
+    const fx = buildFixture({ s1: 1, s2: 1, s3: 2 }, ['s1']);
+    try {
+      const { status, output } = run(fx, ['s1', 's2', 's3']);
+      expect(status, output).toBe(0);
+      expect(output).toContain('s1 it (sez-s1) present in artifact — skip rehydrate');
+      expect(output).toContain('rehydrated s2 it from tar artifact: 2 files (tar listed 2)');
+      expect(output).toContain('rehydrated s3 it from tar artifact: 2 files (tar listed 2)');
+
+      const calls = readFileSync(fx.ghLog, 'utf8').trim().split('\n');
+      const batch2Resolve = calls.find((c) => c.includes('artifacts?name=shard-batch-2-dist-it-42'));
+      expect(batch2Resolve, calls.join('\n')).toBeDefined();
+      expect(batch2Resolve).toMatch(/zips: *$/);
+      expect(listFiles(fx.runnerTemp).filter((f) => /shard-batch-/.test(f))).toEqual([]);
+    } finally {
+      rmSync(fx.root, { recursive: true, force: true });
+    }
+  });
+
   it('a member that fails the zip CRC falls back to the clone, although both tar passes agree', () => {
     const fx = buildFixture({ s1: 1 }, [], ['s1']);
     try {

@@ -134,10 +134,17 @@ ensure_batch_downloaded() {
 # the last of them deletes the zip. Readers are counted from
 # $BATCH_READERS_DIR (written once, before the fan-out), so a section that has
 # not started yet still holds the zip it will need.
+#
+# The release ledger MUST NOT live below the download directory. A section can
+# already be complete in the trunk and release before the first other section
+# starts `ensure_batch_downloaded()`. That function deliberately `rm -rf`s the
+# directory before downloading; putting the early reader marker there loses it
+# and leaves the zip alive until the final sweep, defeating the disk bound.
 batch_zip_release() {
   local batch="$1" loc="$2" section="$3"
   local dl="$RUNNER_TEMP/shard-batch-$batch-dist-$loc"
-  local released="$dl.released"
+  local release_root="${BATCH_RELEASES_DIR:-${RUNNER_TEMP:-/tmp}/shard-batch-releases}"
+  local released="$release_root/shard-batch-$batch-dist-$loc"
   local want got
   mkdir -p "$released" 2>/dev/null || true
   : > "$released/$section" 2>/dev/null || true
@@ -145,7 +152,7 @@ batch_zip_release() {
   got="$(find "$released" -type f 2>/dev/null | wc -l | tr -d ' ')"
   case "$want" in ''|*[!0-9]*) return 0 ;; esac
   if [ "$want" -gt 0 ] && [ "${got:-0}" -ge "$want" ]; then
-    rm -rf "$dl"
+    rm -rf "$dl" "$released"
   fi
   return 0
 }
@@ -394,7 +401,9 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   # section, keyed by its batch number. Written before any worker starts, so
   # the count already includes the sections still waiting for a slot.
   BATCH_READERS_DIR="${RUNNER_TEMP:-/tmp}/shard-batch-readers"
-  rm -rf "$BATCH_READERS_DIR"; mkdir -p "$BATCH_READERS_DIR"
+  BATCH_RELEASES_DIR="${RUNNER_TEMP:-/tmp}/shard-batch-releases"
+  rm -rf "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR"
+  mkdir -p "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR"
   for section in "${SECTION_NAMES[@]}"; do
     printf '%s\n' "$section" >> "$BATCH_READERS_DIR/$(jq -r --arg s "$section" '.[$s]' scripts/lib/section-shard-batches.json)"
   done
@@ -411,7 +420,7 @@ if [ "${#SECTION_NAMES[@]}" -gt 0 ]; then
   # Every reader has released its zips by now; a worker that died mid-way
   # would have left its batch behind for the whole validator run that follows.
   # Nothing reads these after the fan-out.
-  rm -rf "${RUNNER_TEMP:-/tmp}"/shard-batch-*-dist-* "$BATCH_READERS_DIR" 2>/dev/null || true
+  rm -rf "${RUNNER_TEMP:-/tmp}"/shard-batch-*-dist-* "$BATCH_READERS_DIR" "$BATCH_RELEASES_DIR" 2>/dev/null || true
 else
   echo "no live section shards to rehydrate"
 fi
