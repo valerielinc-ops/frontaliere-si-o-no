@@ -3399,7 +3399,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
  "description": "Forum della community dei frontalieri: domande e risposte su tasse, permessi, assicurazioni",
  "inLanguage": "it",
  "about": {
- "@type": "DiscussionForum",
+ "@type": "Thing",
  "name": "Forum Frontalieri Svizzera-Italia"
  }
  }
