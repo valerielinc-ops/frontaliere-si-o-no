@@ -41,6 +41,7 @@
  * Env gate: SKIP_COST_OF_LIVING=1 fast-exits (local builds only; CI always runs).
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -181,6 +182,8 @@ export function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -528,7 +531,7 @@ function renderPage(opts: {
     ${city in HERO_BADGES
       ? renderLandingHero(city, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
           city: cityName,
         }, h1, denseLede)
       : `<header class="s-YcUNX5">
@@ -538,6 +541,7 @@ function renderPage(opts: {
     </header>`}
     <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}

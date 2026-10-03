@@ -35,6 +35,8 @@ function job(i: number) {
     datePosted: '2026-07-10',
     employmentType: 'FULL_TIME',
     contract: 'full-time',
+    salarySource: 'reported',
+    currency: 'CHF',
     salaryMin: 80000 + i * 1000,
     salaryMax: 120000 + i * 1000,
     url: `https://acme.example/job/${i}`,
@@ -128,7 +130,7 @@ describe('employerProfilePagesPlugin', () => {
     expect(html).toContain('max-image-preview:large');
     expect(html).toContain('Offerte di lavoro Acme Corp');
     expect(html).toContain('6'); // active jobs
-    expect(html).toContain("CHF 100"); // median salary formatted
+    expect(html).toContain("CHF 104"); // median of the seven reported range midpoints
   });
 
   // Search-intent title/H1 (2026-08-07). GSC 90 d on data/evidence-index.json:

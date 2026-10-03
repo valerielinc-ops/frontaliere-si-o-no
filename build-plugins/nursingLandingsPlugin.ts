@@ -43,6 +43,7 @@
  * (`npm run build:ci`) always exercises it — exit 0 required.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import type { Plugin } from 'vite';
@@ -245,6 +246,8 @@ function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -455,7 +458,7 @@ function renderPage(opts: {
     ${id in HERO_BADGES
       ? renderLandingHero(id, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
         }, copy.h1, copy.denseLede)
       : `<header class="s-YcUNX5">
       <p style="${HERO_EYEBROW_STYLE}">${esc(copy.shell.eyebrow)}</p>
@@ -464,6 +467,7 @@ function renderPage(opts: {
     </header>`}
     <p class="text-sm font-medium text-accent mt-1">${esc(copy.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}

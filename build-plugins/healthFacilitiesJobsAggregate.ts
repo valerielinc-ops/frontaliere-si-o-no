@@ -17,7 +17,7 @@
  */
 
 import { loadJobsJson } from './shared/loadJobsJson';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { classifyHealthcareRole, type HealthcareRole } from './healthFacilitiesMatch';
 import { HEALTH_FACILITIES, type HealthFacilityRecord } from './healthFacilitiesData';
@@ -94,6 +94,7 @@ export interface FacilitySnapshot {
   readonly healthcareCount: number;
   readonly fresh30Count: number;
   readonly medianSalaryChf: number | null;
+  readonly reportedSalary?: ReportedSalarySummary;
   readonly roleCounts: Readonly<Record<HealthcareRole, number>>;
   /** All valid live jobs, ordered with healthcare and featured roles first. */
   readonly jobs: readonly FacilityFeaturedJob[];
@@ -176,10 +177,10 @@ function buildSnapshot(
   let fresh30 = 0;
   for (const job of jobs) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
-  const median = realSalaryMedianChf(healthcareJobs) ?? realSalaryMedianChf(jobs);
+  const median = reportedSalarySummary(healthcareJobs).medianChf;
 
   // Featured: healthcare roles first, then freshest. Falls back to any job so
   // an all-admin snapshot still surfaces the employer's live openings.
@@ -203,6 +204,7 @@ function buildSnapshot(
     healthcareCount: healthcareJobs.length,
     fresh30Count: fresh30,
     medianSalaryChf: median,
+    reportedSalary: reportedSalarySummary(healthcareJobs),
     roleCounts,
     jobs: allJobs,
     featured,
