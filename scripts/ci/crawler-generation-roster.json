@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 623,
+  "crawlerCount": 622,
   "groups": {
     "10": [
       "atec-personal",
@@ -26,7 +26,6 @@
       "lis-lugano-istituti-sociali",
       "medbase",
       "mtic-group",
-      "pzm-muensingen",
       "richemont",
       "stellentreff",
       "swiss-medical-network",
@@ -1120,7 +1119,6 @@
     "psgn": "data/jobs/by-crawler/psgn.json",
     "puk-zuerich": "data/jobs/by-crawler/puk-zuerich.json",
     "pwc": "data/jobs/by-crawler/pwc.json",
-    "pzm-muensingen": "data/jobs/by-crawler/pzm-muensingen.json",
     "raiffeisen": "data/jobs/by-crawler/raiffeisen.json",
     "rapelli": "data/jobs/by-crawler/rapelli.json",
     "reboot-monkey": "data/jobs/by-crawler/reboot-monkey.json",
@@ -1300,5 +1298,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:17038436dd1a226b7dc660d500be2ec20fe54ae2b2f132935d287e526dc2c51e"
+  "digest": "sha256:76d05f831f70c398a342bdea173433081a9fe891b8869ac3f225db0b834b8900"
 }

@@ -286,7 +286,9 @@ jobs:
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -334,7 +336,9 @@ jobs:
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -392,7 +396,9 @@ jobs:
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -451,7 +457,9 @@ jobs:
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /data/profession-landing-routes.json
           sparse-checkout-cone-mode: false
 
       - name: Setup Node.js
@@ -503,7 +511,9 @@ jobs:
             /scripts/seo/
             /scripts/lib/canonicalExemptions.mjs
             /scripts/lib/jobBoardSections.mjs
+            /scripts/lib/professionLandingsSections.mjs
             /scripts/lib/meta-description-extract.mjs
+            /data/profession-landing-routes.json
             /scripts/lib/github-issue-creator.mjs
             /scripts/load-rc-env.mjs
             /package.json
