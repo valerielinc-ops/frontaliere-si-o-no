@@ -105,6 +105,31 @@ describe('locale publish provenance', () => {
     expect(manifest.reasons).toContain('build outcome is "failure"');
   });
 
+  it('does not call a skipped shard push a successful publish', () => {
+    const runnerTemp = fs.mkdtempSync(path.join(os.tmpdir(), 'locale-publish-runner-'));
+    tempDirs.push(runnerTemp);
+    const manifest = createLocalePublishProvenance({
+      locale: 'fr',
+      sourceRunId: SOURCE_RUN_ID,
+      sourceSha: SOURCE_SHA,
+      deployBuildId: BUILD_ID,
+      distDir: tempDist(),
+      runnerTemp,
+      outcomes: {
+        build: 'success',
+        validate: 'success',
+        offload: 'success',
+        sectionPush: 'success',
+        cdnGate: 'success',
+        localePush: 'success',
+        localePack: 'success',
+        localeArtifact: 'success',
+      },
+    });
+    expect(manifest.published).toBe(false);
+    expect(manifest.reasons).toContain('locale shard success marker is missing');
+  });
+
   it('rejects a build-id mismatch between the leg and its shared deploy id', () => {
     const manifest = receipt('de', '1770000000001');
     expect(manifest.published).toBe(true);
