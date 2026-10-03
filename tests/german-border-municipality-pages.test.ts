@@ -15,6 +15,7 @@ import { describe, it, expect } from 'vitest';
 import {
   renderAboveFloorPage,
   renderBridgePage,
+  renderHubPage,
 } from '@/build-plugins/germanBorderMunicipalityPagesPlugin';
 import {
   GERMAN_ABOVE_FLOOR,
@@ -63,6 +64,50 @@ describe('German border municipality above-floor page render (#4882)', () => {
     });
     expect(html).not.toMatch(/gre-2|gre2/i);
     expect(html).not.toMatch(/art(?:icolo)?\.?\s*24\s*(?:cpv|par|comma|lett)/i);
+  });
+
+  it('keeps page-specific corridor facts on leaves and shared regime guidance on the hub', () => {
+    const { html } = renderAboveFloorPage({
+      municipality: konstanz,
+      locale: 'it',
+      dateStamp: '2026-07-29',
+      distDir: DIST,
+    });
+    const hub = renderHubPage({ locale: 'it', dateStamp: '2026-07-29', distDir: DIST });
+
+    expect(html).toMatch(/data-nearest-comparison(?:="1"|=1)/);
+    expect(html).toContain('Per popolazione');
+    expect(html).toContain('Landkreis');
+    expect(html).not.toContain('FAQPage');
+    expect(hub.html).toContain('Le regole comuni del corridoio');
+    expect(hub.html).toContain('certificato di residenza');
+  });
+
+  it('preserves proportional thresholds and explicit opt-out requirements on every translated hub', () => {
+    const clauses = {
+      it: ['5 giorni al mese lavorato più 1 giorno alla settimana lavorata', 'esplicitamente', 'esercizio tacito non è valido'],
+      en: ['5 days per month worked plus 1 day per week worked', 'explicitly', 'tacit exercise is not valid'],
+      de: ['5 Tage pro gearbeitetem Monat plus 1 Tag pro gearbeitete Woche', 'ausdrücklich', 'stillschweigende Ausübung ist ungültig'],
+      fr: ['5 jours par mois travaillé plus 1 jour par semaine travaillée', 'explicitement', "exercice tacite n'est pas valable"],
+    };
+    for (const locale of GERMAN_LOCALES) {
+      const { html } = renderHubPage({ locale, dateStamp: '2026-07-29', distDir: DIST });
+      for (const clause of clauses[locale]) {
+        expect(html, `${locale}: ${clause}`).toContain(clause);
+      }
+    }
+  });
+
+  it('keeps every translated leaf above the indexable word floor', () => {
+    for (const locale of GERMAN_LOCALES) {
+      const { wordCount } = renderAboveFloorPage({
+        municipality: konstanz,
+        locale,
+        dateStamp: '2026-07-29',
+        distDir: DIST,
+      });
+      expect(wordCount, locale).toBeGreaterThan(50);
+    }
   });
 });
 

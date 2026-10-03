@@ -99,6 +99,14 @@ jobs:
         uses: actions/setup-node@v7
         with:
           node-version: '22'
+      # The sparse checkout has no node_modules, while the shared GA4 auth
+      # helper dynamically imports google-auth-library for live provisioning.
+      # Keep this dependency isolated and resolve it from the repository root
+      # so Node's ESM resolver can serve scripts/lib/ga4-service-account.mjs.
+      - name: Install GA4 auth client
+        run: |
+          npm install --prefix "$RUNNER_TEMP/ga4-deps" --no-save --ignore-scripts --no-fund --no-audit google-auth-library@11.1.0 >/dev/null
+          ln -s "$RUNNER_TEMP/ga4-deps/node_modules" node_modules
       - name: Start loop operational telemetry
         run: |
           {

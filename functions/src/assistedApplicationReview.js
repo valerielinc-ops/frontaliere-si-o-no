@@ -113,6 +113,17 @@ function atsView(report) {
   return report ? { grade: report.structural?.grade || null, keywordCoverage: report.keywords?.coverage ?? null, missing: (report.keywords?.missing || []).slice(0, 8) } : null;
 }
 
+/** The WhatsApp link of an application sent that way (PastaHR), over https only. */
+function whatsappUrlOf(order, state) {
+  if (state !== 'submitted' || order?.submissionChannel !== 'whatsapp') return null;
+  try {
+    const url = new URL(String(order.whatsappApplyUrl || ''));
+    return url.protocol === 'https:' ? url.toString() : null;
+  } catch {
+    return null;
+  }
+}
+
 export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, tailoredCvUrl = null, inPlaceCvUrl = null, nowMs = Date.now() }) {
   const current = Number(flow?.round) || 1;
   const state = flow?.state || 'drafting';
@@ -147,6 +158,9 @@ export function buildReviewPayload({ order, flow, draft, round, coverLetterUrl, 
       channel: channel.type || null,
       channelLabel: channel.label || null,
     },
+    // A WhatsApp application: done once the candidate has its link and steps
+    // (the «inviata» e-mail); the page repeats the link.
+    whatsappUrl: whatsappUrlOf(order, state),
     ready,
     coverLetter: draft ? { subject: draft.coverLetter?.subject || '', text: draft.coverLetter?.text || '' } : null,
     coverLetterUrl: coverLetterUrl || null,

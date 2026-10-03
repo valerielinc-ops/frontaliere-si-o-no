@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 /**
- * Daily guard on the Google Cloud usage that becomes the bill.
+ * Guard on the Google Cloud usage that becomes the bill. Runs every 6 hours
+ * (Cloud Scheduler, see functions/src/gcpCostMonitorDispatch.js) over a
+ * rolling 24-hour window.
  *
  * Why: in September 2026 Firestore reads went from 0.3-1 M a day to 75-90 M
  * (getPlateAuctions rebuilt a 17'613-row snapshot per request for a crawler),
@@ -211,7 +213,7 @@ export function renderCostReport(evaluation, { windowEnd, runUrl } = {}) {
       '',
       '**1-CAUSA (ipotesi):** un servizio chiamato molto più del normale, o un lavoro che rilegge/riscrive una collection intera. Le letture Firestore non sono attribuibili per chiamante (i Data Access audit log sono spenti): confronta l\'andamento orario con `run.googleapis.com/request_count` per `service_name`; il servizio che segue la curva è il candidato.',
       `**3-METRICA:** soglie e valori nella tabella. Comando: \`node scripts/monitor-gcp-costs.mjs --dry-run\` con \`FIREBASE_SERVICE_ACCOUNT_JSON\`.`,
-      '**4-OSSERVATORE:** questo monitor gira ogni giorno e chiude la issue da solo quando tutte le voci rientrano.',
+      '**4-OSSERVATORE:** questo monitor gira ogni 6 ore e chiude la issue da solo quando tutte le voci rientrano.',
       '**Precedente:** settembre 2026, `getPlateAuctions` da 75-90 M letture/giorno (PR #10800).',
     );
   }

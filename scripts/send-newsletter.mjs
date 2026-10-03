@@ -51,6 +51,7 @@ import {
 } from '../functions/src/lib/jobEmailRanking.js';
 import { appendJobRankingParams, NEWSLETTER_JOB_LIMIT } from '../functions/src/lib/jobEmailRankingLinks.js';
 import {
+  buildRankingJobsManifest,
   loadNewsletterRankingStats,
   recordJobEmailImpressions,
 } from '../functions/src/lib/jobEmailRankingStore.js';
@@ -1851,7 +1852,9 @@ async function persistDelivery(recipient, messageId, meta) {
       is_operator_verification: meta.isOperatorVerification ?? false,
       ranking_delivery_id: meta.rankingDeliveryId || null,
       ranking_variant: meta.rankingVariant || null,
-      ranking_jobs: meta.rankingJobs || [],
+      // Lean manifest only: the full job objects stay in memory on
+      // meta.rankingJobs for recordJobEmailImpressions.
+      ranking_jobs: buildRankingJobsManifest(meta.rankingJobs),
       sent_at: new Date(),
     }, { merge: true });
     // Maileroo's open/click webhooks carry only message_reference_id (no recipient,

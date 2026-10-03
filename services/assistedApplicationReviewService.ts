@@ -139,6 +139,8 @@ export interface ReviewPayload {
     channel: string | null;
     channelLabel: string | null;
   };
+  /** Sent as a WhatsApp application (PastaHR): the link the candidate opens from the phone. */
+  whatsappUrl?: string | null;
   ready: boolean;
   coverLetter: { subject: string; text: string } | null;
   coverLetterUrl: string | null;
