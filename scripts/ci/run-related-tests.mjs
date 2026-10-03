@@ -77,6 +77,9 @@ const testTreeLintTests = new Set([
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
   ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
+  // Elenchi di run per `branch` senza finestra `created`: l'API li restituisce
+  // a tratti fermi a settimane prima (resolver dell'artifact Pages, 02-10).
+  ['tests/run-listing-created-window.test.ts', /^(?:\.github|scripts|bin|functions)\//],
   // La lista sparse di housekeeping sta in un file, non nel YAML (il corpus
   // pinna il YAML, il codice e' quello di main): il test calcola la chiusura
   // degli import degli entrypoint, quindi nessun import lo collega al modulo

@@ -361,7 +361,9 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
     const expectedRows = Object.entries(EXPECTED)
       .map(([file, closedBy]) => `${file}\t${closedBy}`);
     expectedRows.push(
-      ...Array.from({ length: 5 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
+      // deploy-publish.yml has five pre-existing caller reporters plus the
+      // non-IT tail and receipt reporters added with the deferred-tail split.
+      ...Array.from({ length: 7 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
       'issue-fix.yml\tclose-recovered-failure-issues',
       'issue-fix.yml\tclose-recovered-failure-issues',
       // settima adozione: la misura full-corpus del build jobs SEO (#9618),

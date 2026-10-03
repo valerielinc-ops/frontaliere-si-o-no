@@ -60,6 +60,12 @@ describe('SubscriptionPreferencesController — token mode', () => {
 
  afterEach(() => cleanup());
 
+ it('does not fetch subscriber data when the signed token is missing', async () => {
+ render(<SubscriptionPreferencesController mode="token" email="reader@example.com" token="" />);
+ await waitFor(() => expect(screen.getByRole('alert')).toBeTruthy());
+ expect(subs.getFullSubscriptionStatus).not.toHaveBeenCalled();
+ });
+
  it('renders a loading state initially', () => {
  (subs.getFullSubscriptionStatus as any).mockReturnValue(new Promise(() => {})); // never resolves
  render(
