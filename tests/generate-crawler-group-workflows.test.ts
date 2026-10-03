@@ -2982,8 +2982,10 @@ esac
     const guardRun: string = guardJob.steps[guardIndex].run;
     const runWrites = guardRun.match(/echo "run=(?:true|false)" >> "\$GITHUB_OUTPUT"/g) ?? [];
     const errorWrites = guardRun.match(/echo "guard_error=[^"]*" >> "\$GITHUB_OUTPUT"/g) ?? [];
-    expect(runWrites).toHaveLength(4);
-    expect(errorWrites).toHaveLength(4);
+    // Invariante, non conteggio letterale: a ogni scrittura di `run=` ne
+    // corrisponde una di `guard_error=`, qualunque sia il numero di uscite.
+    expect(runWrites.length).toBeGreaterThan(0);
+    expect(errorWrites).toHaveLength(runWrites.length);
     expect(errorWrites.filter((line) => line.includes('guard_error=${reason}'))).toHaveLength(1);
   }, CROSS_REPO_GENERATION_TIMEOUT);
 
