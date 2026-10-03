@@ -7,6 +7,8 @@
 import { describe, it, expect } from 'vitest';
 import {
   parseGreenhouseJobs,
+  classifyGreenhouseResponse,
+  classifyGreenhouseFetchError,
   isSwissLocation,
   inferCanton,
   parseCity,
@@ -141,6 +143,62 @@ describe('parseGreenhouseJobs — Swiss location filtering', () => {
   it('handles null/undefined input', () => {
     expect(parseGreenhouseJobs(null as any)).toHaveLength(0);
     expect(parseGreenhouseJobs(undefined as any)).toHaveLength(0);
+  });
+});
+
+describe('classifyGreenhouseResponse — zero-job evidence', () => {
+  it('records a reachable empty payload as observed and non-aborted', () => {
+    expect(classifyGreenhouseResponse(MOCK_EMPTY_RESPONSE)).toMatchObject({
+      discovered: 0,
+      parsed: 0,
+      lastFetchOutcome: 'ok',
+      abortKind: null,
+    });
+  });
+
+  it('records a valid non-Swiss feed as filtered-empty, not an early exit', () => {
+    const result = classifyGreenhouseResponse({
+      jobs: [{
+        id: 200001,
+        title: 'Data Analyst',
+        location: { name: 'San Francisco, California, United States' },
+        offices: [{ name: 'San Francisco, CA' }],
+      }],
+    });
+
+    expect(result).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'filtered_empty',
+      abortKind: null,
+    });
+    expect(result.jobs).toEqual([]);
+  });
+
+  it('keeps a changed record shape fail-closed as a selector miss', () => {
+    expect(classifyGreenhouseResponse({
+      jobs: [{ id: 200002, title: 'Data Analyst', locationData: 'San Francisco, CA' }],
+    })).toMatchObject({
+      discovered: 1,
+      parsed: 0,
+      lastFetchOutcome: 'selector_miss',
+      abortKind: 'no-jobs-parsed',
+    });
+  });
+
+  it('distinguishes transport and endpoint failures from source zero', () => {
+    expect(classifyGreenhouseFetchError(new TypeError('fetch failed'))).toEqual({
+      lastFetchOutcome: 'connection_error',
+      abortKind: 'connection-level-fetch',
+    });
+    expect(classifyGreenhouseFetchError(Object.assign(new Error('HTTP 403'), { status: 403 }))).toEqual({
+      lastFetchOutcome: 'anti_bot_block',
+      abortKind: 'connection-level-fetch',
+    });
+    expect(classifyGreenhouseFetchError(new SyntaxError('Unexpected token'))).toEqual({
+      lastFetchOutcome: 'feed_endpoint_unavailable',
+      abortKind: 'no-jobs-parsed',
+    });
   });
 });
 
