@@ -496,7 +496,7 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
   banca: /\bbanca\b|\bbancar|\bbank\b|\bbanking\b|finanz|wealth[ -]management|asset[ -]management|private[ -]bank|gestione[ -]patrimonial|\btrader\b|relationship[ -]manager/i,
   assicurazioni: /assicurazion|assicurativ|versicherung|\binsurance\b|assurance|underwrit|\baktuar|\bactuary\b|\bbroker[ -]assicurativ/i,
   consulenza: /\bconsulen|\bconsultant\b|\bberatung\b|\bberater\b|\bconsulting\b|\bconseil\b|advisory|wirtschaftspr[uü]f/i,
-  avvocati: /\bavvocat|\blegale\b|\bgiurist|\blawyer\b|\battorney\b|\brechtsanwalt|\bjurist|\bavocat\b|\bnotaio\b|\bnotar\b|paralegal|legal[ -]counsel/i,
+  avvocati: /\bavvocat|\blegale\b|\blegal\b|\bgiurist|\blawyer\b|\battorney\b|\brechtsanwalt|\bjurist|\bavocat\b|\bnotaio\b|\bnotar\b|paralegal/i,
   'risorse-umane': /risorse[ -]umane|\bhr[ -]|\bhuman[ -]resources|personalwesen|personalberat|recruit|talent[ -]acquisition|ressources[ -]humaines|\brh\b/i,
   marketing: /\bmarketing\b|digital[ -]marketing|brand[ -]manager|seo[ -]|content[ -]manager|social[ -]media[ -]manager|growth[ -]/i,
   vendite: /\bvendit|\bsales\b|\bverkauf|\bventeur|\bventes\b|account[ -]executive|business[ -]development|commercial[ -]agent|key[ -]account|addetto[ -]vendit|verk[aä]ufer/i,
@@ -590,7 +590,11 @@ export const SECTOR_MATCHERS: Record<SectorHubKey, RegExp> = {
     `(?<!${ARCHITECT_TECH_QUALIFIER_SRC}\\w*${INTRA_FIELD_SEP})`
     + '\\b(?:architet|architect\\b|architekt|architecte\\b)'
     + `(?!\\w*${INTRA_FIELD_SEP}${ARCHITECT_TECH_QUALIFIER_SRC})`
-    + '|\\bbauzeichner|\\bdisegnatore[ -]edil|\\bdessinateur',
+    // The Italian civil-engineering drafter is the same building-design role
+    // already covered by the German `Bauzeichner` and French `Dessinateur en
+    // génie civil` aliases. Keep generic/electrical technical drafters out.
+    + '|\\bbauzeichner|\\bdisegnatore[ -]edil'
+    + '|\\bdisegnatore[ -]di[ -]ingegneria[ -]civile|\\bdessinateur',
     'i',
   ),
   agricoltura: /\bagricol|\blandwirt|\bagriculture\b|\bagriculteur|\bcontadin|\bgartenbau|\bgiardinier|\bgärtner|\bvivaist|\bviticol/i,
