@@ -71,11 +71,27 @@ export const CRAWLER_TRANSPORT_FAILURE_OUTCOMES = new Set([
   'exhausted_retry',
 ]);
 
-/** Causes recorded by the process-exit summary guard for an early run. */
+/**
+ * Causes recorded by the process-exit summary guard for an early run.
+ *
+ * Every value is an ABORT: the run ended without publishing and the source was
+ * not observed empty. A name only says which bail-out it was — it never makes
+ * the run healthy.
+ */
 export const CRAWLER_ABORT_KINDS = new Set([
+  // The parser returned nothing and offered no proof of an empty source.
   'no-jobs-parsed',
   'connection-level-fetch',
   'crash',
+  // More than MISSING_DETAIL_URL_MAX_RATIO of the stored slice lost its
+  // per-vacancy detail URL in this read; the old slice is kept untouched.
+  'missing-detail-url',
+  // The parser emitted jobs, none with a source body of at least 50 words
+  // (fresh or stored): nothing is publishable, thin stored rows are quarantined.
+  'thin-source-all',
+  // Same outcome, but every parsed row reported a source-body extraction
+  // failure (e.g. an unreadable PDF): the extractor broke, not the content.
+  'source-extraction-failed',
 ]);
 
 /**
@@ -94,7 +110,7 @@ export function normalizeFetchOutcome(value) {
  * Read an early-exit cause, or `null` when the producer did not report one.
  *
  * @param {unknown} value
- * @returns {'no-jobs-parsed'|'connection-level-fetch'|'crash'|null}
+ * @returns {'no-jobs-parsed'|'connection-level-fetch'|'crash'|'missing-detail-url'|'thin-source-all'|'source-extraction-failed'|null}
  */
 export function normalizeAbortKind(value) {
   return typeof value === 'string' && CRAWLER_ABORT_KINDS.has(value) ? value : null;
