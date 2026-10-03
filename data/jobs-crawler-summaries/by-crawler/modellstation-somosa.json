@@ -1,7 +1,7 @@
 {
   "key": "modellstation-somosa",
   "label": "Modellstation SOMOSA",
-  "generatedAt": "2026-10-02T21:17:44.018Z",
+  "generatedAt": "2026-10-03T09:11:26.016Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -14,11 +14,12 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3736,
-  "avgDurationMs": 3736,
+  "durationMs": 3602,
+  "avgDurationMs": 3602,
   "durationHistory": [
     4123,
-    3736
+    3736,
+    3602
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +36,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-als-springer-in-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:36.032Z",
+      "crawledAt": "2026-10-03T09:11:17.092Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -72,7 +73,7 @@
       "url": "https://www.somosa.ch/offene-stellen-detail/dipl-pflegefachperson-hf-dn-ii-oder-fh-30-fuer-den-nachtdienst",
       "source": "Modellstation SOMOSA Dedicated Parser (Contao)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:36.504Z",
+      "crawledAt": "2026-10-03T09:11:17.554Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",

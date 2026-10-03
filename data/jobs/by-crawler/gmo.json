@@ -1,6 +1,6 @@
 {
   "crawlerKey": "gmo",
-  "assembledAt": "2026-10-02T21:14:32.001Z",
+  "assembledAt": "2026-10-03T09:14:16.150Z",
   "jobs": [
     {
       "id": "gmo-06d32a1fe66e",
@@ -34,7 +34,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-assistant-en-pediatrie-4",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.706Z",
+      "crawledAt": "2026-10-03T09:14:10.711Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -80,7 +80,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gmo-354a73f974f2",
@@ -114,7 +115,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-expert-18",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.705Z",
+      "crawledAt": "2026-10-03T09:14:10.709Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -195,7 +196,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-fmh-28",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.704Z",
+      "crawledAt": "2026-10-03T09:14:10.708Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -275,7 +276,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-specialiste-fmh-72",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.703Z",
+      "crawledAt": "2026-10-03T09:14:10.707Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -355,7 +356,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-interniste-generaliste-73",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.701Z",
+      "crawledAt": "2026-10-03T09:14:10.705Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -401,7 +402,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gmo-2d02ba119d36",
@@ -435,7 +437,7 @@
       "url": "https://www.arsante.ch/emploi/medecin-mebeko-fmh-unite-de-soins-intermediaires-uatm-83",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.700Z",
+      "crawledAt": "2026-10-03T09:14:10.704Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -481,7 +483,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gmo-45ad69cc39fe",
@@ -515,7 +518,7 @@
       "url": "https://www.arsante.ch/emploi/un-e-infirmier-iere-responsable-du-service-d-urgences-88",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.699Z",
+      "crawledAt": "2026-10-03T09:14:10.703Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -595,7 +598,7 @@
       "url": "https://www.arsante.ch/emploi/pharmacien-ne-92",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.698Z",
+      "crawledAt": "2026-10-03T09:14:10.702Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -641,7 +644,8 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "gmo-576ebe7aaad6",
@@ -675,7 +679,7 @@
       "url": "https://www.arsante.ch/emploi/infirmier-ere-pediatrique-95",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.696Z",
+      "crawledAt": "2026-10-03T09:14:10.700Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -761,7 +765,7 @@
       "url": "https://www.arsante.ch/emploi/experts-medicaux-93",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.697Z",
+      "crawledAt": "2026-10-03T09:14:10.701Z",
       "addressLocality": "Petit-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -846,7 +850,7 @@
       "url": "https://www.arsante.ch/emploi/conducteur-rice-de-travaux-junior-97",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.695Z",
+      "crawledAt": "2026-10-03T09:14:10.699Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -932,7 +936,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-98",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.694Z",
+      "crawledAt": "2026-10-03T09:14:10.698Z",
       "addressLocality": "Onex",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1012,7 +1016,7 @@
       "url": "https://www.arsante.ch/emploi/coordinateur-rice-99",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.693Z",
+      "crawledAt": "2026-10-03T09:14:10.696Z",
       "addressLocality": "Meyrin",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1098,7 +1102,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-100",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.692Z",
+      "crawledAt": "2026-10-03T09:14:10.695Z",
       "addressLocality": "Genève",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1183,7 +1187,7 @@
       "url": "https://www.arsante.ch/emploi/specialiste-en-medecine-interne-generale-fmh-101",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.690Z",
+      "crawledAt": "2026-10-03T09:14:10.694Z",
       "addressLocality": "Grand-Lancy",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -1268,7 +1272,7 @@
       "url": "https://www.arsante.ch/emploi/assistant-e-medical-e-102",
       "source": "gmo Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-10-02T21:14:26.689Z",
+      "crawledAt": "2026-10-03T09:14:10.692Z",
       "addressLocality": "Crissier",
       "addressRegion": "VD",
       "addressCountry": "CH",
