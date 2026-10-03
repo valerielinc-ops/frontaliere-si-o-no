@@ -26,6 +26,11 @@ import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './lib/authoritative-empty-snapshot.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -112,7 +117,12 @@ async function fetchJobs() {
   if (!html) { console.error('❌ Failed to fetch Helsinn careers page.'); return []; }
   const listings = parseListingPage(html);
   console.log(`  📋 Jobs found: ${listings.length}`);
-  if (!listings.length) return [];
+  if (!listings.length) {
+    if (isAuthoritativeEmptySnapshot(listings)) {
+      return markAuthoritativeEmptySnapshot([], listings.authoritativeEmptyEvidence);
+    }
+    return [];
+  }
 
   const jobs = [];
   for (const [index, listing] of listings.entries()) {
@@ -170,7 +180,51 @@ async function main() {
   console.log('═══════════════════════════════════════════════\n');
     const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
-  if (!discovered.length) { console.log('⚠️ No Helsinn jobs discovered.'); return; }
+  const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discovered);
+  if (!discovered.length && !authoritativeEmptySnapshot) {
+    console.log('⚠️ No Helsinn jobs discovered; keeping the previous slice.');
+    return;
+  }
+
+  if (authoritativeEmptySnapshot) {
+    const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+    const beforeSnapshot = snapshotJobSlugs(priorJobs);
+    const emptyDiff = computeCrawlDiff(beforeSnapshot, new Map());
+    const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+    writeJobsCrawlerSlice(COMPANY_KEY, [], {
+      skipShrinkGuard: true,
+      preserveExistingSlugs: true,
+    });
+    printCrawlChangeSummary(emptyDiff, COMPANY_NAME);
+    writeCrawlChangeSummaryToGH(emptyDiff, COMPANY_NAME);
+    const durationMs = getCrawlerElapsedMs();
+    writeSummaryCrawlerSlice({
+      key: COMPANY_KEY,
+      label: COMPANY_NAME,
+      generatedAt: new Date().toISOString(),
+      total: 0,
+      discovered: 0,
+      parsed: 0,
+      written: 0,
+      lastFetchOutcome: 'ok',
+      authoritativeEmptySnapshot: true,
+      authoritativeSnapshotVerified: true,
+      newCount: 0,
+      updatedCount: 0,
+      removedCount: emptyDiff.removedJobs.length,
+      unchangedCount: 0,
+      durationMs,
+      avgDurationMs: durationMs,
+      durationHistory: [durationMs],
+      newJobs: [],
+      updatedJobs: [],
+      removedJobs: emptyDiff.removedJobs.slice(0, 30),
+      unchangedJobs: [],
+    });
+    await assembleJobsDataset();
+    console.log(`ℹ️ Persisted authoritative Helsinn zero; archived ${archived} expired route(s).`);
+    return;
+  }
   updateAdapterConfig(discovered.map((j) => j.url));
   await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
