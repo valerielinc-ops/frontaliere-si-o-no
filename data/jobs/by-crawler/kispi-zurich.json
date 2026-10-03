@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kispi-zurich",
-  "assembledAt": "2026-10-02T21:16:00.004Z",
+  "assembledAt": "2026-10-03T09:15:00.953Z",
   "jobs": [
     {
       "id": "kispi-zurich-d6d4e0ac5eee",
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2963/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:48.736Z",
+      "crawledAt": "2026-10-03T09:14:51.774Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
+        "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich",
+        "responsabile-aggiunto-80-100-psa-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
+          "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich",
+          "responsabile-aggiunto-80-100-psa-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "stellvertretende-leitung-pflege-80-100-psa-kispi-zurich-zurich"
@@ -112,7 +114,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2476/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:15:46.756Z",
+      "crawledAt": "2026-10-03T09:14:49.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -175,7 +177,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3060/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:44.757Z",
+      "crawledAt": "2026-10-03T09:14:47.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -193,11 +195,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
+        "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich",
+        "senior-windows-ingegnere-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
+          "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich",
+          "senior-windows-ingegnere-m-w-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
           "senior-windows-engineer-m-w-80-100-kispi-zurich-zurich"
@@ -216,7 +220,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-0b429d6f4442",
@@ -249,7 +254,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2697/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:42.738Z",
+      "crawledAt": "2026-10-03T09:14:45.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -267,11 +272,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
+        "oberarztin-oberarzt-60-100-kispi-zurich-zurich",
+        "medico-senior-60-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
+          "oberarztin-oberarzt-60-100-kispi-zurich-zurich",
+          "medico-senior-60-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-60-100-kispi-zurich-zurich"
@@ -293,7 +300,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-440f80c824a0",
@@ -327,7 +335,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1231/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:40.761Z",
+      "crawledAt": "2026-10-03T09:14:43.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -345,11 +353,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+        "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
+        "interno-di-allattamento-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
+          "interno-di-allattamento-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "pflegepraktikantin-m-w-100-kispi-zurich-zurich"
@@ -405,7 +415,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3509/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:38.763Z",
+      "crawledAt": "2026-10-03T09:14:41.762Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -469,7 +479,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2348/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:35.638Z",
+      "crawledAt": "2026-10-03T09:14:38.652Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -487,11 +497,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
+        "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich",
+        "modulo-c-aggiuntivo-per-il-dipl-infermiera-fh-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
+          "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich",
+          "modulo-c-aggiuntivo-per-il-dipl-infermiera-fh-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "zusatzmodul-c-zur-dipl-pflegefachfrau-fh-kispi-zurich-zurich"
@@ -547,7 +559,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1330/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:34.689Z",
+      "crawledAt": "2026-10-03T09:14:37.683Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -625,7 +637,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2929/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:33.762Z",
+      "crawledAt": "2026-10-03T09:14:36.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -643,11 +655,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
+        "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich",
+        "studenti-di-radiologia-medica-hf-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
+          "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich",
+          "studenti-di-radiologia-medica-hf-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "studierende-medizinisch-technische-radiologie-hf-m-w-100-kispi-zurich-zurich"
@@ -703,7 +717,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3512/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:31.755Z",
+      "crawledAt": "2026-10-03T09:14:34.772Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -721,11 +735,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
+        "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich",
+        "formazione-professionale-infermieristica-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
+          "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich",
+          "formazione-professionale-infermieristica-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "berufsbildnerin-pflege-m-w-80-100-kispi-zurich-zurich"
@@ -781,7 +797,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3196/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:29.742Z",
+      "crawledAt": "2026-10-03T09:14:32.775Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -799,11 +815,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
+        "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
+          "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich"
@@ -859,7 +877,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3563/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:27.762Z",
+      "crawledAt": "2026-10-03T09:14:30.763Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -923,7 +941,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/2448/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:25.733Z",
+      "crawledAt": "2026-10-03T09:14:28.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -942,12 +960,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
+        "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-8c5856"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2",
+          "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-8c5856"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-2"
@@ -1005,7 +1025,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3429/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:23.750Z",
+      "crawledAt": "2026-10-03T09:14:26.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1023,11 +1043,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
+        "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+        "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
+          "oberarztin-oberarzt-80-100-kispi-zurich-zurich",
+          "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "oberarztin-oberarzt-80-100-kispi-zurich-zurich"
@@ -1049,7 +1071,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-6832f6aa9952",
@@ -1083,7 +1106,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3677/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:21.758Z",
+      "crawledAt": "2026-10-03T09:14:24.740Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1158,7 +1181,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1915/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:19.738Z",
+      "crawledAt": "2026-10-03T09:14:22.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1233,7 +1256,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3684/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:17.767Z",
+      "crawledAt": "2026-10-03T09:14:20.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1311,7 +1334,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3134/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:15.766Z",
+      "crawledAt": "2026-10-03T09:14:18.767Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1330,12 +1353,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
-        "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2"
+        "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2",
+        "interno-di-allattamento-m-f-100-universitats-kinderspital-zurich-kispi-zurich-2a7187"
       ],
       "previousSlugsByLocale": {
         "it": [
           "pflegepraktikantin-m-w-100-kispi-zurich-zurich",
-          "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2"
+          "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2",
+          "interno-di-allattamento-m-f-100-universitats-kinderspital-zurich-kispi-zurich-2a7187"
         ],
         "en": [
           "pflegepraktikantin-m-w-100-kispi-zurich-zurich-2"
@@ -1394,7 +1419,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3340/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:13.761Z",
+      "crawledAt": "2026-10-03T09:14:16.748Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1472,7 +1497,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3699/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:15:11.760Z",
+      "crawledAt": "2026-10-03T09:14:14.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1547,7 +1572,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3700/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:59.162Z",
+      "crawledAt": "2026-10-03T09:14:12.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1566,11 +1591,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich",
-        "care-expert-care-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich"
+        "care-expert-care-expert-practice-50-universitats-kinderspital-zurich-kispi-zurich",
+        "pratica-esperto-esperto-di-cura-50-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich"
+          "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich",
+          "pratica-esperto-esperto-di-cura-50-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "pflegeexpertin-pflegeexperte-praxis-50-kispi-zurich-zurich",
@@ -1626,7 +1653,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3704/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:38.962Z",
+      "crawledAt": "2026-10-03T09:14:10.773Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1689,7 +1716,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3712/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:14:18.755Z",
+      "crawledAt": "2026-10-03T09:14:08.764Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1707,11 +1734,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
+        "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich",
+        "esperto-di-cura-apn-m-f-20-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
+          "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich",
+          "esperto-di-cura-apn-m-f-20-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "pflegeexpertin-apn-m-w-20-kispi-zurich-zurich"
@@ -1767,7 +1796,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3502/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:50.784Z",
+      "crawledAt": "2026-10-03T09:14:06.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1786,12 +1815,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
+        "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-b290d1"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3",
+          "dipl-infermieristica-professionale-dipl-cura-professionale-60-100-universitats-kinderspital-zurich-kispi-zurich-b290d1"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-60-100-kispi-zurich-zurich-3"
@@ -1850,7 +1881,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3716/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:46.766Z",
+      "crawledAt": "2026-10-03T09:14:02.778Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1868,11 +1899,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
+        "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+        "terapia-sportiva-di-stage-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
+          "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich",
+          "terapia-sportiva-di-stage-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "praktikantin-sporttherapie-w-m-100-kispi-zurich-zurich"
@@ -1927,7 +1960,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3437/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:44.761Z",
+      "crawledAt": "2026-10-03T09:14:00.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1945,11 +1978,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
+        "dipl-infermieristica-professionale-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich",
+          "dipl-infermieristica-professionale-dipl-care-professional-40-50-children-permanence-circle-universitats-kinderspital"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-40-50-kinderpermanence-circle-kispi-zurich-zurich"
@@ -2003,7 +2038,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3721/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:42.755Z",
+      "crawledAt": "2026-10-03T09:13:58.745Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2021,11 +2056,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
+        "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich",
+        "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich-b5b72c"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
+          "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich",
+          "medico-senior-80-100-universitats-kinderspital-zurich-kispi-zurich-b5b72c"
         ],
         "en": [
           "leitende-arztin-leitender-arzt-80-100-kispi-zurich-zurich"
@@ -2047,7 +2084,8 @@
           "maxValue": 173000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-6337814c5aec",
@@ -2081,7 +2119,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1566/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:40.743Z",
+      "crawledAt": "2026-10-03T09:13:56.761Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2099,11 +2137,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
+        "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
+        "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
+          "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich",
+          "dipl-esperto-dipl-cura-intensiva-esperto-60-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-expertin-dipl-experte-intensivpflege-60-100-kispi-zurich-zurich"
@@ -2158,7 +2198,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3628/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:38.762Z",
+      "crawledAt": "2026-10-03T09:13:54.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2176,11 +2216,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diatkoch-80-100-kispi-zurich-zurich"
+        "diatkoch-80-100-kispi-zurich-zurich",
+        "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diatkoch-80-100-kispi-zurich-zurich"
+          "diatkoch-80-100-kispi-zurich-zurich",
+          "cucina-dietetica-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "diatkoch-80-100-kispi-zurich-zurich"
@@ -2201,7 +2243,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-9a4dece2b049",
@@ -2235,7 +2278,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/1645/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:36.676Z",
+      "crawledAt": "2026-10-03T09:13:52.669Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2253,11 +2296,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+        "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+        "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
+          "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich",
+          "diploma-formazione-scuola-superiore-ingegneria-operativa-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "diplomausbildung-hohere-fachschule-operationstechnik-kispi-zurich-zurich"
@@ -2312,7 +2357,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3290/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:35.764Z",
+      "crawledAt": "2026-10-03T09:13:51.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2330,11 +2375,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
+        "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich",
+        "diploma-di-studenti-in-analisi-biomediche-hf-m-f-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
+          "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich",
+          "diploma-di-studenti-in-analisi-biomediche-hf-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "studierende-diplomausbildung-biomedizinische-analytik-hf-m-w-kispi-zurich-zurich"
@@ -2389,7 +2436,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3735/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:31.797Z",
+      "crawledAt": "2026-10-03T09:13:47.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2407,11 +2454,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich"
+        "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich",
+        "apprentice-apprendista-manutenzione-di-lavoro-efz-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich"
+          "lernender-fachmann-lernende-fachfrau-betriebsunterhalt-efz-kispi-zurich-zurich",
+          "apprentice-apprendista-manutenzione-di-lavoro-efz-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 53500,
@@ -2460,7 +2509,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3732/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:29.756Z",
+      "crawledAt": "2026-10-03T09:13:45.747Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2478,11 +2527,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
+        "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+        "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich"
+          "applikationsverantwortliche-polypoint-pep-m-w-70-kispi-zurich-zurich",
+          "polypoint-pep-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 64000,
@@ -2531,7 +2582,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3532/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:27.759Z",
+      "crawledAt": "2026-10-03T09:13:43.779Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2549,11 +2600,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "disponentin-m-w-70-kispi-zurich-zurich"
+        "disponentin-m-w-70-kispi-zurich-zurich",
+        "disponentin-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "disponentin-m-w-70-kispi-zurich-zurich"
+          "disponentin-m-w-70-kispi-zurich-zurich",
+          "disponentin-m-w-d-70-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 64000,
@@ -2602,7 +2655,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3746/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:25.781Z",
+      "crawledAt": "2026-10-03T09:13:41.771Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2621,11 +2674,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
-        "mitarbeiterin-fallmanagement-90-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
+        "mitarbeiterin-fallmanagement-90-m-w-d-universitats-kinderspital-zurich-kispi-zurich",
+        "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich"
+          "mitarbeiterin-fallmanagement-90-m-w-kispi-zurich-zurich",
+          "gestione-dei-casi-dei-dipendenti-90-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "mitarbeiterin-fallmanagement-90-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
@@ -2680,7 +2735,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3739/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:23.789Z",
+      "crawledAt": "2026-10-03T09:13:39.766Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2698,11 +2753,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+        "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
+        "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich"
+          "projektleiterin-business-applikationen-m-w-80-100-kispi-zurich-zurich",
+          "applicazioni-aziendali-di-project-manager-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 124000,
@@ -2751,7 +2808,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3606/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:21.788Z",
+      "crawledAt": "2026-10-03T09:13:37.768Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2769,11 +2826,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+        "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
+        "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich"
+          "praktikantin-spitalschule-kinder-reha-schweiz-w-m-80-kispi-zurich-zurich",
+          "stage-in-ospedale-scuola-bambini-rehab-svizzera-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "salaryMin": 42800,
@@ -2822,7 +2881,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/393/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:19.687Z",
+      "crawledAt": "2026-10-03T09:13:35.692Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2904,7 +2963,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3349/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:18.757Z",
+      "crawledAt": "2026-10-03T09:13:34.762Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2923,12 +2982,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
-        "mitarbeiterin-patientenaufnahme-m-w-d-40-universitats-kinderspital-zurich-kispi-zurich"
+        "mitarbeiterin-patientenaufnahme-m-w-d-40-universitats-kinderspital-zurich-kispi-zurich",
+        "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
-          "mitarbeiterin-patientenaufnahme-m-w-d-40-universitats-kinderspital-zurich-kispi-zurich"
+          "mitarbeiterin-patientenaufnahme-m-w-d-40-universitats-kinderspital-zurich-kispi-zurich",
+          "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-29T21:16:13.369Z",
@@ -2978,7 +3039,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3749/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:16.761Z",
+      "crawledAt": "2026-10-03T09:13:32.754Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -2996,11 +3057,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+        "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
+        "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich"
+          "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
+          "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "firstSeenAt": "2026-09-18T23:11:57.734Z",
@@ -3023,9 +3086,9 @@
       "slug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-ttsne6",
-        "fr": "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
+        "en": "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich",
+        "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+        "fr": "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -3050,7 +3113,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3747/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:14.757Z",
+      "crawledAt": "2026-10-03T09:13:30.749Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3073,6 +3136,10 @@
         "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "vocational-nurse-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-ttsne6",
+        "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich",
+        "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
         "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
@@ -3081,15 +3148,19 @@
           "formazione-professionale-m-w-universitats-kinderspital-zurich-kispi-zurich",
           "infermiere-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
           "vocational-nurse-m-f-universitats-kinderspital-zurich-kispi-zurich",
-          "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich"
+          "infirmiere-professionnelle-m-f-universitats-kinderspital-zurich-kispi-zurich",
+          "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
+          "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
           "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "de": [
+          "berufsbildnerin-pflege-m-w-kispi-zurich-zurich-ttsne6",
           "berufsbildnerin-pflege-m-w-kispi-zurich-zurich"
         ],
         "fr": [
+          "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich",
           "berufsbildnerin-pflege-m-w-d-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
@@ -3140,7 +3211,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3745/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:12.739Z",
+      "crawledAt": "2026-10-03T09:13:28.759Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3159,11 +3230,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
-        "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
+        "psychomotoriktherapeutin-m-w-d-30-40-universitats-kinderspital-zurich-kispi-zurich",
+        "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
+          "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich",
+          "terapeuta-psicomotore-m-f-d-30-40-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "de": [
           "psychomotoriktherapeutin-m-w-30-40-kispi-zurich-zurich"
@@ -3218,7 +3291,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3742/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:10.733Z",
+      "crawledAt": "2026-10-03T09:13:26.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3236,11 +3309,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
+        "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich",
+        "intern-m-f-comunicazione-public-affairs-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
+          "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich",
+          "intern-m-f-comunicazione-public-affairs-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich"
@@ -3262,7 +3337,8 @@
           "maxValue": 112500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-deeafc3ce4b0",
@@ -3296,7 +3372,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3722/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:08.786Z",
+      "crawledAt": "2026-10-03T09:13:24.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3314,11 +3390,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich"
+        "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich",
+        "ristorante-dipendente-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich"
+          "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich",
+          "ristorante-dipendente-m-f-70-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich"
@@ -3347,7 +3425,7 @@
       "slug": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
       "slugByLocale": {
         "it": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "en": "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich",
         "de": "apothekerin-w-m-80-kispi-zurich-zurich",
         "fr": "pharmacie-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
       },
@@ -3374,7 +3452,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3751/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:07.959Z",
+      "crawledAt": "2026-10-03T09:13:22.775Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3394,14 +3472,18 @@
       "previousSlugs": [
         "apothekerin-w-m-80-kispi-zurich-zurich",
         "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
+        "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+        "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
         "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apothekerin-w-m-80-kispi-zurich-zurich"
+          "apothekerin-w-m-80-kispi-zurich-zurich",
+          "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "apothekerin-w-m-80-universitats-kinderspital-zurich-kispi-zurich",
+          "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
           "apothekerin-m-w-d-80-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
@@ -3455,7 +3537,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3720/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:07.090Z",
+      "crawledAt": "2026-10-03T09:13:20.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3473,11 +3555,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
+        "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich",
+        "assistente-capo-medico-rehab-svizzera-m-f-90-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
+          "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich",
+          "assistente-capo-medico-rehab-svizzera-m-f-90-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "assistentin-chefarzt-kinder-reha-schweiz-w-m-90-kispi-zurich-zurich"
@@ -3533,7 +3617,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3754/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:06.227Z",
+      "crawledAt": "2026-10-03T09:13:18.801Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3551,11 +3635,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
+        "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich",
+        "responsabile-della-formazione-nds-intensive-care-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
+          "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich",
+          "responsabile-della-formazione-nds-intensive-care-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "fachbereichsleiterin-bildung-pflege-nds-intensivpflege-m-w-80-100-kispi-zurich-zurich"
@@ -3610,7 +3696,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3753/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:05.404Z",
+      "crawledAt": "2026-10-03T09:13:16.751Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3629,12 +3715,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "teamleiterin-payroll-m-w-kispi-zurich-zurich",
-        "teamleiterin-payroll-m-w-80-100-kispi-zurich-zurich"
+        "teamleiterin-payroll-m-w-80-100-kispi-zurich-zurich",
+        "capo-squadra-payroll-m-f-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "teamleiterin-payroll-m-w-kispi-zurich-zurich",
-          "teamleiterin-payroll-m-w-80-100-kispi-zurich-zurich"
+          "teamleiterin-payroll-m-w-80-100-kispi-zurich-zurich",
+          "capo-squadra-payroll-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "teamleiterin-payroll-m-w-kispi-zurich-zurich"
@@ -3656,7 +3744,8 @@
           "maxValue": 128000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-82318d6e3455",
@@ -3690,7 +3779,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3576/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:04.574Z",
+      "crawledAt": "2026-10-03T09:13:14.798Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3708,11 +3797,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
+        "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich",
+        "dipl-specialista-dipl-professionale-in-tecnica-chirurgica-60-100-ot-hf-toa-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
+          "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich",
+          "dipl-specialista-dipl-professionale-in-tecnica-chirurgica-60-100-ot-hf-toa-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-fachfrau-dipl-fachmann-operationstechnik-60-100-ot-hf-toa-kispi-zurich-zurich"
@@ -3768,7 +3859,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3755/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:03.741Z",
+      "crawledAt": "2026-10-03T09:13:12.767Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3786,11 +3877,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
+        "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich",
+        "medici-mpa-m-f-30-50-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
+          "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich",
+          "medici-mpa-m-f-30-50-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "medizinische-praxisangestellte-mpa-m-w-30-50-kispi-zurich-zurich"
@@ -3846,7 +3939,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3748/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:02.922Z",
+      "crawledAt": "2026-10-03T09:13:10.769Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3865,12 +3958,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "fellow-kinderorthopadie-und-traumatologie-w-m-80-100-kispi-zurich-zurich",
-        "fellow-kinderorthopala-e-traumatologie-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich"
+        "fellow-kinderorthopala-e-traumatologie-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+        "ortopedia-e-traumatologia-del-feltro-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "fellow-kinderorthopadie-und-traumatologie-w-m-80-100-kispi-zurich-zurich",
-          "fellow-kinderorthopala-e-traumatologie-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich"
+          "fellow-kinderorthopala-e-traumatologie-m-w-d-80-100-universitats-kinderspital-zurich-kispi-zurich",
+          "ortopedia-e-traumatologia-del-feltro-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "fellow-kinderorthopadie-und-traumatologie-w-m-80-100-kispi-zurich-zurich"
@@ -3926,7 +4021,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3665/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:02.086Z",
+      "crawledAt": "2026-10-03T09:13:08.746Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -3946,13 +4041,15 @@
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
         "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+        "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich",
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-4",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich-2",
+          "dipl-infermieristica-professionale-dipl-cura-professionale-80-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-80-100-kispi-zurich-zurich"
@@ -4011,7 +4108,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3592/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:01.231Z",
+      "crawledAt": "2026-10-03T09:13:06.765Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4029,11 +4126,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-50-100-kispi-zurich-zurich"
+        "dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-50-100-kispi-zurich-zurich",
+        "dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-50-100-universitats-kinderspital-zurich-kispi-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-50-100-kispi-zurich-zurich"
+          "dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-50-100-kispi-zurich-zurich",
+          "dipl-specialista-di-radiologia-hf-dipl-specialista-di-radiologia-hf-50-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
           "dipl-radiologiefachfrau-hf-dipl-radiologiefachmann-hf-50-100-kispi-zurich-zurich"
@@ -4089,7 +4188,7 @@
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3599/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:13:00.387Z",
+      "crawledAt": "2026-10-03T09:13:04.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4136,12 +4235,12 @@
     },
     {
       "id": "kispi-zurich-830791e2d8fe",
-      "slug": "formazione-professionale-nds-m-f-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
       "slugByLocale": {
         "de": "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
-        "it": "formazione-professionale-nds-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "vocational-training-nds-m-f-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "formation-professionnelle-nds-h-f-universitats-kinderspital-zurich-kispi-zurich"
+        "it": "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+        "en": "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+        "fr": "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4149,23 +4248,23 @@
       "title": "Berufsbildnerin Pflege NDS (m/w)",
       "titleByLocale": {
         "de": "Berufsbildnerin Pflege NDS (m/w)",
-        "it": "Formazione professionale NDS (m/f)",
-        "en": "Vocational training NDS (m/f)",
-        "fr": "Formation professionnelle NDS (h/f)"
+        "it": "Berufsbildnerin Pflege NDS (m/w)",
+        "en": "Berufsbildnerin Pflege NDS (m/w)",
+        "fr": "Berufsbildnerin Pflege NDS (m/w)"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nIn Kombination mit einer Anstellung als dipl. Expertin Intensivpflege auf der IPS\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Studierenden im NDS.\n• Du planst und gestaltest individuelle Lernangebote für Studierenden.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Studierenden.\n• Für diese Aufgabe ist eine ausgewiesene Fachexpertise in Kardiologie eine Voraussetzung.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH mit Fachausweis NDS\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Studierenden\n• Du bist bereit, im Verlauf das SVEB-Zertifikat zu erlangen oder bringst es bereits mit\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nIn Kombination mit einer Anstellung als dipl. Expertin Intensivpflege auf der IPS\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Studierenden im NDS.\n• Du planst und gestaltest individuelle Lernangebote für Studierenden.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Studierenden.\n• Für diese Aufgabe ist eine ausgewiesene Fachexpertise in Kardiologie eine Voraussetzung.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH mit Fachausweis NDS\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Studierenden\n• Du bist bereit, im Verlauf das SVEB-Zertifikat zu erlangen oder bringst es bereits mit\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 02.10.2026\n\nIn combinazione con l'occupazione come dipl. Cura intensiva esperto presso l'IPS\n\nI tuoi compiti\n• Si assume la responsabilità per la formazione degli studenti nel NDS.\n• Pianifica e progetta opportunità di apprendimento individuale per gli studenti.\n• Condurre interviste di formazione, sostenere e documentare il processo di apprendimento e creare le qualifiche degli studenti.\n• Per questo compito, una comprovata esperienza in cardiologia è un prerequisito.\n\nIl tuo profilo\n• Hai un diploma completato Infermierizzazione HF / FH con ID professionale NDS\n• Porti esperienza professionale nella cura pediatrica\n• Esperienza come compagno di giornata di studenti\n• Siete pronti per ottenere il certificato SVEB durante il corso o già portarlo con voi\n• Una conoscenza approfondita della cura basata sulle prove completa il tuo profilo\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 02.10.2026\n\nIn combination with employment as dipl. Expert intensive care at the IPS\n\nYour tasks\n• You take responsibility for the training of students in the NDS.\n• You plan and design individual learning opportunities for students.\n• You conduct training interviews, support and document the learning process and create the qualifications of the students.\n• For this task, a proven expertise in cardiology is a prerequisite.\n\nYour profile\n• You have a completed diploma Nursing HF / FH with professional ID NDS\n• You bring professional experience in pediatric care\n• Experience as a day companion of students\n• You are ready to obtain the SVEB certificate during the course or already bring it with you\n• An in-depth knowledge in evidence-based care rounds off your profile\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 02.10.2026\n\nEn combinaison avec l'emploi comme dipl. Expert en soins intensifs à l'IPS\n\nVos tâches\n• Vous assumez la responsabilité de la formation des étudiants dans le NDS.\n• Vous planifiez et concevez des possibilités d'apprentissage individuelles pour les étudiants.\n• Vous effectuez des entrevues de formation, supportez et documentez le processus d'apprentissage et créez les qualifications des étudiants.\n• Pour cette tâche, une expertise éprouvée en cardiologie est une condition préalable.\n\nVotre profil\n• Vous avez un diplôme de soins infirmiers HF / FH avec ID NDS professionnel\n• Vous apportez une expérience professionnelle en soins pédiatriques\n• Expérience comme compagnon de jour des étudiants\n• Vous êtes prêt à obtenir le certificat SVEB pendant le cours ou déjà apporter avec vous\n• Une connaissance approfondie des soins fondés sur des preuves complète votre profil\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nIn Kombination mit einer Anstellung als dipl. Expertin Intensivpflege auf der IPS\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Studierenden im NDS.\n• Du planst und gestaltest individuelle Lernangebote für Studierenden.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Studierenden.\n• Für diese Aufgabe ist eine ausgewiesene Fachexpertise in Kardiologie eine Voraussetzung.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH mit Fachausweis NDS\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Studierenden\n• Du bist bereit, im Verlauf das SVEB-Zertifikat zu erlangen oder bringst es bereits mit\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nIn Kombination mit einer Anstellung als dipl. Expertin Intensivpflege auf der IPS\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Studierenden im NDS.\n• Du planst und gestaltest individuelle Lernangebote für Studierenden.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Studierenden.\n• Für diese Aufgabe ist eine ausgewiesene Fachexpertise in Kardiologie eine Voraussetzung.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH mit Fachausweis NDS\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Studierenden\n• Du bist bereit, im Verlauf das SVEB-Zertifikat zu erlangen oder bringst es bereits mit\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nIn Kombination mit einer Anstellung als dipl. Expertin Intensivpflege auf der IPS\n\nDeine Aufgaben\n• Du übernimmst die Verantwortung für die Ausbildung von Studierenden im NDS.\n• Du planst und gestaltest individuelle Lernangebote für Studierenden.\n• Du führst Ausbildungsgespräche, unterstützt und dokumentierst den Lernprozess und erstellst die Qualifikation der Studierenden.\n• Für diese Aufgabe ist eine ausgewiesene Fachexpertise in Kardiologie eine Voraussetzung.\n\nDein Profil\n• Du verfügst über ein abgeschlossenes Diplom Pflege HF / FH mit Fachausweis NDS\n• Du bringst Berufserfahrung in der pädiatrischen Pflege mit\n• Erfahrung als Tagesbegleiter/in von Studierenden\n• Du bist bereit, im Verlauf das SVEB-Zertifikat zu erlangen oder bringst es bereits mit\n• Ein vertieftes Wissen in evidenzbasierter Pflege rundet dein Profil ab\n\nMirjam Federli HR Business Partner +41 44 249 23 07\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3758/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:59.637Z",
+      "crawledAt": "2026-10-03T09:13:02.770Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4178,7 +4277,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3758/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -4197,30 +4296,37 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:12:59.637Z",
+      "firstSeenAt": "2026-10-03T09:13:02.770Z",
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich"
+          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+          "formazione-professionale-nds-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
-          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich"
+          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+          "vocational-training-nds-m-f-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
-          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich"
+          "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+          "formation-professionnelle-nds-h-f-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich"
-      ]
+        "berufsbildnerin-pflege-nds-m-w-kispi-zurich-zurich",
+        "formazione-professionale-nds-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "vocational-training-nds-m-f-universitats-kinderspital-zurich-kispi-zurich",
+        "formation-professionnelle-nds-h-f-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "kispi-zurich-9bde70c0823e",
-      "slug": "fatturazione-dei-dipendenti-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+      "slug": "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
-        "it": "fatturazione-dei-dipendenti-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "en": "employee-billing-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
-        "fr": "facturation-des-employes-h-f-100-universitats-kinderspital-zurich-kispi-zurich"
+        "it": "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+        "en": "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+        "fr": "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich (Kispi)",
       "companyKey": "kispi-zurich",
@@ -4228,23 +4334,23 @@
       "title": "Mitarbeiterin Fakturierung (m/w) 100%",
       "titleByLocale": {
         "de": "Mitarbeiterin Fakturierung (m/w) 100%",
-        "it": "Fatturazione dei dipendenti (m/f) 100%",
-        "en": "Employee billing (m/f) 100%",
-        "fr": "Facturation des employés (h/f) 100%"
+        "it": "Mitarbeiterin Fakturierung (m/w) 100%",
+        "en": "Mitarbeiterin Fakturierung (m/w) 100%",
+        "fr": "Mitarbeiterin Fakturierung (m/w) 100%"
       },
       "description": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nRückweisungsmanagement\n\nDeine Aufgaben\n• Du prüfst und fakturierst abrechnungsrelevante Leistungs-, Fall- und Garantiedaten auf Vollständigkeit, Plausibilität und Tarifkonformität – sowohl in der Einzel- als auch in der Massenfakturierung\n• Du führst Rechnungskorrekturen durch, Stornierungen und Neufakturierungen in Einzel- und Massenverarbeitung\n• Du analysierst, bearbeitest und koordinierst Rückfragen zur Rechnungsstellung sowie Beanstandungen und Rückweisungen aus allen Abrechnungsbereichen\n• Du übernimmst die fachliche Korrespondenz und erteilst telefonisch Auskünfte gegenüber Eltern bzw. Erziehungsberechtigten, Versicherungen, IV-Stellen, Kantonen und weiteren Kostenträgern\n\nDein Profil\n• Du verfügst über eine Aus- und/oder Weiterbildung im kaufmännischen Bereich und bringst ausgewiesene Erfahrungen aus dem Gesundheitswesen/der Krankenversicherung mit.\n• Du hast bereits Erfahrung in der Anwendung der Tarifwerke (z. B. Tardoc, ambulante Pauschalen, SwissDRG, paramedizinische Tarife)\n• Durch deine hohe IT-Affinität unterstützt du uns beim Aufbau und der Weiterentwicklung von Prozessen.\n• Deine Eigeninitiative, Teamfähigkeit und deine rasche Auffassungsgabe zeichnen dein Profil aus.\n• Zudem bringst du stilsicheres Deutsch und gute Sprachkenntnisse in Englisch mit, natürlich sind weitere Sprachen von Vorteil.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
       "descriptionByLocale": {
         "de": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nRückweisungsmanagement\n\nDeine Aufgaben\n• Du prüfst und fakturierst abrechnungsrelevante Leistungs-, Fall- und Garantiedaten auf Vollständigkeit, Plausibilität und Tarifkonformität – sowohl in der Einzel- als auch in der Massenfakturierung\n• Du führst Rechnungskorrekturen durch, Stornierungen und Neufakturierungen in Einzel- und Massenverarbeitung\n• Du analysierst, bearbeitest und koordinierst Rückfragen zur Rechnungsstellung sowie Beanstandungen und Rückweisungen aus allen Abrechnungsbereichen\n• Du übernimmst die fachliche Korrespondenz und erteilst telefonisch Auskünfte gegenüber Eltern bzw. Erziehungsberechtigten, Versicherungen, IV-Stellen, Kantonen und weiteren Kostenträgern\n\nDein Profil\n• Du verfügst über eine Aus- und/oder Weiterbildung im kaufmännischen Bereich und bringst ausgewiesene Erfahrungen aus dem Gesundheitswesen/der Krankenversicherung mit.\n• Du hast bereits Erfahrung in der Anwendung der Tarifwerke (z. B. Tardoc, ambulante Pauschalen, SwissDRG, paramedizinische Tarife)\n• Durch deine hohe IT-Affinität unterstützt du uns beim Aufbau und der Weiterentwicklung von Prozessen.\n• Deine Eigeninitiative, Teamfähigkeit und deine rasche Auffassungsgabe zeichnen dein Profil aus.\n• Zudem bringst du stilsicheres Deutsch und gute Sprachkenntnisse in Englisch mit, natürlich sind weitere Sprachen von Vorteil.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
-        "it": "Ospedale per bambini Zurigo Eleonorenstiftung | online da: 02.10.2026\n\nGestione del rimborso\n\nI tuoi compiti\n• Controllare e fatturare il servizio, il caso e garantire i dati per completezza, plausibilità e conformità tariffaria – sia nella fatturazione individuale che di massa\n• Effettuare correzioni di fattura, cancellazioni e nuove fatture in elaborazione singola e di massa\n• Analizzi, elabora e coordina le richieste di fatturazione, nonché reclami e rifiuti da tutte le aree di fatturazione\n• Si prende il controllo della corrispondenza professionale e fornire informazioni a genitori o genitori per telefono. Tutori legali, compagnie di assicurazione, IV agenzie, cantoni e altri finanziatori\n\nIl tuo profilo\n• Hai una formazione e / o un'ulteriore formazione nel settore commerciale e portare esperienza comprovata dall'assistenza sanitaria / assicurazione sanitaria.\n• Hai già esperienza nell'applicazione delle tariffe (ad esempio Tardoc, pacchetti ambulatoriali, SwissDRG, tariffe paramediche)\n• A causa della vostra elevata affinità IT, ci supporta nella creazione e nello sviluppo di processi.\n• La vostra iniziativa, il lavoro di squadra e la vostra comprensione rapida caratterizzano il vostro profilo.\n• Inoltre, si porta elegante tedesco e buone competenze linguistiche in inglese, naturalmente altre lingue sono un vantaggio.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nSono interessato e vorrei candidarmi\n\nIndietro",
-        "en": "Children's Hospital Zurich Eleonorenstiftung | online since : 02.10.2026\n\nRefund management\n\nYour tasks\n• You check and invoice relevant service, case and guarantee data for completeness, plausibility and tariff compliance – both in individual and mass invoicing\n• You perform invoice corrections, cancellations and new invoices in single and mass processing\n• You analyze, process and coordinate inquiries about billing as well as complaints and rejections from all billing areas\n• You take over the professional correspondence and provide information to parents or parents by phone. Legal guardians, insurance companies, IV agencies, cantons and other payers\n\nYour profile\n• You have an education and / or further education in the commercial sector and bring proven experience from the health care / health insurance.\n• You already have experience in the application of tariffs (e.g. Tardoc, ambulatory packages, SwissDRG, paramedical tariffs)\n• Due to your high IT affinity, you support us in establishing and further developing processes.\n• Your own initiative, teamwork and your quick comprehension characterize your profile.\n• In addition, you bring stylish German and good language skills in English, of course other languages are an advantage.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nI am interested and would like to apply\n\nBack",
-        "fr": "L'hôpital des enfants Zurich Eleonorenstiftung en ligne depuis : 02.10.2026\n\nGestion des restitutions\n\nVos tâches\n• Vous vérifiez et facturez le service pertinent, le cas et les données de garantie pour assurer l'exhaustivité, la plausibilité et la conformité tarifaire – à la fois en facturation individuelle et en facturation de masse\n• Vous effectuez des corrections de factures, des annulations et de nouvelles factures en traitement simple et de masse\n• Vous analysez, traitez et coordonnez les demandes de renseignements sur la facturation ainsi que les plaintes et les refus de toutes les zones de facturation\n• Vous prenez en charge la correspondance professionnelle et fournissez des informations aux parents par téléphone. Gardiens légaux, compagnies d'assurance, agences IV, cantons et autres payeurs\n\nVotre profil\n• Vous avez une formation et / ou une formation ultérieure dans le secteur commercial et apportez une expérience éprouvée de la santé / assurance maladie.\n• Vous avez déjà une expérience dans l'application des tarifs (par exemple Tardoc, paquets ambulatoires, SwissDRG, tarifs paramédicaux)\n• En raison de votre haute affinité informatique, vous nous aidez à établir et à développer des processus.\n• Votre propre initiative, votre travail d'équipe et votre compréhension rapide caractérisent votre profil.\n• En outre, vous apportez l'allemand élégant et de bonnes compétences linguistiques en anglais, bien sûr d'autres langues sont un avantage.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nJe suis intéressé et je voudrais m'inscrire\n\nPrécédent"
+        "it": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nRückweisungsmanagement\n\nDeine Aufgaben\n• Du prüfst und fakturierst abrechnungsrelevante Leistungs-, Fall- und Garantiedaten auf Vollständigkeit, Plausibilität und Tarifkonformität – sowohl in der Einzel- als auch in der Massenfakturierung\n• Du führst Rechnungskorrekturen durch, Stornierungen und Neufakturierungen in Einzel- und Massenverarbeitung\n• Du analysierst, bearbeitest und koordinierst Rückfragen zur Rechnungsstellung sowie Beanstandungen und Rückweisungen aus allen Abrechnungsbereichen\n• Du übernimmst die fachliche Korrespondenz und erteilst telefonisch Auskünfte gegenüber Eltern bzw. Erziehungsberechtigten, Versicherungen, IV-Stellen, Kantonen und weiteren Kostenträgern\n\nDein Profil\n• Du verfügst über eine Aus- und/oder Weiterbildung im kaufmännischen Bereich und bringst ausgewiesene Erfahrungen aus dem Gesundheitswesen/der Krankenversicherung mit.\n• Du hast bereits Erfahrung in der Anwendung der Tarifwerke (z. B. Tardoc, ambulante Pauschalen, SwissDRG, paramedizinische Tarife)\n• Durch deine hohe IT-Affinität unterstützt du uns beim Aufbau und der Weiterentwicklung von Prozessen.\n• Deine Eigeninitiative, Teamfähigkeit und deine rasche Auffassungsgabe zeichnen dein Profil aus.\n• Zudem bringst du stilsicheres Deutsch und gute Sprachkenntnisse in Englisch mit, natürlich sind weitere Sprachen von Vorteil.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "en": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nRückweisungsmanagement\n\nDeine Aufgaben\n• Du prüfst und fakturierst abrechnungsrelevante Leistungs-, Fall- und Garantiedaten auf Vollständigkeit, Plausibilität und Tarifkonformität – sowohl in der Einzel- als auch in der Massenfakturierung\n• Du führst Rechnungskorrekturen durch, Stornierungen und Neufakturierungen in Einzel- und Massenverarbeitung\n• Du analysierst, bearbeitest und koordinierst Rückfragen zur Rechnungsstellung sowie Beanstandungen und Rückweisungen aus allen Abrechnungsbereichen\n• Du übernimmst die fachliche Korrespondenz und erteilst telefonisch Auskünfte gegenüber Eltern bzw. Erziehungsberechtigten, Versicherungen, IV-Stellen, Kantonen und weiteren Kostenträgern\n\nDein Profil\n• Du verfügst über eine Aus- und/oder Weiterbildung im kaufmännischen Bereich und bringst ausgewiesene Erfahrungen aus dem Gesundheitswesen/der Krankenversicherung mit.\n• Du hast bereits Erfahrung in der Anwendung der Tarifwerke (z. B. Tardoc, ambulante Pauschalen, SwissDRG, paramedizinische Tarife)\n• Durch deine hohe IT-Affinität unterstützt du uns beim Aufbau und der Weiterentwicklung von Prozessen.\n• Deine Eigeninitiative, Teamfähigkeit und deine rasche Auffassungsgabe zeichnen dein Profil aus.\n• Zudem bringst du stilsicheres Deutsch und gute Sprachkenntnisse in Englisch mit, natürlich sind weitere Sprachen von Vorteil.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück",
+        "fr": "Kinderspital Zürich Eleonorenstiftung | online seit : 02.10.2026\n\nRückweisungsmanagement\n\nDeine Aufgaben\n• Du prüfst und fakturierst abrechnungsrelevante Leistungs-, Fall- und Garantiedaten auf Vollständigkeit, Plausibilität und Tarifkonformität – sowohl in der Einzel- als auch in der Massenfakturierung\n• Du führst Rechnungskorrekturen durch, Stornierungen und Neufakturierungen in Einzel- und Massenverarbeitung\n• Du analysierst, bearbeitest und koordinierst Rückfragen zur Rechnungsstellung sowie Beanstandungen und Rückweisungen aus allen Abrechnungsbereichen\n• Du übernimmst die fachliche Korrespondenz und erteilst telefonisch Auskünfte gegenüber Eltern bzw. Erziehungsberechtigten, Versicherungen, IV-Stellen, Kantonen und weiteren Kostenträgern\n\nDein Profil\n• Du verfügst über eine Aus- und/oder Weiterbildung im kaufmännischen Bereich und bringst ausgewiesene Erfahrungen aus dem Gesundheitswesen/der Krankenversicherung mit.\n• Du hast bereits Erfahrung in der Anwendung der Tarifwerke (z. B. Tardoc, ambulante Pauschalen, SwissDRG, paramedizinische Tarife)\n• Durch deine hohe IT-Affinität unterstützt du uns beim Aufbau und der Weiterentwicklung von Prozessen.\n• Deine Eigeninitiative, Teamfähigkeit und deine rasche Auffassungsgabe zeichnen dein Profil aus.\n• Zudem bringst du stilsicheres Deutsch und gute Sprachkenntnisse in Englisch mit, natürlich sind weitere Sprachen von Vorteil.\n\nAlbion Zairi HR Business Partner +41 44 249 23 45\n\nhttp://www.kispi.uzh.ch\n\nIch bin interessiert und möchte mich bewerben\n\nZurück"
       },
       "location": "Zürich",
       "canton": "ZH",
       "url": "https://recruitingapp-2316.umantis.com/Vacancies/3635/Description/1",
       "source": "Universitäts-Kinderspital Zürich (Kispi) Dedicated Parser (Umantis listing tenant 2316)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:12:58.892Z",
+      "crawledAt": "2026-10-03T09:13:00.781Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -4257,7 +4363,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2316.umantis.com/Vacancies/3635/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -4276,21 +4382,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:12:58.892Z",
+      "firstSeenAt": "2026-10-03T09:13:00.781Z",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
+          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+          "fatturazione-dei-dipendenti-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "en": [
-          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
+          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+          "employee-billing-m-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ],
         "fr": [
-          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
+          "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+          "facturation-des-employes-h-f-100-universitats-kinderspital-zurich-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich"
-      ]
+        "mitarbeiterin-fakturierung-m-w-100-kispi-zurich-zurich",
+        "fatturazione-dei-dipendenti-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+        "employee-billing-m-f-100-universitats-kinderspital-zurich-kispi-zurich",
+        "facturation-des-employes-h-f-100-universitats-kinderspital-zurich-kispi-zurich"
+      ],
+      "needsRetranslation": true
     }
   ]
 }

@@ -193,6 +193,8 @@ describe('analytics.ts — L5 decision-moment contract', () => {
   it('exposes categorical completion and next-action events without answer or URL payloads', () => {
     expect(analyticsSrc).toContain("DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed'");
     expect(analyticsSrc).toContain("DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action'");
+    expect(analyticsSrc).toContain("gtag('get', GA4_MEASUREMENT_ID, 'session_id'");
+    expect(analyticsSrc).toMatch(/decision_session_id:\s*await getL5DecisionSessionId\(\)/);
     const completion = analyticsSrc.match(/trackDecisionMomentCompleted:[\s\S]*?\n \},/);
     const nextAction = analyticsSrc.match(/trackDecisionMomentNextAction:[\s\S]*?\n \},/);
     expect(completion?.[0]).toMatch(/decision_surface:/);
