@@ -46,8 +46,9 @@ describe('employer insights freshness verdict', () => {
 
 describe('employer insights freshness issue lifecycle', () => {
   const impls = () => ({
-    createIssueImpl: vi.fn(async () => ({})),
+    createIssueImpl: vi.fn(async (): Promise<Record<string, unknown> | null> => ({ number: 1, persisted: true })),
     resolveIssueImpl: vi.fn(async () => null),
+    reportingDisabled: false,
   });
 
   it('opens the stable-title issue when the last write is stale', async () => {
@@ -72,6 +73,28 @@ describe('employer insights freshness issue lifecycle', () => {
     const result = await runFreshnessCheck({ now, readLatestUpdatedAtImpl: async () => null, ...io });
     expect(result.action).toBe('issue-opened');
     expect(io.createIssueImpl).toHaveBeenCalledTimes(1);
+  });
+
+  it('fails when the stale alarm was not persisted', async () => {
+    // createGithubIssue does not throw: it returns null when `gh issue create`
+    // fails and `persisted: false` when the duplicate lookup is unreliable.
+    for (const unpersisted of [null, { persisted: false, lookupFailed: true }, {}]) {
+      const io = impls();
+      io.createIssueImpl.mockResolvedValueOnce(unpersisted);
+      await expect(runFreshnessCheck({ now, readLatestUpdatedAtImpl: async () => daysAgo(12), ...io }))
+        .rejects.toThrow(/non risulta persistita/);
+      expect(io.resolveIssueImpl).not.toHaveBeenCalled();
+    }
+  });
+
+  it('neither opens nor closes when reporting is switched off on purpose', async () => {
+    for (const latest of [daysAgo(12), daysAgo(0.1)]) {
+      const io = impls();
+      const result = await runFreshnessCheck({ now, readLatestUpdatedAtImpl: async () => latest, ...io, reportingDisabled: true });
+      expect(result.action).toBe('reporting-disabled');
+      expect(io.createIssueImpl).not.toHaveBeenCalled();
+      expect(io.resolveIssueImpl).not.toHaveBeenCalled();
+    }
   });
 
   it('closes the issue on a fresh reading and never opens one', async () => {

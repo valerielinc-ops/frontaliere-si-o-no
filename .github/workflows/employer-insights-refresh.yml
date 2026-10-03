@@ -266,9 +266,11 @@ jobs:
 
       # Freshness observer: whatever stopped the write (this run or the ones
       # before it), a dashboard that reads data older than the threshold opens
-      # a stable-title issue; the first fresh reading closes it.
+      # a stable-title issue; the first fresh reading closes it. always(), like
+      # upload and cleanup: a job that times out before the write is a stale
+      # case too, and `!cancelled()` would skip the only step that measures it.
       - name: Alert when the last successful write is stale
-        if: ${{ !cancelled() }}
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}

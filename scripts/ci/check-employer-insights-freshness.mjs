@@ -18,7 +18,10 @@
  * Ogni root scritta da `writeEmployerInsightsDocuments` porta `updatedAt`
  * (server timestamp, vedi `employerInsightsRootData`). Il rollback di una
  * scrittura fallita ripristina le root col loro `updatedAt` precedente, quindi
- * il massimo di `updatedAt` è l'ultima scrittura RIUSCITA. Si legge con una
+ * il massimo di `updatedAt` è l'ultima scrittura NON ANNULLATA. Limite noto:
+ * se anche il rollback fallisce a metà, le root già riscritte tengono il
+ * timestamp nuovo e la lettura risulta fresca su una collection parziale; quel
+ * caso lo segnala lo step di scrittura, che fallisce rosso. Si legge con una
  * sola query `orderBy('updatedAt','desc').limit(1)`: un documento letto per
  * run, non la collection.
  *
@@ -26,7 +29,10 @@
  *
  * Nessuna root con `updatedAt` leggibile NON è «fresco»: è una issue. Un
  * errore di lettura (credenziali, rete) fa uscire lo script con codice 1 e non
- * chiude niente: l'assenza di misura non è una guarigione.
+ * chiude niente: l'assenza di misura non è una guarigione. Lo stesso vale per
+ * un dato stantio la cui issue non risulta persistita: `createGithubIssue` non
+ * lancia, restituisce `null` o `persisted: false`, e un allarme non scritto
+ * non è un allarme.
  *
  * Uso:
  *   node scripts/ci/check-employer-insights-freshness.mjs [--dry-run] [--max-age-days=<n>]
@@ -179,12 +185,19 @@ export async function runFreshnessCheck({
   readLatestUpdatedAtImpl = defaultReadLatestUpdatedAt,
   createIssueImpl = defaultCreateIssue,
   resolveIssueImpl = defaultResolveIssue,
+  reportingDisabled = process.env.ENABLE_FAILURE_REPORT === 'false',
 } = {}) {
   const latestUpdatedAt = await readLatestUpdatedAtImpl();
   const verdict = evaluateFreshness({ latestUpdatedAt, now, maxAgeDays });
   if (dryRun) return { verdict, action: 'dry-run' };
+  // ENABLE_FAILURE_REPORT=false è uno spegnimento dichiarato del reporter
+  // (prove locali): né apre né chiude, e lo dice invece di fingere un esito.
+  if (reportingDisabled) return { verdict, action: 'reporting-disabled' };
   if (verdict.stale) {
-    await createIssueImpl({ title: STABLE_ISSUE_TITLE, description: buildIssueBody(verdict, { runUrl }) });
+    const issue = await createIssueImpl({ title: STABLE_ISSUE_TITLE, description: buildIssueBody(verdict, { runUrl }) });
+    if (!issue || issue.persisted !== true) {
+      throw new Error(`dato stantio (${verdict.reason}) ma la issue «${STABLE_ISSUE_TITLE}» non risulta persistita`);
+    }
     return { verdict, action: 'issue-opened' };
   }
   await resolveIssueImpl({ title: STABLE_ISSUE_TITLE, runUrl });

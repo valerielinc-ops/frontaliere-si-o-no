@@ -140,10 +140,13 @@ describe('employer insights refresh: the one-off D18 gate does not hold the dail
     const freshnessIndex = indexOf((step) => String(step.run ?? '').includes(FRESHNESS_SCRIPT));
     const cleanupIndex = indexOf((step) => String(step.run ?? '').includes('rm -f /tmp/firebase-sa.json'));
     const uploadIndex = indexOf((step) => String(step.uses ?? '').startsWith('actions/upload-artifact@'));
+    expect(cleanupIndex).toBeGreaterThanOrEqual(0);
+    expect(uploadIndex).toBeGreaterThanOrEqual(0);
     expect(freshnessIndex).toBeGreaterThan(writerIndex);
     expect(cleanupIndex).toBeGreaterThan(freshnessIndex);
-    // Must run when an earlier step failed: that is exactly the stale case.
-    expect(String(steps[freshnessIndex].if)).toContain('!cancelled()');
+    // Must run when an earlier step failed, timed out or was cancelled: those
+    // are exactly the stale cases.
+    expect(steps[freshnessIndex].if).toBe('always()');
     expect(YAML.parse(REFRESH_WORKFLOW_SOURCE).permissions.issues).toBe('write');
     expect(steps[uploadIndex].if).toBe('always()');
     expect(steps[cleanupIndex].if).toBe('always()');
