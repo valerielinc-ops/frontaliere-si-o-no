@@ -13,6 +13,7 @@ import {
   extractHelsinnJobBody,
 } from '@/scripts/lib/helsinn-job-parser.mjs';
 import { buildHelsinnJob } from '@/scripts/update-helsinn-jobs.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
@@ -138,7 +139,13 @@ describe('parseListingPage', () => {
   });
 
   it('returns empty array for "no jobs" message', () => {
-    expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
+    const jobs = parseListingPage(FIXTURE_EMPTY_LISTING);
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('keeps missing listing HTML fail-closed instead of proving an empty source', () => {
+    expect(isAuthoritativeEmptySnapshot(parseListingPage(''))).toBe(false);
   });
 
   it('returns empty array for empty input', () => {

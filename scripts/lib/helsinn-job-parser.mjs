@@ -15,6 +15,7 @@
 
 import { JSDOM } from 'jsdom';
 import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 const ELAVORO_HOST = 'www.e-lavoro.ch';
 const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
@@ -81,7 +82,10 @@ export function parseListingPage(html = '') {
   if (bodyText.includes('non ci sono offerte di lavoro') ||
       bodyText.includes('nessuna offerta') ||
       bodyText.includes('no job offers')) {
-    return [];
+    return markAuthoritativeEmptySnapshot(
+      [],
+      'e-lavoro.ch rendered its explicit no-open-offers message on the Helsinn listing page',
+    );
   }
 
   // Strategy 1: Find links to job detail pages (/node/{id} pattern)
