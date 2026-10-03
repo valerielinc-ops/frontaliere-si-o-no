@@ -31,7 +31,10 @@ function normalizeArticleEntity(
 
  const out = { ...fallback, ...value };
  if (!out.name) out.name = fallback.name;
- if (!out.url) out.url = fallback.url;
+ // An external identity without a URL must not inherit the site's URL:
+ // that would make the recursive normalizer mistake it for the publisher.
+ if (!value.url && value['@id'] && value['@id'] !== ORGANIZATION_ID) delete out.url;
+ else if (!out.url) out.url = fallback.url;
  return out;
 }
 

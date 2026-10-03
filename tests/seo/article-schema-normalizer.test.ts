@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 
 import { ORGANIZATION_ID } from '@/services/seo/organizationLd';
-import { normalizeArticleStructuredData } from '@/services/seo/schema-normalizers';
+import { normalizeArticleStructuredData, normalizeStructuredData } from '@/services/seo/schema-normalizers';
 
 describe('static Article JSON-LD safety net', () => {
   it('expands organization references and supplies legacy Article defaults', () => {
@@ -21,6 +21,18 @@ describe('static Article JSON-LD safety net', () => {
     expect(normalized.publisher.name).toBe('Frontaliere Ticino');
     expect(normalized.publisher.logo['@type']).toBe('ImageObject');
     expect(normalized.image.contentUrl).toBe(normalized.image.url);
+  });
+
+  it('keeps external same-name identities external through both normalization passes', () => {
+    const external = Object.freeze({ '@type': 'Organization', '@id': 'https://example.com/#newsroom', name: 'Frontaliere Ticino' });
+    const normalized = normalizeStructuredData(normalizeArticleStructuredData({
+      '@type': 'NewsArticle', author: external, publisher: external,
+    }));
+    for (const entity of [normalized.author, normalized.publisher]) {
+      expect(entity['@id']).toBe(external['@id']);
+      expect(entity).not.toHaveProperty('url');
+    }
+    expect(external).not.toHaveProperty('url');
   });
 
   it('adds a safe image when a legacy Article omitted one', () => {
