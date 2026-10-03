@@ -872,17 +872,22 @@ const ITEM_VERDICT_COVER_TYPES = new Set(['evidence', 'blocked']);
  *   `covered: false` (l'ultimo `FIX_OUTCOME`, come `latestFixOutcomeFromComments`);
  * - bucket giornaliero → `covered: true` se un commento di autore fidato
  *   SUCCESSIVO al commento del verdetto (per `createdAt`; a parita' di secondo,
- *   per posizione) porta `FU_ITEM_EVIDENCE` o `FU_ITEM_BLOCKED`.
+ *   per posizione) porta `FU_ITEM_EVIDENCE` o `FU_ITEM_BLOCKED`, E il bucket ha
+ *   ancora un item `open` (`hasOpenItem`). Senza un item da lavorare «il resto
+ *   del bucket» non esiste: il verdetto torna a valere per la issue (park /
+ *   flag `maybe-resolved` come prima), invece di rimettere in coda un bucket
+ *   che il DRAIN salterebbe a ogni tick come `no-open-item`. `hasOpenItem`
+ *   assente → `false` (fail-closed).
  *
  * @param {Array<object>} comments forma GraphQL o REST
- * @param {{isDailyBucket?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
  * @returns {{outcome: string|null, covered: boolean, marker: {type: string, item: string}|null}}
  */
-export function bucketVerdictCoverage(comments, { isDailyBucket = false, isTrusted } = {}) {
+export function bucketVerdictCoverage(comments, { isDailyBucket = false, hasOpenItem = false, isTrusted } = {}) {
   const list = Array.isArray(comments) ? comments : [];
   const latest = latestFixOutcomeEntryFromComments(list);
   const uncovered = { outcome: latest.outcome, covered: false, marker: null };
-  if (!latest.outcome || !isDailyBucket || typeof isTrusted !== 'function') return uncovered;
+  if (!latest.outcome || !isDailyBucket || hasOpenItem !== true || typeof isTrusted !== 'function') return uncovered;
   // Il commento del verdetto: l'ultimo con lo stesso esito e lo stesso istante,
   // cioe' quello che `latestFixOutcomeEntryFromComments` sceglie (`>=`).
   let verdictIndex = -1;
@@ -909,7 +914,7 @@ export function bucketVerdictCoverage(comments, { isDailyBucket = false, isTrust
  * (vedi `bucketVerdictCoverage`), altrimenti l'ultimo `FIX_OUTCOME`. Pura.
  *
  * @param {Array<object>} comments forma GraphQL o REST
- * @param {{isDailyBucket?: boolean, isTrusted?: (comment: object) => boolean}} [options]
+ * @param {{isDailyBucket?: boolean, hasOpenItem?: boolean, isTrusted?: (comment: object) => boolean}} [options]
  * @returns {string|null}
  */
 export function effectiveIssueVerdict(comments, options = {}) {
@@ -3607,23 +3612,31 @@ function latestFixOutcome(num) {
   return latestFixOutcomeFromComments(issueComments(num) || []);
 }
 
-// Bucket giornalieri il cui verdetto NON_RETRYABLE era gia' scritto sull'item
-// (vedi `bucketVerdictCoverage`): stampato a fine run come `verdict_covered=<n>`.
-let verdictCoveredCount = 0;
+// Bucket giornalieri DISTINTI il cui verdetto NON_RETRYABLE era gia' scritto
+// sull'item (vedi `bucketVerdictCoverage`): stampato a fine run come
+// `verdict_covered=<n>`. Un Set, non un contatore: lo stesso bucket passa da
+// VERDICT-EXIT e da parked-retry nello stesso tick.
+const verdictCoveredIssues = new Set();
 
 function noteVerdictCovered(iss, coverage, stage) {
-  verdictCoveredCount++;
+  verdictCoveredIssues.add(iss.number);
   console.log(`${stage}: verdetto coperto da marker item (#${iss.number}, ${coverage.marker.item}) — \`${coverage.outcome}\` già scritto sull'item (${coverage.marker.type}), il bucket non si ferma su questo verdetto.`);
+}
+
+/** Opzioni di `bucketVerdictCoverage` per una riga di issue REST (con `body`). */
+function bucketCoverageOptions(iss) {
+  return {
+    isDailyBucket: isDailyBucketTitle(iss?.title || ''),
+    hasOpenItem: selectFirstOpenItem(iss?.body || '') !== null,
+    isTrusted: isTrustedMarkerAuthor,
+  };
 }
 
 /** Copertura del verdetto per uno stadio che parcheggia, differisce, flagga o
  * salta. Logga e conta solo quando la regola cambia una decisione, cioe' su un
  * verdetto NON_RETRYABLE coperto. Nessun ramo chiude su un verdetto coperto. */
 function stageVerdictCoverage(iss, comments, stage) {
-  const coverage = bucketVerdictCoverage(comments, {
-    isDailyBucket: isDailyBucketTitle(iss?.title || ''),
-    isTrusted: isTrustedMarkerAuthor,
-  });
+  const coverage = bucketVerdictCoverage(comments, bucketCoverageOptions(iss));
   if (coverage.covered && NON_RETRYABLE.has(coverage.outcome)) noteVerdictCovered(iss, coverage, stage);
   return coverage;
 }
@@ -3632,10 +3645,11 @@ function stageVerdictCoverage(iss, comments, stage) {
  * sull'item del bucket? Commenti illeggibili → `false`, cioe' il park di prima
  * (fail-closed). Una sola lettura in piu', e solo sui bucket giornalieri. */
 function rescueVerdictCovered(iss, outcome) {
-  if (!isDailyBucketTitle(iss?.title || '')) return false;
+  const options = bucketCoverageOptions(iss);
+  if (!options.isDailyBucket || !options.hasOpenItem) return false;
   const comments = issueComments(iss.number);
   if (comments === null) return false;
-  const coverage = bucketVerdictCoverage(comments, { isDailyBucket: true, isTrusted: isTrustedMarkerAuthor });
+  const coverage = bucketVerdictCoverage(comments, options);
   if (!coverage.covered || coverage.outcome !== outcome) return false;
   noteVerdictCovered(iss, coverage, 'rescue');
   return true;
@@ -3643,6 +3657,7 @@ function rescueVerdictCovered(iss, outcome) {
 
 /** Contatore `verdict_covered` nel log e nello step summary della run. */
 function reportVerdictCovered() {
+  const verdictCoveredCount = verdictCoveredIssues.size;
   console.log(`verdict_covered=${verdictCoveredCount}`);
   if (!process.env.GITHUB_STEP_SUMMARY) return;
   try {
@@ -3730,6 +3745,7 @@ function main() {
     runDrain();
   } finally {
     budget.report();
+    reportVerdictCovered();
   }
 }
 
@@ -5695,11 +5711,5 @@ const isDirectRun = (() => {
   catch { return false; }
 })();
 if (isDirectRun) {
-  // `main` ha molte uscite anticipate (cap, budget, slot pieni): il contatore
-  // si stampa qui, una volta, qualunque sia lo stadio in cui la run si ferma.
-  try {
-    main();
-  } finally {
-    reportVerdictCovered();
-  }
+  main();
 }

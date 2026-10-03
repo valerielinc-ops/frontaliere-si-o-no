@@ -59,8 +59,8 @@ const attemptOnly = (code: string, createdAt: string) => ({
   createdAt,
 });
 
-const BUCKET = { isDailyBucket: true, isTrusted: isTrustedMarkerAuthor };
-const SINGLE = { isDailyBucket: false, isTrusted: isTrustedMarkerAuthor };
+const BUCKET = { isDailyBucket: true, hasOpenItem: true, isTrusted: isTrustedMarkerAuthor };
+const SINGLE = { isDailyBucket: false, hasOpenItem: true, isTrusted: isTrustedMarkerAuthor };
 
 describe('effectiveIssueVerdict — il verdetto gia\' scritto sull\'item non ferma il bucket', () => {
   it('bucket, already-fixed seguito da FU_ITEM_EVIDENCE → null (niente park, niente flag)', () => {
@@ -106,7 +106,21 @@ describe('effectiveIssueVerdict — il verdetto gia\' scritto sull\'item non fer
 
   it('senza predicato di fiducia non si fida di nessuno → non copre (fail-closed)', () => {
     const comments = [outcome('already-fixed', '2026-10-02T05:00:00Z'), evidence('2026-10-02T05:01:00Z')];
-    expect(effectiveIssueVerdict(comments, { isDailyBucket: true })).toBe('already-fixed');
+    expect(effectiveIssueVerdict(comments, { isDailyBucket: true, hasOpenItem: true })).toBe('already-fixed');
+  });
+
+  it('bucket SENZA item open → il verdetto vale per la issue (park / maybe-resolved come prima)', () => {
+    // route-already-fixed ha bloccato l'ULTIMO item (openRemaining=false): non
+    // c'e' «resto del bucket» da proteggere. Rimetterlo in coda lo lascerebbe
+    // fermo in agent:fix-queued, saltato dal DRAIN a ogni tick come no-open-item.
+    const comments = [outcome('already-fixed', '2026-10-02T05:00:00Z'), evidence('2026-10-02T05:01:00Z')];
+    expect(effectiveIssueVerdict(comments, { ...BUCKET, hasOpenItem: false })).toBe('already-fixed');
+    expect(bucketVerdictCoverage(comments, { ...BUCKET, hasOpenItem: false }).covered).toBe(false);
+  });
+
+  it('hasOpenItem assente → non copre (fail-closed)', () => {
+    const comments = [outcome('already-fixed', '2026-10-02T05:00:00Z'), evidence('2026-10-02T05:01:00Z')];
+    expect(effectiveIssueVerdict(comments, { isDailyBucket: true, isTrusted: isTrustedMarkerAuthor })).toBe('already-fixed');
   });
 
   it('solo FU_ITEM_ATTEMPT → non copre (registra il tentativo, non l\'esito sull\'item)', () => {
@@ -160,10 +174,14 @@ describe('effectiveIssueVerdict — il verdetto gia\' scritto sull\'item non fer
 
 describe('wiring nel drainer — ogni stadio che parcheggia, differisce, flagga o salta legge il verdetto effettivo', () => {
   const source = readFileSync('scripts/ci/followup-drainer.mjs', 'utf8');
-  const mainBody = source.slice(source.indexOf('function main() {'));
+  const runDrainAt = source.indexOf('export function runDrain() {');
+  const runDrainBody = source.slice(runDrainAt);
 
   it('nessuno stadio confronta piu\' il FIX_OUTCOME grezzo della issue con NON_RETRYABLE senza passare dalla copertura', () => {
-    expect(mainBody).not.toMatch(/const parkedVerdict = latestFixOutcomeFromComments\(/u);
+    // Ancora presente: senza, slice(-1) terrebbe un solo carattere e il
+    // not.toMatch passerebbe a vuoto.
+    expect(runDrainAt).toBeGreaterThan(-1);
+    expect(runDrainBody).not.toMatch(/const parkedVerdict = latestFixOutcomeFromComments\(/u);
   });
 
   it('VERDICT-EXIT: la copertura e\' valutata prima di verdictExitDecision', () => {
@@ -189,8 +207,20 @@ describe('wiring nel drainer — ogni stadio che parcheggia, differisce, flagga 
     expect(park).toBeGreaterThan(guard);
   });
 
+  it('la copertura richiede un item open, letto dal corpo della issue', () => {
+    const start = source.indexOf('function bucketCoverageOptions(');
+    const end = source.indexOf('function stageVerdictCoverage(');
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    expect(source.slice(start, end)).toContain("hasOpenItem: selectFirstOpenItem(iss?.body || '') !== null");
+  });
+
   it('nessun ramo nuovo chiude la issue: la copertura non e\' una prova di chiusura', () => {
-    const helper = source.slice(source.indexOf('function stageVerdictCoverage('), source.indexOf('function rescueVerdictCovered('));
+    const start = source.indexOf('function stageVerdictCoverage(');
+    const end = source.indexOf('function rescueVerdictCovered(');
+    expect(start).toBeGreaterThan(-1);
+    expect(end).toBeGreaterThan(start);
+    const helper = source.slice(start, end);
     expect(helper).not.toMatch(/issue', 'close'|LBL_RESOLVED_AUTO|LBL_MAYBE_RESOLVED/u);
   });
 
