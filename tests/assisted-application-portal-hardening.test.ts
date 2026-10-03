@@ -49,6 +49,16 @@ describe('portal runner hardening (career-ops apply.md)', () => {
       fields: [
         { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false, dialog: false },
         {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherPrivacyReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: true,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
           id: 'review',
           kind: 'checkbox',
           name: 'dpcsReview',
@@ -63,6 +73,7 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.trigger).toMatchObject({ id: 'privacy' });
     expect(controls.review).toMatchObject({ id: 'review', checked: false });
     expect(controls.review?.id).not.toBe('abo');
+    expect(controls.review?.id).not.toBe('outside-review');
     expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
     expect(controls.accept?.id).not.toBe('outside-accept');
   });
