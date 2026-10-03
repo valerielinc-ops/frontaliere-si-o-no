@@ -4,7 +4,7 @@ name: Publish to GitHub Pages (deploy + validate)
 # deploy.yml now only BUILDS (matrix-setup → prep → build-locale ×4) under a
 # workflow-level `pages-build-run` lock that releases the moment the build
 # finishes. This workflow runs the rest — deploy to Pages + validate + publish —
-# triggered by a successful build run via `workflow_run`. It carries its own
+# triggered by a completed build run via `workflow_run`. It carries its own
 # stage-specific locks so a new build can proceed while the previous build's
 # validation and post-deploy tail run here independently.
 #
@@ -34,16 +34,89 @@ permissions:
 # make a validator that is still rehydrating a 27 GB logical dist hold the
 # Pages upload slot, even after the current deploy already finished.
 #
-# The Pages job's group remains CONDITIONAL on the upstream build having
-# SUCCEEDED. Do not collapse it back to a bare `pages-deploy`: no-op runs from
-# cancelled builds would evict real pending publishes. The group is also shared
-# with restore-from-artifact.yml, so recovery cannot race a live upload.
+# The Pages job's group remains CONDITIONAL on the per-locale admission plan
+# proving a publishable IT artifact. Do not collapse it back to a bare
+# `pages-deploy`: no-op or provenance-blocked runs would evict real pending
+# publishes. The group is also shared with restore-from-artifact.yml, so
+# recovery cannot race a live upload.
 #
 # Each job-scoped group routes its own no-op path per run. Legitimate deploys
 # and post-deploy side-effects use newest-wins with cancel=false: an in-flight
 # Pages upload or side-effect is never interrupted, while a newer cumulative
 # main build may supersede a pending older one.
 jobs:
+  # ───────────────────────────────────────────────────────────────────────
+  # resolve-publish-plan: turn the completed matrix into an explicit,
+  # fail-closed locale admission plan. The aggregate workflow_run conclusion is
+  # not enough: a cancelled/failed non-IT leg may coexist with successful,
+  # provenance-backed locales. IT remains mandatory because it owns the Pages
+  # artifact and the shared CDN payload; every other non-admitted locale keeps
+  # its last-known-good shard and is reported stale.
+  # ───────────────────────────────────────────────────────────────────────
+  resolve-publish-plan:
+    name: Resolve per-locale publish plan
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      allowed: ${{ steps.plan.outputs.allowed }}
+      it_admitted: ${{ steps.plan.outputs.it_admitted }}
+      mode: ${{ steps.plan.outputs.mode }}
+      build_id: ${{ steps.plan.outputs.build_id }}
+      healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
+      stale_locales: ${{ steps.plan.outputs.stale_locales }}
+      stale_reasons: ${{ steps.plan.outputs.stale_reasons }}
+      reason: ${{ steps.plan.outputs.reason }}
+    steps:
+      - name: Checkout admission validator
+        uses: actions/checkout@v7
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+
+      - name: Read source matrix jobs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+        run: |
+          set -euo pipefail
+          gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${SOURCE_RUN_ID}/jobs?per_page=100" > "$RUNNER_TEMP/source-jobs.json"
+
+      # A cancelled leg can stop before its final `always()` step, so missing
+      # receipts are a valid input to the resolver. Successful legs, however,
+      # cannot be admitted without their receipt.
+      - name: Download locale provenance receipts
+        if: always()
+        continue-on-error: true
+        uses: actions/download-artifact@v8
+        with:
+          pattern: locale-publish-provenance-*
+          path: ${{ runner.temp }}/locale-publish-provenance
+          merge-multiple: false
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Resolve fail-closed locale plan
+        id: plan
+        if: always()
+        env:
+          SOURCE_RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          set -euo pipefail
+          node scripts/ci/resolve-locale-publish-plan.mjs \
+            --jobs-file "$RUNNER_TEMP/source-jobs.json" \
+            --provenance-dir "$RUNNER_TEMP/locale-publish-provenance" \
+            --run-conclusion "$SOURCE_RUN_CONCLUSION" \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --github-output "$GITHUB_OUTPUT" | tee -a "$GITHUB_STEP_SUMMARY"
+
   # ───────────────────────────────────────────────────────────────────────
   # deploy: publish the build run's dist/ to GitHub Pages.
   #
@@ -55,10 +128,11 @@ jobs:
   # publish still run.
   # ───────────────────────────────────────────────────────────────────────
   deploy:
-    # Only publish when the BUILD run succeeded. A failed it-shard makes the
-    # build-locale matrix job (fail-fast: false) → run conclusion failure → this
-    # never fires, which is correct: no github-pages artifact was produced.
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    # Publish when the explicit plan has a provenance-backed IT artifact. A
+    # failed/cancelled non-IT leg is allowed to remain stale; a missing or
+    # skewed IT receipt blocks all Pages/CDN side effects.
+    needs: resolve-publish-plan
+    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
     runs-on: ubuntu-latest
     # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
     # publish tail explicit at that maximum so a future default change cannot
@@ -66,8 +140,18 @@ jobs:
     timeout-minutes: 360
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
+    # Keep the completed workflow_run guard explicit: failure/cancelled source
+    # runs may enter only when resolve-publish-plan has admitted a proven IT
+    # payload for a partial publish; every other no-op gets a run-unique group.
     concurrency:
-      group: ${{ github.event.workflow_run.conclusion == 'success' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
+      group: >-
+        ${{ (github.event.workflow_run.conclusion == 'success' ||
+            github.event.workflow_run.conclusion == 'failure' ||
+            github.event.workflow_run.conclusion == 'cancelled') &&
+            needs.resolve-publish-plan.outputs.allowed == 'true' &&
+            needs.resolve-publish-plan.outputs.it_admitted == 'true' &&
+            'pages-deploy' ||
+            format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     permissions:
       pages: write
@@ -161,6 +245,29 @@ jobs:
       - name: Install dependencies
         if: steps.node-modules-cache.outputs.cache-hit != 'true'
         run: npm ci
+
+      # Re-check the receipt in the side-effecting job, rather than trusting
+      # only the resolver's output. This keeps the Pages handoff fail-closed if
+      # an artifact is malformed or the source identity changes between jobs.
+      - name: Download and validate IT provenance
+        uses: actions/download-artifact@v8
+        with:
+          name: locale-publish-provenance-it-${{ github.event.workflow_run.id }}
+          path: ${{ runner.temp }}/locale-publish-provenance-it
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Enforce IT provenance identity
+        env:
+          EXPECTED_BUILD_ID: ${{ needs.resolve-publish-plan.outputs.build_id }}
+          SOURCE_RUN_ID: ${{ github.event.workflow_run.id }}
+          SOURCE_SHA: ${{ github.event.workflow_run.head_sha }}
+        run: |
+          node scripts/ci/locale-publish-provenance.mjs \
+            --validate-dir "$RUNNER_TEMP/locale-publish-provenance-it" \
+            --locale it \
+            --source-run-id "$SOURCE_RUN_ID" \
+            --source-sha "$SOURCE_SHA" \
+            --expected-build-id "$EXPECTED_BUILD_ID"
 
       - name: Prepare Firebase credentials
         env:
@@ -407,12 +514,13 @@ jobs:
   # PARALLEL with deploy — not gated on the live publish.
   # ───────────────────────────────────────────────────────────────────────
   validate-dist:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    needs: resolve-publish-plan
+    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' }}
     # This is intentionally a different lock from pages-deploy. The complete
     # logical-dist rehydrate can use the full five-hour validator budget; it
     # must not serialize the Pages upload that already completed for its run.
     concurrency:
-      group: ${{ github.event.workflow_run.conclusion == 'success' && 'dist-validation' || format('dist-validation-noop-{0}', github.run_id) }}
+      group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && 'dist-validation' || format('dist-validation-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     uses: ./.github/workflows/post-deploy-validate-dist.yml
     with:
@@ -430,13 +538,15 @@ jobs:
   # Pages publish to have happened → gated on deploy.
   # ───────────────────────────────────────────────────────────────────────
   validate-live:
-    needs: deploy
-    if: ${{ !cancelled() && needs.deploy.result == 'success' }}
+    needs: [resolve-publish-plan, deploy]
+    if: ${{ !cancelled() && needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.deploy.result == 'success' }}
     uses: ./.github/workflows/post-deploy-validate-live.yml
     with:
       deploy_run_id: ${{ github.event.workflow_run.id }}
       deploy_event_name: ${{ github.event.workflow_run.event }}
       deploy_ref: ${{ github.event.workflow_run.head_sha }}
+      healthy_locales: ${{ needs.resolve-publish-plan.outputs.healthy_locales }}
+      stale_locales: ${{ needs.resolve-publish-plan.outputs.stale_locales }}
     secrets: inherit
     permissions:
       contents: write   # sync previous-slug winners (git push)
@@ -482,8 +592,8 @@ jobs:
   # serving, submitting its URLs is wrong.
   # ───────────────────────────────────────────────────────────────────────
   publish:
-    needs: [deploy, validate-dist, validate-live]
-    if: ${{ !cancelled() && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
+    needs: [resolve-publish-plan, deploy, validate-dist, validate-live]
+    if: ${{ !cancelled() && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.deploy.result == 'success' && needs.validate-live.result == 'success' && needs.validate-dist.outputs.integrity_ok == 'true' }}
     # Keep irreversible post-deploy side-effects serialized, but do not let
     # their validator wait hold the Pages upload lock. Since tails can now
     # complete out of order, deploy-registry.mjs also refuses to move
@@ -493,7 +603,7 @@ jobs:
     # syncing previous-slug state.
     concurrency:
       group: >-
-        ${{ github.event.workflow_run.conclusion == 'success' &&
+        ${{ needs.resolve-publish-plan.outputs.allowed == 'true' &&
             needs.deploy.result == 'success' &&
             needs.validate-live.result == 'success' &&
             needs.validate-dist.outputs.integrity_ok == 'true' &&
