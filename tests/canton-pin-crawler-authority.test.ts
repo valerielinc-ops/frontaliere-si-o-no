@@ -178,6 +178,15 @@ describe('inferCantonFromJobEvidence — preserve source-backed homonyms', () =>
     })).toBe('AG');
   });
 
+  it('keeps source canton evidence after locality normalization removes the marker', () => {
+    expect(inferCantonFromJobEvidence({
+      cityText: 'Seewen',
+      locationText: 'Seewen',
+      crawlerCanton: 'SZ',
+      sourceLocationCanton: 'SZ',
+    })).toBe('SZ');
+  });
+
   it('keeps the assembled canton when the stable source lookup is ambiguous', () => {
     const index = createCrawlerLocationRecordIndex();
     const first = {

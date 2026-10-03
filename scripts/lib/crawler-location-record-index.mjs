@@ -11,19 +11,24 @@ function normalizeCrawler(value) {
 }
 
 function locationRecord(job, { crawler = '' } = {}) {
+  const sourceLocationCanton = String(job.sourceLocationCanton || '').trim().toUpperCase();
   return {
     crawler: normalizeCrawler(crawler),
     canton: String(job.canton || '').trim().toUpperCase(),
     city: String(job.addressLocality || job.location || '').trim(),
     location: String(job.location || '').trim(),
+    ...(sourceLocationCanton ? { sourceLocationCanton } : {}),
   };
 }
 
 function sameLocationRecord(left, right) {
+  const leftSource = left.sourceLocationCanton || '';
+  const rightSource = right.sourceLocationCanton || '';
   return left.crawler === right.crawler
     && left.canton === right.canton
     && left.city === right.city
-    && left.location === right.location;
+    && left.location === right.location
+    && (!leftSource || !rightSource || leftSource === rightSource);
 }
 
 function addUniqueRecord(index, key, record) {

@@ -238,6 +238,9 @@ export function galenicaWorkLocation(item = {}) {
   };
   const regionCanton = (String(tb.georegion || '').trim().match(/^CH-([A-Z]{2})$/i) || [])[1] || '';
   const state = (regionCanton || String(tb.canton || '').trim()).toUpperCase();
+  const branchSourceCanton = (regionCanton || String(tb.canton || '').trim())
+    ? (inferAnyCanton(state) || '')
+    : '';
   const lines = htmlFragmentToMarkdown(tb.worklocationaddress || '')
     .split('\n')
     .map((line) => line.trim())
@@ -247,13 +250,30 @@ export function galenicaWorkLocation(item = {}) {
     const [, zip, city] = lines[zipIndex].match(/^(\d{4})\s+(.+)$/);
     const branch = String(tb.worklocationbranch || '').trim() || (zipIndex > 0 ? lines[0] : '');
     const street = zipIndex > 0 && lines[zipIndex - 1] !== branch ? lines[zipIndex - 1] : '';
-    return { city: city.trim(), zip, street, state, country: '', branch };
+    return {
+      city: city.trim(), zip, street, state, country: '', branch,
+      sourceLocationCanton: branchSourceCanton,
+    };
   }
   const locationMatch = String(tb.location || '').trim().match(/^(\d{4})\s+([^,(]+)/);
   if (locationMatch) {
-    return { city: locationMatch[2].trim(), zip: locationMatch[1], street: '', state, country: '', branch: '' };
+    return {
+      city: locationMatch[2].trim(), zip: locationMatch[1], street: '', state, country: '', branch: '',
+      sourceLocationCanton: branchSourceCanton,
+    };
   }
-  return fromContact;
+  const contactSourceCanton = (!tb.worklocationaddress && !tb.location && tb.profilelink)
+    ? (inferAnyCanton(fromContact.state) || '')
+    : '';
+  return {
+    ...fromContact,
+    sourceLocationCanton: contactSourceCanton,
+    // For apprenticeship records without a textblock location, `contact` is
+    // the branch address itself. Keep that provenance separate from the
+    // regular vacancy's georegion/canton, which can be stale versus the
+    // parsed branch city (for example Sion/VD).
+    sourceLocationFromContact: Boolean(contactSourceCanton),
+  };
 }
 
 /* ── Build job detail URL ──────────────────────────────────── */
@@ -281,6 +301,7 @@ export function resolveGalenicaCanton(contact = {}) {
   const city = String(contact.city || '').trim();
   const rawState = String(contact.state || '').trim();
   const stateCanton = inferAnyCanton(rawState);
+  const sourceCanton = inferAnyCanton(String(contact.sourceLocationCanton || '').trim());
   const country = String(contact.country || contact.countryCode || '').trim().toUpperCase();
 
   if (!hasUsableGalenicaCity(city)
@@ -289,7 +310,15 @@ export function resolveGalenicaCanton(contact = {}) {
 
   const cityCantons = swissMunicipalityCantons(city);
   let canton = '';
-  if (cityCantons.length === 1) {
+  if (contact.sourceLocationFromContact === true
+    && sourceCanton
+    && (!stateCanton || sourceCanton === stateCanton)) {
+    // Apprenticeship records have no branch textblock: their contact is the
+    // source address. This explicit canton can identify a real locality that
+    // the municipality snapshot currently lists under a different homonym
+    // (Seewen/SO versus the source's Seewen/SZ).
+    canton = sourceCanton;
+  } else if (cityCantons.length === 1) {
     // A source-backed, unambiguous municipality outranks a contact/default
     // state. This is the Sion/VD and Moutier/BE failure mode from #11049.
     canton = cityCantons[0];
@@ -393,6 +422,9 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
   const city = workLocation.city;
   const canton = resolveGalenicaCanton(workLocation);
   if (!city || !canton) return { skip: 'source location did not resolve to a Swiss canton' };
+  const sourceLocationCanton = workLocation.sourceLocationCanton === canton
+    ? canton
+    : '';
   const jobUrl = buildJobUrl(preferred);
 
   const category = detectCategory(title);
@@ -421,6 +453,7 @@ export function buildGalenicaJob(variants = [], { youstyEnrichment = null } = {}
     addressCountry: 'CH',
     postalCode: workLocation.zip,
     streetAddress: workLocation.street,
+    ...(sourceLocationCanton ? { sourceLocationCanton } : {}),
     category,
     description: '',
     descriptionByLocale: {},

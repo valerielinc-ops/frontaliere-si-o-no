@@ -88,7 +88,7 @@ import {
 } from './lib/target-swiss-locations.mjs';
 import { inferCantonFromJobEvidence } from './lib/canton-evidence.mjs';
 import { createCrawlerLocationRecordIndex } from './lib/crawler-location-record-index.mjs';
-import { splitJobLocation } from './lib/job-location-display.mjs';
+import { cantonNamedByLocation, splitJobLocation } from './lib/job-location-display.mjs';
 import { descriptionRepeatsRegion, implausibilityReasons } from './lib/job-location-plausibility.mjs';
 import { isLocationExplicitlyForeign, geocodeCountry } from './lib/dedicated-crawler-common.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
@@ -218,11 +218,19 @@ function crawlerEvidence(crawlerRecord) {
 function crawlerBacksStoredCanton(crawlerRecord, city, storedCanton) {
   if (!crawlerRecord?.canton || !city || !storedCanton) return false;
   if (crawlerRecord.canton !== storedCanton) return false;
+  const sourceLocation = crawlerRecord.location || crawlerRecord.city;
+  const sourceCanton = crawlerRecord.sourceLocationCanton || cantonNamedByLocation(sourceLocation);
+  // The source adapter may have preserved an explicit per-posting canton
+  // marker that the assembled locality normalizer stripped from the public
+  // city field. It is valid evidence for a homonym only when it agrees with
+  // the crawler's own stamp; do not let it hide a source conflict.
+  if (sourceCanton === storedCanton && sameRecordedPlace(sourceLocation, city)) return true;
   if (!isKnownSwissMunicipalityInCanton(city, storedCanton)) return false;
   return inferCantonFromJobEvidence({
     cityText: city,
-    locationText: crawlerRecord.location || crawlerRecord.city,
+    locationText: sourceLocation,
     crawlerCanton: crawlerRecord.canton,
+    sourceLocationCanton: crawlerRecord.sourceLocationCanton,
   }) === storedCanton;
 }
 
