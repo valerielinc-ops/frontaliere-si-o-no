@@ -67,6 +67,41 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(controls.accept?.id).not.toBe('outside-accept');
   });
 
+  it('prefers the newly opened DPCS dialog when an earlier modal has a matching review', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
+        { id: 'dpcs-accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherReview',
+          label: 'I have reviewed this privacy notice.',
+          checked: false,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
+          id: 'dpcs-review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.review).toMatchObject({ id: 'dpcs-review' });
+    expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
+    expect(controls.review?.id).not.toBe('outside-review');
+    expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
     const sendButton = { buttons: [{ text: 'Submit application', disabled: false }] };
     expect(urlConfirms('https://jobs.example/apply/review-and-confirm', { buttons: [] })).toBe(false);

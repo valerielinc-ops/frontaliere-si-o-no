@@ -96,7 +96,7 @@ function fakePortal() {
         <label for="abo">Job-Abo</label><input type="checkbox" id="abo" name="abo">
         <input type="hidden" id="dpcs" name="dpcs" value="">
         <label for="dataPrivacyId">Datenschutzerklärung:*</label><a id="dataPrivacyId" role="button" tabindex="0" aria-haspopup="dialog">Datenschutzerklärung lesen und akzeptieren.</a>
-        <div role="dialog" id="unrelatedDialog"><button type="button" id="outsideAccept">Accept</button></div>
+        <div role="dialog" id="unrelatedDialog"><label><input type="checkbox" id="outsideReview"> I have reviewed this privacy notice.</label><button type="button" id="outsideAccept">Accept</button></div>
         <button type="submit">Konto anlegen</button>`)}
         <div role="dialog" id="dpcsDialog" hidden><p>Datenschutzerklärung für Stellenbewerber:innen</p><label><input type="checkbox" id="dpcsReview" name="dpcsReview"> Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.</label><button type="button" id="ok" disabled>Akzeptieren</button><button type="button" id="no">Ablehnen</button></div>
         <script>
@@ -538,19 +538,19 @@ async function main() {
     const coopAgain = await run({ applyUrl: `${sfOrigin(server)}${SF_JOB}`, job: coopJob, accounts: coopAccounts });
     check('Coop: a run that starts on SuccessFactors (the resolved redirect) signs in with the stored account', coopAgain.event.type === 'submit_succeeded'
       && coopAgain.evidence.steps.filter((step) => step.auth).map((step) => step.auth.kind).join(',') === 'sign_in' && coop.accounts.size === 1 && coop.applications.length === 2);
-    // Review of #11015: a statement whose dialog takes 6 s to open is still accepted (8 s per click).
+    // Review of #11015: a lost first click gets its own 8 s retry window.
     const slowBrowser = await launchChromium({ headless: true, executablePath });
     const slowPage = await slowBrowser.newPage();
     await slowPage.setContent(`<a role="button" tabindex="0" id="t">Datenschutzerklärung lesen und akzeptieren.</a>
       <div role="dialog" id="d" hidden><button type="button" id="ok">Akzeptieren</button></div><input type="hidden" id="v" value="">
       <script>
-        // 6 s after the LAST click: a second click restarts it, so only one 8 s wait sees the dialog.
-        let opening;
-        document.getElementById('t').addEventListener('click', () => { clearTimeout(opening); opening = setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
+        // The first click is lost. Only the second click starts the 6 s open.
+        let clicks = 0;
+        document.getElementById('t').addEventListener('click', () => { clicks += 1; if (clicks === 2) setTimeout(() => { document.getElementById('d').hidden = false; }, 6000); });
         document.getElementById('ok').addEventListener('click', () => { document.getElementById('v').value = '1'; document.getElementById('d').hidden = true; });
       </script>`);
     const slow = await acceptPrivacyStatement(slowPage, await extractFields(slowPage, { listboxOptions: false }));
-    check('a privacy dialog that opens after 6 s is still accepted', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
+    check('a lost first privacy click is retried with a fresh 8 s window', slow === 'accepted' && await slowPage.locator('#v').inputValue() === '1');
     await slowBrowser.close();
     check('the agent picks the day on the calendar and the runner sends the form', widget.event.type === 'submit_succeeded'
       && state.widgetApplications.length === 1 && state.widgetApplications[0].dob === '1990-05-12' && state.widgetApplications[0].hasCv
