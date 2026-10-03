@@ -3126,11 +3126,14 @@ async function assembleJobs() {
   // DB grew or job.location text varied between crawls → the previously-emitted
   // (and Google-indexed) URL orphaned → 404. This is the #1 source of residual
   // Cloudflare 404s (canton drift). The pin freezes each job's canton, keyed by
-  // its URL-first stable identity, the first time the location yields a CONFIDENT
-  // canton (inferred != null). Murky-location jobs stay flexible until their city
-  // resolves, then pin. Once pinned, the pin always wins — the URL section can
-  // never drift again. Recovery of ALREADY-orphaned URLs lives on the
-  // emit/resolver side (build-plugins/searchConsoleCompat.ts).
+  // the assembly identity, the first time the location yields a CONFIDENT
+  // canton (inferred != null). The assembly identity retains meaningful URL
+  // fragments, which is required for listing portals such as Galenica where all
+  // jobs share one apply-page URL and the requisition ID lives in `#job.id`.
+  // Murky-location jobs stay flexible until their city resolves, then pin. Once
+  // pinned, the pin always wins — the URL section can never drift again.
+  // Recovery of ALREADY-orphaned URLs lives on the emit/resolver side
+  // (build-plugins/searchConsoleCompat.ts).
   const cantonPinsPath = path.join(ROOT, 'data', 'job-canton-pins.json');
   let cantonPins = {};
   try { cantonPins = JSON.parse(fs.readFileSync(cantonPinsPath, 'utf-8')) || {}; }
@@ -3206,19 +3209,17 @@ async function assembleJobs() {
     // Freeze/restore via the pin ledger so an already-indexed URL never migrates
     // sections. The freeze applies to EVERY job (even one whose city dropped out
     // of this crawl); a NEW pin is recorded only with a confident inferred canton.
-    const pinId = buildStableJobIdentity(job);
+    const pinId = buildAssembledJobIdentity(job);
     if (pinId) {
       // Precedence + ledger self-healing live in resolveCantonAgainstPin: the
       // pin fills a canton the job does not have, and is REWRITTEN whenever the
-      // job resolved one of its own that contradicts it. buildStableJobIdentity
-      // keys on the apply URL, which COLLIDES when a crawler reuses one listing
-      // URL across postings (galenica ships every role as
-      // https://jobs.galenica.com/it/jobs): a single early TI pin froze 220
-      // non-TI jobs (Bern/Vaud/ZH…) onto the TI section — wrong canton, wrong
-      // addressRegion, buried in sitemap-jobs-ticino (the 2026-06
-      // max-bfs-depth regression). Same shape as #4838's Obbürgen freeze; both
-      // are resolved by treating per-job evidence as authoritative over the
-      // ledger.
+      // job resolved one of its own that contradicts it. Do not use
+      // buildStableJobIdentity here: it strips the fragment and COLLIDES when
+      // a crawler reuses one listing URL across postings (Galenica ships every
+      // role as https://jobs.galenica.com/it/jobs). The shared pin would then
+      // freeze unrelated jobs to the first requisition's canton. The assembly
+      // identity keeps the requisition fragment while retaining stable fallback
+      // behaviour for jobs without one.
       const pinned = cantonPins[pinId];
       const decision = resolveCantonAgainstPin({
         jobCanton: job.canton,
