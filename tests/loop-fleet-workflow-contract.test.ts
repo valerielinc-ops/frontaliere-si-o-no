@@ -18,6 +18,34 @@ const loopWorkflows = [
   'technical-operations-supervisor.yml',
 ];
 
+function numberedLoopWorkflows(): string[] {
+  return fs.readdirSync(workflowDir).filter((name) => /^loop-l\d+-.*\.yml$/u.test(name));
+}
+
+/**
+ * Repo-relative files reachable from `entry` through relative imports. Static
+ * imports are what Node resolves at load time; `dynamic` adds `import()` calls,
+ * which only some code paths reach.
+ */
+function relativeImportClosure(entry: string, { dynamic = false } = {}): Set<string> {
+  const specifier = dynamic
+    ? /(?:\bfrom\s*|\bimport\s*\(\s*|\bimport\s+)['"](\.{1,2}\/[^'"]+)['"]/gu
+    : /(?:\bfrom\s*|\bimport\s+)['"](\.{1,2}\/[^'"]+)['"]/gu;
+  const seen = new Set<string>();
+  const pending = [entry];
+  while (pending.length > 0) {
+    const file = pending.pop() as string;
+    if (seen.has(file)) continue;
+    seen.add(file);
+    const code = fs.readFileSync(path.resolve(file), 'utf8');
+    for (const match of code.matchAll(specifier)) {
+      const target = path.posix.normalize(path.posix.join(path.posix.dirname(file), match[1]));
+      if (/\.(?:mjs|js|cjs)$/u.test(target)) pending.push(target);
+    }
+  }
+  return seen;
+}
+
 describe('loop fleet workflow contract', () => {
   it('records canonical evidence for every loop with a read-only contents token', () => {
     for (const name of loopWorkflows) {
@@ -58,62 +86,50 @@ describe('loop fleet workflow contract', () => {
     expect(sparseCheckout).toContain(`/${dependency}`);
   });
 
-  it('includes every shared exporter dependency in its loop triggers and sparse checkout', () => {
-    const dependency = 'scripts/lib/ga4-l5-decision-dimension.mjs';
-    const sharedExporterWorkflows = fs.readdirSync(workflowDir)
-      .filter((name) => /^loop-l\d+-.*\.yml$/u.test(name))
-      .filter((name) => fs.readFileSync(path.join(workflowDir, name), 'utf8').includes('scripts/ci/export-loop-outcomes.mjs'));
+  it('includes the whole static import closure of the shared exporter in every sparse caller', () => {
+    // Derived from the imports, not from a hand-kept list: a dependency added
+    // to (or removed from) the exporter moves this expectation with it.
+    const exporter = 'scripts/ci/export-loop-outcomes.mjs';
+    const dependencies = [...relativeImportClosure(exporter)].filter((file) => file !== exporter);
+    const callers = numberedLoopWorkflows()
+      .filter((name) => fs.readFileSync(path.join(workflowDir, name), 'utf8').includes(exporter));
 
-    expect(sharedExporterWorkflows.length).toBeGreaterThan(0);
-    for (const name of sharedExporterWorkflows) {
+    expect(dependencies.length).toBeGreaterThan(0);
+    expect(callers.length).toBeGreaterThan(0);
+    for (const name of callers) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
       const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
       const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
       const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
 
-      expect(pushPaths, name).toContain(`- '${dependency}'`);
-      expect(pullRequestPaths, name).toContain(`- '${dependency}'`);
-      expect(sparseCheckout, name).toContain(`/${dependency}`);
+      for (const dependency of dependencies) {
+        expect(pushPaths, `${name} push paths`).toContain(`- '${dependency}'`);
+        expect(pullRequestPaths, `${name} pull_request paths`).toContain(`- '${dependency}'`);
+        expect(sparseCheckout, `${name} sparse checkout`).toContain(`/${dependency}`);
+      }
     }
   });
 
-  it('includes the exporter transitive dependency in every sparse loop consumer', () => {
-    const dependency = 'scripts/lib/ga4-l5-decision-dimension.mjs';
-    const consumers = [
-      'loop-l1-reliability.yml',
-      'loop-l2-demand-utility.yml',
-      'loop-l3-job-quality.yml',
-      'loop-l4-alert-return.yml',
-      'loop-l5-decision-moments.yml',
-      'loop-l7-experiment-allocator.yml',
-      'loop-l9-employer-activation.yml',
-    ];
-
-    for (const name of consumers) {
+  it('never lets a loop monitor create a GA4 custom dimension', () => {
+    // A standard property holds 50 EVENT-scoped dimensions and this one is
+    // full: a monitor whose measurement waits for a new dimension can never
+    // turn green (L5 spent five fixer PRs on that). Loops read GA4; they do
+    // not provision it, and they do not ask for the scope that could.
+    const provisioner = 'scripts/lib/ga4-custom-dimensions.mjs';
+    expect(fs.existsSync(path.resolve(provisioner))).toBe(true);
+    for (const name of numberedLoopWorkflows()) {
       const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
-      const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-      const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
-
-      expect(pushPaths, name).toContain(`- '${dependency}'`);
-      expect(pullRequestPaths, name).toContain(`- '${dependency}'`);
-      expect(sparseCheckout, name).toContain(`/${dependency}`);
-    }
-  });
-
-  it('includes the shared exporter static dependency in every sparse caller', () => {
-    const dependency = 'scripts/lib/ga4-l5-decision-dimension.mjs';
-    for (const name of loopWorkflows) {
-      const source = fs.readFileSync(path.join(workflowDir, name), 'utf8');
-      if (!source.includes('scripts/ci/export-loop-outcomes.mjs')) continue;
-
-      const pushPaths = source.match(/\n  push:\n([\s\S]*?)\n  pull_request:/u)?.[1] ?? '';
-      const pullRequestPaths = source.match(/\n  pull_request:\n([\s\S]*?)\n  workflow_dispatch:/u)?.[1] ?? '';
-      const sparseCheckout = source.match(/sparse-checkout: \|\n([\s\S]*?)\n\s+sparse-checkout-cone-mode:/u)?.[1] ?? '';
-
-      expect(pushPaths, name).toContain(`- '${dependency}'`);
-      expect(pullRequestPaths, name).toContain(`- '${dependency}'`);
-      expect(sparseCheckout, name).toContain(`/${dependency}`);
+      expect(source, name).not.toMatch(/ga4-custom-dimensions|customDimensions|analytics\.edit/u);
+      const scripts = new Set([...source.matchAll(/\bnode (scripts\/[\w./-]+\.mjs)/gu)].map((match) => match[1]));
+      expect(scripts.size, name).toBeGreaterThan(0);
+      for (const script of scripts) {
+        const closure = relativeImportClosure(script, { dynamic: true });
+        expect(closure.has(provisioner), `${name} → ${script}`).toBe(false);
+        for (const file of closure) {
+          const code = fs.readFileSync(path.resolve(file), 'utf8');
+          expect(code, `${name} → ${file}`).not.toMatch(/analyticsadmin\.googleapis\.com|auth\/analytics\.edit/u);
+        }
+      }
     }
   });
 
