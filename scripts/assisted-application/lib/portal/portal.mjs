@@ -400,17 +400,30 @@ export const PRIVACY_STATEMENT_RE = /(lesen und akzeptieren|leggere e accettare|
 const PRIVACY_ACCEPT_RE = /^(akzeptieren|ich akzeptiere|accept|i accept|accetta|accetto|accettare|accepter|j'accepte)$/i;
 
 /** @returns {Promise<'none'|'accepted'|'unavailable'>} */
-async function acceptPrivacyStatement(page, snapshot) {
-  const trigger = findButton(snapshot.buttons, PRIVACY_STATEMENT_RE);
-  if (!trigger) return 'none';
-  await clickButton(page, trigger).catch(() => {});
-  try {
-    await page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first().click({ timeout: 8_000 });
-  } catch {
-    return 'unavailable';
+export async function acceptPrivacyStatement(page, snapshot) {
+  if (!findButton(snapshot.buttons, PRIVACY_STATEMENT_RE)) return 'none';
+  // The last field filled (the password repeat) checks itself on blur:
+  // SuccessFactors asks its password policy and redraws the form, and a click
+  // on the statement's link meanwhile is lost (Coop, run 37056165460: the
+  // dialog never opened, the account was refused). The blur first, its
+  // request settled, then the click; once more when no dialog came.
+  await page.evaluate(() => document.activeElement?.blur?.()).catch(() => {});
+  await settle(page);
+  const accept = page.getByRole('dialog').getByRole('button', { name: PRIVACY_ACCEPT_RE }).first();
+  for (let attempt = 0; attempt < 2; attempt += 1) {
+    const trigger = findButton((await extractFields(page, NAVIGATION)).buttons, PRIVACY_STATEMENT_RE);
+    if (!trigger) break;
+    await clickButton(page, trigger).catch(() => {});
+    try {
+      await accept.waitFor({ state: 'visible', timeout: 8_000 });
+      await accept.click({ timeout: 5_000 });
+      await page.waitForTimeout(800);
+      return 'accepted';
+    } catch {
+      await settle(page);
+    }
   }
-  await page.waitForTimeout(800);
-  return 'accepted';
+  return 'unavailable';
 }
 
 /**
