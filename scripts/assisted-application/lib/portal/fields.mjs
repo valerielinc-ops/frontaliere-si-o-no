@@ -30,6 +30,23 @@ export function extractFieldsInPage() {
     const labelRect = label.getBoundingClientRect();
     return labelRect.width > 0 && labelRect.height > 0;
   };
+  const DIALOG_SELECTOR = 'dialog, [role="dialog"], [aria-modal="true"]';
+  const dialogIdFor = (element) => {
+    const dialog = element.closest(DIALOG_SELECTOR);
+    if (!dialog) return '';
+    let id = dialog.getAttribute('data-aa-dialog-id');
+    if (!id) {
+      const counter = Number(document.documentElement.getAttribute('data-aa-dialog-counter') || 0) + 1;
+      id = `d${counter}`;
+      dialog.setAttribute('data-aa-dialog-id', id);
+      document.documentElement.setAttribute('data-aa-dialog-counter', String(counter));
+    }
+    return id;
+  };
+  const dialogMeta = (element) => {
+    const dialogId = dialogIdFor(element);
+    return { dialog: Boolean(dialogId), dialogId };
+  };
   const textOf = (id) => {
     const node = id && document.getElementById(id);
     return node ? clean(node.innerText || node.textContent) : '';
@@ -154,6 +171,7 @@ export function extractFieldsInPage() {
     fields.push({
       id: idFor(picker),
       kind: 'date',
+      ...dialogMeta(picker),
       inputType: 'date',
       name: clean(picker.getAttribute('name') || ''),
       label,
@@ -181,7 +199,7 @@ export function extractFieldsInPage() {
     if (type === 'radio') {
       const name = element.name || element.id;
       const question = groupQuestion(element);
-      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', name, label: question || labelFor(element), required, value: '', options: [] };
+      const entry = radios.get(name) || { id: idFor(element), kind: 'radio', ...dialogMeta(element), name, label: question || labelFor(element), required, value: '', options: [] };
       // Required natively on any option, or by the group's own label ("Geschlecht* (erforderlich)").
       entry.required = entry.required || required || Boolean(question && REQUIRED_LABEL.test(question));
       entry.options.push({ value: element.value, label: labelFor(element), aaId: idFor(element) });
@@ -198,6 +216,7 @@ export function extractFieldsInPage() {
     const field = {
       id: idFor(element),
       kind: type === 'checkbox' ? 'checkbox' : type === 'file' ? 'file' : tag === 'select' ? 'select' : tag === 'textarea' ? 'textarea' : element.getAttribute('role') === 'combobox' ? 'combobox' : 'text',
+      ...dialogMeta(element),
       inputType: type,
       name: clean(element.getAttribute('name') || ''),
       label: labelFor(element),
@@ -240,7 +259,7 @@ export function extractFieldsInPage() {
     let entry = ariaGroups.get(container);
     if (!entry) {
       const question = clean(container.getAttribute('aria-label') || textOf(container.getAttribute('aria-labelledby'))) || groupQuestion(element) || headingBefore(element);
-      entry = { id: idFor(container), kind: 'radio', name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
+      entry = { id: idFor(container), kind: 'radio', ...dialogMeta(container), name: '', label: question, required: container.getAttribute('aria-required') === 'true' || REQUIRED_LABEL.test(question), value: '', options: [] };
       ariaGroups.set(container, entry);
     }
     entry.options.push({ value: label, label, aaId: idFor(element) });
@@ -257,6 +276,7 @@ export function extractFieldsInPage() {
     fields.push({
       id: idFor(element),
       kind: 'listbox',
+      ...dialogMeta(element),
       inputType: 'listbox',
       name: clean(element.getAttribute('name') || ''),
       label: label === clean(element.innerText) ? groupQuestion(element) || label : label,
@@ -269,6 +289,7 @@ export function extractFieldsInPage() {
     .filter((element) => visible(element) && element.getAttribute('aria-haspopup') !== 'listbox')
     .map((element) => ({
       id: idFor(element),
+      ...dialogMeta(element),
       text: clean(element.innerText || element.value || element.getAttribute('aria-label') || ''),
       disabled: Boolean(element.disabled) || element.getAttribute('aria-disabled') === 'true',
       href: element.tagName === 'A' && /^https?:/.test(element.href || '') ? element.href : '',

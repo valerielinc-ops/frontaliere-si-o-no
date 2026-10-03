@@ -4,6 +4,7 @@ import { guardPlan, PLAN_SCHEMA } from '../scripts/assisted-application/lib/port
 import { guardAgentStep } from '../scripts/assisted-application/lib/portal/agent.mjs';
 import {
   candidateForForm,
+  privacyConsentControls,
   postingMatch,
   PREREAD_CHANNELS,
   readPortalQuestions,
@@ -36,6 +37,113 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Coop&career_ns=job_application&career_job_req_id=170044', job)).toBe('match');
     expect(postingMatch('Karrierechancen: Anmelden https://career2.successfactors.eu/career?company=Migros&career_ns=job_application', job)).toBe('mismatch');
     expect(postingMatch('Coop Genossenschaft · Bäcker:in', job)).toBe('match');
+  });
+
+  it('finds SuccessFactors privacy review without selecting the optional job alert', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
+        { id: 'privacy', text: 'Datenschutzerklärung lesen und akzeptieren.', disabled: false, dialog: false },
+        { id: 'accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        { id: 'abo', kind: 'checkbox', name: 'abo', label: 'Job-Abo', checked: false, dialog: false },
+        {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherPrivacyReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: true,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
+          id: 'review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.trigger).toMatchObject({ id: 'privacy' });
+    expect(controls.review).toMatchObject({ id: 'review', checked: false });
+    expect(controls.review?.id).not.toBe('abo');
+    expect(controls.review?.id).not.toBe('outside-review');
+    expect(controls.accept).toMatchObject({ id: 'accept', disabled: true });
+    expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('prefers the newly opened DPCS dialog when an earlier modal has a matching review', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'outside-accept', text: 'Accept', disabled: false, dialog: true, dialogId: 'other-modal', frame: 0 },
+        { id: 'dpcs-accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        {
+          id: 'outside-review',
+          kind: 'checkbox',
+          name: 'otherReview',
+          label: 'I have reviewed this privacy notice.',
+          checked: false,
+          dialog: true,
+          dialogId: 'other-modal',
+          frame: 0,
+        },
+        {
+          id: 'dpcs-review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.review).toMatchObject({ id: 'dpcs-review' });
+    expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
+    expect(controls.review?.id).not.toBe('outside-review');
+    expect(controls.accept?.id).not.toBe('outside-accept');
+  });
+
+  it('prefers the newest DPCS dialog when matching modal accepts are both disabled', () => {
+    const controls = privacyConsentControls({
+      buttons: [
+        { id: 'old-accept', text: 'Accept', disabled: true, dialog: true, dialogId: 'old-modal', frame: 0 },
+        { id: 'dpcs-accept', text: 'Akzeptieren', disabled: true, dialog: true, dialogId: 'dpcs-modal', frame: 0 },
+      ],
+      fields: [
+        {
+          id: 'old-review',
+          kind: 'checkbox',
+          name: 'oldPrivacyReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'old-modal',
+          frame: 0,
+        },
+        {
+          id: 'dpcs-review',
+          kind: 'checkbox',
+          name: 'dpcsReview',
+          label: 'Ich habe die Datenschutzerklärung gelesen und akzeptiere sie.',
+          checked: false,
+          dialog: true,
+          dialogId: 'dpcs-modal',
+          frame: 0,
+        },
+      ],
+    });
+    expect(controls.review).toMatchObject({ id: 'dpcs-review' });
+    expect(controls.accept).toMatchObject({ id: 'dpcs-accept', disabled: true });
   });
 
   it('takes an address as a confirmation only when it is not a review step and the send button is gone', () => {
