@@ -18,6 +18,7 @@ on:
       - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -39,6 +40,7 @@ on:
       - 'functions/src/lib/exchangePartners.js'
       - 'scripts/lib/google-service-account-token.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
+      - 'scripts/lib/app-error-recency.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
@@ -84,6 +86,7 @@ jobs:
             /functions/src/lib/exchangePartners.js
             /scripts/lib/google-service-account-token.mjs
             /scripts/lib/ga4-service-account.mjs
+            /scripts/lib/app-error-recency.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
