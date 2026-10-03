@@ -57,6 +57,16 @@ describe('health comparator residence boundary', () => {
     expect(screen.getByText('health.residence.swissUnavailable', { exact: false }).getAttribute('role')).toBe('status');
   });
 
+  it('rejects a legacy domestic snapshot without exact quotes', async () => {
+    const { quotes, ...legacy } = chData;
+    mockData(true, legacy);
+    render(<HealthInsurance />);
+    fireEvent.change(select('hi-residence'), { target: { value: 'CH' } });
+    await waitFor(() => expect(fetch).toHaveBeenCalledTimes(3));
+    expect(screen.getByText('health.residence.swissUnavailable', { exact: false }).getAttribute('role')).toBe('status');
+    expect(screen.queryByTestId('italy-quote')).toBeNull();
+  });
+
   it('keeps domestic canton deep links on the Swiss comparison', async () => {
     window.location.hash = '#canton=AG&age=31-45';
     mockData();
@@ -77,7 +87,7 @@ describe('health comparator residence boundary', () => {
     expect(choices('hi-model')).toContain('telmed');
     fireEvent.change(select('hi-franchise'), { target: { value: '2500' } });
     fireEvent.change(select('hi-model'), { target: { value: 'telmed' } });
-    expect(screen.getByTestId('italy-quote').textContent).toContain('279');
+    expect(screen.queryByTestId('italy-quote')).toBeNull();
     fireEvent.change(select('hi-residence'), { target: { value: 'IT' } });
     expect(select('hi-franchise').value).toBe('300');
     expect(select('hi-model').value).toBe('standard');
@@ -91,6 +101,6 @@ describe('health comparator residence boundary', () => {
     expect(screen.getByTestId('italy-quote').textContent).toBe('null');
     expect(screen.getByText('health.residence.unavailable', { exact: false }).getAttribute('role')).toBe('status');
     fireEvent.change(select('hi-residence'), { target: { value: 'CH' } });
-    expect(screen.getByTestId('italy-quote').textContent).toBe('null');
+    expect(screen.queryByTestId('italy-quote')).toBeNull();
   });
 });

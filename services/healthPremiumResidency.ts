@@ -89,8 +89,6 @@ export function isCurrentDomesticPremiumSnapshot(value: unknown, year: number): 
   if (!data.rankings || ![data.rankings.cheapest, data.rankings.mostExpensive].every(ranking => Array.isArray(ranking)
     && ranking.every(entry => entry && typeof entry.municipality === 'string' && typeof entry.canton === 'string'
       && Number.isFinite(entry.avgPremium) && Number.isInteger(entry.numInsurers)))) return false;
-  if (data.quotes !== undefined) {
-    try { assertDomesticHealthQuotes(data.quotes); } catch { return false; }
-  }
+  try { assertDomesticHealthQuotes(data.quotes); } catch { return false; }
   return true;
 }

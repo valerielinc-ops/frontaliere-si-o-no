@@ -629,12 +629,12 @@ const HealthInsurance: React.FC = () => {
  </h3>
  {/* Interactive breakeven mini-tool (#4440) — verdict from real UFSP premiums */}
  <div className="mb-4">
- <LamalSsnBreakeven
+ {isItaly && <LamalSsnBreakeven
  defaultAge={age}
  franchisesAdult={[300]}
  franchisesChild={[0]}
  computeCheapestPremium={computeCheapestPremium}
- />
+ />}
  </div>
  <div className="grid md:grid-cols-2 gap-4 mb-4">
  <div className="p-4 bg-surface/60 rounded-xl">

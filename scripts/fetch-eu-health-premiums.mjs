@@ -4,7 +4,7 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { fetchPremiumsCsv, parseCSV, PREMIUM_CSV_REQUIRED_HEADERS, INSURER_DIRECTORY } from './fetch-health-premiums.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { BAG_AGE_CLASSES, BAG_ACCIDENT_COVER, bagFranchiseAmount } from './lib/health-premium-codes.mjs';
+import { BAG_AGE_CLASSES, BAG_ACCIDENT_COVER, BAG_MODELS, bagFranchiseAmount } from './lib/health-premium-codes.mjs';
 
 export const EU_REQUIRED_HEADERS = PREMIUM_CSV_REQUIRED_HEADERS.map(header => header === 'Kanton' ? 'Land' : header);
 const AGE_GROUPS = { KIN: '0-18', JUG: '19-25', ERW: '26+' };
@@ -24,7 +24,7 @@ export function buildEuPremiumSnapshot(csvText, { year, sourceUrl, fetchedAt = n
     if (!/^[A-Z]{2}$/.test(country) || !age || !accident || !insurer || !Number.isFinite(premium) || premium <= 0) {
       throw new Error(`Unrecognised EU premium row: ${country}/${row.Versicherer}/${row.Altersklasse}/${row.Unfalleinschluss}`);
     }
-    if (row.Tariftyp !== 'BASE' || franchise !== (age === '0-18' ? 0 : 300)) throw new Error('EU premium is not the statutory standard insurance');
+    if (BAG_MODELS[row.Tariftyp] !== 'standard' || franchise !== (age === '0-18' ? 0 : 300)) throw new Error('EU premium is not the statutory standard insurance');
     const childTier = age === '0-18' ? row.Altersuntergruppe || 'K1' : 'ordinary';
     if (age === '0-18' && !['K1', 'K2', 'K3'].includes(childTier)) throw new Error(`Unknown child tier ${childTier}`);
     const group = countries[country] ??= { insurers: {} };

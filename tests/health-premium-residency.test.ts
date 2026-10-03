@@ -15,6 +15,14 @@ describe('official country-of-residence premiums', () => {
     expect(data.countries.IT.insurers['1562'].name).toBe('Helsana');
   });
 
+  it('accepts both official standard tariff aliases and rejects special models', () => {
+    const csv = fixture(2026);
+    const standard = buildEuPremiumSnapshot(csv.replaceAll(',BASE,BASE,', ',BASE,TAR-BASE,'), { year: 2026, sourceUrl });
+    expect(isCurrentEuPremiumSnapshot(standard, 2026)).toBe(true);
+    expect(euMonthlyPremium(standard.countries.IT.insurers['1562'], '26+', false)).toBe(279);
+    expect(() => buildEuPremiumSnapshot(csv.replaceAll(',BASE,BASE,', ',BASE,TAR-HMO,'), { year: 2026, sourceUrl })).toThrow(/statutory/);
+  });
+
   it('matches independent Priminfo PDF 2026 Italy pages 41–42', () => {
     const data = buildEuPremiumSnapshot(fixture(2026), { year: 2026, sourceUrl });
     const helsana = data.countries.IT.insurers['1562'];
@@ -87,5 +95,22 @@ describe('static frontier health guidance', () => {
     expect(block).toContain(sourceUrl);
     expect(block).toContain('La domanda deve essere formale');
     expect(block).not.toMatch(/irrevocabile|franchigia massima|Assura e Agrisano/);
+  });
+});
+
+
+describe('translated health FAQs', () => {
+  it('distinguishes country premiums and conditional Article 9 contributions from voluntary enrolment', async () => {
+    const { FAQ_TRANSLATIONS } = await import('../services/seo/faq-translations');
+    for (const question of ['Qual è la differenza tra LAMal e SSN per un frontaliere?', 'Quanto costa vivere da frontaliere tra Italia e Svizzera?']) {
+      for (const locale of ['en', 'de', 'fr'] as const) {
+        const answer = FAQ_TRANSLATIONS[question][locale].a;
+        expect(answer).not.toMatch(/200–600|7[.,]5\s?%/);
+        expect(answer).toContain('3–6');
+        expect(answer).toContain('30–200');
+        expect(answer).toMatch(/voluntary|freiwilligen|volontaire/);
+        expect(answer).toMatch(/regional/);
+      }
+    }
   });
 });

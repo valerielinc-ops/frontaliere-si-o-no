@@ -3610,15 +3610,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Qual è la differenza tra LAMal e SSN per un frontaliere?": {
  en: {
  q: "What is the difference between LAMal and the Italian SSN for a cross-border worker?",
- a: "LAMal is the mandatory Swiss health insurance with fixed premiums (CHF 200–600/month) and a deductible; the Italian SSN is based on income-proportional contributions (~7.5%) with no deductible. The cross-border worker has the right of option within 3 months of starting work."
+ a: "LAMal premiums depend on residence, age and accident cover. The official 2026 Italy table gives CHF 279–487.20/month for adults aged 26+ without accident cover, with a CHF 300 deductible. The specific SSN contribution for eligible Article 9 cross-border workers is distinct from voluntary SSN enrolment: 3–6% of net Swiss salary, within EUR 30–200 per month worked, subject to regional implementation and applicable conditions. Eligible residents in Italy must formally request exemption from the competent canton within three months to exercise their right of option."
  },
  de: {
  q: "Was ist der Unterschied zwischen LAMal und SSN fuer einen Grenzgaenger?",
- a: "LAMal ist die obligatorische Schweizer Krankenversicherung mit fixen Praemien (CHF 200–600/Monat) und Franchise; der italienische SSN basiert auf einkommensproportionalen Beitraegen (rund 7,5 %) ohne Franchise. Der Grenzgaenger hat innerhalb von 3 Monaten nach Arbeitsaufnahme das Optionsrecht."
+ a: "LAMal-Praemien richten sich nach Wohnsitzland, Alter und Unfalldeckung. Die offizielle Italien-Tabelle 2026 nennt CHF 279–487.20 monatlich fuer Erwachsene ab 26 Jahren ohne Unfalldeckung bei CHF 300 Franchise. Der besondere SSN-Beitrag fuer berechtigte Grenzgaenger nach Artikel 9 ist von der freiwilligen SSN-Einschreibung zu unterscheiden: 3–6 % des Schweizer Nettolohns, begrenzt auf EUR 30–200 je gearbeitetem Monat, unter den geltenden Voraussetzungen und gemaess regionaler Umsetzung. Berechtigte Personen mit Wohnsitz in Italien muessen die Befreiung innerhalb von drei Monaten formell beim zustaendigen Kanton beantragen."
  },
  fr: {
  q: "Quelle est la difference entre la LAMal et le SSN pour un frontalier ?",
- a: "La LAMal est l'assurance maladie obligatoire suisse avec primes fixes (CHF 200–600/mois) et franchise ; le SSN italien repose sur des cotisations proportionnelles au revenu (environ 7,5 %) sans franchise. Le frontalier dispose du droit d'option dans les 3 mois suivant le debut de l'activite."
+ a: "Les primes LAMal dependent du pays de residence, de l age et de la couverture accident. Le tableau officiel Italie 2026 indique CHF 279–487.20 par mois pour les adultes de 26 ans et plus sans accident, avec une franchise de CHF 300. La contribution SSN specifique des frontaliers eligibles selon l article 9 est distincte de l inscription volontaire : 3–6 % du salaire suisse net, limitee a EUR 30–200 par mois travaille, sous les conditions applicables et selon la mise en oeuvre regionale. Les residents italiens eligibles doivent demander formellement une exemption au canton competent dans les trois mois."
  }
  },
 
@@ -3820,15 +3820,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Quanto costa vivere da frontaliere tra Italia e Svizzera?": {
  en: {
  q: "How much does it cost to live as a cross-border worker between Italy and Switzerland?",
- a: "Fixed costs include: commuting €200–400/month, health insurance (LAMal CHF 200–600 or SSN ~7.5% of income), Swiss motorway vignette CHF 40/year. Living in Italy cuts housing costs by 40–60% compared with Switzerland."
+ a: "Budget for housing, commuting, health cover and taxes using your actual situation. For LAMal, use the official annual table for your country of residence, age and accident cover. SSN costs depend on the applicable scheme: the specific Article 9 contribution for eligible cross-border workers is 3–6% of net Swiss salary, within EUR 30–200 per month worked, subject to regional implementation and applicable conditions. This is distinct from voluntary SSN enrolment; no single percentage applies to every cross-border worker."
  },
  de: {
  q: "Was kostet es, als Grenzgaenger zwischen Italien und der Schweiz zu leben?",
- a: "Zu den Fixkosten gehoeren: Pendeln 200–400 EUR/Monat, Krankenversicherung (LAMal CHF 200–600 oder SSN rund 7,5 % des Einkommens), Schweizer Autobahnvignette CHF 40/Jahr. Das Wohnen in Italien senkt die Wohnkosten gegenueber der Schweiz um 40–60 %."
+ a: "Beruecksichtigen Sie Wohnen, Pendeln, Krankenversicherung und Steuern anhand Ihrer konkreten Situation. Fuer LAMal gilt die offizielle Jahrestabelle nach Wohnsitzland, Alter und Unfalldeckung. SSN-Kosten haengen vom anwendbaren System ab: Der besondere Beitrag nach Artikel 9 betraegt fuer berechtigte Grenzgaenger 3–6 % des Schweizer Nettolohns, begrenzt auf EUR 30–200 je gearbeitetem Monat, unter den geltenden Voraussetzungen und gemaess regionaler Umsetzung. Er ist von der freiwilligen SSN-Einschreibung zu unterscheiden; es gibt keinen einheitlichen Satz fuer alle Grenzgaenger."
  },
  fr: {
  q: "Combien coute la vie de frontalier entre l'Italie et la Suisse ?",
- a: "Les couts fixes comprennent : trajet domicile-travail 200–400 EUR/mois, assurance maladie (LAMal CHF 200–600 ou SSN environ 7,5 % du revenu), vignette autoroutiere suisse CHF 40/an. Vivre en Italie reduit les couts du logement de 40–60 % par rapport a la Suisse."
+ a: "Calculez logement, trajets, assurance maladie et impots selon votre situation reelle. Pour la LAMal, utilisez le tableau annuel officiel selon le pays de residence, l age et la couverture accident. Les couts SSN dependent du regime applicable : la contribution specifique de l article 9 pour les frontaliers eligibles est de 3–6 % du salaire suisse net, limitee a EUR 30–200 par mois travaille, sous les conditions applicables et selon la mise en oeuvre regionale. Elle est distincte de l inscription volontaire au SSN ; aucun taux unique ne concerne tous les frontaliers."
  }
  },
 
