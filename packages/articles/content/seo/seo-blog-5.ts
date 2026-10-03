@@ -99016,6 +99016,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-martina-bonalumi-podio-canottaggio': {
+    title: 'Martina Bonalumi: doppio podio internazionale nell\'otto',
+    description: 'La timoniera Martina Bonalumi vince bronzo ai Mondiali FISU in Canada e argento agli Europei Under 23 in Polonia con l\'otto femminile azzurro. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, martina, bonalumi, doppio, podio',
+    ogTitle: 'Martina Bonalumi: doppio podio internazionale nell\'otto',
+    ogDescription: 'Bronzo in Canada e argento in Polonia: l\'impresa di Martina Bonalumi, timoniera dell\'otto azzurro, che porta l\'orgoglio della comunità di Dumenza ai vertici internazionali.',
+    canonicalPath: '/articoli-frontaliere/martina-bonalumi-podio-canottaggio/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Martina Bonalumi: doppio podio internazionale nell'otto",
+      "description": "La timoniera Martina Bonalumi vince bronzo ai Mondiali FISU in Canada e argento agli Europei Under 23 in Polonia con l'otto femminile azzurro. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "@id": "https://frontaliereticino.ch/#organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/martina-bonalumi-podio-canottaggio.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Imbarcazione di canottaggio su un lago alpino"
+      },
+      "datePublished": "2026-10-03T21:59:32+00:00",
+      "dateModified": "2026-10-03T21:59:32+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/martina-bonalumi-podio-canottaggio/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

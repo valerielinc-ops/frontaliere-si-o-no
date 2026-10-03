@@ -12435,6 +12435,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-pusher-consegne-domicilio.title': 'Como, Drogenhändler wegen Lieferungen nach Hause festgenommen',
     'blog.article.como-pusher-consegne-domicilio.excerpt': 'Die Staatspolizei von Como hat einen 48-Jährigen festgenommen: beschlagnahmt wurden 51.45 Gramm Kokain in 86 Dosen, 120 Euro und weitere 141.18 Gramm Kokain.',
     'blog.article.como-pusher-consegne-domicilio.imageAlt': 'Como: Einsatz der Staatspolizei gegen Drogenhandel in der Stadt.',
+    'blog.article.martina-bonalumi-podio-canottaggio.title': 'Martina Bonalumi: zwei internationale Podiumsplätze im Achter',
+    'blog.article.martina-bonalumi-podio-canottaggio.excerpt': 'Die Steuerfrau von Dumenza erringt bei den FISU-Universitätsweltmeisterschaften in Kanada Bronze und bei den U23-Europameisterschaften in Polen Silber.',
+    'blog.article.martina-bonalumi-podio-canottaggio.imageAlt': 'Ruderboot auf einem Alpensee',
 };
 
 export default blogMetaDe;
