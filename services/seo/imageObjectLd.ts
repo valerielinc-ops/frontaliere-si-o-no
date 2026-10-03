@@ -171,7 +171,7 @@ export function imageObjectLd(input: ImageObjectInput): ImageObjectLd {
     ? {
       ...creator,
       '@type': isOrganizationCreatorType(creator['@type']) ? 'Organization' : creator['@type'],
-      ...(isSiteOrganizationCreator(creator) ? { '@id': (creator as OrganizationCreator)['@id'] ?? SITE_ORGANIZATION_ID } : {}),
+      ...(isSiteOrganizationCreator(creator) ? { '@id': SITE_ORGANIZATION_ID } : {}),
     }
     : { ...SITE_ORG };
 

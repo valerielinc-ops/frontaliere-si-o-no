@@ -60,6 +60,22 @@ describe('imageObjectLd — GSC licensable-image quintet', () => {
     expect(creator['@type']).toEqual(['NewsMediaOrganization', 'Organization']);
   });
 
+  it.each([
+    'Organization' as const,
+    'NewsMediaOrganization' as const,
+    ['NewsMediaOrganization', 'Organization'] as const,
+  ].map((type) => ({ type })))('replaces a stale site creator id without mutating input $type', ({ type }) => {
+    const creator = Object.freeze({
+      '@type': type,
+      '@id': 'https://example.com/#stale-organization',
+      name: 'Frontaliere Ticino',
+      url: 'https://frontaliereticino.ch/',
+    });
+    expect(imageObjectLd({ contentUrl: 'https://example.com/image.jpg', creator }).creator)
+      .toEqual({ ...creator, '@type': 'Organization', '@id': 'https://frontaliereticino.ch/#organization' });
+    expect(creator['@id']).toBe('https://example.com/#stale-organization');
+  });
+
   it('points license + acquireLicensePage to the site terms anchor by default', () => {
     const ld = imageObjectLd({ contentUrl: 'https://example.com/x.png' });
     expect(ld.license).toBe(SITE_LICENSE_PAGE);
