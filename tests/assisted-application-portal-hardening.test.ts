@@ -62,6 +62,22 @@ describe('portal runner hardening (career-ops apply.md)', () => {
     expect(formPostingMatch('Concierge — Application Tracking System', { company: 'Grand Hotel Esempio', title: 'Concierge' }, { postingMatched: true })).toBe('match');
   });
 
+  // Review of #11033, its acceptance as written: formText "Concierge — Other Hotel",
+  // job {company: "Grand Hotel Esempio", title: "Concierge"}, postingMatched true → mismatch.
+  it('never accepts on the posting’s word a form that names another employer with the same role', () => {
+    const job = { company: 'Grand Hotel Esempio', title: 'Concierge' };
+    expect(formPostingMatch('Concierge — Other Hotel', job, { postingMatched: true })).toBe('mismatch');
+    // The same with the legal form in the order's name, in the address, and with the role's own words around.
+    expect(formPostingMatch('Concierge — Other Hotel', { ...job, company: 'Grand Hotel Esempio AG' }, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Concierge - Application https://jobs.other-hotel.example/apply', job, { postingMatched: true })).toBe('mismatch');
+    expect(formPostingMatch('Bewerbung als Concierge (m/w/d) im Grand Resort', job, { postingMatched: true })).toBe('mismatch');
+    // Without a posting that named the company there is no fallback at all.
+    expect(formPostingMatch('Concierge — Application Tracking System', job)).toBe('mismatch');
+    expect(formPostingMatch('Concierge — Application Tracking System', job, { postingMatched: false })).toBe('mismatch');
+    // The whole name on the form is the direct match, as ever.
+    expect(formPostingMatch('Concierge — Grand Hotel Esempio', job, { postingMatched: true })).toBe('match');
+  });
+
   it('takes a form with its own password field for the form only when its button sends an application', () => {
     const fields = [{ id: 'f1', kind: 'text', inputType: 'password', label: 'Password', form: 0 }, { id: 'f2', kind: 'file', inputType: 'file', label: 'Resume', form: 0 }];
     const page = (text: string, extra: Record<string, unknown> = {}) => ({ passwordVisible: true, fields, buttons: [{ text: 'Login for recruiters' }, { text }], ...extra });
