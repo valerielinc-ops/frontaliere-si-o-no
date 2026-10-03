@@ -7604,6 +7604,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-svizzera-regole-2026.title': 'Mieten in der Schweiz: Bundesrechtliche Regeln und Kaution im Jahr 2026',
     'blog.article.affitti-svizzera-regole-2026.excerpt': 'Leitfaden zu den bundesrechtlichen Regeln für die Miete in der Schweiz im Jahr 2026: Begrenzung der Kaution auf drei Monatsmieten, Sperrkonto und Budgetverwaltung.',
     'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Mietmarkt in der Schweiz und bundesrechtliche Mietvorschriften',
+    'blog.article.affitti-berna-quadro-2026.title': 'Mieten im Kanton Bern und eidgenössische Mietregeln',
+    'blog.article.affitti-berna-quadro-2026.excerpt': 'Analyse des Immobilienmarktes im Kanton Bern und der geltenden eidgenössischen Vorschriften zur Kaution und zu Mietverträgen.',
+    'blog.article.affitti-berna-quadro-2026.imageAlt': 'Wohngebäude und Mietmarkt im Kanton Bern',
 };
 
 export default blogMetaChDe;

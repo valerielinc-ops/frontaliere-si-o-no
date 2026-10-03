@@ -7604,6 +7604,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.affitti-svizzera-regole-2026.title': 'Renting in Switzerland: federal rules and security deposit in 2026',
     'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guide to the federal rules on renting in Switzerland in 2026: three-month security-deposit limit, blocked account and budget management.',
     'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Rental market in Switzerland and federal leasing regulations',
+    'blog.article.affitti-berna-quadro-2026.title': 'Rentals in the canton of Bern and federal tenancy rules',
+    'blog.article.affitti-berna-quadro-2026.excerpt': 'Analysis of the real estate market in the canton of Bern and of the federal regulations currently in force concerning security deposits and rental agreements.',
+    'blog.article.affitti-berna-quadro-2026.imageAlt': 'Residential buildings and rental market in the canton of Bern',
 };
 
 export default blogMetaChEn;

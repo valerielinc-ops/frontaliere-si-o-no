@@ -7604,6 +7604,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-svizzera-regole-2026.title': 'Location en Suisse : règles fédérales et caution en 2026',
     'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guide des règles fédérales relatives à la location en Suisse en 2026 : plafond de la garantie à trois mois, compte bloqué et gestion du budget.',
     'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Marche locatif en Suisse et regles federales de location',
+    'blog.article.affitti-berna-quadro-2026.title': 'Loyers dans le canton de Berne et règles fédérales en matière de location',
+    'blog.article.affitti-berna-quadro-2026.excerpt': 'Analyse du marché immobilier dans le canton de Berne et des normes fédérales en vigueur relatives à la garantie locative et aux contrats de location.',
+    'blog.article.affitti-berna-quadro-2026.imageAlt': 'Immeubles résidentiels et marché locatif dans le canton de Berne',
 };
 
 export default blogMetaChFr;

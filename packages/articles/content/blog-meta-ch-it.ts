@@ -7604,6 +7604,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-svizzera-regole-2026.title': 'Affitti Svizzera: regole federali e cauzione nel 2026',
     'blog.article.affitti-svizzera-regole-2026.excerpt': 'Guida alle regole federali sulla locazione in Svizzera nel 2026: limite della cauzione a tre mesi, conto vincolato e gestione del budget.',
     'blog.article.affitti-svizzera-regole-2026.imageAlt': 'Mercato degli affitti in Svizzera e regole federali sulla locazione',
+    'blog.article.affitti-berna-quadro-2026.title': 'Affitti nel canton Berna e regole federali della locazione',
+    'blog.article.affitti-berna-quadro-2026.excerpt': 'Analisi del mercato immobiliare nel canton Berna e delle norme federali sulla cauzione e sui contratti di locazione in vigore.',
+    'blog.article.affitti-berna-quadro-2026.imageAlt': 'Edifici residenziali e mercato degli affitti nel canton Berna',
 };
 
 export default blogMetaChIt;

@@ -2557,6 +2557,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'garanzia-disdetta-locazione-ginevra': { it: 'garanzia-disdetta-locazione-ginevra', en: 'swiss-rental-market-geneva-2026', de: 'mietmarkt-schweiz-genf-2026', fr: 'marche-locatif-suisse-geneve-2026' },
  'tutela-inquilini-berna-2026': { it: 'tutela-inquilini-berna-2026', en: 'swiss-rental-rights-bern-2026', de: 'mietrecht-schweiz-bern-2026', fr: 'droits-locataire-suisse-berne-2026' },
  'affitti-svizzera-regole-2026': { it: 'affitti-svizzera-regole-2026', en: 'switzerland-rental-market-regulations-2026', de: 'mietmarkt-schweiz-regeln-2026', fr: 'marche-locatif-suisse-regles-2026' },
+ 'affitti-berna-quadro-2026': { it: 'affitti-berna-quadro-2026', en: 'rents-bern-framework-2026', de: 'mieten-bern-rahmen-2026', fr: 'loyers-berne-cadre-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
