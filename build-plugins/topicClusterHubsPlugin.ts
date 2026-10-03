@@ -530,7 +530,7 @@ function renderHubPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileArticles, value: String(members.length), tone: 'accent' },
     { label: c.tileTopics, value: String(eligible.size) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   // No `<main>` here: `buildSeoPageHtml` runs in `seoContentOutsideRoot` mode
@@ -726,7 +726,7 @@ function renderTopicIndexPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileTopics, value: String(listed.length), tone: 'accent' },
     { label: c.tileArticles, value: String(totalArticles) },
-    { label: c.tileUpdated, value: newest || dateStamp },
+    ...(newest ? [{ label: c.tileUpdated, value: newest }] : []),
   ]);
 
   const body = `${renderBreadcrumb(locale, section, null)}
@@ -803,7 +803,7 @@ function buildSitemapXml(
           return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${rest.join('|')}" />`;
         })
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;
@@ -1375,6 +1375,7 @@ export function topicClusterHubsPlugin(rootDir: string): Plugin {
 // Test-only exports.
 export {
   renderHubPage as __renderTopicHubPageForTest,
+  renderTopicIndexPage as __renderTopicIndexPageForTest,
   renderBridgePage as __renderTopicBridgeForTest,
   renderPagination as __renderTopicPaginationForTest,
 };

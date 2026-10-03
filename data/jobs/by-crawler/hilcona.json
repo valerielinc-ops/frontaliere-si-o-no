@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilcona",
-  "assembledAt": "2026-10-03T09:21:52.189Z",
+  "assembledAt": "2026-10-03T21:18:11.519Z",
   "jobs": [
     {
       "id": "hilcona-e1d067fe81da",
@@ -43,8 +43,24 @@
       "postedDate": "2026-09-30",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-100-5422",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:46.917Z",
+      "crawledAt": "2026-10-03T21:18:06.990Z",
       "sourceLang": "de",
+      "previousSlugs": [
+        "einkaeufer-in-100-hilcona-dallikon",
+        "in-100-eisberg-ag-dallikon"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "einkaeufer-in-100-hilcona-dallikon",
+          "in-100-eisberg-ag-dallikon"
+        ],
+        "en": [
+          "einkaeufer-in-100-hilcona-dallikon"
+        ],
+        "fr": [
+          "einkaeufer-in-100-hilcona-dallikon"
+        ]
+      },
       "firstSeenAt": "2026-09-30T21:16:44.330Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -60,23 +76,7 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-100-5422",
-      "addressRegion": "ZH",
-      "previousSlugsByLocale": {
-        "it": [
-          "einkaeufer-in-100-hilcona-dallikon",
-          "in-100-eisberg-ag-dallikon"
-        ],
-        "fr": [
-          "einkaeufer-in-100-hilcona-dallikon"
-        ],
-        "en": [
-          "einkaeufer-in-100-hilcona-dallikon"
-        ]
-      },
-      "previousSlugs": [
-        "einkaeufer-in-100-hilcona-dallikon",
-        "in-100-eisberg-ag-dallikon"
-      ]
+      "addressRegion": "ZH"
     },
     {
       "id": "hilcona-41f976f5d000",
@@ -119,7 +119,7 @@
       "postedDate": "2026-09-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-sachbearbeiterin-betriebskalkulation-5420",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:46.148Z",
+      "crawledAt": "2026-10-03T21:18:06.242Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-sachbearbeiterin-betriebskalkulation-hilcona-basel",
@@ -197,7 +197,7 @@
       "postedDate": "2026-09-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/stellvertretende-leiterin-stellvertretender-leiter-der-poekelabteilung-5418",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:45.183Z",
+      "crawledAt": "2026-10-03T21:18:05.444Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stellvertretende-leiterin-stellvertretender-leiter-der-poekelabteilung-hilcona-cheseaux-sur-lausanne",
@@ -275,7 +275,7 @@
       "postedDate": "2026-09-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/senior-sap-sd-consultant-5417",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:44.837Z",
+      "crawledAt": "2026-10-03T21:18:05.111Z",
       "sourceLang": "de",
       "previousSlugs": [
         "senior-sap-sd-consultant-hilcona-basel",
@@ -349,7 +349,7 @@
       "postedDate": "2026-09-25",
       "url": "https://career.bellfoodgroup.com/de/stelle/monteur-monteurin-systemloesungen-gefluegelstalleinrichtungen-80-100-aniviva-stallservices-6143-ohmstal-5415",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:43.857Z",
+      "crawledAt": "2026-10-03T21:18:04.189Z",
       "sourceLang": "de",
       "previousSlugs": [
         "monteur-monteurin-systemloesungen-gefluegelstalleinrichtungen-80-100-aniviva-stallservices-6143-ohmstal-hilcona-zell",
@@ -420,7 +420,7 @@
       "postedDate": "2026-09-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-lebensmittelpraktiker-in-eba-5414",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:43.319Z",
+      "crawledAt": "2026-10-03T21:18:03.858Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-lebensmittelpraktiker-in-eba-hilcona-landquart",
@@ -497,7 +497,7 @@
       "postedDate": "2026-09-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-als-lebensmitteltechnologe-in-efz-5413",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:42.790Z",
+      "crawledAt": "2026-10-03T21:18:03.461Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-als-lebensmitteltechnologe-in-efz-hilcona-landquart",
@@ -574,7 +574,7 @@
       "postedDate": "2026-09-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/mechaniker-mechanikerin-5408",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:41.155Z",
+      "crawledAt": "2026-10-03T21:18:02.253Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mechaniker-mechanikerin-hilcona-basel",
@@ -651,7 +651,7 @@
       "postedDate": "2026-09-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-in-empfang-5405",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:40.060Z",
+      "crawledAt": "2026-10-03T21:18:01.441Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-in-empfang-hilcona-oensingen",
@@ -730,7 +730,7 @@
       "postedDate": "2026-09-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/junior-key-account-manager-managerin-verkauf-retail-5401",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:38.114Z",
+      "crawledAt": "2026-10-03T21:17:59.382Z",
       "sourceLang": "de",
       "previousSlugs": [
         "junior-key-account-manager-managerin-verkauf-retail-hilcona-basel",
@@ -801,7 +801,7 @@
       "postedDate": "2026-09-24",
       "url": "https://career.bellfoodgroup.com/de/stelle/stv-abteilungsleiterin-stv-abteilungsleiter-verarbeitung-100-5400",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:37.718Z",
+      "crawledAt": "2026-10-03T21:17:59.013Z",
       "sourceLang": "de",
       "previousSlugs": [
         "stv-abteilungsleiterin-stv-abteilungsleiter-verarbeitung-100-hilcona-zell",
@@ -880,7 +880,7 @@
       "postedDate": "2026-09-08",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-efz-2027-5386",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:32.020Z",
+      "crawledAt": "2026-10-03T21:17:53.284Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-efz-2027-hilcona-basel",
@@ -959,7 +959,7 @@
       "postedDate": "2026-09-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/technikerin-techniker-fuer-heizungs-lueftungs-und-klimatechnik-hlk-5380",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:29.885Z",
+      "crawledAt": "2026-10-03T21:17:51.404Z",
       "sourceLang": "de",
       "previousSlugs": [
         "technikerin-techniker-fuer-heizungs-lueftungs-und-klimatechnik-hlk-hilcona-cheseaux-sur-lausanne",
@@ -1036,7 +1036,7 @@
       "postedDate": "2026-09-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmitarbeiter-betriebsmitarbeiterin-verarbeitung-100-5379",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:29.497Z",
+      "crawledAt": "2026-10-03T21:17:51.027Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmitarbeiter-betriebsmitarbeiterin-verarbeitung-100-hilcona-zell",
@@ -1115,7 +1115,7 @@
       "postedDate": "2026-09-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-zerlegerei-5378",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:28.986Z",
+      "crawledAt": "2026-10-03T21:17:50.578Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-zerlegerei-hilcona-basel",
@@ -1194,7 +1194,7 @@
       "postedDate": "2026-09-30",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-warenlager-technik-5377",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:28.598Z",
+      "crawledAt": "2026-10-03T21:17:50.175Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-warenlager-technik-hilcona-basel",
@@ -1271,7 +1271,7 @@
       "postedDate": "2026-08-20",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-elterntierbetrieb-in-herbligen-bei-thun-60-5116",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:22.745Z",
+      "crawledAt": "2026-10-03T21:17:44.728Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-elterntierbetrieb-in-herbligen-bei-thun-60-hilcona-zell",
@@ -1349,7 +1349,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-efz-2027-5087",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:18.707Z",
+      "crawledAt": "2026-10-03T21:17:39.579Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-efz-2027-hilcona-oensingen",
@@ -1428,7 +1428,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmechaniker-produktionsmechanikerin-efz-2027-5086",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:18.202Z",
+      "crawledAt": "2026-10-03T21:17:38.840Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-oensingen",
@@ -1507,7 +1507,7 @@
       "postedDate": "2026-08-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenfuehrer-anlagenfuehrerin-efz-2027-5085",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:17.635Z",
+      "crawledAt": "2026-10-03T21:17:38.114Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-oensingen",
@@ -1586,7 +1586,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-efz-2027-5084",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:17.158Z",
+      "crawledAt": "2026-10-03T21:17:37.603Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-efz-2027-hilcona-oensingen",
@@ -1670,7 +1670,7 @@
       "postedDate": "2026-08-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachassistent-fleischfachassistentin-eba-2027-5083",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:16.651Z",
+      "crawledAt": "2026-10-03T21:17:36.840Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-oensingen",
@@ -1749,7 +1749,7 @@
       "postedDate": "2026-08-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-5082",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:16.269Z",
+      "crawledAt": "2026-10-03T21:17:36.435Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-oensingen",
@@ -1806,7 +1806,7 @@
         "it": "Specialist Master Data Management Sap Mdg Mm",
         "en": "Specialist Master Data Management Sap Mdg Mm",
         "de": "Spezialist Spezialistin Stammdatenmanagement Sap Mdg Mm",
-        "fr": "Spécialiste Master Data Management Sap Mdg Mm"
+        "fr": "Spezialist Spezialistin Stammdatenmanagement Sap Mdg Mm"
       },
       "description": "Du möchtest Stammdaten nicht nur verwalten, sondern aktiv deren Zukunft gestalten? In dieser Schlüsselrolle übernimmst du Verantwortung für die Weiterentwicklung unseres Stammdatenmanagements im SAP-Umfeld. Du arbeitest an der Schnittstelle zwischen Business und IT, leitest oder begleitest Projekte und stellst sicher, dass unsere Stammdatenprozesse effizient, standardisiert und zukunftsorientiert gestaltet sind. Mit deinem fundierten SAP-Know-how, deinem Verständnis für Geschäftsprozesse und deiner Erfahrung im Stammdatenmanagement trägst du wesentlich zur Datenqualität und zur Weiterentwicklung unserer Systemlandschaft bei.\n\n• Vertragsart: Unbefristet\n• Pensum: 100%\n• Arbeitszeitmodell: Gleitzeit\n• Stellenantritt: ab Sofort\n• Sprache: Deutsch\n• Arbeitsort: Bell Schweiz AG, Elsässerstrasse 174 4056 Basel\n\nAufgaben:\n• Verantwortung für die Data Governance sowie die Sicherstellung einer hohen Qualität unserer Produkt- und Materialstammdaten\n• Weiterentwicklung und Optimierung von Stammdatenprozessen im SAP-Umfeld\n• Fachliche Betreuung und kontinuierliche Weiterentwicklung von SAP MDG\n• Analyse, Konzeption und Umsetzung neuer Anforderungen gemeinsam mit Fachbereichen und IT\n• Leitung oder Teilprojektleitung von Stammdaten-, SAP- und Transformationsprojekten\n• Definition, Dokumentation und Harmonisierung von Prozessen, Richtlinien und Standards im Stammdatenmanagement\n• Bewirtschaftung und Aktualisierung von Produktstammdaten in SAP, inklusive Verwaltung von GTIN und RCN sowie Bearbeitung von Sperrlisten und Artikelsperrung\n• Enge Zusammenarbeit mit internen Fachbereichen, externen Partnern sowie SAP-Fachpersonen\n• Unterstützung und Beratung der Business Stakeholder in allen Fragestellungen rund um Stammdaten und SAP-Prozesse\n• Unterstützung des Teams SDM Business im Tagesgeschäft im Rahmen der übertragenen Kompetenzen\n\nAnforderungen:\n• Abgeschlossenes Studium oder Weiterbildung in Betriebswirtschaft, Wirtschaftsinformatik, Supply Chain Management oder einer vergleichbaren Fachrichtung\n• Mehrjährige Berufserfahrung im Stammdatenmanagement\n• Fundierte praktische Erfahrung mit SAP MDG\n• Sehr gute Kenntnisse in SAP MM sowie ein gutes Verständnis angrenzender Prozesse und Module (PP, SD)\n• Erfahrung in der Leitung oder Teilprojektleitung von SAP-, Stammdaten- oder Transformationsprojekten\n• Ausgeprägtes Verständnis für Geschäftsprozesse und SAP-Systemlandschaften\n• Fähigkeit, Anforderungen aus den Fachbereichen zu analysieren und gemeinsam mit der IT umzusetzen\n• Erfahrung mit Datenmigrationen, Datenqualitätsmanagement und Prozessoptimierungen von Vorteil\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Fliessende Deutschkenntnisse in Wort und Schrift, Englisch- und Französischkenntnisse von Vorteil\n\nDas bieten wir:\n• Work-Life-Balance: Eine ausgewogene Work-Life-Balance ist uns wichtig. Du profitierst von mindestens 25 Ferientagen sowie einer transparenten, elektronischen Zeiterfassung. So kannst du allfällige Überstunden flexibel mit zusätzlichen freien Tagen kompensieren.\n• Verpflegung: Kulinarik ist bei uns gross geschrieben: frisch zubereitetes Essen in unserem Personalrestaurant, ein Mittagsmenu inkl. Suppe und Salat, Wasser & Tee und gratis Früchte wie auch hochwertige Produkte zu stark reduzierten Preisen erwarten dich in unserem Outlet.\n• Mobilität: Profitiere von bequemer Anbindung an den ÖV, attraktiven Zuschüssen für Tickets und ausreichenden Parkmöglichkeiten im Parkhaus.\n• Berufliche Weiterentwicklungsmöglichkeiten: Erweitere dein Wissen durch umfangreiche Weiterbildungsangebote, hochwertige Schulungen im Coop Bildungszentrum und vielfältige persönliche Entwicklungsmöglichkeiten.\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unserem Gesundheitsmanagement, Anwesenheitsprämie, vergünstigten Reka-Checks, exklusiven Mitarbeiterrabatten und geförderten Fitness-Abos – für Gesundheit und Freizeitspass!\n• Firmenevents: Erlebe unvergessliche Momente bei unserem Abteilungsevent und stärke den Teamgeist beim Firmenlauf – gemeinsam feiern, bewegen und Kontakte knüpfen!\n• Marktgerechte Löhne und Sozialleistungen: Sichere deine Zukunft mit unserer überdurchschnittlichen Altersvorsorge, erhalte Jubiläumsprämien, Weihnachtsgeld und attraktive Prämien für Mitarbeiterempfehlungen. Zudem erhältst du die Personalrabattkarte von Coop und wir übernehmen zwei Drittel deiner Pensionskassenbeiträgen!\n• Familienfreundlicher Arbeitgeber: Gestalte deine Arbeitszeit flexibel mit Teilzeitmodellen und erlebe ein inklusives Arbeitsumfeld, in dem Vielfalt geschätzt und gefördert wird!",
       "descriptionByLocale": {
@@ -1830,7 +1830,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/spezialist-spezialistin-stammdatenmanagement-sap-mdg-mm-5076",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:15.800Z",
+      "crawledAt": "2026-10-03T21:17:35.870Z",
       "sourceLang": "de",
       "previousSlugs": [
         "spezialist-spezialistin-stammdatenmanagement-sap-mdg-mm-hilcona-basel",
@@ -1906,7 +1906,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/landwirt-landwirtin-in-efz-gefluegelhaltung-5055",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:15.345Z",
+      "crawledAt": "2026-10-03T21:17:35.536Z",
       "sourceLang": "de",
       "previousSlugs": [
         "landwirt-landwirtin-in-efz-gefluegelhaltung-hilcona-zell",
@@ -1985,7 +1985,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-login-efz-lehrstart-2027-5054",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:14.820Z",
+      "crawledAt": "2026-10-03T21:17:35.000Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-login-efz-lehrstart-2027-hilcona-dallikon",
@@ -2000,6 +2000,7 @@
           "lebensmitteltechnologe-login-efz-lehrstart-2027-hilcona-dallikon"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-05T11:46:14.335Z",
       "salaryMin": 76000,
       "salaryMax": 102500,
@@ -2015,8 +2016,7 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-login-efz-lehrstart-2027-5054",
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     },
     {
       "id": "hilcona-addd1ff20a75",
@@ -2059,7 +2059,7 @@
       "postedDate": "2026-08-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-in-efz-lehrstart-2027-5053",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:14.432Z",
+      "crawledAt": "2026-10-03T21:17:34.641Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-in-efz-lehrstart-2027-hilcona-dallikon",
@@ -2127,7 +2127,7 @@
         "it": "Praticante alimentare Praticante alimentare Eba 2027",
         "en": "Food practitioner Food practitioner Eba 2027 Specialty Convenience",
         "de": "Lebensmittelpraktiker Lebensmittelpraktikerin Eba 2027 Fachrichtung Convenience",
-        "fr": "Praticien alimentaire Praticien alimentaire Eba 2027 Spécialité Commodité"
+        "fr": "Lebensmittelpraktiker Lebensmittelpraktikerin Eba 2027 Fachrichtung Convenience"
       },
       "description": "Bell ist eine der führenden Lebensmittelmarken in der Schweiz. An unserem Standort verarbeiten wir Geflügel. Während deiner Ausbildung in Zell LU lernst du nicht nur, wie unsere Chicken Nuggets hergestellt werden, sondern auch, wie die Prozesse in der Abteilung Convenience ablaufen. Wenn du dich für eine Ausbildung als Lebensmitteltechnologe/Lebensmitteltechnologin EFZ bei uns entscheidest, triffst du eine gute Wahl. Mit unserer Unterstützung machst du deine ersten Schritte ins Berufsleben und wirst Teil der Bell-Lernenden-Community.\n\n• Vertragsart: Lehrstelle\n• Pensum: 100%\n• Stellenantritt: 01.08.2027\n• Sprache: Deutsch\n• Arbeitsort: Bell Schweiz AG, Zelgmatte 1 6144 Zell\n\nAufgaben:\n• Du verarbeitest Rohstoffe nach vorgegebenen Rezepten\n• Du steuerst die Verarbeitungs- und Verpackungsanlagen\n• Du kontrollierst die Qualität der Produkte\n• Du kontrollierst während des Produktionsprozesses die Lebensmittel in Bezug auf Qualität, Aussehen, Geruch, Geschmack und Verpackung\n• Nach Deinem erfolgreichen Abschluss kannst Du eine verkürzte Grundbildung als Lebensmitteltechnologe/Lebensmitteltechnologin EFZ 2025 erwerben\n\nAnforderungen:\n• Abgeschlossene Volksschule\n• Interesse an Biologie, Chemie und Physik\n• Freude am Umgang mit Lebensmitteln und modernen Produktionsanlagen\n• Guter Geruchs- und Geschmackssinn sowie eine sorgfältige Arbeitsweise\n• Bereitschaft zum frühen Arbeitsbeginn (ca. 05.00 Uhr)\n\nDas bieten wir:\n• Work-Life-Balance: Bei uns profitierst du von 35 Urlaubstagen, damit du genügend Erholungszeit hast und dann wieder fit für den Arbeitsalltag und die Schule bist.\n• Verpflegung: Kulinarik ist bei uns gross geschrieben: frisch zubereitetes Essen in unserem Personalrestaurant, ein Mittagsmenu inkl. Suppe und Salat, Wasser & Tee und gratis Früchte wie auch hochwertige Produkte zu stark reduzierten Preisen erwarten dich in unserem Outlet.\n• Mobilität: Profitiere von unsrem Beitrag zur umweltferundlichen Mobilität, bequemer Anbindung an den ÖV und gratis SBB Generalabonnement (GA)!\n• Berufliche Weiterentwicklungsmöglichkeiten: Wir übernehmen das Schulmaterial und beteiligen uns in der Höhe von CHF 700.- an einem Notebook deiner Wahl. Ausserdem bieten wir dir nach deiner Ausbildung spannende Perspektive in einem internationalen Umfeld an sowie kannst du dich durch Schulungen im Coop Bildungszentrum weiterentwickeln.\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unserem Gesundheitsmanagement und einem Gratisabo bei Update Fitness - für Gesundheit und Freizeitspass!\n• Firmenevents: Erlebe unvergessliche Momente mit unserer Lernenden Community und alle zwei Jahre bei unseren Lernenden-Event mit über 150 Lernenden der ganzen Bell Food Group!\n• Marktgerechte Löhne und Sozialleistungen: Bei einer guten schulischen und betrieblichen Leistung kannst du dich auf deine Leistungsprämie freuen. Und das zweimal pro Jahr!\n• Familienfreundlicher Arbeitgeber: Arbeite in professioneller Arbeitskleidung und erlebe ein inklusives Arbeitsumfeld, in dem Vielfalt geschätzt und gefördert wird!",
       "descriptionByLocale": {
@@ -2151,7 +2151,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-fachrichtung-convenience-5051",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:14.084Z",
+      "crawledAt": "2026-10-03T21:17:34.183Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-fachrichtung-convenience-hilcona-zell",
@@ -2228,7 +2228,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagenfuehrer-anlagenfuehrerin-efz-2027-5049",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:13.549Z",
+      "crawledAt": "2026-10-03T21:17:33.857Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagenfuehrer-anlagenfuehrerin-efz-2027-hilcona-zell",
@@ -2299,7 +2299,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-5048",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:13.165Z",
+      "crawledAt": "2026-10-03T21:17:33.296Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-fachrichtung-convenience-hilcona-zell",
@@ -2376,7 +2376,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/logistiker-logistikerin-efz-2027-5047",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:12.649Z",
+      "crawledAt": "2026-10-03T21:17:32.805Z",
       "sourceLang": "de",
       "previousSlugs": [
         "logistiker-logistikerin-efz-2027-hilcona-zell",
@@ -2447,7 +2447,7 @@
       "postedDate": "2026-08-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/einkaeufer-in-80-bis-100-5046",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:12.020Z",
+      "crawledAt": "2026-10-03T21:17:32.346Z",
       "sourceLang": "de",
       "previousSlugs": [
         "einkaeufer-in-80-bis-100-hilcona-essert-s-champvent",
@@ -2523,7 +2523,7 @@
       "postedDate": "2026-07-31",
       "url": "https://career.bellfoodgroup.com/de/stelle/senior-sap-ibp-pp-consultant-5044",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:11.462Z",
+      "crawledAt": "2026-10-03T21:17:32.000Z",
       "sourceLang": "de",
       "previousSlugs": [
         "senior-sap-ibp-pp-consultant-hilcona-basel",
@@ -2594,7 +2594,7 @@
       "postedDate": "2026-09-09",
       "url": "https://career.bellfoodgroup.com/de/stelle/milchtechnologe-in-fuer-die-tofurei-5041",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:10.542Z",
+      "crawledAt": "2026-10-03T21:17:31.065Z",
       "sourceLang": "de",
       "previousSlugs": [
         "milchtechnologe-in-fuer-die-tofurei-hilcona-landquart",
@@ -2673,7 +2673,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-schlachtbetrieb-basel-5040",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:10.098Z",
+      "crawledAt": "2026-10-03T21:17:30.647Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-mit-entwicklungsmoeglichkeit-schlachtbetrieb-basel-hilcona-basel",
@@ -2744,7 +2744,7 @@
       "postedDate": "2026-07-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiter-mitarbeiterin-hlkk-5038",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:09.711Z",
+      "crawledAt": "2026-10-03T21:17:30.212Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-hlkk-hilcona-basel",
@@ -2815,7 +2815,7 @@
       "postedDate": "2026-07-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/jedox-entwickler-jedox-entwicklerin-5030",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:08.985Z",
+      "crawledAt": "2026-10-03T21:17:29.391Z",
       "sourceLang": "de",
       "previousSlugs": [
         "jedox-entwickler-jedox-entwicklerin-hilcona-basel",
@@ -2892,7 +2892,7 @@
       "postedDate": "2026-06-30",
       "url": "https://career.bellfoodgroup.com/de/stelle/wartungstechniker-in-vollzeit-4976",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:07.601Z",
+      "crawledAt": "2026-10-03T21:17:28.101Z",
       "sourceLang": "de",
       "previousSlugs": [
         "wartungstechniker-in-vollzeit-hilcona-essert-s-champvent",
@@ -2975,7 +2975,7 @@
       "postedDate": "2026-08-28",
       "url": "https://career.bellfoodgroup.com/de/stelle/ot-architect-4975",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:07.204Z",
+      "crawledAt": "2026-10-03T21:17:27.675Z",
       "sourceLang": "de",
       "previousSlugs": [
         "ot-architect-hilcona-basel",
@@ -3048,7 +3048,7 @@
       "postedDate": "2026-08-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/ict-system-engineer-m365-ms-server-4955",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:04.395Z",
+      "crawledAt": "2026-10-03T21:17:24.758Z",
       "sourceLang": "de",
       "previousSlugs": [
         "ict-system-engineer-m365-ms-server-hilcona-basel",
@@ -3123,7 +3123,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-logistiker-in-efz-4952",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:03.771Z",
+      "crawledAt": "2026-10-03T21:17:24.257Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-logistiker-in-efz-hilcona-steinach",
@@ -3135,6 +3135,7 @@
           "apprendistato-2027-logistiker-in-efz-hugli-nahrmittel-ag-steinach"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-06-05T22:07:08.478Z",
       "salaryMin": 46500,
       "salaryMax": 63000,
@@ -3150,78 +3151,7 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-logistiker-in-efz-4952",
-      "addressRegion": "SG",
-      "needsRetranslation": true
-    },
-    {
-      "id": "hilcona-d7e47dfe9433",
-      "slug": "apprendistato-2027-kauffrau-o-kaufmann-efz-hugli-nahrmittel-ag-steinach",
-      "slugByLocale": {
-        "it": "apprendistato-2027-kauffrau-o-kaufmann-efz-hugli-nahrmittel-ag-steinach",
-        "en": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hugli-nahrmittel-ag-steinach",
-        "de": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach",
-        "fr": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hugli-nahrmittel-ag-steinach"
-      },
-      "company": "Hügli Nährmittel AG",
-      "companyKey": "hilcona",
-      "companyDomain": "bellfoodgroup.com",
-      "title": "Lehrstelle 2027 Kauffrau Oder Kaufmann Efz",
-      "titleByLocale": {
-        "it": "Apprendistato 2027 Kauffrau o Kaufmann Efz",
-        "en": "Lehrstelle 2027 Kauffrau Or Kaufmann Efz",
-        "de": "Lehrstelle 2027 Kauffrau Oder Kaufmann Efz",
-        "fr": "Lehrstelle 2027 Kauffrau Or Kaufmann Efz"
-      },
-      "description": "Bist du aufgeweckt und lernfreudig? Suchst du einen interessanten und abwechslungsreichen Ausbildungsplatz in der Lebensmittelbranche? Bist du gerne Teil eines internationalen Unternehmens?\n\n• Vertragsart: Befristet\n• Pensum: 100%\n• Arbeitszeitmodell: Gleitzeit\n• Stellenantritt: 01.08.2027\n• Sprache: Deutsch\n• Arbeitsort: Hügli Nährmittel AG, Bleichestrasse 31 9323 Steinach\n\nAufgaben:\n• Als KV Lernende/r in der Nahrungsmittel-Industrie kennst du die Produkte und Herstellungsabläufe deines Unternehmens. Du wirst während deiner Ausbildung in den verschiedensten Unternehmensbereichen wie Einkauf, Vertrieb, Marketing und Finanzen tätig sein damit du mit fachkundiger Unterstützung eine fundierte, interessante und abwechslungsreiche Ausbildung absolvieren kannst.\n\nAnforderungen:\n• abgeschlossene Sekundarschule\n• Interesse an kaufmännischen Zusammenhängen und an der Arbeit mit dem PC\n• Kontaktfreudig, teamfähig und aufgeschlossen\n• Engagiert, einsatzfreudig und zielstrebig\n\nDas bieten wir:\n• Work-Life-Balance: Bei uns profitierst du von einer 40-Stunden Woche, mind. 25 Urlaubstagen und einem Gleitzeitsystem, damit du genug Zeit zum Erholen hast und wieder topfit für die Arbeit und die Schule bist.\n• Verpflegung: Kulinarik wird bei uns gross geschrieben, frisch zubereitetes Essen in unserem Personalrestaurant macht es für unsere Mitarbeitenden erlebbar.\n• Mobilität: Profitiere von bequemer Anbindung an den ÖV, ausreichenden Parkmöglichkeiten sowie der Übernahme deiner Reisespesen für berufliche Fahrten – nachhaltig und sorgenfrei unterwegs!\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unseren gesundheitsunterstützenden Angeboten und exklusiven Mitarbeiterrabatten dank der Coop Mitarbeiterrabattkarte und dem geförderten Fitness-Abo!\n• Firmenevents: Erlebe unvergessliche Momente bei unseren Firmenanlässen – in einer familiären Atmosphäre gemeinsam feiern und Kontakte knüpfen!",
-      "descriptionByLocale": {
-        "it": "Descrizione Sei sveglio e divertente? Alla ricerca di un posto di formazione interessante e vario nel settore alimentare? Ti piace far parte di un'azienda internazionale? Mansioni - Come apprendista KV nel settore alimentare, conosci i prodotti e i processi produttivi della tua azienda. - Durante la vostra formazione, sarete attivi in una varietà di settori aziendali come lo shopping, le vendite, il marketing e la finanza, in modo da poter completare una formazione ben fondata, interessante e varia con il supporto di esperti.\n• Requisiti - scuola secondaria completata - Interesse nelle relazioni commerciali e lavoro con il PC - Contatto, team-ready e open-minded - Engaged, reattivo e mirato",
-        "en": "Descrizione Are you awake and enjoyable? Looking for an interesting and varied training place in the food industry? Do you like to be part of an international company? Mansioni - As a KV learner in the food industry, you know the products and production processes of your company. - During your training, you will be active in a variety of business areas such as shopping, sales, marketing and finance, so that you can complete a well-founded, interesting and varied training with expert support.\n• Requisiti - completed secondary school - Interest in commercial relationships and work with the PC - Contact, team-ready and open-minded - Engaged, responsive and targeted",
-        "de": "Bist du aufgeweckt und lernfreudig? Suchst du einen interessanten und abwechslungsreichen Ausbildungsplatz in der Lebensmittelbranche? Bist du gerne Teil eines internationalen Unternehmens?\n\n• Vertragsart: Befristet\n• Pensum: 100%\n• Arbeitszeitmodell: Gleitzeit\n• Stellenantritt: 01.08.2027\n• Sprache: Deutsch\n• Arbeitsort: Hügli Nährmittel AG, Bleichestrasse 31 9323 Steinach\n\nAufgaben:\n• Als KV Lernende/r in der Nahrungsmittel-Industrie kennst du die Produkte und Herstellungsabläufe deines Unternehmens. Du wirst während deiner Ausbildung in den verschiedensten Unternehmensbereichen wie Einkauf, Vertrieb, Marketing und Finanzen tätig sein damit du mit fachkundiger Unterstützung eine fundierte, interessante und abwechslungsreiche Ausbildung absolvieren kannst.\n\nAnforderungen:\n• abgeschlossene Sekundarschule\n• Interesse an kaufmännischen Zusammenhängen und an der Arbeit mit dem PC\n• Kontaktfreudig, teamfähig und aufgeschlossen\n• Engagiert, einsatzfreudig und zielstrebig\n\nDas bieten wir:\n• Work-Life-Balance: Bei uns profitierst du von einer 40-Stunden Woche, mind. 25 Urlaubstagen und einem Gleitzeitsystem, damit du genug Zeit zum Erholen hast und wieder topfit für die Arbeit und die Schule bist.\n• Verpflegung: Kulinarik wird bei uns gross geschrieben, frisch zubereitetes Essen in unserem Personalrestaurant macht es für unsere Mitarbeitenden erlebbar.\n• Mobilität: Profitiere von bequemer Anbindung an den ÖV, ausreichenden Parkmöglichkeiten sowie der Übernahme deiner Reisespesen für berufliche Fahrten – nachhaltig und sorgenfrei unterwegs!\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unseren gesundheitsunterstützenden Angeboten und exklusiven Mitarbeiterrabatten dank der Coop Mitarbeiterrabattkarte und dem geförderten Fitness-Abo!\n• Firmenevents: Erlebe unvergessliche Momente bei unseren Firmenanlässen – in einer familiären Atmosphäre gemeinsam feiern und Kontakte knüpfen!",
-        "fr": "Descrizione Êtes-vous éveillé et agréable? Vous cherchez un lieu de formation intéressant et varié dans l'industrie alimentaire? Vous aimez faire partie d'une entreprise internationale ? Mansioni - En tant qu'apprenant KV dans l'industrie alimentaire, vous connaissez les produits et les processus de production de votre entreprise. - Au cours de votre formation, vous serez actif dans une variété de domaines d'affaires tels que le shopping, les ventes, le marketing et la finance, afin que vous puissiez compléter une formation bien fondée, intéressante et variée avec le soutien d'experts.\n• Requisiti - Lycée achevé - Intérêt pour les relations commerciales et le travail avec le PC - Contact, prêt pour l'équipe et ouvert d'esprit - Engagés, réactifs et ciblés"
-      },
-      "requirements": [],
-      "requirementsByLocale": {},
-      "location": "Steinach",
-      "canton": "SG",
-      "addressLocality": "Steinach",
-      "addressCountry": "CH",
-      "postalCode": "9323",
-      "category": "manufacturing",
-      "contract": "Befristet",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-05",
-      "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
-      "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-02T09:23:50.059Z",
-      "sourceLang": "de",
-      "previousSlugs": [
-        "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
-        ]
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-06-05T22:07:08.240Z",
-      "salaryMin": 46500,
-      "salaryMax": 63000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46500,
-          "maxValue": 63000,
-          "unitText": "YEAR"
-        }
-      },
-      "applyUrl": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
-      "addressRegion": "SG",
-      "crawlerMissStreak": 1
+      "addressRegion": "SG"
     },
     {
       "id": "hilcona-6f51a22fb106",
@@ -3264,7 +3194,7 @@
       "postedDate": "2026-06-05",
       "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-lebensmitteltechnologe-login-efz-4950",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:03.348Z",
+      "crawledAt": "2026-10-03T21:17:23.881Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lehrstelle-2027-lebensmitteltechnologe-login-efz-hilcona-steinach",
@@ -3343,7 +3273,7 @@
       "postedDate": "2026-09-26",
       "url": "https://career.bellfoodgroup.com/de/stelle/laborant-in-60-80-4948",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:02.869Z",
+      "crawledAt": "2026-10-03T21:17:23.529Z",
       "sourceLang": "de",
       "previousSlugs": [
         "laborant-in-60-80-hilcona-dallikon",
@@ -3397,7 +3327,7 @@
       "title": "Betriebselektriker Betriebselektrikerin",
       "titleByLocale": {
         "it": "Elettrotecnico di impianto",
-        "en": "Business electrician Business electrician",
+        "en": "Betriebselektriker Betriebselektrikerin",
         "de": "Betriebselektriker Betriebselektrikerin",
         "fr": "Électricien d'installation"
       },
@@ -3423,7 +3353,7 @@
       "postedDate": "2026-05-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4926",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:21:00.693Z",
+      "crawledAt": "2026-10-03T21:17:21.656Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-schlieren",
@@ -3503,7 +3433,7 @@
       "postedDate": "2026-09-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/mitarbeiterin-mitarbeiter-im-bereich-operational-technology-4918",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:59.728Z",
+      "crawledAt": "2026-10-03T21:17:20.597Z",
       "sourceLang": "de",
       "previousSlugs": [
         "mitarbeiterin-mitarbeiter-im-bereich-operational-technology-hilcona-cheseaux-sur-lausanne",
@@ -3585,7 +3515,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-instandhaltungsfachmann-m-w-d-4901",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:59.217Z",
+      "crawledAt": "2026-10-03T21:17:20.056Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-instandhaltungsfachmann-m-w-d-hugli-nahrmittel-ag-steinach",
@@ -3640,7 +3570,7 @@
       "title": "Betriebselektriker Betriebselektrikerin",
       "titleByLocale": {
         "it": "Elettricista operativo",
-        "en": "Business electrician Business electrician",
+        "en": "Betriebselektriker Betriebselektrikerin",
         "de": "Betriebselektriker Betriebselektrikerin",
         "fr": "Électricien en service"
       },
@@ -3666,7 +3596,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-4900",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:58.834Z",
+      "crawledAt": "2026-10-03T21:17:19.633Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-hilcona-oensingen",
@@ -3756,7 +3686,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-foerdertechnik-4699",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:57.043Z",
+      "crawledAt": "2026-10-03T21:17:18.171Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-foerdertechnik-bell-schweiz-ag-oensingen",
@@ -3838,7 +3768,7 @@
       "postedDate": "2026-09-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/master-key-user-sap-fi-co-4483",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:56.116Z",
+      "crawledAt": "2026-10-03T21:17:17.347Z",
       "sourceLang": "de",
       "previousSlugs": [
         "master-key-user-sap-fi-co-hilcona-steinach",
@@ -3912,7 +3842,7 @@
       "postedDate": "2026-05-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-schlachthaus-4370",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:54.664Z",
+      "crawledAt": "2026-10-03T21:17:15.949Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-schlachthaus-bell-schweiz-ag-oensingen",
@@ -3999,7 +3929,7 @@
       "postedDate": "2026-09-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-sachbearbeiterin-verkaufskalkulation-4318",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:54.292Z",
+      "crawledAt": "2026-10-03T21:17:15.606Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-sachbearbeiterin-verkaufskalkulation-hilcona-oensingen",
@@ -4077,7 +4007,7 @@
       "postedDate": "2026-06-18",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-in-80-100-3693",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:53.936Z",
+      "crawledAt": "2026-10-03T21:17:15.228Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-in-80-100-hilcona-dallikon",
@@ -4156,7 +4086,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/automatiker-automatikerin-efz-2027-3062",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:53.563Z",
+      "crawledAt": "2026-10-03T21:17:14.700Z",
       "sourceLang": "de",
       "previousSlugs": [
         "automatiker-automatikerin-efz-2027-hilcona-basel",
@@ -4233,7 +4163,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/anlagefuehrer-fluessigproduktion-m-w-d-3027",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:53.018Z",
+      "crawledAt": "2026-10-03T21:17:14.190Z",
       "sourceLang": "de",
       "previousSlugs": [
         "anlagefuehrer-fluessigproduktion-m-w-d-hugli-nahrmittel-ag-steinach",
@@ -4318,7 +4248,7 @@
       "postedDate": "2026-09-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/sachbearbeiter-sachbearbeiterin-administration-tiefkuehl-center-2870",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:52.643Z",
+      "crawledAt": "2026-10-03T21:17:13.850Z",
       "sourceLang": "de",
       "previousSlugs": [
         "sachbearbeiter-sachbearbeiterin-administration-tiefkuehl-center-hilcona-oensingen",
@@ -4371,7 +4301,7 @@
       "title": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
       "titleByLocale": {
         "it": "Elettricista aziendale Elettricista aziendale Nuova costruzione Oensingen",
-        "en": "Company electrician Company electrician Neubau Oensingen",
+        "en": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
         "de": "Betriebselektriker Betriebselektrikerin Neubau Oensingen",
         "fr": "Électricien d'exploitation Électricienne d'exploitation Nouvelle construction Oensingen"
       },
@@ -4397,7 +4327,7 @@
       "postedDate": "2026-06-15",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektriker-betriebselektrikerin-neubau-oensingen-2860",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:52.268Z",
+      "crawledAt": "2026-10-03T21:17:13.485Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-oensingen",
@@ -4465,7 +4395,7 @@
       "title": "Betriebselektrikerin Betriebselektriker 100",
       "titleByLocale": {
         "it": "Elettricista Operativo Elettricista 100",
-        "en": "Company electrician 100",
+        "en": "Betriebselektrikerin Betriebselektriker 100",
         "de": "Betriebselektrikerin Betriebselektriker 100",
         "fr": "Électricien industriel 100"
       },
@@ -4491,7 +4421,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebselektrikerin-betriebselektriker-100-2835",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:51.907Z",
+      "crawledAt": "2026-10-03T21:17:13.103Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -4582,7 +4512,7 @@
       "postedDate": "2026-09-19",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebskoordinator-betriebskoordinatorin-logistik-center-neubau-oensingen-2756",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:51.512Z",
+      "crawledAt": "2026-10-03T21:17:12.740Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebskoordinator-betriebskoordinatorin-logistik-center-neubau-oensingen-hilcona-oensingen",
@@ -4661,7 +4591,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-efz-2027-2749",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:51.098Z",
+      "crawledAt": "2026-10-03T21:17:12.352Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-efz-2027-hilcona-basel",
@@ -4740,7 +4670,7 @@
       "postedDate": "2026-06-23",
       "url": "https://career.bellfoodgroup.com/de/stelle/automatiker-automatikerin-2719",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:50.707Z",
+      "crawledAt": "2026-10-03T21:17:11.945Z",
       "sourceLang": "de",
       "previousSlugs": [
         "automatiker-automatikerin-hilcona-basel",
@@ -4820,7 +4750,7 @@
       "postedDate": "2026-08-11",
       "url": "https://career.bellfoodgroup.com/de/stelle/teamleiter-teamleiterin-reinigung-slicer-center-neubau-oensingen-2681",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:50.275Z",
+      "crawledAt": "2026-10-03T21:17:11.581Z",
       "sourceLang": "de",
       "previousSlugs": [
         "teamleiter-teamleiterin-reinigung-slicer-center-neubau-oensingen-hilcona-oensingen",
@@ -4897,7 +4827,7 @@
       "postedDate": "2026-04-27",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-2617",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:49.741Z",
+      "crawledAt": "2026-10-03T21:17:11.064Z",
       "sourceLang": "de",
       "previousSlugs": [
         "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-oensingen",
@@ -4925,6 +4855,7 @@
           "betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-04-13T10:42:40.250Z",
       "salaryMin": 71000,
       "salaryMax": 95500,
@@ -4940,8 +4871,7 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/betriebsmechaniker-betriebsmechanikerin-neubau-oensingen-2617",
-      "addressRegion": "SO",
-      "needsRetranslation": true
+      "addressRegion": "SO"
     },
     {
       "id": "hilcona-f94445e451a6",
@@ -4984,7 +4914,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/praktikum-waehrend-des-studiums-30-1-jahr-befristet-2574",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:49.353Z",
+      "crawledAt": "2026-10-03T21:17:10.509Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5071,7 +5001,7 @@
       "postedDate": "2026-05-21",
       "url": "https://career.bellfoodgroup.com/de/stelle/betriebsmechanikerin-betriebsmechaniker-fleischgewinnung-100-2435",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:46.812Z",
+      "crawledAt": "2026-10-03T21:17:07.778Z",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "de": [
@@ -5160,7 +5090,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-2421",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:46.018Z",
+      "crawledAt": "2026-10-03T21:17:06.950Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2027-hilcona-basel",
@@ -5253,7 +5183,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachassistent-fleischfachassistentin-eba-2027-2416",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:45.638Z",
+      "crawledAt": "2026-10-03T21:17:06.528Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachassistent-fleischfachassistentin-eba-2027-hilcona-basel",
@@ -5336,7 +5266,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/produktionsmechaniker-produktionsmechanikerin-efz-2027-2399",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:45.069Z",
+      "crawledAt": "2026-10-03T21:17:06.171Z",
       "sourceLang": "de",
       "previousSlugs": [
         "produktionsmechaniker-produktionsmechanikerin-efz-2027-hilcona-basel",
@@ -5415,7 +5345,7 @@
       "postedDate": "2026-09-01",
       "url": "https://career.bellfoodgroup.com/de/stelle/fleischfachmann-fleischfachfrau-portionierung-2341",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:44.151Z",
+      "crawledAt": "2026-10-03T21:17:05.217Z",
       "sourceLang": "de",
       "previousSlugs": [
         "fleischfachmann-fleischfachfrau-portionierung-hilcona-oensingen",
@@ -5493,7 +5423,7 @@
       "postedDate": "2026-09-04",
       "url": "https://career.bellfoodgroup.com/de/stelle/automatiker-automatikerin-ot-operational-technology-2338",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:43.581Z",
+      "crawledAt": "2026-10-03T21:17:04.734Z",
       "sourceLang": "de",
       "previousSlugs": [
         "automatiker-automatikerin-ot-operational-technology-hilcona-oensingen",
@@ -5571,7 +5501,7 @@
       "postedDate": "2026-08-07",
       "url": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-2333",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:43.048Z",
+      "crawledAt": "2026-10-03T21:17:04.080Z",
       "sourceLang": "de",
       "previousSlugs": [
         "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-hilcona-basel",
@@ -5591,6 +5521,7 @@
           "lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-bell-schweiz-ag-basel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T21:51:14.258Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -5606,8 +5537,7 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/lebensmitteltechnologe-lebensmitteltechnologin-efz-2027-2333",
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "hilcona-7b18c578fd2e",
@@ -5650,7 +5580,7 @@
       "postedDate": "2026-09-29",
       "url": "https://career.bellfoodgroup.com/de/stelle/initiativbewerbung-2212",
       "source": "Hilcona Dedicated Parser",
-      "crawledAt": "2026-10-03T09:20:39.959Z",
+      "crawledAt": "2026-10-03T21:17:00.443Z",
       "sourceLang": "de",
       "previousSlugs": [
         "initiativbewerbung-hilcona-basel",
@@ -5670,6 +5600,7 @@
           "initiativbewerbung-bell-schweiz-ag-basel"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-29T21:18:16.260Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -5685,8 +5616,77 @@
         }
       },
       "applyUrl": "https://career.bellfoodgroup.com/de/stelle/initiativbewerbung-2212",
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
+    },
+    {
+      "id": "hilcona-d7e47dfe9433",
+      "slug": "apprendistato-2027-kauffrau-o-kaufmann-efz-hugli-nahrmittel-ag-steinach",
+      "slugByLocale": {
+        "it": "apprendistato-2027-kauffrau-o-kaufmann-efz-hugli-nahrmittel-ag-steinach",
+        "en": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hugli-nahrmittel-ag-steinach",
+        "de": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach",
+        "fr": "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hugli-nahrmittel-ag-steinach"
+      },
+      "company": "Hügli Nährmittel AG",
+      "companyKey": "hilcona",
+      "companyDomain": "bellfoodgroup.com",
+      "title": "Lehrstelle 2027 Kauffrau Oder Kaufmann Efz",
+      "titleByLocale": {
+        "it": "Apprendistato 2027 Kauffrau o Kaufmann Efz",
+        "en": "Lehrstelle 2027 Kauffrau Or Kaufmann Efz",
+        "de": "Lehrstelle 2027 Kauffrau Oder Kaufmann Efz",
+        "fr": "Lehrstelle 2027 Kauffrau Or Kaufmann Efz"
+      },
+      "description": "Bist du aufgeweckt und lernfreudig? Suchst du einen interessanten und abwechslungsreichen Ausbildungsplatz in der Lebensmittelbranche? Bist du gerne Teil eines internationalen Unternehmens?\n\n• Vertragsart: Befristet\n• Pensum: 100%\n• Arbeitszeitmodell: Gleitzeit\n• Stellenantritt: 01.08.2027\n• Sprache: Deutsch\n• Arbeitsort: Hügli Nährmittel AG, Bleichestrasse 31 9323 Steinach\n\nAufgaben:\n• Als KV Lernende/r in der Nahrungsmittel-Industrie kennst du die Produkte und Herstellungsabläufe deines Unternehmens. Du wirst während deiner Ausbildung in den verschiedensten Unternehmensbereichen wie Einkauf, Vertrieb, Marketing und Finanzen tätig sein damit du mit fachkundiger Unterstützung eine fundierte, interessante und abwechslungsreiche Ausbildung absolvieren kannst.\n\nAnforderungen:\n• abgeschlossene Sekundarschule\n• Interesse an kaufmännischen Zusammenhängen und an der Arbeit mit dem PC\n• Kontaktfreudig, teamfähig und aufgeschlossen\n• Engagiert, einsatzfreudig und zielstrebig\n\nDas bieten wir:\n• Work-Life-Balance: Bei uns profitierst du von einer 40-Stunden Woche, mind. 25 Urlaubstagen und einem Gleitzeitsystem, damit du genug Zeit zum Erholen hast und wieder topfit für die Arbeit und die Schule bist.\n• Verpflegung: Kulinarik wird bei uns gross geschrieben, frisch zubereitetes Essen in unserem Personalrestaurant macht es für unsere Mitarbeitenden erlebbar.\n• Mobilität: Profitiere von bequemer Anbindung an den ÖV, ausreichenden Parkmöglichkeiten sowie der Übernahme deiner Reisespesen für berufliche Fahrten – nachhaltig und sorgenfrei unterwegs!\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unseren gesundheitsunterstützenden Angeboten und exklusiven Mitarbeiterrabatten dank der Coop Mitarbeiterrabattkarte und dem geförderten Fitness-Abo!\n• Firmenevents: Erlebe unvergessliche Momente bei unseren Firmenanlässen – in einer familiären Atmosphäre gemeinsam feiern und Kontakte knüpfen!",
+      "descriptionByLocale": {
+        "it": "Descrizione Sei sveglio e divertente? Alla ricerca di un posto di formazione interessante e vario nel settore alimentare? Ti piace far parte di un'azienda internazionale? Mansioni - Come apprendista KV nel settore alimentare, conosci i prodotti e i processi produttivi della tua azienda. - Durante la vostra formazione, sarete attivi in una varietà di settori aziendali come lo shopping, le vendite, il marketing e la finanza, in modo da poter completare una formazione ben fondata, interessante e varia con il supporto di esperti.\n• Requisiti - scuola secondaria completata - Interesse nelle relazioni commerciali e lavoro con il PC - Contatto, team-ready e open-minded - Engaged, reattivo e mirato",
+        "en": "Descrizione Are you awake and enjoyable? Looking for an interesting and varied training place in the food industry? Do you like to be part of an international company? Mansioni - As a KV learner in the food industry, you know the products and production processes of your company. - During your training, you will be active in a variety of business areas such as shopping, sales, marketing and finance, so that you can complete a well-founded, interesting and varied training with expert support.\n• Requisiti - completed secondary school - Interest in commercial relationships and work with the PC - Contact, team-ready and open-minded - Engaged, responsive and targeted",
+        "de": "Bist du aufgeweckt und lernfreudig? Suchst du einen interessanten und abwechslungsreichen Ausbildungsplatz in der Lebensmittelbranche? Bist du gerne Teil eines internationalen Unternehmens?\n\n• Vertragsart: Befristet\n• Pensum: 100%\n• Arbeitszeitmodell: Gleitzeit\n• Stellenantritt: 01.08.2027\n• Sprache: Deutsch\n• Arbeitsort: Hügli Nährmittel AG, Bleichestrasse 31 9323 Steinach\n\nAufgaben:\n• Als KV Lernende/r in der Nahrungsmittel-Industrie kennst du die Produkte und Herstellungsabläufe deines Unternehmens. Du wirst während deiner Ausbildung in den verschiedensten Unternehmensbereichen wie Einkauf, Vertrieb, Marketing und Finanzen tätig sein damit du mit fachkundiger Unterstützung eine fundierte, interessante und abwechslungsreiche Ausbildung absolvieren kannst.\n\nAnforderungen:\n• abgeschlossene Sekundarschule\n• Interesse an kaufmännischen Zusammenhängen und an der Arbeit mit dem PC\n• Kontaktfreudig, teamfähig und aufgeschlossen\n• Engagiert, einsatzfreudig und zielstrebig\n\nDas bieten wir:\n• Work-Life-Balance: Bei uns profitierst du von einer 40-Stunden Woche, mind. 25 Urlaubstagen und einem Gleitzeitsystem, damit du genug Zeit zum Erholen hast und wieder topfit für die Arbeit und die Schule bist.\n• Verpflegung: Kulinarik wird bei uns gross geschrieben, frisch zubereitetes Essen in unserem Personalrestaurant macht es für unsere Mitarbeitenden erlebbar.\n• Mobilität: Profitiere von bequemer Anbindung an den ÖV, ausreichenden Parkmöglichkeiten sowie der Übernahme deiner Reisespesen für berufliche Fahrten – nachhaltig und sorgenfrei unterwegs!\n• Gesundheit: Dein Wohlbefinden ist uns wichtig: Profitiere von unseren gesundheitsunterstützenden Angeboten und exklusiven Mitarbeiterrabatten dank der Coop Mitarbeiterrabattkarte und dem geförderten Fitness-Abo!\n• Firmenevents: Erlebe unvergessliche Momente bei unseren Firmenanlässen – in einer familiären Atmosphäre gemeinsam feiern und Kontakte knüpfen!",
+        "fr": "Descrizione Êtes-vous éveillé et agréable? Vous cherchez un lieu de formation intéressant et varié dans l'industrie alimentaire? Vous aimez faire partie d'une entreprise internationale ? Mansioni - En tant qu'apprenant KV dans l'industrie alimentaire, vous connaissez les produits et les processus de production de votre entreprise. - Au cours de votre formation, vous serez actif dans une variété de domaines d'affaires tels que le shopping, les ventes, le marketing et la finance, afin que vous puissiez compléter une formation bien fondée, intéressante et variée avec le soutien d'experts.\n• Requisiti - Lycée achevé - Intérêt pour les relations commerciales et le travail avec le PC - Contact, prêt pour l'équipe et ouvert d'esprit - Engagés, réactifs et ciblés"
+      },
+      "requirements": [],
+      "requirementsByLocale": {},
+      "location": "Steinach",
+      "canton": "SG",
+      "addressLocality": "Steinach",
+      "addressCountry": "CH",
+      "postalCode": "9323",
+      "category": "manufacturing",
+      "contract": "Befristet",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-06-05",
+      "url": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
+      "source": "Hilcona Dedicated Parser",
+      "crawledAt": "2026-10-02T09:23:50.059Z",
+      "sourceLang": "de",
+      "previousSlugs": [
+        "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstelle-2027-kauffrau-oder-kaufmann-efz-hilcona-steinach"
+        ]
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-05T22:07:08.240Z",
+      "salaryMin": 46500,
+      "salaryMax": 63000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 46500,
+          "maxValue": 63000,
+          "unitText": "YEAR"
+        }
+      },
+      "applyUrl": "https://career.bellfoodgroup.com/de/stelle/lehrstelle-2027-kauffrau-oder-kaufmann-efz-4951",
+      "addressRegion": "SG",
+      "crawlerMissStreak": 2
     }
   ]
 }

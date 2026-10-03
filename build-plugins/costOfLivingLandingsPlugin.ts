@@ -41,6 +41,7 @@
  * Env gate: SKIP_COST_OF_LIVING=1 fast-exits (local builds only; CI always runs).
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import fs from 'node:fs';
 import np from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -52,7 +53,7 @@ import { BASE_URL, MIN_INDEXABLE_WORDS, countHtmlBodyWords } from './constants';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
 import { endOfContentMultiplexHtml } from './lib/adSlotHtml';
-import { formatUpdatedDate } from './shared/humanDate';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
 import { WriteCollector } from './batchWrite';
 import { imageObjectLd } from '../services/seo/imageObjectLd';
 import {
@@ -181,6 +182,8 @@ export function renderFeaturedJobs(
       contract: j.contract ?? undefined,
       salaryMin: j.salaryMin,
       salaryMax: j.salaryMax,
+      salarySource: j.salarySource,
+      currency: j.currency,
       postedDate: j.postedDate,
       url: j.url ?? undefined,
     } satisfies JobCardJob,
@@ -339,8 +342,6 @@ function renderPage(opts: {
     image: `${BASE_URL}/og-image.png`,
     inLanguage: locale,
     url: canonicalUrl,
-    datePublished: dateStamp,
-    dateModified: dateStamp,
     author: { '@type': 'Organization', '@id': `${BASE_URL}/#organization`, name: 'Frontaliere Ticino', url: `${BASE_URL}/` },
     publisher: {
       '@type': 'Organization',
@@ -528,7 +529,7 @@ function renderPage(opts: {
     ${city in HERO_BADGES
       ? renderLandingHero(city, locale, {
           openings: snapshot.liveCount,
-          medianSalary: snapshot.medianSalaryChf ?? undefined,
+          // Salary provenance is explained alongside the sample statistic below.
           city: cityName,
         }, h1, denseLede)
       : `<header class="s-YcUNX5">
@@ -536,8 +537,9 @@ function renderPage(opts: {
       <h1 style="${H1_STYLE}">${esc(h1)}</h1>
       <p class="col-lede">${esc(denseLede)}</p>
     </header>`}
-    <p class="text-sm font-medium text-accent mt-1">${esc(L.updatedLabel)} ${esc(formatUpdatedDate(dateStamp, locale))}</p>
+    <p class="text-sm font-medium text-accent mt-1">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
     ${statTilesHtml}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${primaryCtaHtml}
     ${featuredHtml}
     ${employerGridHtml}
@@ -681,7 +683,7 @@ function buildSitemapXml(
           return `    <xhtml:link rel="alternate" hreflang="${lang}" href="${rest.join('|')}" />`;
         })
         .join('\n');
-      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <lastmod>${today}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
+      return `  <url>\n    <loc>${BASE_URL}${canonical}</loc>\n${alts}\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
     })
     .join('\n');
   return `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${urls}\n</urlset>\n`;

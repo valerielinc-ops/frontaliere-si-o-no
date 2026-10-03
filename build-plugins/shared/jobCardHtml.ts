@@ -26,7 +26,7 @@ import { resolveJobLogoSrc as resolveJobCardLogo } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
 import { infeedAdListItemHtml } from '../lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../../services/adsenseSlots';
-import { SALARY_ESTIMATE_SUFFIX } from './salaryEstimateSuffix';
+import { SALARY_ESTIMATE_SUFFIX, salaryProvenanceSuffix } from './salaryEstimateSuffix';
 
 export { resolveJobCardLogo, escHtml, SALARY_ESTIMATE_SUFFIX };
 
@@ -49,15 +49,9 @@ export interface JobCardJob {
   datePosted?: string;
   salaryMin?: number | string | null;
   salaryMax?: number | string | null;
-  /**
-   * Provenance of salaryMin/Max persisted by scripts/re-enrich-jobs.mjs:
-   * `'reported'` (extracted from the posting text), `'existing'` (structured
-   * salary already on the record) or `'estimated'` (sector-median band).
-   * `'estimated'` renders the range with a per-locale "(stima)" suffix so the
-   * band is never presented as a real offer. Absent on records not yet
-   * re-enriched → output stays byte-identical to the pre-flag behaviour.
-   */
-  salarySource?: 'reported' | 'existing' | 'estimated';
+  /** Source-reported, explicitly estimated, or unverified legacy/unknown. */
+  salarySource?: string;
+  currency?: string;
   featured?: boolean;
   /** Fallback used when CRAWLED_COMPANY_LOGOS / favicon resolution returns null. */
   logo?: string | null;
@@ -219,12 +213,15 @@ const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentCo
 function formatSalary(
   rawMin: number | string | null | undefined,
   rawMax: number | string | null | undefined,
+  currency?: string,
 ): string {
   const min = Number(rawMin);
   const max = Number(rawMax);
   if (!Number.isFinite(min) || !Number.isFinite(max)) return '';
   if (min <= 0 || max < min) return '';
-  return `CHF ${Math.round(min / 1000)}k – ${Math.round(max / 1000)}k`;
+  const unit = String(currency || 'CHF').toUpperCase();
+  if (!/^[A-Z]{3}$/.test(unit)) return '';
+  return `${unit} ${Math.round(min / 1000)}k – ${Math.round(max / 1000)}k`;
 }
 
 // ── Locality display ─────────────────────────────────────────────────
@@ -314,13 +311,9 @@ export function renderJobCardHtml(
     ? opts.linkifyLocation(rawLocation, locale)
     : escHtml(rawLocation);
 
-  const salary = formatSalary(job.salaryMin, job.salaryMax);
-  // Estimated bands are declared as such; missing salarySource (records not
-  // yet re-enriched) keeps the legacy unsuffixed label byte-identical.
-  const salaryLabel =
-    salary && job.salarySource === 'estimated'
-      ? `${salary} ${SALARY_ESTIMATE_SUFFIX[locale]}`
-      : salary;
+  const salary = formatSalary(job.salaryMin, job.salaryMax, job.currency);
+  const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+  const salaryLabel = salary && suffix ? `${salary} ${suffix}` : salary;
   const contractLbl = localizedContract(job.contract, locale);
   // First PARSEABLE date string, not first truthy: a malformed postedDate must
   // not shadow a valid datePosted and feed "Invalid Date" into the relative

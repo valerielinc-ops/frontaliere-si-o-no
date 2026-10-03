@@ -32,7 +32,7 @@ import {
   type ProfessionLocale,
 } from './professionLandingsData';
 import { resolveJobCanton } from './shared/cantonSection';
-import { realSalaryMedianChf } from './shared/realSalaryMedian';
+import { realSalaryMedianChf, reportedSalarySummary, type ReportedSalarySummary } from './shared/realSalaryMedian';
 import { firstParsableMs, firstParsableDateStr } from './shared/firstParsableDate';
 import { jobMatchesCity, type CityHubKey } from './cityJobsHub';
 import { PROFESSION_CITY_DEFS } from './professionCityData';
@@ -85,6 +85,8 @@ export interface FeaturedJob {
   readonly contract: string | null;
   readonly salaryMin: number | null;
   readonly salaryMax: number | null;
+  readonly salarySource?: string;
+  readonly currency?: string;
   readonly postedDate: string;
   readonly daysAgo: number;
   readonly slug: string;
@@ -104,6 +106,8 @@ export interface ProfessionJobsSnapshot {
   readonly fresh30Count: number;
   /** Median annual gross CHF salary computed from baseSalary midpoints. */
   readonly medianSalaryChf: number | null;
+  /** Provenance-qualified annual CHF ranges; missing legacy summaries fail closed. */
+  readonly reportedSalary?: ReportedSalarySummary;
   /** Top 3 freshest featured (else freshest) jobs that match this profession. */
   readonly featured: readonly FeaturedJob[];
   /** Top 6 employers by job count for this profession. */
@@ -401,6 +405,8 @@ function toFeatured(job: JobRecord, now: number): FeaturedJob | null {
     contract: job.employmentType ?? job.contract ?? null,
     salaryMin: typeof job.salaryMin === 'number' ? job.salaryMin : null,
     salaryMax: typeof job.salaryMax === 'number' ? job.salaryMax : null,
+    salarySource: job.salarySource,
+    currency: job.currency,
     postedDate,
     daysAgo,
     slug: job.slug,
@@ -427,7 +433,7 @@ function buildSnapshotForProfession(
   let fresh30 = 0;
   for (const job of matches) {
     const ts = firstParsableMs(job.postedDate, job.firstSeenAt);
-    if (ts && ts >= last30) fresh30++;
+    if (ts && ts >= last30 && ts <= now) fresh30++;
   }
 
   const medianSalary = realSalaryMedianChf(matches);
@@ -464,6 +470,7 @@ function buildSnapshotForProfession(
     liveCount: matches.length,
     fresh30Count: fresh30,
     medianSalaryChf: medianSalary,
+    reportedSalary: reportedSalarySummary(matches),
     featured,
     topEmployers,
   };
