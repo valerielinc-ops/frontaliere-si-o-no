@@ -7625,6 +7625,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.affitti-lucerna-regole-2026.title': 'Affitti a Lucerna e Svizzera: regole per la cauzione nel 2026',
     'blog.article.affitti-lucerna-regole-2026.excerpt': 'Guida agli affitti nel canton Lucerna e in Svizzera nel 2026: limite massimo di tre mesi per la cauzione, conto vincolato e diritto federale.',
     'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Mercato immobiliare e regole per gli affitti nel canton Lucerna',
+    'blog.article.canoni-casa-lucerna-2026.title': 'Affitti in Svizzera 2026: mercato immobiliare a Lucerna',
+    'blog.article.canoni-casa-lucerna-2026.excerpt': 'Affitti in Svizzera nel 2026: cauzione fino a tre mesi, conto vincolato e 30 giorni per contestare la disdetta. Focus sul canton Lucerna.',
+    'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Palazzi residenziali nel canton Lucerna, tema del mercato degli affitti svizzero',
 };
 
 export default blogMetaChIt;

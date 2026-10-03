@@ -2564,6 +2564,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'deposito-modulo-conciliazione': { it: 'deposito-modulo-conciliazione', en: 'rental-deposit-official-form', de: 'mietkaution-formular-schlichtung', fr: 'depot-formulaire-conciliation' },
  'diritti-casa-san-gallo': { it: 'diritti-casa-san-gallo', en: 'swiss-rentals-st-gallen-2026', de: 'mieten-schweiz-st-gallen-2026', fr: 'loyers-suisse-saint-gall-2026' },
  'affitti-lucerna-regole-2026': { it: 'affitti-lucerna-regole-2026', en: 'lucerne-rentals-rules-2026', de: 'luzern-mietrecht-regeln-2026', fr: 'lucerne-location-regles-2026' },
+ 'canoni-casa-lucerna-2026': { it: 'canoni-casa-lucerna-2026', en: 'swiss-rental-market-lucerne-2026', de: 'mietmarkt-schweiz-luzern-2026', fr: 'marche-locatif-suisse-lucerne-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

@@ -7625,6 +7625,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.affitti-lucerna-regole-2026.title': 'Locations à Lucerne et en Suisse : règles relatives au dépôt de garantie en 2026',
     'blog.article.affitti-lucerna-regole-2026.excerpt': 'Guide des locations dans le canton de Lucerne et en Suisse en 2026 : limite maximale de trois mois pour la garantie locative, compte bloqué et droit fédéral.',
     'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Marche immobilier et regles de location dans le canton de Lucerne',
+    'blog.article.canoni-casa-lucerna-2026.title': 'Loyers en Suisse 2026 : marché immobilier à Lucerne',
+    'blog.article.canoni-casa-lucerna-2026.excerpt': 'Loyers en Suisse en 2026 : dépôt de garantie jusqu\'à trois mois, compte bloqué et 30 jours pour contester la résiliation. Focus sur le canton de Lucerne.',
+    'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Immeubles résidentiels dans le canton de Lucerne et marché locatif suisse',
 };
 
 export default blogMetaChFr;

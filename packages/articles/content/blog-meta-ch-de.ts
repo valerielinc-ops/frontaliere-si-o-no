@@ -7625,6 +7625,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.affitti-lucerna-regole-2026.title': 'Mieten in Luzern und der Schweiz: Regeln für die Kaution im Jahr 2026',
     'blog.article.affitti-lucerna-regole-2026.excerpt': 'Leitfaden zu Mietverhältnissen im Kanton Luzern und in der Schweiz im Jahr 2026: Höchstgrenze von drei Monatsmieten für die Kaution, Sperrkonto und Bundesrecht.',
     'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Immobilienmarkt und Mietvorschriften im Kanton Luzern',
+    'blog.article.canoni-casa-lucerna-2026.title': 'Mieten in der Schweiz 2026: Immobilienmarkt in Luzern',
+    'blog.article.canoni-casa-lucerna-2026.excerpt': 'Mieten in der Schweiz im Jahr 2026: Kaution bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten. Fokus auf den Kanton Luzern.',
+    'blog.article.canoni-casa-lucerna-2026.imageAlt': 'Wohnhäuser im Kanton Luzern zum Schweizer Mietwohnungsmarkt',
 };
 
 export default blogMetaChDe;
