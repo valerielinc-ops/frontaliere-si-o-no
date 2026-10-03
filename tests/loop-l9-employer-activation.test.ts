@@ -278,10 +278,15 @@ describe('L9 Employer Supply → Paid Activation', () => {
     async function reported(ledger: Record<string, unknown>) {
       const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l9-test-'));
       const issues: any[] = [];
+      const profilesPath = writeJson(dir, 'profiles.json', profiles());
       const result = await runL9({
         now: NOW,
-        profilesPath: writeJson(dir, 'profiles.json', profiles()),
-        outcomePath: writeJson(dir, 'outcomes.json', outcomes(ledger)),
+        profilesPath,
+        // Lo scope del ledger deve attestare lo STESSO file di inventario letto dalla run.
+        outcomePath: writeJson(dir, 'outcomes.json', outcomes({
+          inventoryScope: { ...outcomes().inventoryScope, profileSource: profilesPath },
+          ...ledger,
+        })),
         issue: true,
         createIssueImpl: async (payload) => { issues.push(payload); },
         logger: { log() {} },

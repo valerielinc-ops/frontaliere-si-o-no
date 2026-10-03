@@ -584,7 +584,7 @@ describe('awaiting-sample: Loop fleet: campione insufficiente trattato come guas
   it('only logs when the owner digest is absent', async () => {
     const github = fakeGithub();
     const lines: string[] = [];
-    github.deps.logger = { log: (line: string) => lines.push(line), error() {} };
+    github.deps.logger = { log: (line: string) => { lines.push(line); }, error() {} } as unknown as typeof github.deps.logger;
     const result = await awaiting(github, SLOW);
     expect(result).toMatchObject({ persisted: true, skipped: 'sample-beyond-horizon' });
     expect(github.issues).toHaveLength(0);
