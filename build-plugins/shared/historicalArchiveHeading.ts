@@ -12,12 +12,19 @@
  *
  * The heading now carries the location when the archive knows it, the same
  * "role — company, location" shape the page's meta description already uses.
- * Pages whose archive record has neither company nor location (the slug is
- * the only source: 2 295 of the 3 874) keep "role" as both title and
- * heading — nothing true can be added to them from this data.
+ * When no location is available, callers can add a translated archive
+ * qualifier. This keeps a slug-only record truthful while preventing the
+ * fallback page from emitting an H1 identical to its title.
  */
-export function historicalArchiveHeading(role: string, company: string, location: string): string {
+export function historicalArchiveHeading(
+  role: string,
+  company: string,
+  location: string,
+  noLocationQualifier = '',
+): string {
   const c = String(company || '').trim();
   const l = String(location || '').trim();
-  return `${String(role || '').trim()}${c ? ` — ${c}` : ''}${l ? `, ${l}` : ''}`;
+  const headline = `${String(role || '').trim()}${c ? ` — ${c}` : ''}${l ? `, ${l}` : ''}`;
+  const qualifier = String(noLocationQualifier || '').trim();
+  return !l && qualifier ? `${headline} — ${qualifier}` : headline;
 }
