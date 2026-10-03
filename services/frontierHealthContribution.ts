@@ -7,8 +7,13 @@ export const FRONTIER_SSN_MAX_RATE = 6;
 const ANNUAL_MIN_EUR = 30 * 12;
 const ANNUAL_MAX_EUR = 200 * 12;
 
+export function normalizeFrontierSsnRate(ratePercent: number): number {
+  const rate = Number.isFinite(ratePercent) ? ratePercent : FRONTIER_SSN_MIN_RATE;
+  return Math.max(FRONTIER_SSN_MIN_RATE, Math.min(FRONTIER_SSN_MAX_RATE, rate));
+}
+
 export function estimateAnnualFrontierSsnEUR(netSalaryEUR: number, ratePercent: number): number {
-  return Math.max(ANNUAL_MIN_EUR, Math.min(ANNUAL_MAX_EUR, netSalaryEUR * ratePercent / 100));
+  return Math.max(ANNUAL_MIN_EUR, Math.min(ANNUAL_MAX_EUR, netSalaryEUR * normalizeFrontierSsnRate(ratePercent) / 100));
 }
 
 export function compareFrontierSsnWithLamal(netSalaryCHF: number, lamalAnnualCHF: number, eurPerCHF: number) {

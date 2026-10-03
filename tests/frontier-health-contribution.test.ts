@@ -4,6 +4,9 @@ import { compareFrontierSsnWithLamal, estimateAnnualFrontierSsnEUR } from '../se
 describe('frontier-worker SSN annual limits (DM 14 November 2025, article 1)', () => {
   it.each([
     [5000, 3, 360],
+    [10000, 10, 600],
+    [30000, 1, 900],
+    [30000, Number.NaN, 900],
     [30000, 3, 900],
     [30000, 6, 1800],
     [50000, 6, 2400],

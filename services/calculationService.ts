@@ -1,4 +1,4 @@
-import { estimateAnnualFrontierSsnEUR } from './frontierHealthContribution';
+import { estimateAnnualFrontierSsnEUR, normalizeFrontierSsnRate } from './frontierHealthContribution';
 import { SimulationInputs, SimulationResult, TaxResult, TaxBreakdownItem, ExpenseItem } from '../types';
 import { FRANCHIGIA_NUOVI_FRONTALIERI, SWISS_CHILD_ALLOWANCE_ANNUAL, LINKS, LOMBARDIA_ADDIZIONALE_REGIONALE, DEFAULT_TECH_PARAMS } from '../constants';
 
@@ -133,7 +133,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
  let notesIT: string[] = [];
  let itBreakdown: TaxBreakdownItem[] = [];
 
- const taxPercentage = ssnHealthTaxPercentage ?? 3;
+ const taxPercentage = normalizeFrontierSsnRate(ssnHealthTaxPercentage ?? 3);
  let franchigiaUsed = 0;
  let irpefDetails = undefined;
 
