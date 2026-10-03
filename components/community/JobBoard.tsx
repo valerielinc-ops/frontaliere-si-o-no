@@ -176,7 +176,7 @@ import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/
 import { buildJobPostingSchema, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
+import { salaryProvenanceSuffix } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -872,7 +872,8 @@ export function formatSalary(
  const range = max ? `${job.currency} ${min}k – ${max}k` : `${job.currency} ${min}k+`;
  // Estimated bands are declared as such, same convention as the SSG job
  // cards (`SALARY_ESTIMATE_SUFFIX` in build-plugins/shared/jobCardHtml.ts).
- return job.salarySource === 'estimated' ? `${range} ${SALARY_ESTIMATE_SUFFIX[locale]}` : range;
+ const suffix = salaryProvenanceSuffix(job.salarySource, locale);
+ return suffix ? `${range} ${suffix}` : range;
 }
 
 function contractTranslationKey(job: Pick<JobListing, 'contract' | 'title' | 'description'>): string {

@@ -38,7 +38,7 @@ import {
   normalizeCategory,
   classifyHealthcareRole,
 } from '../build-plugins/healthFacilitiesMatch.ts';
-import { realSalaryMedianChf } from '../build-plugins/shared/realSalaryMedian.ts';
+import { reportedSalarySummary } from '../build-plugins/shared/realSalaryMedian.ts';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -176,7 +176,7 @@ function main() {
       if (r) roleCounts[r] = (roleCounts[r] || 0) + 1;
     }
     const median =
-      realSalaryMedianChf(healthcareJobs) ?? realSalaryMedianChf(e.jobs);
+      reportedSalarySummary(healthcareJobs).medianChf;
     const category = Object.entries(f.categories).sort((a, b) => b[1] - a[1])[0][0];
     // City: prefer a directory hospital's own city, else dominant job city.
     let city = '';

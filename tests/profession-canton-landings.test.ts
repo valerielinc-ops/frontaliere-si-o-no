@@ -32,6 +32,7 @@ const SNAP = {
   liveCount: 12,
   fresh30Count: 5,
   medianSalaryChf: 84000,
+  reportedSalary: { sampleCount: 5, medianChf: 84000 },
   featured: [],
   topEmployers: [
     { name: 'Ospedale Regionale', count: 6 },

@@ -79,14 +79,14 @@ const IT_SHELL: NursingLandingShell = {
     const livePart = `${live.toLocaleString('it-CH')} posizioni sanitarie indicizzate in Ticino`;
     const freshPart = `${fresh30} nuove negli ultimi 30 giorni`;
     const medianPart = median
-      ? `stipendio mediano CHF ${median.toLocaleString('it-CH')} lordi all'anno`
-      : 'CCL svizzero applicato integralmente';
+      ? `mediana delle fasce dichiarate CHF ${median.toLocaleString('it-CH')} lordi all'anno`
+      : 'campione salariale insufficiente';
     return `${livePart} · ${freshPart} · ${medianPart}.`;
   },
   statTileLiveLabel: 'Offerte aperte',
-  statTileSalaryLabel: 'Stipendio mediano',
+  statTileSalaryLabel: 'Mediana delle fasce dichiarate',
   statTileFreshLabel: 'Nuove (30 gg)',
-  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('it-CH')}/anno` : 'CCL svizzero'),
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('it-CH')}/anno` : 'Campione insufficiente'),
   statFreshValueFmt: (n) => `${n} nuove`,
   statLiveValueFmt: (n) => n.toLocaleString('it-CH'),
   primaryCtaLabel: 'Calcola il tuo netto come frontaliere',
@@ -112,14 +112,14 @@ const EN_SHELL: NursingLandingShell = {
     const livePart = `${live.toLocaleString('en-CH')} healthcare openings indexed in Ticino`;
     const freshPart = `${fresh30} new in the last 30 days`;
     const medianPart = median
-      ? `median CHF ${median.toLocaleString('en-CH')} gross per year`
-      : 'Swiss collective agreement applies in full';
+      ? `median reported range CHF ${median.toLocaleString('en-CH')} gross per year`
+      : 'insufficient salary sample';
     return `${livePart} · ${freshPart} · ${medianPart}.`;
   },
   statTileLiveLabel: 'Open positions',
-  statTileSalaryLabel: 'Median salary',
+  statTileSalaryLabel: 'Median of reported ranges',
   statTileFreshLabel: 'New (30 days)',
-  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('en-CH')}/year` : 'Swiss CCL'),
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('en-CH')}/year` : 'Insufficient sample'),
   statFreshValueFmt: (n) => `${n} new`,
   statLiveValueFmt: (n) => n.toLocaleString('en-CH'),
   primaryCtaLabel: 'Calculate your cross-border net salary',
@@ -145,14 +145,14 @@ const DE_SHELL: NursingLandingShell = {
     const livePart = `${live.toLocaleString('de-CH')} Gesundheitsstellen im Tessin indexiert`;
     const freshPart = `${fresh30} neu in den letzten 30 Tagen`;
     const medianPart = median
-      ? `Medianlohn CHF ${median.toLocaleString('de-CH')} brutto pro Jahr`
-      : 'Schweizer GAV gilt vollständig';
+      ? `Median gemeldeter Lohnspannen CHF ${median.toLocaleString('de-CH')} brutto pro Jahr`
+      : 'Unzureichende Lohnstichprobe';
     return `${livePart} · ${freshPart} · ${medianPart}.`;
   },
   statTileLiveLabel: 'Offene Stellen',
-  statTileSalaryLabel: 'Medianlohn',
+  statTileSalaryLabel: 'Median gemeldeter Lohnspannen',
   statTileFreshLabel: 'Neu (30 Tage)',
-  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('de-CH')}/Jahr` : 'Schweizer GAV'),
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('de-CH')}/Jahr` : 'Unzureichende Stichprobe'),
   statFreshValueFmt: (n) => `${n} neu`,
   statLiveValueFmt: (n) => n.toLocaleString('de-CH'),
   primaryCtaLabel: 'Grenzgänger-Nettolohn berechnen',
@@ -178,14 +178,14 @@ const FR_SHELL: NursingLandingShell = {
     const livePart = `${live.toLocaleString('fr-CH')} postes santé indexés au Tessin`;
     const freshPart = `${fresh30} nouveaux ces 30 derniers jours`;
     const medianPart = median
-      ? `salaire médian CHF ${median.toLocaleString('fr-CH')} brut par an`
-      : 'CCT suisse appliquée intégralement';
+      ? `médiane des fourchettes déclarées CHF ${median.toLocaleString('fr-CH')} brut par an`
+      : 'Échantillon salarial insuffisant';
     return `${livePart} · ${freshPart} · ${medianPart}.`;
   },
   statTileLiveLabel: 'Postes ouverts',
-  statTileSalaryLabel: 'Salaire médian',
+  statTileSalaryLabel: 'Médiane des fourchettes déclarées',
   statTileFreshLabel: 'Nouveaux (30 j)',
-  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('fr-CH')}/an` : 'CCT suisse'),
+  statSalaryValueFmt: (n) => (n ? `CHF ${n.toLocaleString('fr-CH')}/an` : 'Échantillon insuffisant'),
   statFreshValueFmt: (n) => `${n} nouveaux`,
   statLiveValueFmt: (n) => n.toLocaleString('fr-CH'),
   primaryCtaLabel: 'Calculer votre net frontalier',

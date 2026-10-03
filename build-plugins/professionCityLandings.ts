@@ -46,7 +46,7 @@ import {
   buildCantonSeoProseFaqItems,
   type CantonSeoLocale,
 } from './shared/cantonSeoProse';
-import { cantonAnnualMedianChf } from './shared/cantonSalaryIndex';
+import { professionSalaryPresentation } from './shared/professionSalaryPresentation';
 import {
   aggregateProfessionJobsByCity,
   type ProfessionJobsSnapshot,
@@ -98,15 +98,12 @@ interface Copy {
   lede: (count: number, role: string, city: string) => string;
   tileLive: string;
   tileFresh: string;
-  tileMedian: string;
   employersHeading: (city: string) => string;
-  noSalary: string;
   cta: (city: string) => string;
   breadcrumbHome: string;
   breadcrumbTicino: string;
   metaTitle: (role: string, city: string) => string;
   metaDesc: (count: number, role: string, city: string) => string;
-  perYear: string;
 }
 
 const COPY: Record<ProfessionLocale, Copy> = {
@@ -116,15 +113,12 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} offerte attive per ${r} a ${c} e dintorni, da datori di lavoro svizzeri reali.`,
     tileLive: 'Offerte attive',
     tileFresh: 'Pubblicate (30 gg)',
-    tileMedian: 'Stipendio mediano lordo/anno',
     employersHeading: (c) => `Chi assume a ${c}`,
-    noSalary: 'n/d',
     cta: (c) => `Vedi tutte le offerte a ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
     metaTitle: (r, c) => `Lavoro ${r} ${c} — offerte e stipendio`,
-    metaDesc: (n, r, c) => `${n} offerte per ${r} a ${c}: datori reali, stipendio mediano e candidatura diretta. Aggiornato ogni 12 ore.`,
-    perYear: '/anno',
+    metaDesc: (n, r, c) => `${n} offerte per ${r} a ${c}: datori reali, fonti salariali e candidatura diretta. Aggiornato ogni 12 ore.`,
   },
   en: {
     eyebrow: 'Jobs by profession',
@@ -132,15 +126,12 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} active ${r} openings in ${c} and surrounding area, from real Swiss employers.`,
     tileLive: 'Active openings',
     tileFresh: 'Posted (30 days)',
-    tileMedian: 'Median gross salary/year',
     employersHeading: (c) => `Who is hiring in ${c}`,
-    noSalary: 'n/a',
     cta: (c) => `See all openings in ${c}`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Ticino',
     metaTitle: (r, c) => `${r} jobs ${c} — openings and salary`,
-    metaDesc: (n, r, c) => `${n} ${r} openings in ${c}: real employers, median salary and direct apply. Updated every 12 hours.`,
-    perYear: '/yr',
+    metaDesc: (n, r, c) => `${n} ${r} openings in ${c}: real employers, salary sources and direct apply. Updated every 12 hours.`,
   },
   de: {
     eyebrow: 'Stellen nach Beruf',
@@ -148,15 +139,12 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} aktive ${r}-Stellen in ${c} und Umgebung, von echten Schweizer Arbeitgebern.`,
     tileLive: 'Aktive Stellen',
     tileFresh: 'Veröffentlicht (30 Tage)',
-    tileMedian: 'Medianlohn brutto/Jahr',
     employersHeading: (c) => `Wer in ${c} einstellt`,
-    noSalary: 'k.A.',
     cta: (c) => `Alle Stellen in ${c} ansehen`,
     breadcrumbHome: 'Home',
     breadcrumbTicino: 'Tessin',
     metaTitle: (r, c) => `${r} Stellen ${c} — Angebote und Lohn`,
-    metaDesc: (n, r, c) => `${n} ${r}-Stellen in ${c}: echte Arbeitgeber, Medianlohn und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
-    perYear: '/Jahr',
+    metaDesc: (n, r, c) => `${n} ${r}-Stellen in ${c}: echte Arbeitgeber, Lohnquellen und Direktbewerbung. Alle 12 Stunden aktualisiert.`,
   },
   fr: {
     eyebrow: 'Emplois par profession',
@@ -164,25 +152,17 @@ const COPY: Record<ProfessionLocale, Copy> = {
     lede: (n, r, c) => `${n} offres actives pour ${r} à ${c} et environs, d'employeurs suisses réels.`,
     tileLive: 'Offres actives',
     tileFresh: 'Publiées (30 j)',
-    tileMedian: 'Salaire médian brut/an',
     employersHeading: (c) => `Qui recrute à ${c}`,
-    noSalary: 'n/d',
     cta: (c) => `Voir toutes les offres à ${c}`,
     breadcrumbHome: 'Accueil',
     breadcrumbTicino: 'Tessin',
     metaTitle: (r, c) => `Emploi ${r} ${c} — offres et salaire`,
-    metaDesc: (n, r, c) => `${n} offres ${r} à ${c} : employeurs réels, salaire médian et candidature directe. Mis à jour toutes les 12 heures.`,
-    perYear: '/an',
+    metaDesc: (n, r, c) => `${n} offres ${r} à ${c} : employeurs réels, sources salariales et candidature directe. Mis à jour toutes les 12 heures.`,
   },
 };
 
 function esc(s: unknown): string {
   return String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-function fmtChf(n: number, locale: ProfessionLocale): string {
-  const sep = locale === 'en' ? ',' : locale === 'fr' ? ' ' : "'";
-  return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, sep);
 }
 
 /**
@@ -312,10 +292,7 @@ export function renderProfessionCityPage(opts: {
   const cantonCrumbLabel = def.isTi ? c.breadcrumbTicino : getCantonDisplayName(def.cantonUrlKey, locale);
   const cantonCrumbHref = def.isTi ? homeHref : cantonSectionRoot(locale, def);
 
-  // Real corpus median for this city+profession; fall back to the canton-wide
-  // BFS annual median when the matched jobs carry no salary data.
-  const median = snapshot.medianSalaryChf && snapshot.medianSalaryChf > 0 ? snapshot.medianSalaryChf : cantonAnnualMedianChf(def.cantonBfs);
-  const medianStr = median > 0 ? `CHF ${fmtChf(median, locale)}` : c.noSalary;
+  const salary = professionSalaryPresentation(locale, def.cantonBfs, snapshot.reportedSalary);
 
   const breadcrumb = `<nav aria-label="breadcrumb" class="${BREADCRUMB_CLASS}">
   <a href="${homeHref}" class="${BREADCRUMB_LINK_CLASS}">${esc(c.breadcrumbHome)}</a>
@@ -328,7 +305,7 @@ export function renderProfessionCityPage(opts: {
   const tiles = renderStatGrid([
     { label: c.tileLive, value: String(snapshot.liveCount), tone: pickStatTileTone('openings', snapshot.liveCount) },
     { label: c.tileFresh, value: String(snapshot.fresh30Count), tone: pickStatTileTone('fresh', snapshot.fresh30Count) },
-    { label: c.tileMedian, value: median > 0 ? `${medianStr}${c.perYear}` : medianStr, tone: 'accent' },
+    { label: salary.label, value: salary.value, tone: 'accent' },
   ]);
 
   const employers = snapshot.topEmployers.length > 0
@@ -385,6 +362,7 @@ export function renderProfessionCityPage(opts: {
   const main = `<div class="cl-fun">${breadcrumb}
 ${header}
 ${tiles}
+${salary.noteHtml}
 ${DRIVEBY_AD_SNIPPET}
 ${employers}
 <p class="my-4"><a href="${esc(ctaHref)}" class="${CTA_PRIMARY_CLASS}">${esc(c.cta(cityDisplay))} →</a></p>

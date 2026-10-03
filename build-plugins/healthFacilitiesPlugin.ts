@@ -20,6 +20,7 @@
  * landings to them.
  */
 
+import { reportedSalaryNote } from './shared/reportedSalaryNote';
 import * as fs from 'node:fs';
 import * as np from 'node:path';
 import type { Plugin } from 'vite';
@@ -204,6 +205,8 @@ function toJobCard(job: FacilityFeaturedJob): JobCardJob {
     contract: job.contract ?? undefined,
     salaryMin: job.salaryMin,
     salaryMax: job.salaryMax,
+    salarySource: job.salarySource ?? undefined,
+    currency: job.currency ?? undefined,
     postedDate: job.postedDate ?? undefined,
     url: job.url ?? undefined,
   };
@@ -314,6 +317,7 @@ export function renderFacilityPage(
     ${breadcrumb}
     ${header}
     ${tiles}
+    ${reportedSalaryNote(locale, snapshot.reportedSalary)}
     ${jobsSection}
     ${rolesSection}
     ${infoSection}

@@ -59,9 +59,9 @@ interface MediansFileRaw {
 
 /**
  * Build the badge snapshot from the raw medians dataset. Pure so tests can
- * exercise it without the filesystem. Each preset with a real median AND a
+ * exercise it without the filesystem. Each preset with a numeric reference AND a
  * known IT profession landing yields one entry carrying a trailing-slash
- * `landingUrl`; presets without a median or without an IT landing are dropped
+ * `landingUrl`; presets without a reference or without an IT landing are dropped
  * (the widget's generic fallback covers those requests).
  */
 export function buildSalaryBadgeSnapshot(raw: MediansFileRaw): SalaryBadgeSnapshot {

@@ -193,27 +193,32 @@ describe('jobCardHtml — renderJobCardHtml', () => {
     expect(fr).toContain('CHF 72k – 97k (est.)');
   });
 
-  it('renders no estimate suffix for reported/existing salarySource', () => {
-    for (const salarySource of ['reported', 'existing'] as const) {
-      const html = renderJobCardHtml(
-        { ...baseJob, salarySource },
-        { href: '/x/', locale: 'it' },
-      );
-      expect(html).toContain('CHF 72k – 97k<');
-      expect(html).not.toContain('(stima)');
-    }
-  });
-
-  it('is byte-identical to the legacy output when salarySource is absent', () => {
-    const legacy = renderJobCardHtml(baseJob, { href: '/x/', locale: 'it' });
-    expect(legacy).toContain('CHF 72k – 97k<');
-    expect(legacy).not.toContain('(stima)');
-    // Same record with the flag set differs ONLY by the suffix.
-    const flagged = renderJobCardHtml(
-      { ...baseJob, salarySource: 'estimated' },
+  it('renders a reported salary without an uncertainty suffix', () => {
+    const html = renderJobCardHtml(
+      { ...baseJob, salarySource: 'reported' },
       { href: '/x/', locale: 'it' },
     );
-    expect(flagged.replace(' (stima)', '')).toBe(legacy);
+    expect(html).toContain('CHF 72k – 97k<');
+    expect(html).not.toContain('(stima)');
+    expect(html).not.toContain('(fonte non verificata)');
+  });
+
+  it('labels existing and absent provenance as unverified in every locale', () => {
+    const labels = {
+      it: '(fonte non verificata)',
+      en: '(source unverified)',
+      de: '(Quelle ungeprüft)',
+      fr: '(source non vérifiée)',
+    } as const;
+    for (const locale of ['it', 'en', 'de', 'fr'] as const) {
+      for (const salarySource of ['existing', undefined] as const) {
+        const html = renderJobCardHtml(
+          { ...baseJob, salarySource },
+          { href: '/x/', locale },
+        );
+        expect(html).toContain(`CHF 72k – 97k ${labels[locale]}<`);
+      }
+    }
   });
 
   it('escapes user-supplied strings to prevent XSS', () => {

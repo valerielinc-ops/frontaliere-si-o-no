@@ -1448,13 +1448,13 @@ const DENSE_LEDE: Record<CareerLandingId, Record<CareerLocale, (i: DenseLedeInpu
   },
   'contratti-lavoro-frontalieri': {
     it: (i) =>
-      `${fmtIntLocale(i.liveCount, 'it')} offerte aperte in Svizzera per permesso G · ${i.fresh30Count} nuove in 30 giorni · stipendio mediano CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'it') : '—'}/anno.`,
+      `${fmtIntLocale(i.liveCount, 'it')} offerte aperte in Ticino per permesso G · ${i.fresh30Count} nuove in 30 giorni · mediana delle fasce dichiarate CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'it') : '—'}/anno.`,
     en: (i) =>
-      `${fmtIntLocale(i.liveCount, 'en')} G-permit openings across Switzerland · ${i.fresh30Count} new in 30 days · median gross salary CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'en') : '—'}/year.`,
+      `${fmtIntLocale(i.liveCount, 'en')} G-permit openings in Ticino · ${i.fresh30Count} new in 30 days · median reported range CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'en') : '—'}/year.`,
     de: (i) =>
-      `${fmtIntLocale(i.liveCount, 'de')} offene Stellen für G-Bewilligung in der Schweiz · ${i.fresh30Count} neu in 30 Tagen · Medianlohn CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'de') : '—'}/Jahr.`,
+      `${fmtIntLocale(i.liveCount, 'de')} offene Stellen für G-Bewilligung im Tessin · ${i.fresh30Count} neu in 30 Tagen · Median gemeldeter Lohnspannen CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'de') : '—'}/Jahr.`,
     fr: (i) =>
-      `${fmtIntLocale(i.liveCount, 'fr')} offres ouvertes en Suisse pour permis G · ${i.fresh30Count} nouveaux en 30 jours · salaire médian CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'fr') : '—'}/an.`,
+      `${fmtIntLocale(i.liveCount, 'fr')} offres ouvertes au Tessin pour permis G · ${i.fresh30Count} nouveaux en 30 jours · médiane des fourchettes déclarées CHF ${i.medianSalary ? fmtIntLocale(i.medianSalary, 'fr') : '—'}/an.`,
   },
 };
 
@@ -1551,7 +1551,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
   'stage-lugano': {
     it: {
       tile1Label: 'Stage attivi a Lugano',
-      tile2Label: 'Indennità mediana',
+      tile2Label: 'Mediana delle fasce dichiarate',
       tile3Label: 'Nuovi negli ultimi 30 gg',
       primaryCtaLabel: 'Calcola netto da stagista frontaliere',
       featuredJobsTitle: 'Stage in evidenza a Lugano',
@@ -1560,7 +1560,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     en: {
       tile1Label: 'Active internships in Lugano',
-      tile2Label: 'Median allowance',
+      tile2Label: 'Median of reported ranges',
       tile3Label: 'New in last 30 days',
       primaryCtaLabel: 'Calculate cross-border intern net pay',
       featuredJobsTitle: 'Featured internships — Lugano',
@@ -1569,7 +1569,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     de: {
       tile1Label: 'Aktive Praktika in Lugano',
-      tile2Label: 'Median-Entschädigung',
+      tile2Label: 'Median gemeldeter Lohnspannen',
       tile3Label: 'Neu in 30 Tagen',
       primaryCtaLabel: 'Grenzgänger-Praktikum-Nettolohn berechnen',
       featuredJobsTitle: 'Empfohlene Praktika — Lugano',
@@ -1578,7 +1578,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     fr: {
       tile1Label: 'Stages actifs à Lugano',
-      tile2Label: 'Indemnité médiane',
+      tile2Label: 'Médiane des fourchettes déclarées',
       tile3Label: 'Nouveaux en 30 j',
       primaryCtaLabel: 'Calculer net stagiaire frontalier',
       featuredJobsTitle: 'Stages mis en avant — Lugano',
@@ -1589,7 +1589,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
   'contratti-lavoro-frontalieri': {
     it: {
       tile1Label: 'Offerte CH per permesso G',
-      tile2Label: 'Stipendio mediano',
+      tile2Label: 'Mediana delle fasce dichiarate',
       tile3Label: 'Nuove negli ultimi 30 gg',
       primaryCtaLabel: 'Simula il tuo netto frontaliere',
       employerGridReplacement:
@@ -1597,7 +1597,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     en: {
       tile1Label: 'Swiss openings (G-permit)',
-      tile2Label: 'Median salary',
+      tile2Label: 'Median of reported ranges',
       tile3Label: 'New in last 30 days',
       primaryCtaLabel: 'Simulate your cross-border net',
       employerGridReplacement:
@@ -1605,7 +1605,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     de: {
       tile1Label: 'CH-Stellen (G-Bewilligung)',
-      tile2Label: 'Medianlohn',
+      tile2Label: 'Median gemeldeter Lohnspannen',
       tile3Label: 'Neu in 30 Tagen',
       primaryCtaLabel: 'Grenzgänger-Nettolohn simulieren',
       employerGridReplacement:
@@ -1613,7 +1613,7 @@ const STAT_LABELS: Record<CareerLandingId, Record<CareerLocale, CareerStatLabels
     },
     fr: {
       tile1Label: 'Offres CH (permis G)',
-      tile2Label: 'Salaire médian',
+      tile2Label: 'Médiane des fourchettes déclarées',
       tile3Label: 'Nouveaux en 30 j',
       primaryCtaLabel: 'Simuler votre net frontalier',
       employerGridReplacement:
@@ -1711,10 +1711,10 @@ export function buildCareerTemplateBCopy(
 
   if (id === 'stage-lugano') {
     const indemnitaLabel: Record<CareerLocale, string> = {
-      it: 'Stage non pagato / variabile',
-      en: 'Unpaid / variable',
-      de: 'Unbezahlt / variabel',
-      fr: 'Non rémunéré / variable',
+      it: 'Campione salariale insufficiente',
+      en: 'Insufficient salary sample',
+      de: 'Unzureichende Lohnstichprobe',
+      fr: 'Échantillon salarial insuffisant',
     };
     return {
       eyebrow: shell.eyebrow,
