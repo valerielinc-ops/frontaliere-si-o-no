@@ -7622,6 +7622,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.diritti-casa-san-gallo.title': 'Switzerland Rentals 2026: rules in the canton of St. Gallen',
     'blog.article.diritti-casa-san-gallo.excerpt': 'Security deposit of up to three months\' rent, a blocked account and 30 days to challenge the notice of termination: the federal rules for St. Gallen.',
     'blog.article.diritti-casa-san-gallo.imageAlt': 'Swiss panorama for a guide to the rental market and tenants\' rights',
+    'blog.article.affitti-lucerna-regole-2026.title': 'Rentals in Lucerne and Switzerland: rules for security deposits in 2026',
+    'blog.article.affitti-lucerna-regole-2026.excerpt': 'Guide to rentals in the canton of Lucerne and Switzerland in 2026: security deposit capped at three months, blocked account and federal law.',
+    'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Real estate market and rental rules in the canton of Lucerne',
 };
 
 export default blogMetaChEn;

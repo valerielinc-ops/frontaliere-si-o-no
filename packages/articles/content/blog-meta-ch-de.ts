@@ -7622,6 +7622,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.diritti-casa-san-gallo.title': 'Mieten in der Schweiz 2026: Regeln im Kanton St. Gallen',
     'blog.article.diritti-casa-san-gallo.excerpt': 'Kaution von bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten: die bundesrechtlichen Regeln für St. Gallen.',
     'blog.article.diritti-casa-san-gallo.imageAlt': 'Schweizer Panorama für einen Ratgeber zu Mietmarkt und Mieterrechten',
+    'blog.article.affitti-lucerna-regole-2026.title': 'Mieten in Luzern und der Schweiz: Regeln für die Kaution im Jahr 2026',
+    'blog.article.affitti-lucerna-regole-2026.excerpt': 'Leitfaden zu Mietverhältnissen im Kanton Luzern und in der Schweiz im Jahr 2026: Höchstgrenze von drei Monatsmieten für die Kaution, Sperrkonto und Bundesrecht.',
+    'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Immobilienmarkt und Mietvorschriften im Kanton Luzern',
 };
 
 export default blogMetaChDe;

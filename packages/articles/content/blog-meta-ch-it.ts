@@ -7622,6 +7622,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.diritti-casa-san-gallo.title': 'Affitti Svizzera 2026: regole nel canton San Gallo',
     'blog.article.diritti-casa-san-gallo.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali per San Gallo.',
     'blog.article.diritti-casa-san-gallo.imageAlt': 'Panorama svizzero per una guida sul mercato degli affitti e sui diritti dell\'inquilino',
+    'blog.article.affitti-lucerna-regole-2026.title': 'Affitti a Lucerna e Svizzera: regole per la cauzione nel 2026',
+    'blog.article.affitti-lucerna-regole-2026.excerpt': 'Guida agli affitti nel canton Lucerna e in Svizzera nel 2026: limite massimo di tre mesi per la cauzione, conto vincolato e diritto federale.',
+    'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Mercato immobiliare e regole per gli affitti nel canton Lucerna',
 };
 
 export default blogMetaChIt;

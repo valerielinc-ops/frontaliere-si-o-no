@@ -7622,6 +7622,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.diritti-casa-san-gallo.title': 'Loyers en Suisse 2026 : règles dans le canton de Saint-Gall',
     'blog.article.diritti-casa-san-gallo.excerpt': 'Garantie de loyer jusqu’à trois mois de loyer, compte bloqué et 30 jours pour contester la résiliation : les règles fédérales pour Saint-Gall.',
     'blog.article.diritti-casa-san-gallo.imageAlt': 'Panorama suisse pour un guide du marché locatif et des droits des locataires',
+    'blog.article.affitti-lucerna-regole-2026.title': 'Locations à Lucerne et en Suisse : règles relatives au dépôt de garantie en 2026',
+    'blog.article.affitti-lucerna-regole-2026.excerpt': 'Guide des locations dans le canton de Lucerne et en Suisse en 2026 : limite maximale de trois mois pour la garantie locative, compte bloqué et droit fédéral.',
+    'blog.article.affitti-lucerna-regole-2026.imageAlt': 'Marche immobilier et regles de location dans le canton de Lucerne',
 };
 
 export default blogMetaChFr;
