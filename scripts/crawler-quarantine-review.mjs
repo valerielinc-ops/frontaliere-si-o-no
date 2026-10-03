@@ -37,6 +37,7 @@ import {
   QUARANTINE_RETIRE_RED_WAVES,
   applyQuarantineDecisions,
   decideQuarantine,
+  dueRetirementReviews,
   holdLastQuarantineMember,
   isMutatingDecision,
   loadQuarantineRegistry,
@@ -265,6 +266,40 @@ function performIssueActions({ decisions, registry, corpusRepo }) {
   return issues;
 }
 
+/** Titolo della issue di riesame di un ritiro temporaneo (dedup per titolo esatto). */
+export function retirementReviewTitle(slug) {
+  return `Riesame crawler ritirato: ${slug}`;
+}
+
+/** @param {{ slug: string, reviewAfter: string, retiredAt: string, issue: number, reason: string }} review */
+export function retirementReviewBody(review) {
+  return [
+    `\`${review.slug}\` e' ritirato dal ${review.retiredAt.slice(0, 10)} (#${review.issue}) con riesame previsto dal **${review.reviewAfter.slice(0, 10)}**.`,
+    '',
+    `Motivo del ritiro: ${review.reason || 'non registrato'}.`,
+    '',
+    'Da fare: verificare se la fonte pubblica di nuovo annunci leggibili (pagina carriere ufficiale, ATS, feed).',
+    `- Se si': riparare il crawler, togliere la voce \`retired.${review.slug}\` da \`data/crawler-quarantine.json\` e rigenerare i gruppi (\`node scripts/generate-crawler-group-workflows.mjs\`).`,
+    `- Se no: spostare \`retired.${review.slug}.reviewAfter\` alla prossima data di riesame.`,
+    '',
+    'Finche\' la data non cambia o la voce resta, `scripts/crawler-quarantine-review.mjs` riapre questa issue se viene chiusa.',
+  ].join('\n');
+}
+
+/**
+ * Apre (una volta) la issue di riesame per ogni ritiro temporaneo scaduto.
+ * @returns {Record<string, number>} slug → numero della issue di riesame
+ */
+export function ensureRetirementReviewIssues({ registry, now, findOpen = findOpenIssueByExactTitle, create = createIssue }) {
+  const issues = {};
+  for (const review of dueRetirementReviews(registry, now)) {
+    const title = retirementReviewTitle(review.slug);
+    issues[review.slug] = findOpen(title)
+      ?? create({ title, body: retirementReviewBody(review), labels: ['crawlers'] });
+  }
+  return issues;
+}
+
 function openReviewPrExists() {
   const prs = ghJson(['pr', 'list', '--state', 'open', '--limit', '50', '--json', 'number,headRefName']);
   return prs.find((pr) => String(pr.headRefName).startsWith(PR_BRANCH_PREFIX)) ?? null;
@@ -348,10 +383,18 @@ async function main() {
   }
   const mutating = decisions.filter(isMutatingDecision);
   const tracked = decisions.filter((d) => (d.action === 'keep-failing' || d.action === 'hold') && !isMutatingDecision(d));
+  const dueReviews = dueRetirementReviews(registry, now);
+  for (const review of dueReviews) {
+    console.log(`  ${review.slug.padEnd(28)} riesame del ritiro dovuto dal ${review.reviewAfter}`);
+  }
   if (!args.apply) {
     console.log(`\n${mutating.length} decisioni con effetto; --apply per eseguirle.`);
     return;
   }
+  // Before the open-PR early return: a pending review PR must not hide a due
+  // retirement review.
+  const reviewIssues = ensureRetirementReviewIssues({ registry, now });
+  for (const [slug, issue] of Object.entries(reviewIssues)) console.log(`  riesame ${slug}: #${issue}`);
   if (args.openPr) {
     const open = openReviewPrExists();
     if (open) {
