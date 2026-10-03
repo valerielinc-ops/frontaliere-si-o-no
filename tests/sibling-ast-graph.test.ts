@@ -237,4 +237,96 @@ describe('sibling AST layer', () => {
     expect(isAstSourceFile('scripts/one.mjs')).toBe(true);
     expect(isAstSourceFile('scripts/tool.sh')).toBe(false);
   });
+  it.each([
+    'Buffer.isBuffer(input)',
+    'globalThis.Buffer.isBuffer(input)',
+    'Array.isArray(input)',
+    'Object.fromEntries(input)',
+    'JSON.stringify(input)',
+    'URL.createObjectURL(input)',
+    'structuredClone(input)',
+    'process.memoryUsage()',
+  ])('does not turn runtime API %s into a project relationship', (expression) => {
+    const facts = collectAstFacts('scripts/global.mjs', `const value = ${expression};`);
+    expect(facts.filter(isActionableAstFact)).toEqual([]);
+  });
+
+  it('filters runtime aliases and destructured package APIs', () => {
+    const facts = collectAstFacts('scripts/aliases.mjs', [
+      "import * as fs from 'node:fs';",
+      'const { readFileSync: readContents } = fs;',
+      'const { isBuffer: isBytes } = Buffer;',
+      'const Bytes = Buffer;',
+      'readContents(input); isBytes(input); Bytes.isBuffer(input);',
+    ].join('\n'));
+    expect(facts.filter(isActionableAstFact)).toEqual([]);
+  });
+
+  it('resolves project symbols before globals, without leaking shadows between scopes', () => {
+    const facts = collectAstFacts('scripts/local.mjs', [
+      "import { Buffer } from './byte-domain.mjs';",
+      'Buffer.isBuffer(input);',
+      'function unrelated(Buffer) { return Buffer.isBuffer(other); }',
+    ].join('\n'), { files: new Set(['scripts/local.mjs', 'scripts/byte-domain.mjs']) });
+    const calls = facts.filter((fact) => fact.kind === 'call' && fact.key === 'Buffer.isBuffer');
+    expect(calls).toHaveLength(2);
+    expect(calls[0].binding.module).toBe('scripts/byte-domain.mjs');
+    expect(calls[1].binding.module).toBe('local:scripts/local.mjs');
+    expect(calls.every(isActionableAstFact)).toBe(true);
+    const globals = collectAstFacts('scripts/global.mjs', [
+      'Buffer.isBuffer(input);',
+      'function unrelated(Buffer) { return Buffer.isBuffer(other); }',
+    ].join('\n'));
+    expect(globals.find((fact) => fact.kind === 'call')?.binding.module).toBe('external:runtime');
+  });
+
+  it('does not match imports alone or unrelated exported declarations', () => {
+    const files = new Set(['scripts/one.mjs', 'scripts/two.mjs', 'scripts/shared.mjs']);
+    const changed = collectAstFacts('scripts/one.mjs', [
+      "import { normalizeText } from './shared.mjs';",
+      'export function readZipEntry() { return 1; }',
+    ].join('\n'), { files });
+    const candidate = collectAstFacts('scripts/two.mjs', [
+      "import { normalizeText } from './shared.mjs';",
+      'export function readZipEntry() { return 2; }',
+    ].join('\n'), { files });
+    expect(matchAstFacts(changed, candidate)).toEqual([]);
+  });
+
+  it('retains graph evidence for consumers of a changed exported helper', () => {
+    const files = new Set(['scripts/one.mjs', 'scripts/two.mjs']);
+    const changed = collectAstFacts('scripts/one.mjs', 'export function normalizeText(value) { return value.trim(); }', { files });
+    const candidate = collectAstFacts('scripts/two.mjs', "import { normalizeText } from './one.mjs';\nnormalizeText(input);", { files });
+    expect(astMatchLabels(matchAstFacts(changed, candidate)))
+      .toContain('graph:scripts/one.mjs#normalizeText');
+  });
+
+  it('retains different call occurrences so a later changed argument is not lost', () => {
+    const facts = collectAstFacts('scripts/one.mjs', 'domainGuard(first); domainGuard(second);');
+    expect(facts.filter((fact) => fact.kind === 'call').map((fact) => fact.fingerprint))
+      .toEqual(['domainGuard(first)', 'domainGuard(second)']);
+  });
+
+  it('retains project hooks installed on a global container', () => {
+    const changed = collectAstFacts('scripts/one.mjs', 'globalThis.validateDomainJob(input);');
+    const candidate = collectAstFacts('scripts/two.mjs', 'globalThis.validateDomainJob(other);');
+    expect(matchAstFacts(changed, candidate).some((match) => match.key === 'globalThis.validateDomainJob')).toBe(true);
+  });
+
+  it('keeps global-container aliases precise and does not classify local require as a package', () => {
+    const facts = collectAstFacts('scripts/one.mjs', [
+      'const runtime = globalThis;',
+      'runtime.Buffer.isBuffer(input);',
+      'runtime.validateDomainJob(input);',
+      "const project = require('./project.mjs');",
+      'project.validateDomainJob(input);',
+    ].join('\n'));
+    const calls = facts.filter((fact) => fact.kind === 'call');
+    expect(calls.find((fact) => fact.key === 'runtime.Buffer.isBuffer')?.binding.module).toBe('external:runtime');
+    expect(calls.filter(isActionableAstFact).map((fact) => fact.key))
+      .toContain('runtime.validateDomainJob');
+    expect(calls.filter(isActionableAstFact).map((fact) => fact.key))
+      .toContain('project.validateDomainJob');
+  });
+
 });

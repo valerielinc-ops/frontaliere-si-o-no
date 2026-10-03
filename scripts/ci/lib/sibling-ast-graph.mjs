@@ -13,6 +13,26 @@ import * as ts from 'typescript';
 import path from 'node:path';
 
 const SOURCE_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs'];
+// Runtime APIs are infrastructure just like package imports. Resolve lexical
+// symbols first: a project import/parameter named Buffer is NOT the global.
+const RUNTIME_GLOBALS = new Set([
+  'Buffer', 'process', 'console', 'globalThis', 'global', 'window', 'document',
+  'Array', 'ArrayBuffer', 'SharedArrayBuffer', 'Atomics', 'BigInt', 'Boolean',
+  'DataView', 'Date', 'Error', 'EvalError', 'Function', 'Intl', 'JSON', 'Map',
+  'Math', 'Number', 'Object', 'Promise', 'Proxy', 'RangeError', 'ReferenceError',
+  'Reflect', 'RegExp', 'Set', 'String', 'Symbol', 'SyntaxError', 'TypeError',
+  'URIError', 'WeakMap', 'WeakSet', 'WeakRef', 'FinalizationRegistry',
+  'Int8Array', 'Uint8Array', 'Uint8ClampedArray', 'Int16Array', 'Uint16Array',
+  'Int32Array', 'Uint32Array', 'Float32Array', 'Float64Array', 'BigInt64Array',
+  'BigUint64Array', 'URL', 'URLSearchParams', 'TextEncoder', 'TextDecoder',
+  'AbortController', 'AbortSignal', 'Blob', 'File', 'FormData', 'Headers',
+  'Request', 'Response', 'ReadableStream', 'WritableStream', 'TransformStream',
+  'fetch', 'setTimeout', 'clearTimeout', 'setInterval', 'clearInterval',
+  'setImmediate', 'clearImmediate', 'queueMicrotask', 'structuredClone',
+  'performance', 'crypto', 'navigator', 'localStorage', 'sessionStorage',
+  'parseInt', 'parseFloat', 'isNaN', 'isFinite', 'decodeURI', 'decodeURIComponent',
+  'encodeURI', 'encodeURIComponent', 'atob', 'btoa',
+]);
 const SYNTAX_TREE_ROOTS = new Set([
   'node', 'child', 'children', 'statement', 'element', 'clause', 'sourceFile',
   'parent', 'declaration', 'specifier', 'binding', 'moduleSpecifier',
@@ -110,21 +130,6 @@ function isSyntaxTreeMember(node) {
   return root ? SYNTAX_TREE_ROOTS.has(root) : false;
 }
 
-function bindingForExpression(node, imports, externalDerived) {
-  const root = expressionRoot(node);
-  if (!root) return null;
-  return imports.get(root) ?? externalDerived.get(root) ?? null;
-}
-
-function initializerBinding(node, imports, externalDerived) {
-  const direct = bindingForExpression(node, imports, externalDerived);
-  if (direct) return direct;
-  if (ts.isCallExpression(node)) {
-    return bindingForExpression(node.expression, imports, externalDerived);
-  }
-  return null;
-}
-
 export function isExternalBinding(binding) {
   return Boolean(binding?.module && String(binding.module).startsWith('external:'));
 }
@@ -211,6 +216,18 @@ export function collectAstFacts(
     true,
     scriptKind(fileName),
   );
+  // Bind this source in isolation. TypeScript handles lexical shadowing and
+  // hoisting; no type checking, dependency loading or repository-wide program.
+  const program = ts.createProgram([fileName], { noLib: true, noResolve: true, allowJs: true }, {
+    getSourceFile: (name) => name === fileName ? sourceFile : undefined,
+    getDefaultLibFileName: () => '', writeFile: () => {},
+    getCurrentDirectory: () => '', getDirectories: () => [],
+    fileExists: (name) => name === fileName, readFile: () => undefined,
+    getCanonicalFileName: (name) => name, useCaseSensitiveFileNames: () => true,
+    getNewLine: () => '\n',
+  });
+  const checker = program.getTypeChecker();
+  const symbolOf = (node) => checker.getSymbolAtLocation(node);
   const imports = new Map();
   const exportedNames = new Set();
   // A local variable initialized from a package import (for example
@@ -236,7 +253,8 @@ export function collectAstFacts(
       binding,
       exported: extra.exported ?? false,
     })) return;
-    const dedupe = `${kind}|${key}|${role}|${bindingKey}`;
+    const fingerprint = extra.fingerprint ?? factFingerprint(sourceFile, node, role);
+    const dedupe = `${kind}|${key}|${role}|${bindingKey}|${fingerprint}`;
     if (seen.has(dedupe)) return;
     seen.add(dedupe);
     facts.push({
@@ -246,12 +264,12 @@ export function collectAstFacts(
       tokens: extra.tokens ?? moduleTokens(key),
       binding,
       exported: extra.exported ?? false,
-      fingerprint: extra.fingerprint ?? factFingerprint(sourceFile, node, role),
+      fingerprint,
     });
   };
 
   const registerImportBinding = (local, imported, module) => {
-    imports.set(local, { module, imported });
+    imports.set(symbolOf(local), { module, imported });
   };
 
   for (const statement of sourceFile.statements) {
@@ -264,15 +282,15 @@ export function collectAstFacts(
       });
       const clause = statement.importClause;
       if (!clause) continue;
-      if (clause.name) registerImportBinding(clause.name.text, 'default', module);
+      if (clause.name) registerImportBinding(clause.name, 'default', module);
       const namedBindings = clause.namedBindings;
       if (!namedBindings) continue;
       if (ts.isNamespaceImport(namedBindings)) {
-        registerImportBinding(namedBindings.name.text, '*', module);
+        registerImportBinding(namedBindings.name, '*', module);
       } else if (ts.isNamedImports(namedBindings)) {
         for (const element of namedBindings.elements) {
           registerImportBinding(
-            element.name.text,
+            element.name,
             element.propertyName?.text ?? element.name.text,
             module,
           );
@@ -298,7 +316,7 @@ export function collectAstFacts(
   const registerLocalDeclarations = (node) => {
     if (ts.isIdentifier(node) && declarationName(node)) {
       const exported = declarationIsExported(node) || exportedNames.has(node.text);
-      localBindings.set(node.text, {
+      localBindings.set(symbolOf(node), {
         module: exported ? fileName : `local:${fileName}`,
         imported: node.text,
       });
@@ -307,23 +325,62 @@ export function collectAstFacts(
   };
   registerLocalDeclarations(sourceFile);
 
-  const bindingForLocalName = (name) =>
-    imports.get(name) ?? externalDerived.get(name) ?? localBindings.get(name) ?? null;
+  const bindingForNode = (node) => {
+    if (ts.isPropertyAccessExpression(node) || ts.isElementAccessExpression(node)) {
+      const rootBinding = bindingForNode(node.expression);
+      // Global containers also carry project hooks. Only known runtime
+      // exports count as infrastructure (globalThis.Buffer).
+      if (rootBinding?.module === 'external:runtime' &&
+          ['globalThis', 'global', 'window'].includes(rootBinding.imported)) {
+        const member = ts.isPropertyAccessExpression(node) ? node.name.text
+          : node.argumentExpression && ts.isStringLiteralLike(node.argumentExpression)
+            ? node.argumentExpression.text : null;
+        return RUNTIME_GLOBALS.has(member)
+          ? { module: 'external:runtime', imported: member }
+          : null;
+      }
+      return rootBinding;
+    }
+    if (!ts.isIdentifier(node)) return null;
+    const symbol = symbolOf(node);
+    if (symbol?.declarations?.length) {
+      return imports.get(symbol) ?? externalDerived.get(symbol) ?? localBindings.get(symbol) ?? null;
+    }
+    return RUNTIME_GLOBALS.has(node.text)
+      ? { module: 'external:runtime', imported: node.text }
+      : null;
+  };
 
-  // Resolve a few levels of local aliases. This is intentionally bounded and
-  // syntax-only: it is a noise filter for external APIs, not a replacement
-  // for the TypeScript checker.
+  // Package/runtime aliases remain infrastructure, including destructuring.
   for (let pass = 0; pass < 3; pass += 1) {
     let added = 0;
     const collectAliases = (node) => {
-      if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.initializer) {
-        const binding = initializerBinding(node.initializer, imports, externalDerived);
-        if (binding && isExternalBinding(binding) && !externalDerived.has(node.name.text)) {
-          externalDerived.set(node.name.text, {
-            module: 'external:derived',
-            imported: node.name.text,
-          });
-          added += 1;
+      if (ts.isVariableDeclaration(node) && node.initializer) {
+        const initializer = ts.isCallExpression(node.initializer)
+          ? node.initializer.expression : node.initializer;
+        const binding = bindingForNode(initializer);
+        if (isExternalBinding(binding)) {
+          const bindName = (name, origin = binding) => {
+            if (ts.isIdentifier(name)) {
+              const symbol = symbolOf(name);
+              if (symbol && !externalDerived.has(symbol)) {
+                externalDerived.set(symbol, origin);
+                added += 1;
+              }
+            } else if (ts.isObjectBindingPattern(name) || ts.isArrayBindingPattern(name)) {
+              for (const element of name.elements) {
+                if (!ts.isBindingElement(element)) continue;
+                if (origin.module === 'external:runtime' &&
+                    ['globalThis', 'global', 'window'].includes(origin.imported)) {
+                  const member = element.propertyName?.text ?? element.name.text;
+                  if (RUNTIME_GLOBALS.has(member)) {
+                    bindName(element.name, { module: 'external:runtime', imported: member });
+                  }
+                } else bindName(element.name, origin);
+              }
+            }
+          };
+          bindName(node.name);
         }
       }
       ts.forEachChild(node, collectAliases);
@@ -336,8 +393,7 @@ export function collectAstFacts(
     if (ts.isCallExpression(node)) {
       const key = expressionPath(node.expression);
       if (key) {
-        const binding = bindingForExpression(node.expression, imports, externalDerived) ??
-          localBindings.get(expressionRoot(node.expression));
+        const binding = bindingForNode(node.expression);
         addFact('call', key, node, {
           role: 'call',
           binding,
@@ -351,8 +407,7 @@ export function collectAstFacts(
       const key = expressionPath(node);
       if (key) addFact('member', key, node.name, {
         role: 'member',
-        binding: bindingForExpression(node.expression, imports, externalDerived) ??
-          localBindings.get(expressionRoot(node.expression)),
+        binding: bindingForNode(node.expression),
         tokens: moduleTokens(key),
       });
     }
@@ -370,7 +425,7 @@ export function collectAstFacts(
       const role = parentRole(node);
       addFact('identifier', node.text, node, {
         role,
-        binding: bindingForLocalName(node.text),
+        binding: bindingForNode(node),
         tokens: [node.text],
         exported: declarationIsExported(node) || exportedNames.has(node.text),
       });
@@ -387,7 +442,7 @@ export function collectAstFacts(
  * Plain local identifiers are deliberately excluded: matching `sourceFile`,
  * `moduleSpecifier` or `candidateTokens` across scripts is the exact class of
  * lexical false positive this layer is meant to remove. Package/API facts are
- * excluded too; `ts.createSourceFile` and a direct `createSourceFile()` import
+ * excluded too; `Buffer.isBuffer`, `ts.createSourceFile` and a package import
  * are common infrastructure, not a local relationship between the files being
  * compared.
  */
@@ -398,7 +453,8 @@ export function isActionableAstFact(fact) {
       (fact.role === 'declaration' && fact.exported === true);
   }
   if (fact.kind === 'import') {
-    return !String(fact.key ?? '').startsWith('external:');
+    // Importing a module alone does not change its contract or its consumers.
+    return false;
   }
   if (!['call', 'member', 'literal'].includes(fact.kind)) return false;
   return !isExternalBinding(fact.binding);
@@ -429,10 +485,8 @@ function compatibleBinding(changed, candidate) {
 export function matchAstFacts(changedFacts, candidateFacts) {
   const matches = [];
   const changed = changedFacts.filter(isActionableAstFact);
-  // A changed exported declaration may intentionally surface a consumer that
-  // declares the same name locally (the historical weak lexical signal). Keep
-  // candidate declarations available only for that declaration-to-consumer
-  // comparison; plain local identifiers never become evidence on their own.
+  // Keep declarations for binding-aware comparisons. A same-named private
+  // helper in another file is not a consumer of the changed export.
   const candidate = candidateFacts.filter((fact) =>
     isActionableAstFact(fact) ||
     (fact.kind === 'identifier' && fact.role === 'declaration'),
@@ -447,12 +501,7 @@ export function matchAstFacts(changedFacts, candidateFacts) {
         changedFact.kind !== 'identifier' &&
         changedFact.role !== candidateFact.role
       ) continue;
-      const exportedDeclarationPair =
-        changedFact.kind === 'identifier' &&
-        changedFact.role === 'declaration' &&
-        changedFact.exported === true &&
-        candidateFact.role === 'declaration';
-      if (!exportedDeclarationPair && !compatibleBinding(changedFact, candidateFact)) continue;
+      if (!compatibleBinding(changedFact, candidateFact)) continue;
       const graph = changedFact.binding && candidateFact.binding &&
         !isExternalBinding(changedFact.binding) &&
         !isExternalBinding(candidateFact.binding) &&

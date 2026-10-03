@@ -221,7 +221,7 @@ const MAX_PATTERN_CLASS_HITS = 15;
 // analisi `--head` immutabili: il working tree può cambiare tra due chiamate.
 // Incrementare quando cambiano le semantiche dei candidati, per non riusare
 // JSON prodotti da una versione precedente.
-const CHECK_CACHE_VERSION = '2026-09-23-v3';
+const CHECK_CACHE_VERSION = '2026-10-03-v4';
 const CHECK_CACHE_WAIT_MS = 240_000;
 const CHECK_CACHE_STALE_MS = 600_000;
 const CHECK_CACHE_POLL_MS = 100;
@@ -1116,9 +1116,9 @@ function emitReport({ base, changedFiles, changedCode, candidates }) {
   );
   if (weak) {
     console.log(
-      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
-        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
-        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
+      `[debole] = evidenza limitata, senza un binding condiviso risolto o una classe del registro (${weak}/${candidates.length} qui). ` +
+        'Leggi i costrutti riportati: può essere una chiamata AST, un literal o una espressione rimossa. ' +
+        'Il livello non identifica il costrutto e non prova un bug; verifica il contesto.',
     );
   }
   process.exit(STRICT ? 1 : 0);
