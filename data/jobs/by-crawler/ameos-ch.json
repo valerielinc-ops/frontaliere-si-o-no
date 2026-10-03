@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ameos-ch",
-  "assembledAt": "2026-10-03T09:14:06.388Z",
+  "assembledAt": "2026-10-03T21:14:25.761Z",
   "jobs": [
     {
       "id": "ameos-ch-760941ebfb90",
@@ -34,7 +34,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:01.401Z",
+      "crawledAt": "2026-10-03T21:14:20.158Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -114,7 +114,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:14:00.303Z",
+      "crawledAt": "2026-10-03T21:14:19.041Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -207,7 +207,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11821-ern%C3%A4hrungsberater-rehabilitation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:59.150Z",
+      "crawledAt": "2026-10-03T21:14:17.949Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11824-leitung-technischer-dienst-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:58.025Z",
+      "crawledAt": "2026-10-03T21:14:16.806Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -371,7 +371,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12421-mitarbeiter-roomservice-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:56.914Z",
+      "crawledAt": "2026-10-03T21:14:15.699Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -470,7 +470,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12457-operativen-eink%C3%A4ufer-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:55.778Z",
+      "crawledAt": "2026-10-03T21:14:14.590Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -550,7 +550,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12964-stv-stationsleitung-interdisziplin%C3%A4re-bettenstation-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:54.688Z",
+      "crawledAt": "2026-10-03T21:14:13.499Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -630,7 +630,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13229-dipl-fachperson-operationstechnik-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:53.582Z",
+      "crawledAt": "2026-10-03T21:14:12.410Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -647,7 +647,10 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13229-dipl-fachperson-operationstechnik-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-01T22:44:49.524Z",
+      "previousSlugs": [
+        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
+        "specialista-certificato-m-f-d-tecniche-chirurgiche-ameos-schweiz-einsiedeln"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
@@ -660,10 +663,7 @@
           "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
         ]
       },
-      "previousSlugs": [
-        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
-        "specialista-certificato-m-f-d-tecniche-chirurgiche-ameos-schweiz-einsiedeln"
-      ],
+      "firstSeenAt": "2026-06-01T22:44:49.524Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -710,7 +710,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/13235-dipl-pflegefachperson-geriatrie-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:52.411Z",
+      "crawledAt": "2026-10-03T21:14:11.312Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -727,7 +727,10 @@
       "applyUrl": "https://karriere.ameos.eu/offene-stellen/stelle/13235-dipl-pflegefachperson-geriatrie-in-einsiedeln",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-06-15T22:31:45.253Z",
+      "previousSlugs": [
+        "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln",
+        "infermiera-certificata-m-f-d-geriatria-ameos-schweiz-einsiedeln"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln",
@@ -740,10 +743,7 @@
           "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln"
         ]
       },
-      "previousSlugs": [
-        "dipl-pflegefachperson-m-w-d-geriatrie-ameos-einsiedeln",
-        "infermiera-certificata-m-f-d-geriatria-ameos-schweiz-einsiedeln"
-      ],
+      "firstSeenAt": "2026-06-15T22:31:45.253Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -773,7 +773,7 @@
       "title": "Physiotherapeut (m/w/d)",
       "titleByLocale": {
         "it": "Fisioterapista (m/f/d)",
-        "en": "Physiotherapist (m/f/d)",
+        "en": "Physiotherapeut (m/w/d)",
         "de": "Physiotherapeut (m/w/d)",
         "fr": "Physiothérapeute (m/f/d)"
       },
@@ -790,7 +790,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/9441-physiotherapeut-in-einsiedeln",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:51.241Z",
+      "crawledAt": "2026-10-03T21:14:10.203Z",
       "addressLocality": "Einsiedeln",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -875,7 +875,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10368-leitung-psychologie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:50.104Z",
+      "crawledAt": "2026-10-03T21:14:09.105Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -957,7 +957,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10362-eidgen%C3%B6ssisch-anerkannter-psychotherapeut-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:48.992Z",
+      "crawledAt": "2026-10-03T21:14:07.962Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1039,7 +1039,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/10365-assistenzpsychologe-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:47.847Z",
+      "crawledAt": "2026-10-03T21:14:06.830Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1124,7 +1124,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/12839-diplomierte-pflegefachperson-hf-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:46.717Z",
+      "crawledAt": "2026-10-03T21:14:05.745Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1204,7 +1204,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8680-stationsleitung-und-stellvertretende-leitung-pflege-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:45.640Z",
+      "crawledAt": "2026-10-03T21:14:04.606Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1288,7 +1288,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/7902-oberarzt-undoder-leitender-facharzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:44.428Z",
+      "crawledAt": "2026-10-03T21:14:03.490Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1370,7 +1370,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/8764-assistenzarzt-psychiatrie-und-psychotherapie-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:43.178Z",
+      "crawledAt": "2026-10-03T21:14:02.379Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
@@ -1452,7 +1452,7 @@
       "url": "https://karriere.ameos.eu/offene-stellen/stelle/11806-sozialarbeiter-m-w-d-in-der-klinischen-sozialberatung-in-brunnen",
       "source": "AMEOS Schweiz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-03T09:13:42.068Z",
+      "crawledAt": "2026-10-03T21:14:01.278Z",
       "addressLocality": "Brunnen",
       "addressRegion": "SZ",
       "addressCountry": "CH",
