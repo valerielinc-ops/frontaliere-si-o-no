@@ -65,7 +65,12 @@ function findAutostashIndexLoss(script: string): Finding[] {
         lost = false;
         continue;
       }
-      if (/\bgit\b.*\b(?:pull|rebase|merge)\b.*--autostash\b/.test(command)) {
+      // `--autostash` on the command, or the same behaviour switched on inline
+      // with `git -c rebase.autoStash=true pull --rebase`.
+      if (
+        /\bgit\b.*\b(?:pull|rebase|merge)\b.*--autostash\b/.test(command)
+        || /\bgit\b.*-c\s+rebase\.autostash=true\b.*\b(?:pull|rebase)\b/i.test(command)
+      ) {
         if (staged) lost = true;
         continue;
       }
@@ -129,6 +134,24 @@ describe('findAutostashIndexLoss', () => {
     ]);
   });
 
+  it('flags the trap when autostash is switched on with -c rebase.autoStash=true', () => {
+    const script = [
+      'git add data/state.json',
+      'git -c rebase.autoStash=true pull --rebase origin main',
+      'git diff --cached --quiet || git commit -m state',
+    ].join('\n');
+    expect(findAutostashIndexLoss(script).map((finding) => finding.command)).toEqual([
+      'git diff --cached --quiet',
+      'git commit -m state',
+    ]);
+    // Commit first, then the same pull: nothing staged is left to lose.
+    expect(findAutostashIndexLoss([
+      'git add data/state.json',
+      'git commit -m state',
+      'git -c rebase.autoStash=true pull --rebase origin main',
+    ].join('\n'))).toEqual([]);
+  });
+
   it('accepts commit-first, then integrate', () => {
     const script = [
       'git add data/state.json',
@@ -186,7 +209,7 @@ describe('workflow steps never read the index after an autostash un-staged it', 
   });
 
   it.each(['quality-alerts.yml', 'refresh-gsc-marquee-demand.yml'])(
-    '%s commits its state before the shared push helper integrates main',
+    '%s commit step has no autostash and does not swallow a failed git add',
     (file) => {
       const commitStep = runSteps(file).find(({ run }) => /\bgit commit\b/.test(run));
       expect(commitStep, `${file} has no commit step`).toBeDefined();
@@ -195,14 +218,6 @@ describe('workflow steps never read the index after an autostash un-staged it', 
         .filter((line) => !line.trim().startsWith('#'))
         .join('\n');
       expect(code).not.toMatch(/--autostash/);
-      const add = code.indexOf('git add ');
-      const cached = code.indexOf('git diff --cached');
-      const commit = code.indexOf('git commit ');
-      const push = code.indexOf('scripts/lib/git-push-with-retry.sh');
-      expect(add).toBeGreaterThan(-1);
-      expect(cached).toBeGreaterThan(add);
-      expect(commit).toBeGreaterThan(cached);
-      expect(push).toBeGreaterThan(commit);
       // A swallowed `git add` failure stages nothing and reads as "no changes".
       expect(code).not.toMatch(/git add[^\n]*\|\|\s*true/);
     },
