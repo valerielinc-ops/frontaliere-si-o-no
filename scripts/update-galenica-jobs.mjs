@@ -77,6 +77,18 @@ const GALENICA_DATA_URL =
 const GALENICA_CAREERS_URL = 'https://jobs.galenica.com/it/jobs/';
 const GALENICA_LOCALES = ['it', 'en', 'de', 'fr'];
 
+/**
+ * Solique occasionally returns a one-character locality fragment (for
+ * example "S") alongside a valid canton. A canton alone is not enough
+ * evidence to publish that fragment as a job location: keep the item out of
+ * the Swiss set and let another language variant provide a complete source
+ * locality if one exists.
+ */
+function hasUsableGalenicaCity(city) {
+  const normalized = String(city || '').replace(/\s+/g, ' ').trim();
+  return normalized.length >= 2 && normalized.toUpperCase() !== 'CH';
+}
+
 /* ── Matcher ───────────────────────────────────────────────── */
 function isGalenicaJob(job) {
   const key = normalizeKey(job?.companyKey || job?.company || '');
@@ -263,7 +275,9 @@ export function resolveGalenicaCanton(contact = {}) {
   const stateCanton = inferAnyCanton(rawState);
   const country = String(contact.country || contact.countryCode || '').trim().toUpperCase();
 
-  if (!city || (rawState && !stateCanton) || (country && !SWISS_COUNTRY_VALUES.has(country))) return '';
+  if (!hasUsableGalenicaCity(city)
+    || (rawState && !stateCanton)
+    || (country && !SWISS_COUNTRY_VALUES.has(country))) return '';
 
   const canton = stateCanton || inferAnyCanton(city);
   const cantonNames = SWISS_CANTONS[canton]?.names || [];

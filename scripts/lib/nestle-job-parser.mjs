@@ -16,6 +16,7 @@ import { rescueHtmlIfChallenged } from './jina-proxy.mjs';
 import { normalizeDescriptionSpace, slugify } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import { splitJobLocation } from './job-location-display.mjs';
+import { stripLocationRegionMarkers } from './job-location-plausibility.mjs';
 import {
   fetchSuccessFactorsJobs,
   SuccessFactorsAuthError,
@@ -259,16 +260,21 @@ export async function fetchAllNestleJobs() {
     const detailDescription = await fetchJobDescriptionText(publicUrl);
     await new Promise((r) => setTimeout(r, 400));
 
+    // The SuccessFactors detail can repeat the feed's country/canton marker in
+    // its location line (for example "Konolfingen, CH, Kanton BE"). Remove
+    // only that audit-detectable marker; the rest of the employer's prose is
+    // source content and must remain untouched.
+    const descriptionText = stripLocationRegionMarkers(detailDescription, location, canton);
+
     // Only the posting's own text is published (issue 5253). A detail page
     // without a vacancy body used to go out as a synthetic "Key details"
     // stub (location, employer, "apply on the portal"); such a listing is
     // not published any more.
-    if (!meetsSourceBodyFloor(detailDescription)) {
+    if (!meetsSourceBodyFloor(descriptionText)) {
       console.log(`  ⏭️  No vacancy text on the detail page, not published: ${title}`);
       withoutBody += 1;
       continue;
     }
-    const descriptionText = detailDescription;
 
     const sourceLang = detectLang(descriptionText || title, 'en');
     const jobSlug = slugify(`${title} nestle ch`);

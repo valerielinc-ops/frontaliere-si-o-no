@@ -27,11 +27,11 @@ describe('crawler location record index', () => {
         location: 'Seewen SZ',
       },
     ];
-    for (const job of jobs) index.add(job);
+    for (const job of jobs) index.add(job, { crawler: 'galenica' });
 
-    expect(index.get(jobs[0])).toEqual({ canton: 'VD', city: 'Blonay', location: 'Blonay' });
-    expect(index.get(jobs[1])).toEqual({ canton: 'BE', city: 'Moutier', location: 'Moutier' });
-    expect(index.get(jobs[2])).toEqual({ canton: 'SZ', city: 'Seewen SZ', location: 'Seewen SZ' });
+    expect(index.get(jobs[0])).toEqual({ crawler: 'galenica', canton: 'VD', city: 'Blonay', location: 'Blonay' });
+    expect(index.get(jobs[1])).toEqual({ crawler: 'galenica', canton: 'BE', city: 'Moutier', location: 'Moutier' });
+    expect(index.get(jobs[2])).toEqual({ crawler: 'galenica', canton: 'SZ', city: 'Seewen SZ', location: 'Seewen SZ' });
     expect(index.size).toBe(3);
   });
 
@@ -65,6 +65,7 @@ describe('crawler location record index', () => {
     });
 
     expect(index.get({ url: 'https://jobs.example/jobs/123' })).toEqual({
+      crawler: '',
       canton: 'ZH',
       city: 'Winterthur',
       location: 'Winterthur',
@@ -80,6 +81,25 @@ describe('crawler location record index', () => {
     expect(index.getWithStatus({ id: 'duplicated', url: 'https://jobs.example/1' })).toEqual({
       record: null,
       status: 'ambiguous',
+    });
+  });
+
+  it('keeps crawler provenance with the source location record', () => {
+    const index = createCrawlerLocationRecordIndex();
+    const job = {
+      id: 'source-backed',
+      addressLocality: 'Thun',
+      canton: 'BE',
+      location: 'Thun',
+    };
+
+    index.add(job, { crawler: 'galenica' });
+
+    expect(index.get(job)).toEqual({
+      crawler: 'galenica',
+      canton: 'BE',
+      city: 'Thun',
+      location: 'Thun',
     });
   });
 });
