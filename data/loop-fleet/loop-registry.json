@@ -259,6 +259,8 @@
       "outcome": {
         "outcomeId": "next-useful-action",
         "sourceRefs": ["decision-surfaces", "ga4-decision-surface"],
+        "historicalSourceRefs": [["decision-surfaces", "posthog"]],
+        "historicalSourceRefsBefore": "2026-10-03T09:04:11.000Z",
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 100,

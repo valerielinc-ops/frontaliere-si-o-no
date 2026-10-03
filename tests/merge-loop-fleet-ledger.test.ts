@@ -401,4 +401,51 @@ describe('merge-loop-fleet-ledger', () => {
       }
     }
   });
+
+  it('replays the checked-in durable ledger after declared oracle migrations', () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-fleet-ledger-corpus-replay-'));
+    const inputDir = path.join(root, 'input');
+    const ledgerDir = path.join(root, 'ledger');
+    fs.mkdirSync(inputDir);
+    fs.cpSync(path.resolve('data/loop-fleet/ledger'), ledgerDir, { recursive: true });
+    writeL1Evidence(inputDir);
+
+    const previous = {
+      GITHUB_REPOSITORY: process.env.GITHUB_REPOSITORY,
+      GITHUB_WORKFLOW: process.env.GITHUB_WORKFLOW,
+      GITHUB_EVENT_NAME: process.env.GITHUB_EVENT_NAME,
+      GITHUB_REF: process.env.GITHUB_REF,
+      GITHUB_SHA: process.env.GITHUB_SHA,
+      GITHUB_RUN_ID: process.env.GITHUB_RUN_ID,
+      GITHUB_RUN_ATTEMPT: process.env.GITHUB_RUN_ATTEMPT,
+    };
+    Object.assign(process.env, {
+      GITHUB_REPOSITORY: 'example/frontaliere',
+      GITHUB_WORKFLOW: 'Loop L1 reliability',
+      GITHUB_EVENT_NAME: 'schedule',
+      GITHUB_REF: 'refs/heads/main',
+      GITHUB_SHA: SHA,
+      GITHUB_RUN_ID: '12345',
+      GITHUB_RUN_ATTEMPT: '1',
+    });
+    try {
+      recordEvidence({ loopId: 'L1', reportDir: inputDir, now: NOW });
+      const result = mergeLedger({
+        loopId: 'L1',
+        runId: '12345',
+        sha: SHA,
+        inputDir,
+        ledgerDir,
+      });
+
+      expect(result.results.observation).toMatchObject({ appended: 1, skipped: 0 });
+      expect(result.results.health).toMatchObject({ appended: 1, skipped: 0 });
+      expect(result.results.lifecycle.appended).toBe(2);
+    } finally {
+      for (const [key, value] of Object.entries(previous)) {
+        if (value === undefined) delete process.env[key];
+        else process.env[key] = value;
+      }
+    }
+  });
 });
