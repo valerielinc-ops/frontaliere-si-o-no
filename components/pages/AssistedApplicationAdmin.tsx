@@ -24,6 +24,7 @@ import {
   type AssistedApplicationCandidateEmail,
 } from '@/services/assistedApplicationAdminService';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
+import { REPLAY_PRIVATE_ATTRS, REPLAY_PRIVATE_CLASS } from '@/services/replayPrivacy';
 import { NEXT_STEP_GROUP_LABELS, nextStepFor, type NextStep, type NextStepGroup } from '@/services/assistedApplicationNextStep';
 import AssistedApplicationAutomationPanel from './AssistedApplicationAutomationPanel';
 
@@ -341,8 +342,9 @@ export default function AssistedApplicationAdmin() {
     }
   };
 
+  // Every candidate's data, the automation panel included: never in a session replay.
   return (
-    <section className="space-y-5" aria-labelledby="assisted-application-admin-title">
+    <section className={`${REPLAY_PRIVATE_CLASS} space-y-5`} {...REPLAY_PRIVATE_ATTRS} aria-labelledby="assisted-application-admin-title">
       <div className="flex flex-wrap items-center justify-between gap-3">
         <div>
           <h2 id="assisted-application-admin-title" className="flex items-center gap-2 text-lg font-bold font-display text-strong">
