@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-10-02T21:14:46.623Z",
+  "assembledAt": "2026-10-03T09:14:49.419Z",
   "jobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152899786-dipl-fachfrau-mann-operationstechnik-hf",
@@ -35,7 +35,7 @@
       },
       "slug": "dipl-fachfrau-mann-operationstechnik-hf-swiss-medical-network",
       "category": "technical",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -45,7 +45,7 @@
         "location": "Zürich"
       },
       "sourceLang": "de",
-      "firstSeenAt": "2026-10-02T21:14:38.206Z",
+      "firstSeenAt": "2026-10-03T09:14:37.155Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -59,7 +59,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152633743-facharztin-facharzt-fur-allgemeine-innere-medizin",
@@ -92,9 +93,9 @@
         "en": "specialist-specialist-for-general-internal-medicine-swiss-medical-network-reinach",
         "fr": "specialiste-specialiste-en-medecine-interne-generale-swiss-medical-network-reinach"
       },
-      "slug": "specialista-specialista-in-medicina-interna-generale-swiss-medical-network-reinach",
+      "slug": "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network",
       "category": "medical",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -125,7 +126,8 @@
       },
       "previousSlugs": [
         "facharztin-facharzt-fur-allgemeine-innere-medizin-swiss-medical-network"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000152326151-medizinische-r-praxisassistent-in-50-100-",
@@ -2055,9 +2057,9 @@
         "en": "specialist-general-internal-medicine-swiss-medical-network-grindelwald",
         "fr": "specialiste-en-medecine-interne-generale-swiss-medical-network-grindelwald"
       },
-      "slug": "specialista-medicina-interna-swiss-medical-network-grindelwald",
+      "slug": "facharzt-in-allgemeine-innere-medizin-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -3439,9 +3441,9 @@
         "en": "general-practitioners-50-to-100-swiss-medical-network-ittigen",
         "fr": "omnipraticiens-50-a-100-swiss-medical-network-ittigen"
       },
-      "slug": "professionisti-generali-50-100-swiss-medical-network-ittigen",
+      "slug": "allgemeinmediziner-in-50-bis-100-swiss-medical-network",
       "category": "healthcare",
-      "datePosted": "2026-10-02",
+      "datePosted": "2026-10-03",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "PART_TIME",
       "experienceLevel": "MID",
@@ -3472,7 +3474,8 @@
       },
       "previousSlugs": [
         "allgemeinmediziner-in-50-bis-100-swiss-medical-network"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
