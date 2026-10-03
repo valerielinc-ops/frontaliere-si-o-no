@@ -33,6 +33,7 @@ const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatch
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
 const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
+import type { RewardedOfferUnavailableInfo } from '@/components/community/RewardedApplicationOffer';
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const AssistedApplicationReview = lazyRetry(() => import('@/components/community/AssistedApplicationReview'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
@@ -7208,14 +7209,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   void intentSettled.then(() => window.location.reload());
  };
 
- const handleRewardedApplicationUnavailable = (reason: string): Promise<boolean> | undefined => {
+ const handleRewardedApplicationUnavailable = (
+  reason: string,
+  info?: RewardedOfferUnavailableInfo,
+ ): Promise<boolean> | undefined => {
   const job = rewardedApplicationJob;
   if (!job) return;
   // The Offerwall and its GPT fallback could not LOAD, or the visitor refused
-  // the ad (ads refused in the CMP, consent card declined, Offerwall closed
-  // without its reward): when enabled, the same click opens the paid offer,
-  // whose free external button opens the employer in a new tab.
-  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason)) {
+  // the ad (ads refused in the CMP, consent message unanswered, Offerwall
+  // closed without its reward): when enabled, the same click opens the paid
+  // offer, whose free external button opens the employer in a new tab. A
+  // visitor who already saw the paid choice before the Offerwall and took the
+  // free path gets no second paid offer (owner decision 2026-10-03).
+  if (offerwallPaidFallbackEnabled && shouldOfferPaidFallback(reason) && !info?.paidOfferShown) {
    setRewardedApplicationJob(null);
    setAssistedCheckoutError(null);
    setAssistedOfferSource('offerwall_fallback');
@@ -7257,18 +7263,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
   });
  };
 
- const handleAssistedPaid = async () => {
+ const handleAssistedPaid = () => {
   const job = assistedApplicationJob;
-  if (!job || !assistedOfferAvailable || assistedCheckoutBusy) return;
+  if (!job || !assistedOfferAvailable) return;
+  return startAssistedCheckout(job);
+ };
+
+ // The paid offer's checkout, from the assisted-application offer or from the
+ // paid choice the rewarded offer shows before the Offerwall (`trigger`).
+ const startAssistedCheckout = async (job: JobListing, extra: Record<string, unknown> = {}) => {
+  if (assistedCheckoutBusy) return;
   setAssistedCheckoutBusy(true);
   setAssistedCheckoutError(null);
   trackAssistedApplicationEvent(
    'assisted_application_choose_paid',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   trackAssistedApplicationEvent(
    'checkout_started',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), ...extra, price_eur_cents: ASSISTED_APPLICATION_PRICE_EUR_CENTS },
   );
   try {
    const user = authUser?.getIdToken ? authUser : await ensureAssistedApplicationAuth();
@@ -7838,10 +7851,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onContinue={handleRewardedApplicationContinue}
     onUnavailable={handleRewardedApplicationUnavailable}
-    onDismiss={() => setRewardedApplicationJob(null)}
+    onDismiss={() => {
+     setRewardedApplicationJob(null);
+     setAssistedCheckoutBusy(false);
+     setAssistedCheckoutError(null);
+    }}
     resumed={rewardedApplicationResumed}
     startInHandoff={rewardedApplicationOpenCardOnly}
     onReload={handleRewardedApplicationReload}
+    // The paid offer first, the Offerwall prepared hidden behind it (owner
+    // decision 2026-10-03), under the same Remote Config flag as the paid
+    // fallback: ASSISTED_APPLICATION_OFFERWALL_FALLBACK off restores the
+    // Offerwall-only click.
+    paidChoice={offerwallPaidFallbackEnabled ? {
+     onChoosePaid: () => startAssistedCheckout(rewardedApplicationJob, { trigger: 'offerwall_first' }),
+     paidLoading: assistedCheckoutBusy,
+     error: assistedCheckoutError,
+    } : undefined}
    />
   </Suspense>
  ) : null;

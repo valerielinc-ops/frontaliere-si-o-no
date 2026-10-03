@@ -43,7 +43,6 @@ import {
   changedLinesFromPatch,
   dedupeFindingsById,
   isMalformedReviewBody,
-  isExplicitNonFunnelDisposition,
   reviewBodyDefects,
   stableFindingId,
   unchangedLineImportants,
@@ -62,7 +61,6 @@ const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
 const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
 const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
 const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}(?:[:—-]|(?=\s+\S))|❓\s*q\s*:/gu;
-const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
 const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
 // This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
 // together with a validated Codex evidence file plus an exact HEAD commit and
@@ -334,14 +332,6 @@ function emptyClassification(findings = []) {
     outsideOnly: false,
     blocking: false,
   };
-}
-
-// An adversarial `❓ q:` may still describe a funnel-critical risk. The
-// outside-only exception is safe without `## LGTM` only when the reviewer
-// explicitly disposes of every question as non-funnel/deferred.
-function hasUnresolvedFunnelQuestion(body) {
-  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
-    QUESTION_MARKER_RE.test(line) && !isExplicitNonFunnelDisposition(line));
 }
 
 /**
@@ -2372,19 +2362,10 @@ export async function runReviewGate({
     logClassification(classification);
   }
 
-  // A reviewer must not approve while an Important finding is still in scope
-  // (or cannot be resolved). Once every Important is conservatively classified
-  // outside this PR diff, however, the finding is debt recorded in the
-  // aggregate follow-up and the review has no in-scope blocker left to approve.
-  // Requiring a literal LGTM in that one case deadlocks otherwise safe PRs:
-  // Claude correctly withholds LGTM for the historical out-of-diff finding,
-  // while this gate correctly declassifies it. Keep the literal requirement
-  // for empty, in-scope, and unresolved verdicts.
-  const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
-    && classification.outsideOnly
-    && !classification.blocking
-    && !hasUnresolvedFunnelQuestion(body);
-  if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
+  // An out-of-diff Important is recorded in the aggregate follow-up, but it
+  // does not replace the reviewer's explicit verdict for the current HEAD.
+  // Every successful review must carry the literal LGTM marker.
+  if (!body.includes('## LGTM')) {
     return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
   }
   if (classification.blocking) {
