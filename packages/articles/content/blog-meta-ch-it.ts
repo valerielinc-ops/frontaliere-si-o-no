@@ -7634,6 +7634,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.locazione-cauzione-argovia-2026.title': 'Affitti in Svizzera 2026: cauzione e disdetta in Argovia',
     'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Deposito cauzionale fino a tre mensilità, conto vincolato e 30 giorni per contestare la disdetta: le regole federali per gli affitti in Argovia nel 2026.',
     'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Edifici residenziali svizzeri per il mercato degli affitti 2026',
+    'blog.article.dazio-ue-pacchi-posta.title': 'Dazio Ue da 3 euro: calano i pacchi della Posta svizzera',
+    'blog.article.dazio-ue-pacchi-posta.excerpt': 'Dazio Ue da 3 euro per articolo: i colli della Posta svizzera verso l\'Unione crollano a due cifre. La quota cinese passa dal 6% all\'11% in dieci anni.',
+    'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Pacchi in un centro postale svizzero mentre cambiano le spedizioni verso l\'Unione europea',
 };
 
 export default blogMetaChIt;

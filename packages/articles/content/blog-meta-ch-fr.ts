@@ -7634,6 +7634,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.locazione-cauzione-argovia-2026.title': 'Location en Suisse 2026 : caution et résiliation en Argovie',
     'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Caution jusqu\'à trois mensualités, compte lié et 30 jours pour contester la résiliation : les règles fédérales pour les loyers en Argovie en 2026.',
     'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Immeubles résidentiels suisses pour le marché locatif 2026',
+    'blog.article.dazio-ue-pacchi-posta.title': 'Droit UE de 3 euros : chute des colis postaux',
+    'blog.article.dazio-ue-pacchi-posta.excerpt': 'Tarif douanier de l\'UE de 3 € par article : les envois de colis de la Poste suisse vers l\'UE chutent de façon spectaculaire. La part de la Chine passe de 6 % à 11 % en dix ans.',
+    'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Colis dans un centre postal suisse sur fond de nouveaux droits de douane de l\'UE',
 };
 
 export default blogMetaChFr;

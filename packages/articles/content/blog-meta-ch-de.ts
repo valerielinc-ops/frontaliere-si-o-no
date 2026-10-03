@@ -7634,6 +7634,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.locazione-cauzione-argovia-2026.title': 'Mieten in der Schweiz 2026: Kaution und Kündigung im Aargau',
     'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Kaution von bis zu drei Monatsmieten, Sperrkonto und 30 Tage, um die Kündigung anzufechten: die Bundesregeln für Mietverhältnisse im Aargau im Jahr 2026.',
     'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Schweizer Wohngebäude für den Mietmarkt 2026',
+    'blog.article.dazio-ue-pacchi-posta.title': 'EU-Zoll von 3 Euro: Pakete der Schweizerischen Post gehen zurück',
+    'blog.article.dazio-ue-pacchi-posta.excerpt': 'EU-Zoll von 3 Euro pro Artikel: Die Pakete der Schweizerischen Post in die Europäische Union gehen im zweistelligen Prozentbereich zurück. Der Anteil chinesischer Pakete steigt in zehn Jahren von 6% auf 11%.',
+    'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Pakete in einem Schweizer Postzentrum vor dem Hintergrund neuer EU-Zolltarife',
 };
 
 export default blogMetaChDe;

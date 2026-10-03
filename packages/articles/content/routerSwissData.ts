@@ -2567,6 +2567,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'canoni-casa-lucerna-2026': { it: 'canoni-casa-lucerna-2026', en: 'swiss-rental-market-lucerne-2026', de: 'mietmarkt-schweiz-luzern-2026', fr: 'marche-locatif-suisse-lucerne-2026' },
  'affitti-regole-deposito-argovia-2026': { it: 'affitti-regole-deposito-argovia-2026', en: 'rent-deposit-rules-aargau-2026', de: 'mietzins-kaution-regeln-aargau-2026', fr: 'regles-depot-garantie-argovie-2026' },
  'locazione-cauzione-argovia-2026': { it: 'locazione-cauzione-argovia-2026', en: 'switzerland-rents-aargau-2026', de: 'mieten-schweiz-aargau-2026', fr: 'loyers-suisse-argovie-2026' },
+ 'dazio-ue-pacchi-posta': { it: 'dazio-ue-pacchi-posta', en: 'eu-tariff-swiss-post-parcels', de: 'eu-zoll-swiss-post-pakete', fr: 'droits-ue-colis-poste-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

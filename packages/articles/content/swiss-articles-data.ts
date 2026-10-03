@@ -22930,6 +22930,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dazio-ue-pacchi-posta',
+    category: 'novita',
+    date: '2026-10-03T07:32:47.574Z',
+    image: '/images/blog/dazio-ue-pacchi-posta.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

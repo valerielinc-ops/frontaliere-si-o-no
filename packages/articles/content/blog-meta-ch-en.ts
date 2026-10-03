@@ -7634,6 +7634,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.locazione-cauzione-argovia-2026.title': 'Swiss Rentals 2026: Deposit & Notice in Aargau',
     'blog.article.locazione-cauzione-argovia-2026.excerpt': 'Security deposit of up to three months\' rent, blocked account, and 30 days to challenge the notice of termination: the federal rules for rentals in Aargau in 2026.',
     'blog.article.locazione-cauzione-argovia-2026.imageAlt': 'Swiss residential buildings for the 2026 rental market',
+    'blog.article.dazio-ue-pacchi-posta.title': 'EU tariff of 3 euros: Swiss Post parcels drop',
+    'blog.article.dazio-ue-pacchi-posta.excerpt': 'EU customs duty of 3 euros per item: Swiss Post parcels to the Union plunge to double digits. China’s share rises from 6% to 11% in ten years.',
+    'blog.article.dazio-ue-pacchi-posta.imageAlt': 'Parcels at a Swiss postal hub amid changes to shipments toward the European Union',
 };
 
 export default blogMetaChEn;
