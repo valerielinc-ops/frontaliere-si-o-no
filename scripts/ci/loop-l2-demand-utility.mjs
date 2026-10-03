@@ -5,7 +5,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildOrphanLandingPath } from '../lib/orphan-landing-path.mjs';
 import { resolveNursingOrphanQueryTarget } from '../lib/nursing-landing-path.mjs';
 import {
@@ -18,6 +18,7 @@ import {
 } from '../lib/loop-fleet-contract.mjs';
 
 export const LOOP_ID = 'L2';
+const ISSUE_WORKFLOW = 'Loop L2 Demand to Utility';
 export const DEFAULT_SOURCE_PATH = path.join('data', 'gsc-orphan-queries-clusters.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
 export const DEFAULT_MAX_AGE_HOURS = 168;
@@ -26,6 +27,14 @@ export const MAX_CANDIDATES = 25;
 export const OUTCOME_JOIN_ISSUE_TITLE = 'L2 Demand to Utility: outcome join is not measurable';
 export const OUTCOME_SAMPLE_ISSUE_TITLE = 'L2 Demand to Utility: outcome sample is below minimum';
 export const STALE_SOURCE_ISSUE_TITLE = 'L2 Demand to Utility: GSC snapshot is stale';
+export const SNAPSHOT_VALIDATION_ISSUE_TITLE = 'L2 Demand to Utility: demand snapshot is not valid';
+// Ogni titolo che `issueTitleForVerdict` può emettere: una sola issue aperta per loop.
+export const LOOP_ISSUE_TITLES = [
+  OUTCOME_JOIN_ISSUE_TITLE,
+  OUTCOME_SAMPLE_ISSUE_TITLE,
+  STALE_SOURCE_ISSUE_TITLE,
+  SNAPSHOT_VALIDATION_ISSUE_TITLE,
+];
 const LOCALES = new Set(['it', 'en', 'de', 'fr']);
 
 function finiteDate(value) {
@@ -258,7 +267,7 @@ export function issueTitleForVerdict(verdict) {
   switch (l2FindingKind(verdict)) {
     case 'underpowered-sample': return OUTCOME_SAMPLE_ISSUE_TITLE;
     case 'stale-source': return STALE_SOURCE_ISSUE_TITLE;
-    case 'snapshot-validation': return 'L2 Demand to Utility: demand snapshot is not valid';
+    case 'snapshot-validation': return SNAPSHOT_VALIDATION_ISSUE_TITLE;
     default: return OUTCOME_JOIN_ISSUE_TITLE;
   }
 }
@@ -351,7 +360,8 @@ export async function runL2({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -526,9 +536,14 @@ export async function runL2({
       description: issueBody(verdict, decision),
       priority: 3,
       labels: ['monitoring', 'seo', 'loop-l2'],
-      workflow: 'Loop L2 Demand to Utility',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: LOOP_ISSUE_TITLES,
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: LOOP_ISSUE_TITLES, workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, {
     verdict,

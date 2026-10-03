@@ -22,6 +22,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -43,6 +44,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'scripts/lib/loop-fleet-issue.mjs'
       - 'scripts/lib/posthog-client.mjs'
       - 'scripts/load-rc-env.mjs'
       - '.github/workflows/loop-l8-revenue-attribution.yml'
@@ -88,6 +90,7 @@ jobs:
             /scripts/lib/loop-fleet-contract.mjs
             /scripts/lib/loop-fleet-outcome.mjs
             /scripts/lib/github-issue-creator.mjs
+            /scripts/lib/loop-fleet-issue.mjs
             /scripts/lib/posthog-client.mjs
             /scripts/load-rc-env.mjs
             /.github/workflows/loop-l8-revenue-attribution.yml

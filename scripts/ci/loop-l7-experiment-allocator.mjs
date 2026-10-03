@@ -6,7 +6,7 @@ import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import {
   actionClassForPolicy,
   buildDecision,
@@ -18,6 +18,8 @@ import {
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 
 export const LOOP_ID = 'L7';
+const ISSUE_TITLE = 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy';
+const ISSUE_WORKFLOW = 'Loop L7 Experiment Allocator';
 export const DEFAULT_CANDIDATES_PATH = path.join('data', 'experimental-candidates.json');
 export const DEFAULT_OUTCOME_PATH = path.join('data', 'experiment-outcomes.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -658,7 +660,8 @@ export async function runL7({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -760,16 +763,21 @@ export async function runL7({
   let issued = false;
   if (issue && !verdict.ok) {
     const issueResult = await createIssueImpl({
-      title: 'L7 Experiment Allocator: outcome or guardrail ledger is not trustworthy',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'experiments', 'loop-l7'],
-      workflow: 'Loop L7 Experiment Allocator',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     if (!issueResult || issueResult.persisted !== true) {
-      throw new Error('L7 issue persistence failed: createGithubIssue did not confirm persisted=true');
+      throw new Error('L7 issue persistence failed: reportLoopIssue did not confirm persisted=true');
     }
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);

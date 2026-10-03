@@ -14,7 +14,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { getAffiliateCommercialConfiguration } from '../../functions/src/lib/affiliatePartnersRegistry.js';
-import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import { reportLoopIssue, resolveLoopIssue } from '../lib/loop-fleet-issue.mjs';
 import { buildValidatedLoopOutcome } from '../lib/loop-fleet-outcome.mjs';
 import {
   actionClassForPolicy,
@@ -29,6 +29,8 @@ import {
 } from '../lib/affiliateRevenue.mjs';
 
 export const LOOP_ID = 'L8';
+const ISSUE_TITLE = 'L8 Revenue Attribution: approved money is not reconciled';
+const ISSUE_WORKFLOW = 'Loop L8 Revenue and Attribution Reconciliation';
 export const DEFAULT_HISTORY_PATH = path.join('data', 'revenue-monitor-history.jsonl');
 export const DEFAULT_AFFILIATE_EXPORT_PATH = path.join('data', 'revenue-authorized-export.json');
 export const DEFAULT_REGISTRY_PATH = path.join('data', 'loop-fleet', 'loop-registry.json');
@@ -694,7 +696,8 @@ export async function runL8({
   issue = false,
   apply = false,
   reportDir = null,
-  createIssueImpl = createGithubIssue,
+  createIssueImpl = reportLoopIssue,
+  resolveIssueImpl = resolveLoopIssue,
   logger = console,
 } = {}) {
   const {
@@ -828,13 +831,18 @@ export async function runL8({
   let issued = false;
   if (issue && !verdict.ok) {
     await createIssueImpl({
-      title: 'L8 Revenue Attribution: approved money is not reconciled',
+      title: ISSUE_TITLE,
       description: issueBody(verdict, decision),
       priority: 2,
       labels: ['monitoring', 'revenue', 'loop-l8'],
-      workflow: 'Loop L8 Revenue and Attribution Reconciliation',
+      workflow: ISSUE_WORKFLOW,
+      loopId: LOOP_ID,
+      reason: verdict.reason,
+      loopTitles: [ISSUE_TITLE],
     });
     issued = true;
+  } else if (issue) {
+    await resolveIssueImpl({ loopId: LOOP_ID, loopTitles: [ISSUE_TITLE], workflow: ISSUE_WORKFLOW });
   }
   const resultFile = writeResult(reportDir, { verdict, issued, actionsWritten, outcome });
   if (resultFile) files.push(resultFile);
