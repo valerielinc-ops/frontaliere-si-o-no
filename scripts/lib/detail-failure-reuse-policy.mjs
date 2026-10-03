@@ -10,7 +10,11 @@
  * that has no previous snapshot yet.
  */
 
-export const DETAIL_FAILURE_MAX_RATIO = 0.15;
+// One threshold for the fail-closed reuse policy and the crawler health
+// advisory. Keeping the value here prevents those two views of detail drift
+// from silently diverging.
+export const DETAIL_FAILURE_RATIO_THRESHOLD = 0.15;
+export const DETAIL_FAILURE_MAX_RATIO = DETAIL_FAILURE_RATIO_THRESHOLD;
 
 /**
  * @param {number} detailFailureCount

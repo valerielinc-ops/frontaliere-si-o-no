@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   DETAIL_FAILURE_MAX_RATIO,
+  DETAIL_FAILURE_RATIO_THRESHOLD,
   applyDetailFailureReuse,
   isDetailFailureWithinGrace,
 } from '../scripts/lib/detail-failure-reuse-policy.mjs';
@@ -8,6 +9,7 @@ import {
 describe('detail failure/reuse policy', () => {
   it('keeps the shared 15% boundary explicit and fail-closed on malformed counts', () => {
     expect(DETAIL_FAILURE_MAX_RATIO).toBe(0.15);
+    expect(DETAIL_FAILURE_RATIO_THRESHOLD).toBe(DETAIL_FAILURE_MAX_RATIO);
     expect(isDetailFailureWithinGrace(3, 20)).toBe(true);
     expect(isDetailFailureWithinGrace(4, 20)).toBe(false);
     expect(isDetailFailureWithinGrace(0, 0)).toBe(false);

@@ -87,6 +87,19 @@ describe('createAgendaCrawler — crawl()', () => {
     expect(result.written).toBe(false);
   });
 
+  it('counts a null detail result as a failure while keeping the listing row', async () => {
+    const event = { id: 'src:null-detail', title: 'Workshop', startDate: '2026-08-01' };
+    const crawler = createAgendaCrawler(makeConfig({
+      fetchImpl: async () => okResponse('<html></html>'), parseDayHtml: () => [event], iterations: 1,
+      enrichEvent: async () => null,
+    }));
+    const result = await crawler.crawl({ dryRun: true });
+    expect(result.events[0]).toMatchObject(event);
+    expect(result.detailFailureIds).toEqual([event.id]);
+    expect(result.detailAttemptCount).toBe(1);
+    expect(result.written).toBe(false);
+  });
+
   it('merges events by id across iterations, extending endDate forward, and writes the slice', async () => {
     const fetchImpl = async () => okResponse('<html></html>');
     const parseDayHtml = (_html: string, i: number) => [
