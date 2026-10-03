@@ -200,6 +200,21 @@ describe('DIC SA crawler parser', () => {
 
       await expect(fetchAllDicSaJobs()).rejects.toThrow(/HTTP 404/);
     });
+
+    it('keeps a REST failure fail-closed even when the public page proves empty', async () => {
+      const requestedUrls: string[] = [];
+      const fetchMock = vi.fn(async (url: string) => {
+        requestedUrls.push(url);
+        if (url.includes('wp-json/wp/v2/job-offers')) return jsonResponse(503, { message: 'temporarily unavailable' });
+        if (url === 'https://www.dic-ing.ch/team/') return textResponse(200, EMPTY_CAREER_PAGE);
+        return jsonResponse(404, { message: 'not found' });
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      await expect(fetchAllDicSaJobs()).rejects.toThrow(/HTTP 503/);
+      expect(requestedUrls.length).toBeGreaterThan(0);
+      expect(requestedUrls.every((url) => url === 'https://www.dic-ing.ch/wp-json/wp/v2/job-offers?per_page=100')).toBe(true);
+    });
   });
 
   describe('classifyDicSaCareerPage', () => {
@@ -211,6 +226,14 @@ describe('DIC SA crawler parser', () => {
     it('does not trust hidden/template empty-state copy or a page with a job link', () => {
       expect(classifyDicSaCareerPage('<h2>Nos offres</h2><template><h4>Aucune offre pour le moment</h4></template>').state).toBe('unknown');
       expect(classifyDicSaCareerPage('<h2>Nos offres</h2><h4>Aucune offre pour le moment</h4><a href="/team/job-offers/open-role/">Open role</a>').state).toBe('unknown');
+    });
+
+    it('does not trust empty-state copy inside a display:none ancestor', () => {
+      expect(
+        classifyDicSaCareerPage(
+          '<div style="display:none"><h2>Nos offres</h2><p>Aucune offre pour le moment</p></div>'
+        ).state
+      ).toBe('unknown');
     });
   });
 

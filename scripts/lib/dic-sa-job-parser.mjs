@@ -75,8 +75,11 @@ function normalizeSpace(s = '') {
 }
 
 function isVisibleCareerElement(element) {
-  return !element.closest('template,script,style,noscript,[hidden],[aria-hidden="true"]')
-    && !/display\s*:\s*none/i.test(element.getAttribute('style') || '');
+  for (let current = element; current; current = current.parentElement) {
+    if (/display\s*:\s*none/i.test(current.getAttribute('style') || '')) return false;
+  }
+
+  return !element.closest('template,script,style,noscript,[hidden],[aria-hidden="true"]');
 }
 
 /**
@@ -113,16 +116,6 @@ async function confirmAuthoritativeEmptySnapshot() {
   const page = classifyDicSaCareerPage(html);
   if (page.state !== 'empty') return null;
   return markAuthoritativeEmptySnapshot([], page.evidence);
-}
-
-async function resolveEmptyFeedAfterFailure(feedError) {
-  try {
-    const emptySnapshot = await confirmAuthoritativeEmptySnapshot();
-    if (emptySnapshot) return emptySnapshot;
-  } catch (careerPageError) {
-    console.warn(`⚠️ Could not verify DIC SA careers page after feed failure: ${careerPageError?.message || careerPageError}`);
-  }
-  throw feedError;
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -205,11 +198,10 @@ export async function fetchAllDicSaJobs() {
     posts = await fetchJson(WP_API_URL, { label: 'dic-ing.ch WordPress REST API' });
   } catch (err) {
     console.warn(`⚠️ Failed to fetch job-offers: ${err?.message || err}`);
-    // A failed REST request is not an empty source. The public careers page
-    // can still prove a genuine zero; otherwise preserve the transport/feed
+    // A failed REST request is not an empty source. Preserve the transport/feed
     // failure so the standard pipeline keeps the previous slice visibly
     // unhealthy instead of publishing a misleading `no-jobs-parsed` guard.
-    return resolveEmptyFeedAfterFailure(err);
+    throw err;
   }
   if (!Array.isArray(posts)) {
     throw new Error(`Unexpected DIC SA job-offers payload: expected an array, received ${typeof posts}`);
