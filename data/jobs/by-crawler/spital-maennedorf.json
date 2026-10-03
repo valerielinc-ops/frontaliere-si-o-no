@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-maennedorf",
-  "assembledAt": "2026-10-02T21:17:38.715Z",
+  "assembledAt": "2026-10-03T09:12:06.497Z",
   "jobs": [
     {
       "id": "spital-maennedorf-e3b8e098b8c9",
@@ -33,7 +33,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/453/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:33.850Z",
+      "crawledAt": "2026-10-03T09:12:01.685Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -82,7 +82,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-89bb3b966a62",
@@ -101,7 +102,7 @@
         "it": "Studio Radiologia (MTRA) HF (m/f/d)",
         "en": "Study Radiology (MTRA) HF (m/f/d)",
         "de": "Studium zur dipl. Radiologiefachfrau HF (MTRA) (m/w/d)",
-        "fr": "Étudier pour le dipl. Spécialiste de radiologie HF (MTRA) (h/f/d)"
+        "fr": "Studium zur dipl. Radiologiefachfrau HF (MTRA) (m/w/d)"
       },
       "description": "Spital Männedorf – Dein ganz besonderer Arbeitsort.\nOb ein kleines „Danke“ oder ein morgendliches „Grüezi“ - bei uns stehen echte Wertschätzung und Menschlichkeit im Vordergrund. Die Nähe in unserem Haus macht den Alltag unkompliziert und ermöglicht patientenzentrierte Arbeit auf höchstem Niveau. In einem Umfeld, in dem interdisziplinäre Zusammenarbeit auf Augenhöhe selbstverständlich ist, bieten wir individuelle Behandlungen von der medizinischen Erstversorgung bis zur Rehabilitation.\n\nDas Wesen deiner Tätigkeit:\n\n• Begleitung und Betreuung unserer Patientinnen und Patienten während den radiologischen Untersuchungen\n• Anwenden aktuellster Erkenntnisse und neuester Technologien auf dem Gebiet der diagnostischen Radiologie\n• Dokumentieren von Patientendaten, Bearbeiten von Bilddaten und Beurteilen der Qualität\n• Enge Zusammenarbeit im interprofessionellen Team\n\nDie Basis deiner Leistung:\n\n• Dreijährige Grundausbildung mit eidg. Fähigkeitszeugnis oder ein allgemeinbildender Abschluss (FMS, Matura)\n• Bestandenes Eignungsverfahren am Bildungszentrum Careum (kann auch während dem Bewerbungsverfahren absolviert werden)\n• Motivierte und teamorientierte Persönlichkeit mit hoher Sozialkompetenz\n• Interesse für Technik und Informatik\n\nDie Gründe deiner Entscheidung:\nWir bieten moderne Arbeitsbedingungen, fördern interne Weiterbildungen und setzen auf fachlichen Austausch über alle Disziplinen hinweg. Die ruhige Lage direkt am See und die Nähe zur pulsierenden Stadt Zürich runden deinen Arbeitsplatz ab. Darüber hinaus kannst du dich auf ganz spezielle Vorteile freuen.",
       "descriptionByLocale": {
@@ -115,7 +116,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1065/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:32.837Z",
+      "crawledAt": "2026-10-03T09:12:00.920Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -169,7 +170,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-51539547456f",
@@ -202,7 +204,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1794/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:31.833Z",
+      "crawledAt": "2026-10-03T09:12:00.161Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -265,7 +267,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-20633eeb420e",
@@ -299,7 +302,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-02T21:17:30.826Z",
+      "crawledAt": "2026-10-03T09:11:59.456Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -417,7 +420,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:29.837Z",
+      "crawledAt": "2026-10-03T09:11:58.741Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -505,7 +508,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-02T21:17:28.798Z",
+      "crawledAt": "2026-10-03T09:11:57.970Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -608,7 +611,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1783/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:27.845Z",
+      "crawledAt": "2026-10-03T09:11:57.267Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -707,7 +710,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1873/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:26.853Z",
+      "crawledAt": "2026-10-03T09:11:56.506Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -787,7 +790,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-f260163c79ca",
@@ -820,7 +824,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1882/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:25.837Z",
+      "crawledAt": "2026-10-03T09:11:55.767Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -897,7 +901,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-e640ade86dc2",
@@ -930,7 +935,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1951/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:24.837Z",
+      "crawledAt": "2026-10-03T09:11:55.034Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1002,7 +1007,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-13d673dfc24b",
@@ -1035,7 +1041,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1958/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:23.822Z",
+      "crawledAt": "2026-10-03T09:11:54.295Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1105,7 +1111,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-3e33a879eb71",
@@ -1139,7 +1146,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:22.789Z",
+      "crawledAt": "2026-10-03T09:11:53.590Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1227,7 +1234,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1952/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:21.808Z",
+      "crawledAt": "2026-10-03T09:11:52.843Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1302,7 +1309,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-4317e464a023",
@@ -1335,7 +1343,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1971/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:20.824Z",
+      "crawledAt": "2026-10-03T09:11:52.109Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1417,7 +1425,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1904/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:19.851Z",
+      "crawledAt": "2026-10-03T09:11:51.398Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1467,7 +1475,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-5d5cf192365b",
@@ -1500,7 +1509,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1987/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:18.835Z",
+      "crawledAt": "2026-10-03T09:11:50.677Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1545,7 +1554,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-b56297bc6158",
@@ -1578,7 +1588,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1988/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:17.809Z",
+      "crawledAt": "2026-10-03T09:11:49.939Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1631,7 +1641,7 @@
       "slugByLocale": {
         "it": "professionista-della-salute-50-100-m-f-d-spital-mannedorf-mannedorf",
         "en": "health-professional-50-100-m-f-d-spital-mannedorf-mannedorf",
-        "de": "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch-p5elh4",
+        "de": "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
         "fr": "professionnels-de-la-sante-50-100-m-f-j-spital-mannedorf-mannedorf"
       },
       "company": "Spital Männedorf",
@@ -1657,7 +1667,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:16.824Z",
+      "crawledAt": "2026-10-03T09:11:49.220Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1678,7 +1688,8 @@
       "pensumMax": 100,
       "pensum": "50 - 100%",
       "previousSlugs": [
-        "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
+        "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
+        "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch-p5elh4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1688,7 +1699,8 @@
           "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
         ],
         "de": [
-          "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
+          "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch",
+          "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch-p5elh4"
         ],
         "fr": [
           "fachfrau-gesundheit-50-100-m-w-d-spital-maennedorf-ch"
@@ -1742,7 +1754,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-02T21:17:15.849Z",
+      "crawledAt": "2026-10-03T09:11:48.471Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1824,7 +1836,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:14.816Z",
+      "crawledAt": "2026-10-03T09:11:47.732Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1907,7 +1919,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1984/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:13.816Z",
+      "crawledAt": "2026-10-03T09:11:46.984Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -1952,7 +1964,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-c9da1cefb68e",
@@ -1986,7 +1999,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:12.821Z",
+      "crawledAt": "2026-10-03T09:11:46.261Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2073,7 +2086,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:11.824Z",
+      "crawledAt": "2026-10-03T09:11:45.521Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2157,7 +2170,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:10.841Z",
+      "crawledAt": "2026-10-03T09:11:44.824Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2244,7 +2257,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2001/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:09.813Z",
+      "crawledAt": "2026-10-03T09:11:44.085Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2296,7 +2309,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-a97468f455d6",
@@ -2329,7 +2343,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2002/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:08.834Z",
+      "crawledAt": "2026-10-03T09:11:43.351Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2413,7 +2427,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1947/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:07.839Z",
+      "crawledAt": "2026-10-03T09:11:42.641Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2492,7 +2506,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:06.869Z",
+      "crawledAt": "2026-10-03T09:11:41.904Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2574,7 +2588,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:05.832Z",
+      "crawledAt": "2026-10-03T09:11:41.188Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2662,7 +2676,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": false,
-      "crawledAt": "2026-10-02T21:17:04.846Z",
+      "crawledAt": "2026-10-03T09:11:40.465Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2745,7 +2759,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/1992/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:03.849Z",
+      "crawledAt": "2026-10-03T09:11:39.753Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2790,7 +2804,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-6edeae0f1e41",
@@ -2823,7 +2838,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2014/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:17:02.845Z",
+      "crawledAt": "2026-10-03T09:11:39.031Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -2871,7 +2886,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     },
     {
       "id": "spital-maennedorf-d3a59810196c",
@@ -2982,7 +2998,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-02T21:17:01.861Z",
+      "crawledAt": "2026-10-03T09:11:38.303Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3064,7 +3080,7 @@
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
       "needsRetranslation": true,
-      "crawledAt": "2026-10-02T21:17:00.821Z",
+      "crawledAt": "2026-10-03T09:11:37.587Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3139,7 +3155,7 @@
       "url": "https://recruitingapp-2736.umantis.com/Vacancies/2018/Description/1",
       "source": "Spital Männedorf Dedicated Parser (Umantis tenant 2736)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:16:59.844Z",
+      "crawledAt": "2026-10-03T09:11:36.844Z",
       "addressLocality": "Männedorf",
       "postalCode": "8708",
       "addressCountry": "CH",
@@ -3187,7 +3203,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "needsRetranslation": true
     }
   ]
 }
