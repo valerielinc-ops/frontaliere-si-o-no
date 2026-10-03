@@ -439,18 +439,15 @@ const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
 const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
 const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
-let l5DecisionSessionOpaqueId: string | null = null;
+const L5_COMPLETED_GA_SESSION_KEY = 'fr_l5_completed_ga_session_v1';
+let l5CompletedGaSessionId: string | null = null;
+let l5DecisionMomentQueue: Promise<void> = Promise.resolve();
 
 /**
  * Read the current GA4 session instead of treating a browser tab as a GA4
  * session. GA4 can roll a session while a tab remains open, so a tab-scoped
- * key alone is not safe for an exact outcome join.
+ * flag alone is not safe for an exact per-session outcome.
  */
-function getL5DecisionSessionOpaqueId(): string {
- if (!l5DecisionSessionOpaqueId) l5DecisionSessionOpaqueId = createAnalyticsEmissionIdSource();
- return l5DecisionSessionOpaqueId;
-}
-
 function readGa4SessionId(): Promise<string | null> {
  if (typeof window === 'undefined') return Promise.resolve(null);
  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
@@ -476,17 +473,24 @@ function readGa4SessionId(): Promise<string | null> {
  });
 }
 
-/**
- * Keep the two L5 events joinable in GA4 without sending the opaque key to
- * PostHog. The opaque component prevents cross-user collisions; the current
- * GA4 session component prevents one long-lived tab from joining two GA4
- * sessions. The exporter repeats the same join with GA4's `gaSessionId`
- * dimension and remains fail-closed when the session is unavailable.
- */
-async function getL5DecisionSessionId(): Promise<string> {
- const opaqueId = getL5DecisionSessionOpaqueId();
- const gaSessionId = await readGa4SessionId();
- return gaSessionId ? `${opaqueId}:${gaSessionId}` : opaqueId;
+/** Remember which GA4 session holds an L5 completion (tab storage + memory). */
+function rememberL5Completion(gaSessionId: string): void {
+ l5CompletedGaSessionId = gaSessionId;
+ try {
+  sessionStorage.setItem(L5_COMPLETED_GA_SESSION_KEY, gaSessionId);
+ } catch {
+  // Private browsing or blocked storage: the module value still covers the
+  // current page lifetime.
+ }
+}
+
+function readL5CompletedGaSessionId(): string | null {
+ if (l5CompletedGaSessionId) return l5CompletedGaSessionId;
+ try {
+  return sessionStorage.getItem(L5_COMPLETED_GA_SESSION_KEY);
+ } catch {
+  return null;
+ }
 }
 
 function claimL2UsefulAction(): boolean {
@@ -540,16 +544,36 @@ const log = (eventName: string, params?: Record<string, any>) => {
  maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
-/** Emit L5's session join key to Firebase/GA4 while keeping PostHog historical. */
-const logDecisionMoment = async (eventName: string, params: Record<string, any>) => {
- const enrichedParams = enrichEventParams(eventName, {
-  ...params,
-  decision_session_id: await getL5DecisionSessionId(),
- });
- const posthogParams = { ...enrichedParams };
- delete posthogParams.decision_session_id;
- posthogCapture(eventName, posthogParams);
- logFirebaseOnly(eventName, enrichedParams);
+/** L5 subset rule: a next action reaches GA4 only inside a session that completed. */
+export function shouldSendDecisionMomentToGa4(
+ eventName: string,
+ gaSessionId: string | null,
+ completedGaSessionId: string | null,
+): boolean {
+ if (eventName !== DECISION_MOMENT_NEXT_ACTION_EVENT) return true;
+ return Boolean(gaSessionId) && completedGaSessionId === gaSessionId;
+}
+
+/**
+ * Single emission point of the two L5 events. GA4 receives a next action only
+ * when the same GA4 session already holds a completion, so the sessions with a
+ * next action are by construction a subset of the sessions with a completion:
+ * the outcome exporter reads GA4's native per-event `sessions` metric and
+ * needs neither a join nor a custom dimension. An unknown GA4 session is
+ * fail-closed. PostHog keeps the ungated historical stream. Calls are
+ * serialised so a next action clicked right after a completion sees it.
+ */
+const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> => {
+ const emit = async () => {
+  const enrichedParams = enrichEventParams(eventName, params);
+  posthogCapture(eventName, enrichedParams);
+  const gaSessionId = await readGa4SessionId();
+  if (eventName === DECISION_MOMENT_COMPLETED_EVENT && gaSessionId) rememberL5Completion(gaSessionId);
+  if (!shouldSendDecisionMomentToGa4(eventName, gaSessionId, readL5CompletedGaSessionId())) return;
+  logFirebaseOnly(eventName, enrichedParams);
+ };
+ l5DecisionMomentQueue = l5DecisionMomentQueue.then(emit).catch(() => undefined);
+ return l5DecisionMomentQueue;
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -2019,9 +2043,8 @@ export const Analytics = {
  /**
  * L5 decision-surface outcome contract. These fields are categorical only:
  * no user-entered answers, labels or destination URLs are sent. The outcome
- * exporter joins the two Firebase/GA4 events by an opaque decision-session
- * key plus the GA4 session; neither is mirrored into the historical PostHog
- * payload.
+ * exporter counts GA4 sessions per event; `logDecisionMoment` keeps the
+ * next-action sessions inside the completion sessions.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
   void logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {

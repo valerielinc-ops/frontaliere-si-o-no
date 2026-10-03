@@ -13,7 +13,6 @@ on:
       - 'scripts/lib/nursing-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
@@ -32,7 +31,6 @@ on:
       - 'scripts/lib/nursing-landing-path.mjs'
       - 'scripts/ci/export-loop-outcomes.mjs'
       - 'scripts/lib/ga4-service-account.mjs'
-      - 'scripts/lib/ga4-l5-decision-dimension.mjs'
       - 'scripts/lib/analytics-settled-window.mjs'
       - 'scripts/ci/loop-l2-demand-utility.mjs'
       - 'scripts/ci/record-loop-fleet-evidence.mjs'
@@ -75,7 +73,6 @@ jobs:
             /scripts/lib/nursing-landing-path.mjs
             /scripts/ci/export-loop-outcomes.mjs
             /scripts/lib/ga4-service-account.mjs
-            /scripts/lib/ga4-l5-decision-dimension.mjs
             /scripts/lib/analytics-settled-window.mjs
             /scripts/ci/loop-l2-demand-utility.mjs
             /scripts/ci/record-loop-fleet-evidence.mjs

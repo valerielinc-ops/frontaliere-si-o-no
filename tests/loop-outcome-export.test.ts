@@ -11,7 +11,6 @@ import {
   buildL3OutcomeExport,
   buildL4OutcomeLedger,
   buildL5DecisionMomentExport,
-  buildL5DecisionMomentReportBody,
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
@@ -19,7 +18,7 @@ import {
   exportL4,
   exportL5,
   exportL7,
-  fetchGa4EventSessionKeys,
+  fetchL5EventSessions,
   GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
@@ -157,23 +156,8 @@ describe('read-only loop outcome exporters', () => {
           calls.push({ url, init });
           const body = JSON.parse(String(init.body));
           const eventName = body.dimensionFilter.filter.stringFilter.value;
-          const sessionKeys = eventName === 'decision_moment_completed'
-            ? Array.from({ length: 120 }, (_, index) => ({
-              decisionSessionId: `session-${index}`,
-              gaSessionId: `ga-session-${index}`,
-            }))
-            : Array.from({ length: 45 }, (_, index) => ({
-              decisionSessionId: `session-${index}`,
-              gaSessionId: `ga-session-${index}`,
-            }));
-          return {
-            dimensionHeaders: [{ name: 'customEvent:decision_session_id' }, { name: 'gaSessionId' }],
-            rowCount: sessionKeys.length,
-            rows: sessionKeys.map(({ decisionSessionId, gaSessionId }) => ({
-              dimensionValues: [{ value: decisionSessionId }, { value: gaSessionId }],
-              metricValues: [{ value: '1' }],
-            })),
-          };
+          const sessions = eventName === 'decision_moment_completed' ? 120 : 45;
+          return { rowCount: 1, rows: [{ metricValues: [{ value: String(sessions) }] }] };
         },
       } as any,
     });
@@ -184,10 +168,13 @@ describe('read-only loop outcome exporters', () => {
       const body = JSON.parse(String(call.init.body));
       expect(body).toMatchObject({
         dateRanges: [{ startDate: '2026-09-03', endDate: '2026-09-10' }],
-        dimensions: [{ name: 'customEvent:decision_session_id' }, { name: 'gaSessionId' }],
         metrics: [{ name: 'sessions' }],
         dimensionFilter: { filter: { fieldName: 'eventName', stringFilter: { matchType: 'EXACT' } } },
       });
+      // The property has no free EVENT-scoped slot: the L5 report must be
+      // answerable without any dimension, custom or otherwise.
+      expect(body.dimensions).toBeUndefined();
+      expect(String(call.init.body)).not.toContain('customEvent:');
     }
     expect(output).toMatchObject({
       independent: true,
@@ -386,60 +373,42 @@ describe('read-only loop outcome exporters', () => {
   });
 
   it('exports the L5 completed-task to next-useful-action contract', async () => {
-    const query = buildL5DecisionMomentReportBody({
-      eventName: 'decision_moment_completed',
-      startDate: '2026-09-05',
-      endDate: '2026-09-12',
-    });
-    expect(query).toMatchObject({
-      dateRanges: [{ startDate: '2026-09-05', endDate: '2026-09-12' }],
-      dimensions: [{ name: 'customEvent:decision_session_id' }, { name: 'gaSessionId' }],
-      metrics: [{ name: 'sessions' }],
-      dimensionFilter: {
-        filter: {
-          fieldName: 'eventName',
-          stringFilter: { value: 'decision_moment_completed', matchType: 'EXACT' },
-        },
-      },
-      limit: 250_000,
-    });
-
     const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l5-export-test-'));
     const calls: string[] = [];
+    const report = (sessions: number) => ({ rowCount: 1, rows: [{ metricValues: [{ value: String(sessions) }] }] });
+    const clientFor = (completed: number, nextAction: number) => ({
+      request: async (_url: string, init: RequestInit) => {
+        const eventName = JSON.parse(String(init.body)).dimensionFilter.filter.stringFilter.value;
+        calls.push(eventName);
+        return report(eventName === 'decision_moment_completed' ? completed : nextAction);
+      },
+    });
     const output = await (exportL5 as any)({
       now: NOW,
       outputPath: path.join(outputDir, 'outcomes.json'),
-      client: {
-        request: async (_url: string, init: RequestInit) => {
-          const body = JSON.parse(String(init.body));
-          const eventName = body.dimensionFilter.filter.stringFilter.value;
-          calls.push(eventName);
-          const sessionKeys = eventName === 'decision_moment_completed'
-            ? [{ gaSessionId: 'S1', decisionSessionId: 'K' }, { gaSessionId: 'S2', decisionSessionId: 'K' }]
-            : [{ gaSessionId: 'S2', decisionSessionId: 'K' }];
-          return {
-            dimensionHeaders: [{ name: 'customEvent:decision_session_id' }, { name: 'gaSessionId' }],
-            rowCount: sessionKeys.length,
-            rows: sessionKeys.map(({ gaSessionId, decisionSessionId }) => ({
-              dimensionValues: [{ value: decisionSessionId }, { value: gaSessionId }],
-              metricValues: [{ value: '1' }],
-            })),
-          };
-        },
-      },
+      client: clientFor(1598, 19),
     });
 
-    expect(calls).toEqual(['decision_moment_completed', 'decision_moment_next_action']);
+    expect([...calls].sort()).toEqual(['decision_moment_completed', 'decision_moment_next_action']);
     expect(output).toMatchObject({
       loopId: 'L5',
       independent: true,
-      eligibleDecisionSessions: 2,
-      nextUsefulActions: 1,
+      eligibleDecisionSessions: 1598,
+      nextUsefulActions: 19,
       evidence: {
         sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
+        eventContract: { nextActionGate: 'emitted only after a completion in the same GA4 session' },
       },
     });
+    expect(output.evidence.eventContract).not.toHaveProperty('sessionDimension');
     expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
+
+    // More next-action sessions than completion sessions contradicts the
+    // client gate: no outcome file may be written as a measurement.
+    const rejectedPath = path.join(outputDir, 'rejected.json');
+    await expect((exportL5 as any)({ now: NOW, outputPath: rejectedPath, client: clientFor(1, 2) }))
+      .rejects.toThrow('nextUsefulActions greater than eligibleDecisionSessions');
+    expect(fs.existsSync(rejectedPath)).toBe(false);
     expect(() => buildL5DecisionMomentExport({
       eligibleDecisionSessions: 1,
       nextUsefulActions: 2,
@@ -447,23 +416,31 @@ describe('read-only loop outcome exporters', () => {
     })).toThrow('nextUsefulActions greater than eligibleDecisionSessions');
   });
 
-  it('ignores legacy L5 rows without a decision key while preserving keyed GA4 sessions', async () => {
-    const rows = [
-      { dimensionValues: [{ value: '(not set)' }, { value: 'legacy-session' }], metricValues: [{ value: '1' }] },
-      { dimensionValues: [{ value: 'K' }, { value: 'S1' }], metricValues: [{ value: '1' }] },
-    ];
-    await expect(fetchGa4EventSessionKeys({
-      client: {
-        request: async () => ({
-          dimensionHeaders: [{ name: 'customEvent:decision_session_id' }, { name: 'gaSessionId' }],
-          rowCount: rows.length,
-          rows,
-        }),
-      },
-      eventName: 'decision_moment_completed',
-      startDate: '2026-09-05',
-      endDate: '2026-09-12',
-    })).resolves.toEqual(new Set([JSON.stringify(['S1', 'K'])]));
+  it('reads an absent L5 event as zero sessions and refuses approximated totals', async () => {
+    const range = { eventName: 'decision_moment_next_action', startDate: '2026-09-05', endDate: '2026-09-12' };
+    const clientReturning = (payload: unknown) => ({ request: async () => payload });
+
+    await expect(fetchL5EventSessions({ client: clientReturning({}), ...range })).resolves.toBe(0);
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }] }),
+      ...range,
+    })).resolves.toBe(19);
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }], metadata: { subjectToThresholding: true } }),
+      ...range,
+    })).rejects.toThrow('incomplete or thresholded');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '19' }] }], metadata: { samplingMetadatas: [{}] } }),
+      ...range,
+    })).rejects.toThrow('incomplete or thresholded');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '1' }] }, { metricValues: [{ value: '2' }] }] }),
+      ...range,
+    })).rejects.toThrow('2 rows for a dimensionless total');
+    await expect(fetchL5EventSessions({
+      client: clientReturning({ rows: [{ metricValues: [{ value: '1.5' }] }] }),
+      ...range,
+    })).rejects.toThrow('invalid sessions for decision_moment_next_action');
   });
 
   it('keeps the L7 ledger fail-closed when canonical experiment evidence is absent or unsafe', async () => {

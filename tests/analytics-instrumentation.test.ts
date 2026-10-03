@@ -23,7 +23,7 @@
 import { readFileSync, readdirSync, lstatSync } from 'node:fs';
 import { resolve, join } from 'node:path';
 
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 
 const repoRoot = resolve(__dirname, '..');
 
@@ -194,7 +194,9 @@ describe('analytics.ts — L5 decision-moment contract', () => {
     expect(analyticsSrc).toContain("DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed'");
     expect(analyticsSrc).toContain("DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action'");
     expect(analyticsSrc).toContain("gtag('get', GA4_MEASUREMENT_ID, 'session_id'");
-    expect(analyticsSrc).toMatch(/decision_session_id:\s*await getL5DecisionSessionId\(\)/);
+    // L5 needs no session-key parameter: a GA4 custom dimension for it cannot
+    // be created (the property is at the 50 EVENT-dimension cap).
+    expect(analyticsSrc).not.toContain('decision_session_id');
     const completion = analyticsSrc.match(/trackDecisionMomentCompleted:[\s\S]*?\n \},/);
     const nextAction = analyticsSrc.match(/trackDecisionMomentNextAction:[\s\S]*?\n \},/);
     expect(completion?.[0]).toMatch(/decision_surface:/);
@@ -203,6 +205,28 @@ describe('analytics.ts — L5 decision-moment contract', () => {
     expect(nextAction?.[0]).toMatch(/decision_surface:/);
     expect(nextAction?.[0]).toMatch(/action_id:/);
     expect(nextAction?.[0]).not.toMatch(/email|answer|target_url|href/i);
+  });
+
+  it('sends a next action to GA4 only inside a GA4 session that already completed', async () => {
+    const { shouldSendDecisionMomentToGa4 } = await vi.importActual<typeof import('../services/analytics')>('../services/analytics');
+    const next = 'decision_moment_next_action';
+    expect(shouldSendDecisionMomentToGa4('decision_moment_completed', null, null)).toBe(true);
+    expect(shouldSendDecisionMomentToGa4(next, 'ga-1', 'ga-1')).toBe(true);
+    // No completion yet, a completion in a previous GA4 session, or an
+    // unknown GA4 session: the exporter's subset assumption would not hold.
+    expect(shouldSendDecisionMomentToGa4(next, 'ga-1', null)).toBe(false);
+    expect(shouldSendDecisionMomentToGa4(next, 'ga-2', 'ga-1')).toBe(false);
+    expect(shouldSendDecisionMomentToGa4(next, null, null)).toBe(false);
+  });
+
+  it('routes both L5 events through the one gated emission point', () => {
+    const emitter = analyticsSrc.match(/const logDecisionMoment = [\s\S]*?\n\};/)?.[0] ?? '';
+    expect(emitter).toMatch(/if \(!shouldSendDecisionMomentToGa4\([^)]*\)\)\) return;\s*logFirebaseOnly\(eventName, enrichedParams\);/);
+    expect(emitter.match(/logFirebaseOnly\(/g)).toHaveLength(1);
+    for (const eventConstant of ['DECISION_MOMENT_COMPLETED_EVENT', 'DECISION_MOMENT_NEXT_ACTION_EVENT']) {
+      const emissions = analyticsSrc.match(new RegExp(`\\w+\\(${eventConstant},`, 'g')) ?? [];
+      expect(emissions).toEqual([`logDecisionMoment(${eventConstant},`]);
+    }
   });
 });
 
