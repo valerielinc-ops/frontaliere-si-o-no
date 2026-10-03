@@ -32,6 +32,15 @@ import { AD_FILL_TIMEOUT_MS, AD_SLOT_VIEWPORT_ROOT_MARGIN } from '@/services/ads
 // AdSense Auto Ads / RPM / CWV.
 export const GPT_ENABLED = true;
 
+// The GPT rewarded video (services/rewardedWebAd.ts) is off (owner decision,
+// 2026-10-03): its Ad Manager unit has no eligible demand, so no request ever
+// returned a video (1,907 requests, 0 videos, 29-09 → 03-10) and the click
+// only waited for it. With the flag off no rewarded request is sent, on the
+// job detail or at the click; the AdSense Offerwall stays the only rewarded
+// demand. Flip to `true` once the unit has demand (a linked Ad Exchange
+// property or a reservation line item).
+export const GPT_REWARDED_ENABLED = false;
+
 const GPT_SCRIPT_SRC = 'https://securepubads.g.doubleclick.net/tag/js/gpt.js';
 
 const IS_PROD = typeof window !== 'undefined' && isAdSenseProductionHost(window.location.hostname);

@@ -150,6 +150,14 @@
       ]
     },
     {
+      "collectionGroup": "private",
+      "fieldPath": "applicationIntentAuthUid",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    {
       "collectionGroup": "campaign_deliveries",
       "fieldPath": "campaign_id",
       "indexes": [
@@ -194,6 +202,71 @@
       "fieldPath": "expires_at",
       "ttl": true,
       "indexes": []
-    }
+    },
+    {
+      "collectionGroup": "campaign_deliveries",
+      "fieldPath": "clicked_at",
+      "indexes": [
+        { "order": "ASCENDING", "queryScope": "COLLECTION" },
+        { "order": "ASCENDING", "queryScope": "COLLECTION_GROUP" }
+      ]
+    },
+    { "collectionGroup": "campaign_deliveries", "fieldPath": "ranking_jobs", "indexes": [] },
+    { "collectionGroup": "alerts", "fieldPath": "ranking_stats", "indexes": [] },
+    { "collectionGroup": "alerts", "fieldPath": "sentJobIds", "indexes": [] },
+    { "collectionGroup": "events", "fieldPath": "metadata", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "alert_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "ctr_shrink", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "delivery_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "event_type", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "job_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "message_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "newsletter_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "position", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "provider", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "random_boost", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "ranking_score", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "ranking_variant", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "relevance_score", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "surface", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "surface_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_events", "fieldPath": "user_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "alert_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "delivery_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "jobs", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "newsletter_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "ranking_variant", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "surface", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "surface_id", "indexes": [] },
+    { "collectionGroup": "job_email_ranking_deliveries", "fieldPath": "user_id", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "auctionStatus", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "bidCount", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "canton", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "closedAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "currentBidChf", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "dataConfidence", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "disappearedFromCatalogue", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "endsAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "finalPriceChf", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "finalPriceVerifiedAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "firstSeenAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "id", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "lastAskingPriceChf", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "lastVerifiedAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "listingType", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "minimumIncrementChf", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "missingSince", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "normalizedPlate", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "officialAuctionUrl", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "officialDetailUrl", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "plateNumber", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "platePattern", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "platePrefix", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "rawSnapshotHash", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "sourceCategory", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "sourceRecordId", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "startingPriceChf", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "startsAt", "indexes": [] },
+    { "collectionGroup": "plate_auctions_history", "fieldPath": "vehicleType", "indexes": [] }
   ]
 }

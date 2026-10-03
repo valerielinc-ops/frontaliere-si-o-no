@@ -14,7 +14,6 @@ const translations: Record<string, string> = {
  'companies.filterPublishedJobs': 'Con offerte di lavoro pubblicate',
  'companies.jobsPublishedSingle': '{count} offerta pubblicata',
  'companies.jobsPublishedPlural': '{count} offerte pubblicate',
- 'strumenti.payslip': 'Busta Paga',
  'strumenti.carCost': 'Costo Auto',
  'strumenti.permitCompare': 'G vs B',
  'strumenti.livability': 'Vivibilità',
