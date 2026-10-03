@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coopers",
-  "assembledAt": "2026-10-02T21:27:00.492Z",
+  "assembledAt": "2026-10-03T09:23:40.399Z",
   "jobs": [
     {
       "id": "coopers-ab1752bb6b8f",
@@ -33,7 +33,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5QI3F8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:53.846Z",
+      "crawledAt": "2026-10-03T09:23:34.279Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -80,12 +80,14 @@
         "lead-expeditor-m-f-d-coopers-wallis",
         "leiter-m-f-d-coopers-group-ag-wallis",
         "expediteur-de-plomb-m-f-d-coopers-group-ag-wallis",
-        "engineering-planner-m-f-d-coopers-wallis"
+        "engineering-planner-m-f-d-coopers-wallis",
+        "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "engineering-planer-m-f-d-coopers-wallis",
-          "engineering-planner-m-f-d-coopers-wallis"
+          "engineering-planner-m-f-d-coopers-wallis",
+          "piano-di-ingegneria-m-f-d-coopers-group-ag-wallis"
         ],
         "en": [
           "engineering-planner-m-f-d-coopers-group-ag-wallis",
@@ -144,7 +146,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=1R4I0V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:52.872Z",
+      "crawledAt": "2026-10-03T09:23:33.340Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -222,7 +224,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=VWR329",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:51.898Z",
+      "crawledAt": "2026-10-03T09:23:32.414Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -302,7 +304,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5T0BU4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:50.925Z",
+      "crawledAt": "2026-10-03T09:23:31.491Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -337,14 +339,17 @@
       "firstSeenAt": "2026-07-27T22:23:50.233Z",
       "previousSlugsByLocale": {
         "it": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ],
         "de": [
-          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+          "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+          "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
         ]
       },
       "previousSlugs": [
-        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug"
+        "ict-infrastructure-engineer-microsoft-network-80-bis-100-m-w-d-coopers-zug",
+        "ict-system-network-engineer-80-bis-100-m-w-d-coopers-zug"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -391,7 +396,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C17UR4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:49.964Z",
+      "crawledAt": "2026-10-03T09:23:30.566Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -424,11 +429,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+        "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+        "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
+          "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern",
+          "senior-responsabile-di-progetto-neuausschreibung-client-hardware-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-projektleiter-in-neuausschreibung-client-hardware-m-w-d-coopers-bern"
@@ -484,7 +491,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=49GUV9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:48.973Z",
+      "crawledAt": "2026-10-03T09:23:29.636Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -529,7 +536,8 @@
         "specialiste-principal-de-la-gestion-des-projets-m-m-j-coopers-group-ag-bern",
         "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
         "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
-        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern"
+        "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-group-ag-bern",
+        "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -537,7 +545,8 @@
           "projectmanagement-officer-pmo-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-geschaftsleitung-m-w-d-coopers-bern",
           "projektassistenz-assistenz-der-leitung-it-m-w-d-coopers-bern",
-          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern"
+          "project-management-officer-pmo-servicekalkulationen-m-w-d-coopers-bern",
+          "gestione-del-progetto-ufficio-pmo-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "projectmanagement-officer-pmo-m-w-d-coopers-bern"
@@ -599,7 +608,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=DE041O",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:47.963Z",
+      "crawledAt": "2026-10-03T09:23:28.702Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -629,11 +638,13 @@
         ]
       },
       "previousSlugs": [
-        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+        "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+        "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
+          "it-applikationsmanager-80-100-m-w-d-coopers-thurgau",
+          "it-application-manager-80-100-m-f-d-coopers-group-ag-thurgau"
         ],
         "en": [
           "it-applikationsmanager-80-100-m-w-d-coopers-thurgau"
@@ -689,7 +700,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GS86S5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:46.994Z",
+      "crawledAt": "2026-10-03T09:23:27.771Z",
       "addressLocality": "Thurgau",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -770,7 +781,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W060PD",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:46.013Z",
+      "crawledAt": "2026-10-03T09:23:26.844Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -804,13 +815,15 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+          "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
           "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
           "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-          "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+          "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+          "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern"
@@ -824,7 +837,8 @@
         "it-projektleiter-in-infrastruktur-20-m-w-d-coopers-bern",
         "senior-it-responsabile-di-progetto-reporting-data-m-w-d-coopers-group-ag-bern",
         "senior-it-projektleiter-in-reporting-data-m-w-d-coopers-bern",
-        "senior-it-projektleiter-in-20-m-w-d-coopers-bern"
+        "senior-it-projektleiter-in-20-m-w-d-coopers-bern",
+        "it-responsabile-di-progetto-infrastruktur-20-m-w-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-21T09:53:46.212Z",
@@ -873,7 +887,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=E4R7W1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:45.052Z",
+      "crawledAt": "2026-10-03T09:23:25.911Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -904,11 +918,13 @@
         ]
       },
       "previousSlugs": [
-        "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+        "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+        "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "teamlead-business-applications-proalpha-m-w-d-coopers-bern"
+          "teamlead-business-applications-proalpha-m-w-d-coopers-bern",
+          "applicazioni-aziendali-proalpha-m-f-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -958,7 +974,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FEW938",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:44.088Z",
+      "crawledAt": "2026-10-03T09:23:24.992Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -991,11 +1007,13 @@
       },
       "previousSlugs": [
         "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
-        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis"
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-directeur-m-f-d-coopers-group-ag-wallis",
+        "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers",
+          "senior-engineering-maintenance-expert-ibex-readiness-operations-direttore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "senior-engineering-maintenance-expert-ibex-readiness-operations-director-m-f-d-coopers"
@@ -1052,7 +1070,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=97WWQ3",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:43.108Z",
+      "crawledAt": "2026-10-03T09:23:24.050Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1084,11 +1102,13 @@
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+        "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+        "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
+          "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern",
+          "responsabile-di-progetto-isds-weiterentwicklung-m-w-d-coopers-group-ag-luzern"
         ],
         "en": [
           "projektleiter-in-isds-weiterentwicklung-m-w-d-coopers-luzern"
@@ -1144,7 +1164,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=XY130U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:41.937Z",
+      "crawledAt": "2026-10-03T09:23:23.116Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -1175,11 +1195,13 @@
         ]
       },
       "previousSlugs": [
-        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+        "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+        "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
+          "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt",
+          "talent-acquisition-specialista-basel-m-w-d-coopers-group-ag-basel-stadt"
         ],
         "fr": [
           "talent-acquisition-specialist-basel-m-w-d-coopers-basel-stadt"
@@ -1232,7 +1254,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O4UI83",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:40.940Z",
+      "crawledAt": "2026-10-03T09:23:22.166Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1268,11 +1290,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+        "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+        "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-go-developer-m-w-d-coopers-bern"
+          "senior-software-engineer-go-developer-m-w-d-coopers-bern",
+          "senior-software-ingegnere-go-sviluppatore-m-w-d-coopers-group-ag-bern"
         ]
       },
       "needsRetranslation": true,
@@ -1322,7 +1346,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=00FKF7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:39.978Z",
+      "crawledAt": "2026-10-03T09:23:21.235Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -1355,11 +1379,13 @@
         ]
       },
       "previousSlugs": [
-        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+        "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+        "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
+          "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft",
+          "specialista-di-sistema-in-f5-m-f-d-coopers-group-ag-basel-landschaft"
         ],
         "en": [
           "system-spezialist-in-f5-m-w-d-coopers-basel-landschaft"
@@ -1415,7 +1441,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4UVZ38",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:38.984Z",
+      "crawledAt": "2026-10-03T09:23:20.291Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -1448,12 +1474,14 @@
       },
       "previousSlugs": [
         "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+        "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+        "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern",
-          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern"
+          "sviluppatore-java-senior-in-m-f-d-coopers-group-ag-luzern",
+          "sviluppatore-senior-aem-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-aem-entwickler-in-m-w-d-coopers-luzern"
@@ -1509,7 +1537,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=16F3NB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:38.010Z",
+      "crawledAt": "2026-10-03T09:23:19.365Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -1539,11 +1567,13 @@
         ]
       },
       "previousSlugs": [
-        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
+        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
+        "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
+          "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
+          "sheq-specialista-schwerpunkt-arbeitssicherheit-m-w-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau"
@@ -1596,7 +1626,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=4QDT87",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:37.040Z",
+      "crawledAt": "2026-10-03T09:23:18.439Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1631,11 +1661,13 @@
         ]
       },
       "previousSlugs": [
-        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+        "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+        "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
+          "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern",
+          "sviluppatore-sharepoint-in-on-premises-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "sharepoint-entwickler-in-on-premises-m-w-d-coopers-bern"
@@ -1688,7 +1720,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=Q94TV4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:36.059Z",
+      "crawledAt": "2026-10-03T09:23:17.508Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1767,7 +1799,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=C632JR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:35.099Z",
+      "crawledAt": "2026-10-03T09:23:16.574Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1853,7 +1885,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SY6F22",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:34.111Z",
+      "crawledAt": "2026-10-03T09:23:15.637Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -1885,11 +1917,13 @@
         ]
       },
       "previousSlugs": [
-        "people-attraction-manager-m-w-d-coopers-bern"
+        "people-attraction-manager-m-w-d-coopers-bern",
+        "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "people-attraction-manager-m-w-d-coopers-bern"
+          "people-attraction-manager-m-w-d-coopers-bern",
+          "gestore-di-attrazione-delle-persone-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "people-attraction-manager-m-w-d-coopers-bern"
@@ -1942,7 +1976,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0R36QX",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:33.125Z",
+      "crawledAt": "2026-10-03T09:23:14.715Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -1974,11 +2008,13 @@
         ]
       },
       "previousSlugs": [
-        "cold-chain-project-coordinator-m-f-d-coopers-wallis"
+        "cold-chain-project-coordinator-m-f-d-coopers-wallis",
+        "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "cold-chain-project-coordinator-m-f-d-coopers-wallis"
+          "cold-chain-project-coordinator-m-f-d-coopers-wallis",
+          "cold-chain-project-coordinatore-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "cold-chain-project-coordinator-m-f-d-coopers-wallis"
@@ -2034,7 +2070,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=57J0ZU",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:32.155Z",
+      "crawledAt": "2026-10-03T09:23:13.789Z",
       "addressLocality": "Waadt",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -2112,7 +2148,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=IS127K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:31.186Z",
+      "crawledAt": "2026-10-03T09:23:12.865Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2145,12 +2181,14 @@
       },
       "previousSlugs": [
         "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-        "ikt-projektleiter-in-m-w-d-coopers-bern"
+        "ikt-projektleiter-in-m-w-d-coopers-bern",
+        "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern",
-          "ikt-projektleiter-in-m-w-d-coopers-bern"
+          "ikt-projektleiter-in-m-w-d-coopers-bern",
+          "ikt-responsabile-di-progetto-bauvorhaben-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "ikt-projektleiter-in-bauvorhaben-m-w-d-coopers-bern"
@@ -2206,7 +2244,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=O30O2Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:30.215Z",
+      "crawledAt": "2026-10-03T09:23:11.932Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2238,11 +2276,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-security-architect-m-w-d-coopers-bern"
+        "senior-ict-security-architect-m-w-d-coopers-bern",
+        "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-security-architect-m-w-d-coopers-bern"
+          "senior-ict-security-architect-m-w-d-coopers-bern",
+          "senior-ict-security-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-security-architect-m-w-d-coopers-bern"
@@ -2295,7 +2335,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8NMC01",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:29.248Z",
+      "crawledAt": "2026-10-03T09:23:11.009Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2329,11 +2369,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
+        "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
+        "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
+          "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern",
+          "senior-ict-infrastructure-network-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-infrastructure-network-architect-m-w-d-coopers-bern"
@@ -2386,7 +2428,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R028DI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:28.276Z",
+      "crawledAt": "2026-10-03T09:23:10.078Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2418,11 +2460,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-ict-data-integration-architect-m-w-d-coopers-bern"
+        "senior-ict-data-integration-architect-m-w-d-coopers-bern",
+        "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-ict-data-integration-architect-m-w-d-coopers-bern"
+          "senior-ict-data-integration-architect-m-w-d-coopers-bern",
+          "senior-ict-data-integration-architetto-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-ict-data-integration-architect-m-w-d-coopers-bern"
@@ -2475,7 +2519,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=F65WS0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:27.312Z",
+      "crawledAt": "2026-10-03T09:23:09.153Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2554,7 +2598,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=KP22M2",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:26.346Z",
+      "crawledAt": "2026-10-03T09:23:08.221Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2587,11 +2631,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
+        "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
+        "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
+          "senior-itsm-servicenow-engineer-m-w-d-coopers-bern",
+          "senior-itsm-servicenow-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-itsm-servicenow-engineer-m-w-d-coopers-bern"
@@ -2644,7 +2690,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=SD224W",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:25.368Z",
+      "crawledAt": "2026-10-03T09:23:07.272Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2679,11 +2725,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-security-encryption-engineer-m-w-d-coopers-bern"
+        "senior-security-encryption-engineer-m-w-d-coopers-bern",
+        "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-security-encryption-engineer-m-w-d-coopers-bern"
+          "senior-security-encryption-engineer-m-w-d-coopers-bern",
+          "senior-security-encryption-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-security-encryption-engineer-m-w-d-coopers-bern"
@@ -2736,7 +2784,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=6A9K7N",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:24.393Z",
+      "crawledAt": "2026-10-03T09:23:06.351Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2814,7 +2862,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5CUJ92",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:23.399Z",
+      "crawledAt": "2026-10-03T09:23:05.401Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -2850,11 +2898,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
+        "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
+        "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
+          "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern",
+          "senior-infrastructure-network-security-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-infrastructure-network-security-engineer-m-w-d-coopers-bern"
@@ -3005,7 +3055,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=44RK3F",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:22.398Z",
+      "crawledAt": "2026-10-03T09:23:04.471Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3041,11 +3091,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern"
+          "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
+          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
         ],
         "it": [
           "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
+          "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
+          "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
         ],
         "en": [
           "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
@@ -3053,7 +3105,8 @@
       },
       "previousSlugs": [
         "it-projektleiter-in-betriebsorganisation-m-w-d-coopers-bern",
-        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern"
+        "senior-business-transformation-operational-readiness-manager-m-w-d-coopers-bern",
+        "it-project-manager-organizzazione-operativa-m-f-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:57:58.876Z",
@@ -3102,7 +3155,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9OZ1U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:21.431Z",
+      "crawledAt": "2026-10-03T09:23:03.544Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3133,11 +3186,13 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
+        "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
+        "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
+          "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug",
+          "biospecimen-specialista-employee-specimen-donation-program-coordinatore-m-f-d-coopers-group-ag-zug"
         ],
         "de": [
           "biospecimen-specialist-employee-specimen-donation-program-coordinator-m-f-d-coopers-zug"
@@ -3193,7 +3248,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=39BZE7",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:20.462Z",
+      "crawledAt": "2026-10-03T09:23:02.606Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -3228,11 +3283,13 @@
         ]
       },
       "previousSlugs": [
-        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
+        "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
+        "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
+          "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug",
+          "biospecimen-specialista-biorepository-specialista-m-f-d-coopers-group-ag-zug"
         ],
         "de": [
           "biospecimen-specialist-biorepository-specialist-m-f-d-coopers-zug"
@@ -3288,7 +3345,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=5R7C9Y",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:18.497Z",
+      "crawledAt": "2026-10-03T09:23:01.675Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3374,7 +3431,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3TX5I5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:17.515Z",
+      "crawledAt": "2026-10-03T09:23:00.733Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3406,11 +3463,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
+        "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
+        "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
+          "senior-it-integration-devops-engineer-m-w-d-coopers-bern",
+          "senior-it-integration-devops-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-it-integration-devops-engineer-m-w-d-coopers-bern"
@@ -3463,7 +3522,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=36VY1K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:16.552Z",
+      "crawledAt": "2026-10-03T09:22:59.807Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3495,11 +3554,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-api-integration-engineer-m-w-d-coopers-bern"
+        "senior-api-integration-engineer-m-w-d-coopers-bern",
+        "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-api-integration-engineer-m-w-d-coopers-bern"
+          "senior-api-integration-engineer-m-w-d-coopers-bern",
+          "senior-api-integration-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-api-integration-engineer-m-w-d-coopers-bern"
@@ -3552,7 +3613,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=75BIF6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:15.579Z",
+      "crawledAt": "2026-10-03T09:22:58.866Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3634,7 +3695,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=B567TP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:14.601Z",
+      "crawledAt": "2026-10-03T09:22:57.934Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3668,11 +3729,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-test-collaboration-engineer-m-w-d-coopers-bern"
+        "senior-test-collaboration-engineer-m-w-d-coopers-bern",
+        "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-test-collaboration-engineer-m-w-d-coopers-bern"
+          "senior-test-collaboration-engineer-m-w-d-coopers-bern",
+          "senior-test-collaboration-ingegnere-m-w-d-coopers-group-ag-bern"
         ],
         "fr": [
           "senior-test-collaboration-engineer-m-w-d-coopers-bern"
@@ -3725,7 +3788,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=0IC2T1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:13.638Z",
+      "crawledAt": "2026-10-03T09:22:56.942Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -3803,7 +3866,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=J99KY6",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:12.656Z",
+      "crawledAt": "2026-10-03T09:22:56.004Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -3835,11 +3898,13 @@
         ]
       },
       "previousSlugs": [
-        "gxp-compliance-expert-m-f-d-coopers-aargau"
+        "gxp-compliance-expert-m-f-d-coopers-aargau",
+        "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gxp-compliance-expert-m-f-d-coopers-aargau"
+          "gxp-compliance-expert-m-f-d-coopers-aargau",
+          "esperto-di-conformita-gxp-m-f-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -3889,7 +3954,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=42FNN0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:11.694Z",
+      "crawledAt": "2026-10-03T09:22:55.077Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -3921,11 +3986,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
+        "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
+        "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
+          "senior-java-ee-entwickler-in-m-w-d-coopers-luzern",
+          "sviluppatore-java-ee-senior-m-f-d-coopers-group-ag-luzern"
         ],
         "en": [
           "senior-java-ee-entwickler-in-m-w-d-coopers-luzern"
@@ -3981,7 +4048,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=AE331U",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:10.728Z",
+      "crawledAt": "2026-10-03T09:22:54.146Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4014,11 +4081,13 @@
         ]
       },
       "previousSlugs": [
-        "product-owner-m-w-d-coopers-solothurn"
+        "product-owner-m-w-d-coopers-solothurn",
+        "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-owner-m-w-d-coopers-solothurn"
+          "product-owner-m-w-d-coopers-solothurn",
+          "proprietario-del-prodotto-m-f-d-coopers-group-ag-solothurn"
         ],
         "fr": [
           "product-owner-m-w-d-coopers-solothurn"
@@ -4071,7 +4140,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=9JMN86",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:09.767Z",
+      "crawledAt": "2026-10-03T09:22:53.207Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4106,11 +4175,13 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+          "ict-teilprojektleiter-in-m-w-d-coopers-bern"
         ],
         "it": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+          "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+          "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
         ],
         "en": [
           "ict-teilprojektleiter-in-m-w-d-coopers-bern"
@@ -4121,7 +4192,8 @@
       },
       "previousSlugs": [
         "ict-teilprojektleiter-in-m-w-d-coopers-bern",
-        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern"
+        "ict-technische-r-projektleiter-in-senior-m-w-d-coopers-bern",
+        "ict-technische-r-responsabile-di-progetto-senior-m-w-d-coopers-group-ag-bern"
       ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-25T14:51:02.495Z",
@@ -4170,7 +4242,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=80N9VI",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:08.592Z",
+      "crawledAt": "2026-10-03T09:22:52.276Z",
       "addressLocality": "Basel-Landschaft",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -4203,11 +4275,13 @@
         ]
       },
       "previousSlugs": [
-        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
+        "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
+        "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
+          "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft",
+          "commissioning-qualification-ingegnere-cqe-m-w-d-coopers-group-ag-basel-landschaft"
         ],
         "fr": [
           "commissioning-qualification-engineer-cqe-m-w-d-coopers-basel-landschaft"
@@ -4260,7 +4334,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=LC8J59",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:07.614Z",
+      "crawledAt": "2026-10-03T09:22:51.348Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -4339,7 +4413,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=FV93U1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:06.637Z",
+      "crawledAt": "2026-10-03T09:22:50.424Z",
       "addressLocality": "Schaffhausen",
       "addressRegion": "SH",
       "addressCountry": "CH",
@@ -4372,11 +4446,13 @@
         ]
       },
       "previousSlugs": [
-        "power-plattform-developer-m-w-d-coopers-schaffhausen"
+        "power-plattform-developer-m-w-d-coopers-schaffhausen",
+        "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "power-plattform-developer-m-w-d-coopers-schaffhausen"
+          "power-plattform-developer-m-w-d-coopers-schaffhausen",
+          "power-plattform-sviluppatore-m-w-d-coopers-group-ag-schaffhausen"
         ],
         "fr": [
           "power-plattform-developer-m-w-d-coopers-schaffhausen"
@@ -4429,7 +4505,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=3YU8C5",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:05.666Z",
+      "crawledAt": "2026-10-03T09:22:49.480Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4461,11 +4537,13 @@
         ]
       },
       "previousSlugs": [
-        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
+        "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
+        "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
+          "system-engineer-it-infrastruktur-m-w-d-coopers-aargau",
+          "system-ingegnere-it-infrastruktur-m-w-d-coopers-group-ag-aargau"
         ],
         "fr": [
           "system-engineer-it-infrastruktur-m-w-d-coopers-aargau"
@@ -4518,7 +4596,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=20U4FB",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:04.691Z",
+      "crawledAt": "2026-10-03T09:22:48.552Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -4549,27 +4627,29 @@
           "CIO, Project Management, PMO, Strategy Development"
         ]
       },
-      "previousSlugs": [
-        "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
-        "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
-        "senior-cio-office-manager-m-w-d-coopers-luzern",
-        "leiter-in-cio-office-m-w-d-coopers-luzern"
-      ],
       "previousSlugsByLocale": {
+        "de": [
+          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
+          "senior-cio-office-manager-m-w-d-coopers-luzern"
+        ],
         "it": [
           "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
           "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
           "senior-cio-office-manager-m-w-d-coopers-luzern",
-          "leiter-in-cio-office-m-w-d-coopers-luzern"
+          "leiter-in-cio-office-m-w-d-coopers-luzern",
+          "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
         ],
         "en": [
           "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern"
-        ],
-        "de": [
-          "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
-          "senior-cio-office-manager-m-w-d-coopers-luzern"
         ]
       },
+      "previousSlugs": [
+        "leiter-in-cio-office-it-strategy-m-w-d-coopers-luzern",
+        "senior-cio-office-manager-safe-m-w-d-coopers-luzern",
+        "senior-cio-office-manager-m-w-d-coopers-luzern",
+        "leiter-in-cio-office-m-w-d-coopers-luzern",
+        "responsabile-cio-office-it-strategy-m-w-d-coopers-group-ag-luzern"
+      ],
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-28T21:21:03.690Z",
       "salaryMin": 96000,
@@ -4617,7 +4697,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=56NR3K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:03.714Z",
+      "crawledAt": "2026-10-03T09:22:47.620Z",
       "addressLocality": "Bern Grossraum",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -4650,11 +4730,13 @@
         ]
       },
       "previousSlugs": [
-        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
+        "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
+        "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
+          "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum",
+          "senior-devsecops-ingegnere-kubernetes-m-w-d-coopers-group-ag-bern-grossraum"
         ],
         "fr": [
           "senior-devsecops-engineer-kubernetes-m-w-d-coopers-bern-grossraum"
@@ -4707,7 +4789,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=X62Z0K",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:26:02.727Z",
+      "crawledAt": "2026-10-03T09:22:46.690Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -4738,11 +4820,13 @@
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "pi-engineer-m-w-d-coopers-aargau"
+        "pi-engineer-m-w-d-coopers-aargau",
+        "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pi-engineer-m-w-d-coopers-aargau"
+          "pi-engineer-m-w-d-coopers-aargau",
+          "pi-ingegnere-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-09-28T21:21:00.849Z",
@@ -4791,7 +4875,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=K763LV",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:01.759Z",
+      "crawledAt": "2026-10-03T09:22:45.763Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4823,11 +4907,13 @@
         ]
       },
       "previousSlugs": [
-        "software-engineer-m-w-d-coopers-wallis"
+        "software-engineer-m-w-d-coopers-wallis",
+        "software-ingegnere-m-w-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineer-m-w-d-coopers-wallis"
+          "software-engineer-m-w-d-coopers-wallis",
+          "software-ingegnere-m-w-d-coopers-group-ag-wallis"
         ],
         "de": [
           "software-engineer-m-w-d-coopers-wallis"
@@ -4880,7 +4966,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N938EM",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:26:00.779Z",
+      "crawledAt": "2026-10-03T09:22:44.832Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -4912,11 +4998,13 @@
         ]
       },
       "previousSlugs": [
-        "it-engineer-m-w-d-coopers-wallis"
+        "it-engineer-m-w-d-coopers-wallis",
+        "it-ingegnere-m-w-d-coopers-group-ag-wallis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-engineer-m-w-d-coopers-wallis"
+          "it-engineer-m-w-d-coopers-wallis",
+          "it-ingegnere-m-w-d-coopers-group-ag-wallis"
         ],
         "de": [
           "it-engineer-m-w-d-coopers-wallis"
@@ -4969,7 +5057,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W26J4V",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:59.811Z",
+      "crawledAt": "2026-10-03T09:22:43.904Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5003,11 +5091,13 @@
         ]
       },
       "previousSlugs": [
-        "m365-senior-system-administrator-m-w-d-coopers-bern"
+        "m365-senior-system-administrator-m-w-d-coopers-bern",
+        "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "m365-senior-system-administrator-m-w-d-coopers-bern"
+          "m365-senior-system-administrator-m-w-d-coopers-bern",
+          "m365-amministratore-di-sistema-senior-m-f-d-coopers-group-ag-bern"
         ],
         "fr": [
           "m365-senior-system-administrator-m-w-d-coopers-bern"
@@ -5060,7 +5150,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=14PJ2J",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:25:58.846Z",
+      "crawledAt": "2026-10-03T09:22:41.978Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5096,12 +5186,14 @@
       },
       "previousSlugs": [
         "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
+        "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
+        "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistics-specialist-global-clinical-distribution-m-f-d-coopers-aargau",
-          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau"
+          "global-clinical-logistics-distribution-specialist-m-f-d-coopers-aargau",
+          "logistica-specialista-global-clinical-distribution-m-f-d-coopers-group-ag-aargau"
         ]
       },
       "firstSeenAt": "2026-08-17T22:06:05.062Z",
@@ -5117,7 +5209,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-f88c0f897588",
@@ -5150,7 +5243,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=912RAL",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:56.869Z",
+      "crawledAt": "2026-10-03T09:22:41.056Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5228,7 +5321,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=GH26V9",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:55.894Z",
+      "crawledAt": "2026-10-03T09:22:40.135Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -5308,7 +5401,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=N0P2X0",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:54.898Z",
+      "crawledAt": "2026-10-03T09:22:39.214Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -5380,16 +5473,16 @@
       "description": "Für ein etabliertes, inhabergeführtes Schweizer Bauunternehmen mit rund 650 Mitarbeitenden suchen wir eine erfahrene und technikbegeisterte Persönlichkeit im Bereich Geomatik.\n\nIn dieser vielseitigen Funktion verbindest du klassische Bauvermessung mit modernen digitalen Technologien. Du begleitest Projekte im Hochbau, Tiefbau und Spezialtiefbau von der Datenerfassung bis zum 3D-Modell und unterstützt gleichzeitig die Weiterentwicklung digitaler Vermessungs- und Bauprozesse.\n\nDeine Aufgaben\n• Du unterstützt die Projektteams bei vermessungstechnischen Aufgaben im Hochbau, Tiefbau und Spezialtiefbau, von der Datenerfassung bis zum 3D-Modell.\n• Du erfasst und bereitest Grundlagendaten auf, unter anderem mittels Laserscanning und Drohnen.\n• Du erstellst und bearbeitest Absteckungsdaten für Vermessungsgeräte und Maschinensteuerungen.\n• Du erstellst 3D-Modelle für Kalkulation, Ausmass und Bauausführung.\n• Du organisierst und moderierst Workshops und Schulungen gemeinsam mit den verschiedenen Fachbereichen, sowohl intern als auch an externen Standorten.\n• Du verfolgst neue digitale Entwicklungen und Innovationen in der Baubranche und unterstützt deren praxisnahe Einführung im Unternehmen.\n\nDein Profil\n• Abgeschlossene Ausbildung als Geomatiker/in EFZ, Geomatiktechniker/in mit eidg. Fachausweis oder als Zeichner/in EFZ mit fundierter Praxiserfahrung im Bereich Geomatik\n• Berufserfahrung in einer vergleichbaren Funktion\n• Gute Kenntnisse im Umgang mit gängigen Geomatik- und Vermessungsgeräten\n• Kenntnisse in BIM und CAD sowie gute MS-Office-Anwenderkenntnisse\n• Interesse an digitalen Technologien und Entwicklungen im Bauwesen, beispielsweise IT-Architekturen und KI\n• Analytische und lösungsorientierte Arbeitsweise sowie ein hohes Verantwortungsbewusstsein\n• Kommunikative, engagierte und teamorientierte Persönlichkeit\n\nDas erwartet dich\n• Langfristige Perspektive in einem soliden und inhabergeführten Schweizer Familienunternehmen\n• Spannende Bauprojekte und ein vielseitiges Aufgabengebiet zwischen Geomatik, Bau und Digitalisierung\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Geschäftsfahrzeug, auch zur privaten Nutzung\n• Individuelle Anstellungs- und Arbeitsplatzbedingungen\n• Aktives Gesundheitsmanagement und verschiedene Mitarbeitendenangebote\n• Zwei Präsenztage pro Woche am Hauptsitz.\n\nArbeitsort: Döttingen / Baden mit Homeoffice-Möglichkeit\n\nJob profile\n• Engineering - Construction & Property\n• Aargau\n• Festanstellung\n• Part Time, 80-100%\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit",
       "descriptionByLocale": {
         "de": "Für ein etabliertes, inhabergeführtes Schweizer Bauunternehmen mit rund 650 Mitarbeitenden suchen wir eine erfahrene und technikbegeisterte Persönlichkeit im Bereich Geomatik.\n\nIn dieser vielseitigen Funktion verbindest du klassische Bauvermessung mit modernen digitalen Technologien. Du begleitest Projekte im Hochbau, Tiefbau und Spezialtiefbau von der Datenerfassung bis zum 3D-Modell und unterstützt gleichzeitig die Weiterentwicklung digitaler Vermessungs- und Bauprozesse.\n\nDeine Aufgaben\n• Du unterstützt die Projektteams bei vermessungstechnischen Aufgaben im Hochbau, Tiefbau und Spezialtiefbau, von der Datenerfassung bis zum 3D-Modell.\n• Du erfasst und bereitest Grundlagendaten auf, unter anderem mittels Laserscanning und Drohnen.\n• Du erstellst und bearbeitest Absteckungsdaten für Vermessungsgeräte und Maschinensteuerungen.\n• Du erstellst 3D-Modelle für Kalkulation, Ausmass und Bauausführung.\n• Du organisierst und moderierst Workshops und Schulungen gemeinsam mit den verschiedenen Fachbereichen, sowohl intern als auch an externen Standorten.\n• Du verfolgst neue digitale Entwicklungen und Innovationen in der Baubranche und unterstützt deren praxisnahe Einführung im Unternehmen.\n\nDein Profil\n• Abgeschlossene Ausbildung als Geomatiker/in EFZ, Geomatiktechniker/in mit eidg. Fachausweis oder als Zeichner/in EFZ mit fundierter Praxiserfahrung im Bereich Geomatik\n• Berufserfahrung in einer vergleichbaren Funktion\n• Gute Kenntnisse im Umgang mit gängigen Geomatik- und Vermessungsgeräten\n• Kenntnisse in BIM und CAD sowie gute MS-Office-Anwenderkenntnisse\n• Interesse an digitalen Technologien und Entwicklungen im Bauwesen, beispielsweise IT-Architekturen und KI\n• Analytische und lösungsorientierte Arbeitsweise sowie ein hohes Verantwortungsbewusstsein\n• Kommunikative, engagierte und teamorientierte Persönlichkeit\n\nDas erwartet dich\n• Langfristige Perspektive in einem soliden und inhabergeführten Schweizer Familienunternehmen\n• Spannende Bauprojekte und ein vielseitiges Aufgabengebiet zwischen Geomatik, Bau und Digitalisierung\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Geschäftsfahrzeug, auch zur privaten Nutzung\n• Individuelle Anstellungs- und Arbeitsplatzbedingungen\n• Aktives Gesundheitsmanagement und verschiedene Mitarbeitendenangebote\n• Zwei Präsenztage pro Woche am Hauptsitz.\n\nArbeitsort: Döttingen / Baden mit Homeoffice-Möglichkeit\n\nJob profile\n• Engineering - Construction & Property\n• Aargau\n• Festanstellung\n• Part Time, 80-100%\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit",
-        "it": "Per una consolidata e gestita società di costruzioni svizzere con circa 650 dipendenti, stiamo cercando una personalità esperta e tecnologica nel campo della geomatica.\n\nIn questa funzione versatile, si combina la misurazione della costruzione classica con le moderne tecnologie digitali. Accompagnate i progetti in costruzione, ingegneria civile e ingegneria civile speciale dall'acquisizione dei dati al modello 3D e allo stesso tempo supportano l'ulteriore sviluppo dei processi di indagine digitale e costruzione.\n\nI tuoi compiti\n• Supporti i team di progetto con compiti di indagine nella costruzione, ingegneria civile e ingegneria civile speciale, dall'acquisizione dei dati al modello 3D.\n• Raccogli e prepari i dati di base, tra cui scansione laser e droni.\n• È possibile creare e modificare i dati di staking per i dispositivi di rilevamento e i controlli delle macchine.\n• Si creano modelli 3D per il calcolo, la scala e la costruzione.\n• Organizzerai e moderato workshop e sessioni di formazione insieme ai vari dipartimenti, sia interni che esterni.\n• Segui nuovi sviluppi digitali e innovazioni nel settore edile e supporta la loro introduzione pratica in azienda.\n\nIl tuo profilo\n• Formazione completata come geomatico/in EFZ, tecnico geomatico con diritto federale. Certificato professionale o come disegnatore con esperienza pratica approfondita nel campo della geomatica\n• Esperienza professionale in una capacità paragonabile\n• Buona conoscenza delle geomatiche e delle attrezzature di indagine comuni\n• Conoscenza di BIM e CAD e buona conoscenza degli utenti MS-Office\n• Interesse per le tecnologie digitali e gli sviluppi nella costruzione, come architetture IT e AI\n• Metodi di lavoro analitici e orientati alla soluzione e un elevato senso di responsabilità\n• Personalità comunicativa, impegnata e orientata al team\n\nQuesto è ciò che vi aspetta\n• Prospettive a lungo termine in un business familiare svizzero solido e proprietario\n• Progetti di costruzione entusiasmanti e un'area versatile di responsabilità tra geomatica, costruzione e digitalizzazione\n• Opportunità di sviluppo professionale e personale\n• Veicoli aziendali, anche per uso privato\n• Occupazione e condizioni di lavoro\n• Gestione della salute attiva e varie offerte di dipendenti\n• Due giorni di partecipazione alla settimana presso il quartier generale.\n\nLuogo di lavoro: Döttingen / balneazione con possibilità di ufficio domestico\n\nProfili di lavoro\n• Ingegneria - Costruzione e Proprietà\n• Aargau\n• Occupazione permanente\n• Tempo parziale, 80-100 %\n• EFZ, MS Office, KI\n\nPrestazioni di lavoro\n• Vettura aziendale\n• Eventi\n• Formazione continua\n• Home Ufficio\n• Opzione part-time\n• Forte spirito di squadra",
-        "en": "For an established, owner-managed Swiss construction company with around 650 employees, we are looking for an experienced and tech-savvy personality in the field of geomatics.\n\nIn this versatile function, you combine classical construction measurement with modern digital technologies. You accompany projects in building construction, civil engineering and special civil engineering from data acquisition to the 3D model and at the same time support the further development of digital surveying and construction processes.\n\nYour tasks\n• You support the project teams with surveying tasks in building construction, civil engineering and special civil engineering, from data acquisition to the 3D model.\n• You collect and prepare basic data, including laser scanning and drones.\n• You create and edit staking data for surveying devices and machine controls.\n• You create 3D models for calculation, scale and construction.\n• You will organize and moderate workshops and training sessions together with the various departments, both internally and at external locations.\n• You follow new digital developments and innovations in the construction industry and support their practical introduction in the company.\n\nYour profile\n• Completed training as a geomatician/in EFZ, geomatics technician with federal law. Professional certificate or as a draftsman with in-depth practical experience in the field of geomatics\n• Professional experience in a comparable capacity\n• Good knowledge of common geomatics and surveying equipment\n• Knowledge of BIM and CAD as well as good MS-Office user knowledge\n• Interest in digital technologies and developments in construction, such as IT architectures and AI\n• Analytical and solution-oriented working methods and a high sense of responsibility\n• Communicative, committed and team-oriented personality\n\nThis is what awaits you\n• Long-term perspective in a solid and owner-managed Swiss family business\n• Exciting construction projects and a versatile area of responsibility between geomatics, construction and digitalization\n• Opportunities for professional and personal development\n• Business vehicles, including for private use\n• Individual employment and workplace conditions\n• Active health management and various employee offers\n• Two days of attendance per week at headquarters.\n\nPlace of work: Döttingen / bathing with home office possibility\n\nJob profiles\n• Engineering - Construction & Property\n• Aargau\n• Permanent employment\n• Part Time, 80-100 %\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit",
-        "fr": "Pour une entreprise suisse de construction établie et gérée par son propriétaire et comptant environ 650 employés, nous recherchons une personnalité expérimentée et technologique dans le domaine de la géomatique.\n\nDans cette fonction polyvalente, vous combinez la mesure de construction classique avec les technologies numériques modernes. Vous accompagnez des projets de construction, de génie civil et de génie civil spécial, de l'acquisition de données au modèle 3D, tout en soutenant le développement des processus numériques d'arpentage et de construction.\n\nVos tâches\n• Vous accompagnez les équipes de projet dans des tâches d'arpentage dans la construction de bâtiments, le génie civil et le génie civil spécial, de l'acquisition de données au modèle 3D.\n• Vous collectez et préparez des données de base, y compris la numérisation au laser et les drones.\n• Vous créez et modifiez des données de jalonnement pour les appareils d'arpentage et les commandes de machine.\n• Vous créez des modèles 3D pour le calcul, l'échelle et la construction.\n• Vous organiserez et animerez des ateliers et des séances de formation avec les différents départements, tant à l'interne qu'à l'externe.\n• Vous suivez de nouveaux développements et innovations numériques dans le secteur de la construction et soutenez leur introduction pratique dans l'entreprise.\n\nVotre profil\n• A complété la formation en tant que géomaticien/en EFZ, technicien en géomatique avec le droit fédéral. Certificat professionnel ou comme dessinateur ayant une expérience pratique approfondie dans le domaine de la géomatique\n• Expérience professionnelle à capacité comparable\n• Bonne connaissance de la géomatique commune et du matériel d'arpentage\n• Connaissance du BIM et de la CAO ainsi que bonne connaissance des utilisateurs de MS-Office\n• Intérêt pour les technologies numériques et les développements dans la construction, comme les architectures informatiques et l'IA\n• Méthodes de travail analytiques et axées sur les solutions et sens élevé des responsabilités\n• Personnalité communicative, engagée et orientée vers l'équipe\n\nC'est ce qui vous attend\n• Une perspective à long terme dans une entreprise familiale suisse solide et gérée par son propriétaire\n• Projets de construction passionnants et une zone de responsabilité polyvalente entre géomatique, construction et numérisation\n• Possibilités de développement professionnel et personnel\n• Véhicules d'affaires, y compris à usage privé\n• Emploi individuel et conditions de travail\n• Gestion active de la santé et diverses offres des employés\n• Deux jours de présence par semaine au siège.\n\nLieu de travail: Döttingen / bain avec possibilité bureau à domicile\n\nProfils d'emploi\n• Ingénierie - Construction & Biens\n• Argovie\n• Emploi permanent\n• Temps partiel, 80-100 %\n• EFZ, MS Office, KI\n\nPrestations d'emploi\n• Voiture d'entreprise\n• Événements\n• Enseignement supérieur\n• Ministère de l ' intérieur\n• Option temps partiel\n• Un esprit d'équipe fort"
+        "it": "Für ein etabliertes, inhabergeführtes Schweizer Bauunternehmen mit rund 650 Mitarbeitenden suchen wir eine erfahrene und technikbegeisterte Persönlichkeit im Bereich Geomatik.\n\nIn dieser vielseitigen Funktion verbindest du klassische Bauvermessung mit modernen digitalen Technologien. Du begleitest Projekte im Hochbau, Tiefbau und Spezialtiefbau von der Datenerfassung bis zum 3D-Modell und unterstützt gleichzeitig die Weiterentwicklung digitaler Vermessungs- und Bauprozesse.\n\nDeine Aufgaben\n• Du unterstützt die Projektteams bei vermessungstechnischen Aufgaben im Hochbau, Tiefbau und Spezialtiefbau, von der Datenerfassung bis zum 3D-Modell.\n• Du erfasst und bereitest Grundlagendaten auf, unter anderem mittels Laserscanning und Drohnen.\n• Du erstellst und bearbeitest Absteckungsdaten für Vermessungsgeräte und Maschinensteuerungen.\n• Du erstellst 3D-Modelle für Kalkulation, Ausmass und Bauausführung.\n• Du organisierst und moderierst Workshops und Schulungen gemeinsam mit den verschiedenen Fachbereichen, sowohl intern als auch an externen Standorten.\n• Du verfolgst neue digitale Entwicklungen und Innovationen in der Baubranche und unterstützt deren praxisnahe Einführung im Unternehmen.\n\nDein Profil\n• Abgeschlossene Ausbildung als Geomatiker/in EFZ, Geomatiktechniker/in mit eidg. Fachausweis oder als Zeichner/in EFZ mit fundierter Praxiserfahrung im Bereich Geomatik\n• Berufserfahrung in einer vergleichbaren Funktion\n• Gute Kenntnisse im Umgang mit gängigen Geomatik- und Vermessungsgeräten\n• Kenntnisse in BIM und CAD sowie gute MS-Office-Anwenderkenntnisse\n• Interesse an digitalen Technologien und Entwicklungen im Bauwesen, beispielsweise IT-Architekturen und KI\n• Analytische und lösungsorientierte Arbeitsweise sowie ein hohes Verantwortungsbewusstsein\n• Kommunikative, engagierte und teamorientierte Persönlichkeit\n\nDas erwartet dich\n• Langfristige Perspektive in einem soliden und inhabergeführten Schweizer Familienunternehmen\n• Spannende Bauprojekte und ein vielseitiges Aufgabengebiet zwischen Geomatik, Bau und Digitalisierung\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Geschäftsfahrzeug, auch zur privaten Nutzung\n• Individuelle Anstellungs- und Arbeitsplatzbedingungen\n• Aktives Gesundheitsmanagement und verschiedene Mitarbeitendenangebote\n• Zwei Präsenztage pro Woche am Hauptsitz.\n\nArbeitsort: Döttingen / Baden mit Homeoffice-Möglichkeit\n\nJob profile\n• Engineering - Construction & Property\n• Aargau\n• Festanstellung\n• Part Time, 80-100%\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit",
+        "en": "Für ein etabliertes, inhabergeführtes Schweizer Bauunternehmen mit rund 650 Mitarbeitenden suchen wir eine erfahrene und technikbegeisterte Persönlichkeit im Bereich Geomatik.\n\nIn dieser vielseitigen Funktion verbindest du klassische Bauvermessung mit modernen digitalen Technologien. Du begleitest Projekte im Hochbau, Tiefbau und Spezialtiefbau von der Datenerfassung bis zum 3D-Modell und unterstützt gleichzeitig die Weiterentwicklung digitaler Vermessungs- und Bauprozesse.\n\nDeine Aufgaben\n• Du unterstützt die Projektteams bei vermessungstechnischen Aufgaben im Hochbau, Tiefbau und Spezialtiefbau, von der Datenerfassung bis zum 3D-Modell.\n• Du erfasst und bereitest Grundlagendaten auf, unter anderem mittels Laserscanning und Drohnen.\n• Du erstellst und bearbeitest Absteckungsdaten für Vermessungsgeräte und Maschinensteuerungen.\n• Du erstellst 3D-Modelle für Kalkulation, Ausmass und Bauausführung.\n• Du organisierst und moderierst Workshops und Schulungen gemeinsam mit den verschiedenen Fachbereichen, sowohl intern als auch an externen Standorten.\n• Du verfolgst neue digitale Entwicklungen und Innovationen in der Baubranche und unterstützt deren praxisnahe Einführung im Unternehmen.\n\nDein Profil\n• Abgeschlossene Ausbildung als Geomatiker/in EFZ, Geomatiktechniker/in mit eidg. Fachausweis oder als Zeichner/in EFZ mit fundierter Praxiserfahrung im Bereich Geomatik\n• Berufserfahrung in einer vergleichbaren Funktion\n• Gute Kenntnisse im Umgang mit gängigen Geomatik- und Vermessungsgeräten\n• Kenntnisse in BIM und CAD sowie gute MS-Office-Anwenderkenntnisse\n• Interesse an digitalen Technologien und Entwicklungen im Bauwesen, beispielsweise IT-Architekturen und KI\n• Analytische und lösungsorientierte Arbeitsweise sowie ein hohes Verantwortungsbewusstsein\n• Kommunikative, engagierte und teamorientierte Persönlichkeit\n\nDas erwartet dich\n• Langfristige Perspektive in einem soliden und inhabergeführten Schweizer Familienunternehmen\n• Spannende Bauprojekte und ein vielseitiges Aufgabengebiet zwischen Geomatik, Bau und Digitalisierung\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Geschäftsfahrzeug, auch zur privaten Nutzung\n• Individuelle Anstellungs- und Arbeitsplatzbedingungen\n• Aktives Gesundheitsmanagement und verschiedene Mitarbeitendenangebote\n• Zwei Präsenztage pro Woche am Hauptsitz.\n\nArbeitsort: Döttingen / Baden mit Homeoffice-Möglichkeit\n\nJob profile\n• Engineering - Construction & Property\n• Aargau\n• Festanstellung\n• Part Time, 80-100%\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit",
+        "fr": "Für ein etabliertes, inhabergeführtes Schweizer Bauunternehmen mit rund 650 Mitarbeitenden suchen wir eine erfahrene und technikbegeisterte Persönlichkeit im Bereich Geomatik.\n\nIn dieser vielseitigen Funktion verbindest du klassische Bauvermessung mit modernen digitalen Technologien. Du begleitest Projekte im Hochbau, Tiefbau und Spezialtiefbau von der Datenerfassung bis zum 3D-Modell und unterstützt gleichzeitig die Weiterentwicklung digitaler Vermessungs- und Bauprozesse.\n\nDeine Aufgaben\n• Du unterstützt die Projektteams bei vermessungstechnischen Aufgaben im Hochbau, Tiefbau und Spezialtiefbau, von der Datenerfassung bis zum 3D-Modell.\n• Du erfasst und bereitest Grundlagendaten auf, unter anderem mittels Laserscanning und Drohnen.\n• Du erstellst und bearbeitest Absteckungsdaten für Vermessungsgeräte und Maschinensteuerungen.\n• Du erstellst 3D-Modelle für Kalkulation, Ausmass und Bauausführung.\n• Du organisierst und moderierst Workshops und Schulungen gemeinsam mit den verschiedenen Fachbereichen, sowohl intern als auch an externen Standorten.\n• Du verfolgst neue digitale Entwicklungen und Innovationen in der Baubranche und unterstützt deren praxisnahe Einführung im Unternehmen.\n\nDein Profil\n• Abgeschlossene Ausbildung als Geomatiker/in EFZ, Geomatiktechniker/in mit eidg. Fachausweis oder als Zeichner/in EFZ mit fundierter Praxiserfahrung im Bereich Geomatik\n• Berufserfahrung in einer vergleichbaren Funktion\n• Gute Kenntnisse im Umgang mit gängigen Geomatik- und Vermessungsgeräten\n• Kenntnisse in BIM und CAD sowie gute MS-Office-Anwenderkenntnisse\n• Interesse an digitalen Technologien und Entwicklungen im Bauwesen, beispielsweise IT-Architekturen und KI\n• Analytische und lösungsorientierte Arbeitsweise sowie ein hohes Verantwortungsbewusstsein\n• Kommunikative, engagierte und teamorientierte Persönlichkeit\n\nDas erwartet dich\n• Langfristige Perspektive in einem soliden und inhabergeführten Schweizer Familienunternehmen\n• Spannende Bauprojekte und ein vielseitiges Aufgabengebiet zwischen Geomatik, Bau und Digitalisierung\n• Möglichkeiten zur fachlichen und persönlichen Weiterentwicklung\n• Geschäftsfahrzeug, auch zur privaten Nutzung\n• Individuelle Anstellungs- und Arbeitsplatzbedingungen\n• Aktives Gesundheitsmanagement und verschiedene Mitarbeitendenangebote\n• Zwei Präsenztage pro Woche am Hauptsitz.\n\nArbeitsort: Döttingen / Baden mit Homeoffice-Möglichkeit\n\nJob profile\n• Engineering - Construction & Property\n• Aargau\n• Festanstellung\n• Part Time, 80-100%\n• EFZ, MS Office, KI\n\nJob benefits\n• Company car\n• Events\n• Further education\n• Home Office\n• Part-time option\n• Strong team spirit"
       },
       "location": "Aargau",
       "canton": "AG",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=R1HY31",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:53.923Z",
+      "crawledAt": "2026-10-03T09:22:37.967Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5433,7 +5526,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:53.923Z"
+      "firstSeenAt": "2026-10-03T09:22:37.967Z"
     },
     {
       "id": "coopers-10052419e49b",
@@ -5466,7 +5559,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=873AAR",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:25:52.963Z",
+      "crawledAt": "2026-10-03T09:22:37.029Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -5497,12 +5590,11 @@
           "MES, GMP"
         ]
       },
-      "previousSlugs": [
-        "mes-system-engineer-m-f-d-coopers-wallis"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:22.647Z",
       "previousSlugsByLocale": {
         "it": [
-          "mes-system-engineer-m-f-d-coopers-wallis"
+          "mes-system-engineer-m-f-d-coopers-wallis",
+          "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
         ],
         "de": [
           "mes-system-engineer-m-f-d-coopers-wallis"
@@ -5511,7 +5603,10 @@
           "mes-system-engineer-m-f-d-coopers-wallis"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:17:22.647Z",
+      "previousSlugs": [
+        "mes-system-engineer-m-f-d-coopers-wallis",
+        "mes-system-ingegnere-m-f-d-coopers-group-ag-wallis"
+      ],
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -5524,7 +5619,8 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-cc0bbdff0aed",
@@ -5557,7 +5653,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=HWB224",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:51.977Z",
+      "crawledAt": "2026-10-03T09:22:36.094Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -5633,7 +5729,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=S7U6M4",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:51.010Z",
+      "crawledAt": "2026-10-03T09:22:35.158Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -5663,18 +5759,20 @@
           "Catia, CAD, SolidWorks, ISO 8015"
         ]
       },
-      "previousSlugs": [
-        "senior-mechanical-engineer-m-w-d-coopers-zug"
-      ],
+      "firstSeenAt": "2026-09-30T21:17:20.802Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-mechanical-engineer-m-w-d-coopers-zug"
+          "senior-mechanical-engineer-m-w-d-coopers-zug",
+          "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
         ],
         "fr": [
           "senior-mechanical-engineer-m-w-d-coopers-zug"
         ]
       },
-      "firstSeenAt": "2026-09-30T21:17:20.802Z",
+      "previousSlugs": [
+        "senior-mechanical-engineer-m-w-d-coopers-zug",
+        "senior-mechanical-ingegnere-m-w-d-coopers-group-ag-zug"
+      ],
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -5687,7 +5785,8 @@
           "maxValue": 162500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-eeafbae82670",
@@ -5710,9 +5809,9 @@
       },
       "description": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
       "descriptionByLocale": {
+        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "it": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "en": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
-        "de": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance",
         "fr": "Für unseren Kunden aus der Versicherungsbranche in Luzern , suchen wir eine:n Senior Java/JEE Entwickler:in.\n\nDeine Aufgaben:\n• Entwicklung und Weiterentwicklung von Backend-Lösungen mit Java / Jakarta EE\n• Arbeit mit Kubernetes und modernen DevOps-Praktiken\n• Analyse und Design von technischen sowie fachlichen Anforderungen\n• Anwendung von Domain Driven Design (DDD) und BPMN\n• Enge Zusammenarbeit mit verschiedenen Fachbereichen und interdisziplinären Teams\n• Aktive Auseinandersetzung mit der Fachlichkeit und den Geschäftsprozessen\n• Mitarbeit in einem Lean-Agile-Umfeld nach SAFe\n\nDein Profil:\n• Mehrjährige Erfahrung in der Backend-Softwareentwicklung mit Java / Jakarta EE\n• Gute Kenntnisse in Kubernetes und DevOps\n• Erfahrung mit Domain Driven Design (DDD) und BPMN\n• Freude an interdisziplinären Analysen und technischem Design\n• Bereitschaft, sich intensiv in neue fachliche Themen und Geschäftsprozesse einzuarbeiten\n• Angular / Frontend-Kenntnisse sind ein Plus\n• Ruhe und Gelassenheit auch in anspruchsvollen Situationen\n• Ausgeprägte Teamfähigkeit und ein gelebtes Lean-Agile-Mindset\n• Selbstständige und lösungsorientierte Arbeitsweise\n• Fliessend in Deutsch und Englisch\n\nJob profile\n• IT - Software Engineering\n• Luzern\n• Contracting\n• Part Time, 80-100%\n• Ab sofort - Ende 2027 mit Option auf Verlängerung\n• Java, JEE\n\nJob benefits\n• First-name terms\n• Flat hierarchy\n• Home Office\n• Modern workspace\n• Work-life-balance"
       },
       "location": "Luzern",
@@ -5720,7 +5819,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=BX0J02",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:50.015Z",
+      "crawledAt": "2026-10-03T09:22:34.230Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -5754,11 +5853,17 @@
           "Contracting",
           "Part Time, 80-100%",
           "Ab sofort - Ende 2027 mit Option auf Verlängerung",
+          "Java, JEE",
+          "IT - Software Engineering",
+          "Luzern",
+          "Contracting",
+          "Part Time, 80-100%",
+          "Ab sofort - Ende 2027 mit Option auf Verlängerung",
           "Java, JEE"
         ]
       },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-10-02T21:25:50.015Z",
+      "firstSeenAt": "2026-10-03T09:22:34.230Z",
       "salaryMin": 107000,
       "salaryMax": 162500,
       "salarySource": "estimated",
@@ -5777,9 +5882,9 @@
       "id": "coopers-ba7ed6a137ca",
       "slug": "sales-manager-schweiz-m-w-d-coopers-solothurn",
       "slugByLocale": {
+        "de": "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "it": "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "en": "sales-manager-schweiz-m-w-d-coopers-solothurn",
-        "de": "sales-manager-schweiz-m-w-d-coopers-solothurn",
         "fr": "sales-manager-schweiz-m-w-d-coopers-solothurn"
       },
       "company": "Coopers Group AG",
@@ -5788,15 +5893,15 @@
       "title": "Sales Manager Schweiz (m/w/d)",
       "titleByLocale": {
         "it": "Sales Manager Schweiz (m/w/d)",
-        "en": "Sales Manager Switzerland (m/f/d)",
+        "en": "Sales Manager Schweiz (m/w/d)",
         "de": "Sales Manager Schweiz (m/w/d)",
         "fr": "Sales Manager Schweiz (m/w/d)"
       },
       "description": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership",
       "descriptionByLocale": {
+        "de": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership",
         "it": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership",
         "en": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership",
-        "de": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership",
         "fr": "Für ein international führendes Unternehmen im Bereich industrieller Verpackungssysteme und technischer Lösungen, das seine Präsenz in der Schweiz weiter ausbaut, suchen wir einen Sales Manager Schweiz. Als Mitglied des erweiterten Führungsteams verantworten Sie den persönlichen Vertrieb und die Marktentwicklung im Schweizer Markt. Ihr Fokus liegt auf vertrieblicher Entwicklung sowie Markt- und Kundenorientierung.\n\nIhre Hauptaufgaben\n• Teamführung & Organisation: Disziplinarische und organisatorische Führung des Schweizer Vertriebsteams.\n• Ergebnis- & Budgetverantwortung: Gesamtverantwortung für den Value Stream Schweiz in Bezug auf Umsatz, Ertrag, Marktanteile und Governance.\n• Schnittstellen & Stakeholder Management: Kontinuierliche, strategische Betreuung von Key Accounts aus den Fokusbranchen Chemie, Schmierstoffe, Farben, Lacke, Pharma und Food.\n• Strategie & Marktentwicklung: Entwicklung und Umsetzung zukunftsorientierter Markt- und Kundenstrategien für die Schweiz sowie Integration von Markttrends in den Vertrieb. Mitwirkung an intelligenten Produktlösungen und Standardisierungsprogrammen für komplexe Kundenanforderungen sowie Mitarbeit an produktbezogenen Projekten im nationalen und internationalen Kontext.\n• Steuerung & Business Development: Koordination der Key Accounts in enger Zusammenarbeit mit dem globalen Key Account Management in Deutschland sowie die eigenständige Akquisition neuer Kunden und Entwicklung neuer Geschäftsfelder im Schweizer Markt.\n• Marktpräsenz & Repräsentation: Professionelle Vertretung des Unternehmens im Schweizer Markt sowie die strategische Positionierung unseres gesamten Produkt- und Serviceportfolios bei bestehenden und zukünftigen Partnern.\n\nIhr Profil\n• Ausbildung & Weiterbildung: Abgeschlossene kaufmännische oder technische Berufsausbildung, idealerweise ergänzt durch eine Weiterbildung im Vertrieb oder Marketing (z. B. eidg. Fachausweis)\n• Führung & B2B-Vertriebserfahrung: Mehrjährige, nachweisbare B2B-Vertriebserfahrung in Linien-, Bereichs- oder Abteilungsverantwortung mit echter Budget-, Umsatz- und Ressourcenverantwortung. Erfahrung im Bereich Industrieverpackungen, technischen Systemlösungen oder erklärungsbedürftigen Produktlösungen ist ein starkes Plus.\n• Technisches Verständnis & Produkt-Affinität: Fundiertes technisches Verständnis und ausgeprägte Affinität für komplexe, technische Produktportfolios\n• Stakeholder-Management & Netzwerk: Erprobte Erfahrung im Umgang mit Einkaufsgremien und C-Level-Stakeholdern der Fokusindustrien (Chemie, Pharma, Food) sowie externen Logistik- und Rekonditionierungspartnern. Sie besitzen ein belastbares Netzwerk im Schweizer Markt, kommunizieren stilsicher auf Augenhöhe und binden Kunden langfristig.\n• Projektarbeit & Teamzusammenarbeit: Erfahrung in der Zusammenarbeit mit interdisziplinären Teams und in der Unterstützung bereichsübergreifender Projekte\n• Verhandlungskompetenz & Entscheidungsstärke: Hohe Verhandlungskompetenz, unternehmerisches Denken und ausgeprägte Ergebnisorientierung. Sie besitzen die Fähigkeit, auch bei komplexen Ausschreibungen klare, wirtschaftlich fundierte Priorisierungsentscheide zu treffen.\n• Konzeptionelles Denken & Marktentwicklung: Starkes konzeptionelles Denken mit einem fundierten Verständnis von modernen Lieferketten, B2B-Marktmechanismen sowie der strategisch-konzeptionellen Begleitung des Brand Marketings bei Produktneuheiten. Grosse Motivation für den eigenverantwortlichen Auf- und Ausbau von Kundenbeziehungen.\n• Mobilität & Reisebereitschaft: Hohe Reisebereitschaft innerhalb der Schweiz sowie die nötige Flexibilität für gelegentliche internationale Abstimmungen (z. B. mit dem Headquarter in Deutschland).\n• Sprachkompetenz: Verhandlungssichere Deutsch- und Englischkenntnisse. Weitere Schweizer Landessprachen (insbesondere Französisch für die Westschweiz) sind von grossem Vorteil.\n\nNutzen Sie unseren Bewerbungs-Link für eine schnellere Bearbeitung!\n\nJob profile\n• Executive Roles\n• Solothurn\n• Festanstellung\n• Full Time\n• Sales, Stakeholder communication, Leadership"
       },
       "location": "Solothurn",
@@ -5804,7 +5909,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8A0OK8",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:49.020Z",
+      "crawledAt": "2026-10-03T09:22:33.293Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -5848,7 +5953,7 @@
           "directeur-des-ventes-suisse-h-f-d-coopers-group-ag-solothurn"
         ]
       },
-      "firstSeenAt": "2026-10-02T21:25:49.020Z",
+      "firstSeenAt": "2026-10-03T09:22:33.293Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -5861,14 +5966,15 @@
           "maxValue": 167000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-0e5dac2613de",
       "slug": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
       "slugByLocale": {
-        "it": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
         "en": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
+        "it": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
         "de": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
         "fr": "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf"
       },
@@ -5880,12 +5986,12 @@
         "it": "Delivery Direttore - Data Lakehouse & AI Platform (m/f/d)",
         "en": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)",
         "de": "Delivery Direktor - Data Lakehouse & AI Platform (m/f/d)",
-        "fr": "Directeur de livraison - Data Lakehouse & AI Platform (h/f/d)"
+        "fr": "Delivery Director - Data Lakehouse & AI Platform (m/f/d)"
       },
       "description": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
       "descriptionByLocale": {
-        "it": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
         "en": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
+        "it": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
         "de": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace",
         "fr": "For a longterm project at our client in Geneva, we are looking for an experienced, motivated and open-minded Delivery Director – Data Lakehouse & AI Platform .\n\nOur client is seeking an experienced and commercially minded Delivery Director / Programme Director to lead both the bid and delivery phases of a strategic Data Lakehouse & AI Platform initiative for a major Swiss healthcare organization. This role combines executive-level delivery leadership, public tender expertise, stakeholder management, and deep understanding of modern data platform architectures and AI-enabled ecosystems.\n\nThe successful candidate will be responsible for shaping the delivery strategy during the tender phase and, subject to contract award, leading the end-to-end implementation and long-term delivery of the platform.\n\nYour Tasks:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n\nYour Profile:\n• Own and lead all delivery-related aspects of the bid process\n• Define the overall delivery strategy, governance model, and implementation approach\n• Contribute to the preparation and submission of the complete bid package\n• Lead delivery-related customer presentations, auditions, and evaluation sessions\n• Coordinate and manage the Proof of Concept (PoC)\n• Ensure delivery feasibility, resource planning, quality assurance, and timeline adherence\n• Coordinate internal teams, implementation partners, and third-party vendors\n• Take end-to-end responsibility for the delivery of the Data Lakehouse & AI Platform\n• Lead mobilisation, implementation, testing, go-live, and stabilisation activities\n• Establish and manage programme governance, reporting, and decision-making structures\n• Oversee resources, budgets, risks, dependencies, escalations, and delivery milestones\n• Manage commercial topics including TCO, SLAs, rate cards, contracts, and change requests\n• Build and maintain long-term relationships with customer stakeholders and executives\n• Ensure successful delivery within agreed scope, quality, budget, and timelines\n• Fluency in French and English\n\nJob profile\n• IT - Data Science / Digital\n• IT - IT Infrastructure & Operations\n• Genf\n• Contracting\n• Part Time, 60-100%\n• Immediately - 12+ months\n• LLM, Governance, Data Lakehouse\n\nJob benefits\n• First-name terms\n• Home Office\n• Modern workspace"
       },
@@ -5894,7 +6000,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=2NU77Z",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:25:48.013Z",
+      "crawledAt": "2026-10-03T09:22:32.330Z",
       "addressLocality": "Genf",
       "addressRegion": "GE",
       "addressCountry": "CH",
@@ -5931,10 +6037,17 @@
           "Contracting",
           "Part Time, 60-100%",
           "Immediately - 12+ months",
+          "LLM, Governance, Data Lakehouse",
+          "IT - Data Science / Digital",
+          "IT - IT Infrastructure & Operations",
+          "Genf",
+          "Contracting",
+          "Part Time, 60-100%",
+          "Immediately - 12+ months",
           "LLM, Governance, Data Lakehouse"
         ]
       },
-      "firstSeenAt": "2026-10-02T21:25:48.013Z",
+      "firstSeenAt": "2026-10-03T09:22:32.330Z",
       "previousSlugsByLocale": {
         "it": [
           "delivery-director-data-lakehouse-ai-platform-m-f-d-coopers-genf",
@@ -5966,15 +6079,16 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-5a6ab26c279e",
       "slug": "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
       "slugByLocale": {
-        "it": "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau",
+        "it": "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
         "en": "global-clinical-distribution-lead-m-f-d-coopers-aargau",
-        "de": "globaler-klinischer-vertriebsleiter-m-w-d-coopers-group-ag-aargau",
+        "de": "global-clinical-distribution-lead-m-w-d-coopers-group-ag-aargau",
         "fr": "distribution-clinique-mondiale-plomb-h-f-d-coopers-group-ag-aargau"
       },
       "company": "Coopers Group AG",
@@ -5982,10 +6096,10 @@
       "companyDomain": "coopers.ch",
       "title": "Global Clinical Distribution Lead (m/f/d)",
       "titleByLocale": {
-        "it": "Piombo di distribuzione clinica globale (m/f/d)",
+        "it": "Global Clinical Distribution Lead (m/f/d)",
         "en": "Global Clinical Distribution Lead (m/f/d)",
-        "de": "Globaler klinischer Vertriebsleiter (m/w/d)",
-        "fr": "Distribution clinique mondiale plomb (h/f/d)"
+        "de": "Global Clinical Distribution Lead (m/f/d)",
+        "fr": "Global Clinical Distribution Lead (m/f/d)"
       },
       "description": "As a member of the Study Management Chapter, you will manage the end-to-end distribution activities for a portfolio of clinical trials of varying complexity. Your responsibility includes deploying clinical inventory throughout the global distribution network consisting of 24 depots worldwide from the point of technical release through importation and delivery of the clinical drug to depots and clinical sites.\n\nStart Date: Oct/Nov 2026\nEnd Date: 12-month contract (with the option of extension)\nWorkload: 100%, with min. 3 days onsite per week\nLocation: Kaiseraugst\nWorkmodel: Contracting\n\nThe Global Clinical Distribution Team members have in-depth knowledge and understanding of clinical trial management, supply chain logistics, ERP systems and manage end-to-end distribution activities of a clinical study portfolio of varying complexity. Our team members are globally distributed across Kaiseraugst, Switzerland, South San Francisco, U.S. and Mississauga (Greater Toronto Area), Canada.\nThe Global Clinical Supply Chain Organization’s objective is to cost-effectively ensure the right product is in the right place at the right time every time, such that no patient will go without treatment and no clinical trial will be delayed. Our vision is to enable an adaptive Supply Chain delivering innovative and sustainable clinical supply solutions anytime, anywhere, to anyone. As a part of our team, you will directly contribute to the success of our clients robust and diverse pipeline of biopharmaceuticals, as our team is accountable for the Clinical Supply of more than 100 molecules in 600+ clinical trials across seven disease areas.\n\nYour responsibilies\n\nAs a Global Clinical Distribution Lead (m/f/d), you will play a variety of roles according to your experience, knowledge, and general business/team requirements, such as:\n• Manage the On-time Delivery Performance for network supply shipments in the distribution network to meet study requirements and patient demand\n• Effective participation and engagement on Protocol Execution Teams (PETs), Global Supply Execution Teams (gSETs), and ad-hoc distribution-related meetings on behalf of PTDS\n• Drive resolution of operational and system matters impacting on-time delivery collaborating with providers internal and external\n• Execute and coordinate network depot supply in coordination with the Clinical Demand and Supply Leader and other partners as needed\n• Lead and participate in cross-functional and internal distribution-related projects and process improvement initiatives supporting the global distribution and PTDS strategy\n• Execute with the highest level of accuracy in the CLARA system and perform 1st and 2nd-level diagnostics\n• Operate within a GMP-compliant environment, ensuring adherence to quality procedures in place\n• Processing event records such as quality incidents as well as CAPAs and Changes (Planned Events) if applicable\n\nYour Profil:\n• Degree (BA, BS, MS, MBA) in Business (Operations Management or Supply Chain Management), Biotechnology or relevant field\n• 3-4 years’ experience in Clinical Trial Management, logistics, warehouse management, or other Supply Chain disciplines, preferably in the Biotechnology / Pharmaceutical industry\n• Strong SAP / ERP systems knowledge and experience\n• Experience in cross-functional/cross-cultural and agile organizational models\n• Operational Excellence/ Six Sigma/ Lean training is a plus\n• APICS and/or SCOR certification is a plus\n• You are action-oriented and can influence both internal and external stakeholders\n• You demonstrate curiosity, active listening, and a willingness to experiment and test new ideas when appropriate, focusing on continuous learning and improvement\n• You have a collaborative and agile mindset, actively looking to contribute to cross-functional teams and develop a self-directed team organization\n• You solve problems and can manage complex situations autonomously\n• You can manage multiple tasks and priorities\n\nJob profile\n• Life Sciences - Supply Chain / Operations\n• Aargau\n• Contracting\n• Full Time\n• Oct/Nov 2026 - 12-month contract (with the option of extension)\n• Clinical Supply Chain, Clinical Trial Management, SAP , warehouse management, GMP\n\nJob benefits\n• Cantine\n• Central location\n• Company laptop\n• Coopers Care\n• Family-friendly company\n• First-name terms\n• Flexible hours\n• Further education\n• Home Office\n• Modern workspace\n• Work-life-balance",
       "descriptionByLocale": {
@@ -5999,7 +6113,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=8Y16NP",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:25:47.040Z",
+      "crawledAt": "2026-10-03T09:22:31.373Z",
       "addressLocality": "Aargau",
       "addressRegion": "AG",
       "addressCountry": "CH",
@@ -6033,15 +6147,27 @@
           "Contracting",
           "Full Time",
           "Oct/Nov 2026 - 12-month contract (with the option of extension)",
+          "Clinical Supply Chain, Clinical Trial Management, SAP , warehouse management, GMP",
+          "Life Sciences - Supply Chain / Operations",
+          "Aargau",
+          "Contracting",
+          "Full Time",
+          "Oct/Nov 2026 - 12-month contract (with the option of extension)",
           "Clinical Supply Chain, Clinical Trial Management, SAP , warehouse management, GMP"
         ]
       },
       "previousSlugs": [
-        "global-clinical-distribution-lead-m-f-d-coopers-aargau"
+        "global-clinical-distribution-lead-m-f-d-coopers-aargau",
+        "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau",
+        "globaler-klinischer-vertriebsleiter-m-w-d-coopers-group-ag-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-clinical-distribution-lead-m-f-d-coopers-aargau"
+          "global-clinical-distribution-lead-m-f-d-coopers-aargau",
+          "piombo-di-distribuzione-clinica-globale-m-f-d-coopers-group-ag-aargau"
+        ],
+        "de": [
+          "globaler-klinischer-vertriebsleiter-m-w-d-coopers-group-ag-aargau"
         ]
       },
       "needsRetranslation": true,
@@ -6091,7 +6217,7 @@
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=63IRD1",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-02T21:25:46.058Z",
+      "crawledAt": "2026-10-03T09:22:30.438Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -6119,15 +6245,6 @@
           "Medizintechnik, Quality"
         ]
       },
-      "previousSlugs": [
-        "product-quality-engineer-m-w-d-coopers-zug"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "product-quality-engineer-m-w-d-coopers-zug"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:21:06.768Z",
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -6140,7 +6257,17 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:21:06.768Z",
+      "previousSlugs": [
+        "product-quality-engineer-m-w-d-coopers-zug"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "product-quality-engineer-m-w-d-coopers-zug"
+        ]
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-e4c99ded4d08",
@@ -6164,16 +6291,16 @@
       "description": "Für unseren Kunden, ein international ausgerichtetes Unternehmen in der Region Basel, suchen wir so rasch als möglich eine engagierte und organisationsstarke Persönlichkeit als Team Assistant 100 % .\n\nDu arbeitest in einem internationalen, multikulturellen und mehrsprachigen Umfeld und unterstützt ein achtköpfiges Team sowie den Chief Commercial Officer (CCO). Dabei übernimmst du administrative, organisatorische und finanzielle Aufgaben und wirkst bei ausgewählten Themen der digitalen Kommunikation mit.\n\nDie Position ist zunächst bis Ende März 2027 befristet und umfasst 40 Stunden pro Woche . Bei entsprechender Eignung und Leistung besteht die Möglichkeit einer Verlängerung oder anschliessenden Festanstellung.\n\nDeine Hauptaufgaben\n• Organisation und Planung von Meetings inklusive Einladungen, Tagesordnungen und Logistik\n• Erstellung und Verteilung von Berichten und Protokollen sowie Nachverfolgung vereinbarter Massnahmen\n• Koordination der Terminkalender und Zeitpläne des Teams und des CCO\n• Organisation interner Teamevents, Seminare und abteilungsübergreifender Meetings\n• Sicherstellung der administrativen Schnittstelle zu verschiedenen internen Bereichen\n• Vorbereitung finanzieller Vorabgenehmigungen und Nachverfolgung von Rechnungen\n• Erstellung und Bearbeitung von Spesenabrechnungen und Erstattungsanträgen\n• Organisation und Koordination von Geschäftsreisen inklusive Buchungen, Reiserouten und Logistik\n• Unterstützung bei der Betreuung der Social Media Kanäle und der digitalen Marktbeobachtung\n• Mitarbeit bei kleineren Projekten in den Bereichen Kommunikation und kontinuierliche Verbesserung\n\nDas erwartet dich\n• Ein besonderes, internationales Arbeitsumfeld mit kultureller Vielfalt und gelebter Mehrsprachigkeit\n• Ein abwechslungsreiches Aufgabengebiet mit vielfältigen Schnittstellen\n• Enge Zusammenarbeit mit dem CCO und einem kleinen, eingespielten Team\n• Die Möglichkeit, Verantwortung zu übernehmen und deine organisatorischen Fähigkeiten vielseitig einzusetzen\n• Ein dynamisches Arbeitsumfeld, in dem Teamgeist, Offenheit und menschliche Werte einen hohen Stellenwert haben\n\nDein Profil\n• Abgeschlossene Ausbildung im kaufmännischen Bereich, in Assistenz, Administration oder Kommunikation\n• Mindestens zwei Jahre Berufserfahrung als Team Assistant, Executive Assistant oder in einer vergleichbaren Funktion\n• Ausgeprägtes Organisationstalent sowie eine strukturierte und sorgfältige Arbeitsweise\n• Proaktive, selbstständige und zuverlässige Persönlichkeit mit einem guten Gespür für Prioritäten\n• Fähigkeit, mehrere Aufgaben parallel zu koordinieren und auch in einem dynamischen Umfeld den Überblick zu behalten\n• Freude an der Zusammenarbeit und Kommunikation mit unterschiedlichen Ansprechpartnern in einem internationalen Umfeld\n• Sicherer Umgang mit MS Office, Outlook und Teams\n• Sehr gute Englischkenntnisse, mindestens Niveau C1\n• Gute Deutsch- und Französischkenntnisse, mindestens Niveau B1\n\nJob profile\n• Administration - Sales\n• Basel-Stadt\n• Contracting\n• Full Time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Englisch, Französisch, Deutsch\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
       "descriptionByLocale": {
         "de": "Für unseren Kunden, ein international ausgerichtetes Unternehmen in der Region Basel, suchen wir so rasch als möglich eine engagierte und organisationsstarke Persönlichkeit als Team Assistant 100 % .\n\nDu arbeitest in einem internationalen, multikulturellen und mehrsprachigen Umfeld und unterstützt ein achtköpfiges Team sowie den Chief Commercial Officer (CCO). Dabei übernimmst du administrative, organisatorische und finanzielle Aufgaben und wirkst bei ausgewählten Themen der digitalen Kommunikation mit.\n\nDie Position ist zunächst bis Ende März 2027 befristet und umfasst 40 Stunden pro Woche . Bei entsprechender Eignung und Leistung besteht die Möglichkeit einer Verlängerung oder anschliessenden Festanstellung.\n\nDeine Hauptaufgaben\n• Organisation und Planung von Meetings inklusive Einladungen, Tagesordnungen und Logistik\n• Erstellung und Verteilung von Berichten und Protokollen sowie Nachverfolgung vereinbarter Massnahmen\n• Koordination der Terminkalender und Zeitpläne des Teams und des CCO\n• Organisation interner Teamevents, Seminare und abteilungsübergreifender Meetings\n• Sicherstellung der administrativen Schnittstelle zu verschiedenen internen Bereichen\n• Vorbereitung finanzieller Vorabgenehmigungen und Nachverfolgung von Rechnungen\n• Erstellung und Bearbeitung von Spesenabrechnungen und Erstattungsanträgen\n• Organisation und Koordination von Geschäftsreisen inklusive Buchungen, Reiserouten und Logistik\n• Unterstützung bei der Betreuung der Social Media Kanäle und der digitalen Marktbeobachtung\n• Mitarbeit bei kleineren Projekten in den Bereichen Kommunikation und kontinuierliche Verbesserung\n\nDas erwartet dich\n• Ein besonderes, internationales Arbeitsumfeld mit kultureller Vielfalt und gelebter Mehrsprachigkeit\n• Ein abwechslungsreiches Aufgabengebiet mit vielfältigen Schnittstellen\n• Enge Zusammenarbeit mit dem CCO und einem kleinen, eingespielten Team\n• Die Möglichkeit, Verantwortung zu übernehmen und deine organisatorischen Fähigkeiten vielseitig einzusetzen\n• Ein dynamisches Arbeitsumfeld, in dem Teamgeist, Offenheit und menschliche Werte einen hohen Stellenwert haben\n\nDein Profil\n• Abgeschlossene Ausbildung im kaufmännischen Bereich, in Assistenz, Administration oder Kommunikation\n• Mindestens zwei Jahre Berufserfahrung als Team Assistant, Executive Assistant oder in einer vergleichbaren Funktion\n• Ausgeprägtes Organisationstalent sowie eine strukturierte und sorgfältige Arbeitsweise\n• Proaktive, selbstständige und zuverlässige Persönlichkeit mit einem guten Gespür für Prioritäten\n• Fähigkeit, mehrere Aufgaben parallel zu koordinieren und auch in einem dynamischen Umfeld den Überblick zu behalten\n• Freude an der Zusammenarbeit und Kommunikation mit unterschiedlichen Ansprechpartnern in einem internationalen Umfeld\n• Sicherer Umgang mit MS Office, Outlook und Teams\n• Sehr gute Englischkenntnisse, mindestens Niveau C1\n• Gute Deutsch- und Französischkenntnisse, mindestens Niveau B1\n\nJob profile\n• Administration - Sales\n• Basel-Stadt\n• Contracting\n• Full Time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Englisch, Französisch, Deutsch\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
-        "it": "Per il nostro cliente, una società orientata a livello internazionale nella regione di Basilea, stiamo cercando una personalità impegnata e organizzativa come Team Assistant 100% appena possibile.\n\nLavora in un ambiente internazionale, multiculturale e multilingue e supporta un team di otto membri e il Chief Commercial Officer (CCO). Si occupa di compiti amministrativi, organizzativi e finanziari e si occupa di temi selezionati di comunicazione digitale.\n\nLa posizione è inizialmente limitata alla fine del marzo 2027 e copre 40 ore alla settimana. In caso di adeguatezza e prestazioni, esiste la possibilità di un'estensione o di un successivo impiego permanente.\n\nI compiti principali\n• Organizzazione e pianificazione di incontri tra inviti, agende e logistica\n• Preparazione e distribuzione delle relazioni e dei verbali e approfondimento delle misure concordate\n• Coordinamento degli orari e degli orari della squadra e della CCO\n• Organizzazione di eventi, seminari e incontri interdipartimentali\n• Garantire l'interfaccia amministrativa a varie aree interne\n• Preparazione delle approvazioni finanziarie e monitoraggio delle fatture\n• Preparazione e trattamento dei rapporti di spesa e delle domande di rimborso\n• Organizzazione e coordinamento dei viaggi d'affari tra prenotazioni, itinerari e logistica\n• Sostegno a sostegno dei canali dei social media e del monitoraggio del mercato digitale\n• Cooperazione in piccoli progetti nei settori della comunicazione e miglioramento continuo\n\nQuesto è ciò che vi aspetta\n• Un ambiente di lavoro speciale e internazionale con diversità culturale e multilinguismo\n• Una variegata area di responsabilità con diverse interfacce\n• Una stretta collaborazione con la CCO e un piccolo e consolidato team\n• L'opportunità di prendere la responsabilità e utilizzare le tue capacità organizzative in molti modi\n• Un ambiente di lavoro dinamico in cui lo spirito di squadra, l'apertura e i valori umani sono di grande importanza\n\nIl tuo profilo\n• Formazione completa nel settore commerciale, nell'assistenza, nell'amministrazione o nella comunicazione\n• Almeno due anni di esperienza professionale come assistente di squadra, assistente esecutivo o equivalente\n• Forte talento organizzativo così come un metodo di lavoro strutturato e attento\n• Personalità attiva, indipendente e affidabile con un buon senso delle priorità\n• Capacità di coordinare più attività in parallelo e mantenere una panoramica anche in un ambiente dinamico\n• Godetevi la cooperazione e la comunicazione con diversi contatti in un ambiente internazionale\n• Gestione sicura di MS Office, Outlook e team\n• Conoscenza molto buona dell'inglese, almeno livello C1\n• Buona conoscenza del tedesco e del francese, almeno il livello B1\n\nProfili di lavoro\n• Amministrazione - Vendite\n• Città di Basilea\n• Contratti\n• Tempo pieno\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Inglese, Francese, Tedesco\n\nPrestazioni di lavoro\n• Eventi\n• Termini di primo nome\n• Gerarchia piatta\n• Forte spirito di squadra",
-        "en": "For our customer, an internationally oriented company in the Basel region, we are looking for a committed and organizational personality as Team Assistant 100% as soon as possible.\n\nYou work in an international, multicultural and multilingual environment and support an eight-member team and the Chief Commercial Officer (CCO). You take on administrative, organizational and financial tasks and work on selected topics of digital communication.\n\nThe position is initially limited to the end of March 2027 and covers 40 hours per week. If appropriate suitability and performance, there is the possibility of an extension or subsequent permanent employment.\n\nYour main tasks\n• Organization and planning of meetings including invitations, agendas and logistics\n• Preparation and distribution of reports and minutes and follow-up of agreed measures\n• Coordination of team and CCO schedules and schedules\n• Organization of internal team events, seminars and cross-departmental meetings\n• Ensuring the administrative interface to various internal areas\n• Preparation of financial advance approvals and tracking of invoices\n• Preparation and processing of expense reports and reimbursement claims\n• Organisation and coordination of business travel including bookings, itineraries and logistics\n• Support in support of social media channels and digital market monitoring\n• Cooperation in smaller projects in the areas of communication and continuous improvement\n\nThis is what awaits you\n• A special, international working environment with cultural diversity and multilingualism\n• A varied area of responsibility with diverse interfaces\n• Close cooperation with the CCO and a small, well-established team\n• The opportunity to take responsibility and use your organizational skills in many ways\n• A dynamic working environment where team spirit, openness and human values are of great importance\n\nYour profile\n• Completed training in the commercial sector, in assistance, administration or communication\n• At least two years of professional experience as a team assistant, executive assistant or equivalent\n• Strong organisational talent as well as a structured and careful working method\n• Proactive, independent and reliable personality with a good sense of priorities\n• Ability to coordinate multiple tasks in parallel and keep an overview even in a dynamic environment\n• Enjoy cooperation and communication with different contacts in an international environment\n• Secure handling of MS Office, Outlook and teams\n• Very good knowledge of English, at least level C1\n• Good knowledge of German and French, at least level B1\n\nJob profiles\n• Administration - Sales\n• Basel City\n• Contracting\n• Full time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, English, French, German\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
-        "fr": "Pour notre client, une entreprise internationale dans la région de Bâle, nous recherchons une personnalité engagée et organisationnelle en tant qu'Assistant d'équipe 100% dès que possible.\n\nVous travaillez dans un environnement international, multiculturel et multilingue et soutenez une équipe de huit membres et le chef du commerce (CCO). Vous assumez des tâches administratives, organisationnelles et financières et travaillez sur certains sujets de la communication numérique.\n\nLe poste est initialement limité à la fin de mars 2027 et couvre 40 heures par semaine. S'il y a lieu, il y a possibilité de prolongation ou d'emploi permanent.\n\nVos principales tâches\n• Organisation et planification des réunions, y compris les invitations, les ordres du jour et la logistique\n• Élaboration et distribution des rapports et des procès-verbaux et suivi des mesures convenues\n• Coordination des horaires des équipes et des ACO\n• Organisation de manifestations internes, de séminaires et de réunions interministérielles\n• Assurer l'interface administrative entre les différents domaines internes\n• Préparation des approbations préalables financières et suivi des factures\n• Établissement et traitement des rapports de dépenses et des demandes de remboursement\n• Organisation et coordination des voyages d'affaires, y compris les réservations, itinéraires et logistique\n• Soutien aux réseaux sociaux et à la surveillance du marché numérique\n• Coopération dans les petits projets dans les domaines de la communication et de l'amélioration continue\n\nC'est ce qui vous attend\n• Un environnement de travail international spécial avec diversité culturelle et multilinguisme\n• Un domaine de responsabilité varié avec des interfaces variées\n• Collaboration étroite avec l'OCC et une petite équipe bien établie\n• L'occasion de prendre des responsabilités et d'utiliser vos compétences organisationnelles de plusieurs façons\n• Un environnement de travail dynamique où l'esprit d'équipe, l'ouverture et les valeurs humaines sont d'une grande importance\n\nVotre profil\n• Formation complète dans le secteur commercial, en assistance, administration ou communication\n• Au moins deux ans d'expérience professionnelle comme assistant d'équipe, assistant exécutif ou équivalent\n• Un talent organisationnel fort ainsi qu'une méthode de travail structurée et prudente\n• Personnalité proactive, indépendante et fiable avec un bon sens des priorités\n• Capacité de coordonner plusieurs tâches en parallèle et de garder un aperçu même dans un environnement dynamique\n• Profitez de la coopération et de la communication avec différents contacts dans un environnement international\n• Gestion sûre de MS Office, Outlook et des équipes\n• Très bonne connaissance de l'anglais, au moins niveau C1\n• Bonne connaissance de l'allemand et du français, au moins niveau B1\n\nProfils d'emploi\n• Administration - Ventes\n• Ville de Bâle\n• Contrats\n• Temps plein\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, anglais, français, allemand\n\nPrestations d'emploi\n• Événements\n• Termes de prénom\n• Hiérarchie plate\n• Un esprit d'équipe fort"
+        "it": "Für unseren Kunden, ein international ausgerichtetes Unternehmen in der Region Basel, suchen wir so rasch als möglich eine engagierte und organisationsstarke Persönlichkeit als Team Assistant 100 % .\n\nDu arbeitest in einem internationalen, multikulturellen und mehrsprachigen Umfeld und unterstützt ein achtköpfiges Team sowie den Chief Commercial Officer (CCO). Dabei übernimmst du administrative, organisatorische und finanzielle Aufgaben und wirkst bei ausgewählten Themen der digitalen Kommunikation mit.\n\nDie Position ist zunächst bis Ende März 2027 befristet und umfasst 40 Stunden pro Woche . Bei entsprechender Eignung und Leistung besteht die Möglichkeit einer Verlängerung oder anschliessenden Festanstellung.\n\nDeine Hauptaufgaben\n• Organisation und Planung von Meetings inklusive Einladungen, Tagesordnungen und Logistik\n• Erstellung und Verteilung von Berichten und Protokollen sowie Nachverfolgung vereinbarter Massnahmen\n• Koordination der Terminkalender und Zeitpläne des Teams und des CCO\n• Organisation interner Teamevents, Seminare und abteilungsübergreifender Meetings\n• Sicherstellung der administrativen Schnittstelle zu verschiedenen internen Bereichen\n• Vorbereitung finanzieller Vorabgenehmigungen und Nachverfolgung von Rechnungen\n• Erstellung und Bearbeitung von Spesenabrechnungen und Erstattungsanträgen\n• Organisation und Koordination von Geschäftsreisen inklusive Buchungen, Reiserouten und Logistik\n• Unterstützung bei der Betreuung der Social Media Kanäle und der digitalen Marktbeobachtung\n• Mitarbeit bei kleineren Projekten in den Bereichen Kommunikation und kontinuierliche Verbesserung\n\nDas erwartet dich\n• Ein besonderes, internationales Arbeitsumfeld mit kultureller Vielfalt und gelebter Mehrsprachigkeit\n• Ein abwechslungsreiches Aufgabengebiet mit vielfältigen Schnittstellen\n• Enge Zusammenarbeit mit dem CCO und einem kleinen, eingespielten Team\n• Die Möglichkeit, Verantwortung zu übernehmen und deine organisatorischen Fähigkeiten vielseitig einzusetzen\n• Ein dynamisches Arbeitsumfeld, in dem Teamgeist, Offenheit und menschliche Werte einen hohen Stellenwert haben\n\nDein Profil\n• Abgeschlossene Ausbildung im kaufmännischen Bereich, in Assistenz, Administration oder Kommunikation\n• Mindestens zwei Jahre Berufserfahrung als Team Assistant, Executive Assistant oder in einer vergleichbaren Funktion\n• Ausgeprägtes Organisationstalent sowie eine strukturierte und sorgfältige Arbeitsweise\n• Proaktive, selbstständige und zuverlässige Persönlichkeit mit einem guten Gespür für Prioritäten\n• Fähigkeit, mehrere Aufgaben parallel zu koordinieren und auch in einem dynamischen Umfeld den Überblick zu behalten\n• Freude an der Zusammenarbeit und Kommunikation mit unterschiedlichen Ansprechpartnern in einem internationalen Umfeld\n• Sicherer Umgang mit MS Office, Outlook und Teams\n• Sehr gute Englischkenntnisse, mindestens Niveau C1\n• Gute Deutsch- und Französischkenntnisse, mindestens Niveau B1\n\nJob profile\n• Administration - Sales\n• Basel-Stadt\n• Contracting\n• Full Time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Englisch, Französisch, Deutsch\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
+        "en": "Für unseren Kunden, ein international ausgerichtetes Unternehmen in der Region Basel, suchen wir so rasch als möglich eine engagierte und organisationsstarke Persönlichkeit als Team Assistant 100 % .\n\nDu arbeitest in einem internationalen, multikulturellen und mehrsprachigen Umfeld und unterstützt ein achtköpfiges Team sowie den Chief Commercial Officer (CCO). Dabei übernimmst du administrative, organisatorische und finanzielle Aufgaben und wirkst bei ausgewählten Themen der digitalen Kommunikation mit.\n\nDie Position ist zunächst bis Ende März 2027 befristet und umfasst 40 Stunden pro Woche . Bei entsprechender Eignung und Leistung besteht die Möglichkeit einer Verlängerung oder anschliessenden Festanstellung.\n\nDeine Hauptaufgaben\n• Organisation und Planung von Meetings inklusive Einladungen, Tagesordnungen und Logistik\n• Erstellung und Verteilung von Berichten und Protokollen sowie Nachverfolgung vereinbarter Massnahmen\n• Koordination der Terminkalender und Zeitpläne des Teams und des CCO\n• Organisation interner Teamevents, Seminare und abteilungsübergreifender Meetings\n• Sicherstellung der administrativen Schnittstelle zu verschiedenen internen Bereichen\n• Vorbereitung finanzieller Vorabgenehmigungen und Nachverfolgung von Rechnungen\n• Erstellung und Bearbeitung von Spesenabrechnungen und Erstattungsanträgen\n• Organisation und Koordination von Geschäftsreisen inklusive Buchungen, Reiserouten und Logistik\n• Unterstützung bei der Betreuung der Social Media Kanäle und der digitalen Marktbeobachtung\n• Mitarbeit bei kleineren Projekten in den Bereichen Kommunikation und kontinuierliche Verbesserung\n\nDas erwartet dich\n• Ein besonderes, internationales Arbeitsumfeld mit kultureller Vielfalt und gelebter Mehrsprachigkeit\n• Ein abwechslungsreiches Aufgabengebiet mit vielfältigen Schnittstellen\n• Enge Zusammenarbeit mit dem CCO und einem kleinen, eingespielten Team\n• Die Möglichkeit, Verantwortung zu übernehmen und deine organisatorischen Fähigkeiten vielseitig einzusetzen\n• Ein dynamisches Arbeitsumfeld, in dem Teamgeist, Offenheit und menschliche Werte einen hohen Stellenwert haben\n\nDein Profil\n• Abgeschlossene Ausbildung im kaufmännischen Bereich, in Assistenz, Administration oder Kommunikation\n• Mindestens zwei Jahre Berufserfahrung als Team Assistant, Executive Assistant oder in einer vergleichbaren Funktion\n• Ausgeprägtes Organisationstalent sowie eine strukturierte und sorgfältige Arbeitsweise\n• Proaktive, selbstständige und zuverlässige Persönlichkeit mit einem guten Gespür für Prioritäten\n• Fähigkeit, mehrere Aufgaben parallel zu koordinieren und auch in einem dynamischen Umfeld den Überblick zu behalten\n• Freude an der Zusammenarbeit und Kommunikation mit unterschiedlichen Ansprechpartnern in einem internationalen Umfeld\n• Sicherer Umgang mit MS Office, Outlook und Teams\n• Sehr gute Englischkenntnisse, mindestens Niveau C1\n• Gute Deutsch- und Französischkenntnisse, mindestens Niveau B1\n\nJob profile\n• Administration - Sales\n• Basel-Stadt\n• Contracting\n• Full Time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Englisch, Französisch, Deutsch\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit",
+        "fr": "Für unseren Kunden, ein international ausgerichtetes Unternehmen in der Region Basel, suchen wir so rasch als möglich eine engagierte und organisationsstarke Persönlichkeit als Team Assistant 100 % .\n\nDu arbeitest in einem internationalen, multikulturellen und mehrsprachigen Umfeld und unterstützt ein achtköpfiges Team sowie den Chief Commercial Officer (CCO). Dabei übernimmst du administrative, organisatorische und finanzielle Aufgaben und wirkst bei ausgewählten Themen der digitalen Kommunikation mit.\n\nDie Position ist zunächst bis Ende März 2027 befristet und umfasst 40 Stunden pro Woche . Bei entsprechender Eignung und Leistung besteht die Möglichkeit einer Verlängerung oder anschliessenden Festanstellung.\n\nDeine Hauptaufgaben\n• Organisation und Planung von Meetings inklusive Einladungen, Tagesordnungen und Logistik\n• Erstellung und Verteilung von Berichten und Protokollen sowie Nachverfolgung vereinbarter Massnahmen\n• Koordination der Terminkalender und Zeitpläne des Teams und des CCO\n• Organisation interner Teamevents, Seminare und abteilungsübergreifender Meetings\n• Sicherstellung der administrativen Schnittstelle zu verschiedenen internen Bereichen\n• Vorbereitung finanzieller Vorabgenehmigungen und Nachverfolgung von Rechnungen\n• Erstellung und Bearbeitung von Spesenabrechnungen und Erstattungsanträgen\n• Organisation und Koordination von Geschäftsreisen inklusive Buchungen, Reiserouten und Logistik\n• Unterstützung bei der Betreuung der Social Media Kanäle und der digitalen Marktbeobachtung\n• Mitarbeit bei kleineren Projekten in den Bereichen Kommunikation und kontinuierliche Verbesserung\n\nDas erwartet dich\n• Ein besonderes, internationales Arbeitsumfeld mit kultureller Vielfalt und gelebter Mehrsprachigkeit\n• Ein abwechslungsreiches Aufgabengebiet mit vielfältigen Schnittstellen\n• Enge Zusammenarbeit mit dem CCO und einem kleinen, eingespielten Team\n• Die Möglichkeit, Verantwortung zu übernehmen und deine organisatorischen Fähigkeiten vielseitig einzusetzen\n• Ein dynamisches Arbeitsumfeld, in dem Teamgeist, Offenheit und menschliche Werte einen hohen Stellenwert haben\n\nDein Profil\n• Abgeschlossene Ausbildung im kaufmännischen Bereich, in Assistenz, Administration oder Kommunikation\n• Mindestens zwei Jahre Berufserfahrung als Team Assistant, Executive Assistant oder in einer vergleichbaren Funktion\n• Ausgeprägtes Organisationstalent sowie eine strukturierte und sorgfältige Arbeitsweise\n• Proaktive, selbstständige und zuverlässige Persönlichkeit mit einem guten Gespür für Prioritäten\n• Fähigkeit, mehrere Aufgaben parallel zu koordinieren und auch in einem dynamischen Umfeld den Überblick zu behalten\n• Freude an der Zusammenarbeit und Kommunikation mit unterschiedlichen Ansprechpartnern in einem internationalen Umfeld\n• Sicherer Umgang mit MS Office, Outlook und Teams\n• Sehr gute Englischkenntnisse, mindestens Niveau C1\n• Gute Deutsch- und Französischkenntnisse, mindestens Niveau B1\n\nJob profile\n• Administration - Sales\n• Basel-Stadt\n• Contracting\n• Full Time\n• 01.11.2026 - 31.03.207\n• MS Office, Sharepoint, Englisch, Französisch, Deutsch\n\nJob benefits\n• Events\n• First-name terms\n• Flat hierarchy\n• Strong team spirit"
       },
       "location": "Basel-Stadt",
       "canton": "BS",
       "url": "https://www.coopers.ch/en/jobs/detail.php?refCode=W186PG",
       "source": "Coopers Group AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:25:45.065Z",
+      "crawledAt": "2026-10-03T09:22:29.512Z",
       "addressLocality": "Basel-Stadt",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -6219,7 +6346,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:25:45.065Z"
+      "firstSeenAt": "2026-10-03T09:22:29.512Z"
     },
     {
       "id": "coopers-ec940b19b374",

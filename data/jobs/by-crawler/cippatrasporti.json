@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cippatrasporti",
-  "assembledAt": "2026-10-02T21:20:51.997Z",
+  "assembledAt": "2026-10-03T09:20:00.861Z",
   "jobs": [
     {
       "id": "cippatrasporti-c38396f76831",
@@ -33,7 +33,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Customer-Service-Transport-Specialist-Commerciale-Trasporti-Chiasso-672753984.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:20:46.140Z",
+      "crawledAt": "2026-10-03T09:19:55.438Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -70,7 +70,8 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cippatrasporti-5dd16ddc181a",
@@ -103,7 +104,7 @@
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Ocean-Freight-Operations-Specialist-FCL-Project-Cargo-Trasporti-Chiasso-662670289.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:20:46.322Z",
+      "crawledAt": "2026-10-03T09:19:55.495Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -140,16 +141,17 @@
           "maxValue": 75000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "cippatrasporti-6360a178ef6c",
       "slug": "operativo-trasporti-terra-cippatrasporti-ch",
       "slugByLocale": {
         "it": "operativo-trasporti-terra-cippatrasporti-ch",
-        "en": "operation-transport-earth-cippa-trasporti-sa-chiasso",
-        "de": "operation-transport-erde-cippa-trasporti-sa-chiasso",
-        "fr": "operation-transport-terre-cippa-trasporti-sa-chiasso"
+        "en": "operativo-trasporti-terra-cippatrasporti-ch",
+        "de": "operativo-trasporti-terra-cippatrasporti-ch",
+        "fr": "operativo-trasporti-terra-cippatrasporti-ch"
       },
       "company": "Cippà Trasporti SA",
       "companyKey": "cippatrasporti",
@@ -157,23 +159,23 @@
       "title": "Operativo Trasporti Terra",
       "titleByLocale": {
         "it": "Operativo Trasporti Terra",
-        "en": "Operation Transport Earth",
-        "de": "Operation Transport Erde",
-        "fr": "Opération Transport Terre"
+        "en": "Operativo Trasporti Terra",
+        "de": "Operativo Trasporti Terra",
+        "fr": "Operativo Trasporti Terra"
       },
       "description": "STIAMO CERCANDO TE!!!! Operativo Trasporti Terra Europa (Chiasso) Cippa Trasporti ricerca un/una Operativo Trasporti Terra per la nostra sede di Chiasso. La risorsa seguirà l'organizzazione e la gestione dei trasporti internazionali su mercato europeo, con focus su groupage, carichi completi e parziali. \n• Cerchiamo una persona che abbia: Almeno 2 anni di esperienza nel settore trasporti Conoscenza del mercato europeo Attitudine commerciale e orientamento al cliente Capacità organizzative e di problem solving Se vuoi fare la differenza in un'azienda dinamica e in crescita, unisciti al nostro team! Sede di lavoro: Chiasso Invia la tua candidatura e mettiti in viaggio con noi.",
       "descriptionByLocale": {
         "it": "STIAMO CERCANDO TE!!!! Operativo Trasporti Terra Europa (Chiasso) Cippa Trasporti ricerca un/una Operativo Trasporti Terra per la nostra sede di Chiasso. La risorsa seguirà l'organizzazione e la gestione dei trasporti internazionali su mercato europeo, con focus su groupage, carichi completi e parziali. \n• Cerchiamo una persona che abbia: Almeno 2 anni di esperienza nel settore trasporti Conoscenza del mercato europeo Attitudine commerciale e orientamento al cliente Capacità organizzative e di problem solving Se vuoi fare la differenza in un'azienda dinamica e in crescita, unisciti al nostro team! Sede di lavoro: Chiasso Invia la tua candidatura e mettiti in viaggio con noi.",
-        "en": "Let's go! Operating Transport Earth Europe (Close) Cippa Transportation search for an Operating Transport Earth for our headquarters in Chiasso. The resource will follow the organization and management of international transport on the European market, with focus on groupages, complete and partial loads.\n• We're looking for someone who has: At least 2 years of experience in the transport sector Knowledge of the European market Business attitude and customer orientation Organisational and problem solving skills If you want to make a difference in a dynamic and growing company, join our team! Workplace: Chiasso Send your application and travel with us.",
-        "de": "Lass uns gehen! Operating Transport Earth Europe (Close) Cippa Transportation sucht nach einem Operating Transport Earth für unseren Hauptsitz in Chiasso. Die Ressource wird die Organisation und das Management des internationalen Transports auf dem europäischen Markt mit Schwerpunkt auf Sammelgut, Komplett- und Teilladungen verfolgen.\n• Wir suchen jemanden, der hat: Mindestens 2 Jahre Erfahrung im Transportsektor Kenntnisse des europäischen Marktes Geschäftshaltung und Kundenorientierung Organisations- und Problemlösungsfähigkeiten Wenn Sie in einem dynamischen und wachsenden Unternehmen etwas bewegen möchten, treten Sie unserem Team bei! Arbeitsplatz: Chiasso Senden Sie Ihre Bewerbung und reisen Sie mit uns.",
-        "fr": "Allons-y ! Exploitation Transport Terre Europe (Fermer) Cippa Transport Rechercher une exploitation Transport Terre pour notre siège social à Chiasso. La ressource suivra l'organisation et la gestion des transports internationaux sur le marché européen, en mettant l'accent sur les groupes, les charges complètes et partielles.\n• Nous cherchons quelqu'un qui a: Au moins 2 ans d'expérience dans le secteur des transports Connaissance du marché européen Attitude des entreprises et orientation des clients Compétences organisationnelles et de résolution de problèmes Si vous voulez faire une différence dans une entreprise dynamique et en croissance, rejoignez notre équipe! Lieu de travail: Chiasso Envoyez votre demande et voyagez avec nous."
+        "en": "STIAMO CERCANDO TE!!!! Operativo Trasporti Terra Europa (Chiasso) Cippa Trasporti ricerca un/una Operativo Trasporti Terra per la nostra sede di Chiasso. La risorsa seguirà l'organizzazione e la gestione dei trasporti internazionali su mercato europeo, con focus su groupage, carichi completi e parziali. \n• Cerchiamo una persona che abbia: Almeno 2 anni di esperienza nel settore trasporti Conoscenza del mercato europeo Attitudine commerciale e orientamento al cliente Capacità organizzative e di problem solving Se vuoi fare la differenza in un'azienda dinamica e in crescita, unisciti al nostro team! Sede di lavoro: Chiasso Invia la tua candidatura e mettiti in viaggio con noi.",
+        "de": "STIAMO CERCANDO TE!!!! Operativo Trasporti Terra Europa (Chiasso) Cippa Trasporti ricerca un/una Operativo Trasporti Terra per la nostra sede di Chiasso. La risorsa seguirà l'organizzazione e la gestione dei trasporti internazionali su mercato europeo, con focus su groupage, carichi completi e parziali. \n• Cerchiamo una persona che abbia: Almeno 2 anni di esperienza nel settore trasporti Conoscenza del mercato europeo Attitudine commerciale e orientamento al cliente Capacità organizzative e di problem solving Se vuoi fare la differenza in un'azienda dinamica e in crescita, unisciti al nostro team! Sede di lavoro: Chiasso Invia la tua candidatura e mettiti in viaggio con noi.",
+        "fr": "STIAMO CERCANDO TE!!!! Operativo Trasporti Terra Europa (Chiasso) Cippa Trasporti ricerca un/una Operativo Trasporti Terra per la nostra sede di Chiasso. La risorsa seguirà l'organizzazione e la gestione dei trasporti internazionali su mercato europeo, con focus su groupage, carichi completi e parziali. \n• Cerchiamo una persona che abbia: Almeno 2 anni di esperienza nel settore trasporti Conoscenza del mercato europeo Attitudine commerciale e orientamento al cliente Capacità organizzative e di problem solving Se vuoi fare la differenza in un'azienda dinamica e in crescita, unisciti al nostro team! Sede di lavoro: Chiasso Invia la tua candidatura e mettiti in viaggio con noi."
       },
       "location": "Chiasso",
       "canton": "TI",
       "url": "https://cippatrasporti.altamiraweb.com/annunci-lavoro/Operativo-Trasporti-Terra-Trasporti-Chiasso-693485366.htm",
       "source": "Cippà Trasporti SA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-10-02T21:20:45.402Z",
+      "crawledAt": "2026-10-03T09:19:55.363Z",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -204,7 +206,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:45.402Z"
+      "firstSeenAt": "2026-10-03T09:19:55.363Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "en": [
+          "operation-transport-earth-cippa-trasporti-sa-chiasso"
+        ],
+        "de": [
+          "operation-transport-erde-cippa-trasporti-sa-chiasso"
+        ],
+        "fr": [
+          "operation-transport-terre-cippa-trasporti-sa-chiasso"
+        ]
+      },
+      "previousSlugs": [
+        "operation-transport-earth-cippa-trasporti-sa-chiasso",
+        "operation-transport-erde-cippa-trasporti-sa-chiasso",
+        "operation-transport-terre-cippa-trasporti-sa-chiasso"
+      ]
     }
   ]
 }

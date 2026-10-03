@@ -1,13 +1,13 @@
 {
   "crawlerKey": "kanton-st-gallen",
-  "assembledAt": "2026-10-02T21:21:27.621Z",
+  "assembledAt": "2026-10-03T09:20:50.051Z",
   "jobs": [
     {
       "id": "kanton-st-gallen-4af0842ce224",
       "slug": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
         "it": "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
+        "en": "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
         "fr": "contremaitre-forestier-m-f-d-kanton-st-gallen-oberuzwil"
       },
@@ -34,7 +34,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/5496/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:21.429Z",
+      "crawledAt": "2026-10-03T09:20:43.112Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -55,14 +55,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
+        "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
+        "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil",
         "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch"
+          "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
+          "caposquadra-forestale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "forstwart-vorarbeiter-in-m-w-d-kanton-st-gallen-ch",
+          "forest-foreman-m-f-d-kanton-st-gallen-oberuzwil",
           "forestry-supervisor-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
@@ -116,7 +120,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3931/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:20.573Z",
+      "crawledAt": "2026-10-03T09:20:42.159Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -136,11 +140,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
+        "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-del-lago-di-costanza-valle-del-reno-kanton-st-gallen-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st",
+          "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-del-lago-di-costanza-valle-del-reno-kanton-st-gallen-region"
         ],
         "en": [
           "polizistin-polizist-auf-einer-polizeistation-in-der-region-bodensee-rheintal-kanton-st"
@@ -195,7 +201,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3932/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:19.658Z",
+      "crawledAt": "2026-10-03T09:20:41.146Z",
       "addressLocality": "Region Bodensee-Rheintal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -216,12 +222,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
-        "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee"
+        "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
+        "agente-di-polizia-politico-regione-della-polizia-mobile-bodensee-rheintal-kanton-st-gallen-region-bodensee-rheintal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch",
-          "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee"
+          "agente-di-polizia-della-regione-di-polizia-mobile-valle-del-lago-di-costanza-reno-kanton-st-gallen-region-bodensee",
+          "agente-di-polizia-politico-regione-della-polizia-mobile-bodensee-rheintal-kanton-st-gallen-region-bodensee-rheintal"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-bodensee-rheintal-kanton-st-gallen-ch"
@@ -277,7 +285,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3935/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:18.760Z",
+      "crawledAt": "2026-10-03T09:20:40.162Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -297,11 +305,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
+        "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-werdenberg-sarganserland-kanton-st-gallen-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton",
+          "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-werdenberg-sarganserland-kanton-st-gallen-region"
         ],
         "en": [
           "polizistin-polizist-auf-einer-polizeistation-in-der-region-werdenberg-sarganserland-kanton"
@@ -356,7 +366,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3936/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:17.866Z",
+      "crawledAt": "2026-10-03T09:20:39.167Z",
       "addressLocality": "Region Werdenberg-Sarganserland",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -376,11 +386,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
+        "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
+        "agente-di-polizia-mobile-della-regione-di-polizia-di-werdenberg-sarganserland-kanton-st-gallen-region-werdenberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
+          "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch",
+          "agente-di-polizia-mobile-della-regione-di-polizia-di-werdenberg-sarganserland-kanton-st-gallen-region-werdenberg"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-werdenberg-sarganserland-kanton-st-gallen-ch"
@@ -436,7 +448,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3937/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:16.957Z",
+      "crawledAt": "2026-10-03T09:20:38.135Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -456,11 +468,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
+        "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-linth-regione-di-toggenburg-kanton-st-gallen-region"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton",
+          "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-di-linth-regione-di-toggenburg-kanton-st-gallen-region"
         ],
         "en": [
           "polizistin-polizist-auf-einer-polizeistation-in-der-region-linthgebiet-toggenburg-kanton"
@@ -515,7 +529,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3938/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:16.063Z",
+      "crawledAt": "2026-10-03T09:20:36.786Z",
       "addressLocality": "Region Linthgebiet-Toggenburg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -535,11 +549,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+        "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+        "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
+          "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch",
+          "agente-di-polizia-della-regione-di-polizia-mobile-linthgebiet-toggenburg-kanton-st-gallen-region-linthgebiet-toggenburg"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-linthgebiet-toggenburg-kanton-st-gallen-ch"
@@ -595,7 +611,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3939/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:15.232Z",
+      "crawledAt": "2026-10-03T09:20:36.134Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -615,11 +631,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
+        "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
+        "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-furstenland-neckertal-kanton-st-gallen-region-furstenland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
+          "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st",
+          "agente-di-polizia-in-una-stazione-di-polizia-nella-regione-furstenland-neckertal-kanton-st-gallen-region-furstenland"
         ],
         "en": [
           "polizistin-polizist-auf-einer-polizeistation-in-der-region-furstenland-neckertal-kanton-st"
@@ -674,7 +692,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/3940/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:14.361Z",
+      "crawledAt": "2026-10-03T09:20:35.191Z",
       "addressLocality": "Region Fürstenland-Neckertal",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -694,11 +712,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
+        "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
+        "agente-di-polizia-mobile-regione-di-polizia-furstenland-neckertal-kanton-st-gallen-region-furstenland-neckertal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
+          "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch",
+          "agente-di-polizia-mobile-regione-di-polizia-furstenland-neckertal-kanton-st-gallen-region-furstenland-neckertal"
         ],
         "en": [
           "polizistin-polizist-mobile-polizei-region-furstenland-neckertal-kanton-st-gallen-ch"
@@ -726,10 +746,10 @@
       "id": "kanton-st-gallen-55fa5a628ff3",
       "slug": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
       "slugByLocale": {
-        "it": "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
-        "en": "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "it": "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
+        "en": "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "de": "forstwart-in-m-w-d-kanton-st-gallen-ch",
-        "fr": "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil"
+        "fr": "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -754,7 +774,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6211/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:13.485Z",
+      "crawledAt": "2026-10-03T09:20:34.145Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -776,19 +796,27 @@
       "previousSlugs": [
         "forstwart-in-m-w-d-kanton-st-gallen-ch",
         "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
+        "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+        "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
+        "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil",
+        "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil",
         "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil",
         "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
-          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil"
+          "responsabile-forestale-m-f-d-kanton-st-gallen-oberuzwil",
+          "guardiano-della-foresta-luni-merdi-d-kanton-st-gallen-oberuzwil",
+          "responsabile-forestale-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
+          "forest-manager-m-f-d-kanton-st-gallen-oberuzwil",
           "forstwart-in-m-w-d-kanton-st-gallen-oberuzwil"
         ],
         "fr": [
           "forstwart-in-m-w-d-kanton-st-gallen-ch",
+          "gestionnaire-forestier-m-f-d-kanton-st-gallen-oberuzwil",
           "chef-de-foret-m-w-d-kanton-st-gallen-oberuzwil"
         ]
       },
@@ -839,7 +867,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6299/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:12.598Z",
+      "crawledAt": "2026-10-03T09:20:33.293Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -859,11 +887,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
+        "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
+        "commissario-delle-tasse-per-le-persone-fisiche-np-plus-l-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
+          "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch",
+          "commissario-delle-tasse-per-le-persone-fisiche-np-plus-l-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "steuerkommissar-in-naturliche-personen-np-plus-m-w-d-kanton-st-gallen-ch"
@@ -919,7 +949,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6317/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:11.737Z",
+      "crawledAt": "2026-10-03T09:20:32.510Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -943,7 +973,8 @@
         "consulente-del-personale-rav-wil-m-f-d-kanton-st-gallen-wil",
         "hr-consultant-in-rav-wil-m-f-d-kanton-st-gallen-wil",
         "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
-        "consultant-en-ressources-humaines-dans-le-rav-wil-m-f-d-kanton-st-gallen-wil"
+        "consultant-en-ressources-humaines-dans-le-rav-wil-m-f-d-kanton-st-gallen-wil",
+        "consulente-del-personale-rav-st-gallen-l-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -951,7 +982,8 @@
           "consulente-del-personale-rav-wil-m-f-d-kanton-st-gallen-wil",
           "hr-consultant-in-rav-wil-m-f-d-kanton-st-gallen-wil",
           "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
-          "consultant-en-ressources-humaines-dans-le-rav-wil-m-f-d-kanton-st-gallen-wil"
+          "consultant-en-ressources-humaines-dans-le-rav-wil-m-f-d-kanton-st-gallen-wil",
+          "consulente-del-personale-rav-st-gallen-l-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "personalberater-in-rav-st-gallen-m-w-d-kanton-st-gallen-ch",
@@ -1011,7 +1043,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6325/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:10.838Z",
+      "crawledAt": "2026-10-03T09:20:31.683Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1031,11 +1063,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
+        "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
+        "landwirt-in-cfc-m-w-d-kanton-st-gallen-9607-mosnang"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
+          "landwirt-in-efz-m-w-d-kanton-st-gallen-ch",
+          "landwirt-in-cfc-m-w-d-kanton-st-gallen-9607-mosnang"
         ],
         "en": [
           "landwirt-in-efz-m-w-d-kanton-st-gallen-ch"
@@ -1091,7 +1125,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6329/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:10.278Z",
+      "crawledAt": "2026-10-03T09:20:30.877Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1112,11 +1146,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
-        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-x4ty6t"
+        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-x4ty6t",
+        "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
+          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
+          "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-rapperswil-jona"
         ],
         "en": [
           "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch"
@@ -1175,7 +1211,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6353/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:09.354Z",
+      "crawledAt": "2026-10-03T09:20:30.052Z",
       "addressLocality": "Neuhaus",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1195,11 +1231,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch"
+        "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch",
+        "apprendista-n-zeichnerin-zeichner-cfc-specializzazione-ingegneria-civile-kanton-st-gallen-neuhaus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch"
+          "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch",
+          "apprendista-n-zeichnerin-zeichner-cfc-specializzazione-ingegneria-civile-kanton-st-gallen-neuhaus"
         ],
         "en": [
           "lernende-n-zeichnerin-zeichner-efz-fachrichtung-ingenieurbau-kanton-st-gallen-ch"
@@ -1255,7 +1293,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6360/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:08.504Z",
+      "crawledAt": "2026-10-03T09:20:29.235Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1275,11 +1313,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-n-fachfrau-mann-fur-betriebsunterhalt-efz-m-w-d-kanton-st-gallen-ch"
+        "lernende-n-fachfrau-mann-fur-betriebsunterhalt-efz-m-w-d-kanton-st-gallen-ch",
+        "apprendista-n-fachfrau-mann-per-betriebsunterhalt-cfc-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-n-fachfrau-mann-fur-betriebsunterhalt-efz-m-w-d-kanton-st-gallen-ch"
+          "lernende-n-fachfrau-mann-fur-betriebsunterhalt-efz-m-w-d-kanton-st-gallen-ch",
+          "apprendista-n-fachfrau-mann-per-betriebsunterhalt-cfc-m-w-d-kanton-st-gallen"
         ],
         "en": [
           "lernende-n-fachfrau-mann-fur-betriebsunterhalt-efz-m-w-d-kanton-st-gallen-ch"
@@ -1335,7 +1375,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6371/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:07.592Z",
+      "crawledAt": "2026-10-03T09:20:28.398Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1355,11 +1395,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
+        "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
+        "gestione-di-progetti-pianificazione-dei-trasporti-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch",
+          "gestione-di-progetti-pianificazione-dei-trasporti-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "projektleitung-verkehrsplanung-m-w-d-kanton-st-gallen-ch"
@@ -1415,7 +1457,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6400/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:06.681Z",
+      "crawledAt": "2026-10-03T09:20:27.597Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1435,11 +1477,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "lernende-n-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-d-kanton-st-gallen-ch"
+        "lernende-n-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-d-kanton-st-gallen-ch",
+        "apprendista-n-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-kanton-st-gallen-salez"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lernende-n-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-d-kanton-st-gallen-ch"
+          "lernende-n-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-d-kanton-st-gallen-ch",
+          "apprendista-n-fachfrau-mann-hotellerie-hauswirtschaft-cfc-m-w-d-kanton-st-gallen-salez"
         ],
         "en": [
           "lernende-n-fachfrau-mann-hotellerie-hauswirtschaft-efz-m-w-d-kanton-st-gallen-ch"
@@ -1495,7 +1539,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6412/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:05.764Z",
+      "crawledAt": "2026-10-03T09:20:26.752Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1517,13 +1561,15 @@
       "previousSlugs": [
         "sozialtherapeut-in-oder-pflegefachperson-kanton-st-gallen-ch",
         "sozialtherapeut-in-o-pflegefachperson-kanton-st-gallen-9607-mosnang",
-        "sozialtherapeut-in-oder-pflegefachperson-m-w-d-kanton-st-gallen-ch"
+        "sozialtherapeut-in-oder-pflegefachperson-m-w-d-kanton-st-gallen-ch",
+        "terapeuta-sociale-o-infermiera-kanton-st-gallen-9607-mosnang"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sozialtherapeut-in-oder-pflegefachperson-kanton-st-gallen-ch",
           "sozialtherapeut-in-o-pflegefachperson-kanton-st-gallen-9607-mosnang",
-          "sozialtherapeut-in-oder-pflegefachperson-m-w-d-kanton-st-gallen-ch"
+          "sozialtherapeut-in-oder-pflegefachperson-m-w-d-kanton-st-gallen-ch",
+          "terapeuta-sociale-o-infermiera-kanton-st-gallen-9607-mosnang"
         ],
         "en": [
           "sozialtherapeut-in-oder-pflegefachperson-kanton-st-gallen-ch"
@@ -1579,7 +1625,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6374/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:04.866Z",
+      "crawledAt": "2026-10-03T09:20:25.954Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1599,11 +1645,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+        "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
+        "servizi-di-votazione-specialista-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
+          "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch",
+          "servizi-di-votazione-specialista-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "fachmitarbeiter-in-voting-services-m-w-d-kanton-st-gallen-ch"
@@ -1659,7 +1707,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6209/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:04.010Z",
+      "crawledAt": "2026-10-03T09:20:25.107Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1679,11 +1727,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
+        "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
+        "gestione-del-progetto-per-l-ingegneria-idraulica-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch",
+          "gestione-del-progetto-per-l-ingegneria-idraulica-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "projektleitung-wasserbau-m-w-d-kanton-st-gallen-ch"
@@ -1739,7 +1789,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6427/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:03.130Z",
+      "crawledAt": "2026-10-03T09:20:24.282Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1759,11 +1809,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "juristische-r-fachspezialist-in-rechtsetzung-m-w-d-kanton-st-gallen-ch"
+        "juristische-r-fachspezialist-in-rechtsetzung-m-w-d-kanton-st-gallen-ch",
+        "specialista-legale-nella-legislazione-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juristische-r-fachspezialist-in-rechtsetzung-m-w-d-kanton-st-gallen-ch"
+          "juristische-r-fachspezialist-in-rechtsetzung-m-w-d-kanton-st-gallen-ch",
+          "specialista-legale-nella-legislazione-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "juristische-r-fachspezialist-in-rechtsetzung-m-w-d-kanton-st-gallen-ch"
@@ -1819,7 +1871,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6428/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:02.235Z",
+      "crawledAt": "2026-10-03T09:20:23.430Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1847,7 +1899,8 @@
         "specialista-in-diritto-forestale-m-f-d-kanton-st-gallen-st-gallen",
         "specialist-in-forest-law-m-f-d-kanton-st-gallen-st-gallen",
         "fachspezialist-in-waldrecht-m-w-d-kanton-st-gallen-ch",
-        "specialiste-du-droit-forestier-m-f-d-kanton-st-gallen-st-gallen"
+        "specialiste-du-droit-forestier-m-f-d-kanton-st-gallen-st-gallen",
+        "specialista-legale-diritto-comunale-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1859,7 +1912,8 @@
           "specialista-in-diritto-forestale-m-f-d-kanton-st-gallen-st-gallen",
           "specialist-in-forest-law-m-f-d-kanton-st-gallen-st-gallen",
           "fachspezialist-in-waldrecht-m-w-d-kanton-st-gallen-ch",
-          "specialiste-du-droit-forestier-m-f-d-kanton-st-gallen-st-gallen"
+          "specialiste-du-droit-forestier-m-f-d-kanton-st-gallen-st-gallen",
+          "specialista-legale-diritto-comunale-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "legal-officer-s-m-f-d-kanton-st-gallen-st-gallen",
@@ -1923,7 +1977,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6441/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:01.331Z",
+      "crawledAt": "2026-10-03T09:20:22.629Z",
       "addressLocality": "Rorschach",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -1944,12 +1998,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "praktikant-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
-        "addestramento-in-corte-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach"
+        "addestramento-in-corte-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach",
+        "intern-rorschach-tribunale-distrettuale-m-f-d-kanton-st-gallen-rorschach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch",
-          "addestramento-in-corte-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach"
+          "addestramento-in-corte-distrettuale-di-rorschach-m-f-d-kanton-st-gallen-rorschach",
+          "intern-rorschach-tribunale-distrettuale-m-f-d-kanton-st-gallen-rorschach"
         ],
         "en": [
           "praktikant-in-kreisgericht-rorschach-m-w-d-kanton-st-gallen-ch"
@@ -2005,7 +2061,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6350/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:21:00.457Z",
+      "crawledAt": "2026-10-03T09:20:21.847Z",
       "addressLocality": "Wil SG",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2027,12 +2083,14 @@
       "previousSlugs": [
         "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
         "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2",
-        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-x4ty4h"
+        "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-x4ty4h",
+        "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch",
-          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2"
+          "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2",
+          "revisore-tirocinante-legale-m-f-d-kanton-st-gallen-wil-sg"
         ],
         "en": [
           "auditor-in-juristische-r-praktikant-in-m-w-d-kanton-st-gallen-ch-2"
@@ -2091,7 +2149,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6429/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:59.563Z",
+      "crawledAt": "2026-10-03T09:20:21.368Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2111,11 +2169,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
+        "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch",
+        "specialista-della-pulizia-m-f-d-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
+          "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch",
+          "specialista-della-pulizia-m-f-d-kanton-st-gallen-wil"
         ],
         "en": [
           "fachperson-hauswirtschaft-m-w-d-kanton-st-gallen-ch"
@@ -2171,7 +2231,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6437/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:58.700Z",
+      "crawledAt": "2026-10-03T09:20:20.577Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2193,13 +2253,15 @@
       "previousSlugs": [
         "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
         "stabsjurist-in-m-w-d-kanton-st-gallen",
-        "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen"
+        "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
+        "avvocato-personale-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stabsjurist-in-m-w-d-kanton-st-gallen-ch",
           "stabsjurist-in-m-w-d-kanton-st-gallen",
-          "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen"
+          "staff-avvocato-in-m-f-d-kanton-st-gallen-st-gallen",
+          "avvocato-personale-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "stabsjurist-in-m-w-d-kanton-st-gallen-ch"
@@ -2255,7 +2317,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6459/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:57.707Z",
+      "crawledAt": "2026-10-03T09:20:19.790Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2358,7 +2420,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6406/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:56.833Z",
+      "crawledAt": "2026-10-03T09:20:18.976Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2378,11 +2440,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+        "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
+        "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
+          "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch",
+          "addiction-officer-addiction-officer-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "suchtbeauftragte-suchtbeauftragten-m-w-d-kanton-st-gallen-ch"
@@ -2438,7 +2502,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6347/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:56.267Z",
+      "crawledAt": "2026-10-03T09:20:18.158Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2528,7 +2592,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6465/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:55.415Z",
+      "crawledAt": "2026-10-03T09:20:17.340Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2551,12 +2615,14 @@
         "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
         "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil",
         "apprentice-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil",
-        "apprenti-e-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil"
+        "apprenti-e-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+        "apprentice-specialista-manutenzione-aziendale-efz-servizio-di-lavoro-m-f-d-kanton-st-gallen-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
-          "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil"
+          "apprendista-n-fachfrau-mann-betriebsunterhalt-cfc-specializzazione-werkdienst-m-w-d-kanton-st-gallen-wattwil",
+          "apprentice-specialista-manutenzione-aziendale-efz-servizio-di-lavoro-m-f-d-kanton-st-gallen-wattwil"
         ],
         "en": [
           "lernende-n-fachfrau-mann-betriebsunterhalt-efz-fachrichtung-werkdienst-m-w-d-kanton-st",
@@ -2614,7 +2680,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6388/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:54.558Z",
+      "crawledAt": "2026-10-03T09:20:16.484Z",
       "addressLocality": "Wattwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2635,12 +2701,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
-        "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
+        "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2",
+        "servizio-di-manutenzione-stradale-dipendente-m-f-d-kanton-st-gallen-wattwil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch",
-          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
+          "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2",
+          "servizio-di-manutenzione-stradale-dipendente-m-f-d-kanton-st-gallen-wattwil"
         ],
         "en": [
           "mitarbeitende-n-strassenunterhaltsdienst-m-w-d-kanton-st-gallen-ch-2"
@@ -2699,7 +2767,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6467/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:53.679Z",
+      "crawledAt": "2026-10-03T09:20:15.653Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2719,11 +2787,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+        "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+        "gestione-del-progetto-energy-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-energie-m-w-d-kanton-st-gallen-ch",
+          "gestione-del-progetto-energy-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "projektleitung-energie-m-w-d-kanton-st-gallen-ch"
@@ -2779,7 +2849,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6457/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:52.804Z",
+      "crawledAt": "2026-10-03T09:20:14.824Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2801,12 +2871,14 @@
       "previousSlugs": [
         "praktikant-in-lage-und-nachrichtenzentrum-mit-fokus-in-data-science-w-m-d-kanton-st-gallen",
         "praktikant-in-lage-e-nachrichtenzentrum-con-fokus-in-data-science-m-w-d-kanton-st-gallen",
-        "stagiaire-in-situation-et-centre-de-nouvelles-avec-l-accent-sur-la-science-des-donnees-h-f-d-kanton-st-gallen-st-gallen"
+        "stagiaire-in-situation-et-centre-de-nouvelles-avec-l-accent-sur-la-science-des-donnees-h-f-d-kanton-st-gallen-st-gallen",
+        "trainee-situazione-e-news-center-con-focus-su-data-science-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "praktikant-in-lage-und-nachrichtenzentrum-mit-fokus-in-data-science-w-m-d-kanton-st-gallen",
-          "praktikant-in-lage-e-nachrichtenzentrum-con-fokus-in-data-science-m-w-d-kanton-st-gallen"
+          "praktikant-in-lage-e-nachrichtenzentrum-con-fokus-in-data-science-m-w-d-kanton-st-gallen",
+          "trainee-situazione-e-news-center-con-focus-su-data-science-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "praktikant-in-lage-und-nachrichtenzentrum-mit-fokus-in-data-science-w-m-d-kanton-st-gallen"
@@ -2944,7 +3016,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6475/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:51.928Z",
+      "crawledAt": "2026-10-03T09:20:13.973Z",
       "addressLocality": "Grossschlachthöfe im Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -2965,12 +3037,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
-        "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-abt-fleisch-milch-und-tierarzneimittel-kanton"
+        "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-abt-fleisch-milch-und-tierarzneimittel-kanton",
+        "veterinario-ufficiale-veterinario-ufficiale-m-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch",
-          "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-abt-fleisch-milch-und-tierarzneimittel-kanton"
+          "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-abt-fleisch-milch-und-tierarzneimittel-kanton",
+          "veterinario-ufficiale-veterinario-ufficiale-m-f-d-kanton-st-gallen-grossschlachthofe-im-kanton-st-gallen"
         ],
         "en": [
           "amtliche-tierarztin-amtlicher-tierarzt-w-m-d-kanton-st-gallen-ch"
@@ -3029,7 +3103,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6463/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:51.023Z",
+      "crawledAt": "2026-10-03T09:20:13.128Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3049,11 +3123,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "personalberater-in-rav-heerbrugg-m-w-d-kanton-st-gallen-ch"
+        "personalberater-in-rav-heerbrugg-m-w-d-kanton-st-gallen-ch",
+        "consulente-personale-rav-heerbrugg-m-f-d-kanton-st-gallen-heerbrugg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personalberater-in-rav-heerbrugg-m-w-d-kanton-st-gallen-ch"
+          "personalberater-in-rav-heerbrugg-m-w-d-kanton-st-gallen-ch",
+          "consulente-personale-rav-heerbrugg-m-f-d-kanton-st-gallen-heerbrugg"
         ],
         "en": [
           "personalberater-in-rav-heerbrugg-m-w-d-kanton-st-gallen-ch"
@@ -3109,7 +3185,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6472/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:50.112Z",
+      "crawledAt": "2026-10-03T09:20:12.253Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3130,12 +3206,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mitarbeiter-in-geschaftsmanagement-m-w-d-kanton-st-gallen-ch",
-        "collaboratore-trice-geschaftsmanagement-m-w-d-kanton-st-gallen"
+        "collaboratore-trice-geschaftsmanagement-m-w-d-kanton-st-gallen",
+        "gestione-dei-dipendenti-impresa-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-geschaftsmanagement-m-w-d-kanton-st-gallen-ch",
-          "collaboratore-trice-geschaftsmanagement-m-w-d-kanton-st-gallen"
+          "collaboratore-trice-geschaftsmanagement-m-w-d-kanton-st-gallen",
+          "gestione-dei-dipendenti-impresa-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "mitarbeiter-in-geschaftsmanagement-m-w-d-kanton-st-gallen-ch"
@@ -3191,7 +3269,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6462/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:49.240Z",
+      "crawledAt": "2026-10-03T09:20:11.419Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3211,11 +3289,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "personalberater-in-rav-rapperswil-jona-m-w-d-kanton-st-gallen-ch"
+        "personalberater-in-rav-rapperswil-jona-m-w-d-kanton-st-gallen-ch",
+        "consulente-personale-in-rav-rapperswil-jona-m-f-d-kanton-st-gallen-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personalberater-in-rav-rapperswil-jona-m-w-d-kanton-st-gallen-ch"
+          "personalberater-in-rav-rapperswil-jona-m-w-d-kanton-st-gallen-ch",
+          "consulente-personale-in-rav-rapperswil-jona-m-f-d-kanton-st-gallen-rapperswil-jona"
         ],
         "en": [
           "personalberater-in-rav-rapperswil-jona-m-w-d-kanton-st-gallen-ch"
@@ -3271,7 +3351,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6458/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:48.337Z",
+      "crawledAt": "2026-10-03T09:20:10.602Z",
       "addressLocality": "Oberuzwil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3291,11 +3371,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-malerei-m-w-d-kanton-st-gallen-ch"
+        "fachperson-malerei-m-w-d-kanton-st-gallen-ch",
+        "pittura-professionale-m-f-d-kanton-st-gallen-oberuzwil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-malerei-m-w-d-kanton-st-gallen-ch"
+          "fachperson-malerei-m-w-d-kanton-st-gallen-ch",
+          "pittura-professionale-m-f-d-kanton-st-gallen-oberuzwil"
         ],
         "en": [
           "fachperson-malerei-m-w-d-kanton-st-gallen-ch"
@@ -3351,7 +3433,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6480/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:47.462Z",
+      "crawledAt": "2026-10-03T09:20:09.748Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3371,11 +3453,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachperson-altlasten-m-w-d-kanton-st-gallen-ch"
+        "fachperson-altlasten-m-w-d-kanton-st-gallen-ch",
+        "siti-contaminati-professionali-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-altlasten-m-w-d-kanton-st-gallen-ch"
+          "fachperson-altlasten-m-w-d-kanton-st-gallen-ch",
+          "siti-contaminati-professionali-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "fachperson-altlasten-m-w-d-kanton-st-gallen-ch"
@@ -3431,7 +3515,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6482/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:46.559Z",
+      "crawledAt": "2026-10-03T09:20:08.900Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3451,11 +3535,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "amtliche-fachassistentin-amtlicher-fachassistent-abt-tierschutz-auffallige-hunde-kanton-st"
+        "amtliche-fachassistentin-amtlicher-fachassistent-abt-tierschutz-auffallige-hunde-kanton-st",
+        "assistente-ufficiale-assistente-ufficiale-abt-benessere-animale-cani-cospicui-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "amtliche-fachassistentin-amtlicher-fachassistent-abt-tierschutz-auffallige-hunde-kanton-st"
+          "amtliche-fachassistentin-amtlicher-fachassistent-abt-tierschutz-auffallige-hunde-kanton-st",
+          "assistente-ufficiale-assistente-ufficiale-abt-benessere-animale-cani-cospicui-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "amtliche-fachassistentin-amtlicher-fachassistent-abt-tierschutz-auffallige-hunde-kanton-st"
@@ -3511,7 +3597,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6440/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:45.695Z",
+      "crawledAt": "2026-10-03T09:20:08.053Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3531,11 +3617,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
+        "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
+        "consulente-personale-rav-wil-m-f-d-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
+          "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch",
+          "consulente-personale-rav-wil-m-f-d-kanton-st-gallen-wil"
         ],
         "en": [
           "personalberater-in-rav-wil-m-w-d-kanton-st-gallen-ch"
@@ -3591,7 +3679,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6485/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:44.825Z",
+      "crawledAt": "2026-10-03T09:20:07.236Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3611,11 +3699,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeitung-offentliche-beschaffung-submission-im-hochbau-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeitung-offentliche-beschaffung-submission-im-hochbau-m-w-d-kanton-st-gallen-ch",
+        "elaborazione-di-appalti-pubblici-sottomissione-in-costruzione-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-offentliche-beschaffung-submission-im-hochbau-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeitung-offentliche-beschaffung-submission-im-hochbau-m-w-d-kanton-st-gallen-ch",
+          "elaborazione-di-appalti-pubblici-sottomissione-in-costruzione-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "sachbearbeitung-offentliche-beschaffung-submission-im-hochbau-m-w-d-kanton-st-gallen-ch"
@@ -3644,7 +3734,7 @@
       "slug": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
       "slugByLocale": {
         "it": "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "sports-teacher-m-f-d-kanton-st-gallen-st-gallen",
+        "en": "sportlehrperson-m-w-d-kanton-st-gallen",
         "de": "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "fr": "professeur-de-sport-h-f-d-kanton-st-gallen-st-gallen"
       },
@@ -3671,7 +3761,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6489/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:43.921Z",
+      "crawledAt": "2026-10-03T09:20:06.389Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3693,15 +3783,19 @@
       "previousSlugs": [
         "sportlehrperson-m-w-d-kanton-st-gallen-ch",
         "professeur-de-sport-m-f-d-kanton-st-gallen-st-gallen-und-rheineck",
+        "sports-teacher-m-f-d-kanton-st-gallen-st-gallen",
+        "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen",
         "sportlehrperson-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch",
-          "professeur-de-sport-m-f-d-kanton-st-gallen-st-gallen-und-rheineck"
+          "professeur-de-sport-m-f-d-kanton-st-gallen-st-gallen-und-rheineck",
+          "insegnante-sportivo-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "sportlehrperson-m-w-d-kanton-st-gallen-ch",
+          "sports-teacher-m-f-d-kanton-st-gallen-st-gallen",
           "sportlehrperson-m-w-d-kanton-st-gallen"
         ],
         "fr": [
@@ -3755,7 +3849,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6488/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:43.366Z",
+      "crawledAt": "2026-10-03T09:20:05.532Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3776,12 +3870,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-fur-berufskunde-kuchenangestellte-r-eba-m-w-d-kanton-st-gallen-ch",
-        "lehrperson-per-berufskunde-kuchenangestellte-r-afp-m-w-d-kanton-st-gallen"
+        "lehrperson-per-berufskunde-kuchenangestellte-r-afp-m-w-d-kanton-st-gallen",
+        "insegnante-di-studi-professionali-cucina-dipendente-r-eba-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-berufskunde-kuchenangestellte-r-eba-m-w-d-kanton-st-gallen-ch",
-          "lehrperson-per-berufskunde-kuchenangestellte-r-afp-m-w-d-kanton-st-gallen"
+          "lehrperson-per-berufskunde-kuchenangestellte-r-afp-m-w-d-kanton-st-gallen",
+          "insegnante-di-studi-professionali-cucina-dipendente-r-eba-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "lehrperson-fur-berufskunde-kuchenangestellte-r-eba-m-w-d-kanton-st-gallen-ch"
@@ -3837,7 +3933,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6493/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:42.483Z",
+      "crawledAt": "2026-10-03T09:20:04.716Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -3858,12 +3954,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sachbearbeiter-in-rechnungs-und-personalwesen-m-w-d-kanton-st-gallen-ch",
-        "sachbearbeiter-in-rechnungs-e-personalwesen-m-w-d-kanton-st-gallen"
+        "sachbearbeiter-in-rechnungs-e-personalwesen-m-w-d-kanton-st-gallen",
+        "contabilita-e-risorse-umane-ufficiale-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-rechnungs-und-personalwesen-m-w-d-kanton-st-gallen-ch",
-          "sachbearbeiter-in-rechnungs-e-personalwesen-m-w-d-kanton-st-gallen"
+          "sachbearbeiter-in-rechnungs-e-personalwesen-m-w-d-kanton-st-gallen",
+          "contabilita-e-risorse-umane-ufficiale-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "sachbearbeiter-in-rechnungs-und-personalwesen-m-w-d-kanton-st-gallen-ch"
@@ -4002,7 +4100,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6445/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:41.604Z",
+      "crawledAt": "2026-10-03T09:20:03.934Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4022,11 +4120,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-it-recht-und-datenschutz-m-w-d-kanton-st-gallen-ch"
+        "leiter-in-it-recht-und-datenschutz-m-w-d-kanton-st-gallen-ch",
+        "responsabile-it-recht-e-datenschutz-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-it-recht-und-datenschutz-m-w-d-kanton-st-gallen-ch"
+          "leiter-in-it-recht-und-datenschutz-m-w-d-kanton-st-gallen-ch",
+          "responsabile-it-recht-e-datenschutz-m-w-d-kanton-st-gallen"
         ],
         "en": [
           "leiter-in-it-recht-und-datenschutz-m-w-d-kanton-st-gallen-ch"
@@ -4163,7 +4263,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6479/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:40.779Z",
+      "crawledAt": "2026-10-03T09:20:03.098Z",
       "addressLocality": "Walzenhausen/AR",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4243,7 +4343,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6495/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:39.852Z",
+      "crawledAt": "2026-10-03T09:20:02.236Z",
       "addressLocality": "Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4323,7 +4423,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6501/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:38.951Z",
+      "crawledAt": "2026-10-03T09:20:01.377Z",
       "addressLocality": "Buchs",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4343,11 +4443,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-infrastruktur-kanton-st-gallen-ch"
+        "leiter-in-infrastruktur-kanton-st-gallen-ch",
+        "responsabile-infrastruktur-kanton-st-gallen-buchs"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-infrastruktur-kanton-st-gallen-ch"
+          "leiter-in-infrastruktur-kanton-st-gallen-ch",
+          "responsabile-infrastruktur-kanton-st-gallen-buchs"
         ],
         "en": [
           "leiter-in-infrastruktur-kanton-st-gallen-ch"
@@ -4403,7 +4505,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6490/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:38.109Z",
+      "crawledAt": "2026-10-03T09:20:00.535Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4423,11 +4525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeitung-fachstelle-baupolizei-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeitung-fachstelle-baupolizei-m-w-d-kanton-st-gallen-ch",
+        "dipartimento-di-polizia-di-costruzione-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeitung-fachstelle-baupolizei-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeitung-fachstelle-baupolizei-m-w-d-kanton-st-gallen-ch",
+          "dipartimento-di-polizia-di-costruzione-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "sachbearbeitung-fachstelle-baupolizei-m-w-d-kanton-st-gallen-ch"
@@ -4483,7 +4587,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6499/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:37.216Z",
+      "crawledAt": "2026-10-03T09:19:59.725Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4503,11 +4607,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-support-arbeitslosenkasse-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeiter-in-support-arbeitslosenkasse-m-w-d-kanton-st-gallen-ch",
+        "fondo-di-disoccupazione-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-support-arbeitslosenkasse-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeiter-in-support-arbeitslosenkasse-m-w-d-kanton-st-gallen-ch",
+          "fondo-di-disoccupazione-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "sachbearbeiter-in-support-arbeitslosenkasse-m-w-d-kanton-st-gallen-ch"
@@ -4563,7 +4669,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6477/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:36.311Z",
+      "crawledAt": "2026-10-03T09:19:58.915Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4583,11 +4689,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "fachbereichsleitung-hf-pflege-sargans-kanton-st-gallen-ch"
+        "fachbereichsleitung-hf-pflege-sargans-kanton-st-gallen-ch",
+        "capo-dipartimento-hf-care-sargans-kanton-st-gallen-sargans"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachbereichsleitung-hf-pflege-sargans-kanton-st-gallen-ch"
+          "fachbereichsleitung-hf-pflege-sargans-kanton-st-gallen-ch",
+          "capo-dipartimento-hf-care-sargans-kanton-st-gallen-sargans"
         ],
         "en": [
           "fachbereichsleitung-hf-pflege-sargans-kanton-st-gallen-ch"
@@ -4643,7 +4751,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6470/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:35.410Z",
+      "crawledAt": "2026-10-03T09:19:58.092Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4695,7 +4803,7 @@
       "id": "kanton-st-gallen-3ef9c351b1a6",
       "slug": "jurist-in-m-w-d-kanton-st-gallen",
       "slugByLocale": {
-        "it": "avvocato-m-f-d-kanton-st-gallen-st-gallen",
+        "it": "jurist-in-m-w-d-kanton-st-gallen",
         "en": "lawyer-m-f-d-kanton-st-gallen-st-gallen",
         "de": "jurist-in-m-w-d-kanton-st-gallen-ch",
         "fr": "avocat-h-f-d-kanton-st-gallen-st-gallen"
@@ -4723,7 +4831,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6508/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:34.533Z",
+      "crawledAt": "2026-10-03T09:19:57.617Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4743,11 +4851,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "jurist-in-m-w-d-kanton-st-gallen-ch"
+        "jurist-in-m-w-d-kanton-st-gallen-ch",
+        "avvocato-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jurist-in-m-w-d-kanton-st-gallen-ch"
+          "jurist-in-m-w-d-kanton-st-gallen-ch",
+          "avvocato-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "jurist-in-m-w-d-kanton-st-gallen-ch"
@@ -4803,7 +4913,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6483/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:33.598Z",
+      "crawledAt": "2026-10-03T09:19:56.831Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4823,11 +4933,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leiter-in-schatzung-kanton-st-gallen-ch"
+        "leiter-in-schatzung-kanton-st-gallen-ch",
+        "responsabile-schatzung-kanton-st-gallen-stadt-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leiter-in-schatzung-kanton-st-gallen-ch"
+          "leiter-in-schatzung-kanton-st-gallen-ch",
+          "responsabile-schatzung-kanton-st-gallen-stadt-st-gallen"
         ],
         "en": [
           "leiter-in-schatzung-kanton-st-gallen-ch"
@@ -4883,7 +4995,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6510/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:32.688Z",
+      "crawledAt": "2026-10-03T09:19:55.983Z",
       "addressLocality": "Kanton St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4963,7 +5075,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6500/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:31.812Z",
+      "crawledAt": "2026-10-03T09:19:55.191Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -4983,11 +5095,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "zwei-staatsanwaltinnen-staatsanwalte-w-m-d-kanton-st-gallen-ch"
+        "zwei-staatsanwaltinnen-staatsanwalte-w-m-d-kanton-st-gallen-ch",
+        "due-procuratori-m-f-d-kanton-st-gallen-stadt-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zwei-staatsanwaltinnen-staatsanwalte-w-m-d-kanton-st-gallen-ch"
+          "zwei-staatsanwaltinnen-staatsanwalte-w-m-d-kanton-st-gallen-ch",
+          "due-procuratori-m-f-d-kanton-st-gallen-stadt-st-gallen"
         ],
         "en": [
           "zwei-staatsanwaltinnen-staatsanwalte-w-m-d-kanton-st-gallen-ch"
@@ -5043,7 +5157,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6512/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:30.885Z",
+      "crawledAt": "2026-10-03T09:19:54.401Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5062,11 +5176,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
+        "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch",
+        "presidenza-del-consiglio-di-lokremise-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
+          "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch",
+          "presidenza-del-consiglio-di-lokremise-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "stiftungsratsprasidium-lokremise-m-w-d-kanton-st-gallen-ch"
@@ -5122,7 +5238,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6514/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:29.984Z",
+      "crawledAt": "2026-10-03T09:19:53.586Z",
       "addressLocality": "Lichtensteig",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5143,12 +5259,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-fur-das-berufsvorbereitungsjahr-bvj-als-stellvertretung-kanton-st-gallen-ch",
-        "lehrperson-per-das-berufsvorbereitungsjahr-bvj-come-stellvertretung-kanton-st-gallen-lichtensteig"
+        "lehrperson-per-das-berufsvorbereitungsjahr-bvj-come-stellvertretung-kanton-st-gallen-lichtensteig",
+        "insegnante-per-l-anno-di-preparazione-professionale-bvj-come-deputato-kanton-st-gallen-lichtensteig"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-fur-das-berufsvorbereitungsjahr-bvj-als-stellvertretung-kanton-st-gallen-ch",
-          "lehrperson-per-das-berufsvorbereitungsjahr-bvj-come-stellvertretung-kanton-st-gallen-lichtensteig"
+          "lehrperson-per-das-berufsvorbereitungsjahr-bvj-come-stellvertretung-kanton-st-gallen-lichtensteig",
+          "insegnante-per-l-anno-di-preparazione-professionale-bvj-come-deputato-kanton-st-gallen-lichtensteig"
         ],
         "en": [
           "lehrperson-fur-das-berufsvorbereitungsjahr-bvj-als-stellvertretung-kanton-st-gallen-ch"
@@ -5204,7 +5322,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6511/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:29.065Z",
+      "crawledAt": "2026-10-03T09:19:52.733Z",
       "addressLocality": "Rheineck",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5225,12 +5343,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "lehrperson-berufskunde-mmb-fur-den-fachbereich-fachfrau-mann-betreuung-efz-kanton-st",
-        "lehrperson-berufskunde-mmb-per-den-fachbereich-fachfrau-mann-betreuung-cfc-kanton-st-gallen-rheineck"
+        "lehrperson-berufskunde-mmb-per-den-fachbereich-fachfrau-mann-betreuung-cfc-kanton-st-gallen-rheineck",
+        "insegnante-studi-professionali-mmb-per-la-facolta-supporto-professionale-efz-kanton-st-gallen-rheineck"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lehrperson-berufskunde-mmb-fur-den-fachbereich-fachfrau-mann-betreuung-efz-kanton-st",
-          "lehrperson-berufskunde-mmb-per-den-fachbereich-fachfrau-mann-betreuung-cfc-kanton-st-gallen-rheineck"
+          "lehrperson-berufskunde-mmb-per-den-fachbereich-fachfrau-mann-betreuung-cfc-kanton-st-gallen-rheineck",
+          "insegnante-studi-professionali-mmb-per-la-facolta-supporto-professionale-efz-kanton-st-gallen-rheineck"
         ],
         "en": [
           "lehrperson-berufskunde-mmb-fur-den-fachbereich-fachfrau-mann-betreuung-efz-kanton-st"
@@ -5286,7 +5406,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6478/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:28.183Z",
+      "crawledAt": "2026-10-03T09:19:52.225Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5307,12 +5427,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "jurist-in-als-amtsnotar-in-und-stellvertretung-regionalstandortleitung-m-w-d-kanton-st",
-        "jurist-in-come-amtsnotar-in-e-stellvertretung-regionalstandortleitung-m-w-d-kanton-st-gallen-wil"
+        "jurist-in-come-amtsnotar-in-e-stellvertretung-regionalstandortleitung-m-w-d-kanton-st-gallen-wil",
+        "avvocato-come-notaio-e-vice-gestione-del-sito-regionale-m-f-d-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
           "jurist-in-als-amtsnotar-in-und-stellvertretung-regionalstandortleitung-m-w-d-kanton-st",
-          "jurist-in-come-amtsnotar-in-e-stellvertretung-regionalstandortleitung-m-w-d-kanton-st-gallen-wil"
+          "jurist-in-come-amtsnotar-in-e-stellvertretung-regionalstandortleitung-m-w-d-kanton-st-gallen-wil",
+          "avvocato-come-notaio-e-vice-gestione-del-sito-regionale-m-f-d-kanton-st-gallen-wil"
         ],
         "en": [
           "jurist-in-als-amtsnotar-in-und-stellvertretung-regionalstandortleitung-m-w-d-kanton-st"
@@ -5368,7 +5490,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6513/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:27.282Z",
+      "crawledAt": "2026-10-03T09:19:51.406Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5389,12 +5511,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "co-leitung-und-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen-ch",
-        "co-leitung-e-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen"
+        "co-leitung-e-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen",
+        "co-direttore-e-specialista-di-stato-civile-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "co-leitung-und-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen-ch",
-          "co-leitung-e-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen"
+          "co-leitung-e-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen",
+          "co-direttore-e-specialista-di-stato-civile-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "co-leitung-und-fachperson-zivilstandswesen-m-w-d-kanton-st-gallen-ch"
@@ -5450,7 +5574,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6523/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:26.398Z",
+      "crawledAt": "2026-10-03T09:19:50.561Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5516,7 +5640,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6438/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:25.489Z",
+      "crawledAt": "2026-10-03T09:19:49.778Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5536,11 +5660,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "leitung-strategischer-projekte-der-staatsanwaltschaft-stabsstelle-m-w-d-kanton-st-gallen"
+        "leitung-strategischer-projekte-der-staatsanwaltschaft-stabsstelle-m-w-d-kanton-st-gallen",
+        "responsabile-dei-progetti-strategici-dell-ufficio-pubblico-procuratore-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-strategischer-projekte-der-staatsanwaltschaft-stabsstelle-m-w-d-kanton-st-gallen"
+          "leitung-strategischer-projekte-der-staatsanwaltschaft-stabsstelle-m-w-d-kanton-st-gallen",
+          "responsabile-dei-progetti-strategici-dell-ufficio-pubblico-procuratore-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "leitung-strategischer-projekte-der-staatsanwaltschaft-stabsstelle-m-w-d-kanton-st-gallen"
@@ -5596,7 +5722,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6520/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:24.661Z",
+      "crawledAt": "2026-10-03T09:19:48.993Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5615,11 +5741,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stellvertretung-lehrperson-in-chemie-kanton-st-gallen-ch"
+        "stellvertretung-lehrperson-in-chemie-kanton-st-gallen-ch",
+        "professore-aggiunto-in-chimica-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stellvertretung-lehrperson-in-chemie-kanton-st-gallen-ch"
+          "stellvertretung-lehrperson-in-chemie-kanton-st-gallen-ch",
+          "professore-aggiunto-in-chimica-kanton-st-gallen-wil"
         ],
         "en": [
           "stellvertretung-lehrperson-in-chemie-kanton-st-gallen-ch"
@@ -5675,7 +5803,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6517/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:23.791Z",
+      "crawledAt": "2026-10-03T09:19:48.226Z",
       "addressLocality": "Wil",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5695,11 +5823,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "jugendanwaltin-jugendanwalt-w-m-d-kanton-st-gallen-ch"
+        "jugendanwaltin-jugendanwalt-w-m-d-kanton-st-gallen-ch",
+        "avvocato-per-i-giovani-m-f-d-kanton-st-gallen-wil"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "jugendanwaltin-jugendanwalt-w-m-d-kanton-st-gallen-ch"
+          "jugendanwaltin-jugendanwalt-w-m-d-kanton-st-gallen-ch",
+          "avvocato-per-i-giovani-m-f-d-kanton-st-gallen-wil"
         ],
         "en": [
           "jugendanwaltin-jugendanwalt-w-m-d-kanton-st-gallen-ch"
@@ -5755,7 +5885,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6468/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:22.947Z",
+      "crawledAt": "2026-10-03T09:19:47.390Z",
       "addressLocality": "Rapperswil-Jona",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5775,11 +5905,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+        "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+        "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch"
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-ch",
+          "sachbearbeiter-in-m-w-d-kanton-st-gallen-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-09-10T23:10:11.094Z",
@@ -5829,7 +5961,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6506/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:22.083Z",
+      "crawledAt": "2026-10-03T09:19:46.607Z",
       "addressLocality": "9465 Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5895,7 +6027,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6503/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:21.197Z",
+      "crawledAt": "2026-10-03T09:19:45.763Z",
       "addressLocality": "9465 Salez",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5969,7 +6101,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6486/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:20.285Z",
+      "crawledAt": "2026-10-03T09:19:44.907Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -5989,11 +6121,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch"
+        "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch",
+        "collaboratore-trice-zentrale-services-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch"
+          "mitarbeiter-in-zentrale-services-m-w-d-kanton-st-gallen-ch",
+          "collaboratore-trice-zentrale-services-m-w-d-kanton-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:37.599Z",
@@ -6043,7 +6177,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6524/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:19.409Z",
+      "crawledAt": "2026-10-03T09:19:44.068Z",
       "addressLocality": "Bronschhofen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6063,11 +6197,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch"
+        "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch",
+        "addetto-a-alla-logistica-vorortlager-m-w-d-kanton-st-gallen-bronschhofen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch"
+          "mitarbeiter-in-logistik-vorortlager-m-w-d-kanton-st-gallen-ch",
+          "addetto-a-alla-logistica-vorortlager-m-w-d-kanton-st-gallen-bronschhofen"
         ]
       },
       "firstSeenAt": "2026-09-25T14:44:36.758Z",
@@ -6117,7 +6253,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6529/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:18.561Z",
+      "crawledAt": "2026-10-03T09:19:43.295Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6183,7 +6319,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6531/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:17.713Z",
+      "crawledAt": "2026-10-03T09:19:42.482Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6259,7 +6395,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6530/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:16.756Z",
+      "crawledAt": "2026-10-03T09:19:41.646Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6339,7 +6475,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6525/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:15.861Z",
+      "crawledAt": "2026-10-03T09:19:40.824Z",
       "addressLocality": "9607 Mosnang",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6405,7 +6541,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6534/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:14.964Z",
+      "crawledAt": "2026-10-03T09:19:40.020Z",
       "addressLocality": "Lichtensteig",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6471,7 +6607,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6532/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:14.047Z",
+      "crawledAt": "2026-10-03T09:19:39.222Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6551,7 +6687,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6522/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:13.173Z",
+      "crawledAt": "2026-10-03T09:19:38.384Z",
       "addressLocality": "Stadt St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6631,7 +6767,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6519/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:12.277Z",
+      "crawledAt": "2026-10-03T09:19:37.539Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6651,11 +6787,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
+        "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch",
+        "collaboratore-trice-im-sekretariat-m-w-d-kanton-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch"
+          "mitarbeiter-in-im-sekretariat-m-w-d-kanton-st-gallen-ch",
+          "collaboratore-trice-im-sekretariat-m-w-d-kanton-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-28T04:56:25.343Z",
@@ -6699,13 +6837,12 @@
         "de": "Das Migrationsamt bewegt sich täglich im spannenden politischen Umfeld sämtlicher Migrationsfragen. Wir sind zuständig für die ausländerrechtlichen Bewilligungen, vollziehen das eidgenössische Ausländer- und Asylrecht, stellen die biometrischen Schweizerpässe und Ausländerausweise aus und sorgen in unseren Asylzentren für Betreuung und Integration.\n\nWas dich erwartet:\n\n• Du bist verantwortlich für die medizinische Betreuung der Bewohnenden\n• Du berätst und unterstützt die Bewohnenden in Gesundheitsfragen\n• Du organisierst und koordinierst Termine bei Ärzten, Spezialisten und weiteren Fachstellen\n• Du sorgst dafür, dass die Bewohnenden krankenversichert sind\n• Die Pflege und der Kontakt mit externen Ansprechpartner des Gesundheitsbereichs gehören zu deinen Aufgaben\n• Du bewirtschaftest die Hausapotheke und unterstützt bei gesundheitlichen Präventivmassnahmen\n• Du bist die interne Ansprechperson für medizinische Fragestellungen im Zentrum\n\nWas dich auszeichnet:\n\n• Du bringst eine abgeschlossene Ausbildung als dipl. Pflegfachperson HF mit oder bist Fachmann/-frau Gesundheit (FaGe) mit mehrjähriger Berufserfahrung\n• Du zeichnest dich durch eine klare Kommunikationsweise aus und bist offen im Umgang mit Menschen aus verschiedenen Kulturen\n• Du kannst Prioritäten setzen, kurzfristige Änderungen bewältigen und behältst dabei einen kühlen Kopf\n• Gute MS-Office Anwenderkenntnisse Fremdsprachenkenntnisse sind von Vorteil\n\nWas wir bieten:\n\n• Profitiere von geregelten Arbeitszeiten von Montag bis Freitag, 08:00 bis 17:00 Uhr\n• Möglichkeit zur Anstellung im Jobsharing\n• Eine abwechslungsreiche Tätigkeit in einem nicht alltäglichen Umfeld\n• Eine familiäre Atmosphäre mit gelebter Du-Kultur\n• Ein motiviertes und interdisziplinäres Team\n• Vielfältige Weiterbildungsmöglichkeiten",
         "fr": "Le Bureau des migrations opère quotidiennement dans l'environnement politique passionnant de toutes les questions de migration. Nous sommes responsables des permis en vertu de la loi sur les étrangers, de l'application de la loi suisse sur les étrangers et l'asile, de la délivrance des passeports et des cartes d'identité de l'étranger biométriques suisses et de la prise en charge et de l'intégration dans nos centres d'asile.\n\nÀ quoi s'attendre :\n\n• Vous êtes responsable des soins médicaux des résidents\n• Vous conseillez et aidez les résidents en matière de santé\n• Vous organisez et coordonnez des rendez-vous avec des médecins, des spécialistes et d'autres spécialistes\n• Vous assurez que les résidents ont une assurance maladie\n• Les soins et le contact avec les contacts externes du secteur de la santé font partie de vos tâches\n• Vous gérez la pharmacie maison et le soutien avec des mesures de santé préventive\n• Vous êtes la personne de contact interne pour les questions médicales au centre\n\nCe qui vous distingue :\n\n• Vous apportez une éducation terminée comme un dipl. Professionnel médical HF avec ou sont un professionnel de la santé (FaGe) avec plusieurs années d'expérience professionnelle\n• Vous vous distinguez par un moyen de communication clair et vous êtes ouvert à traiter avec des gens de différentes cultures\n• Vous pouvez définir des priorités, gérer des changements à court terme et garder une tête froide\n• Une bonne connaissance des langues étrangères par les utilisateurs de MS-Office est un avantage\n\nCe que nous offrons:\n\n• Bénéficiez des horaires de travail réglementés du lundi au vendredi, de 8 h à 17 h\n• Possibilité d'emploi dans le partage de l'emploi\n• Une activité variée dans un environnement inhabituel\n• Une ambiance familiale avec une du-culture vécue\n• Une équipe motivée et interdisciplinaire\n• Différentes possibilités de formation"
       },
-      "needsRetranslation": false,
       "location": "Amden",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6504/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:11.364Z",
+      "crawledAt": "2026-10-03T09:19:36.661Z",
       "addressLocality": "Amden",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6724,21 +6861,6 @@
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6504/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "fachperson-gesundheit-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachperson-gesundheit-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "fachperson-gesundheit-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "fachperson-gesundheit-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:15:31.949Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -6751,7 +6873,25 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:15:31.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-kanton-st-gallen-ch",
+          "salute-professionale-kanton-st-gallen-amden"
+        ],
+        "en": [
+          "fachperson-gesundheit-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "fachperson-gesundheit-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-kanton-st-gallen-ch",
+        "salute-professionale-kanton-st-gallen-amden"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "kanton-st-gallen-def43116113d",
@@ -6779,13 +6919,12 @@
         "de": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Führung eines Teams mit 7 Mitarbeitenden sowie Verantwortung für den wirtschaftlichen, technischen und administrativen Betrieb der Elektroanlagen im Bereich der National- und Kantonsstrassen\n• Verantwortung für Betrieb, Instandhaltung und Störungsbehebung der betrieblichen Elektroanlagen\n• Erstellung und Prüfung von Angeboten und Kalkulationen inklusive laufender Ergebnisüberwachung\n• Verantwortung für Fakturierung und Budgetierung von Leistungen an Dritte\n• Fachtechnische Unterstützung des Projektmanagements BSA und Koordination der benötigten Ressourcen\n• Koordination und enge Zusammenarbeit mit internen Fachbereichen sowie externen Amtsstellen\n\nWas Sie auszeichnet:\n\n• Abgeschlossene Ausbildung als Elektroinstallateur/in EFZ mit Weiterbildung als eidg. dipl. Elektroinstallateur/in oder einer gleichwertigen Qualifikation\n• Mehrjährige Berufs- und Führungserfahrung, idealerweise in einem vergleichbaren technischen Umfeld\n• Selbstständige, initiative und lösungsorientierte Arbeitsweise\n• Kommunikationsstärke und Verhandlungsgeschick im Umgang mit Lieferanten und verschiedenen Anspruchsgruppen\n• Hohe Flexibilität und Belastbarkeit\n• Gute Anwenderkenntnisse in MS Office\n\nWas wir bieten:\n\n• Verantwortungsvolle, abwechslungsreiche und sehr selbständige Aufgaben\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Spannende und interessante Tätigkeiten in einem motivierten Team\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62",
         "fr": "La Division des routes nationales VI de l'Office du génie civil du canton de Saint-Gall contribue de manière significative à la sécurité des routes nationales dans les cantons de Glarus, Thurgau et Saint-Gall. À cette fin, l'unité territoriale a quatre ateliers à Thal, Mels, Biäsche et Oberbüren ainsi que deux bases à St.Gallen et Müllheim.\n\nÀ quoi s'attendre :\n\n• Direction d'une équipe de 7 employés ainsi que responsabilité de l'exploitation économique, technique et administrative des centrales électriques dans le domaine des routes nationales et cantonales\n• Responsabilité de l'exploitation, de l'entretien et du dépannage des installations électriques opérationnelles\n• Préparation et examen des offres et des calculs, y compris la surveillance continue des résultats\n• Responsabilité en matière de facturation et de budgétisation des services à des tiers\n• Appui technique à la gestion des projets\n• Coordination et coopération étroite avec les départements internes et les bureaux extérieurs\n\nCe qui le distingue:\n\n• Formation complète en tant qu'installateur électrique avec formation continue en tant que diplo fédéral. Installateur électrique ou qualification équivalente\n• Plusieurs années d'expérience professionnelle et de gestion, idéalement dans un environnement technique comparable\n• Méthode de travail indépendante, axée sur l'initiative et la solution\n• Capacité de communication et compétences en matière de négociation avec les fournisseurs et les divers intervenants\n• Haute flexibilité et capacité de charge\n• Bonne connaissance des utilisateurs dans MS Office\n\nCe que nous offrons:\n\n• Des tâches responsables, variées et très indépendantes\n• Divers contacts avec les parties prenantes internes et externes\n• Activités passionnantes et intéressantes dans une équipe motivée\n• Des conditions d'emploi attrayantes et de bonnes possibilités de formation\n\nPersonne-ressource: Beat Tobler, chef de l'équipement opérationnel et de sécurité BSA, téléphone 058 229 85 62"
       },
-      "needsRetranslation": false,
       "location": "Weesen",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6537/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:10.445Z",
+      "crawledAt": "2026-10-03T09:19:35.784Z",
       "addressLocality": "Weesen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6804,21 +6943,6 @@
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6537/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:15:30.996Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -6831,7 +6955,25 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:15:30.996Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch",
+          "testa-di-manutenzione-elettrica-south-m-f-d-kanton-st-gallen-weesen"
+        ],
+        "en": [
+          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-elektrounterhalt-sud-m-w-d-kanton-st-gallen-ch",
+        "testa-di-manutenzione-elettrica-south-m-f-d-kanton-st-gallen-weesen"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "kanton-st-gallen-e08c70c2124c",
@@ -6859,13 +7001,12 @@
         "de": "Das Amt für Umwelt (AFU) setzt sich für einen sorgfältigen Umgang mit der Umwelt und eine nachhaltige Nutzung der natürlichen Ressourcen ein. Die Rechnungsführung in der Abteilung Zentrale Dienste ist für das Rechnungswesen verschiedener Ämter und Dienststellen des Bau- und Umweltdepartementes zuständig. Künftig übernimmt die Rechnungsführung des AFU auch die Aufgaben des Rechnungswesens des Hochbauamtes.\n\nWas Sie erwartet:\n\n• Bearbeiten der buchhalterischen Aufgaben während des Rechnungsjahres\n• Verdichten und Aufbereiten finanzieller Kennzahlen für das unterjährige Reporting und den Jahresabschluss\n• Operative Mitarbeit bei Budgetierung, Finanzplanung und Rechnungsabschluss\n• Konzeptionelle Mitarbeit in Prozessoptimierungen und SAP-Erweiterungen\n• Führung und Kontrolle aller Debitoren und Kreditoren\n• Mitarbeit in Standardisierungs- und Digitalisierungsprojekten im Rechnungswesen\n\nWas Sie auszeichnet:\n\n• Kaufmännische Grundausbildung und Weiterbildung im Rechnungswesen\n• Mehrjährige Berufserfahrung in den Bereichen Debitoren, Kreditoren und Hauptbuch sowie idealerweise im Bau- und Immobilienwesen und in Bau- und Projektrechnungen\n• Gute Kenntnisse und Erfahrungen in SAP sowie in MS Excel\n• Interesse und Erfahrung bei der Mitarbeit in SAP-Erweiterungen und in Digitalisierungsprojekten\n• Ausgeprägte Dienstleistungsorientierung und gute Kommunikationsfähigkeit\n• Teamfähigkeit, Flexibilität und Sicherheit im Umgang mit digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielfältige und spannende Aufgaben in einem dynamischen Umfeld\n• Ein modern ausgestatteter Arbeitsplatz in St.Gallen\n• Kollegiale Arbeitsatmosphäre und ein unterstützendes Team\n• Attraktive Anstellungsbedingungen mit flexiblen Arbeitszeitmodellen\n• Individuelle Weiterbildungsmöglichkeiten und Entwicklungsperspektiven\n\nKontakt: Marion Steger, Leiterin Rechnungsführung, Telefon 058 229 84 14",
         "fr": "L'Office pour l'environnement (AFU) s'est engagé à gérer soigneusement l'environnement et à utiliser durablement les ressources naturelles. La comptabilité du Département des services centraux est chargée de la comptabilité de divers bureaux et départements du Département de la construction et de l'environnement. À l'avenir, la comptabilité de l'UGA prendra également en charge les tâches comptables du Bureau de la construction des bâtiments.\n\nÀ quoi s'attendre :\n\n• Traitement des tâches comptables pendant l'exercice comptable\n• Consolider et préparer des indicateurs financiers pour l ' établissement des rapports et des états financiers\n• Coopération opérationnelle en matière de budgétisation, de planification financière et d'apurement des comptes\n• Coopération conceptuelle dans les optimisations de processus et les extensions SAP\n• Gestion et contrôle de tous les débiteurs et créanciers\n• Participation à des projets de normalisation et de numérisation en comptabilité\n\nCe qui le distingue:\n\n• Formation de base en commerce et comptabilité\n• Plusieurs années d'expérience professionnelle dans les domaines des débiteurs, des créanciers et des grands livres ainsi que, idéalement, dans le secteur de la construction et de l'immobilier et dans les comptes de construction et de projet\n• Bonnes connaissances et expérience en SAP et MS Excel\n• Intérêt et expérience dans le travail dans les extensions SAP et les projets de numérisation\n• Une forte orientation du service et de bonnes compétences en communication\n• Travail d'équipe, flexibilité et sécurité dans le traitement des équipements de travail numériques\n\nCe que nous offrons:\n\n• Des tâches variées et passionnantes dans un environnement dynamique\n• Un lieu de travail moderne à St.Gallen\n• Ambiance de travail collégiale et équipe de soutien\n• Des conditions d'emploi attrayantes avec des modèles de temps de travail flexibles\n• Possibilités individuelles de formation et perspectives de développement\n\nPersonne-ressource : Marion Steger, chef de la comptabilité, téléphone 058 229 84 14"
       },
-      "needsRetranslation": false,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6536/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:09.489Z",
+      "crawledAt": "2026-10-03T09:19:34.953Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6884,21 +7025,6 @@
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6536/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
-        ],
-        "en": [
-          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
-        ],
-        "fr": [
-          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
-        ]
-      },
-      "firstSeenAt": "2026-10-01T09:15:30.420Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -6911,15 +7037,33 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-10-01T09:15:30.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch",
+          "elaborazione-contabilita-m-f-d-kanton-st-gallen-st-gallen"
+        ],
+        "en": [
+          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
+        ],
+        "fr": [
+          "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeitung-rechnungswesen-m-w-d-kanton-st-gallen-ch",
+        "elaborazione-contabilita-m-f-d-kanton-st-gallen-st-gallen"
+      ],
+      "needsRetranslation": false
     },
     {
       "id": "kanton-st-gallen-094b17fe4274",
       "slug": "fachperson-administration-e-finanzen-m-w-d-kanton-st-gallen-widnau",
       "slugByLocale": {
+        "de": "fachperson-administration-und-finanzen-m-w-d-kanton-st-gallen-ch",
         "it": "fachperson-administration-e-finanzen-m-w-d-kanton-st-gallen-widnau",
         "en": "fachperson-administration-und-finanzen-m-w-d-kanton-st-gallen-ch",
-        "de": "fachperson-administration-und-finanzen-m-w-d-kanton-st-gallen-ch",
         "fr": "fachperson-administration-und-finanzen-m-w-d-kanton-st-gallen-ch"
       },
       "company": "Kanton St. Gallen",
@@ -6927,16 +7071,16 @@
       "companyDomain": "sg.ch",
       "title": "Fachperson Administration und Finanzen (m/w/d)",
       "titleByLocale": {
+        "de": "Fachperson Administration und Finanzen (m/w/d)",
         "it": "Fachperson Administration e Finanzen (m/w/d)",
         "en": "Fachperson Administration und Finanzen (m/w/d)",
-        "de": "Fachperson Administration und Finanzen (m/w/d)",
         "fr": "Fachperson Administration und Finanzen (m/w/d)"
       },
       "description": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49",
       "descriptionByLocale": {
+        "de": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49",
         "it": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49",
         "en": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49",
-        "de": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49",
         "fr": "Das Rheinunternehmen ist ein modernes Dienstleistungsunternehmen der Kantonalen Verwaltung innerhalb des Bau- und Umweltdepartements und sorgt für den zuverlässigen Hochwasserschutz am Alpenrhein.\n\nWas Sie erwartet:\n\n• Selbstständige Führung der Betriebs- und Finanzbuchhaltung inklusive Debitoren-, Kreditoren- und Hauptbuchhaltung, Zahlungsverkehr sowie Erstellung Jahresabschluss\n• Administrations- und Verwaltungsaufgaben in Bezug auf Liegenschaften und Grundeigentum\n\nWas Sie auszeichnet:\n\n• Fachperson Finanz- und Rechnungswesen oder vergleichbare Ausbildung\n• Mehrjährige Berufserfahrung von Vorteil\n• Gute schriftliche und mündliche Ausdrucksweise\n• Gute EDV-Kenntnisse, Kenntnisse Abacus von Vorteil\n• Freude an der Übernahme von weiteren Aufgaben ausserhalb des Finanzbereichs\n• Hohe Sozialkompetenz\n\nWas wir bieten:\n\n• Verantwortungsvolle, selbstständige und vielseitige Tätigkeit mit viel Eigenverantwortung\n• Ein gut eingespieltes und engagiertes Team mit hoher Fachkompetenz\n• Attraktive Anstellungsbedingungen mit guten Weiterbildungsmöglichkeiten\n\nKontakt: Dominic Graber, Geschäftsführer, Telefon 071 726 12 49"
       },
       "needsRetranslation": true,
@@ -6945,7 +7089,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6540/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:08.581Z",
+      "crawledAt": "2026-10-03T09:19:34.098Z",
       "addressLocality": "Widnau",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -6960,7 +7104,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6540/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -6984,7 +7128,7 @@
           "administration-et-finances-professionnelles-h-f-d-kanton-st-gallen-widnau"
         ]
       },
-      "firstSeenAt": "2026-10-02T21:20:08.581Z",
+      "firstSeenAt": "2026-10-03T09:19:34.098Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -7001,12 +7145,12 @@
     },
     {
       "id": "kanton-st-gallen-4d347a96d608",
-      "slug": "auditor-auditor-allievo-legale-apprendista-legale-m-f-d-kanton-st-gallen-st-gallen",
+      "slug": "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
       "slugByLocale": {
         "de": "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
-        "it": "auditor-auditor-allievo-legale-apprendista-legale-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "auditor-auditor-legal-trainee-legal-trainee-m-f-d-kanton-st-gallen-st-gallen",
-        "fr": "auditeur-auditeur-stagiaire-stagiaire-h-f-d-kanton-st-gallen-st-gallen"
+        "it": "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+        "en": "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+        "fr": "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7014,23 +7158,23 @@
       "title": "Auditorin/Auditor (juristische Praktikantin/juristischen Praktikanten) (m/w/d)",
       "titleByLocale": {
         "de": "Auditorin/Auditor (juristische Praktikantin/juristischen Praktikanten) (m/w/d)",
-        "it": "Auditor/Auditor (allievo legale/apprendista legale) (m/f/d)",
-        "en": "Auditor/Auditor (legal trainee/legal trainee) (m/f/d)",
-        "fr": "Auditeur/auditeur (stagiaire/stagiaire) (h/f/d)"
+        "it": "Auditorin/Auditor (juristische Praktikantin/juristischen Praktikanten) (m/w/d)",
+        "en": "Auditorin/Auditor (juristische Praktikantin/juristischen Praktikanten) (m/w/d)",
+        "fr": "Auditorin/Auditor (juristische Praktikantin/juristischen Praktikanten) (m/w/d)"
       },
       "description": "Das Amt für Raumentwicklung und Geoinformation (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung, sowie die Bereitstellung von Geoinformationen. Die Abteilung Bauen ausserhalb Bauzonen koordiniert und beurteilt Bauvorhaben ausserhalb der Bauzone im Bereich des Raumplanungs-, Bau- und Planungsrechts und ist in der Beratung von Baubehörden und Bauherrschaften sowie deren Planer tätig.\n\nWas Sie erwartet:\n\n• Anwendung und Vertiefung der juristischen Kenntnisse im Raumplanungs-, Bau- und Planungsrecht sowie in weiteren Bereichen des öffentlichen Rechts\n• Bearbeitung von Bauvorhaben ausserhalb der Bauzone\n• Beratung der Bauherrschaften, der Planenden und der Baubehörden\n• Durchführung von Augenscheinen und Besprechungen\n• Erarbeitung von Entscheiden\n\nWas Sie auszeichnet:\n\n• Abgeschlossenes juristisches Studium\n• Freude am Bau-, Planungs- und Raumplanungsrecht sowie weiteren Bereichen des öffentlichen Rechts\n• Motivierte und interessierte Persönlichkeit\n• Exakte und zuverlässige Arbeitsweise\n\nWas wir bieten:\n\n• Verwaltungspraktikum als Vorbereitung auf die Anwaltsprüfung\n• Kollegiales und motiviertes Team\n• Attraktiver Arbeitsplatz mit moderner Infrastruktur\n\nKontakt: Bianca Mergenthaler, Abteilungsleiterin Bauen ausserhalb Bauzonen, Telefon 058 229 46 47",
       "descriptionByLocale": {
         "de": "Das Amt für Raumentwicklung und Geoinformation (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung, sowie die Bereitstellung von Geoinformationen. Die Abteilung Bauen ausserhalb Bauzonen koordiniert und beurteilt Bauvorhaben ausserhalb der Bauzone im Bereich des Raumplanungs-, Bau- und Planungsrechts und ist in der Beratung von Baubehörden und Bauherrschaften sowie deren Planer tätig.\n\nWas Sie erwartet:\n\n• Anwendung und Vertiefung der juristischen Kenntnisse im Raumplanungs-, Bau- und Planungsrecht sowie in weiteren Bereichen des öffentlichen Rechts\n• Bearbeitung von Bauvorhaben ausserhalb der Bauzone\n• Beratung der Bauherrschaften, der Planenden und der Baubehörden\n• Durchführung von Augenscheinen und Besprechungen\n• Erarbeitung von Entscheiden\n\nWas Sie auszeichnet:\n\n• Abgeschlossenes juristisches Studium\n• Freude am Bau-, Planungs- und Raumplanungsrecht sowie weiteren Bereichen des öffentlichen Rechts\n• Motivierte und interessierte Persönlichkeit\n• Exakte und zuverlässige Arbeitsweise\n\nWas wir bieten:\n\n• Verwaltungspraktikum als Vorbereitung auf die Anwaltsprüfung\n• Kollegiales und motiviertes Team\n• Attraktiver Arbeitsplatz mit moderner Infrastruktur\n\nKontakt: Bianca Mergenthaler, Abteilungsleiterin Bauen ausserhalb Bauzonen, Telefon 058 229 46 47",
-        "it": "L'Ufficio per lo sviluppo territoriale e la geoinformazione (AREG) è responsabile della politica di sviluppo territoriale, dell'indagine ufficiale e della fornitura di geoinformazione. Il dipartimento delle Zone Edili al di fuori delle Costruzioni coordina e valuta i progetti di costruzione al di fuori della zona di costruzione nell'area di pianificazione territoriale, costruzione e pianificazione del diritto ed è attivo nel consigliare le autorità edilizie e i proprietari di edifici, nonché i loro progettisti.\n\nCosa aspettarsi:\n\n• Applicazione e approfondimento delle conoscenze giuridiche nella pianificazione territoriale, nella costruzione e nella pianificazione del diritto, nonché in altri settori del diritto pubblico\n• Elaborazione di progetti di costruzione al di fuori della zona di costruzione\n• Consultare i proprietari, i progettisti e le autorità di costruzione\n• Gestione delle ispezioni e delle riunioni\n• Preparazione delle decisioni\n\nCosa lo distingue:\n\n• Studi legali completi\n• Divertimento della legge di costruzione, pianificazione e pianificazione territoriale e di altri settori di diritto pubblico\n• Personalità motivata e interessata\n• Funzionamento preciso e affidabile\n\nCosa offriamo:\n\n• Stage amministrativo come preparazione per l'esame bar\n• Team collegiale e motivato\n• Posti di lavoro attraenti con infrastrutture moderne\n\nContatto: Bianca Mergenthaler, Capo Dipartimento Edificio fuori zone di costruzione, telefono 058 229 46 47",
-        "en": "The Office for Spatial Development and Geoinformation (AREG) is responsible for spatial development policy, official surveying and the provision of geoinformation. The Building outside Construction Zones department coordinates and assesses construction projects outside the construction zone in the area of spatial planning, construction and planning law and is active in advising building authorities and building owners as well as their planners.\n\nWhat to expect:\n\n• Application and deepening of legal knowledge in spatial planning, construction and planning law as well as in other areas of public law\n• Processing of construction projects outside the construction zone\n• Advising the building owners, planners and building authorities\n• Conduct of inspections and meetings\n• Preparation of decisions\n\nWhat sets it apart:\n\n• Completed legal studies\n• Enjoyment of building, planning and spatial planning law as well as other areas of public law\n• Motivated and interested personality\n• Precise and reliable operation\n\nWhat we offer:\n\n• Administrative internship as preparation for the bar examination\n• Collegial and motivated team\n• Attractive workplace with modern infrastructure\n\nContact: Bianca Mergenthaler, Head of Department Building outside construction zones, telephone 058 229 46 47",
-        "fr": "L'Office pour le développement spatial et la géoinformation (AREG) est chargé de la politique de développement spatial, de l'arpentage officiel et de la fourniture de géoinformation. Le Département du bâtiment à l'extérieur des zones de construction coordonne et évalue les projets de construction à l'extérieur de la zone de construction dans le domaine de l'aménagement du territoire, de la construction et de la loi d'aménagement du territoire.\n\nÀ quoi s'attendre :\n\n• Application et approfondissement des connaissances juridiques en matière d'aménagement du territoire, de construction et d'aménagement du territoire ainsi que dans d'autres domaines du droit public\n• Traitement des projets de construction en dehors de la zone de construction\n• Conseiller les propriétaires, les planificateurs et les autorités du bâtiment\n• Conduite des inspections et réunions\n• Préparation des décisions\n\nCe qui le distingue:\n\n• Études juridiques achevées\n• Appréciation du droit de la construction, de l'aménagement du territoire et d'autres domaines du droit public\n• Personnalité motivée et intéressée\n• Fonctionnement précis et fiable\n\nCe que nous offrons:\n\n• Stage administratif en préparation à l'examen du barreau\n• Équipe collégiale et motivée\n• Un lieu de travail attrayant avec une infrastructure moderne\n\nPersonne-ressource: Bianca Mergenthaler, Chef de département Bâtiment en dehors des zones de construction, téléphone 058 229 46 47"
+        "it": "Das Amt für Raumentwicklung und Geoinformation (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung, sowie die Bereitstellung von Geoinformationen. Die Abteilung Bauen ausserhalb Bauzonen koordiniert und beurteilt Bauvorhaben ausserhalb der Bauzone im Bereich des Raumplanungs-, Bau- und Planungsrechts und ist in der Beratung von Baubehörden und Bauherrschaften sowie deren Planer tätig.\n\nWas Sie erwartet:\n\n• Anwendung und Vertiefung der juristischen Kenntnisse im Raumplanungs-, Bau- und Planungsrecht sowie in weiteren Bereichen des öffentlichen Rechts\n• Bearbeitung von Bauvorhaben ausserhalb der Bauzone\n• Beratung der Bauherrschaften, der Planenden und der Baubehörden\n• Durchführung von Augenscheinen und Besprechungen\n• Erarbeitung von Entscheiden\n\nWas Sie auszeichnet:\n\n• Abgeschlossenes juristisches Studium\n• Freude am Bau-, Planungs- und Raumplanungsrecht sowie weiteren Bereichen des öffentlichen Rechts\n• Motivierte und interessierte Persönlichkeit\n• Exakte und zuverlässige Arbeitsweise\n\nWas wir bieten:\n\n• Verwaltungspraktikum als Vorbereitung auf die Anwaltsprüfung\n• Kollegiales und motiviertes Team\n• Attraktiver Arbeitsplatz mit moderner Infrastruktur\n\nKontakt: Bianca Mergenthaler, Abteilungsleiterin Bauen ausserhalb Bauzonen, Telefon 058 229 46 47",
+        "en": "Das Amt für Raumentwicklung und Geoinformation (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung, sowie die Bereitstellung von Geoinformationen. Die Abteilung Bauen ausserhalb Bauzonen koordiniert und beurteilt Bauvorhaben ausserhalb der Bauzone im Bereich des Raumplanungs-, Bau- und Planungsrechts und ist in der Beratung von Baubehörden und Bauherrschaften sowie deren Planer tätig.\n\nWas Sie erwartet:\n\n• Anwendung und Vertiefung der juristischen Kenntnisse im Raumplanungs-, Bau- und Planungsrecht sowie in weiteren Bereichen des öffentlichen Rechts\n• Bearbeitung von Bauvorhaben ausserhalb der Bauzone\n• Beratung der Bauherrschaften, der Planenden und der Baubehörden\n• Durchführung von Augenscheinen und Besprechungen\n• Erarbeitung von Entscheiden\n\nWas Sie auszeichnet:\n\n• Abgeschlossenes juristisches Studium\n• Freude am Bau-, Planungs- und Raumplanungsrecht sowie weiteren Bereichen des öffentlichen Rechts\n• Motivierte und interessierte Persönlichkeit\n• Exakte und zuverlässige Arbeitsweise\n\nWas wir bieten:\n\n• Verwaltungspraktikum als Vorbereitung auf die Anwaltsprüfung\n• Kollegiales und motiviertes Team\n• Attraktiver Arbeitsplatz mit moderner Infrastruktur\n\nKontakt: Bianca Mergenthaler, Abteilungsleiterin Bauen ausserhalb Bauzonen, Telefon 058 229 46 47",
+        "fr": "Das Amt für Raumentwicklung und Geoinformation (AREG) ist verantwortlich für die Raumentwicklungspolitik, die amtliche Vermessung, sowie die Bereitstellung von Geoinformationen. Die Abteilung Bauen ausserhalb Bauzonen koordiniert und beurteilt Bauvorhaben ausserhalb der Bauzone im Bereich des Raumplanungs-, Bau- und Planungsrechts und ist in der Beratung von Baubehörden und Bauherrschaften sowie deren Planer tätig.\n\nWas Sie erwartet:\n\n• Anwendung und Vertiefung der juristischen Kenntnisse im Raumplanungs-, Bau- und Planungsrecht sowie in weiteren Bereichen des öffentlichen Rechts\n• Bearbeitung von Bauvorhaben ausserhalb der Bauzone\n• Beratung der Bauherrschaften, der Planenden und der Baubehörden\n• Durchführung von Augenscheinen und Besprechungen\n• Erarbeitung von Entscheiden\n\nWas Sie auszeichnet:\n\n• Abgeschlossenes juristisches Studium\n• Freude am Bau-, Planungs- und Raumplanungsrecht sowie weiteren Bereichen des öffentlichen Rechts\n• Motivierte und interessierte Persönlichkeit\n• Exakte und zuverlässige Arbeitsweise\n\nWas wir bieten:\n\n• Verwaltungspraktikum als Vorbereitung auf die Anwaltsprüfung\n• Kollegiales und motiviertes Team\n• Attraktiver Arbeitsplatz mit moderner Infrastruktur\n\nKontakt: Bianca Mergenthaler, Abteilungsleiterin Bauen ausserhalb Bauzonen, Telefon 058 229 46 47"
       },
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6541/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:07.688Z",
+      "crawledAt": "2026-10-03T09:19:33.290Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7045,7 +7189,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6541/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7064,30 +7208,37 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:07.688Z",
+      "firstSeenAt": "2026-10-03T09:19:33.290Z",
       "previousSlugsByLocale": {
         "it": [
-          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st"
+          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+          "auditor-auditor-allievo-legale-apprendista-legale-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
-          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st"
+          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+          "auditor-auditor-legal-trainee-legal-trainee-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "fr": [
-          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st"
+          "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+          "auditeur-auditeur-stagiaire-stagiaire-h-f-d-kanton-st-gallen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st"
-      ]
+        "auditorin-auditor-juristische-praktikantin-juristischen-praktikanten-m-w-d-kanton-st",
+        "auditor-auditor-allievo-legale-apprendista-legale-m-f-d-kanton-st-gallen-st-gallen",
+        "auditor-auditor-legal-trainee-legal-trainee-m-f-d-kanton-st-gallen-st-gallen",
+        "auditeur-auditeur-stagiaire-stagiaire-h-f-d-kanton-st-gallen-st-gallen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "kanton-st-gallen-1bdb1a8a1230",
-      "slug": "gestione-del-progetto-bsa-dipartimento-di-electric-m-f-d-kanton-st-gallen-st-gallen",
+      "slug": "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
       "slugByLocale": {
         "de": "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
-        "it": "gestione-del-progetto-bsa-dipartimento-di-electric-m-f-d-kanton-st-gallen-st-gallen",
-        "en": "project-management-bsa-department-of-electric-m-f-d-kanton-st-gallen-st-gallen",
-        "fr": "gestion-de-projet-bsa-departement-d-electric-h-f-d-kanton-st-gallen-st-gallen"
+        "it": "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+        "en": "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+        "fr": "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch"
       },
       "company": "Kanton St. Gallen",
       "companyKey": "kanton-st-gallen",
@@ -7095,23 +7246,23 @@
       "title": "Projektleitung BSA, Fachbereich Elektro (m/w/d)",
       "titleByLocale": {
         "de": "Projektleitung BSA, Fachbereich Elektro (m/w/d)",
-        "it": "Gestione del progetto BSA, Dipartimento di Electric (m/f/d)",
-        "en": "Project management BSA, Department of Electric (m/f/d)",
-        "fr": "Gestion de projet BSA, Département d'Electric (h/f/d)"
+        "it": "Projektleitung BSA, Fachbereich Elektro (m/w/d)",
+        "en": "Projektleitung BSA, Fachbereich Elektro (m/w/d)",
+        "fr": "Projektleitung BSA, Fachbereich Elektro (m/w/d)"
       },
       "description": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Selbstständige Begleitung und Abwicklung von Umbauprojekten (UplaNS) in den Bereichen Energieversorgung, Beleuchtung-, Lüftungs-, Verkehrs-, Kommunikations- und Leitsysteme\n• Projektierung, Koordination und Überwachung von kleineren Anlagesanierungen und Systemerneuerungen im Rahmen des baulichen Unterhalts (KBU)\n• Erstellen und Prüfen von Angeboten sowie Kalkulationen, inklusive Überwachung der Ergebnisse\n• Fakturierung von Leistungen an Dritte sowie Mitwirkung bei Budgetplanung und Kostenkontrolle\n\nWas Sie auszeichnet:\n\n• Technische Grundausbildung, vorzugsweise als Elektroinstallateur/in EFZ\n• Weiterbildung als Elektroprojektleiter/in Installation und Sicherheit, dipl. Elektrotechniker/in HF oder vergleichbare Qualifikation\n• Verhandlungssicheres Auftreten gegenüber Lieferanten, Behörden und weiteren Anspruchsgruppen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten\n• Hohe Belastbarkeit und Flexibilität\n• Sehr gute Anwenderkenntnisse in MS Office und modernen digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielseitiges Aufgabengebiet mit grossem Gestaltungsspielraum und hoher Selbstständigkeit\n• Mitarbeit in einem engagierten, motivierten Team, das gemeinsam anpackt\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62",
       "descriptionByLocale": {
         "de": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Selbstständige Begleitung und Abwicklung von Umbauprojekten (UplaNS) in den Bereichen Energieversorgung, Beleuchtung-, Lüftungs-, Verkehrs-, Kommunikations- und Leitsysteme\n• Projektierung, Koordination und Überwachung von kleineren Anlagesanierungen und Systemerneuerungen im Rahmen des baulichen Unterhalts (KBU)\n• Erstellen und Prüfen von Angeboten sowie Kalkulationen, inklusive Überwachung der Ergebnisse\n• Fakturierung von Leistungen an Dritte sowie Mitwirkung bei Budgetplanung und Kostenkontrolle\n\nWas Sie auszeichnet:\n\n• Technische Grundausbildung, vorzugsweise als Elektroinstallateur/in EFZ\n• Weiterbildung als Elektroprojektleiter/in Installation und Sicherheit, dipl. Elektrotechniker/in HF oder vergleichbare Qualifikation\n• Verhandlungssicheres Auftreten gegenüber Lieferanten, Behörden und weiteren Anspruchsgruppen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten\n• Hohe Belastbarkeit und Flexibilität\n• Sehr gute Anwenderkenntnisse in MS Office und modernen digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielseitiges Aufgabengebiet mit grossem Gestaltungsspielraum und hoher Selbstständigkeit\n• Mitarbeit in einem engagierten, motivierten Team, das gemeinsam anpackt\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62",
-        "it": "La Divisione Nazionale Strade VI dell'Ufficio di Ingegneria Civile del Cantone di San Gallo apporta un significativo contributo alla sicurezza delle strade nazionali nei cantoni di Glarus, Thurgau e St.Gallen. A questo scopo, l'unità territoriale ha quattro workshop a Thal, Mels, Biäsche e Oberbüren, nonché due basi a St.Gallen e Müllheim.\n\nCosa aspettarsi:\n\n• Sostegno indipendente e gestione dei progetti di conversione (UplaNS) nelle aree di approvvigionamento energetico, illuminazione, ventilazione, traffico, comunicazione e sistemi di controllo\n• Pianificazione, coordinamento e monitoraggio delle ristrutturazioni e ristrutturazioni di impianti minori nell'ambito della manutenzione strutturale (KBU)\n• Creazione e revisione di offerte e calcoli, incluso il monitoraggio dei risultati\n• Fatturazione dei servizi a terzi e partecipazione alla pianificazione del bilancio e al controllo dei costi\n\nCosa lo distingue:\n\n• Formazione tecnica di base, preferibilmente come installatore elettrico\n• Ulteriore istruzione come direttore di progetto elettrico / in installazione e sicurezza, dipl. Tecnico elettrico HF o qualificazione comparabile\n• Approccio a prova di negoziato verso fornitori, autorità e altri stakeholder\n• Metodo di lavoro indipendente, strutturato e orientato alla soluzione\n• Personalità orientata al team con forti capacità di comunicazione\n• Alta capacità di carico e flessibilità\n• Conoscenza utente molto buona in MS Office e moderne apparecchiature di lavoro digitali\n\nCosa offriamo:\n\n• Versatile area di responsabilità con grande portata per il design e un alto grado di indipendenza\n• Lavorare in un team impegnato e motivato che affronta insieme\n• Contatto diverso con gli stakeholder interni ed esterni\n• Condizioni di lavoro interessanti e buone opportunità di formazione\n\nContatto: Beat Tobler, Responsabile attrezzature di funzionamento e sicurezza BSA, telefono 058 229 85 62",
-        "en": "The National Roads Division VI of the Civil Engineering Office of the Canton of St.Gallen makes a significant contribution to the safety of the national roads in the cantons of Glarus, Thurgau and St.Gallen. For this purpose, the territorial unit has four workshops in Thal, Mels, Biäsche and Oberbüren as well as two bases in St.Gallen and Müllheim.\n\nWhat to expect:\n\n• Independent support and handling of conversion projects (UplaNS) in the areas of energy supply, lighting, ventilation, traffic, communication and control systems\n• Project planning, coordination and monitoring of minor plant refurbishments and system renovations in the framework of structural maintenance (KBU)\n• Creating and reviewing offers and calculations, including monitoring the results\n• Invoicing of services to third parties and participation in budget planning and cost control\n\nWhat sets it apart:\n\n• Basic technical training, preferably as an electrical installer\n• Further education as electrical project manager / in installation and safety, dipl. Electrical technician HF or comparable qualification\n• Negotiation-proof approach towards suppliers, authorities and other stakeholders\n• Independent, structured and solution-oriented working method\n• Team-oriented personality with strong communication skills\n• High load capacity and flexibility\n• Very good user knowledge in MS Office and modern digital work equipment\n\nWhat we offer:\n\n• Versatile area of responsibility with great scope for design and a high degree of independence\n• Working in a committed, motivated team that tackles together\n• Diverse contact with internal and external stakeholders\n• Attractive employment conditions and good training opportunities\n\nContact: Beat Tobler, Head of Operational and Security Equipment BSA, telephone 058 229 85 62",
-        "fr": "La Division des routes nationales VI de l'Office du génie civil du canton de Saint-Gall contribue de manière significative à la sécurité des routes nationales dans les cantons de Glarus, Thurgau et Saint-Gall. À cette fin, l'unité territoriale a quatre ateliers à Thal, Mels, Biäsche et Oberbüren ainsi que deux bases à St.Gallen et Müllheim.\n\nÀ quoi s'attendre :\n\n• Soutien et gestion indépendants des projets de conversion (UplaNS) dans les domaines de l'approvisionnement en énergie, de l'éclairage, de la ventilation, du trafic, de la communication et des systèmes de contrôle\n• Planification, coordination et suivi des rénovations mineures d'installations et des rénovations de systèmes dans le cadre de l'entretien structurel (KBU)\n• Création et examen des offres et des calculs, y compris la surveillance des résultats\n• Facturation des services à des tiers et participation à la planification budgétaire et au contrôle des coûts\n\nCe qui le distingue:\n\n• Formation technique de base, de préférence comme installateur électrique\n• Formation continue en tant que directeur de projet électrique / en installation et sécurité, dipl. Technicien électrique HF ou qualification comparable\n• Approche à l'épreuve des négociations à l'égard des fournisseurs, des autorités et des autres parties prenantes\n• Méthode de travail indépendante, structurée et axée sur les solutions\n• Personnalité axée sur l'équipe et forte capacité de communication\n• Capacité de charge élevée et flexibilité\n• Très bonne connaissance de l'utilisateur dans MS Office et des équipements modernes de travail numérique\n\nCe que nous offrons:\n\n• Zone de responsabilité polyvalente avec une grande marge de manœuvre pour la conception et un degré élevé d'indépendance\n• Travailler dans une équipe engagée et motivée qui s'attaque ensemble\n• Divers contacts avec les parties prenantes internes et externes\n• Des conditions d'emploi attrayantes et de bonnes possibilités de formation\n\nPersonne-ressource: Beat Tobler, chef de l'équipement opérationnel et de sécurité BSA, téléphone 058 229 85 62"
+        "it": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Selbstständige Begleitung und Abwicklung von Umbauprojekten (UplaNS) in den Bereichen Energieversorgung, Beleuchtung-, Lüftungs-, Verkehrs-, Kommunikations- und Leitsysteme\n• Projektierung, Koordination und Überwachung von kleineren Anlagesanierungen und Systemerneuerungen im Rahmen des baulichen Unterhalts (KBU)\n• Erstellen und Prüfen von Angeboten sowie Kalkulationen, inklusive Überwachung der Ergebnisse\n• Fakturierung von Leistungen an Dritte sowie Mitwirkung bei Budgetplanung und Kostenkontrolle\n\nWas Sie auszeichnet:\n\n• Technische Grundausbildung, vorzugsweise als Elektroinstallateur/in EFZ\n• Weiterbildung als Elektroprojektleiter/in Installation und Sicherheit, dipl. Elektrotechniker/in HF oder vergleichbare Qualifikation\n• Verhandlungssicheres Auftreten gegenüber Lieferanten, Behörden und weiteren Anspruchsgruppen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten\n• Hohe Belastbarkeit und Flexibilität\n• Sehr gute Anwenderkenntnisse in MS Office und modernen digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielseitiges Aufgabengebiet mit grossem Gestaltungsspielraum und hoher Selbstständigkeit\n• Mitarbeit in einem engagierten, motivierten Team, das gemeinsam anpackt\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62",
+        "en": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Selbstständige Begleitung und Abwicklung von Umbauprojekten (UplaNS) in den Bereichen Energieversorgung, Beleuchtung-, Lüftungs-, Verkehrs-, Kommunikations- und Leitsysteme\n• Projektierung, Koordination und Überwachung von kleineren Anlagesanierungen und Systemerneuerungen im Rahmen des baulichen Unterhalts (KBU)\n• Erstellen und Prüfen von Angeboten sowie Kalkulationen, inklusive Überwachung der Ergebnisse\n• Fakturierung von Leistungen an Dritte sowie Mitwirkung bei Budgetplanung und Kostenkontrolle\n\nWas Sie auszeichnet:\n\n• Technische Grundausbildung, vorzugsweise als Elektroinstallateur/in EFZ\n• Weiterbildung als Elektroprojektleiter/in Installation und Sicherheit, dipl. Elektrotechniker/in HF oder vergleichbare Qualifikation\n• Verhandlungssicheres Auftreten gegenüber Lieferanten, Behörden und weiteren Anspruchsgruppen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten\n• Hohe Belastbarkeit und Flexibilität\n• Sehr gute Anwenderkenntnisse in MS Office und modernen digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielseitiges Aufgabengebiet mit grossem Gestaltungsspielraum und hoher Selbstständigkeit\n• Mitarbeit in einem engagierten, motivierten Team, das gemeinsam anpackt\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62",
+        "fr": "Die Abteilung Nationalstrassen Gebiet VI des Tiefbauamtes des Kantons St.Gallen leistet mit ihren Unterhaltsarbeiten einen wesentlichen Beitrag zur Sicherheit der Nationalstrassen in den Kantonen Glarus, Thurgau und St.Gallen. Zu diesem Zweck verfügt die Gebietseinheit über vier Werkhöfe in Thal, Mels, Biäsche und Oberbüren sowie zwei Stützpunkte in St.Gallen und Müllheim.\n\nWas Sie erwartet:\n\n• Selbstständige Begleitung und Abwicklung von Umbauprojekten (UplaNS) in den Bereichen Energieversorgung, Beleuchtung-, Lüftungs-, Verkehrs-, Kommunikations- und Leitsysteme\n• Projektierung, Koordination und Überwachung von kleineren Anlagesanierungen und Systemerneuerungen im Rahmen des baulichen Unterhalts (KBU)\n• Erstellen und Prüfen von Angeboten sowie Kalkulationen, inklusive Überwachung der Ergebnisse\n• Fakturierung von Leistungen an Dritte sowie Mitwirkung bei Budgetplanung und Kostenkontrolle\n\nWas Sie auszeichnet:\n\n• Technische Grundausbildung, vorzugsweise als Elektroinstallateur/in EFZ\n• Weiterbildung als Elektroprojektleiter/in Installation und Sicherheit, dipl. Elektrotechniker/in HF oder vergleichbare Qualifikation\n• Verhandlungssicheres Auftreten gegenüber Lieferanten, Behörden und weiteren Anspruchsgruppen\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Teamorientierte Persönlichkeit mit ausgeprägten Kommunikationsfähigkeiten\n• Hohe Belastbarkeit und Flexibilität\n• Sehr gute Anwenderkenntnisse in MS Office und modernen digitalen Arbeitsmitteln\n\nWas wir bieten:\n\n• Vielseitiges Aufgabengebiet mit grossem Gestaltungsspielraum und hoher Selbstständigkeit\n• Mitarbeit in einem engagierten, motivierten Team, das gemeinsam anpackt\n• Vielfältiger Kontakt mit internen und externen Anspruchsgruppen\n• Attraktive Anstellungsbedingungen sowie gute Weiterbildungsmöglichkeiten\n\nKontakt: Beat Tobler, Leiter Betriebs- und Sicherheitsausrüstung BSA, Telefon 058 229 85 62"
       },
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6538/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:06.755Z",
+      "crawledAt": "2026-10-03T09:19:32.430Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7126,7 +7277,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6538/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7145,21 +7296,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:06.755Z",
+      "firstSeenAt": "2026-10-03T09:19:32.430Z",
       "previousSlugsByLocale": {
         "it": [
-          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+          "gestione-del-progetto-bsa-dipartimento-di-electric-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
-          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+          "project-management-bsa-department-of-electric-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "fr": [
-          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch"
+          "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+          "gestion-de-projet-bsa-departement-d-electric-h-f-d-kanton-st-gallen-st-gallen"
         ]
       },
       "previousSlugs": [
-        "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch"
-      ]
+        "projektleitung-bsa-fachbereich-elektro-m-w-d-kanton-st-gallen-ch",
+        "gestione-del-progetto-bsa-dipartimento-di-electric-m-f-d-kanton-st-gallen-st-gallen",
+        "project-management-bsa-department-of-electric-m-f-d-kanton-st-gallen-st-gallen",
+        "gestion-de-projet-bsa-departement-d-electric-h-f-d-kanton-st-gallen-st-gallen"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "kanton-st-gallen-42b0b7059f37",
@@ -7193,7 +7351,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6484/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:05.870Z",
+      "crawledAt": "2026-10-03T09:19:31.581Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7213,11 +7371,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+        "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+        "avvocato-avvocato-m-f-d-kanton-st-gallen-st-gallen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "juristin-juristen-m-w-d-kanton-st-gallen-ch"
+          "juristin-juristen-m-w-d-kanton-st-gallen-ch",
+          "avvocato-avvocato-m-f-d-kanton-st-gallen-st-gallen"
         ],
         "en": [
           "juristin-juristen-m-w-d-kanton-st-gallen-ch"
@@ -7273,7 +7433,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6542/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:04.943Z",
+      "crawledAt": "2026-10-03T09:19:30.783Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7288,7 +7448,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6542/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7671,7 +7831,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6543/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:04.026Z",
+      "crawledAt": "2026-10-03T09:19:29.918Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7686,7 +7846,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6543/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7705,7 +7865,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:04.026Z"
+      "firstSeenAt": "2026-10-03T09:19:29.918Z"
     },
     {
       "id": "kanton-st-gallen-fc65e09eca80",
@@ -7739,7 +7899,7 @@
       "url": "https://recruitingapp-2800.umantis.com/Vacancies/6544/Description/1",
       "source": "Kanton St. Gallen Dedicated Parser (Umantis tenant 2800)",
       "sourceLang": "de",
-      "crawledAt": "2026-10-02T21:20:03.102Z",
+      "crawledAt": "2026-10-03T09:19:29.098Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lämmlisbrunnenstrasse 54",
@@ -7754,7 +7914,7 @@
       "sector": "Amministrazione Pubblica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-10-02",
+      "postedDate": "2026-10-03",
       "applyUrl": "https://recruitingapp-2800.umantis.com/Vacancies/6544/Application/CheckLogin/1",
       "requirements": [],
       "requirementsByLocale": {
@@ -7773,7 +7933,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-10-02T21:20:03.102Z"
+      "firstSeenAt": "2026-10-03T09:19:29.098Z"
     }
   ]
 }
