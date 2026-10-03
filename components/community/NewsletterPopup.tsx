@@ -106,30 +106,8 @@ const NewsletterPopup: React.FC = () => {
  }
  }, [user]);
 
- // Try silent sign-in: check if Firebase already has a cached user session
- useEffect(() => {
- const trySilentAuth = async () => {
- try {
- const [{ getAuth }, { getApp }] = await Promise.all([
- resilientImport(() => import('firebase/auth'), (m) => typeof m.getAuth === 'function'),
- resilientImport(() => import('@/services/firebase'), (m) => typeof m.getApp === 'function'),
- ]);
- const appInstance = await getApp();
- const auth = getAuth(appInstance);
- // onAuthStateChanged fires with cached user if session exists
- const unsub = auth.onAuthStateChanged((u) => {
- if (u?.email && !email) {
- setEmail(u.email);
- }
- unsub();
- });
- } catch {
- // Ad blocker or network issue — silent fail, user can still
- // enter email manually.
- }
- };
- trySilentAuth();
- }, []);
+ // useAuth owns cached-session restoration and deferred anonymous startup.
+ // Its user updates also feed the prefill effect above.
 
  useEffect(() => {
  // Don't show for crawlers / bots (they must see full page content)

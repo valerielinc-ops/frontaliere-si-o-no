@@ -98,10 +98,10 @@ function isAppSchema(record: Record<string, any>): boolean {
 function normalizeSchemaObject(record: Record<string, any>): Record<string, any> {
  // Legacy records include both anonymous Organization nodes and the
  // NewsMediaOrganization subtype Google rejects in creator/publisher fields.
- // Preserve the stable identity while emitting Google's supported base type.
+ // Reattach site records to the canonical identity while emitting the base type.
  if (isSiteOrganizationCreator(record)) {
   record['@type'] = ORGANIZATION_LD['@type'];
-  record['@id'] ??= ORGANIZATION_ID;
+  record['@id'] = ORGANIZATION_ID;
  }
 
  if (isSchemaType(record, 'Dataset') && !record.license) {

@@ -50,6 +50,39 @@ const verdict = (texts: Record<string, string>, sources: any) => {
   return { ok: result.ok, unsupported: result.unsupported.map((item: any) => `${item.kind}:${item.token}`), advisories: result.advisories.map((item: any) => `${item.kind}:${item.token}`) };
 };
 
+describe('names quoted whole', () => {
+  it('takes the posting’s title for a name whatever its apostrophes, middle dots and hyphens', () => {
+    // A real draft of 2026-10-03: the title has «d'opérateur·trice», the generated letter «d’opérateur·trice». The
+    // title's own «CFC» (the diploma the apprenticeship leads to) was taken for a skill the CV does not show.
+    const apprentice = {
+      text: 'Noé Exemple\nÉcole secondaire, Annemasse\nStage de 3 jours au support informatique, Atelier Exemple Sàrl\nCompétences: Windows, Microsoft Office',
+      posting: "Apprentissage d'opérateur∙trice en informatique CFC. Motivé∙e par un apprentissage ? Bulletins des trois dernières années scolaires.",
+      order: ["Apprentissage d'opérateur·trice en informatique CFC", 'Manufacture Exemple SA', 'Noé Exemple'].join('\n'),
+      answers: '',
+      place: 'Genève',
+    };
+    const quoted = 'L’apprentissage d’opérateur·trice en informatique CFC chez Manufacture Exemple SA correspond à mon projet.';
+    expect(verdict({ coverLetter: quoted, emailBody: quoted, motivationShort: quoted }, apprentice)).toMatchObject({ ok: true, unsupported: [] });
+    // The posting's own middle dot, a straight apostrophe, a line break inside the title: the same name.
+    expect(verdict({ coverLetter: "L'apprentissage d'opérateur∙trice en\ninformatique CFC m’intéresse." }, apprentice).unsupported).toEqual([]);
+    // Outside the title the same letters are still the candidate's claim.
+    expect(verdict({ coverLetter: 'Je suis titulaire d’un CFC.' }, apprentice).unsupported).toContain('tool:CFC');
+    expect(verdict({ coverLetter: 'Opérateur en informatique CFC depuis 2020.' }, apprentice).unsupported).toContain('tool:CFC');
+
+    const technician = {
+      text: 'Dario Ferri\nTecnico di sistemi, Esempio Servizi Srl, Como\nCompetenze: Windows Server, Linux',
+      posting: 'Cerchiamo un Tecnico SAP-HANA 100%.',
+      order: ['Tecnico SAP-HANA 100%', 'Esempio Sistemi SA', 'Dario Ferri'].join('\n'),
+      answers: '',
+      place: 'Lugano',
+    };
+    // A non-breaking hyphen (U+2011) or an en dash in the quote is the title's hyphen.
+    expect(verdict({ coverLetter: 'Mi candido per la posizione di Tecnico SAP‑HANA 100%.' }, technician).unsupported).toEqual([]);
+    expect(verdict({ coverLetter: 'Mi candido per la posizione di Tecnico SAP–HANA 100%.' }, technician).unsupported).toEqual([]);
+    expect(verdict({ coverLetter: 'Lavoro ogni giorno con SAP.' }, technician).unsupported).toContain('tool:SAP');
+  });
+});
+
 describe('closed tool vocabulary (career-ops + Reactive Resume, MIT)', () => {
   it('names the tools a shape rule cannot see, with their aliases', () => {
     expect(vocabularyTools('Deploy su Kubernetes e AWS; React Native, Postgres, SAP S/4 HANA, .NET').map((hit: any) => hit.name))

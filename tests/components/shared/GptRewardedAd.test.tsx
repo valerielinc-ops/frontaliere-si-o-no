@@ -29,6 +29,7 @@ const mocks = vi.hoisted(() => {
     env: {
       productionHost: true,
       consent: 'granted' as 'granted' | 'denied' | null,
+      rewardedEnabled: true,
     },
     trackExperimentEvent: vi.fn(),
     makeRewardedVisible: vi.fn((): unknown => undefined),
@@ -40,6 +41,10 @@ vi.mock('@/components/shared/AdSenseBanner', () => ({
 }));
 vi.mock('@/components/shared/GptAdSlot', () => ({
   GPT_ENABLED: true,
+  // The shipped value is off; this suite covers the request path it guards.
+  get GPT_REWARDED_ENABLED() {
+    return mocks.env.rewardedEnabled;
+  },
   getGptTag: () => mocks.tag,
   initGptFramework: vi.fn(),
 }));
@@ -101,6 +106,7 @@ describe('GptRewardedAd', () => {
     vi.clearAllMocks();
     mocks.env.productionHost = true;
     mocks.env.consent = 'granted';
+    mocks.env.rewardedEnabled = true;
     mocks.tag.apiReady = true;
     mocks.tag.cmd.push.mockImplementation((callback: () => void) => callback());
     mocks.tag.defineOutOfPageSlot.mockImplementation(() => mocks.slot);
@@ -318,6 +324,37 @@ describe('GptRewardedAd', () => {
 
     expect(onUnavailable).toHaveBeenCalledWith('not_production', { requestId: 0, detail: 'unsupported_host' });
     expect(mocks.tag.defineOutOfPageSlot).not.toHaveBeenCalled();
+  });
+
+  it('sends no rewarded request while the GPT rewarded video is switched off', () => {
+    mocks.env.rewardedEnabled = false;
+    const onUnavailable = vi.fn();
+
+    expect(preloadRewardedWebAd()).toBe(0);
+    renderAd({ autoStart: true, onUnavailable });
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(onUnavailable).toHaveBeenCalledWith('gpt_unavailable', { requestId: 0, detail: 'rewarded_disabled' });
+    expect(mocks.tag.defineOutOfPageSlot).not.toHaveBeenCalled();
+    expect(trackedEvents('rewarded_web_request')).toEqual([]);
+  });
+
+  it('reports the switch, not the consent, for a visitor who refused ads while the video is off', () => {
+    mocks.env.rewardedEnabled = false;
+    mocks.env.consent = 'denied';
+    const onUnavailable = vi.fn();
+    renderAd({ autoStart: true, onUnavailable });
+
+    expect(onUnavailable).toHaveBeenCalledWith('gpt_unavailable', { requestId: 0, detail: 'rewarded_disabled' });
+  });
+
+  it('keeps the non-production reason ahead of the switch, so those runs keep the direct hand-off', () => {
+    mocks.env.rewardedEnabled = false;
+    mocks.env.productionHost = false;
+    const onUnavailable = vi.fn();
+    renderAd({ autoStart: true, onUnavailable });
+
+    expect(onUnavailable).toHaveBeenCalledWith('not_production', { requestId: 0, detail: 'unsupported_host' });
   });
 
   it('reports slot_init_error when GPT refuses to define the rewarded slot', () => {

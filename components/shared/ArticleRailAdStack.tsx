@@ -98,6 +98,7 @@ const MIN_FILL_PX = 600;
 const MAX_PANELS = 6;
 const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled = true, count, narrow = false, compact = false, desktopRail = false, onEmptyResolved }) => {
   const ref = useRef<HTMLDivElement>(null);
+  const gutterHeight = useRef(0);
   // Per-panel GPT verdict, keyed by panel index (true = reported empty).
   const emptyByIndex = useRef<Map<number, boolean>>(new Map());
   // Start at 0 — measurement sets the correct count after mount, avoiding a
@@ -128,8 +129,8 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
   useEffect(() => {
     const el = ref.current;
     if (!el || typeof ResizeObserver === 'undefined') return;
-    const measure = () => {
-      const gutter = el.getBoundingClientRect().height;
+    const updatePanels = () => {
+      const gutter = gutterHeight.current;
       // Below MIN_FILL_PX there is no room for even one 600px creative: skip all
       // panels so no CLS slot is reserved on ultra-short tool pages.
       if (gutter < MIN_FILL_PX) {
@@ -144,15 +145,23 @@ const ArticleRailAdStack: React.FC<ArticleRailAdStackProps> = ({ side, enabled =
       const next = Math.max(1, Math.min(maxPanels, byViewport, byGutter));
       setPanels((prev) => (prev === next ? prev : next));
     };
-    measure();
-    const ro = new ResizeObserver(measure);
+    // ResizeObserver supplies layout results without forcing synchronous layout.
+    // Reuse the last delivery when the caller changes its panel ceiling.
+    updatePanels();
+    const ro = new ResizeObserver((entries) => {
+      const entry = entries.find((item) => item.target === el);
+      if (!entry) return;
+      // The root has no padding/borders, so contentRect is an equivalent fallback.
+      gutterHeight.current = entry.borderBoxSize?.[0]?.blockSize ?? entry.contentRect.height;
+      updatePanels();
+    });
     ro.observe(el);
     // Viewport height changes (window resize) don't always change the gutter el,
-    // so re-measure on resize too.
-    window.addEventListener('resize', measure);
+    // so recalculate against the cached gutter height on resize too.
+    window.addEventListener('resize', updatePanels);
     return () => {
       ro.disconnect();
-      window.removeEventListener('resize', measure);
+      window.removeEventListener('resize', updatePanels);
     };
   }, [maxPanels]);
 

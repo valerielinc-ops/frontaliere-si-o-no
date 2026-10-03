@@ -375,8 +375,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // (`proveSwissAbsentFromLiveBoard`, scripts/update-imerys-jobs.mjs).
   // 38 real postings exist but Switzerland isn't even a location-filter option.
   'interroll',
-  // Greenhouse API: 21 active postings, all San Francisco/Remote-US, none CH.
-  'vir-biotechnology',
   // e-lavoro.ch/node/104: "Purtroppo non ci sono offerte di lavoro".
   'has-healthcare',
   // BENTELER (Jobs2Web tenant career.benteler.jobs): 143 postings live but
@@ -445,21 +443,6 @@ const EMPTY_OK_CRAWLERS = new Set([
   // automatically when Yapeal republishes a posting. Same
   // legitimately-empty small-employer case as linnea/josef-mueller (#4751).
   'yapeal',
-  // Temenos (Geneva-HQ banking software, Workday tenant temenos.wd103,
-  // site Temenoscareers): verified live 2026-08-05 — the tenant's location
-  // facet is `locationMainGroup`, so the canonical `locationCountry` facet
-  // that createWorkdaySwissParser sends is rejected with HTTP 400; the
-  // factory's documented fallback (refetch unfiltered + strict CH gate) then
-  // fetches the WHOLE board and gets `total: 16` postings, every one of them
-  // explicitly foreign (Paris, Sydney, Singapore, United States Remote,
-  // London, Bertrange LU, Bucharest, Chennai, Makati City). Zero Swiss roles
-  // — the Geneva HQ simply has no open req right now. The public careers
-  // site (careers.temenos.com → temenos.com/about-us/careers/) links to the
-  // same `Temenoscareers` Workday site, so there is no second board we are
-  // missing. Listing fetch + strict CH gate are healthy and re-arm the moment
-  // a Geneva/Swiss req is published. Same legitimately-empty
-  // regional-filter case as bracco/fnz (#4844).
-  'temenos',
   // Veeam Software (Baar ZG Swiss entity, Greenhouse board `veeamsoftware`):
   // verified live 2026-08-05 — https://boards-api.greenhouse.io/v1/boards/
   // veeamsoftware/jobs returns HTTP 200 with 235 postings worldwide (board
