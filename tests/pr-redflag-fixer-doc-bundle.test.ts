@@ -50,7 +50,7 @@ describe('pr-redflag-fixer prefetches its binding document sections', () => {
     expect(result.stdout).toContain('## AGENTS.md — Privacy');
     expect(result.stdout).toContain('Rompe funnel/monetizzazione/traffico');
     expect(result.stdout).toContain('Mai abbassare quality threshold/test tolerance');
-    expect(result.stdout).toContain('Git identity canonica');
+    expect(result.stdout).toContain('Pre-commit PII scan');
 
     expect(run).toContain('git fetch --no-tags origin main:refs/remotes/origin/main');
     expect(run).not.toContain('--depth=1');

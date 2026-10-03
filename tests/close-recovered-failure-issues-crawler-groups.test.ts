@@ -140,11 +140,17 @@ describe('crawler recovery run population', () => {
     });
     expect(crawlerArgs).not.toContain('-b');
     expect(crawlerArgs).not.toContain('main');
+    // Senza filtro per branch la finestra non serve.
+    expect(crawlerArgs).not.toContain('--created');
     expect(crawlerArgs).toContain('databaseId,conclusion,status,createdAt,headBranch');
 
-    const ordinaryArgs = buildRunListArgs('tests');
+    const ordinaryArgs = buildRunListArgs('tests', { nowMs: Date.UTC(2030, 3, 11, 12) });
     expect(ordinaryArgs).toContain('-b');
     expect(ordinaryArgs).toContain('main');
+    // Un elenco per branch senza finestra `created` torna a tratti fermo a
+    // settimane prima: 90 giorni prima del 2030-04-11.
+    expect(ordinaryArgs.slice(ordinaryArgs.indexOf('--created'), ordinaryArgs.indexOf('--created') + 2))
+      .toEqual(['--created', '>=2030-01-11']);
   });
 });
 

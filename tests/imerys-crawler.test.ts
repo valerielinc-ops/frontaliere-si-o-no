@@ -123,7 +123,7 @@ describe('Imerys crawler — Workday source (tenant imerys, site IMERYS-Careers)
 
     expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
-    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 35 posting\(s\) in 9 countries .*Switzerland not among them/);
+    expect(Reflect.get(jobs, 'authoritativeEmptyEvidence')).toMatch(/live board 35 posting\(s\) across 9 location value\(s\) .*Switzerland not among them/);
     expect(verdict(jobs)).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
   });
 

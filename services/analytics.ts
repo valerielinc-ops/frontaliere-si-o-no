@@ -444,18 +444,13 @@ const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
 const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
 let l2UsefulActionEmitted = false;
 const GA4_MEASUREMENT_ID = import.meta.env.VITE_FIREBASE_MEASUREMENT_ID || 'G-LGJ9LE360F';
-let l5DecisionSessionOpaqueId: string | null = null;
+const L5_COMPLETED_GA_SESSION_KEY = 'fr_l5_completed_ga_session_v1';
 
 /**
  * Read the current GA4 session instead of treating a browser tab as a GA4
  * session. GA4 can roll a session while a tab remains open, so a tab-scoped
- * key alone is not safe for an exact outcome join.
+ * flag alone is not safe for an exact per-session outcome.
  */
-function getL5DecisionSessionOpaqueId(): string {
- if (!l5DecisionSessionOpaqueId) l5DecisionSessionOpaqueId = createAnalyticsEmissionIdSource();
- return l5DecisionSessionOpaqueId;
-}
-
 function readGa4SessionId(): Promise<string | null> {
  if (typeof window === 'undefined') return Promise.resolve(null);
  const gtag = (window as unknown as { gtag?: (...args: unknown[]) => void }).gtag;
@@ -479,19 +474,6 @@ function readGa4SessionId(): Promise<string | null> {
    finish(null);
   }
  });
-}
-
-/**
- * Keep the two L5 events joinable in GA4 without sending the opaque key to
- * PostHog. The opaque component prevents cross-user collisions; the current
- * GA4 session component prevents one long-lived tab from joining two GA4
- * sessions. The exporter repeats the same join with GA4's `gaSessionId`
- * dimension and remains fail-closed when the session is unavailable.
- */
-async function getL5DecisionSessionId(): Promise<string> {
- const opaqueId = getL5DecisionSessionOpaqueId();
- const gaSessionId = await readGa4SessionId();
- return gaSessionId ? `${opaqueId}:${gaSessionId}` : opaqueId;
 }
 
 function claimL2UsefulAction(): boolean {
@@ -545,17 +527,82 @@ const log = (eventName: string, params?: Record<string, any>) => {
  maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
-/** Emit L5's session join key to Firebase/GA4 while keeping PostHog historical. */
-const logDecisionMoment = async (eventName: string, params: Record<string, any>) => {
- const enrichedParams = enrichEventParams(eventName, {
-  ...params,
-  decision_session_id: await getL5DecisionSessionId(),
- });
- const posthogParams = { ...enrichedParams };
- delete posthogParams.decision_session_id;
- posthogCapture(eventName, posthogParams);
- logFirebaseOnly(eventName, enrichedParams);
-};
+/** L5 subset rule: a next action reaches GA4 only inside a session that completed. */
+export function shouldSendDecisionMomentToGa4(
+ eventName: string,
+ gaSessionId: string | null,
+ completedGaSessionId: string | null,
+): boolean {
+ if (eventName !== DECISION_MOMENT_NEXT_ACTION_EVENT) return true;
+ return Boolean(gaSessionId) && completedGaSessionId === gaSessionId;
+}
+
+export interface DecisionMomentEmitterDeps {
+ readGaSessionId: () => Promise<string | null>;
+ sendGa4: (eventName: string, params: Record<string, any>) => void;
+ sendPostHog: (eventName: string, params: Record<string, any>) => void;
+ /** Tab storage for the completed GA4 session; may throw or be missing. */
+ storage: () => Pick<Storage, 'getItem' | 'setItem'> | null | undefined;
+}
+
+/**
+ * Single emission point of the two L5 events. GA4 receives a next action only
+ * when the same GA4 session already holds a completion, so the sessions with a
+ * next action are by construction a subset of the sessions with a completion:
+ * the outcome exporter reads GA4's native per-event `sessions` metric and
+ * needs neither a join nor a custom dimension. An unknown GA4 session is
+ * fail-closed. PostHog keeps the ungated historical stream. Calls are
+ * serialised so a next action clicked right after a completion sees it.
+ *
+ * The completed session is remembered in memory and in tab storage, so it
+ * survives a full-page navigation in the same tab. A completion in one tab
+ * followed by a next action in another tab of the same GA4 session is dropped:
+ * an undercount, in the fail-closed direction.
+ */
+export function createDecisionMomentEmitter(deps: DecisionMomentEmitterDeps) {
+ let completedGaSessionId: string | null = null;
+ let queue: Promise<void> = Promise.resolve();
+
+ const remember = (gaSessionId: string): void => {
+  completedGaSessionId = gaSessionId;
+  try {
+   deps.storage()?.setItem(L5_COMPLETED_GA_SESSION_KEY, gaSessionId);
+  } catch {
+   // Private browsing or blocked storage: the closure value still covers the
+   // current page lifetime.
+  }
+ };
+ const readCompleted = (): string | null => {
+  if (completedGaSessionId) return completedGaSessionId;
+  try {
+   return deps.storage()?.getItem(L5_COMPLETED_GA_SESSION_KEY) ?? null;
+  } catch {
+   return null;
+  }
+ };
+
+ return (eventName: string, params: Record<string, any>): Promise<void> => {
+  const emit = async () => {
+   deps.sendPostHog(eventName, params);
+   const gaSessionId = await deps.readGaSessionId();
+   if (eventName === DECISION_MOMENT_COMPLETED_EVENT && gaSessionId) remember(gaSessionId);
+   if (!shouldSendDecisionMomentToGa4(eventName, gaSessionId, readCompleted())) return;
+   deps.sendGa4(eventName, params);
+  };
+  queue = queue.then(emit).catch(() => undefined);
+  return queue;
+ };
+}
+
+const sendGatedDecisionMoment = createDecisionMomentEmitter({
+ readGaSessionId: readGa4SessionId,
+ sendGa4: (eventName, params) => logFirebaseOnly(eventName, params),
+ sendPostHog: (eventName, params) => posthogCapture(eventName, params),
+ storage: () => (typeof sessionStorage === 'undefined' ? null : sessionStorage),
+});
+
+const logDecisionMoment = (eventName: string, params: Record<string, any>): Promise<void> =>
+ sendGatedDecisionMoment(eventName, enrichEventParams(eventName, params));
 
 const setProps = (properties: Record<string, string>) => {
  if (_firebaseReady) {
@@ -2024,9 +2071,8 @@ export const Analytics = {
  /**
  * L5 decision-surface outcome contract. These fields are categorical only:
  * no user-entered answers, labels or destination URLs are sent. The outcome
- * exporter joins the two Firebase/GA4 events by an opaque decision-session
- * key plus the GA4 session; neither is mirrored into the historical PostHog
- * payload.
+ * exporter counts GA4 sessions per event; `logDecisionMoment` keeps the
+ * next-action sessions inside the completion sessions.
   */
  trackDecisionMomentCompleted: (surface: string, task: string) => {
   void logDecisionMoment(DECISION_MOMENT_COMPLETED_EVENT, {

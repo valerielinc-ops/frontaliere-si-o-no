@@ -97,12 +97,12 @@ const DEFAULT_WINDOW_H = readDefaultWindowHours();
  * finestra.
  */
 const NARROWING_ALLOWLIST: Record<string, string> = {
-  '.github/workflows/post-deploy-validate-dist.yml:1783:6':
-    'validatore post-deploy: il fallback vivo alla riga 1783 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
+  '.github/workflows/post-deploy-validate-dist.yml:1789:6':
+    'validatore post-deploy: il fallback verificato alla riga 1789 passa --reopen-within-hours 6 e --build-sha "${INPUT_DEPLOY_REF}"; collassa il flap rosso→verde→rosso dentro UN ciclo di deploy (#928/#931/#937/#941) e ha il guard anti-latenza #5539.',
   '.github/workflows/post-deploy-validate-live.yml:539:6':
     'codice verificato in post-deploy-validate-live.yml: lo step Report failure to GitHub Issues passa esplicitamente 6h; report-failure/action.yml ha default vuoto e il resolve gemello usa lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
-  '.github/workflows/deploy-publish.yml:483:6':
-    'codice verificato in deploy-publish.yml: lo step Report failure to GitHub Issues (deploy) passa esplicitamente reopen-within-hours: 6; report-failure/action.yml ha default vuoto e il resolve gemello chiude lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
+  '.github/workflows/deploy-publish.yml:1652:6':
+    'codice verificato in deploy-publish.yml: lo step Report failure to GitHub Issues (deploy) passa esplicitamente reopen-within-hours: 6 alla riga 1652; report-failure/action.yml ha default vuoto e il resolve gemello chiude lo stesso titolo, quindi la finestra è intenzionale e limitata al ciclo corrente.',
   '.github/workflows/lighthouse-ci.yml:365:6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
   '.github/workflows/cwv-field-criterion.yml:175:24':

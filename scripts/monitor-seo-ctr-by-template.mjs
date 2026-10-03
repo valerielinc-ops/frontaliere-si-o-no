@@ -48,6 +48,8 @@ import {
   SEO_CTR_FAMILIES,
   MIN_IMPRESSIONS_TO_MONITOR,
   aggregateFamilyRows,
+  belowCurvePagesForState,
+  renderBelowCurvePagesSection,
   effectiveTargetCtr,
   discoverUnregisteredFamilies,
   familyPathPrefixes,
@@ -126,7 +128,7 @@ function loadState() {
   }
 }
 
-async function openOrCommentIssue({ family, ctr, target, position, run }) {
+async function openOrCommentIssue({ family, ctr, target, position, run, belowCurvePages }) {
   if (dryRun) {
     console.log(`   [dry-run] avrei aperto/commentato issue per ${family.label}`);
     return;
@@ -149,6 +151,8 @@ async function openOrCommentIssue({ family, ctr, target, position, run }) {
 Il monitor CTR-per-template (issue #4300, scripts/monitor-seo-ctr-by-template.mjs)
 ha rilevato che questa famiglia di pagine resta sotto la soglia CTR attesa per
 ${run} controlli settimanali consecutivi (~${run} settimane).
+
+${renderBelowCurvePagesSection(belowCurvePages)}
 
 Prossimi passi suggeriti: rivedere title/description generator per questa
 famiglia (services/seo/seo-pages.ts per guida/tasse, build-plugins/ogPagesPlugin.ts
@@ -327,12 +331,14 @@ async function main() {
     // Recomputed per run: for a family with a curve multiple the floor tracks
     // the measured position instead of being frozen in the registry.
     let target = effectiveTargetCtr(family, null);
+    let belowCurvePages = [];
     try {
       const { perPath } = await fetchGscByPage({ windowDays: WINDOW_DAYS, pathContains: familyPathPrefixes(family) });
       const pageRows = [...perPath.entries()].map(([path, metrics]) => ({ path, ...metrics }));
       const agg = aggregateFamilyRows(pageRows, { minImpressions: 5 });
       ctr = agg.avgCtr;
       position = agg.avgPosition;
+      belowCurvePages = agg.belowCurvePages;
       target = effectiveTargetCtr(family, position);
       console.log(`   CTR (${WINDOW_DAYS}gg): ${pct(ctr)} | target: ${pct(target)} | pos: ${position === null ? 'n/a' : position.toFixed(2)} | pagine: ${agg.pageCount}`);
     } catch (e) {
@@ -348,8 +354,9 @@ async function main() {
 
     if (belowTarget) {
       console.log(`   ⚠️ sotto soglia (giro consecutivo #${consecutiveBelowRuns})`);
+      console.log(renderBelowCurvePagesSection(belowCurvePages).replace(/^/gm, '   '));
       if (consecutiveBelowRuns >= CONSECUTIVE_RUNS_TO_ESCALATE) {
-        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns });
+        await openOrCommentIssue({ family, ctr, target, position, run: consecutiveBelowRuns, belowCurvePages });
       }
     } else {
       console.log('   ✅ CTR nella norma');
@@ -360,6 +367,7 @@ async function main() {
       lastCtr: ctr,
       lastPosition: position,
       lastTargetCtr: target,
+      lastBelowCurvePages: belowCurvePagesForState(belowCurvePages),
       lastCheckedIso: nowIso,
       lastError: null,
     };

@@ -186,6 +186,11 @@ function isValidHeroImage(bytes, expectedBytes) {
   if (bytes.length <= 12) return false;
   if (bytes.subarray(0, 4).toString('latin1') !== 'RIFF') return false;
   if (bytes.subarray(8, 12).toString('latin1') !== 'WEBP') return false;
+  // The RIFF size field counts everything after itself. A truncated download or
+  // a binary that went through a text round trip keeps a plausible header but
+  // no longer matches its own length — the state that failed the deploy's
+  // thumbnail step on 2026-10-02 (run 37035643275).
+  if (bytes.readUInt32LE(4) + 8 !== bytes.length) return false;
   return typeof expectedBytes !== 'number' || expectedBytes === bytes.length;
 }
 
@@ -705,7 +710,7 @@ for (const name of FEEDS) {
       // trusting the extension is what stops an HTML error page that came back
       // with a 200 from being committed as an article's hero image.
       if (!isValidHeroImage(bytes)) {
-        fail(`${relPath} is not a WebP file (bad RIFF/WEBP header) — refusing`);
+        fail(`${relPath} is not a WebP file (bad RIFF/WEBP header, or a length its header contradicts) — refusing`);
       }
 
       if (typeof entry.bytes === 'number' && entry.bytes !== bytes.length) {
