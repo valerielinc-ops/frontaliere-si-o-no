@@ -204,13 +204,15 @@ jobs:
           set -uo pipefail
           mkdir -p "$CTX_DIR"
           : > "$CTX_DIR/prs.md"
+          PR_JSON_FILES=()
           IFS=',' read -ra NUMS <<< "$BATCH_PRS"
           for n in "${NUMS[@]}"; do
             [ -z "$n" ] && continue
             {
               echo "### PR #$n"
               echo '```json'
-              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,url,author 2>/dev/null || echo '{}'
+              gh pr view "$n" --repo "$REPO" --json number,title,body,mergedAt,mergeCommit,url,author > "$CTX_DIR/pr-$n.json" 2>/dev/null || echo '{}' > "$CTX_DIR/pr-$n.json"
+              cat "$CTX_DIR/pr-$n.json"
               echo '```'
               echo "Reviews:"
               echo '```json'
@@ -219,7 +221,15 @@ jobs:
               echo '```'
               echo
             } >> "$CTX_DIR/prs.md"
+            PR_JSON_FILES+=("$CTX_DIR/pr-$n.json")
           done
+
+          # Bullet di `## Non implementato (ancora)` già classificati (stesso oracolo
+          # del no-op gate) e instradati col manifest di mirror del corpus, letto UNA
+          # volta via API: l'agente non riapplica la tassonomia né una mappa in prosa.
+          # Fail-open: senza sezione il prompt ricade sulla lettura diretta.
+          node scripts/ci/followup-candidate-bullets.mjs --side site "${PR_JSON_FILES[@]}" \
+            > "$CTX_DIR/candidate-bullets.md" || : > "$CTX_DIR/candidate-bullets.md"
 
           # In-flight PR overlap (line "In-flight PR overlap" sotto): elenco PR aperte +
           # i loro file, condiviso da TUTTE le PR del batch (non per-PR).
@@ -237,6 +247,8 @@ jobs:
             echo
             echo "## Per-PR metadata + reviews (batch: $BATCH_PRS)"
             cat "$CTX_DIR/prs.md"
+            echo
+            cat "$CTX_DIR/candidate-bullets.md"
             echo
             echo "## Open PRs (per il check 'In-flight PR overlap')"
             cat "$CTX_DIR/open-prs.json"
@@ -361,6 +373,11 @@ jobs:
               Se un item cita piu' file, scegli il repo del file che richiede la modifica
               comportamentale; se cita solo un sintomo, individua prima il file sorgente
               reale. Scrivi sempre nell'issue `Target repository:` e `Target file:`.
+              La mappa è un'indicazione: per i path citati dai bullet la VERITÀ è
+              `routes` in `## Candidate bullets` del bundle (manifest di mirror):
+              `repo` → `Target repository`, `targetPath` → `Target file`, anche quando
+              il path citato ha un altro nome o manca qui. `repo: unknown` → conia
+              nel repository della PR con la nota `route-unverified`.
               Per Nanako usa SEMPRE `gh` con il repository esplicito:
               `gh issue create --repo nanakokyobashi-rgb/frontaliere-articles ...`.
               Nel processo Codex non cercare né interpolare `GITHUB_PAT` o `GH_TOKEN`:
@@ -369,10 +386,11 @@ jobs:
               credential corpus è indisponibile, posta il blocco di routing sulla PR
               e lascia l'item da ritentare nella prossima passata.
               Dedup, label e commenti vanno eseguiti sullo stesso `--repo` target.
-            - Parse PR body `## Non implementato (ancora)`. **Il routing lo decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8; `scripts/ci/followup-has-candidates.mjs` applica esattamente questa regola a monte, e sono la stessa tassonomia — non inventarne una terza):
-              - `in questa PR` · `PR concatenata #N` · `per scelta` · `by construction` · `blocked: decisione del proprietario` → **NON creare issue**: la voce è già chiusa o già tracciata altrove.
-              - `blocked: <causa tecnica>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item.
-              - **nessuno stato dichiarato** → **crea issue** (fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia).
+            - Parse PR body `## Non implementato (ancora)`: i bullet sono GIÀ classificati nel bundle, sezione `## Candidate bullets` (`scripts/ci/followup-candidate-bullets.mjs`). **Decide lo STATO LETTERALE del bullet, non una parola-scusa** (AGENTS.md #8), e lo calcola lo stesso oracolo di `scripts/ci/followup-has-candidates.mjs` — non riapplicarlo a mano e non inventare una terza tassonomia:
+              - `candidate: false` (`in questa PR` · `PR concatenata #N` · `per scelta` / «falso positivo» · `by construction` · `blocked: decisione del proprietario`, o hard-exclude) → **NON creare issue**: decide il bundle, non la tua rilettura.
+              - `candidate: true` con `blocked: <causa>` → **crea issue**, e riporta la causa nel campo `Blocked on:` dell'item. Se la causa NON è di codice (fonte esterna, terzi, decisione attesa) conia l'item con `State: blocked`: resta tracciato e non entra nella selezione del fixer.
+              - `candidate: true` senza stato → **crea issue** (fail-safe: un residuo non qualificato è lavoro potenzialmente dovuto, e tacerlo è peggio che generare una traccia).
+              Solo se per questa PR la sezione manca o porta `error`, applica tu la stessa regola sui bullet.
               Il vecchio skip su `out of scope` / `posposto` è **ABOLITO** (FOLLOWUP.md § parse rules): non sono più scappatoie di chiusura, e trattarli come tali faceva evaporare lavoro dovuto.
             - **Riporta lo stato NELL'ITEM che minti**, come riga `- Stato dichiarato nella PR: <lo stato letterale, verbatim, oppure «nessuno»>`. Senza, la issue di follow-up nasce non qualificata e nessuno può distinguere a macchina ciò che aspetta una decisione umana da ciò che un agente potrebbe chiudere subito — è la ragione per cui la coda non si smaltisce (misurato il 2026-08-14: 9 item su 25 nelle follow-up aperte del sito senza stato).
             - Parse reviewer bot review più recente: estrai 🟡 nit, ❓ q, `## Adversarial check` bullets. Skip 🔴 (già fixed o droppato consapevolmente pre-merge).
@@ -381,6 +399,7 @@ jobs:
             - **Hard-exclude live-verification-only (FOLLOWUP.md → "Hard-exclude: live-verification-only item"):** NON mintare issue (reason `live-verify-only`), prima del filtro funnel, **a prescindere dalla fonte**, ogni item la cui UNICA azione è ispezionare il sito già deployato (nessun file da editare): "verify live / verifica live / post-deploy / (post-merge, live) / (live)", "curl la URL prod / live-200", "render at NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` `- [ ]` etichettata `(post-merge, live)` non spuntata. **Routing:** raccoglili in una UNICA checklist `Live-verification` batchata nel summary commento di QUELLA PR, NON come issue. **Eccezione:** un item che MESCOLA live-verify con un'edit concreta resta actionable.
             - **Hard-exclude rischio senza condizione di accettazione falsificabile (decisione del proprietario, 2026-09-05):** un item entra in coda SOLO se porta con sé qualcosa che, girando, può provare che è stato affrontato. In pratica: la sua `Suggested action` deve citare fra backtick almeno **un token-codice distintivo** (simbolo, campo, chiave, path, costante — ciò che un check potrà cercare verbatim nel file citato). Un rischio formulato solo in prosa («nessun gate impedisce un drift futuro», «valutare se serve un campo esplicito») **non si può mai provare affrontato**: nessuna evidenza lo chiuderà, quindi entra in coda e non ne esce più. NON mintarlo come item (reason `no-acceptance-condition`) — **raccoglilo nel commento di summary della PR**, dove resta leggibile, esattamente come si fa per `Live-verification`. Vale **a prescindere dalla fonte**, e in particolare per i bullet di `## Adversarial check`, che sono la fonte dominante di questa classe. L'oracolo è lo STESSO che poi chiude l'item (`citedTokens()` in `scripts/ci/followup-resolution-match.mjs`): usarne uno più permissivo in apertura è ciò che ha prodotto la coda immortale. **Seconda strada ammessa dal 2026-09-07 (D3), in DISGIUNZIONE con la prima:** invece del token, l'item può portare una riga di scheda `- METRICA: prima=<n> atteso=<n> | COMANDO: <comando>` il cui comando **nomina un referente** — un file, uno script o un test, cioè un path con una `/` e un'estensione (`npx vitest run tests/foo.test.ts`, `node scripts/ci/bar.mjs`). Il referente NON deve esistere ancora: può essere il test che la fix dovrà scrivere. Una metrica già al bersaglio (`prima=N atteso=N`) viene invece RIFIUTATA, perché non c'è niente da muovere. Usa questa strada quando l'item è lavoro vero ma la frase non si lascia ridurre a un token: è spesso più facile che inventare un token, e prova di più. Misurato il 2026-09-05 sul sito: 81 item su 129 nelle ultime 60 follow-up non citano un solo token, e 36 dei 49 item delle aggregate bloccate sono di questa classe.
               **PRIMA FORMULA L'AZIONE, POI GIUDICA QUELLA — e se l'item è azionabile ma la frase non porta un token, DERIVALO invece di scartarlo.** Il metro non si applica al bullet grezzo della review ma al testo che scrivi tu in `Suggested action`: sul bullet grezzo `suggestedActionText()` ricade sull'INTERO testo e i backtick che stanno in `Original text` fanno sembrare l'item ammissibile, mentre alla chiusura quella regione è esclusa per costruzione e l'item vale `no-valid-item` — cioè nasce già non chiudibile. Misurato eseguendo le funzioni: sullo stesso item, `citedTokens()` sul bullet grezzo dà `["manifest.counts"]` e sull'item coniato dà `[]`. Quindi: se un item ha codice da cambiare, vai a **cercare** il file, il simbolo o il campo da toccare e scrivilo tu nella `Suggested action` (`nomeFunzione()`, `oggetto.campo`, `COSTANTE >= 1` — mai un identificatore nudo né un path nudo, che `isDistinctiveToken()` rifiuta per scelta). Scartare per forma un item funnel-critico è peggio che scartarne uno vago: quello ha codice da cambiare e finisce in un commento che nessun reconciler drena. La rinuncia vale solo quando non esiste NIENTE da toccare, cioè quando è davvero un rischio in prosa.
+              **Il token derivato deve essere ASSENTE OGGI:** è ciò che un grep troverà DOPO la fix e NON trova oggi nel `Target file`. Un token copiato dal codice corrente è già vero: l'item nasce soddisfatto, oppure non si chiude mai. Verificalo con una lettura del file (`grep -c -F`) prima di coniare; se il residuo è già vero su `main`, scarta l'item con motivo `already-on-main` nel commento di triage. Una prova post-merge senza file da modificare va nella checklist `Live-verification`, non in un item di codice. Il `COMANDO` di una scheda è un'osservazione (test, conteggio, lettura di run), mai uno script che riscrive dati.
               NB: dopo di te gira uno step deterministico (`scripts/ci/gate-minted-followups.mjs`) che ri-applica questa regola con la funzione vera, non con la tua lettura di questa riga. Un item che non la rispetta viene demoto dal corpo della issue e conservato nel commento della PR.
             - Dedup vs issue `follow-up` esistenti (titolo >70% similar → skip).
             - **In-flight PR overlap** (anti self-flag): escludi item su file che una PR aperta sta già modificando — usa `## Open PRs` + `## Open PR changed files` già nel bundle (punto 4 del Bootstrap), non rifare `gh pr list`/`gh pr diff --name-only` → log "in-flight in PR #N". Vedi FOLLOWUP.md § Dedup.
