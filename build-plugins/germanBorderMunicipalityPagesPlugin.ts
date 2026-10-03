@@ -116,9 +116,10 @@ interface Copy {
   profilePopulation: (rank: number, total: number, value: string, ahead: string, behind: string, tied: string) => string;
   profileDistance: (rank: number, total: number, value: string, ahead: string, behind: string, tied: string) => string;
   profileLandkreis: (landkreis: string, peers: string) => string;
-  profileCrossing: (crossing: string, peers: string) => string;
+  profileCrossing: (crossing: string, peers: string, hasPeers: boolean) => string;
   profileNearbyCrossings: (crossings: string) => string;
   noPeer: string;
+  homeofficeNote: string;
   disclaimer: string;
   hubTitle: string;
   hubLede: string;
@@ -159,11 +160,12 @@ const COPY: Record<GermanLocale, Copy> = {
       `Per distanza stradale, questo comune è al posto ${rank} su ${total} con ${value}; subito sopra: ${ahead}; subito sotto: ${behind}${tied ? `; a pari merito: ${tied}` : ''}.`,
     profileLandkreis: (landkreis, peers) =>
       `Nel Landkreis ${landkreis}, i comuni confrontabili oltre a questa pagina sono ${peers}.`,
-    profileCrossing: (crossing, peers) =>
-      `La direttrice ${crossing} serve anche ${peers}.`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `La direttrice ${crossing} serve anche ${peers}.` : `La direttrice ${crossing} è il riferimento per questa pagina.`,
     profileNearbyCrossings: (crossings) =>
       `I sei comuni più vicini a questa pagina collegano questi valichi: ${crossings}.`,
     noPeer: 'nessun comune',
+    homeofficeNote: 'I giorni di telelavoro non contano come giorni di non rientro.',
     disclaimer:
       'Stime a scopo orientativo. La tassazione effettiva dipende da situazione familiare, deduzioni e certificazioni. Verifica sempre con un consulente fiscale o con il cantone di impiego.',
     hubTitle: 'Vivere in Germania e lavorare in Svizzera, comune per comune',
@@ -206,11 +208,12 @@ const COPY: Record<GermanLocale, Copy> = {
       `By road distance, this town ranks ${rank} of ${total} at ${value}; immediately above: ${ahead}; immediately below: ${behind}${tied ? `; tied with: ${tied}` : ''}.`,
     profileLandkreis: (landkreis, peers) =>
       `Within Landkreis ${landkreis}, the comparable towns besides this page are ${peers}.`,
-    profileCrossing: (crossing, peers) =>
-      `The ${crossing} route also serves ${peers}.`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `The ${crossing} route also serves ${peers}.` : `The ${crossing} route is the reference crossing for this page.`,
     profileNearbyCrossings: (crossings) =>
       `The six nearest towns to this page connect to these crossings: ${crossings}.`,
     noPeer: 'no town',
+    homeofficeNote: 'Homeoffice days do not count as non-return days.',
     disclaimer:
       'Estimates for guidance only. Actual taxation depends on family situation, deductions and certificates. Always check with a tax adviser or your canton of employment.',
     hubTitle: 'Living in Germany, working in Switzerland, town by town',
@@ -253,11 +256,12 @@ const COPY: Record<GermanLocale, Copy> = {
       `Nach Straßenentfernung liegt diese Gemeinde auf Rang ${rank} von ${total} (${value}); direkt davor: ${ahead}; direkt dahinter: ${behind}${tied ? `; gleichauf mit: ${tied}` : ''}.`,
     profileLandkreis: (landkreis, peers) =>
       `Im Landkreis ${landkreis} sind neben dieser Seite vergleichbare Gemeinden: ${peers}.`,
-    profileCrossing: (crossing, peers) =>
-      `Die Strecke ${crossing} verbindet auch ${peers}.`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `Die Strecke ${crossing} verbindet auch ${peers}.` : `Die Strecke ${crossing} ist der Referenzübergang für diese Seite.`,
     profileNearbyCrossings: (crossings) =>
       `Die sechs nächstgelegenen Gemeinden zu dieser Seite führen zu diesen Übergängen: ${crossings}.`,
     noPeer: 'keine Gemeinde',
+    homeofficeNote: 'Homeoffice-Tage zählen nicht als Nichtrückkehrtage.',
     disclaimer:
       'Schätzungen nur zur Orientierung. Die tatsächliche Besteuerung hängt von Familiensituation, Abzügen und Bescheinigungen ab. Immer mit einer Steuerberatung oder dem Beschäftigungskanton prüfen.',
     hubTitle: 'In Deutschland leben, in der Schweiz arbeiten, Ort für Ort',
@@ -300,11 +304,12 @@ const COPY: Record<GermanLocale, Copy> = {
       `Par distance routière, cette commune est ${rank}e sur ${total} avec ${value} ; juste devant : ${ahead} ; juste derrière : ${behind}${tied ? ` ; à égalité avec : ${tied}` : ''}.`,
     profileLandkreis: (landkreis, peers) =>
       `Dans le Landkreis ${landkreis}, les communes comparables en plus de cette page sont ${peers}.`,
-    profileCrossing: (crossing, peers) =>
-      `L'axe ${crossing} dessert aussi ${peers}.`,
+    profileCrossing: (crossing, peers, hasPeers) =>
+      hasPeers ? `L'axe ${crossing} dessert aussi ${peers}.` : `L'axe ${crossing} est le passage de référence pour cette page.`,
     profileNearbyCrossings: (crossings) =>
       `Les six communes les plus proches de cette page relient ces passages : ${crossings}.`,
     noPeer: 'aucune commune',
+    homeofficeNote: 'Les jours de télétravail ne comptent pas comme jours de non-retour.',
     disclaimer:
       "Estimations à titre indicatif. L'imposition réelle dépend de la situation familiale, des déductions et des attestations. Vérifiez toujours avec un conseiller fiscal ou le canton d'emploi.",
     hubTitle: 'Vivre en Allemagne, travailler en Suisse, commune par commune',
@@ -458,7 +463,7 @@ function buildGermanProfileProse(
       formatNames(distance.tied),
     ),
     c.profileLandkreis(current.landkreis, formatNames(landkreisPeers)),
-    c.profileCrossing(current.nearestCrossing, formatNames(crossingPeers)),
+    c.profileCrossing(current.nearestCrossing, formatNames(crossingPeers), crossingPeers.length > 0),
     c.profileNearbyCrossings(formatNames(nearbyCrossings)),
   ];
 }
@@ -562,6 +567,7 @@ export function renderAboveFloorPage(params: {
         <a class="rounded-md border border-edge bg-surface-raised p-4 text-sm font-semibold text-heading hover:border-accent-border" href="${GERMAN_HUB_PATH[locale]}">${esc(c.hubTitle)}</a>
       </div>
       <p class="mt-3 text-xs leading-5 text-muted">${esc(CALCULATOR_REGIME_SCOPE_NOTICE[locale])}</p>
+      <p class="mt-2 text-xs leading-5 text-muted">${esc(c.homeofficeNote)}</p>
     </section>
 
     ${renderRelated(locale, municipality)}
