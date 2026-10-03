@@ -56,9 +56,11 @@ import {
 import { dropFabricatedDescriptions } from './lib/drop-fabricated-description.mjs';
 import { rewritePreparedStoredJobs } from './lib/stored-jobs-soft-exit.mjs';
 import { extractStableJobId } from './lib/job-match-key.mjs';
+import { isAuthoritativeEmptySnapshot } from './lib/authoritative-empty-snapshot.mjs';
 import { fetchHtml as fetchHtmlShared, exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { archiveRemovedJobsToSlice } from './lib/expired-jobs-archive.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -118,6 +120,10 @@ async function fetchJobs() {
   }
 
   const rawListings = parseListingPage(html);
+  if (isAuthoritativeEmptySnapshot(rawListings)) {
+    console.log('📋 Source explicitly reports no open Cerbios-Pharma offers.');
+    return rawListings;
+  }
   console.log(`📋 Found ${rawListings.length} listing(s) on career page.`);
 
   const jobs = [];
@@ -243,8 +249,47 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
 
   const discoveredJobs = await fetchJobs();
+  const authoritativeEmptySnapshot = isAuthoritativeEmptySnapshot(discoveredJobs);
   let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (discoveredJobs.length === 0) {
+    if (authoritativeEmptySnapshot) {
+      const priorJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob);
+      const retiredDiff = computeCrawlDiff(snapshotJobSlugs(priorJobs), new Map());
+      const archived = archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY);
+      writeJobsCrawlerSlice(COMPANY_KEY, [], {
+        skipShrinkGuard: true,
+        preserveExistingSlugs: true,
+      });
+      const durationMs = getCrawlerElapsedMs();
+      writeSummaryCrawlerSlice({
+        key: COMPANY_KEY,
+        label: COMPANY_NAME,
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        discovered: 0,
+        parsed: 0,
+        written: 0,
+        authoritativeEmptySnapshot: true,
+        authoritativeSnapshotVerified: true,
+        lastFetchOutcome: null,
+        abortKind: null,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: retiredDiff.removedJobs.length,
+        unchangedCount: 0,
+        durationMs,
+        avgDurationMs: durationMs,
+        durationHistory: [durationMs],
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: retiredDiff.removedJobs.slice(0, 30),
+        unchangedJobs: [],
+      });
+      await assembleJobsDataset();
+      console.log(`✅ Published authoritative Cerbios-Pharma empty snapshot; archived ${archived} expired route(s).`);
+      return;
+    }
+
     console.log('ℹ️  No job listings found — skipping crawl.');
     // The stored jobs are kept, without the text the crawler once wrote
     // into them (the merge would have removed it).

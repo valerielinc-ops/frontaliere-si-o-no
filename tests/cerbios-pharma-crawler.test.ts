@@ -4,6 +4,7 @@
  * Tests parseListingPage(), parseDetailPage(), buildJob(),
  * stripHtml(), normalizeSpace() using HTML fixtures from e-lavoro.ch.
  */
+import fs from 'node:fs';
 import { describe, it, expect } from 'vitest';
 
 import {
@@ -13,6 +14,7 @@ import {
   stripHtml,
   normalizeSpace,
 } from '@/scripts/lib/cerbios-pharma-job-parser.mjs';
+import { isAuthoritativeEmptySnapshot } from '@/scripts/lib/authoritative-empty-snapshot.mjs';
 
 // ─── Fixture: e-lavoro.ch listing with jobs ────────────────
 const LISTING_WITH_JOBS = `
@@ -55,7 +57,7 @@ const LISTING_NO_JOBS = `
 <body>
 <main>
   <h1>I nostri annunci</h1>
-  <div class="view-content">
+  <div class="view-empty">
     <p>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</p>
   </div>
 </main>
@@ -139,11 +141,38 @@ describe('parseListingPage', () => {
   it('returns empty array when no jobs available', () => {
     const jobs = parseListingPage(LISTING_NO_JOBS);
     expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('does not treat an unrecognised empty page as an authoritative zero', () => {
+    const jobs = parseListingPage('<main><h1>I nostri annunci</h1><div class="view-content"></div></main>');
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('does not treat no-job copy inside a live row as an authoritative zero', () => {
+    const jobs = parseListingPage('<div class="views-row"><h2>Lab Technician</h2><a href="/node/123">Lab Technician</a><p>No job experience required</p></div>');
+    expect(jobs).toHaveLength(1);
+    expect(Object.hasOwn(jobs, 'authoritativeEmptyState')).toBe(false);
   });
 
   it('returns empty array for empty input', () => {
     expect(parseListingPage('')).toHaveLength(0);
     expect(parseListingPage(null as unknown as string)).toHaveLength(0);
+  });
+});
+
+describe('authoritative empty snapshot wiring', () => {
+  it('publishes the proven zero and does not rely on the health allowlist', () => {
+    const runner = fs.readFileSync(new URL('../scripts/update-cerbios-pharma-jobs.mjs', import.meta.url), 'utf8');
+    expect(runner).toContain('authoritativeEmptySnapshot: true');
+    expect(runner).toContain('skipShrinkGuard: true');
+    expect(runner).toContain('archiveRemovedJobsToSlice(priorJobs, COMPANY_KEY)');
+
+    const monitor = fs.readFileSync(new URL('../scripts/check-crawler-health.mjs', import.meta.url), 'utf8');
+    const allowlist = /const EMPTY_OK_CRAWLERS = new Set\(\[([\s\S]*?)\]\)/.exec(monitor);
+    expect(allowlist).toBeTruthy();
+    expect(allowlist![1]).not.toContain("'cerbios-pharma'");
   });
 });
 
