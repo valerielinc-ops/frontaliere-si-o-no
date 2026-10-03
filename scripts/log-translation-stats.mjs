@@ -74,6 +74,7 @@ import {
   genderFormTargetResidual,
 } from './mark-mistranslated-jobs.mjs';
 import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
+import { isHeldFromPublication } from './lib/translation-publication-hold.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
 
@@ -385,6 +386,11 @@ export function emptyCounters() {
     genderFormCohortCandidates: [],
     genderFormSampleProcessed: 0,
     genderFormSampleResidual: 0,
+    // Agency admission threshold (owner decision 2026-10-03): jobs kept out of
+    // publication until their titles are translated. Before/after of one run
+    // is the translation capacity spent on admissions.
+    publicationHeld: 0,
+    publicationHeldByCrawler: {},
   };
 }
 
@@ -485,6 +491,11 @@ export function summarizeJobs(
     // count into a (still upper-bound) translation count.
     if (flagged && !incomplete) c.flaggedAmongSlotsPresent++;
     if (job.localeMismatchSuppressed) c.suppressed++;
+    if (isHeldFromPublication(job)) {
+      c.publicationHeld++;
+      const heldKey = String(job.companyKey || '').trim().toLowerCase();
+      c.publicationHeldByCrawler[heldKey] = (c.publicationHeldByCrawler[heldKey] || 0) + 1;
+    }
     if (sourceCopyExcused) c.sourceCopyExcused++;
     // Observational, and deliberately OUTSIDE the `incomplete` branch below:
     // this pair is measured for every job and steers nothing.
@@ -541,6 +552,10 @@ export function mergeCounters(dst, src) {
   dst.genderFormQueuedCandidates += src.genderFormQueuedCandidates;
   dst.genderFormSampleProcessed += src.genderFormSampleProcessed;
   dst.genderFormSampleResidual += src.genderFormSampleResidual;
+  dst.publicationHeld += src.publicationHeld || 0;
+  for (const [key, count] of Object.entries(src.publicationHeldByCrawler || {})) {
+    dst.publicationHeldByCrawler[key] = (dst.publicationHeldByCrawler[key] || 0) + count;
+  }
   for (const loc of LOCALES) dst.byLocale[loc] += src.byLocale[loc];
   if (src.queuedSamples?.length) dst.queuedSamples.push(...src.queuedSamples);
   if (src.incompleteIds?.length) dst.incompleteIds.push(...src.incompleteIds);
@@ -633,6 +648,11 @@ export function finalizeEntry(
     // everywhere else, including on the 200 rows written before #17.
     completionAge,
     genderFormRepair: buildGenderFormRepairReport(genderFormRepair),
+    // Absent on rows written before the admission threshold: not measured.
+    publicationHold: {
+      held: counters.publicationHeld || 0,
+      byCrawler: { ...(counters.publicationHeldByCrawler || {}) },
+    },
     topPending,
   };
 }
@@ -667,6 +687,8 @@ export function formatReport(entry) {
   row('Source-copy titles excused:', entry.sourceCopyExcused,
       '(byte-copy of the source title, waved through by the "others differ" rule)');
   row('Suppressed (gave up):', entry.suppressed);
+  row('Held for translation:', entry.publicationHold ? entry.publicationHold.held : 'not measured',
+      '(agency jobs kept out of publication until every title is translated)');
   const bl = entry.missingByLocale;
   row('Missing by locale:', `IT=${bl.it} EN=${bl.en} DE=${bl.de} FR=${bl.fr}`);
 
