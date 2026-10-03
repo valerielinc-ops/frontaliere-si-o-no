@@ -4023,12 +4023,20 @@ export function reconcileGhostExpired(activeJobs, expiredJobs) {
 /**
  * Generate data/jobs-meta.json from the assembled jobs array.
  */
-function generateMeta(jobCount) {
+function generateMeta(jobCount, holdSummary = null) {
   const existing = readJson(DATA_META, {});
   return {
     ...existing,
     lastUpdated: new Date().toISOString(),
     totalJobs: jobCount,
+    // Agency jobs kept out of publication until translated: still inventory
+    // (they stay in their slices), read by check-active-jobs-regression.mjs so
+    // the deploy gate counts published + held. Internal file, never served.
+    translationHold: {
+      held: holdSummary?.held || 0,
+      byCrawler: { ...(holdSummary?.byCrawler || {}) },
+      oldestHeldSince: holdSummary?.oldestHeldSince || null,
+    },
     sources: {
       ...(existing.sources || {}),
       arbeitSwiss: 0,
@@ -4174,11 +4182,12 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
   const includeHeld = includeTranslationHeldFromEnv();
   let assembled = assembledAll;
   let publishedJobs = assembledAll;
+  let holdSummary = null;
   if (assembledAll !== null) {
     const hold = partitionHeldFromPublication(assembledAll);
     publishedJobs = hold.published;
     if (!includeHeld) assembled = hold.published;
-    const holdSummary = summarizeTranslationHold(hold.held);
+    holdSummary = summarizeTranslationHold(hold.held);
     console.log(`  ${formatTranslationHoldSummary(holdSummary)}${includeHeld ? ' — inclusi in data/jobs.json per translate-pending' : ''}`);
   }
   if (assembled !== null) {
@@ -4327,7 +4336,7 @@ export async function assembleJobsDataset({ withStats = false, withSummaries = t
 
     // --- Meta (derived from assembled jobs) ---
     // Meta counts what the site publishes, also in the translate-pending projection.
-    const meta = generateMeta(publishedJobs.length);
+    const meta = generateMeta(publishedJobs.length, holdSummary);
     writeJson(DATA_META, meta);
     console.log(`✅ data/jobs-meta.json generated: ${publishedJobs.length} total jobs`);
   }

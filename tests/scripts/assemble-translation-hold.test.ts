@@ -189,6 +189,8 @@ describe('soglia di ammissione agenzie — writer + assemblatore reali', () => {
     expect(ids(published.pub)).toEqual(ids(published.data));
     expect(published.log).toContain('1 job fuori dalla pubblicazione');
     expect(readJson('data/jobs-meta.json').totalJobs).toBe(3);
+    // The deploy gate (check-active-jobs-regression) counts published + held.
+    expect(readJson('data/jobs-meta.json').translationHold).toMatchObject({ held: 1, byCrawler: { sta: 1 } });
 
     const projection = assemble({ JOBS_INCLUDE_TRANSLATION_HELD: '1' });
     expect(ids(projection.data)).toEqual(['coop-hold-9', 'sta-hold-1', 'sta-hold-2', 'sta-hold-3']);
