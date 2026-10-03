@@ -1,6 +1,6 @@
 {
   "crawlerKey": "scandit",
-  "assembledAt": "2026-10-03T09:32:49.374Z",
+  "assembledAt": "2026-10-03T21:30:41.173Z",
   "jobs": [
     {
       "id": "scandit-067a4be54142",
@@ -33,7 +33,7 @@
       "url": "https://www.scandit.com/careers/job-description/?gh_jid=8143595",
       "source": "Scandit AG Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-10-03T09:32:44.134Z",
+      "crawledAt": "2026-10-03T21:30:36.719Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -64,6 +64,7 @@
           "working-student-use-case-validation-assistant-scandit-ch"
         ]
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-24T00:08:02.243Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -78,8 +79,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH",
-      "needsRetranslation": true
+      "addressRegion": "ZH"
     }
   ]
 }

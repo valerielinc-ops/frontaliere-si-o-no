@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { getJobSearchRoleTokens, matchesJobOccupation } from '../services/jobSearchRelevance';
-import { hasSalaryIntent, hasActiveSalarySearchIntent } from '../services/jobSearchIntent';
+import { hasSalaryIntent, hasActiveSalarySearchIntent, isSalaryModifier } from '../services/jobSearchIntent';
 
 describe('occupational relevance for salary searches', () => {
   it('requires both customs and specialist instead of matching generic Swiss salary text', () => {
@@ -14,6 +14,15 @@ describe('occupational relevance for salary searches', () => {
     expect(hasActiveSalarySearchIntent('specialista delle dogane', 'specialista delle dogane', slug)).toBe(true);
     expect(hasActiveSalarySearchIntent('Python', 'specialista delle dogane', slug)).toBe(false);
     expect(hasActiveSalarySearchIntent('specialista delle dogane', null, slug)).toBe(false);
+  });
+
+  it.each(['salair', 'salaire', 'salaires'])('treats French salary form %s as intent, never an occupation', modifier => {
+    const query = `${modifier} infirmier Lugano`;
+    expect(isSalaryModifier(modifier)).toBe(true);
+    expect(hasSalaryIntent(query)).toBe(true);
+    const roles = getJobSearchRoleTokens(query);
+    expect(roles).toEqual(['infirmier']);
+    expect(matchesJobOccupation({ title: 'Infirmier' }, 'fr', roles)).toBe(true);
   });
 
   it('preserves multilingual occupational synonyms', () => {

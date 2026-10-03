@@ -76,6 +76,8 @@ import {
 import { generateRelatedLinksBlock } from './shared/relatedLinks';
 import { adSlotHtml } from './lib/adSlotHtml';
 import { CALC_HREF } from './shared/calcHref';
+import { formatPageGenerationDate } from './shared/pageGenerationDate';
+import { hasSalaryIntent } from '../services/jobSearchIntent';
 import { buildSalaryAnswer, searchSalaryMedian } from './shared/searchSalaryAnswer';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { AGGREGATE_KEY, resolveCantonSection, resolveJobCanton } from './shared/cantonSection';
@@ -580,7 +582,9 @@ function renderPage(opts: {
   );
 
   const medianSalary = searchSalaryMedian(matchingJobs);
-  const salaryExplanation = buildSalaryAnswer(locale, medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '');
+  const salaryExplanation = hasSalaryIntent(cluster.canonicalQuery)
+    ? buildSalaryAnswer(locale, medianSalary > 0 ? `CHF ${medianSalary.toLocaleString('de-CH')}` : '')
+    : '';
   const topEmployers = topCounts(matchingJobs.map((j) => j.company), 5);
   const topCities = topCounts(matchingJobs.map((j) => j.addressLocality || j.location), 3);
 
@@ -659,7 +663,7 @@ function renderPage(opts: {
       <span>${esc(cluster.canonicalQuery)}</span>
     </nav>
     <header class="s-YcUNX5">
-      <p style="${HERO_EYEBROW_STYLE}">${esc(t('orphanLanding.updatedLabel', 'Updated'))} · ${esc(dateStamp)}</p>
+      <p style="${HERO_EYEBROW_STYLE}">${esc(formatPageGenerationDate(dateStamp, locale))}</p>
       <h1 style="${H1_STYLE}">${esc(buildEditorialH1(cluster.canonicalQuery, locale))}</h1>
       <p style="${LEDE_STYLE}">${esc(matchingJobs.length > 0 ? (locale === 'it' ? `${matchingJobs.length} offerte attive per "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · mediana salario CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'en' ? `${matchingJobs.length} active openings for "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · median salary CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : locale === 'de' ? `${matchingJobs.length} aktive Stellen für "${cluster.canonicalQuery}"${medianSalary > 0 ? ` · Median CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.` : `${matchingJobs.length} offres actives pour « ${cluster.canonicalQuery} »${medianSalary > 0 ? ` · médiane CHF ${medianSalary.toLocaleString('de-CH')}` : ''}.`) : esc(t('orphanLanding.noResults', 'No openings.')))}</p>
     </header>
@@ -677,7 +681,7 @@ function renderPage(opts: {
         <ul class="s-qVzgqV">${cityList}</ul>
       </div>` : ''}
     </section>
-    <p class="s-WzYXnb">${esc(salaryExplanation)}</p>
+    ${salaryExplanation ? `<p class="s-WzYXnb">${esc(salaryExplanation)}</p>` : ''}
     <section class="s-KZc0LQ">
       <h2 class="s-sOn5-B">${esc(t('orphanLanding.resultsLabel', 'Openings'))}</h2>
       ${matchingJobs.length > 0

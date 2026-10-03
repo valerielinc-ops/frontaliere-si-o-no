@@ -247,6 +247,7 @@ export function buildApplicationIntentEntry(snapshot, jobsById, locale, jobUrlBu
     company: job.company || '',
     canton: job.canton || null,
     location: job.location || job.addressLocality || null,
+    postedDate: job.postedDate || null,
     category: job.category || null,
     sector: job.sector || job.category || null,
     companyKey: job.companyKey || null,

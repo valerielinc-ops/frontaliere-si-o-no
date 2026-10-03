@@ -31,6 +31,9 @@ describe('A++ listing classification', () => {
     expect(APLUS_UPDATER).toContain(
       "if (jobs.length === 0 && discovery.lastFetchOutcome !== 'filtered_empty') {",
     );
+    expect(APLUS_UPDATER).toContain(
+      "skipShrinkGuard: discovery.lastFetchOutcome === 'filtered_empty',",
+    );
     expect(jobs).toEqual([]);
     expect(discovery.lastFetchOutcome).toBe('filtered_empty');
 

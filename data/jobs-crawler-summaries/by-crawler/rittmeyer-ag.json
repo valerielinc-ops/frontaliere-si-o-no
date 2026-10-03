@@ -1,7 +1,7 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-10-03T09:30:08.369Z",
+  "generatedAt": "2026-10-03T21:26:51.780Z",
   "total": 12,
   "authoritativeEmptySnapshot": false,
   "authoritativeSnapshotVerified": false,
@@ -9,12 +9,10 @@
   "updatedCount": 12,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12352,
-  "avgDurationMs": 12352,
+  "durationMs": 13876,
+  "avgDurationMs": 13876,
   "durationHistory": [
-    13321,
-    13518,
-    12352
+    13876
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -88,11 +86,11 @@
       "firstSeenAt": "2026-07-17T11:00:49.806Z",
       "salarySource": "estimated",
       "needsRetranslation": true,
-      "_qualityScore": 95,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -487,5 +485,6 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "codeCommit": "8f2833bc2527f349fea0e9df97b55fdd517c8bf9"
 }
