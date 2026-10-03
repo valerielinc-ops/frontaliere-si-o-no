@@ -59,6 +59,7 @@
     "posthog-return": "PostHog attributed-return telemetry",
     "decision-surfaces": "Decision-surface task and next-action evidence",
     "posthog": "PostHog product telemetry",
+    "ga4-decision-surface": "GA4 event/session evidence for decision surfaces",
     "editorial-source-evidence": "Editorial source evidence independent of generation",
     "quality-alert-history": "Content quality-alert history",
     "experiment-assignment-exposure-outcome": "Pre-registered experiment assignment, exposure and outcome ledger",
@@ -252,12 +253,12 @@
       "goal": "Decision Moments",
       "owner": "CPO / Customer Value",
       "oracle": "completed task and next-action event contract",
-      "sourceRefs": ["decision-surfaces", "posthog"],
+      "sourceRefs": ["decision-surfaces", "ga4-decision-surface"],
       "cadence": "weekly",
       "primaryMetric": "next_useful_action_per_1000_completions",
       "outcome": {
         "outcomeId": "next-useful-action",
-        "sourceRefs": ["decision-surfaces", "posthog"],
+        "sourceRefs": ["decision-surfaces", "ga4-decision-surface"],
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 100,

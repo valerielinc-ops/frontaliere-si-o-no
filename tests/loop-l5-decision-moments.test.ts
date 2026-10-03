@@ -36,8 +36,8 @@ function outcomes(overrides: Record<string, unknown> = {}) {
     generatedAt: NOW.toISOString(),
     independent: true,
     evidence: {
-      source: 'posthog-decision-surface-export',
-      sourceRefs: ['decision-surfaces', 'posthog'],
+      source: 'ga4-decision-surface-export',
+      sourceRefs: ['decision-surfaces', 'ga4-decision-surface'],
     },
     eligibleDecisionSessions: 120,
     nextUsefulActions: 45,
@@ -95,13 +95,13 @@ describe('L5 Decision Moments', () => {
       border: border(),
       pharmacies: pharmacies(),
       duties: duties(),
-      outcomes: outcomes({ evidence: { source: 'posthog-decision-surface-export', sourceRefs: ['decision-surfaces'] } }),
+      outcomes: outcomes({ evidence: { source: 'ga4-decision-surface-export', sourceRefs: ['decision-surfaces'] } }),
     }, { now: NOW, registry });
 
     expect(verdict.ok).toBe(false);
     expect(verdict.quality).toBe('partial');
     expect(verdict.snapshot.outcomes.quality).toBe('partial');
-    expect(verdict.issues.join(' ')).toContain('must include registry source refs: posthog');
+    expect(verdict.issues.join(' ')).toContain('must include registry source refs: ga4-decision-surface');
   });
 
   it('keeps missing outcomes partial and metrics numeric zeros', () => {
