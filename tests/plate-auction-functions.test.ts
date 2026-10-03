@@ -457,6 +457,43 @@ describe('plate-auction history: a copy only when the observation changed', () =
     expect(plateAuctionObservationChanged(withoutBid, stored)).toBe(true);
   });
 
+  // A new BS catalogue edition changes the PDF URL on every row (16'388 copies
+  // on 2026-10-02) while price and status stay the same.
+  it('ignores officialDetailUrl alone, but not together with a price or status change', () => {
+    const withPdf = { ...stored, officialDetailUrl: 'https://www.bs.ch/x/wuko-pw-35.pdf' };
+    const newEdition = { ...refetched, officialDetailUrl: 'https://www.bs.ch/x/wuko-pw-36.pdf' };
+    expect(plateAuctionObservationChanged(newEdition, withPdf)).toBe(false);
+    expect(plateAuctionObservationChanged({ ...newEdition, currentBidChf: 1300 }, withPdf)).toBe(true);
+    expect(plateAuctionObservationChanged({ ...newEdition, auctionStatus: 'closed' }, withPdf)).toBe(true);
+  });
+
+  it('writes no history when only the BS catalogue edition changes, and the current row takes the new URL', async () => {
+    const HOUR = 60 * 60 * 1000;
+    const base = new Date();
+    const indexPage = (edition: number) => `<a href="/original_file/aaa/wuko-pw-${edition}.pdf">auto</a><a href="/original_file/bbb/wuko-mr-${edition}.pdf">moto</a>`;
+    const pdfText = 'BS 186 4,000.00 Nein BS 213 4,000.00 Ja BS 777 1,500.00 Nein';
+    const firestore = statefulFirestore();
+    const refresh = (hours: number, edition: number) => refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string, options: { responseType?: string } = {}) => {
+        if (options.responseType === 'pdf-text') return { text: pdfText, pages: [pdfText] };
+        return url.includes('bs.ch') ? indexPage(edition) : '';
+      },
+      now: new Date(base.getTime() + hours * HOUR),
+      bucket: null,
+    });
+    const bsHistory = () => [...firestore.history.keys()].filter((id) => id.startsWith('bs-'));
+    const bsCurrent = () => [...firestore.current.values()].filter((doc) => doc.sourceKey === 'BS');
+
+    await refresh(0, 35);
+    const first = bsHistory().length;
+    expect(first).toBeGreaterThan(0);
+    expect(bsCurrent().every((doc) => String(doc.officialDetailUrl).includes('-35.pdf'))).toBe(true);
+    await refresh(6, 36);
+    expect(bsHistory()).toHaveLength(first);
+    expect(bsCurrent().every((doc) => String(doc.officialDetailUrl).includes('-36.pdf'))).toBe(true);
+  });
+
   // Each refresh used to copy every row: ~68'600 history documents a day.
   it('adds history only for the plate whose price moved between refreshes', async () => {
     const HOUR = 60 * 60 * 1000;
