@@ -251,7 +251,7 @@ describe('aiTranslateJobDescriptionDCC — passthrough rifiutato vs motori giu\'
     await expect(aiTranslateJobTitleDCC(
       { title: 'Redactura / Redactur Surselva', locale: 'it', sourceLang: 'rm' },
       ctx,
-    )).resolves.toBe('redattrice / redattore surselva');
+    )).resolves.toBe('Redattrice / Redattore surselva');
     expect(ctx.callLLM).not.toHaveBeenCalled();
     expect(freeTranslateWithRetry).not.toHaveBeenCalled();
   });
