@@ -483,9 +483,9 @@ async function main() {
     const slicePath = path.resolve(SLICE_FILE);
     // The caller is a shell glob over `data/jobs/by-crawler/*.json`
     // (cleanup-stale-jobs.yml), and that directory also holds crawler scratch
-    // companions that are NOT slices: `update-coop-jobs.mjs` parks its
-    // translation cache in `coop-ticino-locale-cache.json` (a bare array, by its
-    // own contract), and a housekeeping run killed mid-write leaves a
+    // companions that are NOT slices: `update-coop-jobs.mjs` used to park its
+    // translation cache in `coop-ticino-locale-cache.json` (a bare array, still
+    // tracked on main as `[]`), and a housekeeping run killed mid-write leaves a
     // `<key>.json.cleanup-tmp.json`. Without this guard the bare array fell
     // through `sliceJobs` below as if it were a job list: housekeeping pruned
     // the Coop cache down to `[]` on 2026-08-31, and the `crawlerKey` basename
