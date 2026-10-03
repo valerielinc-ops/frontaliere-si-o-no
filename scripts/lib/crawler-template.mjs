@@ -147,7 +147,12 @@ import {
   setCrawlerStartTime,
   getCrawlerElapsedMs,
 } from '../jobs-url-helper.mjs';
-import { CRAWLER_FETCH_OUTCOMES } from './crawler-fetch-outcome.mjs';
+import {
+  CRAWLER_ABORT_KINDS,
+  CRAWLER_FETCH_OUTCOMES,
+  fetchOutcomeAllowsStampedEmpty,
+} from './crawler-fetch-outcome.mjs';
+import { isAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import { normalizeDetailDrop, detailDropSummaryFields } from './crawler-detail-drop.mjs';
 import {
   writeJobsCrawlerSlice,
@@ -836,7 +841,9 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  * @property {Function} [matchKey]          — Custom URL matching for merge dedup
  * @property {boolean}  [preserveExistingSlugs] — Keep every existing active slug for matched stable IDs
  * @property {(jobs: object[]|undefined|null) => boolean} [validateAuthoritativeSnapshot] — Throws unless the fresh batch proves a complete source snapshot
- * @property {boolean}  [allowAuthoritativeEmptySnapshot] — Publish a source-proven zero instead of keeping stale rows
+ * @property {boolean}  [allowAuthoritativeEmptySnapshot] — With a validator: `true` publishes the
+ *   validated zero instead of keeping stale rows. Without a validator: leave it unset and an empty
+ *   batch stamped by `markAuthoritativeEmptySnapshot` is honoured by default; `false` opts out.
  * @property {'all'|'empty-only'} [authoritativeSnapshotScope] — Limit source authority to proven empty snapshots; non-empty partial batches keep miss grace
  * @property {Object}   [baseCrawlerOpts]   — Extra options for runDedicatedBaseCrawler
  * @property {(jobs: object[]) => (object[]|void)} [prepareExistingJobs] — Called with this
@@ -847,9 +854,26 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  */
 
 /**
- * Evaluate the opt-in authoritative-snapshot contract. A zero may be
- * published only when a source-specific validator proves it and the caller
- * explicitly opts in; an opt-in without a validator has no effect.
+ * Evaluate the authoritative-snapshot contract. A zero may be published on
+ * exactly two kinds of evidence:
+ *
+ *   1. Runner-wired: a source-specific validator proves the batch AND the
+ *      caller passes `allowAuthoritativeEmptySnapshot: true`. An opt-in without
+ *      a validator still has no effect on an unstamped batch.
+ *   2. Parser-stamped (default, no runner wiring): the caller passes NO
+ *      validator, has not set `allowAuthoritativeEmptySnapshot: false`, and
+ *      the empty batch carries the `markAuthoritativeEmptySnapshot` stamp. The
+ *      stamp is the proof — the parser only applies it after reading the
+ *      source's own "no open positions" state — so requiring the runner to
+ *      repeat it in three lines of wiring added nothing but one PR per company.
+ *      Authority is `empty-only` by construction: a non-empty batch is never
+ *      stamped, so it keeps the ordinary miss-grace path.
+ *
+ * The stamp is non-enumerable and lives on the array instance: a batch that was
+ * filtered, spread or rebuilt after stamping is a bare `[]` again and stays
+ * fail-closed (`no-jobs-parsed`). A run whose own fetch verdict is a failure
+ * (`anti_bot_block`, `selector_miss`, …) is never default-proof either: the two
+ * claims contradict each other, and the failure is the safe one to believe.
  *
  * @param {object[]|undefined|null} parsedJobs
  * @param {{
@@ -857,15 +881,17 @@ export async function verifyUrlNoRedirect(url, options = {}) {
  *   allowAuthoritativeEmptySnapshot?: boolean,
  *   authoritativeSnapshotScope?: 'all'|'empty-only',
  *   companyLabel?: string,
+ *   fetchOutcome?: string|null,
  * }} [options]
  * @returns {{ authoritativeSnapshotVerified: boolean, authoritativeEmptySnapshot: boolean }}
  */
 export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
   const {
     validateAuthoritativeSnapshot,
-    allowAuthoritativeEmptySnapshot = false,
+    allowAuthoritativeEmptySnapshot,
     authoritativeSnapshotScope = 'all',
     companyLabel = 'Crawler',
+    fetchOutcome = null,
   } = options;
   if (!['all', 'empty-only'].includes(authoritativeSnapshotScope)) {
     throw new Error(`${companyLabel}: invalid authoritative snapshot scope`);
@@ -879,11 +905,16 @@ export function evaluateAuthoritativeSnapshot(parsedJobs, options = {}) {
     }
     authoritativeSnapshotVerified = true;
   }
+  const stampedProofHonoured = !validateAuthoritativeSnapshot
+    && allowAuthoritativeEmptySnapshot !== false
+    && fetchOutcomeAllowsStampedEmpty(fetchOutcome)
+    && isAuthoritativeEmptySnapshot(parsedJobs);
+  if (stampedProofHonoured) authoritativeSnapshotVerified = true;
   return {
     authoritativeSnapshotVerified,
     authoritativeEmptySnapshot: Boolean(
       authoritativeSnapshotVerified
-      && allowAuthoritativeEmptySnapshot
+      && (stampedProofHonoured || allowAuthoritativeEmptySnapshot)
       && Array.isArray(parsedJobs)
       && parsedJobs.length === 0
     ),
@@ -960,7 +991,9 @@ export async function runStandardCrawlerPipeline(config) {
     matchKey,
     preserveExistingSlugs = false,
     validateAuthoritativeSnapshot,
-    allowAuthoritativeEmptySnapshot = false,
+    // No default on purpose: `undefined` (stamped proof honoured) and `false`
+    // (explicit opt-out) are different answers — see evaluateAuthoritativeSnapshot.
+    allowAuthoritativeEmptySnapshot,
     authoritativeSnapshotScope = 'all',
     baseCrawlerOpts = {},
     prepareExistingJobs,
@@ -1028,6 +1061,21 @@ export async function runStandardCrawlerPipeline(config) {
     }),
     assemble: () => assembleJobsDataset(),
   });
+  // The one exit for a run that ends without publishing after the fetch
+  // returned. Every such run leaves the same exit-guard receipt (`total: 0,
+  // earlyExit: true`), so the cause has to travel in `counts.abortKind` or the
+  // monitor can only say "cause not reported". All of them stay ABORTS: naming
+  // the exit never makes the run healthy. `rewriteStoredJobs` is the branch's
+  // own stored-slice housekeeping (thin-source quarantine lives there) and is
+  // passed in, not decided here, so each branch keeps exactly its own call.
+  const finishWithoutPublish = async ({ kind, rewriteStoredJobs = null }) => {
+    if (!CRAWLER_ABORT_KINDS.has(kind)) {
+      // The exit guard drops an unknown name to `null`: fail loudly instead.
+      throw new Error(`${companyLabel}: unknown crawler abort kind "${kind}"`);
+    }
+    counts.abortKind = kind;
+    if (rewriteStoredJobs) await rewriteStoredJobs();
+  };
 
   // ─── Step 2: Fetch ──────────────────────────────────────────
   // Parser returns source-locale jobs only. DO NOT set non-source locale fields.
@@ -1104,6 +1152,16 @@ export async function runStandardCrawlerPipeline(config) {
   if (CRAWLER_FETCH_OUTCOMES.has(fetchMetadata?.fetchOutcome)) {
     counts.lastFetchOutcome = fetchMetadata.fetchOutcome;
   }
+  // The outcome exactly as the parser reported it. The summary keeps only the
+  // recognised vocabulary (above), but the stamped-zero decision below must see
+  // an unrecognised value too: read as "nothing reported", it would let a
+  // parser that names an unknown failure retire every stored job.
+  const reportedFetchOutcome = fetchMetadata?.fetchOutcome ?? counts.lastFetchOutcome;
+  if (reportedFetchOutcome != null && !CRAWLER_FETCH_OUTCOMES.has(reportedFetchOutcome)) {
+    console.warn(
+      `\n⚠️ ${companyLabel}: unrecognised fetchOutcome ${JSON.stringify(String(reportedFetchOutcome).slice(0, 80))} — a stamped empty snapshot will not be honoured on this run.`,
+    );
+  }
   // Set before every early return below, so a soft-exit slice written by the
   // exit guard carries the same evidence a published one would.
   counts.parsed = Array.isArray(parsedJobs) ? parsedJobs.length : 0;
@@ -1140,13 +1198,14 @@ export async function runStandardCrawlerPipeline(config) {
       + `(${Math.round(missingDetailUrlRatio * 100)}%) lost their detail URL `
       + `(limit ${MISSING_DETAIL_URL_MAX_RATIO * 100}%). Keeping existing jobs.`,
     );
-    return;
+    return finishWithoutPublish({ kind: 'missing-detail-url' });
   }
 
-  // Only source-specific crawlers with an explicit completeness proof may
-  // retire every unmatched record immediately. Validation runs before the
-  // zero-job soft exit and before any scratch/archive write, so a partial or
-  // degraded crawl fails closed with the existing slice untouched.
+  // Only a run with an explicit proof may retire every unmatched record
+  // immediately: a source-specific validator wired by the runner, or an empty
+  // batch the parser stamped as a source-proven zero. Validation runs before
+  // the zero-job soft exit and before any scratch/archive write, so a partial
+  // or degraded crawl fails closed with the existing slice untouched.
   const { authoritativeSnapshotVerified, authoritativeEmptySnapshot } = evaluateAuthoritativeSnapshot(
     parsedJobs,
     {
@@ -1154,25 +1213,16 @@ export async function runStandardCrawlerPipeline(config) {
       allowAuthoritativeEmptySnapshot,
       authoritativeSnapshotScope,
       companyLabel,
+      fetchOutcome: reportedFetchOutcome,
     },
   );
 
   if (!parsedJobs || (parsedJobs.length === 0 && !authoritativeEmptySnapshot)) {
-    counts.abortKind = 'no-jobs-parsed';
     console.log(`\n⚠️ No ${companyLabel} jobs discovered. Keeping existing jobs.`);
-    await rewritePreparedStoredJobs({
-      prepare: prepareExistingJobs,
-      storedJobs: companyExisting,
-      companyKey,
-      companyLabel,
-      write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
-        isTargetJob: isCompanyJob,
-        preserveExistingSlugs,
-        ...options,
-      }),
-      assemble: () => assembleJobsDataset(),
+    return finishWithoutPublish({
+      kind: 'no-jobs-parsed',
+      rewriteStoredJobs: rewriteStoredJobsOnSoftExit,
     });
-    return;
   }
 
   if (authoritativeEmptySnapshot) {
@@ -1214,25 +1264,27 @@ export async function runStandardCrawlerPipeline(config) {
         + 'quarantining only genuine thin-source rows and keeping valid stored bodies.\n',
       );
     }
-    await rewritePreparedStoredJobs({
-      // The hook has already run above; reuse its prepared array so a
-      // no-publishable run does not invoke a mutating hook twice.
-      prepare: () => mergeExisting,
-      storedJobs: companyExisting,
-      companyKey,
-      companyLabel,
-      sourceBodyFailureJobs: Array.isArray(parsedJobs)
-        ? parsedJobs.filter(hasSourceBodyFailure)
-        : [],
-      sourceBodyFailureKeyOf: sourceBodyMatchKey,
-      write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
-        isTargetJob: isCompanyJob,
-        preserveExistingSlugs,
-        ...options,
+    return finishWithoutPublish({
+      kind: allRowsFailedExtraction ? 'source-extraction-failed' : 'thin-source-all',
+      rewriteStoredJobs: () => rewritePreparedStoredJobs({
+        // The hook has already run above; reuse its prepared array so a
+        // no-publishable run does not invoke a mutating hook twice.
+        prepare: () => mergeExisting,
+        storedJobs: companyExisting,
+        companyKey,
+        companyLabel,
+        sourceBodyFailureJobs: Array.isArray(parsedJobs)
+          ? parsedJobs.filter(hasSourceBodyFailure)
+          : [],
+        sourceBodyFailureKeyOf: sourceBodyMatchKey,
+        write: (jobs, options) => writeJobsCrawlerSliceVerified(companyKey, jobs, {
+          isTargetJob: isCompanyJob,
+          preserveExistingSlugs,
+          ...options,
+        }),
+        assemble: () => assembleJobsDataset(),
       }),
-      assemble: () => assembleJobsDataset(),
     });
-    return;
   }
 
   if (!authoritativeEmptySnapshot) {
@@ -1415,9 +1467,11 @@ export async function runStandardCrawlerPipeline(config) {
     written: sliceJobs.length,
     ...detailDropSummaryFields(counts.detailDrop),
     // Per-run proof, not a per-slug guess: true only when this run's parser
-    // returned zero jobs AND its own `validateAuthoritativeSnapshot` proved
-    // the source explicitly says so (e.g. an "attualmente non ci sono
-    // posizioni aperte" marker inside the crawler's article boundary). The
+    // returned zero jobs AND the proof held — the runner's own
+    // `validateAuthoritativeSnapshot`, or the parser's
+    // `markAuthoritativeEmptySnapshot` stamp — i.e. the source explicitly
+    // says so (e.g. an "attualmente non ci sono posizioni aperte" marker
+    // inside the crawler's article boundary). The
     // crawler-health monitor consumes it to tell "source is genuinely empty"
     // apart from "selector died", exactly like the `discovered > 0 &&
     // written === 0` filtered-empty signal (#5945) — without an

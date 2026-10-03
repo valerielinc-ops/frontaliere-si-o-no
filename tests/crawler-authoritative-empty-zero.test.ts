@@ -4,7 +4,10 @@ import { fileURLToPath } from 'node:url';
 import { beforeEach, describe, expect, it } from 'vitest';
 
 import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
-import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { clearPoliteFetchStateForTests } from '../scripts/lib/prospector/polite-fetch.mjs';
 import {
   collectJobsChVacancyUrls,
@@ -565,6 +568,15 @@ describe('authoritative empty zero — source-validated crawler runners', () => 
     expect(isAuthoritativeEmptySnapshot([])).toBe(false);
     expect(publishesProvenZero([], 'anything')).toBe(false);
   });
+
+  /* ── 4b. The stamp is the proof: no runner wiring needed ─────────────── */
+
+  it('a runner that wires nothing still publishes a stamped zero, and only a stamped one', () => {
+    const unwired = (jobs: any) => evaluateAuthoritativeSnapshot(jobs, { companyLabel: 'unwired' });
+    expect(unwired(markAuthoritativeEmptySnapshot([], 'board renders Jobs (0)')).authoritativeEmptySnapshot).toBe(true);
+    expect(unwired([]).authoritativeEmptySnapshot).toBe(false);
+  });
+
   /* ── 5. The same proof, on the jobs.ch siblings that shared the loop ──── */
 
   it('strabag never mistakes its paginated board for an empty one', async () => {
