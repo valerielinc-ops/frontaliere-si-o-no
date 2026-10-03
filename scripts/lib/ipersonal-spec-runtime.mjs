@@ -442,6 +442,12 @@ export async function runIpersonalSpecInProduction(spec, runtime = {}) {
       return fallback;
     },
   });
+  if (!detailReuse.canPublish) {
+    throw new Error(
+      `[${spec.companyKey}] detail failure/reuse policy rejected ${detailReuse.detailFailureCount}/`
+      + `${detailReuse.attemptedCount} attempted detail(s)`,
+    );
+  }
   const outputRows = detailReuse.rows;
   const reusedDetailUrls = detailReuse.reusedDetailIdentities;
   for (const key of [
