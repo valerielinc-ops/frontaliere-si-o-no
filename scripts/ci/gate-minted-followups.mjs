@@ -250,12 +250,22 @@ export function partitionDailyBucketItems(body, opts = {}) {
   const demoted = [];
   const machineOptions = opts.machineOptions || {};
   const machineCache = machineOptions.cache instanceof Map ? machineOptions.cache : new Map();
+  // Un item `done` non è più un candidato al conio: è un fatto registrato dal
+  // reconciler. Gli oracoli di ammissione osservano lo stato di OGGI (un workflow
+  // riparato proprio da quell'item non è più «rotto», quindi `reject`), e un bucket
+  // `collecting` viene ripartizionato a ogni passata: senza questa eccezione il
+  // lavoro fatto sparisce dal corpo. La valutazione resta, ma solo come misura
+  // (`done_preserved`), mai come verdetto. Solo `done`: `open`, `in-progress`,
+  // `blocked` e gli item senza stato restano soggetti all'ammissione.
+  const donePreserved = [];
   for (const item of parsed) {
     const falsifiable = hasFalsifiableAcceptance(item.text);
     const admission = falsifiable
       ? machineAdmission(item.text, { ...machineOptions, cache: machineCache })
       : 'reject';
-    (falsifiable && admission !== 'reject' ? valid : demoted).push(item);
+    const admitted = falsifiable && admission !== 'reject';
+    if (!admitted && item.state === 'done') donePreserved.push(item.id);
+    (admitted || item.state === 'done' ? valid : demoted).push(item);
   }
   const targetRepository = dailyBucketTargetRepository(head) || '';
   const deduped = dedupeDailyItems(valid, targetRepository);
@@ -264,6 +274,7 @@ export function partitionDailyBucketItems(body, opts = {}) {
     valid: deduped.items,
     demoted,
     duplicates: deduped.duplicates,
+    donePreserved,
     unparsed: false,
   };
 }
@@ -476,7 +487,7 @@ export function decideDailyMintGate(issue, opts = {}) {
   if (!hasDailyBucketRepositoryConsistency(src, daily.targetRepository)) {
     return { action: 'skip', reason: 'mismatched-target-repository', valid: [], demoted: [], duplicates: [], body: null };
   }
-  const { head, valid, demoted, duplicates = [], unparsed } = partitionDailyBucketItems(src, {
+  const { head, valid, demoted, duplicates = [], donePreserved = [], unparsed } = partitionDailyBucketItems(src, {
     ...opts,
     dailyKey: daily?.dailyKey || opts.dailyKey,
   });
@@ -484,17 +495,17 @@ export function decideDailyMintGate(issue, opts = {}) {
     const reason = !parseFollowupItems(src).length ? 'aggregate-unparsed' : 'missing-stable-item-id';
     return { action: 'skip', reason, valid: [], demoted: [], duplicates: [], body: null };
   }
-  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+  if (!state) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved };
   // A daily heading inside a fenced quote (or any other non-round-trippable
   // structure) is not a safe item boundary. Keep the bucket collecting rather
   // than sealing a body whose item set we cannot prove complete.
-  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
+  if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null, donePreserved };
   // Testo, non l'item parsato: `demotedBlock()` lo conserva sulla PR sorgente, e un
   // oggetto diventava `[object Object]` — il testo dell'item perso e la prova del
   // gate (`Sources: PR #N`) impossibile da trovare per il collector.
-  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted: demoted.map((item) => item.text), duplicates, body: null };
+  if (!valid.length) return { action: 'suppress', reason: 'no-valid-item', valid: [], demoted: demoted.map((item) => item.text), duplicates, body: null, donePreserved };
   if (demoted.length) {
-    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null };
+    if (!isLosslessSplit(src)) return { action: 'skip', reason: 'unsafe-rewrite', valid, demoted, duplicates, body: null, donePreserved };
     return {
       action: 'demote',
       reason: 'some-items-not-falsifiable',
@@ -505,11 +516,12 @@ export function decideDailyMintGate(issue, opts = {}) {
       // sealed in the same successful gate pass; it must never enter the fixer while
       // still collecting.
       body: setBucketState(rebuildDailyBody(head, valid), 'sealed'),
+      donePreserved,
     };
   }
   if (duplicates.length) {
     const dedupedBody = setBucketState(rebuildDailyBody(head, valid), state);
-    if (!dedupedBody) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+    if (!dedupedBody) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved };
     return {
       action: 'dedupe',
       reason: 'duplicate-fingerprint',
@@ -517,13 +529,14 @@ export function decideDailyMintGate(issue, opts = {}) {
       demoted: [],
       duplicates,
       body: dedupedBody,
+      donePreserved,
     };
   }
   if (state === 'sealed') {
-    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], duplicates: [], body: null };
+    return { action: 'keep', reason: 'already-sealed', valid: valid.map((item) => item.text), demoted: [], duplicates: [], body: null, donePreserved };
   }
   const sealed = setBucketState(src, 'sealed');
-  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null };
+  if (!sealed) return { action: 'skip', reason: 'ambiguous-bucket-state', valid, demoted, duplicates, body: null, donePreserved };
   return {
     action: 'seal',
     reason: 'daily-bucket-sealed',
@@ -531,6 +544,7 @@ export function decideDailyMintGate(issue, opts = {}) {
     demoted: [],
     duplicates: [],
     body: sealed,
+    donePreserved,
   };
 }
 
@@ -1368,7 +1382,7 @@ function main() {
         // un item per volta, non alla cieca in GATE_PR_REPO.
         let commentViaSources = Boolean(daily);
         console.log(`#${iss.number} (${daily ? `daily:${daily.dailyKey}` : `PR #${pr}`}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
-        tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length });
+        tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length, donePreserved: (d.donePreserved || []).length });
         if (d.action === 'skip' || d.action === 'keep') {
           // Sealing and label mutation are separate GitHub writes. If the label
           // call failed after a successful body edit, a later retry sees `keep`
@@ -1583,7 +1597,7 @@ function main() {
   // su un lato solo. Riga a formato fisso, grep-abile sui log di tutte le run (stessa
   // convenzione di `CLAUDE_USAGE` in claude-usage-summary.mjs).
   for (const t of tally) {
-    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept}`);
+    console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} pr=${t.pr} issue=${t.issue} action=${t.action} reason=${t.reason} demoted=${t.demoted} kept=${t.kept} done_preserved=${t.donePreserved}`);
   }
   for (const [reason, count] of queueVetoTally) {
     console.log(`MINT_GATE_TALLY repo=${process.env.GH_REPO || 'default'} queue_vetoed=${count} reason=${reason}`);

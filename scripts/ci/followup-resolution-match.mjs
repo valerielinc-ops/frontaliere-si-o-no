@@ -938,10 +938,22 @@ export function dedupeDailyItems(items, bucketTargetRepository = '') {
       continue;
     }
     const index = byFingerprint.get(fingerprint);
-    unique[index] = mergeDailyItemSources(unique[index], item);
+    const kept = unique[index];
+    // Stati diversi: vince il `done`. Scartarlo a favore del gemello `open`
+    // cancellerebbe il registro del lavoro fatto e riaprirebbe l'item. Il `done`
+    // resta al SUO posto nell'ordine sorgente, col suo ID stabile.
+    if (item?.state === 'done' && kept?.state !== 'done') {
+      const survivor = mergeDailyItemSources(item, kept);
+      unique[index] = null;
+      byFingerprint.set(fingerprint, unique.length);
+      unique.push(survivor);
+      duplicates.push({ item: kept, fingerprint, kept: survivor });
+      continue;
+    }
+    unique[index] = mergeDailyItemSources(kept, item);
     duplicates.push({ item, fingerprint, kept: unique[index] });
   }
-  return { items: unique, duplicates };
+  return { items: unique.filter(Boolean), duplicates };
 }
 
 /**
