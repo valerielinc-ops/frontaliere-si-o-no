@@ -1190,7 +1190,8 @@ export function isVerdictOnlyFailure(workflowPath, jobs) {
   const entry = VERDICT_STEPS[String(workflowPath ?? '')];
   if (!entry) return false;
   if (!jobs || typeof jobs !== 'object' || !Array.isArray(jobs.jobs)) return false;
-  if (Number(jobs.total_count) === 0 || jobs.jobs.length === 0) return false;
+  const totalCount = Number(jobs.total_count);
+  if (!Number.isInteger(totalCount) || totalCount !== jobs.jobs.length || totalCount === 0) return false;
   const allowed = new Set([entry.verdict, ...entry.producers]);
   let verdictFailed = false;
   let failedJobs = 0;

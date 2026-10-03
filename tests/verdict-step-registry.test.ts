@@ -108,6 +108,10 @@ describe('isVerdictOnlyFailure — fixture reali del monitor', () => {
     expect(isVerdictOnlyFailure(MONITOR_PATH, null)).toBe(false);
     expect(isVerdictOnlyFailure(MONITOR_PATH, {} as Jobs)).toBe(false);
     expect(isVerdictOnlyFailure(MONITOR_PATH, { total_count: 0, jobs: [] })).toBe(false);
+    expect(isVerdictOnlyFailure(MONITOR_PATH, { ...VERDICT_ONLY, total_count: 101 })).toBe(false);
+    const missingTotalCount = structuredClone(VERDICT_ONLY) as Partial<Jobs>;
+    delete missingTotalCount.total_count;
+    expect(isVerdictOnlyFailure(MONITOR_PATH, missingTotalCount)).toBe(false);
     const cancelled = structuredClone(VERDICT_ONLY);
     cancelled.jobs.push({ name: 'other', conclusion: 'cancelled', steps: [] });
     expect(isVerdictOnlyFailure(MONITOR_PATH, cancelled)).toBe(false);
