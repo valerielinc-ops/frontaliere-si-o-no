@@ -17,8 +17,9 @@
  * read it by path instead of importing it. Test-tree lints (tests that scan
  * every test file instead of importing one) join the selection whenever the
  * diff touches a test file; source-tree lints (tests that scan `.github`,
- * `scripts` and `bin` by directory) join it whenever the diff touches their
- * scope. `--select-only`
+ * `scripts` and `bin` by directory, or the whole tracked tree for
+ * credential-shaped literals) join it whenever the diff touches their scope.
+ * `--select-only`
  * computes the same selection without invoking Vitest and emits the
  * pre-assembly dataset decision for tests.yml.
  */
@@ -32,6 +33,7 @@ import { shouldSkipFullSuiteFallback } from './lib/orphan-fallback.mjs';
 import { selectMaxWorkers, vitestChildEnv } from './lib/select-max-workers.mjs';
 import { missingFullCheckoutArtifacts } from './lib/typecheck-sparse.mjs';
 import { GRAPH_IGNORED_RE, GRAPH_SOURCE_RE, isGraphSourceFile } from './lib/related-graph-scope.mjs';
+import { isScanned as isSecretScanned } from './scan-site-hardcoded-secrets.mjs';
 
 const changedPathFile = process.env.CHANGED_PATHS_FILE || 'changed-paths.txt';
 const changedStatusFile = process.env.CHANGED_PATHS_STATUS_FILE || 'changed-paths-status.txt';
@@ -65,9 +67,24 @@ const testTreeLintTests = new Set([
 // diff tocca un path nel loro perimetro. Sulla PR 9959 i due fixer contavano i
 // commenti con `--paginate --slurp --jq`, che il gh reale rifiuta: il guard
 // esisteva dal 25-09 (#9797) ma su 126 test scelti per quel diff lui mancava.
+//
+// Il perimetro è una RegExp oppure un predicato. Il gate dei segreti hardcoded
+// usa il predicato dello scanner stesso (`isScanned`): riscrivere qui il suo
+// perimetro in una regex creerebbe due definizioni libere di divergere. Sulla
+// PR 10336 una chiave Google Maps di terzi è entrata in una fixture HTML di
+// `tests/fixtures/`: il gate la riconosceva, ma un `.html` non è né sorgente né
+// asset indicizzato, quindi il diff selezionava zero test e lui non girava.
 const sourceTreeLintTests = new Map([
   ['tests/gh-slurp-jq-guard.test.ts', /^(?:\.github|scripts|bin)\//],
+  ['tests/no-hardcoded-secrets.test.ts', isSecretScanned],
 ]);
+const inLintScope = (scope, file) => (typeof scope === 'function' ? scope(file) : scope.test(file));
+// Calcolata sul diff GREZZO (`changed`), non sui candidati del grafo: un lint
+// che enumera l'albero giudica anche i file che il grafo non conosce (HTML,
+// shell, Markdown), e sono proprio quelli che non hanno altro gate.
+const sourceTreeLintsFor = (files) => [...sourceTreeLintTests]
+  .filter(([, scope]) => files.some((file) => inLintScope(scope, file)))
+  .map(([test]) => test);
 // Most workflow readers intentionally depend on every asset in the directory:
 // permissions, timeout and scope guards are repository-wide contracts. A few
 // readers do a broad `readdirSync()` only to select one generated family,
@@ -431,7 +448,11 @@ const globalVitestConfigChanged = changed.some((file) => globalVitestConfigPaths
 const fullSuiteRequired = forceFull || globalVitestConfigChanged;
 rejectDryRunInCi();
 requireFullCheckoutForVerdict();
-if (candidates.length === 0 && !fullSuiteRequired && !runnerChanged) {
+const triggeredSourceTreeLints = sourceTreeLintsFor(changed);
+// Un diff senza candidati per il grafo esce qui solo se non rientra nemmeno nel
+// perimetro di un lint dell'albero dei sorgenti: altrimenti l'uscita anticipata
+// scavalcherebbe il lint proprio sui file che nessun altro test può vedere.
+if (candidates.length === 0 && !fullSuiteRequired && !runnerChanged && triggeredSourceTreeLints.length === 0) {
   console.log('No existing source/test files in the diff → related-only run has no tests.');
   if (selectionOnly) writeAssembleDecision([]);
   process.exit(0);
@@ -532,8 +553,8 @@ if (!fullSuiteRequired && candidates.some((file) => isRunnableTest(file))) {
   console.log('test file(s) changed → running the test-tree lints.');
 }
 if (!fullSuiteRequired) {
-  for (const [test, scope] of sourceTreeLintTests) {
-    if (isRunnableTest(test) && changed.some((file) => scope.test(file))) related.add(test);
+  for (const test of triggeredSourceTreeLints) {
+    if (isRunnableTest(test)) related.add(test);
   }
 }
 let usedFullFallback = fullSuiteRequired;

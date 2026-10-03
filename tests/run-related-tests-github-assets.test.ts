@@ -132,6 +132,7 @@ function createRunnerVariant(source: string) {
   for (const file of [
     'corpus-wide-tests.mjs',
     'dataset-dependent-tests.mjs',
+    'scan-site-hardcoded-secrets.mjs',
   ]) {
     fs.symlinkSync(path.join(ROOT, 'scripts/ci', file), path.join(ciDir, file));
   }
@@ -394,6 +395,29 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selectionFor(['services/pharmacies/italyDuty.ts'])).not.toContain(guard);
   }, 120_000);
 
+  it('un file scandito dal gate dei segreti lo seleziona, anche se il grafo non lo conosce', () => {
+    // PR 10336: una chiave Google Maps di terzi dentro una fixture HTML di
+    // `tests/fixtures/`. Il gate la riconosceva, ma un `.html` non è né un
+    // sorgente né un asset indicizzato: il diff usciva prima della selezione
+    // con zero test, e il gate non girava proprio sul diff che lo violava.
+    const gate = 'tests/no-hardcoded-secrets.test.ts';
+    expect(selectionFor(['tests/fixtures/kanton-aargau/detail.html'])).toEqual([gate]);
+    expect(selectionFor(['services/pharmacies/italyDuty.ts'])).toContain(gate);
+    // Il perimetro è quello dello scanner (`isScanned`), non una copia: ciò
+    // che lo scanner esclude non paga la scansione dell'albero.
+    expect(selectionFor(['public/x.svg'])).toEqual([]);
+    expect(selectionFor(['package-lock.json'])).toEqual([]);
+  }, 120_000);
+
+  it('uno script shell cambiato non scavalca i lint con l\'uscita anticipata', () => {
+    // Un `.sh` non è un candidato del grafo: prima l'uscita «nessun sorgente
+    // nel diff» precedeva i lint dell'albero dei sorgenti e li saltava.
+    expect(selectionFor(['scripts/dev/fast-worktree.sh'])).toEqual([
+      'tests/gh-slurp-jq-guard.test.ts',
+      'tests/no-hardcoded-secrets.test.ts',
+    ]);
+  }, 120_000);
+
   it('una modifica a vitest.config.ts seleziona la suite globale senza le esclusioni deliberate', () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-vitest-config-'));
     try {
@@ -462,7 +486,9 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
   }, 120_000);
 
   it('tsconfig.json non diventa una scorciatoia per la suite intera', () => {
-    expect(selectionFor(['tsconfig.json'])).toEqual([]);
+    // Resta il solo gate dei segreti, che scandisce ogni file tracciato fuori
+    // dalle sue esclusioni: nessun test del grafo, nessuna suite intera.
+    expect(selectionFor(['tsconfig.json'])).toEqual(['tests/no-hardcoded-secrets.test.ts']);
   });
 
   it('rifiuta il dry-run quando il processo gira in GitHub Actions', () => {

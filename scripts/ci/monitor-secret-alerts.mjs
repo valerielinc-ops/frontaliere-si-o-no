@@ -7,8 +7,13 @@
  * Usage:
  *   SECRET_SCAN_OWNER=valerielinc-ops SECRET_SCAN_TOKEN=... \
  *     node scripts/ci/monitor-secret-alerts.mjs
+ *
+ * With SECRET_SCAN_DIAG_FILE set, the findings that make the sweep fail are
+ * also appended to that file, so the failure issue names the alert (repository,
+ * number, type) instead of only the step that turned red.
  */
 
+import fs from 'node:fs';
 import { pathToFileURL } from 'node:url';
 
 const DEFAULT_API_URL = 'https://api.github.com';
@@ -111,6 +116,26 @@ export async function sweepOwner({ owner, token, apiUrl, fetchImpl = fetch }) {
   return { owner, repositories: repos.length, openAlerts, unavailable };
 }
 
+/**
+ * The lines a failure issue needs to be actionable without opening the log.
+ * Built from the already-normalized alert metadata only: the raw API alert
+ * (which carries the detected value) never reaches this function.
+ */
+export function diagnosisLines({ owner, openAlerts, unexpectedUnavailable }) {
+  const lines = [];
+  for (const alert of openAlerts) {
+    lines.push(
+      `[secret-alert-sweep] ${owner}: alert aperto ${alert.repository}#${alert.number} — ${alert.type}`
+      + `${alert.createdAt ? ` (creato ${alert.createdAt})` : ''}`
+      + ` — https://github.com/${alert.repository}/security/secret-scanning/${alert.number}`,
+    );
+  }
+  for (const repository of unexpectedUnavailable) {
+    lines.push(`[secret-alert-sweep] ${owner}: secret scanning non monitorabile su ${repository}`);
+  }
+  return lines;
+}
+
 export async function runSweep({
   owner,
   token,
@@ -118,6 +143,7 @@ export async function runSweep({
   fetchImpl = fetch,
   allowedUnavailable = process.env.SECRET_SCAN_ALLOWED_UNAVAILABLE,
   failOnUnavailable = process.env.SECRET_SCAN_FAIL_ON_UNAVAILABLE === 'true',
+  diagFile = process.env.SECRET_SCAN_DIAG_FILE,
 } = {}) {
   const result = await sweepOwner({
     owner: owner || process.env.SECRET_SCAN_OWNER,
@@ -145,6 +171,16 @@ export async function runSweep({
       `[secret-alert-sweep] ALERT ${alert.repository}#${alert.number} — ${alert.type}`
       + `${alert.createdAt ? ` (creato ${alert.createdAt})` : ''}\n`,
     );
+  }
+
+  if (diagFile) {
+    const lines = diagnosisLines({
+      owner: result.owner,
+      openAlerts: result.openAlerts,
+      unexpectedUnavailable: failOnUnavailable ? unexpectedUnavailable : [],
+    });
+    // Appended: the workflow sweeps one owner per step into the same file.
+    if (lines.length) fs.appendFileSync(diagFile, `${lines.join('\n')}\n`);
   }
 
   if (result.openAlerts.length) {
