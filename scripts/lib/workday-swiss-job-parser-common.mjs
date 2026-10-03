@@ -25,7 +25,10 @@ import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-com
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
 import { resolveSwissLocalityCanton, resolveSwissPostalCodePlace } from './swiss-locality-directory.mjs';
-import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import {
+  isAuthoritativeEmptySnapshot,
+  markAuthoritativeEmptySnapshot,
+} from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -600,7 +603,10 @@ export function createWorkdaySwissParser(config) {
         // The unfiltered retry is the last transport attempt. Preserve the
         // cause on the empty array so the standard pipeline records an
         // anti-bot failure rather than treating it as a legitimate zero.
-        out.fetchOutcome = 'anti_bot_block';
+        Object.defineProperty(out, 'fetchOutcome', {
+          value: 'anti_bot_block',
+          enumerable: false,
+        });
         return out;
       }
       throw err;
@@ -649,6 +655,7 @@ export function createWorkdaySwissParser(config) {
     console.log(`   Workday: ${API_BASE}\n`);
 
     let facetApplied = true;
+    let facetReturnedEmpty = false;
     let listings = [];
     // How the faceted pagination ended — the completeness evidence for the
     // authoritative-empty proof. Only the faceted fetch fills it.
@@ -674,13 +681,33 @@ export function createWorkdaySwissParser(config) {
       console.warn(`⚠️ ${companyName}: locationCountry facet silently ignored (foreign listings present in "filtered" board). Applying strict CH gate.`);
       facetApplied = false;
     }
+
+    // A tenant can accept the facet request and answer with an empty page even
+    // while its unfiltered board still contains Swiss postings (a stale or
+    // silently unsupported facet). Treat the empty filtered response like the
+    // rejected-facet path: retry the live board and apply the strict per-listing
+    // Swiss gate instead of turning a live source into `no-jobs-parsed`.
+    if (facetApplied && listings.length === 0) {
+      facetReturnedEmpty = true;
+      console.warn(`⚠️ ${companyName}: Swiss facet returned no listings. Refetching unfiltered with strict CH gate.`);
+      facetApplied = false;
+      listings = await fetchJobListings({ useCountryFacet: false });
+    }
+
+    // An anti-bot block on a later page can leave either unfiltered retry with
+    // a partial batch. Preserve that transport outcome before any listing-level
+    // fallback or parsing can mistake the batch for a complete snapshot.
+    if (listings?.fetchOutcome === 'anti_bot_block') return listings;
+
     const strictSwiss = !facetApplied;
     if (!listings || listings.length === 0) {
       console.warn('⚠️ No Swiss job listings returned from Workday API.');
       // The unfiltered retry is the last transport attempt. Do not replace its
       // annotated empty array while probing for an authoritative zero.
       if (listings?.fetchOutcome === 'anti_bot_block') return listings;
-      if (proveSwissAbsentFromLiveBoard) return proveSwissAbsentEmpty(facetApplied, facetStats);
+      if (proveSwissAbsentFromLiveBoard) {
+        return proveSwissAbsentEmpty(facetReturnedEmpty || facetApplied, facetStats);
+      }
       return listings || [];
     }
     console.log(`  📋 Listings found: ${listings.length}${strictSwiss ? ' (unfiltered — strict CH gate active)' : ' (Swiss facet)'}`);
@@ -903,7 +930,18 @@ export function createWorkdaySwissParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
-    jobs.missingDetailUrlCount = missingDetailUrlCount;
+    Object.defineProperty(jobs, 'missingDetailUrlCount', {
+      value: missingDetailUrlCount,
+      enumerable: false,
+    });
+    // A facet-empty response can be a stale/unsupported filter rather than a
+    // proof on its own. Once the unfiltered retry has gone through the strict
+    // Swiss gate, the same live-board summary proof is valid when that retry
+    // produces no Swiss jobs. Preserve an unproven result as a bare batch.
+    if (proveSwissAbsentFromLiveBoard && facetReturnedEmpty && jobs.length === 0) {
+      const proven = await proveSwissAbsentEmpty(true, facetStats);
+      if (isAuthoritativeEmptySnapshot(proven)) return proven;
+    }
     // Source-proven zero: the facet-scoped board was observed whole (the
     // iterator yielded exactly the `total` page 0 announced and no page failed
     // — a short page alone is not proof, a tenant can cut a page short while
