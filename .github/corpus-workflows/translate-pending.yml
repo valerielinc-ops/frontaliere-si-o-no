@@ -191,7 +191,7 @@ jobs:
           GUARD_ERROR: ${{ steps.translate_queue_guard.outputs.guard_error }}
         run: |-
           set -euo pipefail
-          echo "::error::translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita. Il guard della coda non ha potuto leggere GitHub Actions (guard_error=${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."
+          echo "::error::translate-pending: guard di coda cieco (guard_error) — nessuna traduzione eseguita. Il guard della coda non ha potuto decidere (guard_error=${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."
           exit 1
   translate:
     runs-on: ubuntu-latest

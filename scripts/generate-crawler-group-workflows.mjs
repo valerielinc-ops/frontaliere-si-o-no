@@ -2121,7 +2121,8 @@ const TRANSLATION_WRITE_BOUNDARY_HEADER = [
 // non coincide con le righe (run non piu' elencabili, run in transizione di
 // stato). Confrontarli spegneva la traduzione con zero run in coda. Una pagina
 // con meno di `per_page` righe chiude l'elenco; solo se anche l'ultima pagina
-// ammessa e' piena l'elenco e' davvero non ispezionabile.
+// ammessa e' piena il guard si ferma: le pagine piene sono un tetto di lettura,
+// non la prova che l'elenco sia troncato.
 const TRANSLATE_QUEUE_GUARD_PAGE_SIZE = 100;
 const TRANSLATE_QUEUE_GUARD_MAX_PAGES = 3;
 const TRANSLATE_QUEUE_GUARD_BLIND_STEP_NAME = 'Fail the run when the queue guard was blind';
@@ -2275,7 +2276,7 @@ function translatePendingQueueGuardJob() {
       },
       run: [
         'set -euo pipefail',
-        `echo "::error::${TRANSLATE_QUEUE_GUARD_BLIND_TITLE}. Il guard della coda non ha potuto leggere GitHub Actions (guard_error=\${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."`,
+        `echo "::error::${TRANSLATE_QUEUE_GUARD_BLIND_TITLE}. Il guard della coda non ha potuto decidere (guard_error=\${GUARD_ERROR}): il job translate resta saltato e questa run non ha tradotto nulla."`,
         'exit 1',
       ].join('\n'),
     }],
