@@ -141,7 +141,10 @@
  *   (same conservative bias as the "no completed run" case).
  *
  * Best-effort and idempotent: safe to run on a schedule. `--dry-run` reports without
- * mutating. Scope is strictly the three auto-generated failure-title prefixes; follow-up,
+ * mutating. `--verdicts-out <file>` writes one `{ number, title, action, reason, runId,
+ * runRepo }` per examined issue (dry-run included): the verdict is the one
+ * `decideFailureIssueClose()` returns, so a consumer reads it instead of recomputing it.
+ * Scope is strictly the three auto-generated failure-title prefixes; follow-up,
  * tracker, validation-failure and other issues are never touched.
  *
  * Known edge: a workflow whose failure title names something that does NOT equal its
@@ -1605,7 +1608,192 @@ function clearChronicLabels(issueNumber, labels) {
   return true;
 }
 
+// ── La decisione di chiusura, come funzione pura ──────────────────────────────────────
+//
+// Fino a qui la decisione «chiudo / trattengo / resto» viveva dentro `main()`, intrecciata
+// alle chiamate `gh`: chi voleva lo stesso verdetto (lo sweep dei needs-human) doveva
+// ricomporlo, e lo ricomponeva in prosa senza scartare le run `skipped`. Due oracoli che
+// divergono. Adesso l'oracolo è uno, è esportato, e `main()` fa solo letture e scritture.
+
+/** I verdetti possibili di `decideFailureIssueClose`. */
+export const CLOSE_ACTIONS = Object.freeze([
+  'close',
+  'chronic-hold',
+  'chronic-escalate',
+  'structural-hold',
+  'recurrence-hold',
+  'keep',
+]);
+
+/**
+ * La run che decide: quella passata esplicitamente (il percorso crawler, che non ha
+ * storico), altrimenti la prima dello storico che NON è `skipped`. Una run `skipped` non
+ * ha eseguito niente: non è né recupero né ricorrenza.
+ *
+ * @param {{ run?: object|null, history?: Array|null }} [input]
+ */
+export function decidingRun({ run, history } = {}) {
+  if (run) return run;
+  return dropSkippedRuns(history)[0] ?? null;
+}
+
+/**
+ * In quale ramo cade una issue, guardando solo la run che decide. Serve a `main()` per
+ * sapere SE leggere i commenti (solo `recovered`: una chiamata API per issue in chiusura,
+ * zero per tutte le altre) senza riscrivere il confronto che la decisione fa comunque.
+ *
+ * `recovered` = verde E creata dopo (o insieme a) l'apertura della issue. La run che ha
+ * aperto la issue è partita PRIMA del suo `createdAt` (il reporter gira dopo il
+ * fallimento), quindi un verde creato da lì in poi è per forza una run successiva.
+ *
+ * @param {{ issue?: { createdAt?: string }, run?: object|null }} [input]
+ * @returns {'run-not-resolvable' | 'recovered' | 'green-predates-issue' | 'still-red'}
+ */
+export function classifyDecidingRun({ issue, run } = {}) {
+  if (!run) return 'run-not-resolvable';
+  if (run.conclusion !== 'success') return 'still-red';
+  return Date.parse(run.createdAt) >= Date.parse(issue?.createdAt)
+    ? 'recovered'
+    : 'green-predates-issue';
+}
+
+/**
+ * LA decisione del closer per una issue di fallimento. Pura: nessuna chiamata `gh`,
+ * nessuna scrittura. Riusa i quattro gate già esportati, nello stesso ordine di sempre:
+ * cronica (con precedenza su tutto, TTL dello structural hold compreso) → de-escalation
+ * → ricorrenza misurata → structural hold.
+ *
+ * `comments` va passato solo quando `classifyDecidingRun` dà `recovered`; negli altri
+ * rami non viene letto. `null` nel ramo `recovered` significa «commenti illeggibili»,
+ * e i gate lo trattano come tale (hold limitato dal TTL), non come «nessun commento».
+ *
+ * Oltre ai campi del verdetto restituisce le decisioni dei singoli gate, che servono a
+ * `main()` per i commenti e i log: `chronic`, `deescalation`, `recurrence`, `structural`.
+ *
+ * @param {{
+ *   issue?: { createdAt?: string, labels?: string[] },
+ *   run?: object|null,
+ *   history?: Array|null,
+ *   comments?: Array|null,
+ *   labels?: string[]|null,
+ *   now?: number,
+ *   options?: { recurrence?: object, chronic?: object, holdMaxDays?: number },
+ * }} [input]
+ * @returns {{ action: string, reason: string, runId: number|null, run: object|null,
+ *             chronic?: object, deescalation?: object, recurrence?: object,
+ *             structural?: object }}
+ */
+export function decideFailureIssueClose({ issue, run, history, comments, labels, now, options } = {}) {
+  const usableHistory = Array.isArray(history) ? dropSkippedRuns(history) : null;
+  const deciding = decidingRun({ run, history: usableHistory });
+  const branch = classifyDecidingRun({ issue, run: deciding });
+  const runId = deciding?.databaseId ?? null;
+  if (branch !== 'recovered') {
+    return { action: 'keep', reason: branch, runId, run: deciding };
+  }
+
+  // Gate 1 — CRONICA. Ha la precedenza su tutto, TTL dello structural hold compreso:
+  // una issue riaperta N volte non deve essere rilasciata da una scadenza pensata per
+  // una diagnosi ferma, e non deve nemmeno approfittare di una finestra recente
+  // tranquilla per ricominciare il ciclo.
+  const chronic = decideChronicEscalation(comments, { ...options?.chronic, now });
+  if (chronic.hold) {
+    return {
+      action: chronic.escalate ? 'chronic-escalate' : 'chronic-hold',
+      reason: chronic.reason,
+      runId,
+      run: deciding,
+      chronic,
+    };
+  }
+
+  // Il conteggio è rientrato: se l'escalation c'era, i label cronici se ne vanno
+  // adesso. Non è un verdetto: la issue prosegue verso gli altri gate.
+  const deescalation = decideChronicDeescalation({
+    comments,
+    labels: labels ?? issue?.labels,
+    decision: chronic,
+  });
+
+  // Gate 2 — RICORRENZA MISURATA. Una run verde su un guasto intermittente non
+  // significa niente: si chiude solo se la finestra recente è pulita.
+  const recurrence = decideRecurrenceHold(usableHistory, { ...options?.recurrence, now });
+  if (recurrence.hold) {
+    return {
+      action: 'recurrence-hold', reason: recurrence.reason, runId, run: deciding,
+      chronic, deescalation, recurrence,
+    };
+  }
+
+  // Gate 3 — STRUCTURAL HOLD (#5454).
+  const structural = decideStructuralHold(comments, {
+    issueCreatedAt: issue?.createdAt,
+    maxDays: options?.holdMaxDays,
+    now,
+  });
+  if (structural.hold) {
+    return {
+      action: 'structural-hold', reason: structural.reason, runId, run: deciding,
+      chronic, deescalation, recurrence, structural,
+    };
+  }
+
+  return {
+    action: 'close',
+    reason: `recovered (run ${runId} success @ ${deciding.createdAt}); ${recurrence.reason}; ${structural.reason}`,
+    runId,
+    run: deciding,
+    chronic,
+    deescalation,
+    recurrence,
+    structural,
+  };
+}
+
+/**
+ * La riga che `--verdicts-out` scrive per una issue esaminata.
+ *
+ * Contratto per chi legge il file: il campo da confrontare è `action`. `reason` è un
+ * codice stabile solo per `keep` (`run-not-resolvable`, `green-predates-issue`,
+ * `still-red`); per gli hold e per `close` è testo per umani, con numeri che cambiano.
+ */
+export function verdictRecord(issue, verdict, repo = REPO) {
+  return {
+    number: issue.number,
+    title: issue.title,
+    action: verdict.action,
+    reason: verdict.reason,
+    runId: verdict.runId ?? null,
+    runRepo: verdict.run ? (verdict.run.repository || repo || null) : null,
+  };
+}
+
+/**
+ * Il valore di `--verdicts-out <file>` (o `--verdicts-out=<file>`), `null` se l'opzione
+ * non c'è. Lancia se c'è ma senza percorso: un file di verdetti che il chiamante aspetta
+ * e che non viene scritto è peggio di un errore subito.
+ */
+export function verdictsOutPath(argv = process.argv.slice(2)) {
+  const flag = '--verdicts-out';
+  for (let i = 0; i < argv.length; i++) {
+    const arg = argv[i];
+    const value = arg === flag
+      ? argv[i + 1]
+      : (arg.startsWith(`${flag}=`) ? arg.slice(flag.length + 1) : undefined);
+    if (value === undefined && arg !== flag) continue;
+    if (!value || value.startsWith('--')) throw new Error(`${flag} richiede un percorso di file`);
+    return value;
+  }
+  return null;
+}
+
 function main() {
+  const verdictsOut = verdictsOutPath();
+  // Un file rimasto da una passata precedente non deve poter passare per il verdetto di
+  // questa: se la passata muore a metà, il chiamante non trova niente.
+  if (verdictsOut) fs.rmSync(verdictsOut, { force: true });
+  const verdicts = [];
+
   const issues = listFailureIssues();
   const maxDays = holdMaxDays();
   const rec = recurrenceOptions();
@@ -1631,11 +1819,28 @@ function main() {
         includeCrawlerShadowBranches: historySource.includeCrawlerShadowBranches,
       })?.map((r) => ({ ...r, repository: historySource.repo }))
       : null;
-    const run = isCrawlerStepIdentifier
-      ? latestCompletedCrawlerStepRun(crawlerStepMatch[1])
-      : (history ? history[0] : null);
+    const run = decidingRun({
+      run: isCrawlerStepIdentifier ? latestCompletedCrawlerStepRun(crawlerStepMatch[1]) : null,
+      history,
+    });
 
-    if (!run) {
+    // I commenti si leggono solo per una issue che sta per chiudersi (#5454: il verde
+    // risponde a «il sintomo è tornato?», non a «il guasto è stato corretto?»). Negli
+    // altri rami la decisione non li guarda, e la lettura non si paga.
+    const comments = classifyDecidingRun({ issue: it, run }) === 'recovered'
+      ? fetchIssueComments(it.number)
+      : null;
+    const verdict = decideFailureIssueClose({
+      issue: it,
+      run,
+      history,
+      comments,
+      labels: it.labels,
+      options: { recurrence: rec, holdMaxDays: maxDays },
+    });
+    verdicts.push(verdictRecord(it, verdict));
+
+    if (verdict.reason === 'run-not-resolvable') {
       const reason = isCrawlerStepIdentifier
         ? `crawler '${crawlerStepMatch[1]}' not found in any current crawler-group-*.yml, or its step/run not resolvable`
         : historySource?.includeCrawlerShadowBranches
@@ -1645,112 +1850,99 @@ function main() {
       skipped++;
       continue;
     }
-    const green = run.conclusion === 'success';
-    // The failing run that opened the issue started BEFORE the issue's createdAt (the
-    // reporter step runs after the job failed). So a green run created at/after the issue
-    // is necessarily a LATER run — the "next run is ok" the user asked for.
-    const afterFailure = Date.parse(run.createdAt) >= Date.parse(it.createdAt);
-
-    if (green && afterFailure) {
-      const runRepo = run.repository || REPO;
-      const runUrl = runRepo ? `https://github.com/${runRepo}/actions/runs/${run.databaseId}` : undefined;
-
-      // #5454: green answers "is the symptom back?", not "was the fault fixed?".
-      const comments = fetchIssueComments(it.number);
-
-      // Gate 1 — CRONICA. Ha la precedenza su tutto, TTL dello structural hold compreso:
-      // una issue riaperta N volte non deve essere rilasciata da una scadenza pensata per
-      // una diagnosi ferma, e non deve nemmeno approfittare di una finestra recente
-      // tranquilla per ricominciare il ciclo.
-      const chronicDecision = decideChronicEscalation(comments);
-      if (chronicDecision.hold) {
-        if (DRY_RUN) {
-          console.log(`  #${it.number} WOULD ESCALATE+HOLD — ${chronicDecision.reason}`);
-        } else if (chronicDecision.escalate) {
-          applyChronicLabels(it.number);
-          commentOnGithubIssue(it.number, chronicEscalationNote({ workflow: it.workflow, decision: chronicDecision }));
-          console.log(`  #${it.number} CHRONIC (escalated: ${CHRONIC_LABELS.join('+')}) — ${chronicDecision.reason}`);
-        } else {
-          console.log(`  #${it.number} CHRONIC (already escalated) — ${chronicDecision.reason}`);
-        }
-        chronic++;
-        continue;
-      }
-
-      // Il conteggio è rientrato: se l'escalation c'era, i label cronici se ne vanno
-      // adesso. `automation-deferred` è un'esclusione dalle code del drainer, quindi lasciarlo
-      // appeso renderebbe l'escalation irreversibile anche dopo la riapertura.
-      const deescalation = decideChronicDeescalation({ comments, labels: it.labels, decision: chronicDecision });
-      if (deescalation.clear) {
-        if (DRY_RUN) {
-          console.log(`  #${it.number} WOULD DE-ESCALATE — ${deescalation.reason}`);
-        } else {
-          clearChronicLabels(it.number, deescalation.labels);
-          console.log(`  #${it.number} de-escalated — ${deescalation.reason}`);
-        }
-        deescalated++;
-      }
-
-      // Gate 2 — RICORRENZA MISURATA. Una run verde su un guasto intermittente non
-      // significa niente: si chiude solo se la finestra recente è pulita.
-      const recurrence = decideRecurrenceHold(history, { ...rec });
-      if (recurrence.hold) {
-        if (DRY_RUN) {
-          console.log(`  #${it.number} WOULD HOLD (recurrence) — ${recurrence.reason}`);
-        } else if (alreadyRecurrenceHeld(comments)) {
-          console.log(`  #${it.number} HELD (recurrence, already notified) — ${recurrence.reason}`);
-        } else {
-          commentOnGithubIssue(it.number, recurrenceHoldNote({ workflow: it.workflow, runUrl, decision: recurrence }));
-          console.log(`  #${it.number} HELD (recurrence) — ${recurrence.reason}`);
-        }
-        held++;
-        continue;
-      }
-
-      // Gate 3 — STRUCTURAL HOLD (#5454), invariato.
-      const decision = decideStructuralHold(comments, {
-        issueCreatedAt: it.createdAt,
-        maxDays,
-      });
-
-      if (decision.hold) {
-        if (DRY_RUN) {
-          console.log(`  #${it.number} WOULD HOLD — ${decision.reason}`);
-        } else if (decision.notified) {
-          console.log(`  #${it.number} HELD (already notified) — ${decision.reason}`);
-        } else {
-          commentOnGithubIssue(
-            it.number,
-            structuralHoldNote({ code: decision.code, workflow: it.workflow, runUrl, maxDays }),
-          );
-          console.log(`  #${it.number} HELD — ${decision.reason}`);
-        }
-        held++;
-        continue;
-      }
-
-      if (DRY_RUN) {
-        console.log(`  #${it.number} WOULD CLOSE — recovered (run ${run.databaseId} success @ ${run.createdAt}); ${recurrence.reason}; ${decision.reason}`);
-      } else {
-        // A TTL-released close must say why, or it looks exactly like the symptom-only
-        // close #5454 was opened about.
-        if (decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)) {
-          commentOnGithubIssue(it.number, ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays }));
-        }
-        resolveGithubIssue(it.title, { workflow: it.workflow, runUrl });
-        console.log(`  #${it.number} CLOSED — recovered via run ${run.databaseId}; ${recurrence.reason}; ${decision.reason}`);
-      }
-      closed++;
-    } else if (green && !afterFailure) {
+    if (verdict.reason === 'green-predates-issue') {
       console.log(`  #${it.number} latest green run ${run.databaseId} predates issue — keep open`);
       kept++;
-    } else {
+      continue;
+    }
+    if (verdict.action === 'keep') {
       console.log(`  #${it.number} still red (latest completed run ${run.databaseId}=${run.conclusion}) — keep open`);
       kept++;
+      continue;
     }
+
+    const runRepo = run.repository || REPO;
+    const runUrl = runRepo ? `https://github.com/${runRepo}/actions/runs/${run.databaseId}` : undefined;
+
+    if (verdict.action === 'chronic-escalate' || verdict.action === 'chronic-hold') {
+      const chronicDecision = verdict.chronic;
+      if (DRY_RUN) {
+        console.log(`  #${it.number} WOULD ESCALATE+HOLD — ${chronicDecision.reason}`);
+      } else if (verdict.action === 'chronic-escalate') {
+        applyChronicLabels(it.number);
+        commentOnGithubIssue(it.number, chronicEscalationNote({ workflow: it.workflow, decision: chronicDecision }));
+        console.log(`  #${it.number} CHRONIC (escalated: ${CHRONIC_LABELS.join('+')}) — ${chronicDecision.reason}`);
+      } else {
+        console.log(`  #${it.number} CHRONIC (already escalated) — ${chronicDecision.reason}`);
+      }
+      chronic++;
+      continue;
+    }
+
+    // `automation-deferred` è un'esclusione dalle code del drainer, quindi lasciarlo
+    // appeso renderebbe l'escalation irreversibile anche dopo la riapertura.
+    const { deescalation, recurrence } = verdict;
+    if (deescalation.clear) {
+      if (DRY_RUN) {
+        console.log(`  #${it.number} WOULD DE-ESCALATE — ${deescalation.reason}`);
+      } else {
+        clearChronicLabels(it.number, deescalation.labels);
+        console.log(`  #${it.number} de-escalated — ${deescalation.reason}`);
+      }
+      deescalated++;
+    }
+
+    if (verdict.action === 'recurrence-hold') {
+      if (DRY_RUN) {
+        console.log(`  #${it.number} WOULD HOLD (recurrence) — ${recurrence.reason}`);
+      } else if (alreadyRecurrenceHeld(comments)) {
+        console.log(`  #${it.number} HELD (recurrence, already notified) — ${recurrence.reason}`);
+      } else {
+        commentOnGithubIssue(it.number, recurrenceHoldNote({ workflow: it.workflow, runUrl, decision: recurrence }));
+        console.log(`  #${it.number} HELD (recurrence) — ${recurrence.reason}`);
+      }
+      held++;
+      continue;
+    }
+
+    const decision = verdict.structural;
+    if (verdict.action === 'structural-hold') {
+      if (DRY_RUN) {
+        console.log(`  #${it.number} WOULD HOLD — ${decision.reason}`);
+      } else if (decision.notified) {
+        console.log(`  #${it.number} HELD (already notified) — ${decision.reason}`);
+      } else {
+        commentOnGithubIssue(
+          it.number,
+          structuralHoldNote({ code: decision.code, workflow: it.workflow, runUrl, maxDays }),
+        );
+        console.log(`  #${it.number} HELD — ${decision.reason}`);
+      }
+      held++;
+      continue;
+    }
+
+    if (DRY_RUN) {
+      console.log(`  #${it.number} WOULD CLOSE — recovered (run ${run.databaseId} success @ ${run.createdAt}); ${recurrence.reason}; ${decision.reason}`);
+    } else {
+      // A TTL-released close must say why, or it looks exactly like the symptom-only
+      // close #5454 was opened about.
+      if (decision.code && STRUCTURAL_OUTCOMES.includes(decision.code)) {
+        commentOnGithubIssue(it.number, ttlReleaseNote({ code: decision.code, maxDays, ageDays: decision.ageDays }));
+      }
+      resolveGithubIssue(it.title, { workflow: it.workflow, runUrl });
+      console.log(`  #${it.number} CLOSED — recovered via run ${run.databaseId}; ${recurrence.reason}; ${decision.reason}`);
+    }
+    closed++;
   }
 
   console.log(`[close-recovered] done: closed=${closed} held=${held} chronic=${chronic} de-escalated=${deescalated} kept=${kept} skipped=${skipped}`);
+
+  if (verdictsOut) {
+    fs.mkdirSync(path.dirname(path.resolve(verdictsOut)), { recursive: true });
+    fs.writeFileSync(verdictsOut, `${JSON.stringify(verdicts, null, 2)}\n`);
+    console.log(`[close-recovered] verdetti scritti: ${verdicts.length} in ${verdictsOut}`);
+  }
 }
 
 // CLI entry point (guarded so this module can be imported for unit tests without
