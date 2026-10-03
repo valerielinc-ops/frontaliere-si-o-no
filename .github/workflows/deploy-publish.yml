@@ -62,6 +62,7 @@ jobs:
       actions: read
     outputs:
       allowed: ${{ steps.plan.outputs.allowed }}
+      it_admitted: ${{ steps.plan.outputs.it_admitted }}
       mode: ${{ steps.plan.outputs.mode }}
       build_id: ${{ steps.plan.outputs.build_id }}
       healthy_locales: ${{ steps.plan.outputs.healthy_locales }}
@@ -131,7 +132,7 @@ jobs:
     # failed/cancelled non-IT leg is allowed to remain stale; a missing or
     # skewed IT receipt blocks all Pages/CDN side effects.
     needs: resolve-publish-plan
-    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && contains(fromJSON(needs.resolve-publish-plan.outputs.healthy_locales), 'it') }}
+    if: ${{ needs.resolve-publish-plan.result == 'success' && needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-publish-plan.outputs.it_admitted == 'true' }}
     runs-on: ubuntu-latest
     # GitHub-hosted jobs have a hard six-hour execution ceiling. Keep the
     # publish tail explicit at that maximum so a future default change cannot
@@ -140,7 +141,7 @@ jobs:
     # Only the actual Pages upload owns this cross-workflow lock. A long
     # validator in another run must not keep a newer build from reaching Pages.
     concurrency:
-      group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && contains(fromJSON(needs.resolve-publish-plan.outputs.healthy_locales), 'it') && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
+      group: ${{ needs.resolve-publish-plan.outputs.allowed == 'true' && needs.resolve-publish-plan.outputs.it_admitted == 'true' && 'pages-deploy' || format('pages-deploy-noop-{0}', github.run_id) }}
       cancel-in-progress: false
     permissions:
       pages: write

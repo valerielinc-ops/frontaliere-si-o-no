@@ -241,6 +241,7 @@ function writeGithubOutputs(file, plan) {
   if (!file) return;
   const lines = {
     allowed: String(plan.allowed),
+    it_admitted: String(plan.healthyLocales.includes('it')),
     mode: plan.mode,
     build_id: plan.buildId,
     healthy_locales: JSON.stringify(plan.healthyLocales),

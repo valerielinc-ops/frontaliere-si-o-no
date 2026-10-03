@@ -214,7 +214,7 @@ describe('locale publish workflow wiring', () => {
     expect(resolver.outputs.allowed).toContain('steps.plan.outputs.allowed');
     expect(deployJob.needs).toBe('resolve-publish-plan');
     expect(String(deployJob.if)).toContain('outputs.allowed');
-    expect(String(deployJob.if)).toContain("contains(fromJSON(needs.resolve-publish-plan.outputs.healthy_locales), 'it')");
+    expect(String(deployJob.if)).toContain("needs.resolve-publish-plan.outputs.it_admitted == 'true'");
     expect(String(deployJob.if)).not.toContain('workflow_run.conclusion');
     expect(validateDist.needs).toBe('resolve-publish-plan');
     expect(publish.jobs['validate-live'].needs).toEqual(['resolve-publish-plan', 'deploy']);
